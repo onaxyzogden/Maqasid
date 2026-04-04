@@ -121,7 +121,13 @@ export default function ThresholdModal({ type }) {
   };
 
   const next = () => { if (step < steps.length - 1) setStep(step + 1); };
-  const prev = () => { if (step > 0) { setStep(step - 1); if (currentStepName === 'Confirm') setConfirmed(false); } };
+  const prev = () => {
+    if (step > 0) {
+      if (currentStepName === 'Pause') { setPaused(false); setStep(2); return; }
+      if (currentStepName === 'Confirm') setConfirmed(false);
+      setStep(step - 1);
+    }
+  };
 
   const triggerPause = () => {
     if (!paused) { setPaused(true); setStep(3); }
@@ -132,7 +138,7 @@ export default function ThresholdModal({ type }) {
     setShowingDeferScreen(true);
   };
 
-  const returnToReadiness = () => { setStep(2); };
+  const returnToReadiness = () => { setPaused(false); setStep(2); };
 
   // Handle Next on the Readiness step — auto-trigger pause if any NOT YET
   const handleNext = () => {
