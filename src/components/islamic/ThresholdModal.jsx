@@ -403,10 +403,10 @@ export default function ThresholdModal({ type }) {
                     <button
                       className="thr-btn thr-btn-primary"
                       onClick={handleNext}
-                      disabled={currentStepName === 'Readiness' && hasInteractiveReadiness && (!readinessFilled || !readinessAllYes)}
+                      disabled={currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled}
                       style={{
-                        opacity: (currentStepName === 'Readiness' && hasInteractiveReadiness && (!readinessFilled || !readinessAllYes)) ? 0.4 : 1,
-                        cursor: (currentStepName === 'Readiness' && hasInteractiveReadiness && (!readinessFilled || !readinessAllYes)) ? 'not-allowed' : 'pointer',
+                        opacity: (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ? 0.4 : 1,
+                        cursor: (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ? 'not-allowed' : 'pointer',
                       }}
                     >
                       Next
