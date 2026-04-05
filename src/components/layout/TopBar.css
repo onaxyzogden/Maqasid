@@ -1,5 +1,5 @@
 .topbar {
-  grid-column: 1 / -1;
+  grid-column: 2 / -1;
   grid-row: 1;
   display: flex;
   align-items: center;

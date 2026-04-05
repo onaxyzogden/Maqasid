@@ -81,9 +81,9 @@ export default function KanbanBoard({ project, onSelectTask, filters }) {
     moveTask(project.id, taskId, targetColumnId, targetOrder);
   };
 
-  const handleQuickAdd = (columnId, title) => {
-    if (!title.trim()) return;
-    createTask(project.id, columnId, title.trim());
+  const handleAddTask = (columnId) => {
+    const task = createTask(project.id, columnId, 'Untitled');
+    onSelectTask(task.id);
   };
 
   return (
@@ -107,7 +107,7 @@ export default function KanbanBoard({ project, onSelectTask, filters }) {
                 column={col}
                 tasks={colTasks}
                 onSelectTask={onSelectTask}
-                onQuickAdd={(title) => handleQuickAdd(col.id, title)}
+                onAddTask={() => handleAddTask(col.id)}
               />
             </SortableContext>
           );

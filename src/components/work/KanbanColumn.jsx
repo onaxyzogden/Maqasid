@@ -1,25 +1,9 @@
-import { useState } from 'react';
 import { useDroppable } from '@dnd-kit/core';
 import { Plus } from 'lucide-react';
 import KanbanCard from './KanbanCard';
 
-export default function KanbanColumn({ column, tasks, onSelectTask, onQuickAdd }) {
-  const [adding, setAdding] = useState(false);
-  const [newTitle, setNewTitle] = useState('');
-
+export default function KanbanColumn({ column, tasks, onSelectTask, onAddTask }) {
   const { setNodeRef, isOver } = useDroppable({ id: column.id });
-
-  const handleSubmit = () => {
-    if (newTitle.trim()) {
-      onQuickAdd(newTitle.trim());
-      setNewTitle('');
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit(); }
-    if (e.key === 'Escape') { setAdding(false); setNewTitle(''); }
-  };
 
   return (
     <div className="kanban-column" style={isOver ? { background: 'var(--primary-bg)' } : undefined}>
@@ -39,7 +23,7 @@ export default function KanbanColumn({ column, tasks, onSelectTask, onQuickAdd }
             onClick={() => onSelectTask(task.id)}
           />
         ))}
-        {tasks.length === 0 && !adding && (
+        {tasks.length === 0 && (
           <div className="kanban-empty-state">
             No tasks
           </div>
@@ -47,25 +31,9 @@ export default function KanbanColumn({ column, tasks, onSelectTask, onQuickAdd }
       </div>
 
       <div className="kanban-quickadd">
-        {adding ? (
-          <div>
-            <textarea
-              className="kanban-quickadd-input"
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
-              onKeyDown={handleKeyDown}
-              onBlur={() => { handleSubmit(); setAdding(false); }}
-              placeholder="Task title..."
-              rows={1}
-              onInput={(e) => { e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }}
-              autoFocus
-            />
-          </div>
-        ) : (
-          <button className="kanban-quickadd-btn" onClick={() => setAdding(true)}>
-            <Plus size={14} /> Add task
-          </button>
-        )}
+        <button className="kanban-quickadd-btn" onClick={onAddTask}>
+          <Plus size={14} /> Add task
+        </button>
       </div>
     </div>
   );
