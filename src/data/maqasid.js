@@ -100,6 +100,11 @@ export const MAQASID_PILLARS = [
   },
 ];
 
+/** Find a pillar by its own ID */
+export function getPillarById(id) {
+  return MAQASID_PILLARS.find((p) => p.id === id) || null;
+}
+
 /** Find the parent pillar for a given module ID */
 export function getPillarForModule(moduleId) {
   return MAQASID_PILLARS.find((p) => p.subModuleIds.includes(moduleId)) || null;

@@ -27,7 +27,6 @@ export default function PillarCard({ pillar, subModules, valuesLayer, completedO
   const label = getPillarLabel(pillar, valuesLayer);
   const stewardship = getPillarStewardship(pillar, valuesLayer);
   const isScaffold = pillar.status === 'scaffold';
-  const firstRoute = subModules.length > 0 ? MODULE_ROUTES[subModules[0].id] : null;
 
   const content = (
     <div className="pillar-card" style={{ '--pc-color': pillar.accentColor }}>
@@ -64,8 +63,5 @@ export default function PillarCard({ pillar, subModules, valuesLayer, completedO
     </div>
   );
 
-  if (firstRoute && !isScaffold) {
-    return <Link to={firstRoute} className="pillar-card-link">{content}</Link>;
-  }
-  return content;
+  return <Link to={`/app/pillar/${pillar.id}`} className="pillar-card-link">{content}</Link>;
 }

@@ -96,12 +96,18 @@ export default function Sidebar() {
           const isScaffold = pillar.status === 'scaffold';
           const label = getPillarLabel(pillar, valuesLayer);
 
+          const isPillarActive = location.pathname === `/app/pillar/${pillar.id}`;
+
           return (
             <div key={pillar.id} className="pillar-group">
               <button
-                className={`pillar-header ${hasActiveChild ? 'has-active' : ''}`}
+                className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
                 style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
-                onClick={() => !collapsed && togglePillar(pillar.id)}
+                onClick={() => {
+                  if (collapsed) return;
+                  navigate(`/app/pillar/${pillar.id}`);
+                  if (!isExpanded) togglePillar(pillar.id);
+                }}
                 title={label}
               >
                 {PillarIcon && <PillarIcon size={16} style={{ color: `var(--pillar-${pillar.id})` }} />}
