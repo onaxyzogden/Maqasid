@@ -13,14 +13,18 @@ export const ENTITY_TYPES = [
 ];
 
 export const LEAD_STAGES = [
-  { id: 'unassigned',       label: 'Unassigned',       color: '#6b7280' },
-  { id: 'pending_contact',  label: 'Pending Contact',  color: '#3b82f6' },
-  { id: 'contacted',        label: 'Contacted',        color: '#8b5cf6' },
-  { id: 'qualified',        label: 'Qualified',        color: '#14b8a6' },
-  { id: 'sent',             label: 'Sent',             color: '#f59e0b' },
-  { id: 'accepted',         label: 'Accepted',         color: '#22c55e' },
-  { id: 'disqualified',     label: 'Disqualified',     color: '#ef4444' },
-  { id: 'negotiating',      label: 'Negotiating',      color: '#ec4899' },
+  { id: 'unassigned',          label: 'Unassigned',                color: '#6b7280' },
+  { id: 'pending_contact',     label: 'Pending Contact',           color: '#3b82f6' },
+  { id: 'contacted',           label: 'Contacted',                 color: '#8b5cf6' },
+  { id: 'qualified',           label: 'Qualified',                 color: '#14b8a6' },
+  { id: 'disqualified',        label: 'Disqualified',              color: '#ef4444' },
+  { id: 'proposal_opportunity', label: 'Proposal Opportunity',     color: '#6366f1' },
+  { id: 'ready',               label: 'Ready',                     color: '#0ea5e9' },
+  { id: 'sent',                label: 'Sent',                      color: '#f59e0b' },
+  { id: 'negotiating',         label: 'Negotiating',               color: '#ec4899' },
+  { id: 'accepted',            label: 'Accepted',                  color: '#22c55e' },
+  { id: 'rejected',            label: 'Rejected',                  color: '#f97316' },
+  { id: 'archived',            label: 'Archived',                  color: '#9ca3af' },
 ];
 
 export const LEAD_SOURCES = [

@@ -129,6 +129,7 @@ export const useContactsStore = create((set, get) => ({
     const company = {
       id:          genCompanyId(),
       name:        data.name        || '',
+      contactType: data.contactType || 'contact',
       description: data.description || '',
       industries:  data.industries  || [],
       website:     data.website     || '',

@@ -28,7 +28,7 @@ export default function ContactsPage() {
     const companyEntries = companies.map((co) => ({
       id:          co.id,
       entityType:  'company',
-      contactType: 'contact',
+      contactType: co.contactType || 'contact',
       status:      co.status,
       firstName:   co.name,
       lastName:    '',

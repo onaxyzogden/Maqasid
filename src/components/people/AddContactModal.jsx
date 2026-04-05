@@ -7,6 +7,7 @@ import { LEAD_STAGES, LEAD_SOURCES } from '../../data/contact-config';
 
 const ENTITY_TYPES = ['person', 'company'];
 const PERSON_TYPES = ['contact', 'lead', 'client', 'employee'];
+const COMPANY_TYPES = ['contact', 'lead', 'client'];
 
 export default function AddContactModal({ onClose }) {
   const addContact = useContactsStore((s) => s.addContact);
@@ -31,9 +32,12 @@ export default function AddContactModal({ onClose }) {
   const [budget,       setBudget]       = useState('');
   const [informLead,   setInformLead]   = useState(false);
   // Company fields
+  const [companyType, setCompanyType] = useState('contact');
   const [companyName, setCompanyName] = useState('');
   const [description, setDescription] = useState('');
   const [website,     setWebsite]     = useState('');
+  const [companyEmail, setCompanyEmail] = useState('');
+  const [companyPhone, setCompanyPhone] = useState('');
 
   const canSubmit = entityType === 'person'
     ? (firstName.trim() || email.trim())
@@ -61,8 +65,11 @@ export default function AddContactModal({ onClose }) {
     } else {
       addCompany({
         name:        companyName.trim(),
+        contactType: companyType,
         description: description.trim(),
         website:     website.trim(),
+        email:       companyEmail.trim(),
+        phone:       companyPhone.trim(),
         createdBy,
       });
     }
@@ -233,9 +240,35 @@ export default function AddContactModal({ onClose }) {
 
           {entityType === 'company' && (
             <>
+              {/* Company type toggle */}
+              <div>
+                <label style={labelStyle}>Type</label>
+                <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                  {COMPANY_TYPES.map((t) => (
+                    <button key={t} onClick={() => setCompanyType(t)} style={{
+                      padding: '5px 12px', borderRadius: 6, border: '1.5px solid',
+                      borderColor: companyType === t ? 'var(--mod-people)' : 'var(--border)',
+                      background: companyType === t ? 'rgba(139,92,246,0.1)' : 'transparent',
+                      color: companyType === t ? 'var(--mod-people)' : 'var(--text2)',
+                      fontWeight: 600, fontSize: 12, cursor: 'pointer', textTransform: 'capitalize',
+                    }}>
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div>
                 <label style={labelStyle}>Company name *</label>
                 <input style={inputStyle} value={companyName} onChange={(e) => setCompanyName(e.target.value)} placeholder="Company name" />
+              </div>
+              <div>
+                <label style={labelStyle}>Email</label>
+                <input style={inputStyle} type="email" value={companyEmail} onChange={(e) => setCompanyEmail(e.target.value)} placeholder="Email" />
+              </div>
+              <div>
+                <label style={labelStyle}>Phone</label>
+                <input style={inputStyle} value={companyPhone} onChange={(e) => setCompanyPhone(e.target.value)} placeholder="Phone number" />
               </div>
               <div>
                 <label style={labelStyle}>Description</label>
