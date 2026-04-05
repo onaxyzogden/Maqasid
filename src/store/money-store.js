@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { safeGetJSON, safeSet, safeRemove } from '../services/storage';
-import { genExpenseId, genInvoiceId, genCategoryId, genBudgetId, genLineItemId } from '../services/id';
+import { safeGetJSON, safeSet } from '../services/storage';
+import { genExpenseId, genInvoiceId, genCategoryId, genBudgetId, genLineItemId, genVendorId, genAccountId, genIncomeId } from '../services/id';
 import { PRESET_CATEGORIES } from '../data/money-categories';
 
 // Persistence helpers
@@ -9,6 +9,9 @@ function persistInvoices(invoices) { safeSet('invoices', invoices); }
 function persistCategories(categories) { safeSet('categories', categories); }
 function persistBudgets(budgets) { safeSet('budgets', budgets); }
 function persistCounter(n) { safeSet('inv_counter', n); }
+function persistVendors(vendors) { safeSet('money_vendors', vendors); }
+function persistAccounts(accounts) { safeSet('money_accounts', accounts); }
+function persistIncomes(incomes) { safeSet('money_incomes', incomes); }
 
 // Initialize categories — presets on first load
 function initCategories() {
@@ -20,11 +23,19 @@ function initCategories() {
 
 // Utility
 export function getInvoiceTotal(invoice) {
-  return (invoice?.lineItems || []).reduce((sum, li) => sum + (li.quantity || 0) * (li.unitPrice || 0), 0);
+  return (invoice?.lineItems || []).reduce((sum, li) => {
+    const qty = li.quantity || 0;
+    const price = li.unitPrice || 0;
+    const discount = li.discount || 0;
+    const tax = li.tax || 0;
+    const base = qty * price;
+    const afterDiscount = base * (1 - discount / 100);
+    return sum + afterDiscount * (1 + tax / 100);
+  }, 0);
 }
 
-export function formatCurrency(amount) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount || 0);
+export function formatCurrency(amount, currency = 'CAD') {
+  return new Intl.NumberFormat('en-CA', { style: 'currency', currency }).format(amount || 0);
 }
 
 export const useMoneyStore = create((set, get) => ({
@@ -33,18 +44,27 @@ export const useMoneyStore = create((set, get) => ({
   categories: initCategories(),
   budgets: safeGetJSON('budgets', []),
   invoiceCounter: Number(safeGetJSON('inv_counter', 0)) || 0,
+  vendors: safeGetJSON('money_vendors', []),
+  accounts: safeGetJSON('money_accounts', []),
+  incomes: safeGetJSON('money_incomes', []),
 
   // ── Expenses ──
-  addExpense: ({ amount, categoryId, date, description, payee, paymentMethod, receiptNotes }) => {
+  addExpense: (data) => {
     const expense = {
       id: genExpenseId(),
-      amount: Number(amount) || 0,
-      categoryId: categoryId || '',
-      date: date || new Date().toISOString().slice(0, 10),
-      description: description || '',
-      payee: payee || '',
-      paymentMethod: paymentMethod || 'other',
-      receiptNotes: receiptNotes || '',
+      amount: Number(data.amount) || 0,
+      categoryId: data.categoryId || '',
+      date: data.date || new Date().toISOString().slice(0, 10),
+      description: data.description || '',
+      vendorId: data.vendorId || '',
+      payee: data.payee || '',
+      paymentMethod: data.paymentMethod || 'other',
+      note: data.note || data.receiptNotes || '',
+      status: data.status || 'unpaid',
+      dueDate: data.dueDate || '',
+      datePaid: data.datePaid || null,
+      currency: data.currency || 'CAD',
+      tags: data.tags || [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
@@ -70,24 +90,50 @@ export const useMoneyStore = create((set, get) => ({
     return { expenses };
   }),
 
+  markExpensePaid: (id) => set((s) => {
+    const expenses = s.expenses.map((e) =>
+      e.id === id ? { ...e, status: 'paid', datePaid: new Date().toISOString().slice(0, 10), updatedAt: new Date().toISOString() } : e
+    );
+    persistExpenses(expenses);
+    return { expenses };
+  }),
+
+  markExpenseUnpaid: (id) => set((s) => {
+    const expenses = s.expenses.map((e) =>
+      e.id === id ? { ...e, status: 'unpaid', datePaid: null, updatedAt: new Date().toISOString() } : e
+    );
+    persistExpenses(expenses);
+    return { expenses };
+  }),
+
   // ── Invoices ──
-  addInvoice: ({ clientName, clientEmail, date, dueDate, lineItems, notes }) => {
+  addInvoice: (data) => {
     const counter = get().invoiceCounter + 1;
     const invoice = {
       id: genInvoiceId(),
       number: 'INV-' + String(counter).padStart(3, '0'),
-      clientName: clientName || '',
-      clientEmail: clientEmail || '',
-      date: date || new Date().toISOString().slice(0, 10),
-      dueDate: dueDate || '',
-      status: 'draft',
-      lineItems: (lineItems || []).map((li) => ({
+      clientName: data.clientName || '',
+      clientEmail: data.clientEmail || '',
+      date: data.date || new Date().toISOString().slice(0, 10),
+      dueDate: data.dueDate || '',
+      turnoverDate: data.turnoverDate || '',
+      status: data.status || 'draft',
+      lineItems: (data.lineItems || []).map((li) => ({
         id: li.id || genLineItemId(),
         description: li.description || '',
         quantity: Number(li.quantity) || 0,
         unitPrice: Number(li.unitPrice) || 0,
+        discount: Number(li.discount) || 0,
+        tax: Number(li.tax) || 0,
       })),
-      notes: notes || '',
+      notes: data.notes || '',
+      currency: data.currency || 'CAD',
+      language: data.language || 'en',
+      discountTotal: Number(data.discountTotal) || 0,
+      paymentAccountId: data.paymentAccountId || '',
+      paymentNote: data.paymentNote || '',
+      isRecurring: data.isRecurring || false,
+      termsAndConditions: data.termsAndConditions || '',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       paidAt: null,
@@ -187,6 +233,111 @@ export const useMoneyStore = create((set, get) => ({
     const budgets = s.budgets.filter((b) => b.id !== id);
     persistBudgets(budgets);
     return { budgets };
+  }),
+
+  // ── Vendors ──
+  addVendor: ({ name, website }) => {
+    const vendor = {
+      id: genVendorId(),
+      name: name || '',
+      website: website || '',
+      status: 'active',
+      createdAt: new Date().toISOString(),
+    };
+    set((s) => {
+      const vendors = [...s.vendors, vendor];
+      persistVendors(vendors);
+      return { vendors };
+    });
+    return vendor;
+  },
+
+  updateVendor: (id, updates) => set((s) => {
+    const vendors = s.vendors.map((v) =>
+      v.id === id ? { ...v, ...updates, updatedAt: new Date().toISOString() } : v
+    );
+    persistVendors(vendors);
+    return { vendors };
+  }),
+
+  deleteVendor: (id) => set((s) => {
+    const vendors = s.vendors.filter((v) => v.id !== id);
+    persistVendors(vendors);
+    return { vendors };
+  }),
+
+  // ── Accounts ──
+  addAccount: (data) => {
+    const account = {
+      id: genAccountId(),
+      bankName: data.bankName || '',
+      accountNumber: data.accountNumber || '',
+      currency: data.currency || 'CAD',
+      currentBalance: Number(data.currentBalance) || 0,
+      availableBalance: Number(data.availableBalance) || 0,
+      reservedBalance: Number(data.reservedBalance) || 0,
+      iban: data.iban || '',
+      swift: data.swift || '',
+      dateOpened: data.dateOpened || '',
+      isPayroll: data.isPayroll || false,
+      status: 'active',
+      createdAt: new Date().toISOString(),
+    };
+    set((s) => {
+      const accounts = [...s.accounts, account];
+      persistAccounts(accounts);
+      return { accounts };
+    });
+    return account;
+  },
+
+  updateAccount: (id, updates) => set((s) => {
+    const accounts = s.accounts.map((a) =>
+      a.id === id ? { ...a, ...updates, updatedAt: new Date().toISOString() } : a
+    );
+    persistAccounts(accounts);
+    return { accounts };
+  }),
+
+  deleteAccount: (id) => set((s) => {
+    const accounts = s.accounts.filter((a) => a.id !== id);
+    persistAccounts(accounts);
+    return { accounts };
+  }),
+
+  // ── Incomes ──
+  addIncome: (data) => {
+    const income = {
+      id: genIncomeId(),
+      fromType: data.fromType || 'client',
+      fromName: data.fromName || '',
+      amount: Number(data.amount) || 0,
+      currency: data.currency || 'CAD',
+      date: data.date || new Date().toISOString().slice(0, 10),
+      accountId: data.accountId || '',
+      description: data.description || '',
+      createdAt: new Date().toISOString(),
+    };
+    set((s) => {
+      const incomes = [...s.incomes, income];
+      persistIncomes(incomes);
+      return { incomes };
+    });
+    return income;
+  },
+
+  updateIncome: (id, updates) => set((s) => {
+    const incomes = s.incomes.map((i) =>
+      i.id === id ? { ...i, ...updates, updatedAt: new Date().toISOString() } : i
+    );
+    persistIncomes(incomes);
+    return { incomes };
+  }),
+
+  deleteIncome: (id) => set((s) => {
+    const incomes = s.incomes.filter((i) => i.id !== id);
+    persistIncomes(incomes);
+    return { incomes };
   }),
 
   // ── Report getters ──

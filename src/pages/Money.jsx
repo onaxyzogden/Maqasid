@@ -1,20 +1,20 @@
 import { useState } from 'react';
-import { Wallet, Receipt, PiggyBank, BarChart3, FileSpreadsheet } from 'lucide-react';
+import { Receipt, TrendingUp, FileText, Landmark, Store } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import CeremonyGate from '../components/islamic/CeremonyGate';
 import ExpenseList from '../components/money/ExpenseList';
-import InvoiceList from '../components/money/InvoiceList';
-import BudgetView from '../components/money/BudgetView';
-import FinancialReport from '../components/money/FinancialReport';
-import PnLView from '../components/money/PnLView';
+import IncomeTab from '../components/money/IncomeTab';
+import ProposalTab from '../components/money/ProposalTab';
+import AccountsTab from '../components/money/AccountsTab';
+import VendorsTab from '../components/money/VendorsTab';
 import './Money.css';
 
 const TABS = [
   { id: 'expenses', label: 'Expenses', icon: Receipt },
-  { id: 'invoices', label: 'Invoices', icon: FileSpreadsheet },
-  { id: 'budgets', label: 'Budgets', icon: PiggyBank },
-  { id: 'reports', label: 'Reports', icon: BarChart3 },
-  { id: 'pnl', label: 'P&L', icon: Wallet },
+  { id: 'income', label: 'Income', icon: TrendingUp },
+  { id: 'proposal', label: 'Proposal', icon: FileText },
+  { id: 'accounts', label: 'Accounts', icon: Landmark },
+  { id: 'vendors', label: 'Vendors', icon: Store },
 ];
 
 export default function Money() {
@@ -49,10 +49,10 @@ export default function Money() {
 
       <div className="money-content">
         {activeTab === 'expenses' && <ExpenseList />}
-        {activeTab === 'invoices' && <InvoiceList />}
-        {activeTab === 'budgets' && <BudgetView />}
-        {activeTab === 'reports' && <FinancialReport />}
-        {activeTab === 'pnl' && <PnLView />}
+        {activeTab === 'income' && <IncomeTab />}
+        {activeTab === 'proposal' && <ProposalTab />}
+        {activeTab === 'accounts' && <AccountsTab />}
+        {activeTab === 'vendors' && <VendorsTab />}
       </div>
     </div>
   );

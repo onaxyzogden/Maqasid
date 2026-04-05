@@ -18,7 +18,7 @@ export const MODULES = [
   },
   {
     id: 'work',
-    name: 'Work',
+    name: 'Projects',
     description: 'Projects, tasks, and Kanban boards',
     icon: 'Kanban',
     color: 'var(--mod-work)',

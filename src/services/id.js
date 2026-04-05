@@ -43,6 +43,11 @@ export const genAlertId = () => 'alt_' + nanoid(12);
 export const genPerfEntryId = () => 'prf_' + nanoid(12);
 export const genStackItemId = () => 'stk_' + nanoid(12);
 
+// Money module — extended
+export const genVendorId = () => 'ven_' + nanoid(12);
+export const genAccountId = () => 'acc_' + nanoid(12);
+export const genIncomeId = () => 'inc_' + nanoid(12);
+
 // CRM module
 export const genContactId = () => 'con_' + nanoid(12);
 export const genDealId = () => 'dea_' + nanoid(12);
