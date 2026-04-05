@@ -1,26 +1,33 @@
 import './ReadinessCheck.css';
 
-// ── Display-only column (original behavior) ──
-function RCColumn({ title, items, colorClass }) {
-  if (!items || items.length === 0) return null;
-  return (
-    <div>
-      <div className={`rc-col-title ${colorClass}`}>{title}</div>
-      {items.map((item, i) => (
-        <div key={i} className={`rc-item ${colorClass}`}>{item}</div>
-      ))}
-    </div>
-  );
-}
-
+// ── Display-only paired rows ──
 function RCSection({ label, data, color }) {
   if (!data) return null;
+  const gov = data.governing || [];
+  const nyt = data.notYet || [];
+  const rowCount = Math.max(gov.length, nyt.length);
+  if (rowCount === 0) return null;
+
   return (
     <div className="rc-section">
       {data.frame && <p className="rc-frame">{data.frame}</p>}
-      <div className="rc-grid">
-        <RCColumn title="At Peace When" items={data.governing} colorClass="rc-at-peace" />
-        <RCColumn title="Not Yet Rested In" items={data.notYet} colorClass="rc-not-rested" />
+      <div className="rc-paired">
+        {/* Column headers */}
+        <div className="rc-paired__headers">
+          <div className="rc-col-title rc-at-peace">At Peace When</div>
+          <div className="rc-col-title rc-not-rested">Not Yet Rested In</div>
+        </div>
+        {/* Paired rows */}
+        {Array.from({ length: rowCount }).map((_, i) => (
+          <div key={i} className="rc-paired__row">
+            <div className={`rc-item rc-at-peace${!gov[i] ? ' rc-item--empty' : ''}`}>
+              {gov[i] || ''}
+            </div>
+            <div className={`rc-item rc-not-rested${!nyt[i] ? ' rc-item--empty' : ''}`}>
+              {nyt[i] || ''}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
