@@ -1,10 +1,11 @@
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Kanban, Wallet, Users, Building2, Shield, Handshake, LayoutDashboard, Settings, Plus, Folder, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Kanban, Wallet, Users, Building2, Shield, Handshake, LayoutDashboard, Settings, Plus, Folder, ChevronLeft, ChevronRight, Bell } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import { useMobile } from '../../hooks/useMobile';
 import { MODULES } from '../../data/modules';
+import NotificationsPanel from './NotificationsPanel';
 import './Sidebar.css';
 
 const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield, Handshake };
@@ -26,6 +27,7 @@ export default function Sidebar() {
   const allProjects = useProjectStore((s) => s.projects);
   const createProject = useProjectStore((s) => s.createProject);
   const projects = useMemo(() => allProjects.filter((p) => !p.archived), [allProjects]);
+  const [notifOpen, setNotifOpen] = useState(false);
 
   const collapsed = mobile ? false : !sidebarOpen;
 
@@ -123,6 +125,14 @@ export default function Sidebar() {
 
       {/* Bottom */}
       <div className="sidebar-bottom">
+        <button
+          className="sidebar-item"
+          onClick={() => setNotifOpen(true)}
+          title="Notifications"
+        >
+          <Bell size={18} />
+          {!collapsed && <span>Notifications</span>}
+        </button>
         <Link
           to="/app/settings"
           className={`sidebar-item ${location.pathname === '/app/settings' ? 'active' : ''}`}
@@ -132,6 +142,8 @@ export default function Sidebar() {
           {!collapsed && <span>Settings</span>}
         </Link>
       </div>
+
+      {notifOpen && <NotificationsPanel onClose={() => setNotifOpen(false)} />}
     </aside>
     </>
   );
