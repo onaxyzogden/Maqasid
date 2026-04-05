@@ -1,23 +1,25 @@
 import { useState } from 'react';
-import { Activity, ShieldAlert, Gauge, Layers } from 'lucide-react';
+import { LayoutDashboard, Plug, Globe, ShieldAlert, Mail } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import CeremonyGate from '../components/islamic/CeremonyGate';
-import UptimeMonitor from '../components/tech/UptimeMonitor';
-import SecurityAlerts from '../components/tech/SecurityAlerts';
-import PerfTracker from '../components/tech/PerfTracker';
-import StackOverview from '../components/tech/StackOverview';
+import TechOverview from '../components/tech/TechOverview';
+import IntegrationsTab from '../components/tech/IntegrationsTab';
+import WebsitesTab from '../components/tech/WebsitesTab';
+import DarkWebTab from '../components/tech/DarkWebTab';
+import EmailCampaignsTab from '../components/tech/EmailCampaignsTab';
 import './Tech.css';
 
 const TABS = [
-  { id: 'monitoring', label: 'Monitoring', icon: Activity },
-  { id: 'security', label: 'Security', icon: ShieldAlert },
-  { id: 'performance', label: 'Performance', icon: Gauge },
-  { id: 'stack', label: 'Tech Stack', icon: Layers },
+  { id: 'overview', label: 'Overview', icon: LayoutDashboard },
+  { id: 'integrations', label: 'Integrations', icon: Plug },
+  { id: 'websites', label: 'Websites', icon: Globe },
+  { id: 'darkweb', label: 'Dark Web Check', icon: ShieldAlert },
+  { id: 'campaigns', label: 'Email Campaigns', icon: Mail },
 ];
 
 export default function Tech() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['tech']);
-  const [activeTab, setActiveTab] = useState('monitoring');
+  const [activeTab, setActiveTab] = useState('overview');
 
   if (!hasCompletedOpening) {
     return <CeremonyGate moduleId="tech" />;
@@ -38,10 +40,11 @@ export default function Tech() {
         })}
       </div>
       <div className="tech-content">
-        {activeTab === 'monitoring' && <UptimeMonitor />}
-        {activeTab === 'security' && <SecurityAlerts />}
-        {activeTab === 'performance' && <PerfTracker />}
-        {activeTab === 'stack' && <StackOverview />}
+        {activeTab === 'overview' && <TechOverview onNavigate={setActiveTab} />}
+        {activeTab === 'integrations' && <IntegrationsTab />}
+        {activeTab === 'websites' && <WebsitesTab />}
+        {activeTab === 'darkweb' && <DarkWebTab />}
+        {activeTab === 'campaigns' && <EmailCampaignsTab />}
       </div>
     </div>
   );

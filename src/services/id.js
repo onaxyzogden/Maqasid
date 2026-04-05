@@ -43,6 +43,12 @@ export const genAlertId = () => 'alt_' + nanoid(12);
 export const genPerfEntryId = () => 'prf_' + nanoid(12);
 export const genStackItemId = () => 'stk_' + nanoid(12);
 
+// Tech module — extended
+export const genBreachId = () => 'brch_' + nanoid(12);
+export const genIntegrationId = () => 'intg_' + nanoid(12);
+export const genCampaignId = () => 'camp_' + nanoid(12);
+export const genDarkWebEmailId = () => 'dwe_' + nanoid(12);
+
 // Money module — extended
 export const genVendorId = () => 'ven_' + nanoid(12);
 export const genAccountId = () => 'acc_' + nanoid(12);
