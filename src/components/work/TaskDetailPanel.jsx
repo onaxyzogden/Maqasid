@@ -83,11 +83,14 @@ export default function TaskDetailPanel({ projectId, taskId, onClose }) {
 
       <div className="tdp-body">
         {/* Title */}
-        <input
+        <textarea
           className="tdp-title"
           value={title}
           onChange={handleTitleChange}
           placeholder="Task title"
+          rows={1}
+          onInput={(e) => { e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }}
+          ref={(el) => { if (el) { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; } }}
         />
 
         {/* Meta Grid */}
