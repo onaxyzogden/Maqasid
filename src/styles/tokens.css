@@ -1,5 +1,5 @@
 /* BBOS-Biz Design Tokens — light-first theme */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&family=Amiri:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Amiri:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   /* Surfaces */
@@ -252,4 +252,37 @@
   --pillar-environment: #7EBDBD;
   --pillar-environment-bg: rgba(126, 189, 189, 0.1);
   --pillar-environment-border: rgba(126, 189, 189, 0.25);
+}
+
+/* ── Faith Dashboard — Material Design 3 color tokens ── */
+:root {
+  --faith-primary: #006a67;
+  --faith-on-primary: #ffffff;
+  --faith-primary-container: #70f7f1;
+  --faith-on-primary-container: #00504d;
+  --faith-primary-fixed-dim: #4edad5;
+  --faith-secondary: #006a67;
+  --faith-tertiary: #29638a;
+  --faith-on-tertiary: #ffffff;
+  --faith-tertiary-container: #cbe6ff;
+  --faith-on-tertiary-container: #004b71;
+  --faith-tertiary-fixed-dim: #97ccf8;
+  --faith-bg: #f6f9ff;
+  --faith-surface: #f6f9ff;
+  --faith-surface-container: #e7eff9;
+  --faith-surface-container-low: #ecf4fe;
+  --faith-surface-container-lowest: #ffffff;
+  --faith-surface-container-high: #e1e9f3;
+  --faith-surface-container-highest: #dbe3ed;
+  --faith-outline-variant: #b8c8d9;
+  --faith-outline: #697988;
+  --faith-on-surface: #141c23;
+  --faith-on-surface-variant: #394956;
+}
+
+/* Faith Dashboard — utility classes */
+.font-manrope { font-family: 'Manrope', 'DM Sans', sans-serif; }
+
+.spiritual-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.598 15h15l-12.106 9.27L38.09 39.27 30 30l-8.09 9.27 2.598-15L12.402 24.27h15L30 0z' fill='%23006a67' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
 }

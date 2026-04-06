@@ -17,6 +17,7 @@ import FivePillars from './pages/FivePillars';
 import QuranPage from './pages/QuranPage';
 import HadithPage from './pages/HadithPage';
 import PillarDashboard from './pages/PillarDashboard';
+import FaithDashboard from './pages/FaithDashboard';
 import Settings from './pages/Settings';
 import ModulePlaceholder from './pages/ModulePlaceholder';
 
@@ -52,6 +53,7 @@ export default function App() {
         <Route path="five-pillars" element={<FivePillars />} />
         <Route path="quran" element={<QuranPage />} />
         <Route path="hadith" element={<HadithPage />} />
+        <Route path="pillar/faith" element={<FaithDashboard />} />
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />
         <Route path="settings" element={<Settings />} />
         <Route path=":moduleId" element={<ModulePlaceholder />} />
