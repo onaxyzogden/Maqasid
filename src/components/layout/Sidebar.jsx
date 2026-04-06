@@ -133,7 +133,10 @@ export default function Sidebar() {
         {MAQASID_PILLARS.map((pillar) => {
           const PillarIcon = PILLAR_ICON_MAP[pillar.icon];
           const subModules = pillar.subModuleIds.map((id) => modulesById[id]).filter(Boolean);
-          const hasActiveChild = subModules.some((m) => location.pathname.startsWith(MODULE_ROUTES[m.id]));
+          const hasActiveChild = subModules.some((m) => {
+            const r = MODULE_ROUTES[m.id];
+            return r && (location.pathname === r || location.pathname.startsWith(r + '/'));
+          });
           const isExpanded = expandedPillars[pillar.id] || hasActiveChild;
           const isScaffold = pillar.status === 'scaffold';
           const label = getPillarLabel(pillar, valuesLayer);
@@ -173,7 +176,7 @@ export default function Sidebar() {
                     subModules.map((mod) => {
                       const Icon = ICON_MAP[mod.icon];
                       const route = MODULE_ROUTES[mod.id];
-                      const isActive = location.pathname.startsWith(route);
+                      const isActive = location.pathname === route || location.pathname.startsWith(route + '/');
                       return (
                         <Link
                           key={mod.id}
