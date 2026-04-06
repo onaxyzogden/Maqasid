@@ -1,0 +1,189 @@
+/* Five Pillars of Islam — informational overview */
+.fp-page {
+  max-width: 900px;
+}
+
+.fp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+/* ── Card ── */
+.fp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--mod-five-pillars);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: box-shadow var(--duration) var(--ease);
+}
+
+.fp-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Header ── */
+.fp-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.fp-card__order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--mod-five-pillars);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.fp-card__names {
+  flex: 1;
+  min-width: 0;
+}
+
+.fp-card__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.fp-card__meaning {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fp-card__arabic-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--mod-five-pillars);
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl;
+  flex-shrink: 0;
+}
+
+/* ── Ayah Block ── */
+.fp-card__ayah {
+  background: var(--bg3);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.fp-card__ayah-arabic {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: var(--text);
+  direction: rtl;
+  text-align: right;
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  margin-bottom: var(--space-2);
+}
+
+.fp-card__ayah-translation {
+  font-size: 0.82rem;
+  color: var(--text2);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.fp-card__ayah-ref {
+  font-size: 0.72rem;
+  color: var(--text3);
+  margin-top: var(--space-1);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── Description ── */
+.fp-card__desc {
+  font-size: 0.88rem;
+  color: var(--text2);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+}
+
+/* ── Grid: Conditions + Virtues ── */
+.fp-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .fp-card__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fp-card {
+    padding: var(--space-4);
+  }
+}
+
+.fp-card__section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+  margin-bottom: var(--space-2);
+}
+
+.fp-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fp-card__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: 0.82rem;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.fp-card__list-item svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ── Dark theme ── */
+[data-theme='dark'] .fp-card {
+  border-color: var(--border);
+}
+
+[data-theme='dark'] .fp-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .fp-card__ayah {
+  background: var(--bg3);
+}
+
+/* ── Grounding footnote ── */
+.fp-grounding {
+  margin-top: var(--space-6);
+  font-size: 0.7rem;
+  color: var(--text3);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+}
