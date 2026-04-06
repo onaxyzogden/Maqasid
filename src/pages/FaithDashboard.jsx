@@ -61,7 +61,7 @@ const INSIGHTS = [
 
 export default function FaithDashboard() {
   return (
-    <div className="faith-dash font-manrope spiritual-pattern">
+    <div className="faith-dash font-manrope">
 
       {/* Hero */}
       <section className="faith-hero">
