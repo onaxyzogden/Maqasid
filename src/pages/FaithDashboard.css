@@ -365,16 +365,13 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: linear-gradient(
-    to top,
-    rgba(10, 20, 25, 0.9) 0%,
-    rgba(10, 20, 25, 0.35) 50%,
-    transparent 100%
-  );
-  padding: 1.5rem 3.5rem 5rem;
+  background: rgba(10, 20, 25, 0.45);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .faith-learning-card__title {
@@ -406,6 +403,7 @@
 .faith-learning-card__resume {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: none;
   border: none;
