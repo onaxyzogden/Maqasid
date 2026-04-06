@@ -145,10 +145,10 @@ export default function Sidebar() {
               <button
                 className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
                 style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
-                onClick={() => {
+                onClick={(e) => {
                   if (collapsed) return;
-                  navigate(`/app/pillar/${pillar.id}`);
-                  if (!isExpanded) togglePillar(pillar.id);
+                  togglePillar(pillar.id);
+                  if (!isExpanded) navigate(`/app/pillar/${pillar.id}`);
                 }}
                 title={label}
               >
