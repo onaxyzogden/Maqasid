@@ -3,9 +3,6 @@ import CeremonyGate from '../components/islamic/CeremonyGate';
 import { Search, Play, ScrollText, Scale, Sparkles, ArrowRight } from 'lucide-react';
 import './IslamicKnowledgePage.css';
 
-const HERO_BG_URL =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuC06kViVsyq1707fg7rNa4o_W0pD5iQkkptmL82hMTdZOZ2aKRNjo-QYB1JvE14QlLQy9yz9ZtSKEe-Ptj3WlxFAZ96sv_cSZnwdU-2k5COB7tTd2SjymgWko45kcvDwSYsk6uQN_DgAJfHi9gIynObYucCa5GOy48Xx301oNYPRN1C7lCjddI5OKikD8WofbUi3xh151Br8c_kCoQ6rylZTE5ubW1ONVhDQxbyIjttXDuCWO7dSzPVie0nAXekImT4GScJMUcdHVc4';
-
 const LEARNING_PATHS = [
   {
     id: 'maqasid',
@@ -114,10 +111,7 @@ export default function IslamicKnowledgePage() {
       <div className="ik-canvas">
 
         {/* Hero: Daily Contemplation */}
-        <div
-          className="ik-hero"
-          style={{ backgroundImage: `url(${HERO_BG_URL})` }}
-        >
+        <div className="ik-hero">
           <div className="ik-hero__overlay">
             <span className="ik-badge">Daily Contemplation</span>
             <blockquote className="ik-hero__quote">
