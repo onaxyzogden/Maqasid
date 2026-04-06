@@ -94,12 +94,6 @@ export default function FaithDashboard() {
                 <span>{PRAYER.location}</span>
               </div>
             </div>
-            {/* Decorative star */}
-            <div className="faith-prayer-card__star" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="currentColor">
-                <path d="M50 0L61.2 38.8H100L68.8 61.2L80 100L50 77.5L20 100L31.2 61.2L0 38.8H38.8L50 0Z" />
-              </svg>
-            </div>
           </div>
 
           {/* Verse of the Day */}

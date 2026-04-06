@@ -167,22 +167,6 @@
   opacity: 0.85;
 }
 
-.faith-prayer-card__star {
-  position: absolute;
-  right: -10%;
-  top: -20%;
-  width: 280px;
-  height: 280px;
-  color: var(--faith-on-tertiary);
-  opacity: 0.08;
-  pointer-events: none;
-}
-
-.faith-prayer-card__star svg {
-  width: 100%;
-  height: 100%;
-}
-
 /* ══════════════════════════════════════════════════════════
    VERSE OF THE DAY
    ══════════════════════════════════════════════════════════ */
@@ -387,7 +371,7 @@
     rgba(10, 20, 25, 0.35) 50%,
     transparent 100%
   );
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 2.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -400,7 +384,7 @@
   letter-spacing: -0.03em;
   line-height: 1.2;
   color: #ffffff;
-  margin: 0.3rem 0 0.75rem;
+  margin: 0.25rem 0 0.5rem;
 }
 
 .faith-learning-card__progress-track {
