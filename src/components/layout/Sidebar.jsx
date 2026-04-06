@@ -150,8 +150,8 @@ export default function Sidebar() {
                 style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
                 onClick={(e) => {
                   if (collapsed) return;
-                  togglePillar(pillar.id);
-                  if (!isExpanded) navigate(`/app/pillar/${pillar.id}`);
+                  navigate(`/app/pillar/${pillar.id}`);
+                  if (!isExpanded) togglePillar(pillar.id);
                 }}
                 title={label}
               >
@@ -163,6 +163,7 @@ export default function Sidebar() {
                     <ChevronDown
                       size={12}
                       className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
+                      onClick={(e) => { e.stopPropagation(); togglePillar(pillar.id); }}
                     />
                   </>
                 )}
