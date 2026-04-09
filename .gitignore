@@ -34,5 +34,3 @@ notes/
 .graphify_*.txt
 .graphify_python
 
-# graphify generated Obsidian vault (929 generated notes, rebuild with /graphify --obsidian)
-graphify-out/obsidian/
