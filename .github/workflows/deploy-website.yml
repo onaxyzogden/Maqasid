@@ -1,0 +1,35 @@
+name: Deploy Website (ogden-hub)
+
+# Manual trigger only — automated deployment postponed
+on:
+  workflow_dispatch:
+
+# Future: uncomment to auto-deploy on website changes
+# on:
+#   push:
+#     branches: [main]
+#     paths:
+#       - 'website/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare website artifact
+        run: echo "Website files ready in website/"
+
+      # NOTE: GitHub Pages can only deploy ONE site per repo.
+      # To deploy both, options include:
+      #   A: Netlify/Cloudflare Pages for the website, GitHub Pages for the app
+      #   B: Merge both into a single dist/ (app at /app, website at /)
+      #   C: Separate deployment repo for the website
+      # This is a placeholder until the deployment strategy is decided.
+      - name: Placeholder
+        run: echo "Deployment strategy TBD — see workflow comments"

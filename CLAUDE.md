@@ -34,6 +34,7 @@ Start at root `CONTEXT.md` and follow the chain. Each CONTEXT.md routes to its c
 | Human | `notes/`, `tasks/`, `docs/` | Yousef | Read (tasks, docs); No access (notes) |
 | Machine | `src/`, `scripts/`, `dist/` | Claude Code | Full read/write |
 | Shared | `references/`, `stages/` | Both | Read (references); Write to stages, read+review by human |
+| Marketing | `website/` | Yousef | Read-only (static HTML, no build) |
 ## Naming Conventions — Status Tracking
 - Stage gate files: `[phase]-[slug]-[status].md` (e.g., `research-crm-revamp-review.md`)
 - Status values: `draft` | `review` | `approved` | `rejected`
@@ -43,3 +44,8 @@ Start at root `CONTEXT.md` and follow the chain. Each CONTEXT.md routes to its c
 - Destructive operations (store reset, data migration) require a `stages/` approval doc
 - Never auto-deploy without human review gate approval
 - `.obsidian/` and `notes/` are .gitignored — personal config, not shared
+
+## Website (ogden-hub)
+Static marketing site merged from ogden-hub repo. Lives in `website/`.
+Pure HTML — no build system, no Node.js dependencies.
+Domain: bismillah.ogden.ag (deployment postponed).
