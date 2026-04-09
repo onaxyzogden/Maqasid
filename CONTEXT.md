@@ -13,6 +13,7 @@
 | Personal notes, journals, brainstorms | `notes/` | `notes/CONTEXT.md` |
 | Marketing website, landing pages, static HTML | `website/` | `website/CONTEXT.md` |
 | Atlas land intelligence app (submodule) | `atlas/` | `atlas/README.md` |
+| Browsing accumulated knowledge, decisions, synthesis | `wiki/` | `wiki/SCHEMA.md` |
 
 ## Project Entry Points
 - **App bootstrap**: `index.html` → `src/main.jsx` → `src/App.jsx` (router + route definitions)
@@ -21,3 +22,4 @@
 - **Workflow principles**: `docs/principles.md` (Amanah Gate, Itqan, Sidq, verification rules)
 - **Marketing website**: `website/index.html` (pure static HTML, no build)
 - **Atlas app**: `atlas/` (git submodule → `onaxyzogden/atlas`, pnpm + Turborepo)
+- **LLM Wiki**: `wiki/index.md` (persistent knowledge base — decisions, entities, concepts, synthesis)

@@ -1,0 +1,97 @@
+---
+title: "BBOS Pipeline"
+type: entity
+created: 2026-04-09
+updated: 2026-04-09
+tags: [bbos, pipeline, islamic-business, covenant, stages, barakah, truth-safe, two-factory]
+sources: 4
+---
+
+# BBOS Pipeline
+
+The Barakah Business Operating System (BBOS) v2.4 is a fully documented 8-stage operational framework built as a Direct-Injection Auto-Sequence for constructing "truth-safe" businesses within an LLM environment. It enforces strict linear progression (Stage 00 through 07), covenantal integrity via [[amanah-gate]], and a Two-Factory architecture at every stage. BBOS is integrated into [[maqasid-os]] as a module with dedicated UI components and has a marketing section at `website/bbos/` on the [[ogden-hub]] site.
+
+## Key Facts
+
+- **Version:** 2.4
+- **Stages:** PRE (00) -> STR (01) -> OFR (02) -> OUT (03) -> SAL (04) -> FUL (05) -> RET (06) -> OPT (07)
+- **Stage count:** 8 (plus Patch Plan sub-stages 00A and 01B)
+- **Core paradigm:** Direct-Injection Auto-Sequence for truth-safe business formation
+- **Source priority:** Stage Canon Index (highest) > Master Operating Protocol
+- **UI components:** BbosPipelineHeader (progress), BbosTaskPanel (stage tasks), BbosRoleBadge, BbosRolePicker
+- **Integration:** Module within [[maqasid-os]] at `src/components/bbos/`
+- **Marketing:** Landing page at `website/bbos/` on [[ogden-hub]]
+- **Governing philosophy:** [[covenant-architecture]]
+
+## Architecture — Two-Factory Model
+
+Every stage operates through a dual-factory architecture:
+
+1. **Research Factory** — Synthesizes raw inputs into S-outputs (S1 through S5/S6) that define the strategic landscape for that stage. This is the analytical engine.
+2. **Asset Factory** — Converts approved research into the final Asset Pack. The Asset Factory is gated: AI is forbidden from running it until the operator explicitly triggers the **Assembly Gate** by typing `ASSEMBLE`.
+
+This separation enforces operator sovereignty over all deliverables. The AI researches and recommends; the operator decides when to crystallize output into assets.
+
+## 8-Stage Covenant Pipeline
+
+| Stage | Code | Name | Purpose |
+|---|---|---|---|
+| 00 | PRE | Pre-Check | Audits operator skills, proof, and constraints. Includes External Viability Pre-Check. |
+| 01 | STR | Strategy | Extracts truthful market "buying language" and identifies the "External Enemy." |
+| 02 | OFR | Offer | Constructs a priced, truth-safe offer with a formal Proof Plan. |
+| 03 | OUT | Outreach | Builds acquisition engine using "hooks" as attention devices. |
+| 04 | SAL | Sales | Installs conversion infrastructure: scripts, objection handling, close sequences. |
+| 05 | FUL | Fulfillment | Maps delivery SOPs to promised outcomes with QC checkpoints. |
+| 06 | RET | Retention | Maximizes lifetime value through proof-led re-engagement. |
+| 07 | OPT | Optimization | Data-driven 30-day optimization cycle identifying the "Weakest Link." |
+
+### Patch Plan Sub-Stages
+
+- **Stage 00A — Input Integrity Gate:** Grades operator proof on a P0-P3 scale before pipeline entry.
+- **Stage 01B — Mechanism Factory:** Bridges the strategy-to-offer gap, ensuring STR outputs translate cleanly into OFR inputs.
+
+## Critical Business Rules (Non-Negotiables)
+
+- **Sequence Strictness:** No stages may be skipped. Linear progression 00 through 07 is enforced.
+- **Truth-Gate (G-Labeling):** Every result claim must carry a G1-G4 evidence grade label.
+- **Assembly Gate:** AI is forbidden from running the Asset Factory until the operator types `ASSEMBLE`.
+- **No External Assumptions:** The system cannot invent operator capabilities, credentials, or resources.
+- **Verbatim Extraction:** Voice-of-Customer (VoC) language is extracted directly from sources and never paraphrased.
+- **Scarcity Verification:** All urgency claims must be tied to documented real-world constraints.
+- **Scope Integrity:** Outreach and sales materials cannot reference anything outside the frozen OFR Scope Map.
+
+## Key Constraints
+
+- **Regulatory Hard Stops:** Pipeline halts if regulatory compliance issues are identified.
+- **Operator Strategic Constraints:** Hours available, financial runway, and existing assets bound what the pipeline can propose.
+- **Amanah Proof Audit:** [[amanah-gate]] screens for riba, gharar, and covenant alignment at qualification.
+
+## Current Status
+
+Pipeline header and task panel components implemented in [[maqasid-os]]. Stage progression UI functional. BbosPipelineHeader.css and BbosPipelineHeader.jsx recently modified (per git status). Role-based access via BbosRoleBadge and BbosRolePicker in place. Marketing section live on [[ogden-hub]]. The v2.4 operational framework (Two-Factory model, G-Labeling, Assembly Gate, Patch Plan sub-stages) is fully documented but UI representation of these mechanics may still need alignment with the documented protocol.
+
+## Connections
+
+- [[maqasid-os]] — Host application; BBOS is a module at `src/components/bbos/`
+- [[ogden-hub]] — Marketing landing page at `website/bbos/`
+- [[amanah-gate]] — Ethical screening gate; Amanah Proof Audit at qualification stage
+- [[covenant-architecture]] — Structural philosophy governing the pipeline; truth-safe covenant enforcement
+- [[maqasid-al-shariah]] — Jurisprudential grounding for stage definitions and screening criteria
+- [[ceremony-gate-pattern]] — UI pattern used for stage transitions and Assembly Gate
+- [[graphify]] — Pipeline structure mapped in the knowledge graph
+
+## Open Questions
+
+- Does the UI currently reflect the Two-Factory (Research/Asset) split per stage, or is this only in the protocol docs?
+- How is G-Labeling (G1-G4 evidence grades) surfaced in the task panel UI?
+- How does the Assembly Gate (`ASSEMBLE` command) integrate with the UI ceremony gate pattern?
+- Are Patch Plan sub-stages (00A Input Integrity Gate, 01B Mechanism Factory) represented in the stage progression header?
+- What is the rejection/off-ramp flow when the Amanah Proof Audit fails at Stage 00?
+- Will BBOS support multiple concurrent pipelines (multiple businesses per operator)?
+
+## History
+
+| Date | Event |
+|---|---|
+| 2026-04-09 | Enriched entity page with BBOS v2.4 framework detail from NotebookLM extraction (notebook `84220e85`). Added Two-Factory architecture, 8-stage definitions (PRE/STR/OFR/OUT/SAL/FUL/RET/OPT), Patch Plan sub-stages (00A, 01B), critical business rules (G-Labeling, Assembly Gate, Verbatim Extraction, Scope Integrity), and key constraints. Updated stage codes from placeholder names to canonical codes. |
+| 2026-04-09 | Wiki entity page bootstrapped. Pipeline integrated into maqasid-os with header, task panel, role badge, and role picker components. Marketing section live on ogden-hub. |

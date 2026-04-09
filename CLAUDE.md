@@ -36,6 +36,7 @@ Start at root `CONTEXT.md` and follow the chain. Each CONTEXT.md routes to its c
 | Shared | `references/`, `stages/` | Both | Read (references); Write to stages, read+review by human |
 | Marketing | `website/` | Yousef | Read-only (static HTML, no build) |
 | Atlas | `atlas/` (submodule) | Both | Separate repo — read here, develop in atlas repo |
+| Wiki | `wiki/` | Claude Code | Full read/write (LLM-owned knowledge base) |
 ## Naming Conventions — Status Tracking
 - Stage gate files: `[phase]-[slug]-[status].md` (e.g., `research-crm-revamp-review.md`)
 - Status values: `draft` | `review` | `approved` | `rejected`
