@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genEmployeeId, genAttendanceId, genLeaveRequestId, genTimeEntryId } from '../services/id';
-import { PRESET_DEPARTMENTS, DEFAULT_LEAVE_BALANCE } from '../data/people-departments';
+import { PRESET_DEPARTMENTS, DEFAULT_LEAVE_BALANCE } from '@data/config/people-departments';
 
 // Persistence helpers
 function persistEmployees(data) { safeSet('people_employees', data); }

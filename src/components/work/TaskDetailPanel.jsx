@@ -7,7 +7,7 @@ import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
 import { PRIORITIES } from '../../data/modules';
-import { BBOS_STAGES } from '../../data/bbos-pipeline';
+import { BBOS_STAGES } from '@data/bbos/bbos-pipeline';
 import GLabelPicker from '../shared/GLabelPicker';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import './TaskDetailPanel.css';

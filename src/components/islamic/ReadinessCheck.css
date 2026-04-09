@@ -43,8 +43,7 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.6rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
 }
 
 .rc-col-title.rc-at-peace { color: var(--success); }
@@ -147,9 +146,9 @@
 }
 
 .rc-i-col-label {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 1.4px;
+  letter-spacing: 0.04em;
   padding: 0 0 7px 9px;
 }
 

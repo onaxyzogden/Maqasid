@@ -240,6 +240,9 @@ export default function Sidebar() {
               >
                 <div className="project-dot" style={{ background: p.color }} />
                 <span className="truncate">{p.name}</span>
+                {p.bbosEnabled && p.bbosStage && (
+                  <span className="sidebar-bbos-badge">{p.bbosStage}</span>
+                )}
               </Link>
             ))}
           </div>

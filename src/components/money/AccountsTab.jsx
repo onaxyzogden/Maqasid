@@ -2,12 +2,7 @@ import { useState, useMemo } from 'react';
 import { Plus, Landmark, X, Pencil, ChevronDown, Info } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
 import { useAuthStore } from '../../store/auth-store';
-import { CURRENCIES } from '../../data/money-categories';
-
-const BANKS = [
-  'ATB Financial', 'BMO', 'CIBC', 'Desjardins', 'HSBC Canada',
-  'National Bank', 'RBC', 'Scotiabank', 'Simplii', 'Tangerine', 'TD', 'Other',
-];
+import { CURRENCIES, BANKS } from '@data/config/money-categories';
 
 function AccountPanel({ account, onClose }) {
   const addAccount = useMoneyStore((s) => s.addAccount);

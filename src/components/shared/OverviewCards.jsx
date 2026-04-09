@@ -1,5 +1,5 @@
 import { CheckCircle2, Circle } from 'lucide-react';
-import '../../pages/FivePillars.css';
+import '@pages/islamic/FivePillars.css';
 
 /**
  * Reusable overview card grid — same visual pattern as the Five Pillars page.

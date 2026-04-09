@@ -1,4 +1,4 @@
-import { getBbosRole } from '../../data/bbos-role-access';
+import { getBbosRole } from '@data/bbos/bbos-role-access';
 
 export default function BbosRoleBadge({ roleId, size = 'sm' }) {
   const role = getBbosRole(roleId);

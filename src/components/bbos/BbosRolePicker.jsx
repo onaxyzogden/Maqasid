@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { BBOS_ROLES } from '../../data/bbos-role-access';
+import { BBOS_ROLES } from '@data/bbos/bbos-role-access';
 import BbosRoleBadge from './BbosRoleBadge';
 
 export default function BbosRolePicker({ value, onChange }) {

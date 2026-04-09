@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getPillarById, getPillarLabel, getPillarStewardship } from '../data/maqasid';
-import { PILLAR_CONTENT } from '../data/pillar-content';
+import { PILLAR_CONTENT } from '@data/islamic/pillar-content';
 import { MODULES } from '../data/modules';
 import { useSettingsStore } from '../store/settings-store';
 import './PillarDashboard.css';

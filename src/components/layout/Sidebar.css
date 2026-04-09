@@ -178,6 +178,19 @@
   width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
 }
 
+.sidebar-bbos-badge {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+  background: var(--accent-bg);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
 .sidebar-empty {
   padding: var(--space-3);
   font-size: 0.8rem; color: var(--text3);

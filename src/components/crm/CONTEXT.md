@@ -10,6 +10,7 @@ Customer relationship management: contacts, deal pipeline, and activity logging.
 | DealPipeline.jsx | Kanban-style deal stages with drag-to-stage; value totals per stage |
 | DealPipeline.css | Pipeline column layout, deal card styles, animations |
 | ActivityLog.jsx | Log/filter/manage activities (calls, emails, meetings, notes) tied to contacts/deals |
+| NotesView.jsx | Two-column notes view: contact list on left, threaded note feed on right; adds notes as type='note' activities via crm-store |
 
 ## Store Dependencies
 - **crm-store**: contacts[], deals[], activities[], pipeline[] (stages), CRUD methods

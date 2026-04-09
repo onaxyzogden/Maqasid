@@ -14,7 +14,8 @@ import BbosPipelineHeader from '../bbos/BbosPipelineHeader';
  * for any project. Used by both Project.jsx and the Faith board pages.
  */
 export default function ProjectBoard({ projectId, project }) {
-  const loadTasks = useTaskStore((s) => s.loadTasks);
+  const taskStore = useTaskStore();
+  const loadTasks = taskStore.loadTasks;
   const filters = useAppStore((s) => s.filters[projectId]);
   const setActiveBbosStage = useAppStore((s) => s.setActiveBbosStage);
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
@@ -38,10 +39,10 @@ export default function ProjectBoard({ projectId, project }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
-      {/* View toggle */}
+      {/* View toggle + BBOS actions */}
       <div style={{
         display: 'flex', justifyContent: 'flex-end', alignItems: 'center',
-        marginBottom: 'var(--space-2)', flexShrink: 0,
+        gap: 'var(--space-3)', marginBottom: 'var(--space-2)', flexShrink: 0,
       }}>
         <div style={{ display: 'flex', gap: 'var(--space-1)', background: 'var(--bg3)', borderRadius: 'var(--radius)', padding: 2 }}>
           <button
@@ -91,6 +92,7 @@ export default function ProjectBoard({ projectId, project }) {
         <BbosPipelineHeader
           currentStageId={project.bbosStage}
           activeFilter={bbosFilter}
+          bbosRole={project.bbosRole || 'all'}
           onStageClick={(stageId) => {
             setBbosFilter(stageId);
             setActiveBbosStage(stageId);
@@ -105,7 +107,7 @@ export default function ProjectBoard({ projectId, project }) {
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
         <div style={{ flex: 1, minWidth: 0 }}>
           {view === 'board' ? (
-            <KanbanBoard project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} />
+            <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} />
           ) : view === 'gantt' ? (
             <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
           ) : (

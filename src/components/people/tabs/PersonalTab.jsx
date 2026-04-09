@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
-import CollapsibleSection from '../CollapsibleSection';
+import CollapsibleSection from '../shared/CollapsibleSection';
 
 function EditableField({ label, value, fieldKey, onSave }) {
   const [editing, setEditing] = useState(false);

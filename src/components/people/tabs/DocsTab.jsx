@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { DOC_STATUSES } from '../../../data/contact-config';
+import { DOC_STATUSES } from '@data/config/contact-config';
 
 export default function DocsTab({ contactId }) {
   const docRecords = useContactsStore((s) => s.docRecords);

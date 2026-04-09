@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet, safeRemove } from '../services/storage';
-import { genProjectId, genColumnId, genTaskId } from '../services/id';
+import { genProjectId, genColumnId, genTaskId, genSubtaskId } from '../services/id';
 import { DEFAULT_COLUMNS, PROJECT_COLORS } from '../data/modules';
-import { FAITH_SEED_TASKS } from '../data/faith-seed-tasks';
-import { LIFE_SEED_TASKS } from '../data/life-seed-tasks';
-import { INTELLECT_SEED_TASKS } from '../data/intellect-seed-tasks';
-import { FAMILY_SEED_TASKS } from '../data/family-seed-tasks';
-import { WEALTH_SEED_TASKS } from '../data/wealth-seed-tasks';
-import { ENVIRONMENT_SEED_TASKS } from '../data/environment-seed-tasks';
-import { BBOS_TASK_DEFINITIONS } from '../data/bbos-task-definitions';
+import { FAITH_SEED_TASKS } from '@data/seed-tasks/faith-seed-tasks';
+import { LIFE_SEED_TASKS } from '@data/seed-tasks/life-seed-tasks';
+import { INTELLECT_SEED_TASKS } from '@data/seed-tasks/intellect-seed-tasks';
+import { FAMILY_SEED_TASKS } from '@data/seed-tasks/family-seed-tasks';
+import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
+import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
+import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
 
 function persistProjects(projects) {
   safeSet('projects', projects);
@@ -58,7 +58,7 @@ function seedTasks(boardId, seedMap) {
     priority: t.priority || 'medium',
     dueDate: t.dueDate || null,
     tags: t.tags || [],
-    subtasks: [],
+    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false })),
     checklist: [],
     order: i,
     createdAt: now,

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genExpenseId, genInvoiceId, genCategoryId, genBudgetId, genLineItemId, genVendorId, genAccountId, genIncomeId, genAssetId } from '../services/id';
-import { PRESET_CATEGORIES } from '../data/money-categories';
+import { PRESET_CATEGORIES } from '@data/config/money-categories';
 
 // Persistence helpers
 function persistExpenses(expenses) { safeSet('expenses', expenses); }

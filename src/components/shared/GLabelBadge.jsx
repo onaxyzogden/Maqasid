@@ -1,4 +1,4 @@
-import { getGLabel } from '../../data/g-labels';
+import { getGLabel } from '@data/config/g-labels';
 
 export default function GLabelBadge({ gLabel, size = 'sm' }) {
   const g = getGLabel(gLabel);

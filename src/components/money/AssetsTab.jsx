@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, Package, X, Pencil, ChevronDown, TrendingUp, TrendingDown } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
-import { CURRENCIES } from '../../data/money-categories';
+import { CURRENCIES } from '@data/config/money-categories';
 
 const CATEGORIES = [
   'Real Estate', 'Vehicle', 'Equipment', 'Investment', 'Inventory', 'Intellectual Property', 'Other',

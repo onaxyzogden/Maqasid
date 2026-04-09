@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { ABSENCE_TYPES, ABSENCE_STATUSES } from '../../../data/contact-config';
+import { ABSENCE_TYPES, ABSENCE_STATUSES } from '@data/config/contact-config';
 import { differenceInBusinessDays, parseISO, isValid } from 'date-fns';
 
 function StatBox({ label, value, color = 'var(--text)' }) {

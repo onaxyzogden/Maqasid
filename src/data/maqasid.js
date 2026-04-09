@@ -82,7 +82,7 @@ export const MAQASID_PILLARS = [
     rootAction: 'Flowing',
     accentColor: '#8EAD6E',
     icon: 'Coins',
-    subModuleIds: ['money', 'work', 'office', 'tech', 'people', 'wealth-earning', 'wealth-financial', 'wealth-ownership', 'wealth-circulation'],
+    subModuleIds: ['work', 'money', 'office', 'tech', 'people', 'wealth-earning', 'wealth-financial', 'wealth-ownership', 'wealth-circulation'],
     status: 'active',
     relationship: 'bbos-contained',
     readinessAyatKey: 'wealth',

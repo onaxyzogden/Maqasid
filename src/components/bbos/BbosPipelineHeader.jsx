@@ -1,7 +1,10 @@
-import { BBOS_STAGES, BBOS_LAYERS, getStageLayer } from '../../data/bbos-pipeline';
+import { useMemo } from 'react';
+import { BBOS_STAGES, BBOS_LAYERS, getStageLayer } from '@data/bbos/bbos-pipeline';
+import { getAccessibleStagesForRole } from '@data/bbos/bbos-role-access';
 import './BbosPipelineHeader.css';
 
-export default function BbosPipelineHeader({ currentStageId, activeFilter, onStageClick }) {
+export default function BbosPipelineHeader({ currentStageId, activeFilter, onStageClick, bbosRole }) {
+  const accessibleStages = useMemo(() => getAccessibleStagesForRole(bbosRole), [bbosRole]);
   return (
     <div className="bbos-pipeline">
       {/* Layer labels */}
@@ -27,6 +30,7 @@ export default function BbosPipelineHeader({ currentStageId, activeFilter, onSta
           const isCurrent = stage.id === currentStageId;
           const isFiltered = stage.id === activeFilter;
           const isPast = BBOS_STAGES.findIndex((s) => s.id === currentStageId) > i;
+          const isInaccessible = accessibleStages && !accessibleStages.has(stage.id);
 
           return (
             <button
@@ -36,6 +40,7 @@ export default function BbosPipelineHeader({ currentStageId, activeFilter, onSta
                 isCurrent && 'bbos-stage-node--current',
                 isFiltered && 'bbos-stage-node--filtered',
                 isPast && !isFiltered && 'bbos-stage-node--done',
+                isInaccessible && 'bbos-stage-node--inaccessible',
               ].filter(Boolean).join(' ')}
               style={{ '--stage-color': layer?.color || 'var(--primary)' }}
               onClick={() => onStageClick?.(stage.id)}

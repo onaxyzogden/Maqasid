@@ -24,7 +24,7 @@ export const OVERVIEW = [
       'Beginning with Ta\u02bfawwudh (\u0623\u0639\u0648\u0630 \u0628\u0627\u0644\u0644\u0647) and Basmalah',
     ],
     virtues: [
-      'Each letter earns ten rewards — the Prophet \uFDFA said: "Alif, Lam, Mim is three letters, each a reward" (Jami at-Tirmidhi 2910)',
+      'The Quran is healing and mercy — "We send down of the Qur\'an that which is healing and mercy for the believers" (Qur\'an 17:82)',
       'Recitation elevates the reciter\u2019s rank in this life and the next',
       'The Quran will intercede for its companions on the Day of Judgment',
       'Beautifies the voice and the heart simultaneously',

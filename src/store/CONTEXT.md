@@ -18,7 +18,7 @@
 | tech-store.js | `monitors`, `darkWebEmails`, `breaches`, `integrations`, `campaigns` | 6 keys |
 | settings-store.js | `theme`, `valuesLayer`, `attrLang` | Individual string keys |
 | threshold-store.js | `niyyahDate`, `niyyahFocus[]`, `completedOpening`, `completedClosing`, `deferred` + ephemeral prayer state | Mixed |
-| money-store.js | (see above) | (see above) |
+| recruitment-store.js | `postings`, `applications`, `pipelines` | `recruit_postings`, `recruit_applications`, `recruit_pipelines` |
 
 ## Architecture
 

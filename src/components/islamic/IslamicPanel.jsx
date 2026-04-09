@@ -5,10 +5,10 @@ import { useSettingsStore } from '../../store/settings-store';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useMobile } from '../../hooks/useMobile';
 import { MODULES } from '../../data/modules';
-import { getModuleData, ONGOING_DUA, ONGOING_UNIVERSAL } from '../../data/islamic-data';
+import { getModuleData, ONGOING_DUA, ONGOING_UNIVERSAL } from '@data/islamic/islamic-data';
 import { getPillarForModule, getPillarLabel } from '../../data/maqasid';
-import { getStage, getStageLayer } from '../../data/bbos-pipeline';
-import { getBbosStageIslamic } from '../../data/bbos-stage-islamic';
+import { getStage, getStageLayer } from '@data/bbos/bbos-pipeline';
+import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import AttributeCard from './AttributeCard';
 import DuaSection from './DuaSection';
 import ReadinessCheck from './ReadinessCheck';
@@ -52,12 +52,17 @@ export default function IslamicPanel() {
   const isIslamic = valuesLayer === 'islamic';
   const accentColor = 'var(--accent)';
 
+  // Sub-modules (e.g. faith-zakah) have no own entry in MODULE_ATTRS — fall back to pillar data
+  const pillarForFallback = getPillarForModule(activeModule);
+  const pillarFallbackData = pillarForFallback ? getModuleData(pillarForFallback.id, valuesLayer) : null;
+  const resolvedData = data ?? pillarFallbackData;
+
   // BBOS stage mode — overrides module-level content when a stage is selected
   const bbosStage = activeBbosStage ? getStage(activeBbosStage) : null;
   const bbosLayer = bbosStage ? getStageLayer(activeBbosStage) : null;
   const bbosData = bbosStage ? getBbosStageIslamic(activeBbosStage) : null;
   const stageModeColor = bbosLayer?.color || null;
-  const effectiveData = bbosData || data;
+  const effectiveData = bbosData || resolvedData;
   const ceremonyKey = bbosStage ? `bbos:${bbosStage.id}` : activeModule;
 
   const hasOpenedModule = !!completedOpening[ceremonyKey];
@@ -149,7 +154,7 @@ export default function IslamicPanel() {
             )}
             {!isIslamic && (
               <div className="il-module-attrs" style={{ color: 'var(--text3)' }}>
-                {data?.principles?.map((p) => p.name).join(' · ') || 'Principles'}
+                {resolvedData?.principles?.map((p) => p.name).join(' · ') || 'Principles'}
               </div>
             )}
           </div>

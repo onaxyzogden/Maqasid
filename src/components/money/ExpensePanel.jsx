@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, Plus } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
-import { CURRENCIES } from '../../data/money-categories';
+import { CURRENCIES } from '@data/config/money-categories';
 
 export default function ExpensePanel({ expense, onClose }) {
   const categories = useMoneyStore((s) => s.categories);

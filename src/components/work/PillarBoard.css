@@ -311,62 +311,69 @@
 /* ══════════════════════════════════════════
    JOURNAL TAB
    ══════════════════════════════════════════ */
-.faith-journal {
+/* ── Resources Tab ── */
+.pillar-resources {
   padding: var(--space-2) 0;
   max-width: 720px;
 }
 
-.faith-journal__header {
+.pillar-resources__header {
   display: flex;
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-1);
 }
 
-.faith-journal__title {
+.pillar-resources__title {
   font-size: 1.1rem;
   font-weight: 700;
 }
 
-.faith-journal__desc {
+.pillar-resources__desc {
   font-size: 0.85rem;
   color: var(--text2);
   line-height: 1.5;
   margin-bottom: var(--space-5);
 }
 
-.faith-journal__compose {
+.pillar-resources__form {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   margin-bottom: var(--space-6);
 }
 
-.faith-journal__textarea {
+.pillar-resources__input,
+.pillar-resources__textarea {
   width: 100%;
-  padding: var(--space-3);
+  padding: var(--space-2) var(--space-3);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
-  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-family: inherit;
   font-size: 0.875rem;
-  line-height: 1.6;
-  resize: vertical;
+  line-height: 1.5;
   outline: none;
   transition: border-color 0.15s ease;
+  box-sizing: border-box;
 }
 
-.faith-journal__textarea:focus {
+.pillar-resources__textarea {
+  resize: vertical;
+}
+
+.pillar-resources__input:focus,
+.pillar-resources__textarea:focus {
   border-color: var(--primary);
 }
 
-.faith-journal__add {
+.pillar-resources__add {
   align-self: flex-end;
   font-size: 0.8rem;
 }
 
-.faith-journal__empty {
+.pillar-resources__empty {
   padding: var(--space-8);
   text-align: center;
   color: var(--text3);
@@ -375,135 +382,74 @@
   border-radius: var(--radius-lg);
 }
 
-.faith-journal__list {
+.pillar-resources__list {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
 
-.faith-journal__entry {
+.pillar-resources__card {
   padding: var(--space-4);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
-.faith-journal__entry-header {
+.pillar-resources__card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-2);
 }
 
-.faith-journal__entry-date {
-  font-size: 0.75rem;
+.pillar-resources__card-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.faith-journal__entry-remove {
-  background: none;
-  border: none;
-  color: var(--text3);
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 0 4px;
-  line-height: 1;
+  color: var(--primary);
+  text-decoration: none;
   transition: color 0.15s;
 }
 
-.faith-journal__entry-remove:hover {
-  color: var(--danger);
+.pillar-resources__card-link:hover {
+  color: var(--accent);
 }
 
-.faith-journal__entry-text {
-  font-size: 0.875rem;
-  color: var(--text);
-  line-height: 1.65;
-  white-space: pre-wrap;
-}
-
-/* ── Journal Slide Panel ── */
-.journal-panel-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.journal-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  min-width: 380px;
-  max-width: 720px;
-  background: var(--bg);
-  z-index: 61;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
-  animation: journalSlideIn 220ms var(--ease);
-}
-
-@keyframes journalSlideIn {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
-}
-
-@keyframes journalSlideOut {
-  from { transform: translateX(0); }
-  to   { transform: translateX(100%); }
-}
-
-.journal-panel--closing {
-  animation: journalSlideOut 220ms var(--ease) forwards;
-}
-
-.journal-panel__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-4) var(--space-6);
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-}
-
-.journal-panel__title {
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.journal-panel__close {
+.pillar-resources__card-remove {
   background: none;
   border: none;
-  font-size: 1.1rem;
-  color: var(--text2);
+  color: var(--text3);
   cursor: pointer;
-  padding: var(--space-1);
-  line-height: 1;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
 }
 
-.journal-panel__close:hover {
-  color: var(--text);
+.pillar-resources__card-remove:hover {
+  color: var(--danger);
+  background: var(--bg2);
 }
 
-.journal-panel__body {
-  flex: 1;
-  overflow-y: auto;
-  padding: var(--space-6);
+.pillar-resources__card-note {
+  font-size: 0.83rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pillar-resources__card-url {
+  font-size: 0.72rem;
+  color: var(--text3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
-  .journal-panel {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-  }
-
   .fpd__fab {
     bottom: calc(56px + var(--space-6));
   }

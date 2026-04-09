@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { G_LABELS } from '../../data/g-labels';
+import { G_LABELS } from '@data/config/g-labels';
 import GLabelBadge from './GLabelBadge';
 
 export default function GLabelPicker({ value, onChange }) {

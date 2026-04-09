@@ -14,8 +14,8 @@ function RCSection({ label, data, color }) {
       <div className="rc-paired">
         {/* Column headers */}
         <div className="rc-paired__headers">
-          <div className="rc-col-title rc-at-peace">At Peace When</div>
-          <div className="rc-col-title rc-not-rested">Not Yet Rested In</div>
+          <div className="rc-col-title rc-at-peace">{data.yesLabel || 'At Peace When'}</div>
+          <div className="rc-col-title rc-not-rested">{data.notYetLabel || 'Not Yet Rested In'}</div>
         </div>
         {/* Paired rows */}
         {Array.from({ length: rowCount }).map((_, i) => (
@@ -34,7 +34,7 @@ function RCSection({ label, data, color }) {
 }
 
 // ── Interactive attribute card (matches mockup) ──
-function RCInteractiveCard({ rows, attrName, attrAr, attrTitle, attrFrame, selections, onSelect }) {
+function RCInteractiveCard({ rows, attrName, attrAr, attrTitle, attrFrame, yesLabel, notYetLabel, selections, onSelect }) {
   const filledCount = rows.filter((r) => selections[r.id] != null).length;
   const allYes = rows.every((r) => selections[r.id] === true);
   const allFilled = filledCount === rows.length;
@@ -60,8 +60,8 @@ function RCInteractiveCard({ rows, attrName, attrAr, attrTitle, attrFrame, selec
       {attrFrame && <p className="rc-i-frame">{attrFrame}</p>}
 
       <div className="rc-i-col-headers">
-        <div className="rc-i-col-label rc-i-col-label--yes">YES WHEN</div>
-        <div className="rc-i-col-label rc-i-col-label--nyt">NOT YET WHEN</div>
+        <div className="rc-i-col-label rc-i-col-label--yes">{yesLabel || 'YES WHEN'}</div>
+        <div className="rc-i-col-label rc-i-col-label--nyt">{notYetLabel || 'NOT YET WHEN'}</div>
       </div>
 
       <div className="rc-i-rows">
@@ -106,6 +106,8 @@ function RCInteractive({ rows, selections, onSelect }) {
         attrAr: row.attr_ar || null,
         attrTitle: row.attrTitle || null,
         attrFrame: row.attrFrame || null,
+        yesLabel: row.yesLabel || null,
+        notYetLabel: row.notYetLabel || null,
         rows: [],
       };
       groups.push(current);
@@ -124,6 +126,8 @@ function RCInteractive({ rows, selections, onSelect }) {
           attrAr={group.attrAr}
           attrTitle={group.attrTitle}
           attrFrame={group.attrFrame}
+          yesLabel={group.yesLabel}
+          notYetLabel={group.notYetLabel}
           selections={selections}
           onSelect={onSelect}
         />

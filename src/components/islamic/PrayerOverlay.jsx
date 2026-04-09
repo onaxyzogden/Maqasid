@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSettingsStore } from '../../store/settings-store';
-import { PRESENCE_CONFIG } from '../../data/islamic-data';
+import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import './PrayerOverlay.css';
 
 export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {

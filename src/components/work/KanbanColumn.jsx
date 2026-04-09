@@ -2,7 +2,7 @@ import { useDroppable } from '@dnd-kit/core';
 import { Plus } from 'lucide-react';
 import KanbanCard from './KanbanCard';
 
-export default function KanbanColumn({ column, tasks, onSelectTask, onAddTask, bbosRole }) {
+export default function KanbanColumn({ column, tasks, onSelectTask, selectedTaskId, onAddTask, bbosRole }) {
   const { setNodeRef, isOver } = useDroppable({ id: column.id });
 
   return (
@@ -21,6 +21,8 @@ export default function KanbanColumn({ column, tasks, onSelectTask, onAddTask, b
             key={task.id}
             task={task}
             onClick={() => onSelectTask(task.id)}
+            isSelected={task.id === selectedTaskId}
+            columnColor={column.color}
             bbosRole={bbosRole}
           />
         ))}

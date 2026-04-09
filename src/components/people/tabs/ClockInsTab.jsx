@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { CLOCK_IN_LOCATIONS } from '../../../data/contact-config';
-import ClockInModal from '../ClockInModal';
+import { CLOCK_IN_LOCATIONS } from '@data/config/contact-config';
+import ClockInModal from '../hr/ClockInModal';
 
 function formatDuration(ms) {
   if (!ms || ms < 0) return '00:00:00';

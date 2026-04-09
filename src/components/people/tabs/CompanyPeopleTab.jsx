@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { getDisplayName } from '../../../data/contact-config';
-import AvatarInitials from '../AvatarInitials';
+import { getDisplayName } from '@data/config/contact-config';
+import AvatarInitials from '../shared/AvatarInitials';
 
 export default function CompanyPeopleTab({ companyId }) {
   const contacts      = useContactsStore((s) => s.contacts);

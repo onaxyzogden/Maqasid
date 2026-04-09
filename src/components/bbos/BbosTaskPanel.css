@@ -97,6 +97,24 @@
   opacity: 0.7;
 }
 
+/* ── Status row ── */
+.btp-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: var(--space-3);
+}
+
+.btp-status-row .btp-field-select {
+  width: auto;
+  min-width: 140px;
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.78rem;
+}
+
 /* ── Scrollable body ── */
 .btp-body {
   flex: 1;
@@ -369,6 +387,24 @@
 .btp-footer-actions {
   display: flex;
   gap: var(--space-2);
+}
+
+.btp-footer-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--text3);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 150ms, border-color 150ms;
+}
+.btp-footer-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .btp-footer-del {

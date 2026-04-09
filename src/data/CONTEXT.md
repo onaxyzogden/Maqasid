@@ -1,37 +1,22 @@
 # Static Data — CONTEXT.md
 
 ## Purpose
-40 files of static configuration, content, and seed data. No runtime state — all exports are constants or pure lookup functions.
+Static configuration, content, and seed data organized into thematic subdirectories. No runtime state — all exports are constants or pure lookup functions.
 
-## File Inventory by Type
+## Routing Table (subdirectories)
 
-**Maqasid & Module Definitions:**
+| Subdirectory | Content | CONTEXT.md |
+|---|---|---|
+| `ayat/` | Readiness ayat router + 13 per-pillar Quranic verse files | `ayat/CONTEXT.md` |
+| `seed-tasks/` | Initial task templates per pillar (6 files) | `seed-tasks/CONTEXT.md` |
+| `bbos/` | BBOS pipeline, task definitions, role access, stage Islamic grounding | `bbos/CONTEXT.md` |
+| `islamic/` | Core Islamic data, glossary, five pillars, pillar content, dashboard data | `islamic/CONTEXT.md` |
+| `config/` | Domain configs: money categories, contacts, departments, labels, recruitment | `config/CONTEXT.md` |
+| `module-overviews/` | Maqasid framework overviews per module (6 files) | — |
+
+## Root-Level Files (stay here)
 - `maqasid.js` — MAQASID_PILLARS array (7 pillars), `getPillarById()`, `getPillarLabel()`, `getPillarStewardship()`
 - `modules.js` — MODULES array (8 modules: people, work, money, tech, office, family, neighbors, community)
-- `contact-config.js` — EMPLOYMENT_TYPES, LEAD_STAGES, getDisplayName, getAvatarColor
-
-**Readiness Ayat (14 files):**
-- `readiness-ayat-router.js` — Central registry: `lookupReadinessAyahByKey(readinessAyatKey, binaryKey)`
-- Per-pillar: `{pillar}-readiness-ayat.js` (faith, life, intellect, wealth, environment, people)
-- Legacy: `work-readiness-ayat.js`, `community-readiness-ayat.js`, `family-readiness-ayat.js`, `spirituality-readiness-ayat.js`, `rest-readiness-ayat.js`, `learning-readiness-ayat.js`
-
-**Seed Tasks (5 files):**
-- `{pillar}-seed-tasks.js` (faith, family, intellect, wealth, environment)
-- Pattern: exports object with keys like `faith_shahada_core`, `faith_salah_growth`, etc.
-
-**Module Overviews (6 files in module-overviews/):**
-- `family-overview.js`, `community-overview.js`, `hadith-overview.js`, `quran-overview.js`, `neighbors-overview.js`, `collective-overview.js`
-
-**Content & Configuration:**
-- `pillar-content.js` — PILLAR_CONTENT lookup (necessities/needs/embellishments per pillar)
-- `pillar-dashboard-data.js` — Dashboard metrics per pillar
-- `five-pillars-content.js` — Islamic Five Pillars educational content
-- `islamic-data.js` — PRESENCE_CONFIG, prayer data, DUA constants, PAUSE_QUESTIONS, DEFER_CONTENT, `getModuleData()`
-- `islamic-glossary.js` — Islamic term definitions for tooltips
-- `money-categories.js` — CURRENCIES, expense categories
-- `people-departments.js` — EMPLOYEE_STATUSES, DEFAULT_LEAVE_BALANCE
-- `g-labels.js` — Generic label definitions for GLabelBadge/GLabelPicker
-- `bbos-pipeline.js`, `bbos-task-definitions.js`, `bbos-role-access.js` — BBOS pipeline config
 
 ## Key Data Shapes
 
@@ -59,4 +44,3 @@
 ## Naming Conventions
 - Readiness files: `{pillar}-readiness-ayat.js`, exports: `READINESS_AYAT_{PILLAR}`
 - Seed files: `{pillar}-seed-tasks.js`, exports: `{PILLAR}_SEED_TASKS`
-- Binary keys: 6-char strings '000000' to '111110' ('111111' omitted = complete)

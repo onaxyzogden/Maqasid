@@ -53,7 +53,7 @@ export const OVERVIEW = [
     ],
     virtues: [
       'Allah united hearts that were once enemies — the formation of community is itself a divine favour',
-      'The Prophet ﷺ said: "The hand of Allah is with the jamāʿah" (Jami at-Tirmidhi 2166) — collective strength is divinely supported',
+      '"Hold firmly to the rope of Allah all together and do not become divided" (Qur\'an 3:103) — collective unity is a divine command',
       'A community built on this foundation becomes a living proof of what Islam looks like in practice',
       'The bonds formed through shared work on land outlast the bonds of mere proximity',
     ],

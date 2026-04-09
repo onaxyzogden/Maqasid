@@ -1,6 +1,6 @@
 import { useSettingsStore } from '../../store/settings-store';
 import { MODULES } from '../../data/modules';
-import { getModuleData } from '../../data/islamic-data';
+import { getModuleData } from '@data/islamic/islamic-data';
 import DuaSection from './DuaSection';
 import './ResumeOverlay.css';
 

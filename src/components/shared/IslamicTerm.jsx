@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { getGlossaryEntry } from '../../data/islamic-glossary';
+import { getGlossaryEntry } from '@data/islamic/islamic-glossary';
 import './IslamicTerm.css';
 
 const TOOLTIP_W = 252;

@@ -4,8 +4,8 @@ import {
   genContactId, genCompanyId, genHRId, genAbsenceId,
   genClockInId, genSalaryId, genContactDocId,
 } from '../services/id';
-import { getAvatarColor, getDisplayName } from '../data/contact-config';
-import { PRESET_DEPARTMENTS } from '../data/people-departments';
+import { getAvatarColor, getDisplayName } from '@data/config/contact-config';
+import { PRESET_DEPARTMENTS } from '@data/config/people-departments';
 
 // ── Persistence helpers ──
 const p = (key, val) => safeSet(key, val);

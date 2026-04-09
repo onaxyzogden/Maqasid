@@ -4,15 +4,37 @@ import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine } from 'luci
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useAuthStore } from '../../store/auth-store';
+import { useProjectStore } from '../../store/project-store';
 import { useMobile } from '../../hooks/useMobile';
-import ClockInModal from '../people/ClockInModal';
+import ClockInModal from '../people/hr/ClockInModal';
 import './TopBar.css';
 
-function getBreadcrumb(pathname) {
+function getBreadcrumb(pathname, projects) {
   const parts = pathname.replace('/app', '').split('/').filter(Boolean);
   if (parts.length === 0) return 'Dashboard';
+
+  // Project route: /app/work/:projectId/...
+  if (parts[0] === 'work' && parts[1]) {
+    const project = projects?.find((p) => p.id === parts[1]);
+    if (project) return project.name;
+  }
+
+  // Pillar detail route: /app/faith-salah, /app/wealth-earning, etc.
   const labels = { work: 'Work', money: 'Money', people: 'People', office: 'Office', tech: 'Tech', settings: 'Settings' };
-  return labels[parts[0]] || parts[0];
+  const sub = parts[0];
+  if (labels[sub]) return labels[sub];
+
+  // Format hyphenated submodule names: 'faith-salah' → 'Faith — Salah'
+  if (sub.includes('-')) {
+    return sub.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' — ');
+  }
+
+  // Pillar route: /app/pillar/:pillarId
+  if (sub === 'pillar' && parts[1]) {
+    return parts[1].charAt(0).toUpperCase() + parts[1].slice(1);
+  }
+
+  return sub.charAt(0).toUpperCase() + sub.slice(1);
 }
 
 const WORK_TABS = [
@@ -42,6 +64,7 @@ export default function TopBar() {
   const setTheme = useSettingsStore((s) => s.setTheme);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const user = useAuthStore((s) => s.user);
+  const projects = useProjectStore((s) => s.projects);
   const setReflectionOpen = useAppStore((s) => s.setReflectionOpen);
   const [clockInOpen, setClockInOpen] = useState(false);
 
@@ -57,7 +80,7 @@ export default function TopBar() {
               <Menu size={20} />
             </button>
           )}
-          <span className="topbar-breadcrumb">{getBreadcrumb(location.pathname)}</span>
+          <span className="topbar-breadcrumb">{getBreadcrumb(location.pathname, projects)}</span>
         </div>
         {showWorkTabs && (
           <div className="topbar-center">

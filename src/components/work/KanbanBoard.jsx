@@ -10,12 +10,12 @@ import {
 } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useTaskStore } from '../../store/task-store';
-import { getTaskAccessLevel } from '../../data/bbos-role-access';
+import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
 import KanbanColumn from './KanbanColumn';
 import KanbanCard from './KanbanCard';
 import './KanbanBoard.css';
 
-export default function KanbanBoard({ project, onSelectTask, filters, bbosFilter, bbosRole }) {
+export default function KanbanBoard({ project, onSelectTask, selectedTaskId, filters, bbosFilter, bbosRole }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const getFilteredTasks = useTaskStore((s) => s.getFilteredTasks);
   const moveTask = useTaskStore((s) => s.moveTask);
@@ -115,6 +115,7 @@ export default function KanbanBoard({ project, onSelectTask, filters, bbosFilter
                 column={col}
                 tasks={colTasks}
                 onSelectTask={onSelectTask}
+                selectedTaskId={selectedTaskId}
                 onAddTask={() => handleAddTask(col.id)}
                 bbosRole={bbosRole}
               />

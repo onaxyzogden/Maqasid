@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { BookOpen, Plus, PenLine, KeyRound, ArrowUpCircle, Stars, Clock, Heart, Moon, Calculator, HandHeart, Landmark, Utensils, Brain, CalendarClock, Plane, Map, Building2, Shield, HeartPulse, Activity, Users, Eye, Siren, Handshake, Crown, ScrollText, DoorOpen } from 'lucide-react';
+import { Plus, ExternalLink, Trash2, KeyRound, ArrowUpCircle, Stars, Clock, Heart, Moon, Calculator, HandHeart, Landmark, Utensils, Brain, CalendarClock, Plane, Map, Building2, Shield, HeartPulse, Activity, Users, Eye, Siren, Handshake, Crown, ScrollText, DoorOpen, Link, BookOpen } from 'lucide-react';
 import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useModuleProgress } from '../../hooks/useModuleProgress';
-import { safeGet, safeSet } from '../../services/storage';
+import { safeGet, safeSet, safeGetJSON } from '../../services/storage';
 import ProjectBoard from './ProjectBoard';
 import './PillarBoard.css';
 
@@ -12,21 +12,8 @@ const TABS = [
   { key: 'core',       label: 'CORE',       color: '#C8A96E', type: 'board' },
   { key: 'growth',     label: 'GROWTH',     color: '#4ab8a8', type: 'board' },
   { key: 'excellence', label: 'EXCELLENCE', color: '#8b5cf6', type: 'board' },
-  { key: 'journal',    label: 'Journal',    color: '#e57c53', type: 'page' },
+  { key: 'resources',  label: 'Resources',  color: '#3b82f6', type: 'page' },
 ];
-
-/* ── Journal helpers ── */
-function getJournalKey(modulePrefix, pillarKey) {
-  return `bbiz_${modulePrefix}_journal_${pillarKey}`;
-}
-
-function loadEntries(modulePrefix, pillarKey) {
-  return safeGetJSON(getJournalKey(modulePrefix, pillarKey), []);
-}
-
-function saveEntries(modulePrefix, pillarKey, entries) {
-  safeSet(getJournalKey(modulePrefix, pillarKey), entries);
-}
 
 /* ── Icon map (data icon name → Lucide component) ── */
 const ICON_MAP = {
@@ -143,79 +130,107 @@ function PillarDashboardTab({ pillarName, pillarColor, pillarKey, dashboardData,
   );
 }
 
-/* ── Journal sub-page ── */
-function PillarJournalTab({ modulePrefix, pillarKey, pillarName }) {
-  const [entries, setEntries] = useState(() => loadEntries(modulePrefix, pillarKey));
-  const [draft, setDraft] = useState('');
+/* ── Resources sub-page ── */
+function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
+  const storageKey = `bbiz_${modulePrefix}_resources_${pillarKey}`;
+  const [resources, setResources] = useState(() => safeGetJSON(storageKey, []));
+  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState('');
+  const [note, setNote] = useState('');
 
-  const addEntry = () => {
-    if (!draft.trim()) return;
-    const entry = {
-      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      text: draft.trim(),
-      createdAt: new Date().toISOString(),
-    };
-    const updated = [entry, ...entries];
-    setEntries(updated);
-    saveEntries(modulePrefix, pillarKey, updated);
-    setDraft('');
+  const save = (updated) => {
+    setResources(updated);
+    safeSet(storageKey, updated);
   };
 
-  const removeEntry = (id) => {
-    const updated = entries.filter((e) => e.id !== id);
-    setEntries(updated);
-    saveEntries(modulePrefix, pillarKey, updated);
+  const addResource = () => {
+    if (!title.trim() || !url.trim()) return;
+    const resource = {
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      title: title.trim(),
+      url: url.trim(),
+      note: note.trim(),
+      createdAt: new Date().toISOString(),
+    };
+    save([resource, ...resources]);
+    setTitle('');
+    setUrl('');
+    setNote('');
+  };
+
+  const removeResource = (id) => {
+    save(resources.filter((r) => r.id !== id));
   };
 
   return (
-    <div className="faith-journal">
-      <div className="faith-journal__header">
-        <BookOpen size={20} style={{ color: 'var(--text2)' }} />
-        <h3 className="faith-journal__title">{pillarName} Journal</h3>
+    <div className="pillar-resources">
+      <div className="pillar-resources__header">
+        <Link size={20} style={{ color: 'var(--text2)' }} />
+        <h3 className="pillar-resources__title">{pillarName} Resources</h3>
       </div>
-      <p className="faith-journal__desc">
-        A space for personal reflection, intentions, and insights on your {pillarName.toLowerCase()} journey.
+      <p className="pillar-resources__desc">
+        Collect links, references, and materials related to your {pillarName.toLowerCase()} work.
       </p>
 
-      {/* Compose */}
-      <div className="faith-journal__compose">
-        <textarea
-          className="faith-journal__textarea"
-          placeholder="Write a reflection..."
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          onKeyDown={(e) => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) addEntry(); }}
-          rows={3}
+      {/* Add form */}
+      <div className="pillar-resources__form">
+        <input
+          className="pillar-resources__input"
+          placeholder="Resource title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
-        <button className="btn btn-primary faith-journal__add" onClick={addEntry} disabled={!draft.trim()}>
-          <Plus size={14} /> Add Entry
+        <input
+          className="pillar-resources__input"
+          placeholder="URL (https://...)"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <textarea
+          className="pillar-resources__textarea"
+          placeholder="Optional note..."
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          rows={2}
+        />
+        <button
+          className="btn btn-primary pillar-resources__add"
+          onClick={addResource}
+          disabled={!title.trim() || !url.trim()}
+        >
+          <Plus size={14} /> Add Resource
         </button>
       </div>
 
-      {/* Entries */}
-      {entries.length === 0 ? (
-        <div className="faith-journal__empty">
-          No journal entries yet. Start by writing a reflection above.
+      {/* Resource list */}
+      {resources.length === 0 ? (
+        <div className="pillar-resources__empty">
+          No resources yet. Add a link or reference above.
         </div>
       ) : (
-        <div className="faith-journal__list">
-          {entries.map((entry) => (
-            <div key={entry.id} className="faith-journal__entry">
-              <div className="faith-journal__entry-header">
-                <span className="faith-journal__entry-date">
-                  {new Date(entry.createdAt).toLocaleDateString(undefined, {
-                    weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-                  })}
-                </span>
-                <button
-                  className="faith-journal__entry-remove"
-                  onClick={() => removeEntry(entry.id)}
-                  title="Remove entry"
+        <div className="pillar-resources__list">
+          {resources.map((r) => (
+            <div key={r.id} className="pillar-resources__card">
+              <div className="pillar-resources__card-header">
+                <a
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pillar-resources__card-link"
                 >
-                  &times;
+                  <ExternalLink size={13} />
+                  {r.title}
+                </a>
+                <button
+                  className="pillar-resources__card-remove"
+                  onClick={() => removeResource(r.id)}
+                  title="Remove resource"
+                >
+                  <Trash2 size={13} />
                 </button>
               </div>
-              <p className="faith-journal__entry-text">{entry.text}</p>
+              {r.note && <p className="pillar-resources__card-note">{r.note}</p>}
+              <span className="pillar-resources__card-url">{r.url}</span>
             </div>
           ))}
         </div>
@@ -226,7 +241,7 @@ function PillarJournalTab({ modulePrefix, pillarKey, pillarName }) {
 
 /**
  * Generic tabbed pillar board used by Faith and Life submodule pages.
- * Renders: Dashboard | Core | Growth | Excellence | Journal
+ * Renders: Dashboard | Core | Growth | Excellence | Resources
  */
 export default function PillarBoard({ pillarKey, pillarName, pillarColor, modulePrefix, ensureProjects, dashboardData }) {
   const getProject = useProjectStore((s) => s.getProject);
@@ -291,8 +306,8 @@ export default function PillarBoard({ pillarKey, pillarName, pillarColor, module
         <PillarDashboardTab pillarName={pillarName} pillarColor={pillarColor} pillarKey={pillarKey} dashboardData={dashboardData} livePercent={livePercent} onSwitchTab={setActiveTab} />
       )}
 
-      {activeTab === 'journal' && (
-        <PillarJournalTab modulePrefix={modulePrefix} pillarKey={pillarKey} pillarName={pillarName} />
+      {activeTab === 'resources' && (
+        <PillarResourcesTab modulePrefix={modulePrefix} pillarKey={pillarKey} pillarName={pillarName} />
       )}
 
       {(activeTab === 'core' || activeTab === 'growth' || activeTab === 'excellence') && (

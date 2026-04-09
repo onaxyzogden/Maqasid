@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { SALARY_TYPES } from '../../../data/contact-config';
-import CollapsibleSection from '../CollapsibleSection';
+import { SALARY_TYPES } from '@data/config/contact-config';
+import CollapsibleSection from '../shared/CollapsibleSection';
 
 export default function SalaryTab({ contactId }) {
   const salaryRecords = useContactsStore((s) => s.salaryRecords);

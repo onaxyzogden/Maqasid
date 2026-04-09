@@ -11,6 +11,7 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | useKeyboard.js | Listens for Cmd+K (search), Cmd+I (Islamic panel), Escape; calls handler(e) |
 | useMobile.js | Tracks window width vs 768px breakpoint; returns boolean |
 | useModuleProgress.js | Aggregates task completion by moduleId; returns `{ total, completed, pct }` |
+| useDashboard.js | Utility module (not a hook): `getGreeting()` returns time-of-day string, `getMotivation()` returns day-indexed phrase, `BCG_RANGES` array defines chart range options |
 | usePrayerTimes.js | Fetches from Aladhan API (method 2); reverse geocodes via Nominatim; calculates active prayer window (5min before to 10min after); polls every 30s; caches to localStorage |
 
 ## Services

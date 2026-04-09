@@ -81,7 +81,7 @@ export const OVERVIEW = [
       'Obedience to the Messenger \uFDFA is obedience to Allah directly (4:80)',
       'Source of the purest character — the Prophet \uFDFA was described as "the walking Quran"',
       'Transforms knowledge into lived religion',
-      '"Leave what puts you in doubt for what does not" — a prophetic principle of certainty (Jami at-Tirmidhi 2518)',
+      '"Do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those one will be questioned." (Qur\'an 17:36)',
     ],
   },
 ];

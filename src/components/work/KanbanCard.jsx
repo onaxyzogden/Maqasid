@@ -3,7 +3,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { Calendar, CheckSquare } from 'lucide-react';
 import { PRIORITIES } from '../../data/modules';
 import GLabelBadge from '../shared/GLabelBadge';
-import { getTaskAccessLevel } from '../../data/bbos-role-access';
+import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
 
 function formatDate(dateStr) {
   if (!dateStr) return null;
@@ -17,7 +17,7 @@ function formatDate(dateStr) {
   return { text: d.toLocaleDateString('en', { month: 'short', day: 'numeric' }), color: 'var(--text3)', bg: 'var(--bg4)' };
 }
 
-export default function KanbanCard({ task, onClick, isDragOverlay = false, bbosRole }) {
+export default function KanbanCard({ task, onClick, isDragOverlay = false, bbosRole, isSelected = false, columnColor }) {
   const accessLevel = getTaskAccessLevel(bbosRole, task.bbosTaskType);
   const isViewOnly = accessLevel === 'V';
 
@@ -50,8 +50,9 @@ export default function KanbanCard({ task, onClick, isDragOverlay = false, bbosR
         borderLeft: priority ? `3px solid ${priority.color}` : undefined,
         opacity: isViewOnly ? 0.55 : undefined,
         cursor: isViewOnly ? 'default' : undefined,
+        background: columnColor ? `color-mix(in srgb, ${columnColor} 8%, var(--surface))` : undefined,
       }}
-      className={`kanban-card ${isDragging ? 'dragging' : ''} ${isDragOverlay ? 'drag-overlay' : ''}`}
+      className={`kanban-card ${isDragging ? 'dragging' : ''} ${isDragOverlay ? 'drag-overlay' : ''} ${isSelected ? 'kanban-card--selected' : ''}`}
       onClick={onClick}
       {...(isDragOverlay ? {} : { ...attributes, ...listeners })}
     >

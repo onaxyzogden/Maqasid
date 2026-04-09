@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, FileSpreadsheet, DollarSign, Pencil, Trash2, Send, Check, X, Receipt, Clock, Calendar, CreditCard } from 'lucide-react';
 import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/money-store';
-import { INVOICE_STATUSES, CURRENCIES } from '../../data/money-categories';
+import { INVOICE_STATUSES, CURRENCIES } from '@data/config/money-categories';
 import { genLineItemId } from '../../services/id';
 import './ExpenseList.css';
 

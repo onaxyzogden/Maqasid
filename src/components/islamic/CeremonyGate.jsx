@@ -3,7 +3,7 @@ import { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Spark
 import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { MODULES } from '../../data/modules';
-import { getStage } from '../../data/bbos-pipeline';
+import { getStage } from '@data/bbos/bbos-pipeline';
 import './CeremonyGate.css';
 
 const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Sparkles, Library, Lightbulb, Wrench, Heart, Baby, Handshake, Home, PiggyBank, Scale, Gift, Droplets, Recycle, TreeDeciduous, ShoppingBag, TreePine };

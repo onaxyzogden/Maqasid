@@ -67,6 +67,21 @@ Before any work begins, run this check silently:
 - Zero unnecessary context-switching required from Yousef
 - **Exception**: if the fix touches Islamic compliance or architectural decisions — pause and confirm before proceeding
 
+### 7. Discovery Protocol (Edit-Source Principle)
+
+When any session discovers a path, pattern, or architectural relationship through exploration:
+
+1. **Identify the discovery**: Did you spend more than 30 seconds locating a component, tracing a data flow, or understanding a naming pattern?
+2. **Codify immediately**: Update the nearest CONTEXT.md with the discovery:
+   - New file or export → add to File Inventory
+   - New data shape or field → add to Key Data Shapes
+   - New routing path → add to routing table
+   - New naming pattern → add to Naming Conventions
+3. **Right-size the update**: Push discoveries to the most specific CONTEXT.md (Layer 2/2.5), not the root CLAUDE.md. Keep CLAUDE.md under 50 lines.
+4. **Flag for review**: At session end, note any CONTEXT.md updates in the Session Debrief under "NotebookLM Update Needed".
+
+This converts high-token exploratory searches into low-token direct jumps for all future sessions.
+
 ---
 
 ## Task Management

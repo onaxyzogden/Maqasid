@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
-import { getBbosTaskDef, BBOS_VALIDATION_FLAG_LABELS } from '../../data/bbos-task-definitions';
-import { getStage } from '../../data/bbos-pipeline';
+import { getBbosTaskDef, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
+import { getStage } from '@data/bbos/bbos-pipeline';
+import { exportBbosProject, downloadJson, importBbosData } from '@services/bbos-export';
 import GLabelPicker from '../shared/GLabelPicker';
 import './BbosTaskPanel.css';
 
@@ -19,10 +20,13 @@ function formatDateTime(iso) {
 export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
   const mobile = useMobile();
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
-  const updateTask = useTaskStore((s) => s.updateTask);
-  const updateBbosFieldData = useTaskStore((s) => s.updateBbosFieldData);
-  const deleteTask = useTaskStore((s) => s.deleteTask);
+  const taskStore = useTaskStore();
+  const updateTask = taskStore.updateTask;
+  const updateBbosFieldData = taskStore.updateBbosFieldData;
+  const deleteTask = taskStore.deleteTask;
+  const moveTask = taskStore.moveTask;
   const user = useAuthStore((s) => s.user);
+  const fileInputRef = useRef(null);
 
   const [rationaleOpen, setRationaleOpen] = useState(false);
   const [localFields, setLocalFields] = useState({});
@@ -77,6 +81,31 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     }
   };
 
+  const handleExport = () => {
+    const tasks = taskStore.tasksByProject[projectId] || [];
+    const data = exportBbosProject(project, tasks);
+    downloadJson(data, `${project.name.replace(/\s+/g, '-').toLowerCase()}-bbos-export.json`);
+  };
+
+  const handleImport = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const json = JSON.parse(ev.target.result);
+        const result = importBbosData(json, projectId, taskStore);
+        alert(`Import complete: ${result.updated} updated, ${result.created} created`);
+        taskStore.loadTasks(projectId);
+      } catch (err) {
+        alert('Import failed: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
+  const columns = project?.columns || [];
   const stageColor = stage?.color || 'var(--accent)';
 
   const panel = (
@@ -106,6 +135,20 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
             )}
           </span>
         ))}
+      </div>
+
+      {/* ── Status dropdown ── */}
+      <div className="btp-status-row">
+        <span className="btp-section-label">Status</span>
+        <select
+          className="btp-field-select"
+          value={task.columnId}
+          onChange={(e) => moveTask(projectId, taskId, e.target.value)}
+        >
+          {columns.map((c) => (
+            <option key={c.id} value={c.id}>{c.name}</option>
+          ))}
+        </select>
       </div>
 
       <div className="btp-body">
@@ -178,15 +221,13 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         </div>
 
         {/* ── G-Label ── */}
-        {def.hasGLabel && (
-          <div className="btp-section btp-glabel-row">
-            <span className="btp-section-label">Integrity Label</span>
-            <GLabelPicker
-              value={task.gLabel || null}
-              onChange={handleGLabelChange}
-            />
-          </div>
-        )}
+        <div className="btp-section btp-glabel-row">
+          <span className="btp-section-label">Integrity Label</span>
+          <GLabelPicker
+            value={task.gLabel || null}
+            onChange={handleGLabelChange}
+          />
+        </div>
 
         <div className="btp-divider" />
 
@@ -257,6 +298,27 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
           {user?.name || 'You'} · {formatDateTime(task.createdAt)}
         </span>
         <div className="btp-footer-actions">
+          <button
+            className="btp-footer-btn"
+            onClick={handleExport}
+            title="Export BBOS data as JSON for LLM assistance"
+          >
+            <Download size={13} /> Export
+          </button>
+          <button
+            className="btp-footer-btn"
+            onClick={() => fileInputRef.current?.click()}
+            title="Import BBOS data from JSON"
+          >
+            <Upload size={13} /> Import
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json"
+            onChange={handleImport}
+            style={{ display: 'none' }}
+          />
           <button className="btp-footer-del" onClick={handleDelete}>Delete</button>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { useMobile } from '../../hooks/useMobile';
 import { useKeyboard } from '../../hooks/useKeyboard';
 import { useInactivity } from '../../hooks/useInactivity';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
-import { PRESENCE_CONFIG } from '../../data/islamic-data';
+import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import Sidebar from './Sidebar';
 import TopBar from './TopBar';
 import MobileNav from './MobileNav';

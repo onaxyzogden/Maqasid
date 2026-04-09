@@ -5,11 +5,11 @@ import { MODULES } from '../../data/modules';
 import {
   getModuleData, ONGOING_DUA, ISTIRJA, PAUSE_ACKNOWLEDGMENT,
   PAUSE_QUESTIONS, PAUSE_UNIVERSAL, DEFER_CONTENT, DEFER_UNIVERSAL,
-} from '../../data/islamic-data';
-import { lookupReadinessAyahByKey } from '../../data/readiness-ayat-router';
+} from '@data/islamic/islamic-data';
+import { lookupReadinessAyahByKey } from '@data/ayat/readiness-ayat-router';
 import { getPillarForModule } from '../../data/maqasid';
-import { getStage } from '../../data/bbos-pipeline';
-import { getBbosStageIslamic } from '../../data/bbos-stage-islamic';
+import { getStage } from '@data/bbos/bbos-pipeline';
+import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { useSettingsStore } from '../../store/settings-store';
 import AttributeCard from './AttributeCard';
 import DuaSection from './DuaSection';
@@ -71,20 +71,18 @@ export default function ThresholdModal({ type }) {
   const bbosStageData = bbosStageId ? getBbosStageIslamic(bbosStageId) : null;
 
   const mod = isBbosStage ? null : MODULES.find((m) => m.id === moduleId);
-  const data = isBbosStage ? bbosStageData : getModuleData(moduleId, valuesLayer);
+  const rawData = isBbosStage ? bbosStageData : getModuleData(moduleId, valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
   const accentColor = 'var(--accent)';
 
-  // ── Pillar fallback for readiness rows ──────────────────────────────────────
-  // If the module has its own rows, use them.
-  // Otherwise fall back to pillar-level rows (e.g. opening a faith sub-module).
-  // For BBOS stages, use the 'work' module's pillar.
+  // ── Pillar fallback — sub-modules (e.g. faith-zakah) fall back to pillar data ─
+  // MODULE_ATTRS only has pillar-level keys (faith, life, etc.), not sub-module keys.
+  // rawData is null for sub-modules; pillarData provides the fallback for all steps.
   const pillar = isBbosStage ? getPillarForModule('work') : getPillarForModule(moduleId);
   const pillarData = pillar ? getModuleData(pillar.id, valuesLayer) : null;
-  const readinessRows = data?.readiness?.rows ?? pillarData?.readiness?.rows ?? [];
-  const effectiveReadinessData = readinessRows.length > 0
-    ? (data?.readiness?.rows ? data.readiness : pillarData?.readiness)
-    : data?.readiness;
+  const data = rawData ?? pillarData;
+  const readinessRows = data?.readiness?.rows ?? [];
+  const effectiveReadinessData = data?.readiness;
 
   // Is this module using interactive readiness? (has rows)
   const hasInteractiveReadiness = isOpening && readinessRows.length > 0;

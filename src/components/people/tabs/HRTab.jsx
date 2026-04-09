@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { EMPLOYMENT_TYPES } from '../../../data/contact-config';
+import { EMPLOYMENT_TYPES } from '@data/config/contact-config';
 import { differenceInYears, differenceInDays, parseISO, isValid } from 'date-fns';
 
 function StatItem({ value, label }) {

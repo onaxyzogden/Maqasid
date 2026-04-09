@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Obsidian vault config (personal)
+.obsidian/
+
+# Human-side notes (personal, not shared)
+notes/
+
+# graphify temp files
+.graphify_*.json
+.graphify_*.txt
+.graphify_python
+
+# graphify generated Obsidian vault (929 generated notes, rebuild with /graphify --obsidian)
+graphify-out/obsidian/
