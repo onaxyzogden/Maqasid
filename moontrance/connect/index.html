@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Begin a Conversation — Moontrance</title>
+<meta name="description" content="Whether you want to visit, participate in a season, or stay close as the vision unfolds — tell us where you are.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --char:       #0e0c09;
+  --char-warm:  #131008;
+  --parchment:  #f0ebe0;
+  --bone:       #cfc9b8;
+  --dust:       #7a7060;
+  --faint:      rgba(240,235,224,0.38);
+  --moss:       #4a5f42;
+  --moss-lt:    #5a7250;
+  --moss-muted: #3a4a35;
+  --moss-dim:   rgba(74,95,66,0.12);
+  --moss-line:  rgba(74,95,66,0.28);
+  --field-bg:   rgba(240,235,224,0.04);
+  --field-bdr:  rgba(240,235,224,0.1);
+  --field-focus:rgba(74,95,66,0.45);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --mono:  'DM Mono', monospace;
+  --sans:  'Instrument Sans', system-ui, sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:18px;}
+body{
+  background:var(--char);
+  color:var(--parchment);
+  font-family:var(--sans);
+  line-height:1.6;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse 75% 55% at 20% 15%, rgba(74,95,66,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 75%, rgba(74,95,66,0.04) 0%, transparent 50%);
+}
+body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.45;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");}
+
+.skip-nav{position:absolute;top:-999px;left:1rem;z-index:9999;background:var(--parchment);color:var(--char);padding:.5rem 1rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-decoration:none;border-radius:2px;}
+.skip-nav:focus{top:.75rem;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+:focus-visible{outline:1.5px solid var(--moss-lt);outline-offset:4px;border-radius:2px;}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:44px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(14,12,9,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(240,235,224,.05);}
+.nav-id{display:flex;align-items:center;gap:.5rem;}
+.nav-mark{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dust);}
+.nav-sep{color:rgba(240,235,224,.2);font-size:.75rem;}
+.nav-prod{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(74,95,66,.65);}
+.nav-back{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dust);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.35rem;}
+.nav-back:hover{color:var(--moss-lt);}
+
+/* ── WRAPPER ── */
+.wrapper{max-width:620px;margin:0 auto;padding:calc(44px + 6rem) 2rem 8rem;position:relative;z-index:1;}
+
+/* ── OPENING ── */
+.opening{margin-bottom:5rem;text-align:center;}
+.opening-dua{margin-bottom:2rem;opacity:0;animation:rise .7s ease .05s forwards;}
+.dua-arabic{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--moss-lt);direction:rtl;text-align:right;line-height:2.1;margin-bottom:.35rem;}
+.dua-trans{display:block;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--bone);line-height:1.7;margin-bottom:.25rem;text-align:right;}
+.dua-source{display:block;font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust);text-align:right;}
+.opening-rule{width:1px;height:48px;background:linear-gradient(to bottom,transparent,rgba(74,95,66,.35),transparent);margin:0 auto 2rem;opacity:0;animation:fadeIn .8s ease .25s forwards;}
+.opening-stamp{display:inline-block;font-family:var(--mono);font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(74,95,66,.55);border:1px solid var(--moss-line);padding:.3rem .8rem;border-radius:2px;margin-bottom:2.5rem;opacity:0;animation:rise .7s ease .3s forwards;}
+.opening-h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.12;color:var(--parchment);margin-bottom:1.25rem;opacity:0;animation:rise .8s ease .42s forwards;}
+.opening-h1 em{font-style:italic;color:var(--moss-lt);}
+.opening-sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--bone);line-height:1.8;max-width:460px;margin:0 auto;opacity:0;animation:rise .8s ease .54s forwards;}
+
+/* ── FORM CONVERSATION ── */
+.block{margin:4.5rem 0;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.block.in{opacity:1;transform:translateY(0);}
+
+.q-num{font-family:var(--mono);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(74,95,66,.5);margin-bottom:.55rem;display:block;}
+.q-label{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--parchment);line-height:1.3;margin-bottom:.25rem;}
+.q-sub{font-family:var(--serif);font-style:italic;font-size:.88rem;color:var(--dust);line-height:1.65;margin-bottom:1.1rem;display:block;}
+
+/* underline fields */
+.field{width:100%;background:transparent;border:none;border-bottom:1px solid var(--field-bdr);padding:.7rem .1rem;font-family:var(--sans);font-size:.95rem;color:var(--parchment);line-height:1.5;transition:border-color .25s;border-radius:0;appearance:none;-webkit-appearance:none;}
+.field::placeholder{color:rgba(240,235,224,.18);}
+.field:focus{outline:none;border-bottom-color:var(--moss-lt);}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+
+/* boxed textarea */
+.field-ta{resize:none;min-height:105px;background:rgba(240,235,224,.03);border:1px solid var(--field-bdr);border-radius:2px;padding:.8rem .9rem;transition:border-color .25s;}
+.field-ta:focus{border-color:rgba(74,95,66,.45);}
+
+/* path selector */
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.25rem;}
+.path-btn{padding:1rem .75rem;background:transparent;border:1px solid var(--field-bdr);border-radius:3px;cursor:pointer;text-align:center;transition:background .2s,border-color .2s;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.path-btn:hover{background:var(--moss-dim);border-color:var(--moss-line);}
+.path-btn.selected{background:var(--moss-dim);border-color:var(--moss-lt);}
+.path-btn-symbol{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--moss-lt);opacity:.7;}
+.path-btn-label{font-family:var(--serif);font-size:1rem;color:var(--parchment);}
+.path-btn-sub{font-family:var(--serif);font-style:italic;font-size:.75rem;color:var(--dust);line-height:1.5;}
+.path-btn.selected .path-btn-symbol{opacity:1;}
+.path-btn.selected .path-btn-label{color:#fff;}
+
+/* stage selector */
+.field-select{background:transparent;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%237a7060'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .2rem center;cursor:pointer;}
+.field-select option{background:#131008;color:var(--parchment);}
+
+/* ── DIVIDER ── */
+.hr{width:1px;height:48px;background:linear-gradient(to bottom,transparent,rgba(74,95,66,.28),transparent);margin:0 auto;}
+
+/* ── INTEGRITY NOTE ── */
+.integrity{margin:4rem 0;padding:1.5rem 0;border-top:1px solid rgba(240,235,224,.06);border-bottom:1px solid rgba(240,235,224,.06);opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.integrity.in{opacity:1;transform:translateY(0);}
+.integrity-text{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--dust);line-height:1.85;text-align:center;}
+
+/* ── WHAT HAPPENS ── */
+.what-happens{margin:3.5rem 0;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.what-happens.in{opacity:1;transform:translateY(0);}
+.wh-label{font-family:var(--mono);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(74,95,66,.5);margin-bottom:1.1rem;display:block;}
+.wh-list{list-style:none;}
+.wh-list li{display:grid;grid-template-columns:1.5rem 1fr;gap:.6rem;padding:.6rem 0;border-bottom:1px solid rgba(240,235,224,.05);font-size:.875rem;color:var(--faint);line-height:1.65;}
+.wh-list li:last-child{border-bottom:none;}
+.wh-list li::before{content:'—';font-family:var(--mono);font-size:.75rem;color:rgba(74,95,66,.45);padding-top:.15rem;}
+
+/* ── SUBMIT ── */
+.submit-wrap{margin-top:3.5rem;text-align:center;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.submit-wrap.in{opacity:1;transform:translateY(0);}
+.submit-btn{display:inline-flex;align-items:center;gap:.85rem;padding:1.1rem 3rem;background:transparent;border:1px solid var(--moss-line);border-radius:2px;font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--moss-lt);cursor:pointer;transition:background .3s,border-color .3s,color .3s,letter-spacing .3s;}
+.submit-btn:hover{background:rgba(74,95,66,.1);border-color:rgba(74,95,66,.6);color:var(--parchment);letter-spacing:.24em;}
+.submit-btn:disabled{opacity:.4;cursor:not-allowed;letter-spacing:.2em;}
+.submit-note{margin-top:1.25rem;font-family:var(--serif);font-style:italic;font-size:.875rem;color:var(--dust);line-height:1.6;}
+
+/* ── SUCCESS ── */
+.success{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:55vh;padding:4rem 1rem;}
+.success-mark{font-family:var(--mono);font-size:1.1rem;color:rgba(74,95,66,.6);margin-bottom:2rem;display:block;}
+.success-h{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);color:var(--parchment);line-height:1.15;margin-bottom:1.2rem;}
+.success-h em{font-style:italic;color:var(--moss-lt);}
+.success-body{font-size:.9rem;color:var(--faint);line-height:1.85;max-width:420px;margin-bottom:2.5rem;}
+.success-dua{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--dust);border-top:1px solid rgba(240,235,224,.06);padding-top:2rem;max-width:440px;line-height:1.8;}
+.success-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:2rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(74,95,66,.55);text-decoration:none;border-bottom:1px solid rgba(74,95,66,.2);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.success-link:hover{color:var(--moss-lt);border-color:rgba(74,95,66,.5);}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid rgba(240,235,224,.04);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;position:relative;z-index:1;}
+.ft-mark{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,235,224,.22);}
+.ft-line{font-family:var(--serif);font-style:italic;font-size:.875rem;color:rgba(240,235,224,.22);}
+
+/* ── ANIMATIONS ── */
+@keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+@media(max-width:600px){
+  .wrapper{padding:calc(44px + 4rem) 1.25rem 6rem;}
+  .field-row{grid-template-columns:1fr;gap:1.25rem;}
+  .path-grid{grid-template-columns:1fr;}
+  .dua-arabic{font-size:1.3rem;}
+  .dua-trans,.dua-source{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+  .block,.integrity,.what-happens,.submit-wrap{opacity:1;transform:none;}
+}
+
+@keyframes body-in{from{opacity:0}to{opacity:1}}
+body{animation:body-in .55s ease .05s both;}
+
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.25rem;}
+.choice-btn{padding:.85rem 1rem;background:transparent;border:1px solid var(--field-bdr);border-radius:3px;cursor:pointer;text-align:left;transition:background .2s,border-color .2s;font-family:var(--sans);font-size:.875rem;color:rgba(240,235,224,.6);line-height:1.4;}
+.choice-btn:hover{background:var(--moss-dim);border-color:var(--moss-line);color:var(--parchment);}
+.choice-btn.selected{background:var(--moss-dim);border-color:var(--moss-lt);color:var(--parchment);}
+</style>
+</head>
+<body>
+
+<a class="skip-nav" href="#main-content">Skip to main content</a>
+
+<header>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-id">
+      <span class="nav-mark">OGDEN</span>
+      <span class="nav-sep" aria-hidden="true">·</span>
+      <span class="nav-prod">Moontrance</span>
+    </div>
+    <a href="/moontrance/" class="nav-back">← Moontrance</a>
+  </nav>
+</header>
+
+<main id="main-content">
+<div class="wrapper">
+
+  <!-- OPENING -->
+  <div class="opening">
+    <div class="opening-dua" role="note">
+      <span class="dua-arabic" lang="ar" dir="rtl">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</span>
+      <span class="dua-trans">&ldquo;Our Lord, grant us from among our spouses and offspring the comfort of our eyes, and make us a leader for the righteous.&rdquo;</span>
+      <span class="dua-source">Surah Al-Furq&amacr;n &middot; 25:74</span>
+    </div>
+    <div class="opening-rule" aria-hidden="true"></div>
+    <span class="opening-stamp">&#9700; &nbsp; Begin a Conversation</span>
+    <h1 class="opening-h1">Something is<br>calling you <em>here.</em></h1>
+    <p class="opening-sub">
+      Tell us what it is — and where you are.
+      We read every submission personally and respond the same way.
+    </p>
+  </div>
+
+  <form id="mt-form" novalidate autocomplete="off">
+
+    <!-- Q1 — Name -->
+    <div class="block" id="b1">
+      <span class="q-num">01</span>
+      <h2 class="q-label">Who are you?</h2>
+      <span class="q-sub">Your name — the one you&rsquo;d use in a real conversation.</span>
+      <div class="field-row">
+        <div>
+          <label for="fname" style="font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dust);display:block;margin-bottom:.5rem;">First name <span style="color:rgba(74,95,66,.6);">*</span></label>
+          <input type="text" id="fname" name="fname" class="field" placeholder="Mariam" autocomplete="off" required>
+        </div>
+        <div>
+          <label for="lname" style="font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dust);display:block;margin-bottom:.5rem;">Last name</label>
+          <input type="text" id="lname" name="lname" class="field" placeholder="Al-Rashid" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 — Email -->
+    <div class="block" id="b2">
+      <span class="q-num">02</span>
+      <h2 class="q-label">Where should we reach you?</h2>
+      <span class="q-sub">We respond personally — not with a sequence.</span>
+      <label for="email" class="sr-only">Email address</label>
+      <input type="text" name="_trap" style="display:none;position:absolute;left:-9999px;" tabindex="-1" aria-hidden="true" aria-label="Leave this field empty" autocomplete="off">
+      <input type="text" id="email" name="email" class="field" placeholder="you@yourdomain.com" autocomplete="off" inputmode="email" required>
+    </div>
+
+    <div class="hr" aria-hidden="true"></div>
+
+    <!-- Q3 — What's calling you -->
+    <div class="block" id="b3">
+      <span class="q-num">03</span>
+      <h2 class="q-label">What is calling you?</h2>
+      <span class="q-sub">Choose the one that feels closest to true — you can tell us more below.</span>
+      <div class="path-grid" role="group" aria-label="Choose your path">
+        <button type="button" class="path-btn" data-path="collective" aria-pressed="false">
+          <span class="path-btn-symbol">&#9700;</span>
+          <span class="path-btn-label">The Collective</span>
+          <span class="path-btn-sub">I want to visit, attend, or experience the land</span>
+        </button>
+        <button type="button" class="path-btn" data-path="community" aria-pressed="false">
+          <span class="path-btn-symbol">&#9700;</span>
+          <span class="path-btn-label">The Community</span>
+          <span class="path-btn-sub">Something about the intentional community is pulling at me</span>
+        </button>
+        <button type="button" class="path-btn" data-path="other" aria-pressed="false">
+          <span class="path-btn-symbol">&#9700;</span>
+          <span class="path-btn-label">Something else</span>
+          <span class="path-btn-sub">I want to invest, partner, or I&rsquo;m not sure yet</span>
+        </button>
+      </div>
+      <input type="hidden" id="path-value" name="path" value="">
+    </div>
+
+    <!-- Q4 — Where you are -->
+    <div class="block" id="b4">
+      <span class="q-num">04</span>
+      <h2 class="q-label">Where are you right now?</h2>
+      <span class="q-sub">Select all that apply.</span>
+      <div class="choice-grid" role="group" aria-label="Where you are right now">
+        <button type="button" class="choice-btn" data-stage="exploring" aria-pressed="false">I&rsquo;m exploring &mdash; something about this resonates</button>
+        <button type="button" class="choice-btn" data-stage="ready" aria-pressed="false">I&rsquo;m ready &mdash; I want a concrete next step</button>
+        <button type="button" class="choice-btn" data-stage="family" aria-pressed="false">I&rsquo;m thinking about what this means for my family</button>
+        <button type="button" class="choice-btn" data-stage="founding" aria-pressed="false">I want to be part of building this from the beginning</button>
+        <button type="button" class="choice-btn" data-stage="invest" aria-pressed="false">I&rsquo;m interested in investing or partnering</button>
+        <button type="button" class="choice-btn" data-stage="unsure" aria-pressed="false">I&rsquo;m not sure &mdash; something just brought me here</button>
+      </div>
+      <input type="hidden" id="stage-value" name="stage" value="">
+    </div>
+
+    <!-- Q5 — What's pulling you -->
+    <div class="block" id="b5">
+      <span class="q-num">05</span>
+      <h2 class="q-label">What brought you here?</h2>
+      <span class="q-sub">A line from the page, a feeling, a season of life — whatever is true. This one is optional but we read it closely.</span>
+      <label for="what_pulled" class="sr-only">What brought you here</label>
+      <textarea id="what_pulled" name="what_pulled" class="field field-ta" placeholder="Whatever it is — we&rsquo;re genuinely glad you&rsquo;re here."></textarea>
+    </div>
+
+    <!-- Q6 — Family -->
+    <div class="block" id="b6">
+      <span class="q-num">06</span>
+      <h2 class="q-label">Are you coming with family?</h2>
+      <span class="q-sub">Select all that apply &mdash; helps us understand what this conversation might look like.</span>
+      <div class="choice-grid" role="group" aria-label="Family situation">
+        <button type="button" class="choice-btn" data-family="solo" aria-pressed="false">Just me for now</button>
+        <button type="button" class="choice-btn" data-family="partner" aria-pressed="false">Me and my partner</button>
+        <button type="button" class="choice-btn" data-family="young_children" aria-pressed="false">With young children</button>
+        <button type="button" class="choice-btn" data-family="older_children" aria-pressed="false">With older children or teenagers</button>
+        <button type="button" class="choice-btn" data-family="extended" aria-pressed="false">Extended family or a group</button>
+        <button type="button" class="choice-btn" data-family="unsure" aria-pressed="false">Not sure yet</button>
+      </div>
+      <input type="hidden" id="family-value" name="family" value="">
+    </div>
+
+    <!-- INTEGRITY NOTE -->
+    <div class="integrity" id="integrity-block">
+      <p class="integrity-text">
+        There is no wrong answer here.<br>
+        You do not need to know exactly what you want.<br>
+        You only need to have felt something worth following.
+      </p>
+    </div>
+
+    <!-- WHAT HAPPENS -->
+    <div class="what-happens" id="what-block">
+      <span class="wh-label">What happens after you submit</span>
+      <ul class="wh-list">
+        <li>A member of the Moontrance team reads your submission personally</li>
+        <li>We respond within a few days with something real — not an automated sequence</li>
+        <li>If you chose The Collective, we&rsquo;ll share what&rsquo;s available and when</li>
+        <li>If you chose The Community, we&rsquo;ll have a longer conversation about seasonal participation</li>
+        <li>If you&rsquo;re not sure — that&rsquo;s completely fine. We&rsquo;ll find out together.</li>
+      </ul>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-wrap" id="submit-wrap">
+      <button type="submit" class="submit-btn" id="submit-btn">
+        &#9700; &nbsp; Begin the Conversation
+        <span aria-hidden="true">&rarr;</span>
+      </button>
+      <p class="submit-note">We&rsquo;re genuinely glad you&rsquo;re here.</p>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div class="success" id="success-state" role="status" aria-live="polite">
+    <span class="success-mark">&#9700;</span>
+    <h2 class="success-h">Received.<br><em>We&rsquo;ll be in touch.</em></h2>
+    <p class="success-body">
+      A member of the team will read what you&rsquo;ve shared and respond personally.
+      Give us a few days. In the meantime &mdash; the land is being searched for,
+      the vision is ready, and you are already part of what this becomes.
+    </p>
+    <p class="success-dua">
+      &ldquo;Our Lord, grant us from among our spouses and offspring
+      the comfort of our eyes, and make us a leader for the righteous.&rdquo;<br>
+      <span style="font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:.5rem;color:rgba(74,95,66,.5);">Al-Furq&amacr;n 25:74</span>
+    </p>
+    <a href="/moontrance/" class="success-link">
+      Back to Moontrance <span aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <div class="ft-mark">&#9700; &nbsp; Moontrance &mdash; OGDEN</div>
+  <div class="ft-line">Faith. Land. Creation. Ontario.</div>
+  <div class="ft-mark">hub.ogden.ag</div>
+</footer>
+
+<script>
+// ── PATH SELECTION ──
+const pathBtns = document.querySelectorAll('.path-btn');
+const pathValue = document.getElementById('path-value');
+
+function updatePathValue() {
+  const selected = [...pathBtns].filter(b => b.classList.contains('selected')).map(b => b.dataset.path);
+  pathValue.value = selected.join(',');
+}
+pathBtns.forEach(btn => {
+  function toggle() {
+    const isSelected = btn.classList.contains('selected');
+    btn.classList.toggle('selected', !isSelected);
+    btn.setAttribute('aria-pressed', String(!isSelected));
+    updatePathValue();
+  }
+  btn.addEventListener('click', toggle);
+  btn.addEventListener('touchend', e => { e.preventDefault(); toggle(); }, { passive: false });
+});
+
+// ── SCROLL REVEALS ──
+const revealEls = [
+  ...document.querySelectorAll('.block'),
+  document.getElementById('integrity-block'),
+  document.getElementById('what-block'),
+  document.getElementById('submit-wrap'),
+];
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => { if (el) obs.observe(el); });
+
+// ── CHOICE GRIDS (stage + family) ──
+function wireChoiceGrid(selector, hiddenId) {
+  const btns = document.querySelectorAll(selector);
+  const hidden = document.getElementById(hiddenId);
+  function updateHidden() {
+    hidden.value = [...btns].filter(b => b.classList.contains('selected')).map(b => b.dataset[Object.keys(b.dataset)[0]]).join(',');
+  }
+  btns.forEach(btn => {
+    function toggle() {
+      btn.classList.toggle('selected');
+      btn.setAttribute('aria-pressed', String(btn.classList.contains('selected')));
+      updateHidden();
+    }
+    btn.addEventListener('click', toggle);
+    btn.addEventListener('touchend', e => { e.preventDefault(); toggle(); }, { passive: false });
+  });
+}
+wireChoiceGrid('[data-stage]', 'stage-value');
+wireChoiceGrid('[data-family]', 'family-value');
+
+// ── FORM SUBMISSION ──
+const form      = document.getElementById('mt-form');
+const submitBtn = document.getElementById('submit-btn');
+const successEl = document.getElementById('success-state');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const stage = document.getElementById('stage-value').value;
+
+  // Focus first empty required field
+  if (!fname) { document.getElementById('fname').focus(); return; }
+  if (!email) { document.getElementById('email').focus(); return; }
+  // stage is optional multi-select, no hard validation
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span style="opacity:.6;letter-spacing:.2em;font-size:.78rem;font-family:var(--mono);">Sending&hellip;</span>';
+
+  const payload = {
+    _source:     'Moontrance',
+    fname,
+    lname:       document.getElementById('lname').value.trim(),
+    email,
+    path:        pathValue.value,
+    stage:       document.getElementById('stage-value').value,
+    what_pulled: document.getElementById('what_pulled').value.trim(),
+    family:      document.getElementById('family-value').value,
+  };
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycby009FtnfFP43wcbCw0BA8vkvL6qyOokrrOx3XqNvkZxaAqw1BmmvtJQqsvLvObFr6v/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors'
+    });
+  } catch(_) {}
+
+  // Fade out form, show success
+  form.style.transition = 'opacity .4s ease';
+  form.style.opacity = '0';
+  setTimeout(() => {
+    form.style.display = 'none';
+    successEl.style.display = 'flex';
+    successEl.style.opacity = '0';
+    successEl.style.transition = 'opacity .5s ease';
+    requestAnimationFrame(() => requestAnimationFrame(() => { successEl.style.opacity = '1'; }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    successEl.focus();
+  }, 420);
+});
+
+// ── NAV BACK ──
+document.querySelector('.nav-back')?.addEventListener('touchend', e => {
+  e.preventDefault(); window.location.href = '/moontrance/';
+}, { passive: false });
+
+// ── EXIT FADE ──
+document.addEventListener('click', function(e) {
+  var a = e.target.closest('a');
+  if (!a) return;
+  var href = a.getAttribute('href');
+  if (!href || href.startsWith('http') || href.startsWith('//') || href.startsWith('#') || href.startsWith('mailto') || a.target === '_blank') return;
+  e.preventDefault();
+  document.body.style.transition = 'opacity 0.25s ease';
+  document.body.style.opacity = '0';
+  setTimeout(() => { window.location.href = href; }, 260);
+});
+window.addEventListener('pageshow', e => {
+  if (e.persisted) { document.body.style.transition = 'none'; document.body.style.opacity = '1'; }
+});
+</script>
+</body>
+</html>
