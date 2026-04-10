@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Kanban, List, GanttChart, GripVertical } from 'lucide-react';
+import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, PanelLeftClose, PanelLeft } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
+import DashboardView from './DashboardView';
 import KanbanBoard from './KanbanBoard';
 import ListView from './ListView';
 import GanttView from './GanttView';
 import TaskDetailPanel from './TaskDetailPanel';
 import FilterBar from './FilterBar';
 import BbosPipelineHeader from '../bbos/BbosPipelineHeader';
+import StageSidebar from './StageSidebar';
 
 /**
  * Reusable board component that renders the full Kanban/List/Gantt experience
@@ -19,10 +21,11 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   const filters = useAppStore((s) => s.filters[projectId]);
   const setActiveBbosStage = useAppStore((s) => s.setActiveBbosStage);
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
-  const [view, setView] = useState(project?.defaultView || 'board');
+  const [view, setView] = useState(project?.defaultView || 'dashboard');
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [draggable, setDraggable] = useState(false);
   const [bbosFilter, setBbosFilter] = useState(project?.bbosStage || 'FND');
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
     if (projectId) loadTasks(projectId);
@@ -46,10 +49,44 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
       {/* View toggle + BBOS actions */}
       <div style={{
-        display: 'flex', justifyContent: 'flex-end', alignItems: 'center',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 'var(--space-3)', marginBottom: 'var(--space-2)', flexShrink: 0,
       }}>
+        {/* Left: sidebar toggle (BBOS only) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
+          {isBbos && (
+            <button
+              onClick={() => setSidebarOpen((o) => !o)}
+              className="btn btn-ghost"
+              style={{
+                padding: 'var(--space-1) var(--space-2)', fontSize: '0.85rem',
+                borderRadius: 'var(--radius-sm)',
+                background: sidebarOpen ? 'var(--primary-bg)' : 'transparent',
+                color: sidebarOpen ? 'var(--primary)' : 'var(--text3)',
+                border: sidebarOpen ? '1px solid var(--primary-border)' : '1px solid var(--border)',
+              }}
+              title={sidebarOpen ? 'Hide stage tasks' : 'Show stage tasks'}
+            >
+              {sidebarOpen ? <PanelLeftClose size={14} /> : <PanelLeft size={14} />}
+            </button>
+          )}
+        </div>
+        {/* Right: view switcher + drag toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
         <div style={{ display: 'flex', gap: 'var(--space-1)', background: 'var(--bg3)', borderRadius: 'var(--radius)', padding: 2 }}>
+          <button
+            onClick={() => setView('dashboard')}
+            className="btn btn-ghost"
+            style={{
+              padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
+              borderRadius: 'var(--radius-sm)',
+              background: view === 'dashboard' ? 'var(--surface)' : 'transparent',
+              boxShadow: view === 'dashboard' ? 'var(--shadow-xs)' : 'none',
+              color: view === 'dashboard' ? 'var(--text)' : 'var(--text2)',
+            }}
+          >
+            <LayoutDashboard size={14} /> Dashboard
+          </button>
           <button
             onClick={() => setView('board')}
             className="btn btn-ghost"
@@ -106,6 +143,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
             <GripVertical size={14} />
           </button>
         )}
+        </div>
       </div>
 
       {/* BBOS Pipeline Header — stage filter */}
@@ -126,8 +164,19 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
 
       {/* Content */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
+        {isBbos && sidebarOpen && view === 'dashboard' && (
+          <StageSidebar
+            projectId={projectId}
+            project={project}
+            stageId={bbosFilter}
+            selectedTaskId={selectedTaskId}
+            onSelectTask={setSelectedTaskId}
+          />
+        )}
         <div style={{ flex: 1, minWidth: 0 }}>
-          {view === 'board' ? (
+          {view === 'dashboard' ? (
+            <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} />
+          ) : view === 'board' ? (
             <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
           ) : view === 'gantt' ? (
             <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />

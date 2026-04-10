@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: var(--space-4);
   max-width: 1200px;
+  overflow-x: hidden;
 }
 
 /* ── Niyyah focus row ── */
@@ -666,13 +667,23 @@
 }
 
 @media (max-width: 600px) {
+  .insight-pillars {
+    grid-template-columns: 1fr 1fr;
+  }
   .insight-greeting {
     flex-direction: column;
     align-items: flex-start;
   }
+  .insight-greeting__text {
+    min-width: 0;
+  }
   .insight-greeting__actions {
     margin-left: 0;
     flex-wrap: wrap;
+  }
+  .insight-action-btn {
+    font-size: 0.72rem;
+    padding: var(--space-2) var(--space-3);
   }
   .insight-stat-cards {
     grid-template-columns: repeat(2, 1fr);

@@ -15,7 +15,7 @@ export default function ListView({ project, onSelectTask, filters }) {
 
   const grouped = project.columns.map((col) => ({
     column: col,
-    tasks: tasks.filter((t) => t.columnId === col.id).sort((a, b) => a.order - b.order),
+    tasks: tasks.filter((t) => t.columnId === col.id).sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order)),
   }));
 
   return (

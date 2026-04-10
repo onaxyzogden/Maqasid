@@ -406,7 +406,7 @@ export default function ThresholdModal({ type }) {
               {currentStepName === 'Pause' ? (
                 <>
                   <button className="thr-btn thr-btn-ghost" onClick={defer}>Defer to Later</button>
-                  <div style={{ flex: 1 }} />
+                  <div className="thr-footer-spacer" />
                   <button className="thr-btn thr-btn-primary" onClick={returnToReadiness}>I'm Ready Now</button>
                 </>
               ) : (
@@ -452,7 +452,7 @@ export default function ThresholdModal({ type }) {
                     );
                   })()}
 
-                  <div style={{ flex: 1 }} />
+                  <div className="thr-footer-spacer" />
                   {currentStepName === 'Confirm' ? (
                     <button className="thr-btn thr-btn-primary thr-btn-confirm" onClick={complete} disabled={!confirmed} style={{ opacity: confirmed ? 1 : 0.4 }}>
                       <Check size={16} /> {isOpening ? 'Begin Module' : 'Complete Session'}

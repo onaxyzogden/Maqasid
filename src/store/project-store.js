@@ -122,9 +122,9 @@ function backfillBbosOrder() {
     if (tasks.length === 0) return;
     let changed = false;
     const updated = tasks.map((t) => {
-      if (t.seedOrder !== undefined) return t;
       const idx = bbosIndexMap[t.bbosTaskType];
       if (idx === undefined) return t;
+      if (t.seedOrder === idx) return t;
       changed = true;
       return { ...t, seedOrder: idx };
     });
@@ -301,8 +301,19 @@ function migrateRemoveReviewColumn(projects) {
   return migrated;
 }
 
+// Set defaultView to 'dashboard' for all projects that still have 'board'
+function migrateDefaultViewToDashboard(projects) {
+  let changed = false;
+  const migrated = projects.map((p) => {
+    if (p.defaultView === 'board') { changed = true; return { ...p, defaultView: 'dashboard' }; }
+    return p;
+  });
+  if (changed) safeSet('projects', migrated);
+  return migrated;
+}
+
 export const useProjectStore = create((set, get) => ({
-  projects: migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', []))),
+  projects: migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', [])))),
 
   createProject: ({ name, description = '', color, icon = 'Folder', moduleId = null, bbosEnabled = false }) => {
     const columns = DEFAULT_COLUMNS.map((col) => ({
@@ -319,7 +330,7 @@ export const useProjectStore = create((set, get) => ({
       icon: bbosEnabled ? 'Workflow' : icon,
       moduleId,
       columns,
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
@@ -477,7 +488,7 @@ export const useProjectStore = create((set, get) => ({
         name: col.name,
         color: col.color,
       })),
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
@@ -531,7 +542,7 @@ export const useProjectStore = create((set, get) => ({
         name: col.name,
         color: col.color,
       })),
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
@@ -584,7 +595,7 @@ export const useProjectStore = create((set, get) => ({
         name: col.name,
         color: col.color,
       })),
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
@@ -637,7 +648,7 @@ export const useProjectStore = create((set, get) => ({
         name: col.name,
         color: col.color,
       })),
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
@@ -690,7 +701,7 @@ export const useProjectStore = create((set, get) => ({
         name: col.name,
         color: col.color,
       })),
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
@@ -743,7 +754,7 @@ export const useProjectStore = create((set, get) => ({
         name: col.name,
         color: col.color,
       })),
-      defaultView: 'board',
+      defaultView: 'dashboard',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,

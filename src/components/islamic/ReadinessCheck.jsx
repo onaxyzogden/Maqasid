@@ -74,6 +74,7 @@ function RCInteractiveCard({ rows, attrName, attrAr, attrTitle, attrFrame, yesLa
                 className={`rc-i-cell rc-i-cell--yes${val === true ? ' chosen' : ''}${val === false ? ' dimmed' : ''}`}
                 onClick={() => onSelect(row.id, val === true ? null : true)}
                 aria-pressed={val === true}
+                data-yes-label={yesLabel || 'YES WHEN'}
               >
                 {row.governing}
               </button>
@@ -82,6 +83,7 @@ function RCInteractiveCard({ rows, attrName, attrAr, attrTitle, attrFrame, yesLa
                 className={`rc-i-cell rc-i-cell--nyt${val === false ? ' chosen' : ''}${val === true ? ' dimmed' : ''}`}
                 onClick={() => onSelect(row.id, val === false ? null : false)}
                 aria-pressed={val === false}
+                data-nyt-label={notYetLabel || 'NOT YET WHEN'}
               >
                 {row.notYet}
               </button>

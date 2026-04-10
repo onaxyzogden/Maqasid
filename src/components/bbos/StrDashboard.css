@@ -1,0 +1,412 @@
+/* ── StrDashboard — Stage 03 STR ─────────────────────────────────────────── */
+
+.str-dash {
+  overflow-y: auto;
+  padding: 28px 32px 48px;
+  max-width: 1100px;
+}
+
+/* ── Header ── */
+.str-dash__header { margin-bottom: 32px; }
+
+.str-dash__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px;
+  line-height: 1.2;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__desc {
+  font-size: 0.88rem;
+  color: var(--text3);
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ── Grid ── */
+.str-dash__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.str-dash__card--af1 { grid-column: span 5; }
+.str-dash__card--af2 { grid-column: span 7; }
+.str-dash__card--af3 { grid-column: span 6; }
+.str-dash__card--af4 { grid-column: span 6; }
+.str-dash__card--af5 { grid-column: span 12; }
+
+/* ── Card Base ── */
+.str-dash__card {
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 24px rgba(30, 25, 16, 0.05);
+}
+
+/* ── Card Head ── */
+.str-dash__card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.str-dash__card-head--link {
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  margin: -4px -6px;
+  transition: background 0.15s;
+}
+.str-dash__card-head--link:hover {
+  background: var(--primary-bg);
+}
+.str-dash__card-head--link:hover .str-dash__card-num {
+  background: var(--primary);
+  color: #fff;
+  transition: background 0.15s, color 0.15s;
+}
+
+.str-dash__card-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__card-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text2);
+  letter-spacing: 0.02em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ── Empty State ── */
+.str-dash__empty-field {
+  font-size: 0.82rem;
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* ── 01: AF1 — The Belief ── */
+.str-dash__belief-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.str-dash__belief-statement {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+  border-left: 3px solid var(--primary);
+  padding-left: 14px;
+}
+.str-dash__voc-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.str-dash__voc-chip {
+  font-size: 0.77rem;
+  color: var(--text3);
+  font-style: italic;
+  background: var(--bg3);
+  border-radius: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  line-height: 1.4;
+}
+.str-dash__belief-validation {
+  font-size: 0.78rem;
+  color: var(--text3);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── 02: AF2 — Enemy Narrative Arc ── */
+.str-dash__arc {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+}
+.str-dash__arc-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+}
+.str-dash__arc-step--before    { border-left-color: var(--pri-urgent, #ef4444); }
+.str-dash__arc-step--transform { border-left-color: var(--primary); background: var(--primary-bg); }
+.str-dash__arc-step--after     { border-left-color: var(--col-done, #22c55e); }
+
+.str-dash__arc-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__arc-text {
+  font-size: 0.8rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0;
+}
+.str-dash__arc-divider {
+  font-size: 1.1rem;
+  color: var(--text3);
+  margin-top: 30px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+/* ── 03: AF3 — Positioning ── */
+.str-dash__positioning-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.str-dash__positioning-quote {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  font-style: italic;
+  border-left: 3px solid var(--primary);
+  padding-left: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+.str-dash__diff-text {
+  font-size: 0.8rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0;
+}
+.str-dash__seed-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.str-dash__seed-chip {
+  font-size: 0.74rem;
+  color: var(--primary);
+  background: var(--primary-bg);
+  border-radius: 20px;
+  padding: 3px 10px;
+  border: 1px solid var(--primary-border, var(--primary));
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ── 04: AF4 — Content Engine ── */
+.str-dash__angles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+.str-dash__angle-card {
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.str-dash__angle-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__angle-text {
+  font-size: 0.79rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── 05: AF5 — Truth-Gate (split layout) ── */
+.str-dash__card--af5 {
+  flex-direction: row;
+  gap: 32px;
+}
+.str-dash__audit-left {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+}
+.str-dash__audit-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.str-dash__verdict-wrap {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+.str-dash__verdict-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 6px;
+}
+.str-dash__verdict-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__verdict-value--cleared     { color: var(--col-done,   #22c55e); }
+.str-dash__verdict-value--conditional { color: var(--pri-high,   #f97316); }
+.str-dash__verdict-value--blocked     { color: var(--pri-urgent, #ef4444); }
+.str-dash__verdict-value--pending     { color: var(--text3); }
+
+.str-dash__integrity-note {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.str-dash__gate-conclusion {
+  font-size: 0.8rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.str-dash__phrases-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 16px;
+}
+.str-dash__phrases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.str-dash__phrase-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  background: var(--bg3);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.str-dash__phrase-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.str-dash__phrase-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.str-dash__phrase-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  font-style: italic;
+}
+.str-dash__phrase-just {
+  font-size: 0.75rem;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+/* ── Footer ── */
+.str-dash__footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.str-dash__footer-quote {
+  font-size: 0.82rem;
+  color: var(--text3);
+  font-style: italic;
+  margin: 0;
+}
+.str-dash__footer-meta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .str-dash__card--af1,
+  .str-dash__card--af2,
+  .str-dash__card--af3,
+  .str-dash__card--af4,
+  .str-dash__card--af5 { grid-column: span 12; }
+
+  .str-dash__card--af5 { flex-direction: column; }
+  .str-dash__audit-left { flex: unset; }
+
+  .str-dash__arc { flex-direction: column; }
+  .str-dash__arc-divider { display: none; }
+  .str-dash__angles-grid { grid-template-columns: 1fr; }
+}

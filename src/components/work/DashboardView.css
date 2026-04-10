@@ -1,0 +1,487 @@
+/* ── Project Dashboard View ── editorial bento-grid dossier */
+
+.proj-dash {
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-2);
+  height: 100%;
+  max-width: 1100px;
+}
+
+/* ── Header ── */
+.proj-dash__header {
+  margin-bottom: 32px;
+}
+.proj-dash__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.proj-dash__desc {
+  font-size: 0.88rem;
+  color: var(--text3);
+  margin-top: 6px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+/* ── 12-column bento grid ── */
+.proj-dash__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* ── Card base ── */
+.proj-dash__card {
+  background: var(--bg2);
+  border: none;
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.proj-dash__card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.proj-dash__card-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.proj-dash__card-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+/* ── Span assignments ── */
+.proj-dash__card--health   { grid-column: span 5; }
+.proj-dash__card--pipeline { grid-column: span 7; }
+.proj-dash__card--priority { grid-column: span 6; }
+.proj-dash__card--activity { grid-column: span 6; }
+.proj-dash__card--audit    { grid-column: span 12; }
+
+/* ── Card 01: Health — inner sub-cards ── */
+.proj-dash__health-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.proj-dash__health-item {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.proj-dash__health-item:hover {
+  opacity: 1;
+}
+.proj-dash__health-item--secondary {
+  opacity: 0.8;
+}
+.proj-dash__health-item--secondary:hover {
+  opacity: 1;
+}
+.proj-dash__health-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.proj-dash__health-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+.proj-dash__health-badge {
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+.proj-dash__health-badge--high {
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+.proj-dash__health-badge--med {
+  background: var(--bg3);
+  color: var(--text3);
+}
+.proj-dash__health-badge--warn {
+  background: var(--pri-urgent-bg);
+  color: var(--pri-urgent);
+}
+.proj-dash__health-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.proj-dash__health-rationale {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* ── Card 02: Pipeline table ── */
+.proj-dash__pipe-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.proj-dash__pipe-action {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.proj-dash__pipe-action:hover {
+  text-decoration: underline;
+}
+.proj-dash__pipe-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.proj-dash__pipe-table thead {
+  border-bottom: 1px solid var(--border);
+}
+.proj-dash__pipe-table th {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding-bottom: 12px;
+  text-align: left;
+}
+.proj-dash__pipe-table th:last-child {
+  text-align: right;
+}
+.proj-dash__pipe-table td {
+  padding: 14px 0;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.proj-dash__pipe-table tbody tr {
+  transition: background 0.15s ease;
+}
+.proj-dash__pipe-table tbody tr:hover {
+  background: var(--bg3);
+}
+.proj-dash__col-name {
+  font-weight: 500;
+}
+.proj-dash__col-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.proj-dash__col-bar-track {
+  height: 5px;
+  width: 100px;
+  background: var(--bg3);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.proj-dash__col-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+}
+.proj-dash__col-bar-score {
+  font-size: 0.65rem;
+  color: var(--text3);
+}
+.proj-dash__col-count {
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--primary);
+}
+
+/* ── Card 03: Priority Matrix (2×2 quadrant) ── */
+.proj-dash__matrix-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.proj-dash__matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  position: relative;
+}
+.proj-dash__matrix-cell {
+  aspect-ratio: 1;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* Quadrant borders */
+.proj-dash__matrix-cell--tl {
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: var(--bg3);
+}
+.proj-dash__matrix-cell--tr {
+  border-bottom: 1px solid var(--border);
+  background: var(--primary-bg);
+}
+.proj-dash__matrix-cell--bl {
+  border-right: 1px solid var(--border);
+  background: var(--bg3);
+}
+.proj-dash__matrix-cell--br {
+  background: var(--bg3);
+}
+.proj-dash__matrix-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  margin-bottom: auto;
+}
+.proj-dash__matrix-cell--tr .proj-dash__matrix-label {
+  color: var(--primary);
+  font-weight: 700;
+}
+.proj-dash__matrix-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.proj-dash__matrix-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--surface);
+}
+.proj-dash__matrix-dot--sm {
+  width: 10px;
+  height: 10px;
+}
+.proj-dash__matrix-dot--muted {
+  opacity: 0.4;
+}
+.proj-dash__matrix-axis {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  text-align: center;
+  margin-top: 10px;
+}
+.proj-dash__matrix-axis--y {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  white-space: nowrap;
+  margin-top: 0;
+}
+
+/* ── Card 04: Analysis ── */
+.proj-dash__analysis-section {
+  margin-bottom: 20px;
+}
+.proj-dash__analysis-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.proj-dash__analysis-text {
+  font-size: 0.85rem;
+  color: var(--text2);
+  line-height: 1.55;
+}
+.proj-dash__analysis-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.proj-dash__gap-box {
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 18px;
+  border-left: 4px solid var(--primary);
+}
+.proj-dash__gap-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.proj-dash__gap-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.proj-dash__gap-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text2);
+}
+
+/* ── Card 05: Audit — three-column verdict layout ── */
+.proj-dash__card--audit {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+}
+.proj-dash__audit-left {
+  border-right: 1px solid var(--border);
+  padding-right: 28px;
+}
+.proj-dash__audit-right {
+  display: flex;
+  flex-direction: column;
+}
+.proj-dash__verdict-box {
+  background: var(--primary-bg);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+.proj-dash__verdict-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.proj-dash__verdict-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+}
+.proj-dash__verdict-sub {
+  font-size: 0.62rem;
+  color: var(--text3);
+  font-weight: 500;
+  margin-top: 4px;
+}
+.proj-dash__audit-checks-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  margin-bottom: 14px;
+}
+.proj-dash__audit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.proj-dash__audit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--surface);
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+.proj-dash__audit-item:hover {
+  background: var(--bg3);
+}
+.proj-dash__audit-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.proj-dash__audit-item-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.proj-dash__audit-item-sub {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+}
+.proj-dash__stars {
+  display: flex;
+  gap: 1px;
+  color: var(--primary);
+}
+.proj-dash__star--empty {
+  opacity: 0.25;
+}
+
+/* ── Empty state ── */
+.proj-dash__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: var(--text3);
+  gap: var(--space-2);
+}
+.proj-dash__empty-icon { opacity: 0.4; }
+.proj-dash__empty-text { font-size: 0.9rem; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .proj-dash__grid { grid-template-columns: 1fr; }
+  .proj-dash__card--health,
+  .proj-dash__card--pipeline,
+  .proj-dash__card--priority,
+  .proj-dash__card--activity,
+  .proj-dash__card--audit { grid-column: span 1; }
+  .proj-dash__card--audit {
+    grid-template-columns: 1fr;
+  }
+  .proj-dash__audit-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+}

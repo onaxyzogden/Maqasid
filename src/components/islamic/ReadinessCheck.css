@@ -213,7 +213,34 @@
 }
 
 @media (max-width: 400px) {
-  .rc-i-row { grid-template-columns: 1fr; }
-  .rc-i-col-headers { grid-template-columns: 1fr; }
-  .rc-i-col-label--nyt { display: none; }
+  .rc-i-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .rc-i-col-headers { display: none; }
+
+  .rc-i-cell--yes::before {
+    content: attr(data-yes-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--success);
+    margin-bottom: 2px;
+  }
+
+  .rc-i-cell--nyt::before {
+    content: attr(data-nyt-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--warning);
+    margin-bottom: 2px;
+  }
+
+  .rc-i-cell--nyt {
+    margin-bottom: 8px;
+  }
 }
