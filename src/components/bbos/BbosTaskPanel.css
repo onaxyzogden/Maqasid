@@ -1,14 +1,28 @@
 /* ── BBOS Task Panel ── */
 
 .bbos-task-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
   width: 460px;
   max-width: 100vw;
+  height: 100vh;
+  z-index: 200;
   border-left: 1px solid var(--border);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.10);
   background: var(--surface);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  flex-shrink: 0;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);   opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.22s var(--ease) both;
 }
 
 /* ── Header ── */
@@ -408,6 +422,100 @@
   background: var(--bg2);
   color: var(--text2);
   border-color: var(--border);
+}
+
+.btp-draft-btn--cancel {
+  background: none;
+  color: var(--text3);
+  border-color: var(--border);
+  flex: 0;
+}
+.btp-draft-btn--cancel:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+/* ── Generating state ── */
+.btp-draft-generating {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.btp-draft-status--generating {
+  background: #8b5cf611;
+  color: #8b5cf6;
+  border: 1px solid #8b5cf633;
+}
+
+@keyframes btp-spin {
+  to { transform: rotate(360deg); }
+}
+
+.btp-spinner {
+  animation: btp-spin 1s linear infinite;
+}
+
+.btp-draft-preview {
+  font-size: 0.72rem;
+  color: var(--text3);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  max-height: 80px;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Error state ── */
+.btp-draft-error {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.btp-draft-status--error {
+  background: #ef444411;
+  color: #ef4444;
+  border: 1px solid #ef444433;
+}
+
+/* ── No API key ── */
+.btp-draft-no-key {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.78rem;
+  color: var(--text3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Warnings ── */
+.btp-draft-warnings {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btp-draft-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: #f59e0b;
+  line-height: 1.4;
+}
+
+.btp-draft-warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 /* ── Footer ── */

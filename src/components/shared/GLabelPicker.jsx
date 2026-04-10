@@ -12,14 +12,17 @@ export default function GLabelPicker({ value, onChange }) {
   // Open: capture trigger position for fixed-positioned portal
   // Flip up if not enough space below
   const DROPDOWN_APPROX_HEIGHT = 180;
+  const DROPDOWN_WIDTH = 200;
   const handleOpen = () => {
     if (!open && triggerRef.current) {
       const rect = triggerRef.current.getBoundingClientRect();
       const spaceBelow = window.innerHeight - rect.bottom;
       const showAbove = spaceBelow < DROPDOWN_APPROX_HEIGHT && rect.top > DROPDOWN_APPROX_HEIGHT;
+      // Clamp left so dropdown doesn't overflow the right edge of the viewport
+      const left = Math.min(rect.left, window.innerWidth - DROPDOWN_WIDTH - 8);
       setDropdownPos(showAbove
-        ? { bottom: window.innerHeight - rect.top + 4, top: 'auto', left: rect.left }
-        : { top: rect.bottom + 4, bottom: 'auto', left: rect.left }
+        ? { bottom: window.innerHeight - rect.top + 4, top: 'auto', left }
+        : { top: rect.bottom + 4, bottom: 'auto', left }
       );
     }
     setOpen((v) => !v);

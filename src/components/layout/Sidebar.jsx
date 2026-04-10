@@ -220,35 +220,7 @@ export default function Sidebar() {
         <div className="sidebar-divider" />
       </nav>
 
-      {/* Projects */}
-      {!collapsed && location.pathname.startsWith('/app/work') && (
-        <div className="sidebar-projects">
-          <div className="sidebar-section-header">
-            <span>Projects</span>
-            <button className="sidebar-icon-btn" onClick={handleNewProject} title="New Project">
-              <Plus size={14} />
-            </button>
-          </div>
-          <div className="sidebar-project-list">
-            {projects.length === 0 && (
-              <p className="sidebar-empty">No projects yet</p>
-            )}
-            {projects.map((p) => (
-              <Link
-                key={p.id}
-                to={`/app/work/${p.id}`}
-                className={`sidebar-project ${location.pathname.includes(p.id) ? 'active' : ''}`}
-              >
-                <div className="project-dot" style={{ background: p.color }} />
-                <span className="truncate">{p.name}</span>
-                {p.bbosEnabled && p.bbosStage && (
-                  <span className="sidebar-bbos-badge">{p.bbosStage}</span>
-                )}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Projects list removed from sidebar — accessible via Work module page */}
 
       {/* Bottom */}
       <div className="sidebar-bottom">

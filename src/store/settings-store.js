@@ -27,4 +27,27 @@ export const useSettingsStore = create((set) => ({
     safeSet('tooltips_enabled', String(val));
     set({ tooltipsEnabled: val });
   },
+
+  // ── AI Provider Settings ──
+  aiProvider: safeGet('ai_provider', 'openrouter'),
+  aiApiKey: safeGet('ai_api_key', ''),
+  aiModel: safeGet('ai_model', 'anthropic/claude-sonnet-4'),
+  aiBaseUrl: safeGet('ai_base_url', ''),
+
+  setAiProvider: (provider) => {
+    safeSet('ai_provider', provider);
+    set({ aiProvider: provider });
+  },
+  setAiApiKey: (key) => {
+    safeSet('ai_api_key', key);
+    set({ aiApiKey: key });
+  },
+  setAiModel: (model) => {
+    safeSet('ai_model', model);
+    set({ aiModel: model });
+  },
+  setAiBaseUrl: (url) => {
+    safeSet('ai_base_url', url);
+    set({ aiBaseUrl: url });
+  },
 }));

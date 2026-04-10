@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload } from 'lucide-react';
+import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
@@ -9,6 +9,10 @@ import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '
 import { useAppStore } from '../../store/app-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
+import { getAiConfig, hasAiConfig } from '@services/ai/ai-settings';
+import { streamCompletion, AiClientError } from '@services/ai/ai-client';
+import { buildPrompt } from '@services/ai/prompt-builder';
+import { parseAiResponse } from '@services/ai/response-parser';
 import GLabelPicker from '../shared/GLabelPicker';
 import './BbosTaskPanel.css';
 
@@ -42,7 +46,10 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
   const [rationaleOpen, setRationaleOpen] = useState(false);
   const [localFields, setLocalFields] = useState({});
   const [notes, setNotes] = useState('');
+  const [streamingText, setStreamingText] = useState('');
+  const [draftWarnings, setDraftWarnings] = useState([]);
   const saveTimeout = useRef(null);
+  const abortRef = useRef(null);
 
   const def = task?.bbosTaskType ? getBbosTaskDef(task.bbosTaskType) : null;
   const stage = def ? getStage(def.stage) : null;
@@ -87,19 +94,84 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     updateTask(projectId, taskId, { gLabel });
   };
 
-  const handleGenerateDraft = () => {
-    // Placeholder: marks as pending until real AI integration is wired
+  const handleGenerateDraft = async () => {
+    if (!hasAiConfig()) return;
+
+    const config = getAiConfig();
     const now = new Date().toISOString();
-    updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'pending');
+
+    // Set generating status
+    updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'generating');
     updateBbosFieldData(projectId, taskId, '_aiDraftTimestamp', now);
+    updateBbosFieldData(projectId, taskId, '_aiDraftError', '');
+    setStreamingText('');
+    setDraftWarnings([]);
+
+    // Build prompt
+    const { system, messages } = buildPrompt(def, projectId);
+
+    // Set up abort controller
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    try {
+      let fullText = '';
+      for await (const chunk of streamCompletion(config, system, messages, controller.signal)) {
+        fullText += chunk;
+        setStreamingText(fullText);
+      }
+
+      // Parse response into field data
+      const { fieldData, warnings } = parseAiResponse(fullText, def);
+
+      // Populate fields (same pattern as template import)
+      for (const [fieldId, value] of Object.entries(fieldData)) {
+        updateBbosFieldData(projectId, taskId, fieldId, value);
+      }
+      setLocalFields((prev) => ({ ...prev, ...fieldData }));
+      setDraftWarnings(warnings);
+
+      // Mark as pending (review state)
+      updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'pending');
+    } catch (err) {
+      if (err.name === 'AbortError') {
+        updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'none');
+        return;
+      }
+      const msg = err instanceof AiClientError ? err.message : 'AI generation failed. Check console for details.';
+      updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'error');
+      updateBbosFieldData(projectId, taskId, '_aiDraftError', msg);
+      console.error('[BBOS AI Draft]', err);
+    } finally {
+      abortRef.current = null;
+      setStreamingText('');
+    }
+  };
+
+  const handleCancelDraft = () => {
+    if (abortRef.current) {
+      abortRef.current.abort();
+      abortRef.current = null;
+    }
   };
 
   const handleAcceptDraft = () => {
     updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'accepted');
+    setDraftWarnings([]);
   };
 
   const handleRejectDraft = () => {
+    // Clear AI-generated field values
+    for (const field of def.fields) {
+      updateBbosFieldData(projectId, taskId, field.id, '');
+    }
+    setLocalFields((prev) => {
+      const cleared = { ...prev };
+      for (const field of def.fields) cleared[field.id] = '';
+      return cleared;
+    });
     updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'rejected');
+    setDraftWarnings([]);
   };
 
   const handleDownloadTemplate = () => {
@@ -385,10 +457,33 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
           <div className="btp-draft-section">
             <div className="btp-section-label">AI Draft</div>
 
-            {aiDraftStatus === 'none' && (
+            {!hasAiConfig() && (
+              <div className="btp-draft-no-key">
+                <AlertTriangle size={13} />
+                <span>Set your AI provider and API key in Settings to use AI drafts.</span>
+              </div>
+            )}
+
+            {hasAiConfig() && aiDraftStatus === 'none' && (
               <button className="btp-generate-btn" onClick={handleGenerateDraft}>
                 <Sparkles size={14} /> Generate Draft
               </button>
+            )}
+
+            {aiDraftStatus === 'generating' && (
+              <div className="btp-draft-generating">
+                <div className="btp-draft-status btp-draft-status--generating">
+                  <Loader size={13} className="btp-spinner" /> Generating draft...
+                </div>
+                {streamingText && (
+                  <div className="btp-draft-preview">
+                    {streamingText.length > 300 ? '...' + streamingText.slice(-300) : streamingText}
+                  </div>
+                )}
+                <button className="btp-draft-btn btp-draft-btn--cancel" onClick={handleCancelDraft}>
+                  <Ban size={13} /> Cancel
+                </button>
+              </div>
             )}
 
             {aiDraftStatus === 'pending' && (
@@ -396,6 +491,15 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
                 <div className="btp-draft-status btp-draft-status--pending">
                   <Sparkles size={12} /> AI-Generated Draft · {formatDateTime(aiDraftTimestamp)}
                 </div>
+                {draftWarnings.length > 0 && (
+                  <div className="btp-draft-warnings">
+                    {draftWarnings.map((w, i) => (
+                      <div key={i} className="btp-draft-warning">
+                        <AlertTriangle size={11} /> {w}
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <div className="btp-draft-actions">
                   <button className="btp-draft-btn btp-draft-btn--accept" onClick={handleAcceptDraft}>
                     <Check size={13} /> Accept Draft
@@ -413,7 +517,18 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
               </div>
             )}
 
-            {aiDraftStatus === 'rejected' && (
+            {aiDraftStatus === 'error' && (
+              <div className="btp-draft-error">
+                <div className="btp-draft-status btp-draft-status--error">
+                  <AlertTriangle size={12} /> {fieldData._aiDraftError || 'AI generation failed.'}
+                </div>
+                <button className="btp-generate-btn" onClick={handleGenerateDraft}>
+                  <RotateCcw size={14} /> Retry
+                </button>
+              </div>
+            )}
+
+            {hasAiConfig() && aiDraftStatus === 'rejected' && (
               <button className="btp-generate-btn" onClick={handleGenerateDraft}>
                 <RotateCcw size={14} /> Regenerate Draft
               </button>

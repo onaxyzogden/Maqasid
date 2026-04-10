@@ -1,13 +1,20 @@
-import { Moon, Sun, Download, Upload, Trash2, LogOut } from 'lucide-react';
+import { useState } from 'react';
+import { Moon, Sun, Download, Upload, Trash2, LogOut, Eye, EyeOff } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSettingsStore } from '../store/settings-store';
 import { useAuthStore } from '../store/auth-store';
 import { exportAll, importAll, clearAll } from '../services/storage';
+import { AI_PROVIDERS } from '../services/ai/ai-settings';
 
 export default function Settings() {
   const navigate = useNavigate();
-  const { theme, setTheme, valuesLayer, setValuesLayer } = useSettingsStore();
+  const {
+    theme, setTheme, valuesLayer, setValuesLayer,
+    aiProvider, setAiProvider, aiApiKey, setAiApiKey,
+    aiModel, setAiModel, aiBaseUrl, setAiBaseUrl,
+  } = useSettingsStore();
   const { user, logout } = useAuthStore();
+  const [showKey, setShowKey] = useState(false);
 
   const handleExport = () => {
     const data = exportAll();
@@ -131,6 +138,134 @@ export default function Settings() {
               {v.label}
             </button>
           ))}
+        </div>
+      </section>
+
+      {/* AI Provider */}
+      <section style={{ marginBottom: 'var(--space-8)' }}>
+        <h4 style={{ marginBottom: 'var(--space-3)', color: 'var(--text2)' }}>AI Draft Generation</h4>
+        <div style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
+          display: 'flex', flexDirection: 'column', gap: 'var(--space-4)',
+        }}>
+          {/* Provider selector */}
+          <div>
+            <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+              Provider
+            </label>
+            <select
+              value={aiProvider}
+              onChange={(e) => setAiProvider(e.target.value)}
+              style={{
+                width: '100%', padding: 'var(--space-2) var(--space-3)',
+                border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
+              }}
+            >
+              {AI_PROVIDERS.map((p) => (
+                <option key={p.value} value={p.value}>{p.label}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* API Key */}
+          <div>
+            <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+              API Key
+            </label>
+            <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+              <input
+                type={showKey ? 'text' : 'password'}
+                value={aiApiKey}
+                onChange={(e) => setAiApiKey(e.target.value)}
+                placeholder={aiProvider === 'openrouter' ? 'sk-or-...' : 'sk-ant-...'}
+                style={{
+                  flex: 1, padding: 'var(--space-2) var(--space-3)',
+                  border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                  background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
+                  fontFamily: "'JetBrains Mono', monospace",
+                }}
+              />
+              <button
+                onClick={() => setShowKey(!showKey)}
+                style={{
+                  padding: 'var(--space-2)', border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-sm)', background: 'none',
+                  cursor: 'pointer', color: 'var(--text3)', display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                {showKey ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Model */}
+          <div>
+            <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+              Model
+            </label>
+            <input
+              type="text"
+              value={aiModel}
+              onChange={(e) => setAiModel(e.target.value)}
+              placeholder={aiProvider === 'openrouter' ? 'anthropic/claude-sonnet-4' : 'claude-sonnet-4-20250514'}
+              style={{
+                width: '100%', padding: 'var(--space-2) var(--space-3)',
+                border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
+            />
+          </div>
+
+          {/* Base URL (custom only) */}
+          {aiProvider === 'custom' && (
+            <div>
+              <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+                Base URL
+              </label>
+              <input
+                type="text"
+                value={aiBaseUrl}
+                onChange={(e) => setAiBaseUrl(e.target.value)}
+                placeholder="https://your-api.example.com/v1"
+                style={{
+                  width: '100%', padding: 'var(--space-2) var(--space-3)',
+                  border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                  background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
+                  fontFamily: "'JetBrains Mono', monospace",
+                }}
+              />
+            </div>
+          )}
+
+          {/* Anthropic proxy note */}
+          {aiProvider === 'anthropic' && (
+            <div style={{ fontSize: '0.75rem', color: 'var(--text3)', lineHeight: 1.5 }}>
+              Anthropic API requires a CORS proxy for browser access. Set a proxy URL in the Base URL field below, or use OpenRouter instead.
+              {!aiBaseUrl && (
+                <div style={{ marginTop: 'var(--space-2)' }}>
+                  <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+                    Proxy Base URL
+                  </label>
+                  <input
+                    type="text"
+                    value={aiBaseUrl}
+                    onChange={(e) => setAiBaseUrl(e.target.value)}
+                    placeholder="https://your-proxy.workers.dev/v1"
+                    style={{
+                      width: '100%', padding: 'var(--space-2) var(--space-3)',
+                      border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                      background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
+                      fontFamily: "'JetBrains Mono', monospace",
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
