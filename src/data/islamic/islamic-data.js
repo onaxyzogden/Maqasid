@@ -25,6 +25,13 @@ export const MODULE_ATTRS = {
       meaning: 'And rely upon Allah; and sufficient is Allah as Disposer of affairs.',
       source: 'Surah Al-Ahzab 33:3',
     },
+    closingDua: {
+      title: 'After Completing Work',
+      arabic: 'لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ',
+      trans: "La-in shakartum la-azīdannakum",
+      meaning: 'If you are grateful, I will surely increase you [in favor].',
+      source: 'Surah Ibrahim 14:7',
+    },
     readiness: {
       frame: 'Al-Muhsin asks: am I bringing ihsan to this work, or just getting it done?',
       yesLabel: 'I am bringing ihsan when',
@@ -90,6 +97,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Muhsin witnessed the quality of today\'s work. Al-Wakil held the outcomes.',
       yesLabel: 'Ihsan was present today when',
       notYetLabel: 'Ihsan was absent today when',
+      rows: [
+        {
+          id: 'RM1', attr: 'Al-Muhsin', attr_ar: '\u0627\u0644\u0652\u0645\u064F\u062D\u0652\u0633\u0650\u0646', attrTitle: 'The Excellence-Giver',
+          attrFrame: 'Did ihsan show up in today\'s work?',
+          yesLabel: 'Ihsan was present today when',
+          notYetLabel: 'Ihsan was absent today when',
+          governing: 'I can point to at least one task where I chose quality over speed.',
+          notYet: 'I cut corners on something and justified it as efficiency.',
+        },
+        {
+          id: 'RW1', attr: 'Al-Wakil', attr_ar: '\u0627\u0644\u0652\u0648\u064E\u0643\u0650\u064A\u0644', attrTitle: 'The Trustee',
+          attrFrame: 'Did I release what belongs to Al-Wakil?',
+          yesLabel: 'I released outcomes when',
+          notYetLabel: 'I am still holding outcomes when',
+          governing: 'I released attachment to an outcome that was not in my control.',
+          notYet: 'I am still carrying anxiety about a result that belongs to Al-Wakil.',
+        },
+      ],
       governing: [
         'I can point to at least one task where I chose quality over speed.',
         'I released attachment to an outcome that was not in my control.',
@@ -123,6 +148,13 @@ export const MODULE_ATTRS = {
       trans: "Fa-kulū mimmā razaqakumu Allāhu ḥalālan ṭayyibā, wa-shkurū niʿmata Allāhi in kuntum iyyāhu taʿbudūn",
       meaning: 'Then eat of what Allah has provided for you which is lawful and good. And be grateful for the favor of Allah, if it is indeed Him that you worship.',
       source: 'Surah An-Nahl 16:114',
+    },
+    closingDua: {
+      title: 'After Financial Stewardship',
+      arabic: 'وَإِن تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا',
+      trans: "Wa in ta\u02BFuddū ni\u02BFmata Allāhi lā tuḥṣūhā",
+      meaning: 'And if you should count the favors of Allah, you could not enumerate them.',
+      source: 'Surah An-Nahl 16:18',
     },
     readiness: {
       frame: 'Ar-Razzaq asks: am I managing His provision with honesty and gratitude?',
@@ -166,6 +198,24 @@ export const MODULE_ATTRS = {
       frame: 'Ar-Razzaq provided today\'s portion. Al-Hasib witnessed every transaction.',
       yesLabel: 'Honest stewardship was present when',
       notYetLabel: 'Stewardship fell short when',
+      rows: [
+        {
+          id: 'RR1', attr: 'Ar-Razzaq', attr_ar: '\u0627\u0644\u0631\u0632\u0651\u0627\u0642', attrTitle: 'The Provider',
+          attrFrame: 'Did I steward His provision with honesty today?',
+          yesLabel: 'Honest stewardship was present when',
+          notYetLabel: 'Stewardship fell short when',
+          governing: 'My financial dealings today were transparent and honest.',
+          notYet: 'I avoided looking at a financial reality that needs my attention.',
+        },
+        {
+          id: 'RH1', attr: 'Al-Hasib', attr_ar: '\u0627\u0644\u062D\u0633\u064A\u0628', attrTitle: 'The Reckoner',
+          attrFrame: 'Did every number tell the truth today?',
+          yesLabel: 'Trust in provision was present when',
+          notYetLabel: 'Fear of loss drove me when',
+          governing: 'I made at least one decision from trust in provision rather than fear of loss.',
+          notYet: 'I prioritized profit over principle in a decision today.',
+        },
+      ],
       governing: [
         'My financial dealings today were transparent and honest.',
         'I made at least one decision from trust in provision rather than fear of loss.',
@@ -199,6 +249,13 @@ export const MODULE_ATTRS = {
       trans: "Rabbi ishraḥ lī ṣadrī wa yassir lī amrī",
       meaning: 'My Lord, expand my chest and ease my task for me.',
       source: 'Surah Ta-Ha 20:25-26',
+    },
+    closingDua: {
+      title: 'After Serving People',
+      arabic: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
+      trans: "Rabbanā hab lanā min azwājinā wa dhurriyyātinā qurrata aʿyunin wa-jʿalnā lil-muttaqīna imāmā",
+      meaning: 'Our Lord, grant us from among our wives and offspring comfort to our eyes and make us a leader for the righteous.',
+      source: 'Surah Al-Furqan 25:74',
     },
     readiness: {
       frame: 'Al-Wadud asks: am I leading with genuine care, or managing with control?',
@@ -242,6 +299,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Wadud witnessed how I treated His servants today. Al-Adl measured the fairness.',
       yesLabel: 'Genuine care was present when',
       notYetLabel: 'Care was absent when',
+      rows: [
+        {
+          id: 'RW1', attr: 'Al-Wadud', attr_ar: '\u0627\u0644\u0648\u062F\u0648\u062F', attrTitle: 'The Loving',
+          attrFrame: 'Did I lead with genuine care today?',
+          yesLabel: 'Genuine care was present when',
+          notYetLabel: 'Care was absent when',
+          governing: 'I invested in someone\'s growth today beyond what their role required.',
+          notYet: 'I overlooked someone who deserved recognition or attention.',
+        },
+        {
+          id: 'RA1', attr: 'Al-Adl', attr_ar: '\u0627\u0644\u0639\u062F\u0644', attrTitle: 'The Just',
+          attrFrame: 'Were my decisions guided by fairness today?',
+          yesLabel: 'Fairness was present when',
+          notYetLabel: 'Fairness was absent when',
+          governing: 'I made a fair decision even when it was easier to play favorites.',
+          notYet: 'I let a power dynamic go unchecked that disadvantages someone.',
+        },
+      ],
       governing: [
         'I invested in someone\'s growth today beyond what their role required.',
         'I made a fair decision even when it was easier to play favorites.',
@@ -275,6 +350,13 @@ export const MODULE_ATTRS = {
       trans: "Rabbi zidnī ʿilmā",
       meaning: 'My Lord, increase me in knowledge.',
       source: 'Surah Ta-Ha 20:114',
+    },
+    closingDua: {
+      title: 'After Communication',
+      arabic: 'خَلَقَ الْإِنسَانَ ﴿٣﴾ عَلَّمَهُ الْبَيَانَ',
+      trans: "Khalaqa al-insān. ʿAllamahu al-bayān",
+      meaning: 'He created man. He taught him eloquence.',
+      source: 'Surah Ar-Rahman 55:3-4',
     },
     readiness: {
       frame: 'As-Sami asks: am I truly listening, or just waiting for my turn to speak?',
@@ -318,6 +400,24 @@ export const MODULE_ATTRS = {
       frame: 'As-Sami heard every word exchanged today. Al-Alim knows every intention behind them.',
       yesLabel: 'True listening was present when',
       notYetLabel: 'Listening was absent when',
+      rows: [
+        {
+          id: 'RS1', attr: 'As-Sami', attr_ar: '\u0627\u0644\u0633\u0645\u064A\u0639', attrTitle: 'The All-Hearing',
+          attrFrame: 'Did I truly listen today?',
+          yesLabel: 'True listening was present when',
+          notYetLabel: 'Listening was absent when',
+          governing: 'I listened fully to someone before forming my response.',
+          notYet: 'I interrupted or dismissed someone when they needed to be heard.',
+        },
+        {
+          id: 'RA1', attr: 'Al-Alim', attr_ar: '\u0627\u0644\u0639\u0644\u064A\u0645', attrTitle: 'The All-Knowing',
+          attrFrame: 'Did I share knowledge as a gift today?',
+          yesLabel: 'Knowledge was shared generously when',
+          notYetLabel: 'Knowledge was withheld when',
+          governing: 'I shared knowledge generously and accurately today.',
+          notYet: 'I used information as leverage rather than as a gift.',
+        },
+      ],
       governing: [
         'I listened fully to someone before forming my response.',
         'I shared knowledge generously and accurately today.',
@@ -351,6 +451,13 @@ export const MODULE_ATTRS = {
       trans: "Bal Allāhu mawlākum, wa huwa khayru an-nāṣirīn",
       meaning: 'But Allah is your protector, and He is the best of helpers.',
       source: 'Surah Aal-Imran 3:150',
+    },
+    closingDua: {
+      title: 'After Technical Work',
+      arabic: 'هُوَ اللَّهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ',
+      trans: "Huwa Allāhu al-Khāliqu al-Bāriʾu al-Muṣawwir",
+      meaning: 'He is Allah, the Creator, the Inventor, the Fashioner.',
+      source: 'Surah Al-Hashr 59:24',
     },
     readiness: {
       frame: 'Al-Muhaymin asks: am I guarding what has been entrusted, or just building fast?',
@@ -394,6 +501,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Muhaymin watched over the systems today. Al-Hafiz preserved what mattered.',
       yesLabel: 'Guardianship was present when',
       notYetLabel: 'Guardianship was absent when',
+      rows: [
+        {
+          id: 'RM1', attr: 'Al-Muhaymin', attr_ar: '\u0627\u0644\u0645\u0647\u064A\u0645\u0646', attrTitle: 'The Guardian',
+          attrFrame: 'Did I guard what was entrusted today?',
+          yesLabel: 'Guardianship was present when',
+          notYetLabel: 'Guardianship was absent when',
+          governing: 'I chose a secure approach even when a faster one was available.',
+          notYet: 'I introduced technical debt that I know will cost someone later.',
+        },
+        {
+          id: 'RH1', attr: 'Al-Hafiz', attr_ar: '\u0627\u0644\u062D\u0641\u064A\u0638', attrTitle: 'The Protector',
+          attrFrame: 'Did I preserve what matters today?',
+          yesLabel: 'Protection was present when',
+          notYetLabel: 'Protection was absent when',
+          governing: 'The systems I touched today are more reliable than when I started.',
+          notYet: 'I left a vulnerability unaddressed because fixing it was inconvenient.',
+        },
+      ],
       governing: [
         'I chose a secure approach even when a faster one was available.',
         'The systems I touched today are more reliable than when I started.',
@@ -427,6 +552,13 @@ export const MODULE_ATTRS = {
       trans: "Yuʾtī al-ḥikmata man yashāʾ, wa man yuʾta al-ḥikmata fa-qad ūtiya khayran kathīrā, wa mā yadhdhakkaru illā ulū al-albāb",
       meaning: 'He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good. And none will remember except those of understanding.',
       source: 'Surah Al-Baqarah 2:269',
+    },
+    closingDua: {
+      title: 'After Client Engagement',
+      arabic: 'وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا',
+      trans: "Wa jaʿalnākum shuʿūban wa qabāʾila li-taʿārafū",
+      meaning: 'And We made you into nations and tribes that you may know one another.',
+      source: 'Surah Al-Hujurat 49:13',
     },
     readiness: {
       frame: 'Ar-Rahman asks: am I approaching this relationship with genuine care, or with a transaction in mind?',
@@ -470,6 +602,24 @@ export const MODULE_ATTRS = {
       frame: 'Ar-Rahman witnessed every client interaction today. Al-Karim measured the generosity.',
       yesLabel: 'Genuine care was present when',
       notYetLabel: 'The transaction took over when',
+      rows: [
+        {
+          id: 'RR1', attr: 'Ar-Rahman', attr_ar: '\u0627\u0644\u0631\u062D\u0645\u0646', attrTitle: 'The Most Merciful',
+          attrFrame: 'Did I approach clients with genuine care today?',
+          yesLabel: 'Genuine care was present when',
+          notYetLabel: 'The transaction took over when',
+          governing: 'I prioritized a client\u2019s genuine need over a quick sale.',
+          notYet: 'I avoided a hard conversation because it might cost me the deal.',
+        },
+        {
+          id: 'RK1', attr: 'Al-Karim', attr_ar: '\u0627\u0644\u0643\u0631\u064A\u0645', attrTitle: 'The Generous',
+          attrFrame: 'Did I lead with value today?',
+          yesLabel: 'Generosity was present when',
+          notYetLabel: 'Extraction was present when',
+          governing: 'I was transparent about limitations or timelines.',
+          notYet: 'I overpromised to keep a prospect engaged.',
+        },
+      ],
       governing: [
         'I prioritized a client\u2019s genuine need over a quick sale.',
         'I was transparent about limitations or timelines.',
@@ -503,6 +653,13 @@ export const MODULE_ATTRS = {
       trans: "Rabbi awziʿnī an ashkura niʿmataka allatī anʿamta ʿalayya wa ʿalā wālidayya wa an aʿmala ṣāliḥan tarḍāhu wa adkhilnī bi-raḥmatika fī ʿibādika aṣ-ṣāliḥīn",
       meaning: 'My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents and to do righteousness of which You approve. And admit me by Your mercy into the ranks of Your righteous servants.',
       source: 'Surah An-Naml 27:19',
+    },
+    closingDua: {
+      title: 'After Stewardship of the Land',
+      arabic: 'هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ',
+      trans: "Huwa alladhī jaʿala lakumu al-arḍa dhalūlan fa-mshū fī manākibihā wa kulū min rizqih",
+      meaning: 'It is He who made the earth manageable for you, so walk among its slopes and eat of His provision.',
+      source: 'Surah Al-Mulk 67:15',
     },
     readiness: {
       frame: 'Al-Khaliq asks: am I approaching this land as a steward or as an owner?',
@@ -546,6 +703,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Khaliq witnessed today\'s stewardship. Ar-Razzaq held the provision.',
       yesLabel: 'Stewardship was present when',
       notYetLabel: 'Ownership crept in when',
+      rows: [
+        {
+          id: 'RK1', attr: 'Al-Khaliq', attr_ar: '\u0627\u0644\u062E\u0627\u0644\u0642', attrTitle: 'The Creator',
+          attrFrame: 'Did I steward the land with long-term care today?',
+          yesLabel: 'Stewardship was present when',
+          notYetLabel: 'Ownership crept in when',
+          governing: 'I made a decision today that prioritised the land\'s long-term health over short-term convenience.',
+          notYet: 'I cut a corner on quality because no one was watching.',
+        },
+        {
+          id: 'RR1', attr: 'Ar-Razzaq', attr_ar: '\u0627\u0644\u0631\u0632\u0651\u0627\u0642', attrTitle: 'The Provider',
+          attrFrame: 'Did I serve the community with genuine care today?',
+          yesLabel: 'Community care was present when',
+          notYetLabel: 'Self-interest crept in when',
+          governing: 'I approached the community\'s needs with the same care I would give my own family.',
+          notYet: 'I prioritised speed or cost over what was genuinely right for the land or the people.',
+        },
+      ],
       governing: [
         'I made a decision today that prioritised the land\'s long-term health over short-term convenience.',
         'I approached the community\'s needs with the same care I would give my own family.',
@@ -583,6 +758,13 @@ export const MODULE_ATTRS = {
       trans: 'Rabbi ishraḥ lī ṣadrī wa yassir lī amrī',
       meaning: 'My Lord, expand for me my breast [with assurance] and ease for me my task.',
       source: 'Surah Ta-Ha 20:25-26',
+    },
+    closingDua: {
+      title: 'After Faith Engagement',
+      arabic: 'رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ',
+      trans: "Rabbanā taqabbal minnā, innaka anta as-Samīʿu al-ʿAlīm",
+      meaning: 'Our Lord, accept [this] from us. Indeed, You are the Hearing, the Knowing.',
+      source: 'Surah Al-Baqarah 2:127',
     },
     readiness: {
       frame: 'Al-Mutakabbir asks: am I approaching this as a servant before Allah, or has self-importance entered the act?',
@@ -647,6 +829,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Mutakabbir reminded me today that greatness belongs to Him. Al-Wakīl held what I released.',
       yesLabel: 'Servanthood was present when',
       notYetLabel: 'Self-importance was present when',
+      rows: [
+        {
+          id: 'RM1', attr: 'Al-Mutakabbir', attr_ar: '\u0627\u0644\u0652\u0645\u064F\u062A\u064E\u0643\u064E\u0628\u0651\u0650\u0631', attrTitle: 'The Supremely Great',
+          attrFrame: 'Did I approach worship as a servant today?',
+          yesLabel: 'Servanthood was present when',
+          notYetLabel: 'Self-importance was present when',
+          governing: 'I entered at least one act of worship with genuine servant-awareness, not self-consciousness.',
+          notYet: 'I performed a practice with part of my attention on how it reflected on me.',
+        },
+        {
+          id: 'RW1', attr: 'Al-Wakīl', attr_ar: '\u0627\u0644\u0652\u0648\u064E\u0643\u0650\u064A\u0644', attrTitle: 'The Trustworthy Disposer',
+          attrFrame: 'Did I release what belongs to Him today?',
+          yesLabel: 'Release was present when',
+          notYetLabel: 'Holding was present when',
+          governing: 'I released an outcome I was holding rather than entrusting.',
+          notYet: 'I am still holding an outcome that belongs to Al-Wakīl.',
+        },
+      ],
       governing: [
         'I entered at least one act of worship with genuine servant-awareness, not self-consciousness.',
         'I released an outcome I was holding rather than entrusting.',
@@ -680,6 +880,13 @@ export const MODULE_ATTRS = {
       trans: "Allāhumma innī aʿūdhu bika min al-hammi wal-ḥazani wa aʿūdhu bika min al-ʿajzi wal-kasali",
       meaning: 'O Allah, I seek refuge in You from anxiety and grief, and I seek refuge in You from incapacity and laziness.',
       source: 'Sahih al-Bukhari 6369',
+    },
+    closingDua: {
+      title: 'After Life Stewardship',
+      arabic: 'الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي فِي جَسَدِي وَرَدَّ عَلَيَّ رُوحِي وَأَذِنَ لِي بِذِكْرِهِ',
+      trans: "Al-ḥamdu li-Allāhi alladhī ʿāfānī fī jasadī wa radda ʿalayya rūḥī wa adhina lī bi-dhikrih",
+      meaning: 'Praise be to Allah who granted me well-being in my body, returned my soul to me, and permitted me to remember Him.',
+      source: 'Jami at-Tirmidhi 3401',
     },
     readiness: {
       frame: 'Al-Qawī asks: am I engaging from sustained strength, or from depletion I have not acknowledged?',
@@ -744,6 +951,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Qawī sustained me today. Al-Laṭīf noticed what I almost missed.',
       yesLabel: 'Sustained strength was present when',
       notYetLabel: 'Depletion went unattended when',
+      rows: [
+        {
+          id: 'RQ1', attr: 'Al-Qawī', attr_ar: '\u0627\u0644\u0652\u0642\u064E\u0648\u0650\u064A\u0651', attrTitle: 'The All-Strong',
+          attrFrame: 'Did I draw from sustainable strength today?',
+          yesLabel: 'Sustained strength was present when',
+          notYetLabel: 'Depletion went unattended when',
+          governing: 'I attended to at least one genuine need today rather than pushing through it.',
+          notYet: 'I suppressed a signal my body or heart was giving and told myself it was strength.',
+        },
+        {
+          id: 'RL1', attr: 'Al-Laṭīf', attr_ar: '\u0627\u0644\u0644\u0651\u064E\u0637\u0650\u064A\u0641', attrTitle: 'The Subtly Kind',
+          attrFrame: 'Did I attend to the subtle signals today?',
+          yesLabel: 'Attentiveness was present when',
+          notYetLabel: 'Inattention was present when',
+          governing: 'I gave those in my care something that was actually theirs, not only what remained.',
+          notYet: 'I am still carrying unacknowledged depletion into the next day.',
+        },
+      ],
       governing: [
         'I attended to at least one genuine need today rather than pushing through it.',
         'I gave those in my care something that was actually theirs, not only what remained.',
@@ -777,6 +1002,13 @@ export const MODULE_ATTRS = {
       trans: 'Rabbi zidnī ʿilmā',
       meaning: 'My Lord, increase me in knowledge.',
       source: 'Surah Ta-Ha 20:114',
+    },
+    closingDua: {
+      title: 'After Intellectual Engagement',
+      arabic: 'هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ',
+      trans: "Hal yastawī alladhīna yaʿlamūna wa-lladhīna lā yaʿlamūn",
+      meaning: 'Are those who know equal to those who do not know?',
+      source: 'Surah Az-Zumar 39:9',
     },
     readiness: {
       frame: 'Al-Fattāḥ asks: am I entering this with a mind that can actually be opened, or have I already decided what I will find?',
@@ -841,6 +1073,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Fattāḥ opened what was closed today. Al-ʿAlīm witnessed how I held what I learned.',
       yesLabel: 'Genuine learning was present when',
       notYetLabel: 'Closure remained when',
+      rows: [
+        {
+          id: 'RF1', attr: 'Al-Fattāḥ', attr_ar: '\u0627\u0644\u0652\u0641\u064E\u062A\u0651\u064E\u0627\u062D', attrTitle: 'The Opener',
+          attrFrame: 'Was my mind genuinely opened today?',
+          yesLabel: 'Genuine learning was present when',
+          notYetLabel: 'Closure remained when',
+          governing: 'I encountered something today that genuinely updated or complicated what I previously held.',
+          notYet: 'I moved through material primarily to confirm what I already believed.',
+        },
+        {
+          id: 'RA1', attr: 'Al-ʿAlīm', attr_ar: '\u0627\u0644\u0652\u0639\u064E\u0644\u0650\u064A\u0645', attrTitle: 'The All-Knowing',
+          attrFrame: 'Did I hold knowledge as a trust today?',
+          yesLabel: 'Knowledge stewardship was present when',
+          notYetLabel: 'Knowledge was mishandled when',
+          governing: 'I named the limit of my knowledge rather than extending beyond it.',
+          notYet: 'I shared something as established understanding that was actually still inference.',
+        },
+      ],
       governing: [
         'I encountered something today that genuinely updated or complicated what I previously held.',
         'I named the limit of my knowledge rather than extending beyond it.',
@@ -1069,6 +1319,13 @@ export const MODULE_ATTRS = {
       meaning: 'Glory be to Him who has subjected this to us, and we could not have [otherwise] subdued it.',
       source: 'Surah Az-Zukhruf 43:13',
     },
+    closingDua: {
+      title: 'After Environmental Stewardship',
+      arabic: 'الَّذِي جَعَلَ لَكُمُ الْأَرْضَ فِرَاشًا وَالسَّمَاءَ بِنَاءً',
+      trans: "Alladhī jaʿala lakumu al-arḍa firāshan wa-s-samāʾa bināʾā",
+      meaning: '[He] who made for you the earth a resting place and the sky a canopy.',
+      source: 'Surah Al-Baqarah 2:22',
+    },
     readiness: {
       frame: 'Al-Wakīl asks: am I engaging with this domain as a trustee of what has been entrusted — to me, and through me, to future generations?',
       yesLabel: 'I am engaging as a trustee when',
@@ -1132,6 +1389,24 @@ export const MODULE_ATTRS = {
       frame: 'Al-Wakīl witnessed what I held as trust today. Al-Ḥakīm saw how far I looked.',
       yesLabel: 'Trusteeship and wisdom were present when',
       notYetLabel: 'Short-sightedness or consumption entered when',
+      rows: [
+        {
+          id: 'RW1', attr: 'Al-Wakīl', attr_ar: '\u0627\u0644\u0652\u0648\u064E\u0643\u0650\u064A\u0644', attrTitle: 'The Trustworthy Disposer',
+          attrFrame: 'Did I engage as a trustee of the earth today?',
+          yesLabel: 'Trusteeship was present when',
+          notYetLabel: 'Consumption entered when',
+          governing: 'I made at least one choice today with the unseen and the future consciously present.',
+          notYet: 'I treated a resource I engaged with as available for my use without attending to its trust dimension.',
+        },
+        {
+          id: 'RH1', attr: 'Al-Ḥakīm', attr_ar: '\u0627\u0644\u0652\u062D\u064E\u0643\u0650\u064A\u0645', attrTitle: 'The All-Wise',
+          attrFrame: 'Did I see far enough today?',
+          yesLabel: 'Wisdom was present when',
+          notYetLabel: 'Short-sightedness entered when',
+          governing: 'I examined rather than accepted a framing about sustainability or ethics.',
+          notYet: 'I made a decision based on immediate effects without honestly examining what comes after.',
+        },
+      ],
       governing: [
         'I made at least one choice today with the unseen and the future consciously present.',
         'I examined rather than accepted a framing about sustainability or ethics.',
@@ -1160,6 +1435,7 @@ export const UNIVERSAL_EQUIV = {
     ],
     mindfulness: 'Take a moment to set your intention. What quality of work do you want to bring to this session?',
     resumeMindfulness: 'Welcome back. Take a breath and reconnect with your intention before continuing.',
+    closingMindfulness: 'Take a moment to acknowledge what you accomplished and release what remains. The work you offered today had value.',
     readiness: {
       frame: 'Am I bringing my best to this work, or just getting through it?',
       yesLabel: 'I am bringing my best when',
@@ -1240,6 +1516,7 @@ export const UNIVERSAL_EQUIV = {
     ],
     mindfulness: 'Before making financial decisions, pause and ask: is this honest, transparent, and in service of long-term health?',
     resumeMindfulness: 'Welcome back. Reconnect with honest stewardship before continuing.',
+    closingMindfulness: 'Reflect on today\'s financial decisions and the sufficiency already present. What you stewarded today was enough.',
     readiness: {
       frame: 'Am I managing resources with honesty and responsibility?',
       yesLabel: 'I am managing with honesty when',
@@ -1262,6 +1539,7 @@ export const UNIVERSAL_EQUIV = {
     ],
     mindfulness: 'Before engaging with your team, set the intention to listen fully and lead with fairness.',
     resumeMindfulness: 'Welcome back. Reconnect with genuine care before engaging with your team.',
+    closingMindfulness: 'Reflect on the people you served today. The care you brought to each interaction mattered, even when it was hard.',
     readiness: {
       frame: 'Am I leading with genuine care, or managing with control?',
       yesLabel: 'I am leading with care when',
@@ -1284,6 +1562,7 @@ export const UNIVERSAL_EQUIV = {
     ],
     mindfulness: 'Before communicating, pause and listen. What does the other person actually need?',
     resumeMindfulness: 'Welcome back. Center yourself in listening before communicating.',
+    closingMindfulness: 'Reflect on the conversations you had today. Where you listened fully, connection was possible. Where you spoke honestly, trust was built.',
     readiness: {
       frame: 'Am I truly listening, or just waiting to speak?',
       yesLabel: 'I am truly listening when',
@@ -1306,6 +1585,7 @@ export const UNIVERSAL_EQUIV = {
     ],
     mindfulness: 'Before technical work, consider: am I building to last, or just building fast?',
     resumeMindfulness: 'Welcome back. Reconnect with careful guardianship before building.',
+    closingMindfulness: 'Reflect on what you built today. The systems you touched are more reliable for the care you brought. What you protected matters.',
     readiness: {
       frame: 'Am I guarding what has been entrusted, or just shipping quickly?',
       yesLabel: 'I am guarding the trust when',
@@ -1328,6 +1608,7 @@ export const UNIVERSAL_EQUIV = {
     ],
     mindfulness: 'Before engaging with a client or prospect, pause and ask: am I serving their genuine interest, or just pursuing the sale?',
     resumeMindfulness: 'Welcome back. Reconnect with genuine care before engaging with clients.',
+    closingMindfulness: 'Reflect on the relationships you engaged with today. Where you led with genuine care, something real was built.',
     readiness: {
       frame: 'Am I approaching this relationship with authentic care?',
       yesLabel: 'I am approaching with authentic care when',

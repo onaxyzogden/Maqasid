@@ -58,6 +58,7 @@ export default function ThresholdModal({ type }) {
   const [showingDeferScreen, setShowingDeferScreen] = useState(false);
   // Keyed by row id (dynamic per module — starts empty, keys added on selection)
   const [readinessSelections, setReadinessSelections] = useState({});
+  const [reflectionSelections, setReflectionSelections] = useState({});
 
   const isOpening = type === 'opening';
   const moduleId = isOpening ? openingModuleId : closingModuleId;
@@ -87,6 +88,12 @@ export default function ThresholdModal({ type }) {
   // Is this module using interactive readiness? (has rows)
   const hasInteractiveReadiness = isOpening && readinessRows.length > 0;
 
+  // ── Reflection (closing) interactive state ──────────────────────────────────
+  const reflectionRows = data?.reflection?.rows ?? [];
+  const hasInteractiveReflection = !isOpening && reflectionRows.length > 0;
+  const reflectionFilled = hasInteractiveReflection && allFilled(reflectionRows, reflectionSelections);
+  const reflectionAllYes = hasInteractiveReflection && allYes(reflectionRows, reflectionSelections);
+
   // ── Readiness key and derived state ─────────────────────────────────────────
   const readinessFilled = hasInteractiveReadiness && allFilled(readinessRows, readinessSelections);
   const readinessAllYes = hasInteractiveReadiness && allYes(readinessRows, readinessSelections);
@@ -103,9 +110,12 @@ export default function ThresholdModal({ type }) {
     ? ['Dua', 'Attributes', 'Readiness', 'Confirm']
     : ['Dua', 'Attributes', 'Reflection', 'Confirm'];
 
+  const showClosingDuaStep = hasInteractiveReflection && reflectionFilled && !reflectionAllYes;
   const steps = paused
     ? [...baseSteps.slice(0, 3), 'Pause', baseSteps[3]]
-    : baseSteps;
+    : showClosingDuaStep
+      ? [...baseSteps.slice(0, 3), 'Closing Dua', baseSteps[3]]
+      : baseSteps;
 
   const currentStepName = steps[step];
 
@@ -115,6 +125,7 @@ export default function ThresholdModal({ type }) {
     setPaused(false);
     setShowingDeferScreen(false);
     setReadinessSelections({});
+    setReflectionSelections({});
   };
 
   const close = () => {
@@ -141,6 +152,7 @@ export default function ThresholdModal({ type }) {
   const prev = () => {
     if (step > 0) {
       if (currentStepName === 'Pause') { setPaused(false); setStep(2); return; }
+      if (currentStepName === 'Closing Dua') { setStep(2); return; }
       if (currentStepName === 'Confirm') setConfirmed(false);
       setStep(step - 1);
     }
@@ -159,6 +171,10 @@ export default function ThresholdModal({ type }) {
       triggerPause();
       return;
     }
+    if (currentStepName === 'Reflection' && hasInteractiveReflection && reflectionFilled && !reflectionAllYes) {
+      next(); // advances to 'Closing Dua'
+      return;
+    }
     next();
   };
 
@@ -166,7 +182,12 @@ export default function ThresholdModal({ type }) {
     setReadinessSelections((prev) => ({ ...prev, [id]: value }));
   };
 
+  const handleReflectionSelect = (id, value) => {
+    setReflectionSelections((prev) => ({ ...prev, [id]: value }));
+  };
+
   const canAdvanceFromReadiness = hasInteractiveReadiness ? readinessFilled && readinessAllYes : true;
+  const canAdvanceFromReflection = hasInteractiveReflection ? reflectionFilled : true;
 
   const pauseQuestion = isIslamic
     ? (PAUSE_QUESTIONS[moduleId] || PAUSE_QUESTIONS.work)
@@ -271,10 +292,10 @@ export default function ThresholdModal({ type }) {
               {currentStepName === 'Dua' && data && (
                 <div className="thr-step-content fade-in">
                   {isIslamic ? (
-                    <DuaSection dua={isOpening ? data.dua : (data.dua || ONGOING_DUA)} color={accentColor} />
+                    <DuaSection dua={isOpening ? data.dua : (data.closingDua || ONGOING_DUA)} color={accentColor} />
                   ) : (
                     <div className="il-mindfulness">
-                      <p>{isOpening ? data.mindfulness : 'Take a moment to reflect on your session and what you accomplished.'}</p>
+                      <p>{isOpening ? data.mindfulness : (data.closingMindfulness || 'Take a moment to reflect on your session and what you accomplished.')}</p>
                     </div>
                   )}
                 </div>
@@ -301,8 +322,28 @@ export default function ThresholdModal({ type }) {
                     />
                   ) : isOpening ? (
                     <ReadinessCheck readiness={data?.readiness} color={accentColor} />
+                  ) : hasInteractiveReflection ? (
+                    <ReadinessCheck
+                      readiness={data?.reflection}
+                      color={accentColor}
+                      interactive={true}
+                      selections={reflectionSelections}
+                      onSelect={handleReflectionSelect}
+                    />
                   ) : (
                     <ReadinessCheck reflection={data?.reflection} color={accentColor} />
+                  )}
+                </div>
+              )}
+
+              {currentStepName === 'Closing Dua' && data && (
+                <div className="thr-step-content fade-in">
+                  {isIslamic ? (
+                    <DuaSection dua={data.closingDua || ONGOING_DUA} color={accentColor} />
+                  ) : (
+                    <div className="il-mindfulness">
+                      <p>{data.closingMindfulness || 'Take a moment to reflect on your session and what you accomplished.'}</p>
+                    </div>
                   )}
                 </div>
               )}
@@ -395,23 +436,46 @@ export default function ThresholdModal({ type }) {
                     </span>
                   )}
 
+                  {currentStepName === 'Reflection' && hasInteractiveReflection && (() => {
+                    const reflUnfilled = reflectionRows.filter(
+                      (r) => reflectionSelections[r.id] === null || reflectionSelections[r.id] === undefined
+                    ).length;
+                    return (
+                      <span className={`thr-readiness-hint ${reflectionFilled ? (reflectionAllYes ? 'thr-readiness-hint--yes' : 'thr-readiness-hint--nyt') : ''}`}>
+                        {!reflectionFilled
+                          ? `${reflUnfilled} row${reflUnfilled !== 1 ? 's' : ''} still need a selection.`
+                          : reflectionAllYes
+                            ? 'Alhamdulillah. You may proceed.'
+                            : ''
+                        }
+                      </span>
+                    );
+                  })()}
+
                   <div style={{ flex: 1 }} />
                   {currentStepName === 'Confirm' ? (
                     <button className="thr-btn thr-btn-primary thr-btn-confirm" onClick={complete} disabled={!confirmed} style={{ opacity: confirmed ? 1 : 0.4 }}>
                       <Check size={16} /> {isOpening ? 'Begin Module' : 'Complete Session'}
                     </button>
                   ) : currentStepName !== 'Pause' && (
-                    <button
-                      className="thr-btn thr-btn-primary"
-                      onClick={handleNext}
-                      disabled={currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled}
-                      style={{
-                        opacity: (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ? 0.4 : 1,
-                        cursor: (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ? 'not-allowed' : 'pointer',
-                      }}
-                    >
-                      Next
-                    </button>
+                    (() => {
+                      const nextDisabled =
+                        (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ||
+                        (currentStepName === 'Reflection' && hasInteractiveReflection && !reflectionFilled);
+                      return (
+                        <button
+                          className="thr-btn thr-btn-primary"
+                          onClick={handleNext}
+                          disabled={nextDisabled}
+                          style={{
+                            opacity: nextDisabled ? 0.4 : 1,
+                            cursor: nextDisabled ? 'not-allowed' : 'pointer',
+                          }}
+                        >
+                          Next
+                        </button>
+                      );
+                    })()
                   )}
                 </>
               )}
