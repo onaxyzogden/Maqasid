@@ -83,30 +83,6 @@ export default function IslamicKnowledgePage() {
 
   return (
     <div className="ik-page font-manrope">
-      {/* Sticky Header */}
-      <header className="ik-header">
-        <div className="ik-header__inner">
-          <div className="ik-header__left">
-            <span className="ik-header__title">The Sacred Editorial</span>
-            <nav className="ik-header__tabs">
-              <a className="ik-header__tab" href="#">Maqasid</a>
-              <a className="ik-header__tab ik-header__tab--active" href="#">Curations</a>
-              <a className="ik-header__tab" href="#">Archives</a>
-            </nav>
-          </div>
-          <div className="ik-header__right">
-            <div className="ik-search">
-              <Search size={15} className="ik-search__icon" />
-              <input
-                className="ik-search__input"
-                type="text"
-                placeholder="Search the Wisdom..."
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Content Canvas */}
       <div className="ik-canvas">
 

@@ -1,9 +1,10 @@
+import { Calendar, CheckSquare } from 'lucide-react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Calendar, CheckSquare } from 'lucide-react';
 import { PRIORITIES } from '../../data/modules';
 import GLabelBadge from '../shared/GLabelBadge';
 import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
+import { usePeopleStore, getInitials } from '../../store/people-store';
 
 function formatDate(dateStr) {
   if (!dateStr) return null;
@@ -17,25 +18,17 @@ function formatDate(dateStr) {
   return { text: d.toLocaleDateString('en', { month: 'short', day: 'numeric' }), color: 'var(--text3)', bg: 'var(--bg4)' };
 }
 
-export default function KanbanCard({ task, onClick, isDragOverlay = false, bbosRole, isSelected = false, columnColor }) {
+export default function KanbanCard({ task, onClick, bbosRole, isSelected = false, columnColor, draggable, isOverlay }) {
   const accessLevel = getTaskAccessLevel(bbosRole, task.bbosTaskType);
   const isViewOnly = accessLevel === 'V';
 
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({ id: task.id, disabled: isDragOverlay || isViewOnly });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: task.id,
+    disabled: !draggable,
+  });
 
-  const style = isDragOverlay
-    ? undefined
-    : {
-        transform: CSS.Transform.toString(transform),
-        transition,
-      };
+  const employees = usePeopleStore((s) => s.employees);
+  const assignee = task.assigneeId ? employees.find((e) => e.id === task.assigneeId) : null;
 
   const priority = PRIORITIES.find((p) => p.id === task.priority);
   const due = formatDate(task.dueDate);
@@ -44,17 +37,23 @@ export default function KanbanCard({ task, onClick, isDragOverlay = false, bbosR
 
   return (
     <div
-      ref={isDragOverlay ? undefined : setNodeRef}
+      ref={setNodeRef}
       style={{
-        ...style,
         borderLeft: priority ? `3px solid ${priority.color}` : undefined,
-        opacity: isViewOnly ? 0.55 : undefined,
-        cursor: isViewOnly ? 'default' : undefined,
-        background: columnColor ? `color-mix(in srgb, ${columnColor} 8%, var(--surface))` : undefined,
+        opacity: isDragging ? 0.3 : isViewOnly ? 0.55 : undefined,
+        cursor: draggable ? 'grab' : isViewOnly ? 'default' : 'pointer',
+        background: isOverlay
+          ? 'var(--surface)'
+          : columnColor ? `color-mix(in srgb, ${columnColor} 8%, var(--surface))` : undefined,
+        transform: CSS.Transform.toString(transform),
+        transition,
+        boxShadow: isOverlay ? 'var(--shadow-md)' : undefined,
+        rotate: isOverlay ? '2deg' : undefined,
       }}
-      className={`kanban-card ${isDragging ? 'dragging' : ''} ${isDragOverlay ? 'drag-overlay' : ''} ${isSelected ? 'kanban-card--selected' : ''}`}
-      onClick={onClick}
-      {...(isDragOverlay ? {} : { ...attributes, ...listeners })}
+      className={`kanban-card ${isSelected ? 'kanban-card--selected' : ''}`}
+      onClick={draggable ? undefined : onClick}
+      {...(draggable ? attributes : {})}
+      {...(draggable ? listeners : {})}
     >
       <div className="kanban-card-title">
         {task.gLabel && <GLabelBadge gLabel={task.gLabel} />}
@@ -96,6 +95,15 @@ export default function KanbanCard({ task, onClick, isDragOverlay = false, bbosR
         {subtaskTotal > 0 && (
           <span className="kanban-card-badge" style={{ background: 'var(--bg4)', color: 'var(--text3)' }}>
             <CheckSquare size={10} /> {subtaskDone}/{subtaskTotal}
+          </span>
+        )}
+        {assignee && (
+          <span
+            className="kanban-card-badge kanban-card-assignee"
+            style={{ background: 'var(--primary-bg)', color: 'var(--primary)', fontWeight: 700 }}
+            title={assignee.name}
+          >
+            {getInitials(assignee.name)}
           </span>
         )}
         {task.tags?.slice(0, 2).map((tag, i) => (

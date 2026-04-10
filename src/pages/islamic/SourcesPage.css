@@ -1,0 +1,55 @@
+/* SourcesPage.css — .sources-* namespace */
+
+.sources-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--faith-bg, var(--bg1));
+}
+
+/* ── Tab Bar ── */
+.sources-tab-bar {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.75rem 3rem 0;
+  background: rgba(246, 249, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.sources-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  background: none;
+  color: var(--text2, #64748b);
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.sources-tab:hover {
+  color: var(--text1, #1e293b);
+}
+
+.sources-tab--active {
+  color: var(--mod-sources, #D4A853);
+  border-bottom-color: var(--mod-sources, #D4A853);
+  font-weight: 600;
+}
+
+/* ── Tab Content ── */
+.sources-tab-content {
+  flex: 1;
+  overflow-y: auto;
+}

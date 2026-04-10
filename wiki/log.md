@@ -13,6 +13,14 @@ Append-only chronological record of all wiki operations.
 - Built initial index.md
 - Migrated from NotebookLM-based orientation to wiki-based orientation
 
+## [2026-04-09] implement | Edge column polish + file upload testing
+- Polished edge column hover/focus-visible/active states in AppShell.css (primary-bg pattern)
+- Boosted dark theme edge line contrast (--border → --border2 override)
+- Fixed double `bbiz_` prefix bug in PillarResourcesTab storage key
+- Added migration shim for any pre-existing double-prefixed resource data
+- E2E tested file upload: txt, pdf, mp3, oversized rejection, link mode, dark theme cards
+- Wrote IndexedDB migration design doc (`stages/design-indexeddb-resource-storage-draft.md`)
+
 ## [2026-04-09] ingest | NotebookLM migration (Phase 5)
 - Queried 3 NotebookLM notebooks: BBOS (84220e85), Maqasid (053ac9ef), Clief Notes (7eb920ab)
 - Updated [[bbos-pipeline]] with v2.4 architecture, Two-Factory Model, 7 non-negotiable business rules

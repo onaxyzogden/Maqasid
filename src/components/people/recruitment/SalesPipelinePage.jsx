@@ -117,12 +117,14 @@ export default function SalesPipelinePage() {
                           <MoreHorizontal size={14} />
                         </button>
                       </div>
-                      {/* Quick-move buttons */}
+                      {/* Quick-move buttons — show adjacent stages in pipeline order */}
                       <div className="sp-card__moves">
-                        {PIPELINE_COLUMNS
-                          .filter((s) => s.id !== stage.id)
-                          .slice(0, 3)
-                          .map((s) => (
+                        {(() => {
+                          const idx = PIPELINE_COLUMNS.findIndex((s) => s.id === stage.id);
+                          const forward = PIPELINE_COLUMNS.slice(idx + 1, idx + 3);
+                          const back    = idx > 0 ? [PIPELINE_COLUMNS[idx - 1]] : [];
+                          return [...forward, ...back].slice(0, 3);
+                        })().map((s) => (
                             <button
                               key={s.id}
                               className="sp-move-btn"
@@ -148,7 +150,13 @@ export default function SalesPipelinePage() {
         })}
       </div>
 
-      {showAdd && <AddContactModal onClose={() => setShowAdd(false)} />}
+      {showAdd && (
+        <AddContactModal
+          onClose={() => setShowAdd(false)}
+          initialContactType="lead"
+          initialLeadStatus="pending_contact"
+        />
+      )}
     </div>
   );
 }

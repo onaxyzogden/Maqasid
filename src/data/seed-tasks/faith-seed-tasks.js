@@ -6,6 +6,17 @@ export const FAITH_SEED_TASKS = {
   // ── SHAHADA ──
   faith_shahada_core: [
     {
+      title: 'Testify there is no God but Allah',
+      priority: 'urgent', tags: ['aqidah', 'shahada'],
+      description: 'The Shahada — "Ashhadu an la ilaha illAllah wa ashhadu anna Muhammadan rasulullah" — is the first pillar of Islam and the gateway into the faith. Renew and deepen your understanding of this testimony, ensuring it is uttered with full knowledge, certainty, sincerity, and love. This is not merely a declaration but a covenant with Allah.',
+      subtasks: [
+        { title: 'Recite the full Shahada with correct pronunciation and meaning', done: false },
+        { title: 'Reflect on what "no god but Allah" demands of your daily life', done: false },
+        { title: 'Study the difference between verbal declaration and lived conviction', done: false },
+        { title: 'Journal: what does this testimony mean to you personally?', done: false },
+      ],
+    },
+    {
       title: 'Study the meaning and conditions of La ilaha illAllah',
       priority: 'urgent', tags: ['aqidah'],
       description: 'Deeply understand the testimony of faith — its linguistic meaning, theological implications, and the conditions scholars have derived from the Quran and Sunnah that make it valid.',
@@ -59,10 +70,13 @@ export const FAITH_SEED_TASKS = {
       priority: 'medium', tags: ['hadith', 'aqidah'],
       description: 'This hadith is considered Umm al-Sunnah — the mother of the Sunnah. It defines Islam, Iman, and Ihsan in a single narration. Memorise it and understand its layers.',
       subtasks: [
-        { title: 'Read the full hadith in Arabic and English', done: false },
+        { title: 'Read the full hadith text in Arabic and English', done: false },
         { title: 'Memorise the Arabic text', done: false },
-        { title: 'Understand the three levels: Islam, Iman, Ihsan', done: false },
-        { title: 'Note the signs of the Hour mentioned', done: false },
+        { title: 'Islam — study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj', done: false },
+        { title: 'Iman — study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr', done: false },
+        { title: 'Ihsan — memorise the definition: worship Allah as though you see Him', done: false },
+        { title: 'Study the signs of the Hour mentioned at the end of the hadith', done: false },
+        { title: 'Reflect: which level describes your current state?', done: false },
       ],
     },
   ],

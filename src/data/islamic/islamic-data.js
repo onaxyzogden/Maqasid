@@ -128,6 +128,29 @@ export const MODULE_ATTRS = {
       frame: 'Ar-Razzaq asks: am I managing His provision with honesty and gratitude?',
       yesLabel: 'I am stewarding with honesty when',
       notYetLabel: 'I am falling short of stewardship when',
+      rows: [
+        {
+          id: 'R1', attr: 'Ar-Razzaq', attr_ar: 'الرزّاق', attrTitle: 'The Provider',
+          attrFrame: 'Am I managing His provision with honesty and gratitude?',
+          yesLabel: 'I am stewarding with honesty when',
+          notYetLabel: 'I am falling short of stewardship when',
+          governing: 'My financial records reflect reality — no inflated numbers, no hidden expenses.',
+          notYet: 'I am delaying honest accounting because the numbers are uncomfortable.',
+        },
+        {
+          id: 'R2', attr: 'Ar-Razzaq',
+          governing: 'I am making decisions from sufficiency, not from scarcity or greed.',
+          notYet: 'Financial anxiety is driving decisions that compromise my principles.',
+        },
+        {
+          id: 'H1', attr: 'Al-Hasib', attr_ar: 'الحسيب', attrTitle: 'The Reckoner',
+          attrFrame: 'Does every number I record tell the truth?',
+          yesLabel: 'Every number tells the truth when',
+          notYetLabel: 'The numbers are not yet truthful when',
+          governing: 'Every transaction I record serves a purpose beyond just tracking money.',
+          notYet: 'I am treating money as mine to keep rather than a trust to steward.',
+        },
+      ],
       governing: [
         'My financial records reflect reality — no inflated numbers, no hidden expenses.',
         'I am making decisions from sufficiency, not from scarcity or greed.',
@@ -181,6 +204,29 @@ export const MODULE_ATTRS = {
       frame: 'Al-Wadud asks: am I leading with genuine care, or managing with control?',
       yesLabel: 'I am leading with genuine care when',
       notYetLabel: 'I am managing with control when',
+      rows: [
+        {
+          id: 'W1', attr: 'Al-Wadud', attr_ar: 'الودود', attrTitle: 'The Loving',
+          attrFrame: 'Am I leading with genuine care, or managing with control?',
+          yesLabel: 'I am leading with genuine care when',
+          notYetLabel: 'I am managing with control when',
+          governing: 'I see each team member as a person first, a resource second.',
+          notYet: 'I am avoiding a conversation because it is uncomfortable, not because the timing is wrong.',
+        },
+        {
+          id: 'W2', attr: 'Al-Wadud',
+          governing: 'I am ready to have a difficult conversation with compassion and honesty.',
+          notYet: 'I have not checked in on someone who might be struggling.',
+        },
+        {
+          id: 'A1', attr: 'Al-Adl', attr_ar: 'العدل', attrTitle: 'The Just',
+          attrFrame: 'Are my decisions guided by fairness, or by favoritism?',
+          yesLabel: 'Fairness guides me when',
+          notYetLabel: 'Favoritism is creeping in when',
+          governing: 'My decisions about people are guided by fairness, not favoritism.',
+          notYet: 'I am treating someone differently based on how much I like them, not their merit.',
+        },
+      ],
       governing: [
         'I see each team member as a person first, a resource second.',
         'My decisions about people are guided by fairness, not favoritism.',
@@ -234,6 +280,29 @@ export const MODULE_ATTRS = {
       frame: 'As-Sami asks: am I truly listening, or just waiting for my turn to speak?',
       yesLabel: 'I am truly listening when',
       notYetLabel: 'I am just waiting to speak when',
+      rows: [
+        {
+          id: 'S1', attr: 'As-Sami', attr_ar: 'السميع', attrTitle: 'The All-Hearing',
+          attrFrame: 'Am I truly listening, or just waiting for my turn to speak?',
+          yesLabel: 'I am truly listening when',
+          notYetLabel: 'I am just waiting to speak when',
+          governing: 'I am prepared to listen before responding in my next conversation.',
+          notYet: 'I am preparing to speak without first understanding what others need.',
+        },
+        {
+          id: 'S2', attr: 'As-Sami',
+          governing: 'My communication today will build trust, not just transfer data.',
+          notYet: 'My next message is driven by ego rather than service.',
+        },
+        {
+          id: 'A1', attr: 'Al-Alim', attr_ar: 'العليم', attrTitle: 'The All-Knowing',
+          attrFrame: 'Am I sharing knowledge honestly, or using it as a tool of power?',
+          yesLabel: 'I am sharing honestly when',
+          notYetLabel: 'I am withholding when',
+          governing: 'The information I am about to share is accurate and serves others.',
+          notYet: 'I am withholding information that others need to do their work.',
+        },
+      ],
       governing: [
         'I am prepared to listen before responding in my next conversation.',
         'The information I am about to share is accurate and serves others.',
@@ -287,6 +356,29 @@ export const MODULE_ATTRS = {
       frame: 'Al-Muhaymin asks: am I guarding what has been entrusted, or just building fast?',
       yesLabel: 'I am guarding the trust when',
       notYetLabel: 'I am just building fast when',
+      rows: [
+        {
+          id: 'M1', attr: 'Al-Muhaymin', attr_ar: 'المهيمن', attrTitle: 'The Guardian',
+          attrFrame: 'Am I guarding what has been entrusted, or just building fast?',
+          yesLabel: 'I am guarding the trust when',
+          notYetLabel: 'I am just building fast when',
+          governing: 'My systems protect the data and privacy of those who depend on them.',
+          notYet: 'I am deploying without adequate testing because of time pressure.',
+        },
+        {
+          id: 'M2', attr: 'Al-Muhaymin',
+          governing: 'I have reviewed the security posture before proceeding.',
+          notYet: 'Security is an afterthought rather than a design principle.',
+        },
+        {
+          id: 'H1', attr: 'Al-Hafiz', attr_ar: 'الحفيظ', attrTitle: 'The Protector',
+          attrFrame: 'Am I building to serve and protect, or to impress?',
+          yesLabel: 'I am building to serve when',
+          notYetLabel: 'I am building to impress when',
+          governing: 'I am building with integrity — choosing durability over shortcuts.',
+          notYet: 'I am building to impress rather than to serve and protect.',
+        },
+      ],
       governing: [
         'My systems protect the data and privacy of those who depend on them.',
         'I am building with integrity — choosing durability over shortcuts.',
@@ -340,6 +432,29 @@ export const MODULE_ATTRS = {
       frame: 'Ar-Rahman asks: am I approaching this relationship with genuine care, or with a transaction in mind?',
       yesLabel: 'I am approaching with genuine care when',
       notYetLabel: 'The transaction is driving me when',
+      rows: [
+        {
+          id: 'R1', attr: 'Ar-Rahman', attr_ar: '\u0627\u0644\u0631\u062D\u0645\u0646', attrTitle: 'The Most Merciful',
+          attrFrame: 'Am I approaching this relationship with genuine care, or with a transaction in mind?',
+          yesLabel: 'I am approaching with genuine care when',
+          notYetLabel: 'The transaction is driving me when',
+          governing: 'I am prepared to listen to what the client actually needs, not what I want to sell.',
+          notYet: 'I am treating a person as a number on my pipeline board.',
+        },
+        {
+          id: 'R2', attr: 'Ar-Rahman',
+          governing: 'I would give the same advice even if it meant losing the deal.',
+          notYet: 'I am about to promise something I am not certain I can deliver.',
+        },
+        {
+          id: 'K1', attr: 'Al-Karim', attr_ar: '\u0627\u0644\u0643\u0631\u064A\u0645', attrTitle: 'The Generous',
+          attrFrame: 'Am I leading with value, or extracting it?',
+          yesLabel: 'I am leading with value when',
+          notYetLabel: 'I am extracting when',
+          governing: 'My follow-up is driven by care, not by quota pressure.',
+          notYet: 'My urgency to close is overriding my honesty about fit.',
+        },
+      ],
       governing: [
         'I am prepared to listen to what the client actually needs, not what I want to sell.',
         'I would give the same advice even if it meant losing the deal.',
@@ -393,6 +508,29 @@ export const MODULE_ATTRS = {
       frame: 'Al-Khaliq asks: am I approaching this land as a steward or as an owner?',
       yesLabel: 'I am approaching as a steward when',
       notYetLabel: 'I am approaching as an owner when',
+      rows: [
+        {
+          id: 'K1', attr: 'Al-Khaliq', attr_ar: 'الخالق', attrTitle: 'The Creator',
+          attrFrame: 'Am I approaching this land as a steward or as an owner?',
+          yesLabel: 'I am approaching as a steward when',
+          notYetLabel: 'I am approaching as an owner when',
+          governing: 'I see the land as a trust from Allah, not as a personal asset.',
+          notYet: 'I am treating this project as a personal brand rather than a collective stewardship.',
+        },
+        {
+          id: 'K2', attr: 'Al-Khaliq',
+          governing: 'I am prepared to build slowly, with patience, rather than rush for visible results.',
+          notYet: 'Impatience for visible progress is overriding the discipline of doing it right.',
+        },
+        {
+          id: 'R1', attr: 'Ar-Razzaq', attr_ar: 'الرزّاق', attrTitle: 'The Provider',
+          attrFrame: 'Am I trusting in His provision, or grasping at outcomes?',
+          yesLabel: 'I am trusting in provision when',
+          notYetLabel: 'I am grasping at outcomes when',
+          governing: 'My intentions for this work serve the community, not just my ambition.',
+          notYet: 'I have not yet settled into the reality that this work may outlast me — and that is the point.',
+        },
+      ],
       governing: [
         'I see the land as a trust from Allah, not as a personal asset.',
         'My intentions for this work serve the community, not just my ambition.',

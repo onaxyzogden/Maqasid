@@ -28,26 +28,6 @@ export default function QuranPage() {
 
   return (
     <div className="qc-page font-manrope">
-      {/* Sticky Header */}
-      <header className="qc-header">
-        <div className="qc-header__inner">
-          <div className="qc-header__left">
-            <span className="qc-header__title">The Sacred Editorial</span>
-            <nav className="qc-header__tabs">
-              <a className="qc-header__tab qc-header__tab--active" href="#">Maqasid</a>
-              <a className="qc-header__tab" href="#">Curations</a>
-              <a className="qc-header__tab" href="#">Archives</a>
-            </nav>
-          </div>
-          <div className="qc-header__right">
-            <div className="qc-search">
-              <Search size={16} className="qc-search__icon" />
-              <input className="qc-search__input" type="text" placeholder="Search the Wisdom..." />
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Content Canvas */}
       <div className="qc-canvas">
         {/* Hero: Verse of the Day + Spiritual Momentum */}

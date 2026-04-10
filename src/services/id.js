@@ -56,6 +56,9 @@ export const genAccountId = () => 'acc_' + nanoid(12);
 export const genIncomeId = () => 'inc_' + nanoid(12);
 export const genAssetId = () => 'ast_' + nanoid(12);
 
+// Tasks
+export const genAttachmentId = () => 'att_' + nanoid(12);
+
 // CRM module
 export const genContactId = () => 'con_' + nanoid(12);
 export const genDealId = () => 'dea_' + nanoid(12);

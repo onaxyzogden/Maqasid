@@ -21,4 +21,10 @@ export const useSettingsStore = create((set) => ({
     safeSet('attr_lang', attrLang);
     set({ attrLang });
   },
+
+  tooltipsEnabled: safeGet('tooltips_enabled', 'true') === 'true',
+  setTooltipsEnabled: (val) => {
+    safeSet('tooltips_enabled', String(val));
+    set({ tooltipsEnabled: val });
+  },
 }));

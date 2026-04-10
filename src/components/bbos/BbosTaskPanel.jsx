@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
 import { getBbosTaskDef, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
 import { getStage } from '@data/bbos/bbos-pipeline';
-import { exportBbosProject, downloadJson, importBbosData } from '@services/bbos-export';
+import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '@services/bbos-template';
+import { useAppStore } from '../../store/app-store';
 import GLabelPicker from '../shared/GLabelPicker';
 import './BbosTaskPanel.css';
 
@@ -23,10 +24,11 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
   const taskStore = useTaskStore();
   const updateTask = taskStore.updateTask;
   const updateBbosFieldData = taskStore.updateBbosFieldData;
-  const deleteTask = taskStore.deleteTask;
   const moveTask = taskStore.moveTask;
   const user = useAuthStore((s) => s.user);
-  const fileInputRef = useRef(null);
+  const setActiveBbosTaskType = useAppStore((s) => s.setActiveBbosTaskType);
+  const clearActiveBbosTaskType = useAppStore((s) => s.clearActiveBbosTaskType);
+  const templateInputRef = useRef(null);
 
   const [rationaleOpen, setRationaleOpen] = useState(false);
   const [localFields, setLocalFields] = useState({});
@@ -40,6 +42,12 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
       setLocalFields(task.bbosFieldData);
     }
   }, [taskId]);
+
+  // Wire active BBOS task type for journal badge context
+  useEffect(() => {
+    if (def?.id) setActiveBbosTaskType(def.id);
+    return () => clearActiveBbosTaskType();
+  }, [def?.id]);
 
   if (!task || !def) return null;
 
@@ -74,31 +82,31 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'rejected');
   };
 
-  const handleDelete = () => {
-    if (confirm('Delete this task?')) {
-      deleteTask(projectId, taskId);
-      onClose();
-    }
+  const handleDownloadTemplate = () => {
+    downloadTaskTemplate(def);
   };
 
-  const handleExport = () => {
-    const tasks = taskStore.tasksByProject[projectId] || [];
-    const data = exportBbosProject(project, tasks);
-    downloadJson(data, `${project.name.replace(/\s+/g, '-').toLowerCase()}-bbos-export.json`);
-  };
-
-  const handleImport = (e) => {
+  const handleUploadTemplate = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (ev) => {
       try {
         const json = JSON.parse(ev.target.result);
-        const result = importBbosData(json, projectId, taskStore);
-        alert(`Import complete: ${result.updated} updated, ${result.created} created`);
-        taskStore.loadTasks(projectId);
+        const validation = validateTaskTemplate(json, def);
+        if (!validation.valid) {
+          alert('Template validation failed:\n' + validation.errors.join('\n'));
+          return;
+        }
+        const { fieldData, gLabel } = importTaskTemplate(json, def);
+        for (const [fieldId, value] of Object.entries(fieldData)) {
+          updateBbosFieldData(projectId, taskId, fieldId, value);
+        }
+        setLocalFields((prev) => ({ ...prev, ...fieldData }));
+        if (gLabel) handleGLabelChange(gLabel);
+        alert(`Template imported: ${Object.keys(fieldData).length} field(s) populated.`);
       } catch (err) {
-        alert('Import failed: ' + err.message);
+        alert('Template import failed: ' + err.message);
       }
     };
     reader.readAsText(file);
@@ -173,6 +181,29 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
           )}
         </div>
 
+        {/* ── Per-Task Template ── */}
+        <div className="btp-section">
+          <div className="btp-section-label">Task Template</div>
+          <div className="btp-template-box">
+            <p className="btp-template-hint">Download a blank JSON template for this task</p>
+            <div className="btp-template-actions">
+              <button className="btp-template-btn" onClick={handleDownloadTemplate}>
+                <Download size={14} /> Template
+              </button>
+              <button className="btp-template-btn" onClick={() => templateInputRef.current?.click()}>
+                <Upload size={14} /> Upload
+              </button>
+              <input
+                ref={templateInputRef}
+                type="file"
+                accept=".json,.bbos"
+                onChange={handleUploadTemplate}
+                style={{ display: 'none' }}
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="btp-divider" />
 
         {/* ── Form fields ── */}
@@ -228,8 +259,6 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
             onChange={handleGLabelChange}
           />
         </div>
-
-        <div className="btp-divider" />
 
         {/* ── Validation flags ── */}
         {def.validationFlags?.length > 0 && (
@@ -297,30 +326,6 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         <span className="btp-footer-meta">
           {user?.name || 'You'} · {formatDateTime(task.createdAt)}
         </span>
-        <div className="btp-footer-actions">
-          <button
-            className="btp-footer-btn"
-            onClick={handleExport}
-            title="Export BBOS data as JSON for LLM assistance"
-          >
-            <Download size={13} /> Export
-          </button>
-          <button
-            className="btp-footer-btn"
-            onClick={() => fileInputRef.current?.click()}
-            title="Import BBOS data from JSON"
-          >
-            <Upload size={13} /> Import
-          </button>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".json"
-            onChange={handleImport}
-            style={{ display: 'none' }}
-          />
-          <button className="btp-footer-del" onClick={handleDelete}>Delete</button>
-        </div>
       </div>
     </div>
   );

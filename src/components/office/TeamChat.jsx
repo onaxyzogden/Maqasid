@@ -135,21 +135,21 @@ export default function TeamChat() {
         <div className="chat-input-section">
           <div className="chat-input-label">Create meeting</div>
           <div className="chat-rich-toolbar">
-            <button className="chat-toolbar-btn" title="Bold"><Bold size={15} /></button>
-            <button className="chat-toolbar-btn" title="Italic"><Italic size={15} /></button>
-            <button className="chat-toolbar-btn" title="Underline"><Underline size={15} /></button>
-            <button className="chat-toolbar-btn" title="Strikethrough"><Strikethrough size={15} /></button>
-            <button className="chat-toolbar-btn" title="Link"><Link size={15} /></button>
-            <button className="chat-toolbar-btn" title="Voice"><Mic size={15} /></button>
-            <button className="chat-toolbar-btn" title="Video"><Video size={15} /></button>
-            <button className="chat-toolbar-btn" title="Emoji"><Smile size={15} /></button>
-            <button className="chat-toolbar-btn" title="Attach"><Paperclip size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Bold"><Bold size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Italic"><Italic size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Underline"><Underline size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Strikethrough"><Strikethrough size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Link"><Link size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Voice"><Mic size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Video"><Video size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Emoji"><Smile size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Attach"><Paperclip size={15} /></button>
           </div>
           <div className="chat-input-bar">
             <input value={newMsg} onChange={(e) => setNewMsg(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } }}
               placeholder="Start typing here..." />
-            <button className="chat-send-btn" onClick={handleSend} disabled={!newMsg.trim()}>
+            <button className="btn btn-primary chat-send-btn" onClick={handleSend} disabled={!newMsg.trim()}>
               <Send size={16} />
             </button>
           </div>
@@ -164,15 +164,15 @@ export default function TeamChat() {
         </div>
 
         <div className="chat-detail-actions">
-          <button className="chat-detail-action-btn">
+          <button className="btn btn-secondary chat-detail-action-btn">
             <ListTodo size={14} /> Open tasks
             <span className="chat-detail-action-badge">0</span>
           </button>
-          <button className="chat-detail-action-btn">
+          <button className="btn btn-secondary chat-detail-action-btn">
             <StickyNote size={14} /> Notes
             <span className="chat-detail-action-badge"><Lock size={10} /></span>
           </button>
-          <button className="chat-detail-action-btn">
+          <button className="btn btn-secondary chat-detail-action-btn">
             <Lock size={14} /> Safe Box
             <span className="chat-detail-action-badge"><Lock size={10} /></span>
           </button>

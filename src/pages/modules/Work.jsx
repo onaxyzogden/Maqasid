@@ -234,7 +234,7 @@ export default function Work() {
                   <strong style={{ fontSize: '0.85rem' }}>Standard</strong>
                 </div>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text2)', margin: 0 }}>
-                  4-column Kanban board (To Do, In Progress, Review, Done)
+                  3-column Kanban board (To Do, In Progress, Done)
                 </p>
               </button>
               <button

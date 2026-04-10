@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Kanban, List, GanttChart } from 'lucide-react';
+import { Kanban, List, GanttChart, GripVertical } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
 import KanbanBoard from './KanbanBoard';
@@ -13,7 +13,7 @@ import BbosPipelineHeader from '../bbos/BbosPipelineHeader';
  * Reusable board component that renders the full Kanban/List/Gantt experience
  * for any project. Used by both Project.jsx and the Faith board pages.
  */
-export default function ProjectBoard({ projectId, project }) {
+export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   const taskStore = useTaskStore();
   const loadTasks = taskStore.loadTasks;
   const filters = useAppStore((s) => s.filters[projectId]);
@@ -21,6 +21,7 @@ export default function ProjectBoard({ projectId, project }) {
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
   const [view, setView] = useState(project?.defaultView || 'board');
   const [selectedTaskId, setSelectedTaskId] = useState(null);
+  const [draggable, setDraggable] = useState(false);
   const [bbosFilter, setBbosFilter] = useState(project?.bbosStage || 'FND');
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function ProjectBoard({ projectId, project }) {
 
   if (!project) return null;
 
-  const isBbos = project.bbosEnabled;
+  const isBbos = project.bbosEnabled && !hideBbos;
   const mergedFilters = isBbos ? { ...filters, bbosStage: bbosFilter } : filters;
 
   return (
@@ -85,6 +86,22 @@ export default function ProjectBoard({ projectId, project }) {
             <GanttChart size={14} /> Gantt
           </button>
         </div>
+        {view === 'board' && (
+          <button
+            onClick={() => setDraggable((d) => !d)}
+            className="btn btn-ghost"
+            style={{
+              padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
+              borderRadius: 'var(--radius-sm)',
+              background: draggable ? 'var(--primary-bg)' : 'transparent',
+              color: draggable ? 'var(--primary)' : 'var(--text3)',
+              border: draggable ? '1px solid var(--primary)' : '1px solid var(--border)',
+            }}
+            title={draggable ? 'Lock order' : 'Enable drag'}
+          >
+            <GripVertical size={14} />
+          </button>
+        )}
       </div>
 
       {/* BBOS Pipeline Header — stage filter */}
@@ -107,7 +124,7 @@ export default function ProjectBoard({ projectId, project }) {
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
         <div style={{ flex: 1, minWidth: 0 }}>
           {view === 'board' ? (
-            <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} />
+            <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
           ) : view === 'gantt' ? (
             <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
           ) : (

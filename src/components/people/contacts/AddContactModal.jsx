@@ -9,13 +9,13 @@ const ENTITY_TYPES = ['person', 'company'];
 const PERSON_TYPES = ['contact', 'lead', 'client', 'employee'];
 const COMPANY_TYPES = ['contact', 'lead', 'client'];
 
-export default function AddContactModal({ onClose }) {
+export default function AddContactModal({ onClose, initialContactType = 'contact', initialLeadStatus = 'unassigned' }) {
   const addContact = useContactsStore((s) => s.addContact);
   const addCompany = useContactsStore((s) => s.addCompany);
   const user = useAuthStore((s) => s.user);
 
   const [entityType, setEntityType] = useState('person');
-  const [contactType, setContactType] = useState('contact');
+  const [contactType, setContactType] = useState(initialContactType);
   const [showMore, setShowMore] = useState(false);
 
   // Person fields
@@ -26,7 +26,7 @@ export default function AddContactModal({ onClose }) {
   const [jobTitle,  setJobTitle]    = useState('');
   // Lead extras
   const [leadSource,   setLeadSource]   = useState('email');
-  const [leadStatus,   setLeadStatus]   = useState('unassigned');
+  const [leadStatus,   setLeadStatus]   = useState(initialLeadStatus);
   const [requestTitle, setRequestTitle] = useState('');
   const [requestDesc,  setRequestDesc]  = useState('');
   const [budget,       setBudget]       = useState('');

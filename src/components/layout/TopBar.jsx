@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
-import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine } from 'lucide-react';
+import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useAuthStore } from '../../store/auth-store';
@@ -20,7 +20,7 @@ function getBreadcrumb(pathname, projects) {
   }
 
   // Pillar detail route: /app/faith-salah, /app/wealth-earning, etc.
-  const labels = { work: 'Work', money: 'Money', people: 'People', office: 'Office', tech: 'Tech', settings: 'Settings' };
+  const labels = { work: 'Work', money: 'Money', people: 'People', office: 'Office', tech: 'Tech', settings: 'Settings', sources: 'Primary Sources' };
   const sub = parts[0];
   if (labels[sub]) return labels[sub];
 
@@ -45,6 +45,7 @@ const WORK_TABS = [
   { path: 'assets', label: 'Assets' },
   { path: 'office', label: 'Office' },
   { path: 'tech', label: 'Tech' },
+  { path: 'journal', label: 'Journal' },
 ];
 
 function getProjectBase(pathname) {
@@ -65,8 +66,13 @@ export default function TopBar() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const user = useAuthStore((s) => s.user);
   const projects = useProjectStore((s) => s.projects);
+  const tooltipsEnabled = useSettingsStore((s) => s.tooltipsEnabled);
+  const setTooltipsEnabled = useSettingsStore((s) => s.setTooltipsEnabled);
   const setReflectionOpen = useAppStore((s) => s.setReflectionOpen);
+  const setDiscussionOpen = useAppStore((s) => s.setDiscussionOpen);
   const [clockInOpen, setClockInOpen] = useState(false);
+
+  const tip = (text) => tooltipsEnabled ? text : undefined;
 
   const projectBase = getProjectBase(location.pathname);
   const showWorkTabs = !!projectBase;
@@ -76,7 +82,7 @@ export default function TopBar() {
       <header className="topbar">
         <div className="topbar-left">
           {mobile && (
-            <button className="topbar-btn" onClick={toggleSidebar} title="Menu">
+            <button className="topbar-btn" onClick={toggleSidebar} title={tip('Menu')}>
               <Menu size={20} />
             </button>
           )}
@@ -104,38 +110,52 @@ export default function TopBar() {
           <button
             className="topbar-btn"
             onClick={() => setReflectionOpen(true)}
-            title="Record Reflection"
+            title={tip('Record Reflection')}
           >
             <PenLine size={18} />
           </button>
           <button
             className="topbar-btn"
             onClick={() => setClockInOpen(true)}
-            title="Clock in"
+            title={tip('Clock in')}
           >
             <Clock size={18} />
           </button>
-          <button className="topbar-btn topbar-search" onClick={() => setSearchOpen(true)} title="Search (Cmd+K)">
+          <button className="topbar-btn topbar-search" onClick={() => setSearchOpen(true)} title={tip('Search (Cmd+K)')}>
             <Search size={18} />
             {!mobile && <span className="topbar-search-hint">Search...</span>}
             {!mobile && <kbd className="topbar-kbd">⌘K</kbd>}
           </button>
           <button
+            className="topbar-btn"
+            onClick={() => setDiscussionOpen(true)}
+            title={tip('Discussion')}
+          >
+            <MessagesSquare size={18} />
+          </button>
+          <button
             className={`topbar-btn ${islamicPanelOpen ? 'topbar-btn-active' : ''}`}
             onClick={toggleIslamicPanel}
-            title={`${valuesLayer === 'islamic' ? 'Islamic' : 'Values'} Panel (Cmd+I)`}
+            title={tip(`${valuesLayer === 'islamic' ? 'Islamic' : 'Values'} Panel (Cmd+I)`)}
           >
             {valuesLayer === 'islamic' ? <MoonStar size={18} /> : <Compass size={18} />}
           </button>
           <button
             className="topbar-btn"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            title="Toggle theme"
+            title={tip('Toggle theme')}
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
+          <button
+            className="topbar-btn"
+            onClick={() => setTooltipsEnabled(!tooltipsEnabled)}
+            title={tooltipsEnabled ? 'Hide tooltips' : undefined}
+          >
+            {tooltipsEnabled ? <MessageCircle size={18} /> : <MessageCircleOff size={18} />}
+          </button>
           {user && (
-            <div className="topbar-avatar" title={user.name}>
+            <div className="topbar-avatar" title={tip(user.name)}>
               {user.name?.charAt(0)?.toUpperCase() || 'U'}
             </div>
           )}

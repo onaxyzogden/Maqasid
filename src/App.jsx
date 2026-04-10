@@ -13,9 +13,7 @@ import Tech from '@pages/modules/Tech';
 import FamilyPage from '@pages/ummah/FamilyPage';
 import Neighbors from '@pages/ummah/Neighbors';
 import Community from '@pages/ummah/Community';
-import QuranPage from '@pages/islamic/QuranPage';
-import HadithPage from '@pages/islamic/HadithPage';
-import IslamicKnowledgePage from '@pages/islamic/IslamicKnowledgePage';
+import SourcesPage from '@pages/islamic/SourcesPage';
 import FaithCorePage from '@pages/faith/FaithCorePage';
 import FaithGrowthPage from '@pages/faith/FaithGrowthPage';
 import FaithExcellencePage from '@pages/faith/FaithExcellencePage';
@@ -57,6 +55,7 @@ import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
 import ProjectBoard from '@components/work/ProjectBoard';
 import AssetsTab from '@components/money/AssetsTab';
+import ProjectJournal from '@components/journal/ProjectJournal';
 import { useParams } from 'react-router-dom';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
@@ -68,7 +67,7 @@ function ProjectTasks() {
   const loadTasks = useTaskStore((s) => s.loadTasks);
   useEffect(() => { if (projectId) loadTasks(projectId); }, [projectId]);
   if (!project) return null;
-  return <ProjectBoard projectId={projectId} project={project} />;
+  return <ProjectBoard projectId={projectId} project={project} hideBbos />;
 }
 
 function ProjectAssets() {
@@ -103,6 +102,7 @@ export default function App() {
           <Route path="assets" element={<ProjectAssets />} />
           <Route path="office" element={<Office embedded />} />
           <Route path="tech" element={<Tech embedded />} />
+          <Route path="journal" element={<ProjectJournal />} />
         </Route>
         <Route path="money" element={<Money />} />
         <Route path="people" element={<People />} />
@@ -111,9 +111,10 @@ export default function App() {
         <Route path="family" element={<FamilyPage />} />
         <Route path="neighbors" element={<Neighbors />} />
         <Route path="community" element={<Community />} />
-        <Route path="quran" element={<QuranPage />} />
-        <Route path="hadith" element={<HadithPage />} />
-        <Route path="islamic-knowledge" element={<IslamicKnowledgePage />} />
+        <Route path="sources" element={<SourcesPage />} />
+        <Route path="quran" element={<Navigate to="/app/sources?tab=quran" replace />} />
+        <Route path="hadith" element={<Navigate to="/app/sources?tab=hadith" replace />} />
+        <Route path="islamic-knowledge" element={<Navigate to="/app/sources?tab=islamic-knowledge" replace />} />
         <Route path="faith-core" element={<FaithCorePage />} />
         <Route path="faith-growth" element={<FaithGrowthPage />} />
         <Route path="faith-excellence" element={<FaithExcellencePage />} />

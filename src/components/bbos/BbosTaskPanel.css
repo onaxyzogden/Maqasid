@@ -281,6 +281,48 @@
   line-height: 1.5;
 }
 
+/* ── Per-Task Template ── */
+.btp-template-box {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btp-template-hint {
+  font-size: 0.78rem;
+  color: var(--text3);
+  margin: 0;
+}
+
+.btp-template-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btp-template-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--text2);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: color 150ms, border-color 150ms, background 150ms;
+}
+.btp-template-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-muted, #6366f111);
+}
+
 /* ── AI Draft section ── */
 .btp-draft-section {
   display: flex;

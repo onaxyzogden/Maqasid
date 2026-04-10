@@ -105,6 +105,7 @@
   --sidebar-w: 248px;
   --sidebar-w-collapsed: 64px;
   --islamic-panel-w: 280px;
+  --edge-w: 28px;
 
   /* Transitions */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,11 +125,8 @@
   --mod-five-pillars: #C8A96E;
   --mod-quran: #D4A853;
   --mod-hadith: #B8956E;
-
-  /* Faith pillar — new submodules */
   --mod-islamic-knowledge: #D4B870;
-  --mod-community-engagement: #C4986E;
-  --mod-ethical-living: #B8A870;
+  --mod-sources: #D4A853;
 
   /* Life pillar (#6EAD8A base) */
   --mod-physical-wellness: #5BA87B;

@@ -148,14 +148,34 @@
   width: 30px;
   height: 30px;
   border-radius: var(--radius-full);
-  background: var(--bg4);
-  color: var(--text2);
+  background: var(--primary-bg);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.65rem;
   font-weight: 700;
+  flex-shrink: 0;
 }
+.tdp-assignee-avatar--empty {
+  background: var(--bg4);
+  color: var(--text3);
+}
+
+.tdp-assignee-select {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 0.78rem;
+  color: var(--text2);
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: var(--radius-xs);
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tdp-assignee-select:hover { background: var(--bg3); }
 
 .tdp-add-circle {
   all: unset;
@@ -394,6 +414,89 @@
 .tdp-subtask-item--done {
   opacity: 0.7;
 }
+
+/* ── Attachments ── */
+.tdp-attachments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tdp-attachment-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.tdp-attachment-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface2);
+}
+
+.tdp-attachment-thumb {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+.tdp-attachment-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tdp-attachment-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xs);
+  background: var(--surface3);
+  color: var(--text3);
+}
+
+.tdp-attachment-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tdp-attachment-name {
+  font-size: 0.8rem;
+  color: var(--text1);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tdp-attachment-name:hover { text-decoration: underline; }
+
+.tdp-attachment-size {
+  font-size: 0.7rem;
+  color: var(--text3);
+}
+
+.tdp-attachment-remove {
+  all: unset;
+  flex-shrink: 0;
+  cursor: pointer;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: var(--radius-xs);
+}
+.tdp-attachment-remove:hover { color: var(--danger); }
 
 /* ── Attachment button ── */
 .tdp-attachment-btn {

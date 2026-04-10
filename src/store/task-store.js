@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
-import { genTaskId, genSubtaskId, genCheckId } from '../services/id';
+import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
 
 function persistTasks(projectId, tasks) {
   safeSet(`tasks_${projectId}`, tasks);
@@ -21,7 +21,7 @@ export const useTaskStore = create((set, get) => ({
     const tasks = get().tasksByProject[projectId] || [];
     return tasks
       .filter((t) => t.columnId === columnId)
-      .sort((a, b) => a.order - b.order);
+      .sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order));
   },
 
   getTask: (projectId, taskId) => {
@@ -43,6 +43,8 @@ export const useTaskStore = create((set, get) => ({
       tags: [],
       subtasks: [],
       checklist: [],
+      attachments: [],
+      assigneeId: null,
       order: colTasks.length,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -141,6 +143,51 @@ export const useTaskStore = create((set, get) => ({
       return {
         ...t,
         subtasks: t.subtasks.filter((st) => st.id !== subtaskId),
+        updatedAt: new Date().toISOString(),
+      };
+    });
+    persistTasks(projectId, tasks);
+    return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
+  }),
+
+  addAttachment: (projectId, taskId, file) => {
+    const MAX_BYTES = 5 * 1024 * 1024; // 5 MB
+    if (file.size > MAX_BYTES) {
+      alert(`File too large. Maximum size is 5 MB.`);
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const attachment = {
+        id: genAttachmentId(),
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        data: e.target.result, // base64 data URL
+        addedAt: new Date().toISOString(),
+      };
+      set((s) => {
+        const tasks = (s.tasksByProject[projectId] || []).map((t) => {
+          if (t.id !== taskId) return t;
+          return {
+            ...t,
+            attachments: [...(t.attachments || []), attachment],
+            updatedAt: new Date().toISOString(),
+          };
+        });
+        persistTasks(projectId, tasks);
+        return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
+      });
+    };
+    reader.readAsDataURL(file);
+  },
+
+  removeAttachment: (projectId, taskId, attachmentId) => set((s) => {
+    const tasks = (s.tasksByProject[projectId] || []).map((t) => {
+      if (t.id !== taskId) return t;
+      return {
+        ...t,
+        attachments: (t.attachments || []).filter((a) => a.id !== attachmentId),
         updatedAt: new Date().toISOString(),
       };
     });

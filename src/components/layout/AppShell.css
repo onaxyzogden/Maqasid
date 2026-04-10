@@ -4,16 +4,89 @@
   height: 100vh;
   overflow: hidden;
   background: var(--bg);
-  transition: grid-template-columns var(--duration-lg) var(--ease);
+  /* Grid snaps; sidebar animates its own width internally */
 }
 
 .app-main {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 2;
   overflow-y: auto;
   overflow-x: hidden;
   padding: var(--space-6);
   background: var(--bg);
+}
+
+/* ── Drag-to-resize: suppress transitions and selection while dragging ── */
+.app-shell--dragging {
+  transition: none !important;
+}
+.app-shell--dragging * {
+  user-select: none !important;
+  cursor: col-resize !important;
+}
+
+/* ── Edge columns ── */
+.col-edge {
+  position: relative;
+  background: var(--surface);
+  z-index: 15;
+  cursor: col-resize;
+}
+
+.col-edge__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 13px;
+  width: 1px;
+  background: var(--border);
+  transition: opacity 150ms;
+}
+
+.col-edge:hover .col-edge__line {
+  opacity: 0.5;
+}
+
+.col-edge__toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 28px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  color: var(--text3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms, color 150ms, border-color 150ms;
+  padding: 0;
+}
+
+.col-edge__toggle:hover {
+  background: var(--primary-bg);
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+
+.col-edge__toggle:focus-visible {
+  outline: 2px solid var(--primary-border);
+  outline-offset: 1px;
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+
+.col-edge__toggle:active {
+  background: var(--primary-bg2);
+  color: var(--primary-dark);
+}
+
+/* Dark theme: boost edge line contrast (--border is too subtle against --surface) */
+[data-theme="dark"] .col-edge__line {
+  background: var(--border2);
 }
 
 @media (max-width: 767px) {

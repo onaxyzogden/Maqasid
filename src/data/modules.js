@@ -128,33 +128,18 @@ export const MODULES = [
     ],
   },
   {
-    id: 'hadith',
-    name: 'Hadith',
-    description: 'Prophetic traditions study and reflection',
-    icon: 'ScrollText',
-    color: 'var(--mod-hadith)',
-    attrs: 'As-Sadiq · Al-Amin',
-    attrs_ar: 'الصادق · الأمين',
+    id: 'sources',
+    name: 'Primary Sources',
+    description: 'Quran, Hadith, and Islamic Knowledge — primary sources of guidance',
+    icon: 'Library',
+    color: 'var(--mod-sources)',
+    attrs: 'Al-Hadi · Al-Alim',
+    attrs_ar: 'الهادي · العليم',
     ready: true,
     features: [
+      'Quran study & reflection',
       'Hadith collections',
-      'Study tracker',
-      'Reflection journal',
-    ],
-  },
-  {
-    id: 'quran',
-    name: 'Quran',
-    description: 'Quran study and reflection',
-    icon: 'BookOpen',
-    color: 'var(--mod-quran)',
-    attrs: 'Al-Hadi · An-Nur',
-    attrs_ar: 'الهادي · النور',
-    ready: true,
-    features: [
-      'Reading tracker',
-      'Reflection journal',
-      'Memorization progress',
+      'Islamic Knowledge courses',
     ],
   },
 
@@ -250,40 +235,6 @@ export const MODULES = [
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
 
-  // ── Faith pillar — new submodules ──
-  {
-    id: 'islamic-knowledge',
-    name: 'Islamic Knowledge',
-    description: 'Courses, books, and resources on Islamic teachings and history',
-    icon: 'GraduationCap',
-    color: 'var(--mod-islamic-knowledge)',
-    attrs: 'Al-Alim · Al-Hakim',
-    attrs_ar: 'العليم · الحكيم',
-    ready: true,
-    features: ['Course catalogue', 'Reading lists', 'Study plans', 'Islamic history timeline'],
-  },
-  {
-    id: 'community-engagement',
-    name: 'Community Engagement',
-    description: 'Opportunities to connect with and support fellow Muslims',
-    icon: 'HandHeart',
-    color: 'var(--mod-community-engagement)',
-    attrs: 'Al-Wali · Al-Mujib',
-    attrs_ar: 'الولي · المجيب',
-    ready: true,
-    features: ['Volunteer opportunities', 'Masjid connections', 'Mentorship matching', 'Event calendar'],
-  },
-  {
-    id: 'ethical-living',
-    name: 'Ethical Living',
-    description: 'Guidance on applying Islamic values in daily life',
-    icon: 'Scale',
-    color: 'var(--mod-ethical-living)',
-    attrs: 'Al-Adl · Al-Haqq',
-    attrs_ar: 'العدل · الحق',
-    ready: true,
-    features: ['Daily ethics checklist', 'Halal lifestyle guide', 'Character development', 'Accountability journal'],
-  },
 
   // ── Life pillar — submodule pages ──
   {
@@ -542,7 +493,6 @@ export const PROJECT_COLORS = [
 export const DEFAULT_COLUMNS = [
   { name: 'To Do', color: 'var(--col-todo)' },
   { name: 'In Progress', color: 'var(--col-progress)' },
-  { name: 'Review', color: 'var(--col-review)' },
   { name: 'Done', color: 'var(--col-done)' },
 ];
 

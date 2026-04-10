@@ -1,7 +1,5 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { PenLine, BookOpen, Plus } from 'lucide-react';
-import { safeGetJSON, safeSet } from '../../services/storage';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
@@ -12,6 +10,7 @@ import { useKeyboard } from '../../hooks/useKeyboard';
 import { useInactivity } from '../../hooks/useInactivity';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
 import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Sidebar from './Sidebar';
 import TopBar from './TopBar';
 import MobileNav from './MobileNav';
@@ -22,6 +21,8 @@ import ResumeOverlay from '../islamic/ResumeOverlay';
 import PrayerOverlay from '../islamic/PrayerOverlay';
 import PrayerWarning from '../islamic/PrayerWarning';
 import NiyyahAct from '../islamic/NiyyahAct';
+import JournalPanel from '../journal/JournalPanel';
+import DiscussionPanel from '../discussion/DiscussionPanel';
 import './AppShell.css';
 
 export default function AppShell() {
@@ -117,48 +118,95 @@ export default function AppShell() {
     }
   }, [setPrayerLock, completedOpening, activeModule, triggerResume]);
 
-  const showReflectionPanel = useAppStore((s) => s.reflectionOpen);
-  const setShowReflectionPanel = useAppStore((s) => s.setReflectionOpen);
-  const [isPanelClosing, setIsPanelClosing] = useState(false);
-  const [reflectionDraft, setReflectionDraft] = useState('');
-  const [reflectionEntries, setReflectionEntries] = useState(() =>
-    safeGetJSON('global_journal_reflection', [])
-  );
-
-  const addReflection = () => {
-    if (!reflectionDraft.trim()) return;
-    const entry = {
-      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      text: reflectionDraft.trim(),
-      createdAt: new Date().toISOString(),
-    };
-    const updated = [entry, ...reflectionEntries];
-    setReflectionEntries(updated);
-    safeSet('global_journal_reflection', updated);
-    setReflectionDraft('');
-  };
-
-  const closeReflectionPanel = () => {
-    setIsPanelClosing(true);
-    setTimeout(() => {
-      setShowReflectionPanel(false);
-      setIsPanelClosing(false);
-    }, 220);
-  };
-
-  const removeReflection = (id) => {
-    const updated = reflectionEntries.filter((e) => e.id !== id);
-    setReflectionEntries(updated);
-    safeSet('global_journal_reflection', updated);
-  };
-
   // Daily Niyyah Act gate
   const today = new Date().toISOString().slice(0, 10);
   const niyyahNeeded = niyyahDate !== today;
 
-  const sidebarCol = sidebarOpen ? 'var(--sidebar-w)' : 'var(--sidebar-w-collapsed)';
-  const panelCol = islamicPanelOpen && !mobile ? ' var(--islamic-panel-w)' : '';
-  const gridCols = mobile ? '1fr' : `${sidebarCol} 1fr${panelCol}`;
+  const toggleSidebar = useAppStore((s) => s.toggleSidebar);
+  const sidebarWidthPx = useAppStore((s) => s.sidebarWidthPx);
+  const setSidebarWidth = useAppStore((s) => s.setSidebarWidth);
+  const islamicPanelWidthPx = useAppStore((s) => s.islamicPanelWidthPx);
+  const setIslamicPanelWidth = useAppStore((s) => s.setIslamicPanelWidth);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isRightDragging, setIsRightDragging] = useState(false);
+  const dragStartRef = useRef({ x: 0, startW: 248, moved: false });
+  const rightDragStartRef = useRef({ x: 0, startW: 280, moved: false });
+
+  const sidebarPx = sidebarOpen ? `${sidebarWidthPx}px` : '64px';
+  const edgePx = '28px';
+  const panelPx = `${islamicPanelWidthPx}px`;
+  const gridCols = mobile
+    ? '1fr'
+    : islamicPanelOpen
+      ? `${sidebarPx} ${edgePx} 1fr ${edgePx} ${panelPx}`
+      : `${sidebarPx} ${edgePx} 1fr`;
+
+  const handleEdgePointerDown = (e) => {
+    // Only handle left mouse button / primary touch
+    if (e.button !== undefined && e.button !== 0) return;
+    dragStartRef.current = { x: e.clientX, startW: sidebarWidthPx, moved: false };
+    setIsDragging(true);
+    e.currentTarget.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  };
+
+  const handleEdgePointerMove = (e) => {
+    if (!isDragging) return;
+    const delta = e.clientX - dragStartRef.current.x;
+    if (Math.abs(delta) >= 5) {
+      dragStartRef.current.moved = true;
+      const newW = dragStartRef.current.startW + delta;
+      if (newW < 80) {
+        // Snap to collapsed
+        if (sidebarOpen) toggleSidebar();
+        return;
+      }
+      setSidebarWidth(newW);
+    }
+  };
+
+  const handleEdgePointerUp = (e) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    e.currentTarget.releasePointerCapture(e.pointerId);
+    // If no meaningful movement, treat as a click toggle
+    if (!dragStartRef.current.moved) {
+      toggleSidebar();
+    }
+  };
+
+  // ── Right edge (Islamic panel) drag handlers ──
+  const handleRightEdgePointerDown = (e) => {
+    if (e.button !== undefined && e.button !== 0) return;
+    rightDragStartRef.current = { x: e.clientX, startW: islamicPanelWidthPx, moved: false };
+    setIsRightDragging(true);
+    e.currentTarget.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  };
+
+  const handleRightEdgePointerMove = (e) => {
+    if (!isRightDragging) return;
+    const delta = e.clientX - rightDragStartRef.current.x;
+    if (Math.abs(delta) >= 5) {
+      rightDragStartRef.current.moved = true;
+      // Right edge: drag left = panel wider (negate delta)
+      const newW = rightDragStartRef.current.startW - delta;
+      if (newW < 80) {
+        if (islamicPanelOpen) toggleIslamicPanel();
+        return;
+      }
+      setIslamicPanelWidth(newW);
+    }
+  };
+
+  const handleRightEdgePointerUp = (e) => {
+    if (!isRightDragging) return;
+    setIsRightDragging(false);
+    e.currentTarget.releasePointerCapture(e.pointerId);
+    if (!rightDragStartRef.current.moved) {
+      toggleIslamicPanel();
+    }
+  };
 
   // Minutes until prayer itself, and minutes until the lock screen activates
   const minutesUntilPrayer = nextPrayer?.remainingMs != null
@@ -170,12 +218,48 @@ export default function AppShell() {
 
   return (
     <>
-      <div className="app-shell" style={{ gridTemplateColumns: gridCols }}>
+      <div className={`app-shell${isDragging || isRightDragging ? ' app-shell--dragging' : ''}`} style={{ gridTemplateColumns: gridCols }}>
         <TopBar />
         <Sidebar />
+        {!mobile && (
+          <div
+            className="col-edge"
+            style={{ gridColumn: 2, gridRow: '2 / -1' }}
+            onPointerDown={handleEdgePointerDown}
+            onPointerMove={handleEdgePointerMove}
+            onPointerUp={handleEdgePointerUp}
+          >
+            <div className="col-edge__line" />
+            <button
+              className="col-edge__toggle"
+              aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSidebar(); } }}
+            >
+              {sidebarOpen ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
+            </button>
+          </div>
+        )}
         <main className="app-main">
           <Outlet />
         </main>
+        {islamicPanelOpen && !mobile && (
+          <div
+            className="col-edge"
+            style={{ gridColumn: 4, gridRow: '2 / -1' }}
+            onPointerDown={handleRightEdgePointerDown}
+            onPointerMove={handleRightEdgePointerMove}
+            onPointerUp={handleRightEdgePointerUp}
+          >
+            <div className="col-edge__line" />
+            <button
+              className="col-edge__toggle"
+              aria-label="Close Islamic panel"
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
+            >
+              <ChevronRight size={12} />
+            </button>
+          </div>
+        )}
         {islamicPanelOpen && <IslamicPanel />}
         {mobile && <MobileNav />}
       </div>
@@ -203,58 +287,8 @@ export default function AppShell() {
       )}
 
 
-      {showReflectionPanel && (
-        <>
-          <div className="journal-panel-overlay" onClick={closeReflectionPanel} />
-          <div className={`journal-panel${isPanelClosing ? ' journal-panel--closing' : ''}`}>
-            <div className="journal-panel__header">
-              <span className="journal-panel__title">Reflection</span>
-              <button className="journal-panel__close" onClick={closeReflectionPanel}>✕</button>
-            </div>
-            <div className="journal-panel__body">
-              <div className="faith-journal">
-                <div className="faith-journal__header">
-                  <BookOpen size={20} style={{ color: 'var(--text2)' }} aria-hidden="true" />
-                  <h3 className="faith-journal__title">Reflection Journal</h3>
-                </div>
-                <p className="faith-journal__desc">A space for personal reflection, intentions, and insights.</p>
-                <div className="faith-journal__compose">
-                  <textarea
-                    className="faith-journal__textarea"
-                    placeholder="Write a reflection..."
-                    value={reflectionDraft}
-                    onChange={(e) => setReflectionDraft(e.target.value)}
-                    onKeyDown={(e) => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) addReflection(); }}
-                    rows={3}
-                  />
-                  <button className="btn btn-primary faith-journal__add" onClick={addReflection} disabled={!reflectionDraft.trim()}>
-                    <Plus size={14} aria-hidden="true" /> Add Entry
-                  </button>
-                </div>
-                {reflectionEntries.length === 0 ? (
-                  <div className="faith-journal__empty">No journal entries yet. Start by writing a reflection above.</div>
-                ) : (
-                  <div className="faith-journal__list">
-                    {reflectionEntries.map((entry) => (
-                      <div key={entry.id} className="faith-journal__entry">
-                        <div className="faith-journal__entry-header">
-                          <span className="faith-journal__entry-date">
-                            {new Date(entry.createdAt).toLocaleDateString(undefined, {
-                              weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-                            })}
-                          </span>
-                          <button className="faith-journal__entry-remove" onClick={() => removeReflection(entry.id)} title="Remove entry">&times;</button>
-                        </div>
-                        <p className="faith-journal__entry-text">{entry.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      <JournalPanel />
+      <DiscussionPanel />
     </>
   );
 }

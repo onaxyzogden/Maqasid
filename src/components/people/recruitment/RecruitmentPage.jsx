@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Plus, ArrowDown, X, MoreHorizontal, Link2, ExternalLink, Copy, Check, ChevronLeft, Calendar, MapPin, Briefcase, Users as UsersIcon, Clock } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { useRecruitmentStore } from '@store/recruitment-store';

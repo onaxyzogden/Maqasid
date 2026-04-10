@@ -30,7 +30,9 @@ function seedBbosTasks(projectId, todoColumnId) {
     tags: [def.stage],
     subtasks: [],
     checklist: [],
+    attachments: [],
     order: i,
+    seedOrder: i,
     createdAt: now,
     updatedAt: now,
     completedAt: null,
@@ -61,12 +63,75 @@ function seedTasks(boardId, seedMap) {
     subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false })),
     checklist: [],
     order: i,
+    seedOrder: i,
     createdAt: now,
     updatedAt: now,
     completedAt: null,
   }));
   safeSet(storageKey, seeded);
 }
+
+function backfillSeedDescriptions() {
+  const ALL_SEEDS = {
+    ...FAITH_SEED_TASKS,
+    ...LIFE_SEED_TASKS,
+    ...INTELLECT_SEED_TASKS,
+    ...FAMILY_SEED_TASKS,
+    ...WEALTH_SEED_TASKS,
+    ...ENVIRONMENT_SEED_TASKS,
+  };
+  Object.keys(ALL_SEEDS).forEach((boardId) => {
+    const storageKey = `tasks_${boardId}`;
+    const tasks = safeGetJSON(storageKey, []);
+    if (tasks.length === 0) return;
+    const seeds = ALL_SEEDS[boardId];
+    const seedMap = {};
+    seeds.forEach((s, i) => { seedMap[s.title] = { ...s, _seedIndex: i }; });
+    let changed = false;
+    const updated = tasks.map((t) => {
+      const seed = seedMap[t.title];
+      if (!seed) return t;
+      const patch = {};
+      if (!t.description && seed.description) patch.description = seed.description;
+      if (t.seedOrder === undefined) patch.seedOrder = seed._seedIndex;
+      const seedSubs = seed.subtasks || [];
+      const storedSubs = t.subtasks || [];
+      if (seedSubs.length > storedSubs.length) {
+        const storedTitles = new Set(storedSubs.map((s) => s.title));
+        const newSubs = seedSubs
+          .filter((s) => !storedTitles.has(s.title))
+          .map((s) => ({ ...s, id: genSubtaskId() }));
+        if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
+      }
+      if (Object.keys(patch).length > 0) { changed = true; return { ...t, ...patch }; }
+      return t;
+    });
+    if (changed) safeSet(storageKey, updated);
+  });
+}
+backfillSeedDescriptions();
+
+function backfillBbosOrder() {
+  const bbosIndexMap = {};
+  BBOS_TASK_DEFINITIONS.forEach((def, i) => { bbosIndexMap[def.id] = i; });
+  const projects = safeGetJSON('projects', []);
+  projects.forEach((proj) => {
+    if (!proj.bbosEnabled) return;
+    const storageKey = `tasks_${proj.id}`;
+    const tasks = safeGetJSON(storageKey, []);
+    if (tasks.length === 0) return;
+    let changed = false;
+    const updated = tasks.map((t) => {
+      if (t.seedOrder !== undefined) return t;
+      const idx = bbosIndexMap[t.bbosTaskType];
+      if (idx === undefined) return t;
+      changed = true;
+      return { ...t, seedOrder: idx };
+    });
+    if (changed) safeSet(storageKey, updated);
+  });
+}
+backfillBbosOrder();
 
 export const FAITH_BOARDS = [
   { id: 'faith_core',       name: 'CORE',       color: '#C8A96E', icon: 'Shield',      description: 'Core Pillars — Level 1: Necessities', moduleId: null },
@@ -189,7 +254,7 @@ export const ENVIRONMENT_BOARDS = [
   { id: 'environment_sourcing_excellence', name: 'SOURCING — EXCELLENCE', color: '#f97316', icon: 'ShoppingBag', description: 'Ethical Sourcing: Excellence (Tahsiniyyat)', moduleId: 'sourcing' },
 ];
 
-// Migrate any existing BBOS projects from 9-column layout to standard 4-column
+// Migrate any existing BBOS projects from 9-column layout to standard columns
 function migrateBbosProjects(projects) {
   let changed = false;
   const migrated = projects.map((p) => {
@@ -210,8 +275,34 @@ function migrateBbosProjects(projects) {
   return migrated;
 }
 
+// Remove "Review" column from all projects; move its tasks to "In Progress"
+function migrateRemoveReviewColumn(projects) {
+  let changed = false;
+  const migrated = projects.map((p) => {
+    const reviewCol = p.columns?.find((c) => c.name === 'Review');
+    if (!reviewCol) return p;
+
+    changed = true;
+    const inProgressCol = p.columns.find((c) => c.name === 'In Progress');
+    if (inProgressCol) {
+      // Reassign any tasks in Review → In Progress
+      const storageKey = `tasks_${p.id}`;
+      const tasks = safeGetJSON(storageKey, []);
+      const updated = tasks.map((t) =>
+        t.columnId === reviewCol.id ? { ...t, columnId: inProgressCol.id } : t
+      );
+      if (tasks.some((t) => t.columnId === reviewCol.id)) {
+        safeSet(storageKey, updated);
+      }
+    }
+    return { ...p, columns: p.columns.filter((c) => c.name !== 'Review') };
+  });
+  if (changed) safeSet('projects', migrated);
+  return migrated;
+}
+
 export const useProjectStore = create((set, get) => ({
-  projects: migrateBbosProjects(safeGetJSON('projects', [])),
+  projects: migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', []))),
 
   createProject: ({ name, description = '', color, icon = 'Folder', moduleId = null, bbosEnabled = false }) => {
     const columns = DEFAULT_COLUMNS.map((col) => ({
@@ -236,6 +327,7 @@ export const useProjectStore = create((set, get) => ({
       bbosStage: bbosEnabled ? 'FND' : null,
       bbosCycle: bbosEnabled ? 1 : null,
       bbosRole: bbosEnabled ? 'all' : null,
+      members: [],
     };
     set((s) => {
       const projects = [...s.projects, project];
@@ -252,6 +344,26 @@ export const useProjectStore = create((set, get) => ({
     const projects = s.projects.map((p) =>
       p.id === id ? { ...p, ...updates, updatedAt: new Date().toISOString() } : p
     );
+    persistProjects(projects);
+    return { projects };
+  }),
+
+  addProjectMember: (projectId, employeeId) => set((s) => {
+    const projects = s.projects.map((p) => {
+      if (p.id !== projectId) return p;
+      const members = p.members || [];
+      if (members.includes(employeeId)) return p;
+      return { ...p, members: [...members, employeeId] };
+    });
+    persistProjects(projects);
+    return { projects };
+  }),
+
+  removeProjectMember: (projectId, employeeId) => set((s) => {
+    const projects = s.projects.map((p) => {
+      if (p.id !== projectId) return p;
+      return { ...p, members: (p.members || []).filter((id) => id !== employeeId) };
+    });
     persistProjects(projects);
     return { projects };
   }),

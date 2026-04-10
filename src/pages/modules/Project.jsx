@@ -8,7 +8,7 @@ import { useThresholdStore } from '@store/threshold-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
 import ProjectBoard from '@components/work/ProjectBoard';
 
-const TAB_SUFFIXES = ['/people', '/tasks', '/money', '/assets', '/office', '/tech'];
+const TAB_SUFFIXES = ['/people', '/tasks', '/money', '/assets', '/office', '/tech', '/journal'];
 
 export default function Project() {
   const { projectId } = useParams();
@@ -76,29 +76,6 @@ export default function Project() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
           <div style={{ width: 12, height: 12, borderRadius: 3, background: project.color }} />
-          {editingName ? (
-            <input
-              value={nameVal}
-              onChange={(e) => setNameVal(e.target.value)}
-              onBlur={saveName}
-              onKeyDown={(e) => { if (e.key === 'Enter') saveName(); if (e.key === 'Escape') { setNameVal(project.name); setEditingName(false); } }}
-              autoFocus
-              style={{
-                fontSize: '1.3rem', fontWeight: 700, fontFamily: "'Space Grotesk', sans-serif",
-                border: 'none', borderBottom: '2px solid var(--primary)',
-                background: 'transparent', outline: 'none', padding: '2px 0',
-                color: 'var(--text)', width: '100%', maxWidth: 300,
-              }}
-            />
-          ) : (
-            <h2
-              style={{ fontSize: '1.3rem', cursor: 'pointer' }}
-              onClick={() => setEditingName(true)}
-              title="Click to rename"
-            >
-              {project.name}
-            </h2>
-          )}
           {project.bbosEnabled && (
             <span style={{
               fontSize: '0.68rem', fontFamily: "'JetBrains Mono', monospace",

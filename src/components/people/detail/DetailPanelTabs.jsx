@@ -7,25 +7,45 @@ import SkillsTab from '../tabs/SkillsTab';
 import DocsTab from '../tabs/DocsTab';
 import WorkTab from '../tabs/WorkTab';
 import ClockInsTab from '../tabs/ClockInsTab';
+import LeadTab from '../tabs/LeadTab';
 import CompanyInfoTab from '../tabs/CompanyInfoTab';
 import CompanyPeopleTab from '../tabs/CompanyPeopleTab';
 import CompanyNotesTab from '../tabs/CompanyNotesTab';
 
-const PERSON_TABS = [
-  { id: 'hr',        label: 'HR' },
-  { id: 'absence',   label: 'Absence' },
-  { id: 'personal',  label: 'Personal' },
-  { id: 'salary',    label: 'Salary' },
-  { id: 'skills',    label: 'Skills' },
-  { id: 'docs',      label: 'Docs' },
-  { id: 'work',      label: 'Work' },
-  { id: 'clockins',  label: 'Clock Ins' },
-];
+const TABS_BY_TYPE = {
+  lead: [
+    { id: 'pipeline', label: 'Pipeline' },
+    { id: 'personal', label: 'Personal' },
+    { id: 'docs',     label: 'Docs' },
+    { id: 'work',     label: 'Work' },
+  ],
+  contact: [
+    { id: 'personal', label: 'Personal' },
+    { id: 'work',     label: 'Work' },
+    { id: 'docs',     label: 'Docs' },
+  ],
+  client: [
+    { id: 'personal', label: 'Personal' },
+    { id: 'work',     label: 'Work' },
+    { id: 'docs',     label: 'Docs' },
+    { id: 'skills',   label: 'Skills' },
+  ],
+  employee: [
+    { id: 'hr',       label: 'HR' },
+    { id: 'absence',  label: 'Absence' },
+    { id: 'personal', label: 'Personal' },
+    { id: 'salary',   label: 'Salary' },
+    { id: 'skills',   label: 'Skills' },
+    { id: 'docs',     label: 'Docs' },
+    { id: 'work',     label: 'Work' },
+    { id: 'clockins', label: 'Clock Ins' },
+  ],
+};
 
 const COMPANY_TABS = [
-  { id: 'info',    label: 'Info' },
-  { id: 'people',  label: 'People' },
-  { id: 'notes',   label: 'Notes' },
+  { id: 'info',   label: 'Info' },
+  { id: 'people', label: 'People' },
+  { id: 'notes',  label: 'Notes' },
 ];
 
 export default function DetailPanelTabs({ entry }) {
@@ -33,7 +53,10 @@ export default function DetailPanelTabs({ entry }) {
   const setDetailTab = useContactsStore((s) => s.setDetailTab);
 
   const isCompany = entry.entityType === 'company' || entry._isCompany;
-  const tabs = isCompany ? COMPANY_TABS : PERSON_TABS;
+  const tabs = isCompany ? COMPANY_TABS : (TABS_BY_TYPE[entry.contactType] || TABS_BY_TYPE.employee);
+
+  // Fall back to first tab if stored tab isn't valid for this contact type
+  const effectiveTab = tabs.some((t) => t.id === detailTab) ? detailTab : tabs[0].id;
 
   const tabStyle = (active) => ({
     padding: '8px 14px',
@@ -51,18 +74,19 @@ export default function DetailPanelTabs({ entry }) {
   function renderTab() {
     const id = entry.id;
     if (isCompany) {
-      if (detailTab === 'info')   return <CompanyInfoTab company={entry._raw || entry} />;
-      if (detailTab === 'people') return <CompanyPeopleTab companyId={id} />;
-      if (detailTab === 'notes')  return <CompanyNotesTab companyId={id} />;
+      if (effectiveTab === 'info')   return <CompanyInfoTab company={entry._raw || entry} />;
+      if (effectiveTab === 'people') return <CompanyPeopleTab companyId={id} />;
+      if (effectiveTab === 'notes')  return <CompanyNotesTab companyId={id} />;
     } else {
-      if (detailTab === 'hr')       return <HRTab contactId={id} />;
-      if (detailTab === 'absence')  return <AbsenceTab contactId={id} />;
-      if (detailTab === 'personal') return <PersonalTab contactId={id} />;
-      if (detailTab === 'salary')   return <SalaryTab contactId={id} />;
-      if (detailTab === 'skills')   return <SkillsTab />;
-      if (detailTab === 'docs')     return <DocsTab contactId={id} />;
-      if (detailTab === 'work')     return <WorkTab contactId={id} />;
-      if (detailTab === 'clockins') return <ClockInsTab contactId={id} />;
+      if (effectiveTab === 'pipeline') return <LeadTab contactId={id} />;
+      if (effectiveTab === 'hr')       return <HRTab contactId={id} />;
+      if (effectiveTab === 'absence')  return <AbsenceTab contactId={id} />;
+      if (effectiveTab === 'personal') return <PersonalTab contactId={id} />;
+      if (effectiveTab === 'salary')   return <SalaryTab contactId={id} />;
+      if (effectiveTab === 'skills')   return <SkillsTab />;
+      if (effectiveTab === 'docs')     return <DocsTab contactId={id} />;
+      if (effectiveTab === 'work')     return <WorkTab contactId={id} />;
+      if (effectiveTab === 'clockins') return <ClockInsTab contactId={id} />;
     }
     return null;
   }
@@ -78,7 +102,7 @@ export default function DetailPanelTabs({ entry }) {
         scrollbarWidth: 'none',
       }}>
         {tabs.map((t) => (
-          <button key={t.id} style={tabStyle(detailTab === t.id)} onClick={() => setDetailTab(t.id)}>
+          <button key={t.id} style={tabStyle(effectiveTab === t.id)} onClick={() => setDetailTab(t.id)}>
             {t.label}
           </button>
         ))}

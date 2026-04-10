@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { getGlossaryEntry } from '@data/islamic/islamic-glossary';
+import { useSettingsStore } from '../../store/settings-store';
 import './IslamicTerm.css';
 
 const TOOLTIP_W = 252;
@@ -12,6 +13,7 @@ const MIN_ABOVE = 180;
  * Tooltip renders via portal to escape overflow:hidden ancestors.
  */
 export default function IslamicTerm({ id, children }) {
+  const tooltipsEnabled = useSettingsStore((s) => s.tooltipsEnabled);
   const [visible, setVisible] = useState(false);
   const [pos, setPos] = useState({ top: undefined, bottom: undefined, left: 0, flipped: false });
   const triggerRef = useRef(null);
@@ -49,7 +51,7 @@ export default function IslamicTerm({ id, children }) {
     >
       {children ?? entry.term}
 
-      {visible && createPortal(
+      {visible && tooltipsEnabled && createPortal(
         <span
           id={tooltipId}
           className={`islamic-term__tooltip${pos.flipped ? ' islamic-term__tooltip--below' : ''}`}

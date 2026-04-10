@@ -46,26 +46,6 @@ export default function HadithPage() {
 
   return (
     <div className="hd-page font-manrope">
-      {/* Sticky Header */}
-      <header className="hd-header">
-        <div className="hd-header__inner">
-          <div className="hd-header__left">
-            <span className="hd-header__title">The Sacred Editorial</span>
-            <nav className="hd-header__tabs">
-              <a className="hd-header__tab" href="#">Maqasid</a>
-              <a className="hd-header__tab" href="#">Curations</a>
-              <a className="hd-header__tab hd-header__tab--active" href="#">Archives</a>
-            </nav>
-          </div>
-          <div className="hd-header__right">
-            <div className="hd-search">
-              <input className="hd-search__input" type="text" placeholder="Search the tradition..." />
-              <Search size={16} className="hd-search__icon" />
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Canvas */}
       <div className="hd-canvas">
         {/* Hero: Hadith of the Moment */}

@@ -133,13 +133,12 @@
   display: flex; gap: 0; padding: var(--space-1) 0;
   border-bottom: 1px solid var(--border); margin-bottom: var(--space-2);
 }
+/* Sizing override — base styles from global .btn-ghost */
 .chat-toolbar-btn {
-  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
-  background: none; border: none; border-radius: var(--radius);
-  color: var(--text3); cursor: pointer;
-  transition: all var(--duration) var(--ease);
+  width: 32px; height: 32px;
+  padding: 0;
+  border-radius: var(--radius);
 }
-.chat-toolbar-btn:hover { color: var(--text); background: var(--bg3); }
 
 .chat-input-bar {
   display: flex; gap: var(--space-2);
@@ -151,15 +150,13 @@
 }
 .chat-input-bar input::placeholder { color: var(--text3); }
 
+/* Sizing override — base styles from global .btn .btn-primary */
 .chat-send-btn {
-  width: 36px; height: 36px; border-radius: var(--radius);
-  background: var(--mod-office); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all var(--duration) var(--ease);
-  border: none; flex-shrink: 0;
+  width: 36px; height: 36px;
+  padding: 0;
+  border-radius: var(--radius);
+  flex-shrink: 0;
 }
-.chat-send-btn:hover { opacity: 0.9; }
-.chat-send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
 /* ── Right Sidebar — Detail ── */
 .chat-detail-sidebar {
@@ -176,14 +173,12 @@
   display: flex; gap: var(--space-2); margin-bottom: var(--space-4);
   flex-wrap: wrap;
 }
+/* Sizing/layout override — base styles from global .btn .btn-secondary */
 .chat-detail-action-btn {
-  display: flex; align-items: center; gap: var(--space-2);
-  padding: var(--space-2) var(--space-3); border-radius: var(--radius);
-  border: 1px solid var(--border); background: var(--surface);
-  font-size: 0.8rem; color: var(--text2); cursor: pointer;
-  transition: all var(--duration) var(--ease);
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.8rem;
+  border-radius: var(--radius);
 }
-.chat-detail-action-btn:hover { border-color: var(--text3); color: var(--text); }
 .chat-detail-action-badge {
   margin-left: auto; font-size: 0.7rem; color: var(--text3);
   display: flex; align-items: center;

@@ -1,4 +1,4 @@
-import { X, Mail, Edit2 } from 'lucide-react';
+import { X, Mail, Edit2, TrendingUp } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import AvatarInitials from '../shared/AvatarInitials';
 import TypeBadge from '../shared/TypeBadge';
@@ -7,6 +7,9 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
   const openEditPanel  = useContactsStore((s) => s.openEditPanel);
   const editPanelOpen  = useContactsStore((s) => s.editPanelOpen);
   const closeEditPanel = useContactsStore((s) => s.closeEditPanel);
+  const updateContact  = useContactsStore((s) => s.updateContact);
+
+  const btnStyle = { background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4, borderRadius: 6 };
 
   const isCompany = entry.entityType === 'company' || entry._isCompany;
 
@@ -19,19 +22,21 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
       flexDirection: 'column',
       gap: 10,
     }}>
-      {/* Close button */}
+      {/* Action buttons */}
       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 6 }}>
-        <button
-          onClick={editPanelOpen ? closeEditPanel : openEditPanel}
-          title="Edit"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4, borderRadius: 6 }}
-        >
+        {!isCompany && entry.contactType !== 'lead' && (
+          <button
+            onClick={() => updateContact(entry.id, { contactType: 'lead', leadStatus: 'pending_contact' })}
+            title="Add to Pipeline"
+            style={{ ...btnStyle, color: 'var(--mod-people)' }}
+          >
+            <TrendingUp size={15} />
+          </button>
+        )}
+        <button onClick={editPanelOpen ? closeEditPanel : openEditPanel} title="Edit" style={btnStyle}>
           <Edit2 size={15} />
         </button>
-        <button
-          onClick={onClose}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4, borderRadius: 6 }}
-        >
+        <button onClick={onClose} style={btnStyle}>
           <X size={18} />
         </button>
       </div>

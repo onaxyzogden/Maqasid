@@ -1,10 +1,12 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import {
   X, Calendar, Tag, Plus, Trash2, CheckCircle2, Square,
-  MoreVertical, ChevronDown, ChevronUp, Clock, Paperclip, Users,
+  MoreVertical, ChevronDown, ChevronUp, Clock, Paperclip, Users, FileText, Image, File,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
+import { usePeopleStore, getInitials } from '../../store/people-store';
+import { useProjectStore } from '../../store/project-store';
 import { useMobile } from '../../hooks/useMobile';
 import { PRIORITIES } from '../../data/modules';
 import { BBOS_STAGES } from '@data/bbos/bbos-pipeline';
@@ -33,8 +35,18 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
   const addSubtask = useTaskStore((s) => s.addSubtask);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
   const removeSubtask = useTaskStore((s) => s.removeSubtask);
+  const addAttachment = useTaskStore((s) => s.addAttachment);
+  const removeAttachment = useTaskStore((s) => s.removeAttachment);
   const moveTask = useTaskStore((s) => s.moveTask);
+  const fileInputRef = useRef(null);
   const user = useAuthStore((s) => s.user);
+  const employees = usePeopleStore((s) => s.employees);
+  const addProjectMember = useProjectStore((s) => s.addProjectMember);
+  const projectMembers = (project?.members || [])
+    .map((id) => employees.find((e) => e.id === id))
+    .filter(Boolean);
+  const allEmployees = employees.filter((e) => e.status !== 'terminated');
+  const assignee = task ? employees.find((e) => e.id === task.assigneeId) : null;
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -164,8 +176,39 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
         {/* ── Assignee + Priority + Status row ── */}
         <div className="tdp-controls-row">
           <div className="tdp-assignee">
-            <span className="tdp-assignee-avatar">{initials}</span>
-            <button className="tdp-add-circle"><Plus size={12} /></button>
+            {assignee ? (
+              <span className="tdp-assignee-avatar" title={assignee.name}>{getInitials(assignee.name)}</span>
+            ) : (
+              <span className="tdp-assignee-avatar tdp-assignee-avatar--empty" title="Unassigned">?</span>
+            )}
+            <select
+              className="tdp-assignee-select"
+              value={task.assigneeId || ''}
+              onChange={(e) => {
+                const val = e.target.value;
+                updateTask(projectId, taskId, { assigneeId: val || null });
+                if (val) addProjectMember(projectId, val);
+              }}
+              title="Assign member"
+            >
+              <option value="">Unassigned</option>
+              {projectMembers.length > 0 && (
+                <optgroup label="Project members">
+                  {projectMembers.map((e) => (
+                    <option key={e.id} value={e.id}>{e.name}</option>
+                  ))}
+                </optgroup>
+              )}
+              {allEmployees.filter((e) => !(project?.members || []).includes(e.id)).length > 0 && (
+                <optgroup label="Add from team">
+                  {allEmployees
+                    .filter((e) => !(project?.members || []).includes(e.id))
+                    .map((e) => (
+                      <option key={e.id} value={e.id}>{e.name}</option>
+                    ))}
+                </optgroup>
+              )}
+            </select>
           </div>
 
           <div className="tdp-control-group">
@@ -315,10 +358,52 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
           )}
         </div>
 
-        {/* ── Attachment placeholder ── */}
-        <button className="tdp-attachment-btn">
-          <Plus size={14} /> Attachment
-        </button>
+        {/* ── Attachments ── */}
+        <div className="tdp-attachments">
+          {(task.attachments || []).length > 0 && (
+            <div className="tdp-attachment-list">
+              {(task.attachments || []).map((att) => {
+                const isImage = att.type.startsWith('image/');
+                const isPdf = att.type === 'application/pdf';
+                const Icon = isImage ? Image : isPdf ? FileText : File;
+                const sizeKb = (att.size / 1024).toFixed(0);
+                return (
+                  <div key={att.id} className="tdp-attachment-item">
+                    {isImage ? (
+                      <a href={att.data} download={att.name} className="tdp-attachment-thumb">
+                        <img src={att.data} alt={att.name} />
+                      </a>
+                    ) : (
+                      <a href={att.data} download={att.name} className="tdp-attachment-icon">
+                        <Icon size={18} />
+                      </a>
+                    )}
+                    <div className="tdp-attachment-meta">
+                      <a href={att.data} download={att.name} className="tdp-attachment-name">{att.name}</a>
+                      <span className="tdp-attachment-size">{sizeKb} KB</span>
+                    </div>
+                    <button className="tdp-attachment-remove" onClick={() => removeAttachment(projectId, taskId, att.id)} title="Remove">
+                      <X size={12} />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          <input
+            ref={fileInputRef}
+            type="file"
+            style={{ display: 'none' }}
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) addAttachment(projectId, taskId, file);
+              e.target.value = '';
+            }}
+          />
+          <button className="tdp-attachment-btn" onClick={() => fileInputRef.current?.click()}>
+            <Paperclip size={14} /> Attachment
+          </button>
+        </div>
 
         {/* ── Tags ── */}
         <div className="tdp-tags-section">

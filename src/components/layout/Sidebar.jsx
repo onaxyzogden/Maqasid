@@ -43,8 +43,7 @@ const MODULE_ROUTES = {
   family: '/app/family',
   neighbors: '/app/neighbors',
   community: '/app/community',
-  quran: '/app/quran',
-  hadith: '/app/hadith',
+  sources: '/app/sources',
   // Faith
   'faith-core': '/app/faith-core',
   'faith-growth': '/app/faith-growth',
@@ -54,9 +53,6 @@ const MODULE_ROUTES = {
   'faith-zakah': '/app/faith-zakah',
   'faith-sawm': '/app/faith-sawm',
   'faith-hajj': '/app/faith-hajj',
-  'islamic-knowledge': '/app/islamic-knowledge',
-  'community-engagement': '/app/community-engagement',
-  'ethical-living': '/app/ethical-living',
   // Life
   'life-physical': '/app/life-physical',
   'life-mental': '/app/life-mental',
@@ -92,7 +88,7 @@ export default function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const mobile = useMobile();
-  const { sidebarOpen, toggleSidebar, activeModule, setActiveModule, expandedPillars, togglePillar } = useAppStore();
+  const { sidebarOpen, toggleSidebar, activeModule, setActiveModule, expandedPillars, togglePillar, collapseAllPillars } = useAppStore();
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const allProjects = useProjectStore((s) => s.projects);
   const createProject = useProjectStore((s) => s.createProject);
@@ -165,11 +161,12 @@ export default function Sidebar() {
                   if (collapsed) {
                     toggleSidebar();
                     navigate(`/app/pillar/${pillar.id}`);
-                    if (!isExpanded) togglePillar(pillar.id);
+                    if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
                     return;
                   }
                   navigate(`/app/pillar/${pillar.id}`);
-                  if (!isExpanded) togglePillar(pillar.id);
+                  if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
+                  else togglePillar(pillar.id);
                 }}
                 title={label}
               >
@@ -181,7 +178,11 @@ export default function Sidebar() {
                     <ChevronDown
                       size={12}
                       className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
-                      onClick={(e) => { e.stopPropagation(); togglePillar(pillar.id); }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
+                        else togglePillar(pillar.id);
+                      }}
                     />
                   </>
                 )}
@@ -220,7 +221,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Projects */}
-      {!collapsed && activeModule === 'work' && (
+      {!collapsed && location.pathname.startsWith('/app/work') && (
         <div className="sidebar-projects">
           <div className="sidebar-section-header">
             <span>Projects</span>

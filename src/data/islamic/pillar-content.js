@@ -6,72 +6,28 @@
 export const PILLAR_CONTENT = {
   faith: [
     {
-      subModuleId: 'quran',
-      necessities: ['Literacy / Translation'],
-      needs: ['Divine Guidance'],
-      embelishments: ['Memorization, beautiful recitation'],
-    },
-    {
-      subModuleId: 'hadith',
-      necessities: ['Scholarly verification'],
-      needs: ['Clarification of law/ethics'],
-      embelishments: ['Deep study of hadith sciences'],
-    },
-    {
-      subModuleId: 'islamic-knowledge',
-      label: 'Islamic Knowledge',
+      subModuleId: 'sources',
+      label: 'Primary Sources',
       necessities: [
+        'Literacy / Translation',
+        'Scholarly verification',
         'Basic aqidah (creed) and fiqh of worship',
         'Access to qualified scholars and authentic sources',
         'Knowledge of halal and haram fundamentals',
       ],
       needs: [
+        'Divine Guidance',
+        'Clarification of law/ethics',
         'Structured Islamic education — seerah, history, and law',
         'Ongoing intellectual engagement with the deen',
         'Understanding the Maqasid and principles behind rulings',
       ],
       embelishments: [
+        'Memorization, beautiful recitation',
+        'Deep study of hadith sciences',
         'Formal Islamic scholarship (ijazah, seminary study)',
         'Authoring, teaching, and disseminating knowledge',
         'Mastery of Arabic for direct access to primary sources',
-      ],
-    },
-    {
-      subModuleId: 'community-engagement',
-      label: 'Community Engagement',
-      necessities: [
-        'Attending Jumu\'ah and congregational prayers',
-        'Fulfilling communal obligations (fard kifayah)',
-        'Supporting local masjid and community services',
-      ],
-      needs: [
-        'Active participation in community governance (shura)',
-        'Volunteering for Islamic schools, charities, and events',
-        'Building bridges with neighbours and interfaith groups',
-      ],
-      embelishments: [
-        'Founding or leading community institutions',
-        'Mentorship and youth development programs',
-        'Da\'wah through exemplary character and service',
-      ],
-    },
-    {
-      subModuleId: 'ethical-living',
-      label: 'Ethical Living',
-      necessities: [
-        'Avoiding major sins (kaba\'ir) in daily conduct',
-        'Halal income, consumption, and relationships',
-        'Truthfulness (sidq) and trustworthiness (amanah)',
-      ],
-      needs: [
-        'Applying Islamic values to work, speech, and social interactions',
-        'Regular self-accounting (muhasabah)',
-        'Seeking knowledge of ethical rulings relevant to daily life',
-      ],
-      embelishments: [
-        'Ihsan — excellence and beauty in every action',
-        'Embodying prophetic character (khuluq) in all dealings',
-        'Becoming a living example that draws others to the deen',
       ],
     },
   ],
