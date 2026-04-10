@@ -9,7 +9,6 @@ import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
 import { useMobile } from '../../hooks/useMobile';
 import { PRIORITIES } from '../../data/modules';
-import { BBOS_STAGES } from '@data/bbos/bbos-pipeline';
 import GLabelPicker from '../shared/GLabelPicker';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import './TaskDetailPanel.css';
@@ -50,6 +49,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [notes, setNotes] = useState('');
   const [newSubtask, setNewSubtask] = useState('');
   const [newTag, setNewTag] = useState('');
   const [expandedSubtask, setExpandedSubtask] = useState(null);
@@ -74,8 +74,9 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
     if (task) {
       setTitle(task.title);
       setDescription(task.description || '');
+      setNotes(task.notes || '');
     }
-  }, [taskId, task?.title, task?.description]);
+  }, [taskId, task?.title, task?.description, task?.notes]);
 
   if (!task) return null;
 
@@ -106,6 +107,11 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
   const handleDescChange = (e) => {
     setDescription(e.target.value);
     autoSave('description', e.target.value);
+  };
+
+  const handleNotesChange = (e) => {
+    setNotes(e.target.value);
+    autoSave('notes', e.target.value);
   };
 
   const handleAddSubtask = () => {
@@ -239,24 +245,9 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
           </div>
         </div>
 
-        {/* ── BBOS Pipeline Stage ── */}
-        {project.bbosEnabled && (
-          <div className="tdp-controls-row" style={{ gap: 'var(--space-3)' }}>
-            <div className="tdp-control-group">
-              <label>Pipeline Stage</label>
-              <select
-                className="tdp-select"
-                value={task.bbosStage || 'FND'}
-                onChange={(e) => updateTask(projectId, taskId, { bbosStage: e.target.value })}
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8rem' }}
-              >
-                {BBOS_STAGES.map((s) => (
-                  <option key={s.id} value={s.id}>{s.label} ({s.id})</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        )}
+        {/* BBOS Pipeline Stage — only relevant for BBOS tasks, which are
+             handled by BbosTaskPanel (see delegation above). Regular tasks
+             created in the Tasks tab should never show pipeline controls. */}
 
         {/* ── G-Label (claim integrity) ── */}
         <div className="tdp-controls-row" style={{ gap: 'var(--space-3)' }}>
@@ -356,6 +347,18 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
               ))}
             </>
           )}
+        </div>
+
+        {/* ── Notes ── */}
+        <div className="tdp-notes-section">
+          <div className="tdp-notes-label">Notes</div>
+          <textarea
+            className="tdp-notes"
+            value={notes}
+            onChange={handleNotesChange}
+            placeholder="Add notes..."
+            rows={4}
+          />
         </div>
 
         {/* ── Attachments ── */}

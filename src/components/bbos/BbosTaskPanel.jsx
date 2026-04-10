@@ -3,10 +3,12 @@ import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, D
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
-import { getBbosTaskDef, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
+import { getBbosTaskDef, getBbosTaskDeps, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
 import { getStage } from '@data/bbos/bbos-pipeline';
 import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '@services/bbos-template';
 import { useAppStore } from '../../store/app-store';
+import { usePeopleStore, getInitials } from '../../store/people-store';
+import { useProjectStore } from '../../store/project-store';
 import GLabelPicker from '../shared/GLabelPicker';
 import './BbosTaskPanel.css';
 
@@ -28,19 +30,29 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
   const user = useAuthStore((s) => s.user);
   const setActiveBbosTaskType = useAppStore((s) => s.setActiveBbosTaskType);
   const clearActiveBbosTaskType = useAppStore((s) => s.clearActiveBbosTaskType);
+  const employees = usePeopleStore((s) => s.employees);
+  const addProjectMember = useProjectStore((s) => s.addProjectMember);
+  const projectMembers = (project?.members || [])
+    .map((id) => employees.find((e) => e.id === id))
+    .filter(Boolean);
+  const allEmployees = employees.filter((e) => e.status !== 'terminated');
+  const assignee = task ? employees.find((e) => e.id === task.assigneeId) : null;
   const templateInputRef = useRef(null);
 
   const [rationaleOpen, setRationaleOpen] = useState(false);
   const [localFields, setLocalFields] = useState({});
+  const [notes, setNotes] = useState('');
   const saveTimeout = useRef(null);
 
   const def = task?.bbosTaskType ? getBbosTaskDef(task.bbosTaskType) : null;
   const stage = def ? getStage(def.stage) : null;
+  const deps = def ? getBbosTaskDeps(def.id) : { upstream: [], downstream: [], requirements: '' };
 
   useEffect(() => {
     if (task?.bbosFieldData) {
       setLocalFields(task.bbosFieldData);
     }
+    if (task) setNotes(task.notes || '');
   }, [taskId]);
 
   // Wire active BBOS task type for journal badge context
@@ -60,6 +72,14 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     clearTimeout(saveTimeout.current);
     saveTimeout.current = setTimeout(() => {
       updateBbosFieldData(projectId, taskId, fieldId, value);
+    }, 300);
+  };
+
+  const handleNotesChange = (e) => {
+    setNotes(e.target.value);
+    clearTimeout(saveTimeout.current);
+    saveTimeout.current = setTimeout(() => {
+      updateTask(projectId, taskId, { notes: e.target.value });
     }, 300);
   };
 
@@ -159,6 +179,45 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         </select>
       </div>
 
+      {/* ── Assignee ── */}
+      <div className="btp-status-row">
+        <span className="btp-section-label">Assignee</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+          {assignee ? (
+            <span className="btp-assignee-avatar">{getInitials(assignee.name)}</span>
+          ) : (
+            <span className="btp-assignee-avatar btp-assignee-avatar--empty">?</span>
+          )}
+          <select
+            className="btp-field-select"
+            value={task.assigneeId || ''}
+            onChange={(e) => {
+              const val = e.target.value;
+              updateTask(projectId, taskId, { assigneeId: val || null });
+              if (val) addProjectMember(projectId, val);
+            }}
+          >
+            <option value="">Unassigned</option>
+            {projectMembers.length > 0 && (
+              <optgroup label="Project members">
+                {projectMembers.map((e) => (
+                  <option key={e.id} value={e.id}>{e.name}</option>
+                ))}
+              </optgroup>
+            )}
+            {allEmployees.filter((e) => !(project?.members || []).includes(e.id)).length > 0 && (
+              <optgroup label="Add from team">
+                {allEmployees
+                  .filter((e) => !(project?.members || []).includes(e.id))
+                  .map((e) => (
+                    <option key={e.id} value={e.id}>{e.name}</option>
+                  ))}
+              </optgroup>
+            )}
+          </select>
+        </div>
+      </div>
+
       <div className="btp-body">
 
         {/* ── Purpose block ── */}
@@ -166,6 +225,36 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
           <div className="btp-section-label">Purpose</div>
           <p className="btp-purpose-text">{def.purpose}</p>
         </div>
+
+        {/* ── Dependencies ── */}
+        {(deps.upstream.length > 0 || deps.downstream.length > 0) && (
+          <div className="btp-section">
+            <div className="btp-section-label">Dependencies</div>
+            {deps.requirements && (
+              <p className="btp-deps-requirements">{deps.requirements}</p>
+            )}
+            {deps.upstream.length > 0 && (
+              <div className="btp-deps-group">
+                <span className="btp-deps-direction">Upstream</span>
+                {deps.upstream.map((u) => (
+                  <span key={u.id} className="btp-dep-chip btp-dep-chip--upstream">
+                    {u.id} — {u.label}
+                  </span>
+                ))}
+              </div>
+            )}
+            {deps.downstream.length > 0 && (
+              <div className="btp-deps-group">
+                <span className="btp-deps-direction">Downstream</span>
+                {deps.downstream.map((d) => (
+                  <span key={d.id} className="btp-dep-chip btp-dep-chip--downstream">
+                    {d.id} — {d.label}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* ── Theological Rationale (collapsible) ── */}
         <div className="btp-section">
@@ -257,6 +346,18 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
           <GLabelPicker
             value={task.gLabel || null}
             onChange={handleGLabelChange}
+          />
+        </div>
+
+        {/* ── Notes ── */}
+        <div className="btp-section">
+          <div className="btp-section-label">Notes</div>
+          <textarea
+            className="btp-field-textarea"
+            value={notes}
+            onChange={handleNotesChange}
+            placeholder="Add notes..."
+            rows={4}
           />
         </div>
 

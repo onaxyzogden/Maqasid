@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { MoreHorizontal, Building2 } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { getDisplayName } from '@data/config/contact-config';
@@ -6,9 +7,12 @@ import TypeBadge from '../shared/TypeBadge';
 import './ContactCard.css';
 
 export default function ContactCard({ contact, company }) {
-  const selectContact = useContactsStore((s) => s.selectContact);
+  const selectContact     = useContactsStore((s) => s.selectContact);
+  const archiveContact    = useContactsStore((s) => s.archiveContact);
   const selectedContactId = useContactsStore((s) => s.selectedContactId);
   const isSelected = selectedContactId === contact.id;
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const displayName = getDisplayName(contact);
   const isCompany = contact.entityType === 'company';
@@ -24,11 +28,33 @@ export default function ContactCard({ contact, company }) {
         </span>
         <button
           className="contact-card__menu"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => { e.stopPropagation(); setMenuOpen((v) => !v); }}
           title="Options"
         >
           <MoreHorizontal size={14} />
         </button>
+        {menuOpen && (
+          <>
+            <div
+              style={{ position: 'fixed', inset: 0, zIndex: 98 }}
+              onClick={(e) => { e.stopPropagation(); setMenuOpen(false); }}
+            />
+            <div className="contact-card__dropdown">
+              <button
+                className="contact-card__dropdown-item"
+                onClick={(e) => { e.stopPropagation(); setMenuOpen(false); selectContact(contact.id); }}
+              >
+                View Details
+              </button>
+              <button
+                className="contact-card__dropdown-item contact-card__dropdown-item--danger"
+                onClick={(e) => { e.stopPropagation(); setMenuOpen(false); archiveContact(contact.id); }}
+              >
+                Archive
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="contact-card__body">

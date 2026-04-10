@@ -175,6 +175,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-3);
+  position: relative;
 }
 .emp-card__status {
   font-size: 0.65rem;
@@ -194,6 +195,36 @@
   display: flex;
 }
 .emp-card__menu:hover { background: var(--bg3); color: var(--text2); }
+
+.emp-card__dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 99;
+  min-width: 130px;
+  overflow: hidden;
+}
+
+.emp-card__dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--duration) var(--ease);
+}
+
+.emp-card__dropdown-item:hover { background: var(--bg3); }
+
+.emp-card__dropdown-item--danger { color: #ef4444; }
 
 .emp-card__body {
   display: flex;

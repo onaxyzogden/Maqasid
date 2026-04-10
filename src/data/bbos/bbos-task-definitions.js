@@ -4644,6 +4644,64 @@ export function getBbosTaskDefsByStage(stageId) {
   return BBOS_TASK_DEFINITIONS.filter((d) => d.stage === stageId);
 }
 
+// Pipeline stage order for cross-stage dependency linking
+const STAGE_ORDER = ['FND', 'TRU', 'STR', 'OFR', 'OUT', 'SAL', 'DLR', 'RET', 'OPT'];
+
+/**
+ * Derive upstream/downstream dependencies for a BBOS task.
+ * Within a stage: sequential (previous task → current → next task).
+ * Cross-stage: last task of stage N feeds into first task of stage N+1.
+ * Returns resolved definition objects, not just IDs.
+ */
+export function getBbosTaskDeps(id) {
+  const idx = BBOS_TASK_DEFINITIONS.findIndex((d) => d.id === id);
+  if (idx === -1) return { upstream: [], downstream: [], requirements: '' };
+
+  const def = BBOS_TASK_DEFINITIONS[idx];
+  const stageTasks = BBOS_TASK_DEFINITIONS.filter((d) => d.stage === def.stage);
+  const posInStage = stageTasks.findIndex((d) => d.id === id);
+
+  const upstream = [];
+  const downstream = [];
+
+  // Within-stage: previous task
+  if (posInStage > 0) {
+    upstream.push(stageTasks[posInStage - 1]);
+  } else {
+    // First task of stage — upstream is last task of previous stage
+    const stageIdx = STAGE_ORDER.indexOf(def.stage);
+    if (stageIdx > 0) {
+      const prevStage = STAGE_ORDER[stageIdx - 1];
+      const prevStageTasks = BBOS_TASK_DEFINITIONS.filter((d) => d.stage === prevStage);
+      if (prevStageTasks.length > 0) {
+        upstream.push(prevStageTasks[prevStageTasks.length - 1]);
+      }
+    }
+  }
+
+  // Within-stage: next task
+  if (posInStage < stageTasks.length - 1) {
+    downstream.push(stageTasks[posInStage + 1]);
+  } else {
+    // Last task of stage — downstream is first task of next stage
+    const stageIdx = STAGE_ORDER.indexOf(def.stage);
+    if (stageIdx < STAGE_ORDER.length - 1) {
+      const nextStage = STAGE_ORDER[stageIdx + 1];
+      const nextStageTasks = BBOS_TASK_DEFINITIONS.filter((d) => d.stage === nextStage);
+      if (nextStageTasks.length > 0) {
+        downstream.push(nextStageTasks[0]);
+      }
+    }
+  }
+
+  // Auto-generate requirements text from upstream
+  const requirements = upstream.length > 0
+    ? `Requires completed ${upstream.map((u) => `${u.label} (${u.id})`).join(', ')}.`
+    : '';
+
+  return { upstream, downstream, requirements };
+}
+
 export const BBOS_VALIDATION_FLAG_LABELS = {
   PROOF_PENDING:    { label: 'Proof Pending',    detail: 'Expertise claim needs independent validation — client outcome data not yet documented.' },
   CLAIM_UNVERIFIED: { label: 'Claim Unverified', detail: 'One or more statements in this task have not been substantiated with evidence.' },

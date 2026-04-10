@@ -7,6 +7,7 @@ import ContactCard from './ContactCard';
 import ContactsTable from './ContactsTable';
 import FloatingFAB from './FloatingFAB';
 import AddContactModal from './AddContactModal';
+import DetailPanel from '../detail/DetailPanel';
 import './ContactsPage.css';
 
 export default function ContactsPage() {
@@ -110,6 +111,7 @@ export default function ContactsPage() {
       )}
 
       {showAdd && <AddContactModal onClose={() => setShowAdd(false)} />}
+      {panelOpen && <DetailPanel />}
     </div>
   );
 }

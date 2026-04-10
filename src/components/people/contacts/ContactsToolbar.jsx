@@ -2,11 +2,10 @@ import { Search, LayoutGrid, Table, Upload, UserPlus } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 
 const TYPE_FILTERS = [
-  { id: 'all',      label: 'All' },
-  { id: 'contact',  label: 'Contact' },
-  { id: 'lead',     label: 'Lead' },
-  { id: 'client',   label: 'Client' },
-  { id: 'employee', label: 'Employee' },
+  { id: 'all',     label: 'All' },
+  { id: 'contact', label: 'Contact' },
+  { id: 'lead',    label: 'Lead' },
+  { id: 'client',  label: 'Client' },
 ];
 
 const ENTITY_FILTERS = [

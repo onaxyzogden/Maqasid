@@ -415,6 +415,36 @@
   opacity: 0.7;
 }
 
+/* ── Notes ── */
+.tdp-notes-section {
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--border);
+}
+.tdp-notes-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-1);
+}
+.tdp-notes {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--bg2);
+  font-family: inherit;
+  min-height: 80px;
+}
+.tdp-notes:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
 /* ── Attachments ── */
 .tdp-attachments {
   display: flex;

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useContactsStore } from '@store/contacts-store';
+import { usePeopleStore } from '@store/people-store';
 import { getDisplayName } from '@data/config/contact-config';
 import DetailPanelHeader from './DetailPanelHeader';
 import DetailPanelTabs from './DetailPanelTabs';
@@ -8,14 +9,32 @@ import './DetailPanel.css';
 
 export default function DetailPanel() {
   const selectedContactId = useContactsStore((s) => s.selectedContactId);
-  const contacts   = useContactsStore((s) => s.contacts);
-  const companies  = useContactsStore((s) => s.companies);
-  const closePanel = useContactsStore((s) => s.closePanel);
+  const contacts        = useContactsStore((s) => s.contacts);
+  const companies       = useContactsStore((s) => s.companies);
+  const closePanel      = useContactsStore((s) => s.closePanel);
+  const peopleEmployees = usePeopleStore((s) => s.employees);
 
   // Look up either a contact or a company entry
   const contact = contacts.find((c) => c.id === selectedContactId) || null;
   const company = companies.find((c) => c.id === selectedContactId) || null;
-  const entry   = contact || (company ? { ...company, entityType: 'company', _isCompany: true } : null);
+  let entry = contact || (company ? { ...company, entityType: 'company', _isCompany: true } : null);
+
+  // Fallback for legacy people-store employees not yet in contacts-store
+  if (!entry) {
+    const pe = peopleEmployees.find((e) => e.id === selectedContactId);
+    if (pe) {
+      const parts = (pe.name || '').trim().split(/\s+/);
+      entry = {
+        ...pe,
+        entityType: 'person',
+        contactType: 'employee',
+        firstName: parts[0] || '',
+        lastName: parts.slice(1).join(' ') || '',
+        displayName: pe.name,
+        _fromPeopleStore: true,
+      };
+    }
+  }
 
   // Scroll lock
   useEffect(() => {

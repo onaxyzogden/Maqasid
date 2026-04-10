@@ -38,6 +38,7 @@ export const useTaskStore = create((set, get) => ({
       columnId,
       title,
       description: '',
+      notes: '',
       priority: 'medium',
       dueDate: null,
       tags: [],
@@ -272,6 +273,11 @@ export const useTaskStore = create((set, get) => ({
     // BBOS stage filter — applied before other filters
     if (filters.bbosStage) {
       tasks = tasks.filter((t) => t.bbosStage === filters.bbosStage);
+    }
+
+    // Exclude BBOS tasks (used by Tasks tab to show only standard tasks)
+    if (filters.excludeBbos) {
+      tasks = tasks.filter((t) => !t.bbosTaskType);
     }
 
     const { priorities, dueDate, tags } = filters;

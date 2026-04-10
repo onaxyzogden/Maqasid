@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
-import { usePeopleStore } from '@store/people-store';
+import { useContactsStore } from '@store/contacts-store';
 import { EMPLOYMENT_TYPES } from '@data/config/contact-config';
 
 export default function AddEmployeeModal({ onClose }) {
-  const addEmployee = usePeopleStore((s) => s.addEmployee);
-  const departments = usePeopleStore((s) => s.departments);
+  const addContact  = useContactsStore((s) => s.addContact);
+  const departments = useContactsStore((s) => s.departments);
 
   const [name, setName]             = useState('');
   const [email, setEmail]           = useState('');
@@ -20,12 +20,16 @@ export default function AddEmployeeModal({ onClose }) {
 
   function handleSubmit() {
     if (!canSubmit) return;
-    addEmployee({
-      name: name.trim(),
+    const parts = name.trim().split(/\s+/);
+    addContact({
+      entityType: 'person',
+      contactType: 'employee',
+      firstName: parts[0] || '',
+      lastName: parts.slice(1).join(' ') || '',
       email: email.trim(),
       phone: phone.trim(),
-      role: role.trim(),
-      department,
+      jobTitle: role.trim(),
+      departmentId: department,
       employmentType: empType,
       startDate,
       status: 'active',

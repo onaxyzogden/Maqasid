@@ -3,6 +3,14 @@
 Islamic life operating system — manage work, money, people, and operations across the Seven Maqasid (Faith, Life, Intellect, Family, Wealth, Environment, Ummah).
 React 19 SPA · Zustand 5 · React Router 7 · Vite 8 · dnd-kit · Lucide icons · date-fns
 
+## Platform
+This project runs on Windows. Do not suggest Bash installers, Unix-specific commands, or assume POSIX paths. Use PowerShell or cmd equivalents. Watch for cp1252/UTF-8 encoding issues when reading/writing files.
+
+## Code Conventions
+
+### String Escaping
+When writing JavaScript/JSON strings containing apostrophes (e.g., Qur'an, don't), always use double quotes or properly escape. Verify files compile after writing.
+
 ## Build & Dev Commands
 ```bash
 npm run dev        # Start Vite dev server
@@ -28,6 +36,12 @@ Start at root `CONTEXT.md` and follow the chain. Each CONTEXT.md routes to its c
 - After any correction: update `tasks/lessons.md`
 - Full workflow principles: `docs/principles.md`
 - Can't find a file? Run `python scripts/pathfinder.py discover "Name"` — searches and patches routing
+
+## Workflow Rules
+
+### After Refactoring / File Moves
+Always run a full build (`npm run build` or equivalent) after moving files or reorganizing. Grep for ALL import references to moved files including CSS imports, relative paths at different nesting depths, and data file imports.
+
 ## Hemisphere Division
 | Side | Directories | Owner | AI Access |
 |---|---|---|---|
@@ -46,6 +60,16 @@ Start at root `CONTEXT.md` and follow the chain. Each CONTEXT.md routes to its c
 - Destructive operations (store reset, data migration) require a `stages/` approval doc
 - Never auto-deploy without human review gate approval
 - `.obsidian/` and `notes/` are .gitignored — personal config, not shared
+
+## Verification
+
+### Preview Verification
+When verifying UI changes in preview, do not claim something is working without a screenshot confirming it. If the screenshot tool is unresponsive, say so rather than assuming success.
+
+## UI Development
+
+### HTML-to-React Conversions
+When converting HTML designs to React components, match the original HTML pixel-for-pixel. Do not 'improve' or reinterpret the design unless explicitly asked. Show a side-by-side comparison before moving on.
 
 ## Website (ogden-hub)
 Static marketing site merged from ogden-hub repo. Lives in `website/`.

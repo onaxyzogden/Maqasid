@@ -72,6 +72,9 @@ export const useContactsStore = create((set, get) => ({
       address:       data.address     || '',
       companyId:  data.companyId  || '',
       jobTitle:   data.jobTitle   || '',
+      departmentId: data.departmentId || '',
+      employmentType: data.employmentType || '',
+      startDate:  data.startDate  || '',
       avatarColor: getAvatarColor(genContactId()),
       // Lead fields
       leadSource:          data.leadSource          || '',

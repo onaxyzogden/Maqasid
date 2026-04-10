@@ -36,7 +36,11 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   if (!project) return null;
 
   const isBbos = project.bbosEnabled && !hideBbos;
-  const mergedFilters = isBbos ? { ...filters, bbosStage: bbosFilter } : filters;
+  const mergedFilters = isBbos
+    ? { ...filters, bbosStage: bbosFilter }
+    : hideBbos && project.bbosEnabled
+      ? { ...filters, excludeBbos: true }
+      : filters;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>

@@ -24,9 +24,11 @@ const HR_TABS = [
 
 export default function HRPage() {
   const peopleEmployees = usePeopleStore((s) => s.employees);
+  const updateEmployee  = usePeopleStore((s) => s.updateEmployee);
   const departments     = usePeopleStore((s) => s.departments);
   const contacts        = useContactsStore((s) => s.contacts);
   const selectContact   = useContactsStore((s) => s.selectContact);
+  const archiveContact  = useContactsStore((s) => s.archiveContact);
   const panelOpen       = useContactsStore((s) => s.panelOpen);
 
   // Merge people-store employees + contacts-store employee-type contacts
@@ -117,6 +119,16 @@ export default function HRPage() {
 
   const handleSelectEmployee = (id) => {
     selectContact(id);
+  };
+
+  const handleMenuAction = (action, emp) => {
+    if (action === 'archive') {
+      if (emp._source === 'contacts') {
+        archiveContact(emp.id);
+      } else {
+        updateEmployee(emp.id, { status: 'archived' });
+      }
+    }
   };
 
   return (
@@ -242,6 +254,7 @@ export default function HRPage() {
                   employee={emp}
                   department={deptMap[emp.department]}
                   onClick={() => handleSelectEmployee(emp.id)}
+                  onMenuAction={handleMenuAction}
                 />
               ))
             )}
