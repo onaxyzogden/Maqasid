@@ -14,10 +14,11 @@ function persistProjects(projects) {
   safeSet('projects', projects);
 }
 
+/** Returns true if seeding succeeded (or was skipped), false on storage failure. */
 function seedBbosTasks(projectId, todoColumnId) {
   const storageKey = `tasks_${projectId}`;
   const existing = safeGetJSON(storageKey, []);
-  if (existing.length > 0) return;
+  if (existing.length > 0) return true;
   const now = new Date().toISOString();
   const seeded = BBOS_TASK_DEFINITIONS.map((def, i) => ({
     id: genTaskId(),
@@ -40,7 +41,7 @@ function seedBbosTasks(projectId, todoColumnId) {
     bbosStage: def.stage,
     bbosFieldData: {},
   }));
-  safeSet(storageKey, seeded);
+  return safeSet(storageKey, seeded);
 }
 
 function seedTasks(boardId, seedMap) {
@@ -340,14 +341,19 @@ export const useProjectStore = create((set, get) => ({
       bbosRole: bbosEnabled ? 'all' : null,
       members: [],
     };
+    // For BBOS projects, seed tasks first — only persist project if seeding succeeds
+    if (bbosEnabled) {
+      const seeded = seedBbosTasks(project.id, project.columns[0].id);
+      if (!seeded) {
+        // Task seeding failed (likely quota) — don't save orphaned project
+        return null;
+      }
+    }
     set((s) => {
       const projects = [...s.projects, project];
       persistProjects(projects);
       return { projects };
     });
-    if (bbosEnabled) {
-      seedBbosTasks(project.id, project.columns[0].id);
-    }
     return project;
   },
 
