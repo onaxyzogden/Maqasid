@@ -3,12 +3,16 @@ import { CheckCircle, AlertTriangle, Star, LayoutDashboard } from 'lucide-react'
 import { useTaskStore } from '../../store/task-store';
 import { BBOS_STAGES } from '../../data/bbos/bbos-pipeline';
 import BbosFullDashboard from '../bbos/BbosFullDashboard';
+import PillarLevelDashboard from './PillarLevelDashboard';
 import './DashboardView.css';
 
 export default function DashboardView({ project, bbosFilter, onSelectTask }) {
   // Delegate to the universal BBOS stage dashboard for all BBOS stages
   if (project.bbosEnabled && bbosFilter) {
     return <BbosFullDashboard project={project} bbosFilter={bbosFilter} onSelectTask={onSelectTask} />;
+  }
+  if (/_(core|growth|excellence)$/.test(project.id)) {
+    return <PillarLevelDashboard project={project} onSelectTask={onSelectTask} />;
   }
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
 
@@ -122,27 +126,27 @@ export default function DashboardView({ project, bbosFilter, onSelectTask }) {
 
   // Audit checks with scoring
   const checks = [
-    { label: 'Task Coverage', sub: total > 10 ? 'Comprehensive' : total > 3 ? 'Building' : 'Minimal', score: total > 10 ? 5 : total > 5 ? 4 : total > 0 ? 3 : 0 },
-    { label: 'Completion Rate', sub: pct > 50 ? 'Strong Progress' : pct > 0 ? 'In Progress' : 'Not Started', score: pct >= 80 ? 5 : pct >= 50 ? 4 : pct > 0 ? 3 : 1 },
-    { label: 'Scheduling Discipline', sub: noDueDate < total * 0.3 ? 'Well Dated' : 'Dates Needed', score: noDueDate === 0 ? 5 : noDueDate < total * 0.3 ? 4 : noDueDate < total * 0.5 ? 3 : 2 },
-    { label: 'Subtask Depth', sub: totalSubtasks > 0 ? `${subtaskPct}% Complete` : 'Not Used', score: subtaskPct >= 80 ? 5 : subtaskPct >= 50 ? 4 : totalSubtasks > 0 ? 3 : 1 },
+    { label: 'Task Coverage', sub: total > 10 ? 'Comprehensive' : total > 3 ? 'Building' : 'Minimal', score: total > 10 ? 3 : total > 3 ? 2 : total > 0 ? 1 : 1 },
+    { label: 'Completion Rate', sub: pct > 50 ? 'Strong Progress' : pct > 0 ? 'In Progress' : 'Not Started', score: pct >= 80 ? 3 : pct >= 50 ? 2 : pct > 0 ? 1 : 1 },
+    { label: 'Scheduling Discipline', sub: noDueDate < total * 0.3 ? 'Well Dated' : 'Dates Needed', score: noDueDate === 0 ? 3 : noDueDate < total * 0.3 ? 2 : 1 },
+    { label: 'Subtask Depth', sub: totalSubtasks > 0 ? `${subtaskPct}% Complete` : 'Not Used', score: subtaskPct >= 80 ? 3 : subtaskPct >= 50 ? 2 : totalSubtasks > 0 ? 1 : 1 },
   ];
   if (bbosMetrics) {
     const currentStageData = bbosMetrics.byStage[bbosMetrics.currentStage];
     checks.push({
       label: 'Pipeline Activity',
       sub: currentStageData?.count > 0 ? 'Stage Active' : 'Stage Empty',
-      score: currentStageData?.count > 5 ? 5 : currentStageData?.count > 0 ? 4 : 2,
+      score: currentStageData?.count > 5 ? 3 : currentStageData?.count > 0 ? 2 : 1,
     });
   }
   const avgScore = checks.length > 0 ? (checks.reduce((s, c) => s + c.score, 0) / checks.length) : 0;
-  const verdict = avgScore >= 4 ? 'STRONG' : avgScore >= 3 ? 'QUALIFIED' : avgScore >= 2 ? 'DEVELOPING' : 'NEEDS WORK';
-  const thresholdPct = Math.round((avgScore / 5) * 100);
+  const verdict = avgScore >= 2.5 ? 'STRONG' : avgScore >= 2 ? 'QUALIFIED' : avgScore >= 1.5 ? 'DEVELOPING' : 'NEEDS WORK';
+  const thresholdPct = Math.round((avgScore / 3) * 100);
 
   // Stars helper
   const renderStars = (score) => {
     const stars = [];
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 3; i++) {
       stars.push(
         <Star
           key={i}

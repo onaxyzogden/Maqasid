@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-11] implement | UI polish + unified DashboardTaskCard + BBOS cleanup
+
+- Created `src/components/shared/DashboardTaskCard.jsx` + `.css` — unified card replacing PillarTaskCard and BBOS TaskCard. Whole card clickable; dynamic rendering of subtasks, field progress, due dates, tags, purpose, and custom BBOS renderers via children prop. ~5.4 KB CSS reduction.
+- Converted all dashboard audit systems from 5-star to 3-star (BbosFullDashboard, DashboardView, PillarLevelDashboard). Scoring thresholds and verdict logic adjusted for 3-point scale.
+- CSS consistency pass: card padding 22px → 20px, star gap 1px → 2px, empty star opacity 0.25 → 0.2 in BbosFullDashboard.css.
+- Removed empty card message (`getEmptyMessage`) from BBOS task cards — status communicated via chips and progress bar.
+- Removed FND-IFB-S1 through FND-IFB-S5 ("IFB Forms" group) from `bbos-task-definitions.js` and `bbos-role-access.js` — backend admin tasks not operator-facing.
+- Tasks page (`/work/:id/tasks`) generic dashboard updated to 3-star audit.
+
 ## [2026-04-09] bootstrap | Wiki initialization
 - Created wiki directory structure and SCHEMA.md
 - Seeded 5 entity pages, 4 concept pages, 3 decision pages, 3 source summaries

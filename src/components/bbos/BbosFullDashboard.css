@@ -72,49 +72,13 @@
   background: var(--border);
 }
 
-/* ── Card base ── */
-.bfd__card {
-  background: var(--surface);
-  border-radius: 14px;
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 24px rgba(30, 25, 16, 0.05);
-  min-width: 0;
-  border: 1px solid transparent;
-  transition: background 0.2s, border-color 0.2s;
-}
-.bfd__card--empty {
-  background: var(--surface);
-  border-color: transparent;
-}
-.bfd__card--active {
-  background: color-mix(in srgb, var(--pri-high) 6%, var(--surface));
-  border-color: color-mix(in srgb, var(--pri-high) 20%, transparent);
-}
-.bfd__card--complete {
-  background: color-mix(in srgb, var(--col-done) 6%, var(--surface));
-  border-color: color-mix(in srgb, var(--col-done) 14%, transparent);
-}
+/* Card base/head/chips/body/empty styles moved to shared/DashboardTaskCard.css */
 
-/* ── Card head ── */
+/* ── Panel card-head reuse (ProjectAudit, StageScore) ── */
 .bfd__card-head {
   display: flex;
   align-items: flex-start;
   gap: 11px;
-  margin-bottom: 10px;
-}
-.bfd__card-head--link {
-  cursor: pointer;
-  border-radius: var(--radius-sm);
-  padding: 4px 6px;
-  margin: -4px -6px;
-  transition: background 0.15s;
-}
-.bfd__card-head--link:hover { background: var(--accent-bg); }
-.bfd__card-head--link:hover .bfd__card-num {
-  background: var(--accent);
-  color: #fff;
 }
 .bfd__card-num {
   width: 28px;
@@ -130,87 +94,12 @@
   flex-shrink: 0;
   font-family: 'Space Grotesk', sans-serif;
 }
-.bfd__card-head-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-  flex: 1;
-}
 .bfd__card-label {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.01em;
   line-height: 1.25;
-}
-.bfd__card-chips {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-.bfd__card-id {
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 2px 7px;
-  border-radius: 99px;
-  background: var(--bg3);
-  color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
-}
-.bfd__card-complete {
-  font-size: 0.58rem;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 99px;
-  background: var(--bg3);
-  color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
-}
-.bfd__card-complete--full {
-  background: color-mix(in srgb, var(--col-done) 12%, transparent);
-  color: var(--col-done);
-}
-.bfd__card-glabel {
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 2px 6px;
-  border-radius: 99px;
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-  color: var(--primary);
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-/* ── Card purpose ── */
-.bfd__card-purpose {
-  font-size: 0.75rem;
-  color: var(--text3);
-  line-height: 1.45;
-  font-style: italic;
-  margin: 0 0 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-/* ── Card body ── */
-.bfd__card-body { flex: 1; }
-
-/* ── Empty card state ── */
-.bfd__empty-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60px;
-  border: 1px dashed var(--border2);
-  border-radius: 8px;
-  font-size: 0.75rem;
-  color: var(--text3);
-  font-style: italic;
-  padding: 14px;
-  text-align: center;
 }
 
 /* ── DefaultTaskRenderer ── */
@@ -642,6 +531,9 @@
 }
 .bfd__tree-arrow { color: var(--accent); font-weight: 700; flex-shrink: 0; }
 
+/* ── Field Progress Bar ── */
+/* Progress bar styles moved to shared/DashboardTaskCard.css */
+
 /* ── Footer ── */
 .bfd__footer {
   margin-top: 48px;
@@ -765,11 +657,11 @@
 }
 .bfd__pa-stars {
   display: flex;
-  gap: 1px;
+  gap: 2px;
   color: var(--accent);
   flex-shrink: 0;
 }
-.bfd__pa-star--empty { opacity: 0.25; }
+.bfd__pa-star--empty { opacity: 0.2; }
 
 /* ── StageScoreCard ── */
 .bfd__ssc {

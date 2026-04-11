@@ -94,7 +94,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
       const stageId = t.bbosTaskType.split('-')[0];
       if (!acc[stageId]) acc[stageId] = { hasData: false, allDone: true };
       const fd = t.bbosFieldData || {};
-      if (Object.values(fd).some((v) => (typeof v === 'string' ? v.trim() : !!v))) {
+      if (Object.entries(fd).some(([k, v]) => !k.startsWith('_') && (typeof v === 'string' ? v.trim() : !!v))) {
         acc[stageId].hasData = true;
       }
       if (!doneCol || t.columnId !== doneCol) acc[stageId].allDone = false;

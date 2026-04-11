@@ -3,6 +3,7 @@ import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage } from '../../data/bbos/bbos-pipeline';
+import DashboardTaskCard from '../shared/DashboardTaskCard';
 import './BbosFullDashboard.css';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -80,10 +81,10 @@ function computeGroupSpans(prefix, defs) {
 
 // ── Star rating helpers ───────────────────────────────────────────────────────
 
-function renderStars(score) {
+function renderStars(score, max = 3) {
   return (
     <span className="bfd__pa-stars">
-      {[1, 2, 3, 4, 5].map((i) => (
+      {Array.from({ length: max }, (_, i) => i + 1).map((i) => (
         <Star
           key={i}
           size={13}
@@ -97,9 +98,9 @@ function renderStars(score) {
 
 function ratingToStars(text) {
   const t = (text || '').trim();
-  if (t.startsWith('Strong'))                                       return 5;
-  if (t.startsWith('Moderate'))                                     return 3;
-  if (t.startsWith('Weak'))                                         return 2;
+  if (t.startsWith('Strong'))                                       return 3;
+  if (t.startsWith('Moderate'))                                     return 2;
+  if (t.startsWith('Weak'))                                         return 1;
   if (t.startsWith('Unverifiable') || t.startsWith('Insufficient')) return 1;
   return null; // fallback: render as text
 }
@@ -631,9 +632,9 @@ function DefaultTaskRenderer({ def, fieldData }) {
   );
 }
 
-// ── TaskCard ──────────────────────────────────────────────────────────────────
+// ── BbosTaskCard (wraps unified DashboardTaskCard) ──────────────────────────
 
-function TaskCard({ def, task, index, onSelectTask, span, doneColumnId }) {
+function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId }) {
   const fieldData = task?.bbosFieldData || {};
   const { filled, total } = countFilledFields(def, task ? fieldData : null);
   const CustomRenderer = TASK_RENDERERS[def.id];
@@ -647,67 +648,55 @@ function TaskCard({ def, task, index, onSelectTask, span, doneColumnId }) {
 
   const hasData = task && !allEmpty;
 
-  const status = !task || allEmpty
-    ? 'empty'
-    : doneColumnId && task.columnId === doneColumnId
-      ? 'complete'
+  const status = (task && doneColumnId && task.columnId === doneColumnId)
+    ? 'complete'
+    : (!task || allEmpty)
+      ? 'empty'
       : 'active';
 
-  const headProps = (() => {
-    const base = { className: 'bfd__card-head' };
-    if (!onSelectTask || !task) return base;
-    return {
-      className: 'bfd__card-head bfd__card-head--link',
-      onClick: () => onSelectTask(task.id),
-      role: 'button',
-      tabIndex: 0,
-      onKeyDown: (e) => { if (e.key === 'Enter' || e.key === ' ') onSelectTask(task.id); },
-    };
-  })();
-
   return (
-    <div className={`bfd__card bfd__card--${status}`} style={span ? { gridColumn: `span ${span}` } : undefined}>
-      <div {...headProps}>
-        <span className="bfd__card-num">{String(index).padStart(2, '0')}</span>
-        <div className="bfd__card-head-info">
-          <span className="bfd__card-label">{def.label}</span>
-          <div className="bfd__card-chips">
-            <span className="bfd__card-id">{def.id}</span>
-            {task && (
-              <span className={`bfd__card-complete ${filled === total && total > 0 ? 'bfd__card-complete--full' : ''}`}>
-                {filled}/{total}
-              </span>
-            )}
-            {def.hasGLabel && <span className="bfd__card-glabel">G</span>}
-          </div>
-        </div>
-      </div>
+    <DashboardTaskCard
+      taskId={task?.id}
+      index={index - 1}
+      title={def.label}
+      span={span}
+      status={status}
+      onSelectTask={task ? onSelectTask : undefined}
+      chips={[
+        { label: def.id, className: 'dtc__chip dtc__chip--id' },
+        ...(task ? [{
+          label: `${filled}/${total}`,
+          className: `dtc__chip dtc__chip--complete ${filled === total && total > 0 ? 'dtc__chip--complete-full' : ''}`,
+        }] : []),
+        ...(def.hasGLabel ? [{ label: 'G', className: 'dtc__chip dtc__chip--glabel' }] : []),
+      ]}
+      fieldProgress={task ? { filled, total } : undefined}
+      purpose={hasData && def.purpose ? truncate(def.purpose, 110) : undefined}
 
-      {hasData && def.purpose && (
-        <p className="bfd__card-purpose">{truncate(def.purpose, 110)}</p>
+    >
+      {hasData && (CustomRenderer
+        ? <CustomRenderer fieldData={fieldData} />
+        : <DefaultTaskRenderer def={def} fieldData={fieldData} />
       )}
-
-      <div className="bfd__card-body">
-        {!hasData ? (
-          <div className="bfd__empty-card">{getEmptyMessage(def)}</div>
-        ) : CustomRenderer ? (
-          <CustomRenderer fieldData={fieldData} />
-        ) : (
-          <DefaultTaskRenderer def={def} fieldData={fieldData} />
-        )}
-      </div>
-    </div>
+    </DashboardTaskCard>
   );
 }
 
 // ── ProjectAuditCard ─────────────────────────────────────────────────────────
 
+function hasUserFieldData(task) {
+  const fd = task.bbosFieldData || {};
+  return Object.entries(fd).some(([k, v]) => !k.startsWith('_') && (typeof v === 'string' ? v.trim() : !!v));
+}
+
 function ProjectAuditCard({ tasks }) {
   const total = tasks.length;
+  const startedTasks = tasks.filter(hasUserFieldData);
+  const started = startedTasks.length;
   const completed = tasks.filter((t) => t.completedAt).length;
   const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
-  const incomplete = tasks.filter((t) => !t.completedAt);
-  const noDueDate = incomplete.filter((t) => !t.dueDate).length;
+  // Scheduling discipline measured only against started tasks
+  const noDueDate = startedTasks.filter((t) => !t.dueDate && !t.completedAt).length;
 
   let totalSubtasks = 0;
   let doneSubtasks = 0;
@@ -720,15 +709,15 @@ function ProjectAuditCard({ tasks }) {
   const subtaskPct = totalSubtasks > 0 ? Math.round((doneSubtasks / totalSubtasks) * 100) : 0;
 
   const checks = [
-    { label: 'Task Coverage', sub: total > 10 ? 'Comprehensive' : total > 3 ? 'Building' : 'Minimal', score: total > 10 ? 5 : total > 5 ? 4 : total > 0 ? 3 : 0 },
-    { label: 'Completion Rate', sub: pct > 50 ? 'Strong Progress' : pct > 0 ? 'In Progress' : 'Not Started', score: pct >= 80 ? 5 : pct >= 50 ? 4 : pct > 0 ? 3 : 1 },
-    { label: 'Scheduling Discipline', sub: noDueDate < total * 0.3 ? 'Well Dated' : 'Dates Needed', score: noDueDate === 0 ? 5 : noDueDate < total * 0.3 ? 4 : noDueDate < total * 0.5 ? 3 : 2 },
-    { label: 'Subtask Depth', sub: totalSubtasks > 0 ? `${subtaskPct}% Complete` : 'Not Used', score: subtaskPct >= 80 ? 5 : subtaskPct >= 50 ? 4 : totalSubtasks > 0 ? 3 : 1 },
+    { label: 'Task Coverage', sub: started > 10 ? 'Comprehensive' : started > 3 ? 'Building' : started > 0 ? 'Started' : 'Not Started', score: started > 10 ? 3 : started > 3 ? 2 : started > 0 ? 1 : 1 },
+    { label: 'Completion Rate', sub: pct > 50 ? 'Strong Progress' : pct > 0 ? 'In Progress' : 'Not Started', score: pct >= 80 ? 3 : pct >= 50 ? 2 : pct > 0 ? 1 : 1 },
+    { label: 'Scheduling Discipline', sub: started === 0 ? 'Not Started' : noDueDate === 0 ? 'Well Dated' : 'Dates Needed', score: started === 0 ? 1 : noDueDate === 0 ? 3 : noDueDate < started * 0.3 ? 2 : 1 },
+    { label: 'Subtask Depth', sub: totalSubtasks > 0 ? `${subtaskPct}% Complete` : 'Not Used', score: subtaskPct >= 80 ? 3 : subtaskPct >= 50 ? 2 : totalSubtasks > 0 ? 1 : 1 },
   ];
 
   const avgScore = checks.length > 0 ? checks.reduce((s, c) => s + c.score, 0) / checks.length : 0;
-  const verdict = avgScore >= 4 ? 'STRONG' : avgScore >= 3 ? 'QUALIFIED' : avgScore >= 2 ? 'DEVELOPING' : 'NEEDS WORK';
-  const thresholdPct = Math.round((avgScore / 5) * 100);
+  const verdict = avgScore >= 2.5 ? 'STRONG' : avgScore >= 2 ? 'QUALIFIED' : avgScore >= 1.5 ? 'DEVELOPING' : 'NEEDS WORK';
+  const thresholdPct = Math.round((avgScore / 3) * 100);
 
   return (
     <div className="bfd__pa" style={{ gridColumn: '1 / -1' }}>
@@ -810,7 +799,7 @@ function StageScoreCard({ bbosFilter, taskMap }) {
               <div className="bfd__ssc-signal-info">
                 <span className="bfd__ssc-signal-label">{sig.label}</span>
               </div>
-              {renderStars(sig.pts)}
+              {renderStars(sig.pts, 5)}
             </div>
           ))}
         </div>
@@ -890,7 +879,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
                 <span className="bfd__divider-count">{group.defs.length} task{group.defs.length !== 1 ? 's' : ''}</span>
               </div>
               {group.defs.map((def, i) => (
-                <TaskCard
+                <BbosTaskCard
                   key={def.id}
                   def={def}
                   task={taskMap[def.id]}

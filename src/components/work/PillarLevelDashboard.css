@@ -1,0 +1,278 @@
+/* ── Pillar Level Dashboard — CORE / GROWTH / EXCELLENCE Task View ── */
+
+/* ── Root container ── */
+.pld {
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-2);
+  height: 100%;
+  max-width: 1200px;
+}
+
+/* ── Header ── */
+.pld__header { margin-bottom: 36px; }
+.pld__eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.pld__title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.pld__desc {
+  font-size: 0.88rem;
+  color: var(--text3);
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+/* ── Grid ── */
+.pld__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Section divider ── */
+.pld__divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+.pld__divider:first-child { margin-top: 0; }
+.pld__divider-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text3);
+  white-space: nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.pld__divider-count {
+  font-size: 0.6rem;
+  color: var(--text3);
+  opacity: 0.6;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.pld__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Card styles moved to shared/DashboardTaskCard.css */
+
+/* ── Insight panel (full-width) ── */
+.pld__insight {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 24px rgba(30, 25, 16, 0.05);
+  border: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.pld__insight-left {
+  border-right: 1px solid var(--border);
+  padding-right: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pld__insight-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pld__insight-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pld__insight-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--bg3);
+  color: var(--text3);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.pld__insight-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.pld__insight-verdict-box {
+  border-radius: 10px;
+  padding: 20px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+.pld__insight-verdict-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.pld__insight-verdict-value {
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.pld__insight-verdict-sub {
+  font-size: 0.72rem;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+.pld__insight-metrics-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.pld__insight-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.pld__insight-metric {
+  background: var(--bg);
+  border-radius: 9px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pld__insight-metric-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 4px;
+}
+.pld__insight-metric-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.pld__insight-metric-sub {
+  font-size: 0.72rem;
+  color: var(--text2);
+  line-height: 1.35;
+}
+
+/* ── Gauge (progress bar inside metric) ── */
+.pld__gauge-track {
+  height: 5px;
+  background: var(--bg3);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.pld__gauge-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+/* ── Stars ── */
+.pld__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 4px;
+}
+.pld__star--empty { opacity: 0.2; }
+
+/* ── Footer ── */
+.pld__footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.pld__footer-meta {
+  font-size: 0.72rem;
+  color: var(--text3);
+  text-align: center;
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ── Empty state ── */
+.pld__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  gap: 16px;
+  color: var(--text3);
+}
+.pld__empty-icon { opacity: 0.35; }
+.pld__empty-text { font-size: 0.9rem; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pld__grid {
+    grid-template-columns: 1fr;
+  }
+  .pld__card {
+    grid-column: span 1 !important;
+  }
+  .pld__insight {
+    grid-template-columns: 1fr;
+  }
+  .pld__insight-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+  .pld__insight-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .pld__insight-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -20,11 +20,6 @@ export const BBOS_TASK_ACCESS = {
   'FND-S2':     { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
   'FND-S3':     { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
   'FND-S4':     { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
-  'FND-IFB-S1': { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
-  'FND-IFB-S2': { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
-  'FND-IFB-S3': { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
-  'FND-IFB-S4': { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
-  'FND-IFB-S5': { OW: 'O', ST: 'V', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },
 
   // ── TRU (15 tasks) — all: O O - - - - - ─────────────────
   'TRU-S1':   { OW: 'O', ST: 'O', CW: '-', MB: '-', SE: '-', CL: '-', FU: '-' },

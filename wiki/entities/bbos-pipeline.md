@@ -68,7 +68,13 @@ This separation enforces operator sovereignty over all deliverables. The AI rese
 
 ## Current Status
 
-Pipeline header and task panel components implemented in [[maqasid-os]]. Stage progression UI functional. BbosPipelineHeader.css and BbosPipelineHeader.jsx recently modified (per git status). Role-based access via BbosRoleBadge and BbosRolePicker in place. Marketing section live on [[ogden-hub]]. The v2.4 operational framework (Two-Factory model, G-Labeling, Assembly Gate, Patch Plan sub-stages) is fully documented but UI representation of these mechanics may still need alignment with the documented protocol.
+Pipeline header and task panel components implemented in [[maqasid-os]]. Stage progression UI functional. Role-based access via BbosRoleBadge and BbosRolePicker in place. Marketing section live on [[ogden-hub]]. The v2.4 operational framework (Two-Factory model, G-Labeling, Assembly Gate, Patch Plan sub-stages) is fully documented but UI representation of these mechanics may still need alignment with the documented protocol.
+
+**DashboardTaskCard** (`src/components/shared/DashboardTaskCard.jsx`) — unified card component used by both BbosFullDashboard and PillarLevelDashboard. Whole card is clickable; dynamically renders subtask bars, field progress, due dates, tags, purpose text, and BBOS custom renderers via children prop.
+
+**Audit system:** Project Audit cards across all dashboards now use a 3-star scale (was 5-star). BBOS `renderStars(score, max=3)` with explicit `max=5` for StageScoreCard.
+
+**FND stage IFB tasks removed:** FND-IFB-S1 through FND-IFB-S5 ("IFB Forms" group) removed from `bbos-task-definitions.js` and `bbos-role-access.js` — backend admin tasks not relevant to operators.
 
 ## Connections
 
@@ -98,4 +104,5 @@ Pipeline header and task panel components implemented in [[maqasid-os]]. Stage p
 | 2026-04-11 | Consolidated all stage dashboards (TRU/STR/OFR/OUT/FND) into unified `BbosFullDashboard.jsx`. TRU dynamic scoring was not ported during consolidation. |
 | 2026-04-11 | Extended dynamic scoring to STR, OFR, OUT via `StageScoreCard` in `BbosFullDashboard.jsx`; also restored TRU scoring. Pattern: `STAGE_SCORE_SIGNALS[bbosFilter]` → 5 weighted signals × 5 pts → % → verdict (QUALIFIED/DEVELOPING/REVIEW NEEDED/BLOCKED). STR: integrity verdict + VoC depth + content angles + core belief + arc completeness. OFR: promise G-label + ICP completeness + guarantee rigor + scope map + proof status. OUT: icOut1–icOut5 integrity checks (binary). TRU-AF5 ProofAuditRenderer now shows graduated stars for known rating strings. |
 | 2026-04-11 | Task card color coding fixed: `--active` now uses amber (`--pri-high`) not teal primary; status detection switched from `completedAt` (always null) to `columnId === doneColumnId`. Stage tabs in `BbosPipelineHeader` now show same color system via `stageStatusMap` prop from `ProjectBoard`. Auto-advance to "In Progress" added in `BbosTaskPanel.jsx` — fires on field data entry, AI draft population, and template import. |
+| 2026-04-11 | UI polish: unified DashboardTaskCard shared component (whole card clickable, dynamic features); 3-star audit system across all dashboards; CSS consistency pass (padding 20px, star gap 2px, opacity 0.2); removed IFB Forms task group (FND-IFB-S1–S5); removed empty card message box from BBOS cards; Tasks page (`/work/:id/tasks`) generic dashboard updated to 3-star. |
 | 2026-04-09 | Wiki entity page bootstrapped. Pipeline integrated into maqasid-os with header, task panel, role badge, and role picker components. Marketing section live on ogden-hub. |
