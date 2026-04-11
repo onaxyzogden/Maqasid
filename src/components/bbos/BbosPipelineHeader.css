@@ -59,6 +59,18 @@
   background: color-mix(in srgb, var(--stage-color) 6%, transparent);
 }
 
+/* Stage status color coding — same system as task cards */
+.bbos-stage-node--status-active {
+  background: color-mix(in srgb, #f59e0b 8%, var(--bg));
+  border-color: color-mix(in srgb, #f59e0b 25%, transparent);
+}
+
+.bbos-stage-node--status-complete {
+  background: color-mix(in srgb, var(--col-done, #22c55e) 8%, var(--bg));
+  border-color: color-mix(in srgb, var(--col-done, #22c55e) 25%, transparent);
+  opacity: 0.7;
+}
+
 .bbos-stage-node--current {
   border-bottom: 2.5px solid var(--stage-color);
 }
@@ -78,11 +90,6 @@
   border-color: var(--stage-color);
   background: color-mix(in srgb, var(--stage-color) 18%, transparent);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--stage-color) 30%, transparent);
-}
-
-.bbos-stage-node--done {
-  border-color: var(--success);
-  opacity: 0.7;
 }
 
 .bbos-stage-node--inaccessible {

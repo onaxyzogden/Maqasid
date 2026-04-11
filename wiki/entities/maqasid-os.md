@@ -48,4 +48,5 @@ Active development on V2.1. Module dashboards for all seven pillars implemented 
 
 | Date | Event |
 |---|---|
+| 2026-04-11 | Family module: added Family Office — embedded Office module accessible as (1) tab within `/app/family` (FamilyPage) and (2) dedicated sidebar entry at `/app/family-office`. Files modified: `src/pages/ummah/FamilyPage.jsx`, `src/App.jsx`, `src/data/maqasid.js`, `src/data/modules.js`, `src/components/layout/Sidebar.jsx`. |
 | 2026-04-09 | Wiki entity page bootstrapped. Monorepo expanded with ogden-hub subtree and atlas submodule. Knowledge graph at 882 nodes / 1,438 edges / 47 communities. |

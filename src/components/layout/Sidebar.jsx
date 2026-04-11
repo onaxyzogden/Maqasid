@@ -68,6 +68,7 @@ const MODULE_ROUTES = {
   'family-parenting': '/app/family-parenting',
   'family-kinship': '/app/family-kinship',
   'family-home': '/app/family-home',
+  'family-office': '/app/family-office',
   // Wealth
   'wealth-earning': '/app/wealth-earning',
   'wealth-financial': '/app/wealth-financial',

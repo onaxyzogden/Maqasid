@@ -135,6 +135,7 @@ export default function App() {
         <Route path="family-parenting" element={<FamilyParentingPage />} />
         <Route path="family-kinship" element={<FamilyKinshipPage />} />
         <Route path="family-home" element={<FamilyHomePage />} />
+        <Route path="family-office" element={<Office embedded />} />
         <Route path="wealth-earning" element={<WealthEarningPage />} />
         <Route path="wealth-financial" element={<WealthFinancialPage />} />
         <Route path="wealth-ownership" element={<WealthOwnershipPage />} />

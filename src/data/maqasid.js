@@ -65,7 +65,7 @@ export const MAQASID_PILLARS = [
     rootAction: 'Connecting',
     accentColor: '#AD6E9E',
     icon: 'Users',
-    subModuleIds: ['family-marriage', 'family-parenting', 'family-kinship', 'family-home'],
+    subModuleIds: ['family-marriage', 'family-parenting', 'family-kinship', 'family-home', 'family-office'],
     status: 'active',
     relationship: 'moontrance-partial',
     readinessAyatKey: 'people',

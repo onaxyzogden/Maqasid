@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
@@ -84,6 +84,28 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
     reader.readAsText(file);
     e.target.value = '';
   };
+  const stageStatusMap = useMemo(() => {
+    if (!isBbos) return {};
+    const tasks = taskStore.tasksByProject[projectId] || [];
+    const doneCol = project.columns?.find((c) => c.name === 'Done')?.id;
+    const acc = {};
+    for (const t of tasks) {
+      if (!t.bbosTaskType) continue;
+      const stageId = t.bbosTaskType.split('-')[0];
+      if (!acc[stageId]) acc[stageId] = { hasData: false, allDone: true };
+      const fd = t.bbosFieldData || {};
+      if (Object.values(fd).some((v) => (typeof v === 'string' ? v.trim() : !!v))) {
+        acc[stageId].hasData = true;
+      }
+      if (!doneCol || t.columnId !== doneCol) acc[stageId].allDone = false;
+    }
+    const result = {};
+    for (const [id, s] of Object.entries(acc)) {
+      result[id] = !s.hasData ? 'empty' : s.allDone ? 'complete' : 'active';
+    }
+    return result;
+  }, [taskStore.tasksByProject[projectId], project.columns, isBbos]);
+
   const mergedFilters = isBbos
     ? { ...filters, bbosStage: bbosFilter }
     : hideBbos && project.bbosEnabled
@@ -222,6 +244,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
           currentStageId={project.bbosStage}
           activeFilter={bbosFilter}
           bbosRole={project.bbosRole || 'all'}
+          stageStatusMap={stageStatusMap}
           onStageClick={(stageId) => {
             setBbosFilter(stageId);
             setActiveBbosStage(stageId);

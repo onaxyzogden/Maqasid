@@ -373,6 +373,15 @@ export const MODULES = [
     ready: true,
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
+  {
+    id: 'family-office',
+    name: 'Family Office',
+    description: 'Family Office — Chat, Calendar, Announcements, Forum, Documents',
+    icon: 'Building2',
+    color: 'var(--mod-family)',
+    ready: true,
+    features: ['Team chat', 'Calendar', 'Announcements', 'Forum', 'Documents'],
+  },
 
   // ── Wealth pillar — submodule pages ──
   {

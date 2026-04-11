@@ -74,11 +74,20 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
   const aiDraftStatus = fieldData._aiDraftStatus || 'none';
   const aiDraftTimestamp = fieldData._aiDraftTimestamp || null;
 
+  const advanceToInProgress = () => {
+    const toDoCol = project.columns?.find((c) => c.name === 'To Do');
+    const inProgressCol = project.columns?.find((c) => c.name === 'In Progress');
+    if (inProgressCol && task.columnId === toDoCol?.id) {
+      moveTask(projectId, taskId, inProgressCol.id, 0);
+    }
+  };
+
   const handleFieldChange = (fieldId, value) => {
     setLocalFields((prev) => ({ ...prev, [fieldId]: value }));
     clearTimeout(saveTimeout.current);
     saveTimeout.current = setTimeout(() => {
       updateBbosFieldData(projectId, taskId, fieldId, value);
+      if (!fieldId.startsWith('_') && value?.trim?.()) advanceToInProgress();
     }, 300);
   };
 
@@ -130,6 +139,7 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
       }
       setLocalFields((prev) => ({ ...prev, ...fieldData }));
       setDraftWarnings(warnings);
+      advanceToInProgress();
 
       // Mark as pending (review state)
       updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'pending');
@@ -196,6 +206,7 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         }
         setLocalFields((prev) => ({ ...prev, ...fieldData }));
         if (gLabel) handleGLabelChange(gLabel);
+        advanceToInProgress();
         alert(`Template imported: ${Object.keys(fieldData).length} field(s) populated.`);
       } catch (err) {
         alert('Template import failed: ' + err.message);
@@ -413,13 +424,15 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         </div>
 
         {/* ── G-Label ── */}
-        <div className="btp-section btp-glabel-row">
-          <span className="btp-section-label">Integrity Label</span>
-          <GLabelPicker
-            value={task.gLabel || null}
-            onChange={handleGLabelChange}
-          />
-        </div>
+        {def.hasGLabel && (
+          <div className="btp-section btp-glabel-row">
+            <span className="btp-section-label">Integrity Label</span>
+            <GLabelPicker
+              value={task.gLabel || null}
+              onChange={handleGLabelChange}
+            />
+          </div>
+        )}
 
         {/* ── Notes ── */}
         <div className="btp-section">
