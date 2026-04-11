@@ -34,3 +34,7 @@ notes/
 .graphify_*.txt
 .graphify_python
 
+# Local audit working docs
+MOS_Remediation_Plan.md
+MOS_TA_1.txt
+
