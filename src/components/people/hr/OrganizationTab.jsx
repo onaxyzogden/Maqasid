@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { usePeopleStore } from '@store/people-store';
 import { useContactsStore } from '@store/contacts-store';
-import { getDisplayName } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
 
 function PersonNode({ emp, isRoot }) {

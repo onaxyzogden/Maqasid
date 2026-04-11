@@ -41,7 +41,6 @@ export default function AppShell() {
   const resumeModuleId = useThresholdStore((s) => s.resumeModuleId);
   const isPrayerLocked = useThresholdStore((s) => s.isPrayerLocked);
   const currentPrayerName = useThresholdStore((s) => s.currentPrayerName);
-  const prayerMsRemaining = useThresholdStore((s) => s.prayerMsRemaining);
   const prayerTimeMs = useThresholdStore((s) => s.prayerTimeMs);
   const prayerWarningName = useThresholdStore((s) => s.prayerWarningName);
   const prayerWarningDismissed = useThresholdStore((s) => s.prayerWarningDismissed);

@@ -21,7 +21,7 @@ const DEFAULT_INTEGRATIONS = [
   { id: 'intg_xero', name: 'Xero', description: 'Connect your Xero organisation to sync invoices and payments in both directions.', category: 'Finance', status: 'disconnected', icon: 'xero', configuredAt: null },
 ];
 
-export const useTechStore = create((set, get) => ({
+export const useTechStore = create((set) => ({
   // ── Monitors / Websites ──
   monitors: safeGetJSON('tech_monitors', []),
 

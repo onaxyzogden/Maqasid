@@ -30,7 +30,7 @@ function initChannels() {
   return [...DEFAULT_CHANNELS];
 }
 
-export const useOfficeStore = create((set, get) => ({
+export const useOfficeStore = create((set) => ({
   channels: initChannels(),
   messages: safeGetJSON('office_messages', []),
   events: safeGetJSON('office_events', []),

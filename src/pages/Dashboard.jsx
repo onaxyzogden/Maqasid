@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Kanban, ArrowRight, CheckCircle2, Clock, AlertTriangle, CalendarDays,
@@ -30,9 +30,6 @@ function BCGChart({ data }) {
   const PLOT_H = H - PAD.top - PAD.bottom;
 
   const maxVal = Math.max(...(data || []).map((d) => d.count), 1);
-  const minVal = 0;
-  const midY = PAD.top + PLOT_H / 2;
-
   const points = (data || []).map((d, i) => {
     const x = PAD.left + (i / Math.max((data || []).length - 1, 1)) * PLOT_W;
     const y = PAD.top + PLOT_H - (d.count / maxVal) * PLOT_H;
@@ -307,9 +304,10 @@ export default function Dashboard() {
       .slice(0, 10);
   }, [allTasks, events, projects, tasksByProject]);
 
+  const renderNow = useRef(Date.now());
   function relativeTime(iso) {
     if (!iso) return '';
-    const diff = Date.now() - new Date(iso).getTime();
+    const diff = renderNow.current - new Date(iso).getTime();
     const mins = Math.floor(diff / 60000);
     if (mins < 1) return 'just now';
     if (mins < 60) return `${mins}m ago`;

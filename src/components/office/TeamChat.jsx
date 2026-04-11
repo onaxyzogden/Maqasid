@@ -8,7 +8,6 @@ export default function TeamChat() {
   const channels = useOfficeStore((s) => s.channels);
   const messages = useOfficeStore((s) => s.messages);
   const addChannel = useOfficeStore((s) => s.addChannel);
-  const deleteChannel = useOfficeStore((s) => s.deleteChannel);
   const addMessage = useOfficeStore((s) => s.addMessage);
   const user = useAuthStore((s) => s.user);
 
@@ -115,7 +114,6 @@ export default function TeamChat() {
           )}
           {channelMessages.map((msg) => {
             const date = new Date(msg.createdAt);
-            const dateStr = date.toLocaleDateString('en', { month: 'long', day: 'numeric', year: 'numeric' });
             return (
               <div key={msg.id} className="chat-message">
                 <div className="chat-msg-avatar">{msg.author?.[0]?.toUpperCase() || '?'}</div>

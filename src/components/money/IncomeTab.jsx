@@ -27,7 +27,7 @@ function InvoicePanel({ invoice, onClose }) {
   const [paymentNote, setPaymentNote] = useState(invoice?.paymentNote || '');
   const [isRecurring, setIsRecurring] = useState(invoice?.isRecurring || false);
   const [termsAndConditions, setTermsAndConditions] = useState(invoice?.termsAndConditions || 'THANK YOU!\n1. Full payment is due within the due day displayed on the invoice.\n2. Please pay your invoice on time.');
-  const [notes, setNotes] = useState(invoice?.notes || '');
+  const [notes] = useState(invoice?.notes || '');
 
   const subTotal = lineItems.reduce((s, li) => s + (li.quantity || 0) * (li.unitPrice || 0), 0);
   const total = subTotal - (discountTotal || 0);

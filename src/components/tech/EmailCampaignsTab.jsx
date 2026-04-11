@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Plus, Search, X, Send, Trash2 } from 'lucide-react';
+import { Search, X, Send, Trash2 } from 'lucide-react';
 import { useTechStore } from '../../store/tech-store';
 
 export default function EmailCampaignsTab() {
@@ -7,7 +7,6 @@ export default function EmailCampaignsTab() {
   const addCampaign = useTechStore((s) => s.addCampaign);
   const sendCampaign = useTechStore((s) => s.sendCampaign);
   const deleteCampaign = useTechStore((s) => s.deleteCampaign);
-  const archiveCampaign = useTechStore((s) => s.archiveCampaign);
   const [statusFilter, setStatusFilter] = useState('all');
   const [showArchived, setShowArchived] = useState(false);
   const [search, setSearch] = useState('');

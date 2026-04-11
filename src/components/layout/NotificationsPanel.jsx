@@ -5,7 +5,6 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useContactsStore } from '../../store/contacts-store';
-import { usePeopleStore } from '../../store/people-store';
 import { useOfficeStore } from '../../store/office-store';
 import './NotificationsPanel.css';
 
@@ -28,7 +27,6 @@ export default function NotificationsPanel({ onClose }) {
   const projects = useProjectStore((s) => s.projects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const contacts = useContactsStore((s) => s.contacts);
-  const employees = usePeopleStore((s) => s.employees);
   const events = useOfficeStore((s) => s.events);
 
   const firstName = user?.name ? user.name.split(' ')[0] : 'You';

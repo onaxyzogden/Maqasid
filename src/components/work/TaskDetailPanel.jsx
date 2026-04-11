@@ -13,11 +13,6 @@ import GLabelPicker from '../shared/GLabelPicker';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import './TaskDetailPanel.css';
 
-function formatDate(iso) {
-  if (!iso) return '';
-  return new Date(iso).toLocaleDateString('en', { month: 'short', day: '2-digit', year: 'numeric' });
-}
-
 function formatDateTime(iso) {
   if (!iso) return '';
   return new Date(iso).toLocaleString('en', {
@@ -51,7 +46,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
   const [description, setDescription] = useState('');
   const [notes, setNotes] = useState('');
   const [newSubtask, setNewSubtask] = useState('');
-  const [newTag, setNewTag] = useState('');
   const [expandedSubtask, setExpandedSubtask] = useState(null);
   const saveTimeout = useRef(null);
   const titleRef = useRef(null);
@@ -66,9 +60,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
 
   const columns = project?.columns || [];
   const currentCol = columns.find((c) => c.id === task?.columnId);
-  const initials = user?.name
-    ? user.name.split(' ').map((w) => w[0]).join('').toUpperCase().slice(0, 2)
-    : 'U';
 
   useEffect(() => {
     if (task) {
@@ -118,13 +109,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
     if (newSubtask.trim()) {
       addSubtask(projectId, taskId, newSubtask.trim());
       setNewSubtask('');
-    }
-  };
-
-  const handleAddTag = () => {
-    if (newTag.trim() && !task.tags.includes(newTag.trim())) {
-      updateTask(projectId, taskId, { tags: [...task.tags, newTag.trim()] });
-      setNewTag('');
     }
   };
 

@@ -61,8 +61,6 @@ export default function DiscussionPanel() {
 
   if (!discussionOpen) return null;
 
-  const authorName = user?.name || 'You';
-
   return (
     <>
       <div className="discussion-panel-overlay" onClick={closePanel} />

@@ -8,7 +8,7 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const isIslamic = valuesLayer === 'islamic';
 
   // Real-time clock — ticks every second
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(() => Date.now());
 
   // Keep onDismiss in a ref so the interval never needs to be recreated
   const onDismissRef = useRef(onDismiss);

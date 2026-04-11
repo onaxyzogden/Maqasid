@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Kanban, Wallet, Users, Building2, Shield, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
@@ -13,7 +13,6 @@ import {
   Droplets, Recycle,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
-import { useProjectStore } from '../../store/project-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useMobile } from '../../hooks/useMobile';
 import { MODULES } from '../../data/modules';
@@ -89,19 +88,11 @@ export default function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const mobile = useMobile();
-  const { sidebarOpen, toggleSidebar, activeModule, setActiveModule, expandedPillars, togglePillar, collapseAllPillars } = useAppStore();
+  const { sidebarOpen, toggleSidebar, setActiveModule, expandedPillars, togglePillar, collapseAllPillars } = useAppStore();
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
-  const allProjects = useProjectStore((s) => s.projects);
-  const createProject = useProjectStore((s) => s.createProject);
-  const projects = useMemo(() => allProjects.filter((p) => !p.archived), [allProjects]);
   const [notifOpen, setNotifOpen] = useState(false);
 
   const collapsed = mobile ? false : !sidebarOpen;
-
-  const handleNewProject = () => {
-    const project = createProject({ name: 'New Project' });
-    navigate(`/app/work/${project.id}`);
-  };
 
   const handleNavClick = () => {
     if (mobile && sidebarOpen) toggleSidebar();
@@ -158,7 +149,7 @@ export default function Sidebar() {
               <button
                 className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
                 style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
-                onClick={(e) => {
+                onClick={() => {
                   if (collapsed) {
                     toggleSidebar();
                     navigate(`/app/pillar/${pillar.id}`);

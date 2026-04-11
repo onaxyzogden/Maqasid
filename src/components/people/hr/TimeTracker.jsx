@@ -25,9 +25,6 @@ export default function TimeTracker() {
   const timeEntries = usePeopleStore((s) => s.timeEntries);
   const departments = usePeopleStore((s) => s.departments);
   const addTimeEntry = usePeopleStore((s) => s.addTimeEntry);
-  const deleteTimeEntry = usePeopleStore((s) => s.deleteTimeEntry);
-
-  const [view, setView] = useState('weekly');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
   const [showForm, setShowForm] = useState(false);
   const [fEmpId, setFEmpId] = useState('');

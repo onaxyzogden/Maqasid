@@ -57,9 +57,9 @@ export default function FaithDashboard() {
     }
   }, [projects, loadTasks]);
 
-  const { progressMap: coreProgress, overallPct: coreOverallPct } = useModulesProgress(MODULE_IDS, 'core');
-  const { progressMap: growthProgress, overallPct: growthOverallPct } = useModulesProgress(MODULE_IDS, 'growth');
-  const { progressMap: excelProgress, overallPct: excelOverallPct } = useModulesProgress(MODULE_IDS, 'excellence');
+  const { progressMap: coreProgress } = useModulesProgress(MODULE_IDS, 'core');
+  const { progressMap: growthProgress } = useModulesProgress(MODULE_IDS, 'growth');
+  const { progressMap: excelProgress } = useModulesProgress(MODULE_IDS, 'excellence');
   const { overallPct } = useModulesProgress(MODULE_IDS);
 
   return (

@@ -4,7 +4,7 @@ import {
   genContactId, genCompanyId, genHRId, genAbsenceId,
   genClockInId, genSalaryId, genContactDocId,
 } from '../services/id';
-import { getAvatarColor, getDisplayName } from '@data/config/contact-config';
+import { getAvatarColor } from '@data/config/contact-config';
 import { PRESET_DEPARTMENTS } from '@data/config/people-departments';
 
 // ── Persistence helpers ──

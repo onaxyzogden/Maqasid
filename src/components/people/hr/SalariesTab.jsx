@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useContactsStore } from '@store/contacts-store';
-import { getDisplayName, SALARY_TYPES } from '@data/config/contact-config';
+import { SALARY_TYPES } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
 
 function formatCurrency(amount) {

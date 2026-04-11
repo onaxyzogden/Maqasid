@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
-import { getDisplayName } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
 
 function getWeekRange(offset) {

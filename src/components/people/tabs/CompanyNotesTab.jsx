@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function CompanyNotesTab({ companyId }) {
+export default function CompanyNotesTab() {
   const [notes, setNotes] = useState('');
   const [saved, setSaved] = useState(true);
 

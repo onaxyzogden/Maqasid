@@ -36,7 +36,6 @@ export default function StatsTab({ employees }) {
   const salaryRecords = useContactsStore((s) => s.salaryRecords);
   const absenceRecords = useContactsStore((s) => s.absenceRecords);
   const departments = usePeopleStore((s) => s.departments);
-  const hrRecords = useContactsStore((s) => s.hrRecords);
 
   const stats = useMemo(() => {
     const active = employees.filter((e) => e.status === 'active');

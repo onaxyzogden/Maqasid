@@ -1,13 +1,11 @@
 import { useState, useMemo } from 'react';
 import { Plus, StickyNote, Send } from 'lucide-react';
 import { useCRMStore, ACTIVITY_TYPES } from '../../store/crm-store';
-import { useAuthStore } from '../../store/auth-store';
 
 export default function NotesView() {
   const contacts = useCRMStore((s) => s.contacts);
   const activities = useCRMStore((s) => s.activities);
   const addActivity = useCRMStore((s) => s.addActivity);
-  const user = useAuthStore((s) => s.user);
   const [selectedContact, setSelectedContact] = useState(null);
   const [newNote, setNewNote] = useState('');
 

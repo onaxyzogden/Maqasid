@@ -78,7 +78,7 @@ function MasteryRing({ percent, pillarColor, pillarKey }) {
 }
 
 /* ── Dashboard sub-page ── */
-function PillarDashboardTab({ pillarName, pillarColor, pillarKey, dashboardData, livePercent, onSwitchTab }) {
+function PillarDashboardTab({ pillarColor, pillarKey, dashboardData, livePercent, onSwitchTab }) {
   const data = dashboardData;
   if (!data) return null;
 
