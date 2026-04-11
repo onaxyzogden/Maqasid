@@ -125,11 +125,42 @@ export function usePrayerTimes() {
       setError('Geolocation not supported');
       return;
     }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => fetchTimings(pos.coords.latitude, pos.coords.longitude),
-      () => setError('Location access denied'),
-      { timeout: 10000 }
-    );
+
+    let attempt = 0;
+    const maxAttempts = 3;
+
+    const tryGeo = () => {
+      attempt++;
+      navigator.geolocation.getCurrentPosition(
+        (pos) => fetchTimings(pos.coords.latitude, pos.coords.longitude),
+        () => {
+          if (attempt < maxAttempts) {
+            setTimeout(tryGeo, attempt * 2000);
+          } else {
+            // Fallback 1: cached coords
+            const coords = safeGetJSON('prayer_coords', null);
+            if (coords) {
+              fetchTimings(coords.lat, coords.lng);
+              return;
+            }
+            // Fallback 2: IP-based geolocation
+            fetch('https://ipapi.co/json/')
+              .then((r) => r.json())
+              .then((d) => {
+                if (d?.latitude && d?.longitude) {
+                  fetchTimings(d.latitude, d.longitude);
+                } else {
+                  setError('Unable to determine location');
+                }
+              })
+              .catch(() => setError('Unable to determine location'));
+          }
+        },
+        { timeout: 10000 }
+      );
+    };
+
+    tryGeo();
   }, [fetchTimings]);
 
   // On mount: check if we have cached timings for today
