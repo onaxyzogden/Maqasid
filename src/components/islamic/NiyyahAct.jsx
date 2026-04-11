@@ -19,6 +19,7 @@ const UNIVERSAL_PROMPT = {
 
 export default function NiyyahAct() {
   const completeNiyyah = useThresholdStore((s) => s.completeNiyyah);
+  const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
 
@@ -61,10 +62,10 @@ export default function NiyyahAct() {
 
         {/* Footer */}
         <div className="niyyah-footer">
-          <button className="niyyah-skip" onClick={() => completeNiyyah([])}>
+          <button className="niyyah-skip" onClick={() => skipNiyyah()}>
             Skip
           </button>
-          <button className="niyyah-confirm" onClick={() => completeNiyyah([])}>
+          <button className="niyyah-confirm" onClick={() => completeNiyyah(['confirmed'])}>
             <Sun size={16} />
             {isIslamic ? <><IslamicTerm id="bismillah">Bismillah</IslamicTerm> — Begin</> : 'Begin'}
           </button>

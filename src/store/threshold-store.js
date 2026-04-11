@@ -6,9 +6,9 @@ export const useThresholdStore = create((set, get) => ({
   niyyahDate: safeGet('thr_niyyah_date', null),        // plain string (YYYY-MM-DD)
   niyyahFocus: safeGetJSON('thr_niyyah_focus', []),    // array of pillar IDs
 
-  // Which module ceremony is active (null = none)
-  openingModuleId: null,
-  closingModuleId: null,
+  // Which module ceremony is active (null = none) — persisted in sessionStorage
+  openingModuleId: sessionStorage.getItem('thr_opening_mid') || null,
+  closingModuleId: sessionStorage.getItem('thr_closing_mid') || null,
 
   // Completed ceremonies: { [moduleId]: true }
   completedOpening: safeGetJSON('thr_open', {}),
@@ -33,13 +33,26 @@ export const useThresholdStore = create((set, get) => ({
     set({ niyyahDate: today, niyyahFocus: focusPillars });
   },
 
+  skipNiyyah: () => {
+    const today = new Date().toISOString().slice(0, 10);
+    safeSet('thr_niyyah_date', today);
+    safeSet('thr_niyyah_focus', ['_skipped']);
+    set({ niyyahDate: today, niyyahFocus: ['_skipped'] });
+  },
+
   isNiyyahComplete: () => {
     const today = new Date().toISOString().slice(0, 10);
     return get().niyyahDate === today;
   },
 
-  setOpeningModuleId: (id) => set({ openingModuleId: id }),
-  setClosingModuleId: (id) => set({ closingModuleId: id }),
+  setOpeningModuleId: (id) => {
+    id ? sessionStorage.setItem('thr_opening_mid', id) : sessionStorage.removeItem('thr_opening_mid');
+    set({ openingModuleId: id });
+  },
+  setClosingModuleId: (id) => {
+    id ? sessionStorage.setItem('thr_closing_mid', id) : sessionStorage.removeItem('thr_closing_mid');
+    set({ closingModuleId: id });
+  },
 
   completeOpening: (moduleId) => {
     const updated = { ...get().completedOpening, [moduleId]: true };
@@ -47,18 +60,21 @@ export const useThresholdStore = create((set, get) => ({
     delete deferred[moduleId];
     safeSet('thr_open', updated);
     safeSet('thr_deferred', deferred);
+    sessionStorage.removeItem('thr_opening_mid');
     set({ completedOpening: updated, openingModuleId: null, deferred });
   },
 
   completeClosing: (moduleId) => {
     const updated = { ...get().completedClosing, [moduleId]: true };
     safeSet('thr_close', updated);
+    sessionStorage.removeItem('thr_closing_mid');
     set({ completedClosing: updated, closingModuleId: null });
   },
 
   deferOpening: (moduleId) => {
     const deferred = { ...get().deferred, [moduleId]: new Date().toISOString() };
     safeSet('thr_deferred', deferred);
+    sessionStorage.removeItem('thr_opening_mid');
     set({ deferred, openingModuleId: null });
   },
 
