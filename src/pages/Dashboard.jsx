@@ -376,6 +376,30 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* ── Empty state for new users ── */}
+      {projects.length === 0 && allTasks.length === 0 && (
+        <div className="insight-empty">
+          <h2 className="insight-empty__title">
+            Welcome{firstName !== 'there' ? `, ${firstName}` : ''}! Let's get started.
+          </h2>
+          <p className="insight-empty__text">
+            {isIslamic
+              ? 'Set your daily Niyyah or create your first project to begin your Maqasid journey.'
+              : 'Create your first project or explore the pillars below to organise your work.'}
+          </p>
+          <div className="insight-empty__actions">
+            <Link to="/app/work" className="insight-action-btn">+ Create Project</Link>
+          </div>
+          <div className="insight-empty__pillars">
+            {MAQASID_PILLARS.map((pillar) => (
+              <Link key={pillar.id} to={`/app/pillar/${pillar.id}`} className="insight-empty__pillar" style={{ borderColor: pillar.accentColor + '40', background: pillar.accentColor + '0a' }}>
+                <span style={{ color: pillar.accentColor, fontWeight: 600 }}>{pillar.sidebarLabel}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* ── Maqasid Pillars ── */}
       <div className="insight-pillars">
         {MAQASID_PILLARS.map((pillar) => {
