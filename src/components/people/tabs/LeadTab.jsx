@@ -28,7 +28,6 @@ export default function LeadTab({ contactId }) {
   if (!contact) return null;
 
   const stage = LEAD_STAGES.find((s) => s.id === contact.leadStatus);
-  const source = LEAD_SOURCES.find((s) => s.id === contact.leadSource);
 
   const startEdit = (field, val, setter) => { setter(val || ''); };
 

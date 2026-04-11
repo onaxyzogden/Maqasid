@@ -11,7 +11,6 @@ export default function WebsitesTab() {
   const checkMonitor = useTechStore((s) => s.checkMonitor);
   const pauseMonitor = useTechStore((s) => s.pauseMonitor);
   const resumeMonitor = useTechStore((s) => s.resumeMonitor);
-  const deleteMonitor = useTechStore((s) => s.deleteMonitor);
   const user = useAuthStore((s) => s.user);
   const [view, setView] = useState('active');
   const [showPanel, setShowPanel] = useState(false);

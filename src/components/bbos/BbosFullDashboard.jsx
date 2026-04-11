@@ -105,40 +105,6 @@ function ratingToStars(text) {
   return null; // fallback: render as text
 }
 
-// ── Contextual empty-state messages ──────────────────────────────────────────
-
-const TASK_EMPTY_OVERRIDES = {
-  'TRU-AF1': 'populate the matched categories',
-  'TRU-AF2': 'populate the scored candidates table',
-  'TRU-AF3': 'generate the candidate ranking matrix',
-  'TRU-AF5': 'populate the proof audit claims',
-  'TRU-V1':  'run the viability gate checks',
-  'STR-AF1': 'populate the core belief statement',
-  'STR-AF2': 'populate the transformation arc',
-  'STR-AF4': 'populate the 6 content angles',
-  'STR-V1':  'run the integrity assessment',
-  'OFR-A2':  'map the ideal customer segments',
-  'OFR-A5':  'populate the pricing model',
-  'OUT-A4':  'build the outreach sequence',
-  'OUT-IC':  'run the outreach integrity checks',
-  'SAL-A3':  'populate the segmentation criteria',
-  'FND-S4':  'generate the routing decision',
-  'DLR-S3':  'build the milestone timeline',
-};
-
-function getEmptyMessage(def) {
-  if (TASK_EMPTY_OVERRIDES[def.id]) {
-    return `Complete ${def.id} to ${TASK_EMPTY_OVERRIDES[def.id]}.`;
-  }
-  // Fallback: derive from purpose field
-  const purpose = def.purpose || '';
-  const firstSentence = purpose.split(/[.!]/)[0].trim();
-  if (!firstSentence) return `Complete ${def.id} to begin.`;
-  const lc = firstSentence.charAt(0).toLowerCase() + firstSentence.slice(1);
-  const trimmed = lc.length > 60 ? lc.slice(0, 57) + '...' : lc;
-  return `Complete ${def.id} to ${trimmed}.`;
-}
-
 // ── Stage quotes ──────────────────────────────────────────────────────────────
 
 const STAGE_QUOTES = {

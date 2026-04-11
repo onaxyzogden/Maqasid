@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate, useSearchParams, useLocation, Outlet } from 'react-router-dom';
 import { RefreshCw } from 'lucide-react';
 import { useProjectStore } from '@store/project-store';
@@ -16,23 +16,15 @@ export default function Project() {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const project = useProjectStore((s) => s.getProject(projectId));
-  const updateProject = useProjectStore((s) => s.updateProject);
   const setBbosRole = useProjectStore((s) => s.setBbosRole);
   const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['work']);
-  const [editingName, setEditingName] = useState(false);
-  const [nameVal, setNameVal] = useState('');
-
   const isProjectsView = !TAB_SUFFIXES.some((s) => location.pathname.endsWith(s));
 
   useEffect(() => {
     if (projectId) loadTasks(projectId);
   }, [projectId]);
-
-  useEffect(() => {
-    if (project) setNameVal(project.name);
-  }, [project?.name]);
 
   // Handle ?task= deep-link from search
   useEffect(() => {
@@ -60,12 +52,6 @@ export default function Project() {
     return <Outlet />;
   }
 
-  const saveName = () => {
-    if (nameVal.trim() && nameVal.trim() !== project.name) {
-      updateProject(projectId, { name: nameVal.trim() });
-    }
-    setEditingName(false);
-  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>

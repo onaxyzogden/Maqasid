@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
-import { genContactId, genDealId, genActivityId, genPipelineStageId } from '../services/id';
+import { genContactId, genDealId, genActivityId } from '../services/id';
 
 function persistContacts(d) { safeSet('crm_contacts', d); }
 function persistDeals(d) { safeSet('crm_deals', d); }

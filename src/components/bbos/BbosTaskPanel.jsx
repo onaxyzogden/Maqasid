@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';

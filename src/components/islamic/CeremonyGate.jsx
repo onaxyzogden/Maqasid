@@ -3,7 +3,6 @@ import { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Spark
 import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { MODULES } from '../../data/modules';
-import { getStage } from '@data/bbos/bbos-pipeline';
 import './CeremonyGate.css';
 
 const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Sparkles, Library, Lightbulb, Wrench, Heart, Baby, Handshake, Home, PiggyBank, Scale, Gift, Droplets, Recycle, TreeDeciduous, ShoppingBag, TreePine };
@@ -16,7 +15,6 @@ export default function CeremonyGate({ moduleId }) {
   const [showSkipConfirm, setShowSkipConfirm] = useState(false);
 
   const isBbosGate = moduleId?.startsWith('bbos:');
-  const bbosGateStage = isBbosGate ? getStage(moduleId.slice(5)) : null;
   const mod = isBbosGate ? null : MODULES.find((m) => m.id === moduleId);
   const Icon = mod ? ICON_MAP[mod.icon] : null;
   const isIslamic = valuesLayer === 'islamic';

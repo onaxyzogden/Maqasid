@@ -8,7 +8,6 @@ import {
 } from '@data/islamic/islamic-data';
 import { lookupReadinessAyahByKey } from '@data/ayat/readiness-ayat-router';
 import { getPillarForModule } from '../../data/maqasid';
-import { getStage } from '@data/bbos/bbos-pipeline';
 import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { useSettingsStore } from '../../store/settings-store';
 import AttributeCard from './AttributeCard';
@@ -68,7 +67,6 @@ export default function ThresholdModal({ type }) {
   // Detect BBOS stage ceremony keys (e.g. 'bbos:FND')
   const isBbosStage = moduleId?.startsWith('bbos:');
   const bbosStageId = isBbosStage ? moduleId.slice(5) : null;
-  const bbosStageObj = bbosStageId ? getStage(bbosStageId) : null;
   const bbosStageData = bbosStageId ? getBbosStageIslamic(bbosStageId) : null;
 
   const mod = isBbosStage ? null : MODULES.find((m) => m.id === moduleId);
@@ -185,9 +183,6 @@ export default function ThresholdModal({ type }) {
   const handleReflectionSelect = (id, value) => {
     setReflectionSelections((prev) => ({ ...prev, [id]: value }));
   };
-
-  const canAdvanceFromReadiness = hasInteractiveReadiness ? readinessFilled && readinessAllYes : true;
-  const canAdvanceFromReflection = hasInteractiveReflection ? reflectionFilled : true;
 
   const pauseQuestion = isIslamic
     ? (PAUSE_QUESTIONS[moduleId] || PAUSE_QUESTIONS.work)

@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { CLOCK_IN_LOCATIONS } from '@data/config/contact-config';
 import ClockInModal from '../hr/ClockInModal';
 
 function formatDuration(ms) {
@@ -21,7 +20,6 @@ export default function ClockInsTab({ contactId }) {
   const clockIns      = useContactsStore((s) => s.clockIns);
   const clockOut      = useContactsStore((s) => s.clockOut);
   const deleteClockIn = useContactsStore((s) => s.deleteClockIn);
-  const getActiveClockIn = useContactsStore((s) => s.getActiveClockIn);
 
   const [showModal, setShowModal] = useState(false);
   const [elapsed, setElapsed]    = useState(0);
@@ -48,10 +46,10 @@ export default function ClockInsTab({ contactId }) {
     ? completed.reduce((s, ci) => s + ci.totalMinutes, 0) / completed.length
     : 0;
 
-  const [dateRange, setDateRange] = useState({
+  const [dateRange, setDateRange] = useState(() => ({
     start: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
     end:   new Date().toISOString().slice(0, 10),
-  });
+  }));
 
   const inRange = myClockIns.filter((ci) => {
     const d = ci.clockInTime.slice(0, 10);

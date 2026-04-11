@@ -47,7 +47,7 @@ export default function FamilyDashboard() {
     for (const proj of moduleProjects) { loadTasks(proj.id); }
   }, [projects, loadTasks]);
 
-  const { progressMap: coreProgress, overallPct: coreOverallPct } = useModulesProgress(MODULE_IDS, 'core');
+  const { progressMap: coreProgress } = useModulesProgress(MODULE_IDS, 'core');
   const { progressMap: growthProgress } = useModulesProgress(MODULE_IDS, 'growth');
   const { progressMap: excelProgress } = useModulesProgress(MODULE_IDS, 'excellence');
   const { overallPct } = useModulesProgress(MODULE_IDS);

@@ -36,10 +36,6 @@ export default function PillarCard({ pillar, subModules, valuesLayer, completedO
   const isScaffold = pillar.status === 'scaffold';
   const rel = RELATIONSHIP_LABELS[pillar.relationship];
 
-  // Engine key: pillar is "active" if any module has completed opening AND has tasks
-  const activeModuleCount = subModules.filter((m) => completedOpening?.[m.id]).length;
-  const isKeyed = activeModuleCount > 0;
-
   const content = (
     <div className="pillar-card" style={{ '--pc-color': pillar.accentColor }}>
       <div className="pc-header">

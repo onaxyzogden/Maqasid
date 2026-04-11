@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   TrendingUp, TrendingDown, CreditCard, Target, PiggyBank,
   ArrowUpRight, ArrowDownRight, Plus, MoreHorizontal, ChevronDown,
@@ -76,8 +75,6 @@ function BarChart({ data }) {
 }
 
 export default function MoneyDashboard() {
-  const [chartPeriod] = useState('7d');
-
   return (
     <div className="money-dash">
       {/* ── Row 1: Balance overview + Summary cards + My Card ── */}

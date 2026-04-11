@@ -9,7 +9,6 @@ const VIEWS = ['Month', 'Week', 'Day', 'Agenda'];
 export default function CalendarView() {
   const events = useOfficeStore((s) => s.events);
   const addEvent = useOfficeStore((s) => s.addEvent);
-  const deleteEvent = useOfficeStore((s) => s.deleteEvent);
 
   const now = new Date();
   const [year, setYear] = useState(now.getFullYear());

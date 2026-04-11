@@ -8,7 +8,7 @@ const ONBOARDING_TASKS = [
   'Complete company profile',
 ];
 
-export default function WorkTab({ contactId }) {
+export default function WorkTab() {
   // Future: read from task-store filtered by assignee === contactId
   return (
     <div style={{ paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 20 }}>

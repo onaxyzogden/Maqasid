@@ -25,7 +25,7 @@ export function getInitials(name) {
   return ((parts[0][0] || '') + (parts[parts.length - 1][0] || '')).toUpperCase() || '?';
 }
 
-export const usePeopleStore = create((set, get) => ({
+export const usePeopleStore = create((set) => ({
   employees: safeGetJSON('people_employees', []),
   attendance: safeGetJSON('people_attendance', []),
   leaveRequests: safeGetJSON('people_leaves', []),

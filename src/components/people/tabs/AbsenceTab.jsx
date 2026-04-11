@@ -15,7 +15,6 @@ function StatBox({ label, value, color = 'var(--text)' }) {
 export default function AbsenceTab({ contactId }) {
   const absenceRecords    = useContactsStore((s) => s.absenceRecords);
   const addAbsence        = useContactsStore((s) => s.addAbsence);
-  const updateAbsenceStatus = useContactsStore((s) => s.updateAbsenceStatus);
   const deleteAbsence     = useContactsStore((s) => s.deleteAbsence);
   const computeVacationStats = useContactsStore((s) => s.computeVacationStats);
 

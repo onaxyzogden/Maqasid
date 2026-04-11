@@ -11,10 +11,6 @@ function addDays(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); retu
 
 function diffDays(a, b) { return Math.round((b - a) / 86400000); }
 
-function fmtDate(d) {
-  return d.toLocaleDateString('en', { weekday: 'short', day: 'numeric' });
-}
-
 function fmtFull(d) {
   return d.toLocaleDateString('en', { weekday: 'short', day: '2-digit', month: 'long', year: 'numeric' });
 }
@@ -46,7 +42,7 @@ export default function GanttView({ project, onSelectTask, filters }) {
   const tableRef = useRef(null);
 
   /* ── Compute date-bearing tasks + range ── */
-  const { dated, undated, rangeStart, rangeEnd, days } = useMemo(() => {
+  const { dated, undated, rangeStart, days } = useMemo(() => {
     const dated = [];
     const undated = [];
 
@@ -89,7 +85,7 @@ export default function GanttView({ project, onSelectTask, filters }) {
       cur = addDays(cur, 1);
     }
 
-    return { dated, undated, rangeStart, rangeEnd, days };
+    return { dated, undated, rangeStart, days };
   }, [tasks]);
 
   /* ── Column width by zoom ── */
