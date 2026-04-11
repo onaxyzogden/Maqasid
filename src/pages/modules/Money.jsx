@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LayoutDashboard, Receipt, TrendingUp, FileText, Landmark, Store, Package } from 'lucide-react';
+import { LayoutDashboard, Receipt, TrendingUp, FileText, Landmark, Store, Package, PiggyBank } from 'lucide-react';
 import { useThresholdStore } from '@store/threshold-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
 import MoneyDashboard from '@components/money/MoneyDashboard';
@@ -9,6 +9,7 @@ import ProposalTab from '@components/money/ProposalTab';
 import AccountsTab from '@components/money/AccountsTab';
 import VendorsTab from '@components/money/VendorsTab';
 import AssetsTab from '@components/money/AssetsTab';
+import BudgetTab from '@components/money/BudgetTab';
 import PillarHeader from '@components/shared/PillarHeader';
 import '@components/money/MoneyDashboard.css';
 import './Money.css';
@@ -21,6 +22,7 @@ const TABS = [
   { id: 'accounts', label: 'Accounts', icon: Landmark },
   { id: 'vendors', label: 'Vendors', icon: Store },
   { id: 'assets', label: 'Assets', icon: Package },
+  { id: 'budgets', label: 'Budgets', icon: PiggyBank },
 ];
 
 export default function Money({ embedded = false }) {
@@ -59,6 +61,7 @@ export default function Money({ embedded = false }) {
         {activeTab === 'accounts' && <AccountsTab />}
         {activeTab === 'vendors' && <VendorsTab />}
         {activeTab === 'assets' && <AssetsTab />}
+        {activeTab === 'budgets' && <BudgetTab />}
       </div>
     </div>
   );
