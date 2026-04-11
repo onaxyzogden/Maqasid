@@ -1125,6 +1125,13 @@ export const MODULE_ATTRS = {
       meaning: 'Our Lord, forgive us and our brothers who preceded us in faith and put not in our hearts any resentment toward those who have believed. Our Lord, indeed You are Kind and Merciful.',
       source: 'Surah Al-Hashr 59:10',
     },
+    closingDua: {
+      title: 'After Relational Engagement',
+      arabic: 'وَالَّذِينَ جَاءُوا مِن بَعْدِهِمْ يَقُولُونَ رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا',
+      trans: "Wa-lladhīna jāʾū min baʿdihim yaqūlūna rabbanā-ghfir lanā wa li-ikhwāninā",
+      meaning: 'And those who came after them say, "Our Lord, forgive us and our brothers."',
+      source: 'Surah Al-Hashr 59:10',
+    },
     readiness: {
       frame: 'Al-Raḥīm asks: am I present to the actual person before me, or to my role in relation to them?',
       yesLabel: 'I am present to the person when',
@@ -1220,6 +1227,13 @@ export const MODULE_ATTRS = {
       arabic: 'قُلْ إِنَّ رَبِّي يَبْسُطُ الرِّزْقَ لِمَن يَشَاءُ مِنْ عِبَادِهِ وَيَقْدِرُ لَهُ ۚ وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ ۖ وَهُوَ خَيْرُ الرَّازِقِينَ',
       trans: "Qul inna rabbī yabsuṭu ar-rizqa li-man yashāʾu min ʿibādihi wa yaqdiru lah, wa mā anfaqtum min shayʾin fa-huwa yukhlifihu, wa huwa khayru ar-rāziqīn",
       meaning: 'Say, "Indeed, my Lord extends provision for whom He wills of His servants and restricts it for him. But whatever thing you spend in His cause — He will compensate it; and He is the best of providers."',
+      source: 'Surah Saba 34:39',
+    },
+    closingDua: {
+      title: 'After Wealth Stewardship',
+      arabic: 'وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ ۖ وَهُوَ خَيْرُ الرَّازِقِينَ',
+      trans: "Wa mā anfaqtum min shayʾin fa-huwa yukhlifihu, wa huwa khayru ar-rāziqīn",
+      meaning: 'And whatever thing you spend in His cause — He will compensate it; and He is the best of providers.',
       source: 'Surah Saba 34:39',
     },
     readiness: {
