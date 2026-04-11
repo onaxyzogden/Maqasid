@@ -127,7 +127,7 @@ export function usePrayerTimes() {
     }
     navigator.geolocation.getCurrentPosition(
       (pos) => fetchTimings(pos.coords.latitude, pos.coords.longitude),
-      (err) => setError('Location access denied'),
+      () => setError('Location access denied'),
       { timeout: 10000 }
     );
   }, [fetchTimings]);
