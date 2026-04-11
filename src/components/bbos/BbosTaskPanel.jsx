@@ -83,11 +83,18 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
   };
 
   const handleFieldChange = (fieldId, value) => {
-    setLocalFields((prev) => ({ ...prev, [fieldId]: value }));
+    const next = { ...localFields, [fieldId]: value };
+    setLocalFields(next);
     clearTimeout(saveTimeout.current);
     saveTimeout.current = setTimeout(() => {
       updateBbosFieldData(projectId, taskId, fieldId, value);
-      if (!fieldId.startsWith('_') && value?.trim?.()) advanceToInProgress();
+      // Only auto-advance after 10+ chars of meaningful content across all fields
+      if (!fieldId.startsWith('_')) {
+        const totalLen = Object.entries(next)
+          .filter(([k]) => !k.startsWith('_'))
+          .reduce((sum, [, v]) => sum + (typeof v === 'string' ? v.trim().length : 0), 0);
+        if (totalLen >= 10) advanceToInProgress();
+      }
     }, 300);
   };
 
