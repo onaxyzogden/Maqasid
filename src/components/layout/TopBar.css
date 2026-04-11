@@ -95,6 +95,10 @@
 
 @media (max-width: 767px) {
   .topbar { grid-column: 1 / -1; }
+  .topbar-breadcrumb {
+    max-width: 45vw;
+    font-size: 0.85rem;
+  }
   .topbar-search { min-width: auto; }
   .topbar-center {
     overflow-x: auto;
