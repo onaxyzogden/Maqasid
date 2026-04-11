@@ -7,22 +7,40 @@ Project and task management with Kanban, List, and Gantt views. Uses dnd-kit for
 | File | Description |
 |------|-------------|
 | ProjectBoard.jsx | View-switching hub (board/list/gantt), manages filters and side panel |
+| DashboardView.jsx | Overview dashboard for projects: task summary cards, audit score, recent activity |
+| DashboardView.css | Dashboard grid layout, summary cards, audit score styles |
+| PillarLevelDashboard.jsx | Pillar-scoped dashboard aggregating projects under a maqasid pillar |
+| PillarLevelDashboard.css | Pillar dashboard layout, project cards, 3-star audit display |
 | KanbanBoard.jsx | DndContext orchestrator with drag-drop across columns |
 | KanbanColumn.jsx | Droppable column wrapper with sortable cards and quick-add |
 | KanbanCard.jsx | Sortable task card with priority/due-date/subtask badges |
 | ListView.jsx | Table view grouping tasks by column |
+| ListView.css | Table view styles |
 | GanttView.jsx | Timeline view with zoom controls (day/week/month) |
+| GanttView.css | Gantt chart bar, timeline grid, zoom controls |
 | FilterBar.jsx | Pill-based filter UI for priorities, due dates, tags |
+| FilterBar.css | Filter pill styles, active states |
 | TaskDetailPanel.jsx | Right-side panel for editing task details, subtasks, tags |
+| TaskDetailPanel.css | Side panel slide-in, field layouts |
 | PillarBoard.jsx | Board variant for pillar sub-pages (behind CeremonyGate) |
+| PillarBoard.css | Pillar board layout |
+| StageSidebar.jsx | Stage navigation sidebar for BBOS pipeline views |
+| StageSidebar.css | Stage sidebar layout, active state highlights |
 
 ## Architecture
 ```
 ProjectBoard
 ├── BbosPipelineHeader (if BBOS enabled)
 ├── FilterBar
+├── DashboardView (default overview)
 └── KanbanBoard | ListView | GanttView (switched by `view` state)
     └── TaskDetailPanel (when selectedTaskId set)
+
+PillarLevelDashboard (pillar pages)
+├── Project summary cards (3-star audit)
+└── DashboardTaskCard (shared component)
+
+StageSidebar (BBOS pipeline navigation)
 ```
 
 ## Store Dependencies
