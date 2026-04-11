@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, X, Folder, FileText } from 'lucide-react';
+import { Search, X, Folder, FileText, LayoutGrid, Users, CalendarDays } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
-import { PRIORITIES } from '../../data/modules';
+import { useContactsStore } from '../../store/contacts-store';
+import { useOfficeStore } from '../../store/office-store';
+import { PRIORITIES, MODULES } from '../../data/modules';
 import './SearchPalette.css';
 
 export default function SearchPalette() {
@@ -13,6 +15,8 @@ export default function SearchPalette() {
   const setSearchOpen = useAppStore((s) => s.setSearchOpen);
   const allProjects = useProjectStore((s) => s.projects);
   const searchAllTasks = useTaskStore((s) => s.searchAllTasks);
+  const contacts = useContactsStore((s) => s.contacts);
+  const events = useOfficeStore((s) => s.events);
 
   const [query, setQuery] = useState('');
   const [selectedIdx, setSelectedIdx] = useState(0);
@@ -31,12 +35,37 @@ export default function SearchPalette() {
     return searchAllTasks(query);
   }, [query, searchAllTasks]);
 
+  const moduleResults = useMemo(() => {
+    if (query.length < 2) return [];
+    const q = query.toLowerCase();
+    return MODULES.filter((m) => m.name.toLowerCase().includes(q)).slice(0, 3);
+  }, [query]);
+
+  const peopleResults = useMemo(() => {
+    if (query.length < 2) return [];
+    const q = query.toLowerCase();
+    return contacts
+      .filter((c) => (c.name || '').toLowerCase().includes(q) || (c.email || '').toLowerCase().includes(q))
+      .slice(0, 3);
+  }, [query, contacts]);
+
+  const eventResults = useMemo(() => {
+    if (query.length < 2) return [];
+    const q = query.toLowerCase();
+    return events
+      .filter((e) => (e.title || '').toLowerCase().includes(q))
+      .slice(0, 3);
+  }, [query, events]);
+
   const allResults = useMemo(() => {
     const items = [];
     projectResults.forEach((p) => items.push({ type: 'project', data: p }));
     taskResults.forEach((t) => items.push({ type: 'task', data: t }));
+    moduleResults.forEach((m) => items.push({ type: 'module', data: m }));
+    peopleResults.forEach((c) => items.push({ type: 'person', data: c }));
+    eventResults.forEach((e) => items.push({ type: 'event', data: e }));
     return items;
-  }, [projectResults, taskResults]);
+  }, [projectResults, taskResults, moduleResults, peopleResults, eventResults]);
 
   useEffect(() => {
     if (searchOpen) {
@@ -59,8 +88,14 @@ export default function SearchPalette() {
     close();
     if (item.type === 'project') {
       navigate(`/app/work/${item.data.id}`);
-    } else {
+    } else if (item.type === 'task') {
       navigate(`/app/work/${item.data.projectId}?task=${item.data.id}`);
+    } else if (item.type === 'module') {
+      navigate(`/app/${item.data.id}`);
+    } else if (item.type === 'person') {
+      navigate('/app/people');
+    } else if (item.type === 'event') {
+      navigate('/app/office');
     }
   }, [close, navigate]);
 
@@ -97,7 +132,7 @@ export default function SearchPalette() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search projects and tasks..."
+            placeholder="Search projects, tasks, modules, people, events..."
             autoComplete="off"
             spellCheck={false}
           />
@@ -153,6 +188,78 @@ export default function SearchPalette() {
                     <div className="search-result-text">
                       <span className="search-result-title">{t.title}</span>
                       <span className="search-result-project">{getProjectName(t.projectId)}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {moduleResults.length > 0 && (
+            <div className="search-group">
+              <div className="search-group-label">Modules</div>
+              {moduleResults.map((m, i) => {
+                const idx = projectResults.length + taskResults.length + i;
+                return (
+                  <button
+                    key={m.id}
+                    className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
+                    onClick={() => selectResult({ type: 'module', data: m })}
+                    onMouseEnter={() => setSelectedIdx(idx)}
+                  >
+                    <div className="search-result-icon" style={{ background: 'var(--accent)20' }}>
+                      <LayoutGrid size={14} style={{ color: 'var(--accent)' }} />
+                    </div>
+                    <span className="search-result-title">{m.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {peopleResults.length > 0 && (
+            <div className="search-group">
+              <div className="search-group-label">People</div>
+              {peopleResults.map((c, i) => {
+                const idx = projectResults.length + taskResults.length + moduleResults.length + i;
+                return (
+                  <button
+                    key={c.id}
+                    className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
+                    onClick={() => selectResult({ type: 'person', data: c })}
+                    onMouseEnter={() => setSelectedIdx(idx)}
+                  >
+                    <div className="search-result-icon" style={{ background: '#8b5cf620' }}>
+                      <Users size={14} style={{ color: '#8b5cf6' }} />
+                    </div>
+                    <div className="search-result-text">
+                      <span className="search-result-title">{c.name}</span>
+                      {c.email && <span className="search-result-project">{c.email}</span>}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {eventResults.length > 0 && (
+            <div className="search-group">
+              <div className="search-group-label">Events</div>
+              {eventResults.map((ev, i) => {
+                const idx = projectResults.length + taskResults.length + moduleResults.length + peopleResults.length + i;
+                return (
+                  <button
+                    key={ev.id}
+                    className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
+                    onClick={() => selectResult({ type: 'event', data: ev })}
+                    onMouseEnter={() => setSelectedIdx(idx)}
+                  >
+                    <div className="search-result-icon" style={{ background: '#3b82f620' }}>
+                      <CalendarDays size={14} style={{ color: '#3b82f6' }} />
+                    </div>
+                    <div className="search-result-text">
+                      <span className="search-result-title">{ev.title}</span>
+                      {ev.date && <span className="search-result-project">{ev.date}</span>}
                     </div>
                   </button>
                 );
