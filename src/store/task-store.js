@@ -160,11 +160,26 @@ export const useTaskStore = create((set, get) => ({
   }),
 
   addAttachment: (projectId, taskId, file) => {
-    const MAX_BYTES = 5 * 1024 * 1024; // 5 MB
+    const MAX_BYTES = 500 * 1024; // 500 KB — realistic for localStorage
+    const MAX_ATTACHMENTS = 5;
     if (file.size > MAX_BYTES) {
-      alert(`File too large. Maximum size is 5 MB.`);
+      alert(`File too large. Maximum size is 500 KB.`);
       return;
     }
+    const task = (get().tasksByProject[projectId] || []).find((t) => t.id === taskId);
+    if ((task?.attachments || []).length >= MAX_ATTACHMENTS) {
+      alert(`Maximum ${MAX_ATTACHMENTS} attachments per task.`);
+      return;
+    }
+    // Estimate localStorage usage — warn at 80% of ~5 MB quota
+    try {
+      const used = new Blob(Object.values(localStorage)).size;
+      const quota = 5 * 1024 * 1024;
+      if (used + file.size * 1.4 > quota * 0.8) {
+        alert('Storage is nearly full. Remove old attachments or export data before adding more.');
+        return;
+      }
+    } catch { /* estimation failed — proceed anyway */ }
     const reader = new FileReader();
     reader.onload = (e) => {
       const attachment = {
