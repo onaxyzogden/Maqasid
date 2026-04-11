@@ -53,6 +53,7 @@ export default function TechOverview({ onNavigate }) {
           <div className="tech-overview-card">
             <div className="tech-overview-card-header">
               <span className="tech-overview-card-title">Website monitoring</span>
+              <span className="tech-simulated-badge" title="Monitoring data is simulated for demo purposes">Simulated</span>
               <span className={`tech-active-badge ${activeMonitors.length > 0 ? '' : 'inactive'}`}>
                 <span className="tech-active-dot" /> {activeMonitors.length > 0 ? 'active' : 'inactive'}
               </span>

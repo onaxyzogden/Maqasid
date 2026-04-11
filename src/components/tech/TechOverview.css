@@ -385,3 +385,16 @@
   border: none; background: none; outline: none; flex: 1;
   font-size: 0.85rem; color: var(--text);
 }
+
+/* Simulated badge */
+.tech-simulated-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: var(--radius);
+  background: #f59e0b18;
+  color: #f59e0b;
+  border: 1px solid #f59e0b40;
+}
