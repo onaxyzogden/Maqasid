@@ -19,8 +19,6 @@ export default function IslamicTerm({ id, children }) {
   const triggerRef = useRef(null);
   const entry = getGlossaryEntry(id);
 
-  if (!entry) return children ?? null;
-
   const show = useCallback(() => {
     if (!triggerRef.current) return;
     const r = triggerRef.current.getBoundingClientRect();
@@ -34,6 +32,8 @@ export default function IslamicTerm({ id, children }) {
   }, []);
 
   const hide = useCallback(() => setVisible(false), []);
+
+  if (!entry) return children ?? null;
 
   const tooltipId = `islamic-tooltip-${id}`;
 
