@@ -78,7 +78,7 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     const toDoCol = project.columns?.find((c) => c.name === 'To Do');
     const inProgressCol = project.columns?.find((c) => c.name === 'In Progress');
     if (inProgressCol && task.columnId === toDoCol?.id) {
-      moveTask(projectId, taskId, inProgressCol.id, 0);
+      moveTask(projectId, taskId, inProgressCol.id, 0, project.columns);
     }
   };
 
@@ -254,7 +254,7 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         <select
           className="btp-field-select"
           value={task.columnId}
-          onChange={(e) => moveTask(projectId, taskId, e.target.value)}
+          onChange={(e) => moveTask(projectId, taskId, e.target.value, undefined, project.columns)}
         >
           {columns.map((c) => (
             <option key={c.id} value={c.id}>{c.name}</option>

@@ -76,7 +76,7 @@ export const useTaskStore = create((set, get) => ({
     return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
   }),
 
-  moveTask: (projectId, taskId, toColumnId, newOrder) => set((s) => {
+  moveTask: (projectId, taskId, toColumnId, newOrder, columns) => set((s) => {
     let tasks = [...(s.tasksByProject[projectId] || [])];
     const taskIdx = tasks.findIndex((t) => t.id === taskId);
     if (taskIdx === -1) return {};
@@ -87,10 +87,18 @@ export const useTaskStore = create((set, get) => ({
     task.order = newOrder;
     task.updatedAt = new Date().toISOString();
 
-    // Set completedAt when moved to last column (assumed "Done")
-    if (fromColumnId !== toColumnId) {
-      // We'll check column name in the component; here just track the move
-      task.completedAt = null; // Reset; component sets this if needed
+    // Determine if target/source is a "Done" column
+    if (fromColumnId !== toColumnId && columns) {
+      const isDoneCol = (colId) => {
+        const col = columns.find((c) => c.id === colId);
+        return col?.name === 'Done';
+      };
+      if (isDoneCol(toColumnId)) {
+        task.completedAt = new Date().toISOString();
+      } else if (isDoneCol(fromColumnId)) {
+        task.completedAt = null;
+      }
+      // Moving between non-done columns: preserve existing completedAt
     }
 
     tasks[taskIdx] = task;

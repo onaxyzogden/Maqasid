@@ -54,10 +54,10 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
       const toColumnId = overTask.columnId;
       const colTasks = getTasksByColumn(toColumnId);
       const newOrder = colTasks.findIndex((t) => t.id === over.id);
-      moveTask(project.id, active.id, toColumnId, Math.max(0, newOrder));
+      moveTask(project.id, active.id, toColumnId, Math.max(0, newOrder), project.columns);
     } else if (overColumn) {
       const colTasks = getTasksByColumn(overColumn.id);
-      moveTask(project.id, active.id, overColumn.id, colTasks.length);
+      moveTask(project.id, active.id, overColumn.id, colTasks.length, project.columns);
     }
   };
 
