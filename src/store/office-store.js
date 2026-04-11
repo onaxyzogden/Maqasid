@@ -53,8 +53,19 @@ export const useOfficeStore = create((set) => ({
 
   // ── Messages ──
   addMessage: ({ channelId, text, author }) => {
+    const MAX_PER_CHANNEL = 500;
     const msg = { id: genMessageId(), channelId, text: text || '', author: author || 'You', createdAt: new Date().toISOString() };
-    set((s) => { const messages = [...s.messages, msg]; persistMessages(messages); return { messages }; });
+    set((s) => {
+      let messages = [...s.messages, msg];
+      // Prune oldest messages if channel exceeds cap
+      const channelMsgs = messages.filter((m) => m.channelId === channelId);
+      if (channelMsgs.length > MAX_PER_CHANNEL) {
+        const cutoff = channelMsgs[channelMsgs.length - MAX_PER_CHANNEL].createdAt;
+        messages = messages.filter((m) => m.channelId !== channelId || m.createdAt >= cutoff);
+      }
+      persistMessages(messages);
+      return { messages };
+    });
     return msg;
   },
   deleteMessage: (id) => set((s) => {
