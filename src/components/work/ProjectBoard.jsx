@@ -37,9 +37,31 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
     return () => clearActiveBbosStage();
   }, [project?.bbosEnabled]);
 
-  if (!project) return null;
+  const isBbos = project?.bbosEnabled && !hideBbos;
 
-  const isBbos = project.bbosEnabled && !hideBbos;
+  const stageStatusMap = useMemo(() => {
+    if (!isBbos) return {};
+    const tasks = taskStore.tasksByProject[projectId] || [];
+    const doneCol = project?.columns?.find((c) => c.name === 'Done')?.id;
+    const acc = {};
+    for (const t of tasks) {
+      if (!t.bbosTaskType) continue;
+      const stageId = t.bbosTaskType.split('-')[0];
+      if (!acc[stageId]) acc[stageId] = { hasData: false, allDone: true };
+      const fd = t.bbosFieldData || {};
+      if (Object.entries(fd).some(([k, v]) => !k.startsWith('_') && (typeof v === 'string' ? v.trim() : !!v))) {
+        acc[stageId].hasData = true;
+      }
+      if (!doneCol || t.columnId !== doneCol) acc[stageId].allDone = false;
+    }
+    const result = {};
+    for (const [id, s] of Object.entries(acc)) {
+      result[id] = !s.hasData ? 'empty' : s.allDone ? 'complete' : 'active';
+    }
+    return result;
+  }, [taskStore.tasksByProject[projectId], project?.columns, isBbos]);
+
+  if (!project) return null;
 
   const handleStageDownload = () => {
     const stageDefs = getBbosTaskDefsByStage(bbosFilter);
@@ -84,27 +106,6 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
     reader.readAsText(file);
     e.target.value = '';
   };
-  const stageStatusMap = useMemo(() => {
-    if (!isBbos) return {};
-    const tasks = taskStore.tasksByProject[projectId] || [];
-    const doneCol = project.columns?.find((c) => c.name === 'Done')?.id;
-    const acc = {};
-    for (const t of tasks) {
-      if (!t.bbosTaskType) continue;
-      const stageId = t.bbosTaskType.split('-')[0];
-      if (!acc[stageId]) acc[stageId] = { hasData: false, allDone: true };
-      const fd = t.bbosFieldData || {};
-      if (Object.entries(fd).some(([k, v]) => !k.startsWith('_') && (typeof v === 'string' ? v.trim() : !!v))) {
-        acc[stageId].hasData = true;
-      }
-      if (!doneCol || t.columnId !== doneCol) acc[stageId].allDone = false;
-    }
-    const result = {};
-    for (const [id, s] of Object.entries(acc)) {
-      result[id] = !s.hasData ? 'empty' : s.allDone ? 'complete' : 'active';
-    }
-    return result;
-  }, [taskStore.tasksByProject[projectId], project.columns, isBbos]);
 
   const mergedFilters = isBbos
     ? { ...filters, bbosStage: bbosFilter }

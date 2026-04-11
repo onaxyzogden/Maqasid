@@ -134,7 +134,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
 
   const handleStatusChange = (colId) => {
     if (colId !== task.columnId) {
-      moveTask(projectId, taskId, colId, 0);
+      moveTask(projectId, taskId, colId, 0, project?.columns);
     }
   };
 

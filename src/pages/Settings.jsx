@@ -3,7 +3,7 @@ import { Moon, Sun, Download, Upload, Trash2, LogOut, Eye, EyeOff } from 'lucide
 import { useNavigate } from 'react-router-dom';
 import { useSettingsStore } from '../store/settings-store';
 import { useAuthStore } from '../store/auth-store';
-import { exportAll, importAll, clearAll } from '../services/storage';
+import { exportAll, importAll, clearAll, validateImport, createBackup, restoreBackup, hasBackup } from '../services/storage';
 import { AI_PROVIDERS } from '../services/ai/ai-settings';
 
 export default function Settings() {
@@ -38,6 +38,15 @@ export default function Settings() {
       reader.onload = (ev) => {
         try {
           const data = JSON.parse(ev.target.result);
+          const validation = validateImport(data);
+          if (!validation.valid) {
+            alert('Import validation failed:\n' + validation.errors.join('\n'));
+            return;
+          }
+          if (!createBackup()) {
+            alert('Could not create backup before import. Aborting to protect your data.');
+            return;
+          }
           importAll(data);
           window.location.reload();
         } catch {
@@ -47,6 +56,17 @@ export default function Settings() {
       reader.readAsText(file);
     };
     input.click();
+  };
+
+  const handleRestoreBackup = () => {
+    if (!hasBackup()) {
+      alert('No backup available.');
+      return;
+    }
+    if (confirm('Restore data from before the last import? This will overwrite current data.')) {
+      restoreBackup();
+      window.location.reload();
+    }
   };
 
   const handleClearData = () => {
@@ -279,6 +299,11 @@ export default function Settings() {
           <button className="btn btn-secondary" onClick={handleImport} style={{ justifyContent: 'flex-start' }}>
             <Upload size={16} /> Import Data
           </button>
+          {hasBackup() && (
+            <button className="btn btn-secondary" onClick={handleRestoreBackup} style={{ justifyContent: 'flex-start' }}>
+              <Upload size={16} /> Restore from Backup
+            </button>
+          )}
           <button className="btn btn-ghost" onClick={handleClearData} style={{ justifyContent: 'flex-start', color: 'var(--danger)' }}>
             <Trash2 size={16} /> Clear All Data
           </button>
