@@ -4,10 +4,22 @@ import { useTaskStore } from '../../store/task-store';
 import { BBOS_STAGES } from '../../data/bbos/bbos-pipeline';
 import TruDashboard from '../bbos/TruDashboard';
 import StrDashboard from '../bbos/StrDashboard';
+import FndDashboard from '../bbos/FndDashboard';
+import OfrDashboard from '../bbos/OfrDashboard';
+import OutDashboard from '../bbos/OutDashboard';
 import './DashboardView.css';
 
 export default function DashboardView({ project, bbosFilter, onSelectTask }) {
   // Delegate to stage-specific dashboards for BBOS projects
+  if (project.bbosEnabled && bbosFilter === 'FND') {
+    return <FndDashboard project={project} onSelectTask={onSelectTask} />;
+  }
+  if (project.bbosEnabled && bbosFilter === 'OFR') {
+    return <OfrDashboard project={project} onSelectTask={onSelectTask} />;
+  }
+  if (project.bbosEnabled && bbosFilter === 'OUT') {
+    return <OutDashboard project={project} onSelectTask={onSelectTask} />;
+  }
   if (project.bbosEnabled && bbosFilter === 'TRU') {
     return <TruDashboard project={project} onSelectTask={onSelectTask} />;
   }

@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
-import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, PanelLeftClose, PanelLeft } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
+import { getBbosTaskDefsByStage } from '@data/bbos/bbos-task-definitions';
+import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from '@services/bbos-template';
 import DashboardView from './DashboardView';
 import KanbanBoard from './KanbanBoard';
 import ListView from './ListView';
@@ -9,7 +11,6 @@ import GanttView from './GanttView';
 import TaskDetailPanel from './TaskDetailPanel';
 import FilterBar from './FilterBar';
 import BbosPipelineHeader from '../bbos/BbosPipelineHeader';
-import StageSidebar from './StageSidebar';
 
 /**
  * Reusable board component that renders the full Kanban/List/Gantt experience
@@ -25,7 +26,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [draggable, setDraggable] = useState(false);
   const [bbosFilter, setBbosFilter] = useState(project?.bbosStage || 'FND');
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const stageBundleUploadRef = useRef(null);
 
   useEffect(() => {
     if (projectId) loadTasks(projectId);
@@ -39,6 +40,50 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   if (!project) return null;
 
   const isBbos = project.bbosEnabled && !hideBbos;
+
+  const handleStageDownload = () => {
+    const stageDefs = getBbosTaskDefsByStage(bbosFilter);
+    const existingTasks = taskStore.tasksByProject[projectId] || [];
+    downloadStageBundleTemplate(bbosFilter, stageDefs, existingTasks);
+  };
+
+  const handleStageUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const json = JSON.parse(ev.target.result);
+        const validation = validateStageBundleTemplate(json, bbosFilter);
+        if (!validation.valid) {
+          alert('Bundle validation failed:\n' + validation.errors.join('\n'));
+          return;
+        }
+        const items = importStageBundleTemplate(json);
+        const existingTasks = taskStore.tasksByProject[projectId] || [];
+        let count = 0;
+        for (const { taskType, fieldData, gLabel } of items) {
+          const task = existingTasks.find((t) => t.bbosTaskType === taskType);
+          if (!task) continue;
+          const nonEmpty = Object.fromEntries(
+            Object.entries(fieldData).filter(([, v]) => v !== '')
+          );
+          if (Object.keys(nonEmpty).length > 0 || gLabel) {
+            taskStore.updateTask(projectId, task.id, {
+              bbosFieldData: { ...task.bbosFieldData, ...nonEmpty },
+              ...(gLabel ? { gLabel } : {}),
+            });
+            count++;
+          }
+        }
+        alert(`Stage bundle imported: ${count} task(s) updated.`);
+      } catch (err) {
+        alert('Bundle import failed: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
   const mergedFilters = isBbos
     ? { ...filters, bbosStage: bbosFilter }
     : hideBbos && project.bbosEnabled
@@ -52,23 +97,48 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 'var(--space-3)', marginBottom: 'var(--space-2)', flexShrink: 0,
       }}>
-        {/* Left: sidebar toggle (BBOS only) */}
+        {/* Left: stage bundle actions (BBOS only) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
           {isBbos && (
-            <button
-              onClick={() => setSidebarOpen((o) => !o)}
-              className="btn btn-ghost"
-              style={{
-                padding: 'var(--space-1) var(--space-2)', fontSize: '0.85rem',
-                borderRadius: 'var(--radius-sm)',
-                background: sidebarOpen ? 'var(--primary-bg)' : 'transparent',
-                color: sidebarOpen ? 'var(--primary)' : 'var(--text3)',
-                border: sidebarOpen ? '1px solid var(--primary-border)' : '1px solid var(--border)',
-              }}
-              title={sidebarOpen ? 'Hide stage tasks' : 'Show stage tasks'}
-            >
-              {sidebarOpen ? <PanelLeftClose size={14} /> : <PanelLeft size={14} />}
-            </button>
+            <>
+              <button
+                onClick={handleStageDownload}
+                className="btn btn-ghost"
+                title={`Download ${bbosFilter} stage bundle`}
+                style={{
+                  padding: 'var(--space-1) var(--space-2)', fontSize: '0.8rem',
+                  borderRadius: 'var(--radius-sm)',
+                  display: 'flex', alignItems: 'center', gap: 4,
+                  background: 'transparent', color: 'var(--text3)',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                <Download size={13} />
+                <span>Download <span style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>{bbosFilter}</span></span>
+              </button>
+              <button
+                onClick={() => stageBundleUploadRef.current?.click()}
+                className="btn btn-ghost"
+                title={`Upload ${bbosFilter} stage bundle`}
+                style={{
+                  padding: 'var(--space-1) var(--space-2)', fontSize: '0.8rem',
+                  borderRadius: 'var(--radius-sm)',
+                  display: 'flex', alignItems: 'center', gap: 4,
+                  background: 'transparent', color: 'var(--text3)',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                <Upload size={13} />
+                <span>Upload <span style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>{bbosFilter}</span></span>
+              </button>
+              <input
+                ref={stageBundleUploadRef}
+                type="file"
+                accept=".json,.bbos"
+                style={{ display: 'none' }}
+                onChange={handleStageUpload}
+              />
+            </>
           )}
         </div>
         {/* Right: view switcher + drag toggle */}
@@ -164,15 +234,6 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
 
       {/* Content */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
-        {isBbos && sidebarOpen && view === 'dashboard' && (
-          <StageSidebar
-            projectId={projectId}
-            project={project}
-            stageId={bbosFilter}
-            selectedTaskId={selectedTaskId}
-            onSelectTask={setSelectedTaskId}
-          />
-        )}
         <div style={{ flex: 1, minWidth: 0 }}>
           {view === 'dashboard' ? (
             <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} />

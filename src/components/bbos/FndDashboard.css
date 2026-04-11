@@ -1,0 +1,484 @@
+/* ── FND Stage 1 Dashboard — Intake & Readiness Dossier ── */
+
+.fnd-dash {
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-2);
+  height: 100%;
+  max-width: 1100px;
+}
+
+/* ── Header ── */
+.fnd-dash__header {
+  margin-bottom: 36px;
+}
+.fnd-dash__eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.fnd-dash__title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.fnd-dash__desc {
+  font-size: 0.88rem;
+  color: var(--text3);
+  line-height: 1.55;
+  max-width: 600px;
+}
+
+/* ── 12-column bento grid ── */
+.fnd-dash__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* ── Span assignments ── */
+.fnd-dash__card--s1   { grid-column: span 5; }
+.fnd-dash__card--s2   { grid-column: span 7; }
+.fnd-dash__card--s3   { grid-column: span 6; }
+.fnd-dash__card--s1b  { grid-column: span 6; }
+.fnd-dash__card--s4   { grid-column: span 12; }
+
+/* ── Card base ── */
+.fnd-dash__card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 24px rgba(30, 25, 16, 0.05);
+}
+.fnd-dash__card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.fnd-dash__card-head--link {
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  margin: -4px -6px;
+  transition: background 0.15s;
+}
+.fnd-dash__card-head--link:hover {
+  background: var(--primary-bg);
+}
+.fnd-dash__card-head--link:hover .fnd-dash__card-num {
+  background: var(--primary);
+  color: #fff;
+  transition: background 0.15s, color 0.15s;
+}
+.fnd-dash__card-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__card-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+/* ── Card 01: Raw Declarations ── */
+.fnd-dash__decl-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.fnd-dash__decl-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-bg);
+}
+.fnd-dash__decl-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__decl-value {
+  font-size: 0.82rem;
+  color: var(--text2);
+  line-height: 1.45;
+}
+.fnd-dash__decl-value--empty {
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* ── Card 02: Normalised Packet ── */
+.fnd-dash__map-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+.fnd-dash__map-table thead {
+  border-bottom: 1px solid var(--border);
+}
+.fnd-dash__map-table th {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  padding-bottom: 10px;
+  text-align: left;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__map-table td {
+  padding: 10px 0;
+  font-size: 0.83rem;
+  color: var(--text2);
+  border-bottom: 1px solid var(--bg3);
+  vertical-align: top;
+}
+.fnd-dash__map-table tbody tr:last-child td { border-bottom: none; }
+.fnd-dash__map-table tbody tr:hover td { background: var(--bg); }
+.fnd-dash__map-field {
+  color: var(--text);
+  font-weight: 500;
+  width: 28%;
+  padding-right: 12px;
+  white-space: nowrap;
+}
+.fnd-dash__map-value {
+  color: var(--text2);
+}
+.fnd-dash__flag-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--pri-high) 8%, transparent);
+  border-radius: 8px;
+  border-left: 3px solid var(--pri-high);
+  margin-top: auto;
+}
+.fnd-dash__flag-icon {
+  color: var(--pri-high);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.fnd-dash__flag-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fnd-dash__flag-chip {
+  font-size: 0.78rem;
+  color: var(--text2);
+  line-height: 1.4;
+}
+
+/* ── Card 03: Gap Analysis ── */
+.fnd-dash__severity-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.fnd-dash__severity-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__severity-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__gap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.fnd-dash__gap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.fnd-dash__gap-icon {
+  color: var(--pri-high);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.fnd-dash__gap-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fnd-dash__gap-text {
+  font-size: 0.83rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+.fnd-dash__gap-resolution {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  color: var(--col-done);
+  line-height: 1.35;
+}
+
+/* ── Card 04: Proof Evidence ── */
+.fnd-dash__proof-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.fnd-dash__proof-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.fnd-dash__proof-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.fnd-dash__proof-text {
+  font-size: 0.8rem;
+  color: var(--text2);
+  line-height: 1.4;
+  word-break: break-word;
+}
+.fnd-dash__proof-callout {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 4px solid var(--accent);
+  margin-top: auto;
+}
+.fnd-dash__proof-callout-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__proof-callout-text {
+  font-size: 0.8rem;
+  color: var(--text2);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── Card 05: Routing Verdict (split) ── */
+.fnd-dash__card--s4 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+}
+.fnd-dash__routing-left {
+  border-right: 1px solid var(--border);
+  padding-right: 32px;
+}
+.fnd-dash__verdict-wrap {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 28px 20px;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.fnd-dash__verdict-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text3);
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__verdict-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.fnd-dash__routing-basis {
+  font-size: 0.8rem;
+  color: var(--text3);
+  font-style: italic;
+  line-height: 1.5;
+}
+.fnd-dash__routing-right {
+  display: flex;
+  flex-direction: column;
+}
+.fnd-dash__routing-right-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  margin-bottom: 14px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.fnd-dash__disq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.fnd-dash__disq-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--pri-urgent) 8%, transparent);
+  border-radius: 8px;
+  border-left: 3px solid var(--pri-urgent);
+  font-size: 0.83rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+.fnd-dash__disq-icon {
+  color: var(--pri-urgent);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.fnd-dash__disq-clear {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.83rem;
+  color: var(--text3);
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--col-done) 8%, transparent);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+.fnd-dash__ifb-section {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.fnd-dash__form-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 8px 12px;
+  background: var(--primary-bg);
+  border-radius: 6px;
+  border: 1px solid var(--primary-border);
+  transition: opacity 0.15s;
+  word-break: break-all;
+}
+.fnd-dash__form-link:hover { opacity: 0.8; }
+.fnd-dash__form-link--empty {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* ── Empty / placeholder states ── */
+.fnd-dash__empty-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 80px;
+  border: 1px dashed var(--border2);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-style: italic;
+  padding: 16px;
+  text-align: center;
+}
+
+/* ── Footer ── */
+.fnd-dash__footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.fnd-dash__footer-quote {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text3);
+  max-width: 400px;
+  line-height: 1.5;
+}
+.fnd-dash__footer-meta {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  opacity: 0.6;
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: right;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .fnd-dash__grid { grid-template-columns: 1fr; }
+  .fnd-dash__card--s1,
+  .fnd-dash__card--s2,
+  .fnd-dash__card--s3,
+  .fnd-dash__card--s1b,
+  .fnd-dash__card--s4 { grid-column: span 1; }
+  .fnd-dash__card--s4 { grid-template-columns: 1fr; }
+  .fnd-dash__routing-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 24px;
+  }
+}
