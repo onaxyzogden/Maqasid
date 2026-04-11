@@ -48,6 +48,11 @@ export default function BbosPipelineHeader({ currentStageId, activeFilter, onSta
             >
               <span className="bbos-stage-id">{stage.id}</span>
               <span className="bbos-stage-label">{stage.label}</span>
+              {stageStatus && (
+                <span className={`bbos-stage-progress bbos-stage-progress--${stageStatus}`}>
+                  {stageStatus === 'complete' ? '✓' : stageStatus === 'active' ? '◐' : '○'}
+                </span>
+              )}
               {i < BBOS_STAGES.length - 1 && <span className="bbos-stage-connector" />}
             </button>
           );

@@ -110,6 +110,16 @@
   white-space: nowrap;
 }
 
+/* Stage progress indicator */
+.bbos-stage-progress {
+  font-size: 0.6rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+.bbos-stage-progress--complete { color: #22c55e; }
+.bbos-stage-progress--active { color: #3b82f6; }
+.bbos-stage-progress--empty { color: var(--text3); }
+
 /* Responsive: scroll horizontally on small screens */
 @media (max-width: 768px) {
   .bbos-layers,

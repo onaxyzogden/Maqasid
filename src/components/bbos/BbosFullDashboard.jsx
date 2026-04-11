@@ -57,6 +57,16 @@ const PREFIX_LABELS = {
   OTHER: 'Additional Tasks',
 };
 
+// ── Factory classification ───────────────────────────────────────────────────
+const RESEARCH_PREFIXES = new Set(['S', 'V', 'FP']);
+const ASSET_PREFIXES = new Set(['A', 'AF', 'IC']);
+
+function getFactory(prefix) {
+  if (RESEARCH_PREFIXES.has(prefix)) return 'research';
+  if (ASSET_PREFIXES.has(prefix)) return 'asset';
+  return 'research'; // default fallback
+}
+
 // ── Bento grid spans (12-column) ─────────────────────────────────────────────
 
 function computeGroupSpans(prefix, defs) {
@@ -911,29 +921,80 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
 
       {/* ── Task grid ── */}
       <div className="bfd__grid">
-        {taskGroups.map((group) => {
-          const spans = computeGroupSpans(group.prefix, group.defs);
+        {(() => {
+          const researchGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'research');
+          const assetGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'asset');
+
+          // Assembly gate: are all research tasks in Done column?
+          const researchDefs = researchGroups.flatMap((g) => g.defs);
+          const researchAllDone = researchDefs.length > 0 && researchDefs.every((def) => {
+            const t = taskMap[def.id];
+            return t && t.columnId === doneColumnId;
+          });
+          const gateCleared = researchAllDone;
+
+          const renderGroup = (group, assetLocked) => {
+            const spans = computeGroupSpans(group.prefix, group.defs);
+            return (
+              <Fragment key={group.prefix}>
+                <div className="bfd__divider">
+                  <span className="bfd__divider-label">{group.label}</span>
+                  <span className="bfd__divider-count">{group.defs.length} task{group.defs.length !== 1 ? 's' : ''}</span>
+                </div>
+                {group.defs.map((def, i) => (
+                  <BbosTaskCard
+                    key={def.id}
+                    def={def}
+                    task={taskMap[def.id]}
+                    index={globalIdxMap[def.id]}
+                    onSelectTask={onSelectTask}
+                    span={spans[i]}
+                    doneColumnId={doneColumnId}
+                    viewOnly={assetLocked || (bbosRole !== 'all' && getTaskAccessLevel(bbosRole, def.id) === 'V')}
+                  />
+                ))}
+              </Fragment>
+            );
+          };
+
           return (
-            <Fragment key={group.prefix}>
-              <div className="bfd__divider">
-                <span className="bfd__divider-label">{group.label}</span>
-                <span className="bfd__divider-count">{group.defs.length} task{group.defs.length !== 1 ? 's' : ''}</span>
-              </div>
-              {group.defs.map((def, i) => (
-                <BbosTaskCard
-                  key={def.id}
-                  def={def}
-                  task={taskMap[def.id]}
-                  index={globalIdxMap[def.id]}
-                  onSelectTask={onSelectTask}
-                  span={spans[i]}
-                  doneColumnId={doneColumnId}
-                  viewOnly={bbosRole !== 'all' && getTaskAccessLevel(bbosRole, def.id) === 'V'}
-                />
-              ))}
-            </Fragment>
+            <>
+              {/* Research Factory */}
+              {researchGroups.length > 0 && (
+                <div className="bfd__factory bfd__factory--research">
+                  <div className="bfd__factory-header">
+                    <span className="bfd__factory-label">Research Factory</span>
+                    <span className="bfd__factory-meta">{researchDefs.length} task{researchDefs.length !== 1 ? 's' : ''}</span>
+                  </div>
+                  {researchGroups.map((g) => renderGroup(g, false))}
+                </div>
+              )}
+
+              {/* Assembly Gate */}
+              {researchGroups.length > 0 && assetGroups.length > 0 && (
+                <div className={`bfd__assembly-gate ${gateCleared ? 'bfd__assembly-gate--cleared' : 'bfd__assembly-gate--locked'}`}>
+                  <span className="bfd__assembly-gate-icon">{gateCleared ? '✓' : '⏳'}</span>
+                  <span className="bfd__assembly-gate-text">
+                    {gateCleared
+                      ? 'Assembly Gate: CLEARED — Asset Pack unlocked'
+                      : 'Assembly Gate: LOCKED — complete Research tasks first'}
+                  </span>
+                </div>
+              )}
+
+              {/* Asset Factory */}
+              {assetGroups.length > 0 && (
+                <div className={`bfd__factory bfd__factory--asset ${!gateCleared ? 'bfd__factory--locked' : ''}`}>
+                  <div className="bfd__factory-header">
+                    <span className="bfd__factory-label">Asset Factory</span>
+                    <span className="bfd__factory-meta">{assetGroups.flatMap((g) => g.defs).length} task{assetGroups.flatMap((g) => g.defs).length !== 1 ? 's' : ''}</span>
+                  </div>
+                  {assetGroups.map((g) => renderGroup(g, !gateCleared))}
+                </div>
+              )}
+            </>
           );
-        })}
+        })()}
 
         {/* ── Stage Health Score ── */}
         <StageScoreCard bbosFilter={bbosFilter} taskMap={taskMap} />

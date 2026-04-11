@@ -126,7 +126,10 @@ export default function GLabelPicker({ value, onChange }) {
           >
             {g.id}
           </span>
-          <span style={{ color: 'var(--text)' }}>{g.label}</span>
+          <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+            <span style={{ color: 'var(--text)' }}>{g.label}</span>
+            <span style={{ fontSize: '0.65rem', color: g.id === 'G4' ? '#f59e0b' : 'var(--text3)', lineHeight: 1.3 }}>{g.description}</span>
+          </span>
         </button>
       ))}
     </div>,
