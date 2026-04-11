@@ -2,7 +2,7 @@
 title: "Maqasid OS"
 type: entity
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-11
 tags: [product, spa, react, islamic, operating-system, seven-maqasid]
 sources: 0
 ---
@@ -24,7 +24,7 @@ Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-p
 
 ## Current Status
 
-Active development on V2.1. Module dashboards for all seven pillars implemented with three-tier detail design. BBOS pipeline integrated. Islamic grounding components (CeremonyGate, ReadinessCheck, PrayerOverlay) functional. People module undergoing a significant refactor (many files deleted/restructured per recent git status). Monorepo expanded to include [[ogden-hub]] and [[atlas]] as of 2026-04-09.
+Active development on V2.1. 35-finding technical audit remediation completed across 8 sprints (2026-04-10 to 2026-04-11). Module dashboards for all seven pillars implemented with three-tier detail design. BBOS pipeline integrated with Two-Factory visual split and Assembly Gate UI. MoneyDashboard rewritten from mock data to live store-computed values. SearchPalette expanded to 5 sources (projects, tasks, modules, people, events). Dashboard empty state for new users. Islamic grounding components (CeremonyGate, ReadinessCheck, PrayerOverlay, NiyyahAct) functional with sessionStorage-backed ceremony state. Monorepo includes [[ogden-hub]] and [[atlas]].
 
 ## Connections
 
@@ -39,14 +39,19 @@ Active development on V2.1. Module dashboards for all seven pillars implemented 
 
 ## Open Questions
 
-- How will the People module refactor settle — what is the target component structure?
 - Will the three monorepo segments (app, website, atlas) share any dependencies or remain fully isolated?
 - What is the deployment strategy for atlas.ogden.ag vs the main GitHub Pages site?
-- Should the knowledge graph be regenerated after the People module refactor completes?
+- Should the knowledge graph be regenerated after the audit remediation completes?
+- When will the dual contact stores (contacts_v2 / crm_contacts) be unified? (see ADR: [[dual-contact-stores]])
 
 ## History
 
 | Date | Event |
 |---|---|
-| 2026-04-11 | Family module: added Family Office — embedded Office module accessible as (1) tab within `/app/family` (FamilyPage) and (2) dedicated sidebar entry at `/app/family-office`. Files modified: `src/pages/ummah/FamilyPage.jsx`, `src/App.jsx`, `src/data/maqasid.js`, `src/data/modules.js`, `src/components/layout/Sidebar.jsx`. |
+| 2026-04-11 | Technical audit remediation Sprint 4: threshold-store sessionStorage migration for ceremony state (#19), Niyyah skip action (#14), geolocation 3-attempt retry with IP fallback (#20). |
+| 2026-04-11 | Sprint 5: localStorage guardrails — 500 KB attachment limit with quota estimation (#22), message pruning at 500/channel (#23), dual-contact-stores ADR (#25). |
+| 2026-04-11 | Sprint 6: MoneyDashboard rewritten from mock data to store-computed values (#15). Dashboard empty state for new users (#11). TechOverview "Simulated" badge (#16). SearchPalette expanded to 5 sources (#18). BudgetTab placeholder (#24). |
+| 2026-04-11 | Sprint 7: BBOS Two-Factory visual split + Assembly Gate UI (#32A-B). G-Label descriptions in picker (#32C). Pipeline sub-stage progress indicators (#32D). Mobile breadcrumb visibility (#33). |
+| 2026-04-11 | Sprint 8: Documentation freshness — 4 CONTEXT.md files updated, wiki entities synced, lessons learned populated, bundle size ADR filed. |
+| 2026-04-11 | Family module: added Family Office — embedded Office module accessible as (1) tab within `/app/family` (FamilyPage) and (2) dedicated sidebar entry at `/app/family-office`. |
 | 2026-04-09 | Wiki entity page bootstrapped. Monorepo expanded with ogden-hub subtree and atlas submodule. Knowledge graph at 882 nodes / 1,438 edges / 47 communities. |
