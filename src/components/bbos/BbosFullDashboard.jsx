@@ -3,6 +3,7 @@ import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage } from '../../data/bbos/bbos-pipeline';
+import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import './BbosFullDashboard.css';
 
@@ -121,7 +122,27 @@ const STAGE_QUOTES = {
 
 // ── Stage weighted-signal scoring ─────────────────────────────────────────────
 
+function countNonEmpty(...keys) {
+  return (fd) => {
+    const n = keys.filter((k) => !!fd?.[k]?.trim?.()).length;
+    const t = keys.length;
+    return n === t ? 5 : n >= t * 0.75 ? 4 : n >= t * 0.5 ? 3 : n >= 1 ? 1 : 0;
+  };
+}
+
 const STAGE_SCORE_SIGNALS = {
+  FND: [
+    { label: 'Capital & Skills Declared',  taskId: 'FND-S1',
+      score: countNonEmpty('capitalDeclaration', 'skillsDeclaration') },
+    { label: 'Proof & Constraints',        taskId: 'FND-S1',
+      score: countNonEmpty('proofLinks', 'constraintsDeclaration', 'geographyDeclaration', 'regulatoryDeclaration') },
+    { label: 'Normalisation Complete',     taskId: 'FND-S2',
+      score: countNonEmpty('capitalMapping', 'skillsMapping', 'proofMapping', 'constraintsMapping') },
+    { label: 'Gap Severity Assessed',      taskId: 'FND-S3',
+      score: (fd) => fd?.gapSeverity?.trim() ? (fd?.resolutionActions?.trim() ? 5 : 3) : 0 },
+    { label: 'Routing Decision Made',      taskId: 'FND-S4',
+      score: (fd) => fd?.routingDecision?.trim() ? (fd?.routingBasis?.trim() ? 5 : 3) : 0 },
+  ],
   TRU: [
     { label: 'Overall Proof Strength',    taskId: 'TRU-S3',
       score: (fd) => ({ strong: 5, moderate: 3, weak: 1, insufficient: 0 }[fd?.overallProofStrength] ?? 0) },
@@ -169,6 +190,54 @@ const STAGE_SCORE_SIGNALS = {
       score: (fd) => fd?.icOut4 === 'pass' ? 5 : 0 },
     { label: 'Readability Check',        taskId: 'OUT-IC',
       score: (fd) => fd?.icOut5 === 'pass' ? 5 : 0 },
+  ],
+  SAL: [
+    { label: 'Qualification Depth',       taskId: 'SAL-S1',
+      score: countNonEmpty('qualificationQuestions', 'autoDisqualifiers', 'scoringRoutingNotes') },
+    { label: 'Routing Completeness',      taskId: 'SAL-S2',
+      score: countNonEmpty('routingTable', 'decisionTreeSteps', 'noFitExitPath') },
+    { label: 'Call Script Ready',         taskId: 'SAL-S3',
+      score: countNonEmpty('callStructure', 'verbatimScript', 'branchPrompts') },
+    { label: 'Objection Coverage',        taskId: 'SAL-S4',
+      score: (fd) => { const n = splitLines(fd?.objectionList).length; return n >= 10 ? 5 : n >= 5 ? 3 : n >= 1 ? 1 : 0; } },
+    { label: 'Asset Assembly',            taskId: 'SAL-A0',
+      score: (fd) => ({ complete: 5, partial: 3, pending: 1 }[fd?.assemblyStatus] ?? 0) },
+  ],
+  DLR: [
+    { label: 'Delivery Phases Mapped',    taskId: 'DLR-S1',
+      score: countNonEmpty('deliveryPhases', 'checkpoints', 'ownerAssignments') },
+    { label: 'Quality & Risk Coverage',   taskId: 'DLR-S2',
+      score: countNonEmpty('failureModes', 'qcChecks', 'guaranteeTriggers', 'mitigationSteps') },
+    { label: 'Success Milestones',        taskId: 'DLR-S3',
+      score: countNonEmpty('milestoneList', 'successDefinition') },
+    { label: 'Proof Capture Plan',        taskId: 'DLR-S4',
+      score: countNonEmpty('proofTypes', 'captureTimeline', 'captureMethod', 'consentLanguage') },
+    { label: 'Retention Handoff',         taskId: 'DLR-S5',
+      score: countNonEmpty('handoffNotes', 'retentionSeedMessage', 'nextSteps') },
+  ],
+  RET: [
+    { label: 'Segment Definitions',       taskId: 'RET-S1',
+      score: countNonEmpty('coldLeadDef', 'pastClientDef', 'reActivationDef', 'warmNonConvertDef') },
+    { label: 'Proof Inventory',           taskId: 'RET-S2',
+      score: countNonEmpty('proofAssets', 'segmentRelevance', 'claimStrength') },
+    { label: 'Continuation Map',          taskId: 'RET-S3',
+      score: countNonEmpty('upsellPath', 'ascensionLevels', 'eligibilityRules', 'triggerTiming') },
+    { label: 'Message Spine & Tone',      taskId: 'RET-S4',
+      score: countNonEmpty('warmingPosture', 'toneConstraints', 'ctaStandards', 'messageSpines') },
+    { label: 'Deployment Logic',          taskId: 'RET-S5',
+      score: countNonEmpty('proofToSequenceMap', 'channelAssumptions') },
+  ],
+  OPT: [
+    { label: 'Metrics Tracked',           taskId: 'OPT-S1',
+      score: countNonEmpty('cm1OutreachConversion', 'cm2FitToClose', 'cm3MilestoneCompletion', 'cm4UnpromptedReferral') },
+    { label: 'Weakest Link Identified',   taskId: 'OPT-S2',
+      score: countNonEmpty('weakestLinkStage', 'evidenceSummary', 'suspectedFailureModes') },
+    { label: 'Root Cause Hypotheses',     taskId: 'OPT-S3',
+      score: (fd) => fd?.hypotheses?.trim() ? (fd?.risksAndSideEffects?.trim() ? 5 : 3) : 0 },
+    { label: 'Optimization Actions',      taskId: 'OPT-S4',
+      score: countNonEmpty('action1', 'action2', 'action3') },
+    { label: 'Stewardship Score',         taskId: 'OPT-A1',
+      score: (fd) => { const s = Number(fd?.overallStewardshipScore); return s >= 80 ? 5 : s >= 60 ? 4 : s >= 40 ? 3 : s >= 20 ? 1 : 0; } },
   ],
 };
 
@@ -600,7 +669,7 @@ function DefaultTaskRenderer({ def, fieldData }) {
 
 // ── BbosTaskCard (wraps unified DashboardTaskCard) ──────────────────────────
 
-function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId }) {
+function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, viewOnly }) {
   const fieldData = task?.bbosFieldData || {};
   const { filled, total } = countFilledFields(def, task ? fieldData : null);
   const CustomRenderer = TASK_RENDERERS[def.id];
@@ -627,7 +696,7 @@ function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId }) {
       title={def.label}
       span={span}
       status={status}
-      onSelectTask={task ? onSelectTask : undefined}
+      onSelectTask={task && !viewOnly ? onSelectTask : undefined}
       chips={[
         { label: def.id, className: 'dtc__chip dtc__chip--id' },
         ...(task ? [{
@@ -778,11 +847,17 @@ function StageScoreCard({ bbosFilter, taskMap }) {
 
 export default function BbosFullDashboard({ project, bbosFilter, onSelectTask }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
+  const bbosRole = project.bbosRole || 'all';
 
   const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
-    const defs = getBbosTaskDefsByStage(bbosFilter);
+    const allDefs = getBbosTaskDefsByStage(bbosFilter);
     const tasks = tasksByProject[project.id] || [];
+
+    // Filter defs by role access — hide tasks the role cannot see
+    const defs = (!bbosRole || bbosRole === 'all')
+      ? allDefs
+      : allDefs.filter((d) => getTaskAccessLevel(bbosRole, d.id) !== '-');
 
     const taskMap = {};
     const stageTasks = [];
@@ -818,7 +893,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
     const doneColumnId = project.columns?.find((c) => c.name === 'Done')?.id ?? null;
 
     return { stageMeta, taskGroups: groups, taskMap, globalIdxMap, stageTasks, doneColumnId };
-  }, [tasksByProject, project, bbosFilter]);
+  }, [tasksByProject, project, bbosFilter, bbosRole]);
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
 
@@ -853,6 +928,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
                   onSelectTask={onSelectTask}
                   span={spans[i]}
                   doneColumnId={doneColumnId}
+                  viewOnly={bbosRole !== 'all' && getTaskAccessLevel(bbosRole, def.id) === 'V'}
                 />
               ))}
             </Fragment>
