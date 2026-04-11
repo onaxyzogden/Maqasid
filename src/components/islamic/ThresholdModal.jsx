@@ -9,6 +9,7 @@ import {
 import { lookupReadinessAyahByKey } from '@data/ayat/readiness-ayat-router';
 import { getPillarForModule } from '../../data/maqasid';
 import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
+import { getStageLayer } from '../../data/bbos/bbos-pipeline';
 import { useSettingsStore } from '../../store/settings-store';
 import AttributeCard from './AttributeCard';
 import DuaSection from './DuaSection';
@@ -77,7 +78,12 @@ export default function ThresholdModal({ type }) {
   // ── Pillar fallback — sub-modules (e.g. faith-zakah) fall back to pillar data ─
   // MODULE_ATTRS only has pillar-level keys (faith, life, etc.), not sub-module keys.
   // rawData is null for sub-modules; pillarData provides the fallback for all steps.
-  const pillar = isBbosStage ? getPillarForModule('work') : getPillarForModule(moduleId);
+  // Map BBOS layers to Maqasid pillars: Think/Reckon → intellect, Execute → work (wealth)
+  const LAYER_TO_MODULE = { think: 'intellect-thinking', execute: 'work', reckon: 'intellect-thinking' };
+  const bbosPillarModule = isBbosStage
+    ? LAYER_TO_MODULE[getStageLayer(bbosStageId)?.id] || 'work'
+    : null;
+  const pillar = isBbosStage ? getPillarForModule(bbosPillarModule) : getPillarForModule(moduleId);
   const pillarData = pillar ? getModuleData(pillar.id, valuesLayer) : null;
   const data = rawData ?? pillarData;
   const readinessRows = data?.readiness?.rows ?? [];

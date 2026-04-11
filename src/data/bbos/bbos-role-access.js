@@ -154,8 +154,8 @@ export const BBOS_TASK_ACCESS = {
 export function getTaskAccessLevel(roleId, bbosTaskType) {
   if (!roleId || roleId === 'all' || !bbosTaskType) return 'O';
   const entry = BBOS_TASK_ACCESS[bbosTaskType];
-  if (!entry) return 'O';
-  return entry[roleId] || 'O';
+  if (!entry) return '-';
+  return entry[roleId] || '-';
 }
 
 /**
