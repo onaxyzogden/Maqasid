@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
@@ -16,13 +17,14 @@ import BbosPipelineHeader from '../bbos/BbosPipelineHeader';
  * Reusable board component that renders the full Kanban/List/Gantt experience
  * for any project. Used by both Project.jsx and the Faith board pages.
  */
-export default function ProjectBoard({ projectId, project, hideBbos = false }) {
+export default function ProjectBoard({ projectId, project, hideBbos = false, hideFilter = false, hideViewSwitcher = false, inlinePanel = false }) {
   const taskStore = useTaskStore();
   const loadTasks = taskStore.loadTasks;
   const filters = useAppStore((s) => s.filters[projectId]);
   const setActiveBbosStage = useAppStore((s) => s.setActiveBbosStage);
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
   const [view, setView] = useState(project?.defaultView || 'dashboard');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [draggable, setDraggable] = useState(false);
   const [bbosFilter, setBbosFilter] = useState(project?.bbosStage || 'FND');
@@ -31,6 +33,16 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   useEffect(() => {
     if (projectId) loadTasks(projectId);
   }, [projectId]);
+
+  // Auto-open task from URL ?task= param
+  useEffect(() => {
+    const taskParam = searchParams.get('task');
+    if (taskParam) {
+      setSelectedTaskId(taskParam);
+      searchParams.delete('task');
+      setSearchParams(searchParams, { replace: true });
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (project?.bbosEnabled) setActiveBbosStage(bbosFilter);
@@ -116,7 +128,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
       {/* View toggle + BBOS actions */}
-      <div style={{
+      {!hideViewSwitcher && <div style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 'var(--space-3)', marginBottom: 'var(--space-2)', flexShrink: 0,
       }}>
@@ -237,7 +249,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
           </button>
         )}
         </div>
-      </div>
+      </div>}
 
       {/* BBOS Pipeline Header — stage filter */}
       {isBbos && (
@@ -254,13 +266,13 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
       )}
 
       {/* Filter Bar */}
-      <FilterBar projectId={projectId} />
+      {!hideFilter && <FilterBar projectId={projectId} />}
 
       {/* Content */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
         <div style={{ flex: 1, minWidth: 0 }}>
           {view === 'dashboard' ? (
-            <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} />
+            <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} />
           ) : view === 'board' ? (
             <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
           ) : view === 'gantt' ? (
@@ -270,7 +282,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false }) {
           )}
         </div>
 
-        {selectedTaskId && (
+        {!inlinePanel && selectedTaskId && (
           <TaskDetailPanel
             project={project}
             projectId={projectId}

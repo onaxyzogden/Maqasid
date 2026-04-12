@@ -82,28 +82,6 @@ export default function FamilyDashboard() {
         </div>
       </header>
 
-      {/* ── Current Focus Hero ── */}
-      <section className="family-hero-card">
-        <img
-          className="family-hero-card__image"
-          src={HERO_IMG}
-          alt="Family and togetherness"
-        />
-        <div className="family-hero-card__gradient" />
-        <div className="family-hero-card__content">
-          <span className="family-label family-label--light">Current Focus</span>
-          <h2 className="family-hero-card__title">Foundations of Marriage</h2>
-          <p className="family-hero-card__desc">
-            Building the first pillar of family life — a bond of mercy, tranquillity,
-            and shared purpose rooted in the Sunnah.
-          </p>
-          <button className="family-hero-card__cta">
-            Continue Practice
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </section>
-
       {/* ── Pillars Bento Grid ── */}
       <section className="family-pillars">
 

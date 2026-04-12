@@ -145,7 +145,7 @@ export default function App() {
         <Route path="env-ecosystem" element={<EnvironmentEcosystemPage />} />
         <Route path="env-sourcing" element={<EnvironmentSourcingPage />} />
         <Route path="collective" element={<CollectivePage />} />
-        <Route path="pillar/faith" element={<FaithDashboard />} />
+        <Route path="pillar/faith" element={<FaithCorePage />} />
         <Route path="pillar/life" element={<LifeDashboard />} />
         <Route path="pillar/intellect" element={<IntellectDashboard />} />
         <Route path="pillar/family" element={<FamilyDashboard />} />

@@ -61,7 +61,7 @@ function seedTasks(boardId, seedMap) {
     priority: t.priority || 'medium',
     dueDate: t.dueDate || null,
     tags: t.tags || [],
-    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false })),
+    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false, description: s.description || '' })),
     checklist: [],
     order: i,
     seedOrder: i,
@@ -104,6 +104,15 @@ function backfillSeedDescriptions() {
           .map((s) => ({ ...s, id: genSubtaskId() }));
         if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
       }
+      // Backfill subtask descriptions from seed data
+      const subs = patch.subtasks || storedSubs;
+      const seedSubMap = {};
+      seedSubs.forEach((ss) => { seedSubMap[ss.title] = ss; });
+      const patchedSubs = subs.map((st) => {
+        const ss = seedSubMap[st.title];
+        return ss?.description && !st.description ? { ...st, description: ss.description } : st;
+      });
+      if (patchedSubs.some((st, i) => st !== subs[i])) patch.subtasks = patchedSubs;
       if (Object.keys(patch).length > 0) { changed = true; return { ...t, ...patch }; }
       return t;
     });

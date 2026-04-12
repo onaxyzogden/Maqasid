@@ -50,6 +50,49 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
   const saveTimeout = useRef(null);
   const titleRef = useRef(null);
 
+  // ── Auto in-progress tracking ──
+  const originalToDoColIdRef = useRef(null); // set if we moved task from To Do → In Progress
+  const initialDoneCountRef = useRef(0);
+  const currentDoneCountRef = useRef(0);
+  const moveTaskRef = useRef(moveTask);
+  useEffect(() => { moveTaskRef.current = moveTask; });
+
+  const columns = project?.columns || [];
+  const currentCol = columns.find((c) => c.id === task?.columnId);
+
+  // Keep currentDoneCount ref in sync with live subtask data
+  useEffect(() => {
+    currentDoneCountRef.current = task?.subtasks?.filter((s) => s.done).length ?? 0;
+  }, [task?.subtasks]);
+
+  // On open: move task To Do → In Progress. On close: revert if no subtasks completed.
+  useEffect(() => {
+    if (!task) return;
+    const toDoCol = columns.find((c) => c.name === 'To Do');
+    const inProgressCol = columns.find((c) => c.name === 'In Progress');
+
+    const doneCount = task.subtasks?.filter((s) => s.done).length ?? 0;
+    initialDoneCountRef.current = doneCount;
+    currentDoneCountRef.current = doneCount;
+
+    if (toDoCol && inProgressCol && task.columnId === toDoCol.id) {
+      originalToDoColIdRef.current = toDoCol.id;
+      moveTaskRef.current(projectId, taskId, inProgressCol.id, 0, columns);
+    } else {
+      originalToDoColIdRef.current = null;
+    }
+
+    return () => {
+      if (originalToDoColIdRef.current !== null) {
+        if (currentDoneCountRef.current <= initialDoneCountRef.current) {
+          moveTaskRef.current(projectId, taskId, originalToDoColIdRef.current, 0, columns);
+        }
+      }
+      originalToDoColIdRef.current = null;
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [taskId]);
+
   // JS fallback for browsers that don't support field-sizing: content
   useLayoutEffect(() => {
     const el = titleRef.current;
@@ -57,9 +100,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
     el.style.height = '0px';
     el.style.height = el.scrollHeight + 'px';
   }, [title]);
-
-  const columns = project?.columns || [];
-  const currentCol = columns.find((c) => c.id === task?.columnId);
 
   useEffect(() => {
     if (task) {

@@ -79,28 +79,6 @@ export default function LifeDashboard() {
         </div>
       </header>
 
-      {/* ── Current Focus Hero ── */}
-      <section className="life-hero-card">
-        <img
-          className="life-hero-card__image"
-          src={HERO_IMG}
-          alt="Meditation and physical balance"
-        />
-        <div className="life-hero-card__gradient" />
-        <div className="life-hero-card__content">
-          <span className="life-label life-label--light">Current Focus</span>
-          <h2 className="life-hero-card__title">Physical Health</h2>
-          <p className="life-hero-card__desc">
-            Honoring the vessel of the soul through conscious movement and
-            mindful consumption.
-          </p>
-          <button className="life-hero-card__cta">
-            Continue Practice
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </section>
-
       {/* ── Pillars Bento Grid ── */}
       <section className="life-pillars">
 

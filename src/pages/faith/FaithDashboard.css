@@ -334,6 +334,15 @@
 }
 
 /* ── Core Pillars (Level 1) ── */
+.faith-level-card--clickable {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.faith-level-card--clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
+}
+
 .faith-core-card {
   background: var(--faith-primary);
   color: var(--faith-on-primary);

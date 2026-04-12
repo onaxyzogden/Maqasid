@@ -17,7 +17,7 @@
 
 .topbar-breadcrumb {
   font-weight: 600; font-size: 0.95rem; color: var(--text);
-  max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
 .topbar-right {
@@ -93,6 +93,57 @@
   background: var(--accent-bg);
 }
 
+:root { --verse-banner-h: 75px; }
+
+.topbar { position: relative; }
+
+.faith-banner-active .app-main {
+  padding-top: calc(var(--space-6) + var(--verse-banner-h));
+}
+
+.topbar-faith-badge {
+  font-size: 9px;
+  padding: 0.25rem 0.6rem;
+  margin: 0;
+}
+
+.topbar-verse-banner {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-6);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  z-index: 9;
+}
+
+.topbar-verse {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text3);
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.topbar-cite {
+  font-style: normal;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text3);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
 @media (max-width: 767px) {
   .topbar { grid-column: 1 / -1; }
   .topbar-breadcrumb {
@@ -106,4 +157,6 @@
     scrollbar-width: none;
   }
   .topbar-center::-webkit-scrollbar { display: none; }
+  .topbar-verse-banner { grid-column: 1 / -1; padding: var(--space-2) var(--space-4); }
+  .topbar-verse-banner { flex-direction: column; gap: var(--space-1); }
 }

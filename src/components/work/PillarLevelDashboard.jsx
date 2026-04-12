@@ -6,6 +6,7 @@ import {
 import { useTaskStore } from '../../store/task-store';
 import { PRIORITIES } from '../../data/modules';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
+import InlineTaskDetail from './InlineTaskDetail';
 import './PillarLevelDashboard.css';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -90,7 +91,7 @@ function PillarTaskCard({ task, index, span, status, levelColor, onSelectTask })
       status={status}
       accentColor={levelColor}
       statusTint={status === 'in-progress'
-        ? { background: `color-mix(in srgb, ${levelColor} 12%, var(--surface))` }
+        ? { background: `color-mix(in srgb, #F59E0B 12%, var(--surface))` }
         : undefined}
       onSelectTask={onSelectTask}
       chips={[
@@ -319,9 +320,41 @@ function MasteryDepthCard({ metrics, levelColor }) {
   );
 }
 
+// ── Progress ring (header) ────────────────────────────────────────────────────
+
+function MasteryRing({ percent, pillarColor, pillarKey }) {
+  const r = 42;
+  const stroke = 8;
+  const circ = 2 * Math.PI * r;
+  const offset = circ - (percent / 100) * circ;
+  const gradId = `pldRing_${pillarKey}`;
+
+  return (
+    <svg width="110" height="110" viewBox="0 0 110 110" className="pld__ring-svg">
+      <defs>
+        <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor={pillarColor} stopOpacity="0.6" />
+          <stop offset="100%" stopColor={pillarColor} />
+        </linearGradient>
+      </defs>
+      <circle cx="55" cy="55" r={r} fill="none" stroke="var(--border)" strokeWidth={stroke} />
+      <circle
+        cx="55" cy="55" r={r} fill="none"
+        stroke={`url(#${gradId})`} strokeWidth={stroke}
+        strokeLinecap="round"
+        strokeDasharray={circ} strokeDashoffset={offset}
+        transform="rotate(-90 55 55)"
+        style={{ transition: 'stroke-dashoffset 0.8s ease' }}
+      />
+      <text x="55" y="50" textAnchor="middle" className="pld__ring-percent">{percent}%</text>
+      <text x="55" y="66" textAnchor="middle" className="pld__ring-label">Complete</text>
+    </svg>
+  );
+}
+
 // ── Main export ───────────────────────────────────────────────────────────────
 
-export default function PillarLevelDashboard({ project, onSelectTask }) {
+export default function PillarLevelDashboard({ project, onSelectTask, selectedTaskId }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
 
   const level      = detectPillarLevel(project.id);
@@ -341,8 +374,12 @@ export default function PillarLevelDashboard({ project, onSelectTask }) {
       if (!grouped.has(primaryTag)) grouped.set(primaryTag, []);
       grouped.get(primaryTag).push(task);
     }
+    const PRIORITY_ORDER = { urgent: 0, high: 1, medium: 2, low: 3 };
+    const byPriority = (a, b) =>
+      (PRIORITY_ORDER[a.priority] ?? 4) - (PRIORITY_ORDER[b.priority] ?? 4);
+
     const tagGroups = [...grouped.entries()]
-      .map(([tag, items]) => ({ tag, tasks: items }))
+      .map(([tag, items]) => ({ tag, tasks: [...items].sort(byPriority) }))
       .sort((a, b) => b.tasks.length - a.tasks.length);
 
     // Metrics
@@ -397,21 +434,9 @@ export default function PillarLevelDashboard({ project, onSelectTask }) {
 
   return (
     <div className="pld">
-      {/* Header */}
-      <div className="pld__header">
-        <div className="pld__eyebrow" style={{ color: levelColor }}>
-          {level ? LEVEL_LABELS[level] : project.name}
-        </div>
-        <h2 className="pld__title">{project.name}</h2>
-        <p className="pld__desc">
-          {project.description || (level ? LEVEL_DESCRIPTIONS[level] : '')}
-        </p>
-      </div>
-
       {/* Task Grid */}
       <div className="pld__grid">
         {tagGroups.map(({ tag, tasks: groupTasks }) => {
-          const spans = computeSpans(groupTasks);
           return (
             <div key={tag} style={{ display: 'contents' }}>
               {/* Section divider */}
@@ -419,17 +444,28 @@ export default function PillarLevelDashboard({ project, onSelectTask }) {
                 <span className="pld__divider-label">{capitalize(tag)}</span>
                 <span className="pld__divider-count">{groupTasks.length} task{groupTasks.length !== 1 ? 's' : ''}</span>
               </div>
-              {/* Task cards */}
+              {/* Task cards — full width, sorted by priority */}
               {groupTasks.map((task, i) => (
-                <PillarTaskCard
-                  key={task.id}
-                  task={task}
-                  index={i}
-                  span={spans[i]}
-                  status={getStatus(task)}
-                  levelColor={levelColor}
-                  onSelectTask={onSelectTask}
-                />
+                selectedTaskId === task.id ? (
+                  <InlineTaskDetail
+                    key={task.id}
+                    project={project}
+                    projectId={project.id}
+                    taskId={task.id}
+                    levelColor={levelColor}
+                    onClose={() => onSelectTask(null)}
+                  />
+                ) : (
+                  <PillarTaskCard
+                    key={task.id}
+                    task={task}
+                    index={i}
+                    span={12}
+                    status={getStatus(task)}
+                    levelColor={levelColor}
+                    onSelectTask={onSelectTask}
+                  />
+                )
               ))}
             </div>
           );

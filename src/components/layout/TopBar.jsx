@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
@@ -24,7 +24,11 @@ function getBreadcrumb(pathname, projects) {
   const sub = parts[0];
   if (labels[sub]) return labels[sub];
 
-  // Format hyphenated submodule names: 'faith-salah' → 'Faith — Salah'
+  // Format hyphenated submodule names: 'faith-salah' → 'Salah' (faith badge handles pillar identity)
+  if (sub.startsWith('faith-')) {
+    const submodule = sub.split('-').slice(1).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    return submodule;
+  }
   if (sub.includes('-')) {
     return sub.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' — ');
   }
@@ -60,6 +64,7 @@ export default function TopBar() {
   const toggleSidebar = useAppStore((s) => s.toggleSidebar);
   const setSearchOpen = useAppStore((s) => s.setSearchOpen);
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
+  const islamicPanelWidthPx = useAppStore((s) => s.islamicPanelWidthPx);
   const toggleIslamicPanel = useAppStore((s) => s.toggleIslamicPanel);
   const theme = useSettingsStore((s) => s.theme);
   const setTheme = useSettingsStore((s) => s.setTheme);
@@ -76,6 +81,12 @@ export default function TopBar() {
 
   const projectBase = getProjectBase(location.pathname);
   const showWorkTabs = !!projectBase;
+  const isFaithRoute = location.pathname.startsWith('/app/faith') || location.pathname === '/app/pillar/faith';
+
+  useEffect(() => {
+    document.body.classList.toggle('faith-banner-active', isFaithRoute);
+    return () => document.body.classList.remove('faith-banner-active');
+  }, [isFaithRoute]);
 
   return (
     <>
@@ -86,6 +97,7 @@ export default function TopBar() {
               <Menu size={20} />
             </button>
           )}
+          {isFaithRoute && <span className="faith-badge faith-badge--module topbar-faith-badge">MODULE I</span>}
           <span className="topbar-breadcrumb">{getBreadcrumb(location.pathname, projects)}</span>
         </div>
         {showWorkTabs && (
@@ -160,6 +172,19 @@ export default function TopBar() {
             </div>
           )}
         </div>
+        {isFaithRoute && (
+          <div
+            className="topbar-verse-banner"
+            style={{ right: islamicPanelOpen && !mobile ? `${islamicPanelWidthPx + 28}px` : 0 }}
+          >
+            <p className="topbar-verse">
+              "Those who have believed and whose hearts are assured by the
+              remembrance of Allah. Unquestionably, by the remembrance of Allah
+              hearts are assured."
+            </p>
+            <cite className="topbar-cite">— Surah Ar-Ra'd 13:28</cite>
+          </div>
+        )}
       </header>
       {clockInOpen && <ClockInModal onClose={() => setClockInOpen(false)} />}
     </>

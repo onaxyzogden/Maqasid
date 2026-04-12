@@ -80,28 +80,6 @@ export default function IntellectDashboard() {
         </div>
       </header>
 
-      {/* ── Current Focus Hero ── */}
-      <section className="intellect-hero-card">
-        <img
-          className="intellect-hero-card__image"
-          src={HERO_IMG}
-          alt="Islamic geometric star patterns carved in stone"
-        />
-        <div className="intellect-hero-card__gradient" />
-        <div className="intellect-hero-card__content">
-          <span className="intellect-label intellect-label--light">Current Focus</span>
-          <h2 className="intellect-hero-card__title">Critical Thinking</h2>
-          <p className="intellect-hero-card__desc">
-            Refining the capacity for discernment through dialectical inquiry and
-            spiritual humility.
-          </p>
-          <button className="intellect-hero-card__cta">
-            Resume Lesson
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </section>
-
       {/* ── Pillars Bento Grid ── */}
       <section className="intellect-pillars">
 

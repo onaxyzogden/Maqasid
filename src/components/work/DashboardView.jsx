@@ -6,7 +6,7 @@ import BbosFullDashboard from '../bbos/BbosFullDashboard';
 import PillarLevelDashboard from './PillarLevelDashboard';
 import './DashboardView.css';
 
-export default function DashboardView({ project, bbosFilter, onSelectTask }) {
+export default function DashboardView({ project, bbosFilter, onSelectTask, selectedTaskId }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
 
   const metrics = useMemo(() => {
@@ -89,7 +89,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask }) {
     return <BbosFullDashboard project={project} bbosFilter={bbosFilter} onSelectTask={onSelectTask} />;
   }
   if (/_(core|growth|excellence)$/.test(project.id)) {
-    return <PillarLevelDashboard project={project} onSelectTask={onSelectTask} />;
+    return <PillarLevelDashboard project={project} onSelectTask={onSelectTask} selectedTaskId={selectedTaskId} />;
   }
 
   const { byColumn, byPriority, total, completed, overdue, noDueDate, pct,

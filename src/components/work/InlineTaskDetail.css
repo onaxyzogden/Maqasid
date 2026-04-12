@@ -1,0 +1,291 @@
+/* ── Inline Task Detail — expanded card in the dashboard grid ── */
+
+.iltd {
+  grid-column: 1 / -1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: iltd-expand 0.18s ease;
+  position: relative;
+}
+
+@keyframes iltd-expand {
+  from { opacity: 0; transform: scaleY(0.96); transform-origin: top; }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
+/* ── Close button ── */
+.iltd__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+.iltd__close:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+/* ── Title ── */
+.iltd__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 0;
+  padding-right: 32px;
+  font-family: inherit;
+  field-sizing: content;
+}
+
+/* ── Controls row (priority + status) ── */
+.iltd__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.iltd__control {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.iltd__control label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.iltd__select {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── Due date ── */
+.iltd__due-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text3);
+}
+
+.iltd__date-input {
+  font-size: 0.82rem;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text2);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── Section labels ── */
+.iltd__section-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 4px;
+}
+
+/* ── Description (read-only) ── */
+.iltd__description {
+  font-size: 0.87rem;
+  color: var(--text2);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Notes textarea ── */
+.iltd__textarea {
+  width: 100%;
+  font-size: 0.87rem;
+  color: var(--text2);
+  line-height: 1.55;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+.iltd__textarea:focus {
+  border-color: var(--primary);
+}
+
+/* ── Subtasks ── */
+.iltd__subtask-add {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: var(--text3);
+}
+
+.iltd__subtask-input {
+  flex: 1;
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  outline: none;
+  padding: 2px 0;
+  color: var(--text);
+  font-family: inherit;
+}
+.iltd__subtask-input::placeholder { color: var(--text3); }
+
+.iltd__subtask-group-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 8px 0 4px;
+}
+
+.iltd__subtask-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.iltd__subtask-item:last-child { border-bottom: none; }
+
+.iltd__subtask-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.iltd__subtask-desc {
+  font-size: 0.78rem;
+  color: var(--text3);
+  line-height: 1.45;
+  margin: 2px 0 0;
+}
+
+.iltd__subtask-check {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.iltd__subtask-check:hover { color: var(--primary); }
+.iltd__subtask-check--done { color: var(--col-done, #22c55e); }
+
+.iltd__subtask-title {
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+.iltd__subtask-title.done {
+  text-decoration: line-through;
+  color: var(--text3);
+}
+
+.iltd__subtask-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.iltd__subtask-item:hover .iltd__subtask-remove { opacity: 1; }
+
+/* ── Tags ── */
+.iltd__tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.iltd__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg3);
+  border-radius: 20px;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  color: var(--text2);
+}
+
+.iltd__tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.iltd__tag-add {
+  background: none;
+  border: 1px dashed var(--border);
+  border-radius: 20px;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  color: var(--text3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.iltd__tag-add:hover { border-color: var(--primary); color: var(--primary); }
+
+/* ── Divider between sections ── */
+.iltd__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2px 0;
+}

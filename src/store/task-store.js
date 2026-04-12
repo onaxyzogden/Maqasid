@@ -118,12 +118,12 @@ export const useTaskStore = create((set, get) => ({
     return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
   }),
 
-  addSubtask: (projectId, taskId, title) => set((s) => {
+  addSubtask: (projectId, taskId, title, description = '') => set((s) => {
     const tasks = (s.tasksByProject[projectId] || []).map((t) => {
       if (t.id !== taskId) return t;
       return {
         ...t,
-        subtasks: [...t.subtasks, { id: genSubtaskId(), title, done: false }],
+        subtasks: [...t.subtasks, { id: genSubtaskId(), title, done: false, description }],
         updatedAt: new Date().toISOString(),
       };
     });
@@ -152,6 +152,21 @@ export const useTaskStore = create((set, get) => ({
       return {
         ...t,
         subtasks: t.subtasks.filter((st) => st.id !== subtaskId),
+        updatedAt: new Date().toISOString(),
+      };
+    });
+    persistTasks(projectId, tasks);
+    return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
+  }),
+
+  updateSubtask: (projectId, taskId, subtaskId, patch) => set((s) => {
+    const tasks = (s.tasksByProject[projectId] || []).map((t) => {
+      if (t.id !== taskId) return t;
+      return {
+        ...t,
+        subtasks: t.subtasks.map((st) =>
+          st.id === subtaskId ? { ...st, ...patch } : st
+        ),
         updatedAt: new Date().toISOString(),
       };
     });

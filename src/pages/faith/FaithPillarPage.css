@@ -1,0 +1,38 @@
+/* ── Faith Pillar Page — board layout wrapper ── */
+
+/*
+ * Mirror the FaithLevelNavigator's 1 / 2.8 / 1 flex structure so the
+ * ProjectBoard aligns exactly with .fln__center on desktop.
+ */
+
+.fpb-layout {
+  display: flex;
+  gap: var(--space-4);
+  flex: 1;
+  min-height: 0;
+}
+
+/* Invisible spacers that match .fln__side (flex: 1) */
+.fpb-spacer {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Content column matches .fln__center (flex: 2.8) */
+.fpb-content {
+  flex: 2.8;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ── Responsive — collapse to full width below 700px ── */
+@media (max-width: 700px) {
+  .fpb-spacer {
+    display: none;
+  }
+  .fpb-content {
+    flex: 1;
+  }
+}

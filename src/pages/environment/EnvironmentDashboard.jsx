@@ -79,28 +79,6 @@ export default function EnvironmentDashboard() {
         </div>
       </header>
 
-      {/* ── Current Focus Hero ── */}
-      <section className="env-hero-card">
-        <img
-          className="env-hero-card__image"
-          src={HERO_IMG}
-          alt="Nature and stewardship"
-        />
-        <div className="env-hero-card__gradient" />
-        <div className="env-hero-card__content">
-          <span className="env-label env-label--light">Current Focus</span>
-          <h2 className="env-hero-card__title">Resource Stewardship</h2>
-          <p className="env-hero-card__desc">
-            Mindful consumption as worship — honouring the trust of every resource
-            Allah has provided.
-          </p>
-          <button className="env-hero-card__cta">
-            Continue Practice
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </section>
-
       {/* ── Pillars Bento Grid ── */}
       <section className="env-pillars">
 

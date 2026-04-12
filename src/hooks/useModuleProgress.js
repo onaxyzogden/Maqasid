@@ -6,8 +6,16 @@ function isDoneColumn(columnId) {
   return columnId?.endsWith('_done');
 }
 
+function isTodoColumn(columnId) {
+  return columnId?.endsWith('_to_do') || columnId?.endsWith('_todo');
+}
+
 function isTaskDone(task) {
   return task.completedAt || isDoneColumn(task.columnId);
+}
+
+function isTaskStarted(task) {
+  return !isTodoColumn(task.columnId);
 }
 
 /**
@@ -60,16 +68,19 @@ export function useModulesProgress(moduleIds, level) {
       }
       let total = 0;
       let completed = 0;
+      let started = 0;
 
       for (const proj of moduleProjects) {
         const tasks = tasksByProject[proj.id] || [];
         total += tasks.length;
         completed += tasks.filter(isTaskDone).length;
+        started += tasks.filter(isTaskStarted).length;
       }
 
       progressMap[moduleId] = {
         total,
         completed,
+        started,
         pct: total > 0 ? Math.round((completed / total) * 100) : 0,
       };
 

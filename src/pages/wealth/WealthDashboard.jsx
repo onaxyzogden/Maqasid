@@ -79,28 +79,6 @@ export default function WealthDashboard() {
         </div>
       </header>
 
-      {/* ── Current Focus Hero ── */}
-      <section className="wealth-hero-card">
-        <img
-          className="wealth-hero-card__image"
-          src={HERO_IMG}
-          alt="Ethical wealth and stewardship"
-        />
-        <div className="wealth-hero-card__gradient" />
-        <div className="wealth-hero-card__content">
-          <span className="wealth-label wealth-label--light">Current Focus</span>
-          <h2 className="wealth-hero-card__title">Halal Earning</h2>
-          <p className="wealth-hero-card__desc">
-            Establishing pure sources of income — the foundation of barakah in
-            every transaction and provision.
-          </p>
-          <button className="wealth-hero-card__cta">
-            Continue Practice
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </section>
-
       {/* ── Pillars Bento Grid ── */}
       <section className="wealth-pillars">
 
