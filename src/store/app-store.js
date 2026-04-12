@@ -21,6 +21,11 @@ export const useAppStore = create((set, get) => ({
   filters: {}, // { [projectId]: { priorities: [], dueDate: null, tags: [] } }
   activeBbosStage: null, // string | null — BBOS stage ID currently selected in the pipeline header
   activeBbosTaskType: null, // string | null — BBOS task type currently open in BbosTaskPanel
+  citationsVisible: false,
+
+  // Ayah banner — contextual Quran/Hadith in topbar
+  ayahBannerData: null,
+  ayahBannerCollapsed: safeGet('ayah_collapsed', 'false') === 'true',
 
   toggleSidebar: () => set((s) => {
     const v = !s.sidebarOpen;
@@ -80,6 +85,16 @@ export const useAppStore = create((set, get) => ({
 
   setActiveBbosTaskType: (taskType) => set({ activeBbosTaskType: taskType }),
   clearActiveBbosTaskType: () => set({ activeBbosTaskType: null }),
+
+  toggleCitations: () => set((s) => ({ citationsVisible: !s.citationsVisible })),
+
+  setAyahBannerData: (data) => set({ ayahBannerData: data }),
+  clearAyahBannerData: () => set({ ayahBannerData: null }),
+  toggleAyahBannerCollapsed: () => set((s) => {
+    const v = !s.ayahBannerCollapsed;
+    safeSet('ayah_collapsed', String(v));
+    return { ayahBannerCollapsed: v };
+  }),
 
   getActiveFilterCount: (projectId) => {
     const f = get().filters[projectId];

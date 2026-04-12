@@ -1,6 +1,6 @@
 import './DuaSection.css';
 
-export default function DuaSection({ dua, color, isUniversal }) {
+export default function DuaSection({ dua, color, isUniversal, citationIndex, showCitations }) {
   if (!dua) return null;
 
   const accentColor = color || 'var(--accent)';
@@ -24,7 +24,12 @@ export default function DuaSection({ dua, color, isUniversal }) {
       </p>
 
       {!isUniversal && dua.source && (
-        <p className="dua-source">{dua.source}</p>
+        <p className="dua-source">
+          {dua.source}
+          {showCitations && citationIndex != null && (
+            <span className="dua-citation-badge">[{citationIndex}]</span>
+          )}
+        </p>
       )}
     </div>
   );

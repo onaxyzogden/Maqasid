@@ -1,0 +1,166 @@
+/* ── Level Overview Page — Bento submodule grid ── */
+
+.flo {
+  padding: var(--space-6) var(--space-6);
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* ── Header ── */
+.flo__header { margin-bottom: 36px; }
+
+.flo__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 14px;
+  font-family: inherit;
+  transition: color 0.15s;
+}
+.flo__back:hover { color: var(--text); }
+
+.flo__badge {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 6px;
+}
+
+.flo__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+  line-height: 1.15;
+}
+
+.flo__desc {
+  font-size: 0.9rem;
+  color: var(--text3);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ── Bento grid ── */
+.flo__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* First 3 cards: span 2 cols each → fills row 1 */
+.flo__card {
+  grid-column: span 2;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-align: center;
+}
+
+/* Last 2 cards: span 3 cols each → fills row 2 */
+.flo__card:nth-child(4),
+.flo__card:nth-child(5) {
+  grid-column: span 3;
+}
+
+.flo__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+}
+
+/* ── Card internals ── */
+.flo__card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.flo__card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ── Ring ── */
+.flo__ring { flex-shrink: 0; }
+
+.flo__ring-pct {
+  font-size: 1.25rem;
+  font-weight: 800;
+  fill: var(--text);
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+}
+
+.flo__ring-label {
+  font-size: 0.55rem;
+  font-weight: 600;
+  fill: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+}
+
+/* ── CTA button ── */
+.flo__card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 18px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--cta-color, var(--border));
+  background: none;
+  color: var(--cta-color, var(--text));
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.flo__card-cta:hover {
+  background: var(--cta-color, var(--text));
+  color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .flo__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .flo__card,
+  .flo__card:nth-child(4),
+  .flo__card:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .flo__grid {
+    grid-template-columns: 1fr;
+  }
+}

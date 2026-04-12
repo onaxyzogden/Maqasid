@@ -1,22 +1,20 @@
 import { useThresholdStore } from '@store/threshold-store';
-import { useProjectStore } from '@store/project-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
-import PillarBoard from '@components/work/PillarBoard';
-import { INTELLECT_DASHBOARD_DATA } from '@data/islamic/pillar-dashboard-data';
+import PillarLevelPage from '@pages/shared/PillarLevelPage';
+import { INTELLECT_PILLARS, INTELLECT_LEVEL_ROUTES, INTELLECT_STORAGE_KEY, INTELLECT_ENSURE_PROJECTS, INTELLECT_LEVEL_DESCRIPTIONS } from './IntellectCorePage';
 
 export default function IntellectCognitivePage() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['intellect-cognitive']);
-  const ensureIntellectProjects = useProjectStore((s) => s.ensureIntellectProjects);
-
-  if (!hasCompletedOpening) {
-    return <CeremonyGate moduleId="intellect-cognitive" />;
-  }
-
+  if (!hasCompletedOpening) return <CeremonyGate moduleId="intellect-cognitive" />;
   return (
-    <PillarBoard
-      pillarKey="cognitive" pillarName="COGNITIVE INTEGRITY" pillarColor="#14b8a6"
-      modulePrefix="intellect" ensureProjects={ensureIntellectProjects}
-      dashboardData={INTELLECT_DASHBOARD_DATA.cognitive}
+    <PillarLevelPage
+      pillarKey="cognitive"
+      boardPrefix="intellect"
+      storageKey={INTELLECT_STORAGE_KEY}
+      ensureProjects={INTELLECT_ENSURE_PROJECTS}
+      pillars={INTELLECT_PILLARS}
+      levelRoutes={INTELLECT_LEVEL_ROUTES}
+      levelDescriptions={INTELLECT_LEVEL_DESCRIPTIONS}
     />
   );
 }

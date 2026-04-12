@@ -1,9 +1,8 @@
 import { useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Kanban, ArrowRight, CheckCircle2, Clock, AlertTriangle, CalendarDays,
-  ListTodo, FolderOpen, Calendar, BarChart3, Activity, TrendingUp,
-  TrendingDown, Eye, Sparkles, ChevronRight, UserPlus,
+  Kanban, AlertTriangle, CalendarDays,
+  Activity, Zap, ChevronRight,
 } from 'lucide-react';
 import { useProjectStore } from '../store/project-store';
 import { useAuthStore } from '../store/auth-store';
@@ -11,11 +10,9 @@ import { useTaskStore } from '../store/task-store';
 import { useSettingsStore } from '../store/settings-store';
 import { useThresholdStore } from '../store/threshold-store';
 import { useOfficeStore } from '../store/office-store';
-import { Zap } from 'lucide-react';
 import { usePrayerTimes } from '../hooks/usePrayerTimes';
-import { MODULES } from '../data/modules';
 import { MAQASID_PILLARS } from '../data/maqasid';
-import PillarCard from '../components/dashboard/PillarCard';
+import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
 import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
 import './Dashboard.css';
 
@@ -79,7 +76,6 @@ function BCGChart({ data }) {
             </linearGradient>
           </defs>
 
-          {/* Y-axis labels */}
           {yLabels.map((yl, i) => (
             <text key={i} x={PAD.left - 8} y={yl.y + 3} textAnchor="end"
               fill="var(--text3)" fontSize="9" fontFamily="JetBrains Mono, monospace">
@@ -87,13 +83,11 @@ function BCGChart({ data }) {
             </text>
           ))}
 
-          {/* Grid lines */}
           {gridLines.map((y, i) => (
             <line key={i} x1={PAD.left} y1={y} x2={W - PAD.right} y2={y}
               stroke="var(--border)" strokeWidth="0.5" strokeDasharray="3 3" />
           ))}
 
-          {/* Zero line */}
           <line x1={PAD.left} y1={PAD.top + PLOT_H} x2={W - PAD.right} y2={PAD.top + PLOT_H}
             stroke="var(--border)" strokeWidth="0.5" />
 
@@ -105,7 +99,6 @@ function BCGChart({ data }) {
               fill="var(--primary)" stroke="var(--surface)" strokeWidth="1.5" />
           ))}
 
-          {/* X-axis labels */}
           {points.filter((_, i) => i % Math.ceil(points.length / 7) === 0 || i === points.length - 1).map((p, i) => (
             <text key={`l${i}`} x={p.x} y={H - 6} textAnchor="middle"
               fill="var(--text3)" fontSize="9" fontFamily="DM Sans, sans-serif">
@@ -128,7 +121,6 @@ function BCGChart({ data }) {
 
 /* ── Workflow Pressure Gauge ── */
 function WorkflowPressure({ level }) {
-  // level: 'low' | 'medium' | 'high'
   const bars = 10;
   const filled = level === 'low' ? 2 : level === 'medium' ? 5 : 8;
   const color = level === 'low' ? 'var(--success)' : level === 'medium' ? 'var(--warning)' : 'var(--danger)';
@@ -201,8 +193,8 @@ export default function Dashboard() {
     };
   }, [allTasks, projects, events]);
 
-  // EPH (events per hour — simplified: tasks completed today)
-  const eph = useMemo(() => {
+  // Tasks completed today
+  const todayCompleted = useMemo(() => {
     const todayStr = new Date().toISOString().slice(0, 10);
     return allTasks.filter((t) => t.completedAt && t.completedAt.slice(0, 10) === todayStr).length;
   }, [allTasks]);
@@ -260,7 +252,6 @@ export default function Dashboard() {
   // Activity timeline
   const activityItems = useMemo(() => {
     const items = [];
-    // Recently completed tasks
     allTasks
       .filter((t) => t.completedAt)
       .sort((a, b) => b.completedAt.localeCompare(a.completedAt))
@@ -275,7 +266,6 @@ export default function Dashboard() {
           time: t.completedAt,
         });
       });
-    // Recently created tasks
     allTasks
       .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
       .slice(0, 5)
@@ -289,7 +279,6 @@ export default function Dashboard() {
           time: t.createdAt,
         });
       });
-    // Events
     events.slice(-3).forEach((e) => {
       items.push({
         id: e.id,
@@ -303,6 +292,33 @@ export default function Dashboard() {
       .sort((a, b) => b.time.localeCompare(a.time))
       .slice(0, 10);
   }, [allTasks, events, projects, tasksByProject]);
+
+  // Pillar focus: pillars with the most open task work
+  const pillarSummary = useMemo(() => {
+    const now = new Date();
+    return MAQASID_PILLARS.map((pillar) => {
+      const pillarProjects = projects.filter(
+        (p) => !p.archived && (
+          p.id.startsWith(pillar.id + '_') ||
+          (p.moduleId && pillar.subModuleIds.includes(p.moduleId))
+        )
+      );
+      const pillarTasks = pillarProjects.flatMap((p) => tasksByProject[p.id] || []);
+      const openCount = pillarTasks.filter((t) => !t.completedAt).length;
+      const overdueCount = pillarTasks.filter(
+        (t) => t.dueDate && new Date(t.dueDate) < now && !t.completedAt
+      ).length;
+      return { pillar, openCount, overdueCount };
+    })
+      .filter((p) => p.openCount > 0)
+      .sort((a, b) => {
+        const aN = (niyyahFocus || []).includes(a.pillar.id);
+        const bN = (niyyahFocus || []).includes(b.pillar.id);
+        if (aN !== bN) return aN ? -1 : 1;
+        return b.overdueCount - a.overdueCount || b.openCount - a.openCount;
+      })
+      .slice(0, 5);
+  }, [projects, tasksByProject, niyyahFocus]);
 
   const renderNow = useRef(Date.now());
   function relativeTime(iso) {
@@ -330,10 +346,8 @@ export default function Dashboard() {
   const firstName = user?.name ? user.name.split(' ')[0] : 'there';
 
   const STAT_CARDS = [
-    { key: 'tasks',     label: 'Tasks',     icon: ListTodo,   value: stats.tasks },
-    { key: 'projects',  label: 'Projects',  icon: FolderOpen, value: stats.projects },
-    { key: 'events',    label: 'Events',    icon: Calendar,   value: stats.events },
-    { key: 'completed', label: 'Completed', icon: CheckCircle2, value: stats.completed },
+    { key: 'inProgress', label: 'In Progress', icon: Kanban,        value: stats.inProgress },
+    { key: 'overdue',    label: 'Overdue',     icon: AlertTriangle,  value: stats.overdue, danger: stats.overdue > 0 },
   ];
 
   return (
@@ -341,9 +355,10 @@ export default function Dashboard() {
       {/* ── Top greeting bar ── */}
       <div className="insight-greeting">
         <div className="insight-greeting__avatar">{initials}</div>
-        <span className="insight-greeting__text">
-          {firstName}, {greeting}. {motivation}
-        </span>
+        <div className="insight-greeting__text-block">
+          <span className="insight-greeting__name">{firstName}, {greeting}.</span>
+          <span className="insight-greeting__motivation">{motivation}</span>
+        </div>
         {isIslamic && nextPrayer && (
           <div className="insight-greeting__prayer">
             <span className="insight-prayer-name">{nextPrayer.name}</span>
@@ -359,11 +374,11 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* ── Pillar summary row ── */}
+      {/* ── Niyyah focus row ── */}
       {niyyahFocus?.length > 0 && (
         <div className="insight-niyyah-row">
           <Zap size={13} style={{ color: 'var(--accent)' }} />
-          <span className="insight-niyyah-label">Today's focus:</span>
+          <span className="insight-niyyah-label">Today&apos;s focus:</span>
           {niyyahFocus.map((pid) => {
             const p = MAQASID_PILLARS.find((pl) => pl.id === pid);
             if (!p) return null;
@@ -380,7 +395,7 @@ export default function Dashboard() {
       {projects.length === 0 && allTasks.length === 0 && (
         <div className="insight-empty">
           <h2 className="insight-empty__title">
-            Welcome{firstName !== 'there' ? `, ${firstName}` : ''}! Let's get started.
+            Welcome{firstName !== 'there' ? `, ${firstName}` : ''}! Let&apos;s get started.
           </h2>
           <p className="insight-empty__text">
             {isIslamic
@@ -400,24 +415,9 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* ── Maqasid Pillars ── */}
-      <div className="insight-pillars">
-        {MAQASID_PILLARS.map((pillar) => {
-          const subModules = pillar.subModuleIds
-            .map((id) => MODULES.find((m) => m.id === id))
-            .filter(Boolean);
-          return (
-            <PillarCard
-              key={pillar.id}
-              pillar={pillar}
-              subModules={subModules}
-              valuesLayer={valuesLayer}
-              completedOpening={completedOpening}
-              deferred={deferred}
-            />
-          );
-        })}
-      </div>
+      {/* ── Maqasid Progress Strip ── */}
+      <div className="insight-section-label">Maqasid al-Shari&apos;ah</div>
+      <PillarProgressStrip valuesLayer={valuesLayer} />
 
       {/* ── Main grid ── */}
       <div className="insight-grid">
@@ -476,22 +476,29 @@ export default function Dashboard() {
 
         {/* RIGHT COLUMN */}
         <div className="insight-right">
-          {/* EPH + Stats row */}
+          {/* Today + Stats row */}
           <div className="insight-eph-section">
             <div className="insight-eph">
               <div className="insight-eph__label">
-                <span>EPH</span>
+                <span>Today</span>
               </div>
-              <div className="insight-eph__value">{eph}</div>
-              <div className="insight-eph__desc">Events per Hour</div>
+              <div className="insight-eph__value">{todayCompleted}</div>
+              <div className="insight-eph__desc">tasks completed</div>
             </div>
             <div className="insight-stat-cards">
               {STAT_CARDS.map((s) => {
                 const Icon = s.icon;
                 return (
                   <div key={s.key} className="insight-stat-card">
-                    <div className="insight-stat-card__value">{s.value}</div>
-                    <div className="insight-stat-card__label">{s.label}</div>
+                    <div
+                      className="insight-stat-card__value"
+                      style={s.danger ? { color: 'var(--danger)' } : undefined}
+                    >
+                      {s.value}
+                    </div>
+                    <div className="insight-stat-card__label">
+                      <Icon size={10} style={{ marginRight: 3 }} />{s.label}
+                    </div>
                   </div>
                 );
               })}
@@ -526,19 +533,54 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* ── Bottom row: Recommendations + Activity ── */}
+      {/* ── Bottom row: Maqasid Focus + Activity ── */}
+      <div className="insight-section-label">Overview</div>
       <div className="insight-bottom-row">
-        {/* Recommendations */}
+        {/* Maqasid Focus Panel */}
         <div className="insight-recommendations">
           <div className="insight-section-tabs">
-            <span className="insight-section-tab active">Recommendations</span>
-            <span className="insight-section-tab">Read</span>
+            <span className="insight-section-tab active">Maqasid Focus</span>
           </div>
-          <div className="insight-recommendations__body">
-            <div className="insight-recommendations__coming-soon">
-              <Sparkles size={40} style={{ color: 'var(--primary)', opacity: 0.5 }} />
-              <p className="insight-recommendations__cs-title">Personalized advice from BBOS AI is coming soon.</p>
-            </div>
+          <div className="pps-focus">
+            {pillarSummary.length === 0 ? (
+              <div className="insight-empty-line" style={{ textAlign: 'left', padding: 'var(--space-2) 0' }}>
+                No open work across pillars yet —{' '}
+                <Link to="/app/pillar/faith" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>
+                  start with Faith
+                </Link>
+              </div>
+            ) : (
+              <>
+                {pillarSummary.map(({ pillar, openCount, overdueCount }) => {
+                  const isNiyyah = Array.isArray(niyyahFocus) && niyyahFocus.includes(pillar.id);
+                  const label = isIslamic ? pillar.sidebarLabel : pillar.universalLabel;
+                  return (
+                    <div key={pillar.id} className="pps-focus__row">
+                      <div className="pps-focus__accent" style={{ background: pillar.accentColor }} />
+                      <div className="pps-focus__info">
+                        <span className="pps-focus__name">
+                          {isNiyyah && <Zap size={10} style={{ color: 'var(--accent)', marginRight: 3, flexShrink: 0 }} />}
+                          {label}
+                        </span>
+                        {isIslamic && (
+                          <span className="pps-focus__arabic">{pillar.arabicRootAr}</span>
+                        )}
+                      </div>
+                      <span
+                        className="pps-focus__count"
+                        style={overdueCount > 0 ? { color: 'var(--danger)' } : undefined}
+                      >
+                        {openCount} open{overdueCount > 0 ? `, ${overdueCount} overdue` : ''}
+                      </span>
+                      <Link to={`/app/pillar/${pillar.id}`} className="pps-focus__link">
+                        <ChevronRight size={14} />
+                      </Link>
+                    </div>
+                  );
+                })}
+                <p className="pps-focus__hint">Based on open tasks across pillar projects</p>
+              </>
+            )}
           </div>
         </div>
 
@@ -550,7 +592,7 @@ export default function Dashboard() {
               <button
                 className={`insight-act-tab ${activityTab === 'all' ? 'active' : ''}`}
                 onClick={() => setActivityTab('all')}
-              >All other</button>
+              >All</button>
               <button
                 className={`insight-act-tab ${activityTab === 'mine' ? 'active' : ''}`}
                 onClick={() => setActivityTab('mine')}
@@ -568,17 +610,17 @@ export default function Dashboard() {
                   <span className="insight-activity-item__time">{relativeTime(item.time)}</span>
                   <span className="insight-activity-item__text">
                     {item.type === 'task_complete' && (
-                      <><strong>{firstName}</strong> completed the task: <strong>{item.text}</strong></>
+                      <><strong>{firstName}</strong> completed: <strong>{item.text}</strong></>
                     )}
                     {item.type === 'task_create' && (
-                      <><strong>{firstName}</strong> created the task: <strong>{item.text}</strong></>
+                      <><strong>{firstName}</strong> created: <strong>{item.text}</strong></>
                     )}
                     {item.type === 'event' && (
                       <>New event: <strong>{item.text}</strong></>
                     )}
                   </span>
                   <span className="insight-activity-item__project">
-                    in project <strong>{item.project}</strong>.
+                    in <strong>{item.project}</strong>
                   </span>
                 </div>
               </div>

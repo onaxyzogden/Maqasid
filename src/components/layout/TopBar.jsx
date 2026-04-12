@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
-import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation, NavLink, Link } from 'react-router-dom';
+import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useProjectStore } from '../../store/project-store';
 import { useMobile } from '../../hooks/useMobile';
 import ClockInModal from '../people/hr/ClockInModal';
+import '../islamic/AyahBanner.css';
+import '../islamic/DuaSection.css';
 import './TopBar.css';
 
 function getBreadcrumb(pathname, projects) {
@@ -75,6 +77,11 @@ export default function TopBar() {
   const setTooltipsEnabled = useSettingsStore((s) => s.setTooltipsEnabled);
   const setReflectionOpen = useAppStore((s) => s.setReflectionOpen);
   const setDiscussionOpen = useAppStore((s) => s.setDiscussionOpen);
+  const citationsVisible = useAppStore((s) => s.citationsVisible);
+  const ayahBannerData = useAppStore((s) => s.ayahBannerData);
+  const ayahBannerCollapsed = useAppStore((s) => s.ayahBannerCollapsed);
+  const toggleAyahBannerCollapsed = useAppStore((s) => s.toggleAyahBannerCollapsed);
+  const bannerRef = useRef(null);
   const [clockInOpen, setClockInOpen] = useState(false);
 
   const tip = (text) => tooltipsEnabled ? text : undefined;
@@ -84,9 +91,24 @@ export default function TopBar() {
   const isFaithRoute = location.pathname.startsWith('/app/faith') || location.pathname === '/app/pillar/faith';
 
   useEffect(() => {
-    document.body.classList.toggle('faith-banner-active', isFaithRoute);
-    return () => document.body.classList.remove('faith-banner-active');
-  }, [isFaithRoute]);
+    const el = bannerRef.current;
+    if (!el) {
+      document.body.classList.remove('ayah-banner-active');
+      document.documentElement.style.removeProperty('--verse-banner-h');
+      return;
+    }
+    document.body.classList.add('ayah-banner-active');
+    const ro = new ResizeObserver(([entry]) => {
+      const h = entry.borderBoxSize?.[0]?.blockSize ?? entry.contentRect.height;
+      document.documentElement.style.setProperty('--verse-banner-h', `${h}px`);
+    });
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      document.body.classList.remove('ayah-banner-active');
+      document.documentElement.style.removeProperty('--verse-banner-h');
+    };
+  }, [ayahBannerData, ayahBannerCollapsed]);
 
   return (
     <>
@@ -97,7 +119,11 @@ export default function TopBar() {
               <Menu size={20} />
             </button>
           )}
-          {isFaithRoute && <span className="faith-badge faith-badge--module topbar-faith-badge">MODULE I</span>}
+          {isFaithRoute && (
+            <Link to="/app/faith-core" className="faith-badge faith-badge--module topbar-faith-badge topbar-faith-badge--link">
+              MODULE I
+            </Link>
+          )}
           <span className="topbar-breadcrumb">{getBreadcrumb(location.pathname, projects)}</span>
         </div>
         {showWorkTabs && (
@@ -172,17 +198,40 @@ export default function TopBar() {
             </div>
           )}
         </div>
-        {isFaithRoute && (
+        {ayahBannerData && (
           <div
+            ref={bannerRef}
             className="topbar-verse-banner"
-            style={{ right: islamicPanelOpen && !mobile ? `${islamicPanelWidthPx + 28}px` : 0 }}
+            style={{
+              borderLeftColor: ayahBannerData.color + '80',
+              background: ayahBannerData.color + '0d',
+              right: islamicPanelOpen && !mobile ? `${islamicPanelWidthPx + 28}px` : 0,
+            }}
           >
-            <p className="topbar-verse">
-              "Those who have believed and whose hearts are assured by the
-              remembrance of Allah. Unquestionably, by the remembrance of Allah
-              hearts are assured."
-            </p>
-            <cite className="topbar-cite">— Surah Ar-Ra'd 13:28</cite>
+            <button
+              className="ayah-banner__header"
+              onClick={toggleAyahBannerCollapsed}
+              aria-expanded={!ayahBannerCollapsed}
+            >
+              <span className="ayah-banner__label" style={{ color: ayahBannerData.color }}>
+                Opening Reflection
+              </span>
+              <span className="ayah-banner__source">
+                {ayahBannerData.source}
+                {citationsVisible && <span className="dua-citation-badge">[1]</span>}
+              </span>
+              <span className="ayah-banner__chevron">
+                {ayahBannerCollapsed ? <ChevronDown size={13} /> : <ChevronUp size={13} />}
+              </span>
+            </button>
+            {!ayahBannerCollapsed && (
+              <div className="ayah-banner__body">
+                <p className="ayah-banner__arabic">{ayahBannerData.arabic}</p>
+                <p className="ayah-banner__translation" style={{ borderLeftColor: ayahBannerData.color + '50' }}>
+                  {ayahBannerData.translation}
+                </p>
+              </div>
+            )}
           </div>
         )}
       </header>

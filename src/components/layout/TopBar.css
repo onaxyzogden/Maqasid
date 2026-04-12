@@ -93,18 +93,27 @@
   background: var(--accent-bg);
 }
 
-:root { --verse-banner-h: 75px; }
-
 .topbar { position: relative; }
 
-.faith-banner-active .app-main {
-  padding-top: calc(var(--space-6) + var(--verse-banner-h));
+.ayah-banner-active .app-main {
+  padding-top: calc(var(--space-6) + var(--verse-banner-h, 0px));
+  transition: padding-top 200ms ease;
 }
 
 .topbar-faith-badge {
   font-size: 9px;
   padding: 0.25rem 0.6rem;
   margin: 0;
+}
+
+.topbar-faith-badge--link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 150ms ease, filter 150ms ease;
+}
+.topbar-faith-badge--link:hover {
+  opacity: 0.8;
+  filter: brightness(0.92);
 }
 
 .topbar-verse-banner {
@@ -114,34 +123,11 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-6);
-  background: var(--surface);
+  align-items: flex-start;
+  border-left: 3px solid;
   border-bottom: 1px solid var(--border);
   z-index: 9;
-}
-
-.topbar-verse {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.8rem;
-  font-style: italic;
-  color: var(--text3);
-  line-height: 1.5;
-  margin: 0;
-  text-align: center;
-}
-
-.topbar-cite {
-  font-style: normal;
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text3);
-  opacity: 0.7;
-  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 767px) {

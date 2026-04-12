@@ -1,23 +1,20 @@
 import { useThresholdStore } from '@store/threshold-store';
-import { useProjectStore } from '@store/project-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
-import PillarBoard from '@components/work/PillarBoard';
-import { ENVIRONMENT_DASHBOARD_DATA } from '@data/islamic/pillar-dashboard-data';
+import PillarLevelPage from '@pages/shared/PillarLevelPage';
+import { ENVIRONMENT_PILLARS, ENVIRONMENT_LEVEL_ROUTES, ENVIRONMENT_STORAGE_KEY, ENVIRONMENT_ENSURE_PROJECTS, ENVIRONMENT_LEVEL_DESCRIPTIONS } from './EnvironmentCorePage';
 
 export default function EnvironmentResourcePage() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['env-resource']);
-  const ensureEnvironmentProjects = useProjectStore((s) => s.ensureEnvironmentProjects);
-
   if (!hasCompletedOpening) return <CeremonyGate moduleId="env-resource" />;
-
   return (
-    <PillarBoard
+    <PillarLevelPage
       pillarKey="resource"
-      pillarName="RESOURCE CONSUMPTION"
-      pillarColor="#22d3ee"
-      modulePrefix="environment"
-      ensureProjects={ensureEnvironmentProjects}
-      dashboardData={ENVIRONMENT_DASHBOARD_DATA.resource}
+      boardPrefix="environment"
+      storageKey={ENVIRONMENT_STORAGE_KEY}
+      ensureProjects={ENVIRONMENT_ENSURE_PROJECTS}
+      pillars={ENVIRONMENT_PILLARS}
+      levelRoutes={ENVIRONMENT_LEVEL_ROUTES}
+      levelDescriptions={ENVIRONMENT_LEVEL_DESCRIPTIONS}
     />
   );
 }

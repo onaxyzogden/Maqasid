@@ -7,6 +7,7 @@ import OverviewCards from '@components/shared/OverviewCards';
 import MaqasidTable from '@components/shared/MaqasidTable';
 import Office from '@pages/modules/Office';
 import { OVERVIEW, MAQASID } from '@data/module-overviews/family-overview';
+import { useAyahBanner } from '@hooks/useAyahBanner';
 
 const GROUNDING =
   'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 30:21, 66:6, 4:1.';
@@ -20,6 +21,7 @@ export default function FamilyPage() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['family']);
   const [mainTab, setMainTab] = useState('content');
   const [view, setView] = useState('overview');
+  useAyahBanner('ummah_family');
 
   if (!hasCompletedOpening) {
     return <CeremonyGate moduleId="family" />;

@@ -6,6 +6,7 @@ import ViewToggle from '@components/shared/ViewToggle';
 import OverviewCards from '@components/shared/OverviewCards';
 import MaqasidTable from '@components/shared/MaqasidTable';
 import { OVERVIEW, MAQASID } from '@data/module-overviews/neighbors-overview';
+import { useAyahBanner } from '@hooks/useAyahBanner';
 
 const GROUNDING =
   'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayah 4:36. Hadith: Sunan al-Tirmidhi 1944.';
@@ -13,6 +14,7 @@ const GROUNDING =
 export default function Neighbors() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['neighbors']);
   const [view, setView] = useState('overview');
+  useAyahBanner('ummah_neighbors');
 
   if (!hasCompletedOpening) {
     return <CeremonyGate moduleId="neighbors" />;

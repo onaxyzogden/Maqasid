@@ -4,6 +4,7 @@ import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useMobile } from '../../hooks/useMobile';
+import { useCitations } from '../../hooks/useCitations';
 import { MODULES } from '../../data/modules';
 import { getModuleData, ONGOING_DUA, ONGOING_UNIVERSAL } from '@data/islamic/islamic-data';
 import { getPillarForModule, getPillarLabel } from '../../data/maqasid';
@@ -12,6 +13,7 @@ import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import AttributeCard from './AttributeCard';
 import DuaSection from './DuaSection';
 import ReadinessCheck from './ReadinessCheck';
+import ReferenceList from './ReferenceList';
 import PrayerTime from './PrayerTime';
 import './IslamicPanel.css';
 
@@ -45,6 +47,7 @@ export default function IslamicPanel() {
   const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
   const completedOpening = useThresholdStore((s) => s.completedOpening);
   const completedClosing = useThresholdStore((s) => s.completedClosing);
+  const toggleCitations = useAppStore((s) => s.toggleCitations);
   const mobile = useMobile();
 
   const mod = MODULES.find((m) => m.id === activeModule);
@@ -64,6 +67,12 @@ export default function IslamicPanel() {
   const stageModeColor = bbosLayer?.color || null;
   const effectiveData = bbosData || resolvedData;
   const ceremonyKey = bbosStage ? `bbos:${bbosStage.id}` : activeModule;
+
+  // Citation collection — only in Islamic mode, only for modules with dua sources
+  const { citations, citationMap, citationsVisible } = useCitations(
+    isIslamic ? [effectiveData?.dua?.source, ONGOING_DUA?.source] : []
+  );
+  const hasCitations = isIslamic && citations.length > 0;
 
   const hasOpenedModule = !!completedOpening[ceremonyKey];
   const hasClosedModule = !!completedClosing[ceremonyKey];
@@ -86,6 +95,16 @@ export default function IslamicPanel() {
           >
             {isIslamic ? 'Islamic' : 'Universal'}
           </button>
+          {hasCitations && (
+            <button
+              className={`il-citations-btn ${citationsVisible ? 'active' : ''}`}
+              onClick={toggleCitations}
+              title={citationsVisible ? 'Hide citations' : 'View citations'}
+            >
+              <span className="il-citations-label">Cite</span>
+              <span className="il-citations-badge">{citations.length}</span>
+            </button>
+          )}
           <button className="il-close" onClick={toggleIslamicPanel} title="Close panel">
             <X size={16} />
           </button>
@@ -193,7 +212,12 @@ export default function IslamicPanel() {
               defaultOpen={true}
             >
               {isIslamic ? (
-                <DuaSection dua={effectiveData.dua} color={bbosStage ? stageModeColor : accentColor} />
+                <DuaSection
+                  dua={effectiveData.dua}
+                  color={bbosStage ? stageModeColor : accentColor}
+                  citationIndex={citationMap[effectiveData.dua?.source]}
+                  showCitations={citationsVisible}
+                />
               ) : (
                 <div className="il-mindfulness">
                   <p>{effectiveData.mindfulness}</p>
@@ -236,7 +260,12 @@ export default function IslamicPanel() {
               color={bbosStage ? stageModeColor : accentColor}
             >
               {isIslamic ? (
-                <DuaSection dua={ONGOING_DUA} color={bbosStage ? stageModeColor : accentColor} />
+                <DuaSection
+                  dua={ONGOING_DUA}
+                  color={bbosStage ? stageModeColor : accentColor}
+                  citationIndex={citationMap[ONGOING_DUA?.source]}
+                  showCitations={citationsVisible}
+                />
               ) : (
                 <div className="il-mindfulness">
                   <p>{ONGOING_UNIVERSAL.meaning}</p>
@@ -262,7 +291,10 @@ export default function IslamicPanel() {
             <p>No content available for this module.</p>
           </div>
         )}
+
       </div>
+
+      <ReferenceList citations={citations} visible={citationsVisible && hasCitations} />
     </aside>
   );
 

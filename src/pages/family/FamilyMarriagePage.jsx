@@ -1,23 +1,20 @@
 import { useThresholdStore } from '@store/threshold-store';
-import { useProjectStore } from '@store/project-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
-import PillarBoard from '@components/work/PillarBoard';
-import { FAMILY_DASHBOARD_DATA } from '@data/islamic/pillar-dashboard-data';
+import PillarLevelPage from '@pages/shared/PillarLevelPage';
+import { FAMILY_PILLARS, FAMILY_LEVEL_ROUTES, FAMILY_STORAGE_KEY, FAMILY_ENSURE_PROJECTS, FAMILY_LEVEL_DESCRIPTIONS } from './FamilyCorePage';
 
 export default function FamilyMarriagePage() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['family-marriage']);
-  const ensureFamilyProjects = useProjectStore((s) => s.ensureFamilyProjects);
-
   if (!hasCompletedOpening) return <CeremonyGate moduleId="family-marriage" />;
-
   return (
-    <PillarBoard
+    <PillarLevelPage
       pillarKey="marriage"
-      pillarName="FOUNDATIONS OF MARRIAGE"
-      pillarColor="#f472b6"
-      modulePrefix="family"
-      ensureProjects={ensureFamilyProjects}
-      dashboardData={FAMILY_DASHBOARD_DATA.marriage}
+      boardPrefix="family"
+      storageKey={FAMILY_STORAGE_KEY}
+      ensureProjects={FAMILY_ENSURE_PROJECTS}
+      pillars={FAMILY_PILLARS}
+      levelRoutes={FAMILY_LEVEL_ROUTES}
+      levelDescriptions={FAMILY_LEVEL_DESCRIPTIONS}
     />
   );
 }

@@ -4,6 +4,7 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { safeGet, safeSet, safeGetJSON, safeRemove } from '../../services/storage';
 import ProjectBoard from './ProjectBoard';
+import { useAyahBanner } from '../../hooks/useAyahBanner';
 import './PillarBoard.css';
 
 const TABS = [
@@ -351,6 +352,7 @@ export default function PillarBoard({ pillarKey, pillarName, pillarColor, module
 
   const boardId = `${modulePrefix}_${pillarKey}_${activeTab}`;
   const project = getProject(boardId);
+  useAyahBanner(`${modulePrefix}_${pillarKey}`);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>

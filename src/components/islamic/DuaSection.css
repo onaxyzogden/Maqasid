@@ -45,3 +45,14 @@
   color: var(--text3);
   margin-top: var(--space-2);
 }
+
+.dua-citation-badge {
+  display: inline;
+  margin-left: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  vertical-align: super;
+  line-height: 1;
+}

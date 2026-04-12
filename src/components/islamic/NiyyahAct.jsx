@@ -1,7 +1,9 @@
 import { Sun } from 'lucide-react';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
+import { useCitations } from '../../hooks/useCitations';
 import DuaSection from './DuaSection';
+import ReferenceList from './ReferenceList';
 import IslamicTerm from '../shared/IslamicTerm';
 import './NiyyahAct.css';
 
@@ -22,6 +24,9 @@ export default function NiyyahAct() {
   const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
+  const { citations, citationMap, citationsVisible } = useCitations(
+    isIslamic ? [MORNING_DUA.source] : []
+  );
 
   return (
     <div className="niyyah-overlay">
@@ -51,7 +56,7 @@ export default function NiyyahAct() {
                 <p className="niyyah-bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
                 <p className="niyyah-bismillah-en">In the name of Allah, the Most Gracious, the Most Merciful</p>
               </div>
-              <DuaSection dua={MORNING_DUA} color="var(--accent)" />
+              <DuaSection dua={MORNING_DUA} color="var(--accent)" citationIndex={citationMap[MORNING_DUA.source]} showCitations={citationsVisible} />
             </>
           ) : (
             <div className="niyyah-mindfulness">
@@ -59,6 +64,8 @@ export default function NiyyahAct() {
             </div>
           )}
         </div>
+
+        <ReferenceList citations={citations} visible={citationsVisible && isIslamic} />
 
         {/* Footer */}
         <div className="niyyah-footer">

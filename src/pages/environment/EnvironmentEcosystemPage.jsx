@@ -1,23 +1,20 @@
 import { useThresholdStore } from '@store/threshold-store';
-import { useProjectStore } from '@store/project-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
-import PillarBoard from '@components/work/PillarBoard';
-import { ENVIRONMENT_DASHBOARD_DATA } from '@data/islamic/pillar-dashboard-data';
+import PillarLevelPage from '@pages/shared/PillarLevelPage';
+import { ENVIRONMENT_PILLARS, ENVIRONMENT_LEVEL_ROUTES, ENVIRONMENT_STORAGE_KEY, ENVIRONMENT_ENSURE_PROJECTS, ENVIRONMENT_LEVEL_DESCRIPTIONS } from './EnvironmentCorePage';
 
 export default function EnvironmentEcosystemPage() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['env-ecosystem']);
-  const ensureEnvironmentProjects = useProjectStore((s) => s.ensureEnvironmentProjects);
-
   if (!hasCompletedOpening) return <CeremonyGate moduleId="env-ecosystem" />;
-
   return (
-    <PillarBoard
+    <PillarLevelPage
       pillarKey="ecosystem"
-      pillarName="ECOSYSTEM & BIODIVERSITY"
-      pillarColor="#4ade80"
-      modulePrefix="environment"
-      ensureProjects={ensureEnvironmentProjects}
-      dashboardData={ENVIRONMENT_DASHBOARD_DATA.ecosystem}
+      boardPrefix="environment"
+      storageKey={ENVIRONMENT_STORAGE_KEY}
+      ensureProjects={ENVIRONMENT_ENSURE_PROJECTS}
+      pillars={ENVIRONMENT_PILLARS}
+      levelRoutes={ENVIRONMENT_LEVEL_ROUTES}
+      levelDescriptions={ENVIRONMENT_LEVEL_DESCRIPTIONS}
     />
   );
 }

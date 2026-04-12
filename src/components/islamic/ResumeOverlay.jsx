@@ -1,7 +1,9 @@
 import { useSettingsStore } from '../../store/settings-store';
+import { useCitations } from '../../hooks/useCitations';
 import { MODULES } from '../../data/modules';
 import { getModuleData } from '@data/islamic/islamic-data';
 import DuaSection from './DuaSection';
+import ReferenceList from './ReferenceList';
 import './ResumeOverlay.css';
 
 export default function ResumeOverlay({ moduleId, onDismiss }) {
@@ -10,13 +12,17 @@ export default function ResumeOverlay({ moduleId, onDismiss }) {
   const mod = MODULES.find((m) => m.id === moduleId);
   const data = getModuleData(moduleId, valuesLayer);
 
-  if (!data) return null;
-
   // Build a dua object with the resume title
-  const resumeDua = isIslamic && data.dua ? {
+  const resumeDua = isIslamic && data?.dua ? {
     ...data.dua,
     title: data.dua.resumeTitle || data.dua.title,
   } : null;
+
+  const { citations, citationMap, citationsVisible } = useCitations(
+    isIslamic && resumeDua ? [resumeDua.source] : []
+  );
+
+  if (!data) return null;
 
   return (
     <div className="resume-overlay">
@@ -31,13 +37,15 @@ export default function ResumeOverlay({ moduleId, onDismiss }) {
 
         <div className="resume-content">
           {isIslamic && resumeDua ? (
-            <DuaSection dua={resumeDua} color="var(--accent)" />
+            <DuaSection dua={resumeDua} color="var(--accent)" citationIndex={citationMap[resumeDua?.source]} showCitations={citationsVisible} />
           ) : (
             <div className="resume-mindfulness">
               <p>{data.resumeMindfulness || data.mindfulness}</p>
             </div>
           )}
         </div>
+
+        <ReferenceList citations={citations} visible={citationsVisible && isIslamic} />
 
         <button className="resume-btn" onClick={onDismiss}>
           {isIslamic ? 'I am present' : "I'm here"}

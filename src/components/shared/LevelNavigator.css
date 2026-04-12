@@ -1,0 +1,259 @@
+/* ── Level Navigator — generic carousel-style level switcher ── */
+
+.fln {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-4);
+  margin-bottom: 4rem;
+  min-height: 300px;
+}
+
+/* ── Side panels (prev / next) ── */
+.fln__side {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  opacity: 0.45;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  min-width: 0;
+}
+
+.fln__side--active {
+  cursor: pointer;
+}
+
+.fln__side--active:hover {
+  opacity: 0.85;
+  background: var(--surface);
+}
+
+.fln__side--left  { flex-direction: row; justify-content: flex-end; }
+.fln__side--right { flex-direction: row; justify-content: flex-start; }
+
+.fln__side-empty { flex: 1; }
+
+.fln__side-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.fln__side-text--right { text-align: left; }
+
+.fln__side-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: 'Space Grotesk', sans-serif;
+  white-space: nowrap;
+}
+
+.fln__side-subtitle {
+  font-size: 0.6rem;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+  white-space: nowrap;
+}
+
+.fln__side-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fln__chevron { flex-shrink: 0; }
+
+/* ── Center panel (active level) ── */
+.fln__center {
+  flex: 2.8;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8) var(--space-8) var(--space-3) var(--space-8);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  min-width: 0;
+}
+
+.fln__center-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.fln__center-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.fln__center-subtitle {
+  font-size: 0.62rem;
+  color: var(--text3);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.fln__center-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  margin: 0 0 var(--space-3);
+  line-height: 1.1;
+}
+
+.fln__center-desc {
+  font-size: 0.88rem;
+  color: var(--text2);
+  line-height: 1.55;
+  margin-bottom: var(--space-6);
+}
+
+/* ── Segmented progress bar ── */
+.fln__segments {
+  display: flex;
+  gap: 8px;
+}
+
+/* Per-pillar column */
+.fln__segment-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  background: var(--bg2, var(--surface));
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 6px 6px;
+  cursor: pointer;
+}
+
+/* Active column: fill with the segment color */
+.fln__segment-col--current {
+  background: var(--seg-color, var(--primary));
+  border-color: var(--seg-color, var(--primary));
+}
+
+/* Task sub-segment bar */
+.fln__segment-bar {
+  width: 100%;
+  height: 14px;
+  display: flex;
+  gap: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fln__segment-col--current .fln__segment-bar {
+  outline: none;
+}
+
+/* Empty subsegments inside active column appear as translucent white blocks */
+.fln__segment-col--current .fln__subseg--empty {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Individual task sub-segment */
+.fln__subseg {
+  flex: 1;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: filter 0.15s ease, background 0.4s ease;
+}
+
+.fln__subseg:hover { filter: brightness(0.82); }
+
+.fln__subseg--empty {
+  cursor: default;
+  background: var(--bg3);
+}
+
+/* Pillar name link */
+.fln__segment-nav {
+  font-size: 0.58rem;
+  color: var(--text3);
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.fln__segment-nav:hover { color: var(--text); }
+
+.fln__segment-col--current .fln__segment-nav {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+}
+
+/* ── Compact modifier (level overview pages) ── */
+.fln--compact {
+  margin-bottom: var(--space-6);
+  min-height: unset;
+}
+
+/* Stacked layout — toggled by JS when labels approach bar width */
+.fln--stacked {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.fln--stacked .fln__side--left {
+  grid-column: 1;
+  grid-row: 1;
+  justify-content: flex-start;
+}
+
+.fln--stacked .fln__side--right {
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: flex-end;
+}
+
+.fln--stacked .fln__center {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  /* Both nav panels side-by-side above the center card */
+  .fln {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+  .fln__side--left  { grid-column: 1; grid-row: 1; }
+  .fln__side--right { grid-column: 2; grid-row: 1; }
+  .fln__center      { grid-column: 1 / -1; grid-row: 2; }
+  .fln__side {
+    flex-direction: row;
+    justify-content: center;
+    min-height: unset;
+    padding: var(--space-4);
+  }
+  .fln__center {
+    padding: var(--space-6);
+  }
+}

@@ -6,6 +6,7 @@ import ViewToggle from '@components/shared/ViewToggle';
 import OverviewCards from '@components/shared/OverviewCards';
 import MaqasidTable from '@components/shared/MaqasidTable';
 import { OVERVIEW, MAQASID } from '@data/module-overviews/community-overview';
+import { useAyahBanner } from '@hooks/useAyahBanner';
 
 const GROUNDING =
   'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 3:110, 49:10, 5:2.';
@@ -13,6 +14,7 @@ const GROUNDING =
 export default function Community() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['community']);
   const [view, setView] = useState('overview');
+  useAyahBanner('ummah_community');
 
   if (!hasCompletedOpening) {
     return <CeremonyGate moduleId="community" />;

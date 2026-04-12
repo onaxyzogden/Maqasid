@@ -17,6 +17,18 @@ import SourcesPage from '@pages/islamic/SourcesPage';
 import FaithCorePage from '@pages/faith/FaithCorePage';
 import FaithGrowthPage from '@pages/faith/FaithGrowthPage';
 import FaithExcellencePage from '@pages/faith/FaithExcellencePage';
+import LifeCorePage from '@pages/life/LifeCorePage';
+import LifeGrowthPage from '@pages/life/LifeGrowthPage';
+import LifeExcellencePage from '@pages/life/LifeExcellencePage';
+import IntellectCorePage from '@pages/intellect/IntellectCorePage';
+import IntellectGrowthPage from '@pages/intellect/IntellectGrowthPage';
+import IntellectExcellencePage from '@pages/intellect/IntellectExcellencePage';
+import FamilyCorePage from '@pages/family/FamilyCorePage';
+import FamilyGrowthPage from '@pages/family/FamilyGrowthPage';
+import FamilyExcellencePage from '@pages/family/FamilyExcellencePage';
+import EnvironmentCorePage from '@pages/environment/EnvironmentCorePage';
+import EnvironmentGrowthPage from '@pages/environment/EnvironmentGrowthPage';
+import EnvironmentExcellencePage from '@pages/environment/EnvironmentExcellencePage';
 import FaithShahadaPage from '@pages/faith/FaithShahadaPage';
 import FaithSalahPage from '@pages/faith/FaithSalahPage';
 import FaithZakahPage from '@pages/faith/FaithZakahPage';
@@ -118,6 +130,18 @@ export default function App() {
         <Route path="faith-core" element={<FaithCorePage />} />
         <Route path="faith-growth" element={<FaithGrowthPage />} />
         <Route path="faith-excellence" element={<FaithExcellencePage />} />
+        <Route path="life-core" element={<LifeCorePage />} />
+        <Route path="life-growth" element={<LifeGrowthPage />} />
+        <Route path="life-excellence" element={<LifeExcellencePage />} />
+        <Route path="intellect-core" element={<IntellectCorePage />} />
+        <Route path="intellect-growth" element={<IntellectGrowthPage />} />
+        <Route path="intellect-excellence" element={<IntellectExcellencePage />} />
+        <Route path="family-core" element={<FamilyCorePage />} />
+        <Route path="family-growth" element={<FamilyGrowthPage />} />
+        <Route path="family-excellence" element={<FamilyExcellencePage />} />
+        <Route path="environment-core" element={<EnvironmentCorePage />} />
+        <Route path="environment-growth" element={<EnvironmentGrowthPage />} />
+        <Route path="environment-excellence" element={<EnvironmentExcellencePage />} />
         <Route path="faith-shahada" element={<FaithShahadaPage />} />
         <Route path="faith-salah" element={<FaithSalahPage />} />
         <Route path="faith-zakah" element={<FaithZakahPage />} />
@@ -146,11 +170,11 @@ export default function App() {
         <Route path="env-sourcing" element={<EnvironmentSourcingPage />} />
         <Route path="collective" element={<CollectivePage />} />
         <Route path="pillar/faith" element={<FaithCorePage />} />
-        <Route path="pillar/life" element={<LifeDashboard />} />
-        <Route path="pillar/intellect" element={<IntellectDashboard />} />
-        <Route path="pillar/family" element={<FamilyDashboard />} />
+        <Route path="pillar/life" element={<LifeCorePage />} />
+        <Route path="pillar/intellect" element={<IntellectCorePage />} />
+        <Route path="pillar/family" element={<FamilyCorePage />} />
         <Route path="pillar/wealth" element={<WealthDashboard />} />
-        <Route path="pillar/environment" element={<EnvironmentDashboard />} />
+        <Route path="pillar/environment" element={<EnvironmentCorePage />} />
         <Route path="pillar/ummah" element={<UmmahDashboard />} />
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />
         <Route path="settings" element={<Settings />} />

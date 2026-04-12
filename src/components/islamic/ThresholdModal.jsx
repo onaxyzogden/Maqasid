@@ -11,8 +11,10 @@ import { getPillarForModule } from '../../data/maqasid';
 import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { getStageLayer } from '../../data/bbos/bbos-pipeline';
 import { useSettingsStore } from '../../store/settings-store';
+import { useCitations } from '../../hooks/useCitations';
 import AttributeCard from './AttributeCard';
 import DuaSection from './DuaSection';
+import ReferenceList from './ReferenceList';
 import ReadinessCheck from './ReadinessCheck';
 import IslamicTerm from '../shared/IslamicTerm';
 import './ThresholdModal.css';
@@ -62,8 +64,7 @@ export default function ThresholdModal({ type }) {
 
   const isOpening = type === 'opening';
   const moduleId = isOpening ? openingModuleId : closingModuleId;
-
-  if (!moduleId) return null;
+  const isIslamic = valuesLayer === 'islamic';
 
   // Detect BBOS stage ceremony keys (e.g. 'bbos:FND')
   const isBbosStage = moduleId?.startsWith('bbos:');
@@ -72,7 +73,6 @@ export default function ThresholdModal({ type }) {
 
   const mod = isBbosStage ? null : MODULES.find((m) => m.id === moduleId);
   const rawData = isBbosStage ? bbosStageData : getModuleData(moduleId, valuesLayer);
-  const isIslamic = valuesLayer === 'islamic';
   const accentColor = 'var(--accent)';
 
   // ── Pillar fallback — sub-modules (e.g. faith-zakah) fall back to pillar data ─
@@ -108,6 +108,19 @@ export default function ThresholdModal({ type }) {
   const pauseAyah = (hasInteractiveReadiness && isIslamic && readinessKey !== '111111')
     ? lookupReadinessAyahByKey(readinessAyatKey, readinessKey)
     : null;
+
+  // ── Citation collection for all ceremony sources ────────────────────────────
+  const { citations, citationMap, citationsVisible } = useCitations(
+    isIslamic ? [
+      isOpening ? data?.dua?.source : null,
+      data?.closingDua?.source,
+      ONGOING_DUA.source,
+      pauseAyah?.source,
+      ISTIRJA.source,
+    ] : []
+  );
+
+  if (!moduleId) return null;
 
   // Dynamic steps — Pause inserts between Readiness and Confirm when triggered
   const baseSteps = isOpening
@@ -293,7 +306,7 @@ export default function ThresholdModal({ type }) {
               {currentStepName === 'Dua' && data && (
                 <div className="thr-step-content fade-in">
                   {isIslamic ? (
-                    <DuaSection dua={isOpening ? data.dua : (data.closingDua || ONGOING_DUA)} color={accentColor} />
+                    <DuaSection dua={isOpening ? data.dua : (data.closingDua || ONGOING_DUA)} color={accentColor} citationIndex={citationMap[(isOpening ? data.dua : (data.closingDua || ONGOING_DUA))?.source]} showCitations={citationsVisible} />
                   ) : (
                     <div className="il-mindfulness">
                       <p>{isOpening ? data.mindfulness : (data.closingMindfulness || 'Take a moment to reflect on your session and what you accomplished.')}</p>
@@ -340,7 +353,7 @@ export default function ThresholdModal({ type }) {
               {currentStepName === 'Closing Dua' && data && (
                 <div className="thr-step-content fade-in">
                   {isIslamic ? (
-                    <DuaSection dua={data.closingDua || ONGOING_DUA} color={accentColor} />
+                    <DuaSection dua={data.closingDua || ONGOING_DUA} color={accentColor} citationIndex={citationMap[(data.closingDua || ONGOING_DUA)?.source]} showCitations={citationsVisible} />
                   ) : (
                     <div className="il-mindfulness">
                       <p>{data.closingMindfulness || 'Take a moment to reflect on your session and what you accomplished.'}</p>
@@ -364,7 +377,12 @@ export default function ThresholdModal({ type }) {
                         <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>
                           {pauseAyah.translation}
                         </p>
-                        <p className="dua-source">{pauseAyah.source}</p>
+                        <p className="dua-source">
+                          {pauseAyah.source}
+                          {citationsVisible && citationMap[pauseAyah.source] != null && (
+                            <span className="dua-citation-badge">[{citationMap[pauseAyah.source]}]</span>
+                          )}
+                        </p>
                       </div>
                     </div>
                   )}
@@ -375,7 +393,12 @@ export default function ThresholdModal({ type }) {
                         <p className="dua-arabic arabic">{ISTIRJA.arabic}</p>
                         <p className="dua-trans">{ISTIRJA.trans}</p>
                         <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{ISTIRJA.meaning}</p>
-                        <p className="dua-source">{ISTIRJA.source}</p>
+                        <p className="dua-source">
+                          {ISTIRJA.source}
+                          {citationsVisible && citationMap[ISTIRJA.source] != null && (
+                            <span className="dua-citation-badge">[{citationMap[ISTIRJA.source]}]</span>
+                          )}
+                        </p>
                       </div>
                       <p className="thr-pause-note">{ISTIRJA.note}</p>
                     </div>
@@ -481,6 +504,7 @@ export default function ThresholdModal({ type }) {
                 </>
               )}
             </div>
+            <ReferenceList citations={citations} visible={citationsVisible && isIslamic} />
           </>
         )}
       </div>
