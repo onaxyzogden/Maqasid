@@ -9,7 +9,7 @@ sources: 0
 
 # Maqasid OS
 
-Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-page application with Zustand 5 state management, React Router 7 navigation, and Vite 8 bundling. It manages work, money, people, and operations across the Seven Maqasid — Faith, Life, Intellect, Family, Wealth, Environment, and Ummah — providing module dashboards with a three-tier detail design, [[bbos-pipeline]] integration, and Islamic UI components such as CeremonyGate, ReadinessCheck, and PrayerOverlay. The project uses a CONTEXT.md routing hierarchy for developer orientation and is deployed via GitHub Pages. The monorepo now includes `website/` ([[ogden-hub]] subtree) and `atlas/` ([[atlas]] git submodule). Its knowledge graph, built via [[graphify]], contains 882 nodes, 1,438 edges, and 47 communities.
+Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-page application with Zustand 5 state management, React Router 7 navigation, and Vite 8 bundling. It manages work, money, people, and operations across the Seven Maqasid — Faith, Life, Intellect, Family, Wealth, Environment, and Ummah — providing module dashboards with a three-tier detail design, [[bbos-pipeline]] integration, and Islamic UI components such as CeremonyGate, ReadinessCheck, and PrayerOverlay. The project uses a CONTEXT.md routing hierarchy for developer orientation and is deployed via GitHub Pages. The monorepo now includes `website/` ([[ogden-hub]] subtree) and `atlas/` ([[atlas]] git submodule). Its knowledge graph, built via [[graphify]], contains 1,012 nodes, 1,517 edges, and 126 communities.
 
 ## Key Facts
 
@@ -20,7 +20,7 @@ Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-p
 - **Context system:** CONTEXT.md routing hierarchy — root routes to domain-level files before source is touched
 - **Deployment:** GitHub Pages
 - **Monorepo structure:** `src/` (app), `website/` ([[ogden-hub]]), `atlas/` ([[atlas]])
-- **Knowledge graph:** 882 nodes, 1,438 edges, 47 communities via [[graphify]]
+- **Knowledge graph:** 1,012 nodes, 1,517 edges, 126 communities via [[graphify]]
 
 ## Current Status
 
@@ -41,7 +41,7 @@ Active development on V2.1. 35-finding technical audit remediation completed acr
 
 - Will the three monorepo segments (app, website, atlas) share any dependencies or remain fully isolated?
 - What is the deployment strategy for atlas.ogden.ag vs the main GitHub Pages site?
-- Should the knowledge graph be regenerated after the audit remediation completes?
+- ~~Should the knowledge graph be regenerated after the audit remediation completes?~~ Done — regenerated 2026-04-11 (1,012 nodes, 126 communities)
 - When will the dual contact stores (contacts_v2 / crm_contacts) be unified? (see ADR: [[dual-contact-stores]])
 
 ## History

@@ -7,6 +7,18 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-11] graphify | Knowledge graph regeneration (post-audit)
+
+Regenerated graphify knowledge graph after completing all 35 audit findings across 8 sprints.
+
+- **Scope:** `src/ + wiki/ + docs/ + tasks/` (314 files, ~295K words)
+- **Graph:** 1,012 nodes, 1,517 edges, 8 hyperedges, 126 communities (25 labeled)
+- **Token reduction:** 79.7% (383K raw → 78K graph tokens)
+- **God nodes:** threshold-store (93 edges, bridges 9 communities), project-store (79), contacts-store (49), task-store (34), settings-store (27)
+- **Key insight:** threshold-store centrality is intentional (Islamic ceremony gating is cross-cutting), but 63/93 edges are per-page imports that could be lifted to a single router-level `<CeremonyGuard>` wrapper
+- **Outputs:** `graphify-out/graph.html`, `graphify-out/graph.json`, `graphify-out/GRAPH_REPORT.md`
+- Updated `wiki/entities/maqasid-os.md` with new graph stats; resolved open question on graph regeneration
+
 ## [2026-04-11] implement | Sprint 8 — Documentation & Git Hygiene (#26, #27, #28, #31)
 
 Final sprint of the 35-finding technical audit remediation.
