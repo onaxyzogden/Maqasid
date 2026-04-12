@@ -2,7 +2,7 @@
 title: "BBOS Pipeline"
 type: entity
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-11
 tags: [bbos, pipeline, islamic-business, covenant, stages, barakah, truth-safe, two-factory]
 sources: 4
 ---
@@ -18,7 +18,7 @@ The Barakah Business Operating System (BBOS) v2.4 is a fully documented 8-stage 
 - **Stage count:** 8 (plus Patch Plan sub-stages 00A and 01B)
 - **Core paradigm:** Direct-Injection Auto-Sequence for truth-safe business formation
 - **Source priority:** Stage Canon Index (highest) > Master Operating Protocol
-- **UI components:** BbosPipelineHeader (progress), BbosTaskPanel (stage tasks), BbosRoleBadge, BbosRolePicker
+- **UI components:** BbosFullDashboard (unified stage view), BbosPipelineHeader (progress + sub-stage indicators), BbosTaskPanel (stage tasks), BbosRoleBadge, BbosRolePicker
 - **Integration:** Module within [[maqasid-os]] at `src/components/bbos/`
 - **Marketing:** Landing page at `website/bbos/` on [[ogden-hub]]
 - **Governing philosophy:** [[covenant-architecture]]
@@ -68,7 +68,7 @@ This separation enforces operator sovereignty over all deliverables. The AI rese
 
 ## Current Status
 
-Pipeline header and task panel components implemented in [[maqasid-os]]. Stage progression UI functional. Role-based access via BbosRoleBadge and BbosRolePicker in place. Marketing section live on [[ogden-hub]]. The v2.4 operational framework (Two-Factory model, G-Labeling, Assembly Gate, Patch Plan sub-stages) is fully documented but UI representation of these mechanics may still need alignment with the documented protocol.
+Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11). Two-Factory visual split implemented: Research Factory (S/V/FP prefixes) and Asset Factory (A/AF/IC) render as distinct sections with factory headers and tinted backgrounds. Assembly Gate bar between factories shows CLEARED (green) or LOCKED (amber) based on Research task completion; Asset tasks get viewOnly when locked. G-Label picker now shows G1-G4 descriptions inline. Pipeline header shows sub-stage progress indicators (✓/◐/○). Dynamic scoring via StageScoreCard (5 signals × 5 pts → % → verdict). Role-based access via BbosRoleBadge and BbosRolePicker. Marketing section live on [[ogden-hub]].
 
 **DashboardTaskCard** (`src/components/shared/DashboardTaskCard.jsx`) — unified card component used by both BbosFullDashboard and PillarLevelDashboard. Whole card is clickable; dynamically renders subtask bars, field progress, due dates, tags, purpose text, and BBOS custom renderers via children prop.
 
@@ -88,12 +88,14 @@ Pipeline header and task panel components implemented in [[maqasid-os]]. Stage p
 
 ## Open Questions
 
-- Does the UI currently reflect the Two-Factory (Research/Asset) split per stage, or is this only in the protocol docs?
-- How is G-Labeling (G1-G4 evidence grades) surfaced in the task panel UI?
-- How does the Assembly Gate (`ASSEMBLE` command) integrate with the UI ceremony gate pattern?
 - Are Patch Plan sub-stages (00A Input Integrity Gate, 01B Mechanism Factory) represented in the stage progression header?
 - What is the rejection/off-ramp flow when the Amanah Proof Audit fails at Stage 00?
 - Will BBOS support multiple concurrent pipelines (multiple businesses per operator)?
+
+### Resolved (Sprint 7, 2026-04-11)
+- ~~Two-Factory UI~~ — Implemented: Research/Asset factory sections with distinct backgrounds and headers
+- ~~G-Labeling in UI~~ — G-Label picker now shows G1-G4 descriptions; GLabelBadge displays assigned label
+- ~~Assembly Gate UI~~ — Rendered as a status bar (CLEARED/LOCKED), not ASSEMBLE command — Asset tasks lock when Research incomplete
 
 ## History
 
@@ -105,4 +107,5 @@ Pipeline header and task panel components implemented in [[maqasid-os]]. Stage p
 | 2026-04-11 | Extended dynamic scoring to STR, OFR, OUT via `StageScoreCard` in `BbosFullDashboard.jsx`; also restored TRU scoring. Pattern: `STAGE_SCORE_SIGNALS[bbosFilter]` → 5 weighted signals × 5 pts → % → verdict (QUALIFIED/DEVELOPING/REVIEW NEEDED/BLOCKED). STR: integrity verdict + VoC depth + content angles + core belief + arc completeness. OFR: promise G-label + ICP completeness + guarantee rigor + scope map + proof status. OUT: icOut1–icOut5 integrity checks (binary). TRU-AF5 ProofAuditRenderer now shows graduated stars for known rating strings. |
 | 2026-04-11 | Task card color coding fixed: `--active` now uses amber (`--pri-high`) not teal primary; status detection switched from `completedAt` (always null) to `columnId === doneColumnId`. Stage tabs in `BbosPipelineHeader` now show same color system via `stageStatusMap` prop from `ProjectBoard`. Auto-advance to "In Progress" added in `BbosTaskPanel.jsx` — fires on field data entry, AI draft population, and template import. |
 | 2026-04-11 | UI polish: unified DashboardTaskCard shared component (whole card clickable, dynamic features); 3-star audit system across all dashboards; CSS consistency pass (padding 20px, star gap 2px, opacity 0.2); removed IFB Forms task group (FND-IFB-S1–S5); removed empty card message box from BBOS cards; Tasks page (`/work/:id/tasks`) generic dashboard updated to 3-star. |
+| 2026-04-11 | Sprint 7 audit remediation: Two-Factory visual split with Research (S/V/FP) and Asset (A/AF/IC) factory sections (#32A). Assembly Gate bar — CLEARED/LOCKED based on Research completion (#32B). G-Label descriptions added to picker dropdown (#32C). Sub-stage progress indicators (✓/◐/○) in pipeline header (#32D). Mobile breadcrumb visibility fix (#33). |
 | 2026-04-09 | Wiki entity page bootstrapped. Pipeline integrated into maqasid-os with header, task panel, role badge, and role picker components. Marketing section live on ogden-hub. |

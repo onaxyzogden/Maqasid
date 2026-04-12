@@ -7,6 +7,48 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-11] implement | Sprint 8 — Documentation & Git Hygiene (#26, #27, #28, #31)
+
+Final sprint of the 35-finding technical audit remediation.
+
+- **#26 CONTEXT.md freshness:** Updated 4 stale files (bbos, work, tech, shared) with current file inventories after Sprint 4-7 additions
+- **#27 Wiki entities:** Synced maqasid-os.md and bbos-pipeline.md with Sprint 4-7 history; resolved 3 open questions on bbos-pipeline (Two-Factory UI, G-Label descriptions, Assembly Gate)
+- **#28 Lessons learned:** Populated `tasks/lessons.md` with 7 patterns from the remediation (mock data, sessionStorage, quota estimation, pruning, dual stores, CONTEXT.md co-maintenance, false-positive verification)
+- **#31 Bundle size ADR:** Created `wiki/decisions/2026-04-11-bundle-size-2mb.md` — accept 2 MB monolithic bundle, revisit at 3 MB or multi-user. Indexed dual-contact-stores ADR from Sprint 5.
+
+**All 35 findings now addressed across 8 sprints.** Branch: `docs/freshness-update`.
+
+## [2026-04-11] audit | Comprehensive 8-submodule system audit
+
+### Scope
+Read-only audit across 8 submodules: Build & Lint, BBOS Pipeline Workflow, Dashboard & Navigation, Islamic UI Layer, Store & Persistence, Operational Modules (People/Money/CRM/Office/Tech), Documentation Freshness, Git Hygiene.
+
+### Key findings (35 total: 5 Critical, 12 High, 13 Medium, 5 Low)
+
+**Critical:**
+- Rules-of-Hooks violations in ProjectBoard.jsx:87, DashboardView.jsx:17/19, IslamicTerm.jsx:24/36 (conditional hooks)
+- safeSet() silently swallows localStorage quota errors — user loses data without notification
+- moveTask() resets completedAt to null — tasks appear incomplete in Done column
+- BBOS task seeding not atomic — tasks can vanish on reload if second persist fails
+- Import (Settings.jsx) has no schema validation or backup — can corrupt entire database
+
+**High:**
+- 82 unused vars, 4 impure renders (Date.now in useState/useMemo), 28 exhaustive-deps warnings
+- BBOS: auto-advance too permissive, no role filtering in dashboard, 5/9 stages unscored
+- Dashboard: no onboarding empty state, pillar dashboards show "Coming Soon"
+- Islamic: missing closingDua for People/Wealth pillars, NiyyahAct Skip=Confirm
+- Modules: Money dashboard uses mock data, Tech monitoring simulated but unlabeled
+- ESLint scans .obsidian/, atlas/, graphify-out/ unnecessarily
+
+**Documentation staleness:**
+- 6 CONTEXT.md files stale (work, shared, bbos missing new components)
+- Wiki entity pages don't reflect Apr 11 features
+- tasks/lessons.md empty despite rapid development
+
+### Files referenced
+- Plan: `.claude/plans/bubbly-watching-locket.md`
+- Full audit output: conversation log (not persisted to file)
+
 ## [2026-04-11] implement | UI polish + unified DashboardTaskCard + BBOS cleanup
 
 - Created `src/components/shared/DashboardTaskCard.jsx` + `.css` — unified card replacing PillarTaskCard and BBOS TaskCard. Whole card clickable; dynamic rendering of subtasks, field progress, due dates, tags, purpose, and custom BBOS renderers via children prop. ~5.4 KB CSS reduction.

@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-09
+updated: 2026-04-11
 ---
 
 # Wiki Index
@@ -35,6 +35,8 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-09-merge-ogden-hub-subtree]] | 2026-04-09 | Merged ogden-hub website into monorepo via git subtree at website/ |
 | [[2026-04-09-atlas-as-submodule]] | 2026-04-09 | Linked Atlas as git submodule (too complex for subtree merge) |
 | [[2026-04-09-bootstrap-llm-wiki]] | 2026-04-09 | Bootstrapped LLM Wiki to replace NotebookLM as authoritative context source |
+| [[2026-04-11-dual-contact-stores]] | 2026-04-11 | Accept dual contact stores (contacts_v2 / crm_contacts) isolation until test framework exists |
+| [[2026-04-11-bundle-size-2mb]] | 2026-04-11 | Accept 2 MB monolithic bundle — revisit at 3 MB or multi-user deployment |
 
 ## Sources
 

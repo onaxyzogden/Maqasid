@@ -6,10 +6,14 @@ Barakah Business Operating System pipeline UI: stage visualization, role-based a
 ## File Inventory
 | File | Description |
 |------|-------------|
-| BbosPipelineHeader.jsx | Visual stage pipeline header (INT, QAL, STR, etc.); current/past/filtered states |
+| BbosFullDashboard.jsx | Unified stage dashboard: Two-Factory layout (Research/Asset), Assembly Gate, StageScoreCard, task groups by prefix |
+| BbosFullDashboard.css | Factory section tints, assembly gate bar, locked/cleared states, task card styles |
+| BbosPipelineHeader.jsx | Visual stage pipeline header (INT, QAL, STR, etc.); current/past/filtered states; sub-stage progress indicators |
+| BbosPipelineHeader.css | Pipeline header layout, stage node colors, progress indicator styles |
 | BbosRoleBadge.jsx | Role abbreviation badge styled with role.color and role.bg |
 | BbosRolePicker.jsx | Dropdown picker for BBOS roles (all/OP/FD/etc.); uses BbosRoleBadge |
 | BbosTaskPanel.jsx | Full task detail panel: purpose, theological rationale, field forms, G-Label, AI draft |
+| BbosTaskPanel.css | Task panel layout, slide-in sidebar, mobile full-screen overlay |
 
 ## Store/Data Dependencies
 - **task-store**: `getTask()`, `updateTask()`, `updateBbosFieldData()`, `deleteTask()`
@@ -19,6 +23,9 @@ Barakah Business Operating System pipeline UI: stage visualization, role-based a
 - **data/bbos-role-access.js**: `getTaskAccessLevel(bbosRole, bbosTaskType)`
 
 ## Key Patterns
+- **Two-Factory model**: Tasks classified by prefix — Research (S, V, FP) vs Asset (A, AF, IC)
+- **Assembly Gate**: Research tasks must all be Done before Asset tasks unlock for editing
+- **StageScoreCard**: Dynamic weighted scoring (5 signals × 5 pts → % → verdict) per stage
 - Tasks have `bbosTaskType` field (e.g., 'INT_001', 'QAL_S1') linking to task definitions
 - `bbosFieldData` object maps field IDs to user-entered values
 - AI draft status: `_aiDraftStatus` ('none', 'pending', 'accepted', 'rejected')
@@ -27,6 +34,7 @@ Barakah Business Operating System pipeline UI: stage visualization, role-based a
 - Local field state with debounced saves (300ms)
 - Form field types: textarea, text, select, number — mapped from task definition
 - Mobile: full-screen overlay; desktop: slide-in-right sidebar
+- Sub-stage progress indicators in pipeline header (✓/◐/○)
 
 ## Gotchas
 - AI draft generation is placeholder (pending real integration)

@@ -6,7 +6,8 @@ Technology stack dashboard: website monitoring, dark web breach detection, integ
 ## File Inventory
 | File | Description |
 |------|-------------|
-| TechOverview.jsx | Dashboard card with dark web monitoring summary, website health, radar SVG visualization |
+| TechOverview.jsx | Dashboard card with dark web monitoring summary, website health, radar SVG visualization; "Simulated" badge on all data |
+| TechOverview.css | Dashboard card layout, radar animation, simulated badge (amber) |
 | DarkWebTab.jsx | Email breach monitoring; toggle service; pie chart (open/cleared); monthly bar chart |
 | WebsitesTab.jsx | Add/pause/resume website monitors; uptime stacked bar chart per day |
 | IntegrationsTab.jsx | Grid of integration cards (Slack, Xero, etc.); toggle connect/disconnect |

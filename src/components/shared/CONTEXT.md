@@ -6,20 +6,29 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 ## File Inventory
 | File | Description | Used By |
 |------|-------------|---------|
-| SearchPalette.jsx | Cmd+K command palette; searches projects & tasks; keyboard nav (arrows, Enter, Escape) | Global (via AppShell) |
+| SearchPalette.jsx | Cmd+K command palette; searches 5 sources (projects, tasks, modules, people, events); keyboard nav | Global (via AppShell) |
+| SearchPalette.css | Palette overlay, result groups, keyboard-active highlight styles | Global (via AppShell) |
+| DashboardTaskCard.jsx | Unified clickable task card: subtask bars, field progress, due dates, tags, BBOS custom renderers | BbosFullDashboard, PillarLevelDashboard |
+| DashboardTaskCard.css | Task card layout, status colors, hover states | BbosFullDashboard, PillarLevelDashboard |
 | IslamicTerm.jsx | Portal-based hover tooltip for Islamic terms; smart positioning (above/below) | Throughout app |
+| IslamicTerm.css | Tooltip positioning, portal styles | Throughout app |
 | GLabelBadge.jsx | Displays G-Label (integrity label) badge | BbosTaskPanel |
-| GLabelPicker.jsx | Dropdown picker for G-Labels; escape to close | BbosTaskPanel |
+| GLabelPicker.jsx | Dropdown picker for G-Labels with descriptions; escape to close | BbosTaskPanel |
 | MaqasidTable.jsx | Maqasid framework table (necessities/needs/embellishments rows) | Module pages (Quran, Hadith) |
 | OverviewCards.jsx | Card grid for overview items; Quranic ayah/hadith references | FivePillars, module overviews |
 | PillarHeader.jsx | Compact pillar label with stewardship phrase and Arabic root | Module page headers |
+| PillarHeader.css | Pillar header layout, accent color cascading | Module page headers |
 | ViewToggle.jsx | Two-button toggle (Overview/Framework); role="tablist" with aria-selected | Pages with dual views |
+| ViewToggle.css | Toggle button styles, active/inactive states | Pages with dual views |
 
 ## Store Dependencies
 - **app-store** (SearchPalette): `searchOpen`, `setSearchOpen`
 - **project-store** (SearchPalette): `projects[]`
 - **task-store** (SearchPalette): `searchAllTasks()`
+- **contacts-store** (SearchPalette): `contacts[]` for people search
+- **office-store** (SearchPalette): `events[]` for event search
 - **settings-store** (PillarHeader): `valuesLayer`
+- **data/modules.js** (SearchPalette): `MODULES` for module search
 
 ## Key Patterns
 - **Portal components**: IslamicTerm, SearchPalette use React portal to escape `overflow:hidden`
