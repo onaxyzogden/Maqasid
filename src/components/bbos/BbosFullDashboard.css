@@ -810,3 +810,16 @@
 .bfd__assembly-gate-text {
   flex: 1;
 }
+
+@media (max-width: 767px) {
+  .bfd {
+    height: auto;
+    overflow-y: visible;
+  }
+  .bfd__factory {
+    grid-template-columns: 1fr;
+  }
+  .bfd__factory > .dtc__card {
+    grid-column: span 1 !important;
+  }
+}

@@ -629,3 +629,12 @@
   background: var(--bg3);
   color: var(--text3);
 }
+
+/* ── Mobile overlay ── */
+.tdp-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 99;
+  animation: fadeIn 150ms var(--ease);
+}

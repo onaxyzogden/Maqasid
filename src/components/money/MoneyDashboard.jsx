@@ -13,7 +13,7 @@ function pct(current, target) { return target ? Math.min(100, Math.round((curren
 /* ─── bar chart (pure CSS) ─── */
 function BarChart({ data }) {
   if (!data.length) return null;
-  const max = Math.max(...data.map((d) => d.income), 1);
+  const max = Math.max(...data.flatMap((d) => [d.savings, d.income, d.expenses]), 1);
   return (
     <div className="md-chart">
       <div className="md-chart-bars">

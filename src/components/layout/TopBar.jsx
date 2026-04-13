@@ -119,7 +119,7 @@ export default function TopBar() {
               <Menu size={20} />
             </button>
           )}
-          {isFaithRoute && (
+          {isFaithRoute && !mobile && (
             <Link to="/app/faith-core" className="faith-badge faith-badge--module topbar-faith-badge topbar-faith-badge--link">
               MODULE I
             </Link>
@@ -145,32 +145,38 @@ export default function TopBar() {
           </div>
         )}
         <div className="topbar-right">
-          <button
-            className="topbar-btn"
-            onClick={() => setReflectionOpen(true)}
-            title={tip('Record Reflection')}
-          >
-            <PenLine size={18} />
-          </button>
-          <button
-            className="topbar-btn"
-            onClick={() => setClockInOpen(true)}
-            title={tip('Clock in')}
-          >
-            <Clock size={18} />
-          </button>
+          {!mobile && (
+            <button
+              className="topbar-btn"
+              onClick={() => setReflectionOpen(true)}
+              title={tip('Record Reflection')}
+            >
+              <PenLine size={18} />
+            </button>
+          )}
+          {!mobile && (
+            <button
+              className="topbar-btn"
+              onClick={() => setClockInOpen(true)}
+              title={tip('Clock in')}
+            >
+              <Clock size={18} />
+            </button>
+          )}
           <button className="topbar-btn topbar-search" onClick={() => setSearchOpen(true)} title={tip('Search (Cmd+K)')}>
             <Search size={18} />
             {!mobile && <span className="topbar-search-hint">Search...</span>}
             {!mobile && <kbd className="topbar-kbd">⌘K</kbd>}
           </button>
-          <button
-            className="topbar-btn"
-            onClick={() => setDiscussionOpen(true)}
-            title={tip('Discussion')}
-          >
-            <MessagesSquare size={18} />
-          </button>
+          {!mobile && (
+            <button
+              className="topbar-btn"
+              onClick={() => setDiscussionOpen(true)}
+              title={tip('Discussion')}
+            >
+              <MessagesSquare size={18} />
+            </button>
+          )}
           <button
             className={`topbar-btn ${islamicPanelOpen ? 'topbar-btn-active' : ''}`}
             onClick={toggleIslamicPanel}
@@ -185,13 +191,15 @@ export default function TopBar() {
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button
-            className="topbar-btn"
-            onClick={() => setTooltipsEnabled(!tooltipsEnabled)}
-            title={tooltipsEnabled ? 'Hide tooltips' : undefined}
-          >
-            {tooltipsEnabled ? <MessageCircle size={18} /> : <MessageCircleOff size={18} />}
-          </button>
+          {!mobile && (
+            <button
+              className="topbar-btn"
+              onClick={() => setTooltipsEnabled(!tooltipsEnabled)}
+              title={tooltipsEnabled ? 'Hide tooltips' : undefined}
+            >
+              {tooltipsEnabled ? <MessageCircle size={18} /> : <MessageCircleOff size={18} />}
+            </button>
+          )}
           {user && (
             <div className="topbar-avatar" title={tip(user.name)}>
               {user.name?.charAt(0)?.toUpperCase() || 'U'}

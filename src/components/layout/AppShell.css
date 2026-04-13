@@ -91,12 +91,16 @@
 
 @media (max-width: 767px) {
   .app-shell {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     grid-template-rows: var(--topbar-h) 1fr 56px;
   }
   .app-main {
     grid-column: 1;
+    min-width: 0;
     padding: 0 var(--space-4);
     padding-bottom: 72px;
+  }
+  .topbar {
+    min-width: 0;
   }
 }
