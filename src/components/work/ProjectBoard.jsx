@@ -1,9 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload } from 'lucide-react';
+import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload, RefreshCw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
+import { useProjectStore } from '../../store/project-store';
+import BbosRolePicker from '../bbos/BbosRolePicker';
 import { getBbosTaskDefsByStage } from '@data/bbos/bbos-task-definitions';
+import { BBOS_NAV_LEVELS, BBOS_LAYERS, getBbosNavPillars, getLayerForStage } from '@data/bbos/bbos-pipeline';
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from '@services/bbos-template';
 import DashboardView from './DashboardView';
 import KanbanBoard from './KanbanBoard';
@@ -11,7 +14,7 @@ import ListView from './ListView';
 import GanttView from './GanttView';
 import TaskDetailPanel from './TaskDetailPanel';
 import FilterBar from './FilterBar';
-import BbosPipelineHeader from '../bbos/BbosPipelineHeader';
+import LevelNavigator from '../shared/LevelNavigator';
 
 /**
  * Reusable board component that renders the full Kanban/List/Gantt experience
@@ -23,6 +26,8 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const filters = useAppStore((s) => s.filters[projectId]);
   const setActiveBbosStage = useAppStore((s) => s.setActiveBbosStage);
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
+  const setBbosRole = useProjectStore((s) => s.setBbosRole);
+  const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
   const [view, setView] = useState(project?.defaultView || 'dashboard');
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedTaskId, setSelectedTaskId] = useState(null);
@@ -51,27 +56,33 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
 
   const isBbos = project?.bbosEnabled && !hideBbos;
 
-  const stageStatusMap = useMemo(() => {
-    if (!isBbos) return {};
+  const activeLayer = isBbos ? getLayerForStage(bbosFilter) : null;
+  const activePillars = useMemo(() => isBbos ? getBbosNavPillars(activeLayer) : [], [activeLayer, isBbos]);
+  const doneCol = isBbos ? project?.columns?.find((c) => c.name === 'Done')?.id : null;
+
+  const bbosPillarTasks = useMemo(() => {
+    if (!isBbos) return null;
     const tasks = taskStore.tasksByProject[projectId] || [];
-    const doneCol = project?.columns?.find((c) => c.name === 'Done')?.id;
-    const acc = {};
-    for (const t of tasks) {
-      if (!t.bbosTaskType) continue;
-      const stageId = t.bbosTaskType.split('-')[0];
-      if (!acc[stageId]) acc[stageId] = { hasData: false, allDone: true };
-      const fd = t.bbosFieldData || {};
-      if (Object.entries(fd).some(([k, v]) => !k.startsWith('_') && (typeof v === 'string' ? v.trim() : !!v))) {
-        acc[stageId].hasData = true;
-      }
-      if (!doneCol || t.columnId !== doneCol) acc[stageId].allDone = false;
-    }
     const result = {};
-    for (const [id, s] of Object.entries(acc)) {
-      result[id] = !s.hasData ? 'empty' : s.allDone ? 'complete' : 'active';
+    for (const p of activePillars) {
+      const validIds = new Set(getBbosTaskDefsByStage(p.id).map((d) => d.id));
+      result[p.id] = tasks
+        .filter((t) => t.bbosTaskType && validIds.has(t.bbosTaskType))
+        .sort((a, b) => (a.bbosTaskType || '').localeCompare(b.bbosTaskType || ''));
     }
     return result;
-  }, [taskStore.tasksByProject[projectId], project?.columns, isBbos]);
+  }, [taskStore.tasksByProject[projectId], activePillars, isBbos]);
+
+  const bbosTaskColorFn = useCallback((task) => {
+    if (task.columnId === doneCol) return '#22c55e';
+    const subs = task.subtasks;
+    if (subs && subs.length > 0) {
+      const doneCount = subs.filter((s) => s.done).length;
+      if (doneCount === subs.length) return '#22c55e';
+      if (doneCount > 0) return '#F59E0B';
+    }
+    return 'var(--bg3)';
+  }, [doneCol]);
 
   if (!project) return null;
 
@@ -127,15 +138,29 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
-      {/* View toggle + BBOS actions */}
+      {/* Unified header: project info + BBOS actions + view switcher */}
       {!hideViewSwitcher && <div style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 'var(--space-3)', marginBottom: 'var(--space-2)', flexShrink: 0,
       }}>
-        {/* Left: stage bundle actions (BBOS only) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
+        {/* Left: project color + BBOS info + stage bundle actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+          <div style={{ width: 12, height: 12, borderRadius: 3, background: project.color, flexShrink: 0 }} />
           {isBbos && (
             <>
+              <span style={{
+                fontSize: '0.68rem', fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 600, padding: '2px 8px', borderRadius: 'var(--radius-xs)',
+                background: 'color-mix(in srgb, #c9a05a 10%, transparent)',
+                color: '#c9a05a', border: '1px solid color-mix(in srgb, #c9a05a 20%, transparent)',
+                whiteSpace: 'nowrap',
+              }}>
+                BBOS Cycle {project.bbosCycle || 1}
+              </span>
+              <BbosRolePicker
+                value={project.bbosRole || 'all'}
+                onChange={(roleId) => setBbosRole(projectId, roleId)}
+              />
               <button
                 onClick={handleStageDownload}
                 className="btn btn-ghost"
@@ -173,6 +198,16 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
                 style={{ display: 'none' }}
                 onChange={handleStageUpload}
               />
+              {project.bbosStage === 'OPT' && (
+                <button
+                  className="btn btn-ghost"
+                  style={{ fontSize: '0.8rem', color: '#c9a05a', display: 'flex', alignItems: 'center', gap: 4 }}
+                  onClick={() => { if (confirm('Start a new BBOS cycle? This resets the pipeline to Foundation (FND).')) startNewBbosCycle(projectId); }}
+                  title="Complete this cycle and start a new one from Foundation"
+                >
+                  <RefreshCw size={14} /> New Cycle
+                </button>
+              )}
             </>
           )}
         </div>
@@ -251,45 +286,63 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         </div>
       </div>}
 
-      {/* BBOS Pipeline Header — stage filter */}
-      {isBbos && (
-        <BbosPipelineHeader
-          currentStageId={project.bbosStage}
-          activeFilter={bbosFilter}
-          bbosRole={project.bbosRole || 'all'}
-          stageStatusMap={stageStatusMap}
-          onStageClick={(stageId) => {
-            setBbosFilter(stageId);
-            setActiveBbosStage(stageId);
-          }}
-        />
-      )}
-
-      {/* Filter Bar */}
-      {!hideFilter && <FilterBar projectId={projectId} />}
-
-      {/* Content */}
-      <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          {view === 'dashboard' ? (
-            <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} />
-          ) : view === 'board' ? (
-            <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
-          ) : view === 'gantt' ? (
-            <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
-          ) : (
-            <ListView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
-          )}
-        </div>
-
-        {!inlinePanel && selectedTaskId && (
-          <TaskDetailPanel
-            project={project}
-            projectId={projectId}
-            taskId={selectedTaskId}
-            onClose={() => setSelectedTaskId(null)}
+      {/* Scrollable area — LevelNavigator scrolls with content in dashboard view */}
+      <div style={{
+        flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column',
+        ...(view === 'dashboard' ? {
+          overflowY: 'auto',
+          marginRight: 'calc(-1 * var(--space-6))',
+          paddingRight: 'var(--space-6)',
+        } : {}),
+      }}>
+        {/* BBOS Stage Navigator — layer carousel with stage segments */}
+        {isBbos && (
+          <LevelNavigator
+            compact
+            levels={BBOS_NAV_LEVELS}
+            pillars={activePillars}
+            pillarTasks={bbosPillarTasks}
+            controlledLevel={activeLayer}
+            onLevelChange={(layerKey) => {
+              const first = BBOS_LAYERS.find((l) => l.id === layerKey)?.stages[0];
+              if (first) { setBbosFilter(first); setActiveBbosStage(first); }
+            }}
+            onSegmentClick={(stageId) => {
+              setBbosFilter(stageId);
+              setActiveBbosStage(stageId);
+            }}
+            onSubsegClick={(taskId) => setSelectedTaskId(taskId)}
+            taskColorFn={bbosTaskColorFn}
+            currentPillarId={bbosFilter}
           />
         )}
+
+        {/* Filter Bar */}
+        {!hideFilter && <FilterBar projectId={projectId} />}
+
+        {/* Content */}
+        <div style={{ flex: 1, minHeight: view === 'dashboard' ? undefined : 0, display: 'flex' }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            {view === 'dashboard' ? (
+              <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} />
+            ) : view === 'board' ? (
+              <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
+            ) : view === 'gantt' ? (
+              <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
+            ) : (
+              <ListView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
+            )}
+          </div>
+
+          {!inlinePanel && selectedTaskId && (
+            <TaskDetailPanel
+              project={project}
+              projectId={projectId}
+              taskId={selectedTaskId}
+              onClose={() => setSelectedTaskId(null)}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

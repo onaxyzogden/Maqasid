@@ -1,28 +1,28 @@
 // BBOS Pipeline — 9-stage business cultivation system
 // Each project can opt into BBOS, getting these stages as Kanban columns
-// Three layers: Think (FND–OFR), Execute (OUT–DLR), Reckon (RET–OPT)
+// Three layers: Think (FND–OFR), Execute (OUT–RET), Reckon (OPT)
 
 export const BBOS_LAYERS = [
   { id: 'think',   label: 'Think',   color: '#c9a05a', stages: ['FND', 'TRU', 'STR', 'OFR'] },
-  { id: 'execute', label: 'Execute', color: '#4ab8a8', stages: ['OUT', 'SAL', 'DLR'] },
-  { id: 'reckon',  label: 'Reckon',  color: '#6366f1', stages: ['RET', 'OPT'] },
+  { id: 'execute', label: 'Execute', color: '#4ab8a8', stages: ['OUT', 'SAL', 'DLR', 'RET'] },
+  { id: 'reckon',  label: 'Reckon',  color: '#6366f1', stages: ['OPT'] },
 ];
 
 export const BBOS_STAGES = [
   {
-    id: 'FND', order: 0, label: 'Foundation', layer: 'think',
+    id: 'FND', order: 0, label: 'Identity', layer: 'think',
     description: 'Establish the foundational identity, mission, and values of the business.',
     attrs: 'Al-Awwal · Al-Badi',
     color: 'var(--col-todo)',
   },
   {
-    id: 'TRU', order: 1, label: 'Truth', layer: 'think',
+    id: 'TRU', order: 1, label: 'Credibility', layer: 'think',
     description: 'Build credibility and establish the trust infrastructure for your offering.',
     attrs: 'Al-Mu\'min · Al-Wakil',
     color: '#6366f1',
   },
   {
-    id: 'STR', order: 2, label: 'Strategy', layer: 'think',
+    id: 'STR', order: 2, label: 'Structure', layer: 'think',
     description: 'Design the operational structure, processes, and team architecture.',
     attrs: 'Al-Musawwir · Al-Mudabbir',
     color: '#8b5cf6',
@@ -34,31 +34,31 @@ export const BBOS_STAGES = [
     color: '#c9a05a',
   },
   {
-    id: 'OUT', order: 4, label: 'Outreach', layer: 'execute',
+    id: 'OUT', order: 4, label: 'Reach', layer: 'execute',
     description: 'Reach the right people through ethical, purposeful outreach.',
     attrs: 'Al-Hadi · An-Nur',
     color: '#22c55e',
   },
   {
-    id: 'SAL', order: 5, label: 'Sales', layer: 'execute',
+    id: 'SAL', order: 5, label: 'Convert', layer: 'execute',
     description: 'Convert interest into commitment through honest, consultative selling.',
     attrs: 'As-Sami · Al-Basir',
     color: '#3b82f6',
   },
   {
-    id: 'DLR', order: 6, label: 'Delivery', layer: 'execute',
+    id: 'DLR', order: 6, label: 'Deliver', layer: 'execute',
     description: 'Deliver the promised outcome with excellence and care.',
     attrs: 'Al-Muhsin · Al-Latif',
     color: '#4ab8a8',
   },
   {
-    id: 'RET', order: 7, label: 'Retention', layer: 'reckon',
+    id: 'RET', order: 7, label: 'Retain', layer: 'execute',
     description: 'Retain clients through ongoing value, relationship, and stewardship.',
     attrs: 'Al-Wadud · Al-Hafiz',
     color: '#f59e0b',
   },
   {
-    id: 'OPT', order: 8, label: 'Optimization', layer: 'reckon',
+    id: 'OPT', order: 8, label: 'Reckon', layer: 'reckon',
     description: 'Reckon with outcomes, optimize systems, and prepare for the next cycle.',
     attrs: 'Al-Hasib · Al-Khabir',
     color: '#ef4444',
@@ -73,4 +73,48 @@ export function getStageLayer(stageId) {
 /** Get stage by ID */
 export function getStage(stageId) {
   return BBOS_STAGES.find((s) => s.id === stageId) || null;
+}
+
+// ── LevelNavigator integration ───────────────────────────────────────────────
+
+export const BBOS_NAV_LEVELS = [
+  {
+    key: 'think',
+    label: 'LEVEL 1',
+    subtitle: 'THINK',
+    title: 'Strategic Groundwork',
+    desc: 'Lay the strategic groundwork — identity, credibility, structure, and offering.',
+    color: '#c9a05a',
+  },
+  {
+    key: 'execute',
+    label: 'LEVEL 2',
+    subtitle: 'EXECUTE',
+    title: 'Offering to Market',
+    desc: 'Bring the offering to market — outreach, sales, and delivery.',
+    color: '#4ab8a8',
+  },
+  {
+    key: 'reckon',
+    label: 'LEVEL 3',
+    subtitle: 'RECKON',
+    title: 'Reckoning',
+    desc: 'Assess outcomes, strengthen retention, and optimize for the next cycle.',
+    color: '#6366f1',
+  },
+];
+
+/** Get pillar-shaped array for a given BBOS layer (for LevelNavigator segments) */
+export function getBbosNavPillars(layerKey) {
+  const layer = BBOS_LAYERS.find((l) => l.id === layerKey);
+  if (!layer) return [];
+  return layer.stages.map((stageId) => {
+    const stage = BBOS_STAGES.find((s) => s.id === stageId);
+    return { id: stageId, label: stage?.label || stageId };
+  });
+}
+
+/** Get layer key string for a given stage ID */
+export function getLayerForStage(stageId) {
+  return BBOS_LAYERS.find((l) => l.stages.includes(stageId))?.id || 'think';
 }

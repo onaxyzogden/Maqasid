@@ -283,6 +283,7 @@
 @media (max-width: 900px) {
   .pld__grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
   .pld__card,
   .pld .dtc__card {
@@ -291,6 +292,7 @@
   .pld__insight {
     grid-template-columns: 1fr;
     padding: 18px 16px;
+    gap: 16px;
   }
   .pld__insight-left {
     border-right: none;
@@ -298,11 +300,65 @@
     padding-right: 0;
     padding-bottom: 20px;
   }
+  .pld__insight-metric {
+    padding: 10px 12px;
+  }
 }
 
 @media (max-width: 767px) {
   .pld {
     height: auto;
     overflow-y: visible;
+    padding: var(--space-3) var(--space-1);
+  }
+  .pld__grid {
+    gap: 12px;
+  }
+  .pld__insight-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .pld__header {
+    padding: 14px 16px;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .pld__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pld {
+    padding: var(--space-2) var(--space-1);
+  }
+  .pld__grid {
+    gap: 10px;
+  }
+  .pld__insight {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+  .pld__insight-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .pld__insight-metric-value {
+    font-size: 1rem;
+  }
+  .pld__insight-metric-label {
+    font-size: 0.52rem;
+  }
+  .pld__insight-verdict-value {
+    font-size: 1.15rem;
+  }
+  .pld__insight-verdict-box {
+    padding: 12px 10px;
+  }
+  .pld__title {
+    font-size: 1.3rem;
+  }
+  .pld__desc {
+    font-size: 0.82rem;
   }
 }

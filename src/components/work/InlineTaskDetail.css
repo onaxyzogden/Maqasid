@@ -289,3 +289,23 @@
   background: var(--border);
   margin: 2px 0;
 }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .iltd {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .iltd {
+    padding: 16px 14px;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .iltd {
+    padding: 12px 10px;
+  }
+}

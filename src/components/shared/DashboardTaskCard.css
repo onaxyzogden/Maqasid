@@ -247,3 +247,62 @@
   padding: 12px 14px;
   text-align: center;
 }
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .dtc__card {
+    padding: 14px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .dtc__card-head {
+    gap: 8px;
+  }
+  .dtc__card-num {
+    width: 24px;
+    height: 24px;
+    font-size: 0.6rem;
+  }
+  .dtc__card-title {
+    font-size: 0.87rem;
+  }
+  .dtc__chip {
+    font-size: 0.54rem;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dtc__card {
+    padding: 12px;
+    gap: 6px;
+  }
+  .dtc__card-title {
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+  .dtc__card-num {
+    width: 22px;
+    height: 22px;
+    font-size: 0.55rem;
+    border-radius: 5px;
+  }
+  .dtc__chip {
+    font-size: 0.5rem;
+    padding: 1px 5px;
+  }
+  .dtc__subtask-label {
+    font-size: 0.65rem;
+  }
+  .dtc__due-row {
+    font-size: 0.65rem;
+  }
+  .dtc__tag {
+    font-size: 0.55rem;
+    padding: 1px 5px;
+  }
+  .dtc__card-purpose {
+    font-size: 0.7rem;
+    padding-bottom: 8px;
+  }
+}

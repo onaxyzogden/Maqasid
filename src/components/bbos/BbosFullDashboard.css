@@ -1,10 +1,10 @@
 /* ── BBOS Full Dashboard — Universal Stage Task View ── */
 
 .bfd {
-  overflow-y: auto;
   padding: var(--space-4) var(--space-2);
-  height: 100%;
+  padding-bottom: 100px;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* ── Header ── */
@@ -38,6 +38,48 @@
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
   align-items: start;
+}
+
+/* ── Factory tab selector ── */
+.bfd__factory-tabs {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--space-1);
+  background: var(--bg3);
+  border-radius: var(--radius);
+  padding: 2px;
+  margin-bottom: var(--space-2);
+}
+.bfd__factory-tab {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transition: background 150ms, color 150ms;
+}
+.bfd__factory-tab--active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-xs);
+}
+.bfd__factory-tab-count {
+  font-size: 0.7rem;
+  color: var(--text3);
+  font-weight: 400;
+}
+.bfd__factory-tab-lock {
+  font-size: 0.7rem;
 }
 
 /* ── Section divider ── */

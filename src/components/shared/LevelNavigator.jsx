@@ -37,6 +37,7 @@ const LEVELS = [
 ];
 
 const PRIORITY_ORDER = { urgent: 0, high: 1, medium: 2, low: 3 };
+const NOOP = () => {};
 
 function taskColor(task) {
   if (task.completedAt || task.columnId?.endsWith('_done')) return '#22c55e';
@@ -67,36 +68,44 @@ export default function LevelNavigator({
   currentPillarId,
   compact,
   levelDescriptions,
+  levels: customLevels,
+  pillarTasks: externalPillarTasks,
+  onSegmentClick,
+  onSubsegClick,
+  taskColorFn,
 } = {}) {
   const navigate = useNavigate();
   const [internalIdx, setInternalIdx] = useState(0);
 
+  const baseLevels = customLevels || LEVELS;
+
   const activeIdx = controlledLevel
-    ? Math.max(0, LEVELS.findIndex((l) => l.key === controlledLevel))
+    ? Math.max(0, baseLevels.findIndex((l) => l.key === controlledLevel))
     : internalIdx;
 
   const handlePrev = () => {
-    if (onLevelChange) onLevelChange(LEVELS[activeIdx - 1]?.key);
+    if (onLevelChange) onLevelChange(baseLevels[activeIdx - 1]?.key);
     else setInternalIdx(activeIdx - 1);
   };
   const handleNext = () => {
-    if (onLevelChange) onLevelChange(LEVELS[activeIdx + 1]?.key);
+    if (onLevelChange) onLevelChange(baseLevels[activeIdx + 1]?.key);
     else setInternalIdx(activeIdx + 1);
   };
 
-  const ensureProjectsFn = useProjectStore((s) => ensureProjects(s));
+  const ensureProjectsFn = useProjectStore((s) => ensureProjects ? ensureProjects(s) : NOOP);
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
 
   const moduleIds = pillars.map((p) => p.id);
 
-  useEffect(() => { ensureProjectsFn(); }, []);
+  useEffect(() => { if (ensureProjects) ensureProjectsFn(); }, []);
 
   useEffect(() => {
+    if (externalPillarTasks) return;
     const moduleProjects = projects.filter((p) => p.moduleId && moduleIds.includes(p.moduleId));
     for (const proj of moduleProjects) loadTasks(proj.id);
-  }, [projects, loadTasks]);
+  }, [projects, loadTasks, externalPillarTasks]);
 
   const flnRef = useRef(null);
   const segmentsRef = useRef(null);
@@ -139,8 +148,8 @@ export default function LevelNavigator({
   }, [compact, checkOverflow]);
 
   const levels = levelDescriptions
-    ? LEVELS.map((l) => ({ ...l, ...levelDescriptions[l.key] }))
-    : LEVELS;
+    ? baseLevels.map((l) => ({ ...l, ...levelDescriptions[l.key] }))
+    : baseLevels;
 
   const active = levels[activeIdx];
   const prev   = levels[activeIdx - 1] ?? null;
@@ -151,14 +160,18 @@ export default function LevelNavigator({
   const nextRoute   = next ? (levelRoutes[next.key] ?? null) : null;
 
   // Build per-pillar task lists for the active level
-  const pillarTasks = {};
-  for (const { id } of pillars) {
-    const proj = projects.find((p) => p.moduleId === id && p.id.endsWith('_' + active.key));
-    const raw = proj ? (tasksByProject[proj.id] || []) : [];
-    pillarTasks[id] = [...raw].sort(
-      (a, b) => (PRIORITY_ORDER[a.priority] ?? 4) - (PRIORITY_ORDER[b.priority] ?? 4)
-    );
+  const internalPillarTasks = {};
+  if (!externalPillarTasks) {
+    for (const { id } of pillars) {
+      const proj = projects.find((p) => p.moduleId === id && p.id.endsWith('_' + active.key));
+      const raw = proj ? (tasksByProject[proj.id] || []) : [];
+      internalPillarTasks[id] = [...raw].sort(
+        (a, b) => (PRIORITY_ORDER[a.priority] ?? 4) - (PRIORITY_ORDER[b.priority] ?? 4)
+      );
+    }
   }
+  const finalPillarTasks = externalPillarTasks || internalPillarTasks;
+  const resolveTaskColor = taskColorFn || taskColor;
 
   return (
     <div ref={flnRef} className={`fln${compact ? ' fln--compact' : ''}${stacked ? ' fln--stacked' : ''}`}>
@@ -197,29 +210,33 @@ export default function LevelNavigator({
         {/* Segmented progress bar — subdivided per task */}
         <div className="fln__segments" ref={segmentsRef}>
           {pillars.map(({ id, label, route }) => {
-            const tasks = pillarTasks[id] || [];
+            const tasks = finalPillarTasks[id] || [];
             const isCurrent = currentPillarId === id;
+            const handleSegClick = () => {
+              if (onSegmentClick) { onSegmentClick(id, active.key); }
+              else { if (storageKey) safeSet(storageKey, active.key); navigate(route); }
+            };
             return (
               <div
                 key={id}
                 className={`fln__segment-col${isCurrent ? ' fln__segment-col--current' : ''}`}
                 style={isCurrent ? { '--seg-color': active.color } : undefined}
-                onClick={() => { if (storageKey) safeSet(storageKey, active.key); navigate(route); }}
+                onClick={handleSegClick}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && navigate(route)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSegClick()}
               >
                 <div className="fln__segment-bar">
                   {tasks.length > 0 ? tasks.map((task) => (
                     <button
                       key={task.id}
                       className="fln__subseg"
-                      style={{ background: taskColor(task) }}
+                      style={{ background: resolveTaskColor(task) }}
                       title={task.title}
                       onClick={(e) => {
                         e.stopPropagation();
-                        if (storageKey) safeSet(storageKey, active.key);
-                        navigate(`${route}?task=${task.id}`);
+                        if (onSubsegClick) { onSubsegClick(task.id, id); }
+                        else { if (storageKey) safeSet(storageKey, active.key); navigate(`${route}?task=${task.id}`); }
                       }}
                     />
                   )) : (
@@ -230,8 +247,7 @@ export default function LevelNavigator({
                   className="fln__segment-nav"
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (storageKey) safeSet(storageKey, active.key);
-                    navigate(route);
+                    handleSegClick();
                   }}
                 >
                   {label}

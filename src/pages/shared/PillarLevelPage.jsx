@@ -63,7 +63,7 @@ export default function PillarLevelPage({
   useAyahBanner(`${boardPrefix}_${pillarKey}`);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', padding: 'var(--space-6)' }}>
+    <div className="fpb-page-wrapper">
       <LevelNavigator
         compact
         controlledLevel={activeLevel}
