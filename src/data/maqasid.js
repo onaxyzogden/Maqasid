@@ -13,7 +13,7 @@ export const MAQASID_PILLARS = [
     arabicRootAr: 'حفظ الدين',
     rootAction: 'Aligning',
     accentColor: '#C8A96E',
-    icon: 'BookHeart',
+    icon: 'Compass',
     subModuleIds: ['faith-shahada', 'faith-salah', 'faith-zakah', 'faith-sawm', 'faith-hajj', 'sources'],
     status: 'active',
     relationship: 'reserved-active',

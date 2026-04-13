@@ -171,7 +171,7 @@ export const PILLAR_CONTENT = {
     },
     {
       subModuleId: 'intellect-professional',
-      label: 'Professional Mastery',
+      label: 'Skill Proficiency',
       necessities: [
         'Gain the basic certifications or skills required to perform your current job ethically',
         'Digital literacy and basic technology competence',

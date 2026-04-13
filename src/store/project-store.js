@@ -201,10 +201,10 @@ export const INTELLECT_BOARDS = [
   { id: 'intellect_cognitive_core',       name: 'COGNITIVE INTEGRITY — CORE',       color: '#14b8a6', icon: 'BrainCircuit', description: 'Cognitive Integrity: Necessities (Daruriyyat)', moduleId: 'cognitive' },
   { id: 'intellect_cognitive_growth',     name: 'COGNITIVE INTEGRITY — GROWTH',     color: '#14b8a6', icon: 'BrainCircuit', description: 'Cognitive Integrity: Needs (Hajiyyat)', moduleId: 'cognitive' },
   { id: 'intellect_cognitive_excellence', name: 'COGNITIVE INTEGRITY — EXCELLENCE', color: '#14b8a6', icon: 'BrainCircuit', description: 'Cognitive Integrity: Excellence (Tahsiniyyat)', moduleId: 'cognitive' },
-  // Professional Mastery — Core / Growth / Excellence
-  { id: 'intellect_professional_core',       name: 'PROFESSIONAL MASTERY — CORE',       color: '#ec4899', icon: 'Wrench',       description: 'Professional Mastery: Necessities (Daruriyyat)', moduleId: 'professional' },
-  { id: 'intellect_professional_growth',     name: 'PROFESSIONAL MASTERY — GROWTH',     color: '#ec4899', icon: 'Wrench',       description: 'Professional Mastery: Needs (Hajiyyat)', moduleId: 'professional' },
-  { id: 'intellect_professional_excellence', name: 'PROFESSIONAL MASTERY — EXCELLENCE', color: '#ec4899', icon: 'Wrench',       description: 'Professional Mastery: Excellence (Tahsiniyyat)', moduleId: 'professional' },
+  // Skill Proficiency — Core / Growth / Excellence
+  { id: 'intellect_professional_core',       name: 'SKILL PROFICIENCY — CORE',       color: '#ec4899', icon: 'Wrench',       description: 'Skill Proficiency: Necessities (Daruriyyat)', moduleId: 'professional' },
+  { id: 'intellect_professional_growth',     name: 'SKILL PROFICIENCY — GROWTH',     color: '#ec4899', icon: 'Wrench',       description: 'Skill Proficiency: Needs (Hajiyyat)', moduleId: 'professional' },
+  { id: 'intellect_professional_excellence', name: 'SKILL PROFICIENCY — EXCELLENCE', color: '#ec4899', icon: 'Wrench',       description: 'Skill Proficiency: Excellence (Tahsiniyyat)', moduleId: 'professional' },
 ];
 
 export const FAMILY_BOARDS = [

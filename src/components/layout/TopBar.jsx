@@ -204,7 +204,7 @@ export default function TopBar() {
             className="topbar-verse-banner"
             style={{
               borderLeftColor: ayahBannerData.color + '80',
-              background: ayahBannerData.color + '0d',
+              '--banner-tint': ayahBannerData.color + '0d',
               right: islamicPanelOpen && !mobile ? `${islamicPanelWidthPx + 28}px` : 0,
             }}
           >
@@ -216,10 +216,6 @@ export default function TopBar() {
               <span className="ayah-banner__label" style={{ color: ayahBannerData.color }}>
                 Opening Reflection
               </span>
-              <span className="ayah-banner__source">
-                {ayahBannerData.source}
-                {citationsVisible && <span className="dua-citation-badge">[1]</span>}
-              </span>
               <span className="ayah-banner__chevron">
                 {ayahBannerCollapsed ? <ChevronDown size={13} /> : <ChevronUp size={13} />}
               </span>
@@ -227,9 +223,13 @@ export default function TopBar() {
             {!ayahBannerCollapsed && (
               <div className="ayah-banner__body">
                 <p className="ayah-banner__arabic">{ayahBannerData.arabic}</p>
-                <p className="ayah-banner__translation" style={{ borderLeftColor: ayahBannerData.color + '50' }}>
+                <p className="ayah-banner__translation">
                   {ayahBannerData.translation}
                 </p>
+                <span className="ayah-banner__source">
+                  {ayahBannerData.source}
+                  {citationsVisible && <span className="dua-citation-badge">[1]</span>}
+                </span>
               </div>
             )}
           </div>

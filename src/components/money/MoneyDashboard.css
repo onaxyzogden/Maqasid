@@ -72,6 +72,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.md-row-new {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .md-row-bottom {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -441,12 +445,14 @@
 @media (max-width: 1100px) {
   .md-row-top { grid-template-columns: 1fr 1fr; }
   .md-my-card { grid-column: 1 / -1; }
+  .md-row-new { grid-template-columns: 1fr 1fr; }
   .md-row-bottom { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 700px) {
   .md-row-top,
   .md-row-mid,
+  .md-row-new,
   .md-row-bottom {
     grid-template-columns: 1fr;
   }

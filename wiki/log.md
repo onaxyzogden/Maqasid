@@ -7,6 +7,57 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-12] ui | AyahBanner polish + family Islamic data
+
+**AyahBanner (TopBar verse banner) — multiple visual fixes:**
+- Arabic font set to `'Amiri', serif` (matching Islamic Layer sidebar) — `AyahBanner.css`
+- Source citation (`Quran X:Y`) moved from header row to below translation, centered, background removed
+- "OPENING REFLECTION" label centered; `flex: 1` removed so `justify-content: center` takes effect; chevron pinned `position: absolute; right`
+- Banner overlap with col-edge fixed: `left: 0` → `left: var(--edge-w, 28px)` so banner starts after the 28px column divider
+- Topbar z-index raised from 10 → 16 (above col-edge at 15, below sidebar at 20); banner gets opaque surface background via `linear-gradient(--banner-tint, --banner-tint), var(--surface)` to prevent col-edge bleeding through
+- Spacing between banner and page content reduced: `--space-6` (24px) → `--space-3` (12px)
+- Translation `border-left` accent removed; text-align: center on both Arabic and translation
+
+**Submodule rename — Intellect / Professional:**
+- "Professional Mastery" → "Skills Mastery" → "Skill Proficiency" across 5 files: `modules.js`, `pillar-content.js`, `IntellectDashboard.jsx`, `IntellectCorePage.jsx` (INTELLECT_PILLARS array — source of truth for all Intellect level pages), `project-store.js`
+
+**Family Islamic data bootstrapped:**
+- Added `family` entry to `MODULE_ATTRS` in `src/data/islamic/islamic-data.js`
+- Dua: Quran 25:74 — *Rabbanā hab lanā min azwājinā wa dhurriyyātinā…* (chosen over nikah-specific dua to serve the full Family pillar)
+- Governing attrs: Al-Wadud (The Loving) + Al-Qayyum (The Self-Sustaining Sustainer)
+- Closing dua: Quran 46:15 — gratitude + righteous offspring
+- Full readiness check (3 rows, 3 governing, 3 not-yet) and reflection (3 governing, 3 not-yet)
+- Unblocks ThresholdModal Dua tab for all family sub-modules (marriage, parenting, kinship, home)
+
+## [2026-04-12] ui | Pillar page layout redesign — full-width tasks, centered content, segment box navigation
+
+Redesigned the LevelNavigator and pillar/overview page layouts for visual consistency and usability.
+
+- **Full-width task cards:** Removed `fpb-spacer` divs from `PillarLevelPage`; task cards now span the full content area
+- **Centered layout:** `max-width: 900px; margin: 0 auto` on `fpb-layout` and `flo__grid` for wide-viewport centering
+- **Consistent spacing:** Added `padding: var(--space-6)` to PillarLevelPage outer container — verse-banner → navigator gap is now 49px on both overview and pillar pages
+- **Segment column boxes:** Each pillar column is a rounded box; active column fills with `--seg-color`; clicking the box navigates to the pillar page
+- **New shared components:** `src/pages/shared/` (LevelOverviewPage, PillarLevelPage) and `src/components/shared/` (LevelNavigator)
+- **Commit:** `b172e5a` → `onaxyzogden/Maqasid` main
+
+## [2026-04-12] implement | Dashboard refresh — LevelNavigator design language
+
+Rewrote the main dashboard (`/app`) using the Faith module's `LevelNavigator` as the visual reference.
+
+**Changes delivered:**
+- **`PillarProgressStrip`** (new component, `src/components/dashboard/PillarProgressStrip.jsx`): 7-column horizontal bar strip, one column per Maqasid pillar. Each bar is subdivided proportionally into done (--col-done green) / in-progress (--col-review amber) / todo (--bg3 gray) segments based on real task data. Pillar accent border-top, Arabic root label in Islamic mode, links to `/app/pillar/:pillarId`.
+- **Maqasid Focus panel**: Replaced the "coming soon" placeholder inside `.insight-recommendations` with a live panel listing pillars ranked by open task count (overdue first), with accent-colored left bar, open-task count chip, and Arabic root.
+- **Stat cards** trimmed from 4 to 2: In Progress + Overdue. Value font size bumped to 1.8rem.
+- **EPH metric** renamed → "Today / tasks completed".
+- **Section labels** added: "MAQASID AL-SHARI'AH" (above strip) and "OVERVIEW" (above bottom row).
+- **CSS polish**: gap var(--space-6), WF bar height 14px, bottom-row columns 1fr 1.4fr, Space Grotesk labels.
+
+**Bugs found and fixed during session:**
+1. PillarProgressStrip was using `useThresholdStore.completedOpening` (ceremony state) to color segments green — not task completion. Rewrote to use `useProjectStore` + `useTaskStore` with project ID prefix resolution (`project.id.startsWith(pillar.id + '_')` as primary, `subModuleIds.includes(project.moduleId)` as fallback).
+2. Maqasid Focus `pillarSummary` useMemo used only `subModuleIds.includes(p.moduleId)` — broke for all pillars whose project moduleIds don't match subModuleIds verbatim (faith: 'shahada' vs 'faith-shahada'). Applied same prefix-based fix.
+
+**Key architectural note:** Project ID prefix pattern (`{pillarId}_{submodule}_{level}`) is the reliable pillar resolver. `subModuleIds` fallback covers generic modules (wealth, ummah). Neither `useModulesProgress` hook nor raw `subModuleIds` matching alone is sufficient for faith/life/intellect/family/environment.
+
 ## [2026-04-11] graphify | Knowledge graph regeneration (post-audit)
 
 Regenerated graphify knowledge graph after completing all 35 audit findings across 8 sprints.

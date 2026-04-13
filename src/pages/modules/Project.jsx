@@ -92,7 +92,7 @@ export default function Project() {
       </div>
 
       {/* Board */}
-      <ProjectBoard projectId={projectId} project={project} />
+      <ProjectBoard projectId={projectId} project={project} hideFilter />
     </div>
   );
 }

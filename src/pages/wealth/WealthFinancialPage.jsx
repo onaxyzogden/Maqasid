@@ -1,23 +1,20 @@
 import { useThresholdStore } from '@store/threshold-store';
-import { useProjectStore } from '@store/project-store';
 import CeremonyGate from '@components/islamic/CeremonyGate';
-import PillarBoard from '@components/work/PillarBoard';
-import { WEALTH_DASHBOARD_DATA } from '@data/islamic/pillar-dashboard-data';
+import PillarLevelPage from '@pages/shared/PillarLevelPage';
+import { WEALTH_PILLARS, WEALTH_LEVEL_ROUTES, WEALTH_STORAGE_KEY, WEALTH_ENSURE_PROJECTS, WEALTH_LEVEL_DESCRIPTIONS } from './WealthCorePage';
 
 export default function WealthFinancialPage() {
   const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['wealth-financial']);
-  const ensureWealthProjects = useProjectStore((s) => s.ensureWealthProjects);
-
   if (!hasCompletedOpening) return <CeremonyGate moduleId="wealth-financial" />;
-
   return (
-    <PillarBoard
+    <PillarLevelPage
       pillarKey="financial"
-      pillarName="FINANCIAL LITERACY & MANAGEMENT"
-      pillarColor="#3b82f6"
-      modulePrefix="wealth"
-      ensureProjects={ensureWealthProjects}
-      dashboardData={WEALTH_DASHBOARD_DATA.financial}
+      boardPrefix="wealth"
+      storageKey={WEALTH_STORAGE_KEY}
+      ensureProjects={WEALTH_ENSURE_PROJECTS}
+      pillars={WEALTH_PILLARS}
+      levelRoutes={WEALTH_LEVEL_ROUTES}
+      levelDescriptions={WEALTH_LEVEL_DESCRIPTIONS}
     />
   );
 }

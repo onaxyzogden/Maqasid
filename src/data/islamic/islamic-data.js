@@ -1638,6 +1638,72 @@ export const UNIVERSAL_EQUIV = {
       notYet: ['I avoided a hard conversation to protect the deal.', 'I overpromised to keep a prospect engaged.'],
     },
   },
+  family: {
+    attrs: [
+      {
+        name: 'Al-Wadud',
+        name_ar: 'الودود',
+        title: 'The Loving',
+        body: 'Al-Wadud is the source of all love between spouses, parents and children, kin and community. Family life is not sustained by will alone — it is held together by a love that originates with God and flows through those who remember Him. To tend your family is to be a channel of Al-Wadud.',
+      },
+      {
+        name: 'Al-Qayyum',
+        name_ar: 'القيوم',
+        title: 'The Self-Sustaining Sustainer',
+        body: 'Al-Qayyum upholds all things without tiring. The family covenant — nikah, parenting, kinship — is not a private arrangement but one upheld by the One who never sleeps. Enter each role knowing that what you cannot carry, He carries. Your consistency is an act of trust in His.',
+      },
+    ],
+    dua: {
+      title: 'Opening Intention — Family',
+      resumeTitle: 'Returning to Family',
+      arabic: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
+      trans: 'Rabbanā hab lanā min azwājinā wa dhurriyyātinā qurrata aʿyunin wajʿalnā lil-muttaqīna imāmā',
+      meaning: 'Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us a model for the righteous.',
+      source: 'Surah Al-Furqan 25:74',
+    },
+    closingDua: {
+      title: 'Closing — Family',
+      arabic: 'رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَصْلِحْ لِي فِي ذُرِّيَّتِي',
+      trans: "Rabbi awziʿnī an ashkura niʿmataka allatī anʿamta ʿalayya wa ʿalā wālidayya wa an aʿmala ṣāliḥan tarḍāhu wa aṣliḥ lī fī dhurriyyatī",
+      meaning: 'My Lord, enable me to be grateful for Your favour which You have bestowed upon me and upon my parents, and to do righteousness of which You approve, and make righteous for me my offspring.',
+      source: 'Surah Al-Ahqaf 46:15',
+    },
+    readiness: {
+      frame: 'Before engaging with family responsibilities, check your state.',
+      yesLabel: 'I am ready to enter when',
+      notYetLabel: 'I need to pause when',
+      rows: [
+        'I am emotionally present, not carrying unresolved tension into this space.',
+        'I am entering with the intention to give, not only to receive.',
+        'I am prepared to listen before I respond.',
+      ],
+      governing: [
+        'My presence here is an act of ibadah.',
+        'I am a trustee of the people in my care.',
+        'Gentleness is a sign of the mercy Allah has placed in my heart.',
+      ],
+      notYet: [
+        'I am too depleted to be present — I need to rest first.',
+        'I am carrying anger that would harm rather than help.',
+        'I am approaching this to vent, not to connect.',
+      ],
+    },
+    reflection: {
+      frame: 'Reflect on how I showed up for my family today.',
+      yesLabel: 'Presence and mercy were alive when',
+      notYetLabel: 'I fell short of the covenant when',
+      governing: [
+        'I was patient when it cost me something.',
+        'I listened to understand, not to reply.',
+        'I made someone in my family feel seen and valued.',
+      ],
+      notYet: [
+        'I let my stress become their burden.',
+        'I was physically present but emotionally absent.',
+        'I responded with harshness when softness was what was needed.',
+      ],
+    },
+  },
 };
 
 export const ONGOING_UNIVERSAL = {

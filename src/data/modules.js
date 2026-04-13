@@ -318,8 +318,8 @@ export const MODULES = [
   },
   {
     id: 'intellect-professional',
-    name: 'Professional Mastery',
-    description: 'Professional Mastery — Ethical Craftsmanship, Specialized Expertise, Industry Leadership',
+    name: 'Skill Proficiency',
+    description: 'Skill Proficiency — Ethical Craftsmanship, Specialized Expertise, Industry Leadership',
     icon: 'Wrench',
     color: '#ec4899',
     attrs: 'Al-Musawwir · Al-Bari',

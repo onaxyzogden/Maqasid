@@ -54,7 +54,7 @@ export default function Money({ embedded = false }) {
       </div>
 
       <div className="money-content">
-        {activeTab === 'dashboard' && <MoneyDashboard />}
+        {activeTab === 'dashboard' && <MoneyDashboard onNavigate={setActiveTab} />}
         {activeTab === 'expenses' && <ExpenseList />}
         {activeTab === 'income' && <IncomeTab />}
         {activeTab === 'proposal' && <ProposalTab />}

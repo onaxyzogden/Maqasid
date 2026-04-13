@@ -1,7 +1,7 @@
 /* ── Inline Task Detail — expanded card in the dashboard grid ── */
 
 .iltd {
-  grid-column: 1 / -1;
+  grid-column: span 12;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;

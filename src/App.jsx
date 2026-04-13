@@ -46,6 +46,9 @@ import FamilyMarriagePage from '@pages/family/FamilyMarriagePage';
 import FamilyParentingPage from '@pages/family/FamilyParentingPage';
 import FamilyKinshipPage from '@pages/family/FamilyKinshipPage';
 import FamilyHomePage from '@pages/family/FamilyHomePage';
+import WealthCorePage from '@pages/wealth/WealthCorePage';
+import WealthGrowthPage from '@pages/wealth/WealthGrowthPage';
+import WealthExcellencePage from '@pages/wealth/WealthExcellencePage';
 import WealthEarningPage from '@pages/wealth/WealthEarningPage';
 import WealthFinancialPage from '@pages/wealth/WealthFinancialPage';
 import WealthOwnershipPage from '@pages/wealth/WealthOwnershipPage';
@@ -60,7 +63,6 @@ import FaithDashboard from '@pages/faith/FaithDashboard';
 import LifeDashboard from '@pages/life/LifeDashboard';
 import IntellectDashboard from '@pages/intellect/IntellectDashboard';
 import FamilyDashboard from '@pages/family/FamilyDashboard';
-import WealthDashboard from '@pages/wealth/WealthDashboard';
 import EnvironmentDashboard from '@pages/environment/EnvironmentDashboard';
 import UmmahDashboard from '@pages/ummah/UmmahDashboard';
 import Settings from '@pages/Settings';
@@ -92,7 +94,24 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
+/* ─── Global textarea auto-resize ─── */
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+
+function useGlobalTextareaAutoResize() {
+  useEffect(() => {
+    const onInput = (e) => { if (e.target.tagName === 'TEXTAREA') autoResize(e.target); };
+    const onFocus = (e) => { if (e.target.tagName === 'TEXTAREA') autoResize(e.target); };
+    document.addEventListener('input', onInput);
+    document.addEventListener('focusin', onFocus);
+    return () => { document.removeEventListener('input', onInput); document.removeEventListener('focusin', onFocus); };
+  }, []);
+}
+
 export default function App() {
+  useGlobalTextareaAutoResize();
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
@@ -160,6 +179,9 @@ export default function App() {
         <Route path="family-kinship" element={<FamilyKinshipPage />} />
         <Route path="family-home" element={<FamilyHomePage />} />
         <Route path="family-office" element={<Office embedded />} />
+        <Route path="wealth-core" element={<WealthCorePage />} />
+        <Route path="wealth-growth" element={<WealthGrowthPage />} />
+        <Route path="wealth-excellence" element={<WealthExcellencePage />} />
         <Route path="wealth-earning" element={<WealthEarningPage />} />
         <Route path="wealth-financial" element={<WealthFinancialPage />} />
         <Route path="wealth-ownership" element={<WealthOwnershipPage />} />
@@ -173,7 +195,7 @@ export default function App() {
         <Route path="pillar/life" element={<LifeCorePage />} />
         <Route path="pillar/intellect" element={<IntellectCorePage />} />
         <Route path="pillar/family" element={<FamilyCorePage />} />
-        <Route path="pillar/wealth" element={<WealthDashboard />} />
+        <Route path="pillar/wealth" element={<WealthCorePage />} />
         <Route path="pillar/environment" element={<EnvironmentCorePage />} />
         <Route path="pillar/ummah" element={<UmmahDashboard />} />
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />

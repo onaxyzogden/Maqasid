@@ -418,12 +418,12 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
                   onChange={(e) => handleFieldChange(field.id, e.target.value)}
                 />
               ) : (
-                <input
-                  type="text"
-                  className="btp-field-input"
+                <textarea
+                  className="btp-field-input btp-field-textarea"
                   placeholder={field.placeholder || ''}
                   value={localFields[field.id] || ''}
                   onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                  rows={2}
                 />
               )}
             </div>

@@ -31,7 +31,7 @@ const PILLARS = [
   { id: 'learning', label: 'Learning & Literacy', Icon: Library },
   { id: 'thinking', label: 'Critical Thinking', Icon: Lightbulb },
   { id: 'cognitive', label: 'Cognitive Integrity', Icon: BrainCircuit },
-  { id: 'professional', label: 'Professional Mastery', Icon: Wrench },
+  { id: 'professional', label: 'Skill Proficiency', Icon: Wrench },
 ];
 
 export default function IntellectDashboard() {
