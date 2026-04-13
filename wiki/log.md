@@ -7,6 +7,47 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-13] audit+fix | BBOS comprehensive friction audit and critical remediation
+
+### Audit (3 parallel explore agents)
+Scanned BBOS across 3 dimensions: workflow/data integrity, UI components, and system integration. Found **42 total issues** (5 critical, 7 high, 16 medium, 14 low). Agent findings verified against source code — **3 false positives** identified and excluded:
+- C1 (grid overflow): CSS Grid auto-wraps correctly — spans per row sum to 12
+- C3 (AI draft non-functional): `buildPrompt()` and `parseAiResponse()` ARE implemented in `src/services/ai/`
+- C4 (FND Assembly Gate): FND is research-only by design — no Asset tasks needed
+
+### Positive findings
+- 100% task/role/Islamic grounding/scoring coverage (113 tasks, 9 stages, 7 roles)
+- All 9 stages have 5-signal scoring (contradicts earlier audit's "5/9 unscored" — fixed in Sprint 7)
+- moveTask() completedAt fix confirmed working
+
+### Fixes applied (8 issues)
+1. **C2 — Debounce cleanup**: Added `useEffect(() => () => clearTimeout(saveTimeout.current), [])` in `BbosTaskPanel.jsx` — prevents stale store writes after panel close
+2. **C5 — Atomic task seeding**: `project-store.js` `addProject()` now rolls back orphaned BBOS tasks if project persistence fails (calls `safeRemove`)
+3. **H1 — useMemo optimization**: `BbosFullDashboard.jsx` selector narrowed from `s.tasksByProject` (entire map) to `s.tasksByProject[project.id]` — prevents re-computation on unrelated project changes
+4. **H4 — useEffect deps**: Added `bbosFilter` to dependency array in `ProjectBoard.jsx:50` — `setActiveBbosStage` now updates when user switches stages
+5. **H7 — Assembly Gate null guard**: Gate defaults to open if Done column is missing (`!doneColumnId`)
+6. **M1 — Status detection fallback**: Task card status now checks both `columnId === doneColumnId` and `task.completedAt` for completion
+7. **M3 — Auto-advance heuristic**: Changed from "10+ total chars across all fields" to "2+ fields with content OR 1 field with 50+ chars" — reduces false triggers
+8. **L2 — ratingToStars case-insensitive**: `.toLowerCase()` applied before string matching
+9. **L4 — Breakpoint fix**: `max-width: 767px` → `768px` in `BbosFullDashboard.css`
+10. **L11 — Score clamping**: `renderStars()` now clamps score to `[0, max]` via `Math.min(Math.max(score, 0), max)`
+
+### Files modified
+- `src/components/bbos/BbosFullDashboard.jsx` — H1, H7, M1, L2, L11
+- `src/components/bbos/BbosFullDashboard.css` — L4
+- `src/components/bbos/BbosTaskPanel.jsx` — C2, M3
+- `src/components/work/ProjectBoard.jsx` — H4
+- `src/store/project-store.js` — C5
+
+### Remaining open items (not addressed this session)
+- H3: BbosRolePicker keyboard navigation (WCAG 2.1 AA)
+- H5: BBOS not in sidebar navigation (discovery friction)
+- H6: STR-V prefix classification (design decision needed)
+- H2: STAGE_SCORE_SIGNALS hardcoded field names (refactoring scope)
+- M2: Only 14/113 tasks have custom renderers
+- M5: No error boundary on BbosTaskPanel
+- M10: 5 BBOS skill files referenced but missing from `.claude/skills/`
+
 ## [2026-04-12] ui | AyahBanner polish + family Islamic data
 
 **AyahBanner (TopBar verse banner) — multiple visual fixes:**
