@@ -47,7 +47,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   useEffect(() => {
     if (project?.bbosEnabled) setActiveBbosStage(bbosFilter);
     return () => clearActiveBbosStage();
-  }, [project?.bbosEnabled]);
+  }, [project?.bbosEnabled, bbosFilter]);
 
   const isBbos = project?.bbosEnabled && !hideBbos;
 

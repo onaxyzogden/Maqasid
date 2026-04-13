@@ -62,6 +62,11 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     if (task) setNotes(task.notes || '');
   }, [taskId]);
 
+  // Clean up debounced save on unmount — prevents stale writes after panel close
+  useEffect(() => {
+    return () => clearTimeout(saveTimeout.current);
+  }, []);
+
   // Wire active BBOS task type for journal badge context
   useEffect(() => {
     if (def?.id) setActiveBbosTaskType(def.id);
@@ -88,12 +93,13 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
     clearTimeout(saveTimeout.current);
     saveTimeout.current = setTimeout(() => {
       updateBbosFieldData(projectId, taskId, fieldId, value);
-      // Only auto-advance after 10+ chars of meaningful content across all fields
+      // Auto-advance when at least 2 user fields have content (or 1 field with 50+ chars)
       if (!fieldId.startsWith('_')) {
-        const totalLen = Object.entries(next)
-          .filter(([k]) => !k.startsWith('_'))
-          .reduce((sum, [, v]) => sum + (typeof v === 'string' ? v.trim().length : 0), 0);
-        if (totalLen >= 10) advanceToInProgress();
+        const filled = Object.entries(next)
+          .filter(([k, v]) => !k.startsWith('_') && typeof v === 'string' && v.trim().length > 0);
+        if (filled.length >= 2 || filled.some(([, v]) => v.trim().length >= 50)) {
+          advanceToInProgress();
+        }
       }
     }, 300);
   };

@@ -93,14 +93,15 @@ function computeGroupSpans(prefix, defs) {
 // ── Star rating helpers ───────────────────────────────────────────────────────
 
 function renderStars(score, max = 3) {
+  const clamped = Math.min(Math.max(score, 0), max);
   return (
     <span className="bfd__pa-stars">
       {Array.from({ length: max }, (_, i) => i + 1).map((i) => (
         <Star
           key={i}
           size={13}
-          className={i <= score ? '' : 'bfd__pa-star--empty'}
-          fill={i <= score ? 'currentColor' : 'none'}
+          className={i <= clamped ? '' : 'bfd__pa-star--empty'}
+          fill={i <= clamped ? 'currentColor' : 'none'}
         />
       ))}
     </span>
@@ -108,11 +109,11 @@ function renderStars(score, max = 3) {
 }
 
 function ratingToStars(text) {
-  const t = (text || '').trim();
-  if (t.startsWith('Strong'))                                       return 3;
-  if (t.startsWith('Moderate'))                                     return 2;
-  if (t.startsWith('Weak'))                                         return 1;
-  if (t.startsWith('Unverifiable') || t.startsWith('Insufficient')) return 1;
+  const t = (text || '').trim().toLowerCase();
+  if (t.startsWith('strong'))                                       return 3;
+  if (t.startsWith('moderate'))                                     return 2;
+  if (t.startsWith('weak'))                                         return 1;
+  if (t.startsWith('unverifiable') || t.startsWith('insufficient')) return 1;
   return null; // fallback: render as text
 }
 
@@ -693,7 +694,7 @@ function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, view
 
   const hasData = task && !allEmpty;
 
-  const status = (task && doneColumnId && task.columnId === doneColumnId)
+  const status = (task && doneColumnId && task.columnId === doneColumnId) || (task && task.completedAt)
     ? 'complete'
     : (!task || allEmpty)
       ? 'empty'
@@ -855,14 +856,15 @@ function StageScoreCard({ bbosFilter, taskMap }) {
 
 // ── BbosFullDashboard ─────────────────────────────────────────────────────────
 
+const EMPTY_TASKS = [];
+
 export default function BbosFullDashboard({ project, bbosFilter, onSelectTask }) {
-  const tasksByProject = useTaskStore((s) => s.tasksByProject);
+  const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
 
   const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
     const allDefs = getBbosTaskDefsByStage(bbosFilter);
-    const tasks = tasksByProject[project.id] || [];
 
     // Filter defs by role access — hide tasks the role cannot see
     const defs = (!bbosRole || bbosRole === 'all')
@@ -903,7 +905,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
     const doneColumnId = project.columns?.find((c) => c.name === 'Done')?.id ?? null;
 
     return { stageMeta, taskGroups: groups, taskMap, globalIdxMap, stageTasks, doneColumnId };
-  }, [tasksByProject, project, bbosFilter, bbosRole]);
+  }, [tasks, project, bbosFilter, bbosRole]);
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
 
@@ -927,11 +929,11 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
 
           // Assembly gate: are all research tasks in Done column?
           const researchDefs = researchGroups.flatMap((g) => g.defs);
-          const researchAllDone = researchDefs.length > 0 && researchDefs.every((def) => {
+          const researchAllDone = doneColumnId && researchDefs.length > 0 && researchDefs.every((def) => {
             const t = taskMap[def.id];
             return t && t.columnId === doneColumnId;
           });
-          const gateCleared = researchAllDone;
+          const gateCleared = researchAllDone || !doneColumnId; // unlock if no Done column exists
 
           const renderGroup = (group, assetLocked) => {
             const spans = computeGroupSpans(group.prefix, group.defs);

@@ -358,11 +358,17 @@ export const useProjectStore = create((set, get) => ({
         return null;
       }
     }
+    // Persist project — if this fails after BBOS task seeding, clean up orphaned tasks
+    const projectPersisted = { success: true };
     set((s) => {
       const projects = [...s.projects, project];
-      persistProjects(projects);
-      return { projects };
+      projectPersisted.success = safeSet('projects', projects);
+      return projectPersisted.success ? { projects } : s;
     });
+    if (!projectPersisted.success && bbosEnabled) {
+      safeRemove(`tasks_${project.id}`);
+      return null;
+    }
     return project;
   },
 
