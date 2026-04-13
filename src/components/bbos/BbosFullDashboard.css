@@ -811,6 +811,150 @@
   flex: 1;
 }
 
+/* ── DualColumnRenderer ── */
+.bfd__dual { display: flex; flex-direction: column; gap: 8px; }
+.bfd__dual-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bfd__dual-col {
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+}
+.bfd__dual-head {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+  margin-bottom: 4px;
+}
+.bfd__dual-body {
+  color: var(--text);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  margin: 0;
+  white-space: pre-line;
+}
+.bfd__dual-footer {
+  font-size: 0.72rem;
+  color: var(--text2);
+  padding: 6px 10px;
+  background: var(--bg2);
+  border-radius: var(--radius-sm);
+}
+.bfd__dual-footer-label {
+  font-weight: 600;
+  margin-right: 6px;
+  color: var(--text3);
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── StepPanelRenderer ── */
+.bfd__steps { display: flex; flex-direction: column; gap: 6px; }
+.bfd__step {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+}
+.bfd__step-marker {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.bfd__step-content { flex: 1; min-width: 0; }
+.bfd__step-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 3px;
+}
+.bfd__step-body {
+  color: var(--text);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* ── MetricBarRenderer ── */
+.bfd__metrics { display: flex; flex-direction: column; gap: 8px; }
+.bfd__metric-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+.bfd__metric-label { font-size: 0.72rem; color: var(--text2); }
+.bfd__metric-value { font-size: 0.72rem; font-weight: 600; color: var(--text); }
+.bfd__metric-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg3);
+  overflow: hidden;
+}
+.bfd__metric-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ── ScopeMapRenderer ── */
+.bfd__scope { display: flex; flex-direction: column; gap: 8px; }
+.bfd__scope-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bfd__scope-col {
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+.bfd__scope-col--in {
+  background: color-mix(in srgb, var(--col-done) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--col-done) 18%, transparent);
+}
+.bfd__scope-col--out {
+  background: color-mix(in srgb, var(--pri-urgent) 6%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--pri-urgent) 15%, transparent);
+}
+.bfd__scope-head {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text2);
+  margin-bottom: 4px;
+}
+.bfd__scope-body {
+  color: var(--text);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  margin: 0;
+  white-space: pre-line;
+}
+.bfd__scope-footer {
+  font-size: 0.72rem;
+  color: var(--text2);
+  padding: 6px 10px;
+  background: var(--bg2);
+  border-radius: var(--radius-sm);
+}
+.bfd__scope-footer-label {
+  font-weight: 600;
+  margin-right: 6px;
+  color: var(--text3);
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+}
+
 @media (max-width: 768px) {
   .bfd {
     height: auto;
@@ -821,5 +965,9 @@
   }
   .bfd__factory > .dtc__card {
     grid-column: span 1 !important;
+  }
+  .bfd__scope-cols,
+  .bfd__dual-cols {
+    grid-template-columns: 1fr;
   }
 }

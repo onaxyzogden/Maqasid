@@ -19,6 +19,19 @@ function isTaskStarted(task) {
 }
 
 /**
+ * Weighted completion for a single task.
+ * Done tasks = 1. Tasks with subtasks = doneSubtasks / totalSubtasks.
+ * Tasks with no subtasks that aren't done = 0.
+ */
+function taskWeight(task) {
+  if (isTaskDone(task)) return 1;
+  const subs = task.subtasks;
+  if (!subs || subs.length === 0) return 0;
+  const done = subs.filter((s) => s.done).length;
+  return done / subs.length;
+}
+
+/**
  * Calculate progress for a single module by aggregating tasks
  * across all projects tagged with that moduleId.
  */
@@ -34,12 +47,12 @@ export function useModuleProgress(moduleId) {
     for (const proj of moduleProjects) {
       const tasks = tasksByProject[proj.id] || [];
       total += tasks.length;
-      completed += tasks.filter(isTaskDone).length;
+      for (const task of tasks) completed += taskWeight(task);
     }
 
     return {
       total,
-      completed,
+      completed: Math.round(completed),
       pct: total > 0 ? Math.round((completed / total) * 100) : 0,
     };
   }, [moduleId, projects, tasksByProject]);
@@ -73,15 +86,16 @@ export function useModulesProgress(moduleIds, level) {
       for (const proj of moduleProjects) {
         const tasks = tasksByProject[proj.id] || [];
         total += tasks.length;
-        completed += tasks.filter(isTaskDone).length;
+        for (const task of tasks) completed += taskWeight(task);
         started += tasks.filter(isTaskStarted).length;
       }
 
+      const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
       progressMap[moduleId] = {
         total,
-        completed,
+        completed: Math.round(completed),
         started,
-        pct: total > 0 ? Math.round((completed / total) * 100) : 0,
+        pct,
       };
 
       grandTotal += total;

@@ -14,6 +14,7 @@ import { streamCompletion, AiClientError } from '@services/ai/ai-client';
 import { buildPrompt } from '@services/ai/prompt-builder';
 import { parseAiResponse } from '@services/ai/response-parser';
 import GLabelPicker from '../shared/GLabelPicker';
+import ErrorBoundary from '../shared/ErrorBoundary';
 import './BbosTaskPanel.css';
 
 function formatDateTime(iso) {
@@ -24,7 +25,15 @@ function formatDateTime(iso) {
   });
 }
 
-export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
+export default function BbosTaskPanel(props) {
+  return (
+    <ErrorBoundary name="BbosTaskPanel" onReset={props.onClose}>
+      <BbosTaskPanelInner {...props} />
+    </ErrorBoundary>
+  );
+}
+
+function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
   const mobile = useMobile();
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const taskStore = useTaskStore();
@@ -394,45 +403,47 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
         {/* ── Form fields ── */}
         <div className="btp-fields">
           {def.fields.map((field) => (
-            <div key={field.id} className="btp-field">
-              <label className="btp-field-label">{field.label}</label>
-              {field.type === 'textarea' ? (
-                <textarea
-                  className="btp-field-textarea"
-                  rows={field.rows || 3}
-                  placeholder={field.placeholder || ''}
-                  value={localFields[field.id] || ''}
-                  onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                />
-              ) : field.type === 'select' ? (
-                <select
-                  className="btp-field-select"
-                  value={localFields[field.id] || ''}
-                  onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                >
-                  <option value="">Select...</option>
-                  {field.options?.map((opt) => (
-                    <option key={opt.value} value={opt.value}>{opt.label}</option>
-                  ))}
-                </select>
-              ) : field.type === 'number' ? (
-                <input
-                  type="number"
-                  className="btp-field-input"
-                  placeholder={field.placeholder || ''}
-                  value={localFields[field.id] || ''}
-                  onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                />
-              ) : (
-                <textarea
-                  className="btp-field-input btp-field-textarea"
-                  placeholder={field.placeholder || ''}
-                  value={localFields[field.id] || ''}
-                  onChange={(e) => handleFieldChange(field.id, e.target.value)}
-                  rows={2}
-                />
-              )}
-            </div>
+            <ErrorBoundary key={field.id} name={field.label}>
+              <div className="btp-field">
+                <label className="btp-field-label">{field.label}</label>
+                {field.type === 'textarea' ? (
+                  <textarea
+                    className="btp-field-textarea"
+                    rows={field.rows || 3}
+                    placeholder={field.placeholder || ''}
+                    value={localFields[field.id] || ''}
+                    onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                  />
+                ) : field.type === 'select' ? (
+                  <select
+                    className="btp-field-select"
+                    value={localFields[field.id] || ''}
+                    onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                  >
+                    <option value="">Select...</option>
+                    {field.options?.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                ) : field.type === 'number' ? (
+                  <input
+                    type="number"
+                    className="btp-field-input"
+                    placeholder={field.placeholder || ''}
+                    value={localFields[field.id] || ''}
+                    onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                  />
+                ) : (
+                  <textarea
+                    className="btp-field-input btp-field-textarea"
+                    placeholder={field.placeholder || ''}
+                    value={localFields[field.id] || ''}
+                    onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                    rows={2}
+                  />
+                )}
+              </div>
+            </ErrorBoundary>
           ))}
         </div>
 
@@ -480,6 +491,7 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
 
         {/* ── AI Draft section ── */}
         {def.hasAiDraft && (
+          <ErrorBoundary name="AI Draft">
           <div className="btp-draft-section">
             <div className="btp-section-label">AI Draft</div>
 
@@ -560,6 +572,7 @@ export default function BbosTaskPanel({ project, projectId, taskId, onClose }) {
               </button>
             )}
           </div>
+          </ErrorBoundary>
         )}
       </div>
 

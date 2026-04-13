@@ -1,36 +1,98 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Kanban, Wallet, Users, Building2, Shield, Check, ChevronDown, ArrowRight, Star, LogIn, X, Handshake, Moon } from 'lucide-react';
-import { MODULES } from '../data/modules';
+import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
+import { MAQASID_PILLARS } from '../data/maqasid';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
 import '../styles/landing.css';
 
-const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield, Handshake };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
+
+const PILLAR_FEATURES = {
+  faith: {
+    description: 'Preserve and cultivate your relationship with Allah through the five pillars of Islam, spiritual reflection, and access to primary sources.',
+    items: [
+      { title: 'Five Pillars Boards', desc: 'Dedicated Kanban boards for Shahada, Salah, Zakah, Sawm, and Hajj' },
+      { title: 'Primary Sources', desc: "Integrated Qur\u2019an study, Hadith collections, and Islamic knowledge" },
+      { title: 'Spiritual Readiness', desc: 'Quranic grounding checks before every task to align intention with action' },
+      { title: 'Three-Tier Growth', desc: 'Progress through Necessities, Needs, and Excellence in your faith journey' },
+    ],
+  },
+  life: {
+    description: 'Protect and develop your physical health, mental well-being, personal safety, and social character.',
+    items: [
+      { title: 'Physical Health', desc: 'Track nutrition, exercise, and vitality goals across three growth tiers' },
+      { title: 'Mental Well-being', desc: 'Monitor emotional resilience, stress management, and inner peace' },
+      { title: 'Safety & Security', desc: 'Plan for personal protection, emergency preparedness, and stability' },
+      { title: 'Social Character', desc: 'Cultivate adab, integrity, and exemplary social presence' },
+    ],
+  },
+  intellect: {
+    description: 'Sharpen your mind through continuous learning, critical thinking, cognitive protection, and professional skill development.',
+    items: [
+      { title: 'Learning & Literacy', desc: 'Foundational competency, continuous education, and intellectual legacy' },
+      { title: 'Critical Thinking', desc: 'Truth-seeking, logical reasoning, and visionary insight' },
+      { title: 'Cognitive Integrity', desc: 'Protect focus, attention, and flow states from digital distraction' },
+      { title: 'Skill Proficiency', desc: 'Ethical craftsmanship, specialized expertise, and industry leadership' },
+    ],
+  },
+  family: {
+    description: 'Strengthen the bonds of marriage, parenting, kinship, and home life as the foundation of a purposeful legacy.',
+    items: [
+      { title: 'Foundations of Marriage', desc: 'Legal union, emotional tranquility, and partnership in virtue' },
+      { title: 'Parenting & Mentorship', desc: 'Provision, tarbiyah, and intergenerational wisdom transfer' },
+      { title: 'Extended Family', desc: 'Silat al-Rahim \u2014 maintaining kinship ties and proactive support' },
+      { title: 'Home Environment', desc: 'Sanctity, wholesome atmosphere, and hospitality of the household' },
+    ],
+  },
+  wealth: {
+    description: 'Manage your livelihood with integrity \u2014 from halal earning and financial literacy to ownership rights and charitable circulation.',
+    items: [
+      { title: 'Earning & Provision', desc: 'Track halal income streams, value expansion, and economic empowerment' },
+      { title: 'Financial Literacy', desc: 'Budgets, expense tracking, invoicing, and financial reports' },
+      { title: 'Ownership & Rights', desc: 'Protect heirs, maintain transparent dealings, build generational legacy' },
+      { title: 'Business Operations', desc: 'Projects, people, office, and tech modules for your ventures' },
+    ],
+  },
+  environment: {
+    description: 'Honor your role as khalifah of the earth through conscious resource use, waste reduction, and ecological stewardship.',
+    items: [
+      { title: 'Resource Consumption', desc: 'Anti-extravagance in water and energy \u2014 track efficiency goals' },
+      { title: 'Waste & Pollution', desc: 'Harm reduction, conscious consumption, and zero-waste aspirations' },
+      { title: 'Ecosystem & Biodiversity', desc: 'Respect for creation, active stewardship, and ecological restoration' },
+      { title: 'Ethical Sourcing', desc: 'Ethical origins, sustainable supply chains, and circular economy' },
+    ],
+  },
+  ummah: {
+    description: 'Serve and strengthen your community \u2014 from neighbors and local networks to collective initiatives and shared impact.',
+    items: [
+      { title: 'Neighbors', desc: 'Neighborly relations, local connections, and mutual aid' },
+      { title: 'Community', desc: 'Group initiatives, collective impact, and civic engagement' },
+      { title: 'Moontrance', desc: 'Faith-rooted land destination \u2014 experiences, stewardship, and community' },
+    ],
+  },
+};
 
 const FAQS = [
-  { q: 'What is MAQASID?', a: 'MAQASID (Islamic Life Operating System) is an all-in-one platform to manage your life, work, finances, and spiritual growth — built on principles of ethical stewardship, excellence, and honest reckoning.' },
-  { q: 'Is MAQASID free to use?', a: 'Yes. The Starter plan is free and includes full access to the Work module with unlimited projects. Pro and Enterprise plans unlock additional modules and advanced features.' },
-  { q: 'What makes MAQASID different from other project management tools?', a: 'MAQASID integrates an optional Islamic governance layer alongside modern business tools. It combines project management, finance, HR, and communication in one system — with built-in ethical guardrails.' },
-  { q: 'Can I use MAQASID without the Islamic layer?', a: 'Absolutely. During onboarding you choose between the Islamic values path and a universal ethics path. The core business tools work identically either way.' },
-  { q: 'What modules are available?', a: 'Work (project management and Kanban boards) is available now. Money, People, Office, and Tech modules are coming soon.' },
-  { q: 'Can I export my data?', a: 'Yes. All your data can be exported as JSON at any time from Settings. You own your data completely.' },
+  { q: 'What is Maqasid OS?', a: "Maqasid OS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of the Shari\u2019ah." },
+  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven pillars form the organizing structure of everything in Maqasid OS." },
+  { q: 'Is Maqasid OS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
+  { q: 'What can I actually track?', a: 'Each pillar has dedicated sub-modules with Kanban boards, task management, and progress tracking. Examples: prayer consistency, health goals, learning plans, family commitments, budgets and expenses, environmental footprint, and community engagement.' },
+  { q: 'Is my data private?', a: 'Yes. All data is stored locally on your device. Nothing is sent to external servers. You can export your full dataset as JSON at any time from Settings.' },
+  { q: 'Is it free?', a: 'Yes. Maqasid OS is completely free to use with full access to all seven pillars and every sub-module. No paywalls, no premium tiers.' },
 ];
 
-const WORK_FEATURES = [
-  { icon: '📋', title: 'Kanban Boards', desc: 'Drag-and-drop task management with customizable columns' },
-  { icon: '✅', title: 'Task Management', desc: 'Subtasks, checklists, priorities, due dates, and tags' },
-  { icon: '📊', title: 'Multiple Views', desc: 'Switch between board and list views for any project' },
-  { icon: '🔍', title: 'Search & Filter', desc: 'Find any task instantly with Cmd+K search and smart filters' },
-  { icon: '📱', title: 'Mobile Ready', desc: 'Full responsive design that works on any device' },
-  { icon: '🔒', title: 'Privacy First', desc: 'All data stored locally — your information never leaves your device' },
+const HOW_IT_WORKS = [
+  { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences.', icon: Compass },
+  { step: '02', title: 'Explore Your Pillars', desc: 'Each of the Seven Maqasid has its own dashboard with sub-modules, Kanban boards, and readiness checks.', icon: BookOpen },
+  { step: '03', title: 'Track Your Growth', desc: 'Work through three tiers \u2014 Necessities, Needs, and Excellence \u2014 across every dimension of your life.', icon: Sparkles },
 ];
 
 export default function Landing() {
   const navigate = useNavigate();
   const user = useAuthStore((s) => s.user);
   const login = useAuthStore((s) => s.login);
-  const [activeTab, setActiveTab] = useState('work');
+  const [activeTab, setActiveTab] = useState('faith');
   const [openFaq, setOpenFaq] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
   const [loginName, setLoginName] = useState('');
@@ -51,6 +113,9 @@ export default function Landing() {
     navigate('/app');
   };
 
+  const activePillar = MAQASID_PILLARS.find((p) => p.id === activeTab);
+  const activeFeatures = PILLAR_FEATURES[activeTab];
+
   return (
     <div className="landing">
       {/* Nav */}
@@ -60,8 +125,8 @@ export default function Landing() {
           MAQASID
         </Link>
         <ul className="landing-nav-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
         <div className="landing-nav-actions">
@@ -119,140 +184,126 @@ export default function Landing() {
           <Star size={14} /> Islamic Life Operating System
         </div>
         <h1 className="hero-title">
-          Run your business with <span className="highlight">clarity and purpose</span>
+          Organize your life around <span className="highlight">what truly matters</span>
         </h1>
         <p className="hero-subtitle">
-          For <span className="tag">business owners</span>, <span className="tag">operators</span>, and <span className="tag">growing teams</span> who want one system to manage work, money, people, and operations — built on principles of excellence.
+          One system for <span className="tag">faith</span>, <span className="tag">health</span>, <span className="tag">intellect</span>, <span className="tag">family</span>, <span className="tag">wealth</span>, <span className="tag">environment</span>, and <span className="tag">community</span> — grounded in the higher objectives of the Shari'ah.
         </p>
         <div className="hero-cta">
           <Link to="/get-started" className="btn btn-primary btn-lg">
             Get Started Free <ArrowRight size={18} />
           </Link>
-          <a href="#features" className="btn btn-secondary btn-lg">See Features</a>
+          <a href="#pillars" className="btn btn-secondary btn-lg">Explore the Pillars</a>
         </div>
         <div className="hero-modules">
-          {MODULES.map((mod) => {
-            const Icon = ICON_MAP[mod.icon];
+          {MAQASID_PILLARS.map((pillar) => {
+            const Icon = PILLAR_ICON_MAP[pillar.icon];
             return (
-              <div key={mod.id} className="hero-module-chip">
-                {Icon && <Icon size={16} style={{ color: mod.color }} />}
-                {mod.name}
-                {!mod.ready && <span style={{ fontSize: '0.7rem', color: 'var(--text3)', fontWeight: 600 }}>SOON</span>}
+              <div key={pillar.id} className="hero-module-chip" style={{ borderColor: pillar.accentColor + '40' }}>
+                {Icon && <Icon size={16} style={{ color: pillar.accentColor }} />}
+                {pillar.sidebarLabel}
+                <span style={{ fontSize: '0.75rem', color: pillar.accentColor, fontWeight: 600, fontStyle: 'italic' }}>{pillar.arabicRootAr}</span>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* Features */}
-      <section className="features-section" id="features">
-        <p className="section-label">Modules</p>
-        <h2 className="section-title">Everything your business needs</h2>
+      {/* Seven Pillars */}
+      <section className="features-section" id="pillars">
+        <p className="section-label">The Seven Maqasid</p>
+        <h2 className="section-title">One system for every dimension of your life</h2>
         <p className="section-subtitle">
-          Five integrated modules to replace the chaos of multiple disconnected tools.
+          The Maqasid al-Shariah — the higher objectives of Islamic law — provide the framework. Each pillar has its own dashboard, sub-modules, and growth tiers.
         </p>
 
         <div className="feature-tabs">
-          {MODULES.map((mod) => {
-            const Icon = ICON_MAP[mod.icon];
+          {MAQASID_PILLARS.map((pillar) => {
+            const Icon = PILLAR_ICON_MAP[pillar.icon];
             return (
               <button
-                key={mod.id}
-                className={`feature-tab ${activeTab === mod.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(mod.id)}
+                key={pillar.id}
+                className={`feature-tab ${activeTab === pillar.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(pillar.id)}
+                style={activeTab === pillar.id ? { borderColor: pillar.accentColor, color: pillar.accentColor } : undefined}
               >
-                {Icon && <Icon size={16} />} {mod.name}
-                {!mod.ready && <span style={{ fontSize: '0.65rem', background: 'var(--bg4)', padding: '1px 6px', borderRadius: 'var(--radius-full)' }}>Soon</span>}
+                {Icon && <Icon size={16} />} {pillar.sidebarLabel}
               </button>
             );
           })}
         </div>
 
         <div className="feature-content">
-          <div className="feature-preview">
-            <div className="feature-preview-placeholder">
-              {activeTab === 'work'
-                ? '[ Kanban Board Preview ]'
-                : `[ ${MODULES.find(m => m.id === activeTab)?.name} — Coming Soon ]`
-              }
+          <div className="feature-preview" style={{ borderColor: activePillar?.accentColor + '30' }}>
+            <div className="feature-preview-placeholder" style={{ textAlign: 'center', padding: 'var(--space-6)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: 'var(--space-2)', color: activePillar?.accentColor }}>
+                {activePillar && PILLAR_ICON_MAP[activePillar.icon] && (() => {
+                  const Icon = PILLAR_ICON_MAP[activePillar.icon];
+                  return <Icon size={48} />;
+                })()}
+              </div>
+              <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--text)', marginBottom: 'var(--space-1)' }}>
+                {activePillar?.sidebarLabel}
+              </div>
+              <div style={{ fontSize: '1.1rem', color: activePillar?.accentColor, fontStyle: 'italic', marginBottom: 'var(--space-3)' }}>
+                {activePillar?.arabicRoot} &middot; {activePillar?.arabicRootAr}
+              </div>
+              <div style={{ fontSize: '0.9rem', color: 'var(--text2)', maxWidth: 320, margin: '0 auto', lineHeight: 1.6 }}>
+                {activeFeatures?.description}
+              </div>
             </div>
           </div>
           <div className="feature-list">
-            {activeTab === 'work' ? (
-              WORK_FEATURES.map((f, i) => (
-                <div key={i} className="feature-item">
-                  <div className="feature-icon" style={{ background: 'var(--primary-bg)', fontSize: '1.2rem' }}>
-                    {f.icon}
-                  </div>
-                  <div>
-                    <h4>{f.title}</h4>
-                    <p>{f.desc}</p>
-                  </div>
+            {activeFeatures?.items.map((f, i) => (
+              <div key={i} className="feature-item">
+                <div className="feature-icon" style={{ background: activePillar?.accentColor + '18' }}>
+                  <Check size={18} style={{ color: activePillar?.accentColor }} />
                 </div>
-              ))
-            ) : (
-              MODULES.find(m => m.id === activeTab)?.features.map((f, i) => (
-                <div key={i} className="feature-item">
-                  <div className="feature-icon" style={{ background: 'var(--primary-bg)' }}>
-                    <Check size={18} style={{ color: 'var(--primary)' }} />
-                  </div>
-                  <div><h4>{f}</h4><p>Coming soon</p></div>
+                <div>
+                  <h4>{f.title}</h4>
+                  <p>{f.desc}</p>
                 </div>
-              ))
-            )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="pricing-section" id="pricing">
-        <p className="section-label">Pricing</p>
-        <h2 className="section-title">Simple, transparent pricing</h2>
-        <p className="section-subtitle">Start free. Upgrade when you need more.</p>
+      {/* How It Works */}
+      <section className="pricing-section" id="how-it-works">
+        <p className="section-label">How It Works</p>
+        <h2 className="section-title">Three steps to a purposeful life</h2>
+        <p className="section-subtitle">Get started in under a minute. No account required — everything runs locally on your device.</p>
 
         <div className="pricing-cards">
-          <div className="pricing-card">
-            <div className="plan-name">Starter</div>
-            <div className="plan-price">Free</div>
-            <div className="plan-desc">Everything you need to get started</div>
-            <ul className="pricing-features">
-              {['Unlimited projects', 'Kanban boards & list views', 'Subtasks & checklists', 'Search & filters', 'Data export', 'Islamic governance layer'].map((f, i) => (
-                <li key={i}><Check size={16} /> {f}</li>
-              ))}
-            </ul>
-            <Link to="/get-started" className="btn btn-primary" style={{ width: '100%' }}>Get Started</Link>
-          </div>
-
-          <div className="pricing-card featured">
-            <div className="plan-name">Pro</div>
-            <div className="plan-price">$19<span>/month</span></div>
-            <div className="plan-desc">For growing teams and businesses</div>
-            <ul className="pricing-features">
-              {['Everything in Starter', 'Money module', 'People module', 'Office module', 'Advanced analytics', 'Priority support'].map((f, i) => (
-                <li key={i}><Check size={16} /> {f}</li>
-              ))}
-            </ul>
-            <button className="btn btn-primary" style={{ width: '100%' }} disabled>Coming Soon</button>
-          </div>
-
-          <div className="pricing-card">
-            <div className="plan-name">Enterprise</div>
-            <div className="plan-price">Custom</div>
-            <div className="plan-desc">For organizations with custom needs</div>
-            <ul className="pricing-features">
-              {['Everything in Pro', 'Tech module', 'Custom integrations', 'White-glove onboarding', 'SLA guarantee', 'Dedicated support'].map((f, i) => (
-                <li key={i}><Check size={16} /> {f}</li>
-              ))}
-            </ul>
-            <button className="btn btn-secondary" style={{ width: '100%' }} disabled>Contact Us</button>
-          </div>
+          {HOW_IT_WORKS.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div key={step.step} className="pricing-card">
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+                  <div style={{
+                    width: 48, height: 48, borderRadius: 'var(--radius)',
+                    background: 'var(--primary-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--primary)', fontWeight: 700, fontSize: '1.1rem', flexShrink: 0,
+                  }}>
+                    <Icon size={24} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.06em' }}>STEP {step.step}</div>
+                    <div className="plan-name" style={{ marginBottom: 0 }}>{step.title}</div>
+                  </div>
+                </div>
+                <p style={{ color: 'var(--text2)', fontSize: '0.95rem', lineHeight: 1.7 }}>{step.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* CTA */}
       <section className="cta-section">
-        <h2>Ready to run your business with purpose?</h2>
-        <p>Join operators who manage their work with clarity, ethics, and excellence.</p>
+        <h2>Ready to align your life with purpose?</h2>
+        <p>Join those who organize every dimension of their life around the objectives that truly matter.</p>
         <Link to="/get-started" className="btn btn-primary btn-lg">
           Get Started Free <ArrowRight size={18} />
         </Link>
@@ -291,16 +342,16 @@ export default function Landing() {
           <div className="footer-col">
             <h6>Product</h6>
             <ul>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#pillars">Pillars</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#faq">FAQ</a></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h6>Modules</h6>
+            <h6>The Seven Maqasid</h6>
             <ul>
-              {MODULES.map((m) => (
-                <li key={m.id}><a href="#features">{m.name}</a></li>
+              {MAQASID_PILLARS.map((p) => (
+                <li key={p.id}><a href="#pillars">{p.sidebarLabel}</a></li>
               ))}
             </ul>
           </div>
@@ -315,7 +366,7 @@ export default function Landing() {
         </div>
         <div className="footer-bottom">
           <span>&copy; {new Date().getFullYear()} MAQASID. All rights reserved.</span>
-          <span>Future of Business. With Purpose.</span>
+          <span>Every dimension of life. With purpose.</span>
         </div>
       </footer>
     </div>

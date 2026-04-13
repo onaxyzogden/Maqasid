@@ -1,7 +1,7 @@
 import { useMemo, Fragment } from 'react';
 import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
-import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
+import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage } from '../../data/bbos/bbos-pipeline';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
@@ -58,6 +58,10 @@ const PREFIX_LABELS = {
 };
 
 // ── Factory classification ───────────────────────────────────────────────────
+// V (Validation Gates) are classified as Research because they gate the
+// transition from research to asset production. The Assembly Gate checks
+// whether all Research tasks (including V) are Done before unlocking Assets.
+// Do not move V to Asset — it would break Assembly Gate semantics.
 const RESEARCH_PREFIXES = new Set(['S', 'V', 'FP']);
 const ASSET_PREFIXES = new Set(['A', 'AF', 'IC']);
 
@@ -144,113 +148,178 @@ function countNonEmpty(...keys) {
 const STAGE_SCORE_SIGNALS = {
   FND: [
     { label: 'Capital & Skills Declared',  taskId: 'FND-S1',
+      fieldIds: ['capitalDeclaration', 'skillsDeclaration'],
       score: countNonEmpty('capitalDeclaration', 'skillsDeclaration') },
     { label: 'Proof & Constraints',        taskId: 'FND-S1',
+      fieldIds: ['proofLinks', 'constraintsDeclaration', 'geographyDeclaration', 'regulatoryDeclaration'],
       score: countNonEmpty('proofLinks', 'constraintsDeclaration', 'geographyDeclaration', 'regulatoryDeclaration') },
     { label: 'Normalisation Complete',     taskId: 'FND-S2',
+      fieldIds: ['capitalMapping', 'skillsMapping', 'proofMapping', 'constraintsMapping'],
       score: countNonEmpty('capitalMapping', 'skillsMapping', 'proofMapping', 'constraintsMapping') },
     { label: 'Gap Severity Assessed',      taskId: 'FND-S3',
+      fieldIds: ['gapSeverity', 'resolutionActions'],
       score: (fd) => fd?.gapSeverity?.trim() ? (fd?.resolutionActions?.trim() ? 5 : 3) : 0 },
     { label: 'Routing Decision Made',      taskId: 'FND-S4',
+      fieldIds: ['routingDecision', 'routingBasis'],
       score: (fd) => fd?.routingDecision?.trim() ? (fd?.routingBasis?.trim() ? 5 : 3) : 0 },
   ],
   TRU: [
     { label: 'Overall Proof Strength',    taskId: 'TRU-S3',
+      fieldIds: ['overallProofStrength'],
       score: (fd) => ({ strong: 5, moderate: 3, weak: 1, insufficient: 0 }[fd?.overallProofStrength] ?? 0) },
     { label: 'Gate A — Regulatory',       taskId: 'TRU-V1',
+      fieldIds: ['gateARegulatory'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateARegulatory] ?? 0) },
     { label: 'Gate B — Market Fit',       taskId: 'TRU-V1',
+      fieldIds: ['gateBMarketFit'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateBMarketFit] ?? 0) },
     { label: 'Gate C — Competence Proof', taskId: 'TRU-V1',
+      fieldIds: ['gateCCompetenceProof'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateCCompetenceProof] ?? 0) },
     { label: 'Gate D — Proven Demand',    taskId: 'TRU-V1',
+      fieldIds: ['gateDProvenDemand'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateDProvenDemand] ?? 0) },
   ],
   STR: [
     { label: 'Integrity Verdict',     taskId: 'STR-V1',
+      fieldIds: ['integrityVerdict'],
       score: (fd) => ({ pass: 5, conditionalPass: 3, fail: 0 }[fd?.integrityVerdict] ?? 0) },
     { label: 'VoC Depth',             taskId: 'STR-S2',
+      fieldIds: ['verbatimPhrases'],
       score: (fd) => { const n = splitLines(fd?.verbatimPhrases).length; return n >= 15 ? 5 : n >= 8 ? 3 : n >= 1 ? 1 : 0; } },
     { label: 'Content Angles',        taskId: 'STR-AF4',
+      fieldIds: ['contentAngle1', 'contentAngle2', 'contentAngle3', 'contentAngle4', 'contentAngle5', 'contentAngle6'],
       score: (fd) => { const n = [1,2,3,4,5,6].filter((i) => !!fd?.[`contentAngle${i}`]?.trim()).length; return n === 6 ? 5 : n >= 4 ? 3 : n >= 1 ? 1 : 0; } },
     { label: 'Core Belief Defined',   taskId: 'STR-AF1',
+      fieldIds: ['beliefStatement'],
       score: (fd) => fd?.beliefStatement?.trim() ? 5 : 0 },
     { label: 'Transformation Arc',    taskId: 'STR-AF2',
+      fieldIds: ['beforeState', 'transformation', 'afterState'],
       score: (fd) => { const n = ['beforeState','transformation','afterState'].filter((k) => !!fd?.[k]?.trim()).length; return n === 3 ? 5 : n === 2 ? 3 : n === 1 ? 1 : 0; } },
   ],
   OFR: [
     { label: 'Promise G-Label',       taskId: 'OFR-A1',
+      fieldIds: ['promiseGLabel'],
       score: (fd) => ({ G1: 5, G2: 3 }[fd?.promiseGLabel] ?? 0) },
     { label: 'ICP Completeness',      taskId: 'OFR-A2',
+      fieldIds: ['demographicProfile', 'psychographicProfile', 'qualificationCriteria', 'disqualificationCriteria'],
       score: (fd) => { const n = ['demographicProfile','psychographicProfile','qualificationCriteria','disqualificationCriteria'].filter((k) => !!fd?.[k]?.trim()).length; return n === 4 ? 5 : n === 3 ? 3 : n >= 1 ? 1 : 0; } },
     { label: 'Guarantee Rigor',       taskId: 'OFR-A6',
+      fieldIds: ['triggerCondition', 'guaranteeScope', 'remedy', 'operatorBoundaries'],
       score: (fd) => { const n = ['triggerCondition','guaranteeScope','remedy','operatorBoundaries'].filter((k) => !!fd?.[k]?.trim()).length; return n === 4 ? 5 : n === 3 ? 3 : n >= 1 ? 1 : 0; } },
     { label: 'Scope Map',             taskId: 'OFR-A4',
+      fieldIds: ['scopeIncluded', 'scopeExcluded'],
       score: (fd) => (!!fd?.scopeIncluded?.trim() && !!fd?.scopeExcluded?.trim()) ? 5 : (!!fd?.scopeIncluded?.trim() || !!fd?.scopeExcluded?.trim()) ? 3 : 0 },
     { label: 'Promise Proof',         taskId: 'OFR-A1',
+      fieldIds: ['proofStatus'],
       score: (fd) => ({ verified: 5, pending: 1 }[fd?.proofStatus] ?? 0) },
   ],
   OUT: [
     { label: 'Audience Concern Mapping', taskId: 'OUT-IC',
+      fieldIds: ['icOut1'],
       score: (fd) => fd?.icOut1 === 'pass' ? 5 : 0 },
     { label: 'G-Label Compliance',       taskId: 'OUT-IC',
+      fieldIds: ['icOut2'],
       score: (fd) => fd?.icOut2 === 'pass' ? 5 : 0 },
     { label: 'Singular CTA',             taskId: 'OUT-IC',
+      fieldIds: ['icOut3'],
       score: (fd) => fd?.icOut3 === 'pass' ? 5 : 0 },
     { label: 'Scarcity Verified',        taskId: 'OUT-IC',
+      fieldIds: ['icOut4'],
       score: (fd) => fd?.icOut4 === 'pass' ? 5 : 0 },
     { label: 'Readability Check',        taskId: 'OUT-IC',
+      fieldIds: ['icOut5'],
       score: (fd) => fd?.icOut5 === 'pass' ? 5 : 0 },
   ],
   SAL: [
     { label: 'Qualification Depth',       taskId: 'SAL-S1',
+      fieldIds: ['qualificationQuestions', 'autoDisqualifiers', 'scoringRoutingNotes'],
       score: countNonEmpty('qualificationQuestions', 'autoDisqualifiers', 'scoringRoutingNotes') },
     { label: 'Routing Completeness',      taskId: 'SAL-S2',
+      fieldIds: ['routingTable', 'decisionTreeSteps', 'noFitExitPath'],
       score: countNonEmpty('routingTable', 'decisionTreeSteps', 'noFitExitPath') },
     { label: 'Call Script Ready',         taskId: 'SAL-S3',
+      fieldIds: ['callStructure', 'verbatimScript', 'branchPrompts'],
       score: countNonEmpty('callStructure', 'verbatimScript', 'branchPrompts') },
     { label: 'Objection Coverage',        taskId: 'SAL-S4',
+      fieldIds: ['objectionList'],
       score: (fd) => { const n = splitLines(fd?.objectionList).length; return n >= 10 ? 5 : n >= 5 ? 3 : n >= 1 ? 1 : 0; } },
     { label: 'Asset Assembly',            taskId: 'SAL-A0',
+      fieldIds: ['assemblyStatus'],
       score: (fd) => ({ complete: 5, partial: 3, pending: 1 }[fd?.assemblyStatus] ?? 0) },
   ],
   DLR: [
     { label: 'Delivery Phases Mapped',    taskId: 'DLR-S1',
+      fieldIds: ['deliveryPhases', 'checkpoints', 'ownerAssignments'],
       score: countNonEmpty('deliveryPhases', 'checkpoints', 'ownerAssignments') },
     { label: 'Quality & Risk Coverage',   taskId: 'DLR-S2',
+      fieldIds: ['failureModes', 'qcChecks', 'guaranteeTriggers', 'mitigationSteps'],
       score: countNonEmpty('failureModes', 'qcChecks', 'guaranteeTriggers', 'mitigationSteps') },
     { label: 'Success Milestones',        taskId: 'DLR-S3',
+      fieldIds: ['milestoneList', 'successDefinition'],
       score: countNonEmpty('milestoneList', 'successDefinition') },
     { label: 'Proof Capture Plan',        taskId: 'DLR-S4',
+      fieldIds: ['proofTypes', 'captureTimeline', 'captureMethod', 'consentLanguage'],
       score: countNonEmpty('proofTypes', 'captureTimeline', 'captureMethod', 'consentLanguage') },
     { label: 'Retention Handoff',         taskId: 'DLR-S5',
+      fieldIds: ['handoffNotes', 'retentionSeedMessage', 'nextSteps'],
       score: countNonEmpty('handoffNotes', 'retentionSeedMessage', 'nextSteps') },
   ],
   RET: [
     { label: 'Segment Definitions',       taskId: 'RET-S1',
+      fieldIds: ['coldLeadDef', 'pastClientDef', 'reActivationDef', 'warmNonConvertDef'],
       score: countNonEmpty('coldLeadDef', 'pastClientDef', 'reActivationDef', 'warmNonConvertDef') },
     { label: 'Proof Inventory',           taskId: 'RET-S2',
+      fieldIds: ['proofAssets', 'segmentRelevance', 'claimStrength'],
       score: countNonEmpty('proofAssets', 'segmentRelevance', 'claimStrength') },
     { label: 'Continuation Map',          taskId: 'RET-S3',
+      fieldIds: ['upsellPath', 'ascensionLevels', 'eligibilityRules', 'triggerTiming'],
       score: countNonEmpty('upsellPath', 'ascensionLevels', 'eligibilityRules', 'triggerTiming') },
     { label: 'Message Spine & Tone',      taskId: 'RET-S4',
+      fieldIds: ['warmingPosture', 'toneConstraints', 'ctaStandards', 'messageSpines'],
       score: countNonEmpty('warmingPosture', 'toneConstraints', 'ctaStandards', 'messageSpines') },
     { label: 'Deployment Logic',          taskId: 'RET-S5',
+      fieldIds: ['proofToSequenceMap', 'channelAssumptions'],
       score: countNonEmpty('proofToSequenceMap', 'channelAssumptions') },
   ],
   OPT: [
     { label: 'Metrics Tracked',           taskId: 'OPT-S1',
+      fieldIds: ['cm1OutreachConversion', 'cm2FitToClose', 'cm3MilestoneCompletion', 'cm4UnpromptedReferral'],
       score: countNonEmpty('cm1OutreachConversion', 'cm2FitToClose', 'cm3MilestoneCompletion', 'cm4UnpromptedReferral') },
     { label: 'Weakest Link Identified',   taskId: 'OPT-S2',
+      fieldIds: ['weakestLinkStage', 'evidenceSummary', 'suspectedFailureModes'],
       score: countNonEmpty('weakestLinkStage', 'evidenceSummary', 'suspectedFailureModes') },
     { label: 'Root Cause Hypotheses',     taskId: 'OPT-S3',
+      fieldIds: ['hypotheses', 'risksAndSideEffects'],
       score: (fd) => fd?.hypotheses?.trim() ? (fd?.risksAndSideEffects?.trim() ? 5 : 3) : 0 },
     { label: 'Optimization Actions',      taskId: 'OPT-S4',
+      fieldIds: ['action1', 'action2', 'action3'],
       score: countNonEmpty('action1', 'action2', 'action3') },
     { label: 'Stewardship Score',         taskId: 'OPT-A1',
+      fieldIds: ['overallStewardshipScore'],
       score: (fd) => { const s = Number(fd?.overallStewardshipScore); return s >= 80 ? 5 : s >= 60 ? 4 : s >= 40 ? 3 : s >= 20 ? 1 : 0; } },
   ],
 };
+
+// Dev-time validation: cross-checks signal fieldIds against task definition fields.
+// Logs warnings for any field ID that doesn't exist in the referenced task definition.
+if (import.meta.env.DEV) {
+  for (const [stage, signals] of Object.entries(STAGE_SCORE_SIGNALS)) {
+    for (const sig of signals) {
+      const def = getBbosTaskDef(sig.taskId);
+      if (!def) {
+        console.warn(`[ScoreSignals] Task "${sig.taskId}" referenced by "${sig.label}" (${stage}) does not exist`);
+        continue;
+      }
+      const defFieldIds = new Set(def.fields.map((f) => f.id));
+      for (const fid of (sig.fieldIds || [])) {
+        if (!defFieldIds.has(fid)) {
+          console.warn(`[ScoreSignals] Field "${fid}" referenced by "${sig.label}" (${stage}) not found in ${sig.taskId} fields`);
+        }
+      }
+    }
+  }
+}
 
 // ── Sub-renderers ─────────────────────────────────────────────────────────────
 
@@ -526,6 +595,100 @@ function SegmentListRenderer({ fieldData }) {
   );
 }
 
+// MetricBarRenderer — for tasks with numeric metric fields (OPT-S1, OPT-A1)
+function MetricBarRenderer({ metrics }) {
+  return (
+    <div className="bfd__metrics">
+      {metrics.map((m, i) => {
+        const pct = Math.min(100, Math.max(0, (m.value / m.max) * 100));
+        return (
+          <div key={i} className="bfd__metric">
+            <div className="bfd__metric-head">
+              <span className="bfd__metric-label">{m.label}</span>
+              <span className="bfd__metric-value">{m.value ?? '—'}{m.unit || ''}</span>
+            </div>
+            <div className="bfd__metric-track">
+              <div
+                className="bfd__metric-fill"
+                style={{ width: `${pct}%`, background: pct >= 75 ? 'var(--col-done)' : pct >= 40 ? 'var(--pri-high)' : 'var(--pri-urgent)' }}
+              />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ScopeMapRenderer — for tasks with included/excluded/triggers (OFR-A4)
+function ScopeMapRenderer({ included, excluded, footer, footerLabel }) {
+  return (
+    <div className="bfd__scope">
+      <div className="bfd__scope-cols">
+        <div className="bfd__scope-col bfd__scope-col--in">
+          <div className="bfd__scope-head">✓ Included</div>
+          <p className="bfd__scope-body">{included ? truncate(included, 200) : '—'}</p>
+        </div>
+        <div className="bfd__scope-col bfd__scope-col--out">
+          <div className="bfd__scope-head">✗ Excluded</div>
+          <p className="bfd__scope-body">{excluded ? truncate(excluded, 200) : '—'}</p>
+        </div>
+      </div>
+      {footer && (
+        <div className="bfd__scope-footer">
+          <span className="bfd__scope-footer-label">{footerLabel || 'Note'}</span>
+          <span>{truncate(footer, 160)}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// DualColumnRenderer — paired textareas side by side (objections+responses, scripts, etc.)
+function DualColumnRenderer({ left, right, footer, footerLabel }) {
+  return (
+    <div className="bfd__dual">
+      <div className="bfd__dual-cols">
+        <div className="bfd__dual-col">
+          <div className="bfd__dual-head">{left.label}</div>
+          <p className="bfd__dual-body">{left.content ? truncate(left.content, 220) : '—'}</p>
+        </div>
+        <div className="bfd__dual-col">
+          <div className="bfd__dual-head">{right.label}</div>
+          <p className="bfd__dual-body">{right.content ? truncate(right.content, 220) : '—'}</p>
+        </div>
+      </div>
+      {footer && (
+        <div className="bfd__dual-footer">
+          <span className="bfd__dual-footer-label">{footerLabel || 'Note'}</span>
+          <span>{truncate(footer, 160)}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// StepPanelRenderer — vertical cards with step indicators for sequential/phased content
+function StepPanelRenderer({ steps }) {
+  return (
+    <div className="bfd__steps">
+      {steps.map((step, i) => (
+        <div key={i} className="bfd__step">
+          <div className="bfd__step-marker">{i + 1}</div>
+          <div className="bfd__step-content">
+            <div className="bfd__step-label">{step.label}</div>
+            {step.content ? (
+              <p className="bfd__step-body">{truncate(step.content, 180)}</p>
+            ) : (
+              <span className="bfd__field-empty">—</span>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ── TASK_RENDERERS registry ───────────────────────────────────────────────────
 
 const TASK_RENDERERS = {
@@ -644,6 +807,660 @@ const TASK_RENDERERS = {
         subItems={labels}
         exitNote={fieldData.successDefinition}
         exitLabel="Success Definition"
+      />
+    );
+  },
+
+  // ── Phase 2 additions (14 new renderers) ──────────────────────────────────
+
+  // VerdictBadge — FND-S3: Gap Check
+  'FND-S3': ({ fieldData }) => {
+    const verdictMap = { none: 'NO GAPS', minor: 'MINOR', major: 'MAJOR', disqualifying: 'DISQUALIFYING' };
+    const verdict = verdictMap[fieldData.gapSeverity] || 'PENDING';
+    const colorMap = {
+      'NO GAPS':        'var(--col-done)',
+      MINOR:            'var(--pri-high)',
+      MAJOR:            'var(--pri-urgent)',
+      DISQUALIFYING:    'var(--pri-urgent)',
+      PENDING:          'var(--text3)',
+    };
+    return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Resolution Actions" basisContent={fieldData.resolutionActions} />;
+  },
+
+  // VerdictBadge — TRU-S3: Integrity Proof Audit
+  'TRU-S3': ({ fieldData }) => {
+    const verdictMap = { strong: 'STRONG', moderate: 'MODERATE', weak: 'WEAK', insufficient: 'INSUFFICIENT' };
+    const verdict = verdictMap[fieldData.overallProofStrength] || 'PENDING';
+    const colorMap = {
+      STRONG:       'var(--col-done)',
+      MODERATE:     'var(--pri-high)',
+      WEAK:         'var(--pri-urgent)',
+      INSUFFICIENT: 'var(--pri-urgent)',
+      PENDING:      'var(--text3)',
+    };
+    return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Reliability Assessment" basisContent={fieldData.reliabilityAssessment} />;
+  },
+
+  // VerdictBadge — TRU-S6: Regulatory Baseline
+  'TRU-S6': ({ fieldData }) => {
+    const verdictMap = { clear: 'CLEAR', pending: 'PENDING', hardStop: 'HARD STOP' };
+    const verdict = verdictMap[fieldData.regulatoryStatus] || 'UNSET';
+    const colorMap = {
+      CLEAR:       'var(--col-done)',
+      PENDING:     'var(--pri-high)',
+      'HARD STOP': 'var(--pri-urgent)',
+      UNSET:       'var(--text3)',
+    };
+    return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Operational Standards" basisContent={fieldData.operationalStandards} />;
+  },
+
+  // VerdictBadge — OFR-A1: The Promise (G1/G2)
+  'OFR-A1': ({ fieldData }) => {
+    const gLabel = fieldData.promiseGLabel || null;
+    const verdict = gLabel || 'UNSET';
+    const colorMap = { G1: 'var(--col-done)', G2: 'var(--pri-high)', UNSET: 'var(--text3)' };
+    return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Promise Statement" basisContent={fieldData.promiseStatement} />;
+  },
+
+  // VerdictBadge — SAL-A0: Sales Asset Pack Assembly
+  'SAL-A0': ({ fieldData }) => {
+    const verdictMap = { complete: 'COMPLETE', partial: 'PARTIAL', blocked: 'BLOCKED' };
+    const verdict = verdictMap[fieldData.assemblyStatus] || 'PENDING';
+    const colorMap = {
+      COMPLETE: 'var(--col-done)',
+      PARTIAL:  'var(--pri-high)',
+      BLOCKED:  'var(--pri-urgent)',
+      PENDING:  'var(--text3)',
+    };
+    return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="NO-SHIP List" basisContent={fieldData.noShipList} />;
+  },
+
+  // GateChecks — TRU-FP02: Amanah Intake Screening Rubric (10 questions)
+  'TRU-FP02': ({ fieldData }) => {
+    // Q3, Q5, Q8 are auto-disqualifiers (★) — reversed polarity (yes = fail)
+    const normalQ = (v) => v === 'yes' ? 'pass' : v === 'no' ? 'fail' : undefined;
+    const invertQ = (v) => v === 'no' ? 'pass' : v === 'yes' ? 'fail' : undefined;
+    const checks = [
+      { label: 'Q1 — Verifiable proof',         value: normalQ(fieldData.q1ProofVerifiable) },
+      { label: 'Q2 — Regulatory verifiable',     value: normalQ(fieldData.q2RegulatoryVerifiable) },
+      { label: 'Q3 ★ Unverifiable claims',       value: invertQ(fieldData.q3UnverifiableClaims) },
+      { label: 'Q4 — Runway sufficient',         value: normalQ(fieldData.q4RunwaySufficient) },
+      { label: 'Q5 ★ Regulatory misuse',         value: invertQ(fieldData.q5RegulatoryMisuse) },
+      { label: 'Q6 — Goal alignment',            value: normalQ(fieldData.q6GoalAlignment) },
+      { label: 'Q7 — Energy aversion',           value: normalQ(fieldData.q7EnergyAversion) },
+      { label: 'Q8 ★ False information',          value: invertQ(fieldData.q8FalseInformation) },
+      { label: 'Q9 — Scope understanding',       value: normalQ(fieldData.q9ScopeUnderstanding) },
+      { label: 'Q10 — Capacity realistic',       value: normalQ(fieldData.q10CapacityRealistic) },
+    ];
+    const verdictMap = { proceed: 'pass', escalate: 'conditional', reject: 'fail' };
+    return (
+      <GateChecksRenderer
+        checks={checks}
+        overallValue={verdictMap[fieldData.rubricRouting]}
+        overallLabel={fieldData.rubricRouting ? fieldData.rubricRouting.toUpperCase() : undefined}
+      />
+    );
+  },
+
+  // Matrix2x2 — OFR-A6: Risk Reversal (Guarantee)
+  'OFR-A6': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'Trigger Condition',     content: fieldData.triggerCondition ? truncate(fieldData.triggerCondition, 130) : null, accent: true },
+      { label: 'Guarantee Scope',       content: fieldData.guaranteeScope ? truncate(fieldData.guaranteeScope, 130) : null },
+      { label: 'Remedy',                content: fieldData.remedy ? truncate(fieldData.remedy, 130) : null },
+      { label: 'Operator Boundaries',   content: fieldData.operatorBoundaries ? truncate(fieldData.operatorBoundaries, 130) : null },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // Matrix2x2 — DLR-S2: Quality & Risk Map
+  'DLR-S2': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'Failure Modes',       content: fieldData.failureModes ? truncate(fieldData.failureModes, 130) : null, accent: true },
+      { label: 'QC Checks',           content: fieldData.qcChecks ? truncate(fieldData.qcChecks, 130) : null },
+      { label: 'Guarantee Triggers',  content: fieldData.guaranteeTriggers ? truncate(fieldData.guaranteeTriggers, 130) : null },
+      { label: 'Mitigation Steps',    content: fieldData.mitigationSteps ? truncate(fieldData.mitigationSteps, 130) : null },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // Matrix2x2 — RET-S1: Segment Map
+  'RET-S1': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'Cold Lead',          content: fieldData.coldLeadDef ? truncate(fieldData.coldLeadDef, 130) : null },
+      { label: 'Past Client',        content: fieldData.pastClientDef ? truncate(fieldData.pastClientDef, 130) : null, accent: true },
+      { label: 'Re-Activation (60d)', content: fieldData.reActivationDef ? truncate(fieldData.reActivationDef, 130) : null },
+      { label: 'Warm Non-Convert',   content: fieldData.warmNonConvertDef ? truncate(fieldData.warmNonConvertDef, 130) : null },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // Timeline — DLR-S1: Offer-to-Delivery Map
+  'DLR-S1': ({ fieldData }) => {
+    const steps = splitLines(fieldData.deliveryPhases).slice(0, 6);
+    const labels = steps.map((_, i) => `Phase ${i + 1}`);
+    return <TimelineRenderer steps={steps} subItems={labels} exitNote={fieldData.timingConstraints} exitLabel="Timing" />;
+  },
+
+  // Timeline — DLR-S4: Proof Capture Plan
+  'DLR-S4': ({ fieldData }) => {
+    const steps = splitLines(fieldData.proofTypes).slice(0, 5);
+    const labels = steps.map((_, i) => `Proof ${i + 1}`);
+    return <TimelineRenderer steps={steps} subItems={labels} exitNote={fieldData.captureTimeline} exitLabel="Capture Timeline" />;
+  },
+
+  // ScopeMap — OFR-A4: Scope Map
+  'OFR-A4': ({ fieldData }) => (
+    <ScopeMapRenderer
+      included={fieldData.scopeIncluded}
+      excluded={fieldData.scopeExcluded}
+      footer={fieldData.changeOrderTriggers}
+      footerLabel="Change-Order Triggers"
+    />
+  ),
+
+  // MetricBar — OPT-S1: Metric Dashboard
+  'OPT-S1': ({ fieldData }) => (
+    <MetricBarRenderer metrics={[
+      { label: 'CM-1 Outreach Conversion', value: Number(fieldData.cm1OutreachConversion) || 0, max: 100, unit: '%' },
+      { label: 'CM-2 Fit-to-Close',        value: Number(fieldData.cm2FitToClose) || 0, max: 100, unit: '%' },
+      { label: 'CM-3 Milestone Completion', value: Number(fieldData.cm3MilestoneCompletion) || 0, max: 100, unit: '%' },
+      { label: 'CM-4 Unprompted Referral',  value: Number(fieldData.cm4UnpromptedReferral) || 0, max: 100, unit: '%' },
+    ]} />
+  ),
+
+  // MetricBar — OPT-A1: Stewardship Score
+  'OPT-A1': ({ fieldData }) => (
+    <MetricBarRenderer metrics={[
+      { label: 'System Vitality',    value: Number(fieldData.systemVitality) || 0, max: 10 },
+      { label: 'Ethical Integrity',  value: Number(fieldData.ethicalIntegrity) || 0, max: 10 },
+      { label: 'Time Sovereignty',   value: Number(fieldData.timeSovereignty) || 0, max: 10 },
+      { label: 'Trust vs. Scarcity', value: Number(fieldData.trustVsScarcity) || 0, max: 10 },
+      { label: 'Asset Clarity',      value: Number(fieldData.assetClarity) || 0, max: 10 },
+    ]} />
+  ),
+
+  // ── SAL/OUT expansion (11 new renderers) ──────────────────────────────────
+
+  // DualColumn — OUT-S4: Objection Intelligence
+  'OUT-S4': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Common Objections', content: fieldData.commonObjections }}
+      right={{ label: 'Response Framework', content: fieldData.objectionResponses }}
+    />
+  ),
+
+  // DualColumn — OUT-A5: Appointment Setter & No-Fit Scripts
+  'OUT-A5': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Appointment Setter', content: fieldData.appointmentSetterScript }}
+      right={{ label: 'No-Fit Script', content: fieldData.noFitScript }}
+      footer={fieldData.noFitRedirectOptions}
+      footerLabel="Redirect Options"
+    />
+  ),
+
+  // DualColumn — OUT-A6: Objection Handling Matrix
+  'OUT-A6': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Objection Matrix', content: fieldData.objectionMatrix }}
+      right={{ label: 'Response Guidelines', content: fieldData.responseGuidelines }}
+    />
+  ),
+
+  // DualColumn — SAL-A5: Objection Library
+  'SAL-A5': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Objection Library (Top 10)', content: fieldData.objections }}
+      right={{ label: 'Proof Asset References', content: fieldData.proofAssetReferences }}
+    />
+  ),
+
+  // DualColumn — SAL-S5: Pre-Call Nurture
+  'SAL-S5': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Nurture Messages (3-5)', content: fieldData.nurtureMessages }}
+      right={{ label: 'Proof Asset Mapping', content: fieldData.proofAssetMapping }}
+    />
+  ),
+
+  // StepPanel — SAL-S3: Fit Call Script Deep-Dive
+  'SAL-S3': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Call Structure (15 min)', content: fieldData.callStructure },
+      { label: 'Verbatim Script Blocks', content: fieldData.verbatimScript },
+      { label: 'Branch Prompts (Hot/Warm/Cold)', content: fieldData.branchPrompts },
+    ]} />
+  ),
+
+  // StepPanel — SAL-S6: Show-Rate Reminders
+  'SAL-S6': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: '24-Hour Reminder', content: fieldData.reminder24hr },
+      { label: '1-Hour Reminder', content: fieldData.reminder1hr },
+      { label: 'No-Show Follow-Up', content: fieldData.noShowFollowUp },
+    ]} />
+  ),
+
+  // StepPanel — SAL-S7: Post-Call Follow-Up (Non-Closes)
+  'SAL-S7': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Follow-Up Sequence (7-14 days)', content: fieldData.followUpSequence },
+      { label: 'Stop Triggers', content: fieldData.stopTriggers },
+      { label: 'Graceful Close', content: fieldData.gracefulClose },
+    ]} />
+  ),
+
+  // StepPanel — SAL-A4: Fit Call Script (Asset)
+  'SAL-A4': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Minute-by-Minute (0-15)', content: fieldData.minuteByMinute },
+      { label: 'Verbatim Script Blocks', content: fieldData.verbatimBlocks },
+      { label: 'Branch Prompts (Hot/Warm/Cold)', content: fieldData.branchPromptsAsset },
+    ]} />
+  ),
+
+  // StepPanel — SAL-A6: Nurture + Reminders + Follow-Up
+  'SAL-A6': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Pre-Call Nurture (3-5 Messages)', content: fieldData.preCallNurture },
+      { label: 'Show-Rate Reminders', content: fieldData.showRateReminders },
+      { label: 'Post-Call Follow-Up (7-14 Days)', content: fieldData.postCallFollowUp },
+      { label: 'Stop & Escalation', content: fieldData.stopAndEscalation },
+    ]} />
+  ),
+
+  // StepPanel — OUT-A7: Content-to-DM Pipeline Map
+  'OUT-A7': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Content Assets', content: fieldData.contentAssets },
+      { label: 'Pipeline Sequence', content: fieldData.pipelineSequence },
+      { label: 'Conversion Path', content: fieldData.conversionPath },
+    ]} />
+  ),
+
+  // ── DLR/RET/OPT expansion (Tier 3) ─────────────────────────────────────────
+
+  // DualColumn — OUT-A2: Hook Library
+  'OUT-A2': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Hooks by Platform', content: fieldData.hooksByPlatform }}
+      right={{ label: 'Hooks by Persona', content: fieldData.hooksByPersona }}
+      footer={fieldData.hookComplianceNotes}
+      footerLabel="Compliance Notes"
+    />
+  ),
+
+  // StepPanel — OUT-A3: DM Conversation Scripts
+  'OUT-A3': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Initial Connection Messages', content: fieldData.initialMessages },
+      { label: 'Value Frames', content: fieldData.valueFrames },
+      { label: 'Scope Map Alignment Check', content: fieldData.scopeAlignment },
+    ]} />
+  ),
+
+  // StepPanel — OUT-S1: Channel Selection
+  'OUT-S1': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Primary Outreach Channels', content: fieldData.primaryChannels },
+      { label: 'Secondary Channels', content: fieldData.secondaryChannels },
+      { label: 'Selection Rationale', content: fieldData.channelRationale },
+    ]} />
+  ),
+
+  // StepPanel — OUT-S2: Lead Segments
+  'OUT-S2': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Lead Sources', content: fieldData.leadSources },
+      { label: 'Segment Definitions', content: fieldData.segmentDefinitions },
+      { label: 'Qualification Filters', content: fieldData.qualificationFilters },
+    ]} />
+  ),
+
+  // StepPanel — OUT-S3: Language & Trigger Mapping
+  'OUT-S3': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Language Patterns', content: fieldData.languagePatterns },
+      { label: 'Emotional Triggers', content: fieldData.emotionalTriggers },
+      { label: 'Value Proposition Signals', content: fieldData.valuePropositionSignals },
+    ]} />
+  ),
+
+  // StepPanel — OUT-S5: Capacity Constraints
+  'OUT-S5': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Outreach Bandwidth', content: fieldData.outreachBandwidth },
+      { label: 'Tool Proficiency', content: fieldData.toolProficiency },
+      { label: 'Communication Constraints', content: fieldData.communicationConstraints },
+    ]} />
+  ),
+
+  // StepPanel — OUT-A1: Channel Strategy Asset
+  'OUT-A1': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Channel Strategy', content: fieldData.channelStrategy },
+      { label: 'Ideal Prospect Profile (IPP)', content: fieldData.idealProspectProfile },
+      { label: 'Qualification Filters', content: fieldData.qualificationFiltersAsset },
+    ]} />
+  ),
+
+  // StepPanel — SAL-S0: Sales Research Intake
+  'SAL-S0': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Lead States', content: fieldData.leadStates },
+      { label: 'Qualification Criteria Draft', content: fieldData.qualificationCriteriaDraft },
+      { label: 'Objections Seed List', content: fieldData.objectionsSeedList },
+      { label: 'Nurture Proof Assets', content: fieldData.nurtureProofAssets },
+    ]} />
+  ),
+
+  // StepPanel — SAL-S1: Qualification Questions
+  'SAL-S1': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Qualification Questions (8-10)', content: fieldData.qualificationQuestions },
+      { label: 'Automatic Disqualifiers (3)', content: fieldData.autoDisqualifiers },
+      { label: 'Scoring & Routing Notes', content: fieldData.scoringRoutingNotes },
+    ]} />
+  ),
+
+  // StepPanel — SAL-S2: Routing & Decision Tree
+  'SAL-S2': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Routing Table', content: fieldData.routingTable },
+      { label: 'Decision Tree Steps', content: fieldData.decisionTreeSteps },
+      { label: 'No-Fit Exit Path', content: fieldData.noFitExitPath },
+      { label: 'Waitlist / Education Path', content: fieldData.waitlistPath },
+    ]} />
+  ),
+
+  // StepPanel — SAL-S4: Objection Research
+  'SAL-S4': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Top 10 Objections', content: fieldData.objectionList },
+      { label: 'Best Responses', content: fieldData.bestResponses },
+      { label: 'Next Question to Ask', content: fieldData.nextQuestions },
+    ]} />
+  ),
+
+  // StepPanel — SAL-A1: Qualification Form Asset
+  'SAL-A1': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Form Introduction', content: fieldData.formIntro },
+      { label: 'Questions (Q1-Q10)', content: fieldData.questions },
+      { label: 'Auto-Disqualifiers (3)', content: fieldData.autoDisqualifiersTemplate },
+      { label: 'Scoring & Routing Logic', content: fieldData.scoringRouting },
+      { label: 'Next-Step Messages (Hot/Warm/Cold)', content: fieldData.nextStepMessages },
+    ]} />
+  ),
+
+  // StepPanel — SAL-A2: Routing Automation Flow
+  'SAL-A2': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Flow Triggers', content: fieldData.triggers },
+      { label: 'Flow Map (Step-by-Step)', content: fieldData.flowMap },
+      { label: 'Branching Rules (Hot/Warm/Cold)', content: fieldData.branchingRules },
+      { label: 'Tags & Fields to Write', content: fieldData.tagsAndFields },
+      { label: 'Notifications & Handoff Rules', content: fieldData.notificationRules },
+    ]} />
+  ),
+
+  // StepPanel — DLR-S5: Handoff to RET
+  'DLR-S5': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Handoff Notes to RET', content: fieldData.handoffNotes },
+      { label: 'Retention Seed Message', content: fieldData.retentionSeedMessage },
+      { label: 'Next Steps', content: fieldData.nextSteps },
+    ]} />
+  ),
+
+  // StepPanel — DLR-A1: Onboarding SOP
+  'DLR-A1': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Payment → Work-Start Steps', content: fieldData.paymentToStartSteps },
+      { label: 'Communication Triggers', content: fieldData.communicationTriggers },
+      { label: 'Owner / Role', content: fieldData.ownerRole },
+    ]} />
+  ),
+
+  // Matrix2x2 — DLR-A2: Client Brief
+  'DLR-A2': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'Client Constraints',    content: fieldData.clientConstraints ? truncate(fieldData.clientConstraints, 130) : null },
+      { label: 'Access Requirements',   content: fieldData.accessRequirements ? truncate(fieldData.accessRequirements, 130) : null },
+      { label: 'Client Preferences',    content: fieldData.preferences ? truncate(fieldData.preferences, 130) : null },
+      { label: 'Success Definition',    content: fieldData.clientSuccessDefinition ? truncate(fieldData.clientSuccessDefinition, 130) : null, accent: true },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // StepPanel — DLR-A3: Execution SOP
+  'DLR-A3': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Execution Steps', content: fieldData.sopSteps },
+      { label: 'Templates & Scripts', content: fieldData.templates },
+      { label: 'Edge Cases & Notes', content: fieldData.edgeCases },
+    ]} />
+  ),
+
+  // Matrix2x2 — DLR-A4: QC Checklist
+  'DLR-A4': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'QC Checklist Items',     content: fieldData.qcItems ? truncate(fieldData.qcItems, 130) : null, accent: true },
+      { label: 'Guarantee Alignment',    content: fieldData.guaranteeAlignment ? truncate(fieldData.guaranteeAlignment, 130) : null },
+      { label: 'IC-OFR Checks',          content: fieldData.icOfrChecks ? truncate(fieldData.icOfrChecks, 130) : null },
+      { label: 'IC-FUL Checks',          content: fieldData.icFulChecks ? truncate(fieldData.icFulChecks, 130) : null },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // DualColumn — DLR-A5: Milestone Messages
+  'DLR-A5': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Milestone Message Templates', content: fieldData.milestoneTemplates }}
+      right={{ label: 'Delivery Schedule', content: fieldData.deliverySchedule }}
+    />
+  ),
+
+  // StepPanel — DLR-A6: Proof Capture Protocol
+  'DLR-A6': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Capture Protocol Steps', content: fieldData.protocolSteps },
+      { label: 'Consent Template', content: fieldData.consentTemplate },
+      { label: 'Case Study Data Template', content: fieldData.caseStudyTemplate },
+    ]} />
+  ),
+
+  // StepPanel — DLR-A7: Close & Handoff
+  'DLR-A7': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Close Communication', content: fieldData.closeCommunication },
+      { label: 'Retention Seed Message', content: fieldData.retentionSeed },
+      { label: 'RET Stage Handoff', content: fieldData.retHandoff },
+    ]} />
+  ),
+
+  // DualColumn — RET-S2: Proof Asset Inventory
+  'RET-S2': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Proof Assets List', content: fieldData.proofAssets }}
+      right={{ label: 'Segment Relevance Tags', content: fieldData.segmentRelevance }}
+      footer={fieldData.claimStrength}
+      footerLabel="Claim Strength / G-Label"
+    />
+  ),
+
+  // Matrix2x2 — RET-S3: Ascension Framework
+  'RET-S3': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'Upsell Path',         content: fieldData.upsellPath ? truncate(fieldData.upsellPath, 130) : null, accent: true },
+      { label: 'Ascension Levels',    content: fieldData.ascensionLevels ? truncate(fieldData.ascensionLevels, 130) : null },
+      { label: 'Eligibility Rules',   content: fieldData.eligibilityRules ? truncate(fieldData.eligibilityRules, 130) : null },
+      { label: 'Trigger Timing',      content: fieldData.triggerTiming ? truncate(fieldData.triggerTiming, 130) : null },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // Matrix2x2 — RET-S4: Re-engagement Tone & CTA
+  'RET-S4': ({ fieldData }) => {
+    const quadrants = [
+      { label: 'Warming Posture',    content: fieldData.warmingPosture ? truncate(fieldData.warmingPosture, 130) : null },
+      { label: 'Non-Pushy Constraints', content: fieldData.toneConstraints ? truncate(fieldData.toneConstraints, 130) : null },
+      { label: 'CTA Standards',      content: fieldData.ctaStandards ? truncate(fieldData.ctaStandards, 130) : null, accent: true },
+      { label: 'Message Spines',     content: fieldData.messageSpines ? truncate(fieldData.messageSpines, 130) : null },
+    ];
+    return <Matrix2x2Renderer quadrants={quadrants} />;
+  },
+
+  // DualColumn — RET-S5: Proof-to-Sequence Mapping
+  'RET-S5': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Proof → Sequence Mapping', content: fieldData.proofToSequenceMap }}
+      right={{ label: 'Channel Assumptions', content: fieldData.channelAssumptions }}
+      footer={fieldData.channelVariations}
+      footerLabel="Required Variations"
+    />
+  ),
+
+  // StepPanel — RET-A1: Post-Delivery Touch Sequence (5 touches)
+  'RET-A1': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Touch 1', content: fieldData.touch1 },
+      { label: 'Touch 2', content: fieldData.touch2 },
+      { label: 'Touch 3', content: fieldData.touch3 },
+      { label: 'Touch 4', content: fieldData.touch4 },
+      { label: 'Touch 5 (with CTA)', content: fieldData.touch5WithCta },
+    ]} />
+  ),
+
+  // StepPanel — RET-A2: Nurture Sequence
+  'RET-A2': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Touch 1 — Value Forward', content: fieldData.nurtureTouch1 },
+      { label: 'Touch 2 — Continued Value', content: fieldData.nurtureTouch2 },
+      { label: 'Touch 3 — Upsell Seed', content: fieldData.nurtureTouch3 },
+    ]} />
+  ),
+
+  // StepPanel — RET-A3: Re-Activation Campaign
+  'RET-A3': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Campaign Cadence', content: fieldData.campaignCadence },
+      { label: 'Message Objectives', content: fieldData.messageObjectives },
+      { label: 'Proof Inserts (1-2)', content: fieldData.proofInserts },
+    ]} />
+  ),
+
+  // StepPanel — RET-A4: Upsell Offer Asset
+  'RET-A4': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Next Offer Framing', content: fieldData.nextOfferFraming },
+      { label: 'Eligibility Rules', content: fieldData.eligibility },
+      { label: '"Why Now" Logic', content: fieldData.whyNowLogic },
+    ]} />
+  ),
+
+  // StepPanel — RET-A5: Loyalty Ladder
+  'RET-A5': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Value Levels', content: fieldData.valueLevels },
+      { label: 'Progression Triggers', content: fieldData.progressionTriggers },
+      { label: 'Level Eligibility', content: fieldData.levelEligibility },
+    ]} />
+  ),
+
+  // StepPanel — RET-A6: Proof Deployment Map
+  'RET-A6': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Deployment Map Table', content: fieldData.deploymentTable },
+      { label: 'Claim Labelling', content: fieldData.claimLabelling },
+      { label: 'Consent Status per Asset', content: fieldData.consentStatus },
+    ]} />
+  ),
+
+  // DualColumn — OPT-S3: Root Cause Hypotheses
+  'OPT-S3': ({ fieldData }) => (
+    <DualColumnRenderer
+      left={{ label: 'Root Cause Hypotheses', content: fieldData.hypotheses }}
+      right={{ label: 'Risks & Side Effects', content: fieldData.risksAndSideEffects }}
+    />
+  ),
+
+  // StepPanel — OPT-S4: Action Plan (3 actions)
+  'OPT-S4': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Action 1', content: fieldData.action1 },
+      { label: 'Action 2', content: fieldData.action2 },
+      { label: 'Action 3', content: fieldData.action3 },
+    ]} />
+  ),
+
+  // VerdictBadge — OPT-S5: Hold Gate
+  'OPT-S5': ({ fieldData }) => {
+    const verdictMap = { yes: 'BELOW 7.0', no: 'ABOVE 7.0' };
+    const verdict = verdictMap[fieldData.g72Check] || 'UNSET';
+    const colorMap = {
+      'BELOW 7.0': 'var(--pri-urgent)',
+      'ABOVE 7.0': 'var(--col-done)',
+      UNSET:       'var(--text3)',
+    };
+    return (
+      <VerdictBadgeRenderer
+        verdict={verdict}
+        color={colorMap[verdict]}
+        basisLabel="Hold List"
+        basisContent={fieldData.holdItems}
+      />
+    );
+  },
+
+  // StepPanel — OPT-S6: Test Design
+  'OPT-S6': ({ fieldData }) => (
+    <StepPanelRenderer steps={[
+      { label: 'Test Hypothesis', content: fieldData.testHypothesis },
+      { label: 'Scope & Duration', content: fieldData.testScope },
+      { label: 'Success Metrics', content: fieldData.successMetrics },
+      { label: 'Stop Conditions', content: fieldData.stopConditions },
+      { label: 'Rollback Plan', content: fieldData.rollbackPlan },
+    ]} />
+  ),
+
+  // MetricBar — OPT-S7: Trust Vitality Score
+  'OPT-S7': ({ fieldData }) => (
+    <MetricBarRenderer metrics={[
+      { label: 'TV-1 Work Sustainability', value: Number(fieldData.tv1WorkSustainability) || 0, max: 10 },
+      { label: 'TV-2 Clarity of Purpose',  value: Number(fieldData.tv2ClarityOfPurpose) || 0, max: 10 },
+      { label: 'TV-3 Integrity Comfort',   value: Number(fieldData.tv3IntegrityComfort) || 0, max: 10 },
+      { label: 'TVS Overall',              value: Number(fieldData.tvsOverall) || 0, max: 10 },
+    ]} />
+  ),
+
+  // MetricBar — OPT-A2: Barakah Health Index
+  'OPT-A2': ({ fieldData }) => (
+    <MetricBarRenderer metrics={[
+      { label: 'BHI-1 Referral Rate',      value: Number(fieldData.bhi1ReferralRate) || 0, max: 100, unit: '%' },
+      { label: 'BHI-2 Energy Rating',      value: Number(fieldData.bhi2EnergyRating) || 0, max: 10 },
+      { label: 'BHI-3 Right-Fit Ratio',    value: Number(fieldData.bhi3RightFitRatio) || 0, max: 100, unit: '%' },
+      { label: 'BHI-4 Decision Clarity',   value: Number(fieldData.bhi4DecisionClarity) || 0, max: 100, unit: '%' },
+    ]} />
+  ),
+
+  // VerdictBadge — OPT-A5: Cycle Close & Pack Audit
+  'OPT-A5': ({ fieldData }) => {
+    const verdictMap = { complete: 'COMPLETE', partial: 'PARTIAL', blocked: 'BLOCKED' };
+    const verdict = verdictMap[fieldData.packCompleteness] || 'PENDING';
+    const colorMap = {
+      COMPLETE: 'var(--col-done)',
+      PARTIAL:  'var(--pri-high)',
+      BLOCKED:  'var(--pri-urgent)',
+      PENDING:  'var(--text3)',
+    };
+    return (
+      <VerdictBadgeRenderer
+        verdict={verdict}
+        color={colorMap[verdict]}
+        basisLabel="NO-SHIP Items"
+        basisContent={fieldData.missingItems}
       />
     );
   },
