@@ -36,7 +36,7 @@
 
 .niyyah-badge {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -74,7 +74,7 @@
 }
 
 .niyyah-bismillah-ar {
-  font-family: 'Amiri', serif;
+  font-family: var(--font-arabic);
   font-size: 1.8rem;
   line-height: 2.2;
   color: var(--accent);

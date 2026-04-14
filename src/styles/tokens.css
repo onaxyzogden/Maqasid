@@ -80,6 +80,14 @@
   --shadow-teal: 0 4px 24px rgba(74, 184, 168, 0.15);
   --overlay: rgba(0, 0, 0, 0.4);
 
+  /* Typography — Font Families */
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', 'DM Sans', sans-serif;
+  --font-display: 'Manrope', 'DM Sans', sans-serif;
+  --font-serif: 'Noto Serif', serif;
+  --font-arabic: 'Amiri', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
   /* Radii */
   --radius-xs: 4px;
   --radius-sm: 6px;
@@ -296,4 +304,4 @@
 }
 
 /* Faith Dashboard — utility classes */
-.font-manrope { font-family: 'Manrope', 'DM Sans', sans-serif; }
+.font-manrope { font-family: var(--font-display); }

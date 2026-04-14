@@ -25,7 +25,7 @@
 }
 
 .prayer-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 700;
   color: #fff;
@@ -33,7 +33,7 @@
 }
 
 .prayer-name-universal {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
@@ -48,7 +48,7 @@
 }
 
 .prayer-countdown {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 2.5rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.3);

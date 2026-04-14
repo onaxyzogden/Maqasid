@@ -7,6 +7,31 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | Font family tokenization — codebase-wide
+- Extended font token system introduced in the P0 session to all remaining files (50+ files)
+- New tokens added: `--font-display` (Manrope + DM Sans fallback), `--font-serif` (Noto Serif)
+- Full token set: `--font-body`, `--font-heading`, `--font-display`, `--font-serif`, `--font-arabic`, `--font-mono`
+- CSS files updated: all 6 pillar dashboards, UmmahDashboard, FaithLevelNavigator, LevelOverviewPage/FaithLevelOverview SVG ring text, FivePillars, QuranPage/HadithPage/IslamicKnowledgePage/SourcesPage, landing.css, BbosFullDashboard/BbosTaskPanel, PillarLevelDashboard, PillarBoard, InlineTaskDetail, TaskDetailPanel, MoneyDashboard, ExpenseList, Sidebar, TopBar, DashboardTaskCard, SearchPalette, IslamicPanel, AyahBanner, PrayerTime, PrayerOverlay, ReadinessCheck, DuaSection, AttributeCard, NiyyahAct, PillarCard, ModuleHealthCard, DealPipeline, HRPage, IslamicTerm, ReferenceList, ThresholdModal, AttendanceView, DocumentManager, LevelNavigator, global.css
+- JSX/inline styles updated: ProjectBoard, KanbanCard, GLabelPicker, GLabelBadge, ActivityChart (mono + body SVG attrs), Dashboard (BCG SVG), Work, TimeTracker, StatsTab, Settings (4 instances), InvoiceList, BbosRoleBadge, IncomeTab
+- Build verified: `npm run build` clean (0 errors, 2256 modules, 907ms)
+
+## [2026-04-14] audit+implement | UI/UX Audit — Dashboard Design & Typography (Dimensions 4 & 5)
+- Audited Dashboard against NotebookLM notebook "Modern UI/UX Design: From Bland to Bespoke Masterpiece" (ID 279ecab6, 10 YouTube sources)
+- Scope: Dimension 4 (Dashboard-Specific Design) and Dimension 5 (Typography & Content)
+- Scorecard: 2 Pass, 3 Fail, 5 Partial Pass, 1 Warn across 11 criteria
+- **P0 remediations implemented:**
+  - Empty States Overhaul — 4 section empty states upgraded from plain text to icon + human text + CTA pattern (BCG, Open Tasks, Upcoming, Activity)
+  - Font Family Consolidation — added `--font-body`, `--font-heading`, `--font-arabic`, `--font-mono` tokens to tokens.css; replaced hardcoded Space Grotesk and Amiri refs in Dashboard.css with token vars; replaced inline DM Sans in BCG SVG
+  - BCG Chart Fixes — renamed to "Barakah Consistency", wired range selector (7d/14d/30d) to actually filter data via `.slice(-rangeDays)`, simplified misleading dual-signal legend to "Tasks completed per day", expanded data from 14→30 days
+- **P1 remediations implemented:**
+  - Font Size Floor — raised all sub-10px sizes (0.58rem, 0.6rem, 0.62rem) to 0.65rem minimum (7 replacements)
+  - Task List Enhancement — removed `projects.slice(0, 4)` cap, added horizontal scroll for project tabs, added due date + overdue highlighting, added "View all N tasks" link with hidden count
+  - Empty State Text Rewrite — rewrote in human guiding tone ("All clear — create a task to get started", etc.)
+- Verified in browser: light mode, dark mode, empty states, BCG range switching all confirmed working
+- P2 items deferred: dashboard hierarchy reorder, letter-spacing standardization, task sort/search
+- Files: Dashboard.jsx, Dashboard.css, tokens.css, useDashboard.js
+- Audit plan: `.claude/plans/elegant-baking-umbrella.md`
+
 ## [2026-04-14] implement | Task clicks → popup modal on pillar level pages
 - Removed `inlinePanel` from ProjectBoard in PillarLevelPage — DashboardTaskCard clicks now open TaskDetailPanel portal modal instead of InlineTaskDetail inline
 - Added `onSubsegClick` to LevelNavigator in PillarLevelPage — subseg (task progress bar segment) clicks now open TaskDetailPanel modal instead of navigating to `?task=` URL

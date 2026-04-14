@@ -37,7 +37,7 @@
 .search-input:focus { box-shadow: none; }
 
 .search-kbd {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem; font-weight: 500;
   padding: 2px 6px;
   background: var(--bg3); border: 1px solid var(--border);

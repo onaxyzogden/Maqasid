@@ -10,29 +10,99 @@ import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/mone
 function fmt(n) { return formatCurrency(n); }
 function pct(current, target) { return target ? Math.min(100, Math.round((current / target) * 100)) : 0; }
 
-/* ─── bar chart (pure CSS) ─── */
-function BarChart({ data }) {
+const MONTH_COUNT = 9;
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function niceMax(val) {
+  if (val <= 0) return 100;
+  const mag = Math.pow(10, Math.floor(Math.log10(val)));
+  const n = val / mag;
+  if (n <= 1) return mag;
+  if (n <= 2) return 2 * mag;
+  if (n <= 5) return 5 * mag;
+  return 10 * mag;
+}
+
+function fmtTick(v) {
+  if (v >= 1000) return (v / 1000).toFixed(v % 1000 === 0 ? 0 : 1) + 'k';
+  return String(v);
+}
+
+/* ─── bar chart (pure CSS, stacked monthly) ─── */
+function BarChart({ data, budgetTarget = 0 }) {
   if (!data.length) return null;
-  const max = Math.max(...data.flatMap((d) => [d.savings, d.income, d.expenses]), 1);
+
+  const stackMax = Math.max(
+    ...data.map((d) => d.savings + d.income + d.expenses),
+    budgetTarget || 0,
+    1,
+  );
+  const ceiling = niceMax(stackMax);
+  const TICK_COUNT = 4;
+  const ticks = Array.from({ length: TICK_COUNT + 1 }, (_, i) =>
+    Math.round((ceiling / TICK_COUNT) * i),
+  );
+  const budgetPct = budgetTarget > 0 ? (budgetTarget / ceiling) * 100 : 0;
+
   return (
-    <div className="md-chart">
-      <div className="md-chart-bars">
+    <div className="md-chart-wrapper">
+      {/* Y-axis */}
+      <div className="md-chart-yaxis">
+        {[...ticks].reverse().map((t) => (
+          <span key={t} className="md-yaxis-label">{fmtTick(t)}</span>
+        ))}
+      </div>
+
+      {/* Chart area */}
+      <div className="md-chart-area">
+        {/* Gridlines */}
+        {ticks.slice(1).map((t) => (
+          <div key={t} className="md-gridline" style={{ bottom: `${(t / ceiling) * 100}%` }} />
+        ))}
+
+        {/* Budget target line */}
+        {budgetTarget > 0 && (
+          <>
+            <div className="md-budget-line" style={{ bottom: `${budgetPct}%` }} />
+            <span className="md-budget-label" style={{ bottom: `${budgetPct}%` }}>
+              Max Target Spending
+            </span>
+          </>
+        )}
+
+        {/* Bars */}
+        <div className="md-chart-bars">
+          {data.map((d) => {
+            const total = d.savings + d.income + d.expenses;
+            const totalPct = (total / ceiling) * 100;
+            const overBudget = budgetTarget > 0
+              ? Math.min(d.expenses, Math.max(0, total - budgetTarget))
+              : 0;
+            const withinExpenses = d.expenses - overBudget;
+
+            return (
+              <div key={d.month} className="md-chart-col">
+                <div className="md-chart-stack" style={{ height: `${totalPct}%` }}>
+                  {d.savings > 0 && <div className="md-bar md-bar-savings" style={{ flex: d.savings }} />}
+                  {d.income > 0 && <div className="md-bar md-bar-income" style={{ flex: d.income }} />}
+                  {withinExpenses > 0 && <div className="md-bar md-bar-expenses" style={{ flex: withinExpenses }} />}
+                  {overBudget > 0 && <div className="md-bar md-bar-over-budget" style={{ flex: overBudget }} />}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* X-axis */}
+      <div className="md-chart-xaxis">
         {data.map((d) => (
-          <div key={d.day} className="md-chart-col">
-            <div className="md-chart-stack" style={{ height: '100%' }}>
-              <div className="md-bar md-bar-savings" style={{ height: `${(d.savings / max) * 100}%` }} />
-              <div className="md-bar md-bar-income" style={{ height: `${(d.income / max) * 100}%` }} />
-              <div className="md-bar md-bar-expenses" style={{ height: `${(d.expenses / max) * 100}%` }} />
-            </div>
-            <span className="md-chart-label">{d.day}</span>
-          </div>
+          <span key={d.month} className="md-chart-label">{d.month}</span>
         ))}
       </div>
     </div>
   );
 }
-
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const COLORS = ['#f59e0b', '#f97316', '#fbbf24', '#fcd34d', '#22c55e', '#4ab8a8', '#94a3b8', '#8b5cf6', '#3b82f6', '#ec4899'];
 
 export default function MoneyDashboard({ onNavigate }) {
@@ -52,21 +122,27 @@ export default function MoneyDashboard({ onNavigate }) {
     return { totalIncome: ti, totalExpenses: te, balance: ti - te, accountsBalance: ab };
   }, [incomes, expenses, accounts]);
 
-  // Weekly chart data from recent expenses/incomes
+  // Monthly chart data (last 9 months)
   const chartData = useMemo(() => {
     const now = new Date();
-    const weekStart = new Date(now);
-    weekStart.setDate(now.getDate() - now.getDay());
-    weekStart.setHours(0, 0, 0, 0);
-
-    return DAYS.map((day, i) => {
-      const d = new Date(weekStart);
-      d.setDate(weekStart.getDate() + i);
-      const ds = d.toISOString().slice(0, 10);
-      const dayIncome = incomes.filter((x) => x.date === ds).reduce((s, x) => s + (Number(x.amount) || 0), 0);
-      const dayExpense = expenses.filter((x) => x.date === ds).reduce((s, x) => s + (Number(x.amount) || 0), 0);
-      return { day, income: dayIncome, expenses: dayExpense, savings: Math.max(0, dayIncome - dayExpense) };
-    });
+    const results = [];
+    for (let i = MONTH_COUNT - 1; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      const prefix = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+      const monthIncome = incomes
+        .filter((x) => x.date?.startsWith(prefix))
+        .reduce((s, x) => s + (Number(x.amount) || 0), 0);
+      const monthExpense = expenses
+        .filter((x) => x.date?.startsWith(prefix))
+        .reduce((s, x) => s + (Number(x.amount) || 0), 0);
+      results.push({
+        month: MONTHS[d.getMonth()],
+        income: monthIncome,
+        expenses: monthExpense,
+        savings: Math.max(0, monthIncome - monthExpense),
+      });
+    }
+    return results;
   }, [incomes, expenses]);
 
   // Cost analysis by category

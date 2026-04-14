@@ -19,7 +19,7 @@
 .hr-stat__value {
   font-size: 1.5rem;
   font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   color: var(--text);
 }
 .hr-stat__label {

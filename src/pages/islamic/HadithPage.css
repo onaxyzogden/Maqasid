@@ -3,7 +3,7 @@
 .hd-page {
   min-height: 100vh;
   background: var(--faith-bg);
-  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
 }
 
 /* ── Header ── */
@@ -78,7 +78,7 @@
   padding: 0.5rem 2.5rem 0.5rem 1.5rem;
   width: 16rem;
   font-size: 0.875rem;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   color: var(--faith-on-surface);
   outline: none;
 }
@@ -207,7 +207,7 @@
   border-radius: 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   cursor: pointer;
   border: none;
   transition: opacity 0.2s;
@@ -620,7 +620,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
 }
 
 .hd-footer__brand {

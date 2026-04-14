@@ -204,7 +204,7 @@ export default function Settings() {
                   flex: 1, padding: 'var(--space-2) var(--space-3)',
                   border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
                   background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "var(--font-mono)",
                 }}
               />
               <button
@@ -235,7 +235,7 @@ export default function Settings() {
                 width: '100%', padding: 'var(--space-2) var(--space-3)',
                 border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
                 background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "var(--font-mono)",
               }}
             />
           </div>
@@ -255,7 +255,7 @@ export default function Settings() {
                   width: '100%', padding: 'var(--space-2) var(--space-3)',
                   border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
                   background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "var(--font-mono)",
                 }}
               />
             </div>
@@ -279,7 +279,7 @@ export default function Settings() {
                       width: '100%', padding: 'var(--space-2) var(--space-3)',
                       border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
                       background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem',
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "var(--font-mono)",
                     }}
                   />
                 </div>

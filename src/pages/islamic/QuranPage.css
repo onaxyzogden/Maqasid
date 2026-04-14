@@ -3,7 +3,7 @@
 .qc-page {
   min-height: 100vh;
   background: var(--faith-bg);
-  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
 }
 
 /* ── Header ── */
@@ -82,7 +82,7 @@
   border: none;
   border-radius: 9999px;
   font-size: 0.875rem;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   width: 16rem;
   color: var(--faith-on-surface);
   outline: none;
@@ -164,7 +164,7 @@
   border-radius: 0.75rem;
   font-size: 0.875rem;
   font-weight: 700;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   cursor: pointer;
   border: none;
   transition: opacity 0.2s;
@@ -367,7 +367,7 @@
   color: var(--qc-slate);
   font-size: 0.8125rem;
   font-weight: 800;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   cursor: pointer;
   padding: 0;
   transition: gap 0.2s;

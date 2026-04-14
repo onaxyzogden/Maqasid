@@ -357,11 +357,11 @@
 .wf-pressure__labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--text3);
 }
 .wf-pressure__desc {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--text3);
   margin-top: var(--space-2);
   line-height: 1.4;
@@ -430,7 +430,8 @@
   align-items: center;
   gap: var(--space-1);
   overflow-x: auto;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  max-height: 36px;
 }
 .insight-open-tasks__tabs::-webkit-scrollbar { display: none; }
 
@@ -511,7 +512,7 @@
   white-space: nowrap;
 }
 .insight-task-proj {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--text3);
   background: var(--bg4);
@@ -533,12 +534,63 @@
 .insight-task-view:hover {
   background: rgba(74, 184, 168, 0.08);
 }
+.insight-task-due {
+  font-size: 0.65rem;
+  color: var(--text3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.insight-open-tasks__view-all {
+  display: block;
+  text-align: center;
+  padding: var(--space-2) 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-1);
+}
+.insight-open-tasks__view-all:hover {
+  color: var(--primary-hover);
+}
 
 .insight-empty-line {
   padding: var(--space-4);
   text-align: center;
   color: var(--text3);
   font-size: 0.8rem;
+}
+
+/* ── Section-level empty state (icon + text + CTA) ── */
+.insight-section-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+.insight-section-empty p {
+  color: var(--text3);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 240px;
+}
+.insight-section-empty__cta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius);
+  transition: background var(--duration) var(--ease);
+}
+.insight-section-empty__cta:hover {
+  background: rgba(74, 184, 168, 0.08);
 }
 
 /* ── Bottom row: Maqasid Focus + Activity ── */
@@ -659,7 +711,7 @@
   min-width: 0;
 }
 .insight-activity-item__time {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--text3);
 }
 .insight-activity-item__text {
@@ -783,8 +835,8 @@
 
 /* ── Section label (Faith module style) ── */
 .insight-section-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.62rem;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -838,8 +890,8 @@
 .pps__col:hover .pps__seg { filter: brightness(0.88); }
 
 .pps__label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.58rem;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -852,7 +904,7 @@
 }
 
 .pps__arabic {
-  font-family: 'Amiri', serif;
+  font-family: var(--font-arabic);
   font-size: 0.68rem;
   color: var(--text3);
   direction: rtl;
@@ -895,7 +947,7 @@
   color: var(--text);
 }
 .pps-focus__arabic {
-  font-family: 'Amiri', serif;
+  font-family: var(--font-arabic);
   font-size: 0.68rem;
   color: var(--text3);
   direction: rtl;
@@ -916,7 +968,7 @@
 }
 .pps-focus__link:hover { color: var(--primary); }
 .pps-focus__hint {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--text3);
   margin-top: var(--space-3);
   line-height: 1.4;

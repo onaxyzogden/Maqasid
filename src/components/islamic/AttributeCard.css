@@ -15,7 +15,7 @@
 }
 
 .attr-card-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 0.95rem;
 }

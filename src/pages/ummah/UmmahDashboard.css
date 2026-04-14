@@ -25,7 +25,7 @@
 }
 
 .ummah-arabic {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   color: #AD8E6E;
 }
@@ -137,7 +137,7 @@
   justify-content: center;
   border-radius: var(--radius-full);
   background: var(--bg3);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--text2);
@@ -167,7 +167,7 @@
 }
 
 .ummah-ms-status {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -207,7 +207,7 @@
 }
 
 .ummah-atlas-status {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;

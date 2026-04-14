@@ -234,7 +234,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
           {isBbos && (
             <>
               <span style={{
-                fontSize: '0.68rem', fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.68rem', fontFamily: "var(--font-mono)",
                 fontWeight: 600, padding: '2px 8px', borderRadius: 'var(--radius-xs)',
                 background: 'color-mix(in srgb, #c9a05a 10%, transparent)',
                 color: '#c9a05a', border: '1px solid color-mix(in srgb, #c9a05a 20%, transparent)',

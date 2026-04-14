@@ -276,7 +276,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
   const stageColor = stage?.color || 'var(--accent)';
 
   const panel = (
-    <div className="bbos-task-panel slide-in-right" onClick={(e) => e.stopPropagation()}>
+    <div className="bbos-task-panel tdp-scale-in" onClick={(e) => e.stopPropagation()}>
 
       {/* ── Stage header band ── */}
       <div className="btp-header" style={{ borderTopColor: stageColor }}>

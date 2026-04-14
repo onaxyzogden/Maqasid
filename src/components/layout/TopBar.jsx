@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, NavLink, Link } from 'react-router-dom';
-import { Search, Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare, ChevronDown, ChevronUp } from 'lucide-react';
+import { Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useAuthStore } from '../../store/auth-store';
@@ -64,7 +64,6 @@ export default function TopBar() {
   const location = useLocation();
   const mobile = useMobile();
   const toggleSidebar = useAppStore((s) => s.toggleSidebar);
-  const setSearchOpen = useAppStore((s) => s.setSearchOpen);
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
   const islamicPanelWidthPx = useAppStore((s) => s.islamicPanelWidthPx);
   const toggleIslamicPanel = useAppStore((s) => s.toggleIslamicPanel);
@@ -163,11 +162,6 @@ export default function TopBar() {
               <Clock size={18} />
             </button>
           )}
-          <button className="topbar-btn topbar-search" onClick={() => setSearchOpen(true)} title={tip('Search (Cmd+K)')}>
-            <Search size={18} />
-            {!mobile && <span className="topbar-search-hint">Search...</span>}
-            {!mobile && <kbd className="topbar-kbd">⌘K</kbd>}
-          </button>
           {!mobile && (
             <button
               className="topbar-btn"

@@ -30,7 +30,7 @@
 }
 
 .il-header-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--text);
@@ -149,7 +149,7 @@
 }
 
 .il-module-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--text);

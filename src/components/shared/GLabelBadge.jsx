@@ -17,7 +17,7 @@ export default function GLabelBadge({ gLabel, size = 'sm' }) {
         padding: isSm ? '1px 6px' : '2px 8px',
         fontSize: isSm ? '0.65rem' : '0.72rem',
         fontWeight: 600,
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "var(--font-mono)",
         color: g.color,
         background: g.bg,
         border: `1px solid ${g.color}30`,

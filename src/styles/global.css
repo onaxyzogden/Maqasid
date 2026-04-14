@@ -6,7 +6,7 @@ html { font-size: 16px; -webkit-text-size-adjust: 100%; }
 textarea { overflow: hidden; resize: none; }
 
 body {
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -15,7 +15,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', 'DM Sans', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.25;
   color: var(--text);
@@ -28,8 +28,8 @@ h4 { font-size: 1.25rem; }
 h5 { font-size: 1.1rem; }
 h6 { font-size: 1rem; }
 
-.arabic { font-family: 'Amiri', serif; direction: rtl; }
-.mono { font-family: 'JetBrains Mono', monospace; font-size: 0.875em; }
+.arabic { font-family: var(--font-arabic); direction: rtl; }
+.mono { font-family: var(--font-mono); font-size: 0.875em; }
 
 a { color: var(--primary); text-decoration: none; transition: color var(--duration) var(--ease); }
 a:hover { color: var(--primary-hover); }
@@ -187,7 +187,7 @@ input:focus, textarea:focus, select:focus {
 .cat-filter-pill.active { background: var(--primary-bg); color: var(--primary); border-color: var(--primary-border); }
 
 /* Amount styling */
-.amount { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+.amount { font-family: var(--font-mono); font-weight: 500; }
 .amount-positive { color: var(--success); }
 .amount-negative { color: var(--danger); }
 

@@ -27,7 +27,7 @@
   font-size: 1.25rem;
   font-weight: 800;
   fill: var(--text);
-  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
 }
 .pld__ring-label {
   font-size: 0.55rem;
@@ -35,7 +35,7 @@
   fill: var(--text3);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
 }
 .pld__eyebrow {
   font-size: 0.65rem;
@@ -43,7 +43,7 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 6px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .pld__title {
   font-size: 1.9rem;
@@ -85,13 +85,13 @@
   letter-spacing: 0.14em;
   color: var(--text3);
   white-space: nowrap;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .pld__divider-count {
   font-size: 0.6rem;
   color: var(--text3);
   opacity: 0.6;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .pld__divider::after {
   content: '';
@@ -148,7 +148,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .pld__insight-title {
   font-size: 0.85rem;
@@ -172,7 +172,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .pld__insight-verdict-value {
   font-size: 1.55rem;
@@ -192,7 +192,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .pld__insight-metrics-grid {
   display: grid;
@@ -214,7 +214,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   margin-bottom: 4px;
 }
 .pld__insight-metric-value {
@@ -263,7 +263,7 @@
   color: var(--text3);
   text-align: center;
   display: block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* ── Empty state ── */

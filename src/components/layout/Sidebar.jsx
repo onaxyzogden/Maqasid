@@ -11,6 +11,7 @@ import {
   PiggyBank, Store, Gift, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
+  Search,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
@@ -88,7 +89,7 @@ export default function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const mobile = useMobile();
-  const { sidebarOpen, toggleSidebar, setActiveModule, expandedPillars, togglePillar, collapseAllPillars } = useAppStore();
+  const { sidebarOpen, toggleSidebar, setActiveModule, expandedPillars, togglePillar, collapseAllPillars, setSearchOpen } = useAppStore();
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const [notifOpen, setNotifOpen] = useState(false);
 
@@ -114,6 +115,19 @@ export default function Sidebar() {
         )}
         <button className="sidebar-toggle" onClick={toggleSidebar} title={collapsed ? 'Expand' : 'Collapse'}>
           {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+        </button>
+      </div>
+
+      {/* Search */}
+      <div className="sidebar-search-wrap">
+        <button className="sidebar-search-btn" onClick={() => setSearchOpen(true)} title="Search (⌘K)">
+          <Search size={16} />
+          {!collapsed && (
+            <>
+              <span className="sidebar-search-hint">Search...</span>
+              <kbd className="sidebar-search-kbd">⌘K</kbd>
+            </>
+          )}
         </button>
       </div>
 

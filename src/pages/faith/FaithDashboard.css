@@ -59,12 +59,12 @@
 }
 
 /* ── Utility: serif headline ── */
-.font-serif { font-family: 'Noto Serif', serif; }
+.font-serif { font-family: var(--font-serif); }
 
 /* ── Shared label ── */
 .faith-label {
   display: inline-block;
-  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
   align-items: center;
   padding: 0.375rem 1rem;
   border-radius: 9999px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -174,7 +174,7 @@
 }
 
 .faith-header__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 3.75rem;
   font-weight: 700;
   color: var(--faith-primary);
@@ -190,7 +190,7 @@
 }
 
 .faith-header__verse p {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 400;
   font-style: italic;
@@ -204,7 +204,7 @@
   display: block;
   margin-top: 1rem;
   font-style: normal;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -221,7 +221,7 @@
 }
 
 .faith-header__pct {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 3rem;
   font-weight: 700;
   color: var(--faith-primary);
@@ -229,7 +229,7 @@
 }
 
 .faith-header__pct-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -285,7 +285,7 @@
 }
 
 .faith-hero-card__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--faith-on-primary);
@@ -294,7 +294,7 @@
 }
 
 .faith-hero-card__desc {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 0.9375rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
@@ -312,7 +312,7 @@
   border: none;
   background: var(--faith-secondary-fixed);
   color: var(--faith-on-secondary-fixed);
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 700;
   cursor: pointer;
@@ -359,7 +359,7 @@
 }
 
 .faith-core-card__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 1.875rem;
   font-weight: 700;
   color: #fff;
@@ -432,13 +432,13 @@
 }
 
 .faith-core-item__label {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 700;
 }
 
 .faith-core-item__pct {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 11px;
   opacity: 0.6;
 }
@@ -499,7 +499,7 @@
 }
 
 .faith-needs-card__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--faith-primary);
@@ -541,7 +541,7 @@
 }
 
 .faith-study-item__name {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--faith-on-surface);
@@ -581,7 +581,7 @@
 }
 
 .faith-excellence-card__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--faith-tertiary);
@@ -631,7 +631,7 @@
 }
 
 .faith-locked-item__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--faith-on-surface);
@@ -674,7 +674,7 @@
 }
 
 .faith-hajj-cta__title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--faith-primary);
@@ -695,7 +695,7 @@
   border: 1px solid rgba(191, 200, 200, 0.2);
   background: var(--faith-surface-container-lowest);
   color: var(--faith-primary);
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 700;
   cursor: pointer;

@@ -49,14 +49,14 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   white-space: nowrap;
 }
 
 .fln__side-subtitle {
   font-size: 0.6rem;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   white-space: nowrap;
 }
 
@@ -95,13 +95,13 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.13em;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 
 .fln__center-subtitle {
   font-size: 0.62rem;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 
 .fln__center-title {

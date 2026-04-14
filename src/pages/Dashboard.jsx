@@ -2,7 +2,7 @@ import { useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Kanban, AlertTriangle, CalendarDays,
-  Activity, Zap, ChevronRight,
+  Activity, Zap, ChevronRight, Clock,
 } from 'lucide-react';
 import { useProjectStore } from '../store/project-store';
 import { useAuthStore } from '../store/auth-store';
@@ -20,8 +20,10 @@ import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
 
 function BCGChart({ data }) {
-  const [range, setRange] = useState('2d');
-  const hasData = data?.some((d) => d.count > 0);
+  const [range, setRange] = useState('14d');
+  const rangeDays = BCG_RANGES.find((r) => r.id === range)?.days ?? 14;
+  const filtered = (data || []).slice(-rangeDays);
+  const hasData = filtered.some((d) => d.count > 0);
 
   const PAD = { left: 45, right: 15, top: 20, bottom: 30 };
   const W = 520;
@@ -29,9 +31,9 @@ function BCGChart({ data }) {
   const PLOT_W = W - PAD.left - PAD.right;
   const PLOT_H = H - PAD.top - PAD.bottom;
 
-  const maxVal = Math.max(...(data || []).map((d) => d.count), 1);
-  const points = (data || []).map((d, i) => {
-    const x = PAD.left + (i / Math.max((data || []).length - 1, 1)) * PLOT_W;
+  const maxVal = Math.max(...filtered.map((d) => d.count), 1);
+  const points = filtered.map((d, i) => {
+    const x = PAD.left + (i / Math.max(filtered.length - 1, 1)) * PLOT_W;
     const y = PAD.top + PLOT_H - (d.count / maxVal) * PLOT_H;
     return { x, y, ...d };
   });
@@ -51,7 +53,7 @@ function BCGChart({ data }) {
     <div className="bcg-chart">
       <div className="bcg-chart__header">
         <div>
-          <span className="bcg-chart__title">Your Personal <strong>BCG</strong></span>
+          <span className="bcg-chart__title">Barakah Consistency</span>
         </div>
         <div className="bcg-chart__ranges">
           {BCG_RANGES.map((r) => (
@@ -68,7 +70,8 @@ function BCGChart({ data }) {
       {!hasData ? (
         <div className="bcg-chart__empty">
           <Activity size={28} style={{ color: 'var(--text3)' }} />
-          <p>Complete tasks to see your BCG</p>
+          <p>Your Barakah Consistency Graph appears once you start completing tasks.</p>
+          <Link to="/app/work" className="insight-section-empty__cta">Go to tasks</Link>
         </div>
       ) : (
         <svg viewBox={`0 0 ${W} ${H}`} className="bcg-chart__svg" preserveAspectRatio="xMidYMid meet">
@@ -81,7 +84,7 @@ function BCGChart({ data }) {
 
           {yLabels.map((yl, i) => (
             <text key={i} x={PAD.left - 8} y={yl.y + 3} textAnchor="end"
-              fill="var(--text3)" fontSize="9" fontFamily="JetBrains Mono, monospace">
+              fill="var(--text3)" fontSize="9" fontFamily="var(--font-mono)">
               {yl.label}
             </text>
           ))}
@@ -104,7 +107,7 @@ function BCGChart({ data }) {
 
           {points.filter((_, i) => i % Math.ceil(points.length / 7) === 0 || i === points.length - 1).map((p, i) => (
             <text key={`l${i}`} x={p.x} y={H - 6} textAnchor="middle"
-              fill="var(--text3)" fontSize="9" fontFamily="DM Sans, sans-serif">
+              fill="var(--text3)" fontSize="9" fontFamily="var(--font-body)">
               {p.label}
             </text>
           ))}
@@ -112,10 +115,7 @@ function BCGChart({ data }) {
       )}
       <div className="bcg-chart__legend">
         <span className="bcg-legend-item">
-          <span className="bcg-legend-dot" style={{ background: 'var(--primary)' }} /> Positive signal
-        </span>
-        <span className="bcg-legend-item">
-          <span className="bcg-legend-dot" style={{ background: 'var(--danger)' }} /> Negative signal
+          <span className="bcg-legend-dot" style={{ background: 'var(--primary)' }} /> Tasks completed per day
         </span>
       </div>
     </div>
@@ -233,11 +233,11 @@ export default function Dashboard() {
     return 'low';
   }, [stats]);
 
-  // 14-point BCG data (last 14 days completions)
+  // 30-point BCG data (last 30 days completions — chart filters by range)
   const bcgData = useMemo(() => {
     const days = [];
     const now = new Date();
-    for (let i = 13; i >= 0; i--) {
+    for (let i = 29; i >= 0; i--) {
       const d = new Date(now);
       d.setDate(d.getDate() - i);
       d.setHours(0, 0, 0, 0);
@@ -266,15 +266,16 @@ export default function Dashboard() {
 
   // Open tasks sorted by priority
   const priorityOrder = { urgent: 0, high: 1, medium: 2, low: 3 };
-  const openTasks = useMemo(() => {
+  const openTasksAll = useMemo(() => {
     let tasks = allTasks.filter((t) => !t.completedAt);
     if (projectFilter !== 'all') {
       tasks = tasks.filter((t) => t.projectId === projectFilter);
     }
     return tasks
-      .sort((a, b) => (priorityOrder[a.priority] ?? 9) - (priorityOrder[b.priority] ?? 9))
-      .slice(0, 10);
+      .sort((a, b) => (priorityOrder[a.priority] ?? 9) - (priorityOrder[b.priority] ?? 9));
   }, [allTasks, projectFilter]);
+  const openTasks = openTasksAll.slice(0, 10);
+  const hiddenTaskCount = openTasksAll.length - openTasks.length;
 
   // Activity timeline
   const activityItems = useMemo(() => {
@@ -511,7 +512,7 @@ export default function Dashboard() {
                 >
                   All
                 </button>
-                {projects.slice(0, 4).map((p) => (
+                {projects.map((p) => (
                   <button
                     key={p.id}
                     className={`insight-proj-tab ${projectFilter === p.id ? 'active' : ''}`}
@@ -529,22 +530,40 @@ export default function Dashboard() {
             </div>
             <div className="insight-open-tasks__list">
               {openTasks.length === 0 && (
-                <div className="insight-empty-line">No open tasks</div>
+                <div className="insight-section-empty">
+                  <Kanban size={24} style={{ color: 'var(--text3)' }} />
+                  <p>All clear — create a task to get started.</p>
+                  <Link to="/app/work" className="insight-section-empty__cta">+ Create Task</Link>
+                </div>
               )}
               {openTasks.map((t) => {
                 const proj = projects.find((p) => (tasksByProject[p.id] || []).some((tt) => tt.id === t.id));
                 const projInitials = proj ? proj.name.split(' ').map((w) => w[0]).join('').toUpperCase().slice(0, 2) : 'GP';
+                const dueDateLabel = t.dueDate
+                  ? new Date(t.dueDate + 'T00:00:00').toLocaleDateString('en', { month: 'short', day: 'numeric' })
+                  : null;
+                const isOverdue = t.dueDate && new Date(t.dueDate) < new Date() && !t.completedAt;
                 return (
                   <div key={t.id} className="insight-task-row">
                     <div className="insight-task-priority" style={{ background: priorityColor(t.priority) }} />
                     <span className="insight-task-title">{t.title}</span>
+                    {dueDateLabel && (
+                      <span className="insight-task-due" style={isOverdue ? { color: 'var(--danger)' } : undefined}>
+                        {dueDateLabel}
+                      </span>
+                    )}
                     <span className="insight-task-proj">{projInitials}</span>
                     <Link to={proj ? `/app/work/${proj.id}` : '/app/work'} className="insight-task-view">
-                      View Task
+                      View
                     </Link>
                   </div>
                 );
               })}
+              {hiddenTaskCount > 0 && (
+                <Link to="/app/work" className="insight-open-tasks__view-all">
+                  View all {openTasksAll.length} tasks
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -589,7 +608,11 @@ export default function Dashboard() {
               <span>Upcoming tasks &amp; events</span>
             </div>
             {upcomingEvents.length === 0 && (
-              <div className="insight-empty-line">No upcoming events this week</div>
+              <div className="insight-section-empty">
+                <Clock size={24} style={{ color: 'var(--text3)' }} />
+                <p>Your week is open — schedule something?</p>
+                <Link to="/app/office" className="insight-section-empty__cta">View Calendar</Link>
+              </div>
             )}
             {upcomingEvents.map((e) => (
               <div key={e.id} className="insight-upcoming-item">
@@ -676,7 +699,10 @@ export default function Dashboard() {
           </div>
           <div className="insight-activity__list">
             {activityItems.length === 0 && (
-              <div className="insight-empty-line">No recent activity</div>
+              <div className="insight-section-empty">
+                <Activity size={24} style={{ color: 'var(--text3)' }} />
+                <p>Complete a task and your activity will appear here.</p>
+              </div>
             )}
             {activityItems.map((item) => (
               <div key={item.id} className="insight-activity-item">

@@ -74,7 +74,7 @@ export default function TimeTracker() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
           <button className="btn btn-ghost" onClick={() => changeWeek(-1)}><ChevronLeft size={16} /></button>
-          <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: '0.95rem', minWidth: 220, textAlign: 'center' }}>{weekLabel}</span>
+          <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: '0.95rem', minWidth: 220, textAlign: 'center' }}>{weekLabel}</span>
           <button className="btn btn-ghost" onClick={() => changeWeek(1)}><ChevronRight size={16} /></button>
         </div>
         <button className="btn btn-primary" onClick={() => { setFDate(selectedDate); setShowForm(true); }} style={{ background: 'var(--mod-people)' }}>
@@ -108,12 +108,12 @@ export default function TimeTracker() {
                   {weekDates.map((wd) => {
                     const hrs = empWeek[wd.date] || 0;
                     return (
-                      <td key={wd.date} style={{ textAlign: 'center', fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8rem', color: hrs > 0 ? 'var(--text)' : 'var(--text3)' }}>
+                      <td key={wd.date} style={{ textAlign: 'center', fontFamily: "var(--font-mono)", fontSize: '0.8rem', color: hrs > 0 ? 'var(--text)' : 'var(--text3)' }}>
                         {hrs > 0 ? hrs.toFixed(1) : '—'}
                       </td>
                     );
                   })}
-                  <td style={{ textAlign: 'center', fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: '0.85rem' }}>{total > 0 ? total.toFixed(1) : '—'}</td>
+                  <td style={{ textAlign: 'center', fontFamily: "var(--font-mono)", fontWeight: 700, fontSize: '0.85rem' }}>{total > 0 ? total.toFixed(1) : '—'}</td>
                 </tr>
               );
             })}
@@ -123,9 +123,9 @@ export default function TimeTracker() {
               <td style={{ fontWeight: 600, fontSize: '0.8rem' }}>Daily Total</td>
               {weekDates.map((wd) => {
                 const dayTotal = activeEmps.reduce((s, emp) => s + (weeklyMatrix[emp.id]?.[wd.date] || 0), 0);
-                return <td key={wd.date} style={{ textAlign: 'center', fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '0.8rem' }}>{dayTotal > 0 ? dayTotal.toFixed(1) : '—'}</td>;
+                return <td key={wd.date} style={{ textAlign: 'center', fontFamily: "var(--font-mono)", fontWeight: 600, fontSize: '0.8rem' }}>{dayTotal > 0 ? dayTotal.toFixed(1) : '—'}</td>;
               })}
-              <td style={{ textAlign: 'center', fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: '0.9rem' }}>
+              <td style={{ textAlign: 'center', fontFamily: "var(--font-mono)", fontWeight: 700, fontSize: '0.9rem' }}>
                 {activeEmps.reduce((s, emp) => s + Object.values(weeklyMatrix[emp.id] || {}).reduce((ss, h) => ss + h, 0), 0).toFixed(1)}
               </td>
             </tr>

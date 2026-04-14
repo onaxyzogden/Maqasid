@@ -106,6 +106,7 @@ export default function DashboardTaskCard({
 
   return (
     <div
+      data-task-id={taskId}
       className={cardClassName}
       style={cardStyle}
       onClick={handleClick}

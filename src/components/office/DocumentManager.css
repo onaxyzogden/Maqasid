@@ -127,7 +127,7 @@
   width: 100%; min-height: 400px; padding: var(--space-4);
   border: 1px solid var(--border); border-radius: var(--radius);
   font-size: 0.9rem; line-height: 1.7; resize: vertical;
-  background: var(--surface); color: var(--text); font-family: 'DM Sans', sans-serif;
+  background: var(--surface); color: var(--text); font-family: var(--font-body);
 }
 .doc-editor:focus { border-color: var(--mod-office); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
 

@@ -26,7 +26,7 @@
 }
 
 .ayah-banner__label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -36,7 +36,7 @@
 }
 
 .ayah-banner__source {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.04em;
   color: var(--text3);
@@ -60,7 +60,7 @@
 }
 
 .ayah-banner__arabic {
-  font-family: 'Amiri', serif;
+  font-family: var(--font-arabic);
   font-size: 1.2rem;
   line-height: 2;
   text-align: center;

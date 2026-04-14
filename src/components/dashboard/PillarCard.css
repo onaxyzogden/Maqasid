@@ -35,7 +35,7 @@
 .pc-rel-badge {
   margin-left: auto;
   flex-shrink: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -73,7 +73,7 @@
   margin-top: var(--space-3);
   padding-top: var(--space-2);
   border-top: 1px solid var(--border);
-  font-family: 'Amiri', serif;
+  font-family: var(--font-arabic);
   font-size: 0.95rem;
   color: var(--text3);
   text-align: right;

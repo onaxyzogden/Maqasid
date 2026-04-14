@@ -9,7 +9,7 @@ function StatCard({ label, value, sub, color }) {
       padding: 20, background: 'var(--surface)', borderRadius: 12,
       border: '1px solid var(--border)', textAlign: 'center',
     }}>
-      <div style={{ fontSize: 28, fontWeight: 700, color: color || 'var(--text)', fontFamily: "'Space Grotesk', sans-serif" }}>
+      <div style={{ fontSize: 28, fontWeight: 700, color: color || 'var(--text)', fontFamily: "var(--font-heading)" }}>
         {value}
       </div>
       <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 4 }}>{label}</div>

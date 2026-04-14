@@ -38,7 +38,7 @@
 .mhc-status-pending { color: var(--text3); }
 
 .mhc-metric {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text2);
 }

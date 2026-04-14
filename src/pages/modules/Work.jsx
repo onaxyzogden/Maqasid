@@ -107,7 +107,7 @@ export default function Work() {
                   <h4 style={{ margin: 0 }}>{p.name}</h4>
                   {p.bbosEnabled && (
                     <span style={{
-                      fontSize: '0.62rem', fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: '0.62rem', fontFamily: "var(--font-mono)",
                       fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
                       padding: '1px 6px', borderRadius: 'var(--radius-xs)',
                       background: 'color-mix(in srgb, #c9a05a 12%, transparent)',

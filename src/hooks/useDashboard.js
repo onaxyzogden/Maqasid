@@ -20,11 +20,9 @@ export function getMotivation() {
   return phrases[dayIndex];
 }
 
-/** BCG chart range options */
+/** BCG chart range options (day-based) */
 export const BCG_RANGES = [
-  { id: 'latest', label: 'Latest' },
-  { id: '2h',    label: '2 hours' },
-  { id: '6h',    label: '6 hours' },
-  { id: '12h',   label: '12 Hours' },
-  { id: '2d',    label: '2 Days' },
+  { id: '7d',  label: '7 days',  days: 7 },
+  { id: '14d', label: '14 days', days: 14 },
+  { id: '30d', label: '30 days', days: 30 },
 ];

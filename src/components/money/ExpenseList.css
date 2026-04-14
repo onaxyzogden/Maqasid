@@ -633,7 +633,7 @@
 .budget-summary-value {
   font-size: 1rem;
   font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .budget-spent { color: var(--text1); }
 .budget-under { color: var(--success); }
@@ -696,7 +696,7 @@
 .budget-amount-spent {
   font-size: 1.1rem;
   font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .budget-amount-sep {
   color: var(--text3);

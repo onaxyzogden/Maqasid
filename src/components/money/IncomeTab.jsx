@@ -362,7 +362,7 @@ export default function IncomeTab() {
                 <tbody>
                   {filteredInvoices.map((inv) => (
                     <tr key={inv.id} className="expense-row" onClick={() => { setEditInvoice(inv); setShowInvoicePanel(true); }}>
-                      <td style={{ fontFamily: 'JetBrains Mono, monospace', fontWeight: 500 }}>{inv.number}</td>
+                      <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 500 }}>{inv.number}</td>
                       <td>{inv.clientName || '—'}</td>
                       <td>{new Date(inv.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</td>
                       <td>{inv.dueDate ? new Date(inv.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' }) : '—'}</td>

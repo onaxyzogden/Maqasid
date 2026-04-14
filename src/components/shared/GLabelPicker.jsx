@@ -117,7 +117,7 @@ export default function GLabelPicker({ value, onChange }) {
         >
           <span
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "var(--font-mono)",
               fontWeight: 600,
               fontSize: '0.7rem',
               color: g.color,

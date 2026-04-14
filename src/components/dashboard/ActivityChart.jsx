@@ -64,7 +64,7 @@ export default function ActivityChart({ data }) {
         {/* Count labels above points */}
         {points.map((p, i) => p.count > 0 && (
           <text key={`c${i}`} x={p.x} y={p.y - 12} textAnchor="middle"
-            fill="var(--text2)" fontSize="10" fontFamily="JetBrains Mono, monospace">
+            fill="var(--text2)" fontSize="10" fontFamily="var(--font-mono)">
             {p.count}
           </text>
         ))}
@@ -72,7 +72,7 @@ export default function ActivityChart({ data }) {
         {/* X-axis day labels */}
         {points.map((p, i) => (
           <text key={`l${i}`} x={p.x} y={H - 8} textAnchor="middle"
-            fill="var(--text3)" fontSize="11" fontFamily="DM Sans, sans-serif">
+            fill="var(--text3)" fontSize="11" fontFamily="var(--font-body)">
             {p.label}
           </text>
         ))}

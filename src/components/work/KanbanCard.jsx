@@ -38,6 +38,7 @@ export default function KanbanCard({ task, onClick, bbosRole, isSelected = false
   return (
     <div
       ref={setNodeRef}
+      data-task-id={task.id}
       style={{
         borderLeft: priority ? `3px solid ${priority.color}` : undefined,
         opacity: isDragging ? 0.3 : isViewOnly ? 0.55 : undefined,
@@ -59,7 +60,7 @@ export default function KanbanCard({ task, onClick, bbosRole, isSelected = false
         {task.gLabel && <GLabelBadge gLabel={task.gLabel} />}
         {task.bbosStage && (
           <span style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "var(--font-mono)",
             fontSize: '0.6rem',
             fontWeight: 600,
             padding: '1px 5px',

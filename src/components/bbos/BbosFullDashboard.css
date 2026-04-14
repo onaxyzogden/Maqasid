@@ -158,13 +158,13 @@
   letter-spacing: 0.14em;
   color: var(--text3);
   white-space: nowrap;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__divider-count {
   font-size: 0.6rem;
   color: var(--text3);
   opacity: 0.6;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__divider::after {
   content: '';
@@ -193,7 +193,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__card-label {
   font-size: 0.95rem;
@@ -212,7 +212,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__field-value {
   font-size: 0.82rem;
@@ -251,7 +251,7 @@
   font-size: 0.6rem;
   font-weight: 700;
   color: var(--accent);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -271,7 +271,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   border-bottom: 1px solid var(--border);
   margin-bottom: 4px;
 }
@@ -315,7 +315,7 @@
   letter-spacing: 0.1em;
   color: var(--accent);
   margin-bottom: 5px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__matrix-cell-content {
   font-size: 0.8rem;
@@ -336,12 +336,12 @@
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__gate-count {
   font-size: 0.68rem;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__gate-check {
   display: flex;
@@ -362,7 +362,7 @@
   letter-spacing: 0.08em;
   padding: 2px 6px;
   border-radius: 99px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   flex-shrink: 0;
 }
 .bfd__gate-check-badge--pass { background: color-mix(in srgb, var(--col-done) 15%, transparent); color: var(--col-done); }
@@ -391,13 +391,13 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__gate-overall-value {
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--text);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* ── ProofAuditRenderer ── */
@@ -415,7 +415,7 @@
   font-size: 0.6rem;
   font-weight: 700;
   color: var(--accent);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -436,7 +436,7 @@
   letter-spacing: 0.1em;
   color: var(--accent);
   margin-bottom: 5px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__audit-conclusion p { margin: 0; font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
 
@@ -456,7 +456,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 4px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__arc-step--before .bfd__arc-step-label { color: var(--pri-urgent); }
 .bfd__arc-step--mid    .bfd__arc-step-label { color: var(--primary); }
@@ -488,7 +488,7 @@
   letter-spacing: 0.1em;
   color: var(--accent);
   margin-bottom: 4px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__content-angle-text {
   font-size: 0.79rem;
@@ -511,7 +511,7 @@
   letter-spacing: 0.16em;
   opacity: 0.7;
   margin-bottom: 6px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__verdict-badge-value {
   font-size: 1.5rem;
@@ -531,7 +531,7 @@
   letter-spacing: 0.1em;
   color: var(--text3);
   margin-bottom: 5px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__verdict-basis-text { margin: 0; font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
 .bfd__verdict-empty { font-size: 0.78rem; color: var(--text3); font-style: italic; }
@@ -574,7 +574,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__timeline-text { font-size: 0.82rem; color: var(--text2); line-height: 1.4; }
 .bfd__timeline-exit {
@@ -591,7 +591,7 @@
   letter-spacing: 0.1em;
   color: var(--text3);
   margin-bottom: 4px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__timeline-exit p { margin: 0; font-size: 0.78rem; color: var(--text3); line-height: 1.45; font-style: italic; }
 
@@ -615,7 +615,7 @@
   padding: 2px 7px;
   border-radius: 99px;
   flex-shrink: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__segment--hot  .bfd__segment-badge { background: color-mix(in srgb, var(--col-done) 20%, transparent); color: var(--col-done); }
 .bfd__segment--warm .bfd__segment-badge { background: color-mix(in srgb, var(--pri-high) 20%, transparent); color: var(--pri-high); }
@@ -659,7 +659,7 @@
   letter-spacing: 0.1em;
   color: var(--text3);
   opacity: 0.6;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   text-align: right;
   white-space: nowrap;
 }
@@ -701,7 +701,7 @@
   letter-spacing: 0.14em;
   color: var(--text3);
   margin-bottom: 8px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__pa-verdict-value {
   font-size: 1.5rem;
@@ -714,7 +714,7 @@
 .bfd__pa-verdict-sub {
   font-size: 0.68rem;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__pa-title {
   font-size: 0.6rem;
@@ -722,7 +722,7 @@
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__pa-grid {
   display: grid;
@@ -754,7 +754,7 @@
 .bfd__pa-item-sub {
   font-size: 0.68rem;
   color: var(--text3);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
 }
 .bfd__pa-stars {
   display: flex;

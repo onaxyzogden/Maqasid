@@ -13,6 +13,20 @@ import GLabelPicker from '../shared/GLabelPicker';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import './TaskDetailPanel.css';
 
+function computeTransformOrigin(cardRect) {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const panelW = Math.min(480, vw * 0.92);
+  const panelH = vh * 0.85;
+  const panelLeft = (vw - panelW) / 2;
+  const panelTop = (vh - panelH) / 2;
+  const cardCX = cardRect.left + cardRect.width / 2;
+  const cardCY = cardRect.top + cardRect.height / 2;
+  const ox = Math.max(0, Math.min(panelW, cardCX - panelLeft));
+  const oy = Math.max(0, Math.min(panelH, cardCY - panelTop));
+  return `${Math.round(ox)}px ${Math.round(oy)}px`;
+}
+
 function formatDateTime(iso) {
   if (!iso) return '';
   return new Date(iso).toLocaleString('en', {
@@ -46,7 +60,17 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const [notes, setNotes] = useState('');
   const [newSubtask, setNewSubtask] = useState('');
   const [expandedSubtask, setExpandedSubtask] = useState(null);
+  const [transformOrigin, setTransformOrigin] = useState(null);
   const saveTimeout = useRef(null);
+
+  useLayoutEffect(() => {
+    const card = document.querySelector(`[data-task-id="${taskId}"]`);
+    if (card) {
+      setTransformOrigin(computeTransformOrigin(card.getBoundingClientRect()));
+    } else {
+      setTransformOrigin(null);
+    }
+  }, [taskId]);
   const titleRef = useRef(null);
 
   // ── Auto in-progress tracking ──
@@ -181,7 +205,11 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const priorityObj = PRIORITIES.find((p) => p.id === task.priority);
 
   const panel = (
-    <div className="task-detail-panel slide-in-right" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="task-detail-panel tdp-scale-in"
+      style={transformOrigin ? { transformOrigin } : undefined}
+      onClick={(e) => e.stopPropagation()}
+    >
       {/* ── Header bar ── */}
       <div className="tdp-header">
         <div className="tdp-header__left">
