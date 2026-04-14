@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban, Eye } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
@@ -55,6 +56,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
 
   const [rationaleOpen, setRationaleOpen] = useState(false);
   const [localFields, setLocalFields] = useState({});
+  const [runwayModal, setRunwayModal] = useState(null); // { allTasks, runwayMonths }
   const [notes, setNotes] = useState('');
   const [streamingText, setStreamingText] = useState('');
   const [draftWarnings, setDraftWarnings] = useState([]);
@@ -106,27 +108,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
       });
 
     if (allTasks.length === 0) return;
-
-    const applyDates = (tasks, skipExisting) => {
-      const now = new Date();
-      const totalMs = runwayMonths * 30 * 24 * 60 * 60 * 1000;
-      tasks.forEach((t, i) => {
-        if (skipExisting && t.dueDate) return;
-        const fraction = (i + 1) / tasks.length;
-        const d = new Date(now.getTime() + fraction * totalMs);
-        updateTask(projectId, t.id, { dueDate: d.toISOString().split('T')[0] });
-      });
-    };
-
-    const withDates = allTasks.filter((t) => t.dueDate);
-    if (withDates.length > 0) {
-      const overwrite = confirm(
-        `${withDates.length} task${withDates.length !== 1 ? 's' : ''} already ${withDates.length !== 1 ? 'have' : 'has'} a due date. Overwrite ${withDates.length !== 1 ? 'them' : 'it'}?`
-      );
-      applyDates(allTasks, !overwrite);
-    } else {
-      applyDates(allTasks, false);
-    }
+    setRunwayModal({ allTasks, runwayMonths });
   }, [task?.completedAt]);
 
   if (!task || !def) return null;
@@ -651,13 +633,149 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
     </div>
   );
 
+  const modal = runwayModal ? (
+    <RunwayDateModal
+      allTasks={runwayModal.allTasks}
+      runwayMonths={runwayModal.runwayMonths}
+      projectId={projectId}
+      updateTask={updateTask}
+      onClose={() => setRunwayModal(null)}
+    />
+  ) : null;
+
   if (mobile) {
     return (
-      <div className="tdp-mobile-overlay" onClick={onClose}>
-        {panel}
-      </div>
+      <>
+        <div className="tdp-mobile-overlay" onClick={onClose}>
+          {panel}
+        </div>
+        {modal}
+      </>
     );
   }
 
-  return panel;
+  return (
+    <>
+      {panel}
+      {modal}
+    </>
+  );
+}
+
+// ── Runway Date Modal ──────────────────────────────────────────────────────
+
+function formatPreviewDate(dateStr) {
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en', {
+    month: 'short', day: 'numeric', year: 'numeric',
+  });
+}
+
+function computePreview(allTasks, runwayMonths, startDate) {
+  const start = new Date(startDate + 'T00:00:00');
+  const totalMs = runwayMonths * 30 * 24 * 60 * 60 * 1000;
+  return allTasks.map((t, i) => {
+    const fraction = (i + 1) / allTasks.length;
+    const d = new Date(start.getTime() + fraction * totalMs);
+    return {
+      task: t,
+      dueDate: d.toISOString().split('T')[0],
+      hasExisting: Boolean(t.dueDate),
+      stageId: t.bbosTaskType?.split('-')[0] ?? '—',
+    };
+  });
+}
+
+function RunwayDateModal({ allTasks, runwayMonths, projectId, updateTask, onClose }) {
+  const today = new Date().toISOString().split('T')[0];
+  const [startDate, setStartDate] = useState(today);
+  const [overwrite, setOverwrite] = useState(true);
+
+  const preview = useMemo(
+    () => computePreview(allTasks, runwayMonths, startDate),
+    [allTasks, runwayMonths, startDate]
+  );
+
+  const existingCount = allTasks.filter((t) => t.dueDate).length;
+
+  const handleApply = () => {
+    preview.forEach(({ task: t, dueDate, hasExisting }) => {
+      if (hasExisting && !overwrite) return;
+      updateTask(projectId, t.id, { dueDate });
+    });
+    onClose();
+  };
+
+  return createPortal(
+    <div className="rda-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="rda-modal">
+
+        {/* Header */}
+        <div className="rda-header">
+          <div className="rda-header-title">
+            <span className="rda-header-icon">📅</span>
+            <span>Runway Date Assignment</span>
+          </div>
+          <button className="rda-close" onClick={onClose} aria-label="Close">
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* Meta */}
+        <div className="rda-meta">
+          <span className="rda-meta-pill">{runwayMonths} month{runwayMonths !== 1 ? 's' : ''}</span>
+          <span className="rda-meta-sep">·</span>
+          <span>{allTasks.length} tasks distributed evenly</span>
+        </div>
+
+        {/* Start date */}
+        <div className="rda-field">
+          <label className="rda-label">Start date</label>
+          <input
+            type="date"
+            className="rda-date-input"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value || today)}
+          />
+        </div>
+
+        {/* Timeline preview */}
+        <div className="rda-timeline-label">Timeline preview</div>
+        <div className="rda-timeline">
+          {preview.map(({ task: t, dueDate, hasExisting, stageId }, i) => (
+            <div key={t.id} className={`rda-row${hasExisting ? ' rda-row--existing' : ''}`}>
+              <span className="rda-row-num">{i + 1}</span>
+              <span className="rda-row-stage">{stageId}</span>
+              <span className="rda-row-title">{t.title?.replace(/^[A-Z]+-\w+\s·\s/, '')}</span>
+              <span className="rda-row-date">{formatPreviewDate(dueDate)}</span>
+              {hasExisting && <span className="rda-row-dot" title="Has existing date" />}
+            </div>
+          ))}
+        </div>
+
+        {/* Overwrite toggle — only if some tasks already have dates */}
+        {existingCount > 0 && (
+          <label className="rda-overwrite">
+            <input
+              type="checkbox"
+              checked={overwrite}
+              onChange={(e) => setOverwrite(e.target.checked)}
+            />
+            <span>
+              Overwrite {existingCount} task{existingCount !== 1 ? 's' : ''} with existing date{existingCount !== 1 ? 's' : ''}
+            </span>
+          </label>
+        )}
+
+        {/* Actions */}
+        <div className="rda-actions">
+          <button className="rda-btn rda-btn--ghost" onClick={onClose}>Cancel</button>
+          <button className="rda-btn rda-btn--primary" onClick={handleApply}>
+            Apply Dates
+          </button>
+        </div>
+
+      </div>
+    </div>,
+    document.body
+  );
 }

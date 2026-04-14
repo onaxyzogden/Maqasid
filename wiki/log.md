@@ -7,6 +7,24 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | Runway date assignment — styled modal with timeline preview
+- Replaced raw `confirm()` dialog with `RunwayDateModal` component rendered via `createPortal`
+- Modal shows: start-date picker, runway metadata pill, scrollable timeline of all tasks with due dates, overwrite toggle, Apply/Cancel actions
+- Live preview recalculates using `useMemo` as start date changes; existing-date rows highlighted with accent tint
+- `computePreview()` distributes tasks evenly across runway period (fractions of total ms); `formatPreviewDate()` for display
+- CSS: ~200 lines appended to BbosTaskPanel.css — `.rda-overlay`, `.rda-modal`, `.rda-timeline`, `.rda-row`, `.rda-btn` etc.
+- Files: BbosTaskPanel.jsx, BbosTaskPanel.css
+
+## [2026-04-14] synthesize | Amanah Gate Protocol — cross-product pattern named via graphify
+- Ran `/graphify website/` — 28 HTML pages converted to Markdown, 161 nodes, 162 edges, 38 communities extracted
+- Graph found `semantically_similar_to` edge (INFERRED 0.72) between Atlas Confidence Framework and BBOS G-Label System — two independent implementations of the same tiered evidential honesty mechanism
+- Traced the pattern: all three products (Atlas, BBOS, Moontrance) implement Amanah as a decision gate, but BBOS is the only one that named it
+- Identified documentation gap: `rationale_land_as_trust` (root homepage) links to Atlas and BBOS but not Moontrance — the most land-relevant product
+- Filed `wiki/decisions/2026-04-14-amanah-gate-protocol.md` — cross-product pattern definition with Moontrance M1/M2/M3 tier proposal
+- Updated `wiki/concepts/amanah-gate.md` — added Protocol section distinguishing ethical gate (halal check) from evidential gate (input quality)
+- Updated `website/CONTEXT.md` — cross-product architecture notes, documentation gap, graph reference
+- Graph outputs at `website/graphify-out/` (graph.html, GRAPH_REPORT.md, graph.json)
+
 ## [2026-04-14] implement | Subsegment colors, TRU task reorder, runway date assignment
 - Fixed subsegment in-progress color: `bbosTaskColorFn` now checks `bbosFieldData` for partial field progress, not just `columnId` — tasks with any filled fields show amber even while in the To Do column
 - Reordered TRU task definitions: V1/V2/V3/FP02 moved before AF1–AF5, appearing as tasks 7–10 in the Groundwork tab (was 12–15)

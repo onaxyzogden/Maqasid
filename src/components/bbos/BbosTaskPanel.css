@@ -649,3 +649,230 @@
   z-index: 99;
   animation: fadeIn 150ms var(--ease);
 }
+
+/* ── Runway Date Assignment Modal ── */
+
+.rda-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 150ms var(--ease);
+}
+
+.rda-modal {
+  width: 90%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: scaleIn 180ms var(--ease);
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.rda-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rda-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rda-header-icon { font-size: 1rem; }
+
+.rda-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+}
+.rda-close:hover { background: var(--bg3); color: var(--text); }
+
+.rda-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  color: var(--text2);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.rda-meta-pill {
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+}
+
+.rda-meta-sep { color: var(--text3); }
+
+.rda-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rda-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text2);
+  white-space: nowrap;
+}
+
+.rda-date-input {
+  flex: 1;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+.rda-date-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.rda-timeline-label {
+  padding: 10px 20px 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.rda-timeline {
+  max-height: 260px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.rda-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+  font-size: 0.8rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.rda-row:last-child { border-bottom: none; }
+.rda-row--existing { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+
+.rda-row-num {
+  width: 22px;
+  text-align: right;
+  color: var(--text3);
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+.rda-row-stage {
+  width: 36px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.rda-row-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text2);
+}
+
+.rda-row-date {
+  font-size: 0.75rem;
+  color: var(--text);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.rda-row-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  title: "Has existing date";
+}
+
+.rda-overwrite {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 0.82rem;
+  color: var(--text2);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+}
+.rda-overwrite input[type="checkbox"] { accent-color: var(--accent); }
+
+.rda-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 20px;
+}
+
+.rda-btn {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 150ms, color 150ms;
+}
+
+.rda-btn--ghost {
+  background: transparent;
+  color: var(--text2);
+  border-color: var(--border);
+}
+.rda-btn--ghost:hover { background: var(--bg3); color: var(--text); }
+
+.rda-btn--primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.rda-btn--primary:hover { filter: brightness(1.08); }
