@@ -1,9 +1,9 @@
 import { useMemo, useState, Fragment } from 'react';
-import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Star, ShieldX } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage } from '../../data/bbos/bbos-pipeline';
-import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
+import { getTaskAccessLevel, getBbosRole, BBOS_TASK_ACCESS } from '../../data/bbos/bbos-role-access';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import './BbosFullDashboard.css';
 
@@ -1480,7 +1480,7 @@ function DefaultTaskRenderer({ def, fieldData }) {
 
 // ── BbosTaskCard (wraps unified DashboardTaskCard) ──────────────────────────
 
-function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, viewOnly }) {
+function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, viewOnly, accessLevel }) {
   const fieldData = task?.bbosFieldData || {};
   const { filled, total } = countFilledFields(def, task ? fieldData : null);
   const CustomRenderer = TASK_RENDERERS[def.id];
@@ -1515,6 +1515,8 @@ function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, view
           className: `dtc__chip dtc__chip--complete ${filled === total && total > 0 ? 'dtc__chip--complete-full' : ''}`,
         }] : []),
         ...(def.hasGLabel ? [{ label: 'G', className: 'dtc__chip dtc__chip--glabel' }] : []),
+        ...(accessLevel === 'V' ? [{ label: 'View', className: 'dtc__chip dtc__chip--access-view' }] : []),
+        ...(accessLevel === 'E' ? [{ label: 'Edit', className: 'dtc__chip dtc__chip--access-edit' }] : []),
       ]}
       fieldProgress={task ? { filled, total } : undefined}
       purpose={hasData && def.purpose ? truncate(def.purpose, 110) : undefined}
@@ -1654,6 +1656,36 @@ function StageScoreCard({ bbosFilter, taskMap }) {
   );
 }
 
+// ── Scope Gate (role has no access to this stage) ────────────────────────────
+
+function ScopeGate({ roleName, stageLabel, allDefs, currentRole }) {
+  const availableRoles = useMemo(() => {
+    const roleIds = new Set();
+    for (const def of allDefs) {
+      const entry = BBOS_TASK_ACCESS[def.id];
+      if (entry) {
+        for (const [role, level] of Object.entries(entry)) {
+          if (level !== '-' && role !== currentRole) roleIds.add(role);
+        }
+      }
+    }
+    return [...roleIds].map((id) => getBbosRole(id)).filter(Boolean);
+  }, [allDefs, currentRole]);
+
+  return (
+    <div className="bfd__scope-gate">
+      <ShieldX size={48} />
+      <h3>OUTSIDE YOUR SCOPE</h3>
+      <p>The <strong>{roleName}</strong> role does not have access to <strong>{stageLabel}</strong>.</p>
+      {availableRoles.length > 0 && (
+        <p className="bfd__scope-gate-hint">
+          Access is available under: {availableRoles.map((r) => r.label).join(', ')}
+        </p>
+      )}
+    </div>
+  );
+}
+
 // ── BbosFullDashboard ─────────────────────────────────────────────────────────
 
 const EMPTY_TASKS = [];
@@ -1663,7 +1695,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactory] = useState('research');
 
-  const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId } = useMemo(() => {
+  const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
     const allDefs = getBbosTaskDefsByStage(bbosFilter);
 
@@ -1705,7 +1737,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
 
     const doneColumnId = project.columns?.find((c) => c.name === 'Done')?.id ?? null;
 
-    return { stageMeta, taskGroups: groups, taskMap, globalIdxMap, stageTasks, doneColumnId };
+    return { stageMeta, taskGroups: groups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs };
   }, [tasks, project, bbosFilter, bbosRole]);
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
@@ -1724,6 +1756,14 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
 
       {/* ── Task grid ── */}
       <div className="bfd__grid">
+        {bbosRole !== 'all' && allDefs.length > 0 && taskGroups.length === 0 ? (
+          <ScopeGate
+            roleName={getBbosRole(bbosRole).label}
+            stageLabel={stageMeta.label}
+            allDefs={allDefs}
+            currentRole={bbosRole}
+          />
+        ) : (<>
         {(() => {
           const researchGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'research');
           const assetGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'asset');
@@ -1754,6 +1794,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
                     span={spans[i]}
                     doneColumnId={doneColumnId}
                     viewOnly={assetLocked || (bbosRole !== 'all' && getTaskAccessLevel(bbosRole, def.id) === 'V')}
+                    accessLevel={bbosRole !== 'all' ? getTaskAccessLevel(bbosRole, def.id) : null}
                   />
                 ))}
               </Fragment>
@@ -1818,6 +1859,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
 
         {/* ── Project Audit ── */}
         <ProjectAuditCard tasks={stageTasks} />
+        </>)}
       </div>
 
       {/* ── Footer ── */}

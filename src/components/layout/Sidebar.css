@@ -62,6 +62,7 @@
   text-decoration: none;
   transition: all var(--duration) var(--ease);
   white-space: nowrap;
+  width: 100%;
 }
 .sidebar-item:hover { background: var(--bg3); color: var(--text); }
 .sidebar-item.active { background: var(--primary-bg); color: var(--primary); font-weight: 600; }

@@ -133,6 +133,18 @@
   font-size: 0.55rem;
   padding: 2px 6px;
 }
+.dtc__chip--access-view {
+  background: color-mix(in srgb, #3b82f6 14%, transparent);
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dtc__chip--access-edit {
+  background: color-mix(in srgb, #f59e0b 14%, transparent);
+  color: #d97706;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
 
 /* ── Subtask progress bar ── */
 .dtc__subtask-row {

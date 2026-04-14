@@ -1013,3 +1013,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Scope Gate (role has no access) ── */
+
+.bfd__scope-gate {
+  grid-column: 1 / -1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-8);
+  color: var(--text3);
+}
+.bfd__scope-gate svg { margin-bottom: var(--space-4); opacity: 0.4; }
+.bfd__scope-gate h3 {
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: var(--space-3);
+}
+.bfd__scope-gate p { font-size: 0.95rem; color: var(--text2); line-height: 1.6; }
+.bfd__scope-gate p strong { color: var(--text); font-weight: 600; }
+.bfd__scope-gate-hint {
+  margin-top: var(--space-3); font-size: 0.85rem; color: var(--text3);
+}
