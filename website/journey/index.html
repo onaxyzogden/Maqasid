@@ -20,6 +20,7 @@
   --bbos-1:#a87868;--bbos-2:#7888a8;--bbos-3:#7a9e8a;--bbos-4:#b89050;
   --mt-1:#a87868;--mt-2:#7888a8;--mt-3:#7a9e8a;--mt-4:#b89050;
   --at-1:#a87868;--at-2:#7888a8;--at-3:#7a9e8a;--at-4:#b89050;
+  --mq-1:#a87868;--mq-2:#7888a8;--mq-3:#7a9e8a;--mq-4:#b89050;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -53,6 +54,7 @@ body{background: var(--bg);color:var(--parchment);font-family:var(--sans);min-he
 .bbos-fill{background:var(--bbos-1);}
 .mt-fill{background:var(--mt-2);}
 .at-fill{background:var(--at-1);}
+.mq-fill{background:var(--mq-3);}
 .product-pct{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;color:var(--dust);margin-top:0.35rem;}
 
 /* ── PHASES IN ROW ── */
@@ -81,6 +83,11 @@ body{background: var(--bg);color:var(--parchment);font-family:var(--sans);min-he
 .at .phase-cell[data-p="2"]::before{background:var(--at-2);}
 .at .phase-cell[data-p="3"]::before{background:var(--at-3);}
 .at .phase-cell[data-p="4"]::before{background:var(--at-4);}
+/* Maqasid OS phase colours */
+.mq .phase-cell[data-p="1"]::before{background:var(--mq-1);}
+.mq .phase-cell[data-p="2"]::before{background:var(--mq-2);}
+.mq .phase-cell[data-p="3"]::before{background:var(--mq-3);}
+.mq .phase-cell[data-p="4"]::before{background:var(--mq-4);}
 
 .phase-cell-num{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--dust);margin-bottom:0.5rem;display:flex;align-items:center;justify-content:space-between;}
 .phase-cell.current .phase-cell-num{color:var(--gold-muted);}
@@ -109,6 +116,10 @@ body{background: var(--bg);color:var(--parchment);font-family:var(--sans);min-he
 .at .phase-cell[data-p="2"] .pm-dot{background:var(--at-2);}
 .at .phase-cell[data-p="3"] .pm-dot{background:var(--at-3);}
 .at .phase-cell[data-p="4"] .pm-dot{background:var(--at-4);}
+.mq .phase-cell[data-p="1"] .pm-dot{background:var(--mq-1);}
+.mq .phase-cell[data-p="2"] .pm-dot{background:var(--mq-2);}
+.mq .phase-cell[data-p="3"] .pm-dot{background:var(--mq-3);}
+.mq .phase-cell[data-p="4"] .pm-dot{background:var(--mq-4);}
 .pm-text{font-family:var(--sans);font-size:0.8rem;font-weight:300;color:#9c9c99;line-height:1.5;}
 .phase-cell.current .pm.done .pm-text{color:var(--bone);}
 .phase-cell.current .pm:not(.done) .pm-text{color:#acacaa;}
@@ -149,11 +160,11 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
   <div class="header-left">
     <p class="header-eyebrow">OGDEN</p>
     <h1 class="header-title">The Ecosystem in Motion</h1>
-    <p class="header-sub">Three products. Three journeys. One intention.</p>
+    <p class="header-sub">Four products. Four journeys. One intention.</p>
   </div>
   <div class="header-right">
     <p class="header-date">April 2026</p>
-    <p class="header-status">All three products <strong>active</strong> · Phase 1 underway across the ecosystem</p>
+    <p class="header-status">All four products <strong>active</strong> · Phase 1 underway across the ecosystem</p>
   </div>
 </header>
 
@@ -355,6 +366,74 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     </div>
   </div>
 
+  <!-- ══ MAQASID OS ══ -->
+  <div class="product-row mq" aria-label="Maqasid OS journey">
+    <div class="product-label">
+      <div>
+        <div class="product-symbol" aria-hidden="true">◇</div>
+        <p class="product-name">Maqasid OS</p>
+        <p class="product-phase-current">Development</p>
+      </div>
+      <div class="product-progress-wrap">
+        <p class="product-progress-label">Phase 1</p>
+        <div class="product-progress-bar">
+          <div class="product-progress-fill mq-fill" style="width:70%"></div>
+        </div>
+        <p class="product-pct">70% complete</p>
+      </div>
+    </div>
+    <div class="product-phases">
+      <div class="phase-cell current" data-p="1">
+        <p class="phase-cell-num">01 <span class="now-dot" aria-label="current phase"></span></p>
+        <p class="phase-cell-name">Development</p>
+        <p class="phase-cell-attr">Al-Musawwir · Giving form to intention</p>
+        <ul class="phase-milestones">
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Seven Maqasid pillar modules built</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Three-tier dashboard design</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">BBOS pipeline fully integrated</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Islamic UI components operational</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">35-finding technical audit remediated</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Pillar progress visualization live</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Remaining pillar data bootstrapped</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Cross-pillar analytics operational</span></li>
+        </ul>
+      </div>
+      <div class="phase-cell future" data-p="2">
+        <p class="phase-cell-num">02</p>
+        <p class="phase-cell-name">Completion</p>
+        <p class="phase-cell-attr">Al-Muhsi · Every pillar accounted for</p>
+        <ul class="phase-milestones">
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">All seven pillars with real user content</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Money, People, CRM fully integrated</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Cross-module flows tested end-to-end</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">The system runs one life &mdash; founder-validated</span></li>
+        </ul>
+      </div>
+      <div class="phase-cell future" data-p="3">
+        <p class="phase-cell-num">03</p>
+        <p class="phase-cell-name">Opening</p>
+        <p class="phase-cell-attr">Al-Fattah · Opening the door</p>
+        <ul class="phase-milestones">
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Onboarding for users beyond the founder</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Multi-user data isolation</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Deployment beyond GitHub Pages</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">First external user on the platform</span></li>
+        </ul>
+      </div>
+      <div class="phase-cell future" data-p="4">
+        <p class="phase-cell-num">04</p>
+        <p class="phase-cell-name">Ummah</p>
+        <p class="phase-cell-attr">Al-Wasi&lsquo; · Expanding without losing the root</p>
+        <ul class="phase-milestones">
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Community of users forming</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Customizable pillar configurations</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Platform open without founder involvement</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">The standard for Islamic life management</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <!-- FOOTER -->
@@ -370,6 +449,10 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
   <div class="footer-col">
     <p class="footer-product">Atlas</p>
     <p class="footer-summary"><strong>86%</strong> through Phase 1 · Seven APIs live · Pre-market validation initiated</p>
+  </div>
+  <div class="footer-col">
+    <p class="footer-product">Maqasid OS</p>
+    <p class="footer-summary"><strong>70%</strong> through Phase 1 · Seven pillars built · Technical audit complete</p>
   </div>
 </footer>
 
