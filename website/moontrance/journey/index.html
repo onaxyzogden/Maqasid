@@ -100,6 +100,27 @@ body{background:var(--bg);color:var(--parchment);font-family:var(--sans);min-hei
 @media(max-width:580px){.phases{grid-template-columns:1fr;}body{padding:2rem 1.25rem 3rem;}}
 @media(prefers-reduced-motion:reduce){.milestone,.now-marker{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;}}
 
+/* ── CHANNEL TIER SECTION ── */
+.channels-section{max-width:1100px;margin:3rem auto 0;padding-top:2.5rem;border-top:1px solid var(--line);}
+.channels-hd{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;}
+.channels-title{font-family:var(--serif);font-weight:300;font-size:1.35rem;color:var(--parchment);line-height:1.2;}
+.channels-sub{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--dust);}
+.gate-bar{display:flex;align-items:flex-start;flex-wrap:wrap;gap:1rem;padding:1rem 1.25rem;background:rgba(184,144,80,0.05);border:1px solid rgba(184,144,80,0.14);border-radius:3px;margin-bottom:1.5rem;}
+.gate-legend{display:flex;gap:0.5rem;flex-shrink:0;flex-wrap:wrap;}
+.tier-pill{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:2px;border:1px solid;white-space:nowrap;}
+.tier-pill.m1{color:#7ac487;border-color:#7ac487;background:rgba(122,196,135,0.08);}
+.tier-pill.m2{color:var(--gold-light);border-color:var(--gold-muted);background:rgba(184,144,80,0.08);}
+.tier-pill.m3{color:var(--dust);border-color:rgba(138,128,112,0.35);background:transparent;}
+.gate-rule{font-family:var(--sans);font-size:0.8rem;font-weight:300;color:var(--dust);line-height:1.55;flex:1;min-width:200px;}
+.gate-rule strong{color:rgba(240,235,224,0.72);font-weight:400;}
+.channels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}
+.channel-card{background:rgba(42,34,24,0.75);border:1px solid var(--line);border-radius:3px;padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:0.5rem;}
+.channel-top{display:flex;align-items:flex-start;justify-content:space-between;gap:0.6rem;}
+.channel-name{font-family:var(--sans);font-size:0.875rem;font-weight:400;color:rgba(240,235,224,0.88);line-height:1.3;flex:1;}
+.channel-desc{font-family:var(--sans);font-size:0.78rem;font-weight:300;color:var(--dust);line-height:1.55;}
+@media(max-width:760px){.channels-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.channels-grid{grid-template-columns:1fr;}}
+
 /* ── PAGE TRANSITION VEIL ── */
 }
 @keyframes body-fade-in{from{opacity:0}to{opacity:1}}
@@ -211,6 +232,72 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 
 </div>
 </main>
+
+<section class="channels-section" aria-label="Land Acquisition Channel Status">
+  <div class="channels-hd">
+    <h2 class="channels-title">Land Acquisition &mdash; Channel Status</h2>
+    <p class="channels-sub">Six-channel strategy &nbsp;&middot;&nbsp; Amanah Gate active</p>
+  </div>
+  <div class="gate-bar">
+    <div class="gate-legend">
+      <span class="tier-pill m1">M1 &mdash; Committed</span>
+      <span class="tier-pill m2">M2 &mdash; Agreed</span>
+      <span class="tier-pill m3">M3 &mdash; Declared</span>
+    </div>
+    <p class="gate-rule">Founding member enrollment opens when at least one primary channel reaches <strong>M2</strong> &mdash; a signed agreement or awarded grant, not a stated intent.</p>
+  </div>
+  <div class="channels-grid">
+
+    <div class="channel-card">
+      <div class="channel-top">
+        <span class="channel-name">Waqf &amp; Zakat</span>
+        <span class="tier-pill m3">M3</span>
+      </div>
+      <p class="channel-desc">Community-endowed land through Islamic charitable instruments. Framework designed; no funds committed.</p>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-top">
+        <span class="channel-name">CSRA Pre-sales</span>
+        <span class="tier-pill m3">M3</span>
+      </div>
+      <p class="channel-desc">Community-Supported Regenerative Agriculture commitments from founding households. Offer stack modelled; no contracts signed.</p>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-top">
+        <span class="channel-name">CSR Partnership</span>
+        <span class="tier-pill m3">M3</span>
+      </div>
+      <p class="channel-desc">Corporate social responsibility aligned capital. Conversations not yet begun; channel identified.</p>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-top">
+        <span class="channel-name">Direct Investment</span>
+        <span class="tier-pill m3">M3</span>
+      </div>
+      <p class="channel-desc">Aligned investor capital from individuals committed to the vision. Open for conversations; no commitments received.</p>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-top">
+        <span class="channel-name">Grant Funding</span>
+        <span class="tier-pill m3">M3</span>
+      </div>
+      <p class="channel-desc">Federal and provincial agricultural, conservation, and heritage grants. Applications not yet submitted.</p>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-top">
+        <span class="channel-name">Owner Financing</span>
+        <span class="tier-pill m3">M3</span>
+      </div>
+      <p class="channel-desc">Vendor take-back mortgage arrangements with aligned sellers. No land identified yet; framework in place.</p>
+    </div>
+
+  </div>
+</section>
 
 <footer class="journey-footer">
   <p class="footer-note">

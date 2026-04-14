@@ -7,6 +7,13 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | BBOS pipeline progress tracking wired up
+- Added per-stage completion % aggregated from task status (`columnId === doneColumnId || completedAt`)
+- Stage header in `BbosFullDashboard.jsx` now shows `X/Y · Z%` with a thin 4px green progress bar below the stage description; computed against all task definitions (not just seeded tasks)
+- `ProjectAuditCard` bug fixed: was using `t.completedAt` only for completion count (always null per Sprint 7 fix); now also checks `columnId === doneColumnId`; `doneColumnId` prop passed from parent
+- LevelNavigator stage segments now display a `%` completion label below the stage name (e.g. "IDENTITY 0%"); computed via new `pillarProgress` useMemo in `ProjectBoard.jsx`
+- Files: BbosFullDashboard.jsx, BbosFullDashboard.css, ProjectBoard.jsx, LevelNavigator.jsx, LevelNavigator.css
+
 ## [2026-04-14] implement | Runway date assignment — styled modal with timeline preview
 - Replaced raw `confirm()` dialog with `RunwayDateModal` component rendered via `createPortal`
 - Modal shows: start-date picker, runway metadata pill, scrollable timeline of all tasks with due dates, overwrite toggle, Apply/Cancel actions
