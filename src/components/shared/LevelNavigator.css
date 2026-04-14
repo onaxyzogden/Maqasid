@@ -141,10 +141,11 @@
   cursor: pointer;
 }
 
-/* Active column: fill with the segment color */
+/* Active column: tinted background + accent border outline */
 .fln__segment-col--current {
-  background: var(--seg-color, var(--primary));
+  background: color-mix(in srgb, var(--seg-color, var(--primary)) 8%, var(--surface));
   border-color: var(--seg-color, var(--primary));
+  box-shadow: 0 0 0 1px var(--seg-color, var(--primary));
 }
 
 /* Task sub-segment bar */
@@ -161,10 +162,6 @@
   outline: none;
 }
 
-/* Empty subsegments inside active column appear as translucent white blocks */
-.fln__segment-col--current .fln__subseg--empty {
-  background: rgba(255, 255, 255, 0.4);
-}
 
 /* Individual task sub-segment */
 .fln__subseg {
@@ -185,13 +182,16 @@
 
 /* Pillar name link */
 .fln__segment-nav {
-  font-size: 0.58rem;
-  color: var(--text3);
-  text-align: center;
-  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  font-family: inherit;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   background: none;
   border: none;
   cursor: pointer;
@@ -202,8 +202,8 @@
 .fln__segment-nav:hover { color: var(--text); }
 
 .fln__segment-col--current .fln__segment-nav {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 700;
+  color: var(--seg-color, var(--primary));
+  font-weight: 600;
 }
 .fln__segment-pct {
   font-size: 0.55rem;
@@ -212,7 +212,7 @@
   letter-spacing: 0.06em;
 }
 .fln__segment-col--current .fln__segment-pct {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text2);
 }
 
 /* ── Compact modifier (level overview pages) ── */

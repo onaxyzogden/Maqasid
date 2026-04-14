@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import {
   X, Calendar, Tag, Plus, Trash2, CheckCircle2, Square,
   MoreVertical, ChevronDown, ChevronUp, Clock, Paperclip, Users, FileText, Image, File,
@@ -7,7 +8,6 @@ import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
-import { useMobile } from '../../hooks/useMobile';
 import { PRIORITIES } from '../../data/modules';
 import GLabelPicker from '../shared/GLabelPicker';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
@@ -22,7 +22,6 @@ function formatDateTime(iso) {
 }
 
 export default function TaskDetailPanel({ project, projectId, taskId, onClose, bbosRole }) {
-  const mobile = useMobile();
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const updateTask = useTaskStore((s) => s.updateTask);
   const deleteTask = useTaskStore((s) => s.deleteTask);
@@ -108,6 +107,13 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       setNotes(task.notes || '');
     }
   }, [taskId, task?.title, task?.description, task?.notes]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
 
   if (!task) return null;
 
@@ -489,13 +495,10 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
     </div>
   );
 
-  if (mobile) {
-    return (
-      <div className="tdp-mobile-overlay" onClick={onClose}>
-        {panel}
-      </div>
-    );
-  }
-
-  return panel;
+  return createPortal(
+    <div className="tdp-overlay" onClick={onClose}>
+      {panel}
+    </div>,
+    document.body
+  );
 }

@@ -420,17 +420,18 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
             )}
           </div>
 
-          {!inlinePanel && selectedTaskId && (
-            <TaskDetailPanel
-              project={project}
-              projectId={projectId}
-              taskId={selectedTaskId}
-              onClose={() => setSelectedTaskId(null)}
-              bbosRole={project.bbosRole || 'all'}
-            />
-          )}
         </div>
       </div>
+
+      {!inlinePanel && selectedTaskId && (
+        <TaskDetailPanel
+          project={project}
+          projectId={projectId}
+          taskId={selectedTaskId}
+          onClose={() => setSelectedTaskId(null)}
+          bbosRole={project.bbosRole || 'all'}
+        />
+      )}
     </div>
   );
 }

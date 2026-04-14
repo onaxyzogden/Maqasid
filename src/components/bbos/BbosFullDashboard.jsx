@@ -1656,50 +1656,6 @@ function StageScoreCard({ bbosFilter, taskMap }) {
   );
 }
 
-// ── PipelineOverview ─────────────────────────────────────────────────────────
-
-function PipelineOverview({ allStageProgress, bbosFilter, onStageSelect }) {
-  return (
-    <div className="bfd__pipeline">
-      {BBOS_LAYERS.map((layer) => (
-        <div key={layer.id} className="bfd__pipeline-layer">
-          <div className="bfd__pipeline-layer-label" style={{ color: layer.color }}>
-            {layer.label}
-          </div>
-          <div className="bfd__pipeline-stages">
-            {layer.stages.map((stageId) => {
-              const stage = BBOS_STAGES.find((s) => s.id === stageId);
-              if (!stage) return null;
-              const pct = allStageProgress[stageId] ?? 0;
-              const isActive = stageId === bbosFilter;
-              return (
-                <button
-                  key={stageId}
-                  className={`bfd__pipeline-stage${isActive ? ' bfd__pipeline-stage--active' : ''}`}
-                  onClick={() => onStageSelect?.(stageId)}
-                  title={stage.description}
-                >
-                  <span className="bfd__pipeline-stage-num">
-                    {String(stage.order + 1).padStart(2, '0')}
-                  </span>
-                  <span className="bfd__pipeline-stage-label">{stage.label}</span>
-                  <div className="bfd__pipeline-stage-bar">
-                    <div
-                      className="bfd__pipeline-stage-fill"
-                      style={{ width: `${pct}%`, background: stage.color }}
-                    />
-                  </div>
-                  <span className="bfd__pipeline-stage-pct">{pct}%</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // ── BbosFullDashboard ─────────────────────────────────────────────────────────
 
 const EMPTY_TASKS = [];
@@ -1708,25 +1664,6 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactory] = useState('research');
-
-  // All-stage progress for pipeline overview (O(T + D) via single taskMap pass)
-  const allStageProgress = useMemo(() => {
-    const doneColId = project.columns?.find((c) => c.name === 'Done')?.id ?? null;
-    const tMap = {};
-    for (const t of tasks) { if (t.bbosTaskType) tMap[t.bbosTaskType] = t; }
-    const progress = {};
-    for (const stage of BBOS_STAGES) {
-      const defs = getBbosTaskDefsByStage(stage.id);
-      if (defs.length === 0) { progress[stage.id] = 0; continue; }
-      let done = 0;
-      for (const def of defs) {
-        const t = tMap[def.id];
-        if (t && (t.columnId === doneColId || t.completedAt)) done++;
-      }
-      progress[stage.id] = Math.round((done / defs.length) * 100);
-    }
-    return progress;
-  }, [tasks, project.columns]);
 
   const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, doneCount, totalCount, stagePct } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
@@ -1788,18 +1725,12 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
     <div className="bfd">
       {/* ── Header ── */}
       <div className="bfd__header">
-        <div className="bfd__eyebrow">BBOS · Stage {(stageMeta.order ?? 0) + 1} · {stageMeta.label}</div>
-        <h2 className="bfd__title">{stageMeta.label} Dossier</h2>
+
         <p className="bfd__desc">
           {stageMeta.description}
           {stageMeta.attributes && <>{' '}<em>{stageMeta.attributes}</em></>}
         </p>
-        <div className="bfd__stage-progress">
-          <div className="bfd__stage-progress-track">
-            <div className="bfd__stage-progress-fill" style={{ width: `${stagePct}%` }} />
-          </div>
-          <span className="bfd__stage-progress-label">{doneCount}/{totalCount} · {stagePct}%</span>
-        </div>
+
         {stagePct === 100 && onStageAdvance && (
           <div className="bfd__stage-ready">
             <CheckCircle size={15} className="bfd__stage-ready-icon" />
@@ -1812,13 +1743,6 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
           </div>
         )}
       </div>
-
-      {/* ── Pipeline overview ── */}
-      <PipelineOverview
-        allStageProgress={allStageProgress}
-        bbosFilter={bbosFilter}
-        onStageSelect={onStageSelect}
-      />
 
       {/* ── Task grid ── */}
       <div className="bfd__grid">

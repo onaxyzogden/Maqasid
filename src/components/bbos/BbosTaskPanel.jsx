@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban, Eye } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
-import { useMobile } from '../../hooks/useMobile';
 import { getBbosTaskDef, getBbosTaskDeps, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
 import { getStage, BBOS_STAGES } from '@data/bbos/bbos-pipeline';
 import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '@services/bbos-template';
@@ -36,7 +35,6 @@ export default function BbosTaskPanel(props) {
 }
 
 function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
-  const mobile = useMobile();
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const taskStore = useTaskStore();
   const updateTask = taskStore.updateTask;
@@ -643,22 +641,12 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
     />
   ) : null;
 
-  if (mobile) {
-    return (
-      <>
-        <div className="tdp-mobile-overlay" onClick={onClose}>
-          {panel}
-        </div>
-        {modal}
-      </>
-    );
-  }
-
-  return (
-    <>
+  return createPortal(
+    <div className="tdp-overlay" onClick={onClose}>
       {panel}
       {modal}
-    </>
+    </div>,
+    document.body
   );
 }
 

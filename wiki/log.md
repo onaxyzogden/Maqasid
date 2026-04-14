@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] website | Maqasid OS microsite and landing page update
+- Created `website/maqasid/index.html` — product landing page with hero (59:18), purpose, threshold, solution, seven-pillar grid, CTA
+- Created `website/maqasid/journey/index.html` — journey detail page with spine, now-marker at 18%, 4 phases, 8 milestones (6 done)
+- Updated `website/index.html` — four-product grid, hero text, triptych, Maqasid OS product card with diamond badge
+- Added Maqasid OS nav link across all 10 existing product pages (BBOS, Atlas, Moontrance and their subpages)
+- Added "Full journey →" link to Maqasid OS row on ecosystem journey page
+- Pushed to both onaxyzogden/Maqasid and onaxyzogden/ogden-hub
+- Files: website/maqasid/{index,journey/index}.html, website/index.html, 10 nav updates, website/journey/index.html
+
 ## [2026-04-14] website | Add Maqasid OS to ecosystem journey page
 - Fourth product row on `/journey/` — Development (Al-Musawwir) → Completion (Al-Muhsi) → Opening (Al-Fattah) → Ummah (Al-Wasi')
 - Phase 1 at 70%: 6/8 milestones done (seven pillar modules, dashboard, BBOS integration, Islamic UI, audit, pillar viz)
@@ -84,6 +93,15 @@ Append-only chronological record of all wiki operations.
 - Added View/Edit chip badges on task cards reflecting the active role's permission level (V=blue, E=amber)
 - Fixed sidebar button width inconsistency (Notifications narrower than Settings)
 - Files: BbosFullDashboard.jsx, BbosFullDashboard.css, DashboardTaskCard.css, Sidebar.css
+
+## [2026-04-14] implement | Task modal, BBOS pipeline to Dashboard, LevelNavigator restyle
+- Converted TaskDetailPanel and BbosTaskPanel from slide-in side panel to centered popup modal via `createPortal` to `document.body`; Escape key closes, backdrop click closes, panel click stops propagation
+- Moved BBOS pipeline overview from BbosFullDashboard to main Dashboard — shows per-stage progress for all BBOS-enabled projects with project title heading
+- Removed PipelineOverview internal component + allStageProgress useMemo from BbosFullDashboard (now dashboard-owned)
+- Removed bfd__stage-progress bar, bfd__eyebrow, and bfd__title from BbosFullDashboard header (redundant with pipeline on Dashboard)
+- LevelNavigator fln__segment-col--current: changed from solid color fill to subtle tint + outline (color-mix 8% + border + box-shadow) matching bfd__pipeline-stage--active style
+- fln__segment-nav: 0.7rem, weight 600, var(--text), left-aligned, uppercase, letter-spacing 0.06em — matching bfd pipeline label style
+- Files: TaskDetailPanel.jsx/.css, BbosTaskPanel.jsx/.css, ProjectBoard.jsx, BbosFullDashboard.jsx, Dashboard.jsx/.css, LevelNavigator.css
 
 ## [2026-04-13] rewrite | Landing page — Islamic Life OS framing, Seven Maqasid pillars
 - Rewrote Landing.jsx: hero, features, How It Works, FAQ, CTA, footer

@@ -117,6 +117,38 @@
 }
 .insight-action-btn:hover { opacity: 0.85; }
 
+/* ── BBOS Pipeline on Dashboard ── */
+.insight-bbos-pipeline {
+  margin-bottom: var(--space-4);
+}
+.insight-bbos-pipeline__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.insight-bbos-pipeline__title:hover {
+  color: var(--primary);
+}
+.insight-bbos-pipeline__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.insight-bbos-pipeline__arrow {
+  opacity: 0.4;
+  transition: opacity 0.15s;
+}
+.insight-bbos-pipeline__title:hover .insight-bbos-pipeline__arrow {
+  opacity: 1;
+}
+
 /* ── Main grid: left + right ── */
 .insight-grid {
   display: grid;

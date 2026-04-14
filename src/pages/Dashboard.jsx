@@ -14,7 +14,10 @@ import { usePrayerTimes } from '../hooks/usePrayerTimes';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
 import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
+import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
+import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import './Dashboard.css';
+import '../components/bbos/BbosFullDashboard.css';
 
 function BCGChart({ data }) {
   const [range, setRange] = useState('2d');
@@ -162,6 +165,30 @@ export default function Dashboard() {
 
   const isIslamic = valuesLayer === 'islamic';
   const projects = useMemo(() => allProjects.filter((p) => !p.archived), [allProjects]);
+
+  // BBOS projects with per-stage progress
+  const bbosProjects = useMemo(() => {
+    return projects
+      .filter((p) => p.bbosEnabled)
+      .map((p) => {
+        const tasks = tasksByProject[p.id] || [];
+        const doneColId = p.columns?.find((c) => c.name === 'Done')?.id ?? null;
+        const tMap = {};
+        for (const t of tasks) { if (t.bbosTaskType) tMap[t.bbosTaskType] = t; }
+        const progress = {};
+        for (const stage of BBOS_STAGES) {
+          const defs = getBbosTaskDefsByStage(stage.id);
+          if (defs.length === 0) { progress[stage.id] = 0; continue; }
+          let done = 0;
+          for (const def of defs) {
+            const t = tMap[def.id];
+            if (t && (t.columnId === doneColId || t.completedAt)) done++;
+          }
+          progress[stage.id] = Math.round((done / defs.length) * 100);
+        }
+        return { project: p, progress, activeStage: p.bbosStage || 'FND' };
+      });
+  }, [projects, tasksByProject]);
   const allTasks = useMemo(() => Object.values(tasksByProject).flat(), [tasksByProject]);
 
   const initials = user?.name
@@ -418,6 +445,54 @@ export default function Dashboard() {
       {/* ── Maqasid Progress Strip ── */}
       <div className="insight-section-label">Maqasid al-Shari&apos;ah</div>
       <PillarProgressStrip valuesLayer={valuesLayer} />
+
+      {/* ── BBOS Pipeline Overviews ── */}
+      {bbosProjects.length > 0 && bbosProjects.map(({ project: bp, progress, activeStage }) => (
+        <div key={bp.id} className="insight-bbos-pipeline">
+          <Link to={`/app/work/${bp.id}`} className="insight-bbos-pipeline__title">
+            {bp.color && <span className="insight-bbos-pipeline__dot" style={{ background: bp.color }} />}
+            {bp.name}
+            <ChevronRight size={14} className="insight-bbos-pipeline__arrow" />
+          </Link>
+          <div className="bfd__pipeline">
+            {BBOS_LAYERS.map((layer) => (
+              <div key={layer.id} className="bfd__pipeline-layer">
+                <div className="bfd__pipeline-layer-label" style={{ color: layer.color }}>
+                  {layer.label}
+                </div>
+                <div className="bfd__pipeline-stages">
+                  {layer.stages.map((stageId) => {
+                    const stage = BBOS_STAGES.find((s) => s.id === stageId);
+                    if (!stage) return null;
+                    const pct = progress[stageId] ?? 0;
+                    const isActive = stageId === activeStage;
+                    return (
+                      <Link
+                        key={stageId}
+                        className={`bfd__pipeline-stage${isActive ? ' bfd__pipeline-stage--active' : ''}`}
+                        to={`/app/work/${bp.id}`}
+                        title={stage.description}
+                      >
+                        <span className="bfd__pipeline-stage-num">
+                          {String(stage.order + 1).padStart(2, '0')}
+                        </span>
+                        <span className="bfd__pipeline-stage-label">{stage.label}</span>
+                        <div className="bfd__pipeline-stage-bar">
+                          <div
+                            className="bfd__pipeline-stage-fill"
+                            style={{ width: `${pct}%`, background: stage.color }}
+                          />
+                        </div>
+                        <span className="bfd__pipeline-stage-pct">{pct}%</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
 
       {/* ── Main grid ── */}
       <div className="insight-grid">
