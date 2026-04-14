@@ -222,7 +222,7 @@ export default function TopBar() {
               aria-expanded={!ayahBannerCollapsed}
             >
               <span className="ayah-banner__label" style={{ color: ayahBannerData.color }}>
-                Opening Reflection
+                Reminder
               </span>
               <span className="ayah-banner__chevron">
                 {ayahBannerCollapsed ? <ChevronDown size={13} /> : <ChevronUp size={13} />}

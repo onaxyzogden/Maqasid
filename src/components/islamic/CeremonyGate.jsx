@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Sparkles, Library, Lightbulb, Wrench, Heart, Baby, Handshake, Home, PiggyBank, Scale, Gift, Droplets, Recycle, TreeDeciduous, ShoppingBag, TreePine } from 'lucide-react';
+import { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Sparkles, Library, Lightbulb, Wrench, Heart, Baby, Handshake, Home, PiggyBank, Scale, Gift, Droplets, Recycle, TreeDeciduous, ShoppingBag, TreePine, Moon } from 'lucide-react';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { MODULES } from '../../data/modules';
 import './CeremonyGate.css';
 
-const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Sparkles, Library, Lightbulb, Wrench, Heart, Baby, Handshake, Home, PiggyBank, Scale, Gift, Droplets, Recycle, TreeDeciduous, ShoppingBag, TreePine };
+const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield, Activity, BrainCircuit, Sparkles, Library, Lightbulb, Wrench, Heart, Baby, Handshake, Home, PiggyBank, Scale, Gift, Droplets, Recycle, TreeDeciduous, ShoppingBag, TreePine, Moon };
 
 export default function CeremonyGate({ moduleId }) {
   const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);

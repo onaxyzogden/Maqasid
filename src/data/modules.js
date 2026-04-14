@@ -480,7 +480,7 @@ export const MODULES = [
     id: 'collective',
     name: 'Moontrance',
     description: 'A faith-rooted land destination — experiences, community, and stewardship',
-    icon: 'TreePine',
+    icon: 'Moon',
     color: 'var(--mod-collective)',
     attrs: 'Al-Khaliq · Al-Razzaq',
     attrs_ar: 'الخالق · الرزّاق',

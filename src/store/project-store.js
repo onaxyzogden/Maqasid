@@ -322,8 +322,25 @@ function migrateDefaultViewToDashboard(projects) {
   return migrated;
 }
 
+// Remove BBOS tasks whose definitions no longer exist (e.g. FND-IFB-S1–S5)
+function migrateRemoveStaleBbosTasks(projects) {
+  const validIds = new Set(BBOS_TASK_DEFINITIONS.map((d) => d.id));
+  projects.forEach((p) => {
+    if (!p.bbosEnabled) return;
+    const storageKey = `tasks_${p.id}`;
+    const tasks = safeGetJSON(storageKey, []);
+    const cleaned = tasks.filter(
+      (t) => !t.bbosTaskType || validIds.has(t.bbosTaskType)
+    );
+    if (cleaned.length < tasks.length) {
+      safeSet(storageKey, cleaned);
+    }
+  });
+  return projects;
+}
+
 export const useProjectStore = create((set, get) => ({
-  projects: migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', [])))),
+  projects: migrateRemoveStaleBbosTasks(migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', []))))),
 
   createProject: ({ name, description = '', color, icon = 'Folder', moduleId = null, bbosEnabled = false }) => {
     const columns = DEFAULT_COLUMNS.map((col) => ({

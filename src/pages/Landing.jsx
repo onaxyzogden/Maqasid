@@ -82,6 +82,68 @@ const FAQS = [
   { q: 'Is it free?', a: 'Yes. Maqasid OS is completely free to use with full access to all seven pillars and every sub-module. No paywalls, no premium tiers.' },
 ];
 
+const PILLAR_MOCK_TASKS = {
+  faith:       { col1: ['Study conditions of Shahada', 'Memorise hadith of Jibril'], col2: ['Establish 5 daily prayers on time', 'Learn rules of zakah'], col3: ['Calculate nisab', 'Ramadan fasting intention'] },
+  life:        { col1: ['Morning exercise routine', 'Sleep hygiene check'], col2: ['Weekly reflection journal', 'Reduce screen time 1hr'], col3: ['Meal prep Sunday', 'Gratitude practice'] },
+  intellect:   { col1: ['Read 20 pages/day', 'Deep work block (2hr)'], col2: ['Critical analysis journal', 'Learn Arabic vocabulary'], col3: ['Finish online course', 'Summarise key learnings'] },
+  family:      { col1: ['Weekly family check-in', 'Read to children (30min)'], col2: ['Call extended family', 'Plan family outing'], col3: ['Home maintenance list', 'Mealtime without devices'] },
+  wealth:      { col1: ['Review monthly budget', 'Track halal income streams'], col2: ['Calculate annual zakah', 'Update financial statement'], col3: ['Invoice client #3', 'Review investment halal status'] },
+  environment: { col1: ['Reduce energy use 20%', 'Zero-waste kitchen goal'], col2: ['Source ethical produce', 'Carbon footprint audit'], col3: ['Plant herb garden', 'Repair vs. replace audit'] },
+  ummah:       { col1: ['Visit neighbour this week', 'Volunteer at masjid'], col2: ['Community clean-up drive', 'Support local business'], col3: ['Eid gift for neighbour', 'Join Quran circle'] },
+};
+
+const MOCK_COLS = [
+  { label: 'To Do',       dot: '#94a3b8' },
+  { label: 'In Progress', dot: '#f59e0b' },
+  { label: 'Done',        dot: '#22c55e' },
+];
+
+function PillarMockup({ pillar }) {
+  const Icon = PILLAR_ICON_MAP[pillar.icon];
+  const color = pillar.accentColor;
+  const tasks = PILLAR_MOCK_TASKS[pillar.id];
+  const cols = [tasks.col1, tasks.col2, tasks.col3];
+
+  return (
+    <div className="pillar-mockup" style={{ '--mock-color': color }}>
+      {/* Header */}
+      <div className="pm-header">
+        <div className="pm-header-icon">{Icon && <Icon size={14} />}</div>
+        <span className="pm-header-name">{pillar.sidebarLabel}</span>
+        <span className="pm-header-level">Level 1 · Necessities</span>
+      </div>
+      {/* Kanban columns */}
+      <div className="pm-board">
+        {MOCK_COLS.map((col, ci) => (
+          <div key={ci} className="pm-col">
+            <div className="pm-col-header">
+              <span className="pm-dot" style={{ background: col.dot }} />
+              <span className="pm-col-name">{col.label}</span>
+              <span className="pm-col-count">{cols[ci].length}</span>
+            </div>
+            <div className="pm-cards">
+              {cols[ci].map((task, ti) => (
+                <div key={ti} className="pm-card" style={{ borderLeftColor: color }}>
+                  <span className="pm-card-title">{task}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Progress footer */}
+      <div className="pm-footer">
+        <span className="pm-footer-label">Progress</span>
+        <div className="pm-progress">
+          <div className="pm-seg pm-seg-todo"    style={{ width: '40%' }} />
+          <div className="pm-seg pm-seg-active"  style={{ width: '35%' }} />
+          <div className="pm-seg pm-seg-done"    style={{ width: '25%', background: color }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const HOW_IT_WORKS = [
   { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences.', icon: Compass },
   { step: '02', title: 'Explore Your Pillars', desc: 'Each of the Seven Maqasid has its own dashboard with sub-modules, Kanban boards, and readiness checks.', icon: BookOpen },
@@ -234,24 +296,23 @@ export default function Landing() {
         </div>
 
         <div className="feature-content">
-          <div className="feature-preview" style={{ borderColor: activePillar?.accentColor + '30' }}>
-            <div className="feature-preview-placeholder" style={{ textAlign: 'center', padding: 'var(--space-6)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: 'var(--space-2)', color: activePillar?.accentColor }}>
-                {activePillar && PILLAR_ICON_MAP[activePillar.icon] && (() => {
-                  const Icon = PILLAR_ICON_MAP[activePillar.icon];
-                  return <Icon size={48} />;
-                })()}
-              </div>
-              <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--text)', marginBottom: 'var(--space-1)' }}>
-                {activePillar?.sidebarLabel}
-              </div>
-              <div style={{ fontSize: '1.1rem', color: activePillar?.accentColor, fontStyle: 'italic', marginBottom: 'var(--space-3)' }}>
-                {activePillar?.arabicRoot} &middot; {activePillar?.arabicRootAr}
-              </div>
-              <div style={{ fontSize: '0.9rem', color: 'var(--text2)', maxWidth: 320, margin: '0 auto', lineHeight: 1.6 }}>
-                {activeFeatures?.description}
-              </div>
-            </div>
+          <div className="feature-preview" style={{ borderColor: activePillar?.accentColor + '30', padding: 'var(--space-4)', background: 'var(--bg2)', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', gap: 'var(--space-3)' }}>
+            {activePillar && (
+              <>
+                <div style={{ width: '100%' }}>
+                  <div style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', marginBottom: 2 }}>
+                    {activePillar.sidebarLabel}
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: activePillar.accentColor, fontStyle: 'italic', marginBottom: 'var(--space-2)' }}>
+                    {activePillar.arabicRoot} · {activePillar.arabicRootAr}
+                  </div>
+                  <div style={{ fontSize: '0.875rem', color: 'var(--text2)', lineHeight: 1.6 }}>
+                    {activeFeatures?.description}
+                  </div>
+                </div>
+                <PillarMockup pillar={activePillar} />
+              </>
+            )}
           </div>
           <div className="feature-list">
             {activeFeatures?.items.map((f, i) => (

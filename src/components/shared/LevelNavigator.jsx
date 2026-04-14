@@ -165,9 +165,19 @@ export default function LevelNavigator({
     for (const { id } of pillars) {
       const proj = projects.find((p) => p.moduleId === id && p.id.endsWith('_' + active.key));
       const raw = proj ? (tasksByProject[proj.id] || []) : [];
-      internalPillarTasks[id] = [...raw].sort(
-        (a, b) => (PRIORITY_ORDER[a.priority] ?? 4) - (PRIORITY_ORDER[b.priority] ?? 4)
-      );
+      // Match PillarLevelDashboard order: group by first tag (largest group first),
+      // then sort by priority within each group.
+      const grouped = new Map();
+      for (const t of raw) {
+        const tag = t.tags?.[0] ?? 'General';
+        if (!grouped.has(tag)) grouped.set(tag, []);
+        grouped.get(tag).push(t);
+      }
+      internalPillarTasks[id] = [...grouped.entries()]
+        .sort((a, b) => b[1].length - a[1].length)
+        .flatMap(([, items]) =>
+          [...items].sort((a, b) => (PRIORITY_ORDER[a.priority] ?? 4) - (PRIORITY_ORDER[b.priority] ?? 4))
+        );
     }
   }
   const finalPillarTasks = externalPillarTasks || internalPillarTasks;

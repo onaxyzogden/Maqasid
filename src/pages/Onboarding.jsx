@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, Kanban, Wallet, Users, Building2, Shield, Moon, Sun } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe, Moon, Sun } from 'lucide-react';
 import { useAuthStore } from '../store/auth-store';
 import { useSettingsStore } from '../store/settings-store';
 import { genUserId } from '../services/id';
-import { MODULES } from '../data/modules';
+import { MAQASID_PILLARS } from '../data/maqasid';
 import '../styles/landing.css';
 
-const ICON_MAP = { Kanban, Wallet, Users, Building2, Shield };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
 
 const steps = ['Profile', 'Modules', 'Values'];
 
@@ -97,19 +97,19 @@ export default function Onboarding() {
           </div>
         )}
 
-        {/* Step 1: Modules */}
+        {/* Step 1: Pillars */}
         {step === 1 && (
           <div className="fade-in">
-            <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your modules</h2>
-            <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)' }}>Select the areas you want to manage. You can change this later.</p>
+            <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your pillars</h2>
+            <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)' }}>Select the areas of life you want to focus on. You can change this later.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-              {MODULES.map((mod) => {
-                const Icon = ICON_MAP[mod.icon];
-                const selected = selectedModules.includes(mod.id);
+              {MAQASID_PILLARS.map((pillar) => {
+                const Icon = PILLAR_ICON_MAP[pillar.icon];
+                const selected = selectedModules.includes(pillar.id);
                 return (
                   <button
-                    key={mod.id}
-                    onClick={() => toggleModule(mod.id)}
+                    key={pillar.id}
+                    onClick={() => toggleModule(pillar.id)}
                     style={{
                       display: 'flex', alignItems: 'center', gap: 'var(--space-3)',
                       padding: 'var(--space-4)',
@@ -124,14 +124,12 @@ export default function Onboarding() {
                       background: selected ? 'var(--primary-bg2)' : 'var(--bg3)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      {Icon && <Icon size={20} style={{ color: mod.color }} />}
+                      {Icon && <Icon size={20} style={{ color: pillar.accentColor }} />}
                     </div>
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>
-                        {mod.name}
-                        {!mod.ready && <span style={{ fontSize: '0.7rem', color: 'var(--text3)', marginLeft: 'var(--space-2)', fontWeight: 400 }}>Coming Soon</span>}
+                      <div style={{ fontWeight: 600, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                        {pillar.sidebarLabel}
                       </div>
-                      <div style={{ fontSize: '0.85rem', color: 'var(--text2)' }}>{mod.description}</div>
                     </div>
                     <div style={{
                       width: 22, height: 22, borderRadius: 'var(--radius-xs)',

@@ -217,7 +217,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
             {todoSubtasks.map((st) => (
               <div key={st.id} className="iltd__subtask-item">
                 <button className="iltd__subtask-check" onClick={() => toggleSubtask(projectId, taskId, st.id)}>
-                  <Square size={14} />
+                  <Square size={18} />
                 </button>
                 <div className="iltd__subtask-content">
                   <span className="iltd__subtask-title">{st.title}</span>
@@ -234,7 +234,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
             {doneSubtasks.map((st) => (
               <div key={st.id} className="iltd__subtask-item">
                 <button className="iltd__subtask-check iltd__subtask-check--done" onClick={() => toggleSubtask(projectId, taskId, st.id)}>
-                  <CheckCircle2 size={14} />
+                  <CheckCircle2 size={18} />
                 </button>
                 <div className="iltd__subtask-content">
                   <span className="iltd__subtask-title done">{st.title}</span>

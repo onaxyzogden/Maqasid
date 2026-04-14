@@ -35,15 +35,6 @@ const TASK_OVERRIDES = {
   'FND-S4': {
     taskInstructions: 'Based on FND-S2 (normalized packet) and FND-S3 (gap check): route to TRU if intake is sufficiently complete, NO-SHIP if gaps prevent valid routing, or Reject if disqualifying conditions exist. The routingBasis must cite specific field states.',
   },
-  'FND-IFB-S1': {
-    pattern: 'SCRIPT_GENERATION',
-    taskInstructions: 'Generate a comprehensive field-by-field mapping from BBOS intake fields to Google Form questions. Each row: BBOS field → question text → field type → conditional logic → BBOS anchor. Output must be directly usable for form construction.',
-  },
-  'FND-IFB-S2': {
-    pattern: 'SCRIPT_GENERATION',
-    taskInstructions: 'Generate the complete questionnaire template aligned with BBOS v3 field names. Section order: Capital → Skills → Proof → Constraints → Geography → Regulatory Pre-Check. Include G-label language where applicable.',
-  },
-
   // ─── TRU ───
   'TRU-V1': {
     pattern: 'ASSEMBLY_GATE',

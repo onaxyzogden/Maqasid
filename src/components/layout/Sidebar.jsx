@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Kanban, Wallet, Users, Building2, Shield, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Compass, HeartPulse, Brain, Coins, TreePine, Moon, TrendingUp, Star, CheckCircle2,
+  ChevronDown, Bell, Compass, HeartPulse, Brain, Coins, TreePine, Globe, Moon, TrendingUp, Star, CheckCircle2,
   Activity, BrainCircuit, Sparkles, HeartHandshake,
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
@@ -31,7 +31,7 @@ const ICON_MAP = {
   Droplets, Recycle,
   TrendingUp, Star, CheckCircle2, Moon, TreePine,
 };
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe: TreePine };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
 
 const MODULE_ROUTES = {
   work: '/app/work',

@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-13] rewrite | Landing page — Islamic Life OS framing, Seven Maqasid pillars
+- Rewrote Landing.jsx: hero, features, How It Works, FAQ, CTA, footer
+- Hero: "Organize your life around what truly matters" with 7 pillar chips (Arabic roots)
+- Features: Seven Maqasid tabbed showcase replacing 5-module business framing
+- Replaced SaaS pricing with 3-step How It Works (Choose Path → Explore Pillars → Track Growth)
+- FAQ rewritten for life OS scope (6 questions)
+- Fixed missing `getBbosTaskDef` import in BbosFullDashboard (caused blank page)
+- Committed and pushed pre-existing BBOS enhancements (renderers, role picker, task panel, ErrorBoundary)
+
 ## [2026-04-13] implement | M2 tier 3 — DLR/RET/OPT/remaining renderer expansion (39→77 tasks, 68% coverage)
 - Added 38 new TASK_RENDERERS entries across all remaining stages
 - DLR stage: DLR-S5, DLR-A1 (StepPanel), DLR-A2/A4 (Matrix2x2), DLR-A3/A6/A7 (StepPanel), DLR-A5 (DualColumn)
