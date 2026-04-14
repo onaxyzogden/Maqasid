@@ -59,6 +59,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const activeLayer = isBbos ? getLayerForStage(bbosFilter) : null;
   const activePillars = useMemo(() => isBbos ? getBbosNavPillars(activeLayer) : [], [activeLayer, isBbos]);
   const doneCol = isBbos ? project?.columns?.find((c) => c.name === 'Done')?.id : null;
+  const todoCol = isBbos ? project?.columns?.find((c) => c.name === 'To Do')?.id : null;
 
   const bbosPillarTasks = useMemo(() => {
     if (!isBbos) return null;
@@ -68,21 +69,16 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       const validIds = new Set(getBbosTaskDefsByStage(p.id).map((d) => d.id));
       result[p.id] = tasks
         .filter((t) => t.bbosTaskType && validIds.has(t.bbosTaskType))
-        .sort((a, b) => (a.bbosTaskType || '').localeCompare(b.bbosTaskType || ''));
+        .sort((a, b) => (a.seedOrder ?? 999) - (b.seedOrder ?? 999));
     }
     return result;
   }, [taskStore.tasksByProject[projectId], activePillars, isBbos]);
 
   const bbosTaskColorFn = useCallback((task) => {
-    if (task.columnId === doneCol) return '#22c55e';
-    const subs = task.subtasks;
-    if (subs && subs.length > 0) {
-      const doneCount = subs.filter((s) => s.done).length;
-      if (doneCount === subs.length) return '#22c55e';
-      if (doneCount > 0) return '#F59E0B';
-    }
+    if (task.columnId === doneCol || task.completedAt) return '#22c55e';
+    if (task.columnId !== todoCol) return '#F59E0B';
     return 'var(--bg3)';
-  }, [doneCol]);
+  }, [doneCol, todoCol]);
 
   if (!project) return null;
 

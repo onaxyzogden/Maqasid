@@ -59,6 +59,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
   const [draftWarnings, setDraftWarnings] = useState([]);
   const saveTimeout = useRef(null);
   const abortRef = useRef(null);
+  const taskColumnIdRef = useRef(task?.columnId);
 
   const def = task?.bbosTaskType ? getBbosTaskDef(task.bbosTaskType) : null;
   const stage = def ? getStage(def.stage) : null;
@@ -84,6 +85,9 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
 
   if (!task || !def) return null;
 
+  // Keep ref in sync with every render so debounce closures always read the latest columnId
+  taskColumnIdRef.current = task?.columnId;
+
   const fieldData = task.bbosFieldData || {};
   const aiDraftStatus = fieldData._aiDraftStatus || 'none';
   const aiDraftTimestamp = fieldData._aiDraftTimestamp || null;
@@ -91,7 +95,8 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
   const advanceToInProgress = () => {
     const toDoCol = project.columns?.find((c) => c.name === 'To Do');
     const inProgressCol = project.columns?.find((c) => c.name === 'In Progress');
-    if (inProgressCol && task.columnId === toDoCol?.id) {
+    if (!inProgressCol || !toDoCol) return;
+    if (taskColumnIdRef.current === toDoCol.id) {
       moveTask(projectId, taskId, inProgressCol.id, 0, project.columns);
     }
   };

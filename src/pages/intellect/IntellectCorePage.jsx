@@ -5,7 +5,7 @@ export const INTELLECT_PILLARS = [
   { id: 'learning',     label: 'Learning',     Icon: Library,      route: '/app/intellect-learning'     },
   { id: 'thinking',     label: 'Thinking',     Icon: Lightbulb,    route: '/app/intellect-thinking'     },
   { id: 'cognitive',    label: 'Cognitive',    Icon: BrainCircuit, route: '/app/intellect-cognitive'    },
-  { id: 'professional', label: 'Skill Proficiency', Icon: Wrench,       route: '/app/intellect-professional' },
+  { id: 'professional', label: 'Skill',             Icon: Wrench,       route: '/app/intellect-professional' },
 ];
 
 export const INTELLECT_LEVEL_ROUTES = {
