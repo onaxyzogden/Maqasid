@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban } from 'lucide-react';
+import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban, Eye } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
@@ -9,6 +9,7 @@ import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '
 import { useAppStore } from '../../store/app-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
+import { getTaskAccessLevel, getBbosRole } from '../../data/bbos/bbos-role-access';
 import { getAiConfig, hasAiConfig } from '@services/ai/ai-settings';
 import { streamCompletion, AiClientError } from '@services/ai/ai-client';
 import { buildPrompt } from '@services/ai/prompt-builder';
@@ -33,7 +34,7 @@ export default function BbosTaskPanel(props) {
   );
 }
 
-function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
+function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
   const mobile = useMobile();
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const taskStore = useTaskStore();
@@ -84,6 +85,9 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
   }, [def?.id]);
 
   if (!task || !def) return null;
+
+  const accessLevel = bbosRole && bbosRole !== 'all' ? getTaskAccessLevel(bbosRole, task.bbosTaskType) : 'O';
+  const isViewOnly = accessLevel === 'V';
 
   // Keep ref in sync with every render so debounce closures always read the latest columnId
   taskColumnIdRef.current = task?.columnId;
@@ -263,6 +267,14 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
         </button>
       </div>
 
+      {/* ── View-only banner ── */}
+      {isViewOnly && (
+        <div className="btp-view-banner">
+          <Eye size={14} />
+          VIEW ONLY — The {getBbosRole(bbosRole).label} role has read-only access
+        </div>
+      )}
+
       {/* ── Islamic attributes band ── */}
       <div className="btp-attrs-band">
         {def.governingAttributes.map((attr, i) => (
@@ -418,12 +430,14 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
                     placeholder={field.placeholder || ''}
                     value={localFields[field.id] || ''}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                    readOnly={isViewOnly}
                   />
                 ) : field.type === 'select' ? (
                   <select
                     className="btp-field-select"
                     value={localFields[field.id] || ''}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                    disabled={isViewOnly}
                   >
                     <option value="">Select...</option>
                     {field.options?.map((opt) => (
@@ -437,6 +451,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
                     placeholder={field.placeholder || ''}
                     value={localFields[field.id] || ''}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
+                    readOnly={isViewOnly}
                   />
                 ) : (
                   <textarea
@@ -445,6 +460,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose }) {
                     value={localFields[field.id] || ''}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
                     rows={2}
+                    readOnly={isViewOnly}
                   />
                 )}
               </div>

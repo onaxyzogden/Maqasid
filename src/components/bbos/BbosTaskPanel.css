@@ -37,6 +37,17 @@
   gap: var(--space-2);
 }
 
+.btp-view-banner {
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: color-mix(in srgb, #3b82f6 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, #3b82f6 20%, transparent);
+  color: #2563eb;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
 .btp-header__stage {
   display: flex;
   align-items: center;

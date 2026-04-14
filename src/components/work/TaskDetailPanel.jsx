@@ -21,7 +21,7 @@ function formatDateTime(iso) {
   });
 }
 
-export default function TaskDetailPanel({ project, projectId, taskId, onClose }) {
+export default function TaskDetailPanel({ project, projectId, taskId, onClose, bbosRole }) {
   const mobile = useMobile();
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const updateTask = useTaskStore((s) => s.updateTask);
@@ -119,6 +119,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose })
         projectId={projectId}
         taskId={taskId}
         onClose={onClose}
+        bbosRole={bbosRole}
       />
     );
   }

@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { DndContext, DragOverlay, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
 import { useTaskStore } from '../../store/task-store';
 import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
+import ScopeGate from '../shared/ScopeGate';
 import KanbanColumn from './KanbanColumn';
 import KanbanCard from './KanbanCard';
 import './KanbanBoard.css';
@@ -76,6 +77,11 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
       />
     );
   });
+
+  // Scope gate: role has no accessible tasks in this stage
+  if (bbosRole && bbosRole !== 'all' && filteredTasks.length > 0 && tasks.length === 0 && bbosFilter) {
+    return <div className="kanban-board" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ScopeGate bbosRole={bbosRole} bbosFilter={bbosFilter} /></div>;
+  }
 
   if (!draggable) {
     return <div className="kanban-board">{columns}</div>;

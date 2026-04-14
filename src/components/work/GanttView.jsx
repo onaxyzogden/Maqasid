@@ -1,7 +1,9 @@
 import { useMemo, useRef, useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, AlertTriangle } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
+import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { PRIORITIES } from '../../data/modules';
+import ScopeGate from '../shared/ScopeGate';
 import './GanttView.css';
 
 /* ── helpers ── */
@@ -27,15 +29,20 @@ function monthLabel(d) {
 }
 
 /* ── GanttView ── */
-export default function GanttView({ project, onSelectTask, filters }) {
+export default function GanttView({ project, onSelectTask, filters, bbosRole, bbosFilter }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const getFilteredTasks = useTaskStore((s) => s.getFilteredTasks);
   const updateTask = useTaskStore((s) => s.updateTask);
   const allTasks = tasksByProject[project.id] || [];
-  const tasks = useMemo(
+  const filteredTasks = useMemo(
     () => getFilteredTasks(project.id, filters),
     [allTasks, filters, project.id, getFilteredTasks],
   );
+
+  const tasks = useMemo(() => {
+    if (!bbosRole || bbosRole === 'all') return filteredTasks;
+    return filteredTasks.filter((t) => getTaskAccessLevel(bbosRole, t.bbosTaskType) !== '-');
+  }, [filteredTasks, bbosRole]);
 
   const [zoom, setZoom] = useState('week'); // day | week | month
   const timelineRef = useRef(null);
@@ -128,6 +135,11 @@ export default function GanttView({ project, onSelectTask, filters }) {
       timelineRef.current.scrollLeft = Math.max(0, idx * colW - 120);
     }
   }, [days, colW]);
+
+  // Scope gate: role has no accessible tasks
+  if (bbosRole && bbosRole !== 'all' && filteredTasks.length > 0 && tasks.length === 0 && bbosFilter) {
+    return <div className="gantt-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ScopeGate bbosRole={bbosRole} bbosFilter={bbosFilter} /></div>;
+  }
 
   const today = toDay(new Date());
   const todayIdx = days.findIndex((d) => d.getTime() === today.getTime());

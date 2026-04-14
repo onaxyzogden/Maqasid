@@ -1,17 +1,29 @@
 import { useMemo } from 'react';
 import { Calendar, CheckSquare } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
+import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { PRIORITIES } from '../../data/modules';
+import ScopeGate from '../shared/ScopeGate';
 import './ListView.css';
 
-export default function ListView({ project, onSelectTask, filters }) {
+export default function ListView({ project, onSelectTask, filters, bbosRole, bbosFilter }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const getFilteredTasks = useTaskStore((s) => s.getFilteredTasks);
   const allTasks = tasksByProject[project.id] || [];
-  const tasks = useMemo(
+  const filteredTasks = useMemo(
     () => getFilteredTasks(project.id, filters),
     [allTasks, filters, project.id, getFilteredTasks]
   );
+
+  const tasks = useMemo(() => {
+    if (!bbosRole || bbosRole === 'all') return filteredTasks;
+    return filteredTasks.filter((t) => getTaskAccessLevel(bbosRole, t.bbosTaskType) !== '-');
+  }, [filteredTasks, bbosRole]);
+
+  // Scope gate: role has no accessible tasks
+  if (bbosRole && bbosRole !== 'all' && filteredTasks.length > 0 && tasks.length === 0 && bbosFilter) {
+    return <div className="list-view" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ScopeGate bbosRole={bbosRole} bbosFilter={bbosFilter} /></div>;
+  }
 
   const grouped = project.columns.map((col) => ({
     column: col,

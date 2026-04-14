@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, Fragment } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload, RefreshCw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import BbosRolePicker from '../bbos/BbosRolePicker';
+import { PROJECT_COLORS } from '../../data/modules';
 import { getBbosTaskDefsByStage } from '@data/bbos/bbos-task-definitions';
 import { BBOS_NAV_LEVELS, BBOS_LAYERS, getBbosNavPillars, getLayerForStage } from '@data/bbos/bbos-pipeline';
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from '@services/bbos-template';
@@ -28,7 +29,10 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
   const setBbosRole = useProjectStore((s) => s.setBbosRole);
   const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
+  const updateProject = useProjectStore((s) => s.updateProject);
   const [view, setView] = useState(project?.defaultView || 'dashboard');
+  const [colorPickerOpen, setColorPickerOpen] = useState(false);
+  const colorPickerRef = useRef(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [draggable, setDraggable] = useState(false);
@@ -53,6 +57,15 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     if (project?.bbosEnabled) setActiveBbosStage(bbosFilter);
     return () => clearActiveBbosStage();
   }, [project?.bbosEnabled, bbosFilter]);
+
+  useEffect(() => {
+    if (!colorPickerOpen) return;
+    const handler = (e) => {
+      if (colorPickerRef.current && !colorPickerRef.current.contains(e.target)) setColorPickerOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [colorPickerOpen]);
 
   const isBbos = project?.bbosEnabled && !hideBbos;
 
@@ -141,7 +154,41 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       }}>
         {/* Left: project color + BBOS info + stage bundle actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-          <div style={{ width: 12, height: 12, borderRadius: 3, background: project.color, flexShrink: 0 }} />
+          <div ref={colorPickerRef} style={{ position: 'relative', flexShrink: 0 }}>
+            <button
+              onClick={() => setColorPickerOpen((v) => !v)}
+              title="Change project color"
+              style={{
+                width: 12, height: 12, borderRadius: 3, background: project.color,
+                border: 'none', padding: 0, cursor: 'pointer',
+                transition: 'transform var(--duration) var(--ease)',
+                transform: colorPickerOpen ? 'scale(1.4)' : 'scale(1)',
+              }}
+            />
+            {colorPickerOpen && (
+              <div style={{
+                position: 'absolute', top: 'calc(100% + 6px)', left: 0, zIndex: 50,
+                display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 4,
+                padding: 6, background: 'var(--surface)', border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-sm)', boxShadow: 'var(--shadow-lg)',
+              }}>
+                {PROJECT_COLORS.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => { updateProject(projectId, { color: c }); setColorPickerOpen(false); }}
+                    style={{
+                      width: 18, height: 18, borderRadius: 3, background: c,
+                      border: c === project.color ? '2px solid var(--text)' : '2px solid transparent',
+                      padding: 0, cursor: 'pointer',
+                      transition: 'transform var(--duration) var(--ease)',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.2)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
           {isBbos && (
             <>
               <span style={{
@@ -324,9 +371,9 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
             ) : view === 'board' ? (
               <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
             ) : view === 'gantt' ? (
-              <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
+              <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? bbosFilter : null} />
             ) : (
-              <ListView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} />
+              <ListView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? bbosFilter : null} />
             )}
           </div>
 
@@ -336,6 +383,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
               projectId={projectId}
               taskId={selectedTaskId}
               onClose={() => setSelectedTaskId(null)}
+              bbosRole={project.bbosRole || 'all'}
             />
           )}
         </div>

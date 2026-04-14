@@ -1,9 +1,10 @@
 import { useMemo, useState, Fragment } from 'react';
-import { CheckCircle, XCircle, AlertTriangle, Star, ShieldX } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage } from '../../data/bbos/bbos-pipeline';
-import { getTaskAccessLevel, getBbosRole, BBOS_TASK_ACCESS } from '../../data/bbos/bbos-role-access';
+import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
+import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import './BbosFullDashboard.css';
 
@@ -1656,36 +1657,6 @@ function StageScoreCard({ bbosFilter, taskMap }) {
   );
 }
 
-// ── Scope Gate (role has no access to this stage) ────────────────────────────
-
-function ScopeGate({ roleName, stageLabel, allDefs, currentRole }) {
-  const availableRoles = useMemo(() => {
-    const roleIds = new Set();
-    for (const def of allDefs) {
-      const entry = BBOS_TASK_ACCESS[def.id];
-      if (entry) {
-        for (const [role, level] of Object.entries(entry)) {
-          if (level !== '-' && role !== currentRole) roleIds.add(role);
-        }
-      }
-    }
-    return [...roleIds].map((id) => getBbosRole(id)).filter(Boolean);
-  }, [allDefs, currentRole]);
-
-  return (
-    <div className="bfd__scope-gate">
-      <ShieldX size={48} />
-      <h3>OUTSIDE YOUR SCOPE</h3>
-      <p>The <strong>{roleName}</strong> role does not have access to <strong>{stageLabel}</strong>.</p>
-      {availableRoles.length > 0 && (
-        <p className="bfd__scope-gate-hint">
-          Access is available under: {availableRoles.map((r) => r.label).join(', ')}
-        </p>
-      )}
-    </div>
-  );
-}
-
 // ── BbosFullDashboard ─────────────────────────────────────────────────────────
 
 const EMPTY_TASKS = [];
@@ -1757,12 +1728,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
       {/* ── Task grid ── */}
       <div className="bfd__grid">
         {bbosRole !== 'all' && allDefs.length > 0 && taskGroups.length === 0 ? (
-          <ScopeGate
-            roleName={getBbosRole(bbosRole).label}
-            stageLabel={stageMeta.label}
-            allDefs={allDefs}
-            currentRole={bbosRole}
-          />
+          <ScopeGate bbosRole={bbosRole} bbosFilter={bbosFilter} />
         ) : (<>
         {(() => {
           const researchGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'research');

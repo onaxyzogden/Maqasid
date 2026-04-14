@@ -7,6 +7,13 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | BBOS role scope gate and access-level badges
+- Added "OUTSIDE YOUR SCOPE" overlay (ScopeGate component) when a role has no accessible tasks in a stage
+- Overlay shows role name, stage name, and which roles have access (computed from BBOS_TASK_ACCESS matrix)
+- Added View/Edit chip badges on task cards reflecting the active role's permission level (V=blue, E=amber)
+- Fixed sidebar button width inconsistency (Notifications narrower than Settings)
+- Files: BbosFullDashboard.jsx, BbosFullDashboard.css, DashboardTaskCard.css, Sidebar.css
+
 ## [2026-04-13] rewrite | Landing page — Islamic Life OS framing, Seven Maqasid pillars
 - Rewrote Landing.jsx: hero, features, How It Works, FAQ, CTA, footer
 - Hero: "Organize your life around what truly matters" with 7 pillar chips (Arabic roots)
