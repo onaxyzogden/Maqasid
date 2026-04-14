@@ -4,7 +4,7 @@ import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
 import { getBbosTaskDef, getBbosTaskDeps, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
-import { getStage } from '@data/bbos/bbos-pipeline';
+import { getStage, BBOS_STAGES } from '@data/bbos/bbos-pipeline';
 import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '@services/bbos-template';
 import { useAppStore } from '../../store/app-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
@@ -83,6 +83,51 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
     if (def?.id) setActiveBbosTaskType(def.id);
     return () => clearActiveBbosTaskType();
   }, [def?.id]);
+
+  // Runway date assignment — fires when TRU-S5 (Constraint Map) is marked complete
+  const prevCompletedAtRef = useRef(task?.completedAt);
+  useEffect(() => {
+    const wasComplete = prevCompletedAtRef.current;
+    const isNowComplete = task?.completedAt;
+    prevCompletedAtRef.current = isNowComplete;
+    if (wasComplete || !isNowComplete || def?.id !== 'TRU-S5') return;
+
+    const runwayMonths = Number(task.bbosFieldData?.financialRunwayMonths);
+    if (!runwayMonths || runwayMonths <= 0) return;
+
+    const stageOrderMap = new Map(BBOS_STAGES.map((s) => [s.id, s.order ?? 0]));
+    const allTasks = (taskStore.tasksByProject[projectId] || [])
+      .filter((t) => t.bbosTaskType)
+      .sort((a, b) => {
+        const stA = stageOrderMap.get(a.bbosTaskType?.split('-')[0]) ?? 99;
+        const stB = stageOrderMap.get(b.bbosTaskType?.split('-')[0]) ?? 99;
+        if (stA !== stB) return stA - stB;
+        return (a.seedOrder ?? 999) - (b.seedOrder ?? 999);
+      });
+
+    if (allTasks.length === 0) return;
+
+    const applyDates = (tasks, skipExisting) => {
+      const now = new Date();
+      const totalMs = runwayMonths * 30 * 24 * 60 * 60 * 1000;
+      tasks.forEach((t, i) => {
+        if (skipExisting && t.dueDate) return;
+        const fraction = (i + 1) / tasks.length;
+        const d = new Date(now.getTime() + fraction * totalMs);
+        updateTask(projectId, t.id, { dueDate: d.toISOString().split('T')[0] });
+      });
+    };
+
+    const withDates = allTasks.filter((t) => t.dueDate);
+    if (withDates.length > 0) {
+      const overwrite = confirm(
+        `${withDates.length} task${withDates.length !== 1 ? 's' : ''} already ${withDates.length !== 1 ? 'have' : 'has'} a due date. Overwrite ${withDates.length !== 1 ? 'them' : 'it'}?`
+      );
+      applyDates(allTasks, !overwrite);
+    } else {
+      applyDates(allTasks, false);
+    }
+  }, [task?.completedAt]);
 
   if (!task || !def) return null;
 

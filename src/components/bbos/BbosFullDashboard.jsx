@@ -59,10 +59,9 @@ const PREFIX_LABELS = {
 };
 
 // ── Factory classification ───────────────────────────────────────────────────
-// V (Validation Gates) are classified as Research because they gate the
-// transition from research to asset production. The Assembly Gate checks
-// whether all Research tasks (including V) are Done before unlocking Assets.
-// Do not move V to Asset — it would break Assembly Gate semantics.
+// Groundwork (research): S, V, FP — strategic tasks, validation gates, and
+// framework prompts. Workshop (asset): AF, A, IC — asset factory tasks.
+// Assembly Gate unlocks Workshop after all Groundwork tasks are Done.
 const RESEARCH_PREFIXES = new Set(['S', 'V', 'FP']);
 const ASSET_PREFIXES = new Set(['A', 'AF', 'IC']);
 

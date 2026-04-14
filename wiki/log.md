@@ -7,6 +7,21 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | Subsegment colors, TRU task reorder, runway date assignment
+- Fixed subsegment in-progress color: `bbosTaskColorFn` now checks `bbosFieldData` for partial field progress, not just `columnId` — tasks with any filled fields show amber even while in the To Do column
+- Reordered TRU task definitions: V1/V2/V3/FP02 moved before AF1–AF5, appearing as tasks 7–10 in the Groundwork tab (was 12–15)
+- `RESEARCH_PREFIXES` in BbosFullDashboard confirmed as `['S','V','FP']`; V/FP tasks remain in Groundwork, AF tasks in Workshop
+- Runway date assignment: when TRU-S5 (Constraint Map) is marked Done, all BBOS tasks in the project receive evenly-spaced due dates from today through the runway period; prompts before overwriting existing dates
+- Files: ProjectBoard.jsx, BbosFullDashboard.jsx, BbosTaskPanel.jsx, bbos-task-definitions.js
+
+## [2026-04-14] implement | Scope gate all views, task panel view-only, color picker
+- Extracted shared ScopeGate component from BbosFullDashboard into src/components/shared/ScopeGate.jsx
+- Passed bbosRole/bbosFilter to Board (KanbanBoard), List (ListView), and Gantt (GanttView) views
+- All 4 views now show "OUTSIDE YOUR SCOPE" overlay when role lacks access to a stage
+- Added VIEW ONLY banner + readOnly/disabled fields in BbosTaskPanel for V-access roles
+- Added clickable project color picker (8-swatch popover) in ProjectBoard header
+- Files: ScopeGate.jsx (new), BbosFullDashboard.jsx, BbosTaskPanel.jsx/.css, ProjectBoard.jsx, KanbanBoard.jsx, ListView.jsx, GanttView.jsx, TaskDetailPanel.jsx
+
 ## [2026-04-14] implement | BBOS role scope gate and access-level badges
 - Added "OUTSIDE YOUR SCOPE" overlay (ScopeGate component) when a role has no accessible tasks in a stage
 - Overlay shows role name, stage name, and which roles have access (computed from BBOS_TASK_ACCESS matrix)

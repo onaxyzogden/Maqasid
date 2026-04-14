@@ -90,6 +90,11 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const bbosTaskColorFn = useCallback((task) => {
     if (task.columnId === doneCol || task.completedAt) return '#22c55e';
     if (task.columnId !== todoCol) return '#F59E0B';
+    const fd = task.bbosFieldData;
+    const hasProgress = fd && Object.entries(fd).some(
+      ([k, v]) => !k.startsWith('_') && v !== undefined && v !== null && String(v).trim() !== ''
+    );
+    if (hasProgress) return '#F59E0B';
     return 'var(--bg3)';
   }, [doneCol, todoCol]);
 
