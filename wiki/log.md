@@ -7,6 +7,16 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] website | Add Maqasid OS to ecosystem journey page
+- Fourth product row on `/journey/` — Development (Al-Musawwir) → Completion (Al-Muhsi) → Opening (Al-Fattah) → Ummah (Al-Wasi')
+- Phase 1 at 70%: 6/8 milestones done (seven pillar modules, dashboard, BBOS integration, Islamic UI, audit, pillar viz)
+- CSS: `--mq-*` color vars, `.mq` phase/milestone selectors following existing pattern
+- Header updated: "Four products. Four journeys. One intention."
+- Footer: fourth column with Maqasid OS summary
+- Also synced milestone counts on BBOS (+Operator Practice Companion), Moontrance (+stewardship model, +first founding member), fixed Atlas footer 85→86%, date March→April
+- Pushed to both onaxyzogden/Maqasid and onaxyzogden/ogden-hub
+- Files: website/journey/index.html
+
 ## [2026-04-14] implement | BBOS pipeline overview panel — all 9 stages with completion %
 - New `PipelineOverview` internal component in `BbosFullDashboard.jsx` — renders between stage header and task grid
 - Shows all 9 stages grouped by 3 layers (Think/Execute/Reckon) with colored layer labels
