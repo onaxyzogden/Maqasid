@@ -2,7 +2,7 @@ import { useMemo, useState, Fragment } from 'react';
 import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
-import { getStage } from '../../data/bbos/bbos-pipeline';
+import { getStage, BBOS_STAGES, BBOS_LAYERS } from '../../data/bbos/bbos-pipeline';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
@@ -1537,11 +1537,11 @@ function hasUserFieldData(task) {
   return Object.entries(fd).some(([k, v]) => !k.startsWith('_') && (typeof v === 'string' ? v.trim() : !!v));
 }
 
-function ProjectAuditCard({ tasks }) {
+function ProjectAuditCard({ tasks, doneColumnId }) {
   const total = tasks.length;
   const startedTasks = tasks.filter(hasUserFieldData);
   const started = startedTasks.length;
-  const completed = tasks.filter((t) => t.completedAt).length;
+  const completed = tasks.filter((t) => t.completedAt || t.columnId === doneColumnId).length;
   const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
   // Scheduling discipline measured only against started tasks
   const noDueDate = startedTasks.filter((t) => !t.dueDate && !t.completedAt).length;
@@ -1656,16 +1656,79 @@ function StageScoreCard({ bbosFilter, taskMap }) {
   );
 }
 
+// ── PipelineOverview ─────────────────────────────────────────────────────────
+
+function PipelineOverview({ allStageProgress, bbosFilter, onStageSelect }) {
+  return (
+    <div className="bfd__pipeline">
+      {BBOS_LAYERS.map((layer) => (
+        <div key={layer.id} className="bfd__pipeline-layer">
+          <div className="bfd__pipeline-layer-label" style={{ color: layer.color }}>
+            {layer.label}
+          </div>
+          <div className="bfd__pipeline-stages">
+            {layer.stages.map((stageId) => {
+              const stage = BBOS_STAGES.find((s) => s.id === stageId);
+              if (!stage) return null;
+              const pct = allStageProgress[stageId] ?? 0;
+              const isActive = stageId === bbosFilter;
+              return (
+                <button
+                  key={stageId}
+                  className={`bfd__pipeline-stage${isActive ? ' bfd__pipeline-stage--active' : ''}`}
+                  onClick={() => onStageSelect?.(stageId)}
+                  title={stage.description}
+                >
+                  <span className="bfd__pipeline-stage-num">
+                    {String(stage.order + 1).padStart(2, '0')}
+                  </span>
+                  <span className="bfd__pipeline-stage-label">{stage.label}</span>
+                  <div className="bfd__pipeline-stage-bar">
+                    <div
+                      className="bfd__pipeline-stage-fill"
+                      style={{ width: `${pct}%`, background: stage.color }}
+                    />
+                  </div>
+                  <span className="bfd__pipeline-stage-pct">{pct}%</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ── BbosFullDashboard ─────────────────────────────────────────────────────────
 
 const EMPTY_TASKS = [];
 
-export default function BbosFullDashboard({ project, bbosFilter, onSelectTask }) {
+export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactory] = useState('research');
 
-  const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs } = useMemo(() => {
+  // All-stage progress for pipeline overview (O(T + D) via single taskMap pass)
+  const allStageProgress = useMemo(() => {
+    const doneColId = project.columns?.find((c) => c.name === 'Done')?.id ?? null;
+    const tMap = {};
+    for (const t of tasks) { if (t.bbosTaskType) tMap[t.bbosTaskType] = t; }
+    const progress = {};
+    for (const stage of BBOS_STAGES) {
+      const defs = getBbosTaskDefsByStage(stage.id);
+      if (defs.length === 0) { progress[stage.id] = 0; continue; }
+      let done = 0;
+      for (const def of defs) {
+        const t = tMap[def.id];
+        if (t && (t.columnId === doneColId || t.completedAt)) done++;
+      }
+      progress[stage.id] = Math.round((done / defs.length) * 100);
+    }
+    return progress;
+  }, [tasks, project.columns]);
+
+  const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, doneCount, totalCount, stagePct } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
     const allDefs = getBbosTaskDefsByStage(bbosFilter);
 
@@ -1707,10 +1770,19 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
 
     const doneColumnId = project.columns?.find((c) => c.name === 'Done')?.id ?? null;
 
-    return { stageMeta, taskGroups: groups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs };
+    // Completion stats — count against all defs (not just seeded tasks)
+    const doneCount = allDefs.filter((d) => {
+      const t = taskMap[d.id];
+      return t && (t.columnId === doneColumnId || t.completedAt);
+    }).length;
+    const totalCount = allDefs.length;
+    const stagePct = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
+
+    return { stageMeta, taskGroups: groups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, doneCount, totalCount, stagePct };
   }, [tasks, project, bbosFilter, bbosRole]);
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
+  const nextStage = BBOS_STAGES[(stageMeta.order ?? 0) + 1] ?? null;
 
   return (
     <div className="bfd">
@@ -1722,7 +1794,31 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
           {stageMeta.description}
           {stageMeta.attributes && <>{' '}<em>{stageMeta.attributes}</em></>}
         </p>
+        <div className="bfd__stage-progress">
+          <div className="bfd__stage-progress-track">
+            <div className="bfd__stage-progress-fill" style={{ width: `${stagePct}%` }} />
+          </div>
+          <span className="bfd__stage-progress-label">{doneCount}/{totalCount} · {stagePct}%</span>
+        </div>
+        {stagePct === 100 && onStageAdvance && (
+          <div className="bfd__stage-ready">
+            <CheckCircle size={15} className="bfd__stage-ready-icon" />
+            <span className="bfd__stage-ready-text">
+              Stage complete — {totalCount}/{totalCount} tasks done
+            </span>
+            <button className="bfd__stage-advance-btn" onClick={onStageAdvance}>
+              {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
+            </button>
+          </div>
+        )}
       </div>
+
+      {/* ── Pipeline overview ── */}
+      <PipelineOverview
+        allStageProgress={allStageProgress}
+        bbosFilter={bbosFilter}
+        onStageSelect={onStageSelect}
+      />
 
       {/* ── Task grid ── */}
       <div className="bfd__grid">
@@ -1823,7 +1919,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask })
         <StageScoreCard bbosFilter={bbosFilter} taskMap={taskMap} />
 
         {/* ── Project Audit ── */}
-        <ProjectAuditCard tasks={stageTasks} />
+        <ProjectAuditCard tasks={stageTasks} doneColumnId={doneColumnId} />
         </>)}
       </div>
 

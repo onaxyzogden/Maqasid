@@ -29,6 +29,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const clearActiveBbosStage = useAppStore((s) => s.clearActiveBbosStage);
   const setBbosRole = useProjectStore((s) => s.setBbosRole);
   const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
+  const advanceBbosStage = useProjectStore((s) => s.advanceBbosStage);
   const updateProject = useProjectStore((s) => s.updateProject);
   const [view, setView] = useState(project?.defaultView || 'dashboard');
   const [colorPickerOpen, setColorPickerOpen] = useState(false);
@@ -86,6 +87,42 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     }
     return result;
   }, [taskStore.tasksByProject[projectId], activePillars, isBbos]);
+
+  const pillarProgress = useMemo(() => {
+    if (!isBbos) return null;
+    const tasks = taskStore.tasksByProject[projectId] || [];
+    const result = {};
+    for (const p of activePillars) {
+      const stageDefs = getBbosTaskDefsByStage(p.id);
+      const done = stageDefs.filter((d) => {
+        const t = tasks.find((t) => t.bbosTaskType === d.id);
+        return t && (t.columnId === doneCol || t.completedAt);
+      }).length;
+      result[p.id] = stageDefs.length > 0 ? Math.round((done / stageDefs.length) * 100) : 0;
+    }
+    return result;
+  }, [taskStore.tasksByProject[projectId], activePillars, isBbos, doneCol]);
+
+  const handleStageAdvance = useCallback(() => {
+    const currentIdx = BBOS_STAGES.findIndex((s) => s.id === bbosFilter);
+    const next = BBOS_STAGES[currentIdx + 1] ?? null;
+    if (next) {
+      advanceBbosStage(projectId, next.id);
+      setBbosFilter(next.id);
+      setActiveBbosStage(next.id);
+    } else {
+      if (confirm('All stages complete. Start a new BBOS cycle? This will reset the pipeline to Identity (FND).')) {
+        startNewBbosCycle(projectId);
+        setBbosFilter('FND');
+        setActiveBbosStage('FND');
+      }
+    }
+  }, [bbosFilter, projectId, advanceBbosStage, setBbosFilter, setActiveBbosStage, startNewBbosCycle]);
+
+  const handleStageSelect = useCallback((stageId) => {
+    setBbosFilter(stageId);
+    setActiveBbosStage(stageId);
+  }, [setBbosFilter, setActiveBbosStage]);
 
   const bbosTaskColorFn = useCallback((task) => {
     if (task.columnId === doneCol || task.completedAt) return '#22c55e';
@@ -350,6 +387,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
             levels={BBOS_NAV_LEVELS}
             pillars={activePillars}
             pillarTasks={bbosPillarTasks}
+            pillarProgress={pillarProgress}
             controlledLevel={activeLayer}
             onLevelChange={(layerKey) => {
               const first = BBOS_LAYERS.find((l) => l.id === layerKey)?.stages[0];
@@ -372,7 +410,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         <div style={{ flex: 1, minHeight: view === 'dashboard' ? undefined : 0, display: 'flex' }}>
           <div style={{ flex: 1, minWidth: 0 }}>
             {view === 'dashboard' ? (
-              <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} />
+              <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} onStageAdvance={isBbos ? handleStageAdvance : undefined} onStageSelect={isBbos ? handleStageSelect : undefined} />
             ) : view === 'board' ? (
               <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
             ) : view === 'gantt' ? (

@@ -70,6 +70,7 @@ export default function LevelNavigator({
   levelDescriptions,
   levels: customLevels,
   pillarTasks: externalPillarTasks,
+  pillarProgress,
   onSegmentClick,
   onSubsegClick,
   taskColorFn,
@@ -262,6 +263,9 @@ export default function LevelNavigator({
                 >
                   {label}
                 </button>
+                {pillarProgress?.[id] !== undefined && (
+                  <span className="fln__segment-pct">{pillarProgress[id]}%</span>
+                )}
               </div>
             );
           })}

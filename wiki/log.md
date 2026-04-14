@@ -7,6 +7,27 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | BBOS pipeline overview panel — all 9 stages with completion %
+- New `PipelineOverview` internal component in `BbosFullDashboard.jsx` — renders between stage header and task grid
+- Shows all 9 stages grouped by 3 layers (Think/Execute/Reckon) with colored layer labels
+- Each stage card: number (01-09), label, 3px progress bar (colored per stage), completion %
+- Active stage highlighted with accent border and tinted background; labels truncate with ellipsis
+- `allStageProgress` useMemo computed via single taskMap pass (O(T + D)) — returns `{ FND: 0, TRU: 45, ... }`
+- Clickable stage navigation: `onStageSelect(stageId)` callback threaded ProjectBoard → DashboardView → BbosFullDashboard
+- `handleStageSelect` in ProjectBoard calls `setBbosFilter + setActiveBbosStage` (same as LevelNavigator segment click)
+- Responsive: layers stack vertically on screens < 768px
+- Files: BbosFullDashboard.jsx, BbosFullDashboard.css, DashboardView.jsx, ProjectBoard.jsx
+
+## [2026-04-14] implement | BBOS stage complete gate — callout + advance action
+- When `stagePct === 100`, a green "Stage complete" callout appears in the stage header (below the progress strip)
+- Callout shows: CheckCircle icon + "Stage complete — N/N tasks done" + "Advance to [Next Stage Label] →" button
+- At OPT (last stage): button shows "Complete Cycle →" and triggers `startNewBbosCycle` with a confirm dialog
+- Advance handler defined in `ProjectBoard.jsx`: calls `advanceBbosStage(projectId, nextId)` + syncs UI `setBbosFilter` + `setActiveBbosStage`
+- Handler threaded as `onStageAdvance` prop: ProjectBoard → DashboardView → BbosFullDashboard
+- `BBOS_STAGES` imported in BbosFullDashboard to compute `nextStage` from `stageMeta.order`
+- `advanceBbosStage` was already in project-store (lines 447–455) but unused — now wired up
+- Files: ProjectBoard.jsx, DashboardView.jsx, BbosFullDashboard.jsx, BbosFullDashboard.css
+
 ## [2026-04-14] implement | BBOS pipeline progress tracking wired up
 - Added per-stage completion % aggregated from task status (`columnId === doneColumnId || completedAt`)
 - Stage header in `BbosFullDashboard.jsx` now shows `X/Y · Z%` with a thin 4px green progress bar below the stage description; computed against all task definitions (not just seeded tasks)

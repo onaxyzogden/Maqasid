@@ -205,6 +205,15 @@
   color: rgba(255, 255, 255, 0.9);
   font-weight: 700;
 }
+.fln__segment-pct {
+  font-size: 0.55rem;
+  font-family: var(--font-mono, monospace);
+  color: var(--text3);
+  letter-spacing: 0.06em;
+}
+.fln__segment-col--current .fln__segment-pct {
+  color: rgba(255, 255, 255, 0.8);
+}
 
 /* ── Compact modifier (level overview pages) ── */
 .fln--compact {
