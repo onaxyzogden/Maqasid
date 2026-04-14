@@ -116,7 +116,7 @@ body{background:var(--char);color:var(--parchment);font-family:var(--sans);line-
 .num-item.no-title .num-text{color:#acacaa;}
 
 /* ── PRODUCT CARDS ── */
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:1.5rem;}
 .product-card{position:relative;display:flex;flex-direction:column;padding:2rem 1.75rem 1.75rem;background:rgba(10,9,6,0.5);border:1px solid rgba(184,144,80,0.14);border-radius:3px;text-decoration:none;transition:background 0.3s,border-color 0.3s;overflow:hidden;}
 .product-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);transform:scaleY(0);transition:transform 0.4s;transform-origin:center;}
 .product-card:hover{background:rgba(18,16,11,0.78);border-color:rgba(184,144,80,0.32);}
@@ -162,6 +162,7 @@ footer{position:relative;z-index:1;padding:2rem 2.5rem;display:flex;align-items:
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;opacity:1!important;transform:none!important;}.nav-drawer{transition:none;}.nav-toggle span{transition:none;}}
+@media(max-width:1100px){.products-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:900px){.products-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto;}}
 @media(max-width:680px){.nav-sections{display:none;}.nav-toggle{display:flex;}.nav-drawer.open{display:flex;}.hero-headline{font-size:2.4rem;}.section{padding:5rem 1.5rem;}.num-item{padding-left:1.25rem;}}
 
@@ -257,7 +258,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
           <span class="pathway-title">Into the Work</span>
         </div>
         <p class="pathway-desc">
-          Atlas, Moontrance, and BBOS &mdash; three expressions of one intention.
+          Atlas, Moontrance, BBOS, and Maqasid OS &mdash; four expressions of one intention.
         </p>
       </div>
       <span class="pathway-arrow" aria-hidden="true">→</span>
@@ -338,13 +339,14 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <p class="sec-eyebrow reveal">What OGDEN is</p>
     <div class="sec-rule reveal" aria-hidden="true"></div>
     <h2 class="sec-headline reveal" id="what-h">
-      Three expressions<br>of <em>one intention.</em>
+      Four expressions<br>of <em>one intention.</em>
     </h2>
     <p class="sec-body reveal" style="margin-top:1.75rem;">Islamic ways to build, operate, and own &mdash; in ways that are worthy of Allah&rsquo;s amanah.</p>
-    <div class="triptych" aria-label="Three product promises">
+    <div class="triptych" aria-label="Four product promises">
       <p class="triptych-line">A place to stand on earth and remember <em>why it matters.</em></p>
       <p class="triptych-line">See the land for what it truly is &mdash; <em>before you commit to it.</em></p>
       <p class="triptych-line">Build and operate a business <em>without losing yourself in it.</em></p>
+      <p class="triptych-line">Manage your whole life as one trust &mdash; <em>seven pillars, one operating system.</em></p>
     </div>
   </div>
 </section>
@@ -384,6 +386,15 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
         <span class="product-link">Explore Atlas <span aria-hidden="true">→</span></span>
       </a>
 
+      <!-- MAQASID OS -->
+      <a href="/maqasid/" class="product-card reveal">
+        <div class="product-status">
+          <span class="product-status-badge">&#9671;</span>
+        </div>
+        <p class="product-name">An Islamic life operating system that manages work, money, people, and operations across the Seven Maqasid &mdash; so your whole life runs as one coherent trust, not seven separate emergencies.</p>
+        <span class="product-link">Explore Maqasid OS <span aria-hidden="true">&rarr;</span></span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -396,7 +407,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
       If this resonates,<br><em>you are who this is for.</em>
     </h2>
     <p class="cta-sub reveal">
-      If you see yourself in any of these three domains, there may be a place for you here.
+      If you see yourself in any of these four domains, there may be a place for you here.
     </p>
     <a href="/connect/" class="cta-btn reveal">
       Get in Touch
