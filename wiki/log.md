@@ -7,6 +7,13 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | Task clicks → popup modal on pillar level pages
+- Removed `inlinePanel` from ProjectBoard in PillarLevelPage — DashboardTaskCard clicks now open TaskDetailPanel portal modal instead of InlineTaskDetail inline
+- Added `onSubsegClick` to LevelNavigator in PillarLevelPage — subseg (task progress bar segment) clicks now open TaskDetailPanel modal instead of navigating to `?task=` URL
+- State: `subsegTask { taskId, project }` held in PillarLevelPage; project resolved via `getProject(${boardPrefix}_${pillarId}_${activeLevel})`
+- Verified in preview: card click opens modal, subseg click opens modal for correct task ("Testify there is no God but Allah")
+- Files: PillarLevelPage.jsx
+
 ## [2026-04-14] website | Maqasid OS microsite and landing page update
 - Created `website/maqasid/index.html` — product landing page with hero (59:18), purpose, threshold, solution, seven-pillar grid, CTA
 - Created `website/maqasid/journey/index.html` — journey detail page with spine, now-marker at 18%, 4 phases, 8 milestones (6 done)

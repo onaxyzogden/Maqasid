@@ -4,6 +4,7 @@ import { useTaskStore } from '@store/task-store';
 import { safeGet, safeSet } from '@services/storage';
 import LevelNavigator from '@components/shared/LevelNavigator';
 import ProjectBoard from '@components/work/ProjectBoard';
+import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import { useAyahBanner } from '@hooks/useAyahBanner';
 import './PillarLevelPage.css';
 
@@ -33,6 +34,8 @@ export default function PillarLevelPage({
   levelRoutes = {},
   levelDescriptions,
 }) {
+  const [subsegTask, setSubsegTask] = useState(null);
+
   const [activeLevel, setActiveLevelRaw] = useState(() => {
     const saved = safeGet(storageKey, 'core');
     return VALID_LEVELS.includes(saved) ? saved : 'core';
@@ -74,11 +77,24 @@ export default function PillarLevelPage({
         ensureProjects={ensureProjects}
         levelRoutes={levelRoutes}
         levelDescriptions={levelDescriptions}
+        onSubsegClick={(taskId, pillarId) => {
+          const proj = getProject(`${boardPrefix}_${pillarId}_${activeLevel}`);
+          if (proj) setSubsegTask({ taskId, project: proj });
+        }}
       />
+      {subsegTask?.project && (
+        <TaskDetailPanel
+          project={subsegTask.project}
+          projectId={subsegTask.project.id}
+          taskId={subsegTask.taskId}
+          onClose={() => setSubsegTask(null)}
+          bbosRole={subsegTask.project.bbosRole || 'all'}
+        />
+      )}
       <div className="fpb-layout">
         <div className="fpb-content">
           {project ? (
-            <ProjectBoard projectId={boardId} project={project} hideFilter hideViewSwitcher inlinePanel />
+            <ProjectBoard projectId={boardId} project={project} hideFilter hideViewSwitcher />
           ) : (
             <div style={{ padding: 'var(--space-8)', textAlign: 'center', color: 'var(--text2)' }}>
               Loading board...
