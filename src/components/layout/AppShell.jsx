@@ -65,7 +65,8 @@ export default function AppShell() {
   // Clear niyyahOverrideOpen on route change to prevent modal re-trigger
   useEffect(() => {
     if (niyyahOverrideOpen) closeNiyyahOverride();
-  }, [location.pathname, niyyahOverrideOpen, closeNiyyahOverride]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   // Preload all project tasks so cross-project search works
   useEffect(() => {

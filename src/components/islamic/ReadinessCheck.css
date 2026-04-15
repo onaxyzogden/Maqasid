@@ -66,16 +66,29 @@
 .rc-card-wizard {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .rc-card-wizard__instructions {
   font-size: var(--text-2xs);
   color: var(--text3);
-  opacity: 0.6;
+  opacity: 0.75;
   font-style: italic;
   line-height: 1.5;
   margin: 0;
+}
+
+/* Animated content wrapper — slides in from correct direction on row change */
+.rc-card-content {
+  display: contents; /* transparent to flex layout; gap from parent still applies */
+}
+
+.rc-card-content--next {
+  animation: slideInFromRight var(--duration-lg) var(--ease);
+}
+
+.rc-card-content--prev {
+  animation: slideInFromLeft var(--duration-lg) var(--ease);
 }
 
 /* Group header (attribute name, arabic, title, frame) */
@@ -264,12 +277,16 @@
 }
 
 .rc-card-nav__btn--prev {
-  padding: 10px 16px;
+  padding: 10px 20px;
   color: var(--text3);
+  border: 1px solid var(--border);
+  background: none;
 }
 
 .rc-card-nav__btn--prev:hover {
   color: var(--text);
+  background: var(--bg3);
+  border-color: var(--border2);
 }
 
 /* Mobile: stack cards */

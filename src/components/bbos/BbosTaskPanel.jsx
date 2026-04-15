@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import {
   X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp,
   Download, Upload, Loader, Ban, Eye, BookOpen, ArrowUpRight, ArrowDownRight,
+  Bookmark,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
@@ -63,6 +64,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
   const [draftWarnings, setDraftWarnings] = useState([]);
   const [closing, setClosing] = useState(false);
   const [discardConfirm, setDiscardConfirm] = useState(false);
+  const [validationErrors, setValidationErrors] = useState([]);
   const saveTimeout = useRef(null);
   const abortRef = useRef(null);
   const taskColumnIdRef = useRef(task?.columnId);
@@ -157,6 +159,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
   const handleFieldChange = (fieldId, value) => {
     const next = { ...localFields, [fieldId]: value };
     setLocalFields(next);
+    // Clear validation error for this field when user fills it
+    if (value && value.trim()) {
+      setValidationErrors((prev) => prev.filter((id) => id !== fieldId));
+    }
     clearTimeout(saveTimeout.current);
     saveTimeout.current = setTimeout(() => {
       updateBbosFieldData(projectId, taskId, fieldId, value);
@@ -497,12 +503,23 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
           )}
         </div>
 
+        {/* Validation error banner */}
+        {validationErrors.length > 0 && (
+          <div className="btp-validation-banner">
+            <AlertTriangle size={16} />
+            <span>{validationErrors.length} required field{validationErrors.length > 1 ? 's' : ''} must be completed before marking Done</span>
+          </div>
+        )}
+
         {/* Form fields */}
         <div className="btp-fields">
           {def.fields.map((field) => (
             <ErrorBoundary key={field.id} name={field.label}>
-              <div className="btp-field">
-                <label className="btp-field-label" htmlFor={`btp-field-${field.id}`}>{field.label}</label>
+              <div className={`btp-field${validationErrors.includes(field.id) ? ' btp-field--error' : ''}`}>
+                <label className="btp-field-label" htmlFor={`btp-field-${field.id}`}>
+                  {field.label}
+                  {validationErrors.includes(field.id) && <span className="btp-field-required"> *</span>}
+                </label>
                 {field.type === 'textarea' ? (
                   <textarea
                     id={`btp-field-${field.id}`}
@@ -700,7 +717,27 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
               Confirm Discard?
             </button>
           )}
-          <button type="button" className="btp-done-btn" onClick={() => handleClose.current()}>
+          <button type="button" className="btp-save-later-btn" onClick={() => handleClose.current()}>
+            <Bookmark size={14} /> Save for Later
+          </button>
+          <button type="button" className={`btp-done-btn${validationErrors.length ? ' btp-done-btn--shake' : ''}`} onClick={() => {
+            // Validate: all defined fields must have content
+            const empty = (def.fields || [])
+              .filter((f) => {
+                const val = localFields[f.id];
+                return !val || (typeof val === 'string' && !val.trim());
+              })
+              .map((f) => f.id);
+            if (empty.length > 0) {
+              setValidationErrors(empty);
+              // Scroll to first error field
+              const firstErr = document.getElementById(`btp-field-${empty[0]}`);
+              if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              return;
+            }
+            setValidationErrors([]);
+            handleClose.current();
+          }}>
             <Check size={14} /> Done
           </button>
         </div>

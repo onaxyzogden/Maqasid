@@ -274,18 +274,24 @@ export default function LevelNavigator({
                   >
                     {label}
                   </button>
-                  {pillarProgress?.[id] !== undefined && (
-                    <span className="fln__segment-pct">{pillarProgress[id]}%</span>
-                  )}
+
                 </div>
                 {gate && (
-                  <div
+                  <button
+                    type="button"
                     className={`fln__gate-indicator fln__gate-indicator--${gate.status}`}
                     title={`${gate.label} (${gate.status})`}
                     aria-label={`Gate: ${gate.label} — ${gate.status}`}
+                    onClick={() => {
+                      if (onSegmentClick) onSegmentClick(gate.afterSegmentId, active.key);
+                      setTimeout(() => {
+                        const target = document.querySelector('.bfd__assembly-gate') || document.querySelector('.bfd__ssc');
+                        target?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }, 150);
+                    }}
                   >
                     <span className="fln__gate-diamond">&#x25C6;</span>
-                  </div>
+                  </button>
                 )}
               </Fragment>
             );

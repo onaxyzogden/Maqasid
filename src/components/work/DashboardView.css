@@ -486,9 +486,3 @@
   }
 }
 
-@media (max-width: 767px) {
-  .proj-dash {
-    height: auto;
-    overflow-y: visible;
-  }
-}

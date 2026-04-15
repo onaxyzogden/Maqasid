@@ -389,23 +389,224 @@
   transform: scale(0.97);
 }
 
+/* ── Slide container (keyed remount animation) ── */
+.tdp-slide-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.tdp-slide-forward {
+  animation: tdpSlideInRight var(--duration-lg) var(--ease);
+}
+.tdp-slide-back {
+  animation: tdpSlideInLeft var(--duration-lg) var(--ease);
+}
+@keyframes tdpSlideInRight {
+  from { transform: translateX(40px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes tdpSlideInLeft {
+  from { transform: translateX(-40px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+/* ── Back button in header ── */
+.tdp-back-btn {
+  all: unset;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--text2);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  flex-shrink: 0;
+}
+.tdp-back-btn:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+/* ── Document view ── */
+.tdp-doc-title-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tdp-doc-task-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.tdp-doc-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--bg2, var(--surface2));
+  transition: background var(--duration) var(--ease);
+}
+.tdp-doc-field:hover {
+  background: var(--bg3, var(--surface-dim));
+}
+.tdp-doc-field--tags {
+  flex-wrap: wrap;
+}
+
+.tdp-doc-field__icon {
+  color: var(--tdp-accent);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.tdp-doc-field__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+.tdp-doc-select,
+.tdp-doc-date {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+.tdp-doc-select:focus,
+.tdp-doc-date:focus {
+  color: var(--tdp-accent);
+}
+
+/* Tags */
+.tdp-doc-tags {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.tdp-doc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: color-mix(in srgb, var(--tdp-accent) 12%, transparent);
+  color: var(--tdp-accent);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+}
+.tdp-doc-tag__remove {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--duration) var(--ease);
+}
+.tdp-doc-tag__remove:hover {
+  opacity: 1;
+}
+.tdp-doc-tag-input {
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: var(--text);
+  font-family: inherit;
+  outline: none;
+  min-width: 80px;
+  padding: 4px 0;
+}
+.tdp-doc-tag-input::placeholder {
+  color: var(--text3);
+}
+
+/* Created/Updated meta */
+.tdp-doc-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+.tdp-doc-meta__item {
+  font-size: 12px;
+  color: var(--text3);
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .task-detail-panel {
-    width: 95vw;
-    max-height: 90vh;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
   }
   .tdp-header {
-    padding: 20px 24px;
+    padding: 16px 20px;
   }
   .tdp-body {
-    padding: 24px;
-    gap: 24px;
+    padding: 20px;
+    gap: 20px;
   }
   .tdp-footer {
-    padding: 20px 24px;
+    padding: 16px 20px;
   }
   .tdp-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+  }
+  .tdp-subtask-row {
+    padding: 12px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+  .tdp-subtask-circle {
+    width: 28px;
+    height: 28px;
+  }
+  .tdp-subtask-text {
+    font-size: 15px;
+  }
+  .tdp-notes-container {
+    padding: 16px;
+  }
+  .tdp-doc-btn {
+    padding: 12px 32px;
+    font-size: 13px;
+  }
+  /* Document view mobile */
+  .tdp-doc-task-title {
+    font-size: 1.25rem;
+  }
+  .tdp-doc-field {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .tdp-doc-field__label {
+    min-width: 60px;
+    font-size: 12px;
+  }
+  .tdp-doc-select,
+  .tdp-doc-date {
+    font-size: 13px;
   }
 }

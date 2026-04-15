@@ -312,7 +312,11 @@ export default function ThresholdModal({ type }) {
                     ? <><Pause size={14} /> Pause</>
                     : s === 'Dua' && isIslamic
                       ? <IslamicTerm id="dua">Dua</IslamicTerm>
-                      : s
+                      : s === 'Attributes' && isIslamic
+                        ? 'Allah ﷻ'
+                        : s === 'Readiness'
+                          ? 'Ready?'
+                          : s
                   }
                 </button>
               ))}

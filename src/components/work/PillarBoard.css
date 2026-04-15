@@ -560,6 +560,6 @@
 
 @media (max-width: 767px) {
   .fpd__fab {
-    bottom: calc(56px + var(--space-6));
+    bottom: calc(var(--mobile-nav-h) + var(--space-6));
   }
 }

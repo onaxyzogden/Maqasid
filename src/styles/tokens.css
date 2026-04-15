@@ -155,6 +155,7 @@
 
   /* Layout */
   --topbar-h: 56px;
+  --mobile-nav-h: 56px;
   --sidebar-w: 248px;
   --sidebar-w-collapsed: 64px;
   --islamic-panel-w: 280px;

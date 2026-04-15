@@ -226,15 +226,19 @@
 
 /* ── Gate indicators (00A / 01B patch stages) ── */
 .fln__gate-indicator {
+  all: unset;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   flex-shrink: 0;
-  background: none;
-  border: none;
-  padding: 0;
   align-self: center;
+  cursor: pointer;
+  transition: transform var(--duration) var(--ease);
+}
+.fln__gate-indicator:hover {
+  transform: scale(1.3);
 }
 .fln__gate-diamond {
   font-size: var(--text-sm);

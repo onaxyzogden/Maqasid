@@ -278,7 +278,7 @@
   position: fixed; top: 0; left: 0; bottom: 0;
   width: var(--sidebar-w);
   z-index: 50;
-  padding-bottom: 56px; /* clear fixed mobile-nav bar */
+  padding-bottom: var(--mobile-nav-h); /* clear mobile nav when sidebar overlays grid */
   animation: slideInLeft var(--duration-lg) var(--ease);
 }
 

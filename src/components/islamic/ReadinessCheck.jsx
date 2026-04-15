@@ -75,6 +75,7 @@ function RCCardPair({ row, yesLabel, nytLabel, selections, onSelect }) {
 // ── Interactive readiness — card wizard (one row per page) ──
 function RCInteractive({ rows, selections, onSelect }) {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [dir, setDir] = useState('next'); // 'next' | 'prev' — drives slide animation direction
 
   // Build label lookup — each row inherits labels from the most recent row that defined them
   const labelledRows = [];
@@ -96,15 +97,20 @@ function RCInteractive({ rows, selections, onSelect }) {
 
   const total = labelledRows.length;
   const current = labelledRows[currentIdx];
-  const completedCount = rows.filter((r) => selections[r.id] != null).length;
   const currentAnswered = selections[current.id] != null;
 
   const handleNext = () => {
-    if (currentIdx < total - 1) setCurrentIdx(currentIdx + 1);
+    if (currentIdx < total - 1) {
+      setDir('next');
+      setCurrentIdx(currentIdx + 1);
+    }
   };
 
   const handlePrev = () => {
-    if (currentIdx > 0) setCurrentIdx(currentIdx - 1);
+    if (currentIdx > 0) {
+      setDir('prev');
+      setCurrentIdx(currentIdx - 1);
+    }
   };
 
   return (
@@ -113,28 +119,31 @@ function RCInteractive({ rows, selections, onSelect }) {
         Select the card that reflects where you are right now.
       </p>
 
-      {/* Attribute header — show when this row starts or continues a named attribute */}
-      {current._attr && (
-        <>
-          <div className="rc-card-group-header">
-            <span className="rc-card-attr">{current._attr.name}</span>
-            {current._attr.ar && <span className="rc-card-attr-ar">{current._attr.ar}</span>}
-            {current._attr.title && <span className="rc-card-attr-title">{current._attr.title}</span>}
-          </div>
-          {current._attr.frame && <p className="rc-card-frame">{current._attr.frame}</p>}
-        </>
-      )}
+      {/* Animated wrapper — key forces remount on row change; dir class drives slide direction */}
+      <div key={currentIdx} className={`rc-card-content rc-card-content--${dir}`}>
+        {/* Attribute header — show when this row starts or continues a named attribute */}
+        {current._attr && (
+          <>
+            <div className="rc-card-group-header">
+              <span className="rc-card-attr">{current._attr.name}</span>
+              {current._attr.ar && <span className="rc-card-attr-ar">{current._attr.ar}</span>}
+              {current._attr.title && <span className="rc-card-attr-title">{current._attr.title}</span>}
+            </div>
+            {current._attr.frame && <p className="rc-card-frame">{current._attr.frame}</p>}
+          </>
+        )}
 
-      <RCCardPair
-        row={current}
-        yesLabel={current._yesLabel}
-        nytLabel={current._nytLabel}
-        selections={selections}
-        onSelect={onSelect}
-      />
+        <RCCardPair
+          row={current}
+          yesLabel={current._yesLabel}
+          nytLabel={current._nytLabel}
+          selections={selections}
+          onSelect={onSelect}
+        />
+      </div>
 
       <p className="rc-card-progress">
-        Readiness section: {completedCount}/{total} rows completed
+        {currentIdx + 1} / {total}
       </p>
 
       <div className="rc-card-nav">
