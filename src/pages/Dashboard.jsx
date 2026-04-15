@@ -16,11 +16,14 @@ import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
 import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
 import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
 import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
+import ChartTooltip from '../components/shared/ChartTooltip';
 import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
 
 function BCGChart({ data }) {
+  const svgRef = useRef(null);
   const [range, setRange] = useState('14d');
+  const [tip, setTip] = useState(null);
   const rangeDays = BCG_RANGES.find((r) => r.id === range)?.days ?? 14;
   const filtered = (data || []).slice(-rangeDays);
   const hasData = filtered.some((d) => d.count > 0);
@@ -74,7 +77,7 @@ function BCGChart({ data }) {
           <Link to="/app/work" className="insight-section-empty__cta">Go to tasks</Link>
         </div>
       ) : (
-        <svg viewBox={`0 0 ${W} ${H}`} className="bcg-chart__svg" preserveAspectRatio="xMidYMid meet">
+        <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} className="bcg-chart__svg" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="bcgGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.15" />
@@ -101,8 +104,31 @@ function BCGChart({ data }) {
           <polyline points={linePoints} fill="none" stroke="var(--primary)"
             strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           {points.map((p, i) => (
-            <circle key={i} cx={p.x} cy={p.y} r="3"
-              fill="var(--primary)" stroke="var(--surface)" strokeWidth="1.5" />
+            <circle key={i} cx={p.x} cy={p.y}
+              r={tip?.point === p ? 5 : 3}
+              fill="var(--primary)"
+              stroke={tip?.point === p ? 'var(--primary-border)' : 'var(--surface)'}
+              strokeWidth={tip?.point === p ? 2 : 1.5}
+              style={{ cursor: 'pointer', transition: 'r 0.15s ease' }}
+              onMouseEnter={(e) => {
+                const ctm = e.currentTarget.getScreenCTM();
+                if (!ctm) return;
+                const vx = ctm.a * p.x + ctm.e;
+                const vy = ctm.d * p.y + ctm.f;
+                const svgRect = svgRef.current?.getBoundingClientRect();
+                setTip({ x: vx, y: vy, svgTop: svgRect?.top ?? 0, svgHeight: svgRect?.height ?? 0, point: p });
+              }}
+              onMouseLeave={() => setTip(null)}
+              onClick={(e) => {
+                if (!('ontouchstart' in window)) return;
+                const ctm = e.currentTarget.getScreenCTM();
+                if (!ctm) return;
+                const vx = ctm.a * p.x + ctm.e;
+                const vy = ctm.d * p.y + ctm.f;
+                const svgRect = svgRef.current?.getBoundingClientRect();
+                setTip((prev) => prev?.point === p ? null : { x: vx, y: vy, svgTop: svgRect?.top ?? 0, svgHeight: svgRect?.height ?? 0, point: p });
+              }}
+            />
           ))}
 
           {points.filter((_, i) => i % Math.ceil(points.length / 7) === 0 || i === points.length - 1).map((p, i) => (
@@ -113,6 +139,13 @@ function BCGChart({ data }) {
           ))}
         </svg>
       )}
+      <ChartTooltip visible={!!tip} x={tip?.x ?? 0} y={tip?.y ?? 0} anchor="crosshair"
+        crosshairTop={tip?.svgTop ?? 0} crosshairHeight={tip?.svgHeight ?? 0} onDismiss={() => setTip(null)}>
+        <div className="chart-tooltip__value">
+          {tip?.point?.count ?? 0} task{(tip?.point?.count ?? 0) !== 1 ? 's' : ''}
+        </div>
+        <div className="chart-tooltip__label">{tip?.point?.day ?? ''}</div>
+      </ChartTooltip>
       <div className="bcg-chart__legend">
         <span className="bcg-legend-item">
           <span className="bcg-legend-dot" style={{ background: 'var(--primary)' }} /> Tasks completed per day
@@ -123,10 +156,11 @@ function BCGChart({ data }) {
 }
 
 /* ── Workflow Pressure Gauge ── */
-function WorkflowPressure({ level }) {
+function WorkflowPressure({ level, inProgressCount = 0 }) {
   const bars = 10;
   const filled = level === 'low' ? 2 : level === 'medium' ? 5 : 8;
   const color = level === 'low' ? 'var(--success)' : level === 'medium' ? 'var(--warning)' : 'var(--danger)';
+  const [tip, setTip] = useState(null);
 
   return (
     <div className="wf-pressure">
@@ -134,12 +168,31 @@ function WorkflowPressure({ level }) {
         <span className="wf-pressure__title">Workflow Pressure</span>
         <span className="wf-pressure__level" style={{ color }}>{level.toUpperCase()}</span>
       </div>
-      <div className="wf-pressure__bars">
+      <div className="wf-pressure__bars"
+        onMouseEnter={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          setTip({ x: rect.left + rect.width / 2, y: rect.top });
+        }}
+        onMouseLeave={() => setTip(null)}
+        onClick={(e) => {
+          if (!('ontouchstart' in window)) return;
+          const rect = e.currentTarget.getBoundingClientRect();
+          setTip((prev) => prev ? null : { x: rect.left + rect.width / 2, y: rect.top });
+        }}
+      >
         {Array.from({ length: bars }).map((_, i) => (
           <div key={i} className={`wf-bar ${i < filled ? 'filled' : ''}`}
             style={i < filled ? { background: color } : undefined} />
         ))}
       </div>
+      <ChartTooltip visible={!!tip} x={tip?.x ?? 0} y={tip?.y ?? 0} anchor="above" onDismiss={() => setTip(null)}>
+        <div className="chart-tooltip__value" style={{ color }}>
+          {level.charAt(0).toUpperCase() + level.slice(1)} pressure
+        </div>
+        <div className="chart-tooltip__label">
+          {filled} of 10 &middot; {inProgressCount} task{inProgressCount !== 1 ? 's' : ''} in progress
+        </div>
+      </ChartTooltip>
       <div className="wf-pressure__labels">
         <span>Low</span><span>Medium</span><span>High</span>
       </div>
@@ -600,7 +653,7 @@ export default function Dashboard() {
           </div>
 
           {/* Workflow Pressure */}
-          <WorkflowPressure level={pressureLevel} />
+          <WorkflowPressure level={pressureLevel} inProgressCount={stats.inProgress} />
 
           {/* Upcoming tasks & events */}
           <div className="insight-upcoming">
