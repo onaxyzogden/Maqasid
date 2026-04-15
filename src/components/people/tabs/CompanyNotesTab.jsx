@@ -29,6 +29,7 @@ export default function CompanyNotesTab({ companyId }) {
         value={notes}
         onChange={handleChange}
         placeholder="Add notes about this company..."
+        aria-label="Company notes"
         style={{
           width: '100%', minHeight: 200, padding: '12px 14px',
           borderRadius: 10, border: '1.5px solid var(--border)',
@@ -38,7 +39,7 @@ export default function CompanyNotesTab({ companyId }) {
         }}
       />
       {!saved && (
-        <button onClick={handleSave} style={{
+        <button type="button" onClick={handleSave} style={{
           alignSelf: 'flex-end', padding: '7px 16px', borderRadius: 8,
           background: 'var(--mod-people)', color: '#fff',
           border: 'none', fontWeight: 600, fontSize: 13, cursor: 'pointer',

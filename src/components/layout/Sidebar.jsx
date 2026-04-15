@@ -113,14 +113,14 @@ export default function Sidebar() {
             <span>MAQASID</span>
           </Link>
         )}
-        <button className="sidebar-toggle" onClick={toggleSidebar} title={collapsed ? 'Expand' : 'Collapse'}>
+        <button className="sidebar-toggle" onClick={toggleSidebar} title={collapsed ? 'Expand' : 'Collapse'} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>
           {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
         </button>
       </div>
 
       {/* Search */}
       <div className="sidebar-search-wrap">
-        <button className="sidebar-search-btn" onClick={() => setSearchOpen(true)} title="Search (⌘K)">
+        <button className="sidebar-search-btn" onClick={() => setSearchOpen(true)} title="Search (⌘K)" aria-label="Open search">
           <Search size={16} />
           {!collapsed && (
             <>
@@ -132,7 +132,7 @@ export default function Sidebar() {
       </div>
 
       {/* Main Nav */}
-      <nav className="sidebar-nav">
+      <nav className="sidebar-nav" aria-label="Main navigation">
         <Link
           to="/app"
           className={`sidebar-item ${location.pathname === '/app' ? 'active' : ''}`}
@@ -163,6 +163,7 @@ export default function Sidebar() {
               <button
                 className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
                 style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
+                aria-expanded={isExpanded}
                 onClick={() => {
                   if (collapsed) {
                     toggleSidebar();
@@ -234,6 +235,7 @@ export default function Sidebar() {
           className="sidebar-item"
           onClick={() => setNotifOpen(true)}
           title="Notifications"
+          aria-label="Open notifications"
         >
           <Bell size={18} />
           {!collapsed && <span>Notifications</span>}

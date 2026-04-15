@@ -7,6 +7,29 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] audit+fix | WCAG 2.1 AA Accessibility Audit (System Report §11.9)
+- Full accessibility audit across 5 component tiers: layout shell (5 files), modals/overlays (5 files), shared widgets (4 files), forms (5 files), dashboards/charts (5 files) + design tokens
+- **24 Critical issues identified**, 50+ Major, all addressed in this session
+- **New: `useFocusTrap` hook** (`src/hooks/useFocusTrap.js`) — reusable focus trap with Escape-to-close + focus restoration, applied to 6 components
+- **Global `:focus-visible` styles** added to `tokens.css` — 2px solid primary outline on all focusable elements across entire app
+- **Skip-to-main-content link** added to AppShell (hidden until focused)
+- **`prefers-reduced-motion` media query** — global animation/transition suppression for users who request it
+- **Color contrast fixes** — Light `--danger` #ef4444→#dc2626, dark `--danger` added #f87171, dark `--text3` #6b6560→#a09a94, `--pri-urgent` aligned to #dc2626. All pairs now meet WCAG AA 4.5:1 ratio
+- **Dialog ARIA** — `role="dialog"`, `aria-modal="true"`, `aria-labelledby`, focus trap applied to: ThresholdModal, PrayerOverlay, ResumeOverlay, TaskDetailPanel, NotificationsPanel, SearchPalette
+- **PrayerOverlay contrast** — text opacity increased from 0.25/0.3 to 0.7 for countdown and dismiss button
+- **Icon button `aria-label`s** — 15+ icon-only buttons labeled across TopBar (7), Sidebar (3), NotificationsPanel (1), SkillsTab (1)
+- **Sidebar pillar headers** — `aria-expanded` added to collapsible sections
+- **NotificationsPanel tabs** — `role="tab"` + `aria-selected` added
+- **Nav landmarks** — `aria-label="Main navigation"` on Sidebar nav, `aria-label="Mobile navigation"` on MobileNav
+- **Form labels** — 25+ `aria-label` / `htmlFor`+`id` associations added across ExpensePanel, BbosTaskPanel, CompanyNotesTab, SkillsTab, CategoryPanel. `aria-required` on required fields, `type="button"` on 20+ buttons
+- **SVG chart accessibility** — `role="img"` + descriptive `aria-label` + `<title>` on 7 chart SVGs (ActivityChart, MoneyDashboard bar/donut/cost, BCGChart, WorkflowPressure, MasteryRing). ChartTooltip gets `role="tooltip" aria-hidden="true"`
+- **SearchPalette ARIA combobox** — `role="combobox"` on input, `role="listbox"` on results, `role="option"` + `aria-selected` + `id` on each result, `aria-activedescendant` tracking
+- **LevelNavigator** — `aria-live="polite"` on center region, `aria-label` on nav buttons/gates/subsegments
+- **IslamicTerm** — `:focus-visible` outline added in CSS, existing `role="note"` + `aria-describedby` + `tabIndex={0}` preserved
+- **AppShell edge handles** — `aria-hidden="true"` on decorative resize divs
+- Files created: `src/hooks/useFocusTrap.js`
+- Files modified (20): tokens.css, AppShell.jsx, Sidebar.jsx, TopBar.jsx, MobileNav.jsx, NotificationsPanel.jsx, ThresholdModal.jsx, PrayerOverlay.jsx, PrayerOverlay.css, ResumeOverlay.jsx, TaskDetailPanel.jsx, SearchPalette.jsx, LevelNavigator.jsx, IslamicTerm.css, ChartTooltip.jsx, ActivityChart.jsx, MoneyDashboard.jsx, Dashboard.jsx, PillarLevelDashboard.jsx, ExpensePanel.jsx, BbosTaskPanel.jsx, CompanyNotesTab.jsx, SkillsTab.jsx, CategoryPanel.jsx
+
 ## [2026-04-15] implement | People Module Stabilization (System Report §11.6)
 - Audit confirmed module is stable — not mid-refactor as report suggested. 42 .jsx files, 3 stores, 6 sub-directories all functional.
 - **CompanyNotesTab:** Wired to contacts-store — notes now persist via `updateCompany(companyId, { notes })`. Was local-only state.

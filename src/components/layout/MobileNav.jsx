@@ -33,7 +33,7 @@ export default function MobileNav() {
   ];
 
   return (
-    <nav className="mobile-nav">
+    <nav className="mobile-nav" aria-label="Mobile navigation">
       {items.map((item) => {
         const Icon = item.icon;
         const active = item.exact

@@ -79,7 +79,7 @@ export default function ChartTooltip({
 
   return createPortal(
     <>
-      <div className={className} style={style}>
+      <div className={className} style={style} role="tooltip" aria-hidden="true">
         {children}
         {anchor === 'above' && <div className="chart-tooltip__arrow" />}
       </div>

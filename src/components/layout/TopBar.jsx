@@ -114,7 +114,7 @@ export default function TopBar() {
       <header className="topbar">
         <div className="topbar-left">
           {mobile && (
-            <button className="topbar-btn" onClick={toggleSidebar} title={tip('Menu')}>
+            <button className="topbar-btn" onClick={toggleSidebar} title={tip('Menu')} aria-label="Toggle sidebar">
               <Menu size={20} />
             </button>
           )}
@@ -149,6 +149,7 @@ export default function TopBar() {
               className="topbar-btn"
               onClick={() => setReflectionOpen(true)}
               title={tip('Record Reflection')}
+              aria-label="Open reflection journal"
             >
               <PenLine size={18} />
             </button>
@@ -158,6 +159,7 @@ export default function TopBar() {
               className="topbar-btn"
               onClick={() => setClockInOpen(true)}
               title={tip('Clock in')}
+              aria-label="Clock in"
             >
               <Clock size={18} />
             </button>
@@ -167,6 +169,7 @@ export default function TopBar() {
               className="topbar-btn"
               onClick={() => setDiscussionOpen(true)}
               title={tip('Discussion')}
+              aria-label="Open discussion"
             >
               <MessagesSquare size={18} />
             </button>
@@ -175,6 +178,7 @@ export default function TopBar() {
             className={`topbar-btn ${islamicPanelOpen ? 'topbar-btn-active' : ''}`}
             onClick={toggleIslamicPanel}
             title={tip(`${valuesLayer === 'islamic' ? 'Islamic' : 'Values'} Panel (Cmd+I)`)}
+            aria-label="Toggle Islamic panel"
           >
             {valuesLayer === 'islamic' ? <MoonStar size={18} /> : <Compass size={18} />}
           </button>
@@ -182,6 +186,7 @@ export default function TopBar() {
             className="topbar-btn"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             title={tip('Toggle theme')}
+            aria-label="Toggle dark mode"
           >
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -190,6 +195,7 @@ export default function TopBar() {
               className="topbar-btn"
               onClick={() => setTooltipsEnabled(!tooltipsEnabled)}
               title={tooltipsEnabled ? 'Hide tooltips' : undefined}
+              aria-label="Toggle tooltips"
             >
               {tooltipsEnabled ? <MessageCircle size={18} /> : <MessageCircleOff size={18} />}
             </button>

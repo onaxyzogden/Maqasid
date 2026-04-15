@@ -77,7 +77,9 @@ function BCGChart({ data }) {
           <Link to="/app/work" className="insight-section-empty__cta">Go to tasks</Link>
         </div>
       ) : (
-        <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} className="bcg-chart__svg" preserveAspectRatio="xMidYMid meet">
+        <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} className="bcg-chart__svg" preserveAspectRatio="xMidYMid meet"
+          role="img" aria-label="Barakah consistency graph showing daily task completions">
+          <title>Barakah Consistency Graph</title>
           <defs>
             <linearGradient id="bcgGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.15" />
@@ -168,7 +170,7 @@ function WorkflowPressure({ level, inProgressCount = 0 }) {
         <span className="wf-pressure__title">Workflow Pressure</span>
         <span className="wf-pressure__level" style={{ color }}>{level.toUpperCase()}</span>
       </div>
-      <div className="wf-pressure__bars"
+      <div className="wf-pressure__bars" role="img" aria-label="Workflow pressure gauge"
         onMouseEnter={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
           setTip({ x: rect.left + rect.width / 2, y: rect.top });

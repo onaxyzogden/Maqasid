@@ -346,6 +346,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                 className="btp-status-select"
                 value={task.columnId}
                 onChange={(e) => moveTask(projectId, taskId, e.target.value, undefined, project.columns)}
+                aria-label="Task status"
               >
                 {columns.map((c) => (
                   <option key={c.id} value={c.id}>{c.name}</option>
@@ -367,6 +368,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
               <select
                 className="btp-status-select"
                 value={task.assigneeId || ''}
+                aria-label="Assignee"
                 onChange={(e) => {
                   const val = e.target.value;
                   updateTask(projectId, taskId, { assigneeId: val || null });
@@ -404,7 +406,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
           </div>
         </div>
 
-        <button className="btp-close-btn" onClick={() => handleClose.current()}>
+        <button type="button" className="btp-close-btn" onClick={() => handleClose.current()} aria-label="Close panel">
           <X size={18} />
         </button>
       </div>
@@ -456,10 +458,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
               <span className="btp-bento-card__subtitle">JSON import/export</span>
               <div className="btp-template-card">
                 <div className="btp-template-btns">
-                  <button className="btp-template-icon-btn" onClick={handleDownloadTemplate} title="Download template">
+                  <button type="button" className="btp-template-icon-btn" onClick={handleDownloadTemplate} title="Download template" aria-label="Download template">
                     <Download size={16} />
                   </button>
-                  <button className="btp-template-icon-btn" onClick={() => templateInputRef.current?.click()} title="Upload template">
+                  <button type="button" className="btp-template-icon-btn" onClick={() => templateInputRef.current?.click()} title="Upload template" aria-label="Upload template">
                     <Upload size={16} />
                   </button>
                   <input
@@ -468,6 +470,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                     accept=".json,.bbos"
                     onChange={handleUploadTemplate}
                     style={{ display: 'none' }}
+                    aria-label="Upload task template file"
                   />
                 </div>
               </div>
@@ -478,8 +481,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         {/* Rationale accordion */}
         <div className="btp-rationale-card">
           <button
+            type="button"
             className="btp-rationale-toggle"
             onClick={() => setRationaleOpen(!rationaleOpen)}
+            aria-expanded={rationaleOpen}
           >
             <div className="btp-rationale-toggle__left">
               <BookOpen size={18} />
@@ -497,9 +502,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
           {def.fields.map((field) => (
             <ErrorBoundary key={field.id} name={field.label}>
               <div className="btp-field">
-                <label className="btp-field-label">{field.label}</label>
+                <label className="btp-field-label" htmlFor={`btp-field-${field.id}`}>{field.label}</label>
                 {field.type === 'textarea' ? (
                   <textarea
+                    id={`btp-field-${field.id}`}
                     className="btp-field-textarea"
                     rows={field.rows || 3}
                     placeholder={field.placeholder || ''}
@@ -509,6 +515,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                   />
                 ) : field.type === 'select' ? (
                   <select
+                    id={`btp-field-${field.id}`}
                     className="btp-field-select"
                     value={localFields[field.id] || ''}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
@@ -521,6 +528,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                   </select>
                 ) : field.type === 'number' ? (
                   <input
+                    id={`btp-field-${field.id}`}
                     type="number"
                     className="btp-field-input"
                     placeholder={field.placeholder || ''}
@@ -530,6 +538,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                   />
                 ) : (
                   <textarea
+                    id={`btp-field-${field.id}`}
                     className="btp-field-input btp-field-textarea"
                     placeholder={field.placeholder || ''}
                     value={localFields[field.id] || ''}
@@ -559,11 +568,13 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
           <div className="btp-section-label">Notes</div>
           <div className="btp-notes-container">
             <textarea
+              id="btp-notes"
               className="btp-notes-textarea"
               value={notes}
               onChange={handleNotesChange}
               placeholder="Write your thoughts or key learnings here..."
               rows={4}
+              aria-label="Notes"
             />
           </div>
         </div>
@@ -601,7 +612,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
             )}
 
             {hasAiConfig() && aiDraftStatus === 'none' && (
-              <button className="btp-generate-btn" onClick={handleGenerateDraft}>
+              <button type="button" className="btp-generate-btn" onClick={handleGenerateDraft}>
                 <Sparkles size={14} /> Generate Draft
               </button>
             )}
@@ -616,7 +627,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                     {streamingText.length > 300 ? '...' + streamingText.slice(-300) : streamingText}
                   </div>
                 )}
-                <button className="btp-draft-btn btp-draft-btn--cancel" onClick={handleCancelDraft}>
+                <button type="button" className="btp-draft-btn btp-draft-btn--cancel" onClick={handleCancelDraft}>
                   <Ban size={14} /> Cancel
                 </button>
               </div>
@@ -637,10 +648,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                   </div>
                 )}
                 <div className="btp-draft-actions">
-                  <button className="btp-draft-btn btp-draft-btn--accept" onClick={handleAcceptDraft}>
+                  <button type="button" className="btp-draft-btn btp-draft-btn--accept" onClick={handleAcceptDraft}>
                     <Check size={14} /> Accept Draft
                   </button>
-                  <button className="btp-draft-btn btp-draft-btn--reject" onClick={handleRejectDraft}>
+                  <button type="button" className="btp-draft-btn btp-draft-btn--reject" onClick={handleRejectDraft}>
                     <RotateCcw size={14} /> Reject Draft
                   </button>
                 </div>
@@ -658,14 +669,14 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                 <div className="btp-draft-status btp-draft-status--error">
                   <AlertTriangle size={14} /> {fieldData._aiDraftError || 'AI generation failed.'}
                 </div>
-                <button className="btp-generate-btn" onClick={handleGenerateDraft}>
+                <button type="button" className="btp-generate-btn" onClick={handleGenerateDraft}>
                   <RotateCcw size={14} /> Retry
                 </button>
               </div>
             )}
 
             {hasAiConfig() && aiDraftStatus === 'rejected' && (
-              <button className="btp-generate-btn" onClick={handleGenerateDraft}>
+              <button type="button" className="btp-generate-btn" onClick={handleGenerateDraft}>
                 <RotateCcw size={14} /> Regenerate Draft
               </button>
             )}
@@ -681,15 +692,15 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         </span>
         <div className="btp-footer-actions">
           {!discardConfirm ? (
-            <button className="btp-discard-btn" onClick={() => setDiscardConfirm(true)}>
+            <button type="button" className="btp-discard-btn" onClick={() => setDiscardConfirm(true)}>
               Discard Changes
             </button>
           ) : (
-            <button className="btp-discard-btn" style={{ color: 'var(--danger)' }} onClick={handleDiscard}>
+            <button type="button" className="btp-discard-btn" style={{ color: 'var(--danger)' }} onClick={handleDiscard}>
               Confirm Discard?
             </button>
           )}
-          <button className="btp-done-btn" onClick={() => handleClose.current()}>
+          <button type="button" className="btp-done-btn" onClick={() => handleClose.current()}>
             <Check size={14} /> Done
           </button>
         </div>
@@ -783,8 +794,9 @@ function RunwayDateModal({ allTasks, runwayMonths, projectId, updateTask, onClos
 
         {/* Start date */}
         <div className="rda-field">
-          <label className="rda-label">Start date</label>
+          <label className="rda-label" htmlFor="rda-start-date">Start date</label>
           <input
+            id="rda-start-date"
             type="date"
             className="rda-date-input"
             value={startDate}
@@ -822,8 +834,8 @@ function RunwayDateModal({ allTasks, runwayMonths, projectId, updateTask, onClos
 
         {/* Actions */}
         <div className="rda-actions">
-          <button className="rda-btn rda-btn--ghost" onClick={onClose}>Cancel</button>
-          <button className="rda-btn rda-btn--primary" onClick={handleApply}>
+          <button type="button" className="rda-btn rda-btn--ghost" onClick={onClose}>Cancel</button>
+          <button type="button" className="rda-btn rda-btn--primary" onClick={handleApply}>
             Apply Dates
           </button>
         </div>

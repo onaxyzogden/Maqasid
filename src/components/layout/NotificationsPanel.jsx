@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { X } from 'lucide-react';
 import { createPortal } from 'react-dom';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
@@ -22,6 +23,7 @@ function relativeTime(iso) {
 }
 
 export default function NotificationsPanel({ onClose }) {
+  const trapRef = useFocusTrap(true, onClose);
   const [tab, setTab] = useState('all');
   const user = useAuthStore((s) => s.user);
   const projects = useProjectStore((s) => s.projects);
@@ -134,11 +136,11 @@ export default function NotificationsPanel({ onClose }) {
 
   return createPortal(
     <div className="notif-overlay" onClick={onClose}>
-      <div className="notif-panel" onClick={(e) => e.stopPropagation()}>
+      <div className="notif-panel" ref={trapRef} role="dialog" aria-modal="true" aria-labelledby="notifications-title" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="notif-panel__header">
-          <h2 className="notif-panel__title">Notifications</h2>
-          <button className="notif-panel__close" onClick={onClose}>
+          <h2 className="notif-panel__title" id="notifications-title">Notifications</h2>
+          <button className="notif-panel__close" onClick={onClose} aria-label="Close notifications">
             <X size={18} />
           </button>
         </div>
@@ -148,11 +150,15 @@ export default function NotificationsPanel({ onClose }) {
           <button
             className={`notif-tab ${tab === 'all' ? 'active' : ''}`}
             onClick={() => setTab('all')}
+            role="tab"
+            aria-selected={tab === 'all'}
           >All</button>
           <span className="notif-tab-sep">/</span>
           <button
             className={`notif-tab ${tab === 'mine' ? 'active' : ''}`}
             onClick={() => setTab('mine')}
+            role="tab"
+            aria-selected={tab === 'mine'}
           >Mine</button>
         </div>
 

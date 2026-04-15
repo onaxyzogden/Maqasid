@@ -200,6 +200,7 @@ export default function LevelNavigator({
         onClick={() => prev && handlePrev()}
         role={prev ? 'button' : undefined}
         tabIndex={prev ? 0 : undefined}
+        aria-label={prev ? `Navigate to previous level: ${prev.title}` : undefined}
         onKeyDown={prev ? (e) => e.key === 'Enter' && handlePrev() : undefined}
       >
         {prev ? (
@@ -217,7 +218,7 @@ export default function LevelNavigator({
       </div>
 
       {/* ── Center: active level ── */}
-      <div className="fln__center">
+      <div className="fln__center" aria-live="polite">
         <div key={activeIdx} className={`fln__level-content${slideDir ? ` fln__level-content--${slideDir}` : ''}`}>
         <div className="fln__center-head">
           <span className="fln__center-label" style={{ color: active.color }}>{active.label}</span>
@@ -253,6 +254,7 @@ export default function LevelNavigator({
                         className="fln__subseg"
                         style={{ background: resolveTaskColor(task) }}
                         title={task.title}
+                        aria-label={`Task: ${task.title}`}
                         onClick={(e) => {
                           e.stopPropagation();
                           if (onSubsegClick) { onSubsegClick(task.id, id); }
@@ -280,6 +282,7 @@ export default function LevelNavigator({
                   <div
                     className={`fln__gate-indicator fln__gate-indicator--${gate.status}`}
                     title={`${gate.label} (${gate.status})`}
+                    aria-label={`Gate: ${gate.label} — ${gate.status}`}
                   >
                     <span className="fln__gate-diamond">&#x25C6;</span>
                   </div>
@@ -297,6 +300,7 @@ export default function LevelNavigator({
         onClick={() => next && handleNext()}
         role={next ? 'button' : undefined}
         tabIndex={next ? 0 : undefined}
+        aria-label={next ? `Navigate to next level: ${next.title}` : undefined}
         onKeyDown={next ? (e) => e.key === 'Enter' && handleNext() : undefined}
       >
         {next ? (

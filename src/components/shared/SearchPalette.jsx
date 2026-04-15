@@ -6,6 +6,7 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useContactsStore } from '../../store/contacts-store';
 import { useOfficeStore } from '../../store/office-store';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { PRIORITIES, MODULES } from '../../data/modules';
 import './SearchPalette.css';
 
@@ -84,6 +85,8 @@ export default function SearchPalette() {
     setQuery('');
   }, [setSearchOpen]);
 
+  const trapRef = useFocusTrap(searchOpen, close);
+
   const selectResult = useCallback((item) => {
     close();
     if (item.type === 'project') {
@@ -122,10 +125,10 @@ export default function SearchPalette() {
 
   return (
     <div className="search-overlay" onClick={close}>
-      <div className="search-modal" onClick={(e) => e.stopPropagation()}>
+      <div ref={trapRef} className="search-modal" role="dialog" aria-modal="true" aria-label="Search" onClick={(e) => e.stopPropagation()}>
         {/* Input */}
         <div className="search-input-row">
-          <Search size={18} className="search-icon" />
+          <Search size={18} className="search-icon" aria-hidden="true" />
           <input
             ref={inputRef}
             className="search-input"
@@ -135,12 +138,17 @@ export default function SearchPalette() {
             placeholder="Search projects, tasks, modules, people, events..."
             autoComplete="off"
             spellCheck={false}
+            role="combobox"
+            aria-expanded={allResults.length > 0}
+            aria-controls="search-results-list"
+            aria-activedescendant={allResults[selectedIdx] ? `search-result-${selectedIdx}` : undefined}
+            aria-label="Search projects, tasks, modules, people, events"
           />
-          <kbd className="search-kbd">ESC</kbd>
+          <kbd className="search-kbd" aria-hidden="true">ESC</kbd>
         </div>
 
         {/* Results */}
-        <div className="search-results">
+        <div className="search-results" id="search-results-list" role="listbox" aria-label="Search results">
           {query.length < 2 && (
             <div className="search-hint">Type at least 2 characters to search...</div>
           )}
@@ -157,6 +165,9 @@ export default function SearchPalette() {
                 return (
                   <button
                     key={p.id}
+                    id={`search-result-${idx}`}
+                    role="option"
+                    aria-selected={selectedIdx === idx}
                     className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
                     onClick={() => selectResult({ type: 'project', data: p })}
                     onMouseEnter={() => setSelectedIdx(idx)}
@@ -180,6 +191,9 @@ export default function SearchPalette() {
                 return (
                   <button
                     key={t.id}
+                    id={`search-result-${idx}`}
+                    role="option"
+                    aria-selected={selectedIdx === idx}
                     className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
                     onClick={() => selectResult({ type: 'task', data: t })}
                     onMouseEnter={() => setSelectedIdx(idx)}
@@ -203,6 +217,9 @@ export default function SearchPalette() {
                 return (
                   <button
                     key={m.id}
+                    id={`search-result-${idx}`}
+                    role="option"
+                    aria-selected={selectedIdx === idx}
                     className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
                     onClick={() => selectResult({ type: 'module', data: m })}
                     onMouseEnter={() => setSelectedIdx(idx)}
@@ -225,6 +242,9 @@ export default function SearchPalette() {
                 return (
                   <button
                     key={c.id}
+                    id={`search-result-${idx}`}
+                    role="option"
+                    aria-selected={selectedIdx === idx}
                     className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
                     onClick={() => selectResult({ type: 'person', data: c })}
                     onMouseEnter={() => setSelectedIdx(idx)}
@@ -250,6 +270,9 @@ export default function SearchPalette() {
                 return (
                   <button
                     key={ev.id}
+                    id={`search-result-${idx}`}
+                    role="option"
+                    aria-selected={selectedIdx === idx}
                     className={`search-result ${selectedIdx === idx ? 'selected' : ''}`}
                     onClick={() => selectResult({ type: 'event', data: ev })}
                     onMouseEnter={() => setSelectedIdx(idx)}

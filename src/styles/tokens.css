@@ -44,7 +44,7 @@
   --col-done-bg: rgba(34, 197, 94, 0.08);
 
   /* Priorities */
-  --pri-urgent: #ef4444;
+  --pri-urgent: #dc2626;
   --pri-urgent-bg: rgba(239, 68, 68, 0.08);
   --pri-high: #f59e0b;
   --pri-high-bg: rgba(245, 158, 11, 0.08);
@@ -62,7 +62,7 @@
   --warning-bg: rgba(245, 158, 11, 0.08);
   --warning-border: rgba(245, 158, 11, 0.25);
 
-  --danger: #ef4444;
+  --danger: #dc2626;
   --danger-bg: rgba(239, 68, 68, 0.08);
   --danger-border: rgba(239, 68, 68, 0.25);
 
@@ -255,7 +255,7 @@
 
   --text: #e8e3dc;
   --text2: #9e9690;
-  --text3: #6b6560;
+  --text3: #a09a94;
 
   --primary: #5cc8b8;
   --primary-hover: #4ab8a8;
@@ -281,6 +281,7 @@
 
   --success-bg: rgba(34, 197, 94, 0.12);
   --warning-bg: rgba(245, 158, 11, 0.12);
+  --danger: #f87171;
   --danger-bg: rgba(239, 68, 68, 0.12);
 
   --glass: rgba(26, 29, 36, 0.8);
@@ -361,3 +362,37 @@
 
 /* Faith Dashboard — utility classes */
 .font-manrope { font-family: var(--font-display); }
+
+/* ── Accessibility — Global focus-visible ── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip link — visually hidden until focused */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 10000;
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

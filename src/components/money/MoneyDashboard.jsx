@@ -46,7 +46,7 @@ function BarChart({ data, budgetTarget = 0 }) {
   const budgetPct = budgetTarget > 0 ? (budgetTarget / ceiling) * 100 : 0;
 
   return (
-    <div className="md-chart-outer">
+    <div className="md-chart-outer" role="img" aria-label="Monthly expenses chart">
       <div className="md-chart-wrapper">
         {/* Y-axis */}
         <div className="md-chart-yaxis">
@@ -503,7 +503,7 @@ export default function MoneyDashboard({ onNavigate }) {
             </span>
           </div>
           <h3 className="md-mid-number" style={{ margin: 'var(--space-3) 0' }}>{fmt(totalExpenses)}</h3>
-          <div className="md-cost-bars">
+          <div className="md-cost-bars" role="img" aria-label="Cost breakdown by category">
             {costCategories.length > 0 ? costCategories.map((c) => (
               <div key={c.name} className="md-cost-row"
                 onMouseEnter={(e) => {
@@ -545,7 +545,8 @@ export default function MoneyDashboard({ onNavigate }) {
           </div>
           <h3 className="md-mid-number" style={{ margin: 'var(--space-3) 0' }}>{fmt(accountsBalance || balance)}</h3>
           <div className="md-donut-wrap">
-            <svg viewBox="0 0 120 120" className="md-donut">
+            <svg viewBox="0 0 120 120" className="md-donut" role="img" aria-label="Financial health: savings percentage">
+              <title>Savings donut chart</title>
               <circle cx="60" cy="60" r="50" fill="none" stroke="var(--bg3)" strokeWidth="14" />
               <circle cx="60" cy="60" r="50" fill="none" stroke="var(--mod-money)" strokeWidth="14"
                 strokeDasharray={`${clampedPct * 3.14} ${(100 - clampedPct) * 3.14}`}

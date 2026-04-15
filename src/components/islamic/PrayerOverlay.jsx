@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useSettingsStore } from '../../store/settings-store';
 import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import './PrayerOverlay.css';
@@ -7,6 +8,7 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
 
+  const trapRef = useFocusTrap(true, onDismiss);
   const [leaving, setLeaving] = useState(false);
 
   // Real-time clock — ticks every second
@@ -52,18 +54,18 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
 
   return (
     <div className={`prayer-overlay${leaving ? ' prayer-overlay--leaving' : ''}`}>
-      <div className="prayer-content">
+      <div className="prayer-content" ref={trapRef} role="dialog" aria-modal="true" aria-labelledby="prayer-overlay-title">
         {isIslamic ? (
           <>
             <p className="prayer-basmala arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-            <h1 className="prayer-name">{prayerName}</h1>
+            <h1 className="prayer-name" id="prayer-overlay-title">{prayerName}</h1>
             <p className="prayer-prompt">
               {beforePrayer ? 'Prayer time is approaching.' : 'It is time for prayer.'}
             </p>
           </>
         ) : (
           <>
-            <h1 className="prayer-name-universal">Time for a Break</h1>
+            <h1 className="prayer-name-universal" id="prayer-overlay-title">Time for a Break</h1>
             <p className="prayer-prompt">Take a moment to stretch, breathe, and rest your eyes.</p>
           </>
         )}

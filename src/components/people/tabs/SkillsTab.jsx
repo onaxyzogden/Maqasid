@@ -35,6 +35,7 @@ export default function SkillsTab({ contactId }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Add a skill..."
+          aria-label="Add a skill"
           style={{
             flex: 1, padding: '8px 12px', borderRadius: 8,
             border: '1.5px solid var(--border)', background: 'var(--bg)',
@@ -42,6 +43,7 @@ export default function SkillsTab({ contactId }) {
           }}
         />
         <button
+          type="button"
           onClick={addSkill}
           disabled={!input.trim()}
           style={{
@@ -72,7 +74,9 @@ export default function SkillsTab({ contactId }) {
             >
               {skill}
               <button
+                type="button"
                 onClick={() => removeSkill(skill)}
+                aria-label={`Remove skill: ${skill}`}
                 style={{
                   display: 'flex', alignItems: 'center', padding: 0,
                   background: 'none', border: 'none', cursor: 'pointer',

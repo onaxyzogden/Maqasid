@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useSettingsStore } from '../../store/settings-store';
 import { useCitations } from '../../hooks/useCitations';
 import { MODULES } from '../../data/modules';
@@ -8,6 +9,7 @@ import ReferenceList from './ReferenceList';
 import './ResumeOverlay.css';
 
 export default function ResumeOverlay({ moduleId, onDismiss }) {
+  const trapRef = useFocusTrap(true, onDismiss);
   const [leaving, setLeaving] = useState(false);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
@@ -33,8 +35,8 @@ export default function ResumeOverlay({ moduleId, onDismiss }) {
 
   return (
     <div className={`resume-overlay${leaving ? ' resume-overlay--leaving' : ''}`}>
-      <div className="resume-card">
-        <h2 className="resume-title">
+      <div className="resume-card" ref={trapRef} role="dialog" aria-modal="true" aria-labelledby="resume-overlay-title">
+        <h2 className="resume-title" id="resume-overlay-title">
           {isIslamic ? 'Resuming Work' : 'Returning to Focus'}
         </h2>
 

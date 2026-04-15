@@ -104,92 +104,96 @@ export default function ExpensePanel({ expense, onClose }) {
       <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
         <div className="money-slidein-header">
           <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
-            <button className={`money-status-toggle ${status === 'paid' ? 'active-paid' : ''}`} onClick={() => setStatus('paid')}>Paid</button>
-            <button className={`money-status-toggle ${status === 'unpaid' ? 'active-unpaid' : ''}`} onClick={() => setStatus('unpaid')}>Unpaid</button>
+            <button type="button" className={`money-status-toggle ${status === 'paid' ? 'active-paid' : ''}`} onClick={() => setStatus('paid')}>Paid</button>
+            <button type="button" className={`money-status-toggle ${status === 'unpaid' ? 'active-unpaid' : ''}`} onClick={() => setStatus('unpaid')}>Unpaid</button>
           </div>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button type="button" className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
 
         <div className="money-slidein-body">
           <div className="money-panel-label">EXPENSE</div>
           <input
+            id="expense-description"
             className="money-panel-title-input"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Expense name"
+            aria-label="Expense name"
+            aria-required="true"
             autoFocus
           />
 
           <div className="money-field-row" style={{ marginTop: 'var(--space-4)' }}>
             <div className="money-field" style={{ flex: 1 }}>
-              <label>Category</label>
+              <label htmlFor="expense-category">Category</label>
               <div style={{ display: 'flex', gap: 4 }}>
-                <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} style={{ flex: 1 }}>
+                <select id="expense-category" value={categoryId} onChange={(e) => setCategoryId(e.target.value)} style={{ flex: 1 }}>
                   <option value="">Select...</option>
                   {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
               {selectedCategory && !selectedCategory.isPreset && (
-                <button className="btn btn-ghost" onClick={handleEditCategory} title="Edit category" style={{ padding: '0 6px' }}>
+                <button type="button" className="btn btn-ghost" onClick={handleEditCategory} title="Edit category" aria-label="Edit category" style={{ padding: '0 6px' }}>
                   <Pencil size={14} />
                 </button>
               )}
-              <button className="btn btn-ghost" onClick={handleNewCategory} title="New category" style={{ padding: '0 6px', fontSize: '0.85rem' }}>
+              <button type="button" className="btn btn-ghost" onClick={handleNewCategory} title="New category" aria-label="New category" style={{ padding: '0 6px', fontSize: '0.85rem' }}>
                 <Plus size={14} />
               </button>
               </div>
             </div>
             <div className="money-field" style={{ width: 120 }}>
-              <label>Amount</label>
-              <input type="number" min="0" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0" />
+              <label htmlFor="expense-amount">Amount</label>
+              <input id="expense-amount" type="number" min="0" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0" />
             </div>
             <div className="money-field" style={{ width: 100 }}>
-              <label>Currency</label>
-              <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+              <label htmlFor="expense-currency">Currency</label>
+              <select id="expense-currency" value={currency} onChange={(e) => setCurrency(e.target.value)}>
                 {CURRENCIES.map((c) => <option key={c.id} value={c.id}>{c.flag} {c.id}</option>)}
               </select>
             </div>
           </div>
 
           <div className="money-field">
-            <label>Due date</label>
-            <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+            <label htmlFor="expense-due-date">Due date</label>
+            <input id="expense-due-date" type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
           </div>
 
           <div className="money-field">
-            <label>Vendor</label>
+            <label htmlFor="expense-vendor">Vendor</label>
             {showAddVendor ? (
               <div style={{ display: 'flex', gap: 4 }}>
-                <input value={newVendorName} onChange={(e) => setNewVendorName(e.target.value)} placeholder="Vendor name" style={{ flex: 1 }} autoFocus />
-                <button className="btn btn-ghost" onClick={handleAddVendor}>Add</button>
-                <button className="btn btn-ghost" onClick={() => setShowAddVendor(false)}>Cancel</button>
+                <input value={newVendorName} onChange={(e) => setNewVendorName(e.target.value)} placeholder="Vendor name" aria-label="New vendor name" style={{ flex: 1 }} autoFocus />
+                <button type="button" className="btn btn-ghost" onClick={handleAddVendor}>Add</button>
+                <button type="button" className="btn btn-ghost" onClick={() => setShowAddVendor(false)}>Cancel</button>
               </div>
             ) : (
               <div style={{ display: 'flex', gap: 4 }}>
-                <select value={vendorId} onChange={(e) => setVendorId(e.target.value)} style={{ flex: 1 }}>
+                <select id="expense-vendor" value={vendorId} onChange={(e) => setVendorId(e.target.value)} style={{ flex: 1 }}>
                   <option value="">Select vendor...</option>
                   {vendors.map((v) => <option key={v.id} value={v.id}>{v.name}</option>)}
                 </select>
-                <button className="btn btn-ghost" onClick={() => setShowAddVendor(true)} title="Add new" style={{ padding: '0 6px', fontSize: '0.85rem' }}><Plus size={14} /></button>
+                <button type="button" className="btn btn-ghost" onClick={() => setShowAddVendor(true)} title="Add new" aria-label="Add new vendor" style={{ padding: '0 6px', fontSize: '0.85rem' }}><Plus size={14} /></button>
               </div>
             )}
           </div>
 
           <div className="money-field">
-            <label>Note</label>
-            <textarea value={note} onChange={(e) => setNote(e.target.value)} placeholder="Note" rows={3} className="money-note-input" />
+            <label htmlFor="expense-note">Note</label>
+            <textarea id="expense-note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="Note" rows={3} className="money-note-input" />
           </div>
 
           <div className="money-field">
-            <label>Tags</label>
+            <label htmlFor="expense-tag-input">Tags</label>
             <div className="money-tags">
               {tags.map((t) => (
                 <span key={t} className="money-tag">
                   {t}
-                  <button onClick={() => setTags(tags.filter((x) => x !== t))}>&times;</button>
+                  <button type="button" onClick={() => setTags(tags.filter((x) => x !== t))} aria-label={`Remove tag ${t}`}>&times;</button>
                 </span>
               ))}
               <div style={{ display: 'flex', gap: 4, marginTop: 4 }}>
                 <input
+                  id="expense-tag-input"
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleAddTag()}
@@ -204,15 +208,15 @@ export default function ExpensePanel({ expense, onClose }) {
         <div className="money-slidein-footer" style={{ display: 'flex', gap: 'var(--space-2)' }}>
           {isEdit && (
             <>
-              <button className="btn btn-ghost" onClick={handleDelete} style={{ color: 'var(--danger)' }}>Delete</button>
-              <button className="btn btn-ghost" onClick={handleMarkPaid}>
+              <button type="button" className="btn btn-ghost" onClick={handleDelete} style={{ color: 'var(--danger)' }}>Delete</button>
+              <button type="button" className="btn btn-ghost" onClick={handleMarkPaid}>
                 {status === 'paid' ? 'Mark as unpaid' : 'Mark as paid'}
               </button>
             </>
           )}
           <div style={{ flex: 1 }} />
-          <button className="btn btn-ghost" onClick={onClose}>Cancel</button>
-          <button className="btn btn-primary" onClick={handleSave} disabled={!description.trim()} style={{ background: 'var(--mod-money)' }}>
+          <button type="button" className="btn btn-ghost" onClick={onClose}>Cancel</button>
+          <button type="button" className="btn btn-primary" onClick={handleSave} disabled={!description.trim()} style={{ background: 'var(--mod-money)' }}>
             {isEdit ? 'Save' : 'Add Expense'}
           </button>
         </div>

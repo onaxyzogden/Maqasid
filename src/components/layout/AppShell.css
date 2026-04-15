@@ -4,7 +4,7 @@
   height: 100vh;
   overflow: hidden;
   background: var(--bg);
-  /* Grid snaps; sidebar animates its own width internally */
+  transition: grid-template-columns var(--duration-lg) var(--ease);
 }
 
 .app-main {
@@ -83,6 +83,23 @@
 .col-edge__toggle:active {
   background: var(--primary-bg2);
   color: var(--primary-dark);
+}
+
+/* ── Islamic panel wrapper — clips content during grid transition ── */
+.il-wrapper {
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s var(--duration-lg);
+}
+.il-wrapper--open {
+  visibility: visible;
+  transition: visibility 0s 0s;
+}
+
+/* Hide edge column when panel is closed */
+.col-edge--hidden {
+  pointer-events: none;
+  overflow: hidden;
 }
 
 /* Dark theme: boost edge line contrast (--border is too subtle against --surface) */

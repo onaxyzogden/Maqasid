@@ -1,16 +1,19 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import {
-  X, Check, FileText, LayoutGrid,
+  X, Check, FileText, LayoutGrid, ArrowLeft,
   Shield, TrendingUp, Star, CheckCircle2, HeartHandshake,
   HandHeart, Moon, Landmark, Activity, BrainCircuit,
   Sparkles, Library, Lightbulb, Wrench, Heart,
   Baby, Handshake, Home, Building2, Wallet,
   PiggyBank, Scale, Gift, Droplets, Recycle,
   TreeDeciduous, ShoppingBag, Globe, Users,
+  Calendar, Tag, User, Flag, Columns3,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
+import { usePeopleStore, getInitials } from '../../store/people-store';
 import { PRIORITIES } from '../../data/modules';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import './TaskDetailPanel.css';
@@ -44,12 +47,15 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const updateTask = useTaskStore((s) => s.updateTask);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
   const moveTask = useTaskStore((s) => s.moveTask);
-  const user = useTaskStore ? undefined : undefined; // removed — footer meta gone
+  const employees = usePeopleStore((s) => s.employees);
 
+  const trapRef = useFocusTrap(!!taskId, onClose);
   const [title, setTitle] = useState('');
   const [notes, setNotes] = useState('');
   const [transformOrigin, setTransformOrigin] = useState(null);
   const [closing, setClosing] = useState(false);
+  const [docOpen, setDocOpen] = useState(false);
+  const [slideDir, setSlideDir] = useState(null); // 'forward' | 'back'
   const saveTimeout = useRef(null);
   const titleRef = useRef(null);
 
@@ -179,24 +185,25 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const headerLabel = project?.name || 'Project';
   const HeaderIcon = (project?.icon && ICON_MAP[project.icon]) || LayoutGrid;
 
-  const panel = (
-    <div
-      className={`task-detail-panel${closing ? ' tdp-scale-out' : ' tdp-scale-in'}`}
-      style={{
-        ...(transformOrigin ? { transformOrigin } : {}),
-        ...(accentColor ? { '--tdp-accent': accentColor } : {}),
-      }}
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* ── Header ── */}
-      <div className="tdp-header">
-        <div className="tdp-header__left">
-          <span className="tdp-header__icon"><HeaderIcon size={20} /></span>
-          <span className="tdp-project-name">{headerLabel}</span>
-        </div>
-        <button className="tdp-close-btn" onClick={() => handleClose.current()}><X size={18} /></button>
-      </div>
+  const openDoc = () => { setSlideDir('forward'); setDocOpen(true); };
+  const closeDoc = () => { setSlideDir('back'); setDocOpen(false); };
 
+  // ── Derive status from column ──
+  const currentCol = columns.find((c) => c.id === task.columnId);
+  const statusLabel = currentCol?.name || 'To Do';
+
+  // Assignee info
+  const assignee = employees.find((e) => e.id === task.assigneeId);
+
+  // Format due date for display and input
+  const dueDateDisplay = task.dueDate
+    ? new Date(task.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })
+    : null;
+  const dueDateInput = task.dueDate ? task.dueDate.slice(0, 10) : '';
+
+  /* ── Summary view (default) ── */
+  const summaryView = (
+    <>
       {/* ── Body ── */}
       <div className="tdp-body">
         {/* Priority + Title + Description */}
@@ -211,6 +218,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           )}
           <textarea
             ref={titleRef}
+            id="task-detail-title"
             className="tdp-title"
             value={title}
             onChange={handleTitleChange}
@@ -274,10 +282,170 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
       {/* ── Footer ── */}
       <div className="tdp-footer">
-        <button className="tdp-doc-btn">
+        <button className="tdp-doc-btn" onClick={openDoc}>
           <FileText size={16} />
           Task Document
         </button>
+      </div>
+    </>
+  );
+
+  /* ── Document view (slide-in) ── */
+  const documentView = (
+    <>
+      <div className="tdp-body">
+        <div className="tdp-doc-title-row">
+          <h2 className="tdp-doc-task-title">{task.title}</h2>
+          {task.description && (
+            <p className="tdp-description-text">{task.description}</p>
+          )}
+        </div>
+
+        {/* Status */}
+        <div className="tdp-doc-field">
+          <span className="tdp-doc-field__icon"><Columns3 size={16} /></span>
+          <span className="tdp-doc-field__label">Status</span>
+          <select
+            className="tdp-doc-select"
+            value={task.columnId}
+            onChange={(e) => moveTask(projectId, taskId, e.target.value, task.order, columns)}
+          >
+            {columns.map((col) => (
+              <option key={col.id} value={col.id}>{col.name}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Priority */}
+        <div className="tdp-doc-field">
+          <span className="tdp-doc-field__icon"><Flag size={16} /></span>
+          <span className="tdp-doc-field__label">Priority</span>
+          <select
+            className="tdp-doc-select"
+            value={task.priority || 'medium'}
+            onChange={(e) => updateTask(projectId, taskId, { priority: e.target.value })}
+          >
+            {PRIORITIES.map((p) => (
+              <option key={p.id} value={p.id}>{p.label}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Assignee */}
+        <div className="tdp-doc-field">
+          <span className="tdp-doc-field__icon"><User size={16} /></span>
+          <span className="tdp-doc-field__label">Assignee</span>
+          <select
+            className="tdp-doc-select"
+            value={task.assigneeId || ''}
+            onChange={(e) => updateTask(projectId, taskId, { assigneeId: e.target.value || null })}
+          >
+            <option value="">Unassigned</option>
+            {employees.map((emp) => (
+              <option key={emp.id} value={emp.id}>{emp.name}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Due Date */}
+        <div className="tdp-doc-field">
+          <span className="tdp-doc-field__icon"><Calendar size={16} /></span>
+          <span className="tdp-doc-field__label">Due Date</span>
+          <input
+            type="date"
+            className="tdp-doc-date"
+            value={dueDateInput}
+            onChange={(e) => updateTask(projectId, taskId, { dueDate: e.target.value || null })}
+          />
+        </div>
+
+        {/* Tags */}
+        <div className="tdp-doc-field tdp-doc-field--tags">
+          <span className="tdp-doc-field__icon"><Tag size={16} /></span>
+          <span className="tdp-doc-field__label">Tags</span>
+          <div className="tdp-doc-tags">
+            {(task.tags || []).map((tag, i) => (
+              <span key={i} className="tdp-doc-tag">
+                {tag}
+                <button
+                  className="tdp-doc-tag__remove"
+                  onClick={() => updateTask(projectId, taskId, { tags: task.tags.filter((_, j) => j !== i) })}
+                  aria-label={`Remove tag ${tag}`}
+                >
+                  <X size={12} />
+                </button>
+              </span>
+            ))}
+            <input
+              className="tdp-doc-tag-input"
+              placeholder="Add tag..."
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && e.target.value.trim()) {
+                  updateTask(projectId, taskId, { tags: [...(task.tags || []), e.target.value.trim()] });
+                  e.target.value = '';
+                }
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Created / Updated meta */}
+        <div className="tdp-doc-meta">
+          {task.createdAt && (
+            <span className="tdp-doc-meta__item">
+              Created {new Date(task.createdAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
+            </span>
+          )}
+          {task.updatedAt && (
+            <span className="tdp-doc-meta__item">
+              Updated {new Date(task.updatedAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* ── Footer ── */}
+      <div className="tdp-footer">
+        <button className="tdp-doc-btn" onClick={closeDoc}>
+          <ArrowLeft size={16} />
+          Back to Summary
+        </button>
+      </div>
+    </>
+  );
+
+  const slideClass = slideDir ? ` tdp-slide-${slideDir}` : '';
+
+  const panel = (
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="task-detail-title"
+      className={`task-detail-panel${closing ? ' tdp-scale-out' : ' tdp-scale-in'}`}
+      style={{
+        ...(transformOrigin ? { transformOrigin } : {}),
+        ...(accentColor ? { '--tdp-accent': accentColor } : {}),
+      }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* ── Header ── */}
+      <div className="tdp-header">
+        <div className="tdp-header__left">
+          {docOpen && (
+            <button className="tdp-back-btn" onClick={closeDoc} aria-label="Back to summary">
+              <ArrowLeft size={18} />
+            </button>
+          )}
+          <span className="tdp-header__icon"><HeaderIcon size={20} /></span>
+          <span className="tdp-project-name">{headerLabel}{docOpen ? ' — Document' : ''}</span>
+        </div>
+        <button className="tdp-close-btn" onClick={() => handleClose.current()} aria-label="Close task details"><X size={18} /></button>
+      </div>
+
+      {/* ── Sliding content ── */}
+      <div key={docOpen ? 'doc' : 'summary'} className={`tdp-slide-container${slideClass}`}>
+        {docOpen ? documentView : summaryView}
       </div>
     </div>
   );

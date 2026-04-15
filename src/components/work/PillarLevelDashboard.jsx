@@ -333,7 +333,9 @@ function MasteryRing({ percent, pillarColor, pillarKey, doneCount, totalCount })
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
-      <svg width="110" height="110" viewBox="0 0 110 110" className="pld__ring-svg">
+      <svg width="110" height="110" viewBox="0 0 110 110" className="pld__ring-svg"
+        role="img" aria-label={`Completion progress: ${percent}% done`}>
+        <title>Progress ring</title>
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor={pillarColor} stopOpacity="0.6" />
