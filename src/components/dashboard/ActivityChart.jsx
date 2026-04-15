@@ -1,5 +1,7 @@
+import { useState, useRef } from 'react';
 import { Activity } from 'lucide-react';
 import './ActivityChart.css';
+import ChartTooltip from '../shared/ChartTooltip';
 
 const PAD = { left: 50, right: 20, top: 15, bottom: 35 };
 const W = 600;
@@ -10,6 +12,9 @@ const PLOT_H = H - PAD.top - PAD.bottom;
 export default function ActivityChart({ data }) {
   const hasData = data?.some((d) => d.count > 0);
   const maxCount = Math.max(...(data || []).map((d) => d.count), 1);
+
+  const svgRef = useRef(null);
+  const [tip, setTip] = useState(null);
 
   if (!hasData) {
     return (
@@ -34,7 +39,7 @@ export default function ActivityChart({ data }) {
 
   return (
     <div className="activity-chart">
-      <svg viewBox={`0 0 ${W} ${H}`} className="activity-chart-svg" preserveAspectRatio="xMidYMid meet">
+      <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} className="activity-chart-svg" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.25" />
@@ -57,8 +62,31 @@ export default function ActivityChart({ data }) {
 
         {/* Data points */}
         {points.map((p, i) => (
-          <circle key={i} cx={p.x} cy={p.y} r="4"
-            fill="var(--primary)" stroke="var(--surface)" strokeWidth="2" />
+          <circle key={i} cx={p.x} cy={p.y}
+            r={tip?.point === p ? 6 : 4}
+            fill="var(--primary)"
+            stroke={tip?.point === p ? 'var(--primary-border)' : 'var(--surface)'}
+            strokeWidth="2"
+            style={{ cursor: 'pointer', transition: 'r 0.15s ease' }}
+            onMouseEnter={(e) => {
+              const ctm = e.currentTarget.getScreenCTM();
+              if (!ctm) return;
+              const vx = ctm.a * p.x + ctm.e;
+              const vy = ctm.d * p.y + ctm.f;
+              const svgRect = svgRef.current?.getBoundingClientRect();
+              setTip({ x: vx, y: vy, svgTop: svgRect?.top ?? 0, svgHeight: svgRect?.height ?? 0, point: p });
+            }}
+            onMouseLeave={() => setTip(null)}
+            onClick={(e) => {
+              if (!('ontouchstart' in window)) return;
+              const ctm = e.currentTarget.getScreenCTM();
+              if (!ctm) return;
+              const vx = ctm.a * p.x + ctm.e;
+              const vy = ctm.d * p.y + ctm.f;
+              const svgRect = svgRef.current?.getBoundingClientRect();
+              setTip((prev) => prev?.point === p ? null : { x: vx, y: vy, svgTop: svgRect?.top ?? 0, svgHeight: svgRect?.height ?? 0, point: p });
+            }}
+          />
         ))}
 
         {/* Count labels above points */}
@@ -77,6 +105,13 @@ export default function ActivityChart({ data }) {
           </text>
         ))}
       </svg>
+      <ChartTooltip visible={!!tip} x={tip?.x ?? 0} y={tip?.y ?? 0} anchor="crosshair"
+        crosshairTop={tip?.svgTop ?? 0} crosshairHeight={tip?.svgHeight ?? 0} onDismiss={() => setTip(null)}>
+        <div className="chart-tooltip__value">
+          {tip?.point?.count ?? 0} task{(tip?.point?.count ?? 0) !== 1 ? 's' : ''}
+        </div>
+        <div className="chart-tooltip__label">{tip?.point?.day ?? tip?.point?.label ?? ''}</div>
+      </ChartTooltip>
     </div>
   );
 }
