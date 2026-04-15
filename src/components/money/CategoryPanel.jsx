@@ -6,6 +6,10 @@ import { CATEGORY_COLORS } from '@data/config/money-categories';
 import './CategoryPanel.css';
 
 export default function CategoryPanel({ open, category, onClose }) {
+  // onClose(saved?) — passes saved category object on save; no arg on cancel.
+  // Intentional: ExpensePanel uses the returned object to auto-select the new category.
+  // createPortal is required because ExpensePanel is itself a stacking-context overlay (z-index 100).
+  // CategoryPanel must render above it at z-index 1100.
   const addCategory    = useMoneyStore((s) => s.addCategory);
   const updateCategory = useMoneyStore((s) => s.updateCategory);
 
@@ -45,9 +49,16 @@ export default function CategoryPanel({ open, category, onClose }) {
     }
   };
 
+  // Global Escape listener so closing works from any focused element
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [open, onClose]);
+
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && canSave) handleSave();
-    if (e.key === 'Escape') onClose();
   };
 
   return createPortal(
@@ -59,7 +70,7 @@ export default function CategoryPanel({ open, category, onClose }) {
           <span style={{ fontWeight: 600 }}>
             {isEdit ? 'Edit Category' : 'New Category'}
           </span>
-          <button className="money-slidein-close" onClick={() => onClose()}>
+          <button className="money-slidein-close" onClick={() => onClose()} aria-label="Close panel">
             <X size={18} />
           </button>
         </div>
@@ -121,7 +132,7 @@ export default function CategoryPanel({ open, category, onClose }) {
           <button
             className="btn btn-primary"
             onClick={handleSave}
-            disabled={!canSave}
+            disabled={!canSave || isPreset}
             style={{ background: 'var(--mod-money)' }}
           >
             {isEdit ? 'Save Changes' : 'Save Category'}
