@@ -178,11 +178,12 @@ export const useMoneyStore = create((set, get) => ({
   }),
 
   // ── Categories ──
-  addCategory: ({ name, color }) => {
+  addCategory: ({ name, color, isEssential = false }) => {
     const cat = {
       id: genCategoryId(),
       name: name || 'New Category',
       color: color || '#6b7280',
+      isEssential,
       isPreset: false,
     };
     set((s) => {
