@@ -44,5 +44,20 @@ Pure CSS stacked bar chart. No chart library.
 - Defaults to `false` for user-added categories (no UI toggle yet — deferred)
 - Currently carried in `chartData.essential` but chart renders all expenses as one block
 
+## Chart Tooltips
+
+All Money Dashboard charts now have hover tooltips via the shared `ChartTooltip` component (`src/components/shared/ChartTooltip.jsx`), rendered as portals to `document.body`.
+
+| Chart | Anchor Mode | Content |
+|---|---|---|
+| Balance Overview bars | above | Month name, expenses, discretionary, over-budget |
+| Savings donut | above | Percentage saved, saved amount, spent amount |
+| Spending limit bar | above | Current/budget amounts, percentage of/over budget |
+| Cost analysis rows | above | Category name, percentage, dollar amount |
+
+- Desktop: hover shows tooltip (150ms fade)
+- Mobile: tap-to-toggle with outside-tap dismiss
+- Tooltip viewport-clamped 8px from edges, flips below if < 180px headroom above
+
 ## Status
-Active. Redesigned 2026-04-15: expense-based bar height, 3-segment stacked layout, all-corners rounding per segment.
+Active. Redesigned 2026-04-15: expense-based bar height, 3-segment stacked layout, all-corners rounding per segment. Chart tooltips added 2026-04-15.

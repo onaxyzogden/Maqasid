@@ -7,6 +7,24 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] implement | Chart Tooltips — Shared ChartTooltip component + 8 chart wiring
+- **Design:** Brainstormed with visual companion mockups, produced spec at `docs/superpowers/specs/2026-04-15-chart-tooltips-design.md`
+- **Shared component:** Created `src/components/shared/ChartTooltip.jsx` + `.css` — portal-rendered tooltip via `createPortal(el, document.body)`, same pattern as IslamicTerm glossary tooltips
+- **Two anchor modes:** `above` (bar/ring/gauge — centered above target, flips below if < 180px headroom) and `crosshair` (line charts — vertical dashed line + floating tooltip, enlarges hovered circle)
+- **8 charts wired:**
+  1. Money bar chart (MoneyDashboard.jsx) — month, expenses, discretionary, over-budget
+  2. BCG line chart (Dashboard.jsx) — crosshair, task count + day label
+  3. Activity chart (ActivityChart.jsx) — crosshair, task count + day label
+  4. Savings donut (MoneyDashboard.jsx) — % saved, saved/spent amounts
+  5. Mastery ring (PillarLevelDashboard.jsx) — % complete, tasks done/total
+  6. Workflow pressure (Dashboard.jsx) — level, filled/10, in-progress count
+  7. Spending limit bar (MoneyDashboard.jsx) — amount/budget, % over
+  8. Cost analysis rows (MoneyDashboard.jsx) — category, %, dollar amount
+- **Interaction:** Desktop hover (150ms fade), mobile tap-to-toggle with outside-tap dismiss
+- **Execution:** Subagent-driven development — 10 tasks, parallel dispatch for independent files
+- Files created: ChartTooltip.jsx, ChartTooltip.css | Files modified: MoneyDashboard.jsx, Dashboard.jsx, ActivityChart.jsx, PillarLevelDashboard.jsx
+- Wiki: created `wiki/entities/chart-tooltips.md`, updated `wiki/entities/money-dashboard.md`
+
 ## [2026-04-15] documentation | Comprehensive System Report — Maqasid OS V2.1
 - Produced a full dual-audience system report covering 11 sections: Executive Summary, Foundational Core Principles (Maqasid Al-Shariah, Covenant Architecture, Amanah Gate, Ceremony Gate, Truth-Safe Design), System Architecture (React 19 + Zustand 5 + Router 7 + Vite 8, 13 stores, CONTEXT.md protocol, knowledge graph), Seven Maqasid Pillars (Faith through Ummah, readiness ayah system, three-tier bento dashboards), Functional Modules (Work/Money/People/Office/CRM/Tech/Islamic/Family Office), BBOS Integration (v2.4 Two-Factory model, 8-stage pipeline, 118 tasks, role access matrix, dynamic scoring, Islamic grounding per stage), Islamic UI Layer (CeremonyGate, ThresholdModal, ReadinessCheck, Prayer system, NiyyahAct, ResumeOverlay), Integration Strategies (Atlas, Ogden Hub, Aladhan/Nominatim APIs, LLM/AI, Claude OS/MWP, wiki, graphify), Intended Use Cases, Benefits to Stakeholders, and Known Limitations
 - Report saved to: `stages/maqasid-os-system-report-2026-04-11.md`

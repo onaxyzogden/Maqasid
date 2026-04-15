@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-11
+updated: 2026-04-15
 ---
 
 # Wiki Index
@@ -19,6 +19,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[graphify]] | Knowledge graph tool — builds persistent graphs from codebases with community detection |
 | [[claude-os]] | Claude OS / Model Workspace Protocol — 3-layer system architecture governing Claude Code across projects |
 | [[money-dashboard]] | Money Dashboard — Balance overview chart, store bindings, bar chart data model |
+| [[chart-tooltips]] | ChartTooltip shared component — portal-rendered tooltips for all chart types |
 
 ## Concepts
 
