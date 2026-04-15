@@ -14,7 +14,6 @@ export default function ExpensePanel({ expense, onClose }) {
   const markExpensePaid = useMoneyStore((s) => s.markExpensePaid);
   const markExpenseUnpaid = useMoneyStore((s) => s.markExpenseUnpaid);
   const addVendor = useMoneyStore((s) => s.addVendor);
-  const updateCategory = useMoneyStore((s) => s.updateCategory);
   const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!expense;
 
