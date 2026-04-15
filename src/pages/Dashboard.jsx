@@ -13,6 +13,7 @@ import { useOfficeStore } from '../store/office-store';
 import { usePrayerTimes } from '../hooks/usePrayerTimes';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
+import TodayFocusSection from './TodayFocusSection';
 import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
 import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
 import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
@@ -457,22 +458,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* ── Niyyah focus row ── */}
-      {niyyahFocus?.length > 0 && (
-        <div className="insight-niyyah-row">
-          <Zap size={14} style={{ color: 'var(--accent)' }} />
-          <span className="insight-niyyah-label">Today&apos;s focus:</span>
-          {niyyahFocus.map((pid) => {
-            const p = MAQASID_PILLARS.find((pl) => pl.id === pid);
-            if (!p) return null;
-            return (
-              <span key={pid} className="insight-niyyah-pill" style={{ color: p.accentColor, borderColor: p.accentColor + '50', background: p.accentColor + '14' }}>
-                {p.sidebarLabel}
-              </span>
-            );
-          })}
-        </div>
-      )}
+      {/* ── Today's Focus ── */}
+      <TodayFocusSection pillarSummary={pillarSummary} />
 
       {/* ── Empty state for new users ── */}
       {projects.length === 0 && allTasks.length === 0 && (
