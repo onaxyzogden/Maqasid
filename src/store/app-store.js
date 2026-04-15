@@ -22,6 +22,7 @@ export const useAppStore = create((set, get) => ({
   activeBbosStage: null, // string | null — BBOS stage ID currently selected in the pipeline header
   activeBbosTaskType: null, // string | null — BBOS task type currently open in BbosTaskPanel
   citationsVisible: false,
+  niyyahOverrideOpen: false,
 
   // Ayah banner — contextual Quran/Hadith in topbar
   ayahBannerData: null,
@@ -87,6 +88,9 @@ export const useAppStore = create((set, get) => ({
   clearActiveBbosTaskType: () => set({ activeBbosTaskType: null }),
 
   toggleCitations: () => set((s) => ({ citationsVisible: !s.citationsVisible })),
+
+  openNiyyahOverride: () => set({ niyyahOverrideOpen: true }),
+  closeNiyyahOverride: () => set({ niyyahOverrideOpen: false }),
 
   setAyahBannerData: (data) => set({ ayahBannerData: data }),
   clearAyahBannerData: () => set({ ayahBannerData: null }),
