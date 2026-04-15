@@ -196,6 +196,11 @@ export default function MoneyDashboard({ onNavigate }) {
   const monthlyBudget = budgets.reduce((s, b) => s + (Number(b.monthlyLimit) || 0), 0);
   const spendingPct = monthlyBudget > 0 ? Math.min(100, Math.round((totalExpenses / monthlyBudget) * 100)) : 0;
 
+  // Tooltip state
+  const [donutTip, setDonutTip] = useState(null);
+  const [limitTip, setLimitTip] = useState(null);
+  const [costTip, setCostTip] = useState(null);
+
   // Vendor metrics
   const vendorMetrics = useMemo(() => {
     const active = vendors.filter((v) => v.status === 'active');
@@ -336,13 +341,34 @@ export default function MoneyDashboard({ onNavigate }) {
               View all <ChevronRight size={14} />
             </span>
           </div>
-          <div className="md-limit-bar">
+          <div className="md-limit-bar"
+            onMouseEnter={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              setLimitTip({ x: rect.left + rect.width / 2, y: rect.top });
+            }}
+            onMouseLeave={() => setLimitTip(null)}
+            onClick={(e) => {
+              if (!('ontouchstart' in window)) return;
+              const rect = e.currentTarget.getBoundingClientRect();
+              setLimitTip((prev) => prev ? null : { x: rect.left + rect.width / 2, y: rect.top });
+            }}
+          >
             <div className="md-limit-fill" style={{ width: `${spendingPct}%` }} />
           </div>
           <div className="md-limit-labels">
             <span>{fmt(totalExpenses)}</span>
             <span>{monthlyBudget > 0 ? fmt(monthlyBudget) : '—'}</span>
           </div>
+          <ChartTooltip visible={!!limitTip} x={limitTip?.x ?? 0} y={limitTip?.y ?? 0} anchor="above" onDismiss={() => setLimitTip(null)}>
+            <div className="chart-tooltip__value">{fmt(totalExpenses)} / {monthlyBudget > 0 ? fmt(monthlyBudget) : 'No budget'}</div>
+            {monthlyBudget > 0 && (
+              <div className="chart-tooltip__label" style={totalExpenses > monthlyBudget ? { color: 'var(--danger)' } : undefined}>
+                {totalExpenses > monthlyBudget
+                  ? `${Math.round(((totalExpenses - monthlyBudget) / monthlyBudget) * 100)}% over budget`
+                  : `${spendingPct}% of budget`}
+              </div>
+            )}
+          </ChartTooltip>
         </div>
         <div className="md-card md-budget-tips">
           <h4 style={{ fontWeight: 600, marginBottom: 'var(--space-2)' }}>Optimize your budget with these quick tips</h4>
@@ -505,13 +531,34 @@ export default function MoneyDashboard({ onNavigate }) {
               <circle cx="60" cy="60" r="50" fill="none" stroke="var(--mod-money)" strokeWidth="14"
                 strokeDasharray={`${clampedPct * 3.14} ${(100 - clampedPct) * 3.14}`}
                 strokeDashoffset="0" strokeLinecap="round"
-                transform="rotate(-90 60 60)" />
+                transform="rotate(-90 60 60)"
+                style={{ cursor: 'pointer' }}
+                onMouseEnter={(e) => {
+                  const svg = e.currentTarget.closest('svg');
+                  if (!svg) return;
+                  const rect = svg.getBoundingClientRect();
+                  setDonutTip({ x: rect.left + rect.width / 2, y: rect.top });
+                }}
+                onMouseLeave={() => setDonutTip(null)}
+                onClick={(e) => {
+                  if (!('ontouchstart' in window)) return;
+                  const svg = e.currentTarget.closest('svg');
+                  if (!svg) return;
+                  const rect = svg.getBoundingClientRect();
+                  setDonutTip((prev) => prev ? null : { x: rect.left + rect.width / 2, y: rect.top });
+                }}
+              />
             </svg>
             <div className="md-donut-label">
               <strong>{clampedPct}%</strong>
               <span>{totalIncome > 0 ? 'Of income saved' : 'No income yet'}</span>
             </div>
           </div>
+          <ChartTooltip visible={!!donutTip} x={donutTip?.x ?? 0} y={donutTip?.y ?? 0} anchor="above" onDismiss={() => setDonutTip(null)}>
+            <div className="chart-tooltip__value">{clampedPct}% saved</div>
+            <div className="chart-tooltip__label">Saved: {fmt(Math.max(0, totalIncome - totalExpenses))}</div>
+            <div className="chart-tooltip__detail">Spent: {fmt(totalExpenses)}</div>
+          </ChartTooltip>
         </div>
 
         {/* Budget tracker */}
