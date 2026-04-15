@@ -505,7 +505,18 @@ export default function MoneyDashboard({ onNavigate }) {
           <h3 className="md-mid-number" style={{ margin: 'var(--space-3) 0' }}>{fmt(totalExpenses)}</h3>
           <div className="md-cost-bars">
             {costCategories.length > 0 ? costCategories.map((c) => (
-              <div key={c.name} className="md-cost-row">
+              <div key={c.name} className="md-cost-row"
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setCostTip({ x: rect.left + rect.width / 2, y: rect.top, item: c });
+                }}
+                onMouseLeave={() => setCostTip(null)}
+                onClick={(e) => {
+                  if (!('ontouchstart' in window)) return;
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setCostTip((prev) => prev?.item === c ? null : { x: rect.left + rect.width / 2, y: rect.top, item: c });
+                }}
+              >
                 <div className="md-cost-dot" style={{ background: c.color }} />
                 <span className="md-cost-name">{c.name}</span>
                 <span className="md-cost-pct">{c.pct}%</span>
@@ -514,6 +525,14 @@ export default function MoneyDashboard({ onNavigate }) {
               <p className="md-label">No expenses recorded yet.</p>
             )}
           </div>
+          <ChartTooltip visible={!!costTip} x={costTip?.x ?? 0} y={costTip?.y ?? 0} anchor="above" onDismiss={() => setCostTip(null)}>
+            <div className="chart-tooltip__value">
+              {costTip?.item?.name} &mdash; {costTip?.item?.pct}%
+            </div>
+            <div className="chart-tooltip__label">
+              {fmt(Math.round(totalExpenses * ((costTip?.item?.pct ?? 0) / 100)))} of {fmt(totalExpenses)}
+            </div>
+          </ChartTooltip>
         </div>
 
         {/* Financial health */}
