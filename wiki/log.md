@@ -7,6 +7,12 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] fix | TodayFocusSection light-mode contrast fixes
+- **Card name contrast**: `.tfs-card__name` was hardcoded `#e4e8f4` (near-white), invisible on the light-tinted card background. Changed to `var(--text)`.
+- **Arabic subtitle opacity**: Inline style changed from `accentColor + '80'` (50% opacity) to full `accentColor` — legible on light surface.
+- **CTA card dark-mode bleed**: All hardcoded dark hex values in `.tfs-cta` block replaced with CSS variables (`--bg3/4`, `--border/2`, `--text2/3`).
+- **CTA interactivity**: Converted outer `<div class="tfs-cta">` to `<button>` (full-card click target). Removed inner "Set focus →" button element entirely.
+
 ## [2026-04-15] fix | Permanent mobile nav bottom-blocking fix + task modal features
 - **Mobile nav architecture fix**: Removed `position: fixed` from MobileNav, placed in CSS grid flow (`grid-row: 3`). Eliminates recurring bug where bottom content was obscured (~20 prior fix attempts). Added `--mobile-nav-h` token. Cleaned up padding-bottom hacks in DashboardView, PillarBoard, Sidebar.
 - **Task Document slide-in**: Wired "Task Document" footer button in TaskDetailPanel to open secondary panel with status, priority, assignee, due date, tags fields. Keyed remount animation for slide transitions.

@@ -60,7 +60,7 @@
 .tfs-card__name {
   font-size: 15px;
   font-weight: 700;
-  color: #e4e8f4;
+  color: var(--text);
   line-height: 1.1;
 }
 
@@ -92,21 +92,30 @@
 
 /* ── CTA prompt (niyyah not set / skipped) ── */
 .tfs-cta {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 14px 16px;
   border-radius: 10px;
-  background: #0c0e18;
-  border: 1px dashed #2a3047;
+  background: var(--bg3);
+  border: 1px dashed var(--border2);
   margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tfs-cta:hover {
+  background: var(--bg4);
 }
 
 .tfs-cta__icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: #161a2a;
+  background: var(--bg4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,12 +130,12 @@
 .tfs-cta__title {
   font-size: 13px;
   font-weight: 600;
-  color: #8892aa;
+  color: var(--text2);
 }
 
 .tfs-cta__sub {
   font-size: 11px;
-  color: #3a4060;
+  color: var(--text3);
   margin-top: 2px;
 }
 
@@ -135,9 +144,9 @@
   border-radius: 8px;
   font-size: 12px;
   font-weight: 700;
-  background: #1e2438;
-  color: #c8ccd8;
-  border: 1px solid #2a3047;
+  background: var(--bg4);
+  color: var(--text2);
+  border: 1px solid var(--border);
   cursor: pointer;
   flex-shrink: 0;
 }

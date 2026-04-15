@@ -21,16 +21,13 @@ export default function TodayFocusSection({ pillarSummary = [] }) {
 
   if (focusedIds.length === 0) {
     return (
-      <div className="tfs-cta">
+      <button className="tfs-cta" type="button" onClick={openNiyyahOverride}>
         <div className="tfs-cta__icon">⚡</div>
         <div className="tfs-cta__body">
           <div className="tfs-cta__title">Set your focus for today</div>
           <div className="tfs-cta__sub">Choose which pillar(s) to direct your energy toward.</div>
         </div>
-        <button className="tfs-cta__btn" type="button" onClick={openNiyyahOverride}>
-          Set focus →
-        </button>
-      </div>
+      </button>
     );
   }
 
@@ -70,7 +67,7 @@ export default function TodayFocusSection({ pillarSummary = [] }) {
                 </div>
                 <div className="tfs-card__name">{isIslamic ? pillar.sidebarLabel : pillar.universalLabel}</div>
                 {isIslamic && (
-                  <div className="tfs-card__arabic" style={{ color: pillar.accentColor + '80' }}>
+                  <div className="tfs-card__arabic" style={{ color: pillar.accentColor }}>
                     {pillar.arabicRootAr}
                   </div>
                 )}
