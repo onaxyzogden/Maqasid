@@ -91,7 +91,7 @@
 
   /* Typography — Font Families */
   --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Space Grotesk', 'DM Sans', sans-serif;
+  --font-heading: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-display: 'Manrope', 'DM Sans', sans-serif;
   --font-serif: 'Noto Serif', serif;
   --font-arabic: 'Amiri', serif;

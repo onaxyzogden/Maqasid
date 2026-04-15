@@ -9,12 +9,14 @@ import {
   Baby, Handshake, Home, Building2, Wallet,
   PiggyBank, Scale, Gift, Droplets, Recycle,
   TreeDeciduous, ShoppingBag, Globe, Users,
-  Calendar, Tag, User, Flag, Columns3,
+  Calendar, Tag, User, Flag, Columns3, ChevronRight,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { PRIORITIES } from '../../data/modules';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import './TaskDetailPanel.css';
 
@@ -55,6 +57,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const [transformOrigin, setTransformOrigin] = useState(null);
   const [closing, setClosing] = useState(false);
   const [docOpen, setDocOpen] = useState(false);
+  const [activeSubtask, setActiveSubtask] = useState(null); // subtask object or null
   const [slideDir, setSlideDir] = useState(null); // 'forward' | 'back'
   const saveTimeout = useRef(null);
   const titleRef = useRef(null);
@@ -185,8 +188,10 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const headerLabel = project?.name || 'Project';
   const HeaderIcon = (project?.icon && ICON_MAP[project.icon]) || LayoutGrid;
 
-  const openDoc = () => { setSlideDir('forward'); setDocOpen(true); };
+  const openDoc = () => { setSlideDir('forward'); setActiveSubtask(null); setDocOpen(true); };
   const closeDoc = () => { setSlideDir('back'); setDocOpen(false); };
+  const openSubtask = (st) => { setSlideDir('forward'); setDocOpen(false); setActiveSubtask(st); };
+  const closeSubtask = () => { setSlideDir('back'); setActiveSubtask(null); };
 
   // ── Derive status from column ──
   const currentCol = columns.find((c) => c.id === task.columnId);
@@ -245,13 +250,13 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
         {/* Subtasks */}
         <div className="tdp-subtasks-section">
-          <h3 className="tdp-section-label">Subtasks</h3>
+          <h3 className="tdp-section-label">Subtasks <span className="tdp-section-hint">(tap each one for more info)</span></h3>
           <div className="tdp-subtask-list">
             {allSubtasks.map((st) => (
-              <div key={st.id} className="tdp-subtask-row">
+              <div key={st.id} className="tdp-subtask-row" onClick={() => openSubtask(st)}>
                 <button
                   className={`tdp-subtask-circle ${st.done ? 'tdp-subtask-circle--done' : ''}`}
-                  onClick={() => toggleSubtask(projectId, taskId, st.id)}
+                  onClick={(e) => { e.stopPropagation(); toggleSubtask(projectId, taskId, st.id); }}
                 >
                   {st.done && (
                     <span className="tdp-subtask-circle__check"><Check size={14} /></span>
@@ -260,6 +265,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 <span className={`tdp-subtask-text ${st.done ? 'tdp-subtask-text--done' : ''}`}>
                   {st.title}
                 </span>
+                <ChevronRight size={16} className="tdp-subtask-chevron" />
               </div>
             ))}
           </div>
@@ -281,10 +287,23 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       </div>
 
       {/* ── Footer ── */}
-      <div className="tdp-footer">
-        <button className="tdp-doc-btn" onClick={openDoc}>
-          <FileText size={16} />
-          Resources
+      <div className="tdp-footer tdp-footer--subtask">
+        <button className="tdp-later-btn" onClick={() => handleClose.current()}>
+          Complete later
+        </button>
+        <button
+          className="tdp-done-btn"
+          disabled={doneCount < totalCount}
+          onClick={() => {
+            const doneCol = columns.find((c) => c.name === 'Done');
+            if (doneCol) {
+              moveTask(projectId, taskId, doneCol.id, 0, columns);
+              handleClose.current();
+            }
+          }}
+        >
+          <Check size={16} />
+          Done
         </button>
       </div>
     </>
@@ -414,7 +433,66 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
     </>
   );
 
+  /* ── Subtask detail view (slide-in) ── */
+  const subtaskDetailView = activeSubtask ? (
+    <>
+      <div className="tdp-body">
+        <div className="tdp-subtask-detail">
+          <div className="tdp-subtask-detail__header">
+            <button
+              className={`tdp-subtask-circle ${activeSubtask.done ? 'tdp-subtask-circle--done' : ''}`}
+              onClick={() => toggleSubtask(projectId, taskId, activeSubtask.id)}
+            >
+              {activeSubtask.done && (
+                <span className="tdp-subtask-circle__check"><Check size={14} /></span>
+              )}
+            </button>
+            <h2 className={`tdp-subtask-detail__title ${activeSubtask.done ? 'tdp-subtask-text--done' : ''}`}>
+              {activeSubtask.title}
+            </h2>
+          </div>
+
+          <div className="tdp-subtask-detail__body">
+            {activeSubtask.description ? (
+              <div className="tdp-subtask-detail__content">
+                <Markdown remarkPlugins={[remarkGfm]}>{activeSubtask.description}</Markdown>
+              </div>
+            ) : (
+              <p className="tdp-subtask-detail__text tdp-subtask-detail__empty-text">
+                No additional guidance available for this subtask yet.
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="tdp-footer tdp-footer--subtask">
+        <button className="tdp-later-btn" onClick={closeSubtask}>
+          Complete later
+        </button>
+        <button
+          className="tdp-done-btn"
+          disabled={doneCount < totalCount}
+          onClick={() => {
+            const doneCol = columns.find((c) => c.name === 'Done');
+            if (doneCol) {
+              moveTask(projectId, taskId, doneCol.id, 0, columns);
+              handleClose.current();
+            }
+          }}
+        >
+          <Check size={16} />
+          Done
+        </button>
+      </div>
+    </>
+  ) : null;
+
   const slideClass = slideDir ? ` tdp-slide-${slideDir}` : '';
+
+  // Determine which view is active
+  const activeView = activeSubtask ? 'subtask' : docOpen ? 'doc' : 'summary';
+  const viewKey = activeSubtask ? `subtask-${activeSubtask.id}` : docOpen ? 'doc' : 'summary';
 
   const panel = (
     <div
@@ -432,20 +510,20 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       {/* ── Header ── */}
       <div className="tdp-header">
         <div className="tdp-header__left">
-          {docOpen && (
-            <button className="tdp-back-btn" onClick={closeDoc} aria-label="Back to summary">
+          {(docOpen || activeSubtask) && (
+            <button className="tdp-back-btn" onClick={activeSubtask ? closeSubtask : closeDoc} aria-label="Back to summary">
               <ArrowLeft size={18} />
             </button>
           )}
           <span className="tdp-header__icon"><HeaderIcon size={20} /></span>
-          <span className="tdp-project-name">{headerLabel}{docOpen ? ' — Document' : ''}</span>
+          <span className="tdp-project-name">{headerLabel}{docOpen ? ' — Document' : activeSubtask ? ' — Subtask' : ''}</span>
         </div>
         <button className="tdp-close-btn" onClick={() => handleClose.current()} aria-label="Close task details"><X size={18} /></button>
       </div>
 
       {/* ── Sliding content ── */}
-      <div key={docOpen ? 'doc' : 'summary'} className={`tdp-slide-container${slideClass}`}>
-        {docOpen ? documentView : summaryView}
+      <div key={viewKey} className={`tdp-slide-container${slideClass}`}>
+        {activeView === 'subtask' ? subtaskDetailView : activeView === 'doc' ? documentView : summaryView}
       </div>
     </div>
   );

@@ -110,7 +110,12 @@ function backfillSeedDescriptions() {
       seedSubs.forEach((ss) => { seedSubMap[ss.title] = ss; });
       const patchedSubs = subs.map((st) => {
         const ss = seedSubMap[st.title];
-        return ss?.description && !st.description ? { ...st, description: ss.description } : st;
+        if (!ss?.description) return st;
+        // Update if missing or if seed has richer content (longer description)
+        if (!st.description || (ss.description.length > st.description.length)) {
+          return { ...st, description: ss.description };
+        }
+        return st;
       });
       if (patchedSubs.some((st, i) => st !== subs[i])) patch.subtasks = patchedSubs;
       if (Object.keys(patch).length > 0) { changed = true; return { ...t, ...patch }; }

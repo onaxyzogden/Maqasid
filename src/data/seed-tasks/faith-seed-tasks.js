@@ -11,7 +11,50 @@ export const FAITH_SEED_TASKS = {
       description: 'The Shahada \u2014 "Ashhadu an la ilaha illAllah wa ashhadu anna Muhammadan rasulullah" \u2014 is the first pillar of Islam and the gateway into the faith. Renew and deepen your understanding of this testimony, ensuring it is uttered with full knowledge, certainty, sincerity, and love. This is not merely a declaration but a covenant with Allah.',
       subtasks: [
         { title: 'Recite the full Shahada with correct pronunciation and meaning', done: false,
-          description: 'Practice the Arabic pronunciation of the Shahada and learn the precise translation of each word. Ensure you can recite it clearly and with understanding.' },
+          description: `Since you are currently working on your **Daruriyyat** (Necessities) level, mastering this is the first step toward clearing those "Critical Gaps" in your foundation.
+
+### 1. Phonetic Breakdown & Pronunciation
+
+The Shahada is split into two testimonies. Focus on the flow and the emphasis on the double consonants (marked with double letters).
+
+**Part 1: The Testimony of Faith**
+
+*Ash-hadu alla ilaha illAllah*
+
+- **Ash-hadu**: (Ash-ha-du) — I bear witness
+- **Alla**: (Al-la) — That [there is] no
+- **Ilaha**: (I-la-ha) — Deity/God
+- **IllAllah**: (Il-lal-lah) — Except Allah
+
+**Part 2: The Testimony of Messengerhood**
+
+*Wa ash-hadu anna Muhammadan Rasoolullah*
+
+- **Wa**: (Wa) — And
+- **Anna**: (An-na) — That
+- **Muhammadan**: (Mu-ham-ma-dan) — Muhammad
+- **Rasoolullah**: (Ra-soo-lul-lah) — is the Messenger of Allah
+
+### 2. Precise Word-for-Word Translation
+
+Linguistically, the Shahada isn't just a statement of existence; it is a statement of **exclusive right**.
+
+| Arabic Word | Precise English Meaning | Linguistic Role |
+| :--- | :--- | :--- |
+| **Ash-hadu** | I bear witness | A formal, binding testimony. |
+| **An (La)** | That (No) | Absolute negation of a category. |
+| **Ilah** | Object of Worship | Anything served, loved, or obeyed. |
+| **Illa** | Except | The turning point from negation to affirmation. |
+| **Allah** | The One True God | The only one with the *right* to be worshipped. |
+| **Rasool** | Messenger | One who carries a divine message/law. |
+
+### 3. Practical Tips for "Understanding"
+
+To fulfill the "recite with understanding" requirement of your task:
+
+1. **The Pause:** When you say *"La ilaha,"* mentally "clear" your heart of dependencies on wealth, ego, or people.
+2. **The Affirmation:** When you say *"illAllah,"* settle the heart on the fact that only He provides, sustains, and deserves your ultimate devotion.
+3. **The Follow-through:** Acknowledging Muhammad (peace be upon him) as the *Rasool* means accepting his sunnah as the practical map for your life.` },
         { title: 'Reflect on what "no god but Allah" demands of your daily life', done: false,
           description: 'La ilaha illAllah negates all false objects of worship and affirms Allah alone. Consider how this impacts your priorities, fears, hopes, and who you ultimately rely on.' },
         { title: 'Study the difference between verbal declaration and lived conviction', done: false,
@@ -26,7 +69,41 @@ export const FAITH_SEED_TASKS = {
       description: 'Deeply understand the testimony of faith \u2014 its linguistic meaning, theological implications, and the conditions scholars have derived from the Quran and Sunnah that make it valid.',
       subtasks: [
         { title: 'Study the linguistic meaning of La ilaha illAllah', done: false,
-          description: 'Break down the Arabic: "La" (negation), "ilaha" (deity/god), "illa" (except), "Allah." Understand that it negates divinity from everything and affirms it exclusively for Allah.' },
+          description: `## Why the Linguistic Study Matters
+
+Understanding the grammar prevents common misconceptions. For example:
+
+1. It doesn't just mean "God exists" (which even the pagans of Mecca believed).
+2. It doesn't just mean "God is the Creator" (which is *Tawhid ar-Rububiyyah*).
+3. **It specifically means** that nothing has the *right* to be worshipped, sought for ultimate help, or obeyed unconditionally except Allah.
+
+---
+
+**1. The Breakdown**
+
+- **La (\u0644\u0627) \u2014 The Absolute Negation:** This is not a simple "no." It is *La al-Nafiyah lil-Jins*, which means you are "negating the entire genus." When you say this, you are effectively clearing the "shelf" of your heart of every possible false deity.
+- **Ilah (\u0625\u0644\u0647) \u2014 The Object of Devotion:** Derived from *alaha* (to worship), an *ilah* is anything that is turned to with ultimate love, hope, fear, or obedience.
+- **Illa (\u0625\u0644\u0627) \u2014 The Exception:** This acts as the "gatekeeper," allowing only one entity back onto the shelf.
+- **Allah (\u0627\u0644\u0644\u0647) \u2014 The Affirmation:** The proper name of the Creator, who alone possesses the right to be there.
+
+---
+
+**2. True Meaning**
+
+A common mistake is translating it as *"There is no God but Allah."*
+
+**The Precise Meaning:** "There is no deity **rightfully** worshipped except Allah."
+
+This distinction is vital because many things *are* worshipped (money, idols, ego), but linguistically, you are testifying that none of them have the *right* to that worship except Him.
+
+---
+
+**3. Practice Drill: Pronunciation & Flow**
+
+Try reciting this slowly, focusing on the "double" letters (the *Shaddah*) which add emphasis.
+
+- **Negation (The Clearing):** *Laaa-e-laaha* \u2014 Hold the "La" for 2\u20134 counts to emphasize the clearing of all false gods.
+- **Affirmation (The Settlement):** *il-lal-lawh* \u2014 Stress the "L" sounds to show firmness in your belief.` },
         { title: 'Learn what negation (la ilaha) and affirmation (illAllah) entail', done: false,
           description: 'The negation rejects all false deities, superstitions, and objects of ultimate devotion. The affirmation establishes that worship, obedience, love, and fear belong to Allah alone.' },
         { title: 'Understand what it means to worship Allah alone without partners', done: false,
