@@ -13,23 +13,26 @@ export default function MobileNav() {
   const location = useLocation();
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
 
-  // Resolve first valid focus pillar (exclude '_skipped' sentinel)
-  const focusPillar = (niyyahFocus || [])
+  // Resolve all valid focus pillars (exclude '_skipped' sentinel), max 3
+  const focusPillars = (niyyahFocus || [])
+    .filter((id) => id !== '_skipped')
     .map((id) => MAQASID_PILLARS.find((p) => p.id === id))
-    .find(Boolean);
+    .filter(Boolean)
+    .slice(0, 3);
 
-  const middleItem = focusPillar
-    ? {
-        to: `/app/pillar/${focusPillar.id}`,
-        icon: PILLAR_ICONS[focusPillar.icon] ?? Kanban,
-        label: focusPillar.sidebarLabel,
-      }
-    : { to: '/app/work', icon: Kanban, label: 'Work' };
+  const pillarItems = focusPillars.length > 0
+    ? focusPillars.map((p) => ({
+        to: `/app/pillar/${p.id}`,
+        icon: PILLAR_ICONS[p.icon] ?? Kanban,
+        label: p.sidebarLabel,
+      }))
+    : [{ to: '/app/work', icon: Kanban, label: 'Work' }];
 
+  // Show Settings only when fewer than 3 pillars are focused
   const items = [
     { to: '/app', icon: LayoutDashboard, label: 'Home', exact: true },
-    middleItem,
-    { to: '/app/settings', icon: Settings, label: 'Settings' },
+    ...pillarItems,
+    ...(focusPillars.length < 3 ? [{ to: '/app/settings', icon: Settings, label: 'Settings' }] : []),
   ];
 
   return (

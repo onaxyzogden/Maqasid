@@ -35,55 +35,54 @@ export default function TodayFocusSection({ pillarSummary = [] }) {
   }
 
   return (
-    <div className="tfs-cards">
-      {focusedIds.map((pid) => {
-        const pillar = MAQASID_PILLARS.find((p) => p.id === pid);
-        if (!pillar) return null;
-        const summary = pillarSummary.find((s) => s.pillar.id === pid);
-        const openCount = summary?.openCount ?? 0;
-        const overdueCount = summary?.overdueCount ?? 0;
-        const meta = overdueCount > 0
-          ? `${openCount} open · ${overdueCount} overdue`
-          : `${openCount} open`;
-        const Icon = PILLAR_ICONS[pillar.icon] ?? Kanban;
-        return (
-          <div
-            key={pid}
-            className="tfs-card"
-            style={{
-              borderColor: pillar.accentColor + '30',
-              background: pillar.accentColor + '08',
-            }}
-          >
-            <div className="tfs-card__bar" style={{ background: pillar.accentColor }} />
-            <div
-              className="tfs-card__icon"
-              style={{ background: pillar.accentColor + '18', color: pillar.accentColor }}
-            >
-              <Icon size={18} />
-            </div>
-            <div className="tfs-card__body">
-              <div className="tfs-card__eyebrow" style={{ color: pillar.accentColor }}>
-                Today&apos;s Focus
-              </div>
-              <div className="tfs-card__name">{isIslamic ? pillar.sidebarLabel : pillar.universalLabel}</div>
-              {isIslamic && (
-                <div className="tfs-card__arabic" style={{ color: pillar.accentColor + '80' }}>
-                  {pillar.arabicRootAr}
-                </div>
-              )}
-              <div className="tfs-card__meta">{meta}</div>
-            </div>
+    <>
+      <div className="tfs-cards">
+        {focusedIds.map((pid) => {
+          const pillar = MAQASID_PILLARS.find((p) => p.id === pid);
+          if (!pillar) return null;
+          const summary = pillarSummary.find((s) => s.pillar.id === pid);
+          const openCount = summary?.openCount ?? 0;
+          const overdueCount = summary?.overdueCount ?? 0;
+          const meta = overdueCount > 0
+            ? `${openCount} open · ${overdueCount} overdue`
+            : `${openCount} open`;
+          const Icon = PILLAR_ICONS[pillar.icon] ?? Kanban;
+          return (
             <Link
+              key={pid}
               to={`/app/pillar/${pillar.id}`}
-              className="tfs-card__btn"
-              style={{ background: pillar.accentColor + '18', color: pillar.accentColor }}
+              className="tfs-card"
+              style={{
+                borderColor: pillar.accentColor + '30',
+                background: pillar.accentColor + '08',
+              }}
             >
-              Go →
+              <div className="tfs-card__bar" style={{ background: pillar.accentColor }} />
+              <div
+                className="tfs-card__icon"
+                style={{ background: pillar.accentColor + '18', color: pillar.accentColor }}
+              >
+                <Icon size={18} />
+              </div>
+              <div className="tfs-card__body">
+                <div className="tfs-card__eyebrow" style={{ color: pillar.accentColor }}>
+                  Today&apos;s Focus
+                </div>
+                <div className="tfs-card__name">{isIslamic ? pillar.sidebarLabel : pillar.universalLabel}</div>
+                {isIslamic && (
+                  <div className="tfs-card__arabic" style={{ color: pillar.accentColor + '80' }}>
+                    {pillar.arabicRootAr}
+                  </div>
+                )}
+                <div className="tfs-card__meta">{meta}</div>
+              </div>
             </Link>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+      <button className="tfs-change" type="button" onClick={openNiyyahOverride}>
+        Change focus
+      </button>
+    </>
   );
 }

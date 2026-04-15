@@ -7,6 +7,16 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] fix | Permanent mobile nav bottom-blocking fix + task modal features
+- **Mobile nav architecture fix**: Removed `position: fixed` from MobileNav, placed in CSS grid flow (`grid-row: 3`). Eliminates recurring bug where bottom content was obscured (~20 prior fix attempts). Added `--mobile-nav-h` token. Cleaned up padding-bottom hacks in DashboardView, PillarBoard, Sidebar.
+- **Task Document slide-in**: Wired "Task Document" footer button in TaskDetailPanel to open secondary panel with status, priority, assignee, due date, tags fields. Keyed remount animation for slide transitions.
+- **BBOS form validation**: Done button in BbosTaskPanel now validates all required fields, shows red banner + inline error highlighting + shake animation when empty.
+- **Save for Later button**: Added to BbosTaskPanel footer — saves current field data and closes without validation.
+- **Gate indicator links**: Made BBOS gate diamonds (◆) in LevelNavigator clickable — navigates to stage and scrolls to Stage Health Score section.
+- **Removed segment percentage labels**: Removed `fln__segment-pct` from LevelNavigator per user request.
+- **Mobile responsive pass**: Both TaskDetailPanel and BbosTaskPanel go full-screen on mobile with adjusted spacing.
+- **AppShell TDZ fix**: Moved `useLocation()` declaration before its usage in useEffect to fix temporal dead zone crash.
+
 ## [2026-04-15] audit+fix | WCAG 2.1 AA Accessibility Audit (System Report §11.9)
 - Full accessibility audit across 5 component tiers: layout shell (5 files), modals/overlays (5 files), shared widgets (4 files), forms (5 files), dashboards/charts (5 files) + design tokens
 - **24 Critical issues identified**, 50+ Major, all addressed in this session

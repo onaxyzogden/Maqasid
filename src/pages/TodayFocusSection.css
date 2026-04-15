@@ -3,7 +3,7 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 
 .tfs-card {
@@ -18,10 +18,12 @@
   position: relative;
   overflow: hidden;
   transition: filter 0.15s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .tfs-card:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.08);
 }
 
 .tfs-card__bar {
@@ -73,17 +75,19 @@
   color: #4a5068;
 }
 
-.tfs-card__btn {
-  padding: 5px 11px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  border: none;
+/* ── Change focus trigger ── */
+.tfs-change {
+  all: unset;
+  box-sizing: border-box;
+  font-size: var(--text-sm);
+  color: var(--text3);
   cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  text-decoration: none;
-  display: inline-block;
+  margin-bottom: 12px;
+  display: block;
+  transition: color var(--duration) var(--ease);
+}
+.tfs-change:hover {
+  color: var(--text2);
 }
 
 /* ── CTA prompt (niyyah not set / skipped) ── */
