@@ -635,3 +635,22 @@ Read-only audit across 8 submodules: Build & Lint, BBOS Pipeline Workflow, Dashb
 - Created [[source-notebooklm-migration]] source summary
 - Updated 2 pages, created 2 new pages
 - NotebookLM registry marked as legacy — wiki is now authoritative context source
+
+## [2026-04-15] feat+fix | Readiness check card wizard + subtask stage progress
+
+### Readiness check redesign
+- Replaced interactive readiness check (all rows visible, small yes/not-yet buttons) with card-based wizard
+- One row per page: two side-by-side cards (green=yes, beige=not-yet) with checkmark selection
+- Internal Next/Previous navigation, progress counter ("X/Y rows completed")
+- Mobile responsive: cards stack vertically at <=480px
+- Display-only mode (IslamicPanel sidebar) unchanged
+- Files: `src/components/islamic/ReadinessCheck.jsx`, `ReadinessCheck.css`
+
+### Subtask stage progress fix
+- BBOS `pillarProgress` now includes fractional credit from subtask completion
+- Previously: task with 2/4 subtasks done = 0%. Now: = 50% of that task's weight
+- Aligned with `useModuleProgress` hook's `taskWeight()` pattern
+- File: `src/components/work/ProjectBoard.jsx` (lines 98-118)
+
+### Commit
+- `df242af` — pushed to main
