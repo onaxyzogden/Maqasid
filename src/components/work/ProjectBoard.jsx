@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState, Fragment } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload, RefreshCw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
@@ -41,10 +41,13 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const [view, setView] = useState(project?.defaultView || 'dashboard');
   const [colorPickerOpen, setColorPickerOpen] = useState(false);
   const colorPickerRef = useRef(null);
+  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [draggable, setDraggable] = useState(false);
-  const [bbosFilter, setBbosFilter] = useState(project?.bbosStage || 'FND');
+  const [bbosFilter, setBbosFilter] = useState(
+    location.state?.stage || project?.bbosStage || 'FND'
+  );
   const stageBundleUploadRef = useRef(null);
 
   useEffect(() => {

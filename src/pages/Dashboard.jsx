@@ -537,6 +537,7 @@ export default function Dashboard() {
                         key={stageId}
                         className={`bfd__pipeline-stage${isActive ? ' bfd__pipeline-stage--active' : ''}`}
                         to={`/app/work/${bp.id}`}
+                        state={{ stage: stageId }}
                         title={stage.description}
                       >
                         <span className="bfd__pipeline-stage-num">
