@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { X, Check, Pause } from 'lucide-react';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useThresholdStore } from '../../store/threshold-store';
 import { MODULES } from '../../data/modules';
 import {
@@ -121,22 +122,6 @@ export default function ThresholdModal({ type }) {
     ] : []
   );
 
-  if (!moduleId) return null;
-
-  // Dynamic steps — Pause inserts between Readiness and Confirm when triggered
-  const baseSteps = isOpening
-    ? ['Dua', 'Attributes', 'Readiness', 'Confirm']
-    : ['Dua', 'Attributes', 'Reflection', 'Confirm'];
-
-  const showClosingDuaStep = hasInteractiveReflection && reflectionFilled && !reflectionAllYes;
-  const steps = paused
-    ? [...baseSteps.slice(0, 3), 'Pause', baseSteps[3]]
-    : showClosingDuaStep
-      ? [...baseSteps.slice(0, 3), 'Closing Dua', baseSteps[3]]
-      : baseSteps;
-
-  const currentStepName = steps[step];
-
   const resetState = () => {
     setStep(0);
     setConfirmed(false);
@@ -155,6 +140,24 @@ export default function ThresholdModal({ type }) {
       else setClosingModuleId(null);
     }, 200);
   };
+
+  const trapRef = useFocusTrap(!!moduleId, close);
+
+  if (!moduleId) return null;
+
+  // Dynamic steps — Pause inserts between Readiness and Confirm when triggered
+  const baseSteps = isOpening
+    ? ['Dua', 'Attributes', 'Readiness', 'Confirm']
+    : ['Dua', 'Attributes', 'Reflection', 'Confirm'];
+
+  const showClosingDuaStep = hasInteractiveReflection && reflectionFilled && !reflectionAllYes;
+  const steps = paused
+    ? [...baseSteps.slice(0, 3), 'Pause', baseSteps[3]]
+    : showClosingDuaStep
+      ? [...baseSteps.slice(0, 3), 'Closing Dua', baseSteps[3]]
+      : baseSteps;
+
+  const currentStepName = steps[step];
 
   const closeDeferScreen = () => {
     if (isOpening) deferOpening(moduleId);
@@ -234,7 +237,7 @@ export default function ThresholdModal({ type }) {
 
   return (
     <div className={`thr-overlay${leaving ? ' thr-overlay--leaving' : ''}`}>
-      <div className="thr-modal">
+      <div className="thr-modal" ref={trapRef} role="dialog" aria-modal="true" aria-labelledby="threshold-modal-title">
 
         {/* ══════════════════════════════════════════════ */}
         {/* DEFER SCREEN — compassionate off-ramp         */}
@@ -244,9 +247,9 @@ export default function ThresholdModal({ type }) {
             <div className="thr-header">
               <div>
                 <span className="thr-module-badge">{mod?.name || 'Module'}</span>
-                <h2 className="thr-title">Threshold Deferred</h2>
+                <h2 className="thr-title" id="threshold-modal-title">Threshold Deferred</h2>
               </div>
-              <button className="thr-close" onClick={closeDeferScreen}>
+              <button className="thr-close" onClick={closeDeferScreen} aria-label="Close">
                 <X size={18} />
               </button>
             </div>
@@ -289,11 +292,11 @@ export default function ThresholdModal({ type }) {
             <div className="thr-header">
               <div>
                 <span className="thr-module-badge">{mod?.name || 'Module'}</span>
-                <h2 className="thr-title">
+                <h2 className="thr-title" id="threshold-modal-title">
                   {isOpening ? 'Opening Threshold' : 'Closing Threshold'}
                 </h2>
               </div>
-              <button className="thr-close" onClick={close}>
+              <button className="thr-close" onClick={close} aria-label="Close">
                 <X size={18} />
               </button>
             </div>

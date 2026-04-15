@@ -35,6 +35,14 @@ export default function CategoryPanel({ open, category, onClose }) {
     return () => clearTimeout(t);
   }, [open, category]);
 
+  // Global Escape listener — must be before early return to satisfy Rules of Hooks
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [open, onClose]);
+
   if (!open) return null;
 
   const canSave = name.trim().length > 0;
@@ -50,14 +58,6 @@ export default function CategoryPanel({ open, category, onClose }) {
       onClose(cat);
     }
   };
-
-  // Global Escape listener so closing works from any focused element
-  useEffect(() => {
-    if (!open) return;
-    const handler = (e) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
-  }, [open, onClose]);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && canSave) handleSave();
@@ -82,8 +82,9 @@ export default function CategoryPanel({ open, category, onClose }) {
 
           {/* Name */}
           <div className="money-field">
-            <label>Name</label>
+            <label htmlFor="cp-name">Name</label>
             <input
+              id="cp-name"
               ref={nameRef}
               type="text"
               value={name}
@@ -105,6 +106,8 @@ export default function CategoryPanel({ open, category, onClose }) {
                   onClick={() => setColor(c)}
                   title={c}
                   type="button"
+                  aria-label={`Select color: ${c}`}
+                  aria-pressed={color === c}
                 />
               ))}
             </div>
@@ -130,8 +133,9 @@ export default function CategoryPanel({ open, category, onClose }) {
 
         {/* Footer */}
         <div className="money-slidein-footer" style={{ display: 'flex', gap: 'var(--space-2)', justifyContent: 'flex-end' }}>
-          <button className="btn btn-ghost" onClick={() => onClose()}>Cancel</button>
+          <button type="button" className="btn btn-ghost" onClick={() => onClose()}>Cancel</button>
           <button
+            type="button"
             className="btn btn-primary"
             onClick={handleSave}
             disabled={!canSave || isPreset}
