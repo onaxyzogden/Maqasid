@@ -15,7 +15,7 @@
 
 .mhc-name {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text);
 }
 
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
 }
 
@@ -39,12 +39,12 @@
 
 .mhc-metric {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--text2);
 }
 
 .mhc-coming-soon {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-style: italic;
   color: var(--text3);
 }

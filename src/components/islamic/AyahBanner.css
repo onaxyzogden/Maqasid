@@ -27,7 +27,7 @@
 
 .ayah-banner__label {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -37,7 +37,7 @@
 
 .ayah-banner__source {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.04em;
   color: var(--text3);
   white-space: nowrap;
@@ -61,7 +61,7 @@
 
 .ayah-banner__arabic {
   font-family: var(--font-arabic);
-  font-size: 1.2rem;
+  font-size: var(--text-xl);
   line-height: 2;
   text-align: center;
   direction: rtl;
@@ -70,7 +70,7 @@
 }
 
 .ayah-banner__translation {
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   line-height: 1.65;
   color: var(--text2);
   margin: 0;

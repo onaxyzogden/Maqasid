@@ -16,7 +16,7 @@
 }
 
 .topbar-breadcrumb {
-  font-weight: 600; font-size: 0.95rem; color: var(--text);
+  font-weight: 600; font-size: var(--text-md); color: var(--text);
   max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
@@ -37,7 +37,7 @@
 
 .topbar-kbd {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   padding: 2px 6px;
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -50,7 +50,7 @@
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 700; font-size: 0.8rem;
+  color: #fff; font-weight: 700; font-size: var(--text-sm-plus);
   cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
 
 .topbar-tab {
   padding: var(--space-1) var(--space-3);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-weight: 500;
   color: var(--text2);
   border-radius: var(--radius);
@@ -89,7 +89,7 @@
 }
 
 .topbar-faith-badge {
-  font-size: 9px;
+  font-size: var(--text-xs);
   padding: 0.25rem 0.6rem;
   margin: 0;
 }
@@ -123,7 +123,7 @@
   .topbar { grid-column: 1 / -1; }
   .topbar-breadcrumb {
     max-width: 45vw;
-    font-size: 0.85rem;
+    font-size: var(--text-base);
   }
   .topbar-search { min-width: auto; }
   .topbar-center {

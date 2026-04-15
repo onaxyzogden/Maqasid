@@ -16,14 +16,14 @@
 }
 
 .project-journal__title {
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--text);
   margin: 0;
 }
 
 .project-journal__count {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--text3);
   margin-left: auto;
 }
@@ -41,7 +41,7 @@
   border-radius: 99px;
   background: none;
   color: var(--text3);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   cursor: pointer;
   transition: color var(--duration-sm), border-color var(--duration-sm), background var(--duration-sm);
@@ -59,7 +59,7 @@
 
 /* ── Empty state ── */
 .project-journal__empty {
-  font-size: 0.83rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   text-align: center;
   padding: var(--space-8) 0;
@@ -90,7 +90,7 @@
 }
 
 .project-journal__entry-date {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   font-weight: 500;
 }
@@ -106,7 +106,7 @@
   display: inline-block;
   padding: 1px 8px;
   border-radius: 99px;
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -127,7 +127,7 @@
 }
 
 .project-journal__entry-text {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text);
   line-height: 1.6;
   margin: 0;

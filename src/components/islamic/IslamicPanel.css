@@ -32,7 +32,7 @@
 .il-header-title {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text);
 }
 
@@ -43,7 +43,7 @@
 }
 
 .il-toggle-btn {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   padding: 2px 8px;
   border-radius: var(--radius-full);
@@ -83,18 +83,18 @@
 }
 
 .il-pillar-label {
-  font-size: 0.7rem; font-weight: 600;
+  font-size: var(--text-2xs); font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.04em;
   color: var(--text3);
 }
 
 .il-pillar-root {
-  font-size: 0.7rem; color: var(--text3);
+  font-size: var(--text-2xs); color: var(--text3);
   opacity: 0.8;
 }
 
 .il-pillar-ar {
-  font-size: 0.85rem; color: var(--text3);
+  font-size: var(--text-base); color: var(--text3);
   margin-left: auto;
 }
 
@@ -124,7 +124,7 @@
   border: 1px solid var(--accent-border);
   background: var(--accent-bg);
   color: var(--accent);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all var(--duration) var(--ease);
@@ -151,20 +151,20 @@
 .il-module-name {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--text-md);
   color: var(--text);
   margin-bottom: var(--space-1);
 }
 
 .il-module-attrs {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--accent);
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 
 .il-module-attrs-ar {
-  font-size: 1rem;
+  font-size: var(--text-md);
   color: var(--accent);
   opacity: 0.6;
   margin-top: var(--space-1);
@@ -204,12 +204,12 @@
 .il-block-toggle:hover { background: var(--bg3); }
 
 .il-block-glyph {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   flex-shrink: 0;
 }
 
 .il-block-label {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text2);
   flex: 1;
@@ -242,7 +242,7 @@
 }
 
 .il-mindfulness p {
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.7;
   font-style: italic;
@@ -253,7 +253,7 @@
   padding: var(--space-8) var(--space-4);
   text-align: center;
   color: var(--text3);
-  font-size: 0.875rem;
+  font-size: var(--text-base);
 }
 
 /* Mobile overlay */
@@ -302,7 +302,7 @@
   border-color: var(--accent-border);
 }
 .il-citations-label {
-  font-size: 0.68rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--text3);
   letter-spacing: 0.02em;
@@ -319,7 +319,7 @@
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-  font-size: 0.6rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   flex-shrink: 0;
 }

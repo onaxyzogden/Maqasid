@@ -18,28 +18,31 @@ The Money module's primary dashboard within Maqasid OS. Lives at `/app/money` un
 Pure CSS stacked bar chart. No chart library.
 
 **Data model:**
-- Source: `useMoneyStore` → `incomes[]`, `expenses[]`, `budgets[]`
+- Source: `useMoneyStore` → `incomes[]`, `expenses[]`, `budgets[]`, `categories[]`
 - Aggregation: monthly (last 9 months), filtered by `date.startsWith("YYYY-MM")`
-- `chartData` shape: `{ month, income, expenses, savings }`
+- `chartData` shape: `{ month, income, expenses, essential, discretionary, savings }`
+  - `essential` = expenses in categories with `isEssential: true`
+  - `discretionary` = `expenses − essential` (not used by chart render; kept for future use)
 
 **Bar anatomy (bottom → top):**
-1. Over-budget segment (purple hatched) — `Math.min(expenses, Math.max(0, expenses − budgetTarget))`
-2. Within-budget expenses (yellow `#fde68a`)
-3. Transparent spacer (savings = income − expenses) — income background shows through
-- Bar total height = `income / ceiling * 100%`
-- `ceiling` = `niceMax(max monthly income or budgetTarget)`
+1. **Expenses** (dark green `var(--mod-money)`) — `d.expenses` — all actual recorded expenses
+2. **Discretionary Spending** (light green `#86efac`) — `max(0, budgetTarget − expenses)` — remaining budget headroom
+3. **Over Budget** (purple hatched) — `max(0, expenses − budgetTarget)` — only visible when over
+- Bar total height = `max(expenses, budgetTarget) / ceiling * 100%`
+- `ceiling` = `niceMax(max(expenses, budgetTarget) across all months)`
+- When under budget: bar always reaches exactly to the Max Target Spending dashed line
 
 **Supporting elements:**
 - Y-axis labels (4 ticks, formatted as `2.5k` etc.)
 - Horizontal gridlines at each tick
 - Dashed budget target line at `monthlyBudget / ceiling %` ("Max Target Spending")
-- Legend below chart: Income · Expenses · Over budget (conditional)
+- Legend below chart: Expenses · Discretionary Spending · Over budget (conditional)
 
-**Key design decisions:**
-- Bar height = income (not savings+income+expenses, which double-counts)
-- Savings is implicit — shown as the income-colored gap above the expense segment
-- A transparent spacer child holds the savings proportion so expenses don't stretch to fill the bar
-- `md-chart-stack` background = `var(--mod-money)` so income color shows through spacer
+**Category `isEssential` flag:**
+- Added to `PRESET_CATEGORIES` in `src/data/config/money-categories.js`
+- Essential presets: Rent, Utility, Utility Bills, Transport, Payroll
+- Defaults to `false` for user-added categories (no UI toggle yet — deferred)
+- Currently carried in `chartData.essential` but chart renders all expenses as one block
 
 ## Status
-Active. Redesigned 2026-04-14 from weekly side-by-side to monthly stacked layout.
+Active. Redesigned 2026-04-15: expense-based bar height, 3-segment stacked layout, all-corners rounding per segment.

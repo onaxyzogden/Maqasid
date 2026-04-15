@@ -20,7 +20,7 @@
 }
 
 .ceremony-gate-title {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-3);
@@ -29,7 +29,7 @@
 }
 
 .ceremony-gate-sub {
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text2);
   max-width: 420px;
   margin-bottom: var(--space-6);
@@ -42,7 +42,7 @@
 
 .ceremony-gate-skip {
   margin-top: var(--space-3);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text3);
 }
 

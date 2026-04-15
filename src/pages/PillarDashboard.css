@@ -14,14 +14,14 @@
 }
 
 .pd-header__name {
-  font-size: 1.35rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.01em;
 }
 
 .pd-header__stewardship {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   font-weight: 500;
   text-transform: uppercase;
@@ -29,7 +29,7 @@
 }
 
 .pd-header__root {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--pd-color, var(--primary));
   font-weight: 500;
 }
@@ -46,14 +46,14 @@
 .pd-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 /* ── Header ── */
 .pd-th {
   padding: var(--space-3) var(--space-4);
   text-align: left;
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -99,7 +99,7 @@
   vertical-align: middle;
   border-right: 1px solid var(--border);
   background: var(--bg3);
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
 }
 
 .pd-td--necessity {
@@ -132,7 +132,7 @@
 /* ── Coming soon note ── */
 .pd-coming-soon {
   margin-top: var(--space-4);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   text-align: center;
 }

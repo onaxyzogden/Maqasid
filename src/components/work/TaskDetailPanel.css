@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .tdp-project-name {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text2);
   white-space: nowrap;
@@ -49,7 +49,7 @@
 }
 
 .tdp-task-id {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   background: var(--bg3);
   padding: 1px 6px;
@@ -69,7 +69,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--warning);
   background: rgba(212, 151, 74, 0.1);
   padding: 2px 8px;
@@ -108,7 +108,7 @@
 
 /* ── Title ── */
 .tdp-title {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   font-family: var(--font-heading);
   border: none;
@@ -154,7 +154,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -166,7 +166,7 @@
 .tdp-assignee-select {
   all: unset;
   box-sizing: border-box;
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   cursor: pointer;
   padding: 2px 4px;
@@ -203,7 +203,7 @@
   gap: 3px;
 }
 .tdp-control-group label {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -212,7 +212,7 @@
 
 .tdp-select {
   padding: 5px 10px;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg);
@@ -242,7 +242,7 @@
 
 .tdp-date-input {
   padding: 5px 10px;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg);
@@ -266,7 +266,7 @@
   padding: var(--space-3);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   resize: vertical;
   background: var(--bg);
@@ -299,7 +299,7 @@
   flex: 1;
   border: none;
   background: transparent;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text);
   outline: none;
   font-family: inherit;
@@ -309,7 +309,7 @@
 }
 
 .tdp-subtask-group-label {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -357,7 +357,7 @@
 
 .tdp-subtask-title {
   flex: 1;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text);
   line-height: 1.4;
   cursor: pointer;
@@ -422,7 +422,7 @@
   border-top: 1px solid var(--border);
 }
 .tdp-notes-label {
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text3);
   text-transform: uppercase;
@@ -435,7 +435,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: var(--space-2);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text);
   background: var(--bg2);
   font-family: inherit;
@@ -503,7 +503,7 @@
 }
 
 .tdp-attachment-name {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text1);
   text-decoration: none;
   white-space: nowrap;
@@ -513,7 +513,7 @@
 .tdp-attachment-name:hover { text-decoration: underline; }
 
 .tdp-attachment-size {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
 }
 
@@ -537,7 +537,7 @@
   align-items: center;
   gap: 6px;
   padding: var(--space-2) var(--space-3);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   border: 1px dashed var(--border);
   border-radius: var(--radius-sm);
@@ -560,7 +560,7 @@
 }
 
 .tdp-tags-label {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -582,7 +582,7 @@
   background: var(--primary-bg);
   color: var(--primary);
   border-radius: var(--radius-full);
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
 }
 
@@ -629,7 +629,7 @@
 }
 
 .tdp-status-current {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text2);
   background: var(--bg3);
@@ -638,7 +638,7 @@
 }
 
 .tdp-status-time {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   display: flex;
   align-items: center;
@@ -659,7 +659,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
 }
 
@@ -681,7 +681,7 @@
   align-items: center;
   gap: 4px;
   color: var(--text3);
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
 }
 
 .tdp-footer__actions {
@@ -697,7 +697,7 @@
   align-items: center;
   gap: 5px;
   padding: 5px 12px;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text2);
   background: var(--bg3);

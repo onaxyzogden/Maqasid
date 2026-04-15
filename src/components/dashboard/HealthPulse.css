@@ -12,7 +12,7 @@
 }
 
 .hp-title {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -28,29 +28,29 @@
 
 .health-pulse-green .hp-dot {
   background: var(--success);
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+  box-shadow: var(--shadow-glow-green);
 }
 .health-pulse-green .hp-label { color: var(--success); }
 
 .health-pulse-amber .hp-dot {
   background: var(--warning);
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  box-shadow: var(--shadow-glow-amber);
 }
 .health-pulse-amber .hp-label { color: var(--warning); }
 
 .health-pulse-red .hp-dot {
   background: var(--danger);
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  box-shadow: var(--shadow-glow-red);
 }
 .health-pulse-red .hp-label { color: var(--danger); }
 
 .hp-label {
-  font-size: 1rem;
+  font-size: var(--text-md);
   font-weight: 700;
 }
 
 .hp-desc {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   line-height: 1.5;
 }

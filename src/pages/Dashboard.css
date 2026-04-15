@@ -19,7 +19,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
 }
 .insight-niyyah-label {
   color: var(--text2);
@@ -29,7 +29,7 @@
   padding: 1px 8px;
   border: 1px solid;
   border-radius: var(--radius-sm);
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
 }
 
@@ -61,12 +61,12 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   flex-shrink: 0;
 }
 .insight-greeting__text {
   flex: 1;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text);
   min-width: 200px;
 }
@@ -82,11 +82,11 @@
 }
 .insight-prayer-name {
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--accent);
 }
 .insight-prayer-time {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text2);
 }
 .insight-greeting__actions {
@@ -98,7 +98,7 @@
 .insight-action-btn {
   padding: 6px 12px;
   border-radius: var(--radius);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   border: 1.5px solid var(--border);
@@ -125,7 +125,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text-primary);
   text-decoration: none;
@@ -185,7 +185,7 @@
   gap: var(--space-2);
 }
 .bcg-chart__title {
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text);
 }
 .bcg-chart__title strong {
@@ -203,7 +203,7 @@
   border: none;
   background: none;
   border-radius: var(--radius-xs);
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 500;
   color: var(--text3);
   cursor: pointer;
@@ -230,7 +230,7 @@
   padding: var(--space-8);
   gap: var(--space-2);
   color: var(--text3);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
 }
 .bcg-chart__legend {
   display: flex;
@@ -242,7 +242,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
 }
 .bcg-legend-dot {
@@ -269,7 +269,7 @@
   min-width: 100px;
 }
 .insight-eph__label {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--text2);
   display: flex;
@@ -284,7 +284,7 @@
   margin: var(--space-1) 0;
 }
 .insight-eph__desc {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
 }
 
@@ -312,7 +312,7 @@
   line-height: 1;
 }
 .insight-stat-card__label {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   margin-top: 2px;
 }
@@ -331,12 +331,12 @@
   margin-bottom: var(--space-3);
 }
 .wf-pressure__title {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text);
 }
 .wf-pressure__level {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 700;
 }
 .wf-pressure__bars {
@@ -357,11 +357,11 @@
 .wf-pressure__labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
 }
 .wf-pressure__desc {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   margin-top: var(--space-2);
   line-height: 1.4;
@@ -375,7 +375,7 @@
   padding: var(--space-4);
 }
 .insight-upcoming__header {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-3);
@@ -403,7 +403,7 @@
   min-width: 0;
 }
 .insight-upcoming-title {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
   color: var(--text);
   overflow: hidden;
@@ -411,7 +411,7 @@
   white-space: nowrap;
 }
 .insight-upcoming-date {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
 }
 
@@ -441,7 +441,7 @@
   gap: var(--space-1);
   padding: var(--space-1) 10px;
   border-radius: var(--radius-full);
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--text3);
   background: none;
@@ -468,13 +468,13 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-2);
 }
 .insight-open-tasks__count {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--text3);
   background: var(--bg4);
@@ -505,14 +505,14 @@
 }
 .insight-task-title {
   flex: 1;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .insight-task-proj {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   color: var(--text3);
   background: var(--bg4);
@@ -521,7 +521,7 @@
   flex-shrink: 0;
 }
 .insight-task-view {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
@@ -535,7 +535,7 @@
   background: rgba(74, 184, 168, 0.08);
 }
 .insight-task-due {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   white-space: nowrap;
   flex-shrink: 0;
@@ -544,7 +544,7 @@
   display: block;
   text-align: center;
   padding: var(--space-2) 0;
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
@@ -559,7 +559,7 @@
   padding: var(--space-4);
   text-align: center;
   color: var(--text3);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
 }
 
 /* ── Section-level empty state (icon + text + CTA) ── */
@@ -574,13 +574,13 @@
 }
 .insight-section-empty p {
   color: var(--text3);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   line-height: 1.4;
   margin: 0;
   max-width: 240px;
 }
 .insight-section-empty__cta {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
@@ -609,7 +609,7 @@
   border-bottom: 1px solid var(--border);
 }
 .insight-section-tab {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
   color: var(--text3);
   cursor: pointer;
@@ -639,7 +639,7 @@
   gap: var(--space-2);
 }
 .insight-recommendations__cs-title {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   max-width: 200px;
   line-height: 1.4;
@@ -658,7 +658,7 @@
   margin-left: auto;
 }
 .insight-act-tab {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--text3);
   background: none;
@@ -711,11 +711,11 @@
   min-width: 0;
 }
 .insight-activity-item__time {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
 }
 .insight-activity-item__text {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--text2);
   line-height: 1.4;
 }
@@ -724,7 +724,7 @@
   font-weight: 600;
 }
 .insight-activity-item__project {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
 }
 .insight-activity-item__project strong {
@@ -763,7 +763,7 @@
     flex-wrap: wrap;
   }
   .insight-action-btn {
-    font-size: 0.72rem;
+    font-size: var(--text-2xs);
     padding: var(--space-2) var(--space-3);
   }
   .insight-stat-cards {
@@ -779,13 +779,13 @@
   margin: 0 auto var(--space-6);
 }
 .insight-empty__title {
-  font-size: 1.35rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: var(--space-2);
 }
 .insight-empty__text {
   color: var(--fg2);
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   margin-bottom: var(--space-4);
 }
 .insight-empty__actions {
@@ -801,7 +801,7 @@
   padding: var(--space-2) var(--space-3);
   border: 1px solid;
   border-radius: var(--radius);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   text-decoration: none;
   transition: background var(--duration-sm);
 }
@@ -812,7 +812,7 @@
 /* ── Greeting: two-line text block ── */
 .insight-greeting__text {
   flex: 1;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text);
   min-width: 200px;
 }
@@ -824,19 +824,19 @@
   min-width: 200px;
 }
 .insight-greeting__name {
-  font-size: 0.88rem;
+  font-size: var(--text-base);
   font-weight: 600;
   color: var(--text);
 }
 .insight-greeting__motivation {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--text3);
 }
 
 /* ── Section label (Faith module style) ── */
 .insight-section-label {
   font-family: var(--font-heading);
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -891,7 +891,7 @@
 
 .pps__label {
   font-family: var(--font-heading);
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -905,7 +905,7 @@
 
 .pps__arabic {
   font-family: var(--font-arabic);
-  font-size: 0.68rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   direction: rtl;
   text-align: center;
@@ -942,18 +942,18 @@
 .pps-focus__name {
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text);
 }
 .pps-focus__arabic {
   font-family: var(--font-arabic);
-  font-size: 0.68rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   direction: rtl;
 }
 .pps-focus__count {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   white-space: nowrap;
   flex-shrink: 0;
@@ -968,7 +968,7 @@
 }
 .pps-focus__link:hover { color: var(--primary); }
 .pps-focus__hint {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   margin-top: var(--space-3);
   line-height: 1.4;

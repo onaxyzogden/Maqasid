@@ -40,7 +40,7 @@
 .thr-module-badge {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   padding: 3px 10px;
   border: 1px solid var(--accent-border);
@@ -50,7 +50,7 @@
 }
 
 .thr-title {
-  font-size: 1.4rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text);
   margin: 0;
@@ -84,7 +84,7 @@
 
 .thr-step {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 400;
   padding: var(--space-2) var(--space-4);
   border: 1px solid var(--border);
@@ -135,7 +135,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.6;
   cursor: pointer;
@@ -169,7 +169,7 @@
   padding: var(--space-2) var(--space-5);
   border-radius: var(--radius);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   cursor: pointer;
   transition: all var(--duration) var(--ease);
   border: none;
@@ -188,7 +188,7 @@
 .thr-btn-primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 2px 8px rgba(201, 160, 90, 0.25);
+  box-shadow: var(--shadow-accent);
 }
 .thr-btn-primary:hover {
   background: var(--accent2);
@@ -206,7 +206,7 @@
   background: none;
   color: var(--text3);
   border: 1px solid var(--border);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
   padding: var(--space-2) var(--space-4);
 }
@@ -240,14 +240,14 @@
 }
 
 .thr-pause-ack {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-style: italic;
   color: var(--text3);
   line-height: 1.6;
 }
 
 .thr-pause-note {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   line-height: 1.6;
   margin-top: var(--space-2);
@@ -255,7 +255,7 @@
 }
 
 .thr-pause-question {
-  font-size: 0.95rem;
+  font-size: var(--text-md);
   color: var(--text);
   line-height: 1.7;
   padding: var(--space-4);
@@ -273,14 +273,14 @@
 }
 
 .thr-defer-ack {
-  font-size: 0.95rem;
+  font-size: var(--text-md);
   font-style: italic;
   color: var(--text2);
   line-height: 1.7;
 }
 
 .thr-defer-guidance-label {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--text3);
   text-transform: uppercase;
@@ -289,7 +289,7 @@
 }
 
 .thr-defer-guidance {
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text);
   line-height: 1.7;
   padding: var(--space-4);
@@ -299,7 +299,7 @@
 }
 
 .thr-defer-holding {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text3);
   line-height: 1.6;
   text-align: center;
@@ -317,7 +317,7 @@
 }
 
 .thr-pause-ayah-framing {
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.7;
   font-style: italic;
@@ -326,7 +326,7 @@
 
 /* ── Readiness Hint (footer inline) ── */
 .thr-readiness-hint {
-  font-size: 0.69rem;
+  font-size: var(--text-2xs);
   font-style: italic;
   color: var(--text3);
   opacity: 0.5;

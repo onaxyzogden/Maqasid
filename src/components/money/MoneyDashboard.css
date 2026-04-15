@@ -29,13 +29,13 @@
 }
 
 .md-mid-number {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   font-family: var(--font-heading);
 }
 
 .md-label {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
 }
 
@@ -43,7 +43,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
 }
 
@@ -54,7 +54,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-weight: 500;
   color: var(--text);
   cursor: pointer;
@@ -102,7 +102,7 @@
 }
 
 .md-yaxis-label {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   line-height: 1;
 }
@@ -145,8 +145,7 @@
   flex-direction: column;
   gap: 2px;
   width: 100%;
-  border-radius: 6px 6px 0 0;
-  background: var(--mod-money);
+  border-radius: 0;
   transition: height var(--duration-lg) var(--ease);
 }
 
@@ -156,10 +155,12 @@
   border-radius: 4px;
 }
 
-.md-bar-savings  { background: #fde68a; }
-.md-bar-spacer   { background: transparent; }
-.md-bar-income   { background: var(--mod-money); }
-.md-bar-expenses { background: #86efac; }
+.md-bar-savings      { background: #fde68a; }
+.md-bar-spacer       { background: transparent; }
+.md-bar-income       { background: var(--mod-money); }
+.md-bar-expenses     { background: #86efac; }
+.md-bar-essential    { background: var(--mod-money); }
+.md-bar-discretionary { background: #86efac; }
 
 .md-bar-over-budget {
   background: repeating-linear-gradient(
@@ -185,7 +186,7 @@
   position: absolute;
   right: 0;
   transform: translateY(-100%);
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   background: var(--surface);
   padding: 0 var(--space-1);
@@ -203,7 +204,7 @@
 .md-chart-label {
   flex: 1;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
 }
 
@@ -212,7 +213,7 @@
   justify-content: center;
   align-items: center;
   gap: var(--space-3);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--text2);
   margin-top: var(--space-2);
 }
@@ -227,6 +228,7 @@
 
 .md-dot-savings    { background: #fde68a; }
 .md-dot-income     { background: var(--mod-money); }
+.md-dot-essential  { background: var(--mod-money); }
 .md-dot-expenses   { background: #86efac; }
 .md-dot-overbudget {
   background: repeating-linear-gradient(
@@ -257,7 +259,7 @@
 }
 
 .md-visa-label {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   opacity: 0.7;
 }
 
@@ -265,7 +267,7 @@
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   font-style: italic;
   color: #fbbf24;
@@ -273,7 +275,7 @@
 
 .md-visa-num {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   margin: var(--space-3) 0 var(--space-2);
   letter-spacing: 2px;
 }
@@ -281,7 +283,7 @@
 .md-visa-footer {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   opacity: 0.8;
 }
 
@@ -302,7 +304,7 @@
   background: none;
   color: var(--text2);
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   transition: all var(--duration) var(--ease);
   flex: 1;
 }
@@ -312,7 +314,7 @@
 }
 
 .md-quick-pay h5 {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-weight: 600;
   margin-bottom: var(--space-2);
 }
@@ -327,7 +329,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text2);
 }
 
@@ -340,7 +342,7 @@
   justify-content: center;
   color: #fff;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 /* ── Spending limit ── */
@@ -361,7 +363,7 @@
 .md-limit-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
 }
 
@@ -376,7 +378,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
 }
 
 .md-cost-dot {
@@ -422,12 +424,12 @@
 
 .md-donut-label strong {
   display: block;
-  font-size: 1.3rem;
+  font-size: var(--text-xl);
   font-family: var(--font-heading);
 }
 
 .md-donut-label span {
-  font-size: 0.6rem;
+  font-size: var(--text-xs);
   color: var(--text2);
   display: block;
   max-width: 70px;
@@ -454,7 +456,7 @@
 .md-goal-top {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   margin-bottom: 4px;
 }
 
@@ -503,7 +505,7 @@
 }
 
 .md-tx-name {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -517,12 +519,12 @@
 }
 
 .md-tx-amount {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-weight: 600;
 }
 
 .md-tx-status {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--success);
 }
 

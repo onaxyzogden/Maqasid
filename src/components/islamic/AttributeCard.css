@@ -17,23 +17,23 @@
 .attr-card-name {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--text-md);
 }
 
 .attr-card-name-ar {
-  font-size: 1rem;
+  font-size: var(--text-md);
   color: var(--accent);
   opacity: 0.7;
 }
 
 .attr-card-title {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-style: italic;
   color: var(--text3);
 }
 
 .attr-card-body {
-  font-size: 0.825rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   line-height: 1.7;
 }

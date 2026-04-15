@@ -7,6 +7,37 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] implement | Money Dashboard chart — expense-based segments + isEssential categories
+- **Balance Overview chart restructure:**
+  - Bar height now based on `expenses` (was `income`); no surplus/income spacer
+  - 3 segments (bottom → top): Expenses (dark green) · Discretionary Spending (light green = budget headroom) · Over Budget (purple hatched)
+  - Discretionary Spending = `max(0, budgetTarget − expenses)` — bars reach exactly to Max Target line when under budget
+  - All 4 corners rounded per segment (`border-radius: 4px`); stack background removed
+  - Ceiling = `niceMax(max(expenses, budgetTarget))` across all months
+- **`isEssential` flag on preset categories:**
+  - Added to `PRESET_CATEGORIES` in `money-categories.js`
+  - Essential: Rent, Utility, Utility Bills, Transport, Payroll; all others `false`
+  - `chartData` carries `essential`/`discretionary` per month (chart renders all expenses as one block for now)
+- Files: MoneyDashboard.jsx, MoneyDashboard.css, money-categories.js, wiki/entities/money-dashboard.md
+
+## [2026-04-15] implement | Hadith sourcing audit + segment nav wrapping + money chart redesign
+- **Hadith audit:** scanned entire codebase for non-Sahih hadith references; found 3 issues
+  - NiyyahAct.jsx: Tirmidhi 3391 → Sahih Muslim 2723 (morning/evening duas), added time-of-day logic via `getDua()` selector
+  - islamic-data.js LIFE module closing dua: Tirmidhi 3401 → Quran 26:78–80 (Ibrahim AS on creation, sustenance, healing)
+  - quran-overview.js HIFZ virtues: Abu Dawud claims → Sahih Muslim 804 & 798 (Quran intercession, reciters' reward)
+  - All 40+ Quranic ayat already sourced to Quran; all other module duas already Quran/Sahih
+- **LevelNavigator segment nav wrapping:** segment buttons ("EARNING & PROVISION", etc.) overlapping on small screens
+  - Root cause: `.fln__segment-nav` had `white-space: nowrap` with no width constraint
+  - Fix: `white-space: normal` + `max-width: 100%` allows wrapping into 2 lines on narrow viewports
+  - Tested: 600px → labels wrap cleanly; 1280px → single line preserved
+- **Money Dashboard chart redesign:** relabel and recolor for clarity
+  - Legend changed: "Income" → "Expenses", "Expenses" → "Discretionary Spending"
+  - Color change: expense bar from yellow (#fde68a) → light mint (#86efac) for visual distinction from income green (#22c55e)
+  - Bar order reordered: over-budget now appears above expenses (visually correct priority)
+  - Data binding fixed: bar height still driven by `d.income`; dark green background shows savings gap; light green = `withinExpenses` (budgeted portion); purple = `overBudget` spike
+- Files: NiyyahAct.jsx, islamic-data.js, quran-overview.js, LevelNavigator.css, MoneyDashboard.jsx, MoneyDashboard.css
+- Commit: 6f0c72d
+
 ## [2026-04-14] implement | Money Dashboard — Balance overview chart redesign
 - Replaced weekly side-by-side bar chart with monthly stacked bar chart (9 months)
 - Chart logic: bar height = monthly income; expenses (yellow) from bottom; transparent spacer holds savings gap; income background shows through

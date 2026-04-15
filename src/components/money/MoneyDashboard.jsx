@@ -33,8 +33,7 @@ function BarChart({ data, budgetTarget = 0 }) {
   if (!data.length) return null;
 
   const stackMax = Math.max(
-    ...data.map((d) => d.income),
-    budgetTarget || 0,
+    ...data.map((d) => Math.max(d.expenses, budgetTarget)),
     1,
   );
   const ceiling = niceMax(stackMax);
@@ -74,19 +73,17 @@ function BarChart({ data, budgetTarget = 0 }) {
           {/* Bars */}
           <div className="md-chart-bars">
             {data.map((d, i) => {
-              const totalPct = (d.income / ceiling) * 100;
-              const overBudget = budgetTarget > 0
-                ? Math.min(d.expenses, Math.max(0, d.expenses - budgetTarget))
-                : 0;
-              const withinExpenses = d.expenses - overBudget;
-              const surplus = Math.max(0, d.income - d.expenses);
+              const barTop = budgetTarget > 0 ? Math.max(d.expenses, budgetTarget) : d.expenses;
+              const totalPct = (barTop / ceiling) * 100;
+              const overBudget = budgetTarget > 0 ? Math.max(0, d.expenses - budgetTarget) : 0;
+              const discret = budgetTarget > 0 ? Math.max(0, budgetTarget - d.expenses) : 0;
 
               return (
                 <div key={i} className="md-chart-col">
                   <div className="md-chart-stack" style={{ height: `${totalPct}%` }}>
-                    {surplus > 0 && <div className="md-bar md-bar-spacer" style={{ flex: surplus }} />}
-                    {overBudget > 0 && <div className="md-bar md-bar-over-budget" style={{ flex: overBudget }} />}
-                    {withinExpenses > 0 && <div className="md-bar md-bar-expenses" style={{ flex: withinExpenses }} />}
+                    {overBudget  > 0 && <div className="md-bar md-bar-over-budget"    style={{ flex: overBudget }} />}
+                    {discret     > 0 && <div className="md-bar md-bar-discretionary"  style={{ flex: discret }} />}
+                    {d.expenses  > 0 && <div className="md-bar md-bar-essential"      style={{ flex: d.expenses }} />}
                   </div>
                 </div>
               );
@@ -133,18 +130,22 @@ export default function MoneyDashboard({ onNavigate }) {
       const monthIncome = incomes
         .filter((x) => x.date?.startsWith(prefix))
         .reduce((s, x) => s + (Number(x.amount) || 0), 0);
-      const monthExpense = expenses
-        .filter((x) => x.date?.startsWith(prefix))
+      const monthExpenses = expenses.filter((x) => x.date?.startsWith(prefix));
+      const monthExpense = monthExpenses.reduce((s, x) => s + (Number(x.amount) || 0), 0);
+      const monthEssential = monthExpenses
+        .filter((x) => categories.find((c) => c.id === x.categoryId)?.isEssential ?? false)
         .reduce((s, x) => s + (Number(x.amount) || 0), 0);
       results.push({
         month: MONTHS[d.getMonth()],
         income: monthIncome,
         expenses: monthExpense,
+        essential: monthEssential,
+        discretionary: monthExpense - monthEssential,
         savings: Math.max(0, monthIncome - monthExpense),
       });
     }
     return results;
-  }, [incomes, expenses]);
+  }, [incomes, expenses, categories]);
 
   // Cost analysis by category
   const costCategories = useMemo(() => {
@@ -235,7 +236,7 @@ export default function MoneyDashboard({ onNavigate }) {
           </div>
           <BarChart data={chartData} budgetTarget={monthlyBudget} />
           <div className="md-chart-legend">
-            <span><span className="md-legend-dot md-dot-income" />Expenses</span>
+            <span><span className="md-legend-dot md-dot-essential" />Expenses</span>
             <span><span className="md-legend-dot md-dot-expenses" />Discretionary Spending</span>
             {monthlyBudget > 0 && (
               <span><span className="md-legend-dot md-dot-overbudget" />Over budget</span>

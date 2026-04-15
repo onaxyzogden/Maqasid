@@ -29,7 +29,7 @@
   all: unset;
   box-sizing: border-box;
   padding: 4px 14px;
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
   color: var(--text3);
   border-radius: var(--radius-sm);
@@ -48,7 +48,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--warning);
   font-weight: 500;
 }
@@ -84,7 +84,7 @@
 }
 
 .gantt-th {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--text3);
   text-transform: uppercase;
@@ -122,7 +122,7 @@
 .gantt-table-row--undated:hover { opacity: 0.8; }
 
 .gantt-td {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text);
   padding: 0 var(--space-3);
   display: flex;
@@ -133,7 +133,7 @@
 .gantt-td--dep  { width: 70px; flex-shrink: 0; justify-content: center; color: var(--text3); }
 
 .gantt-row-num {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   font-weight: 500;
   min-width: 18px;
@@ -142,13 +142,13 @@
 
 .gantt-task-name {
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
 }
 
 .gantt-date-input {
   all: unset;
   box-sizing: border-box;
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text2);
   font-family: inherit;
   width: 100%;
@@ -185,7 +185,7 @@
 }
 
 .gantt-month-cell {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--text2);
   display: flex;
@@ -215,7 +215,7 @@
 .gantt-day-cell:last-child { border-right: none; }
 
 .gantt-day-name {
-  font-size: 0.55rem;
+  font-size: var(--text-xs);
   color: var(--text3);
   line-height: 1;
   text-transform: uppercase;
@@ -223,7 +223,7 @@
 }
 
 .gantt-day-num {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   color: var(--text2);
   font-weight: 500;
   line-height: 1;
@@ -302,7 +302,7 @@
 }
 
 .gantt-bar-label {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--text);
   white-space: nowrap;

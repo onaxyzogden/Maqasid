@@ -37,7 +37,7 @@
 .niyyah-badge {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   letter-spacing: 0.06em;
   padding: 3px 12px;
@@ -48,14 +48,14 @@
 }
 
 .niyyah-title {
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 var(--space-1);
 }
 
 .niyyah-subtitle {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text2);
   margin: 0;
 }
@@ -82,14 +82,14 @@
 }
 
 .niyyah-bismillah-en {
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   margin: var(--space-1) 0 0;
 }
 
 /* Step: Pillar focus */
 .niyyah-focus-heading {
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text2);
   text-transform: uppercase;
@@ -134,13 +134,13 @@
 }
 
 .niyyah-pillar-label {
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
   color: var(--text);
 }
 
 .niyyah-pillar-root {
-  font-size: 0.7rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   display: block;
 }
@@ -164,7 +164,7 @@
   color: white;
   border: none;
   border-radius: var(--radius-md);
-  font-size: 0.88rem;
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: opacity var(--duration) var(--ease);
@@ -184,7 +184,7 @@
   background: none;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   cursor: pointer;
   transition: background var(--duration) var(--ease);
@@ -225,7 +225,7 @@
 }
 
 .niyyah-mindfulness-text {
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   font-weight: 500;
   color: var(--text);
   line-height: 1.6;

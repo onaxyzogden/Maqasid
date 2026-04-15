@@ -41,7 +41,7 @@
 
 /* ── Title ── */
 .iltd__title {
-  font-size: 1.15rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.02em;
@@ -72,7 +72,7 @@
 }
 
 .iltd__control label {
-  font-size: 0.58rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -81,7 +81,7 @@
 }
 
 .iltd__select {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -101,7 +101,7 @@
 }
 
 .iltd__date-input {
-  font-size: 0.82rem;
+  font-size: var(--text-sm-plus);
   background: none;
   border: none;
   outline: none;
@@ -112,7 +112,7 @@
 
 /* ── Section labels ── */
 .iltd__section-label {
-  font-size: 0.62rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -123,7 +123,7 @@
 
 /* ── Description (read-only) ── */
 .iltd__description {
-  font-size: 0.87rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.55;
   margin: 0;
@@ -132,7 +132,7 @@
 /* ── Notes textarea ── */
 .iltd__textarea {
   width: 100%;
-  font-size: 0.87rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.55;
   background: var(--bg);
@@ -160,7 +160,7 @@
 
 .iltd__subtask-input {
   flex: 1;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   background: none;
   border: none;
   border-bottom: 1px solid var(--border);
@@ -172,7 +172,7 @@
 .iltd__subtask-input::placeholder { color: var(--text3); }
 
 .iltd__subtask-group-label {
-  font-size: 0.6rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -196,7 +196,7 @@
 }
 
 .iltd__subtask-desc {
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   color: var(--text3);
   line-height: 1.45;
   margin: 2px 0 0;
@@ -217,7 +217,7 @@
 .iltd__subtask-check--done { color: var(--col-done, #22c55e); }
 
 .iltd__subtask-title {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text2);
 }
 .iltd__subtask-title.done {
@@ -253,7 +253,7 @@
   background: var(--bg3);
   border-radius: 20px;
   padding: 3px 8px;
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text2);
 }
 
@@ -273,7 +273,7 @@
   border: 1px dashed var(--border);
   border-radius: 20px;
   padding: 3px 8px;
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   cursor: pointer;
   display: flex;

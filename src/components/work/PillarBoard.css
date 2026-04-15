@@ -18,7 +18,7 @@
   background: transparent;
   color: var(--text2);
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   letter-spacing: 0.06em;
   cursor: pointer;
@@ -76,7 +76,7 @@
 }
 
 .fpd__ring-label {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   fill: var(--text3);
   text-transform: uppercase;
@@ -90,7 +90,7 @@
 }
 
 .fpd__quote {
-  font-size: 1.05rem;
+  font-size: var(--text-md);
   font-style: italic;
   font-family: 'Georgia', 'Times New Roman', serif;
   color: var(--text);
@@ -99,7 +99,7 @@
 }
 
 .fpd__description {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.6;
 }
@@ -193,8 +193,8 @@
 
 .fpd__card--excellence .fpd__card-cta {
   background: transparent;
-  color: #8b5cf6;
-  border: 1px solid #8b5cf6;
+  color: var(--mod-people);
+  border: 1px solid var(--mod-people);
 }
 
 .fpd__card--excellence .fpd__card-cta:hover {
@@ -209,7 +209,7 @@
 }
 
 .fpd__card-badge {
-  font-size: 0.65rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -217,12 +217,12 @@
 }
 
 .fpd__card-title {
-  font-size: 1rem;
+  font-size: var(--text-md);
   font-weight: 700;
 }
 
 .fpd__card-desc {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   line-height: 1.55;
   flex: 1;
@@ -235,7 +235,7 @@
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius);
   font-family: var(--font-display);
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -264,7 +264,7 @@
 
 .fpd__banner-headline {
   position: relative;
-  font-size: 1.2rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: #fff;
   margin-bottom: var(--space-2);
@@ -272,7 +272,7 @@
 
 .fpd__banner-quote {
   position: relative;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-style: italic;
   color: rgba(255,255,255,0.85);
   line-height: 1.6;
@@ -295,17 +295,17 @@
   border: none;
   border-radius: 999px;
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   cursor: pointer;
-  box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.2));
+  box-shadow: var(--shadow-lg);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   z-index: 50;
 }
 
 .fpd__fab:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow-xl);
 }
 
 /* ══════════════════════════════════════════
@@ -325,12 +325,12 @@
 }
 
 .pillar-resources__title {
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   font-weight: 700;
 }
 
 .pillar-resources__desc {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.5;
   margin-bottom: var(--space-5);
@@ -352,7 +352,7 @@
   background: var(--surface);
   color: var(--text);
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   line-height: 1.5;
   outline: none;
   transition: border-color 0.15s ease;
@@ -370,14 +370,14 @@
 
 .pillar-resources__add {
   align-self: flex-end;
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
 }
 
 .pillar-resources__empty {
   padding: var(--space-8);
   text-align: center;
   color: var(--text3);
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   border: 1px dashed var(--border2);
   border-radius: var(--radius-lg);
 }
@@ -408,7 +408,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
@@ -435,14 +435,14 @@
 }
 
 .pillar-resources__card-note {
-  font-size: 0.83rem;
+  font-size: var(--text-sm-plus);
   color: var(--text2);
   line-height: 1.5;
   margin: 0;
 }
 
 .pillar-resources__card-url {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -450,7 +450,7 @@
 }
 
 .pillar-resources__card-meta {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
   display: flex;
   align-items: center;
@@ -481,7 +481,7 @@
   border-radius: 99px;
   background: none;
   color: var(--text3);
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   font-weight: 500;
   cursor: pointer;
   transition: color var(--duration-sm), border-color var(--duration-sm), background var(--duration-sm);
@@ -520,13 +520,13 @@
 }
 
 .pillar-resources__dropzone-text {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--text2);
   font-weight: 500;
 }
 
 .pillar-resources__dropzone-hint {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
 }
 
@@ -539,16 +539,16 @@
 }
 
 .pillar-resources__file-name {
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 .pillar-resources__file-size {
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   color: var(--text3);
 }
 
 .pillar-resources__file-error {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   color: var(--danger);
   font-weight: 500;
 }

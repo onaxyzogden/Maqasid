@@ -1,18 +1,18 @@
 // Preset expense categories and payment methods
 
 export const PRESET_CATEGORIES = [
-  { id: 'cat_addcomp', name: 'Additional Compensation', color: '#8b5cf6', isPreset: true },
-  { id: 'cat_food', name: 'Food', color: '#f59e0b', isPreset: true },
-  { id: 'cat_office', name: 'Office Supplies', color: '#6366f1', isPreset: true },
-  { id: 'cat_other', name: 'Other', color: '#6b7280', isPreset: true },
-  { id: 'cat_payroll', name: 'Payroll', color: '#ef4444', isPreset: true },
-  { id: 'cat_rent', name: 'Rent', color: '#3b82f6', isPreset: true },
-  { id: 'cat_repairs', name: 'Repairs', color: '#f97316', isPreset: true },
-  { id: 'cat_tech', name: 'Tech', color: '#06b6d4', isPreset: true },
-  { id: 'cat_transport', name: 'Transport', color: '#14b8a6', isPreset: true },
-  { id: 'cat_travel', name: 'Travel', color: '#ec4899', isPreset: true },
-  { id: 'cat_utility', name: 'Utility', color: '#22c55e', isPreset: true },
-  { id: 'cat_utbills', name: 'Utility Bills', color: '#0ea5e9', isPreset: true },
+  { id: 'cat_addcomp', name: 'Additional Compensation', color: '#8b5cf6', isPreset: true, isEssential: false },
+  { id: 'cat_food', name: 'Food', color: '#f59e0b', isPreset: true, isEssential: false },
+  { id: 'cat_office', name: 'Office Supplies', color: '#6366f1', isPreset: true, isEssential: false },
+  { id: 'cat_other', name: 'Other', color: '#6b7280', isPreset: true, isEssential: false },
+  { id: 'cat_payroll', name: 'Payroll', color: '#ef4444', isPreset: true, isEssential: true },
+  { id: 'cat_rent', name: 'Rent', color: '#3b82f6', isPreset: true, isEssential: true },
+  { id: 'cat_repairs', name: 'Repairs', color: '#f97316', isPreset: true, isEssential: false },
+  { id: 'cat_tech', name: 'Tech', color: '#06b6d4', isPreset: true, isEssential: false },
+  { id: 'cat_transport', name: 'Transport', color: '#14b8a6', isPreset: true, isEssential: true },
+  { id: 'cat_travel', name: 'Travel', color: '#ec4899', isPreset: true, isEssential: false },
+  { id: 'cat_utility', name: 'Utility', color: '#22c55e', isPreset: true, isEssential: true },
+  { id: 'cat_utbills', name: 'Utility Bills', color: '#0ea5e9', isPreset: true, isEssential: true },
 ];
 
 export const PAYMENT_METHODS = [

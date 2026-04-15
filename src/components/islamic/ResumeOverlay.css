@@ -25,14 +25,14 @@
 }
 
 .resume-title {
-  font-size: 1.3rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text);
   margin-bottom: var(--space-1);
 }
 
 .resume-module {
-  font-size: 0.8rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
@@ -53,7 +53,7 @@
 }
 
 .resume-mindfulness p {
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text2);
   line-height: 1.7;
   font-style: italic;
@@ -68,10 +68,10 @@
   background: var(--accent);
   color: #fff;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--text-md);
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(201, 160, 90, 0.25);
+  box-shadow: var(--shadow-accent);
   transition: all var(--duration) var(--ease);
 }
 

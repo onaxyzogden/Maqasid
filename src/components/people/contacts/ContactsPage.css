@@ -26,7 +26,7 @@
   gap: 14px;
   padding: 80px 0;
   color: var(--text3);
-  font-size: 14px;
+  font-size: var(--text-base);
 }
 
 .contacts-page__empty-cta {
@@ -36,6 +36,6 @@
   border: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: var(--text-sm-plus);
   cursor: pointer;
 }

@@ -1,7 +1,7 @@
 /* BBOS-Biz Global Styles */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+html { font-size: var(--text-md); -webkit-text-size-adjust: 100%; }
 
 textarea { overflow: hidden; resize: none; }
 
@@ -23,13 +23,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.1rem; }
-h6 { font-size: 1rem; }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-md); }
 
 .arabic { font-family: var(--font-arabic); direction: rtl; }
-.mono { font-family: var(--font-mono); font-size: 0.875em; }
+.mono { font-family: var(--font-mono); font-size: var(--text-base); }
 
 a { color: var(--primary); text-decoration: none; transition: color var(--duration) var(--ease); }
 a:hover { color: var(--primary-hover); }
@@ -155,7 +155,7 @@ textarea:read-only {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius);
-  font-weight: 600; font-size: 0.95rem;
+  font-weight: 600; font-size: var(--text-md);
   transition: all var(--duration) var(--ease);
   cursor: pointer; border: none; text-decoration: none;
 }
@@ -166,7 +166,7 @@ textarea:read-only {
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 28px rgba(74, 184, 168, 0.3);
+  box-shadow: var(--shadow-teal);
   color: #fff;
 }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
@@ -177,7 +177,7 @@ textarea:read-only {
 }
 .btn-secondary:hover { border-color: var(--primary-border); color: var(--primary); }
 
-.btn-lg { padding: var(--space-4) var(--space-8); font-size: 1.05rem; border-radius: var(--radius-lg); }
+.btn-lg { padding: var(--space-4) var(--space-8); font-size: var(--text-md); border-radius: var(--radius-lg); }
 
 .btn-ghost { background: none; color: var(--text2); }
 .btn-ghost:hover { color: var(--primary); background: var(--primary-bg); }
@@ -191,13 +191,13 @@ textarea:read-only {
 }
 .money-empty-icon { color: var(--text3); margin-bottom: var(--space-4); }
 .money-empty h4 { margin-bottom: var(--space-2); }
-.money-empty p { color: var(--text2); margin-bottom: var(--space-5); font-size: 0.9rem; }
+.money-empty p { color: var(--text2); margin-bottom: var(--space-5); font-size: var(--text-base); }
 
 /* Data tables */
 .money-table { width: 100%; border-collapse: collapse; }
 .money-table th {
   text-align: left; padding: var(--space-3) var(--space-4);
-  font-size: 0.75rem; font-weight: 600; color: var(--text3);
+  font-size: var(--text-sm); font-weight: 600; color: var(--text3);
   text-transform: uppercase; letter-spacing: 0.04em;
   border-bottom: 1px solid var(--border); white-space: nowrap;
   cursor: pointer; user-select: none;
@@ -206,7 +206,7 @@ textarea:read-only {
 .money-table td {
   padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--border);
-  font-size: 0.875rem; white-space: nowrap;
+  font-size: var(--text-base); white-space: nowrap;
 }
 .money-table tr { transition: background var(--duration) var(--ease); }
 .money-table tbody tr:hover { background: var(--surface-hover); }
@@ -215,7 +215,7 @@ textarea:read-only {
 .cat-pill {
   display: inline-flex; align-items: center; gap: var(--space-1);
   padding: 2px 8px; border-radius: var(--radius-full);
-  font-size: 0.75rem; font-weight: 500;
+  font-size: var(--text-sm); font-weight: 500;
 }
 .cat-dot { width: 6px; height: 6px; border-radius: 50%; }
 
@@ -224,7 +224,7 @@ textarea:read-only {
   display: inline-flex; align-items: center; gap: var(--space-1);
   padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
   border: 1px solid var(--border); background: var(--bg);
-  font-size: 0.75rem; font-weight: 500; color: var(--text2);
+  font-size: var(--text-sm); font-weight: 500; color: var(--text2);
   white-space: nowrap; cursor: pointer;
   transition: all var(--duration) var(--ease);
 }
@@ -239,7 +239,7 @@ textarea:read-only {
 /* Status badges */
 .status-badge {
   display: inline-flex; padding: 2px 8px; border-radius: var(--radius-full);
-  font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  font-size: var(--text-2xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
 }
 .status-draft { background: var(--bg4); color: var(--text3); }
 .status-sent { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
@@ -274,7 +274,7 @@ tr:hover .row-actions { opacity: 1; }
   display: flex; align-items: center; justify-content: space-between;
   padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border);
 }
-.expense-form-header h3 { margin: 0; font-size: 1.1rem; }
+.expense-form-header h3 { margin: 0; font-size: var(--text-lg); }
 .expense-form-close {
   width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
   border-radius: var(--radius-sm); color: var(--text3); cursor: pointer;
@@ -287,7 +287,7 @@ tr:hover .row-actions { opacity: 1; }
 }
 .expense-form-row { display: flex; gap: var(--space-4); }
 .expense-form-field { display: flex; flex-direction: column; gap: var(--space-1); }
-.expense-form-field label { font-size: 0.8rem; font-weight: 600; color: var(--text2); }
+.expense-form-field label { font-size: var(--text-sm-plus); font-weight: 600; color: var(--text2); }
 .expense-form-field input, .expense-form-field select, .expense-form-field textarea {
   width: 100%; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm);
 }

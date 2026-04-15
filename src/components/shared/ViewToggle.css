@@ -20,7 +20,7 @@
   border: none;
   background: transparent;
   color: var(--text3);
-  font-size: 0.78rem;
+  font-size: var(--text-sm-plus);
   font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -37,7 +37,7 @@
 .vt__btn--active {
   background: var(--surface);
   color: var(--text);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-xs);
 }
 
 .vt__btn--active:hover {
@@ -47,5 +47,5 @@
 
 /* ── Dark theme ── */
 [data-theme='dark'] .vt__btn--active {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-xs);
 }
