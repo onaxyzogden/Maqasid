@@ -212,7 +212,7 @@
 }
 
 .pricing-card .plan-price {
-  font-size: 2.5rem; font-weight: 700; margin-bottom: var(--space-1);
+  font-size: var(--text-5xl); font-weight: 700; margin-bottom: var(--space-1);
 }
 .pricing-card .plan-price span { font-size: var(--text-md); font-weight: 400; color: var(--text2); }
 
@@ -691,7 +691,7 @@
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text2);
-  font-size: 1.6rem;
+  font-size: var(--text-2xl);
   line-height: 1;
   display: flex;
   align-items: center;

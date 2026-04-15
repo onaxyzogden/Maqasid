@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
@@ -122,6 +122,8 @@ export default function AppShell() {
   const today = new Date().toISOString().slice(0, 10);
   const niyyahNeeded = niyyahDate !== today;
 
+  const location = useLocation();
+
   const toggleSidebar = useAppStore((s) => s.toggleSidebar);
   const sidebarWidthPx = useAppStore((s) => s.sidebarWidthPx);
   const setSidebarWidth = useAppStore((s) => s.setSidebarWidth);
@@ -239,7 +241,7 @@ export default function AppShell() {
             </button>
           </div>
         )}
-        <main className="app-main">
+        <main key={location.key} className="app-main">
           <Outlet />
         </main>
         {islamicPanelOpen && !mobile && (

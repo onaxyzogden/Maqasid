@@ -20,6 +20,14 @@
   flex-direction: column;
 }
 
+/* Slide animation on level switch (keyed remount) */
+.fpb-content--slide-left {
+  animation: slideInFromRight var(--duration-lg) var(--ease);
+}
+.fpb-content--slide-right {
+  animation: slideInFromLeft var(--duration-lg) var(--ease);
+}
+
 /* ── Responsive ── */
 @media (max-width: 767px) {
   .fpb-page-wrapper {

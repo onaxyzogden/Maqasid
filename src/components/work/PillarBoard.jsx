@@ -379,21 +379,23 @@ export default function PillarBoard({ pillarKey, pillarName, pillarColor, module
         </div>
       </div>
 
-      {/* Content */}
-      {activeTab === 'resources' && (
-        <PillarResourcesTab modulePrefix={modulePrefix} pillarKey={pillarKey} pillarName={pillarName} />
-      )}
+      {/* Content — keyed wrapper triggers fade animation on tab switch */}
+      <div key={activeTab} className="pillar-tab-content">
+        {activeTab === 'resources' && (
+          <PillarResourcesTab modulePrefix={modulePrefix} pillarKey={pillarKey} pillarName={pillarName} />
+        )}
 
-      {(activeTab === 'core' || activeTab === 'growth' || activeTab === 'excellence') && (
-        project ? (
-          <ProjectBoard projectId={boardId} project={project} />
-        ) : (
-          <div style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-            <SkeletonCard />
-            <SkeletonCard />
-          </div>
-        )
-      )}
+        {(activeTab === 'core' || activeTab === 'growth' || activeTab === 'excellence') && (
+          project ? (
+            <ProjectBoard projectId={boardId} project={project} />
+          ) : (
+            <div style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+              <SkeletonCard />
+              <SkeletonCard />
+            </div>
+          )
+        )}
+      </div>
 
     </div>
   );

@@ -134,7 +134,7 @@
 }
 
 .qc-verse-card__quote {
-  font-size: 2rem;
+  font-size: var(--text-4xl);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.25;
@@ -277,7 +277,7 @@
 }
 
 .qc-index__title {
-  font-size: 1.75rem;
+  font-size: var(--text-2xl);
   font-weight: 900;
   letter-spacing: -0.03em;
   color: var(--qc-slate);

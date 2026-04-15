@@ -36,7 +36,7 @@
 }
 
 .flo__title {
-  font-size: 2rem;
+  font-size: var(--text-4xl);
   font-weight: 800;
   color: var(--text);
   letter-spacing: -0.025em;

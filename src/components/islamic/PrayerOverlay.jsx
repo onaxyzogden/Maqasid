@@ -7,12 +7,20 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
 
+  const [leaving, setLeaving] = useState(false);
+
   // Real-time clock — ticks every second
   const [now, setNow] = useState(() => Date.now());
 
   // Keep onDismiss in a ref so the interval never needs to be recreated
   const onDismissRef = useRef(onDismiss);
   useEffect(() => { onDismissRef.current = onDismiss; }, [onDismiss]);
+
+  // Animated dismiss for user-initiated close
+  const handleDismiss = () => {
+    setLeaving(true);
+    setTimeout(() => onDismissRef.current?.(), 200);
+  };
 
   // Stable interval — set up once on mount, never restarts
   useEffect(() => {
@@ -43,7 +51,7 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const timeStr = `${mins}:${String(secs).padStart(2, '0')}`;
 
   return (
-    <div className="prayer-overlay">
+    <div className={`prayer-overlay${leaving ? ' prayer-overlay--leaving' : ''}`}>
       <div className="prayer-content">
         {isIslamic ? (
           <>
@@ -62,7 +70,7 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
 
         <div className="prayer-countdown">{timeStr}</div>
 
-        <button className="prayer-dismiss" onClick={onDismiss}>
+        <button className="prayer-dismiss" onClick={handleDismiss}>
           Return to work
         </button>
       </div>

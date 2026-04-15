@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { safeGet, safeSet } from '@services/storage';
@@ -10,6 +10,7 @@ import { useAyahBanner } from '@hooks/useAyahBanner';
 import './PillarLevelPage.css';
 
 const VALID_LEVELS = ['core', 'growth', 'excellence'];
+const LEVEL_COLORS = { core: '#C8A96E', growth: '#4ab8a8', excellence: '#8b5cf6' };
 
 /**
  * Generic pillar-level page — compact level navigator + kanban board.
@@ -42,7 +43,12 @@ export default function PillarLevelPage({
     return VALID_LEVELS.includes(saved) ? saved : 'core';
   });
 
+  const slideDirRef = useRef(null);
+
   const setActiveLevel = (key) => {
+    const prevIdx = VALID_LEVELS.indexOf(activeLevel);
+    const nextIdx = VALID_LEVELS.indexOf(key);
+    if (prevIdx !== nextIdx) slideDirRef.current = nextIdx > prevIdx ? 'left' : 'right';
     setActiveLevelRaw(key);
     if (storageKey) safeSet(storageKey, key);
   };
@@ -64,6 +70,12 @@ export default function PillarLevelPage({
   const boardId = `${boardPrefix}_${pillarKey}_${activeLevel}`;
   const project = getProject(boardId);
   const moduleId = pillarModuleMap[pillarKey] ?? pillarKey;
+  // Reverse map: moduleId → pillarKey (e.g. 'salat' → 'salah')
+  const moduleToKey = useMemo(() => {
+    const m = {};
+    for (const [k, v] of Object.entries(pillarModuleMap)) m[v] = k;
+    return m;
+  }, [pillarModuleMap]);
   useAyahBanner(`${boardPrefix}_${pillarKey}`);
 
   return (
@@ -79,7 +91,8 @@ export default function PillarLevelPage({
         levelRoutes={levelRoutes}
         levelDescriptions={levelDescriptions}
         onSubsegClick={(taskId, pillarId) => {
-          const proj = getProject(`${boardPrefix}_${pillarId}_${activeLevel}`);
+          const key = moduleToKey[pillarId] || pillarId;
+          const proj = getProject(`${boardPrefix}_${key}_${activeLevel}`);
           if (proj) setSubsegTask({ taskId, project: proj });
         }}
       />
@@ -90,10 +103,11 @@ export default function PillarLevelPage({
           taskId={subsegTask.taskId}
           onClose={() => setSubsegTask(null)}
           bbosRole={subsegTask.project.bbosRole || 'all'}
+          accentColor={LEVEL_COLORS[activeLevel] || subsegTask.project.color}
         />
       )}
       <div className="fpb-layout">
-        <div className="fpb-content">
+        <div key={boardId} className={`fpb-content${slideDirRef.current ? ` fpb-content--slide-${slideDirRef.current}` : ''}`}>
           {project ? (
             <ProjectBoard projectId={boardId} project={project} hideFilter hideViewSwitcher />
           ) : (

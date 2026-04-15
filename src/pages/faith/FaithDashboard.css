@@ -175,7 +175,7 @@
 
 .faith-header__title {
   font-family: var(--font-serif);
-  font-size: 3.75rem;
+  font-size: var(--text-7xl);
   font-weight: 700;
   color: var(--faith-primary);
   line-height: 1.1;
@@ -222,7 +222,7 @@
 
 .faith-header__pct {
   font-family: var(--font-serif);
-  font-size: 3rem;
+  font-size: var(--text-6xl);
   font-weight: 700;
   color: var(--faith-primary);
   line-height: 1;
@@ -286,7 +286,7 @@
 
 .faith-hero-card__title {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: var(--text-5xl);
   font-weight: 700;
   color: var(--faith-on-primary);
   line-height: 1.2;
@@ -360,7 +360,7 @@
 
 .faith-core-card__title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: #fff;
   margin-bottom: 1rem;
@@ -500,7 +500,7 @@
 
 .faith-needs-card__title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--faith-primary);
   margin-bottom: 1rem;
@@ -582,7 +582,7 @@
 
 .faith-excellence-card__title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--faith-tertiary);
   margin-bottom: 1rem;
@@ -762,7 +762,7 @@
 
 @media (max-width: 1024px) {
   .faith-dash { padding: 2rem; }
-  .faith-header__title { font-size: 2.75rem; }
+  .faith-header__title { font-size: var(--text-5xl); }
   .faith-pillars { grid-template-columns: minmax(0, 1fr); }
   .faith-pillars__right { grid-template-columns: minmax(0, 1fr); min-width: 0; }
   .faith-hajj-cta { grid-column: 1 / -1; }
@@ -788,7 +788,7 @@
     width: 100%;
   }
   .faith-header__progress-wrap { width: 100%; }
-  .faith-header__title { font-size: 2rem; }
+  .faith-header__title { font-size: var(--text-4xl); }
   .faith-header__verse p { font-size: var(--text-md); }
   .faith-hero-card { height: 260px; margin-bottom: 2rem; }
   .faith-hero-card__content {

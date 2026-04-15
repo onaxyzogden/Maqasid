@@ -8,13 +8,15 @@ export default function AddDepartmentModal({ onClose }) {
   const addDepartment = usePeopleStore((s) => s.addDepartment);
   const [name, setName]   = useState('');
   const [color, setColor] = useState(DEPT_COLORS[0]);
+  const [leaving, setLeaving] = useState(false);
+  const triggerClose = () => { setLeaving(true); setTimeout(onClose, 200); };
 
   const canSubmit = name.trim();
 
   function handleSubmit() {
     if (!canSubmit) return;
     addDepartment({ name: name.trim(), color });
-    onClose();
+    triggerClose();
   }
 
   const inputStyle = {
@@ -28,18 +30,19 @@ export default function AddDepartmentModal({ onClose }) {
     <div style={{
       position: 'fixed', inset: 0, zIndex: 1000,
       background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    }} onClick={onClose}>
+      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
+    }} onClick={triggerClose}>
       <div
         style={{
           width: 380, background: 'var(--surface)', borderRadius: 12,
           boxShadow: 'var(--shadow-xl)', padding: 24,
-          animation: 'scaleIn 150ms var(--ease)',
+          animation: leaving ? 'scaleOut 200ms var(--ease) forwards' : 'scaleIn 150ms var(--ease)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
           <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add Department</div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
             <X size={18} />
           </button>
         </div>
@@ -64,7 +67,7 @@ export default function AddDepartmentModal({ onClose }) {
         </div>
 
         <div style={{ display: 'flex', gap: 8, marginTop: 20, justifyContent: 'flex-end' }}>
-          <button className="btn btn-ghost" onClick={onClose}>Cancel</button>
+          <button className="btn btn-ghost" onClick={triggerClose}>Cancel</button>
           <button
             onClick={handleSubmit}
             disabled={!canSubmit}

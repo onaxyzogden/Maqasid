@@ -12,6 +12,9 @@ export default function ClockInModal({ contactId, onClose }) {
   const user       = useAuthStore((s) => s.user);
   const firstName  = user?.name?.split(' ')[0] || 'You';
 
+  const [leaving, setLeaving] = useState(false);
+  const triggerClose = () => { setLeaving(true); setTimeout(onClose, 200); };
+
   const [showManual, setShowManual] = useState(false);
   const [manualDate, setManualDate] = useState(new Date().toISOString().slice(0, 10));
   const [manualTime, setManualTime] = useState(new Date().toTimeString().slice(0, 5));
@@ -24,13 +27,13 @@ export default function ClockInModal({ contactId, onClose }) {
       clockInTime: new Date().toISOString(),
       location,
     });
-    onClose();
+    triggerClose();
   }
 
   function clockInManual() {
     const clockInTime = new Date(`${manualDate}T${manualTime}`).toISOString();
     addClockIn({ contactId: contactId || '', clockInTime, location: manualLocation, description: manualDesc });
-    onClose();
+    triggerClose();
   }
 
   const inputStyle = {
@@ -43,17 +46,18 @@ export default function ClockInModal({ contactId, onClose }) {
     <div style={{
       position: 'fixed', inset: 0, zIndex: 900,
       background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    }} onClick={onClose}>
+      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
+    }} onClick={triggerClose}>
       <div style={{
         width: 400, background: 'var(--surface)', borderRadius: 16,
         boxShadow: 'var(--shadow-xl)', padding: '24px',
         display: 'flex', flexDirection: 'column', gap: 20,
-        animation: 'scaleIn 180ms var(--ease)',
+        animation: leaving ? 'scaleOut 200ms var(--ease) forwards' : 'scaleIn 180ms var(--ease)',
       }} onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Clocking in</div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4 }}>
+          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4 }}>
             <X size={16} />
           </button>
         </div>

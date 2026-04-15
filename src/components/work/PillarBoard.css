@@ -1,3 +1,8 @@
+/* ── Pillar Board — Tab content animation ── */
+.pillar-tab-content {
+  animation: fadeIn var(--duration-lg) var(--ease);
+}
+
 /* ── Pillar Board — Level Tabs ── */
 .faith-pillar-tabs {
   display: flex;
@@ -69,7 +74,7 @@
 }
 
 .fpd__ring-percent {
-  font-size: 2rem;
+  font-size: var(--text-4xl);
   font-weight: 800;
   fill: var(--text);
   font-family: var(--font-display);

@@ -130,6 +130,14 @@
   --text-lg:      1.125rem;  /* 18px   — card headings, panel titles */
   --text-xl:      1.5rem;    /* 24px   — section headings (hard ceiling for dashboards) */
 
+  /* Display scale (above dashboard ceiling — hero titles, page headers, decorative numbers) */
+  --text-2xl:     1.75rem;   /* 28px   — sub-hero headings */
+  --text-3xl:     1.875rem;  /* 30px   — section hero numbers */
+  --text-4xl:     2rem;      /* 32px   — page titles */
+  --text-5xl:     2.5rem;    /* 40px   — hero headlines */
+  --text-6xl:     3rem;      /* 48px   — large hero numbers */
+  --text-7xl:     3.75rem;   /* 60px   — full-page hero */
+
   /* Icon sizes — 4-tier scale (no other sizes permitted in UI icons) */
   --icon-sm:   14px;   /* dense data tables, inline indicators */
   --icon-base: 16px;   /* standard UI elements */

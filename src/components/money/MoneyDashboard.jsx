@@ -1,10 +1,11 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   TrendingUp, TrendingDown, CreditCard, Target, PiggyBank,
   ArrowUpRight, ArrowDownRight, Plus, MoreHorizontal,
   Store, Package, FileText, ChevronRight,
 } from 'lucide-react';
 import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/money-store';
+import ChartTooltip from '../shared/ChartTooltip';
 
 /* ─── small helpers ─── */
 function fmt(n) { return formatCurrency(n); }
@@ -30,6 +31,7 @@ function fmtTick(v) {
 
 /* ─── bar chart (pure CSS, stacked monthly) ─── */
 function BarChart({ data, budgetTarget = 0 }) {
+  const [tip, setTip] = useState(null);
   if (!data.length) return null;
 
   const stackMax = Math.max(
@@ -79,7 +81,18 @@ function BarChart({ data, budgetTarget = 0 }) {
               const discret = budgetTarget > 0 ? Math.max(0, budgetTarget - d.expenses) : 0;
 
               return (
-                <div key={i} className="md-chart-col">
+                <div key={i} className="md-chart-col"
+                  onMouseEnter={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setTip({ x: rect.left + rect.width / 2, y: rect.top, item: d });
+                  }}
+                  onMouseLeave={() => setTip(null)}
+                  onClick={(e) => {
+                    if (!('ontouchstart' in window)) return;
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setTip((prev) => prev?.item === d ? null : { x: rect.left + rect.width / 2, y: rect.top, item: d });
+                  }}
+                >
                   <div className="md-chart-stack" style={{ height: `${totalPct}%` }}>
                     {overBudget  > 0 && <div className="md-bar md-bar-over-budget"    style={{ flex: overBudget }} />}
                     {discret     > 0 && <div className="md-bar md-bar-discretionary"  style={{ flex: discret }} />}
@@ -98,6 +111,18 @@ function BarChart({ data, budgetTarget = 0 }) {
           <span key={i} className="md-chart-label">{d.month}</span>
         ))}
       </div>
+      <ChartTooltip visible={!!tip} x={tip?.x ?? 0} y={tip?.y ?? 0} anchor="above" onDismiss={() => setTip(null)}>
+        <div className="chart-tooltip__value">{tip?.item?.month}</div>
+        <div className="chart-tooltip__label">Expenses: {fmt(tip?.item?.expenses ?? 0)}</div>
+        {(tip?.item?.discretionary ?? 0) > 0 && (
+          <div className="chart-tooltip__label">Discretionary: {fmt(tip.item.discretionary)}</div>
+        )}
+        {budgetTarget > 0 && (tip?.item?.expenses ?? 0) > budgetTarget && (
+          <div className="chart-tooltip__detail" style={{ color: 'var(--danger)' }}>
+            Over budget: {fmt(tip.item.expenses - budgetTarget)}
+          </div>
+        )}
+      </ChartTooltip>
     </div>
   );
 }

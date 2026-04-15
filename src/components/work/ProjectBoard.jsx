@@ -17,6 +17,13 @@ import TaskDetailPanel from './TaskDetailPanel';
 import FilterBar from './FilterBar';
 import LevelNavigator from '../shared/LevelNavigator';
 
+/* Level accent colors — mirrors PillarLevelDashboard */
+const LEVEL_COLORS = { core: '#C8A96E', growth: '#4ab8a8', excellence: '#8b5cf6' };
+function detectLevelColor(id) {
+  const m = id?.match(/_(core|growth|excellence)$/);
+  return m ? LEVEL_COLORS[m[1]] : null;
+}
+
 /**
  * Reusable board component that renders the full Kanban/List/Gantt experience
  * for any project. Used by both Project.jsx and the Faith board pages.
@@ -430,6 +437,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
           taskId={selectedTaskId}
           onClose={() => setSelectedTaskId(null)}
           bbosRole={project.bbosRole || 'all'}
+          accentColor={detectLevelColor(projectId) || project.color}
         />
       )}
     </div>

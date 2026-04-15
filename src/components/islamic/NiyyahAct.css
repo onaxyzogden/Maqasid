@@ -75,7 +75,7 @@
 
 .niyyah-bismillah-ar {
   font-family: var(--font-arabic);
-  font-size: 1.8rem;
+  font-size: var(--text-2xl);
   line-height: 2.2;
   color: var(--accent);
   margin: 0;

@@ -105,7 +105,7 @@
 }
 
 .fln__center-title {
-  font-size: 2.2rem;
+  font-size: var(--text-4xl);
   font-weight: 800;
   color: var(--text);
   letter-spacing: -0.03em;

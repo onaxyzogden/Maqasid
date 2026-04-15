@@ -166,7 +166,7 @@
 }
 
 .hd-hero__quote {
-  font-size: 2rem;
+  font-size: var(--text-4xl);
   font-weight: 800;
   color: var(--qc-slate);
   line-height: 1.25;
@@ -343,7 +343,7 @@
 }
 
 .hd-archives__title {
-  font-size: 1.75rem;
+  font-size: var(--text-2xl);
   font-weight: 900;
   color: var(--qc-slate);
   letter-spacing: -0.03em;
@@ -422,7 +422,7 @@
 
 /* Feed */
 .hd-feed__title {
-  font-size: 1.75rem;
+  font-size: var(--text-2xl);
   font-weight: 900;
   color: var(--qc-slate);
   letter-spacing: -0.03em;

@@ -18,7 +18,7 @@
   margin-bottom: var(--space-1);
 }
 .bfd__title {
-  font-size: 1.9rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 var(--space-2);
@@ -842,6 +842,17 @@
 }
 
 /* ── Factory sections ── */
+/* Factory slide animation on tab switch */
+.bfd__factory-content {
+  grid-column: 1 / -1;
+}
+.bfd__factory-slide-left {
+  animation: slideInFromRight var(--duration-lg) var(--ease);
+}
+.bfd__factory-slide-right {
+  animation: slideInFromLeft var(--duration-lg) var(--ease);
+}
+
 .bfd__factory {
   grid-column: 1 / -1;
   display: grid;

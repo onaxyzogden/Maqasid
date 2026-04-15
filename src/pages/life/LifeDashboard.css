@@ -164,7 +164,7 @@
 
 .life-header__title {
   font-family: var(--font-serif);
-  font-size: 3.75rem;
+  font-size: var(--text-7xl);
   font-weight: 700;
   color: var(--faith-primary);
   line-height: 1.1;
@@ -211,7 +211,7 @@
 
 .life-header__pct {
   font-family: var(--font-serif);
-  font-size: 3rem;
+  font-size: var(--text-6xl);
   font-weight: 700;
   color: var(--faith-primary);
   line-height: 1;
@@ -275,7 +275,7 @@
 
 .life-hero-card__title {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: var(--text-5xl);
   font-weight: 700;
   color: var(--faith-on-primary);
   line-height: 1.2;
@@ -340,7 +340,7 @@
 
 .life-core-card__title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: #fff;
   margin-bottom: 1rem;
@@ -479,7 +479,7 @@
 
 .life-needs-card__title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--faith-primary);
   margin-bottom: 1rem;
@@ -561,7 +561,7 @@
 
 .life-excellence-card__title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--faith-tertiary);
   margin-bottom: 1rem;
@@ -741,7 +741,7 @@
 
 @media (max-width: 1024px) {
   .life-dash { padding: 2rem; }
-  .life-header__title { font-size: 2.75rem; }
+  .life-header__title { font-size: var(--text-5xl); }
   .life-pillars { grid-template-columns: minmax(0, 1fr); }
   .life-pillars__right { grid-template-columns: minmax(0, 1fr); min-width: 0; }
   .life-audit-cta { grid-column: 1 / -1; }
@@ -767,7 +767,7 @@
     width: 100%;
   }
   .life-header__progress-wrap { width: 100%; }
-  .life-header__title { font-size: 2rem; }
+  .life-header__title { font-size: var(--text-4xl); }
   .life-header__verse p { font-size: var(--text-md); }
   .life-hero-card { height: 260px; margin-bottom: 2rem; }
   .life-hero-card__content {

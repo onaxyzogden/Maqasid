@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSettingsStore } from '../../store/settings-store';
 import { useCitations } from '../../hooks/useCitations';
 import { MODULES } from '../../data/modules';
@@ -7,6 +8,7 @@ import ReferenceList from './ReferenceList';
 import './ResumeOverlay.css';
 
 export default function ResumeOverlay({ moduleId, onDismiss }) {
+  const [leaving, setLeaving] = useState(false);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
   const mod = MODULES.find((m) => m.id === moduleId);
@@ -24,8 +26,13 @@ export default function ResumeOverlay({ moduleId, onDismiss }) {
 
   if (!data) return null;
 
+  const handleDismiss = () => {
+    setLeaving(true);
+    setTimeout(() => onDismiss?.(), 200);
+  };
+
   return (
-    <div className="resume-overlay">
+    <div className={`resume-overlay${leaving ? ' resume-overlay--leaving' : ''}`}>
       <div className="resume-card">
         <h2 className="resume-title">
           {isIslamic ? 'Resuming Work' : 'Returning to Focus'}
@@ -47,7 +54,7 @@ export default function ResumeOverlay({ moduleId, onDismiss }) {
 
         <ReferenceList citations={citations} visible={citationsVisible && isIslamic} />
 
-        <button className="resume-btn" onClick={onDismiss}>
+        <button className="resume-btn" onClick={handleDismiss}>
           {isIslamic ? 'I am present' : "I'm here"}
         </button>
       </div>

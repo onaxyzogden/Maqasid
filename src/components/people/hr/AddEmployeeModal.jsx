@@ -10,6 +10,9 @@ export default function AddEmployeeModal({ onClose }) {
   const departments = useContactsStore((s) => s.departments);
   const addToast = useToastStore((s) => s.addToast);
 
+  const [leaving, setLeaving] = useState(false);
+  const triggerClose = () => { setLeaving(true); setTimeout(onClose, 200); };
+
   const [name, setName]             = useState('');
   const [email, setEmail]           = useState('');
   const [phone, setPhone]           = useState('');
@@ -37,7 +40,7 @@ export default function AddEmployeeModal({ onClose }) {
       status: 'active',
     });
     addToast({ message: `${name.trim()} added to team`, type: 'success', variant: 'chip' });
-    onClose();
+    triggerClose();
   }
 
   const inputStyle = {
@@ -51,13 +54,14 @@ export default function AddEmployeeModal({ onClose }) {
     <div style={{
       position: 'fixed', inset: 0, zIndex: 1000,
       background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-    }} onClick={onClose}>
+      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
+    }} onClick={triggerClose}>
       <div
         style={{
           width: 420, height: '100%', background: 'var(--surface)',
           boxShadow: 'var(--shadow-xl)', overflowY: 'auto',
           display: 'flex', flexDirection: 'column',
-          animation: 'slideInRight 200ms var(--ease)',
+          animation: leaving ? 'slideOutRight 200ms var(--ease) forwards' : 'slideInRight 200ms var(--ease)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -67,7 +71,7 @@ export default function AddEmployeeModal({ onClose }) {
             <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add an Employee</div>
             <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>Add a new team member to your organization.</div>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
             <X size={18} />
           </button>
         </div>

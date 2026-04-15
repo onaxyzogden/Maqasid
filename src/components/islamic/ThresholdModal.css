@@ -13,6 +13,14 @@
   animation: fadeIn var(--duration) var(--ease);
 }
 
+.thr-overlay--leaving {
+  animation: fadeOut var(--duration) var(--ease) forwards;
+}
+
+.thr-overlay--leaving .thr-modal {
+  animation: scaleOut var(--duration) var(--ease) forwards;
+}
+
 .thr-modal {
   width: 90%;
   max-width: 640px;
@@ -117,6 +125,10 @@
   flex: 1;
   overflow-y: auto;
   padding: var(--space-5) var(--space-6);
+}
+
+.thr-step-anim {
+  animation: scaleIn var(--duration-lg) var(--ease-spring);
 }
 
 .thr-step-content {

@@ -16,6 +16,9 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
   const user = useAuthStore((s) => s.user);
   const addToast = useToastStore((s) => s.addToast);
 
+  const [leaving, setLeaving] = useState(false);
+  const triggerClose = () => { setLeaving(true); setTimeout(onClose, 200); };
+
   const [entityType, setEntityType] = useState('person');
   const [contactType, setContactType] = useState(initialContactType);
   const [showMore, setShowMore] = useState(false);
@@ -77,7 +80,7 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
     }
     const label = entityType === 'person' ? `${firstName.trim()} added` : `${companyName.trim()} added`;
     addToast({ message: label, type: 'success', variant: 'chip' });
-    onClose();
+    triggerClose();
   }
 
   const inputStyle = {
@@ -91,13 +94,14 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
     <div style={{
       position: 'fixed', inset: 0, zIndex: 1000,
       background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-    }} onClick={onClose}>
+      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
+    }} onClick={triggerClose}>
       <div
         style={{
           width: 420, height: '100%', background: 'var(--surface)',
           boxShadow: 'var(--shadow-xl)', overflowY: 'auto',
           display: 'flex', flexDirection: 'column',
-          animation: 'slideInRight 200ms var(--ease)',
+          animation: leaving ? 'slideOutRight 200ms var(--ease) forwards' : 'slideInRight 200ms var(--ease)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -107,7 +111,7 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
             <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add a New Contact</div>
             <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>Add and manage contacts in your CRM.</div>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
             <X size={18} />
           </button>
         </div>

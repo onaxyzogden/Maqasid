@@ -85,10 +85,14 @@ export default function LevelNavigator({
     : internalIdx;
 
   const handlePrev = () => {
+    setSlideDir('right');
+    setTimeout(() => setSlideDir(null), 300);
     if (onLevelChange) onLevelChange(baseLevels[activeIdx - 1]?.key);
     else setInternalIdx(activeIdx - 1);
   };
   const handleNext = () => {
+    setSlideDir('left');
+    setTimeout(() => setSlideDir(null), 300);
     if (onLevelChange) onLevelChange(baseLevels[activeIdx + 1]?.key);
     else setInternalIdx(activeIdx + 1);
   };
@@ -107,6 +111,8 @@ export default function LevelNavigator({
     const moduleProjects = projects.filter((p) => p.moduleId && moduleIds.includes(p.moduleId));
     for (const proj of moduleProjects) loadTasks(proj.id);
   }, [projects, loadTasks, externalPillarTasks]);
+
+  const [slideDir, setSlideDir] = useState(null); // 'left' | 'right' | null
 
   const flnRef = useRef(null);
   const segmentsRef = useRef(null);
@@ -211,6 +217,7 @@ export default function LevelNavigator({
 
       {/* ── Center: active level ── */}
       <div className="fln__center">
+        <div key={activeIdx} className={`fln__level-content${slideDir ? ` fln__level-content--${slideDir}` : ''}`}>
         <div className="fln__center-head">
           <span className="fln__center-label" style={{ color: active.color }}>{active.label}</span>
           <span className="fln__center-subtitle">{active.subtitle}</span>
@@ -270,6 +277,7 @@ export default function LevelNavigator({
             );
           })}
         </div>
+        </div>{/* end fln__level-content */}
       </div>
 
       {/* ── Right: next level ── */}

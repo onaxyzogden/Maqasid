@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp, Download, Upload, Loader, Ban, Eye } from 'lucide-react';
+import {
+  X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp,
+  Download, Upload, Loader, Ban, Eye, BookOpen, ArrowUpRight, ArrowDownRight,
+} from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { getBbosTaskDef, getBbosTaskDeps, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
@@ -34,7 +37,7 @@ export default function BbosTaskPanel(props) {
   );
 }
 
-function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
+function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, accentColor }) {
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const taskStore = useTaskStore();
   const updateTask = taskStore.updateTask;
@@ -58,9 +61,23 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
   const [notes, setNotes] = useState('');
   const [streamingText, setStreamingText] = useState('');
   const [draftWarnings, setDraftWarnings] = useState([]);
+  const [closing, setClosing] = useState(false);
+  const [discardConfirm, setDiscardConfirm] = useState(false);
   const saveTimeout = useRef(null);
   const abortRef = useRef(null);
   const taskColumnIdRef = useRef(task?.columnId);
+  const initialSnapshotRef = useRef(null);
+
+  const handleClose = useRef(() => {
+    setClosing(true);
+    setTimeout(() => onClose(), 200);
+  });
+  useEffect(() => {
+    handleClose.current = () => {
+      setClosing(true);
+      setTimeout(() => onClose(), 200);
+    };
+  }, [onClose]);
 
   const def = task?.bbosTaskType ? getBbosTaskDef(task.bbosTaskType) : null;
   const stage = def ? getStage(def.stage) : null;
@@ -71,6 +88,13 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
       setLocalFields(task.bbosFieldData);
     }
     if (task) setNotes(task.notes || '');
+    // Snapshot initial state for discard
+    if (task && !initialSnapshotRef.current) {
+      initialSnapshotRef.current = {
+        fields: { ...(task.bbosFieldData || {}) },
+        notes: task.notes || '',
+      };
+    }
   }, [taskId]);
 
   // Clean up debounced save on unmount — prevents stale writes after panel close
@@ -240,6 +264,22 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
     setDraftWarnings([]);
   };
 
+  const handleDiscard = () => {
+    if (!initialSnapshotRef.current) { handleClose.current(); return; }
+    const snap = initialSnapshotRef.current;
+    // Restore all field data
+    for (const field of def.fields) {
+      const original = snap.fields[field.id] || '';
+      updateBbosFieldData(projectId, taskId, field.id, original);
+    }
+    setLocalFields(snap.fields);
+    // Restore notes
+    updateTask(projectId, taskId, { notes: snap.notes });
+    setNotes(snap.notes);
+    setDiscardConfirm(false);
+    handleClose.current();
+  };
+
   const handleDownloadTemplate = () => {
     downloadTaskTemplate(def);
   };
@@ -274,21 +314,98 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
 
   const columns = project?.columns || [];
   const stageColor = stage?.color || 'var(--accent)';
+  const currentColumn = columns.find((c) => c.id === task.columnId);
+
+  const STATUS_DOT_COLORS = {
+    'To Do': 'var(--text3)',
+    'In Progress': 'var(--col-progress, #f59e0b)',
+    'Done': 'var(--success, #22c55e)',
+  };
+
+  const hasDeps = deps.upstream.length > 0 || deps.downstream.length > 0;
 
   const panel = (
-    <div className="bbos-task-panel tdp-scale-in" onClick={(e) => e.stopPropagation()}>
+    <div
+      className={`bbos-task-panel${closing ? ' tdp-scale-out' : ' tdp-scale-in'}`}
+      style={accentColor ? { '--btp-accent': accentColor } : undefined}
+      onClick={(e) => e.stopPropagation()}
+    >
 
-      {/* ── Stage header band ── */}
-      <div className="btp-header" style={{ borderTopColor: stageColor }}>
-        <div className="btp-header__stage">
-          <span className="btp-stage-badge" style={{ color: stageColor, borderColor: stageColor }}>
-            {def.stage}
-          </span>
-          <span className="btp-sublevel">{def.subLevel}</span>
-          <span className="btp-label">{def.label}</span>
+      {/* ── Header ── */}
+      <div className="btp-header">
+        <div className="btp-header__info">
+          {/* Badges row */}
+          <div className="btp-header__badges">
+            <span className="btp-stage-badge">{def.stage} · {def.subLevel}</span>
+            <div className="btp-status-pill">
+              <span
+                className="btp-status-dot"
+                style={{ background: STATUS_DOT_COLORS[currentColumn?.name] || 'var(--text3)' }}
+              />
+              <select
+                className="btp-status-select"
+                value={task.columnId}
+                onChange={(e) => moveTask(projectId, taskId, e.target.value, undefined, project.columns)}
+              >
+                {columns.map((c) => (
+                  <option key={c.id} value={c.id}>{c.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Title */}
+          <h1 className="btp-title">{def.label}</h1>
+
+          {/* Meta row: assignee + governing attributes */}
+          <div className="btp-header__meta">
+            {/* Assignee */}
+            <div className="btp-meta-item">
+              <span className={`btp-meta-avatar${assignee ? ' btp-meta-avatar--filled' : ''}`}>
+                {assignee ? getInitials(assignee.name) : '?'}
+              </span>
+              <select
+                className="btp-status-select"
+                value={task.assigneeId || ''}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  updateTask(projectId, taskId, { assigneeId: val || null });
+                  if (val) addProjectMember(projectId, val);
+                }}
+              >
+                <option value="">Unassigned</option>
+                {projectMembers.length > 0 && (
+                  <optgroup label="Project members">
+                    {projectMembers.map((e) => (
+                      <option key={e.id} value={e.id}>{e.name}</option>
+                    ))}
+                  </optgroup>
+                )}
+                {allEmployees.filter((e) => !(project?.members || []).includes(e.id)).length > 0 && (
+                  <optgroup label="Add from team">
+                    {allEmployees
+                      .filter((e) => !(project?.members || []).includes(e.id))
+                      .map((e) => (
+                        <option key={e.id} value={e.id}>{e.name}</option>
+                      ))}
+                  </optgroup>
+                )}
+              </select>
+            </div>
+
+            {def.governingAttributes.length > 0 && (
+              <>
+                <span className="btp-meta-divider" />
+                <span className="btp-meta-item" style={{ color: 'var(--text3)', fontSize: '12px' }}>
+                  {def.governingAttributes.join(' · ')}
+                </span>
+              </>
+            )}
+          </div>
         </div>
-        <button className="btp-close-btn" onClick={onClose}>
-          <X size={16} />
+
+        <button className="btp-close-btn" onClick={() => handleClose.current()}>
+          <X size={18} />
         </button>
       </div>
 
@@ -300,149 +417,82 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
         </div>
       )}
 
-      {/* ── Islamic attributes band ── */}
-      <div className="btp-attrs-band">
-        {def.governingAttributes.map((attr, i) => (
-          <span key={attr}>
-            <span className="btp-attr-name">{attr}</span>
-            {i < def.governingAttributes.length - 1 && (
-              <span className="btp-attr-sep"> · </span>
-            )}
-          </span>
-        ))}
-      </div>
-
-      {/* ── Status dropdown ── */}
-      <div className="btp-status-row">
-        <span className="btp-section-label">Status</span>
-        <select
-          className="btp-field-select"
-          value={task.columnId}
-          onChange={(e) => moveTask(projectId, taskId, e.target.value, undefined, project.columns)}
-        >
-          {columns.map((c) => (
-            <option key={c.id} value={c.id}>{c.name}</option>
-          ))}
-        </select>
-      </div>
-
-      {/* ── Assignee ── */}
-      <div className="btp-status-row">
-        <span className="btp-section-label">Assignee</span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-          {assignee ? (
-            <span className="btp-assignee-avatar">{getInitials(assignee.name)}</span>
-          ) : (
-            <span className="btp-assignee-avatar btp-assignee-avatar--empty">?</span>
-          )}
-          <select
-            className="btp-field-select"
-            value={task.assigneeId || ''}
-            onChange={(e) => {
-              const val = e.target.value;
-              updateTask(projectId, taskId, { assigneeId: val || null });
-              if (val) addProjectMember(projectId, val);
-            }}
-          >
-            <option value="">Unassigned</option>
-            {projectMembers.length > 0 && (
-              <optgroup label="Project members">
-                {projectMembers.map((e) => (
-                  <option key={e.id} value={e.id}>{e.name}</option>
-                ))}
-              </optgroup>
-            )}
-            {allEmployees.filter((e) => !(project?.members || []).includes(e.id)).length > 0 && (
-              <optgroup label="Add from team">
-                {allEmployees
-                  .filter((e) => !(project?.members || []).includes(e.id))
-                  .map((e) => (
-                    <option key={e.id} value={e.id}>{e.name}</option>
-                  ))}
-              </optgroup>
-            )}
-          </select>
-        </div>
-      </div>
-
+      {/* ── Body ── */}
       <div className="btp-body">
 
-        {/* ── Purpose block ── */}
-        <div className="btp-section">
+        {/* Purpose */}
+        <div className="btp-purpose-section">
           <div className="btp-section-label">Purpose</div>
           <p className="btp-purpose-text">{def.purpose}</p>
         </div>
 
-        {/* ── Dependencies ── */}
-        {(deps.upstream.length > 0 || deps.downstream.length > 0) && (
-          <div className="btp-section">
-            <div className="btp-section-label">Dependencies</div>
-            {deps.requirements && (
-              <p className="btp-deps-requirements">{deps.requirements}</p>
-            )}
-            {deps.upstream.length > 0 && (
-              <div className="btp-deps-group">
-                <span className="btp-deps-direction">Upstream</span>
-                {deps.upstream.map((u) => (
-                  <span key={u.id} className="btp-dep-chip btp-dep-chip--upstream">
-                    {u.id} — {u.label}
-                  </span>
-                ))}
+        {/* Bento grid: Dependencies + Template */}
+        {(hasDeps || true) && (
+          <div className="btp-bento">
+            {/* Dependencies card */}
+            <div className="btp-bento-card">
+              <h3 className="btp-bento-card__title">Dependencies</h3>
+              {hasDeps ? (
+                <div className="btp-dep-chips">
+                  {deps.upstream.map((u) => (
+                    <span key={u.id} className="btp-dep-chip">
+                      <ArrowUpRight size={12} /> {u.id}
+                    </span>
+                  ))}
+                  {deps.downstream.map((d) => (
+                    <span key={d.id} className="btp-dep-chip">
+                      <ArrowDownRight size={12} /> {d.id}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <span className="btp-bento-card__subtitle">No dependencies</span>
+              )}
+            </div>
+
+            {/* Template card */}
+            <div className="btp-bento-card">
+              <h3 className="btp-bento-card__title">Task Template</h3>
+              <span className="btp-bento-card__subtitle">JSON import/export</span>
+              <div className="btp-template-card">
+                <div className="btp-template-btns">
+                  <button className="btp-template-icon-btn" onClick={handleDownloadTemplate} title="Download template">
+                    <Download size={16} />
+                  </button>
+                  <button className="btp-template-icon-btn" onClick={() => templateInputRef.current?.click()} title="Upload template">
+                    <Upload size={16} />
+                  </button>
+                  <input
+                    ref={templateInputRef}
+                    type="file"
+                    accept=".json,.bbos"
+                    onChange={handleUploadTemplate}
+                    style={{ display: 'none' }}
+                  />
+                </div>
               </div>
-            )}
-            {deps.downstream.length > 0 && (
-              <div className="btp-deps-group">
-                <span className="btp-deps-direction">Downstream</span>
-                {deps.downstream.map((d) => (
-                  <span key={d.id} className="btp-dep-chip btp-dep-chip--downstream">
-                    {d.id} — {d.label}
-                  </span>
-                ))}
-              </div>
-            )}
+            </div>
           </div>
         )}
 
-        {/* ── Theological Rationale (collapsible) ── */}
-        <div className="btp-section">
+        {/* Rationale accordion */}
+        <div className="btp-rationale-card">
           <button
             className="btp-rationale-toggle"
             onClick={() => setRationaleOpen(!rationaleOpen)}
           >
-            <span>Theological Rationale</span>
-            {rationaleOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            <div className="btp-rationale-toggle__left">
+              <BookOpen size={18} />
+              <span className="btp-rationale-toggle__title">Theological Rationale</span>
+            </div>
+            {rationaleOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
           {rationaleOpen && (
             <p className="btp-rationale-text">{def.attrMeaning}</p>
           )}
         </div>
 
-        {/* ── Per-Task Template ── */}
-        <div className="btp-section">
-          <div className="btp-section-label">Task Template</div>
-          <div className="btp-template-box">
-            <p className="btp-template-hint">Download a blank JSON template for this task</p>
-            <div className="btp-template-actions">
-              <button className="btp-template-btn" onClick={handleDownloadTemplate}>
-                <Download size={14} /> Template
-              </button>
-              <button className="btp-template-btn" onClick={() => templateInputRef.current?.click()}>
-                <Upload size={14} /> Upload
-              </button>
-              <input
-                ref={templateInputRef}
-                type="file"
-                accept=".json,.bbos"
-                onChange={handleUploadTemplate}
-                style={{ display: 'none' }}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="btp-divider" />
-
-        {/* ── Form fields ── */}
+        {/* Form fields */}
         <div className="btp-fields">
           {def.fields.map((field) => (
             <ErrorBoundary key={field.id} name={field.label}>
@@ -493,7 +543,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
           ))}
         </div>
 
-        {/* ── G-Label ── */}
+        {/* G-Label */}
         {def.hasGLabel && (
           <div className="btp-section btp-glabel-row">
             <span className="btp-section-label">Integrity Label</span>
@@ -504,19 +554,21 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
           </div>
         )}
 
-        {/* ── Notes ── */}
+        {/* Notes */}
         <div className="btp-section">
           <div className="btp-section-label">Notes</div>
-          <textarea
-            className="btp-field-textarea"
-            value={notes}
-            onChange={handleNotesChange}
-            placeholder="Add notes..."
-            rows={4}
-          />
+          <div className="btp-notes-container">
+            <textarea
+              className="btp-notes-textarea"
+              value={notes}
+              onChange={handleNotesChange}
+              placeholder="Write your thoughts or key learnings here..."
+              rows={4}
+            />
+          </div>
         </div>
 
-        {/* ── Validation flags ── */}
+        {/* Validation flags */}
         {def.validationFlags?.length > 0 && (
           <div className="btp-flags">
             {def.validationFlags.map((flag) => {
@@ -535,7 +587,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
           </div>
         )}
 
-        {/* ── AI Draft section ── */}
+        {/* AI Draft section */}
         {def.hasAiDraft && (
           <ErrorBoundary name="AI Draft">
           <div className="btp-draft-section">
@@ -627,6 +679,20 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
         <span className="btp-footer-meta">
           {user?.name || 'You'} · {formatDateTime(task.createdAt)}
         </span>
+        <div className="btp-footer-actions">
+          {!discardConfirm ? (
+            <button className="btp-discard-btn" onClick={() => setDiscardConfirm(true)}>
+              Discard Changes
+            </button>
+          ) : (
+            <button className="btp-discard-btn" style={{ color: 'var(--danger)' }} onClick={handleDiscard}>
+              Confirm Discard?
+            </button>
+          )}
+          <button className="btp-done-btn" onClick={() => handleClose.current()}>
+            <Check size={14} /> Done
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -642,7 +708,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
   ) : null;
 
   return createPortal(
-    <div className="tdp-overlay" onClick={onClose}>
+    <div className={`tdp-overlay${closing ? ' tdp-overlay--closing' : ''}`} onClick={() => handleClose.current()}>
       {panel}
       {modal}
     </div>,

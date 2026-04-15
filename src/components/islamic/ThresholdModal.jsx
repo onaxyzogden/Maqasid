@@ -58,6 +58,7 @@ export default function ThresholdModal({ type }) {
   const [confirmed, setConfirmed] = useState(false);
   const [paused, setPaused] = useState(false);
   const [showingDeferScreen, setShowingDeferScreen] = useState(false);
+  const [leaving, setLeaving] = useState(false);
   // Keyed by row id (dynamic per module — starts empty, keys added on selection)
   const [readinessSelections, setReadinessSelections] = useState({});
   const [reflectionSelections, setReflectionSelections] = useState({});
@@ -146,23 +147,35 @@ export default function ThresholdModal({ type }) {
   };
 
   const close = () => {
-    resetState();
-    if (isOpening) setOpeningModuleId(null);
-    else setClosingModuleId(null);
+    setLeaving(true);
+    setTimeout(() => {
+      resetState();
+      setLeaving(false);
+      if (isOpening) setOpeningModuleId(null);
+      else setClosingModuleId(null);
+    }, 200);
   };
 
   const closeDeferScreen = () => {
     if (isOpening) deferOpening(moduleId);
-    resetState();
-    if (isOpening) setOpeningModuleId(null);
-    else setClosingModuleId(null);
+    setLeaving(true);
+    setTimeout(() => {
+      resetState();
+      setLeaving(false);
+      if (isOpening) setOpeningModuleId(null);
+      else setClosingModuleId(null);
+    }, 200);
   };
 
   const complete = () => {
     if (!confirmed) return;
-    if (isOpening) completeOpening(moduleId);
-    else completeClosing(moduleId);
-    resetState();
+    setLeaving(true);
+    setTimeout(() => {
+      if (isOpening) completeOpening(moduleId);
+      else completeClosing(moduleId);
+      resetState();
+      setLeaving(false);
+    }, 200);
   };
 
   const next = () => { if (step < steps.length - 1) setStep(step + 1); };
@@ -220,7 +233,7 @@ export default function ThresholdModal({ type }) {
   ).length;
 
   return (
-    <div className="thr-overlay">
+    <div className={`thr-overlay${leaving ? ' thr-overlay--leaving' : ''}`}>
       <div className="thr-modal">
 
         {/* ══════════════════════════════════════════════ */}
@@ -303,6 +316,7 @@ export default function ThresholdModal({ type }) {
             </div>
 
             <div className="thr-body">
+              <div key={step} className="thr-step-anim">
               {currentStepName === 'Dua' && data && (
                 <div className="thr-step-content fade-in">
                   {isIslamic ? (
@@ -424,6 +438,7 @@ export default function ThresholdModal({ type }) {
                   </div>
                 </div>
               )}
+              </div>{/* end thr-step-anim */}
             </div>
 
             <div className="thr-footer">

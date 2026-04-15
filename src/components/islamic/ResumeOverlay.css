@@ -9,7 +9,15 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-4);
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn var(--duration-lg) var(--ease);
+}
+
+.resume-overlay--leaving {
+  animation: fadeOut var(--duration) var(--ease) forwards;
+}
+
+.resume-overlay--leaving .resume-card {
+  animation: scaleOut var(--duration) var(--ease) forwards;
 }
 
 .resume-card {
@@ -21,7 +29,7 @@
   box-shadow: var(--shadow-xl);
   padding: var(--space-8);
   text-align: center;
-  animation: scaleIn 0.3s ease;
+  animation: scaleIn var(--duration-lg) var(--ease-spring);
 }
 
 .resume-title {

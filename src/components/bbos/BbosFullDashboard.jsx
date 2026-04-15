@@ -1,4 +1,4 @@
-import { useMemo, useState, Fragment } from 'react';
+import { useMemo, useState, useRef, Fragment } from 'react';
 import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
@@ -1663,7 +1663,14 @@ const EMPTY_TASKS = [];
 export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
-  const [activeFactory, setActiveFactory] = useState('research');
+  const [activeFactory, setActiveFactoryRaw] = useState('research');
+  const slideDirRef = useRef(null);
+  const setActiveFactory = (key) => {
+    if (key !== activeFactory) {
+      slideDirRef.current = key === 'asset' ? 'left' : 'right';
+    }
+    setActiveFactoryRaw(key);
+  };
 
   const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, doneCount, totalCount, stagePct } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
@@ -1816,25 +1823,30 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
               )}
 
               {/* Active factory content */}
-              {(hasBoth ? activeFactory === 'research' : researchGroups.length > 0) && (
-                <div className="bfd__factory bfd__factory--research">
-                  {researchGroups.map((g) => renderGroup(g, false))}
-                </div>
-              )}
-
-              {(hasBoth ? activeFactory === 'asset' : assetGroups.length > 0 && researchGroups.length === 0) && (
-                <>
-                  {!gateCleared && (
-                    <div className="bfd__assembly-gate bfd__assembly-gate--locked">
-                      <span className="bfd__assembly-gate-icon">⏳</span>
-                      <span className="bfd__assembly-gate-text">Assembly Gate: LOCKED — complete Research tasks first</span>
-                    </div>
-                  )}
-                  <div className={`bfd__factory bfd__factory--asset${!gateCleared ? ' bfd__factory--locked' : ''}`}>
-                    {assetGroups.map((g) => renderGroup(g, !gateCleared))}
+              <div
+                key={activeFactory}
+                className={`bfd__factory-content${slideDirRef.current ? ` bfd__factory-slide-${slideDirRef.current}` : ''}`}
+              >
+                {(hasBoth ? activeFactory === 'research' : researchGroups.length > 0) && (
+                  <div className="bfd__factory bfd__factory--research">
+                    {researchGroups.map((g) => renderGroup(g, false))}
                   </div>
-                </>
-              )}
+                )}
+
+                {(hasBoth ? activeFactory === 'asset' : assetGroups.length > 0 && researchGroups.length === 0) && (
+                  <>
+                    {!gateCleared && (
+                      <div className="bfd__assembly-gate bfd__assembly-gate--locked">
+                        <span className="bfd__assembly-gate-icon">⏳</span>
+                        <span className="bfd__assembly-gate-text">Assembly Gate: LOCKED — complete Research tasks first</span>
+                      </div>
+                    )}
+                    <div className={`bfd__factory bfd__factory--asset${!gateCleared ? ' bfd__factory--locked' : ''}`}>
+                      {assetGroups.map((g) => renderGroup(g, !gateCleared))}
+                    </div>
+                  </>
+                )}
+              </div>
             </>
           );
         })()}
