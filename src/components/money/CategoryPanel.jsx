@@ -5,6 +5,8 @@ import { useMoneyStore } from '../../store/money-store';
 import { CATEGORY_COLORS } from '@data/config/money-categories';
 import './CategoryPanel.css';
 
+const DEFAULT_COLOR = '#6b7280';
+
 export default function CategoryPanel({ open, category, onClose }) {
   // onClose(saved?) — passes saved category object on save; no arg on cancel.
   // Intentional: ExpensePanel uses the returned object to auto-select the new category.
@@ -17,7 +19,7 @@ export default function CategoryPanel({ open, category, onClose }) {
   const isPreset = category?.isPreset ?? false;
 
   const [name,        setName]        = useState('');
-  const [color,       setColor]       = useState(CATEGORY_COLORS[10]); // #6b7280 default
+  const [color,       setColor]       = useState(DEFAULT_COLOR);
   const [isEssential, setIsEssential] = useState(false);
 
   const nameRef = useRef(null);
@@ -26,7 +28,7 @@ export default function CategoryPanel({ open, category, onClose }) {
   useEffect(() => {
     if (!open) return;
     setName(category?.name ?? '');
-    setColor(category?.color ?? CATEGORY_COLORS[10]);
+    setColor(category?.color ?? DEFAULT_COLOR);
     setIsEssential(category?.isEssential ?? false);
     // Defer focus until the panel has slid into view
     const t = setTimeout(() => nameRef.current?.focus(), 50);
@@ -41,8 +43,8 @@ export default function CategoryPanel({ open, category, onClose }) {
     if (!canSave) return;
     const trimmed = name.trim();
     if (isEdit) {
-      updateCategory(category.id, { name: trimmed, color, isEssential });
-      onClose({ ...category, name: trimmed, color, isEssential });
+      const updated = updateCategory(category.id, { name: trimmed, color, isEssential });
+      onClose(updated ?? { ...category, name: trimmed, color, isEssential });
     } else {
       const cat = addCategory({ name: trimmed, color, isEssential });
       onClose(cat);

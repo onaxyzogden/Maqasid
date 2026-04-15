@@ -194,13 +194,18 @@ export const useMoneyStore = create((set, get) => ({
     return cat;
   },
 
-  updateCategory: (id, updates) => set((s) => {
-    const categories = s.categories.map((c) =>
-      c.id === id && !c.isPreset ? { ...c, ...updates } : c
-    );
-    persistCategories(categories);
-    return { categories };
-  }),
+  updateCategory: (id, updates) => {
+    let updated = null;
+    set((s) => {
+      const categories = s.categories.map((c) => {
+        if (c.id === id && !c.isPreset) { updated = { ...c, ...updates }; return updated; }
+        return c;
+      });
+      persistCategories(categories);
+      return { categories };
+    });
+    return updated;
+  },
 
   deleteCategory: (id) => set((s) => {
     const categories = s.categories.filter((c) => c.id !== id || c.isPreset);
