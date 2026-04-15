@@ -7,6 +7,8 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] fix | Rename "Task Document" button to "Resources" in TaskDetailPanel footer
+
 ## [2026-04-15] feat | Dashboard pipeline stage cards deep-link to correct stage
 - Each `.bfd__pipeline-stage` card on the Dashboard now navigates to its specific BBOS stage.
 - Implementation: React Router `location.state.stage` (not URL search params — `useSearchParams()` returned empty in the router context; location state is immune to Strict Mode remounting).

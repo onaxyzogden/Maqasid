@@ -284,7 +284,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       <div className="tdp-footer">
         <button className="tdp-doc-btn" onClick={openDoc}>
           <FileText size={16} />
-          Task Document
+          Resources
         </button>
       </div>
     </>
