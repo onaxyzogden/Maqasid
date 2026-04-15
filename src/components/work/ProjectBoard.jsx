@@ -101,11 +101,18 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     const result = {};
     for (const p of activePillars) {
       const stageDefs = getBbosTaskDefsByStage(p.id);
-      const done = stageDefs.filter((d) => {
+      let weighted = 0;
+      for (const d of stageDefs) {
         const t = tasks.find((t) => t.bbosTaskType === d.id);
-        return t && (t.columnId === doneCol || t.completedAt);
-      }).length;
-      result[p.id] = stageDefs.length > 0 ? Math.round((done / stageDefs.length) * 100) : 0;
+        if (!t) continue;
+        if (t.columnId === doneCol || t.completedAt) {
+          weighted += 1;
+        } else if (t.subtasks?.length > 0) {
+          const doneSubs = t.subtasks.filter((s) => s.done).length;
+          weighted += doneSubs / t.subtasks.length;
+        }
+      }
+      result[p.id] = stageDefs.length > 0 ? Math.round((weighted / stageDefs.length) * 100) : 0;
     }
     return result;
   }, [taskStore.tasksByProject[projectId], activePillars, isBbos, doneCol]);

@@ -62,185 +62,220 @@
 .rc-item--empty { border-left-color: transparent; }
 
 
-/* ── Interactive mode ── */
-.rc-i-wrap {
+/* ── Interactive mode — card wizard ── */
+.rc-card-wizard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
-.rc-i-instructions {
+.rc-card-wizard__instructions {
   font-size: var(--text-2xs);
   color: var(--text3);
   opacity: 0.6;
   font-style: italic;
   line-height: 1.5;
-  margin: 0 0 4px;
+  margin: 0;
 }
 
-/* Attribute card */
-.rc-i-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 15px;
-  transition: border-color 0.3s;
-}
-
-.rc-i-card--yes { border-color: rgba(90, 184, 122, 0.22); }
-.rc-i-card--nyt { border-color: rgba(212, 151, 74, 0.22); }
-
-/* Card header */
-.rc-i-header {
+/* Group header (attribute name, arabic, title, frame) */
+.rc-card-group-header {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  margin-bottom: 6px;
   flex-wrap: wrap;
+  margin-bottom: 2px;
 }
 
-.rc-i-attr-name {
+.rc-card-attr {
   font-size: var(--text-base);
   font-weight: 500;
   color: var(--text);
 }
 
-.rc-i-attr-ar {
+.rc-card-attr-ar {
   font-size: var(--text-base);
   color: var(--accent);
   font-family: serif;
 }
 
-.rc-i-attr-title {
+.rc-card-attr-title {
   font-size: var(--text-sm);
   color: var(--text3);
   font-style: italic;
 }
 
-.rc-i-status {
-  margin-left: auto;
-  font-size: var(--text-2xs);
-  color: var(--text3);
-  transition: all 0.3s;
-  white-space: nowrap;
-}
-
-.rc-i-status--yes { color: var(--success); }
-.rc-i-status--nyt { color: var(--warning); }
-
-/* Frame text */
-.rc-i-frame {
+.rc-card-frame {
   font-size: var(--text-sm);
   color: var(--text3);
   font-style: italic;
-  margin: 0 0 13px;
+  margin: 0 0 4px;
   line-height: 1.5;
 }
 
-/* Column headers */
-.rc-i-col-headers {
+/* Card pair — two cards side by side */
+.rc-card-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin-bottom: 2px;
+  gap: 14px;
 }
 
-.rc-i-col-label {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0 0 7px 9px;
-}
-
-.rc-i-col-label--yes { color: var(--success); }
-.rc-i-col-label--nyt { color: var(--warning); }
-
-/* Rows */
-.rc-i-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.rc-i-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-}
-
-/* Cells */
-.rc-i-cell {
+/* Individual card */
+.rc-card {
   all: unset;
   box-sizing: border-box;
-  padding: 7px 9px;
-  font-size: var(--text-sm);
-  color: var(--text2);
-  line-height: 1.5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+  border-radius: 12px;
   cursor: pointer;
-  border-radius: 0 5px 5px 0;
-  transition: all 0.15s;
+  transition: all 0.2s;
   font-family: inherit;
   text-align: left;
 }
 
-.rc-i-cell--yes { border-left: 2px solid rgba(90, 184, 122, 0.35); }
-.rc-i-cell--nyt { border-left: 2px solid rgba(212, 151, 74, 0.35); }
+.rc-card--yes {
+  background: rgba(90, 184, 122, 0.08);
+  border: 2px solid rgba(90, 184, 122, 0.15);
+}
 
-.rc-i-cell--yes:hover { background: rgba(90, 184, 122, 0.1); color: var(--text); }
-.rc-i-cell--nyt:hover { background: rgba(212, 151, 74, 0.1); color: var(--text); }
+.rc-card--nyt {
+  background: rgba(201, 160, 90, 0.08);
+  border: 2px solid rgba(201, 160, 90, 0.15);
+}
 
-.rc-i-cell--yes.chosen {
-  background: rgba(90, 184, 122, 0.15);
+.rc-card--yes:hover {
+  background: rgba(90, 184, 122, 0.14);
+  border-color: rgba(90, 184, 122, 0.3);
+}
+
+.rc-card--nyt:hover {
+  background: rgba(201, 160, 90, 0.14);
+  border-color: rgba(201, 160, 90, 0.3);
+}
+
+.rc-card--yes.rc-card--selected {
+  background: rgba(90, 184, 122, 0.16);
+  border-color: var(--success);
+}
+
+.rc-card--nyt.rc-card--selected {
+  background: rgba(201, 160, 90, 0.16);
+  border-color: var(--warning);
+}
+
+/* Checkmark badge */
+.rc-card__check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rc-card--yes .rc-card__check {
+  background: var(--success);
+  color: #fff;
+}
+
+.rc-card--nyt .rc-card__check {
+  background: var(--warning);
+  color: #fff;
+}
+
+/* Card title */
+.rc-card__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
   color: var(--text);
-  border-left-color: var(--success);
-  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  padding-right: 28px; /* room for checkmark */
 }
 
-.rc-i-cell--nyt.chosen {
-  background: rgba(212, 151, 74, 0.15);
-  color: var(--text);
-  border-left-color: var(--warning);
-  font-weight: 500;
-}
-
-.rc-i-cell.dimmed {
-  opacity: 0.35;
-}
-.rc-i-cell.dimmed:hover {
-  opacity: 1;
-  background: none;
+/* Card statement text */
+.rc-card__text {
+  margin: 0;
+  font-size: var(--text-sm);
   color: var(--text2);
+  line-height: 1.7;
 }
 
-@media (max-width: 400px) {
-  .rc-i-row {
+/* Dimmed state for non-selected card when other is chosen */
+.rc-card.rc-card--dimmed {
+  opacity: 0.45;
+}
+
+.rc-card.rc-card--dimmed:hover {
+  opacity: 0.8;
+}
+
+/* Progress text */
+.rc-card-progress {
+  font-size: var(--text-sm);
+  color: var(--text3);
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Internal navigation */
+.rc-card-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.rc-card-nav__spacer {
+  flex: 1;
+}
+
+.rc-card-nav__btn {
+  all: unset;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.rc-card-nav__btn--next {
+  flex: 1;
+  background: var(--success);
+  color: #fff;
+}
+
+.rc-card-nav__btn--next:hover {
+  background: #1db954;
+}
+
+.rc-card-nav__btn--next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rc-card-nav__btn--prev {
+  padding: 10px 16px;
+  color: var(--text3);
+}
+
+.rc-card-nav__btn--prev:hover {
+  color: var(--text);
+}
+
+/* Mobile: stack cards */
+@media (max-width: 480px) {
+  .rc-card-row {
     grid-template-columns: 1fr;
-    gap: 3px;
-  }
-
-  .rc-i-col-headers { display: none; }
-
-  .rc-i-cell--yes::before {
-    content: attr(data-yes-label);
-    display: block;
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--success);
-    margin-bottom: 2px;
-  }
-
-  .rc-i-cell--nyt::before {
-    content: attr(data-nyt-label);
-    display: block;
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--warning);
-    margin-bottom: 2px;
-  }
-
-  .rc-i-cell--nyt {
-    margin-bottom: 8px;
+    gap: 10px;
   }
 }

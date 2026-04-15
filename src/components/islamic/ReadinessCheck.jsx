@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Check } from 'lucide-react';
 import './ReadinessCheck.css';
 
 // ── Display-only paired rows ──
@@ -33,107 +35,130 @@ function RCSection({ label, data, color }) {
   );
 }
 
-// ── Interactive attribute card (matches mockup) ──
-function RCInteractiveCard({ rows, attrName, attrAr, attrTitle, attrFrame, yesLabel, notYetLabel, selections, onSelect }) {
-  const filledCount = rows.filter((r) => selections[r.id] != null).length;
-  const allYes = rows.every((r) => selections[r.id] === true);
-  const allFilled = filledCount === rows.length;
-
-  const statusText = allFilled && allYes
-    ? '\u2713 confirmed'
-    : `${filledCount} / ${rows.length}`;
-
-  const statusClass = allFilled
-    ? allYes ? 'rc-i-status--yes' : 'rc-i-status--nyt'
-    : '';
-
-  const cardClass = `rc-i-card${allFilled ? (allYes ? ' rc-i-card--yes' : ' rc-i-card--nyt') : ''}`;
+// ── Card pair — two side-by-side cards for one individual row ──
+function RCCardPair({ row, yesLabel, nytLabel, selections, onSelect }) {
+  const val = selections[row.id];
+  const isYes = val === true;
+  const isNyt = val === false;
 
   return (
-    <div className={cardClass}>
-      <div className="rc-i-header">
-        <span className="rc-i-attr-name">{attrName}</span>
-        {attrAr && <span className="rc-i-attr-ar">{attrAr}</span>}
-        {attrTitle && <span className="rc-i-attr-title">{attrTitle}</span>}
-        <span className={`rc-i-status ${statusClass}`}>{statusText}</span>
-      </div>
-      {attrFrame && <p className="rc-i-frame">{attrFrame}</p>}
+    <div className="rc-card-row">
+      <button
+        type="button"
+        className={`rc-card rc-card--yes${isYes ? ' rc-card--selected' : ''}${isNyt ? ' rc-card--dimmed' : ''}`}
+        onClick={() => onSelect(row.id, isYes ? null : true)}
+        aria-pressed={isYes}
+      >
+        {isYes && (
+          <span className="rc-card__check"><Check size={14} /></span>
+        )}
+        <span className="rc-card__label">{yesLabel}</span>
+        <p className="rc-card__text">{row.governing}</p>
+      </button>
 
-      <div className="rc-i-col-headers">
-        <div className="rc-i-col-label rc-i-col-label--yes">{yesLabel || 'YES WHEN'}</div>
-        <div className="rc-i-col-label rc-i-col-label--nyt">{notYetLabel || 'NOT YET WHEN'}</div>
-      </div>
-
-      <div className="rc-i-rows">
-        {rows.map((row) => {
-          const val = selections[row.id];
-          return (
-            <div key={row.id} className="rc-i-row">
-              <button
-                type="button"
-                className={`rc-i-cell rc-i-cell--yes${val === true ? ' chosen' : ''}${val === false ? ' dimmed' : ''}`}
-                onClick={() => onSelect(row.id, val === true ? null : true)}
-                aria-pressed={val === true}
-                data-yes-label={yesLabel || 'YES WHEN'}
-              >
-                {row.governing}
-              </button>
-              <button
-                type="button"
-                className={`rc-i-cell rc-i-cell--nyt${val === false ? ' chosen' : ''}${val === true ? ' dimmed' : ''}`}
-                onClick={() => onSelect(row.id, val === false ? null : false)}
-                aria-pressed={val === false}
-                data-nyt-label={notYetLabel || 'NOT YET WHEN'}
-              >
-                {row.notYet}
-              </button>
-            </div>
-          );
-        })}
-      </div>
+      <button
+        type="button"
+        className={`rc-card rc-card--nyt${isNyt ? ' rc-card--selected' : ''}${isYes ? ' rc-card--dimmed' : ''}`}
+        onClick={() => onSelect(row.id, isNyt ? null : false)}
+        aria-pressed={isNyt}
+      >
+        {isNyt && (
+          <span className="rc-card__check"><Check size={14} /></span>
+        )}
+        <span className="rc-card__label">{nytLabel}</span>
+        <p className="rc-card__text">{row.notYet}</p>
+      </button>
     </div>
   );
 }
 
-// ── Interactive readiness check (6-row, two attribute cards) ──
+// ── Interactive readiness — card wizard (one row per page) ──
 function RCInteractive({ rows, selections, onSelect }) {
-  // Group rows by attribute — first row with attr_ar/attrTitle carries card header info
-  const groups = [];
-  let current = null;
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  // Build label lookup — each row inherits labels from the most recent row that defined them
+  const labelledRows = [];
+  let activeYesLabel = 'At peace when';
+  let activeNytLabel = 'Not yet rested in';
+  let activeAttr = null;
 
   for (const row of rows) {
-    if (row.attr_ar || row.attrTitle || !current || row.attr !== current.attrName) {
-      current = {
-        attrName: row.attr,
-        attrAr: row.attr_ar || null,
-        attrTitle: row.attrTitle || null,
-        attrFrame: row.attrFrame || null,
-        yesLabel: row.yesLabel || null,
-        notYetLabel: row.notYetLabel || null,
-        rows: [],
-      };
-      groups.push(current);
-    }
-    current.rows.push(row);
+    if (row.yesLabel) activeYesLabel = row.yesLabel;
+    if (row.notYetLabel) activeNytLabel = row.notYetLabel;
+    if (row.attr_ar || row.attrTitle) activeAttr = { name: row.attr, ar: row.attr_ar, title: row.attrTitle, frame: row.attrFrame };
+    labelledRows.push({
+      ...row,
+      _yesLabel: activeYesLabel,
+      _nytLabel: activeNytLabel,
+      _attr: activeAttr,
+    });
   }
 
+  const total = labelledRows.length;
+  const current = labelledRows[currentIdx];
+  const completedCount = rows.filter((r) => selections[r.id] != null).length;
+  const currentAnswered = selections[current.id] != null;
+
+  const handleNext = () => {
+    if (currentIdx < total - 1) setCurrentIdx(currentIdx + 1);
+  };
+
+  const handlePrev = () => {
+    if (currentIdx > 0) setCurrentIdx(currentIdx - 1);
+  };
+
   return (
-    <div className="rc-i-wrap">
-      <p className="rc-i-instructions">For each row, select the condition that is true for you right now.</p>
-      {groups.map((group, i) => (
-        <RCInteractiveCard
-          key={i}
-          rows={group.rows}
-          attrName={group.attrName}
-          attrAr={group.attrAr}
-          attrTitle={group.attrTitle}
-          attrFrame={group.attrFrame}
-          yesLabel={group.yesLabel}
-          notYetLabel={group.notYetLabel}
-          selections={selections}
-          onSelect={onSelect}
-        />
-      ))}
+    <div className="rc-card-wizard">
+      <p className="rc-card-wizard__instructions">
+        Select the card that reflects where you are right now.
+      </p>
+
+      {/* Attribute header — show when this row starts or continues a named attribute */}
+      {current._attr && (
+        <>
+          <div className="rc-card-group-header">
+            <span className="rc-card-attr">{current._attr.name}</span>
+            {current._attr.ar && <span className="rc-card-attr-ar">{current._attr.ar}</span>}
+            {current._attr.title && <span className="rc-card-attr-title">{current._attr.title}</span>}
+          </div>
+          {current._attr.frame && <p className="rc-card-frame">{current._attr.frame}</p>}
+        </>
+      )}
+
+      <RCCardPair
+        row={current}
+        yesLabel={current._yesLabel}
+        nytLabel={current._nytLabel}
+        selections={selections}
+        onSelect={onSelect}
+      />
+
+      <p className="rc-card-progress">
+        Readiness section: {completedCount}/{total} rows completed
+      </p>
+
+      <div className="rc-card-nav">
+        {currentIdx > 0 && (
+          <button
+            type="button"
+            className="rc-card-nav__btn rc-card-nav__btn--prev"
+            onClick={handlePrev}
+          >
+            Previous
+          </button>
+        )}
+        <div className="rc-card-nav__spacer" />
+        {currentIdx < total - 1 ? (
+          <button
+            type="button"
+            className="rc-card-nav__btn rc-card-nav__btn--next"
+            onClick={handleNext}
+            disabled={!currentAnswered}
+          >
+            Next
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 }
