@@ -32,6 +32,8 @@ export default function AppShell() {
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
   const toggleIslamicPanel = useAppStore((s) => s.toggleIslamicPanel);
   const activeModule = useAppStore((s) => s.activeModule);
+  const niyyahOverrideOpen = useAppStore((s) => s.niyyahOverrideOpen);
+  const closeNiyyahOverride = useAppStore((s) => s.closeNiyyahOverride);
   const mobile = useMobile();
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
@@ -220,12 +222,14 @@ export default function AppShell() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <div className={`app-shell${isDragging || isRightDragging ? ' app-shell--dragging' : ''}`} style={{ gridTemplateColumns: gridCols }}>
         <TopBar />
         <Sidebar />
         {!mobile && (
           <div
             className="col-edge"
+            aria-hidden="true"
             style={{ gridColumn: 2, gridRow: '2 / -1' }}
             onPointerDown={handleEdgePointerDown}
             onPointerMove={handleEdgePointerMove}
@@ -234,6 +238,7 @@ export default function AppShell() {
             <div className="col-edge__line" />
             <button
               className="col-edge__toggle"
+              tabIndex={-1}
               aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSidebar(); } }}
             >
@@ -241,12 +246,13 @@ export default function AppShell() {
             </button>
           </div>
         )}
-        <main key={location.key} className="app-main">
+        <main id="main-content" key={location.key} className="app-main">
           <Outlet />
         </main>
         {islamicPanelOpen && !mobile && (
           <div
             className="col-edge"
+            aria-hidden="true"
             style={{ gridColumn: 4, gridRow: '2 / -1' }}
             onPointerDown={handleRightEdgePointerDown}
             onPointerMove={handleRightEdgePointerMove}
@@ -255,6 +261,7 @@ export default function AppShell() {
             <div className="col-edge__line" />
             <button
               className="col-edge__toggle"
+              tabIndex={-1}
               aria-label="Close Islamic panel"
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
             >
@@ -278,7 +285,12 @@ export default function AppShell() {
           onDismiss={handlePrayerDismiss}
         />
       )}
-      {niyyahNeeded && <NiyyahAct />}
+      {(niyyahNeeded || niyyahOverrideOpen) && (
+        <NiyyahAct
+          initialStep={niyyahNeeded ? 'dua' : 'pillars'}
+          onClose={closeNiyyahOverride}
+        />
+      )}
       {prayerWarningName && !prayerWarningDismissed && !isPrayerLocked && (
         <PrayerWarning
           prayerName={prayerWarningName}
