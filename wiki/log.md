@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-14] implement | Money Dashboard — Balance overview chart redesign
+- Replaced weekly side-by-side bar chart with monthly stacked bar chart (9 months)
+- Chart logic: bar height = monthly income; expenses (yellow) from bottom; transparent spacer holds savings gap; income background shows through
+- Added Y-axis labels, horizontal gridlines, dashed budget target line ("Max Target Spending"), over-budget purple hatched segment
+- Legend repositioned below chart; Income · Expenses · Over budget
+- Fixed double-counting bug (previously stacked savings + income + expenses additively)
+- Fixed flex sizing bug (transparent spacer required so expense segment doesn't stretch to fill full bar)
+- New wiki entity: `wiki/entities/money-dashboard.md`
+
 ## [2026-04-14] implement | Font family tokenization — codebase-wide
 - Extended font token system introduced in the P0 session to all remaining files (50+ files)
 - New tokens added: `--font-display` (Manrope + DM Sans fallback), `--font-serif` (Noto Serif)

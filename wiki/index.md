@@ -18,6 +18,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[bbos-pipeline]] | Barakah Business Operating System — 8-stage covenant pipeline for Islamic business |
 | [[graphify]] | Knowledge graph tool — builds persistent graphs from codebases with community detection |
 | [[claude-os]] | Claude OS / Model Workspace Protocol — 3-layer system architecture governing Claude Code across projects |
+| [[money-dashboard]] | Money Dashboard — Balance overview chart, store bindings, bar chart data model |
 
 ## Concepts
 

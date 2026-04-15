@@ -14,7 +14,7 @@ const MONTH_COUNT = 9;
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function niceMax(val) {
-  if (val <= 0) return 100;
+  if (val <= 4) return 4;
   const mag = Math.pow(10, Math.floor(Math.log10(val)));
   const n = val / mag;
   if (n <= 1) return mag;
@@ -33,7 +33,7 @@ function BarChart({ data, budgetTarget = 0 }) {
   if (!data.length) return null;
 
   const stackMax = Math.max(
-    ...data.map((d) => d.savings + d.income + d.expenses),
+    ...data.map((d) => d.income),
     budgetTarget || 0,
     1,
   );
@@ -45,59 +45,60 @@ function BarChart({ data, budgetTarget = 0 }) {
   const budgetPct = budgetTarget > 0 ? (budgetTarget / ceiling) * 100 : 0;
 
   return (
-    <div className="md-chart-wrapper">
-      {/* Y-axis */}
-      <div className="md-chart-yaxis">
-        {[...ticks].reverse().map((t) => (
-          <span key={t} className="md-yaxis-label">{fmtTick(t)}</span>
-        ))}
-      </div>
+    <div className="md-chart-outer">
+      <div className="md-chart-wrapper">
+        {/* Y-axis */}
+        <div className="md-chart-yaxis">
+          {[...ticks].reverse().map((t, i) => (
+            <span key={i} className="md-yaxis-label">{fmtTick(t)}</span>
+          ))}
+        </div>
 
-      {/* Chart area */}
-      <div className="md-chart-area">
-        {/* Gridlines */}
-        {ticks.slice(1).map((t) => (
-          <div key={t} className="md-gridline" style={{ bottom: `${(t / ceiling) * 100}%` }} />
-        ))}
+        {/* Chart area */}
+        <div className="md-chart-area">
+          {/* Gridlines */}
+          {ticks.slice(1).map((t, i) => (
+            <div key={i} className="md-gridline" style={{ bottom: `${(t / ceiling) * 100}%` }} />
+          ))}
 
-        {/* Budget target line */}
-        {budgetTarget > 0 && (
-          <>
-            <div className="md-budget-line" style={{ bottom: `${budgetPct}%` }} />
-            <span className="md-budget-label" style={{ bottom: `${budgetPct}%` }}>
-              Max Target Spending
-            </span>
-          </>
-        )}
+          {/* Budget target line */}
+          {budgetTarget > 0 && (
+            <>
+              <div className="md-budget-line" style={{ bottom: `${budgetPct}%` }} />
+              <span className="md-budget-label" style={{ bottom: `${budgetPct}%` }}>
+                Max Target Spending
+              </span>
+            </>
+          )}
 
-        {/* Bars */}
-        <div className="md-chart-bars">
-          {data.map((d) => {
-            const total = d.savings + d.income + d.expenses;
-            const totalPct = (total / ceiling) * 100;
-            const overBudget = budgetTarget > 0
-              ? Math.min(d.expenses, Math.max(0, total - budgetTarget))
-              : 0;
-            const withinExpenses = d.expenses - overBudget;
+          {/* Bars */}
+          <div className="md-chart-bars">
+            {data.map((d, i) => {
+              const totalPct = (d.income / ceiling) * 100;
+              const overBudget = budgetTarget > 0
+                ? Math.min(d.expenses, Math.max(0, d.expenses - budgetTarget))
+                : 0;
+              const withinExpenses = d.expenses - overBudget;
+              const surplus = Math.max(0, d.income - d.expenses);
 
-            return (
-              <div key={d.month} className="md-chart-col">
-                <div className="md-chart-stack" style={{ height: `${totalPct}%` }}>
-                  {d.savings > 0 && <div className="md-bar md-bar-savings" style={{ flex: d.savings }} />}
-                  {d.income > 0 && <div className="md-bar md-bar-income" style={{ flex: d.income }} />}
-                  {withinExpenses > 0 && <div className="md-bar md-bar-expenses" style={{ flex: withinExpenses }} />}
-                  {overBudget > 0 && <div className="md-bar md-bar-over-budget" style={{ flex: overBudget }} />}
+              return (
+                <div key={i} className="md-chart-col">
+                  <div className="md-chart-stack" style={{ height: `${totalPct}%` }}>
+                    {surplus > 0 && <div className="md-bar md-bar-spacer" style={{ flex: surplus }} />}
+                    {withinExpenses > 0 && <div className="md-bar md-bar-expenses" style={{ flex: withinExpenses }} />}
+                    {overBudget > 0 && <div className="md-bar md-bar-over-budget" style={{ flex: overBudget }} />}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {/* X-axis */}
       <div className="md-chart-xaxis">
-        {data.map((d) => (
-          <span key={d.month} className="md-chart-label">{d.month}</span>
+        {data.map((d, i) => (
+          <span key={i} className="md-chart-label">{d.month}</span>
         ))}
       </div>
     </div>
@@ -231,13 +232,15 @@ export default function MoneyDashboard({ onNavigate }) {
               <h2 className="md-big-number">{fmt(accountsBalance || balance)}</h2>
               <span className="md-label">Balance overview</span>
             </div>
-            <div className="md-legend">
-              <span className="md-legend-dot md-dot-savings" /> Savings
-              <span className="md-legend-dot md-dot-income" /> Income
-              <span className="md-legend-dot md-dot-expenses" /> Expenses
-            </div>
           </div>
-          <BarChart data={chartData} />
+          <BarChart data={chartData} budgetTarget={monthlyBudget} />
+          <div className="md-chart-legend">
+            <span><span className="md-legend-dot md-dot-income" />Income</span>
+            <span><span className="md-legend-dot md-dot-expenses" />Expenses</span>
+            {monthlyBudget > 0 && (
+              <span><span className="md-legend-dot md-dot-overbudget" />Over budget</span>
+            )}
+          </div>
         </div>
 
         {/* Summary cards */}
