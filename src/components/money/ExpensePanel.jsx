@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { X, Plus } from 'lucide-react';
+import { X, Plus, Pencil } from 'lucide-react';
 import { useMoneyStore } from '../../store/money-store';
 import { useToastStore } from '../../store/toast-store';
 import { CURRENCIES } from '@data/config/money-categories';
+import CategoryPanel from './CategoryPanel';
 
 export default function ExpensePanel({ expense, onClose }) {
   const categories = useMoneyStore((s) => s.categories);
@@ -13,7 +14,7 @@ export default function ExpensePanel({ expense, onClose }) {
   const markExpensePaid = useMoneyStore((s) => s.markExpensePaid);
   const markExpenseUnpaid = useMoneyStore((s) => s.markExpenseUnpaid);
   const addVendor = useMoneyStore((s) => s.addVendor);
-  const addCategory = useMoneyStore((s) => s.addCategory);
+  const updateCategory = useMoneyStore((s) => s.updateCategory);
   const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!expense;
 
@@ -29,6 +30,11 @@ export default function ExpensePanel({ expense, onClose }) {
   const [status, setStatus] = useState(expense?.status || 'unpaid');
   const [showAddVendor, setShowAddVendor] = useState(false);
   const [newVendorName, setNewVendorName] = useState('');
+  const [categoryPanelOpen,     setCategoryPanelOpen]     = useState(false);
+  const [categoryPanelCategory, setCategoryPanelCategory] = useState(null);
+
+  // Derived: currently selected category object
+  const selectedCategory = categories.find((c) => c.id === categoryId) ?? null;
 
   const handleSave = () => {
     if (!description.trim()) return;
@@ -76,15 +82,25 @@ export default function ExpensePanel({ expense, onClose }) {
     }
   };
 
-  const handleAddCategory = () => {
-    const name = prompt('New category name:');
-    if (name?.trim()) {
-      const cat = addCategory({ name: name.trim() });
-      setCategoryId(cat.id);
-    }
+  const handleNewCategory = () => {
+    setCategoryPanelCategory(null);
+    setCategoryPanelOpen(true);
+  };
+
+  const handleEditCategory = () => {
+    if (!selectedCategory || selectedCategory.isPreset) return;
+    setCategoryPanelCategory(selectedCategory);
+    setCategoryPanelOpen(true);
+  };
+
+  const handleCategoryPanelClose = (saved) => {
+    setCategoryPanelOpen(false);
+    setCategoryPanelCategory(null);
+    if (saved) setCategoryId(saved.id);
   };
 
   return (
+    <>
     <div className="money-slidein-overlay" onClick={onClose}>
       <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
         <div className="money-slidein-header">
@@ -113,7 +129,14 @@ export default function ExpensePanel({ expense, onClose }) {
                   <option value="">Select...</option>
                   {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
-                <button className="btn btn-ghost" onClick={handleAddCategory} title="Add option" style={{ padding: '0 6px', fontSize: '0.85rem' }}><Plus size={14} /></button>
+              {selectedCategory && !selectedCategory.isPreset && (
+                <button className="btn btn-ghost" onClick={handleEditCategory} title="Edit category" style={{ padding: '0 6px' }}>
+                  <Pencil size={14} />
+                </button>
+              )}
+              <button className="btn btn-ghost" onClick={handleNewCategory} title="New category" style={{ padding: '0 6px', fontSize: '0.85rem' }}>
+                <Plus size={14} />
+              </button>
               </div>
             </div>
             <div className="money-field" style={{ width: 120 }}>
@@ -196,5 +219,11 @@ export default function ExpensePanel({ expense, onClose }) {
         </div>
       </div>
     </div>
+    <CategoryPanel
+      open={categoryPanelOpen}
+      category={categoryPanelCategory}
+      onClose={handleCategoryPanelClose}
+    />
+    </>
   );
 }
