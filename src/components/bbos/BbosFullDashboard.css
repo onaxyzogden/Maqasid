@@ -845,6 +845,9 @@
 /* Factory slide animation on tab switch */
 .bfd__factory-content {
   grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
 }
 .bfd__factory-slide-left {
   animation: slideInFromRight var(--duration-lg) var(--ease);
@@ -859,7 +862,7 @@
   grid-template-columns: repeat(12, 1fr);
   gap: var(--space-3);
   padding: var(--space-3);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius);
   margin-bottom: var(--space-2);
 }
 .bfd__factory--research {
