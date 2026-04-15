@@ -2,15 +2,18 @@ import { Link } from 'react-router-dom';
 import { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe, Kanban } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import { useAppStore } from '../store/app-store';
+import { useSettingsStore } from '../store/settings-store';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import './TodayFocusSection.css';
 
 const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
 
 // pillarSummary: Array<{ pillar: object, openCount: number, overdueCount: number }>
-export default function TodayFocusSection({ pillarSummary }) {
+export default function TodayFocusSection({ pillarSummary = [] }) {
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
   const openNiyyahOverride = useAppStore((s) => s.openNiyyahOverride);
+  const valuesLayer = useSettingsStore((s) => s.valuesLayer);
+  const isIslamic = valuesLayer === 'islamic';
 
   const focusedIds = (niyyahFocus || []).filter(
     (id) => id !== '_skipped' && MAQASID_PILLARS.some((p) => p.id === id)
@@ -63,10 +66,12 @@ export default function TodayFocusSection({ pillarSummary }) {
               <div className="tfs-card__eyebrow" style={{ color: pillar.accentColor }}>
                 Today&apos;s Focus
               </div>
-              <div className="tfs-card__name">{pillar.sidebarLabel}</div>
-              <div className="tfs-card__arabic" style={{ color: pillar.accentColor + '80' }}>
-                {pillar.arabicRootAr}
-              </div>
+              <div className="tfs-card__name">{isIslamic ? pillar.sidebarLabel : pillar.universalLabel}</div>
+              {isIslamic && (
+                <div className="tfs-card__arabic" style={{ color: pillar.accentColor + '80' }}>
+                  {pillar.arabicRootAr}
+                </div>
+              )}
               <div className="tfs-card__meta">{meta}</div>
             </div>
             <Link
