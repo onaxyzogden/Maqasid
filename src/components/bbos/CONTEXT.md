@@ -8,8 +8,7 @@ Barakah Business Operating System pipeline UI: stage visualization, role-based a
 |------|-------------|
 | BbosFullDashboard.jsx | Unified stage dashboard: Two-Factory layout (Research/Asset), Assembly Gate, StageScoreCard, task groups by prefix |
 | BbosFullDashboard.css | Factory section tints, assembly gate bar, locked/cleared states, task card styles |
-| BbosPipelineHeader.jsx | Visual stage pipeline header (INT, QAL, STR, etc.); current/past/filtered states; sub-stage progress indicators |
-| BbosPipelineHeader.css | Pipeline header layout, stage node colors, progress indicator styles |
+| _(BbosPipelineHeader — removed)_ | Stage navigation now handled by LevelNavigator in `components/shared/` with `gateIndicators` prop for 00A/01B patch stages |
 | BbosRoleBadge.jsx | Role abbreviation badge styled with role.color and role.bg |
 | BbosRolePicker.jsx | Dropdown picker for BBOS roles (all/OP/FD/etc.); uses BbosRoleBadge |
 | BbosTaskPanel.jsx | Full task detail panel: purpose, theological rationale, field forms, G-Label, AI draft |

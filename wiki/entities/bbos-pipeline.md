@@ -68,7 +68,7 @@ This separation enforces operator sovereignty over all deliverables. The AI rese
 
 ## Current Status
 
-Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11). Two-Factory visual split implemented: Research Factory (S/V/FP prefixes) and Asset Factory (A/AF/IC) render as distinct sections with factory headers and tinted backgrounds. Assembly Gate bar between factories shows CLEARED (green) or LOCKED (amber) based on Research task completion; Asset tasks get viewOnly when locked. G-Label picker now shows G1-G4 descriptions inline. Pipeline header shows sub-stage progress indicators (✓/◐/○). Dynamic scoring via StageScoreCard (5 signals × 5 pts → % → verdict). Role-based access via BbosRoleBadge and BbosRolePicker. Marketing section live on [[ogden-hub]].
+Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11), with final protocol gaps closed on 2026-04-15. Two-Factory visual split implemented: Research Factory (S/V/FP prefixes) and Asset Factory (A/AF/IC) render as Groundwork/Workshop tabs with slide transitions. Assembly Gate bar renders both LOCKED (amber ⏳) and CLEARED (green ✅) states based on Research task completion; auto-clears when all Research tasks are Done; Asset tasks get viewOnly when locked. G-Label picker shows G1-G4 descriptions inline; GLabelBadge now also renders on BbosFullDashboard task cards (colored badge when assigned, static "G" placeholder when unassigned). Patch Plan sub-stages (00A Input Integrity Gate, 01B Mechanism Factory) shown as inline diamond ◆ indicators between LevelNavigator segments — 3 states: pending (gray), in-progress (amber), complete (green), derived from parent stage completion. Dynamic scoring via StageScoreCard (5 signals × 5 pts → % → verdict). Role-based access via BbosRoleBadge and BbosRolePicker. Marketing section live on [[ogden-hub]].
 
 **DashboardTaskCard** (`src/components/shared/DashboardTaskCard.jsx`) — unified card component used by both BbosFullDashboard and PillarLevelDashboard. Whole card is clickable; dynamically renders subtask bars, field progress, due dates, tags, purpose text, and BBOS custom renderers via children prop.
 
@@ -88,18 +88,24 @@ Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11). Two-Fa
 
 ## Open Questions
 
-- Are Patch Plan sub-stages (00A Input Integrity Gate, 01B Mechanism Factory) represented in the stage progression header?
 - What is the rejection/off-ramp flow when the Amanah Proof Audit fails at Stage 00?
 - Will BBOS support multiple concurrent pipelines (multiple businesses per operator)?
+- Should 00A/01B have dedicated task definitions in `bbos-task-definitions.js`? Currently status is derived from parent stage completion.
+
+### Resolved (2026-04-15)
+- ~~Patch Plan sub-stages in stage nav~~ — 00A and 01B shown as inline diamond indicators between LevelNavigator segments via `gateIndicators` prop; data in `BBOS_PATCH_STAGES` array
+- ~~Assembly Gate CLEARED state~~ — Both LOCKED and CLEARED states now render (was only LOCKED)
+- ~~G-Label badge on dashboard cards~~ — GLabelBadge renders on BbosFullDashboard task cards when a G-Label is assigned
 
 ### Resolved (Sprint 7, 2026-04-11)
-- ~~Two-Factory UI~~ — Implemented: Research/Asset factory sections with distinct backgrounds and headers
+- ~~Two-Factory UI~~ — Implemented: Research/Asset factory sections as Groundwork/Workshop tabs
 - ~~G-Labeling in UI~~ — G-Label picker now shows G1-G4 descriptions; GLabelBadge displays assigned label
 - ~~Assembly Gate UI~~ — Rendered as a status bar (CLEARED/LOCKED), not ASSEMBLE command — Asset tasks lock when Research incomplete
 
 ## History
 
 | Date | Event |
+| 2026-04-15 | Closed 3 remaining UI/Protocol gaps from system report §11.4: (1) Assembly Gate CLEARED state rendering, (2) GLabelBadge on BbosFullDashboard task cards, (3) 00A/01B patch stage inline diamond indicators in LevelNavigator via `gateIndicators` prop and `BBOS_PATCH_STAGES` data. Fixed stale CONTEXT.md reference to non-existent BbosPipelineHeader.jsx. |
 |---|---|
 | 2026-04-09 | Enriched entity page with BBOS v2.4 framework detail from NotebookLM extraction (notebook `84220e85`). Added Two-Factory architecture, 8-stage definitions (PRE/STR/OFR/OUT/SAL/FUL/RET/OPT), Patch Plan sub-stages (00A, 01B), critical business rules (G-Labeling, Assembly Gate, Verbatim Extraction, Scope Integrity), and key constraints. Updated stage codes from placeholder names to canonical codes. |
 | 2026-04-11 | TRU stage: replaced static Integrity Threshold lookup in TRU-AF5 with dynamic weighted score (5 signals × 5 pts = max 25 pts → %). Signals: TRU-S3.overallProofStrength + TRU-V1 gates A/B/C/D. Verdicts: ≥75% QUALIFIED, ≥50% DEVELOPING, ≥25% REVIEW NEEDED, <25% BLOCKED. Audited Claim Strength cards also made dynamic (graduated gate stars + status sub-labels). File: `src/components/bbos/TruDashboard.jsx`. |

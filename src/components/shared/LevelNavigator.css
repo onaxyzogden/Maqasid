@@ -224,6 +224,26 @@
   color: var(--text2);
 }
 
+/* ── Gate indicators (00A / 01B patch stages) ── */
+.fln__gate-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  align-self: center;
+}
+.fln__gate-diamond {
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+.fln__gate-indicator--pending .fln__gate-diamond { color: var(--text3); }
+.fln__gate-indicator--in-progress .fln__gate-diamond { color: var(--pri-high); }
+.fln__gate-indicator--complete .fln__gate-diamond { color: var(--col-done); }
+
 /* ── Compact modifier (level overview pages) ── */
 .fln--compact {
   margin-bottom: var(--space-6);

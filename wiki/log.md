@@ -7,6 +7,23 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] implement | People Module Stabilization (System Report §11.6)
+- Audit confirmed module is stable — not mid-refactor as report suggested. 42 .jsx files, 3 stores, 6 sub-directories all functional.
+- **CompanyNotesTab:** Wired to contacts-store — notes now persist via `updateCompany(companyId, { notes })`. Was local-only state.
+- **WorkTab:** Replaced hardcoded onboarding stubs with real task data from task-store. Added `getTasksByAssignee(assigneeId)` to task-store. Shows tasks across all projects with priority, due date, status.
+- **SkillsTab:** Built tag-based skill management UI. Skills stored as `skills` array on contact record via `updateContact`. Add/remove with Enter/click.
+- **DetailPanelTabs:** Fixed SkillsTab call to pass `contactId` prop (was called with no props).
+- Updated CONTEXT.md files: `people/CONTEXT.md` (master) and `tabs/CONTEXT.md` — removed stale stub references, documented new store dependencies.
+- Files modified: CompanyNotesTab.jsx, WorkTab.jsx, SkillsTab.jsx, DetailPanelTabs.jsx, task-store.js, people/CONTEXT.md, tabs/CONTEXT.md
+
+## [2026-04-15] implement | BBOS UI/Protocol Gap Closure (System Report §11.4)
+- Closed 3 of 4 gaps from system report section 11.4 (gap #1 Two-Factory was already resolved)
+- **Assembly Gate CLEARED state:** Added green CLEARED bar rendering when all Research tasks are Done (was only showing LOCKED)
+- **G-Label badge on dashboard cards:** GLabelBadge now renders on BbosFullDashboard task cards when G1-G4 label is assigned; static "G" chip remains as placeholder when unassigned
+- **00A/01B patch stage indicators:** Added `BBOS_PATCH_STAGES` data to `bbos-pipeline.js`; `gateIndicators` prop added to LevelNavigator; inline diamond indicators render between FND-TRU and STR-OFR in Think layer with 3-state coloring (pending/in-progress/complete)
+- Fixed stale `CONTEXT.md` reference to non-existent `BbosPipelineHeader.jsx`
+- Files modified: BbosFullDashboard.jsx, BbosFullDashboard.css, bbos-pipeline.js, ProjectBoard.jsx, LevelNavigator.jsx, LevelNavigator.css, bbos/CONTEXT.md
+
 ## [2026-04-15] reskin | Task Modal + BBOS Panel + Factory Tabs
 - **Task Detail Modal:** Full CSS rewrite of TaskDetailPanel (672px, 24px radius, `--tdp-accent` theming, circular subtask checkboxes, progress bar, spacious layout). JSX restructured: priority badge, read-only description, single "Task Document" footer button. Removed secondary controls from render.
 - **BBOS Task Panel:** CSS rewrite of BbosTaskPanel to match new design language. JSX restructured: badges row (stage + status inline select), meta row (assignee + governing attributes), purpose section, bento grid (dependencies + template cards), rationale accordion, form fields, G-Label, notes container, validation flags, AI draft section, discard-with-confirmation footer.

@@ -291,6 +291,20 @@ export const useTaskStore = create((set, get) => ({
     return results;
   },
 
+  getTasksByAssignee: (assigneeId) => {
+    if (!assigneeId) return [];
+    const results = [];
+    const all = get().tasksByProject;
+    for (const [projectId, tasks] of Object.entries(all)) {
+      for (const task of tasks) {
+        if (task.assigneeId === assigneeId) {
+          results.push({ ...task, projectId });
+        }
+      }
+    }
+    return results;
+  },
+
   updateBbosFieldData: (projectId, taskId, fieldId, value) => set((s) => {
     const tasks = (s.tasksByProject[projectId] || []).map((t) => {
       if (t.id !== taskId) return t;

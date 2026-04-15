@@ -7,12 +7,12 @@ HR, contacts, recruitment, and sales pipeline management. Organized into domain 
 
 | Subdirectory | Content | CONTEXT.md |
 |---|---|---|
-| `hr/` | Employee CRUD, attendance, clock-in, leave, salary/stats/timesheet/org tabs (17 files) | `hr/CONTEXT.md` |
-| `contacts/` | Contact listing, cards, table view, adding contacts (8 files) | `contacts/CONTEXT.md` |
-| `recruitment/` | Job posting pipeline, sales pipeline (4 files) | `recruitment/CONTEXT.md` |
-| `detail/` | Shared detail panel with tabbed content (5 files) | `detail/CONTEXT.md` |
+| `hr/` | Employee CRUD, attendance, clock-in, leave, salary/stats/timesheet/org tabs | `hr/CONTEXT.md` |
+| `contacts/` | Contact listing, cards, table view, adding contacts | `contacts/CONTEXT.md` |
+| `recruitment/` | Job posting pipeline, sales pipeline | `recruitment/CONTEXT.md` |
+| `detail/` | Shared detail panel with tabbed content (DetailPanel, DetailPanelHeader, DetailPanelTabs, EditSidePanel) | `detail/CONTEXT.md` |
 | `shared/` | AvatarInitials, TypeBadge, CollapsibleSection (3 files) | — |
-| `tabs/` | Detail panel tab content: Personal, HR, Salary, Skills, etc. (11 files) | `tabs/CONTEXT.md` |
+| `tabs/` | Detail panel tab content: 11 tabs (Personal, HR, Salary, Skills, Work, Docs, Absence, ClockIns, CompanyInfo, CompanyPeople, CompanyNotes) | `tabs/CONTEXT.md` |
 
 ## Architecture
 ```
@@ -33,8 +33,10 @@ SalesPipelinePage (kanban with lead stages)
 
 ## Store Dependencies
 - **people-store**: employees, departments, add/updateEmployee
-- **contacts-store**: contacts, companies, selectedContactId, viewMode, panelOpen, selectContact
+- **contacts-store**: contacts, companies, selectedContactId, viewMode, panelOpen, selectContact, updateContact, updateCompany
 - **recruitment-store**: job postings CRUD (Zustand + localStorage)
+- **task-store**: `getTasksByAssignee(contactId)` — used by WorkTab to show assigned tasks across all projects
+- **project-store**: project names — used by WorkTab for display
 - **auth-store**: user
 
 ## Key Patterns
@@ -42,8 +44,11 @@ SalesPipelinePage (kanban with lead stages)
 - **Merge pattern**: HRPage merges people-store employees with contacts-store employee-type contacts
 - **ViewMode toggle**: ContactsPage supports 'cards' or 'table' view
 - **Cross-subfolder imports**: Use relative `../subfolder/Component` paths within people/
+- **Skills as tags**: SkillsTab stores free-text skill tags as `skills` array on contact record
+- **Company notes**: CompanyNotesTab persists `notes` string on company record via `updateCompany`
 
 ## Gotchas
 - DetailPanel reads BOTH contacts and companies via selectedContactId (polymorphic)
 - EmployeeForm reuses `.expense-form-*` CSS classes (from money module)
 - Two levels of "tabs": page-level (Timesheet, Salaries, etc.) vs detail-panel tabs (Personal, Work, Skills, etc.)
+- Dual store merge: people-store employees and contacts-store employee-type contacts are merged in HRPage; people-store takes precedence on ID collision

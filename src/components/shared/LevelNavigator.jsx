@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useProjectStore } from '@store/project-store';
@@ -74,6 +74,7 @@ export default function LevelNavigator({
   onSegmentClick,
   onSubsegClick,
   taskColorFn,
+  gateIndicators,
 } = {}) {
   const navigate = useNavigate();
   const [internalIdx, setInternalIdx] = useState(0);
@@ -234,46 +235,56 @@ export default function LevelNavigator({
               if (onSegmentClick) { onSegmentClick(id, active.key); }
               else { if (storageKey) safeSet(storageKey, active.key); navigate(route); }
             };
+            const gate = gateIndicators?.find((g) => g.afterSegmentId === id);
             return (
-              <div
-                key={id}
-                className={`fln__segment-col${isCurrent ? ' fln__segment-col--current' : ''}`}
-                style={isCurrent ? { '--seg-color': active.color } : undefined}
-                onClick={handleSegClick}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && handleSegClick()}
-              >
-                <div className="fln__segment-bar">
-                  {tasks.length > 0 ? tasks.map((task) => (
-                    <button
-                      key={task.id}
-                      className="fln__subseg"
-                      style={{ background: resolveTaskColor(task) }}
-                      title={task.title}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (onSubsegClick) { onSubsegClick(task.id, id); }
-                        else { if (storageKey) safeSet(storageKey, active.key); navigate(`${route}?task=${task.id}`); }
-                      }}
-                    />
-                  )) : (
-                    <div className="fln__subseg fln__subseg--empty" />
+              <Fragment key={id}>
+                <div
+                  className={`fln__segment-col${isCurrent ? ' fln__segment-col--current' : ''}`}
+                  style={isCurrent ? { '--seg-color': active.color } : undefined}
+                  onClick={handleSegClick}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSegClick()}
+                >
+                  <div className="fln__segment-bar">
+                    {tasks.length > 0 ? tasks.map((task) => (
+                      <button
+                        key={task.id}
+                        className="fln__subseg"
+                        style={{ background: resolveTaskColor(task) }}
+                        title={task.title}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (onSubsegClick) { onSubsegClick(task.id, id); }
+                          else { if (storageKey) safeSet(storageKey, active.key); navigate(`${route}?task=${task.id}`); }
+                        }}
+                      />
+                    )) : (
+                      <div className="fln__subseg fln__subseg--empty" />
+                    )}
+                  </div>
+                  <button
+                    className="fln__segment-nav"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSegClick();
+                    }}
+                  >
+                    {label}
+                  </button>
+                  {pillarProgress?.[id] !== undefined && (
+                    <span className="fln__segment-pct">{pillarProgress[id]}%</span>
                   )}
                 </div>
-                <button
-                  className="fln__segment-nav"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleSegClick();
-                  }}
-                >
-                  {label}
-                </button>
-                {pillarProgress?.[id] !== undefined && (
-                  <span className="fln__segment-pct">{pillarProgress[id]}%</span>
+                {gate && (
+                  <div
+                    className={`fln__gate-indicator fln__gate-indicator--${gate.status}`}
+                    title={`${gate.label} (${gate.status})`}
+                  >
+                    <span className="fln__gate-diamond">&#x25C6;</span>
+                  </div>
                 )}
-              </div>
+              </Fragment>
             );
           })}
         </div>

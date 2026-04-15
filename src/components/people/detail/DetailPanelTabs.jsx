@@ -83,7 +83,7 @@ export default function DetailPanelTabs({ entry }) {
       if (effectiveTab === 'absence')  return <AbsenceTab contactId={id} />;
       if (effectiveTab === 'personal') return <PersonalTab contactId={id} />;
       if (effectiveTab === 'salary')   return <SalaryTab contactId={id} />;
-      if (effectiveTab === 'skills')   return <SkillsTab />;
+      if (effectiveTab === 'skills')   return <SkillsTab contactId={id} />;
       if (effectiveTab === 'docs')     return <DocsTab contactId={id} />;
       if (effectiveTab === 'work')     return <WorkTab contactId={id} />;
       if (effectiveTab === 'clockins') return <ClockInsTab contactId={id} />;

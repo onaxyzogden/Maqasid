@@ -7,7 +7,7 @@ import { useProjectStore } from '../../store/project-store';
 import BbosRolePicker from '../bbos/BbosRolePicker';
 import { PROJECT_COLORS } from '../../data/modules';
 import { getBbosTaskDefsByStage } from '@data/bbos/bbos-task-definitions';
-import { BBOS_NAV_LEVELS, BBOS_LAYERS, getBbosNavPillars, getLayerForStage } from '@data/bbos/bbos-pipeline';
+import { BBOS_NAV_LEVELS, BBOS_LAYERS, BBOS_STAGES, BBOS_PATCH_STAGES, getBbosNavPillars, getLayerForStage } from '@data/bbos/bbos-pipeline';
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from '@services/bbos-template';
 import DashboardView from './DashboardView';
 import KanbanBoard from './KanbanBoard';
@@ -109,6 +109,22 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     }
     return result;
   }, [taskStore.tasksByProject[projectId], activePillars, isBbos, doneCol]);
+
+  const gateIndicators = useMemo(() => {
+    if (!isBbos) return null;
+    const getStatus = (stageId) => {
+      const pct = pillarProgress?.[stageId] ?? 0;
+      if (pct === 100) return 'complete';
+      if (pct > 0) return 'in-progress';
+      return 'pending';
+    };
+    return BBOS_PATCH_STAGES.map((ps) => ({
+      id: ps.id,
+      afterSegmentId: ps.afterStage,
+      status: getStatus(ps.afterStage),
+      label: ps.label,
+    }));
+  }, [isBbos, pillarProgress]);
 
   const handleStageAdvance = useCallback(() => {
     const currentIdx = BBOS_STAGES.findIndex((s) => s.id === bbosFilter);
@@ -407,6 +423,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
             onSubsegClick={(taskId) => setSelectedTaskId(taskId)}
             taskColorFn={bbosTaskColorFn}
             currentPillarId={bbosFilter}
+            gateIndicators={gateIndicators}
           />
         )}
 

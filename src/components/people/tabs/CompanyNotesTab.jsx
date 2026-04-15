@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useContactsStore } from '@store/contacts-store';
 
-export default function CompanyNotesTab() {
-  const [notes, setNotes] = useState('');
+export default function CompanyNotesTab({ companyId }) {
+  const company = useContactsStore((s) => s.companies.find((c) => c.id === companyId));
+  const updateCompany = useContactsStore((s) => s.updateCompany);
+
+  const [notes, setNotes] = useState(company?.notes || '');
   const [saved, setSaved] = useState(true);
+
+  useEffect(() => {
+    setNotes(company?.notes || '');
+    setSaved(true);
+  }, [companyId, company?.notes]);
 
   function handleChange(e) {
     setNotes(e.target.value);
@@ -10,7 +19,7 @@ export default function CompanyNotesTab() {
   }
 
   function handleSave() {
-    // Future: persist to a notes store keyed by companyId
+    updateCompany(companyId, { notes });
     setSaved(true);
   }
 

@@ -926,6 +926,13 @@
   flex: 1;
 }
 
+/* ── G-Label badge chip override ── */
+.dtc__chip--glabel-badge {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
 /* ── DualColumnRenderer ── */
 .bfd__dual { display: flex; flex-direction: column; gap: var(--space-2); }
 .bfd__dual-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }

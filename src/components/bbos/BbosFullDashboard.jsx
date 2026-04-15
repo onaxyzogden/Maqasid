@@ -6,6 +6,7 @@ import { getStage, BBOS_STAGES, BBOS_LAYERS } from '../../data/bbos/bbos-pipelin
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
+import GLabelBadge from '../shared/GLabelBadge';
 import './BbosFullDashboard.css';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -1514,7 +1515,11 @@ function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, view
           label: `${filled}/${total}`,
           className: `dtc__chip dtc__chip--complete ${filled === total && total > 0 ? 'dtc__chip--complete-full' : ''}`,
         }] : []),
-        ...(def.hasGLabel ? [{ label: 'G', className: 'dtc__chip dtc__chip--glabel' }] : []),
+        ...(def.hasGLabel && task?.gLabel
+          ? [{ label: <GLabelBadge gLabel={task.gLabel} size="sm" />, className: 'dtc__chip dtc__chip--glabel-badge' }]
+          : def.hasGLabel
+            ? [{ label: 'G', className: 'dtc__chip dtc__chip--glabel' }]
+            : []),
         ...(accessLevel === 'V' ? [{ label: 'View', className: 'dtc__chip dtc__chip--access-view' }] : []),
         ...(accessLevel === 'E' ? [{ label: 'Edit', className: 'dtc__chip dtc__chip--access-edit' }] : []),
       ]}
@@ -1835,10 +1840,15 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
                 {(hasBoth ? activeFactory === 'asset' : assetGroups.length > 0 && researchGroups.length === 0) && (
                   <>
-                    {!gateCleared && (
+                    {!gateCleared ? (
                       <div className="bfd__assembly-gate bfd__assembly-gate--locked">
                         <span className="bfd__assembly-gate-icon">⏳</span>
                         <span className="bfd__assembly-gate-text">Assembly Gate: LOCKED — complete Research tasks first</span>
+                      </div>
+                    ) : (
+                      <div className="bfd__assembly-gate bfd__assembly-gate--cleared">
+                        <span className="bfd__assembly-gate-icon">✅</span>
+                        <span className="bfd__assembly-gate-text">Assembly Gate: CLEARED</span>
                       </div>
                     )}
                     <div className={`bfd__factory bfd__factory--asset${!gateCleared ? ' bfd__factory--locked' : ''}`}>

@@ -65,6 +65,25 @@ export const BBOS_STAGES = [
   },
 ];
 
+// ── Patch Plan sub-stages (protocol v2.4) ────────────────────────────────────
+
+export const BBOS_PATCH_STAGES = [
+  {
+    id: '00A',
+    label: 'Input Integrity Gate',
+    description: 'Grades operator proof on a P0-P3 scale before pipeline entry.',
+    afterStage: 'FND',
+    layer: 'think',
+  },
+  {
+    id: '01B',
+    label: 'Mechanism Factory',
+    description: 'Bridges the strategy-to-offer gap, ensuring STR outputs translate cleanly into OFR inputs.',
+    afterStage: 'STR',
+    layer: 'think',
+  },
+];
+
 /** Get the layer for a given stage ID */
 export function getStageLayer(stageId) {
   return BBOS_LAYERS.find((l) => l.stages.includes(stageId)) || null;
