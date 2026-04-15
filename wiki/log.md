@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] reskin | Task Modal + BBOS Panel + Factory Tabs
+- **Task Detail Modal:** Full CSS rewrite of TaskDetailPanel (672px, 24px radius, `--tdp-accent` theming, circular subtask checkboxes, progress bar, spacious layout). JSX restructured: priority badge, read-only description, single "Task Document" footer button. Removed secondary controls from render.
+- **BBOS Task Panel:** CSS rewrite of BbosTaskPanel to match new design language. JSX restructured: badges row (stage + status inline select), meta row (assignee + governing attributes), purpose section, bento grid (dependencies + template cards), rationale accordion, form fields, G-Label, notes container, validation flags, AI draft section, discard-with-confirmation footer.
+- **Accent color wiring:** `accentColor` prop threaded from PillarLevelPage/ProjectBoard → TaskDetailPanel → BbosTaskPanel. Level colors: core=#C8A96E, growth=#4ab8a8, excellence=#8b5cf6.
+- **Factory tab animation:** Directional slide on Groundwork↔Workshop switch using keyed remount + `useRef` direction tracking. Grid layout fix for wrapper div (mirrors parent 12-col grid). Fixed undefined `--radius-md` token → `--radius`.
+- **Bug fixes:** Rationale card flex collapse (overflow:hidden + min-height:auto), accent color mismatch on BBOS modal, factory content losing grid context, undefined radius token.
+- Files modified: TaskDetailPanel.jsx/css, BbosTaskPanel.jsx/css, BbosFullDashboard.jsx/css, PillarLevelPage.jsx, ProjectBoard.jsx
+- Spec: `docs/superpowers/specs/2026-04-15-task-modal-reskin-design.md`
+
 ## [2026-04-15] implement | Chart Tooltips — Shared ChartTooltip component + 8 chart wiring
 - **Design:** Brainstormed with visual companion mockups, produced spec at `docs/superpowers/specs/2026-04-15-chart-tooltips-design.md`
 - **Shared component:** Created `src/components/shared/ChartTooltip.jsx` + `.css` — portal-rendered tooltip via `createPortal(el, document.body)`, same pattern as IslamicTerm glossary tooltips
