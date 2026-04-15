@@ -61,6 +61,12 @@ export default function AppShell() {
   // Wire Cmd+I to toggle Islamic panel
   useKeyboard('mod+i', () => toggleIslamicPanel(), [toggleIslamicPanel]);
 
+  // Clear niyyahOverrideOpen on route change to prevent modal re-trigger
+  useEffect(() => {
+    if (niyyahOverrideOpen) closeNiyyahOverride();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
   // Preload all project tasks so cross-project search works
   useEffect(() => {
     projects.forEach((p) => loadTasks(p.id));
@@ -141,9 +147,7 @@ export default function AppShell() {
   const panelPx = `${islamicPanelWidthPx}px`;
   const gridCols = mobile
     ? '1fr'
-    : islamicPanelOpen
-      ? `${sidebarPx} ${edgePx} 1fr ${edgePx} ${panelPx}`
-      : `${sidebarPx} ${edgePx} 1fr`;
+    : `${sidebarPx} ${edgePx} 1fr ${islamicPanelOpen ? edgePx : '0px'} ${islamicPanelOpen ? panelPx : '0px'}`;
 
   const handleEdgePointerDown = (e) => {
     // Only handle left mouse button / primary touch
@@ -249,27 +253,35 @@ export default function AppShell() {
         <main id="main-content" key={location.key} className="app-main">
           <Outlet />
         </main>
-        {islamicPanelOpen && !mobile && (
+        {!mobile && (
           <div
-            className="col-edge"
+            className={`col-edge${islamicPanelOpen ? '' : ' col-edge--hidden'}`}
             aria-hidden="true"
             style={{ gridColumn: 4, gridRow: '2 / -1' }}
-            onPointerDown={handleRightEdgePointerDown}
-            onPointerMove={handleRightEdgePointerMove}
-            onPointerUp={handleRightEdgePointerUp}
+            onPointerDown={islamicPanelOpen ? handleRightEdgePointerDown : undefined}
+            onPointerMove={islamicPanelOpen ? handleRightEdgePointerMove : undefined}
+            onPointerUp={islamicPanelOpen ? handleRightEdgePointerUp : undefined}
           >
-            <div className="col-edge__line" />
-            <button
-              className="col-edge__toggle"
-              tabIndex={-1}
-              aria-label="Close Islamic panel"
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
-            >
-              <ChevronRight size={14} />
-            </button>
+            {islamicPanelOpen && (
+              <>
+                <div className="col-edge__line" />
+                <button
+                  className="col-edge__toggle"
+                  tabIndex={-1}
+                  aria-label="Close Islamic panel"
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
+                >
+                  <ChevronRight size={14} />
+                </button>
+              </>
+            )}
           </div>
         )}
-        {islamicPanelOpen && <IslamicPanel />}
+        {!mobile && (
+          <div className={`il-wrapper${islamicPanelOpen ? ' il-wrapper--open' : ''}`} style={{ gridColumn: 5, gridRow: '1 / -1' }}>
+            <IslamicPanel />
+          </div>
+        )}
         {mobile && <MobileNav />}
       </div>
       <SearchPalette />
