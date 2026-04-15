@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   AlertTriangle, CheckCircle, Star, Activity, TrendingUp,
   LayoutDashboard,
@@ -7,6 +7,7 @@ import { useTaskStore } from '../../store/task-store';
 import { PRIORITIES } from '../../data/modules';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import InlineTaskDetail from './InlineTaskDetail';
+import ChartTooltip from '../shared/ChartTooltip';
 import './PillarLevelDashboard.css';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -322,33 +323,56 @@ function MasteryDepthCard({ metrics, levelColor }) {
 
 // ── Progress ring (header) ────────────────────────────────────────────────────
 
-function MasteryRing({ percent, pillarColor, pillarKey }) {
+function MasteryRing({ percent, pillarColor, pillarKey, doneCount, totalCount }) {
   const r = 42;
   const stroke = 8;
   const circ = 2 * Math.PI * r;
   const offset = circ - (percent / 100) * circ;
   const gradId = `pldRing_${pillarKey}`;
+  const [tip, setTip] = useState(null);
 
   return (
-    <svg width="110" height="110" viewBox="0 0 110 110" className="pld__ring-svg">
-      <defs>
-        <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={pillarColor} stopOpacity="0.6" />
-          <stop offset="100%" stopColor={pillarColor} />
-        </linearGradient>
-      </defs>
-      <circle cx="55" cy="55" r={r} fill="none" stroke="var(--border)" strokeWidth={stroke} />
-      <circle
-        cx="55" cy="55" r={r} fill="none"
-        stroke={`url(#${gradId})`} strokeWidth={stroke}
-        strokeLinecap="round"
-        strokeDasharray={circ} strokeDashoffset={offset}
-        transform="rotate(-90 55 55)"
-        style={{ transition: 'stroke-dashoffset 0.8s ease' }}
-      />
-      <text x="55" y="50" textAnchor="middle" className="pld__ring-percent">{percent}%</text>
-      <text x="55" y="66" textAnchor="middle" className="pld__ring-label">Complete</text>
-    </svg>
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <svg width="110" height="110" viewBox="0 0 110 110" className="pld__ring-svg">
+        <defs>
+          <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor={pillarColor} stopOpacity="0.6" />
+            <stop offset="100%" stopColor={pillarColor} />
+          </linearGradient>
+        </defs>
+        <circle cx="55" cy="55" r={r} fill="none" stroke="var(--border)" strokeWidth={stroke} />
+        <circle
+          cx="55" cy="55" r={r} fill="none"
+          stroke={`url(#${gradId})`} strokeWidth={stroke}
+          strokeLinecap="round"
+          strokeDasharray={circ} strokeDashoffset={offset}
+          transform="rotate(-90 55 55)"
+          style={{ transition: 'stroke-dashoffset 0.8s ease', cursor: 'pointer' }}
+          onMouseEnter={(e) => {
+            const svg = e.currentTarget.closest('svg');
+            if (!svg) return;
+            const rect = svg.getBoundingClientRect();
+            setTip({ x: rect.left + rect.width / 2, y: rect.top });
+          }}
+          onMouseLeave={() => setTip(null)}
+          onClick={(e) => {
+            if (!('ontouchstart' in window)) return;
+            const svg = e.currentTarget.closest('svg');
+            if (!svg) return;
+            const rect = svg.getBoundingClientRect();
+            setTip((prev) => prev ? null : { x: rect.left + rect.width / 2, y: rect.top });
+          }}
+        />
+        <text x="55" y="50" textAnchor="middle" className="pld__ring-percent">{percent}%</text>
+        <text x="55" y="66" textAnchor="middle" className="pld__ring-label">Complete</text>
+      </svg>
+      <ChartTooltip visible={!!tip} x={tip?.x ?? 0} y={tip?.y ?? 0} anchor="above" onDismiss={() => setTip(null)}>
+        <div className="chart-tooltip__value">{percent}% complete</div>
+        {doneCount != null && totalCount != null && (
+          <div className="chart-tooltip__label">{doneCount} of {totalCount} tasks done</div>
+        )}
+      </ChartTooltip>
+    </div>
   );
 }
 
