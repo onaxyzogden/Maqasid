@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, Kanban, Trash2, X } from 'lucide-react';
 import { useCRMStore, formatDealValue } from '../../store/crm-store';
+import { useToastStore } from '../../store/toast-store';
 import './DealPipeline.css';
 
 function DealForm({ deal, onClose }) {
@@ -8,6 +9,7 @@ function DealForm({ deal, onClose }) {
   const pipeline = useCRMStore((s) => s.pipeline);
   const addDeal = useCRMStore((s) => s.addDeal);
   const updateDeal = useCRMStore((s) => s.updateDeal);
+  const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!deal;
   const [name, setName] = useState(deal?.name || '');
   const [contactId, setContactId] = useState(deal?.contactId || '');
@@ -19,7 +21,13 @@ function DealForm({ deal, onClose }) {
   const handleSave = () => {
     if (!name.trim()) return;
     const data = { name, contactId, value: Number(value), stage, expectedClose, notes };
-    if (isEdit) updateDeal(deal.id, data); else addDeal(data);
+    if (isEdit) {
+      updateDeal(deal.id, data);
+      addToast({ message: 'Deal updated', type: 'success', variant: 'chip' });
+    } else {
+      addDeal(data);
+      addToast({ message: 'Deal created', type: 'success', variant: 'chip' });
+    }
     onClose();
   };
 
@@ -60,6 +68,7 @@ export default function DealPipeline() {
   const contacts = useCRMStore((s) => s.contacts);
   const moveDeal = useCRMStore((s) => s.moveDeal);
   const deleteDeal = useCRMStore((s) => s.deleteDeal);
+  const addToast = useToastStore((s) => s.addToast);
   const [showForm, setShowForm] = useState(false);
   const [editDeal, setEditDeal] = useState(null);
 
@@ -119,7 +128,7 @@ export default function DealPipeline() {
                           <button key={s.id} className="deal-move-btn" onClick={(e) => { e.stopPropagation(); moveDeal(deal.id, s.id); }}
                             style={{ borderColor: s.color + '40', color: s.color }} title={`Move to ${s.name}`}>{s.name.slice(0, 3)}</button>
                         ))}
-                        <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) deleteDeal(deal.id); }} style={{ width: 22, height: 22 }}><Trash2 size={11} /></button>
+                        <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) { deleteDeal(deal.id); addToast({ message: `"${deal.name}" removed`, type: 'info' }); } }} style={{ width: 22, height: 22 }}><Trash2 size={14} /></button>
                       </div>
                     </div>
                   );

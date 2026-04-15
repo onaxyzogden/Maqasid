@@ -1,9 +1,10 @@
 import { useMemo, useRef, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, AlertTriangle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, AlertTriangle, CalendarRange } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { PRIORITIES } from '../../data/modules';
 import ScopeGate from '../shared/ScopeGate';
+import EmptyState from '../shared/EmptyState';
 import './GanttView.css';
 
 /* ── helpers ── */
@@ -141,6 +142,19 @@ export default function GanttView({ project, onSelectTask, filters, bbosRole, bb
     return <div className="gantt-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ScopeGate bbosRole={bbosRole} bbosFilter={bbosFilter} /></div>;
   }
 
+  // No tasks at all
+  if (tasks.length === 0) {
+    return (
+      <div className="gantt-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <EmptyState
+          icon={CalendarRange}
+          title="No tasks on the timeline"
+          description="Switch to Board view to create tasks, then add due dates to see them here."
+        />
+      </div>
+    );
+  }
+
   const today = toDay(new Date());
   const todayIdx = days.findIndex((d) => d.getTime() === today.getTime());
 
@@ -161,7 +175,7 @@ export default function GanttView({ project, onSelectTask, filters, bbosRole, bb
         </div>
         {undated.length > 0 && (
           <span className="gantt-undated-warn">
-            <AlertTriangle size={13} />
+            <AlertTriangle size={14} />
             {undated.length} task{undated.length > 1 ? 's' : ''} without dates
           </span>
         )}

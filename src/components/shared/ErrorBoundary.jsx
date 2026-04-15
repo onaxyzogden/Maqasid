@@ -56,7 +56,7 @@ export default class ErrorBoundary extends Component {
               color: 'var(--text2, #666)',
             }}
           >
-            <RotateCcw size={12} />
+            <RotateCcw size={14} />
             Retry
           </button>
         </div>

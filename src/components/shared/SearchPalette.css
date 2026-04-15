@@ -6,7 +6,7 @@
   -webkit-backdrop-filter: blur(4px);
   display: flex; justify-content: center;
   padding-top: 15vh;
-  animation: fadeIn 150ms var(--ease);
+  animation: fadeIn var(--duration-sm) var(--ease);
 }
 
 .search-modal {
@@ -18,7 +18,7 @@
   overflow: hidden;
   max-height: 480px;
   display: flex; flex-direction: column;
-  animation: scaleIn 150ms var(--ease);
+  animation: scaleIn var(--duration-sm) var(--ease);
   align-self: flex-start;
 }
 
@@ -34,7 +34,13 @@
   flex: 1; border: none; background: none; outline: none;
   font-size: 1rem; color: var(--text); padding: 0;
 }
-.search-input:focus { box-shadow: none; }
+/* Search input lives inside a styled row — suppress default ring,
+   the row border provides the container-level focus signal */
+.search-input:focus { box-shadow: none; border-color: transparent; }
+.search-input-row:focus-within {
+  border-bottom-color: var(--primary-border);
+  background: var(--primary-bg);
+}
 
 .search-kbd {
   font-family: var(--font-mono);

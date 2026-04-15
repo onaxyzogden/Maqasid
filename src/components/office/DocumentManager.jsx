@@ -144,10 +144,10 @@ export default function DocumentManager() {
                 <div className="doc-card-name">{doc.name}</div>
                 <div className="doc-card-actions">
                   <button className="doc-action-btn" onClick={(e) => { e.stopPropagation(); }} title="Save">
-                    <Download size={13} /> Save
+                    <Download size={14} /> Save
                   </button>
                   <button className="doc-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) deleteDocument(doc.id); }} title="Delete">
-                    <Trash2 size={13} /> Delete
+                    <Trash2 size={14} /> Delete
                   </button>
                 </div>
               </div>

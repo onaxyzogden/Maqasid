@@ -5,6 +5,7 @@ import {
   MoreVertical, ChevronDown, ChevronUp, Clock, Paperclip, Users, FileText, Image, File,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
+import { useTaskActions } from '../../hooks/useTaskActions';
 import { useAuthStore } from '../../store/auth-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
@@ -38,8 +39,8 @@ function formatDateTime(iso) {
 export default function TaskDetailPanel({ project, projectId, taskId, onClose, bbosRole }) {
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const updateTask = useTaskStore((s) => s.updateTask);
-  const deleteTask = useTaskStore((s) => s.deleteTask);
   const addSubtask = useTaskStore((s) => s.addSubtask);
+  const { deleteTask } = useTaskActions(projectId);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
   const removeSubtask = useTaskStore((s) => s.removeSubtask);
   const addAttachment = useTaskStore((s) => s.addAttachment);
@@ -195,7 +196,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
   const handleDelete = () => {
     if (confirm('Delete this task?')) {
-      deleteTask(projectId, taskId);
+      deleteTask(taskId, task.title);
       onClose();
     }
   };
@@ -219,7 +220,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         <div className="tdp-header__right">
           {task.dueDate && (
             <span className="tdp-due-badge">
-              <Calendar size={12} /> Due date
+              <Calendar size={14} /> Due date
             </span>
           )}
           <button className="tdp-icon-btn"><MoreVertical size={16} /></button>
@@ -400,7 +401,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                     className="tdp-subtask-remove"
                     onClick={() => removeSubtask(projectId, taskId, st.id)}
                   >
-                    <X size={12} />
+                    <X size={14} />
                   </button>
                 </div>
               ))}
@@ -445,7 +446,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                       <span className="tdp-attachment-size">{sizeKb} KB</span>
                     </div>
                     <button className="tdp-attachment-remove" onClick={() => removeAttachment(projectId, taskId, att.id)} title="Remove">
-                      <X size={12} />
+                      <X size={14} />
                     </button>
                   </div>
                 );
@@ -475,7 +476,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
               <span key={tag} className="tdp-tag">
                 {tag}
                 <button className="tdp-tag-remove" onClick={() => removeTag(tag)}>
-                  <X size={10} />
+                  <X size={14} />
                 </button>
               </span>
             ))}
@@ -485,7 +486,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 updateTask(projectId, taskId, { tags: [...task.tags, tag.trim()] });
               }
             }}>
-              <Plus size={12} />
+              <Plus size={14} />
             </button>
           </div>
         </div>
@@ -496,7 +497,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             {currentCol?.name || 'Unknown'}
           </span>
           <span className="tdp-status-time">
-            <Clock size={11} />
+            <Clock size={14} />
           </span>
         </div>
       </div>
@@ -509,12 +510,12 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             <span className="tdp-footer__date">{formatDateTime(task.createdAt)}</span>
           </span>
           <span className="tdp-footer__followers">
-            Followers <Users size={12} />
+            Followers <Users size={14} />
           </span>
         </div>
         <div className="tdp-footer__actions">
           <button className="tdp-footer-btn" onClick={handleDelete}>
-            <Trash2 size={13} /> Delete
+            <Trash2 size={14} /> Delete
           </button>
           <button className="tdp-footer-btn">Make Recurring</button>
           <button className="tdp-footer-btn">Show discussion</button>

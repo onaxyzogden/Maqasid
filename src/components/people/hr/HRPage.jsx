@@ -6,6 +6,7 @@ import { EMPLOYMENT_TYPES, getDisplayName } from '@data/config/contact-config';
 import { EMPLOYEE_STATUSES } from '@data/config/people-departments';
 import EmployeeCard from './EmployeeCard';
 import AddEmployeeModal from './AddEmployeeModal';
+import EmptyState from '../../shared/EmptyState';
 import AddDepartmentModal from './AddDepartmentModal';
 import DetailPanel from '../detail/DetailPanel';
 import TimesheetTab from './TimesheetTab';
@@ -241,12 +242,13 @@ export default function HRPage() {
           {/* Employee grid */}
           <div className="hr-employees-grid">
             {filtered.length === 0 ? (
-              <div className="hr-empty">
-                <p>No employees found.</p>
-                <button className="hr-empty__cta" onClick={() => setShowAddEmp(true)}>
-                  + Add an Employee
-                </button>
-              </div>
+              <EmptyState
+                icon={UserPlus}
+                title="No employees found"
+                description="Add your first team member or adjust the active filters."
+                action={{ label: '+ Add Employee', onClick: () => setShowAddEmp(true) }}
+                color="var(--mod-people)"
+              />
             ) : (
               filtered.map((emp) => (
                 <EmployeeCard

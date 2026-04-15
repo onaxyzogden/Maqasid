@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
+import { useToastStore } from '@store/toast-store';
 import { EMPLOYMENT_TYPES } from '@data/config/contact-config';
 
 export default function AddEmployeeModal({ onClose }) {
   const addContact  = useContactsStore((s) => s.addContact);
   const departments = useContactsStore((s) => s.departments);
+  const addToast = useToastStore((s) => s.addToast);
 
   const [name, setName]             = useState('');
   const [email, setEmail]           = useState('');
@@ -34,6 +36,7 @@ export default function AddEmployeeModal({ onClose }) {
       startDate,
       status: 'active',
     });
+    addToast({ message: `${name.trim()} added to team`, type: 'success', variant: 'chip' });
     onClose();
   }
 

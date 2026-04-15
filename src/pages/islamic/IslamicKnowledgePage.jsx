@@ -111,7 +111,7 @@ export default function IslamicKnowledgePage() {
             {LEARNING_PATHS.map(({ id, title, desc, Icon, progress, variant }) => (
               <div key={id} className={`ik-path-card ik-path-card--${variant}`}>
                 <div className="ik-path-card__icon-wrap">
-                  <Icon size={22} />
+                  <Icon size={20} />
                 </div>
                 <div>
                   <h3 className="ik-path-card__title">{title}</h3>
@@ -167,7 +167,7 @@ export default function IslamicKnowledgePage() {
             <div className="ik-library__header">
               <h2 className="ik-library__title">Curated Library</h2>
               <a className="ik-library__browse" href="#">
-                Expand Collection <ArrowRight size={13} />
+                Expand Collection <ArrowRight size={14} />
               </a>
             </div>
             <div className="ik-library__grid">

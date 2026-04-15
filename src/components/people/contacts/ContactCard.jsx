@@ -73,7 +73,7 @@ export default function ContactCard({ contact, company }) {
       <div className="contact-card__footer">
         {company && (
           <span className="contact-card__company-chip">
-            <Building2 size={11} />
+            <Building2 size={14} />
             {company.name}
           </span>
         )}

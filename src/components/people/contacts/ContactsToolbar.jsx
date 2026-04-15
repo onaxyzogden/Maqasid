@@ -81,7 +81,7 @@ export default function ContactsToolbar({
       {/* Row 2: search + view toggle */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <div style={{ position: 'relative', flex: 1, maxWidth: 360 }}>
-          <Search size={15} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
+          <Search size={16} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -104,7 +104,7 @@ export default function ContactsToolbar({
               cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'var(--text2)',
             }}
           >
-            <LayoutGrid size={15} />
+            <LayoutGrid size={16} />
           </button>
           <button
             onClick={() => setViewMode('table')}
@@ -114,7 +114,7 @@ export default function ContactsToolbar({
               cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'var(--text2)',
             }}
           >
-            <Table size={15} />
+            <Table size={16} />
           </button>
         </div>
       </div>

@@ -25,7 +25,7 @@
   border: none;
   cursor: pointer;
   color: var(--text2);
-  transition: all 0.15s;
+  transition: all var(--duration-sm);
 }
 .money-toggle-btn:not(:last-child) { border-right: 1px solid var(--border); }
 .money-toggle-btn.active { background: var(--surface-hover); color: var(--text1); font-weight: 600; }
@@ -53,7 +53,7 @@
   cursor: pointer;
   color: var(--text2);
   border-bottom: 2px solid transparent;
-  transition: all 0.15s;
+  transition: all var(--duration-sm);
 }
 .expense-cat-tab:hover { color: var(--text1); }
 .expense-cat-tab.active { color: var(--text1); border-bottom-color: var(--text1); font-weight: 600; }
@@ -98,14 +98,14 @@
 .expense-pagination-size select {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 2px 6px;
+  padding: 2px var(--space-1);
   font-size: 0.8rem;
   background: var(--surface);
 }
 .expense-pagination-nav { display: flex; gap: 2px; }
 .expense-pagination-nav button {
-  width: 28px;
-  height: 28px;
+  width: var(--space-7);
+  height: var(--space-7);
   border: 1px solid var(--border);
   background: var(--surface);
   border-radius: var(--radius-sm);
@@ -131,7 +131,7 @@
   padding: var(--space-3);
   text-align: center;
 }
-.expense-stat-icon { color: var(--text2); margin-bottom: 4px; }
+.expense-stat-icon { color: var(--text2); margin-bottom: var(--space-1); }
 .expense-stat-value { font-size: 0.95rem; font-weight: 700; color: var(--mod-money); }
 .expense-stat-label { font-size: 0.7rem; color: var(--text2); margin-top: 2px; }
 
@@ -147,14 +147,14 @@
   align-items: flex-end;
   justify-content: space-around;
   height: 100px;
-  gap: 4px;
+  gap: var(--space-1);
 }
 .bar-chart-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  gap: 4px;
+  gap: var(--space-1);
 }
 .bar-chart-col span { font-size: 0.65rem; color: var(--text2); }
 .bar-chart-bar {
@@ -193,7 +193,7 @@
   background: var(--surface);
   display: flex;
   flex-direction: column;
-  animation: slideInRight 0.2s ease-out;
+  animation: slideInRight var(--duration) var(--ease-out);
   overflow-y: auto;
 }
 @keyframes slideInRight {
@@ -232,7 +232,7 @@
   font-weight: 600;
   color: var(--text2);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: var(--space-1);
 }
 .money-panel-title-input {
@@ -252,13 +252,13 @@
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--text2);
-  margin-bottom: 4px;
+  margin-bottom: var(--space-1);
 }
 .money-field input,
 .money-field select,
 .money-field textarea {
   width: 100%;
-  padding: 8px 10px;
+  padding: var(--space-2) 10px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
@@ -296,12 +296,12 @@
 .money-status-toggle.active-unpaid { background: #fef2f2; color: #dc2626; border-color: #fca5a5; }
 
 /* Tags */
-.money-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.money-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
 .money-tag {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
   background: var(--surface-hover);
   border-radius: 12px;
   font-size: 0.75rem;
@@ -363,7 +363,7 @@
 }
 .money-search-input {
   width: 100%;
-  padding: 8px 8px 8px 32px;
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-8);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
@@ -377,7 +377,7 @@
   gap: 6px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 4px 8px;
+  padding: var(--space-1) var(--space-2);
   background: var(--surface);
 }
 .money-search-compact input {
@@ -460,7 +460,7 @@
   border: 1px solid var(--border);
   border-radius: 10px;
 }
-.account-chevron { transition: transform 0.2s; color: var(--text2); }
+.account-chevron { transition: transform var(--duration); color: var(--text2); }
 .account-chevron.expanded { transform: rotate(180deg); }
 
 .account-expanded {
@@ -583,7 +583,7 @@
   padding: var(--space-3);
   text-align: center;
 }
-.income-stat-card .stat-icon { color: var(--text2); margin-bottom: 4px; }
+.income-stat-card .stat-icon { color: var(--text2); margin-bottom: var(--space-1); }
 .income-stat-card .stat-value { font-size: 0.95rem; font-weight: 700; color: var(--mod-money); }
 .income-stat-card .stat-label { font-size: 0.7rem; color: var(--text2); }
 
@@ -659,7 +659,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: var(--space-4);
-  transition: border-color 0.15s;
+  transition: border-color var(--duration-sm);
 }
 .budget-card:hover { border-color: var(--mod-money); }
 .budget-card-over { border-color: var(--danger); }
@@ -690,7 +690,7 @@
 .budget-card-amounts {
   display: flex;
   align-items: baseline;
-  gap: 4px;
+  gap: var(--space-1);
   margin-bottom: var(--space-2);
 }
 .budget-amount-spent {
@@ -709,7 +709,7 @@
 }
 
 .budget-progress-bar {
-  height: 8px;
+  height: var(--space-2);
   background: var(--bg3);
   border-radius: var(--radius-full);
   overflow: hidden;
@@ -719,7 +719,7 @@
   height: 100%;
   border-radius: var(--radius-full);
   background: linear-gradient(90deg, var(--mod-money), #86efac);
-  transition: width 0.4s var(--ease);
+  transition: width var(--duration-xl) var(--ease);
 }
 .budget-fill-warn {
   background: linear-gradient(90deg, #f59e0b, #fbbf24);
@@ -736,7 +736,7 @@
 .budget-status {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
   font-size: 0.78rem;
   font-weight: 500;
 }

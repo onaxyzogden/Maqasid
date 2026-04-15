@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { DndContext, DragOverlay, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
 import { useTaskStore } from '../../store/task-store';
+import { useTaskActions } from '../../hooks/useTaskActions';
 import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
 import ScopeGate from '../shared/ScopeGate';
 import KanbanColumn from './KanbanColumn';
@@ -10,8 +11,8 @@ import './KanbanBoard.css';
 export default function KanbanBoard({ project, onSelectTask, selectedTaskId, filters, bbosFilter, bbosRole, draggable }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const getFilteredTasks = useTaskStore((s) => s.getFilteredTasks);
-  const createTask = useTaskStore((s) => s.createTask);
   const moveTask = useTaskStore((s) => s.moveTask);
+  const { createTask } = useTaskActions(project.id);
   const [activeTask, setActiveTask] = useState(null);
 
   const allTasks = tasksByProject[project.id] || [];
@@ -32,7 +33,7 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
 
   const handleAddTask = (columnId) => {
     const opts = bbosFilter ? { bbosStage: bbosFilter } : {};
-    const task = createTask(project.id, columnId, 'Untitled', opts);
+    const task = createTask(columnId, 'Untitled', opts);
     onSelectTask(task.id);
   };
 

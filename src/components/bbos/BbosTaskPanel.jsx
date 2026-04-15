@@ -410,7 +410,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
             onClick={() => setRationaleOpen(!rationaleOpen)}
           >
             <span>Theological Rationale</span>
-            {rationaleOpen ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+            {rationaleOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>
           {rationaleOpen && (
             <p className="btp-rationale-text">{def.attrMeaning}</p>
@@ -524,7 +524,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
               if (!info) return null;
               return (
                 <div key={flag} className="btp-flag">
-                  <AlertTriangle size={13} className="btp-flag-icon" />
+                  <AlertTriangle size={14} className="btp-flag-icon" />
                   <div>
                     <div className="btp-flag-label">{info.label}</div>
                     <div className="btp-flag-detail">{info.detail}</div>
@@ -543,7 +543,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
 
             {!hasAiConfig() && (
               <div className="btp-draft-no-key">
-                <AlertTriangle size={13} />
+                <AlertTriangle size={14} />
                 <span>Set your AI provider and API key in Settings to use AI drafts.</span>
               </div>
             )}
@@ -557,7 +557,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
             {aiDraftStatus === 'generating' && (
               <div className="btp-draft-generating">
                 <div className="btp-draft-status btp-draft-status--generating">
-                  <Loader size={13} className="btp-spinner" /> Generating draft...
+                  <Loader size={14} className="btp-spinner" /> Generating draft...
                 </div>
                 {streamingText && (
                   <div className="btp-draft-preview">
@@ -565,7 +565,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
                   </div>
                 )}
                 <button className="btp-draft-btn btp-draft-btn--cancel" onClick={handleCancelDraft}>
-                  <Ban size={13} /> Cancel
+                  <Ban size={14} /> Cancel
                 </button>
               </div>
             )}
@@ -573,23 +573,23 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
             {aiDraftStatus === 'pending' && (
               <div className="btp-draft-pending">
                 <div className="btp-draft-status btp-draft-status--pending">
-                  <Sparkles size={12} /> AI-Generated Draft · {formatDateTime(aiDraftTimestamp)}
+                  <Sparkles size={14} /> AI-Generated Draft · {formatDateTime(aiDraftTimestamp)}
                 </div>
                 {draftWarnings.length > 0 && (
                   <div className="btp-draft-warnings">
                     {draftWarnings.map((w, i) => (
                       <div key={i} className="btp-draft-warning">
-                        <AlertTriangle size={11} /> {w}
+                        <AlertTriangle size={14} /> {w}
                       </div>
                     ))}
                   </div>
                 )}
                 <div className="btp-draft-actions">
                   <button className="btp-draft-btn btp-draft-btn--accept" onClick={handleAcceptDraft}>
-                    <Check size={13} /> Accept Draft
+                    <Check size={14} /> Accept Draft
                   </button>
                   <button className="btp-draft-btn btp-draft-btn--reject" onClick={handleRejectDraft}>
-                    <RotateCcw size={13} /> Reject Draft
+                    <RotateCcw size={14} /> Reject Draft
                   </button>
                 </div>
               </div>
@@ -597,14 +597,14 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole }) {
 
             {aiDraftStatus === 'accepted' && (
               <div className="btp-draft-status btp-draft-status--accepted">
-                <Check size={12} /> Draft Accepted
+                <Check size={14} /> Draft Accepted
               </div>
             )}
 
             {aiDraftStatus === 'error' && (
               <div className="btp-draft-error">
                 <div className="btp-draft-status btp-draft-status--error">
-                  <AlertTriangle size={12} /> {fieldData._aiDraftError || 'AI generation failed.'}
+                  <AlertTriangle size={14} /> {fieldData._aiDraftError || 'AI generation failed.'}
                 </div>
                 <button className="btp-generate-btn" onClick={handleGenerateDraft}>
                   <RotateCcw size={14} /> Retry

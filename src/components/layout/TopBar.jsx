@@ -219,7 +219,7 @@ export default function TopBar() {
                 Reminder
               </span>
               <span className="ayah-banner__chevron">
-                {ayahBannerCollapsed ? <ChevronDown size={13} /> : <ChevronUp size={13} />}
+                {ayahBannerCollapsed ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
               </span>
             </button>
             {!ayahBannerCollapsed && (

@@ -9,11 +9,21 @@ import './NiyyahAct.css';
 
 const MORNING_DUA = {
   title: 'Morning Supplication',
-  arabic: 'اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ',
-  trans: 'Allāhumma bika aṣbaḥnā wa bika amsaynā wa bika naḥyā wa bika namūtu wa ilayka n-nushūr',
-  meaning: 'O Allah, by You we enter the morning and by You we enter the evening; by You we live and by You we die, and to You is the resurrection.',
-  source: 'Sunan at-Tirmidhi 3391',
+  arabic: 'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+  trans: 'Aṣbaḥnā wa aṣbaḥa l-mulku lillāh, wa l-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahu l-mulku wa lahu l-ḥamd, wa huwa ʿalā kulli shayʾin qadīr',
+  meaning: 'We have entered the morning, and the dominion belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone without partner; to Him belongs the dominion, to Him belongs all praise, and He is over all things capable.',
+  source: 'Sahih Muslim 2723',
 };
+
+const EVENING_DUA = {
+  title: 'Evening Supplication',
+  arabic: 'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+  trans: 'Amsaynā wa amsa l-mulku lillāh, wa l-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahu l-mulku wa lahu l-ḥamd, wa huwa ʿalā kulli shayʾin qadīr',
+  meaning: 'We have entered the evening, and the dominion belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone without partner; to Him belongs the dominion, to Him belongs all praise, and He is over all things capable.',
+  source: 'Sahih Muslim 2723',
+};
+
+const getDua = () => (new Date().getHours() < 12 ? MORNING_DUA : EVENING_DUA);
 
 const UNIVERSAL_PROMPT = {
   meaning: 'Take a moment to set your intention for today. What matters most? Where will you direct your energy with purpose and clarity?',
@@ -24,8 +34,9 @@ export default function NiyyahAct() {
   const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
+  const dua = getDua();
   const { citations, citationMap, citationsVisible } = useCitations(
-    isIslamic ? [MORNING_DUA.source] : []
+    isIslamic ? [dua.source] : []
   );
 
   return (
@@ -56,7 +67,7 @@ export default function NiyyahAct() {
                 <p className="niyyah-bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
                 <p className="niyyah-bismillah-en">In the name of Allah, the Most Gracious, the Most Merciful</p>
               </div>
-              <DuaSection dua={MORNING_DUA} color="var(--accent)" citationIndex={citationMap[MORNING_DUA.source]} showCitations={citationsVisible} />
+              <DuaSection dua={dua} color="var(--accent)" citationIndex={citationMap[dua.source]} showCitations={citationsVisible} />
             </>
           ) : (
             <div className="niyyah-mindfulness">

@@ -192,7 +192,7 @@ export default function JournalPanel() {
                     title={isActive ? 'Click to remove badge' : 'Click to re-add badge'}
                   >
                     {badge.label}
-                    {isActive && <X size={10} />}
+                    {isActive && <X size={14} />}
                   </button>
                 );
               })}
@@ -209,12 +209,12 @@ export default function JournalPanel() {
                   onClick={() => removeCustomTag(tag)}
                   aria-label={`Remove tag ${tag}`}
                 >
-                  <X size={10} />
+                  <X size={14} />
                 </button>
               </span>
             ))}
             <div className="journal-panel__tag-input-row">
-              <Tag size={12} style={{ color: 'var(--text3)', flexShrink: 0 }} />
+              <Tag size={14} style={{ color: 'var(--text3)', flexShrink: 0 }} />
               <input
                 className="journal-panel__tag-input"
                 type="text"
@@ -225,7 +225,7 @@ export default function JournalPanel() {
               />
               {tagInput.trim() && (
                 <button className="journal-panel__tag-add-btn" onClick={addCustomTag}>
-                  <Plus size={12} />
+                  <Plus size={14} />
                 </button>
               )}
             </div>

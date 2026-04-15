@@ -30,11 +30,11 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
             title="Add to Pipeline"
             style={{ ...btnStyle, color: 'var(--mod-people)' }}
           >
-            <TrendingUp size={15} />
+            <TrendingUp size={16} />
           </button>
         )}
         <button onClick={editPanelOpen ? closeEditPanel : openEditPanel} title="Edit" style={btnStyle}>
-          <Edit2 size={15} />
+          <Edit2 size={16} />
         </button>
         <button onClick={onClose} style={btnStyle}>
           <X size={18} />
@@ -75,7 +75,7 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
         {entry.email && (
           <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: 'var(--text2)' }}>
-            <Mail size={12} />
+            <Mail size={14} />
             {entry.email}
           </span>
         )}

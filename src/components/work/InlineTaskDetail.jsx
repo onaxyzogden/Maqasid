@@ -187,7 +187,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
         <div className="iltd__control">
           <label>Due date</label>
           <div className="iltd__due-row">
-            <Calendar size={13} />
+            <Calendar size={14} />
             <input
               type="date"
               className="iltd__date-input"
@@ -268,7 +268,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
             {task.tags?.map((tag) => (
               <span key={tag} className="iltd__tag">
                 {tag}
-                <button className="iltd__tag-remove" onClick={() => removeTag(tag)}><X size={10} /></button>
+                <button className="iltd__tag-remove" onClick={() => removeTag(tag)}><X size={14} /></button>
               </span>
             ))}
             <button
@@ -280,7 +280,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
                 }
               }}
             >
-              <Plus size={11} /> Tag
+              <Plus size={14} /> Tag
             </button>
           </div>
         </div>

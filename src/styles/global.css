@@ -41,6 +41,26 @@ button {
   background: none;
   font-size: inherit;
   color: inherit;
+  transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease);
+}
+
+/* ── Active / Pressed feedback — mimics physical key press ── */
+button:active:not(:disabled) { transform: scale(0.97); }
+
+/* ── Keyboard focus ring — only visible for keyboard nav, not mouse ── */
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── Disabled states — visually distinct, clearly non-interactive ── */
+button:disabled,
+button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  pointer-events: none;
 }
 
 input, textarea, select {
@@ -58,6 +78,31 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+/* Keyboard focus ring on inputs */
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
+}
+
+/* ── Disabled inputs — unmistakably inert ── */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--bg3);
+  color: var(--text3);
+  border-color: var(--border);
+}
+
+/* Read-only inputs — readable but not editable */
+input:read-only,
+textarea:read-only {
+  background: var(--bg3);
+  color: var(--text2);
+  cursor: default;
 }
 
 ::placeholder { color: var(--text3); }

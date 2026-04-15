@@ -70,10 +70,10 @@ export default function HadithPage() {
             <div className="hd-hero__footer">
               <div className="hd-hero__actions">
                 <button className="hd-btn hd-btn--slate">
-                  <Share2 size={15} /> Share Wisdom
+                  <Share2 size={16} /> Share Wisdom
                 </button>
                 <button className="hd-btn hd-btn--light">
-                  <Bookmark size={15} /> Save to Sanctuary
+                  <Bookmark size={16} /> Save to Sanctuary
                 </button>
               </div>
               <div className="hd-hero__avatars">
@@ -122,7 +122,7 @@ export default function HadithPage() {
           <div className="hd-archives__grid">
             {CATEGORIES.map(({ label, Icon, count, featured }) => (
               <div key={label} className={`hd-cat-card ${featured ? 'hd-cat-card--featured' : ''}`}>
-                <Icon size={24} className={`hd-cat-card__icon ${featured ? 'hd-cat-card__icon--gold' : ''}`} />
+                <Icon size={20} className={`hd-cat-card__icon ${featured ? 'hd-cat-card__icon--gold' : ''}`} />
                 <h4 className="hd-cat-card__name">{label}</h4>
                 <p className="hd-cat-card__count">{count} Entries</p>
               </div>
@@ -148,8 +148,8 @@ export default function HadithPage() {
                       <span>Narrated by: {item.narrator}</span>
                       <span>Source: {item.source}</span>
                       <div className="hd-feed-item__actions">
-                        <Bookmark size={15} className="hd-feed-item__action-icon" />
-                        <Copy size={15} className="hd-feed-item__action-icon" />
+                        <Bookmark size={16} className="hd-feed-item__action-icon" />
+                        <Copy size={16} className="hd-feed-item__action-icon" />
                       </div>
                     </div>
                   </div>

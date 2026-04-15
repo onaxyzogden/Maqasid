@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Plus, Search, Trash2, X } from 'lucide-react';
 import { useOfficeStore } from '../../store/office-store';
 import { useAuthStore } from '../../store/auth-store';
+import { useToastStore } from '../../store/toast-store';
 import './Announcements.css';
 
 export default function Announcements() {
@@ -9,6 +10,7 @@ export default function Announcements() {
   const addAnnouncement = useOfficeStore((s) => s.addAnnouncement);
   const deleteAnnouncement = useOfficeStore((s) => s.deleteAnnouncement);
   const user = useAuthStore((s) => s.user);
+  const addToast = useToastStore((s) => s.addToast);
 
   const [search, setSearch] = useState('');
   const [showForm, setShowForm] = useState(false);
@@ -27,6 +29,7 @@ export default function Announcements() {
   const handleCreate = () => {
     if (!newTitle.trim()) return;
     addAnnouncement({ title: newTitle, body: newBody, author: user?.name || 'You' });
+    addToast({ message: 'Announcement published', type: 'success', variant: 'chip' });
     setShowForm(false); setNewTitle(''); setNewBody('');
   };
 
@@ -60,7 +63,7 @@ export default function Announcements() {
                   {ann.author} &middot; {new Date(ann.createdAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
-              <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this announcement?')) deleteAnnouncement(ann.id); }}>
+              <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this announcement?')) { deleteAnnouncement(ann.id); addToast({ message: 'Announcement removed', type: 'info' }); } }}>
                 <Trash2 size={14} />
               </button>
             </div>

@@ -397,7 +397,7 @@ export default function Dashboard() {
           <Link to="/app/work" className="insight-action-btn">+ Create Task</Link>
           <button className="insight-action-btn insight-action-btn--outline">Start meeting</button>
           <Link to="/app/office" className="insight-action-btn insight-action-btn--outline">
-            <CalendarDays size={13} /> View Calendar
+            <CalendarDays size={14} /> View Calendar
           </Link>
         </div>
       </div>
@@ -405,7 +405,7 @@ export default function Dashboard() {
       {/* ── Niyyah focus row ── */}
       {niyyahFocus?.length > 0 && (
         <div className="insight-niyyah-row">
-          <Zap size={13} style={{ color: 'var(--accent)' }} />
+          <Zap size={14} style={{ color: 'var(--accent)' }} />
           <span className="insight-niyyah-label">Today&apos;s focus:</span>
           {niyyahFocus.map((pid) => {
             const p = MAQASID_PILLARS.find((pl) => pl.id === pid);
@@ -591,7 +591,7 @@ export default function Dashboard() {
                       {s.value}
                     </div>
                     <div className="insight-stat-card__label">
-                      <Icon size={10} style={{ marginRight: 3 }} />{s.label}
+                      <Icon size={14} style={{ marginRight: 3 }} />{s.label}
                     </div>
                   </div>
                 );
@@ -657,7 +657,7 @@ export default function Dashboard() {
                       <div className="pps-focus__accent" style={{ background: pillar.accentColor }} />
                       <div className="pps-focus__info">
                         <span className="pps-focus__name">
-                          {isNiyyah && <Zap size={10} style={{ color: 'var(--accent)', marginRight: 3, flexShrink: 0 }} />}
+                          {isNiyyah && <Zap size={14} style={{ color: 'var(--accent)', marginRight: 3, flexShrink: 0 }} />}
                           {label}
                         </span>
                         {isIslamic && (

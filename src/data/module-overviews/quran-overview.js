@@ -78,8 +78,8 @@ export const OVERVIEW = [
       'Maintaining memorisation throughout one\u2019s lifetime',
     ],
     virtues: [
-      'The hafidh will intercede for 10 family members on the Day of Judgment (Abu Dawud)',
-      'Parents of a hafidh are crowned with a light brighter than the sun (Sunan Abu Dawud 1453)',
+      'The Quran will come as an intercessor for its reciters on the Day of Resurrection (Sahih Muslim 804)',
+      'The one proficient in recitation will be with the honourable scribes; the one who struggles earns a double reward (Sahih Muslim 798)',
       'Elevates the bearer to the highest ranks in Paradise',
       'Preserves the Quran through human memory — a living chain since the Prophet \uFDFA',
     ],

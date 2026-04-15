@@ -118,12 +118,20 @@
   transition: all var(--duration) var(--ease);
   white-space: nowrap;
   width: 100%;
+  border-left: 2px solid transparent; /* reserved: matches has-active pattern */
 }
 .sidebar-item:hover { background: var(--bg3); color: var(--text); }
-.sidebar-item.active { background: var(--primary-bg); color: var(--primary); font-weight: 600; }
+.sidebar-item.active {
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-weight: 600;
+  border-left-color: var(--primary); /* accent stripe on active item */
+}
 
 .collapsed .sidebar-item {
-  justify-content: center; padding: var(--space-2);
+  justify-content: center;
+  padding: var(--space-2);
+  border-left-color: transparent; /* hide accent stripe in icon-only mode */
 }
 
 .sidebar-badge {
@@ -263,7 +271,7 @@
   position: fixed; inset: 0;
   background: var(--overlay);
   z-index: 49;
-  animation: fadeIn 150ms var(--ease);
+  animation: fadeIn var(--duration-sm) var(--ease);
 }
 
 .sidebar-mobile {

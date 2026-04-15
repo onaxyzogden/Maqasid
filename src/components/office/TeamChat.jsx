@@ -57,7 +57,7 @@ export default function TeamChat() {
           {channels.map((ch) => (
             <button key={ch.id} className={`chat-channel ${activeChannel === ch.id ? 'active' : ''}`}
               onClick={() => setActiveChannel(ch.id)}>
-              <div className="chat-channel-icon"><Hash size={13} /></div>
+              <div className="chat-channel-icon"><Hash size={14} /></div>
               <span className="chat-channel-label">{ch.name}</span>
               <div className="chat-channel-avatars">
                 <span className="chat-mini-avatar">{userInitials}</span>
@@ -133,15 +133,15 @@ export default function TeamChat() {
         <div className="chat-input-section">
           <div className="chat-input-label">Create meeting</div>
           <div className="chat-rich-toolbar">
-            <button className="btn-ghost chat-toolbar-btn" title="Bold"><Bold size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Italic"><Italic size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Underline"><Underline size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Strikethrough"><Strikethrough size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Link"><Link size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Voice"><Mic size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Video"><Video size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Emoji"><Smile size={15} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Attach"><Paperclip size={15} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Bold"><Bold size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Italic"><Italic size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Underline"><Underline size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Strikethrough"><Strikethrough size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Link"><Link size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Voice"><Mic size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Video"><Video size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Emoji"><Smile size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Attach"><Paperclip size={16} /></button>
           </div>
           <div className="chat-input-bar">
             <input value={newMsg} onChange={(e) => setNewMsg(e.target.value)}
@@ -168,11 +168,11 @@ export default function TeamChat() {
           </button>
           <button className="btn btn-secondary chat-detail-action-btn">
             <StickyNote size={14} /> Notes
-            <span className="chat-detail-action-badge"><Lock size={10} /></span>
+            <span className="chat-detail-action-badge"><Lock size={14} /></span>
           </button>
           <button className="btn btn-secondary chat-detail-action-btn">
             <Lock size={14} /> Safe Box
-            <span className="chat-detail-action-badge"><Lock size={10} /></span>
+            <span className="chat-detail-action-badge"><Lock size={14} /></span>
           </button>
         </div>
 

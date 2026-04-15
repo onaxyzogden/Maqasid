@@ -108,7 +108,7 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
 }
 .insight-action-btn--outline {
   background: var(--surface);
@@ -143,7 +143,7 @@
 }
 .insight-bbos-pipeline__arrow {
   opacity: 0.4;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-sm);
 }
 .insight-bbos-pipeline__title:hover .insight-bbos-pipeline__arrow {
   opacity: 1;
@@ -241,7 +241,7 @@
 .bcg-legend-item {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
   font-size: 0.65rem;
   color: var(--text3);
 }
@@ -274,7 +274,7 @@
   color: var(--text2);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
 }
 .insight-eph__value {
   font-size: 3rem;
@@ -394,7 +394,7 @@
   border-radius: 50%;
   background: var(--primary);
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: var(--space-1);
 }
 .insight-upcoming-info {
   display: flex;
@@ -438,8 +438,8 @@
 .insight-proj-tab {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
+  gap: var(--space-1);
+  padding: var(--space-1) 10px;
   border-radius: var(--radius-full);
   font-size: 0.7rem;
   font-weight: 500;
@@ -499,7 +499,7 @@
 
 .insight-task-priority {
   width: 4px;
-  height: 28px;
+  height: var(--space-7);
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -584,7 +584,7 @@
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
-  padding: 4px 12px;
+  padding: var(--space-1) var(--space-3);
   border: 1.5px solid var(--primary);
   border-radius: var(--radius);
   transition: background var(--duration) var(--ease);
@@ -613,7 +613,7 @@
   font-weight: 500;
   color: var(--text3);
   cursor: pointer;
-  padding-bottom: 4px;
+  padding-bottom: var(--space-1);
 }
 .insight-section-tab.active {
   color: var(--text);
@@ -664,7 +664,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 2px 8px;
+  padding: 2px var(--space-2);
   border-radius: var(--radius-full);
 }
 .insight-act-tab.active {
@@ -803,7 +803,7 @@
   border-radius: var(--radius);
   font-size: 0.8rem;
   text-decoration: none;
-  transition: background 0.15s;
+  transition: background var(--duration-sm);
 }
 .insight-empty__pillar:hover {
   filter: brightness(1.1);
@@ -865,7 +865,7 @@
   gap: 6px;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-sm);
 }
 .pps__col:hover { opacity: 0.75; }
 
@@ -882,7 +882,7 @@
 .pps__seg {
   flex: 1;
   height: 100%;
-  transition: filter 0.15s;
+  transition: filter var(--duration-sm);
 }
 .pps__seg--done     { background: var(--col-done); }
 .pps__seg--progress { background: var(--col-review); }
@@ -964,7 +964,7 @@
   color: var(--text3);
   text-decoration: none;
   flex-shrink: 0;
-  transition: color 0.15s;
+  transition: color var(--duration-sm);
 }
 .pps-focus__link:hover { color: var(--primary); }
 .pps-focus__hint {
@@ -972,4 +972,88 @@
   color: var(--text3);
   margin-top: var(--space-3);
   line-height: 1.4;
+}
+
+/* ── Staggered entrance animations ────────────────────────────────────────────
+ * Items slide up one by one so the page feels alive on load rather than
+ * snapping in all at once. Each list uses :nth-child delays at 50ms intervals.
+ * animation-fill-mode: backwards holds elements at opacity 0 before they start.
+ * ─────────────────────────────────────────────────────────────────────────── */
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Open tasks list */
+.insight-task-row {
+  animation: stagger-in var(--duration-lg) var(--ease) backwards;
+}
+.insight-task-row:nth-child(1)  { animation-delay:   0ms; }
+.insight-task-row:nth-child(2)  { animation-delay:  50ms; }
+.insight-task-row:nth-child(3)  { animation-delay: 100ms; }
+.insight-task-row:nth-child(4)  { animation-delay: 150ms; }
+.insight-task-row:nth-child(5)  { animation-delay: 200ms; }
+.insight-task-row:nth-child(6)  { animation-delay: 250ms; }
+.insight-task-row:nth-child(7)  { animation-delay: 300ms; }
+.insight-task-row:nth-child(8)  { animation-delay: 350ms; }
+.insight-task-row:nth-child(9)  { animation-delay: 400ms; }
+.insight-task-row:nth-child(10) { animation-delay: 450ms; }
+
+/* Activity feed items */
+.insight-activity-item {
+  animation: stagger-in var(--duration-lg) var(--ease) backwards;
+}
+.insight-activity-item:nth-child(1)  { animation-delay:  30ms; }
+.insight-activity-item:nth-child(2)  { animation-delay:  80ms; }
+.insight-activity-item:nth-child(3)  { animation-delay: 130ms; }
+.insight-activity-item:nth-child(4)  { animation-delay: 180ms; }
+.insight-activity-item:nth-child(5)  { animation-delay: 230ms; }
+.insight-activity-item:nth-child(6)  { animation-delay: 280ms; }
+.insight-activity-item:nth-child(7)  { animation-delay: 330ms; }
+.insight-activity-item:nth-child(8)  { animation-delay: 380ms; }
+.insight-activity-item:nth-child(9)  { animation-delay: 430ms; }
+.insight-activity-item:nth-child(10) { animation-delay: 480ms; }
+
+/* Pillar focus rows */
+.pps-focus__row {
+  animation: stagger-in var(--duration-lg) var(--ease) backwards;
+}
+.pps-focus__row:nth-child(1) { animation-delay:  20ms; }
+.pps-focus__row:nth-child(2) { animation-delay:  70ms; }
+.pps-focus__row:nth-child(3) { animation-delay: 120ms; }
+.pps-focus__row:nth-child(4) { animation-delay: 170ms; }
+.pps-focus__row:nth-child(5) { animation-delay: 220ms; }
+
+/* Stat cards */
+.insight-stat-card {
+  animation: stagger-in var(--duration-lg) var(--ease) backwards;
+}
+.insight-stat-card:nth-child(1) { animation-delay: 60ms; }
+.insight-stat-card:nth-child(2) { animation-delay: 120ms; }
+
+/* Upcoming events */
+.insight-upcoming-item {
+  animation: stagger-in var(--duration-lg) var(--ease) backwards;
+}
+.insight-upcoming-item:nth-child(1) { animation-delay:  40ms; }
+.insight-upcoming-item:nth-child(2) { animation-delay:  90ms; }
+.insight-upcoming-item:nth-child(3) { animation-delay: 140ms; }
+.insight-upcoming-item:nth-child(4) { animation-delay: 190ms; }
+.insight-upcoming-item:nth-child(5) { animation-delay: 240ms; }
+
+/* ── Reduced motion — remove stagger, items appear instantly ── */
+@media (prefers-reduced-motion: reduce) {
+  .insight-task-row,
+  .insight-activity-item,
+  .pps-focus__row,
+  .insight-stat-card,
+  .insight-upcoming-item {
+    animation: none;
+  }
 }

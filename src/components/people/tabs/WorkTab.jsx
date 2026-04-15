@@ -52,10 +52,10 @@ export default function WorkTab() {
               <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 12 }}>Nothing scheduled.</div>
               <div style={{ display: 'flex', gap: 6 }}>
                 <button style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4, padding: '6px 0', border: '1.5px solid var(--border)', borderRadius: 6, background: 'transparent', cursor: 'pointer', fontSize: 11, color: 'var(--text2)', fontWeight: 500 }}>
-                  <Users size={11} /> Create meeting
+                  <Users size={14} /> Create meeting
                 </button>
                 <button style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4, padding: '6px 0', border: '1.5px solid var(--border)', borderRadius: 6, background: 'transparent', cursor: 'pointer', fontSize: 11, color: 'var(--text2)', fontWeight: 500 }}>
-                  <CalendarPlus size={11} /> Add event
+                  <CalendarPlus size={14} /> Add event
                 </button>
               </div>
             </div>

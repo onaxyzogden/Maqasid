@@ -147,7 +147,7 @@
   width: 100%;
   border-radius: 6px 6px 0 0;
   background: var(--mod-money);
-  transition: height 0.4s var(--ease);
+  transition: height var(--duration-lg) var(--ease);
 }
 
 .md-bar {
@@ -159,7 +159,7 @@
 .md-bar-savings  { background: #fde68a; }
 .md-bar-spacer   { background: transparent; }
 .md-bar-income   { background: var(--mod-money); }
-.md-bar-expenses { background: #fde68a; }
+.md-bar-expenses { background: #86efac; }
 
 .md-bar-over-budget {
   background: repeating-linear-gradient(
@@ -227,7 +227,7 @@
 
 .md-dot-savings    { background: #fde68a; }
 .md-dot-income     { background: var(--mod-money); }
-.md-dot-expenses   { background: #fde68a; }
+.md-dot-expenses   { background: #86efac; }
 .md-dot-overbudget {
   background: repeating-linear-gradient(
     -45deg, #a78bfa, #a78bfa 2px, #7c3aed 2px, #7c3aed 4px

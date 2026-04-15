@@ -398,3 +398,32 @@
   color: #f59e0b;
   border: 1px solid #f59e0b40;
 }
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .tech-integrations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-website-card {
+    width: 100%;
+  }
+
+  .tech-radar-container {
+    width: 240px;
+    height: 240px;
+  }
+
+  .tech-radar-cross::after {
+    left: -120px;
+    width: 240px;
+  }
+
+  .tech-darkweb-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-campaign-search {
+    width: 100%;
+  }
+}

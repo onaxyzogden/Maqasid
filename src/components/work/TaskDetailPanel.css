@@ -12,9 +12,9 @@
   overflow: hidden;
 }
 
-/* Scale-fade animation */
+/* Scale-fade animation — spring easing for premium feel */
 .tdp-scale-in {
-  animation: tdpScaleIn 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: tdpScaleIn var(--duration-lg) var(--ease-spring);
 }
 @keyframes tdpScaleIn {
   from { transform: scale(0.4); opacity: 0; }
@@ -723,7 +723,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 150ms var(--ease);
+  animation: fadeIn var(--duration-sm) var(--ease);
 }
 
 @media (max-width: 767px) {

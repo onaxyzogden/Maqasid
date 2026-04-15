@@ -90,12 +90,12 @@ export default function KanbanCard({ task, onClick, bbosRole, isSelected = false
         )}
         {due && (
           <span className="kanban-card-badge" style={{ background: due.bg, color: due.color }}>
-            <Calendar size={10} /> {due.text}
+            <Calendar size={14} /> {due.text}
           </span>
         )}
         {subtaskTotal > 0 && (
           <span className="kanban-card-badge" style={{ background: 'var(--bg4)', color: 'var(--text3)' }}>
-            <CheckSquare size={10} /> {subtaskDone}/{subtaskTotal}
+            <CheckSquare size={14} /> {subtaskDone}/{subtaskTotal}
           </span>
         )}
         {assignee && (

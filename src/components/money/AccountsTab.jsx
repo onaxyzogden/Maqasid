@@ -141,7 +141,7 @@ export default function AccountsTab() {
                     <span className="account-balance">{formatCurrency(acct.currentBalance, acct.currency)}</span>
                     {acct.isPayroll && (
                       <span className="account-payroll-badge" title="This account is designated as the payroll account used for salary disbursements">
-                        <Info size={12} /> Payroll
+                        <Info size={14} /> Payroll
                       </span>
                     )}
                     <button className="row-action-btn" onClick={(e) => { e.stopPropagation(); setEditAccount(acct); setShowPanel(true); }} title="Edit">

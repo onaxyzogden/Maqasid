@@ -56,7 +56,7 @@
 
 .ayah-banner__body {
   padding: 0 0 var(--space-3, 12px);
-  animation: ab-in 180ms ease;
+  animation: ab-in var(--duration) var(--ease);
 }
 
 .ayah-banner__arabic {

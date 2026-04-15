@@ -187,7 +187,7 @@ export default function IslamicPanel() {
           onClick={() => setOpeningModuleId(ceremonyKey)}
           title={hasOpenedModule ? 'Opening completed — click to redo' : 'Begin the opening ceremony'}
         >
-          <Play size={13} />
+          <Play size={14} />
           {hasOpenedModule ? 'Opened' : isIslamic ? 'Begin Module' : 'Set Intention'}
         </button>
         <button
@@ -195,7 +195,7 @@ export default function IslamicPanel() {
           onClick={() => setClosingModuleId(ceremonyKey)}
           title={hasClosedModule ? 'Closing completed — click to redo' : 'Close the session'}
         >
-          <Square size={11} />
+          <Square size={14} />
           {hasClosedModule ? 'Closed' : isIslamic ? 'Close Session' : 'Reflect & Close'}
         </button>
       </div>

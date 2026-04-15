@@ -120,7 +120,7 @@ export default function VendorsTab() {
                 <td>
                   {v.website ? (
                     <span style={{ color: 'var(--text2)', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: 4 }}>
-                      {v.website} <ExternalLink size={12} />
+                      {v.website} <ExternalLink size={14} />
                     </span>
                   ) : '—'}
                 </td>

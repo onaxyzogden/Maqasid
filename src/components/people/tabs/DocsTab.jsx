@@ -40,7 +40,7 @@ export default function DocsTab({ contactId }) {
           background: 'var(--text)', color: 'var(--bg)',
           border: 'none', fontWeight: 600, fontSize: 13, cursor: 'pointer',
         }}>
-          <Plus size={13} /> Create new
+          <Plus size={14} /> Create new
         </button>
       </div>
 
@@ -105,7 +105,7 @@ export default function DocsTab({ contactId }) {
                 </td>
                 <td style={{ padding: '8px 8px' }}>
                   <button onClick={() => deleteDoc(d.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)' }}>
-                    <Trash2 size={13} />
+                    <Trash2 size={14} />
                   </button>
                 </td>
               </tr>

@@ -45,7 +45,7 @@ export default function KanbanColumn({ column, tasks, onSelectTask, selectedTask
           ))
         )}
         {tasks.length === 0 && (
-          <div className="kanban-empty-state">No tasks</div>
+          <div className="kanban-empty-state">Drop a task here</div>
         )}
       </div>
 

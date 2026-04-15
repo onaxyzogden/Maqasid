@@ -258,7 +258,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
                   border: '1px solid var(--border)',
                 }}
               >
-                <Download size={13} />
+                <Download size={14} />
                 <span>Download <span style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>{bbosFilter}</span></span>
               </button>
               <button
@@ -273,7 +273,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
                   border: '1px solid var(--border)',
                 }}
               >
-                <Upload size={13} />
+                <Upload size={14} />
                 <span>Upload <span style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>{bbosFilter}</span></span>
               </button>
               <input

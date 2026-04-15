@@ -93,7 +93,7 @@ export default function FilterBar({ projectId }) {
 
       {activeCount > 0 && (
         <button className="filter-clear" onClick={() => clearFilters(projectId)}>
-          <X size={12} /> Clear
+          <X size={14} /> Clear
         </button>
       )}
     </div>

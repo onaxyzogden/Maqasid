@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { useAuthStore } from '@store/auth-store';
+import { useToastStore } from '@store/toast-store';
 import { LEAD_STAGES, LEAD_SOURCES } from '@data/config/contact-config';
 
 const ENTITY_TYPES = ['person', 'company'];
@@ -13,6 +14,7 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
   const addContact = useContactsStore((s) => s.addContact);
   const addCompany = useContactsStore((s) => s.addCompany);
   const user = useAuthStore((s) => s.user);
+  const addToast = useToastStore((s) => s.addToast);
 
   const [entityType, setEntityType] = useState('person');
   const [contactType, setContactType] = useState(initialContactType);
@@ -73,6 +75,8 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
         createdBy,
       });
     }
+    const label = entityType === 'person' ? `${firstName.trim()} added` : `${companyName.trim()} added`;
+    addToast({ message: label, type: 'success', variant: 'chip' });
     onClose();
   }
 

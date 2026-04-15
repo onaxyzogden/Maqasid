@@ -32,7 +32,7 @@ export default function CRM() {
           return (
             <button key={tab.id} className={`crm-tab ${activeTab === tab.id ? 'active' : ''}`}
               onClick={() => setActiveTab(tab.id)}>
-              <Icon size={15} /> {tab.label}
+              <Icon size={16} /> {tab.label}
             </button>
           );
         })}

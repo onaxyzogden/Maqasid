@@ -224,8 +224,8 @@
 .recruit-card__link {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-top: 4px;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
   padding: 3px 6px;
   background: var(--bg3);
   border-radius: var(--radius-xs);
@@ -257,7 +257,7 @@
   box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
-  animation: slideInRight 200ms var(--ease);
+  animation: slideInRight var(--duration) var(--ease);
 }
 
 .recruit-detail__header {
@@ -272,7 +272,7 @@
   border: none;
   cursor: pointer;
   color: var(--text2);
-  padding: 4px;
+  padding: var(--space-1);
   border-radius: var(--radius-xs);
   display: flex;
   flex-shrink: 0;
@@ -284,7 +284,7 @@
   border: none;
   cursor: pointer;
   color: var(--text2);
-  padding: 4px;
+  padding: var(--space-1);
   border-radius: var(--radius-xs);
   display: flex;
   flex-shrink: 0;
@@ -382,7 +382,7 @@
   font-size: 0.65rem;
   font-weight: 500;
   color: var(--text3);
-  margin-bottom: 4px;
+  margin-bottom: var(--space-1);
 }
 .recruit-detail__info-value {
   font-size: 0.9rem;
@@ -432,7 +432,7 @@
   font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 4px 0;
+  padding: var(--space-1) 0;
 }
 .recruit-detail__delete:hover { text-decoration: underline; }
 

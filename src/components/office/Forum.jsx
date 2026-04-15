@@ -118,7 +118,7 @@ export default function Forum() {
                 <h4 className="forum-card-title">{qa.title}</h4>
                 <div className="forum-card-meta">
                   {qa.author} &middot; {new Date(qa.createdAt).toLocaleDateString()} &middot;
-                  <MessageCircle size={12} /> {qa.answers.length} repl{qa.answers.length !== 1 ? 'ies' : 'y'}
+                  <MessageCircle size={14} /> {qa.answers.length} repl{qa.answers.length !== 1 ? 'ies' : 'y'}
                 </div>
               </div>
               <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) deleteQuestion(qa.id); }}><Trash2 size={14} /></button>

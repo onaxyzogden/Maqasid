@@ -35,7 +35,7 @@ function FieldProgressBar({ filled, total }) {
 function DueDateRow({ text, colorVar }) {
   return (
     <div className="dtc__due-row" style={{ color: colorVar }}>
-      <Calendar size={11} />
+      <Calendar size={14} />
       <span>{text}</span>
     </div>
   );

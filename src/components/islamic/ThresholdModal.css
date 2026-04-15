@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-4);
-  animation: fadeIn 0.2s ease;
+  animation: fadeIn var(--duration) var(--ease);
 }
 
 .thr-modal {
@@ -19,11 +19,11 @@
   max-height: 85vh;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
-  animation: scaleIn 0.25s ease;
+  animation: scaleIn var(--duration-lg) var(--ease-spring);
   overflow: hidden;
 }
 
@@ -330,7 +330,7 @@
   font-style: italic;
   color: var(--text3);
   opacity: 0.5;
-  transition: all 0.3s;
+  transition: all var(--duration-lg) var(--ease);
   white-space: nowrap;
 }
 

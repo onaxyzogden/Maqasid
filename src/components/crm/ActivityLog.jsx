@@ -69,7 +69,7 @@ export default function ActivityLog() {
                 <td style={{ maxWidth: 300 }} className="truncate">{a.description}</td>
                 <td style={{ color: 'var(--text2)' }}>{contact?.name || '—'}</td>
                 <td style={{ color: 'var(--text2)' }}>{deal?.name || '—'}</td>
-                <td><button className="row-action-btn danger" onClick={() => deleteActivity(a.id)}><Trash2 size={13} /></button></td>
+                <td><button className="row-action-btn danger" onClick={() => deleteActivity(a.id)}><Trash2 size={14} /></button></td>
               </tr>
             );
           })}

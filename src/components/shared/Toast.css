@@ -1,0 +1,158 @@
+/* ── Toast Notification System ──────────────────────────────────────────────
+ * Two variants (per NLM design intelligence):
+ *   .toast--toast  — bottom-right stack, for operations (save, delete, create)
+ *   .toast--chip   — compact inline chip, for micro-actions (copy, toggle)
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Container ── */
+.toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  pointer-events: none;
+  max-width: 380px;
+  width: calc(100vw - var(--space-8));
+}
+
+/* ── Base toast ── */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid transparent;
+  font-size: var(--text-base);
+  font-weight: 500;
+  pointer-events: all;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ── Entry / Exit animations ── */
+@keyframes toast-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+}
+
+.toast--in {
+  animation: toast-slide-up var(--duration-lg) var(--ease-spring) both;
+}
+
+.toast--out {
+  animation: toast-slide-down var(--duration) var(--ease) both;
+}
+
+/* ── Semantic types ── */
+.toast--success {
+  background: color-mix(in srgb, var(--surface) 85%, var(--success) 15%);
+  border-color: var(--success-border);
+  color: var(--text);
+}
+.toast--success .toast__icon { color: var(--success); }
+
+.toast--error {
+  background: color-mix(in srgb, var(--surface) 85%, var(--danger) 15%);
+  border-color: var(--danger-border);
+  color: var(--text);
+}
+.toast--error .toast__icon { color: var(--danger); }
+
+.toast--warning {
+  background: color-mix(in srgb, var(--surface) 85%, var(--warning) 15%);
+  border-color: var(--warning-border);
+  color: var(--text);
+}
+.toast--warning .toast__icon { color: var(--warning); }
+
+.toast--info {
+  background: color-mix(in srgb, var(--surface) 85%, var(--primary) 15%);
+  border-color: var(--primary-border);
+  color: var(--text);
+}
+.toast--info .toast__icon { color: var(--primary); }
+
+/* ── Inner elements ── */
+.toast__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.toast__message {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toast__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text3);
+  border-radius: var(--radius-xs);
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity var(--duration-sm) var(--ease), background var(--duration-sm) var(--ease);
+}
+.toast__close:hover {
+  opacity: 1;
+  background: var(--bg3);
+  color: var(--text);
+  transform: none; /* override global button:active scale */
+}
+.toast__close:active {
+  transform: none !important; /* suppress press feedback on tiny close btn */
+}
+
+/* ── Chip variant — compact, for copy/micro-actions ── */
+.toast--chip {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  gap: var(--space-1);
+  align-self: flex-end; /* chips sit right-aligned in the container */
+}
+
+.toast--chip .toast__close {
+  display: none; /* chips auto-dismiss only */
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .toast-container {
+    bottom: var(--space-4);
+    right: var(--space-3);
+    left: var(--space-3);
+    max-width: 100%;
+    width: auto;
+  }
+}

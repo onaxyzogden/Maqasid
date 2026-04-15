@@ -85,7 +85,7 @@
 
 .ayah-banner-active .app-main {
   padding-top: calc(var(--space-3) + var(--verse-banner-h, 0px));
-  transition: padding-top 200ms ease;
+  transition: padding-top var(--duration) var(--ease);
 }
 
 .topbar-faith-badge {
@@ -97,7 +97,7 @@
 .topbar-faith-badge--link {
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 150ms ease, filter 150ms ease;
+  transition: opacity var(--duration-sm) var(--ease), filter var(--duration-sm) var(--ease);
 }
 .topbar-faith-badge--link:hover {
   opacity: 0.8;

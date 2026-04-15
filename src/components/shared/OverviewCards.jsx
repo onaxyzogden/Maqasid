@@ -58,7 +58,7 @@ function OverviewCard({ item, moduleColor }) {
           <ul className="fp-card__list">
             {item.conditions.map((c, i) => (
               <li key={i} className="fp-card__list-item">
-                <Circle size={10} style={{ color: moduleColor }} />
+                <Circle size={14} style={{ color: moduleColor }} />
                 <span>{c}</span>
               </li>
             ))}
@@ -69,7 +69,7 @@ function OverviewCard({ item, moduleColor }) {
           <ul className="fp-card__list">
             {item.virtues.map((v, i) => (
               <li key={i} className="fp-card__list-item">
-                <CheckCircle2 size={10} style={{ color: moduleColor }} />
+                <CheckCircle2 size={14} style={{ color: moduleColor }} />
                 <span>{v}</span>
               </li>
             ))}

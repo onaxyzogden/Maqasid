@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
-import { Calendar, CheckSquare } from 'lucide-react';
+import { Calendar, CheckSquare, ClipboardList } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { PRIORITIES } from '../../data/modules';
 import ScopeGate from '../shared/ScopeGate';
+import EmptyState from '../shared/EmptyState';
 import './ListView.css';
 
 export default function ListView({ project, onSelectTask, filters, bbosRole, bbosFilter }) {
@@ -67,7 +68,7 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
                   <td>
                     {task.dueDate ? (
                       <span style={{ fontSize: '0.8rem', color: 'var(--text2)', display: 'flex', alignItems: 'center', gap: 3 }}>
-                        <Calendar size={12} />
+                        <Calendar size={14} />
                         {new Date(task.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' })}
                       </span>
                     ) : (
@@ -77,7 +78,7 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
                   <td>
                     {subtaskTotal > 0 ? (
                       <span style={{ fontSize: '0.8rem', color: 'var(--text2)', display: 'flex', alignItems: 'center', gap: 3 }}>
-                        <CheckSquare size={12} /> {subtaskDone}/{subtaskTotal}
+                        <CheckSquare size={14} /> {subtaskDone}/{subtaskTotal}
                       </span>
                     ) : (
                       <span style={{ color: 'var(--text3)', fontSize: '0.8rem' }}>—</span>
@@ -90,9 +91,11 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
         </tbody>
       </table>
       {tasks.length === 0 && (
-        <div style={{ textAlign: 'center', padding: 'var(--space-10)', color: 'var(--text3)' }}>
-          No tasks yet. Switch to Board view and add some tasks.
-        </div>
+        <EmptyState
+          icon={ClipboardList}
+          title="No tasks in this view"
+          description="Switch to Board view to add tasks, or adjust your active filters."
+        />
       )}
     </div>
   );

@@ -223,7 +223,7 @@
 
 .il-block-body {
   padding: var(--space-2) var(--space-3) var(--space-3);
-  animation: fadeIn 200ms var(--ease);
+  animation: fadeIn var(--duration) var(--ease);
 }
 
 /* Divider */
@@ -264,7 +264,7 @@
   z-index: 45;
   display: flex;
   justify-content: flex-end;
-  animation: fadeIn 150ms var(--ease);
+  animation: fadeIn var(--duration-sm) var(--ease);
 }
 
 .il-mobile {

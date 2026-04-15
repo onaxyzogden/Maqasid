@@ -16,7 +16,7 @@ function EditRow({ label, children, defaultOpen = false }) {
       >
         <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--mod-people)', flexShrink: 0 }} />
         <span style={{ flex: 1, textAlign: 'left' }}>{label}</span>
-        {open ? <ChevronDown size={13} /> : <ChevronRight size={13} />}
+        {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
       </button>
       {open && <div style={{ paddingBottom: 12 }}>{children}</div>}
     </div>

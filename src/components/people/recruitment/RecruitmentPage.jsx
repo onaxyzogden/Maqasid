@@ -36,12 +36,12 @@ function JobDetailPanel({ posting, onClose, store }) {
                   {stageInfo.label}
                 </span>
               )}
-              <span className="recruit-detail__meta-item"><Briefcase size={12} /> {empLabel}</span>
+              <span className="recruit-detail__meta-item"><Briefcase size={14} /> {empLabel}</span>
               {senLabel && posting.seniority !== 'not_specified' && (
-                <span className="recruit-detail__meta-item"><UsersIcon size={12} /> {senLabel}</span>
+                <span className="recruit-detail__meta-item"><UsersIcon size={14} /> {senLabel}</span>
               )}
               {locLabel && posting.locationType !== 'not_specified' && (
-                <span className="recruit-detail__meta-item"><MapPin size={12} /> {locLabel}</span>
+                <span className="recruit-detail__meta-item"><MapPin size={14} /> {locLabel}</span>
               )}
             </div>
           </div>
@@ -54,11 +54,11 @@ function JobDetailPanel({ posting, onClose, store }) {
             <Link2 size={14} />
             <span className="recruit-detail__link-url">{link}</span>
             <button className="recruit-detail__link-copy" onClick={copyLink}>
-              {copied ? <Check size={13} /> : <Copy size={13} />}
+              {copied ? <Check size={14} /> : <Copy size={14} />}
               {copied ? 'Copied' : 'Copy'}
             </button>
             <button className="recruit-detail__link-open" onClick={() => window.open('/' + link, '_blank')}>
-              <ExternalLink size={13} /> Open
+              <ExternalLink size={14} /> Open
             </button>
           </div>
         )}
@@ -350,7 +350,7 @@ export default function RecruitmentPage() {
                       )}
                       {isPublished && link && (
                         <div className="recruit-card__link" onClick={(e) => e.stopPropagation()}>
-                          <Link2 size={11} />
+                          <Link2 size={14} />
                           <span>{link}</span>
                         </div>
                       )}

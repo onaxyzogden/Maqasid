@@ -46,7 +46,7 @@ export default function Money({ embedded = false }) {
               className={`money-tab ${activeTab === tab.id ? 'active' : ''}`}
               onClick={() => setActiveTab(tab.id)}
             >
-              <Icon size={15} />
+              <Icon size={16} />
               {tab.label}
             </button>
           );

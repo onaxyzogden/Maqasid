@@ -5,6 +5,7 @@ import { safeGet, safeSet } from '@services/storage';
 import LevelNavigator from '@components/shared/LevelNavigator';
 import ProjectBoard from '@components/work/ProjectBoard';
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
+import { SkeletonCard } from '@components/shared/Skeleton';
 import { useAyahBanner } from '@hooks/useAyahBanner';
 import './PillarLevelPage.css';
 
@@ -96,8 +97,9 @@ export default function PillarLevelPage({
           {project ? (
             <ProjectBoard projectId={boardId} project={project} hideFilter hideViewSwitcher />
           ) : (
-            <div style={{ padding: 'var(--space-8)', textAlign: 'center', color: 'var(--text2)' }}>
-              Loading board...
+            <div style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+              <SkeletonCard />
+              <SkeletonCard />
             </div>
           )}
         </div>

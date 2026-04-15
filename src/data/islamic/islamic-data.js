@@ -883,10 +883,10 @@ export const MODULE_ATTRS = {
     },
     closingDua: {
       title: 'After Life Stewardship',
-      arabic: 'الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي فِي جَسَدِي وَرَدَّ عَلَيَّ رُوحِي وَأَذِنَ لِي بِذِكْرِهِ',
-      trans: "Al-ḥamdu li-Allāhi alladhī ʿāfānī fī jasadī wa radda ʿalayya rūḥī wa adhina lī bi-dhikrih",
-      meaning: 'Praise be to Allah who granted me well-being in my body, returned my soul to me, and permitted me to remember Him.',
-      source: 'Jami at-Tirmidhi 3401',
+      arabic: 'الَّذِي خَلَقَنِي فَهُوَ يَهْدِينِ وَالَّذِي هُوَ يُطْعِمُنِي وَيَسْقِينِ وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ',
+      trans: "Alladhī khalaqanī fa-huwa yahdīn, walladhī huwa yuṭʿimunī wa yasqīn, wa idhā mariḍtu fa-huwa yashfīn",
+      meaning: 'Who created me, and He guides me; and He is the One who feeds me and gives me drink; and when I am ill, it is He who cures me.',
+      source: 'Quran 26:78\u201380',
     },
     readiness: {
       frame: 'Al-Qawī asks: am I engaging from sustained strength, or from depletion I have not acknowledged?',

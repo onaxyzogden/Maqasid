@@ -39,7 +39,7 @@ export default function People({ embedded = false }) {
               className={`people-tab ${activeSection === sec.id ? 'active' : ''}`}
               onClick={() => setActiveSection(sec.id)}
             >
-              <Icon size={15} /> {sec.label}
+              <Icon size={16} /> {sec.label}
             </button>
           );
         })}

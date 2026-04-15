@@ -81,9 +81,9 @@ export default function EmailCampaignsTab() {
                 <td>
                   <div className="row-actions" style={{ opacity: 1 }}>
                     {c.status === 'pending' && (
-                      <button className="row-action-btn" onClick={() => sendCampaign(c.id)} title="Send"><Send size={13} /></button>
+                      <button className="row-action-btn" onClick={() => sendCampaign(c.id)} title="Send"><Send size={14} /></button>
                     )}
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete?')) deleteCampaign(c.id); }}><Trash2 size={13} /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete?')) deleteCampaign(c.id); }}><Trash2 size={14} /></button>
                   </div>
                 </td>
               </tr>

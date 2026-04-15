@@ -86,7 +86,7 @@ function renderStars(score, max = 3) {
       {Array.from({ length: max }, (_, i) => i + 1).map((i) => (
         <Star
           key={i}
-          size={13}
+          size={14}
           className={i <= clamped ? '' : 'bfd__pa-star--empty'}
           fill={i <= clamped ? 'currentColor' : 'none'}
         />
@@ -395,9 +395,9 @@ function GateChecksRenderer({ checks, overallValue, overallLabel }) {
         return (
           <div key={i} className={`bfd__gate-check bfd__gate-check--${check.value || 'pending'}`}>
             <span className="bfd__gate-check-icon">
-              {isPass ? <CheckCircle size={13} style={{ color: 'var(--col-done)' }} />
-               : isFail ? <XCircle size={13} style={{ color: 'var(--pri-urgent)' }} />
-               : isCond ? <AlertTriangle size={13} style={{ color: 'var(--pri-high)' }} />
+              {isPass ? <CheckCircle size={14} style={{ color: 'var(--col-done)' }} />
+               : isFail ? <XCircle size={14} style={{ color: 'var(--pri-urgent)' }} />
+               : isCond ? <AlertTriangle size={14} style={{ color: 'var(--pri-high)' }} />
                : <span className="bfd__gate-pending-dot" />}
             </span>
             <span className="bfd__gate-check-label">{check.label}</span>
@@ -1572,7 +1572,7 @@ function ProjectAuditCard({ tasks, doneColumnId }) {
       <div className="bfd__pa-left">
         <div className="bfd__card-head">
           <span className="bfd__card-num">
-            <Star size={13} fill="currentColor" />
+            <Star size={14} fill="currentColor" />
           </span>
           <span className="bfd__card-label">Project Audit</span>
         </div>
@@ -1630,7 +1630,7 @@ function StageScoreCard({ bbosFilter, taskMap }) {
     <div className="bfd__ssc" style={{ gridColumn: '1 / -1' }}>
       <div className="bfd__ssc-left">
         <div className="bfd__card-head">
-          <span className="bfd__card-num"><CheckCircle size={13} /></span>
+          <span className="bfd__card-num"><CheckCircle size={14} /></span>
           <span className="bfd__card-label">Stage Health Score</span>
         </div>
         <div className="bfd__ssc-verdict-box">
@@ -1733,7 +1733,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
         {stagePct === 100 && onStageAdvance && (
           <div className="bfd__stage-ready">
-            <CheckCircle size={15} className="bfd__stage-ready-icon" />
+            <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
               Stage complete — {totalCount}/{totalCount} tasks done
             </span>

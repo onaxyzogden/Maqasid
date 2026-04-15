@@ -114,7 +114,7 @@ function StarRating({ score, levelColor }) {
       {[1, 2, 3].map((i) => (
         <Star
           key={i}
-          size={13}
+          size={14}
           className={i <= score ? '' : 'pld__star--empty'}
           fill={i <= score ? 'currentColor' : 'none'}
         />
@@ -224,7 +224,7 @@ function GrowthMomentumCard({ metrics, levelColor }) {
     <div className="pld__insight">
       <div className="pld__insight-left">
         <div className="pld__insight-head">
-          <span className="pld__insight-num"><TrendingUp size={13} /></span>
+          <span className="pld__insight-num"><TrendingUp size={14} /></span>
           <span className="pld__insight-title">Growth Momentum</span>
         </div>
         <div className="pld__insight-verdict-box" style={{ background: `color-mix(in srgb, ${levelColor} 8%, var(--surface))` }}>
@@ -284,7 +284,7 @@ function MasteryDepthCard({ metrics, levelColor }) {
     <div className="pld__insight">
       <div className="pld__insight-left">
         <div className="pld__insight-head">
-          <span className="pld__insight-num"><Activity size={13} /></span>
+          <span className="pld__insight-num"><Activity size={14} /></span>
           <span className="pld__insight-title">Mastery Depth</span>
         </div>
         <div className="pld__insight-verdict-box" style={{ background: `color-mix(in srgb, ${levelColor} 8%, var(--surface))` }}>

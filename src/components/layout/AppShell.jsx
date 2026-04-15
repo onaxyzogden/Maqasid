@@ -23,6 +23,7 @@ import PrayerWarning from '../islamic/PrayerWarning';
 import NiyyahAct from '../islamic/NiyyahAct';
 import JournalPanel from '../journal/JournalPanel';
 import DiscussionPanel from '../discussion/DiscussionPanel';
+import Toast from '../shared/Toast';
 import './AppShell.css';
 
 export default function AppShell() {
@@ -234,7 +235,7 @@ export default function AppShell() {
               aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSidebar(); } }}
             >
-              {sidebarOpen ? <ChevronLeft size={12} /> : <ChevronRight size={12} />}
+              {sidebarOpen ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
             </button>
           </div>
         )}
@@ -255,7 +256,7 @@ export default function AppShell() {
               aria-label="Close Islamic panel"
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
             >
-              <ChevronRight size={12} />
+              <ChevronRight size={14} />
             </button>
           </div>
         )}
@@ -288,6 +289,7 @@ export default function AppShell() {
 
       <JournalPanel />
       <DiscussionPanel />
+      <Toast />
     </>
   );
 }

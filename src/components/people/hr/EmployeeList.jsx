@@ -1,12 +1,14 @@
 import { useState, useMemo } from 'react';
 import { Plus, Users, Pencil, Trash2, Search } from 'lucide-react';
 import { usePeopleStore, getInitials } from '@store/people-store';
+import { useToastStore } from '@store/toast-store';
 import EmployeeForm from './EmployeeForm';
 
 export default function EmployeeList() {
   const employees = usePeopleStore((s) => s.employees);
   const departments = usePeopleStore((s) => s.departments);
   const deleteEmployee = usePeopleStore((s) => s.deleteEmployee);
+  const addToast = useToastStore((s) => s.addToast);
   const [showForm, setShowForm] = useState(false);
   const [editingEmp, setEditingEmp] = useState(null);
   const [search, setSearch] = useState('');
@@ -90,7 +92,7 @@ export default function EmployeeList() {
                 <td>
                   <div className="row-actions">
                     <button className="row-action-btn" onClick={() => { setEditingEmp(emp); setShowForm(true); }}><Pencil size={14} /></button>
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this employee?')) deleteEmployee(emp.id); }}><Trash2 size={14} /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this employee?')) { deleteEmployee(emp.id); addToast({ message: `"${emp.name}" removed`, type: 'info' }); } }}><Trash2 size={14} /></button>
                   </div>
                 </td>
               </tr>

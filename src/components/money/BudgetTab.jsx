@@ -227,8 +227,8 @@ export default function BudgetTab() {
               <div className="budget-card-footer">
                 <span className={`budget-status ${b.remaining < 0 ? 'budget-over' : 'budget-under'}`}>
                   {b.remaining < 0
-                    ? <><TrendingUp size={12} /> Over by {fmt(Math.abs(b.remaining))}</>
-                    : <><TrendingDown size={12} /> {fmt(b.remaining)} left</>
+                    ? <><TrendingUp size={14} /> Over by {fmt(Math.abs(b.remaining))}</>
+                    : <><TrendingDown size={14} /> {fmt(b.remaining)} left</>
                   }
                 </span>
                 <span className="budget-pct">{b.percent}%</span>

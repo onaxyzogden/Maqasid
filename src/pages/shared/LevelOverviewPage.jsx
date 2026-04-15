@@ -115,7 +115,7 @@ export default function LevelOverviewPage({
                 className="flo__card-icon"
                 style={{ color: levelColor, background: `color-mix(in srgb, ${levelColor} 12%, var(--surface))` }}
               >
-                <Icon size={22} />
+                <Icon size={20} />
               </div>
               <h3 className="flo__card-name">
                 {glossaryId

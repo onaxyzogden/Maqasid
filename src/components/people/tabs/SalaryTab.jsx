@@ -143,7 +143,7 @@ export default function SalaryTab({ contactId }) {
             display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none',
             cursor: 'pointer', color: 'var(--mod-people)', fontSize: 12, fontWeight: 500,
           }}>
-            <Plus size={13} /> Add new
+            <Plus size={14} /> Add new
           </button>
         </div>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 8 }}>

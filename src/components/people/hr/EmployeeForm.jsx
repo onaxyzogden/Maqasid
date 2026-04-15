@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import { usePeopleStore } from '@store/people-store';
+import { useToastStore } from '@store/toast-store';
 import { EMPLOYEE_STATUSES, DEFAULT_LEAVE_BALANCE } from '@data/config/people-departments';
 
 export default function EmployeeForm({ employee, onClose }) {
   const departments = usePeopleStore((s) => s.departments);
   const addEmployee = usePeopleStore((s) => s.addEmployee);
   const updateEmployee = usePeopleStore((s) => s.updateEmployee);
+  const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!employee;
 
   const [name, setName] = useState(employee?.name || '');
@@ -26,8 +28,13 @@ export default function EmployeeForm({ employee, onClose }) {
   const handleSave = () => {
     if (!canSave) return;
     const data = { name, email, phone, role, department, startDate, status, notes, leaveBalance: { annual: Number(annual), sick: Number(sick), personal: Number(personal) } };
-    if (isEdit) updateEmployee(employee.id, data);
-    else addEmployee(data);
+    if (isEdit) {
+      updateEmployee(employee.id, data);
+      addToast({ message: 'Employee updated', type: 'success', variant: 'chip' });
+    } else {
+      addEmployee(data);
+      addToast({ message: `${name} added to team`, type: 'success', variant: 'chip' });
+    }
     onClose();
   };
 

@@ -35,7 +35,7 @@ export default function Tech({ embedded = false }) {
           return (
             <button key={tab.id} className={`tech-tab ${activeTab === tab.id ? 'active' : ''}`}
               onClick={() => setActiveTab(tab.id)}>
-              <Icon size={15} /> {tab.label}
+              <Icon size={16} /> {tab.label}
             </button>
           );
         })}

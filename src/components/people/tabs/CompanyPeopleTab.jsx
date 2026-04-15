@@ -19,7 +19,7 @@ export default function CompanyPeopleTab({ companyId }) {
       {/* Search + actions */}
       <div style={{ display: 'flex', gap: 8 }}>
         <div style={{ position: 'relative', flex: 1 }}>
-          <Search size={13} style={{ position: 'absolute', left: 9, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
+          <Search size={14} style={{ position: 'absolute', left: 9, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}

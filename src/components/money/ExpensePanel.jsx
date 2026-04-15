@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, Plus } from 'lucide-react';
 import { useMoneyStore } from '../../store/money-store';
+import { useToastStore } from '../../store/toast-store';
 import { CURRENCIES } from '@data/config/money-categories';
 
 export default function ExpensePanel({ expense, onClose }) {
@@ -13,6 +14,7 @@ export default function ExpensePanel({ expense, onClose }) {
   const markExpenseUnpaid = useMoneyStore((s) => s.markExpenseUnpaid);
   const addVendor = useMoneyStore((s) => s.addVendor);
   const addCategory = useMoneyStore((s) => s.addCategory);
+  const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!expense;
 
   const [description, setDescription] = useState(expense?.description || '');
@@ -31,14 +33,20 @@ export default function ExpensePanel({ expense, onClose }) {
   const handleSave = () => {
     if (!description.trim()) return;
     const data = { description, categoryId, amount: Number(amount), currency, dueDate, vendorId, note, tags, status };
-    if (isEdit) updateExpense(expense.id, data);
-    else addExpense({ ...data, date: new Date().toISOString().slice(0, 10) });
+    if (isEdit) {
+      updateExpense(expense.id, data);
+      addToast({ message: 'Expense updated', type: 'success', variant: 'chip' });
+    } else {
+      addExpense({ ...data, date: new Date().toISOString().slice(0, 10) });
+      addToast({ message: 'Expense added', type: 'success', variant: 'chip' });
+    }
     onClose();
   };
 
   const handleDelete = () => {
     if (isEdit && confirm('Delete this expense?')) {
       deleteExpense(expense.id);
+      addToast({ message: `"${expense.description}" removed`, type: 'info' });
       onClose();
     }
   };

@@ -96,17 +96,43 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Spacing */
+  /* Spacing (4px base grid) */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
   --space-5: 20px;
   --space-6: 24px;
+  --space-7: 28px;
   --space-8: 32px;
+  --space-9: 36px;
   --space-10: 40px;
+  --space-11: 44px;
   --space-12: 48px;
   --space-16: 64px;
+
+  /* Typography scale (dashboard-safe — max 6 steps, never exceed 24px in dense UI) */
+  --text-xs:   0.65rem;   /* 10.4px — eyebrow labels, micro badges */
+  --text-sm:   0.75rem;   /* 12px   — captions, timestamps, table headers */
+  --text-base: 0.875rem;  /* 14px   — default body / list items */
+  --text-md:   1rem;      /* 16px   — emphasized body, input text */
+  --text-lg:   1.125rem;  /* 18px   — card headings, panel titles */
+  --text-xl:   1.5rem;    /* 24px   — section headings (hard ceiling for dashboards) */
+
+  /* Icon sizes — 4-tier scale (no other sizes permitted in UI icons) */
+  --icon-sm:   14px;   /* dense data tables, inline indicators */
+  --icon-base: 16px;   /* standard UI elements */
+  --icon-md:   18px;   /* sidebar, card headers */
+  --icon-lg:   20px;   /* primary actions, hero contexts */
+
+  /* Breakpoints — reference values (CSS vars can't be used in @media)
+   * Use these exact pixel values in @media queries for consistency.
+   *   @media (max-width: 479px)  — phone portrait
+   *   @media (max-width: 639px)  — phone landscape
+   *   @media (max-width: 767px)  — tablet portrait  (matches useMobile hook)
+   *   @media (max-width: 1023px) — tablet landscape
+   *   @media (max-width: 1279px) — small desktop
+   */
 
   /* Layout */
   --topbar-h: 56px;
@@ -117,8 +143,12 @@
 
   /* Transitions */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
   --duration: 200ms;
+  --duration-sm: 150ms;
   --duration-lg: 300ms;
+  --duration-xl: 500ms;
 
   /* Module colors */
   --mod-work: #4ab8a8;

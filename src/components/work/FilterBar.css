@@ -74,3 +74,23 @@
   transition: all var(--duration) var(--ease);
 }
 .filter-clear:hover { color: var(--danger); background: var(--danger-bg); }
+
+/* ── Responsive: compact filter bar on mobile ── */
+@media (max-width: 767px) {
+  .filter-bar {
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+    margin-bottom: var(--space-2);
+  }
+
+  .filter-label {
+    font-size: 0.72rem;
+  }
+
+  .filter-pill {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.7rem;
+  }
+
+  .filter-divider { display: none; }
+}

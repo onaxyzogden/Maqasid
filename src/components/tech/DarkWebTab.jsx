@@ -98,9 +98,9 @@ export default function DarkWebTab() {
                     <td>
                       <div className="row-actions" style={{ opacity: 1 }}>
                         {b.status === 'open' && (
-                          <button className="row-action-btn" onClick={() => clearBreach(b.id)} title="Clear"><Check size={13} /></button>
+                          <button className="row-action-btn" onClick={() => clearBreach(b.id)} title="Clear"><Check size={14} /></button>
                         )}
-                        <button className="row-action-btn danger" onClick={() => { if (confirm('Delete breach?')) deleteBreach(b.id); }}><Trash2 size={13} /></button>
+                        <button className="row-action-btn danger" onClick={() => { if (confirm('Delete breach?')) deleteBreach(b.id); }}><Trash2 size={14} /></button>
                       </div>
                     </td>
                   </tr>
@@ -205,7 +205,7 @@ export default function DarkWebTab() {
                   {darkWebEmails.map((e) => (
                     <div key={e.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 'var(--space-2) 0', borderBottom: '1px solid var(--border)' }}>
                       <span style={{ fontSize: '0.85rem' }}>{e.email}</span>
-                      <button className="row-action-btn danger" onClick={() => removeDarkWebEmail(e.id)}><Trash2 size={13} /></button>
+                      <button className="row-action-btn danger" onClick={() => removeDarkWebEmail(e.id)}><Trash2 size={14} /></button>
                     </div>
                   ))}
                 </div>

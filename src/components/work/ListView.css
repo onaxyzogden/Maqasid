@@ -40,3 +40,18 @@
   border-radius: var(--radius-full);
   border: 1px solid;
 }
+
+/* ── Responsive: tighter cells on mobile ── */
+@media (max-width: 767px) {
+  .list-table th,
+  .list-row td {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8rem;
+  }
+
+  /* Hide less-critical columns to prevent overflow */
+  .list-table th:nth-child(5),
+  .list-row td:nth-child(5) {
+    display: none; /* subtasks column */
+  }
+}

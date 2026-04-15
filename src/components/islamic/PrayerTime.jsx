@@ -40,7 +40,7 @@ export default function PrayerTime() {
       {nextPrayer && (
         <div className="pt-next">
           <div className="pt-next-label">
-            <Clock size={12} />
+            <Clock size={14} />
             <span>Next Prayer</span>
           </div>
           <div className="pt-next-name">{nextPrayer.name}</div>

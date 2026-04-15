@@ -164,15 +164,25 @@
   line-height: 1.4;
 }
 
-/* Empty state */
+/* Empty state — dashed drop zone */
 .kanban-empty-state {
   padding: var(--space-6) var(--space-3);
   text-align: center;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   color: var(--text3);
-  border: 2px dashed var(--border);
+  border: 1.5px dashed var(--border);
   border-radius: var(--radius);
   margin: var(--space-1);
+  transition:
+    border-color var(--duration) var(--ease),
+    background var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.kanban-column-body:hover .kanban-empty-state {
+  border-color: var(--border2);
+  background: var(--bg3);
+  color: var(--text2);
 }
 
 @media (max-width: 767px) {

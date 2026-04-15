@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react';
 import { Plus, Contact, Pencil, Trash2, Search, X } from 'lucide-react';
 import { useCRMStore, CONTACT_TYPES } from '../../store/crm-store';
+import { useToastStore } from '../../store/toast-store';
 
 function ContactForm({ contact, onClose }) {
   const addContact = useCRMStore((s) => s.addContact);
   const updateContact = useCRMStore((s) => s.updateContact);
+  const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!contact;
   const [name, setName] = useState(contact?.name || '');
   const [email, setEmail] = useState(contact?.email || '');
@@ -17,7 +19,13 @@ function ContactForm({ contact, onClose }) {
   const handleSave = () => {
     if (!name.trim()) return;
     const data = { name, email, phone, company, role, type, notes };
-    if (isEdit) updateContact(contact.id, data); else addContact(data);
+    if (isEdit) {
+      updateContact(contact.id, data);
+      addToast({ message: 'Contact updated', type: 'success', variant: 'chip' });
+    } else {
+      addContact(data);
+      addToast({ message: 'Contact added', type: 'success', variant: 'chip' });
+    }
     onClose();
   };
 
@@ -55,6 +63,7 @@ function ContactForm({ contact, onClose }) {
 export default function ContactList() {
   const contacts = useCRMStore((s) => s.contacts);
   const deleteContact = useCRMStore((s) => s.deleteContact);
+  const addToast = useToastStore((s) => s.addToast);
   const [search, setSearch] = useState('');
   const [filterType, setFilterType] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -111,7 +120,7 @@ export default function ContactList() {
                 <td>
                   <div className="row-actions">
                     <button className="row-action-btn" onClick={() => { setEditContact(c); setShowForm(true); }}><Pencil size={14} /></button>
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this contact and all related deals/activities?')) deleteContact(c.id); }}><Trash2 size={14} /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this contact and all related deals/activities?')) { deleteContact(c.id); addToast({ message: `"${c.name}" removed`, type: 'info' }); } }}><Trash2 size={14} /></button>
                   </div>
                 </td>
               </tr>

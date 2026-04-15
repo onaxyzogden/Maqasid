@@ -4,6 +4,7 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { safeGet, safeSet, safeGetJSON, safeRemove } from '../../services/storage';
 import ProjectBoard from './ProjectBoard';
+import { SkeletonCard } from '../shared/Skeleton';
 import { useAyahBanner } from '../../hooks/useAyahBanner';
 import './PillarBoard.css';
 
@@ -186,13 +187,13 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
           className={`pillar-resources__mode-btn${mode === 'link' ? ' pillar-resources__mode-btn--active' : ''}`}
           onClick={() => { setMode('link'); setFileError(''); setFileData(null); }}
         >
-          <Link size={13} /> Link
+          <Link size={14} /> Link
         </button>
         <button
           className={`pillar-resources__mode-btn${mode === 'file' ? ' pillar-resources__mode-btn--active' : ''}`}
           onClick={() => { setMode('file'); setFileError(''); }}
         >
-          <Upload size={13} /> File
+          <Upload size={14} /> File
         </button>
       </div>
 
@@ -278,7 +279,7 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
                       className="pillar-resources__card-link pillar-resources__card-link--file"
                       onClick={() => openFileResource(r)}
                     >
-                      <IconCmp size={13} />
+                      <IconCmp size={14} />
                       {r.title}
                     </button>
                   ) : (
@@ -288,7 +289,7 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
                       rel="noopener noreferrer"
                       className="pillar-resources__card-link"
                     >
-                      <IconCmp size={13} />
+                      <IconCmp size={14} />
                       {r.title}
                     </a>
                   )}
@@ -297,13 +298,13 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
                     onClick={() => removeResource(r.id)}
                     title="Remove resource"
                   >
-                    <Trash2 size={13} />
+                    <Trash2 size={14} />
                   </button>
                 </div>
                 {r.note && <p className="pillar-resources__card-note">{r.note}</p>}
                 {isFile ? (
                   <span className="pillar-resources__card-meta">
-                    <Download size={10} /> {r.fileName} &middot; {r.fileSizeFmt}
+                    <Download size={14} /> {r.fileName} &middot; {r.fileSizeFmt}
                   </span>
                 ) : (
                   <span className="pillar-resources__card-url">{r.url}</span>
@@ -387,8 +388,9 @@ export default function PillarBoard({ pillarKey, pillarName, pillarColor, module
         project ? (
           <ProjectBoard projectId={boardId} project={project} />
         ) : (
-          <div style={{ padding: 'var(--space-8)', textAlign: 'center', color: 'var(--text2)' }}>
-            Loading board...
+          <div style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+            <SkeletonCard />
+            <SkeletonCard />
           </div>
         )
       )}

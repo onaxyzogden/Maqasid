@@ -1,0 +1,141 @@
+/* ── Skeleton Shimmer System ─────────────────────────────────────────────────
+ * Per NLM design intelligence: shimmer effects are mandatory for data-heavy
+ * dashboards. Gradient moves left→right at 1.5s, ease-in-out, infinite.
+ * Placeholders occupy exact layout space — no layout shift when content loads.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Shimmer keyframe ── */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* ── Base skeleton ── */
+.skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    var(--bg3) 25%,
+    var(--bg4) 50%,
+    var(--bg3) 75%
+  );
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Radius variants */
+.skeleton--xs   { border-radius: var(--radius-xs); }
+.skeleton--sm   { border-radius: var(--radius-sm); }
+.skeleton--md   { border-radius: var(--radius); }
+.skeleton--lg   { border-radius: var(--radius-lg); }
+.skeleton--full { border-radius: var(--radius-full); }
+
+/* ── Card skeleton ── */
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.skeleton-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.skeleton-card__title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.skeleton-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ── Stat card skeleton ── */
+.skeleton-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.skeleton-stat__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+/* ── Pillar row skeleton ── */
+.skeleton-pillar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.skeleton-pillar-row__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+/* ── Dashboard skeleton ── */
+.skeleton-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+}
+
+.skeleton-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.skeleton-dashboard__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Staggered shimmer delays — each row starts slightly later so they don't all pulse in sync */
+.skeleton-pillar-row:nth-child(1) { animation-delay: 0ms; }
+.skeleton-pillar-row:nth-child(2) { animation-delay: 80ms; }
+.skeleton-pillar-row:nth-child(3) { animation-delay: 160ms; }
+.skeleton-pillar-row:nth-child(4) { animation-delay: 240ms; }
+.skeleton-pillar-row:nth-child(5) { animation-delay: 320ms; }
+.skeleton-pillar-row:nth-child(6) { animation-delay: 400ms; }
+.skeleton-pillar-row:nth-child(7) { animation-delay: 480ms; }
+
+/* Apply delay to the .skeleton elements inside each row */
+.skeleton-pillar-row:nth-child(1) .skeleton { animation-delay: 0ms; }
+.skeleton-pillar-row:nth-child(2) .skeleton { animation-delay: 80ms; }
+.skeleton-pillar-row:nth-child(3) .skeleton { animation-delay: 160ms; }
+.skeleton-pillar-row:nth-child(4) .skeleton { animation-delay: 240ms; }
+.skeleton-pillar-row:nth-child(5) .skeleton { animation-delay: 320ms; }
+.skeleton-pillar-row:nth-child(6) .skeleton { animation-delay: 400ms; }
+.skeleton-pillar-row:nth-child(7) .skeleton { animation-delay: 480ms; }
+
+/* ── Reduced motion — remove animation, keep shape ── */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--bg3);
+  }
+}

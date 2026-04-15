@@ -110,9 +110,9 @@ export default function CalendarView() {
               Only mine
             </button>
           </div>
-          <button className="cal-dropdown-btn">All creators <ChevronDown size={12} /></button>
-          <button className="cal-dropdown-btn">All attendees <ChevronDown size={12} /></button>
-          <button className="cal-dropdown-btn">All projects <ChevronDown size={12} /></button>
+          <button className="cal-dropdown-btn">All creators <ChevronDown size={14} /></button>
+          <button className="cal-dropdown-btn">All attendees <ChevronDown size={14} /></button>
+          <button className="cal-dropdown-btn">All projects <ChevronDown size={14} /></button>
           <Search size={14} style={{ color: 'var(--text3)', cursor: 'pointer' }} />
         </div>
       </div>

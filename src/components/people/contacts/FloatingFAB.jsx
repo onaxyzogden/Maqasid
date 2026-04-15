@@ -26,7 +26,7 @@ export default function FloatingFAB({ onClick }) {
       onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; }}
       onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
     >
-      <Plus size={22} />
+      <Plus size={20} />
     </button>
   );
 }

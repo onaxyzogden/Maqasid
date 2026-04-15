@@ -182,7 +182,7 @@ export default function Sidebar() {
                     <span className="pillar-label">{label}</span>
                     {isScaffold && <span className="sidebar-badge">Soon</span>}
                     <ChevronDown
-                      size={12}
+                      size={14}
                       className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
                       onClick={(e) => {
                         e.stopPropagation();

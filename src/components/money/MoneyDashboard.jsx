@@ -85,8 +85,8 @@ function BarChart({ data, budgetTarget = 0 }) {
                 <div key={i} className="md-chart-col">
                   <div className="md-chart-stack" style={{ height: `${totalPct}%` }}>
                     {surplus > 0 && <div className="md-bar md-bar-spacer" style={{ flex: surplus }} />}
-                    {withinExpenses > 0 && <div className="md-bar md-bar-expenses" style={{ flex: withinExpenses }} />}
                     {overBudget > 0 && <div className="md-bar md-bar-over-budget" style={{ flex: overBudget }} />}
+                    {withinExpenses > 0 && <div className="md-bar md-bar-expenses" style={{ flex: withinExpenses }} />}
                   </div>
                 </div>
               );
@@ -235,8 +235,8 @@ export default function MoneyDashboard({ onNavigate }) {
           </div>
           <BarChart data={chartData} budgetTarget={monthlyBudget} />
           <div className="md-chart-legend">
-            <span><span className="md-legend-dot md-dot-income" />Income</span>
-            <span><span className="md-legend-dot md-dot-expenses" />Expenses</span>
+            <span><span className="md-legend-dot md-dot-income" />Expenses</span>
+            <span><span className="md-legend-dot md-dot-expenses" />Discretionary Spending</span>
             {monthlyBudget > 0 && (
               <span><span className="md-legend-dot md-dot-overbudget" />Over budget</span>
             )}

@@ -6,14 +6,14 @@
 .dtc__card {
   background: var(--surface);
   border-radius: 14px;
-  padding: 20px;
+  padding: var(--space-5);
   display: flex;
   flex-direction: column;
   gap: 10px;
   box-shadow: 0 4px 24px rgba(30, 25, 16, 0.05);
   min-width: 0;
   border: 1px solid transparent;
-  transition: background 0.2s, border-color 0.2s, box-shadow 0.15s;
+  transition: background var(--duration), border-color var(--duration), box-shadow var(--duration-sm);
 }
 .dtc__card--clickable {
   cursor: pointer;
@@ -55,8 +55,8 @@
   gap: 11px;
 }
 .dtc__card-num {
-  width: 28px;
-  height: 28px;
+  width: var(--space-7);
+  height: var(--space-7);
   border-radius: 6px;
   font-size: 0.65rem;
   font-weight: 700;
@@ -71,7 +71,7 @@
 .dtc__card-head-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
   min-width: 0;
   flex: 1;
 }
@@ -150,7 +150,7 @@
 .dtc__subtask-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
 }
 .dtc__subtask-label {
   font-size: 0.72rem;
@@ -168,7 +168,7 @@
 .dtc__subtask-fill {
   height: 100%;
   border-radius: 99px;
-  transition: width 0.4s ease;
+  transition: width var(--duration-xl) var(--ease);
 }
 .dtc__subtask-pct {
   font-size: 0.65rem;
@@ -181,7 +181,7 @@
 .dtc__progress-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   margin-top: 2px;
   margin-bottom: 6px;
 }
@@ -195,14 +195,14 @@
 .dtc__progress-fill {
   height: 100%;
   border-radius: 99px;
-  transition: width 0.4s ease;
+  transition: width var(--duration-xl) var(--ease);
 }
 .dtc__progress-pct {
   font-size: 0.62rem;
   color: var(--text3);
   font-family: var(--font-heading);
   white-space: nowrap;
-  min-width: 28px;
+  min-width: var(--space-7);
   text-align: right;
 }
 
@@ -219,7 +219,7 @@
 .dtc__tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: var(--space-1);
 }
 .dtc__tag {
   font-size: 0.6rem;
@@ -238,7 +238,7 @@
   line-height: 1.45;
   font-style: italic;
   margin: 0;
-  padding-bottom: 12px;
+  padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--border);
 }
 
@@ -252,11 +252,11 @@
   justify-content: center;
   min-height: 48px;
   border: 1px dashed var(--border2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   font-size: 0.75rem;
   color: var(--text3);
   font-style: italic;
-  padding: 12px 14px;
+  padding: var(--space-3) 14px;
   text-align: center;
 }
 
@@ -264,15 +264,15 @@
 @media (max-width: 767px) {
   .dtc__card {
     padding: 14px;
-    gap: 8px;
-    border-radius: 12px;
+    gap: var(--space-2);
+    border-radius: var(--radius-lg);
   }
   .dtc__card-head {
-    gap: 8px;
+    gap: var(--space-2);
   }
   .dtc__card-num {
-    width: 24px;
-    height: 24px;
+    width: var(--space-6);
+    height: var(--space-6);
     font-size: 0.6rem;
   }
   .dtc__card-title {
@@ -286,7 +286,7 @@
 
 @media (max-width: 480px) {
   .dtc__card {
-    padding: 12px;
+    padding: var(--space-3);
     gap: 6px;
   }
   .dtc__card-title {
@@ -315,6 +315,6 @@
   }
   .dtc__card-purpose {
     font-size: 0.7rem;
-    padding-bottom: 8px;
+    padding-bottom: var(--space-2);
   }
 }

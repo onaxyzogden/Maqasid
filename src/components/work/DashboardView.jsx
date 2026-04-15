@@ -151,7 +151,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
       stars.push(
         <Star
           key={i}
-          size={13}
+          size={14}
           className={i <= score ? '' : 'proj-dash__star--empty'}
           fill={i <= score ? 'currentColor' : 'none'}
         />
@@ -325,23 +325,23 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
             <div className="proj-dash__gap-items">
               {noDueDate > 0 ? (
                 <span className="proj-dash__gap-item">
-                  <AlertTriangle size={13} style={{ color: 'var(--pri-urgent)', flexShrink: 0 }} />
+                  <AlertTriangle size={14} style={{ color: 'var(--pri-urgent)', flexShrink: 0 }} />
                   {noDueDate} task{noDueDate !== 1 ? 's' : ''} missing due dates — scheduling gap identified.
                 </span>
               ) : (
                 <span className="proj-dash__gap-item">
-                  <CheckCircle size={13} style={{ color: 'var(--col-done)', flexShrink: 0 }} />
+                  <CheckCircle size={14} style={{ color: 'var(--col-done)', flexShrink: 0 }} />
                   All active tasks have due dates assigned.
                 </span>
               )}
               {totalSubtasks > 0 ? (
                 <span className="proj-dash__gap-item">
-                  <CheckCircle size={13} style={{ color: 'var(--col-done)', flexShrink: 0 }} />
+                  <CheckCircle size={14} style={{ color: 'var(--col-done)', flexShrink: 0 }} />
                   Subtask coverage: {doneSubtasks}/{totalSubtasks} completed ({subtaskPct}%).
                 </span>
               ) : (
                 <span className="proj-dash__gap-item">
-                  <AlertTriangle size={13} style={{ color: 'var(--pri-high)', flexShrink: 0 }} />
+                  <AlertTriangle size={14} style={{ color: 'var(--pri-high)', flexShrink: 0 }} />
                   No subtasks defined — consider breaking work into smaller steps.
                 </span>
               )}

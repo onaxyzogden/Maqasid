@@ -349,7 +349,7 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
   cursor: pointer;
-  transition: opacity 200ms ease;
+  transition: opacity var(--duration) var(--ease);
 }
 
 .fp2-pill-btn:hover { opacity: 0.88; }
@@ -389,7 +389,7 @@
 .fp2-footer__links a {
   color: var(--faith-outline);
   text-decoration: none;
-  transition: color 200ms ease;
+  transition: color var(--duration) var(--ease);
 }
 
 .fp2-footer__links a:hover {

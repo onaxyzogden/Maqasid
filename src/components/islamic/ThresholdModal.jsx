@@ -293,7 +293,7 @@ export default function ThresholdModal({ type }) {
                   onClick={() => { if (i <= step) setStep(i); }}
                 >
                   {s === 'Pause'
-                    ? <><Pause size={11} /> Pause</>
+                    ? <><Pause size={14} /> Pause</>
                     : s === 'Dua' && isIslamic
                       ? <IslamicTerm id="dua">Dua</IslamicTerm>
                       : s

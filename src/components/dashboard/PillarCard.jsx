@@ -62,7 +62,7 @@ export default function PillarCard({ pillar, subModules, valuesLayer, completedO
               <div key={mod.id} className="pc-mod-row">
                 <span className="pc-mod-name">{mod.name}</span>
                 <span className={`pc-mod-status ${done ? 'done' : def ? 'def' : ''}`}>
-                  {done ? <CheckCircle2 size={12} /> : def ? <Clock size={12} /> : <Circle size={12} />}
+                  {done ? <CheckCircle2 size={14} /> : def ? <Clock size={14} /> : <Circle size={14} />}
                 </span>
               </div>
             );

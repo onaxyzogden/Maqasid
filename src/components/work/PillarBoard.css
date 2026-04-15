@@ -484,7 +484,7 @@
   font-size: 0.78rem;
   font-weight: 500;
   cursor: pointer;
-  transition: color 150ms, border-color 150ms, background 150ms;
+  transition: color var(--duration-sm), border-color var(--duration-sm), background var(--duration-sm);
 }
 .pillar-resources__mode-btn:hover {
   color: var(--text2);
@@ -507,7 +507,7 @@
   border: 2px dashed var(--border2);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: border-color 150ms, background 150ms;
+  transition: border-color var(--duration-sm), background var(--duration-sm);
 }
 .pillar-resources__dropzone:hover {
   border-color: var(--primary);
