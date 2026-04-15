@@ -58,7 +58,9 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const [closing, setClosing] = useState(false);
   const [docOpen, setDocOpen] = useState(false);
   const [activeSubtask, setActiveSubtask] = useState(null); // subtask object or null
+  const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
   const [slideDir, setSlideDir] = useState(null); // 'forward' | 'back'
+  const subtaskBodyRef = useRef(null);
   const saveTimeout = useRef(null);
   const titleRef = useRef(null);
 
@@ -145,6 +147,25 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
     return () => window.removeEventListener('keydown', handler);
   }, []);
 
+  // Track scroll-to-bottom in subtask detail view
+  useEffect(() => {
+    if (!activeSubtask) return;
+    const el = subtaskBodyRef.current;
+    if (!el) return;
+    // If content doesn't scroll (fits in viewport), count as "scrolled"
+    if (el.scrollHeight <= el.clientHeight + 10) {
+      setHasScrolledToBottom(true);
+      return;
+    }
+    const onScroll = () => {
+      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 20) {
+        setHasScrolledToBottom(true);
+      }
+    };
+    el.addEventListener('scroll', onScroll);
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [activeSubtask]);
+
   if (!task) return null;
 
   // BBOS tasks get their own dedicated panel
@@ -190,7 +211,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
   const openDoc = () => { setSlideDir('forward'); setActiveSubtask(null); setDocOpen(true); };
   const closeDoc = () => { setSlideDir('back'); setDocOpen(false); };
-  const openSubtask = (st) => { setSlideDir('forward'); setDocOpen(false); setActiveSubtask(st); };
+  const openSubtask = (st) => { setSlideDir('forward'); setDocOpen(false); setActiveSubtask(st); setHasScrolledToBottom(false); };
   const closeSubtask = () => { setSlideDir('back'); setActiveSubtask(null); };
 
   // ── Derive status from column ──
@@ -436,7 +457,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   /* ── Subtask detail view (slide-in) ── */
   const subtaskDetailView = activeSubtask ? (
     <>
-      <div className="tdp-body">
+      <div className="tdp-body" ref={subtaskBodyRef}>
         <div className="tdp-subtask-detail">
           <div className="tdp-subtask-detail__header">
             <button
@@ -472,13 +493,11 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         </button>
         <button
           className="tdp-done-btn"
-          disabled={doneCount < totalCount}
+          disabled={!hasScrolledToBottom}
           onClick={() => {
-            const doneCol = columns.find((c) => c.name === 'Done');
-            if (doneCol) {
-              moveTask(projectId, taskId, doneCol.id, 0, columns);
-              handleClose.current();
-            }
+            // Mark this subtask as done
+            if (!activeSubtask.done) toggleSubtask(projectId, taskId, activeSubtask.id);
+            closeSubtask();
           }}
         >
           <Check size={16} />
