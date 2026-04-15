@@ -7,6 +7,36 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-15] documentation | Comprehensive System Report — Maqasid OS V2.1
+- Produced a full dual-audience system report covering 11 sections: Executive Summary, Foundational Core Principles (Maqasid Al-Shariah, Covenant Architecture, Amanah Gate, Ceremony Gate, Truth-Safe Design), System Architecture (React 19 + Zustand 5 + Router 7 + Vite 8, 13 stores, CONTEXT.md protocol, knowledge graph), Seven Maqasid Pillars (Faith through Ummah, readiness ayah system, three-tier bento dashboards), Functional Modules (Work/Money/People/Office/CRM/Tech/Islamic/Family Office), BBOS Integration (v2.4 Two-Factory model, 8-stage pipeline, 118 tasks, role access matrix, dynamic scoring, Islamic grounding per stage), Islamic UI Layer (CeremonyGate, ThresholdModal, ReadinessCheck, Prayer system, NiyyahAct, ResumeOverlay), Integration Strategies (Atlas, Ogden Hub, Aladhan/Nominatim APIs, LLM/AI, Claude OS/MWP, wiki, graphify), Intended Use Cases, Benefits to Stakeholders, and Known Limitations
+- Report saved to: `stages/maqasid-os-system-report-2026-04-11.md`
+- Sources used: wiki/entities/maqasid-os.md, wiki/entities/bbos-pipeline.md, wiki/concepts/ (all 4), all src CONTEXT.md files, src/data/bbos/* (4 files), src/data/maqasid.js, package.json
+
+## [2026-04-15] audit+implement | UI/UX Audit — Border/Shadow + Typography Scale Consolidation (Dimensions 4 & 5 continued)
+- Continuation of April 14 UI/UX audit; scoped to border+shadow redundancy and typography scale consolidation
+- **Phase 1 — New tokens defined in tokens.css:**
+  - Typography: added `--text-2xs` (0.7rem), `--text-sm-plus` (0.8rem) to fill gaps in 8-step UI scale
+  - Display scale: added `--text-2xl` through `--text-7xl` (1.75rem–3.75rem) for hero/page-level headings
+  - Shadows: added `--shadow-card`, `--shadow-card-hover`, `--shadow-accent`, `--shadow-glow-green`, `--shadow-glow-amber`, `--shadow-glow-red`, `--shadow-glow-cyan`
+  - Dark theme overrides added for all new shadow tokens
+- **Phase 2 — Shadow consolidation (37 hardcoded box-shadow + 7 hardcoded border colors):**
+  - Replaced dashboard card shadows (DashboardTaskCard, BbosFullDashboard, PillarLevelDashboard) → `--shadow-card` / `--shadow-card-hover`
+  - Replaced audit CTA button shadows across 7 pillar dashboards + QuranPage + HadithPage → `--shadow-xs` / `--shadow-lg`
+  - Replaced glow shadows in TechOverview + HealthPulse → `--shadow-glow-*` tokens
+  - Replaced accent shadows in ThresholdModal + ResumeOverlay → `--shadow-accent`
+  - Replaced panel shadows in TaskDetailPanel + BbosTaskPanel → `--shadow-lg`
+  - Replaced hardcoded border colors in BbosFullDashboard, PillarBoard, TechOverview, WealthDashboard → semantic tokens
+  - Office focus rings (Announcements, DocumentManager, Forum) → `--col-progress-bg`
+- **Phase 3 — Typography scale consolidation (580+ hardcoded font-size declarations):**
+  - Mapped all font-size values to nearest token: 0.5–0.65rem → `--text-xs`, 0.66–0.72rem → `--text-2xs`, 0.73–0.77rem → `--text-sm`, 0.78–0.84rem → `--text-sm-plus`, 0.85–0.93rem → `--text-base`, 0.94–1.06rem → `--text-md`, 1.07–1.19rem → `--text-lg`, 1.2–1.5rem → `--text-xl`, 1.6+ → display tokens
+  - Converted pixel font-sizes (9px–18px) to rem token equivalents
+  - Sub-0.65rem values raised to `--text-xs` (enforcing P1 floor from prior audit)
+  - Result: 0 hardcoded font-size values remain in CSS (excluding 2 clamp() responsive declarations)
+- **Before:** 5.8% token adoption (36/618 font-size declarations), 37 hardcoded shadows
+- **After:** 100% token adoption for font-size, 100% for box-shadow, 100% for border colors
+- Build verified clean; preview spot-checked on Money, Dashboard, Faith pillar — no regressions
+- Files modified: tokens.css + ~50 CSS files across src/components/ and src/pages/
+
 ## [2026-04-15] implement | Money Dashboard chart — expense-based segments + isEssential categories
 - **Balance Overview chart restructure:**
   - Bar height now based on `expenses` (was `income`); no surplus/income spacer

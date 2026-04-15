@@ -1,0 +1,73 @@
+/* ── Chart Tooltip (portal-rendered) ── */
+
+.chart-tooltip {
+  position: fixed;
+  z-index: 200;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-sm) var(--ease);
+  max-width: 220px;
+}
+.chart-tooltip--visible {
+  opacity: 1;
+}
+
+/* Content lines */
+.chart-tooltip__value {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--primary);
+  font-family: var(--font-heading);
+}
+.chart-tooltip__label {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  margin-top: 2px;
+}
+.chart-tooltip__detail {
+  font-size: var(--text-sm);
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+/* Down-pointing arrow for anchor="above" */
+.chart-tooltip__arrow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border2);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Up-pointing arrow when flipped below */
+.chart-tooltip--below .chart-tooltip__arrow {
+  bottom: auto;
+  top: -6px;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid var(--border2);
+  border-top: 1px solid var(--border2);
+}
+
+/* Crosshair vertical dashed line */
+.chart-tooltip__crosshair {
+  position: fixed;
+  width: 1px;
+  border-left: 1px dashed var(--primary-border);
+  pointer-events: none;
+  z-index: 199;
+  opacity: 0;
+  transition: opacity var(--duration-sm) var(--ease);
+}
+.chart-tooltip__crosshair--visible {
+  opacity: 1;
+}
