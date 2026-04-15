@@ -118,11 +118,6 @@
     min-width: 0;
     padding: 0 var(--space-4);
   }
-  /* Prevent children from creating scroll contexts that exceed app-main */
-  .app-main > * {
-    max-height: 100%;
-    box-sizing: border-box;
-  }
   .topbar {
     min-width: 0;
   }
