@@ -52,7 +52,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
 
   function handleSkipAll() {
     skipNiyyah();
-    onClose?.();
+    if (isOverride) onClose?.();
   }
 
   function handleBegin() {
@@ -61,15 +61,16 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
 
   function handleSetFocus() {
     completeNiyyah(selected);
-    onClose?.();
+    if (isOverride) onClose?.();
   }
 
   function handleSkipFocus() {
     completeNiyyah([]);
-    onClose?.();
+    if (isOverride) onClose?.();
   }
 
   const showStepDots = initialStep === 'dua';
+  const isOverride = initialStep === 'pillars';
 
   return (
     <div className="niyyah-overlay">

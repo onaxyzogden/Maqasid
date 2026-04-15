@@ -404,6 +404,29 @@ export default function Dashboard() {
       .slice(0, 5);
   }, [projects, tasksByProject, niyyahFocus]);
 
+  const focusSummary = useMemo(() => {
+    const now = new Date();
+    return (niyyahFocus || [])
+      .filter((id) => id !== '_skipped')
+      .map((id) => {
+        const pillar = MAQASID_PILLARS.find((p) => p.id === id);
+        if (!pillar) return null;
+        const pillarProjects = projects.filter(
+          (p) => !p.archived && (
+            p.id.startsWith(pillar.id + '_') ||
+            (p.moduleId && pillar.subModuleIds.includes(p.moduleId))
+          )
+        );
+        const pillarTasks = pillarProjects.flatMap((p) => tasksByProject[p.id] || []);
+        const openCount = pillarTasks.filter((t) => !t.completedAt).length;
+        const overdueCount = pillarTasks.filter(
+          (t) => t.dueDate && new Date(t.dueDate) < now && !t.completedAt
+        ).length;
+        return { pillar, openCount, overdueCount };
+      })
+      .filter(Boolean);
+  }, [niyyahFocus, projects, tasksByProject]);
+
   const renderNow = useRef(Date.now());
   function relativeTime(iso) {
     if (!iso) return '';
@@ -459,7 +482,7 @@ export default function Dashboard() {
       </div>
 
       {/* ── Today's Focus ── */}
-      <TodayFocusSection pillarSummary={pillarSummary} />
+      <TodayFocusSection pillarSummary={focusSummary} />
 
       {/* ── Empty state for new users ── */}
       {projects.length === 0 && allTasks.length === 0 && (

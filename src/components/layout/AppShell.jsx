@@ -34,6 +34,7 @@ export default function AppShell() {
   const activeModule = useAppStore((s) => s.activeModule);
   const niyyahOverrideOpen = useAppStore((s) => s.niyyahOverrideOpen);
   const closeNiyyahOverride = useAppStore((s) => s.closeNiyyahOverride);
+  const location = useLocation();
   const mobile = useMobile();
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
@@ -64,8 +65,7 @@ export default function AppShell() {
   // Clear niyyahOverrideOpen on route change to prevent modal re-trigger
   useEffect(() => {
     if (niyyahOverrideOpen) closeNiyyahOverride();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname]);
+  }, [location.pathname, niyyahOverrideOpen, closeNiyyahOverride]);
 
   // Preload all project tasks so cross-project search works
   useEffect(() => {
@@ -129,8 +129,6 @@ export default function AppShell() {
   // Daily Niyyah Act gate
   const today = new Date().toISOString().slice(0, 10);
   const niyyahNeeded = niyyahDate !== today;
-
-  const location = useLocation();
 
   const toggleSidebar = useAppStore((s) => s.toggleSidebar);
   const sidebarWidthPx = useAppStore((s) => s.sidebarWidthPx);
