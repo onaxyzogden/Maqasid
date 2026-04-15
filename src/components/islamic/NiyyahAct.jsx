@@ -38,7 +38,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
   const isIslamic = valuesLayer === 'islamic';
   const dua = getDua();
   const { citations, citationMap, citationsVisible } = useCitations(
-    isIslamic ? [dua.source] : []
+    isIslamic && initialStep === 'dua' ? [dua.source] : []
   );
 
   const [step, setStep] = useState(initialStep);
@@ -137,8 +137,12 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
                   >
                     <span className="niyyah-pillar-dot" style={{ background: p.accentColor }} />
                     <span>
-                      <span className="niyyah-pillar-label">{p.sidebarLabel}</span>
-                      <span className="niyyah-pillar-root">{p.arabicRootAr}</span>
+                      <span className="niyyah-pillar-label">
+                        {isIslamic ? p.sidebarLabel : p.universalLabel}
+                      </span>
+                      {isIslamic && (
+                        <span className="niyyah-pillar-root">{p.arabicRootAr}</span>
+                      )}
                     </span>
                   </button>
                 ))}
