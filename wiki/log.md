@@ -7,6 +7,16 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 1 Life — Islamic content for 4 Life sub-modules
+
+- **MODULE_ATTRS blocks** added for `life-physical` (Al-Muhyi/Ash-Shafi), `life-mental` (As-Salam/Al-Latif), `life-safety` (Al-Muhaymin/Al-Hafiz), `life-social` (Al-Wadud/Al-Muhsin). Asma ul-Husna pairings match `src/data/modules.js:240-282`.
+- Each block carries unique `dua` + `closingDua` + 5 readiness rows + 2 reflection rows. Sources: Abu Dawud 5090 / Quran 26:80 (physical), Quran 13:28 / Ta-Ha 20:25–27 (mental), Quran 12:64 / Abu Dawud 5088 (safety), Quran 28:77 / Fussilat 41:34 (social).
+- **PAUSE_QUESTIONS.life** + **PAUSE_UNIVERSAL.questions.life** added — all four `life-*` sub-modules inherit via Phase 0's pillar fallback.
+- Pillar-level `life` block (Al-Qawī/Al-Laṭīf) left untouched.
+- Verification: `npm run build` passes; `getModuleData` confirmed via preview eval — all 4 blocks load with distinct attrs/dua/closing sources; `getPauseQuestion('life-physical')` and `getPauseQuestionUniversal('life-mental')` both return the new pillar-level fallback correctly. Screenshot tool was unresponsive during this session — visual ceremony verification skipped, data-layer checks substituted.
+- Commit: `443e02c`
+- Progress: Phase 1 pillar order → Family ✓ · Faith ✓ · **Life ✓** · Intellect · Wealth · Environment · Ummah (Ummah carries valid content from Phase 0 people→ummah rename).
+
 ## [2026-04-16] feat | Phase 1 Faith — Islamic content for 9 Faith sub-modules
 
 - **MODULE_ATTRS blocks** added for the five pillars of Islam, the Sources module, and the three board tiers (`faith-shahada` Al-Ahad/As-Samad, `faith-salah` Al-Qarib/Al-Mujib, `faith-zakah` Ar-Razzaq/Al-Karim, `faith-sawm` As-Sabur/Ash-Shakur, `faith-hajj` Al-Malik/Al-Quddus, `sources` Al-Hadi/Al-Alim, `faith-core` Al-Muhyi/Al-Qayyum for Daruriyyat, `faith-growth` Ar-Rafi/Al-Fattah for Hajiyyat, `faith-excellence` Al-Muhsin/Al-Jamil for Tahsiniyyat)
