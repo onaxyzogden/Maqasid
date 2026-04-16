@@ -22,7 +22,14 @@ Root causes:
 Phased repair over three passes:
 
 - **Phase 0 (done 2026-04-16):** Code-path fixes only, no new content. Added pillar fallback to pause-question lookups. Renamed the duplicate `people` block at former line 1105 to `ummah`, reviving the dead module-level `people` block and filling the Ummah pillar gap as a free side effect. Deleted orphan `crm` blocks and unrouted `CRM.jsx`/`CRM.css`.
-- **Phase 1:** Author per-sub-module Islamic content pillar by pillar (Family → Faith → Life → Intellect → Wealth → Environment → Ummah). Each sub-module gets unique dua, attrs, readiness rows, closingDua, reflection rows.
+- **Phase 1 (in progress):** Author per-sub-module Islamic content pillar by pillar. Each sub-module gets unique dua, attrs, readiness rows, closingDua, reflection rows.
+  - Family ✓ (commit `fd8a0e8`, 5 sub-modules + pillar)
+  - Faith ✓ (commit `e72ebc5`, 9 sub-modules including tier-specific faith-core/growth/excellence)
+  - Life ✓ (commit `443e02c`, 4 sub-modules)
+  - Intellect ✓ (commit `6979374`, 4 sub-modules)
+  - Wealth ✓ (commit `887f944`, 4 Maqasid sub-modules; legacy work/money/people/office/tech retained from top-of-file blocks)
+  - Environment ✓ (commit `1372038`, 4 sub-modules)
+  - Ummah — open decision. Pillar-level block already present from Phase 0 people→ummah rename. Sub-modules (`collective`, `neighbors`, `community`, `moontrance-land`, `moontrance-seasonal`, `moontrance-residency`) currently fall through to pillar fallback. Need to decide whether to author per-sub-module content (especially for the 3 moontrance modules which have distinct framings) or stop at pillar fallback.
 - **Phase 2:** Mirror Phase 1 for the universal layer.
 
 ## Rationale
