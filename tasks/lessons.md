@@ -30,3 +30,11 @@
 ### 7. Verify "false positive" findings before coding
 **Findings:** #12, #35 — Both were flagged in the audit but were already resolved when investigated. #12 (PILLAR_CONTENT incomplete) was fully populated. #35 (migration timing) was already correct.
 **Lesson:** Before implementing a fix, read the current code to confirm the finding still applies. Audits capture a point-in-time snapshot; the codebase may have moved since. Mark verified-correct findings as such to avoid unnecessary changes.
+
+### 8. Separate display format from machine data in two-script pipelines
+**Finding:** Hadith enrichment pipeline (2026-04-16) initially truncated Arabic + translation text in the review markdown AND in the patched `sources` field — the write-back script parsed truncated snippets back out of the MD. Sacred content ended up with ellipses in seed files.
+**Lesson:** When a pipeline has a human-review stage and a machine write-back stage, emit a JSON sidecar with full content and keep the human-readable file for snippets/checkboxes only. Never round-trip data through a display-format parser; the display format is lossy by design.
+
+### 9. Scope regex-based file patches to the smallest unique context
+**Finding:** Write-back regex matched `title: '...', done: false,` across entire seed files — subtask titles repeat across `core` / `growth` / `excellence` levels, so the first match always won and other levels silently stayed unpatched.
+**Lesson:** When patching JS data files by regex, first slice the file to the target array (e.g., `faith_shahada_core: [ ... ]`) using brace/bracket counting, then run the title match inside that slice only. Also: post-run, fail loudly if `notFound > 0` — silent gaps are the worst failure mode for sacred or covenant content.

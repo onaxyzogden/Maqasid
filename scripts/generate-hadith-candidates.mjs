@@ -67,13 +67,32 @@ function extractHadiths(data, collectionName) {
   return hadiths.map((h) => ({ collection: collectionName, number: h.hadithnumber, text: h.text ?? '' }));
 }
 
+// Stop-words we always strip; short meaningful words like "pray", "alms",
+// "sins", "hajj", "fast", "zuhd" are preserved even at 3-4 chars.
+const STOP_WORDS = new Set([
+  'the', 'and', 'for', 'with', 'that', 'this', 'from', 'your', 'you',
+  'are', 'not', 'but', 'all', 'any', 'can', 'its', 'was', 'has', 'had',
+  'how', 'who', 'why', 'when', 'what', 'where', 'into', 'them', 'their',
+  'about', 'after', 'before', 'also', 'have', 'been', 'will', 'would',
+  'should', 'could', 'these', 'those', 'each', 'than', 'then', 'over',
+]);
+
+function tokenize(query) {
+  return query
+    .toLowerCase()
+    .replace(/[^a-z\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 3 && !STOP_WORDS.has(w));
+}
+
 function scoreHadith(hadith, queryWords) {
   const lower = hadith.text.toLowerCase();
-  return queryWords.filter((w) => w.length > 3 && lower.includes(w)).length;
+  return queryWords.filter((w) => lower.includes(w)).length;
 }
 
 function searchHadiths(allHadiths, query, topN = 3) {
-  const words = query.toLowerCase().split(/\s+/);
+  const words = tokenize(query);
+  if (words.length === 0) return [];
   return allHadiths
     .map((h) => ({ ...h, score: scoreHadith(h, words) }))
     .filter((h) => h.score > 0)
@@ -83,17 +102,25 @@ function searchHadiths(allHadiths, query, topN = 3) {
 
 async function searchQuran(query, size = 3) {
   const url = `https://api.quran.com/api/v4/search?q=${encodeURIComponent(query)}&size=${size}&language=en`;
-  try {
-    const data = await fetchJson(url);
-    return (data?.search?.results ?? []).map((v) => ({
-      key: v.verse_key,
-      arabic: v.text_uthmani ?? '',
-      translation: (v.translations?.[0]?.text ?? '').replace(/<[^>]+>/g, ''),
-    }));
-  } catch (err) {
-    console.warn(`  [quran] search failed for "${query}": ${err.message}`);
-    return [];
+  const attempts = 3;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const data = await fetchJson(url);
+      return (data?.search?.results ?? []).map((v) => ({
+        key: v.verse_key,
+        arabic: v.text_uthmani ?? '',
+        translation: (v.translations?.[0]?.text ?? '').replace(/<[^>]+>/g, ''),
+      }));
+    } catch (err) {
+      if (i === attempts - 1) {
+        console.warn(`  [quran] search failed for "${query}" after ${attempts} attempts: ${err.message}`);
+        return [];
+      }
+      const backoff = 500 * Math.pow(2, i);
+      await new Promise((r) => setTimeout(r, backoff));
+    }
   }
+  return [];
 }
 
 async function loadPillar(pillar) {
