@@ -2,14 +2,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Folder, Archive, MoreHorizontal, Trash2, Workflow } from 'lucide-react';
 import { useState } from 'react';
 import { useProjectStore } from '@store/project-store';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import PillarHeader from '@components/shared/PillarHeader';
 
 export default function Work() {
   const navigate = useNavigate();
   const projects = useProjectStore((s) => s.projects);
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['work']);
   const createProject = useProjectStore((s) => s.createProject);
   const deleteProject = useProjectStore((s) => s.deleteProject);
   const archiveProject = useProjectStore((s) => s.archiveProject);
@@ -18,10 +15,6 @@ export default function Work() {
   const [showNewDialog, setShowNewDialog] = useState(false);
   const [newProjectName, setNewProjectName] = useState('');
   const [newProjectType, setNewProjectType] = useState('standard');
-
-  if (!hasCompletedOpening) {
-    return <CeremonyGate moduleId="work" />;
-  }
 
   const active = projects.filter((p) => !p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule);
   const archived = projects.filter((p) => p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule);

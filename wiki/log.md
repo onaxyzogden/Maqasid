@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] refactor | CeremonyGuard Phase 2a — lift gating for 5 business-module pages
+
+- **App.jsx**: 5 standalone routes (`/app/work`, `/app/money`, `/app/people`, `/app/office`, `/app/tech`) wrapped in `<CeremonyGuard moduleId="...">`. Embedded child routes under `/work/:projectId/*` left unwrapped (option a) — parent `Project` route's own "work" in-body gate already covers them; matches pre-refactor behavior where the per-module in-body gate skipped when `embedded === true`.
+- **5 page files stripped**: `Work.jsx`, `Money.jsx`, `People.jsx`, `Office.jsx`, `Tech.jsx` — removed `useThresholdStore` + `CeremonyGate` imports, `hasCompletedOpening` subscription, and in-body gate return. `embedded` prop preserved — still governs `<PillarHeader>` rendering. No other hooks/state touched.
+- **Embedded-variant decision recorded**: option (a) — standalone-only gating. Zero behavioral change. Two alternatives considered and rejected: (b) gating both locations would require re-confirming a module-specific opening inside every project tab — unwanted friction; (c) retaining the in-body `!embedded` check would leave dead gate code and block import cleanup.
+- **Verification**: `npm run build` passes (2529 modules, 1.37s). Preview: cleared `bbiz_thr_open`, confirmed all 5 standalone routes show CeremonyGate ("This module begins with an opening threshold"). Set all 5 `completedOpening` flags → confirmed all 5 render their own content (Work project list, Money dashboard, People tabs, Office chat, Tech overview). Visited `/app/work/ummah_moontrance-land_core/money` → Money renders as embedded tab with no per-module gate (Project's "work" gate satisfies it). Screenshot saved.
+- **Docs**: decision doc updated — Phase 2a marked complete with embedded-variant decision; Phase 2b deferred clusters enumerated (ummah 4, sources 4, dynamic 2, route-id-mismatch 1).
+- **Remaining thick pages (~11)**: ummah cluster (`FamilyPage`, `Neighbors`, `Community`, `CollectivePage`), sources cluster (`FivePillars`, `HadithPage`, `IslamicKnowledgePage`, `QuranPage`), dynamic (`ModulePlaceholder`, `ComingSoon`), route-id-mismatch (`Project`). Each needs its own audit — deferred.
+
 ## [2026-04-16] refactor | CeremonyGuard Phase 1 — route-level gating for 28 thin pages
 
 - **New component** `src/components/islamic/CeremonyGuard.jsx` — thin wrapper that reads `useThresholdStore((s) => !!s.completedOpening[moduleId])` and renders either `<CeremonyGate moduleId />` or `children`. Intentionally prop-driven only (no `useParams`) — dynamic-moduleId cases deferred to Phase 2.

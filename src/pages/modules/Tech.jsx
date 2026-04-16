@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { LayoutDashboard, Plug, Globe, ShieldAlert, Mail } from 'lucide-react';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import TechOverview from '@components/tech/TechOverview';
 import IntegrationsTab from '@components/tech/IntegrationsTab';
 import WebsitesTab from '@components/tech/WebsitesTab';
@@ -19,12 +17,7 @@ const TABS = [
 ];
 
 export default function Tech({ embedded = false }) {
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['tech']);
   const [activeTab, setActiveTab] = useState('overview');
-
-  if (!embedded && !hasCompletedOpening) {
-    return <CeremonyGate moduleId="tech" />;
-  }
 
   return (
     <div className="tech-mod">

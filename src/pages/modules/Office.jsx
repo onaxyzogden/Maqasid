@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import TeamChat from '@components/office/TeamChat';
 import CalendarView from '@components/office/CalendarView';
 import Announcements from '@components/office/Announcements';
@@ -18,12 +16,7 @@ const TABS = [
 ];
 
 export default function Office({ embedded = false }) {
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['office']);
   const [activeTab, setActiveTab] = useState('chat');
-
-  if (!embedded && !hasCompletedOpening) {
-    return <CeremonyGate moduleId="office" />;
-  }
 
   return (
     <div className="office">

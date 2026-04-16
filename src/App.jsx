@@ -129,7 +129,7 @@ export default function App() {
         }
       >
         <Route index element={<Dashboard />} />
-        <Route path="work" element={<Work />} />
+        <Route path="work" element={<CeremonyGuard moduleId="work"><Work /></CeremonyGuard>} />
         <Route path="work/:projectId" element={<Project />}>
           <Route path="people" element={<People embedded />} />
           <Route path="tasks" element={<ProjectTasks />} />
@@ -139,10 +139,10 @@ export default function App() {
           <Route path="tech" element={<Tech embedded />} />
           <Route path="journal" element={<ProjectJournal />} />
         </Route>
-        <Route path="money" element={<Money />} />
-        <Route path="people" element={<People />} />
-        <Route path="office" element={<Office />} />
-        <Route path="tech" element={<Tech />} />
+        <Route path="money" element={<CeremonyGuard moduleId="money"><Money /></CeremonyGuard>} />
+        <Route path="people" element={<CeremonyGuard moduleId="people"><People /></CeremonyGuard>} />
+        <Route path="office" element={<CeremonyGuard moduleId="office"><Office /></CeremonyGuard>} />
+        <Route path="tech" element={<CeremonyGuard moduleId="tech"><Tech /></CeremonyGuard>} />
         <Route path="family" element={<FamilyPage />} />
         <Route path="neighbors" element={<Neighbors />} />
         <Route path="community" element={<Community />} />

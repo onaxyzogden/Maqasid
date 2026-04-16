@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { LayoutDashboard, Receipt, TrendingUp, FileText, Landmark, Store, Package, PiggyBank } from 'lucide-react';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import MoneyDashboard from '@components/money/MoneyDashboard';
 import ExpenseList from '@components/money/ExpenseList';
 import IncomeTab from '@components/money/IncomeTab';
@@ -26,12 +24,7 @@ const TABS = [
 ];
 
 export default function Money({ embedded = false }) {
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['money']);
   const [activeTab, setActiveTab] = useState('dashboard');
-
-  if (!embedded && !hasCompletedOpening) {
-    return <CeremonyGate moduleId="money" />;
-  }
 
   return (
     <div className="money">

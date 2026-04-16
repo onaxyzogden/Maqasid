@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Users, Briefcase, Kanban, UserPlus } from 'lucide-react';
-import { useThresholdStore } from '@store/threshold-store';
 import { useContactsStore } from '@store/contacts-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import ContactsPage from '@components/people/contacts/ContactsPage';
 import HRPage from '@components/people/hr/HRPage';
 import SalesPipelinePage from '@components/people/recruitment/SalesPipelinePage';
@@ -19,13 +17,8 @@ const SECTIONS = [
 ];
 
 export default function People({ embedded = false }) {
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['people']);
   const panelOpen = useContactsStore((s) => s.panelOpen);
   const [activeSection, setActiveSection] = useState('contacts');
-
-  if (!embedded && !hasCompletedOpening) {
-    return <CeremonyGate moduleId="people" />;
-  }
 
   return (
     <div className="people">
