@@ -1,17 +1,23 @@
-// Reads stages/hadith-enrichment-candidates.md, finds APPROVE blocks,
-// and patches the sources field into the matching subtask in the seed file.
+// Reads stages/hadith-enrichment-candidates.md for APPROVE blocks + checked items,
+// pulls the full Arabic/translation/hadith text from the JSON sidecar, and patches
+// the `sources` field into the matching subtask in the correct seed file.
+//
+// Patches are scoped to the specific `{pillar}_{submodule}_{level}` key's array
+// so a subtask title that repeats across levels cannot collide.
 //
 // Usage:
 //   node scripts/apply-hadith-sources.mjs
 //   node scripts/apply-hadith-sources.mjs --dry-run   # preview changes, no writes
 
 import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const CANDIDATES_FILE = resolve(ROOT, 'stages/hadith-enrichment-candidates.md');
+const CANDIDATES_MD = resolve(ROOT, 'stages/hadith-enrichment-candidates.md');
+const CANDIDATES_JSON = resolve(ROOT, 'stages/hadith-enrichment-candidates.json');
 
 const PILLARS = [
   { id: 'faith',       file: 'faith-seed-tasks.js' },
@@ -23,9 +29,10 @@ const PILLARS = [
   { id: 'ummah',       file: 'ummah-seed-tasks.js' },
 ];
 
+const LEVEL_TO_KEY = { Core: 'core', Growth: 'growth', Excellence: 'excellence' };
 const DRY_RUN = process.argv.includes('--dry-run');
 
-// ── Parse candidates file ─────────────────────────────────────────────────────
+// ── Parse MD for APPROVE blocks + checked item indices ─────────────────────────
 
 function parseBlocks(md) {
   const rawBlocks = md.split(/\n(?=## \[)/).filter((b) => b.trim().startsWith('## ['));
@@ -34,81 +41,117 @@ function parseBlocks(md) {
     if (!headerMatch) return null;
     const [, pillar, submodule, level, subtaskTitle] = headerMatch;
 
+    const idMatch = block.match(/<!-- id: (.+?) -->/);
+    const id = idMatch?.[1] ?? `${pillar} > ${submodule} > ${level} :: ${subtaskTitle.trim()}`;
+
     const statusMatch = block.match(/\*\*Status:\*\*\s*(\w+)/);
     const status = statusMatch?.[1] ?? 'PENDING';
 
     const hadithSection = block.match(/### Hadith Candidates.*?\n([\s\S]*?)(?=###|$)/)?.[1] ?? '';
-    const approvedHadiths = [...hadithSection.matchAll(/- \[x\] (.+)/g)].map((m) => m[1].trim());
+    const approvedHadithIdx = [...hadithSection.matchAll(/- \[x\] H(\d+):/g)].map((m) => Number(m[1]) - 1);
 
     const ayahSection = block.match(/### Ayah Candidates.*?\n([\s\S]*?)(?=---|$)/)?.[1] ?? '';
-    const approvedAyahs = [...ayahSection.matchAll(/- \[x\] (.+)/g)].map((m) => m[1].trim());
+    const approvedAyahIdx = [...ayahSection.matchAll(/- \[x\] A(\d+):/g)].map((m) => Number(m[1]) - 1);
 
-    return { pillar, submodule, level, subtaskTitle: subtaskTitle.trim(), status, approvedHadiths, approvedAyahs };
+    return {
+      id, pillar, submodule, level,
+      subtaskTitle: subtaskTitle.trim(),
+      status,
+      approvedHadithIdx,
+      approvedAyahIdx,
+    };
   }).filter(Boolean);
 }
 
-// ── Format sources string ─────────────────────────────────────────────────────
+// ── Format sources string from FULL JSON content ───────────────────────────────
 
-function formatSources(approvedHadiths, approvedAyahs) {
+function formatSources(hadiths, ayahs) {
   const parts = [];
 
-  if (approvedAyahs.length > 0) {
+  if (ayahs.length > 0) {
     parts.push('**I. Sources from the Quran**\n');
-    for (const ayah of approvedAyahs) {
-      const [key, ...rest] = ayah.split(' — ');
-      const arabic = rest[0]?.replace(/…"$/, '').replace(/^"/, '') ?? '';
-      const translation = rest[1]?.replace(/…"$/, '').replace(/^"/, '') ?? '';
-      parts.push(`### Surah (${key})\n**Arabic:** ${arabic}\n**Translation:** ${translation}`);
+    for (const a of ayahs) {
+      parts.push(`### Ayah (${a.key})\n**Arabic:** ${a.arabic}\n**Translation:** ${a.translation}`);
     }
   }
 
-  if (approvedHadiths.length > 0) {
-    const section = approvedAyahs.length > 0 ? 'II' : 'I';
+  if (hadiths.length > 0) {
+    const section = ayahs.length > 0 ? 'II' : 'I';
     parts.push(`**${section}. Sources from the Hadith**\n`);
-    for (const hadith of approvedHadiths) {
-      const match = hadith.match(/^(Sahih Bukhari|Sahih Muslim) (\d+) — "(.+)"/);
-      if (!match) { parts.push(`### Note\n${hadith}\n*(Grade: Sahih)*`); continue; }
-      const [, collection, number, snippet] = match;
-      parts.push(`### ${collection} ${number}\n${snippet}\n*(Grade: Sahih)*`);
+    for (const h of hadiths) {
+      const collection = h.collection === 'bukhari' ? 'Sahih Bukhari' : 'Sahih Muslim';
+      parts.push(`### ${collection} ${h.number}\n${h.text}\n*(Grade: Sahih)*`);
     }
   }
 
   return parts.join('\n\n');
 }
 
-// ── Patch seed file ───────────────────────────────────────────────────────────
+// ── Scoped seed-file patch ─────────────────────────────────────────────────────
 
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function patchSeedFile(fileContent, subtaskTitle, sourcesContent) {
+// Find the `<pillar>_<submodule>_<level>: [` block and return [start, end) bounds
+// of the array contents (between the opening `[` and matching `]`).
+function findKeyBounds(content, key) {
+  const escapedKey = escapeRegex(key);
+  const keyRe = new RegExp(`\\b${escapedKey}\\s*:\\s*\\[`, 'm');
+  const m = keyRe.exec(content);
+  if (!m) return null;
+
+  const start = m.index + m[0].length;
+  let depth = 1;
+  let i = start;
+  while (i < content.length && depth > 0) {
+    const ch = content[i];
+    if (ch === '[') depth++;
+    else if (ch === ']') depth--;
+    i++;
+  }
+  if (depth !== 0) return null;
+  return { start, end: i - 1 };
+}
+
+function patchSeedFile(fileContent, arrayKey, subtaskTitle, sourcesContent) {
+  const bounds = findKeyBounds(fileContent, arrayKey);
+  if (!bounds) return { status: 'key-not-found', content: fileContent };
+
+  const segment = fileContent.slice(bounds.start, bounds.end);
   const escapedTitle = escapeRegex(subtaskTitle);
-  const pattern = new RegExp(
+  const titleRe = new RegExp(
     `(title:\\s*['"\`]${escapedTitle}['"\`],\\s*done:\\s*false,)`,
     'm'
   );
-
-  if (!pattern.test(fileContent)) return null;
-
-  const alreadySourced = new RegExp(
-    `title:\\s*['"\`]${escapedTitle}['"\`],\\s*done:\\s*false,[\\s\\S]{0,30}sources:`,
+  const alreadySourcedRe = new RegExp(
+    `title:\\s*['"\`]${escapedTitle}['"\`],\\s*done:\\s*false,[\\s\\S]{0,40}sources:`,
     'm'
   );
-  if (alreadySourced.test(fileContent)) return fileContent;
+
+  if (!titleRe.test(segment)) return { status: 'title-not-found', content: fileContent };
+  if (alreadySourcedRe.test(segment)) return { status: 'already-sourced', content: fileContent };
 
   const backtickSources = sourcesContent.replace(/`/g, '\\`');
-  return fileContent.replace(pattern, `$1\n          sources: \`${backtickSources}\`,`);
+  const patchedSegment = segment.replace(titleRe, `$1\n          sources: \`${backtickSources}\`,`);
+
+  const newContent = fileContent.slice(0, bounds.start) + patchedSegment + fileContent.slice(bounds.end);
+  return { status: 'patched', content: newContent };
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
-
 async function main() {
-  const md = await readFile(CANDIDATES_FILE, 'utf8');
+  if (!existsSync(CANDIDATES_JSON)) {
+    console.error(`Missing JSON sidecar: ${CANDIDATES_JSON}`);
+    console.error('Run generate-hadith-candidates.mjs first.');
+    process.exit(1);
+  }
+
+  const md = await readFile(CANDIDATES_MD, 'utf8');
+  const sidecar = JSON.parse(await readFile(CANDIDATES_JSON, 'utf8'));
   const blocks = parseBlocks(md);
 
   const approvedBlocks = blocks.filter(
-    (b) => b.status === 'APPROVE' && (b.approvedHadiths.length > 0 || b.approvedAyahs.length > 0)
+    (b) => b.status === 'APPROVE' && (b.approvedHadithIdx.length > 0 || b.approvedAyahIdx.length > 0)
   );
 
   console.log(`Parsed ${blocks.length} blocks, ${approvedBlocks.length} approved with checked items.`);
@@ -119,7 +162,7 @@ async function main() {
     (byPillar[block.pillar] ??= []).push(block);
   }
 
-  let updated = 0, notFound = 0, alreadySourced = 0;
+  let updated = 0, titleNotFound = 0, keyNotFound = 0, alreadySourced = 0, sidecarMiss = 0;
 
   for (const [pillarId, pillarBlocks] of Object.entries(byPillar)) {
     const pillar = PILLARS.find((p) => p.id === pillarId);
@@ -130,18 +173,34 @@ async function main() {
     const original = content;
 
     for (const block of pillarBlocks) {
-      const sources = formatSources(block.approvedHadiths, block.approvedAyahs);
-      const patched = patchSeedFile(content, block.subtaskTitle, sources);
+      const entry = sidecar[block.id];
+      if (!entry) {
+        console.warn(`  SIDECAR MISS: ${block.id}`);
+        sidecarMiss++;
+        continue;
+      }
 
-      if (patched === null) {
-        console.warn(`  NOT FOUND: "${block.subtaskTitle}" in ${pillar.file}`);
-        notFound++;
-      } else if (patched === content) {
+      const hadiths = block.approvedHadithIdx.map((i) => entry.hadiths[i]).filter(Boolean);
+      const ayahs = block.approvedAyahIdx.map((i) => entry.ayahs[i]).filter(Boolean);
+
+      if (hadiths.length === 0 && ayahs.length === 0) continue;
+
+      const sources = formatSources(hadiths, ayahs);
+      const arrayKey = `${block.pillar}_${block.submodule}_${LEVEL_TO_KEY[block.level]}`;
+      const result = patchSeedFile(content, arrayKey, block.subtaskTitle, sources);
+
+      if (result.status === 'key-not-found') {
+        console.warn(`  KEY NOT FOUND: ${arrayKey} in ${pillar.file}`);
+        keyNotFound++;
+      } else if (result.status === 'title-not-found') {
+        console.warn(`  TITLE NOT FOUND: "${block.subtaskTitle}" in ${arrayKey}`);
+        titleNotFound++;
+      } else if (result.status === 'already-sourced') {
         console.log(`  SKIP (already sourced): "${block.subtaskTitle}"`);
         alreadySourced++;
       } else {
-        console.log(`  PATCH: "${block.subtaskTitle}"`);
-        content = patched;
+        console.log(`  PATCH: [${arrayKey}] "${block.subtaskTitle}"`);
+        content = result.content;
         updated++;
       }
     }
@@ -152,8 +211,15 @@ async function main() {
     }
   }
 
-  console.log(`\nDone. Updated: ${updated} | Already sourced: ${alreadySourced} | Not found: ${notFound}`);
-  if (notFound > 0) console.warn('Check NOT FOUND entries — titles may have changed since candidates file was generated.');
+  console.log(
+    `\nDone. Updated: ${updated} | Already sourced: ${alreadySourced} | Title not found: ${titleNotFound} | Key not found: ${keyNotFound} | Sidecar miss: ${sidecarMiss}`,
+  );
+
+  const failures = titleNotFound + keyNotFound + sidecarMiss;
+  if (failures > 0) {
+    console.error(`\nFAILURE: ${failures} approved block(s) could not be applied. Aborting with non-zero exit.`);
+    process.exit(1);
+  }
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
