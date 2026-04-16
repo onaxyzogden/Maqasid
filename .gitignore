@@ -38,3 +38,6 @@ notes/
 MOS_Remediation_Plan.md
 MOS_TA_1.txt
 
+# Hadith cache (fetched at authoring time, not committed)
+stages/.hadith-cache/
+

@@ -7,7 +7,17 @@
       "Bash(pip install:*)",
       "Bash(npm run:*)",
       "Bash(npx eslint:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "Bash(wc -l \"/c/Users/MY OWN AXIS/Documents/MAQASID OS - V2.1/src/data/seed-tasks\"/*.js)",
+      "Bash(node scripts/extract-subtask-matrix.mjs)",
+      "Bash(node scripts/generate-hadith-candidates.mjs*)",
+      "Bash(node scripts/apply-hadith-sources.mjs*)"
     ]
+  },
+  "mcpServers": {
+    "quran": {
+      "command": "npx",
+      "args": ["-y", "@quranmcp/server"]
+    }
   }
 }
