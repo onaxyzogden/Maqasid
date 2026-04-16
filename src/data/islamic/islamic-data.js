@@ -2428,6 +2428,466 @@ export const MODULE_ATTRS = {
     },
   },
 
+  'intellect-learning': {
+    attrs: [
+      {
+        name: 'Al-ʿAlīm',
+        name_ar: 'العليم',
+        title: 'The All-Knowing',
+        body: 'Al-ʿAlīm knows everything that was, is, and will be — and every act of learning is an approach toward a knowledge that is already complete in Him. To seek knowledge is not to manufacture it; it is to receive what He has permitted. Its absence shows in learning that accumulates as ego rather than settles as humility — treating what one knows as achievement rather than as amanah.',
+      },
+      {
+        name: 'Al-Khabīr',
+        name_ar: 'الخبير',
+        title: 'The All-Aware',
+        body: 'Al-Khabīr is aware of the depth beneath the surface — the cause behind the effect, the principle behind the instance. Learning under Al-Khabīr pushes past the shallow grasp toward the real structure of a thing. Its absence leaves the learner with confident vocabulary and no genuine understanding — the appearance of knowing without the substance of it.',
+      },
+    ],
+    dua: {
+      title: 'Before Learning',
+      resumeTitle: 'Before Returning to Study',
+      arabic: 'رَبِّ زِدْنِي عِلْمًا',
+      trans: "Rabbi zidnī ʿilmā",
+      meaning: 'My Lord, increase me in knowledge.',
+      source: 'Surah Ta-Ha 20:114',
+    },
+    closingDua: {
+      title: 'After Learning',
+      arabic: 'اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي وَعَلِّمْنِي مَا يَنْفَعُنِي وَزِدْنِي عِلْمًا',
+      trans: "Allāhumma-nfaʿnī bimā ʿallamtanī wa ʿallimnī mā yanfaʿunī wa zidnī ʿilmā",
+      meaning: 'O Allah, benefit me by that which You have taught me, teach me that which will benefit me, and increase me in knowledge.',
+      source: 'Sunan Ibn Majah 251',
+    },
+    readiness: {
+      frame: 'Al-ʿAlīm asks: am I seeking this knowledge to draw closer to Him, or to accumulate what makes me look knowledgeable?',
+      yesLabel: 'I am seeking knowledge as trust when',
+      notYetLabel: 'I am accumulating for status when',
+      rows: [
+        {
+          id: 'A1', attr: 'Al-ʿAlīm', attr_ar: 'العليم', attrTitle: 'The All-Knowing',
+          attrFrame: 'Am I learning for Him, or for the image of having learned?',
+          yesLabel: 'I am learning for Him when',
+          notYetLabel: 'I am learning for image when',
+          governing: 'I am entering this study with the intention to benefit from it and pass on the benefit — not to collect credentials to cite.',
+          notYet: 'I am consuming material primarily so that I can say I have consumed it, not so that it changes how I live.',
+        },
+        {
+          id: 'A2', attr: 'Al-ʿAlīm',
+          governing: 'I am humble about the vastness of what I do not know — this study sits inside an ocean whose floor I will never see.',
+          notYet: 'I am treating the small island I have mapped as if it were the whole territory, mistaking my edge for the edge.',
+        },
+        {
+          id: 'A3', attr: 'Al-ʿAlīm',
+          governing: 'I am accountable for what I learn — I will be asked about whether I acted on it and whether I shared it when I should have.',
+          notYet: 'I am treating knowledge as a private possession rather than a trust that carries a duty to apply and to transmit.',
+        },
+        {
+          id: 'K1', attr: 'Al-Khabīr', attr_ar: 'الخبير', attrTitle: 'The All-Aware',
+          attrFrame: 'Am I going after depth, or am I staying on the comfortable surface?',
+          yesLabel: 'I am going deep when',
+          notYetLabel: 'I am staying shallow when',
+          governing: 'I am reading to understand the underlying structure — the why beneath the what — not only to collect quotable surface points.',
+          notYet: 'I am skimming for takeaways I can perform without ever sitting with the ideas long enough to be changed by them.',
+        },
+        {
+          id: 'K2', attr: 'Al-Khabīr',
+          governing: 'I am willing to stay with difficulty long enough to actually resolve it, rather than moving on as soon as it stops feeling productive.',
+          notYet: 'I am bouncing to the next topic the moment the current one gets hard, mistaking novelty for learning.',
+        },
+      ],
+      governing: [
+        'I am entering this study with the intention to benefit from it and pass on the benefit — not to collect credentials to cite.',
+        'I am humble about the vastness of what I do not know — this study sits inside an ocean whose floor I will never see.',
+        'I am accountable for what I learn — I will be asked about whether I acted on it and whether I shared it when I should have.',
+        'I am reading to understand the underlying structure — the why beneath the what — not only to collect quotable surface points.',
+        'I am willing to stay with difficulty long enough to actually resolve it, rather than moving on as soon as it stops feeling productive.',
+      ],
+      notYet: [
+        'I am consuming material primarily so that I can say I have consumed it, not so that it changes how I live.',
+        'I am treating the small island I have mapped as if it were the whole territory, mistaking my edge for the edge.',
+        'I am treating knowledge as a private possession rather than a trust that carries a duty to apply and to transmit.',
+        'I am skimming for takeaways I can perform without ever sitting with the ideas long enough to be changed by them.',
+        'I am bouncing to the next topic the moment the current one gets hard, mistaking novelty for learning.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-ʿAlīm witnessed the intention behind what I learned. Al-Khabīr witnessed whether I reached the depth.',
+      yesLabel: 'Learning was sincere when',
+      notYetLabel: 'Learning was performative when',
+      rows: [
+        {
+          id: 'RA1', attr: 'Al-ʿAlīm', attr_ar: 'العليم', attrTitle: 'The All-Knowing',
+          attrFrame: 'Did I learn today for Him or for show?',
+          yesLabel: 'I learned for Him when',
+          notYetLabel: 'I learned for show when',
+          governing: 'Something I learned today will change how I act — it did not just enter my notes and stay there.',
+          notYet: 'I added to my store of facts today without adding anything to my practice.',
+        },
+        {
+          id: 'RK1', attr: 'Al-Khabīr', attr_ar: 'الخبير', attrTitle: 'The All-Aware',
+          attrFrame: 'Did I go deep enough to actually understand?',
+          yesLabel: 'I reached depth when',
+          notYetLabel: 'I stayed shallow when',
+          governing: 'I stayed with at least one difficult idea long enough that my understanding of it genuinely moved.',
+          notYet: 'I moved on from difficulty the moment it stopped being entertaining.',
+        },
+      ],
+      governing: [
+        'Something I learned today will change how I act — it did not just enter my notes and stay there.',
+        'I stayed with at least one difficult idea long enough that my understanding of it genuinely moved.',
+      ],
+      notYet: [
+        'I added to my store of facts today without adding anything to my practice.',
+        'I moved on from difficulty the moment it stopped being entertaining.',
+      ],
+    },
+  },
+
+  'intellect-thinking': {
+    attrs: [
+      {
+        name: 'Al-Ḥakīm',
+        name_ar: 'الحكيم',
+        title: 'The All-Wise',
+        body: 'Al-Ḥakīm places every matter in its right place. Wisdom is not raw intelligence — it is the discernment that knows what is fitting here, now, for this person. Thinking under Al-Ḥakīm refuses the clever answer that is out of proportion to the question. Its absence shows as sharp reasoning serving small or misdirected ends — intelligence without wisdom.',
+      },
+      {
+        name: 'Al-Baṣīr',
+        name_ar: 'البصير',
+        title: 'The All-Seeing',
+        body: 'Al-Baṣīr sees the reality behind the presentation — what is actually the case, not what was performed. To think under Al-Baṣīr is to refuse to settle for the surface story, to keep looking until what is real comes into view. Its absence is the willingness to accept the convenient narrative because examining it more closely would cost something.',
+      },
+    ],
+    dua: {
+      title: 'Before Thinking Through a Matter',
+      resumeTitle: 'Before Returning to the Question',
+      arabic: 'رَبِّ هَبْ لِي حُكْمًا وَأَلْحِقْنِي بِالصَّالِحِينَ',
+      trans: "Rabbi hab lī ḥukman wa alḥiqnī biṣ-ṣāliḥīn",
+      meaning: 'My Lord, grant me wisdom and join me with the righteous.',
+      source: 'Surah Ash-Shuʿara 26:83',
+    },
+    closingDua: {
+      title: 'After Reasoning Through a Matter',
+      arabic: 'اللَّهُمَّ أَرِنَا الْحَقَّ حَقًّا وَارْزُقْنَا اتِّبَاعَهُ وَأَرِنَا الْبَاطِلَ بَاطِلًا وَارْزُقْنَا اجْتِنَابَهُ',
+      trans: "Allāhumma arinā-l-ḥaqqa ḥaqqan wa-rzuqnā-ttibāʿah, wa arinā-l-bāṭila bāṭilan wa-rzuqnā-jtinābah",
+      meaning: 'O Allah, show us truth as truth and grant us to follow it, and show us falsehood as falsehood and grant us to avoid it.',
+      source: 'Traditional duʿāʾ',
+    },
+    readiness: {
+      frame: 'Al-Ḥakīm asks: am I thinking to reach the truth, or to win the argument?',
+      yesLabel: 'I am seeking truth when',
+      notYetLabel: 'I am seeking victory when',
+      rows: [
+        {
+          id: 'H1', attr: 'Al-Ḥakīm', attr_ar: 'الحكيم', attrTitle: 'The All-Wise',
+          attrFrame: 'Am I reasoning toward truth, or toward the conclusion I want?',
+          yesLabel: 'I am reasoning toward truth when',
+          notYetLabel: 'I am reasoning toward preference when',
+          governing: 'I am willing to arrive at a conclusion I did not want if the evidence honestly leads there.',
+          notYet: 'I have already chosen the conclusion and I am hunting for the reasons that will justify it.',
+        },
+        {
+          id: 'H2', attr: 'Al-Ḥakīm',
+          governing: 'I am matching my response to the actual size of this question — not over-engineering a small matter or under-thinking a serious one.',
+          notYet: 'I am deploying heavy analysis on what deserved a simple answer, or dispatching a serious question with a glib one.',
+        },
+        {
+          id: 'H3', attr: 'Al-Ḥakīm',
+          governing: 'I am giving this matter enough time for real judgement — not rushing so that I can feel decisive, not stalling so that I can feel careful.',
+          notYet: 'I am using speed or delay as a substitute for actually thinking the matter through.',
+        },
+        {
+          id: 'B1', attr: 'Al-Baṣīr', attr_ar: 'البصير', attrTitle: 'The All-Seeing',
+          attrFrame: 'Am I looking at what is actually there, or at what is easier to see?',
+          yesLabel: 'I am seeing what is there when',
+          notYetLabel: 'I am seeing what I prefer when',
+          governing: 'I am willing to let the evidence complicate the picture I came in with, rather than filtering for what fits.',
+          notYet: 'I am rejecting data that does not match my prior view and amplifying data that does.',
+        },
+        {
+          id: 'B2', attr: 'Al-Baṣīr',
+          governing: 'I am checking my own reasoning for the blind spots that come from where I stand — my incentive, my peer group, my past position.',
+          notYet: 'I am treating my own view as neutral while treating everyone else\'s as biased.',
+        },
+      ],
+      governing: [
+        'I am willing to arrive at a conclusion I did not want if the evidence honestly leads there.',
+        'I am matching my response to the actual size of this question — not over-engineering a small matter or under-thinking a serious one.',
+        'I am giving this matter enough time for real judgement — not rushing so that I can feel decisive, not stalling so that I can feel careful.',
+        'I am willing to let the evidence complicate the picture I came in with, rather than filtering for what fits.',
+        'I am checking my own reasoning for the blind spots that come from where I stand — my incentive, my peer group, my past position.',
+      ],
+      notYet: [
+        'I have already chosen the conclusion and I am hunting for the reasons that will justify it.',
+        'I am deploying heavy analysis on what deserved a simple answer, or dispatching a serious question with a glib one.',
+        'I am using speed or delay as a substitute for actually thinking the matter through.',
+        'I am rejecting data that does not match my prior view and amplifying data that does.',
+        'I am treating my own view as neutral while treating everyone else\'s as biased.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Ḥakīm witnessed the proportion of my thinking. Al-Baṣīr witnessed what I let myself see.',
+      yesLabel: 'My thinking was honest when',
+      notYetLabel: 'My thinking was motivated when',
+      rows: [
+        {
+          id: 'RH1', attr: 'Al-Ḥakīm', attr_ar: 'الحكيم', attrTitle: 'The All-Wise',
+          attrFrame: 'Did wisdom govern my reasoning today?',
+          yesLabel: 'Wisdom governed when',
+          notYetLabel: 'Cleverness governed when',
+          governing: 'I reached a conclusion today that was fitted to the situation, not imported from somewhere else.',
+          notYet: 'I applied a sharp argument to a matter that needed a softer, slower discernment.',
+        },
+        {
+          id: 'RB1', attr: 'Al-Baṣīr', attr_ar: 'البصير', attrTitle: 'The All-Seeing',
+          attrFrame: 'Did I see what was actually there today?',
+          yesLabel: 'I saw what was there when',
+          notYetLabel: 'I saw what I wanted when',
+          governing: 'I let a piece of evidence today change my view, even slightly, rather than explaining it away.',
+          notYet: 'I explained away a piece of evidence today because sitting with it would have cost me a position.',
+        },
+      ],
+      governing: [
+        'I reached a conclusion today that was fitted to the situation, not imported from somewhere else.',
+        'I let a piece of evidence today change my view, even slightly, rather than explaining it away.',
+      ],
+      notYet: [
+        'I applied a sharp argument to a matter that needed a softer, slower discernment.',
+        'I explained away a piece of evidence today because sitting with it would have cost me a position.',
+      ],
+    },
+  },
+
+  'intellect-cognitive': {
+    attrs: [
+      {
+        name: 'Al-Muhaymin',
+        name_ar: 'المهيمن',
+        title: 'The Guardian Overseer',
+        body: 'Al-Muhaymin watches over all things. Under Al-Muhaymin, the mind is understood as something to be guarded — its attention is a resource He gave you, and what you let in through it becomes what you become. Its absence shows in a mind that accepts whatever is placed in front of it, outsourcing its formation to the nearest feed.',
+      },
+      {
+        name: 'Al-Ḥafīẓ',
+        name_ar: 'الحفيظ',
+        title: 'The Preserver',
+        body: 'Al-Ḥafīẓ preserves what is entrusted. The attention is among the most valuable amanāt — it is what you trade for everything else in your life. Preserving it is not a productivity technique; it is stewardship of a finite, sacred capacity. Its absence shows as a shattered attention that still believes it is functioning normally.',
+      },
+    ],
+    dua: {
+      title: 'Before Entering Deep Focus',
+      resumeTitle: 'Before Returning to Focus',
+      arabic: 'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي',
+      trans: "Rabbi-shraḥ lī ṣadrī wa yassir lī amrī",
+      meaning: 'My Lord, expand for me my chest, and ease for me my task.',
+      source: 'Surah Ta-Ha 20:25\u201326',
+    },
+    closingDua: {
+      title: 'After Focused Work',
+      arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ وَمِنْ قَلْبٍ لَا يَخْشَعُ',
+      trans: "Allāhumma innī aʿūdhu bika min ʿilmin lā yanfaʿu wa min qalbin lā yakhshaʿ",
+      meaning: 'O Allah, I seek refuge in You from knowledge that does not benefit and from a heart that does not feel humility.',
+      source: 'Sahih Muslim 2722',
+    },
+    readiness: {
+      frame: 'Al-Muhaymin asks: am I guarding this attention as a trust, or letting it be pulled in every direction?',
+      yesLabel: 'I am guarding my attention when',
+      notYetLabel: 'I am leaking my attention when',
+      rows: [
+        {
+          id: 'MH1', attr: 'Al-Muhaymin', attr_ar: 'المهيمن', attrTitle: 'The Guardian Overseer',
+          attrFrame: 'Am I watching what I let into my mind, or ingesting whatever is in front of me?',
+          yesLabel: 'I am watching the gate when',
+          notYetLabel: 'I am leaving the gate open when',
+          governing: 'I am being deliberate about what I allow through the gate of my attention — not letting whatever is loudest enter first.',
+          notYet: 'I am letting my mind be shaped by whichever feed, notification, or outrage reaches me first each morning.',
+        },
+        {
+          id: 'MH2', attr: 'Al-Muhaymin',
+          governing: 'I am refusing input that I know poisons my state — not out of fragility, but because I am responsible for what I feed the heart.',
+          notYet: 'I am letting something into my head right now that I know reliably leaves me worse, and calling the consumption "staying informed."',
+        },
+        {
+          id: 'MH3', attr: 'Al-Muhaymin',
+          governing: 'I am single-tasking on what actually matters rather than splitting attention across many open loops.',
+          notYet: 'I am running six tabs of partial attention and telling myself I am being efficient.',
+        },
+        {
+          id: 'HF1', attr: 'Al-Ḥafīẓ', attr_ar: 'الحفيظ', attrTitle: 'The Preserver',
+          attrFrame: 'Am I preserving my focus or spending it on things I do not mean to value?',
+          yesLabel: 'I am preserving focus when',
+          notYetLabel: 'I am spending focus carelessly when',
+          governing: 'I am protecting a block of time for the work that actually matters, and defending it against the easy interruptions.',
+          notYet: 'I am letting interruptions dictate my day and calling the reactivity "being responsive."',
+        },
+        {
+          id: 'HF2', attr: 'Al-Ḥafīẓ',
+          governing: 'I am ending this session with my cognitive capacity still intact — not burning through it so recklessly that tomorrow pays the price.',
+          notYet: 'I am pushing past depletion in a way I know will leave tomorrow\'s thinking worse than today\'s was.',
+        },
+      ],
+      governing: [
+        'I am being deliberate about what I allow through the gate of my attention — not letting whatever is loudest enter first.',
+        'I am refusing input that I know poisons my state — not out of fragility, but because I am responsible for what I feed the heart.',
+        'I am single-tasking on what actually matters rather than splitting attention across many open loops.',
+        'I am protecting a block of time for the work that actually matters, and defending it against the easy interruptions.',
+        'I am ending this session with my cognitive capacity still intact — not burning through it so recklessly that tomorrow pays the price.',
+      ],
+      notYet: [
+        'I am letting my mind be shaped by whichever feed, notification, or outrage reaches me first each morning.',
+        'I am letting something into my head right now that I know reliably leaves me worse, and calling the consumption "staying informed."',
+        'I am running six tabs of partial attention and telling myself I am being efficient.',
+        'I am letting interruptions dictate my day and calling the reactivity "being responsive."',
+        'I am pushing past depletion in a way I know will leave tomorrow\'s thinking worse than today\'s was.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Muhaymin watched what I let in. Al-Ḥafīẓ watched how I spent the attention.',
+      yesLabel: 'Attention was stewarded when',
+      notYetLabel: 'Attention was squandered when',
+      rows: [
+        {
+          id: 'RMH1', attr: 'Al-Muhaymin', attr_ar: 'المهيمن', attrTitle: 'The Guardian Overseer',
+          attrFrame: 'Did I watch the gate of my mind today?',
+          yesLabel: 'The gate was watched when',
+          notYetLabel: 'The gate was open when',
+          governing: 'I refused at least one input today that I knew would diminish my state.',
+          notYet: 'I consumed something today that I knew I would regret consuming, and I consumed it anyway.',
+        },
+        {
+          id: 'RHF1', attr: 'Al-Ḥafīẓ', attr_ar: 'الحفيظ', attrTitle: 'The Preserver',
+          attrFrame: 'Did I preserve my focus for what deserved it?',
+          yesLabel: 'Focus reached what deserved it when',
+          notYetLabel: 'Focus was spent carelessly when',
+          governing: 'I spent a real, uninterrupted block of my best attention today on something that actually mattered.',
+          notYet: 'I handed the best hours of my attention today to things that did not deserve them.',
+        },
+      ],
+      governing: [
+        'I refused at least one input today that I knew would diminish my state.',
+        'I spent a real, uninterrupted block of my best attention today on something that actually mattered.',
+      ],
+      notYet: [
+        'I consumed something today that I knew I would regret consuming, and I consumed it anyway.',
+        'I handed the best hours of my attention today to things that did not deserve them.',
+      ],
+    },
+  },
+
+  'intellect-professional': {
+    attrs: [
+      {
+        name: 'Al-Muṣawwir',
+        name_ar: 'المصور',
+        title: 'The Fashioner',
+        body: 'Al-Muṣawwir gives every creation its distinct form. In craft, this Name honors the fact that skill is not merely competence — it is the shaping of something into its proper form, the form it was meant to take. Its absence leaves work that functions without beauty, output that is acceptable without being right.',
+      },
+      {
+        name: 'Al-Bāriʾ',
+        name_ar: 'البارئ',
+        title: 'The Originator',
+        body: 'Al-Bāriʾ brings things into being with precision and without imitation. Mastery of a craft under Al-Bāriʾ is not about producing a copy of someone else\'s excellence — it is about bringing into being the specific contribution only you, with your training and your niyyah, can bring. Its absence is competent imitation mistaken for mastery.',
+      },
+    ],
+    dua: {
+      title: 'Before Practicing the Craft',
+      resumeTitle: 'Before Returning to the Craft',
+      arabic: 'رَبِّ يَسِّرْ وَلَا تُعَسِّرْ، رَبِّ تَمِّمْ بِالْخَيْرِ',
+      trans: "Rabbi yassir wa lā tuʿassir, Rabbi tammim bi-l-khayr",
+      meaning: 'My Lord, make it easy and do not make it difficult; my Lord, complete it with good.',
+      source: 'Traditional duʿāʾ',
+    },
+    closingDua: {
+      title: 'After Practicing the Craft',
+      arabic: 'إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ',
+      trans: "Innallāha yuḥibbu idhā ʿamila aḥadukum ʿamalan an yutqinah",
+      meaning: 'Indeed, Allah loves that when one of you does a work, he does it with itqān (excellence/precision).',
+      source: 'Al-Muʿjam al-Awsaṭ 897',
+    },
+    readiness: {
+      frame: 'Al-Muṣawwir asks: am I shaping this work toward its proper form, or toward whatever is easiest to ship?',
+      yesLabel: 'I am shaping toward itqān when',
+      notYetLabel: 'I am shipping toward ease when',
+      rows: [
+        {
+          id: 'MS1', attr: 'Al-Muṣawwir', attr_ar: 'المصور', attrTitle: 'The Fashioner',
+          attrFrame: 'Am I working toward the form this deserves, or the form that ships fastest?',
+          yesLabel: 'I am working toward form when',
+          notYetLabel: 'I am working toward speed when',
+          governing: 'I am bringing this work toward the shape it is actually supposed to have — not stopping the moment it becomes merely acceptable.',
+          notYet: 'I am calling something "good enough" that I know is not yet right, because finishing it properly would cost time I do not want to spend.',
+        },
+        {
+          id: 'MS2', attr: 'Al-Muṣawwir',
+          governing: 'I am bringing itqān to the parts no one will see as carefully as to the parts everyone will — because He sees both.',
+          notYet: 'I am polishing the visible surface while letting the hidden structure be sloppy, because no one is watching that part.',
+        },
+        {
+          id: 'MS3', attr: 'Al-Muṣawwir',
+          governing: 'I am being honest about where the work is not yet ready — not defending a premature output as finished.',
+          notYet: 'I am defending the current state of this work against a real critique because admitting it would mean more labor.',
+        },
+        {
+          id: 'BR1', attr: 'Al-Bāriʾ', attr_ar: 'البارئ', attrTitle: 'The Originator',
+          attrFrame: 'Am I bringing my actual contribution, or a competent imitation of someone else\'s?',
+          yesLabel: 'I am bringing my contribution when',
+          notYetLabel: 'I am imitating when',
+          governing: 'I am contributing what I can actually see clearly — my angle, my care, my specific knowledge — not just copying the default approach.',
+          notYet: 'I am reproducing what the industry template says to do without asking whether it is the right thing for this specific case.',
+        },
+        {
+          id: 'BR2', attr: 'Al-Bāriʾ',
+          governing: 'I am serving the end user\'s real need — the person who will actually use this — not serving my own need to have finished.',
+          notYet: 'I am optimizing for my own convenience in how I deliver this, and telling myself the user will not notice the difference.',
+        },
+      ],
+      governing: [
+        'I am bringing this work toward the shape it is actually supposed to have — not stopping the moment it becomes merely acceptable.',
+        'I am bringing itqān to the parts no one will see as carefully as to the parts everyone will — because He sees both.',
+        'I am being honest about where the work is not yet ready — not defending a premature output as finished.',
+        'I am contributing what I can actually see clearly — my angle, my care, my specific knowledge — not just copying the default approach.',
+        'I am serving the end user\'s real need — the person who will actually use this — not serving my own need to have finished.',
+      ],
+      notYet: [
+        'I am calling something "good enough" that I know is not yet right, because finishing it properly would cost time I do not want to spend.',
+        'I am polishing the visible surface while letting the hidden structure be sloppy, because no one is watching that part.',
+        'I am defending the current state of this work against a real critique because admitting it would mean more labor.',
+        'I am reproducing what the industry template says to do without asking whether it is the right thing for this specific case.',
+        'I am optimizing for my own convenience in how I deliver this, and telling myself the user will not notice the difference.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Muṣawwir witnessed the form the work took. Al-Bāriʾ witnessed whose contribution I actually brought.',
+      yesLabel: 'Craft was honored when',
+      notYetLabel: 'Craft was shortcut when',
+      rows: [
+        {
+          id: 'RMS1', attr: 'Al-Muṣawwir', attr_ar: 'المصور', attrTitle: 'The Fashioner',
+          attrFrame: 'Did the work today reach toward its proper form?',
+          yesLabel: 'I reached toward form when',
+          notYetLabel: 'I stopped short of form when',
+          governing: 'I took the work today beyond "acceptable" toward what was actually right in at least one respect.',
+          notYet: 'I shipped something today I knew was not right and told myself I would fix it later.',
+        },
+        {
+          id: 'RBR1', attr: 'Al-Bāriʾ', attr_ar: 'البارئ', attrTitle: 'The Originator',
+          attrFrame: 'Did I bring my real contribution?',
+          yesLabel: 'I brought my contribution when',
+          notYetLabel: 'I defaulted to imitation when',
+          governing: 'I added something today that only I, given my specific view and care, could have added to this work.',
+          notYet: 'I handed in a default version of work that deserved my actual thought.',
+        },
+      ],
+      governing: [
+        'I took the work today beyond "acceptable" toward what was actually right in at least one respect.',
+        'I added something today that only I, given my specific view and care, could have added to this work.',
+      ],
+      notYet: [
+        'I shipped something today I knew was not right and told myself I would fix it later.',
+        'I handed in a default version of work that deserved my actual thought.',
+      ],
+    },
+  },
+
   family: {
     attrs: [
       {
@@ -3711,6 +4171,7 @@ export const PAUSE_QUESTIONS = {
   faith: 'Which part of your practice are you performing without presence right now \u2014 and would naming the absence be more honest than continuing the form?',
   family: 'Which family member have you been emotionally absent from \u2014 and is the distance preserving peace, or deferring a conversation they need you to have?',
   life: 'Which signal from your body, heart, or household have you been overriding \u2014 and is continuing to push past it stewardship, or extraction?',
+  intellect: 'Which idea have you stopped examining because examining it would cost you a position \u2014 and is the closure protecting truth, or protecting your comfort?',
   office: 'What are you about to say that you have not yet fully listened to \u2014 and what would change if you heard it first?',
   tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
 };
@@ -3726,6 +4187,7 @@ export const PAUSE_UNIVERSAL = {
     faith: 'Which part of your practice are you going through without presence right now \u2014 and would naming the absence be more honest than continuing the form?',
     family: 'Which family member have you been emotionally absent from \u2014 and is the distance keeping peace, or avoiding a conversation they need you to have?',
     life: 'Which signal from your body, mind, or relationships have you been overriding \u2014 and is continuing to push past it sustainable, or depleting?',
+    intellect: 'Which idea have you stopped examining because examining it would cost you a position \u2014 and is the closure protecting truth, or protecting your comfort?',
     office: 'What are you about to say that you have not yet fully listened to?',
     tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
   },
