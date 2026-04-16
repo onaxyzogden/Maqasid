@@ -8,6 +8,7 @@
 // Usage:
 //   node scripts/apply-hadith-sources.mjs
 //   node scripts/apply-hadith-sources.mjs --dry-run   # preview changes, no writes
+//   node scripts/apply-hadith-sources.mjs --candidates stages/hadith-enrichment-candidates.reranked.md --sidecar stages/hadith-enrichment-candidates.reranked.json
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -16,8 +17,14 @@ import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const CANDIDATES_MD = resolve(ROOT, 'stages/hadith-enrichment-candidates.md');
-const CANDIDATES_JSON = resolve(ROOT, 'stages/hadith-enrichment-candidates.json');
+
+// Allow --candidates and --sidecar flags to override defaults
+function getArg(flag) {
+  const idx = process.argv.indexOf(flag);
+  return idx !== -1 ? process.argv[idx + 1] : null;
+}
+const CANDIDATES_MD   = resolve(ROOT, getArg('--candidates') ?? 'stages/hadith-enrichment-candidates.md');
+const CANDIDATES_JSON = resolve(ROOT, getArg('--sidecar')    ?? 'stages/hadith-enrichment-candidates.json');
 
 const PILLARS = [
   { id: 'faith',       file: 'faith-seed-tasks.js' },
@@ -93,8 +100,33 @@ function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Build a regex fragment for a title that matches the seed-file's raw source text.
+// Handles two cases where extracted titles diverge from raw file content:
+//   1. ASCII apostrophe `'` → seed file may store as `\'` (escaped in single-quoted string)
+//   2. Non-ASCII char (e.g., em dash `—`) → seed file may store as `\uXXXX` literal escape
+function titleToRegexFragment(title) {
+  let result = '';
+  for (const ch of title) {
+    const code = ch.charCodeAt(0);
+    if (ch === "'") {
+      // Straight apostrophe: match either ' or \' (JS escape inside single-quoted string)
+      result += "(?:'|\\\\')";
+    } else if (code > 127) {
+      // Non-ASCII: match either the real character or its \uXXXX source-code form
+      const hex = code.toString(16).padStart(4, '0');
+      result += `(?:${escapeRegex(ch)}|\\\\u${hex})`;
+    } else {
+      result += escapeRegex(ch);
+    }
+  }
+  return result;
+}
+
 // Find the `<pillar>_<submodule>_<level>: [` block and return [start, end) bounds
 // of the array contents (between the opening `[` and matching `]`).
+// String-aware: skips over single-quote, double-quote, and backtick literals
+// so that `[` / `]` inside string values (e.g., hadith translator interpolations)
+// do not corrupt the bracket depth counter.
 function findKeyBounds(content, key) {
   const escapedKey = escapeRegex(key);
   const keyRe = new RegExp(`\\b${escapedKey}\\s*:\\s*\\[`, 'm');
@@ -106,6 +138,29 @@ function findKeyBounds(content, key) {
   let i = start;
   while (i < content.length && depth > 0) {
     const ch = content[i];
+
+    // Skip string literals to avoid counting brackets inside them
+    if (ch === '`') {
+      // Template literal — scan to closing backtick, respecting \` escapes
+      i++;
+      while (i < content.length) {
+        if (content[i] === '\\') { i += 2; continue; }  // skip escape
+        if (content[i] === '`') { i++; break; }
+        i++;
+      }
+      continue;
+    }
+    if (ch === '"' || ch === "'") {
+      const q = ch;
+      i++;
+      while (i < content.length) {
+        if (content[i] === '\\') { i += 2; continue; }
+        if (content[i] === q) { i++; break; }
+        i++;
+      }
+      continue;
+    }
+
     if (ch === '[') depth++;
     else if (ch === ']') depth--;
     i++;
@@ -119,13 +174,15 @@ function patchSeedFile(fileContent, arrayKey, subtaskTitle, sourcesContent) {
   if (!bounds) return { status: 'key-not-found', content: fileContent };
 
   const segment = fileContent.slice(bounds.start, bounds.end);
-  const escapedTitle = escapeRegex(subtaskTitle);
+  // Use titleToRegexFragment so non-ASCII chars (em dash, smart quotes) match
+  // whether the seed file stores them as actual Unicode or as \uXXXX escapes.
+  const titleFrag = titleToRegexFragment(subtaskTitle);
   const titleRe = new RegExp(
-    `(title:\\s*['"\`]${escapedTitle}['"\`],\\s*done:\\s*false,)`,
+    `(title:\\s*['"\`]${titleFrag}['"\`],\\s*done:\\s*false,)`,
     'm'
   );
   const alreadySourcedRe = new RegExp(
-    `title:\\s*['"\`]${escapedTitle}['"\`],\\s*done:\\s*false,[\\s\\S]{0,40}sources:`,
+    `title:\\s*['"\`]${titleFrag}['"\`],\\s*done:\\s*false,[\\s\\S]{0,40}sources:`,
     'm'
   );
 
@@ -215,9 +272,15 @@ async function main() {
     `\nDone. Updated: ${updated} | Already sourced: ${alreadySourced} | Title not found: ${titleNotFound} | Key not found: ${keyNotFound} | Sidecar miss: ${sidecarMiss}`,
   );
 
-  const failures = titleNotFound + keyNotFound + sidecarMiss;
-  if (failures > 0) {
-    console.error(`\nFAILURE: ${failures} approved block(s) could not be applied. Aborting with non-zero exit.`);
+  // key-not-found for planned-but-not-yet-seeded submodules (e.g., moontrance-*)
+  // are expected and should not abort the run. Only title-not-found and sidecar-miss
+  // indicate a real mismatch in existing content.
+  const hardFailures = titleNotFound + sidecarMiss;
+  if (keyNotFound > 0) {
+    console.warn(`\nWARN: ${keyNotFound} block(s) skipped — array key not found in seed file (future/unimplemented submodule?).`);
+  }
+  if (hardFailures > 0) {
+    console.error(`\nFAILURE: ${hardFailures} approved block(s) could not be applied (title mismatch or sidecar miss). Aborting with non-zero exit.`);
     process.exit(1);
   }
 }
