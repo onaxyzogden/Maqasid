@@ -1,6 +1,8 @@
 // Islamic Governance Data — Module-centric adaptation of bbos-v4's stage-centric model
 // Each module maps to 2 governing divine attributes, a dua, readiness check, and reflection
 
+import { getPillarForModule } from '../maqasid';
+
 export const MODULE_ATTRS = {
   work: {
     attrs: [
@@ -530,107 +532,6 @@ export const MODULE_ATTRS = {
     },
   },
 
-  crm: {
-    attrs: [
-      {
-        name: 'Ar-Rahman',
-        name_ar: '\u0627\u0644\u0631\u062D\u0645\u0646',
-        title: 'The Most Merciful',
-        body: 'Ar-Rahman extends mercy to all creation without exception. In customer relationships, this means approaching every interaction \u2014 including difficult conversations and lost deals \u2014 with genuine care for the other person\u2019s wellbeing, not just their wallet.',
-      },
-      {
-        name: 'Al-Karim',
-        name_ar: '\u0627\u0644\u0643\u0631\u064A\u0645',
-        title: 'The Generous',
-        body: 'Al-Karim gives without being asked and without expecting return. In business, this means leading with value \u2014 giving before asking, serving before selling, and building relationships on genuine generosity rather than transactional exchange.',
-      },
-    ],
-    dua: {
-      title: 'Before Engaging Clients',
-      resumeTitle: 'Before Resuming Client Work',
-      arabic: 'يُؤْتِي الْحِكْمَةَ مَن يَشَاءُ ۚ وَمَن يُؤْتَ الْحِكْمَةَ فَقَدْ أُوتِيَ خَيْرًا كَثِيرًا ۗ وَمَا يَذَّكَّرُ إِلَّا أُولُو الْأَلْبَابِ',
-      trans: "Yuʾtī al-ḥikmata man yashāʾ, wa man yuʾta al-ḥikmata fa-qad ūtiya khayran kathīrā, wa mā yadhdhakkaru illā ulū al-albāb",
-      meaning: 'He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good. And none will remember except those of understanding.',
-      source: 'Surah Al-Baqarah 2:269',
-    },
-    closingDua: {
-      title: 'After Client Engagement',
-      arabic: 'وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا',
-      trans: "Wa jaʿalnākum shuʿūban wa qabāʾila li-taʿārafū",
-      meaning: 'And We made you into nations and tribes that you may know one another.',
-      source: 'Surah Al-Hujurat 49:13',
-    },
-    readiness: {
-      frame: 'Ar-Rahman asks: am I approaching this relationship with genuine care, or with a transaction in mind?',
-      yesLabel: 'I am approaching with genuine care when',
-      notYetLabel: 'The transaction is driving me when',
-      rows: [
-        {
-          id: 'R1', attr: 'Ar-Rahman', attr_ar: '\u0627\u0644\u0631\u062D\u0645\u0646', attrTitle: 'The Most Merciful',
-          attrFrame: 'Am I approaching this relationship with genuine care, or with a transaction in mind?',
-          yesLabel: 'I am approaching with genuine care when',
-          notYetLabel: 'The transaction is driving me when',
-          governing: 'I am prepared to listen to what the client actually needs, not what I want to sell.',
-          notYet: 'I am treating a person as a number on my pipeline board.',
-        },
-        {
-          id: 'R2', attr: 'Ar-Rahman',
-          governing: 'I would give the same advice even if it meant losing the deal.',
-          notYet: 'I am about to promise something I am not certain I can deliver.',
-        },
-        {
-          id: 'K1', attr: 'Al-Karim', attr_ar: '\u0627\u0644\u0643\u0631\u064A\u0645', attrTitle: 'The Generous',
-          attrFrame: 'Am I leading with value, or extracting it?',
-          yesLabel: 'I am leading with value when',
-          notYetLabel: 'I am extracting when',
-          governing: 'My follow-up is driven by care, not by quota pressure.',
-          notYet: 'My urgency to close is overriding my honesty about fit.',
-        },
-      ],
-      governing: [
-        'I am prepared to listen to what the client actually needs, not what I want to sell.',
-        'I would give the same advice even if it meant losing the deal.',
-        'My follow-up is driven by care, not by quota pressure.',
-      ],
-      notYet: [
-        'I am treating a person as a number on my pipeline board.',
-        'I am about to promise something I am not certain I can deliver.',
-        'My urgency to close is overriding my honesty about fit.',
-      ],
-    },
-    reflection: {
-      frame: 'Ar-Rahman witnessed every client interaction today. Al-Karim measured the generosity.',
-      yesLabel: 'Genuine care was present when',
-      notYetLabel: 'The transaction took over when',
-      rows: [
-        {
-          id: 'RR1', attr: 'Ar-Rahman', attr_ar: '\u0627\u0644\u0631\u062D\u0645\u0646', attrTitle: 'The Most Merciful',
-          attrFrame: 'Did I approach clients with genuine care today?',
-          yesLabel: 'Genuine care was present when',
-          notYetLabel: 'The transaction took over when',
-          governing: 'I prioritized a client\u2019s genuine need over a quick sale.',
-          notYet: 'I avoided a hard conversation because it might cost me the deal.',
-        },
-        {
-          id: 'RK1', attr: 'Al-Karim', attr_ar: '\u0627\u0644\u0643\u0631\u064A\u0645', attrTitle: 'The Generous',
-          attrFrame: 'Did I lead with value today?',
-          yesLabel: 'Generosity was present when',
-          notYetLabel: 'Extraction was present when',
-          governing: 'I was transparent about limitations or timelines.',
-          notYet: 'I overpromised to keep a prospect engaged.',
-        },
-      ],
-      governing: [
-        'I prioritized a client\u2019s genuine need over a quick sale.',
-        'I was transparent about limitations or timelines.',
-      ],
-      notYet: [
-        'I avoided a hard conversation because it might cost me the deal.',
-        'I overpromised to keep a prospect engaged.',
-      ],
-    },
-  },
-
   collective: {
     attrs: [
       {
@@ -1102,7 +1003,7 @@ export const MODULE_ATTRS = {
     },
   },
 
-  people: {
+  ummah: {
     attrs: [
       {
         name: 'Al-Raḥīm',
@@ -1615,29 +1516,6 @@ export const UNIVERSAL_EQUIV = {
       notYet: ['I introduced technical debt knowingly.', 'I left a vulnerability unaddressed.'],
     },
   },
-  crm: {
-    principles: [
-      { name: 'Genuine Care', body: 'Approach every client relationship with authentic interest in their success, not just your revenue. The best business relationships are built on mutual benefit.' },
-      { name: 'Generous Value', body: 'Lead with value before asking for anything in return. Give freely of your expertise and attention. Trust that generosity creates lasting partnerships.' },
-    ],
-    mindfulness: 'Before engaging with a client or prospect, pause and ask: am I serving their genuine interest, or just pursuing the sale?',
-    resumeMindfulness: 'Welcome back. Reconnect with genuine care before engaging with clients.',
-    closingMindfulness: 'Reflect on the relationships you engaged with today. Where you led with genuine care, something real was built.',
-    readiness: {
-      frame: 'Am I approaching this relationship with authentic care?',
-      yesLabel: 'I am approaching with authentic care when',
-      notYetLabel: 'The transaction is driving me when',
-      governing: ['I am prepared to listen to what the client actually needs.', 'I would give honest advice even if it costs me the deal.', 'My follow-up is driven by care, not pressure.'],
-      notYet: ['I am treating a person as a number.', 'I am about to overpromise.', 'My urgency to close is overriding honesty.'],
-    },
-    reflection: {
-      frame: 'Reflect on how I treated clients today.',
-      yesLabel: 'Authentic care was present when',
-      notYetLabel: 'The transaction took over when',
-      governing: ['I prioritized a genuine need over a quick sale.', 'I was transparent about limitations.'],
-      notYet: ['I avoided a hard conversation to protect the deal.', 'I overpromised to keep a prospect engaged.'],
-    },
-  },
   family: {
     attrs: [
       {
@@ -1738,7 +1616,6 @@ export const PAUSE_QUESTIONS = {
   people: 'Who have you been avoiding, and is the avoidance protecting them or protecting you?',
   office: 'What are you about to say that you have not yet fully listened to \u2014 and what would change if you heard it first?',
   tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
-  crm: 'Are you approaching this relationship with genuine care \u2014 or is the transaction driving the interaction?',
 };
 
 // Universal equivalents for the pause protocol
@@ -1751,9 +1628,25 @@ export const PAUSE_UNIVERSAL = {
     people: 'Who have you been avoiding, and is the avoidance protecting them or protecting you?',
     office: 'What are you about to say that you have not yet fully listened to?',
     tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
-    crm: 'Are you approaching this relationship with genuine care \u2014 or is the transaction driving the interaction?',
   },
 };
+
+// Pillar-fallback pause question lookups.
+// Try exact moduleId first, then the parent pillar's id, then the work default.
+export function getPauseQuestion(moduleId) {
+  if (PAUSE_QUESTIONS[moduleId]) return PAUSE_QUESTIONS[moduleId];
+  const pillar = getPillarForModule(moduleId);
+  if (pillar && PAUSE_QUESTIONS[pillar.id]) return PAUSE_QUESTIONS[pillar.id];
+  return PAUSE_QUESTIONS.work;
+}
+
+export function getPauseQuestionUniversal(moduleId) {
+  const q = PAUSE_UNIVERSAL.questions;
+  if (q[moduleId]) return q[moduleId];
+  const pillar = getPillarForModule(moduleId);
+  if (pillar && q[pillar.id]) return q[pillar.id];
+  return q.work;
+}
 
 // ── Compassionate Defer ──
 // The defer is an act of integrity, not failure.
@@ -1762,18 +1655,14 @@ export const PAUSE_UNIVERSAL = {
 export const DEFER_CONTENT = {
   acknowledgment: 'Recognizing you are not yet ready is itself an act of integrity. This is not failure \u2014 it is mu\u1E25\u0101sabah.',
   holdingMessage: 'This module will hold. You can return whenever you are ready.',
-  getGuidanceQuestion: (moduleId) => {
-    return PAUSE_QUESTIONS[moduleId] || PAUSE_QUESTIONS.work;
-  },
+  getGuidanceQuestion: (moduleId) => getPauseQuestion(moduleId),
 };
 
 export const DEFER_UNIVERSAL = {
   acknowledgment: 'Recognizing you are not yet ready is an honest act of self-awareness. This is not failure.',
   holdingMessage: 'This module will hold. You can return whenever you are ready.',
   reflection: 'Trust the timing. What needs your attention will still be here \u2014 and so will this work, when you are ready for it.',
-  getGuidanceQuestion: (moduleId) => {
-    return PAUSE_UNIVERSAL.questions[moduleId] || PAUSE_UNIVERSAL.questions.work;
-  },
+  getGuidanceQuestion: (moduleId) => getPauseQuestionUniversal(moduleId),
 };
 
 // ── Presence Awareness Config ──

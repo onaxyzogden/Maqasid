@@ -5,7 +5,8 @@ import { useThresholdStore } from '../../store/threshold-store';
 import { MODULES } from '../../data/modules';
 import {
   getModuleData, ONGOING_DUA, ISTIRJA, PAUSE_ACKNOWLEDGMENT,
-  PAUSE_QUESTIONS, PAUSE_UNIVERSAL, DEFER_CONTENT, DEFER_UNIVERSAL,
+  PAUSE_UNIVERSAL, DEFER_CONTENT, DEFER_UNIVERSAL,
+  getPauseQuestion, getPauseQuestionUniversal,
 } from '@data/islamic/islamic-data';
 import { lookupReadinessAyahByKey } from '@data/ayat/readiness-ayat-router';
 import { getPillarForModule } from '../../data/maqasid';
@@ -220,8 +221,8 @@ export default function ThresholdModal({ type }) {
   };
 
   const pauseQuestion = isIslamic
-    ? (PAUSE_QUESTIONS[moduleId] || PAUSE_QUESTIONS.work)
-    : (PAUSE_UNIVERSAL.questions[moduleId] || PAUSE_UNIVERSAL.questions.work);
+    ? getPauseQuestion(moduleId)
+    : getPauseQuestionUniversal(moduleId);
 
   const deferGuidance = isIslamic
     ? DEFER_CONTENT.getGuidanceQuestion(moduleId)

@@ -40,6 +40,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-11-dual-contact-stores]] | 2026-04-11 | Accept dual contact stores (contacts_v2 / crm_contacts) isolation until test framework exists |
 | [[2026-04-11-bundle-size-2mb]] | 2026-04-11 | Accept 2 MB monolithic bundle — revisit at 3 MB or multi-user deployment |
 | [[2026-04-14-amanah-gate-protocol]] | 2026-04-14 | Amanah Gate Protocol named as cross-product pattern — tiered evidential honesty in Atlas, BBOS, Moontrance |
+| [[2026-04-16-threshold-content-phased-fix]] | 2026-04-16 | Phased repair of Threshold popup content — Phase 0 code-path fixes done; Phase 1 Islamic content pillar-by-pillar; Phase 2 universal |
 
 ## Sources
 

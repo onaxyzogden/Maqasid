@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 0 — Threshold popup code-path fixes
+
+- **Pause-question pillar fallback**: added `getPauseQuestion` / `getPauseQuestionUniversal` helpers in `src/data/islamic/islamic-data.js` that try module id → pillar id → `work` default. Wired into `DEFER_CONTENT.getGuidanceQuestion`, `DEFER_UNIVERSAL.getGuidanceQuestion`, and `ThresholdModal.jsx:222-224`. Replaces silent `PAUSE_QUESTIONS[id] || PAUSE_QUESTIONS.work` default that hit 36 of 42 modules.
+- **`people` triple-key collision fixed**: renamed the line 1105 `MODULE_ATTRS.people` block (Al-Raḥīm · Al-Jāmiʿ, Surah Al-Hashr 59:10) to `ummah`, reviving the shadowed line 230 `people` module-level block (Al-Wadud · Al-Adl) and filling the Ummah pillar gap for free.
+- **Orphan `crm` content deleted**: removed `MODULE_ATTRS.crm`, `UNIVERSAL_EQUIV.crm`, and `PAUSE_QUESTIONS.crm` / `PAUSE_UNIVERSAL.questions.crm` entries. CRM lives under People → Sales Pipeline tab; standalone module was unrouted.
+- **Unrouted dead code deleted**: `src/pages/modules/CRM.jsx` + `CRM.css`.
+- Verification: `npm run build` passes; lint clean on touched files; browser smoke test confirmed People module shows module-level Dua and Ummah pillar renders renamed content.
+- Decision recorded: `wiki/decisions/2026-04-16-threshold-content-phased-fix.md`. Phase 1 (Islamic content pillar-by-pillar, starting with Family) and Phase 2 (universal layer) still to come.
+
 ## [2026-04-16] feat | Expand wealth + environment subtask descriptions with Why/How format
 
 - **Wealth seed file** (`src/data/seed-tasks/wealth-seed-tasks.js`): added `description` template literals to all **236 subtasks** across 4 submodules (Earning & Provision, Financial Literacy & Management, Ownership & Rights, Circulation & Impact) × 3 boards (core, growth, excellence)
