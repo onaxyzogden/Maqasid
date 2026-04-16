@@ -7,6 +7,16 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 1 Environment — Islamic content for 4 Environment sub-modules
+
+- **MODULE_ATTRS blocks** added for `env-resource` (Al-Muḥyī/Al-Badīʿ), `env-waste` (Al-Quddūs/Aṭ-Ṭāhir), `env-ecosystem` (Al-Ḥafīẓ/Ar-Raqīb), `env-sourcing` (Al-ʿAlīm/Ar-Rashīd). Asma ul-Husna pairings match `src/data/modules.js:433-475`.
+- Each block carries unique `dua` + `closingDua` + 5 readiness rows + 2 reflection rows. Sources: Al-Anbiya 21:30 / Al-Araf 7:31 (resource), Al-Baqarah 2:222 / Ar-Rum 30:41 (waste), Al-Anam 6:165 / Musnad Ahmad 12902 sapling hadith (ecosystem), Al-Baqarah 2:172 / Al-Baqarah 2:188 (sourcing).
+- **PAUSE_QUESTIONS.environment** + **PAUSE_UNIVERSAL.questions.environment** added — all four `env-*` sub-modules inherit via Phase 0's pillar fallback.
+- Pillar-level `environment` block (Al-Wakīl) left untouched.
+- Verification: `npm run build` passes; `getModuleData` confirmed via preview eval — all 4 blocks load with distinct attrs/dua/closing sources; `getPauseQuestion('env-resource')` and `getPauseQuestionUniversal('env-waste')` both return the new pillar-level fallback correctly.
+- Commit: `1372038`
+- Progress: Phase 1 pillar order → Family ✓ · Faith ✓ · Life ✓ · Intellect ✓ · Wealth ✓ · **Environment ✓** · Ummah (Ummah carries valid content from Phase 0 people→ummah rename; Phase 1 Islamic layer now complete pending Ummah review).
+
 ## [2026-04-16] feat | Phase 1 Wealth — Islamic content for 4 Wealth sub-modules
 
 - **MODULE_ATTRS blocks** added for `wealth-earning` (Ar-Razzāq/Al-Fattāḥ), `wealth-financial` (Ar-Razzāq/Al-Ghanī), `wealth-ownership` (Al-ʿAdl/Al-Muqsiṭ), `wealth-circulation` (Al-Karīm/Al-Wahhāb). Asma ul-Husna pairings match `src/data/modules.js:387-429`.
