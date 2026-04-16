@@ -7,6 +7,17 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 1 Wealth — Islamic content for 4 Wealth sub-modules
+
+- **MODULE_ATTRS blocks** added for `wealth-earning` (Ar-Razzāq/Al-Fattāḥ), `wealth-financial` (Ar-Razzāq/Al-Ghanī), `wealth-ownership` (Al-ʿAdl/Al-Muqsiṭ), `wealth-circulation` (Al-Karīm/Al-Wahhāb). Asma ul-Husna pairings match `src/data/modules.js:387-429`.
+- Each block carries unique `dua` + `closingDua` + 5 readiness rows + 2 reflection rows. Sources: Tirmidhi 3563 / Hud 11:6 (earning), Musnad Ahmad variant / Fatir 35:15 (financial), An-Nahl 16:90 / An-Nisa 4:135 (ownership), Ali Imran 3:92 / Al-Baqarah 2:261 (circulation).
+- **PAUSE_QUESTIONS.wealth** + **PAUSE_UNIVERSAL.questions.wealth** added — all four `wealth-*` sub-modules inherit via Phase 0's pillar fallback.
+- Pillar-level `wealth` block (Al-Razzāq/Al-Ḥasīb) left untouched.
+- Scope note: the wealth pillar's `subModuleIds` also includes 5 legacy feature modules (`work`, `money`, `people`, `office`, `tech`) which already carry their own `MODULE_ATTRS` blocks from the top of the file. Session scope was explicitly limited to the four Maqasid `wealth-*` sub-modules per plan.
+- Verification: `npm run build` passes; `getModuleData` confirmed via preview eval — all 4 blocks load with distinct attrs/dua/closing sources; `getPauseQuestion('wealth-earning')` and `getPauseQuestionUniversal('wealth-financial')` both return the new pillar-level fallback correctly.
+- Commit: `887f944`
+- Progress: Phase 1 pillar order → Family ✓ · Faith ✓ · Life ✓ · Intellect ✓ · **Wealth ✓** · Environment · Ummah (Ummah carries valid content from Phase 0).
+
 ## [2026-04-16] feat | Phase 1 Intellect — Islamic content for 4 Intellect sub-modules
 
 - **MODULE_ATTRS blocks** added for `intellect-learning` (Al-ʿAlīm/Al-Khabīr), `intellect-thinking` (Al-Ḥakīm/Al-Baṣīr), `intellect-cognitive` (Al-Muhaymin/Al-Ḥafīẓ — shared with `life-safety` but distinct framing toward attention-stewardship), `intellect-professional` (Al-Muṣawwir/Al-Bāriʾ). Asma ul-Husna pairings match `src/data/modules.js:286-328`.
