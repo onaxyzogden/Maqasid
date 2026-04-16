@@ -29,8 +29,9 @@ Phased repair over three passes:
   - Intellect ✓ (commit `6979374`, 4 sub-modules)
   - Wealth ✓ (commit `887f944`, 4 Maqasid sub-modules; legacy work/money/people/office/tech retained from top-of-file blocks)
   - Environment ✓ (commit `1372038`, 4 sub-modules)
-  - Ummah — open decision. Pillar-level block already present from Phase 0 people→ummah rename. Sub-modules (`collective`, `neighbors`, `community`, `moontrance-land`, `moontrance-seasonal`, `moontrance-residency`) currently fall through to pillar fallback. Need to decide whether to author per-sub-module content (especially for the 3 moontrance modules which have distinct framings) or stop at pillar fallback.
-- **Phase 2:** Mirror Phase 1 for the universal layer.
+  - Ummah ✓ (5 new sub-module blocks — `neighbors`, `community`, `moontrance-land`, `moontrance-seasonal`, `moontrance-residency`. Pillar block untouched. `collective` was already authored pre-Phase 1 and left in place.)
+- **Phase 1 closed.** All seven pillars have per-sub-module Islamic-layer content or legitimate pillar fallback.
+- **Phase 2 (next):** Mirror Phase 1 for the universal layer — `UNIVERSAL_EQUIV` entries for the sub-modules currently relying on pillar/default fallback there.
 
 ## Rationale
 

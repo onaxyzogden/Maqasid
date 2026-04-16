@@ -7,6 +7,17 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 1 Ummah — Islamic content for 5 Ummah sub-modules (Phase 1 closed)
+
+- **MODULE_ATTRS blocks** added for `neighbors` (Al-Wadūd/Al-Muḥsin), `community` (Al-Jāmiʿ/Al-Walī — Al-Walī axis to avoid pillar duplication), `moontrance-land` (Al-Khāliq/Al-Bāriʾ), `moontrance-seasonal` (Al-Mudabbir/Al-Fattāḥ), `moontrance-residency` (Al-Walī/Al-Ḥafīẓ). Asma ul-Husna pairings match `src/data/modules.js:100-128, 496-542`.
+- Each block carries unique `dua` + `closingDua` + 5 readiness rows + 2 reflection rows. Sources: An-Nisāʾ 4:36 / Bukhari 6014–Muslim 2624 (neighbors), Āl ʿImrān 3:103 / Al-Ḥujurāt 49:10 (community), Al-Baqarah 2:30 / Al-Aʿrāf 7:56 (moontrance-land), Al-Anʿām 6:99 / Bukhari 2320 sadaqah-jāriyah hadith (moontrance-seasonal), Al-Ḥashr 59:9 Ansar verse / Ash-Shūrā 42:38 (moontrance-residency). No source duplication with pillar (Al-Hashr 59:10) or pre-existing `collective` block (An-Naml 27:19 / Al-Mulk 67:15).
+- **Scope correction during session**: initial brief listed 6 sub-modules, but `collective` was already authored pre-Phase 1 (legacy block at line 535, Al-Khāliq/Ar-Razzāq — Moontrance umbrella). Scope reduced to 5 new blocks; existing `collective` block left untouched.
+- **PAUSE_QUESTIONS.ummah** + **PAUSE_UNIVERSAL.questions.ummah** added — all six `ummah.subModuleIds` inherit via Phase 0's pillar fallback.
+- Pillar-level `ummah` block (Al-Raḥīm/Al-Jāmiʿ, Al-Hashr 59:10 — recovered from Phase 0 people→ummah rename) left untouched.
+- Verification: `npm run build` passes; preview eval of `getModuleData` confirmed all 5 blocks load with distinct attrs/dua/closing sources, 5 readiness rows + 2 reflection rows each; `getPauseQuestion('moontrance-land')` and `getPauseQuestionUniversal('neighbors')` return the new ummah pillar-level fallback correctly.
+- **Phase 1 closed.** All seven pillars now carry per-sub-module Islamic-layer content or legitimate pillar fallback. Decision doc `wiki/decisions/2026-04-16-threshold-content-phased-fix.md` updated to mark Ummah ✓ and declare Phase 1 complete.
+- Progress: Family ✓ · Faith ✓ · Life ✓ · Intellect ✓ · Wealth ✓ · Environment ✓ · **Ummah ✓ — Phase 1 complete.** Phase 2 (universal layer mirror) now open.
+
 ## [2026-04-16] feat | Phase 1 Environment — Islamic content for 4 Environment sub-modules
 
 - **MODULE_ATTRS blocks** added for `env-resource` (Al-Muḥyī/Al-Badīʿ), `env-waste` (Al-Quddūs/Aṭ-Ṭāhir), `env-ecosystem` (Al-Ḥafīẓ/Ar-Raqīb), `env-sourcing` (Al-ʿAlīm/Ar-Rashīd). Asma ul-Husna pairings match `src/data/modules.js:433-475`.
