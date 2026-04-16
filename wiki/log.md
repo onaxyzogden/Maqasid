@@ -7,6 +7,16 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 1 Intellect — Islamic content for 4 Intellect sub-modules
+
+- **MODULE_ATTRS blocks** added for `intellect-learning` (Al-ʿAlīm/Al-Khabīr), `intellect-thinking` (Al-Ḥakīm/Al-Baṣīr), `intellect-cognitive` (Al-Muhaymin/Al-Ḥafīẓ — shared with `life-safety` but distinct framing toward attention-stewardship), `intellect-professional` (Al-Muṣawwir/Al-Bāriʾ). Asma ul-Husna pairings match `src/data/modules.js:286-328`.
+- Each block carries unique `dua` + `closingDua` + 5 readiness rows + 2 reflection rows. Sources: Ta-Ha 20:114 / Ibn Majah 251 (learning), Ash-Shuʿara 26:83 / traditional ḥaqq-bāṭil duʿāʾ (thinking), Ta-Ha 20:25–26 / Sahih Muslim 2722 (cognitive), traditional yassir duʿāʾ / Muʿjam al-Awsaṭ 897 itqān hadith (professional).
+- **PAUSE_QUESTIONS.intellect** + **PAUSE_UNIVERSAL.questions.intellect** added — all four `intellect-*` sub-modules inherit via Phase 0's pillar fallback.
+- Pillar-level `intellect` block (Al-Fattāḥ/Al-ʿAlīm) left untouched.
+- Verification: `npm run build` passes; `getModuleData` confirmed via preview eval — all 4 blocks load with distinct attrs/dua/closing sources; `getPauseQuestion('intellect-learning')` and `getPauseQuestionUniversal('intellect-thinking')` both return the new pillar-level fallback correctly.
+- Commit: `6979374`
+- Progress: Phase 1 pillar order → Family ✓ · Faith ✓ · Life ✓ · **Intellect ✓** · Wealth · Environment · Ummah (Ummah carries valid content from Phase 0).
+
 ## [2026-04-16] feat | Phase 1 Life — Islamic content for 4 Life sub-modules
 
 - **MODULE_ATTRS blocks** added for `life-physical` (Al-Muhyi/Ash-Shafi), `life-mental` (As-Salam/Al-Latif), `life-safety` (Al-Muhaymin/Al-Hafiz), `life-social` (Al-Wadud/Al-Muhsin). Asma ul-Husna pairings match `src/data/modules.js:240-282`.
