@@ -24,7 +24,7 @@ Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-p
 
 ## Current Status
 
-Active development on V2.1. 35-finding technical audit remediation completed across 8 sprints (2026-04-10 to 2026-04-11). Dashboard refreshed with `PillarProgressStrip` and live Maqasid Focus panel. Module dashboards for all seven pillars implemented. BBOS pipeline integrated. AyahBanner (TopBar verse banner) polished: Amiri font, centered layout, col-edge overlap fixed, z-index hierarchy corrected. Family pillar Islamic data bootstrapped — `MODULE_ATTRS['family']` now has full dua (Quran 25:74), divine attrs (Al-Wadud, Al-Qayyum), readiness checks, and reflection, unblocking the Opening Threshold for all family sub-modules. Intellect "Professional" sub-module renamed to "Skill Proficiency" across all 5 data/page files.
+Active development on V2.1. Rich subtask descriptions (Why/How format) now complete for 6 of 7 pillars: Faith, Life, Intellect, Family, Wealth (236 subtasks), and Environment (226 subtasks). Only Ummah remains. 35-finding technical audit remediation completed across 8 sprints (2026-04-10 to 2026-04-11). Dashboard refreshed with `PillarProgressStrip` and live Maqasid Focus panel. Module dashboards for all seven pillars implemented. BBOS pipeline integrated. AyahBanner polished. Family pillar Islamic data bootstrapped — `MODULE_ATTRS['family']` now has full dua (Quran 25:74), divine attrs (Al-Wadud, Al-Qayyum), readiness checks, and reflection, unblocking the Opening Threshold for all family sub-modules. Intellect "Professional" sub-module renamed to "Skill Proficiency" across all 5 data/page files.
 
 ## Connections
 

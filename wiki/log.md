@@ -7,6 +7,14 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Expand wealth + environment subtask descriptions with Why/How format
+
+- **Wealth seed file** (`src/data/seed-tasks/wealth-seed-tasks.js`): added `description` template literals to all **236 subtasks** across 4 submodules (Earning & Provision, Financial Literacy & Management, Ownership & Rights, Circulation & Impact) × 3 boards (core, growth, excellence)
+- **Environment seed file** (`src/data/seed-tasks/environment-seed-tasks.js`): added `description` template literals to all **226 subtasks** across 4 submodules (Resource Consumption, Waste & Pollution, Ecosystem & Biodiversity, Ethical Sourcing & Circularity) × 3 boards
+- **Total: 462 subtask descriptions** added, completing 6 of 7 Maqasid pillars (Faith, Life, Intellect, Family, Wealth, Environment). Ummah remains.
+- All descriptions follow the **Why does this matter? / How do I accomplish this?** format with Islamic grounding (Quranic references, hadith, fiqhi principles) and practical actionable steps
+- Files grew from ~600 lines each to ~12,000+ lines. Build passes cleanly.
+
 ## [2026-04-16] feat | Source(s) button + subtask content system for TaskDetailPanel
 
 - **Source(s) button** added to all subtask footers (always visible, globally standard across all modules)
