@@ -690,3 +690,26 @@ Read-only audit across 8 submodules: Build & Lint, BBOS Pipeline Workflow, Dashb
 
 ### Commit
 - `df242af` — pushed to main
+
+## [2026-04-16] feat(seed-data) | Standardize subtask descriptions with Why/How format
+
+### What was done
+- Standardized all subtask descriptions in faith-seed-tasks.js (212 subtasks) and life-seed-tasks.js (236 subtasks) to follow a two-section format:
+  - **"Why does this matter?"** — 1-3 sentences grounding the subtask in Islamic significance or practical importance
+  - **"How do I accomplish this?"** — actionable steps, details, and verification criteria
+- Faith file: reorganized existing unstructured descriptions into the new format
+- Life file: created 236 new description fields from scratch (previously had none)
+- Sources remain in the separate `sources` field, rendered via the Source(s) button
+- Normalized 3 legacy "Why This Matters:" headers to "Why does this matter?"
+
+### Execution approach
+- Chunked work into parallel subagents by section (5 batches for faith, 4 for life)
+- Each agent handled ~40-60 subtasks within a specific pillar submodule range
+- Total: 448 subtask descriptions processed
+
+### Remaining
+- Intellect, Family, Wealth, Environment seed files still have subtasks with no descriptions
+- Recommended: process in future sessions using the same chunked-agent approach
+
+### Commit
+- `fe0a5a9` — pushed to main
