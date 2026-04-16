@@ -7,6 +7,21 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 2 — universal-layer pillar fallback + 6 pillar entries (Phase 2 closed)
+
+- **Code change**: `getModuleData(id, 'universal')` now mirrors the Phase 0 pause-question pattern — exact `UNIVERSAL_EQUIV[id]` → `UNIVERSAL_EQUIV[getPillarForModule(id).id]` → `null`. Previously returned `null` for any sub-module not explicitly keyed (i.e., all of them).
+- **6 new pillar entries in `UNIVERSAL_EQUIV`** — full `work`-shape secular-ethics content, zero Islamic terminology:
+  - `faith` — Integrity / Meaning — values-coherence + purpose-direction framing
+  - `life` — Sustainability / Rest — capacity-pace + recovery-release framing
+  - `intellect` — Rigor / Humility — evidence-reasoning + openness-correction framing
+  - `wealth` — Stewardship / Sufficiency — deliberate-use + enough-contentment framing (distinct from legacy `money` entry which remains untouched)
+  - `environment` — Trusteeship / Foresight — care-for-place + long-horizon framing
+  - `ummah` — Presence / Contribution — attention-to-others + what-I-add framing
+- Each entry: `principles[2]`, `mindfulness` + `resumeMindfulness` + `closingMindfulness`, `readiness` (frame + 2 labels + 6 rows with `{id, attr, attrTitle?, attrFrame?, yesLabel?, notYetLabel?, governing, notYet}` + `governing[6]` + `notYet[6]`), `reflection` (frame + 2 labels + `governing[2]` + `notYet[2]`).
+- **Family anomaly (option a)** — pre-existing `UNIVERSAL_EQUIV.family` carried Islamic-style content (Al-Wadud/Al-Qayyum attrs + Arabic dua from Al-Furqan 25:74 + closingDua from Al-Ahqaf 46:15 + flat 3-string readiness) in the universal layer — inconsistent with the layer's opt-out-of-Islamic-framing purpose. Reshaped to secular `work`-shape pattern with user approval this session: principles Presence/Mercy, full mindfulness strings, 6-row readiness, full reflection. Islamic Family content preserved in `MODULE_ATTRS.family` (commit `fd8a0e8`, Phase 1 Family).
+- Verification: `npm run build` passes (2528 modules, 1.08s); preview eval of `getModuleData(id, 'universal')` for 12 sample ids confirmed — 6 pillar sub-module samples (`faith-salah`, `life-physical`, `intellect-learning`, `wealth-earning`, `env-resource`, `moontrance-land`) each fall back to correct pillar entry with 6 rows, mindfulness strings present, zero Arabic/Islamic terms; 5 legacy entries (`work`, `money`, `people`, `office`, `tech`) resolve directly without fallback; `family-marriage` correctly falls back to reshaped secular `family` pillar.
+- **Phase 2 closed.** Decision doc `wiki/decisions/2026-04-16-threshold-content-phased-fix.md` updated — Phase 2 marked complete, family-anomaly option (a) recorded.
+
 ## [2026-04-16] feat | Phase 1 Ummah — Islamic content for 5 Ummah sub-modules (Phase 1 closed)
 
 - **MODULE_ATTRS blocks** added for `neighbors` (Al-Wadūd/Al-Muḥsin), `community` (Al-Jāmiʿ/Al-Walī — Al-Walī axis to avoid pillar duplication), `moontrance-land` (Al-Khāliq/Al-Bāriʾ), `moontrance-seasonal` (Al-Mudabbir/Al-Fattāḥ), `moontrance-residency` (Al-Walī/Al-Ḥafīẓ). Asma ul-Husna pairings match `src/data/modules.js:100-128, 496-542`.
