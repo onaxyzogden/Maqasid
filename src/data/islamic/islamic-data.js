@@ -1846,6 +1846,466 @@ export const MODULE_ATTRS = {
     },
   },
 
+  'life-physical': {
+    attrs: [
+      {
+        name: 'Al-Muhyi',
+        name_ar: 'المحيي',
+        title: 'The Giver of Life',
+        body: 'Al-Muhyi is the one who gives life — breath, heartbeat, the quiet reanimation of tired limbs after rest. The body is not yours to drive into the ground; it is an amanah that Al-Muhyi placed in your care. To neglect it is to treat a trust as disposable. To tend to it is to cooperate with the One who keeps you alive.',
+      },
+      {
+        name: 'Ash-Shafi',
+        name_ar: 'الشافي',
+        title: 'The Healer',
+        body: 'Ash-Shafi is the only healer; means are only means. A meal, a walk, a night of sleep — none of these heal on their own. They are causes that Ash-Shafi either permits to reach their effect or does not. Approaching physical health as self-optimization forgets Him; approaching it as cooperation with the Healer keeps the heart oriented while the body is tended.',
+      },
+    ],
+    dua: {
+      title: 'Before Tending to the Body',
+      resumeTitle: 'Before Returning to Physical Care',
+      arabic: 'اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي',
+      trans: "Allāhumma ʿāfinī fī badanī, Allāhumma ʿāfinī fī samʿī, Allāhumma ʿāfinī fī baṣarī",
+      meaning: 'O Allah, grant me well-being in my body; O Allah, grant me well-being in my hearing; O Allah, grant me well-being in my sight.',
+      source: 'Sunan Abi Dawud 5090',
+    },
+    closingDua: {
+      title: 'After Tending to the Body',
+      arabic: 'وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ',
+      trans: "Wa idhā mariḍtu fa-huwa yashfīn",
+      meaning: 'And when I am ill, it is He who cures me.',
+      source: 'Surah Ash-Shuʿara 26:80',
+    },
+    readiness: {
+      frame: 'Al-Muhyi asks: am I treating this body as a trust, or as a machine to extract output from?',
+      yesLabel: 'I am stewarding the body when',
+      notYetLabel: 'I am extracting from the body when',
+      rows: [
+        {
+          id: 'M1', attr: 'Al-Muhyi', attr_ar: 'المحيي', attrTitle: 'The Giver of Life',
+          attrFrame: 'Am I treating my body as an amanah or as a disposable instrument?',
+          yesLabel: 'I am treating it as a trust when',
+          notYetLabel: 'I am treating it as disposable when',
+          governing: 'I am approaching this meal, this rest, this movement as worship — care for a body that was given to me.',
+          notYet: 'I am skipping what my body is owed so I can extract more output from it today.',
+        },
+        {
+          id: 'M2', attr: 'Al-Muhyi',
+          governing: 'I have given this body what it needs to carry me through the day — sleep, food, water, movement — rather than running a deficit.',
+          notYet: 'I have compounded last night\'s sleep debt, skipped the meal I know I needed, and told myself I will catch up later.',
+        },
+        {
+          id: 'M3', attr: 'Al-Muhyi',
+          governing: 'I am grateful for the breath and function that is working today — I am not only noticing the body when it hurts.',
+          notYet: 'I only remember this body when it fails; I have not thanked Him for what is still functioning.',
+        },
+        {
+          id: 'S1', attr: 'Ash-Shafi', attr_ar: 'الشافي', attrTitle: 'The Healer',
+          attrFrame: 'Am I leaning into means while trusting the Healer, or am I leaning only on myself?',
+          yesLabel: 'I am cooperating with the Healer when',
+          notYetLabel: 'I am acting as my own healer when',
+          governing: 'I am taking the sabab — the means He prescribed — without believing the means themselves are what heal.',
+          notYet: 'I am either neglecting the means entirely, or gripping them so tightly I have forgotten that Ash-Shafi is the one who cures.',
+        },
+        {
+          id: 'S2', attr: 'Ash-Shafi',
+          governing: 'I am naming what is actually hurting — not masking it, not dramatizing it — so the right care can reach it.',
+          notYet: 'I am medicating past a signal rather than listening to what it is trying to tell me.',
+        },
+      ],
+      governing: [
+        'I am approaching this meal, this rest, this movement as worship — care for a body that was given to me.',
+        'I have given this body what it needs to carry me through the day — sleep, food, water, movement — rather than running a deficit.',
+        'I am grateful for the breath and function that is working today — I am not only noticing the body when it hurts.',
+        'I am taking the sabab — the means He prescribed — without believing the means themselves are what heal.',
+        'I am naming what is actually hurting — not masking it, not dramatizing it — so the right care can reach it.',
+      ],
+      notYet: [
+        'I am skipping what my body is owed so I can extract more output from it today.',
+        'I have compounded last night\'s sleep debt, skipped the meal I know I needed, and told myself I will catch up later.',
+        'I only remember this body when it fails; I have not thanked Him for what is still functioning.',
+        'I am either neglecting the means entirely, or gripping them so tightly I have forgotten that Ash-Shafi is the one who cures.',
+        'I am medicating past a signal rather than listening to what it is trying to tell me.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Muhyi kept me alive today. Ash-Shafi is the only one who healed what improved.',
+      yesLabel: 'The body was tended when',
+      notYetLabel: 'The body was exploited when',
+      rows: [
+        {
+          id: 'RM1', attr: 'Al-Muhyi', attr_ar: 'المحيي', attrTitle: 'The Giver of Life',
+          attrFrame: 'Did I treat my body as a trust today?',
+          yesLabel: 'I tended the trust when',
+          notYetLabel: 'I spent the trust when',
+          governing: 'I gave my body at least one thing it was genuinely owed today — rest, nourishment, or movement.',
+          notYet: 'I ran down what little reserve I had and called it productivity.',
+        },
+        {
+          id: 'RS1', attr: 'Ash-Shafi', attr_ar: 'الشافي', attrTitle: 'The Healer',
+          attrFrame: 'Did I remember the Healer while using the means?',
+          yesLabel: 'I remembered the Healer when',
+          notYetLabel: 'I forgot the Healer when',
+          governing: 'I took care of something in this body today while keeping my heart turned toward the One who actually heals.',
+          notYet: 'I treated the protocol, the supplement, or the routine as if it were the cure itself.',
+        },
+      ],
+      governing: [
+        'I gave my body at least one thing it was genuinely owed today — rest, nourishment, or movement.',
+        'I took care of something in this body today while keeping my heart turned toward the One who actually heals.',
+      ],
+      notYet: [
+        'I ran down what little reserve I had and called it productivity.',
+        'I treated the protocol, the supplement, or the routine as if it were the cure itself.',
+      ],
+    },
+  },
+
+  'life-mental': {
+    attrs: [
+      {
+        name: 'As-Salam',
+        name_ar: 'السلام',
+        title: 'The Source of Peace',
+        body: 'As-Salam is peace itself — not the absence of difficulty, but the wholeness that holds through it. A mind aligned with As-Salam is not one that never encounters anxiety; it is one that returns to tranquility by remembrance rather than by distraction. Its absence shows as perpetual low-grade alarm, a mind that cannot settle because it has forgotten where settling comes from.',
+      },
+      {
+        name: 'Al-Latif',
+        name_ar: 'اللطيف',
+        title: 'The Subtly Kind',
+        body: 'Al-Latif perceives the finest movements of the heart — the tremor before the tear, the tension before the thought becomes conscious. To tend to mental well-being under Al-Latif is to extend that same subtlety to yourself: to notice the small signals before they become crises, and to treat your inner state with the gentleness He already brings to it.',
+      },
+    ],
+    dua: {
+      title: 'Before Tending to the Heart and Mind',
+      resumeTitle: 'Before Returning to Inner Work',
+      arabic: 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
+      trans: "Alā bi-dhikrillāhi taṭma\u02beinnul-qulūb",
+      meaning: 'Verily, in the remembrance of Allah do hearts find rest.',
+      source: 'Surah Ar-Raʿd 13:28',
+    },
+    closingDua: {
+      title: 'After Tending to the Heart and Mind',
+      arabic: 'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي',
+      trans: "Rabbi-shraḥ lī ṣadrī wa yassir lī amrī wa-ḥlul ʿuqdatan min lisānī",
+      meaning: 'My Lord, expand for me my chest, and ease for me my task, and untie the knot from my tongue.',
+      source: 'Surah Ta-Ha 20:25\u201327',
+    },
+    readiness: {
+      frame: 'As-Salam asks: am I seeking tranquility in His remembrance, or in distraction?',
+      yesLabel: 'Tranquility is sought in Him when',
+      notYetLabel: 'Tranquility is outsourced when',
+      rows: [
+        {
+          id: 'S1', attr: 'As-Salam', attr_ar: 'السلام', attrTitle: 'The Source of Peace',
+          attrFrame: 'Am I turning to dhikr for peace, or to a screen?',
+          yesLabel: 'I am turning to dhikr when',
+          notYetLabel: 'I am turning to distraction when',
+          governing: 'When the restlessness rises, I am turning first toward His remembrance rather than toward the feed.',
+          notYet: 'I am reaching for the phone, the scroll, the tab — anything to quiet the inner noise without actually facing it.',
+        },
+        {
+          id: 'S2', attr: 'As-Salam',
+          governing: 'I am allowing difficult feelings to be present without treating every discomfort as an emergency to escape.',
+          notYet: 'I am pathologizing a normal human response and catastrophizing what is actually bearable.',
+        },
+        {
+          id: 'S3', attr: 'As-Salam',
+          governing: 'I am naming what I am feeling honestly — not performing serenity I do not have, and not rehearsing anxiety I could set down.',
+          notYet: 'I am either suppressing what is real or amplifying what would settle on its own if I stopped feeding it.',
+        },
+        {
+          id: 'L1', attr: 'Al-Latif', attr_ar: 'اللطيف', attrTitle: 'The Subtly Kind',
+          attrFrame: 'Am I being as gentle with myself as Al-Latif is?',
+          yesLabel: 'I am gentle with the inner state when',
+          notYetLabel: 'I am harsh with the inner state when',
+          governing: 'I am speaking to myself in a way I would allow a beloved friend to speak to a struggling child.',
+          notYet: 'I am berating myself for feeling what I feel, layering shame on top of the original difficulty.',
+        },
+        {
+          id: 'L2', attr: 'Al-Latif',
+          governing: 'I am noticing the early signals — the tightness, the withdrawal, the irritability — before they compound into something larger.',
+          notYet: 'I have been ignoring smaller warnings for long enough that what is present now is no longer small.',
+        },
+      ],
+      governing: [
+        'When the restlessness rises, I am turning first toward His remembrance rather than toward the feed.',
+        'I am allowing difficult feelings to be present without treating every discomfort as an emergency to escape.',
+        'I am naming what I am feeling honestly — not performing serenity I do not have, and not rehearsing anxiety I could set down.',
+        'I am speaking to myself in a way I would allow a beloved friend to speak to a struggling child.',
+        'I am noticing the early signals — the tightness, the withdrawal, the irritability — before they compound into something larger.',
+      ],
+      notYet: [
+        'I am reaching for the phone, the scroll, the tab — anything to quiet the inner noise without actually facing it.',
+        'I am pathologizing a normal human response and catastrophizing what is actually bearable.',
+        'I am either suppressing what is real or amplifying what would settle on its own if I stopped feeding it.',
+        'I am berating myself for feeling what I feel, layering shame on top of the original difficulty.',
+        'I have been ignoring smaller warnings for long enough that what is present now is no longer small.',
+      ],
+    },
+    reflection: {
+      frame: 'As-Salam was the source of whatever peace I found. Al-Latif saw what I almost missed.',
+      yesLabel: 'Peace was sought rightly when',
+      notYetLabel: 'Peace was outsourced when',
+      rows: [
+        {
+          id: 'RS1', attr: 'As-Salam', attr_ar: 'السلام', attrTitle: 'The Source of Peace',
+          attrFrame: 'Where did I seek peace today?',
+          yesLabel: 'I sought peace in Him when',
+          notYetLabel: 'I sought peace elsewhere when',
+          governing: 'When the anxiety rose today, I returned to dhikr at least once before reaching for a distraction.',
+          notYet: 'I buried a difficult feeling under hours of scrolling and called it rest.',
+        },
+        {
+          id: 'RL1', attr: 'Al-Latif', attr_ar: 'اللطيف', attrTitle: 'The Subtly Kind',
+          attrFrame: 'Was I gentle with myself today?',
+          yesLabel: 'Gentleness was present when',
+          notYetLabel: 'Harshness was present when',
+          governing: 'I caught a small inner signal today and attended to it before it became a crisis.',
+          notYet: 'I spoke to myself today in a voice I would not permit anyone else to use on me.',
+        },
+      ],
+      governing: [
+        'When the anxiety rose today, I returned to dhikr at least once before reaching for a distraction.',
+        'I caught a small inner signal today and attended to it before it became a crisis.',
+      ],
+      notYet: [
+        'I buried a difficult feeling under hours of scrolling and called it rest.',
+        'I spoke to myself today in a voice I would not permit anyone else to use on me.',
+      ],
+    },
+  },
+
+  'life-safety': {
+    attrs: [
+      {
+        name: 'Al-Muhaymin',
+        name_ar: 'المهيمن',
+        title: 'The Guardian Overseer',
+        body: 'Al-Muhaymin watches over all things — no harm reaches anyone without His knowledge, and no protection arrives without His permission. To tend to safety under Al-Muhaymin is to act with full diligence while trusting that the outcome is already witnessed. It is neither paranoia nor recklessness; it is prudent action held inside tawakkul.',
+      },
+      {
+        name: 'Al-Hafiz',
+        name_ar: 'الحفيظ',
+        title: 'The Preserver',
+        body: 'Al-Hafiz preserves — the body, the home, the lineage, the deen. Human diligence is a cause, not the cause. A locked door, a seatbelt, a careful word — these are asbab placed in your hand so that you participate in preservation. Al-Hafiz is the one who makes them effective. Forget Him and the checklist becomes anxiety; remember Him and the checklist becomes worship.',
+      },
+    ],
+    dua: {
+      title: 'Before Taking Up the Duty of Protection',
+      resumeTitle: 'Before Returning to the Duty of Protection',
+      arabic: 'فَاللَّهُ خَيْرٌ حَافِظًا ۖ وَهُوَ أَرْحَمُ الرَّاحِمِينَ',
+      trans: "Fa-llāhu khayrun ḥāfiẓan, wa huwa arḥamur-rāḥimīn",
+      meaning: 'But Allah is the best Guardian, and He is the Most Merciful of the merciful.',
+      source: 'Surah Yusuf 12:64',
+    },
+    closingDua: {
+      title: 'After Discharging the Duty of Protection',
+      arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ',
+      trans: "Bismillāhilladhī lā yaḍurru maʿa-smihi shayʾun fil-arḍi wa lā fi-s-samāʾ",
+      meaning: 'In the name of Allah, with whose name nothing on earth or in the heavens can cause harm.',
+      source: 'Sunan Abi Dawud 5088',
+    },
+    readiness: {
+      frame: 'Al-Muhaymin asks: am I taking the means seriously while trusting the Overseer, or am I pretending the outcome depends on me?',
+      yesLabel: 'I am acting inside tawakkul when',
+      notYetLabel: 'I am acting outside tawakkul when',
+      rows: [
+        {
+          id: 'MH1', attr: 'Al-Muhaymin', attr_ar: 'المهيمن', attrTitle: 'The Guardian Overseer',
+          attrFrame: 'Am I diligent without being anxious, or anxious without being diligent?',
+          yesLabel: 'I am diligent inside trust when',
+          notYetLabel: 'I have collapsed one side when',
+          governing: 'I am taking reasonable precautions — the lock, the check, the verification — while my heart remains settled on His watch.',
+          notYet: 'I am either catastrophizing every scenario, or dismissing real risk because thinking about it is uncomfortable.',
+        },
+        {
+          id: 'MH2', attr: 'Al-Muhaymin',
+          governing: 'I am protecting those in my care by anticipating the real hazards, not the theatrical ones.',
+          notYet: 'I am performing vigilance toward unlikely dangers while neglecting the actual risks closer to home.',
+        },
+        {
+          id: 'MH3', attr: 'Al-Muhaymin',
+          governing: 'I am guarding against harm that I could cause — my words, my driving, my negligence — not only harm that could come from outside.',
+          notYet: 'I am looking outward for threats while the harm I am capable of causing is uninspected.',
+        },
+        {
+          id: 'H1', attr: 'Al-Hafiz', attr_ar: 'الحفيظ', attrTitle: 'The Preserver',
+          attrFrame: 'Am I taking the means seriously as worship, or skipping them out of laziness or bravado?',
+          yesLabel: 'I am taking means as worship when',
+          notYetLabel: 'I am skipping means when',
+          governing: 'I am locking what should be locked, checking what should be checked, wearing what should be worn — because taking the sabab is part of remembering Al-Hafiz.',
+          notYet: 'I am telling myself "it will be fine" as a substitute for doing the small thing that would make it fine.',
+        },
+        {
+          id: 'H2', attr: 'Al-Hafiz',
+          governing: 'I am saying the morning/evening adhkar as actual protection, not as reflex.',
+          notYet: 'I am rushing through the adhkar as a formality while my heart is already elsewhere.',
+        },
+      ],
+      governing: [
+        'I am taking reasonable precautions — the lock, the check, the verification — while my heart remains settled on His watch.',
+        'I am protecting those in my care by anticipating the real hazards, not the theatrical ones.',
+        'I am guarding against harm that I could cause — my words, my driving, my negligence — not only harm that could come from outside.',
+        'I am locking what should be locked, checking what should be checked, wearing what should be worn — because taking the sabab is part of remembering Al-Hafiz.',
+        'I am saying the morning/evening adhkar as actual protection, not as reflex.',
+      ],
+      notYet: [
+        'I am either catastrophizing every scenario, or dismissing real risk because thinking about it is uncomfortable.',
+        'I am performing vigilance toward unlikely dangers while neglecting the actual risks closer to home.',
+        'I am looking outward for threats while the harm I am capable of causing is uninspected.',
+        'I am telling myself "it will be fine" as a substitute for doing the small thing that would make it fine.',
+        'I am rushing through the adhkar as a formality while my heart is already elsewhere.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Muhaymin watched every door today. Al-Hafiz is the one who actually preserved what was kept.',
+      yesLabel: 'Protection was taken seriously when',
+      notYetLabel: 'Protection was neglected when',
+      rows: [
+        {
+          id: 'RMH1', attr: 'Al-Muhaymin', attr_ar: 'المهيمن', attrTitle: 'The Guardian Overseer',
+          attrFrame: 'Was I vigilant inside trust today?',
+          yesLabel: 'Vigilance was grounded when',
+          notYetLabel: 'Vigilance was unbalanced when',
+          governing: 'I addressed a real risk today with a real action rather than leaving it unattended.',
+          notYet: 'I spent today either numb to danger or consumed by it — neither posture was sober.',
+        },
+        {
+          id: 'RH1', attr: 'Al-Hafiz', attr_ar: 'الحفيظ', attrTitle: 'The Preserver',
+          attrFrame: 'Did I take the means seriously as worship?',
+          yesLabel: 'Means were taken as worship when',
+          notYetLabel: 'Means were skipped when',
+          governing: 'I did a small protective thing today — a lock, a check, a dhikr — and remembered Al-Hafiz while doing it.',
+          notYet: 'I skipped a small safeguard I know I am supposed to keep, trusting luck instead of taking the sabab.',
+        },
+      ],
+      governing: [
+        'I addressed a real risk today with a real action rather than leaving it unattended.',
+        'I did a small protective thing today — a lock, a check, a dhikr — and remembered Al-Hafiz while doing it.',
+      ],
+      notYet: [
+        'I spent today either numb to danger or consumed by it — neither posture was sober.',
+        'I skipped a small safeguard I know I am supposed to keep, trusting luck instead of taking the sabab.',
+      ],
+    },
+  },
+
+  'life-social': {
+    attrs: [
+      {
+        name: 'Al-Wadud',
+        name_ar: 'الودود',
+        title: 'The Ever-Loving',
+        body: 'Al-Wadud loves in a way that does not wait for the other to be lovable first. In social life this is the warmth extended to the stranger, the patience kept with the difficult colleague, the smile given to someone who has not yet earned it. Its absence turns every interaction into a transaction and every relationship into a ledger.',
+      },
+      {
+        name: 'Al-Muhsin',
+        name_ar: 'المحسن',
+        title: 'The Doer of Good',
+        body: 'Al-Muhsin brings ihsan — goodness beyond what was required or deserved. "Ahsin kama ahsana-llahu ilayk" — do good as Allah has done good to you. Social presence under Al-Muhsin is the refusal to meet a rude person rudely, the refusal to give exactly what was given, the refusal to carry grudges at interest. It is excellence of conduct that makes you recognizable even to those who do not know you.',
+      },
+    ],
+    dua: {
+      title: 'Before Entering Social Space',
+      resumeTitle: 'Before Returning to Social Space',
+      arabic: 'وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ',
+      trans: "Wa aḥsin kamā aḥsana-llāhu ilayk",
+      meaning: 'And do good as Allah has done good to you.',
+      source: 'Surah Al-Qasas 28:77',
+    },
+    closingDua: {
+      title: 'After Social Engagement',
+      arabic: 'ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ',
+      trans: "Idfaʿ billatī hiya aḥsan, fa-idhā-lladhī baynaka wa baynahu ʿadāwatun ka-annahu waliyyun ḥamīm",
+      meaning: 'Repel evil with what is better, and then the one between whom and you was enmity will become as though he were a devoted friend.',
+      source: 'Surah Fussilat 41:34',
+    },
+    readiness: {
+      frame: 'Al-Wadud asks: am I entering this room to represent Him, or to be seen by them?',
+      yesLabel: 'I am representing Him when',
+      notYetLabel: 'I am performing for them when',
+      rows: [
+        {
+          id: 'W1', attr: 'Al-Wadud', attr_ar: 'الودود', attrTitle: 'The Ever-Loving',
+          attrFrame: 'Am I bringing warmth, or managing image?',
+          yesLabel: 'I am bringing warmth when',
+          notYetLabel: 'I am managing image when',
+          governing: 'I am entering ready to give what is needed of me here — attention, kindness, patience — before thinking about what I will take.',
+          notYet: 'I am walking in calculating what this room owes me, what I need from it, and who in it can serve my purposes.',
+        },
+        {
+          id: 'W2', attr: 'Al-Wadud',
+          governing: 'I am willing to be kind to someone who has not earned my kindness today — because that is what wadud actually is.',
+          notYet: 'I am rationing my warmth based on who has recently deserved it.',
+        },
+        {
+          id: 'W3', attr: 'Al-Wadud',
+          governing: 'I am keeping my tongue — no backbiting, no gossip, no cutting humor at someone\'s expense — as a condition of being in company.',
+          notYet: 'I am about to relieve social tension with a joke at someone\'s expense, or join a conversation that is shredding an absent person.',
+        },
+        {
+          id: 'MS1', attr: 'Al-Muhsin', attr_ar: 'المحسن', attrTitle: 'The Doer of Good',
+          attrFrame: 'Am I bringing ihsan, or just bringing what the situation requires?',
+          yesLabel: 'I am bringing ihsan when',
+          notYetLabel: 'I am bringing only the minimum when',
+          governing: 'I am committed to going beyond the minimum in how I treat people in this room — not because they deserve it, but because He does.',
+          notYet: 'I am doing exactly what social protocol requires and nothing more, because giving more feels uncompensated.',
+        },
+        {
+          id: 'MS2', attr: 'Al-Muhsin',
+          governing: 'I am ready to repel harshness with something better — sabr, silence, or a soft word — rather than returning what was given.',
+          notYet: 'I am rehearsing how to match rudeness with rudeness if it arrives, as if dignity required revenge.',
+        },
+      ],
+      governing: [
+        'I am entering ready to give what is needed of me here — attention, kindness, patience — before thinking about what I will take.',
+        'I am willing to be kind to someone who has not earned my kindness today — because that is what wadud actually is.',
+        'I am keeping my tongue — no backbiting, no gossip, no cutting humor at someone\'s expense — as a condition of being in company.',
+        'I am committed to going beyond the minimum in how I treat people in this room — not because they deserve it, but because He does.',
+        'I am ready to repel harshness with something better — sabr, silence, or a soft word — rather than returning what was given.',
+      ],
+      notYet: [
+        'I am walking in calculating what this room owes me, what I need from it, and who in it can serve my purposes.',
+        'I am rationing my warmth based on who has recently deserved it.',
+        'I am about to relieve social tension with a joke at someone\'s expense, or join a conversation that is shredding an absent person.',
+        'I am doing exactly what social protocol requires and nothing more, because giving more feels uncompensated.',
+        'I am rehearsing how to match rudeness with rudeness if it arrives, as if dignity required revenge.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Wadud witnessed the warmth I gave. Al-Muhsin witnessed whether I rose above what was given to me.',
+      yesLabel: 'Ihsan was present when',
+      notYetLabel: 'Only the minimum was given when',
+      rows: [
+        {
+          id: 'RW1', attr: 'Al-Wadud', attr_ar: 'الودود', attrTitle: 'The Ever-Loving',
+          attrFrame: 'Did I lead with warmth today?',
+          yesLabel: 'Warmth led when',
+          notYetLabel: 'Warmth was rationed when',
+          governing: 'I extended kindness today to someone who had no claim on my kindness.',
+          notYet: 'I withheld basic warmth from someone because they had not recently earned it.',
+        },
+        {
+          id: 'RMS1', attr: 'Al-Muhsin', attr_ar: 'المحسن', attrTitle: 'The Doer of Good',
+          attrFrame: 'Did I repel evil with what is better today?',
+          yesLabel: 'I repelled with better when',
+          notYetLabel: 'I matched like for like when',
+          governing: 'I refused to return harshness today in at least one moment where returning it would have been easy and justified.',
+          notYet: 'I matched someone\'s rudeness exactly, and called it standing up for myself.',
+        },
+      ],
+      governing: [
+        'I extended kindness today to someone who had no claim on my kindness.',
+        'I refused to return harshness today in at least one moment where returning it would have been easy and justified.',
+      ],
+      notYet: [
+        'I withheld basic warmth from someone because they had not recently earned it.',
+        'I matched someone\'s rudeness exactly, and called it standing up for myself.',
+      ],
+    },
+  },
+
   intellect: {
     attrs: [
       {
@@ -3250,6 +3710,7 @@ export const PAUSE_QUESTIONS = {
   people: 'Who have you been avoiding, and is the avoidance protecting them or protecting you?',
   faith: 'Which part of your practice are you performing without presence right now \u2014 and would naming the absence be more honest than continuing the form?',
   family: 'Which family member have you been emotionally absent from \u2014 and is the distance preserving peace, or deferring a conversation they need you to have?',
+  life: 'Which signal from your body, heart, or household have you been overriding \u2014 and is continuing to push past it stewardship, or extraction?',
   office: 'What are you about to say that you have not yet fully listened to \u2014 and what would change if you heard it first?',
   tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
 };
@@ -3264,6 +3725,7 @@ export const PAUSE_UNIVERSAL = {
     people: 'Who have you been avoiding, and is the avoidance protecting them or protecting you?',
     faith: 'Which part of your practice are you going through without presence right now \u2014 and would naming the absence be more honest than continuing the form?',
     family: 'Which family member have you been emotionally absent from \u2014 and is the distance keeping peace, or avoiding a conversation they need you to have?',
+    life: 'Which signal from your body, mind, or relationships have you been overriding \u2014 and is continuing to push past it sustainable, or depleting?',
     office: 'What are you about to say that you have not yet fully listened to?',
     tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
   },
