@@ -147,8 +147,15 @@
   field-sizing: content;
   min-height: calc(1.2em + 4px);
 }
+.tdp-title[readonly] {
+  cursor: default;
+  pointer-events: none;
+  user-select: text;
+  background: transparent;
+}
 .tdp-title:focus {
-  border-bottom: 2px solid var(--tdp-accent);
+  border-bottom: none;
+  outline: none;
 }
 
 /* ── Description (read-only) ── */
@@ -359,6 +366,11 @@
 .tdp-subtask-detail__content em {
   font-style: italic;
 }
+.tdp-subtask-detail__content a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .tdp-subtask-detail__content table {
   width: 100%;
   border-collapse: collapse;
@@ -493,6 +505,28 @@
   font-family: inherit;
 }
 .tdp-later-btn:hover {
+  background: var(--surface2, var(--surface));
+  color: var(--text);
+}
+
+/* "Source(s)" button */
+.tdp-sources-btn {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 1.5px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  font-family: inherit;
+  color: var(--text-muted, var(--text));
+}
+.tdp-sources-btn:hover {
   background: var(--surface2, var(--surface));
   color: var(--text);
 }

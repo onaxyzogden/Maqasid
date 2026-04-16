@@ -30,7 +30,7 @@ export const AYAH_BANNER_DATA = {
 
   faith_shahada: {
     arabic: 'فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ',
-    translation: 'Know that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.',
+    translation: 'Know that there is no god but Allah, and ask forgiveness for your sins and for the sins of believing men and women.',
     source: 'Quran 47:19',
     color: FAITH,
   },

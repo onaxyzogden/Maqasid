@@ -58,6 +58,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const [closing, setClosing] = useState(false);
   const [docOpen, setDocOpen] = useState(false);
   const [activeSubtask, setActiveSubtask] = useState(null); // subtask object or null
+  const [sourcesOpen, setSourcesOpen] = useState(false);
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
   const [slideDir, setSlideDir] = useState(null); // 'forward' | 'back'
   const subtaskBodyRef = useRef(null);
@@ -211,8 +212,10 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
   const openDoc = () => { setSlideDir('forward'); setActiveSubtask(null); setDocOpen(true); };
   const closeDoc = () => { setSlideDir('back'); setDocOpen(false); };
-  const openSubtask = (st) => { setSlideDir('forward'); setDocOpen(false); setActiveSubtask(st); setHasScrolledToBottom(false); };
-  const closeSubtask = () => { setSlideDir('back'); setActiveSubtask(null); };
+  const openSubtask = (st) => { setSlideDir('forward'); setDocOpen(false); setActiveSubtask(st); setSourcesOpen(false); setHasScrolledToBottom(false); };
+  const closeSubtask = () => { setSlideDir('back'); setActiveSubtask(null); setSourcesOpen(false); };
+  const openSources = () => { setSlideDir('forward'); setSourcesOpen(true); };
+  const closeSources = () => { setSlideDir('back'); setSourcesOpen(false); };
 
   // ── Derive status from column ──
   const currentCol = columns.find((c) => c.id === task.columnId);
@@ -247,7 +250,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             id="task-detail-title"
             className="tdp-title"
             value={title}
-            onChange={handleTitleChange}
+            readOnly
             placeholder="Task title"
             rows={1}
           />
@@ -271,7 +274,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
         {/* Subtasks */}
         <div className="tdp-subtasks-section">
-          <h3 className="tdp-section-label">Subtasks <span className="tdp-section-hint">(tap each one for more info)</span></h3>
+          <h3 className="tdp-section-label">Subtasks <span className="tdp-section-hint">(tap each one to see why and how)</span></h3>
           <div className="tdp-subtask-list">
             {allSubtasks.map((st) => (
               <div key={st.id} className="tdp-subtask-row" onClick={() => openSubtask(st)}>
@@ -454,6 +457,38 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
     </>
   );
 
+  /* ── Sources view (slide-in from subtask) ── */
+  const sourcesView = activeSubtask ? (
+    <>
+      <div className="tdp-body">
+        <div className="tdp-subtask-detail">
+          <div className="tdp-subtask-detail__header">
+            <h2 className="tdp-subtask-detail__title">Source(s)</h2>
+          </div>
+          <div className="tdp-subtask-detail__body">
+            {activeSubtask.sources ? (
+              <div className="tdp-subtask-detail__content">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> }}
+                >{activeSubtask.sources}</Markdown>
+              </div>
+            ) : (
+              <p className="tdp-subtask-detail__text tdp-subtask-detail__empty-text">
+                No sources available for this subtask yet.
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="tdp-footer tdp-footer--subtask">
+        <button className="tdp-later-btn" onClick={closeSources}>
+          Back to subtask
+        </button>
+      </div>
+    </>
+  ) : null;
+
   /* ── Subtask detail view (slide-in) ── */
   const subtaskDetailView = activeSubtask ? (
     <>
@@ -491,6 +526,9 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         <button className="tdp-later-btn" onClick={closeSubtask}>
           Complete later
         </button>
+        <button className="tdp-sources-btn" onClick={openSources}>
+          Source(s)
+        </button>
         <button
           className="tdp-done-btn"
           disabled={!hasScrolledToBottom}
@@ -510,8 +548,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const slideClass = slideDir ? ` tdp-slide-${slideDir}` : '';
 
   // Determine which view is active
-  const activeView = activeSubtask ? 'subtask' : docOpen ? 'doc' : 'summary';
-  const viewKey = activeSubtask ? `subtask-${activeSubtask.id}` : docOpen ? 'doc' : 'summary';
+  const activeView = (activeSubtask && sourcesOpen) ? 'sources' : activeSubtask ? 'subtask' : docOpen ? 'doc' : 'summary';
+  const viewKey = (activeSubtask && sourcesOpen) ? `sources-${activeSubtask.id}` : activeSubtask ? `subtask-${activeSubtask.id}` : docOpen ? 'doc' : 'summary';
 
   const panel = (
     <div
@@ -530,19 +568,23 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       <div className="tdp-header">
         <div className="tdp-header__left">
           {(docOpen || activeSubtask) && (
-            <button className="tdp-back-btn" onClick={activeSubtask ? closeSubtask : closeDoc} aria-label="Back to summary">
+            <button
+              className="tdp-back-btn"
+              onClick={sourcesOpen ? closeSources : activeSubtask ? closeSubtask : closeDoc}
+              aria-label="Back"
+            >
               <ArrowLeft size={18} />
             </button>
           )}
           <span className="tdp-header__icon"><HeaderIcon size={20} /></span>
-          <span className="tdp-project-name">{headerLabel}{docOpen ? ' — Document' : activeSubtask ? ' — Subtask' : ''}</span>
+          <span className="tdp-project-name">{headerLabel}{docOpen ? ' — Document' : sourcesOpen ? ' — Sources' : activeSubtask ? ' — Subtask' : ''}</span>
         </div>
         <button className="tdp-close-btn" onClick={() => handleClose.current()} aria-label="Close task details"><X size={18} /></button>
       </div>
 
       {/* ── Sliding content ── */}
       <div key={viewKey} className={`tdp-slide-container${slideClass}`}>
-        {activeView === 'subtask' ? subtaskDetailView : activeView === 'doc' ? documentView : summaryView}
+        {activeView === 'sources' ? sourcesView : activeView === 'subtask' ? subtaskDetailView : activeView === 'doc' ? documentView : summaryView}
       </div>
     </div>
   );

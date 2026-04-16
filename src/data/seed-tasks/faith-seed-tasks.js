@@ -11,9 +11,7 @@ export const FAITH_SEED_TASKS = {
       description: 'The Shahada \u2014 "Ashhadu an la ilaha illAllah wa ashhadu anna Muhammadan rasulullah" \u2014 is the first pillar of Islam and the gateway into the faith. Renew and deepen your understanding of this testimony, ensuring it is uttered with full knowledge, certainty, sincerity, and love. This is not merely a declaration but a covenant with Allah.',
       subtasks: [
         { title: 'Recite the full Shahada with correct pronunciation and meaning', done: false,
-          description: `Since you are currently working on your **Daruriyyat** (Necessities) level, mastering this is the first step toward clearing those "Critical Gaps" in your foundation.
-
-### 1. Phonetic Breakdown & Pronunciation
+          description: `**1. Phonetic Breakdown & Pronunciation**
 
 The Shahada is split into two testimonies. Focus on the flow and the emphasis on the double consonants (marked with double letters).
 
@@ -21,26 +19,28 @@ The Shahada is split into two testimonies. Focus on the flow and the emphasis on
 
 *Ash-hadu alla ilaha illAllah*
 
-- **Ash-hadu**: (Ash-ha-du) — I bear witness
-- **Alla**: (Al-la) — That [there is] no
-- **Ilaha**: (I-la-ha) — Deity/God
-- **IllAllah**: (Il-lal-lah) — Except Allah
+* **Ash-hadu**: (Ash-ha-du) — I bear witness
+* **Alla**: (Al-la) — That [there is] no
+* **Ilaha**: (I-la-ha) — Deity/God
+* **IllAllah**: (Il-lal-lah) — Except Allah
 
 **Part 2: The Testimony of Messengerhood**
 
 *Wa ash-hadu anna Muhammadan Rasoolullah*
 
-- **Wa**: (Wa) — And
-- **Anna**: (An-na) — That
-- **Muhammadan**: (Mu-ham-ma-dan) — Muhammad
-- **Rasoolullah**: (Ra-soo-lul-lah) — is the Messenger of Allah
+* **Wa**: (Wa) — And
+* **Anna**: (An-na) — That
+* **Muhammadan**: (Mu-ham-ma-dan) — Muhammad
+* **Rasoolullah**: (Ra-soo-lul-lah) — is the Messenger of Allah
 
-### 2. Precise Word-for-Word Translation
+---
+
+**2. Precise Word-for-Word Translation**
 
 Linguistically, the Shahada isn't just a statement of existence; it is a statement of **exclusive right**.
 
 | Arabic Word | Precise English Meaning | Linguistic Role |
-| :--- | :--- | :--- |
+| :---- | :---- | :---- |
 | **Ash-hadu** | I bear witness | A formal, binding testimony. |
 | **An (La)** | That (No) | Absolute negation of a category. |
 | **Ilah** | Object of Worship | Anything served, loved, or obeyed. |
@@ -48,9 +48,9 @@ Linguistically, the Shahada isn't just a statement of existence; it is a stateme
 | **Allah** | The One True God | The only one with the *right* to be worshipped. |
 | **Rasool** | Messenger | One who carries a divine message/law. |
 
-### 3. Practical Tips for "Understanding"
+---
 
-To fulfill the "recite with understanding" requirement of your task:
+**3. Practical Tips for "Understanding"**
 
 1. **The Pause:** When you say *"La ilaha,"* mentally "clear" your heart of dependencies on wealth, ego, or people.
 2. **The Affirmation:** When you say *"illAllah,"* settle the heart on the fact that only He provides, sustains, and deserves your ultimate devotion.
@@ -69,47 +69,143 @@ To fulfill the "recite with understanding" requirement of your task:
       description: 'Deeply understand the testimony of faith \u2014 its linguistic meaning, theological implications, and the conditions scholars have derived from the Quran and Sunnah that make it valid.',
       subtasks: [
         { title: 'Study the linguistic meaning of La ilaha illAllah', done: false,
-          description: `## Why the Linguistic Study Matters
+          sources: `**I. Sources from the Quran**
+
+The Quran establishes the two components of the Shahada separately, emphasizing the knowledge and witnessing of these truths.
+
+### **1. The Oneness of Allah (*La ilaha illAllah*)**
+
+* [**Surah Al-Imran 3:18**](https://quran.com/3/18): "Allah witnesses that there is no deity except Him, and [so do] the angels and those of knowledge—[that He is] maintaining [creation] in justice. There is no deity except Him, the Exalted in Might, the Wise."
+* [**Surah Muhammad 47:19**](https://quran.com/47/19): "So know, [O Muhammad], that there is no deity except Allah and ask forgiveness for your sin..."
+* [**Surah Al-Baqarah 2:255**](https://quran.com/2/255) **(Ayat al-Kursi):** "Allah—there is no deity except Him, the Ever-Living, the Sustainer of [all] existence..."
+* [**Surah Al-Anbiya 21:25**](https://quran.com/21/25): "And We sent not before you any messenger except that We revealed to him that, 'There is no deity except Me, so worship Me.'"
+
+### **2. The Prophethood of Muhammad (*Muhammadur Rasulullah*)**
+
+* [**Surah Al-Fath 48:29**](https://quran.com/48/29): "**Muhammad is the Messenger of Allah**; and those with him are forceful against the disbelievers, merciful among themselves..."
+* [**Surah Al-Ahzab 33:40**](https://quran.com/33/40): "Muhammad is not the father of [any] one of your men, but [he is] the Messenger of Allah and last of the prophets."
+
+---
+
+**II. Sources from Sahih Hadith**
+
+In the Hadith, the two parts are combined into a single testimony that serves as the entry point into Islam.
+
+### **1. The Five Pillars of Islam**
+
+This hadith explicitly lists the Shahada as the first and most essential pillar.
+
+"Islam is built upon five [pillars]: **testifying that there is no god but Allah and that Muhammad is the Messenger of Allah**, establishing prayer, giving zakat, Hajj, and fasting Ramadan."
+
+— [**Sahih Bukhari 8**](https://sunnah.com/bukhari:8) / [**Sahih Muslim 16**](https://sunnah.com/muslim:16)
+
+### **2. The Hadith of Jibril**
+
+When the Angel Jibril asked "What is Islam?", the Prophet (ﷺ) defined it starting with the Shahada.
+
+"Islam is to **testify that there is no God but Allah and Muhammad is the Messenger of Allah**..."
+
+— [**Sahih Muslim 8**](https://sunnah.com/muslim:8) / [**Sahih Bukhari 50**](https://sunnah.com/bukhari:50)
+
+### **3. The Instruction to Mu'adh ibn Jabal**
+
+When sending Mu'adh to Yemen, the Prophet (ﷺ) instructed him on the priority of the Shahada.
+
+"You are going to a people from the People of the Scripture, so let the first thing to which you will invite them be the **testimony that there is no deity but Allah and that Muhammad is the Messenger of Allah**..."
+
+— [**Sahih Bukhari 1395**](https://sunnah.com/bukhari:1395) / [**Sahih Muslim 19**](https://sunnah.com/muslim:19)`,
+          description: `Studying the linguistic meaning of the **Shahada** involves breaking down the Arabic grammar and vocabulary to understand exactly what is being negated and what is being affirmed. In Islamic theology, this is often referred to as the study of the **Pillars of Tawhid**.
+
+---
+
+**1. The Component Breakdown**
+
+Linguistically, the phrase is composed of four parts that create a "restrictive negation."
+
+* **La (لا):** Known as the *La al-Nafiyah lil-Jins* (The "No" of absolute categorical negation). It denies the existence of the entire category that follows it.
+* **Ilah (إله):** A noun derived from the root *alaha*, meaning "to worship." Linguistically, an *ilah* is anything that is taken as an object of ultimate love, reverence, and obedience.
+* **Illa (إلا):** A particle of exception ("except").
+* **Allah (الله):** The proper name of the Creator.
+
+---
+
+**2. The Two Pillars: Negation & Affirmation**
+
+To study the meaning linguistically is to understand that the sentence cannot function without two distinct actions:
+
+| Pillar | Arabic Term | Meaning |
+| :---- | :---- | :---- |
+| **Negation** | *Al-Nafy* | **"La ilaha"** – Clearing the heart of all false gods, idols, and internal desires that act as masters. |
+| **Affirmation** | *Al-Ithbat* | **"illAllah"** – Affirming that the right to be worshipped belongs exclusively to Allah. |
+
+**Note:** Scholarly analysis emphasizes that the hidden predicate (*khabar*) in the sentence is **bi-haqqin** (in truth). Thus, the full linguistic meaning is: *"There is no deity worthy of worship **in truth** except Allah."*
+
+---
+
+**3. Why the Linguistic Study Matters**
 
 Understanding the grammar prevents common misconceptions. For example:
 
-1. It doesn't just mean "God exists" (which even the pagans of Mecca believed).
-2. It doesn't just mean "God is the Creator" (which is *Tawhid ar-Rububiyyah*).
-3. **It specifically means** that nothing has the *right* to be worshipped, sought for ultimate help, or obeyed unconditionally except Allah.
-
----
-
-**1. The Breakdown**
-
-- **La (\u0644\u0627) \u2014 The Absolute Negation:** This is not a simple "no." It is *La al-Nafiyah lil-Jins*, which means you are "negating the entire genus." When you say this, you are effectively clearing the "shelf" of your heart of every possible false deity.
-- **Ilah (\u0625\u0644\u0647) \u2014 The Object of Devotion:** Derived from *alaha* (to worship), an *ilah* is anything that is turned to with ultimate love, hope, fear, or obedience.
-- **Illa (\u0625\u0644\u0627) \u2014 The Exception:** This acts as the "gatekeeper," allowing only one entity back onto the shelf.
-- **Allah (\u0627\u0644\u0644\u0647) \u2014 The Affirmation:** The proper name of the Creator, who alone possesses the right to be there.
-
----
-
-**2. True Meaning**
-
-A common mistake is translating it as *"There is no God but Allah."*
-
-**The Precise Meaning:** "There is no deity **rightfully** worshipped except Allah."
-
-This distinction is vital because many things *are* worshipped (money, idols, ego), but linguistically, you are testifying that none of them have the *right* to that worship except Him.
-
----
-
-**3. Practice Drill: Pronunciation & Flow**
-
-Try reciting this slowly, focusing on the "double" letters (the *Shaddah*) which add emphasis.
-
-- **Negation (The Clearing):** *Laaa-e-laaha* \u2014 Hold the "La" for 2\u20134 counts to emphasize the clearing of all false gods.
-- **Affirmation (The Settlement):** *il-lal-lawh* \u2014 Stress the "L" sounds to show firmness in your belief.` },
+* It doesn't just mean "God exists" (which even the pagans of Mecca believed).
+* It doesn't just mean "God is the Creator" (which is *Tawhid ar-Rububiyyah*).
+* **It specifically means** that nothing has the *right* to be worshipped, sought for ultimate help, or obeyed unconditionally except Allah.` },
         { title: 'Learn what negation (la ilaha) and affirmation (illAllah) entail', done: false,
-          description: 'The negation rejects all false deities, superstitions, and objects of ultimate devotion. The affirmation establishes that worship, obedience, love, and fear belong to Allah alone.' },
+          description: `**Why This Matters:**
+
+The negation rejects all false deities, superstitions, and objects of ultimate devotion. The affirmation establishes that worship, obedience, love, and fear belong to Allah alone. Without understanding this "clearing and establishing" process, one's testimony remains superficial and fails to protect the heart from subtle forms of shirk.
+
+**Details & Instructions for Completion:**
+
+To successfully complete this subtask, you must move beyond a simple translation and internalize the two-pillar mechanism of the Shahada:
+
+1. **The Pillar of Negation (*An-Nafy*):**
+   * **Action:** Mentally "clear the shelf."
+   * **Focus:** Identify anything that currently competes for your ultimate devotion—be it wealth, ego, social status, or superstitious beliefs.
+   * **Grammar:** Understand that the "La" used here is *La al-Nafiyah lil-Jins* (Absolute Negation). It doesn't just say "no God exists," it says "there is no such thing as a deity" that has any right to be worshipped.
+2. **The Pillar of Affirmation (*Al-Ithbat*):**
+   * **Action:** Re-establish the Creator as the sole authority.
+   * **Focus:** Once the "shelf" is clear, affirm that only Allah occupies that space. This means all acts of the heart—unconditional love, total reliance (*Tawakkul*), and absolute fear—are directed toward Him alone.
+3. **The Synthesis:**
+   * **Practice:** Recite the phrase while pausing slightly after "La ilaha" to symbolize the rejection, then firmly stating "illAllah" to symbolize the commitment.
+   * **Verification:** You have completed this task when you can explain why "There is no God but Allah" is a less accurate translation than "There is no deity **rightfully** worshipped except Allah."` },
         { title: 'Understand what it means to worship Allah alone without partners', done: false,
-          description: 'Worship (ibadah) encompasses prayer, du\'a, sacrifice, vows, reliance, hope, and fear. None of these may be directed to anything other than Allah.' },
+          sources: `* *Quran 45:23 (On the worship of desires)*
+* *Quran 6:162 (Defining the scope of life and sacrifice for Allah)*`,
+          description: `**Why This Matters:**
+
+Worship (*ibadah*) encompasses prayer, du'a, sacrifice, vows, reliance, hope, and fear. None of these may be directed to anything other than Allah. Directing even a single act of worship to another—whether it be a person, an idol, or one's own ego—invalidates the essence of the Shahada and constitutes *Shirk* (associating partners with Allah).
+
+**Details & Instructions for Completion:**
+
+To complete this subtask, expand your definition of worship from physical rituals to the actions of the heart and tongue:
+
+1. **Categorize Acts of Worship:**
+   * **Physical (*Badaniyah*):** Ensure your prostration (*sujud*), sacrifice (*udhiya*), and circumambulation are for Allah alone.
+   * **Verbal (*Qawliyah*):** Recognize that calling upon the deceased or hidden forces for help (*Istigatha*) is a form of worship that belongs only to the Creator.
+   * **Internal (*Qalbiyah*):** Audit your "inner compass." Ask yourself: "Do I fear a created being's displeasure more than Allah's?" or "Do I rely on my bank account more than I rely on the Provider?"
+2. **Identify "Subtle" Partners:**
+   * Reflect on the concept of *Hawa* (desires). Study how following one's whims blindly can become a form of "taking one's desire as a god" (Quran 45:23).
+   * Learn the difference between "natural fear" (e.g., fear of a predator) and "secret fear" (fearing that a created being can harm or benefit you independently of Allah's will).
+3. **The Test of Sincerity:**
+   * You have completed this task when you can list five distinct acts of worship—both internal and external—and verify that they are directed solely to Allah in your daily life.` },
         { title: 'Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)', done: false,
-          description: 'Surah al-Ikhlas (112) defines Allah\'s oneness. Ayat al-Kursi (2:255) describes His sovereignty. Read these with tafsir to absorb their depth.' },
+          sources: `* [Ayat al-Kursi (2:255)](https://quran.com/2/255)
+* *Tafsir Ibn Kathir (Explanation of Surah 112 and Verse 2:255)*`,
+          description: `**Why This Matters:**
+
+Surah al-Ikhlas (112) defines Allah's oneness and absolute independence, serving as the "litmus test" for monotheism. Ayat al-Kursi (2:255) describes His sovereignty, living nature, and total control over the universe. Reading these with tafsir allows you to move from mere recitation to a deep intellectual and spiritual absorption of His attributes.
+
+**Details & Instructions for Completion:**
+
+1. **Analyze Surah al-Ikhlas (The Sincerity/Purity):**
+   * **The Concept of *As-Samad*:** Look up the definition of this name in verse 2. Understand it as the One who is "Self-Sufficient" and whom all of creation depends upon, while He depends on no one.
+   * **Negating Lineage:** Reflect on verse 3 (*"He neither begets nor is born"*). Understand how this specifically refutes any claims of God having children or parents.
+2. **Deconstruct Ayat al-Kursi (The Verse of the Throne):**
+   * **Attribute of *Al-Hayy* & *Al-Qayyum*:** Study how these two names establish Allah as Ever-Living and the Sustainer of all existence.
+   * **The *Kursi* (Throne):** Visualize the scale of His sovereignty as described in the text — that His throne extends over the heavens and the earth, yet guarding them does not tire Him.
+3. **Cross-Reference with Tafsir:**
+   * Use a reliable source (like Ibn Kathir or Ma'ariful Quran) to read the background (*Sabab al-Nuzul*) of Surah al-Ikhlas.
+   * **Verification:** You have completed this task when you can explain the meaning of "As-Samad" and list three attributes of Allah mentioned in Ayat al-Kursi that demonstrate His absolute power over the universe.` },
       ],
     },
     {

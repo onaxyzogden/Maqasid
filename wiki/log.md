@@ -7,6 +7,18 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Source(s) button + subtask content system for TaskDetailPanel
+
+- **Source(s) button** added to all subtask footers (always visible, globally standard across all modules)
+- **Sources slide-in view** — clicking opens a 4th panel view rendering `activeSubtask.sources` as markdown with blue underlined links opening in new tabs; empty state shown when no sources yet
+- **`sources` field** added to subtask data model — propagated by `seedTasks` and backfilled by `backfillSeedDescriptions` in `project-store.js`
+- **Backfill upgraded** — now syncs description whenever seed differs from stored (not just when longer), enabling intentional content updates
+- **Rich descriptions populated** for 5 faith/shahada subtasks using the `subtask-content` skill: Recite the full Shahada, Study the linguistic meaning, Learn what negation/affirmation entail, Understand worship without partners, Review Quranic ayat on Tawhid
+- **Sources data** added to 3 of those subtasks (Understand worship, Review Quranic ayat, Study linguistic meaning)
+- **Subtask hint text** updated: "(tap each one for more info)" → "(tap each one to see why and how)"
+- **Task title** made globally read-only in TaskDetailPanel (readOnly attribute + CSS pointer-events: none)
+- **Ayah banner** corrected: "no god but God" → "no god but Allah" in Quran 47:19 translation
+
 ## [2026-04-15] fix | Rename "Task Document" button to "Resources" in TaskDetailPanel footer
 
 ## [2026-04-15] feat | Dashboard pipeline stage cards deep-link to correct stage

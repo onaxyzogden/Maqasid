@@ -61,7 +61,7 @@ function seedTasks(boardId, seedMap) {
     priority: t.priority || 'medium',
     dueDate: t.dueDate || null,
     tags: t.tags || [],
-    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false, description: s.description || '' })),
+    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false, description: s.description || '', sources: s.sources || '' })),
     checklist: [],
     order: i,
     seedOrder: i,
@@ -110,12 +110,15 @@ function backfillSeedDescriptions() {
       seedSubs.forEach((ss) => { seedSubMap[ss.title] = ss; });
       const patchedSubs = subs.map((st) => {
         const ss = seedSubMap[st.title];
-        if (!ss?.description) return st;
-        // Update if missing or if seed has richer content (longer description)
-        if (!st.description || (ss.description.length > st.description.length)) {
-          return { ...st, description: ss.description };
+        if (!ss) return st;
+        let updated = st;
+        if (ss.description && ss.description !== st.description) {
+          updated = { ...updated, description: ss.description };
         }
-        return st;
+        if (ss.sources && !st.sources) {
+          updated = { ...updated, sources: ss.sources };
+        }
+        return updated;
       });
       if (patchedSubs.some((st, i) => st !== subs[i])) patch.subtasks = patchedSubs;
       if (Object.keys(patch).length > 0) { changed = true; return { ...t, ...patch }; }
