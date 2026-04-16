@@ -7,6 +7,15 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] refactor | CeremonyGuard Phase 1 — route-level gating for 28 thin pages
+
+- **New component** `src/components/islamic/CeremonyGuard.jsx` — thin wrapper that reads `useThresholdStore((s) => !!s.completedOpening[moduleId])` and renders either `<CeremonyGate moduleId />` or `children`. Intentionally prop-driven only (no `useParams`) — dynamic-moduleId cases deferred to Phase 2.
+- **App.jsx** imports `CeremonyGuard` and wraps 28 thin routes: faith-shahada/salah/zakah/sawm/hajj, life-physical/mental/safety/social, intellect-learning/thinking/cognitive/professional, family-marriage/parenting/kinship/home, wealth-earning/financial/ownership/circulation, env-resource/waste/ecosystem/sourcing, moontrance-land/seasonal/residency.
+- **28 page files simplified** via one-shot refactor script — removed `useThresholdStore` + `CeremonyGate` imports and the 2-line gate check; page bodies reduced to pure content (e.g. `FaithSalahPage` from 9 lines to 5). No behavior change — guard runs the same store subscription and gate UI.
+- **Thick pages untouched (~16)** — Work, Money, People, Office, Tech, Project, FamilyPage, Neighbors, Community, CollectivePage, FivePillars, HadithPage, IslamicKnowledgePage, QuranPage, ModulePlaceholder, ComingSoon. These have hooks before gate check, dynamic moduleId, embedded variants, or route-id mismatches (Project gates "work"). Phase 2 will audit case-by-case.
+- **Docs**: `src/components/islamic/CONTEXT.md` rewritten to document the two coexisting modes (route-level vs. in-body). Decision doc `wiki/decisions/2026-04-16-ceremony-guard-route-level.md` created. Memory `project_ceremony_guard_refactor.md` updated — Phase 1 done, Phase 2 deferred.
+- **Verification**: `npm run build` passes (2529 modules, 1.07s). Preview spot-checks: `/app/faith-salah` shows CeremonyGate when `bbiz_thr_open` empty; shows pillar content after marking complete; `/app/wealth-earning`, `/app/env-resource`, `/app/moontrance-land` all gate via new guard; `/app/money` (thick, unchanged) still gates via in-body logic.
+
 ## [2026-04-16] feat | Phase 2 — universal-layer pillar fallback + 6 pillar entries (Phase 2 closed)
 
 - **Code change**: `getModuleData(id, 'universal')` now mirrors the Phase 0 pause-question pattern — exact `UNIVERSAL_EQUIV[id]` → `UNIVERSAL_EQUIV[getPillarForModule(id).id]` → `null`. Previously returned `null` for any sub-module not explicitly keyed (i.e., all of them).

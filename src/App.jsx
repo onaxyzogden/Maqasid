@@ -58,6 +58,9 @@ import EnvironmentWastePage from '@pages/environment/EnvironmentWastePage';
 import EnvironmentEcosystemPage from '@pages/environment/EnvironmentEcosystemPage';
 import EnvironmentSourcingPage from '@pages/environment/EnvironmentSourcingPage';
 import CollectivePage from '@pages/ummah/CollectivePage';
+import MoontraceLandPage from '@pages/ummah/MoontraceLandPage';
+import MoontranceSeasonalPage from '@pages/ummah/MoontranceSeasonalPage';
+import MoontranceResidencyPage from '@pages/ummah/MoontranceResidencyPage';
 import PillarDashboard from '@pages/PillarDashboard';
 import FaithDashboard from '@pages/faith/FaithDashboard';
 import LifeDashboard from '@pages/life/LifeDashboard';
@@ -67,6 +70,7 @@ import EnvironmentDashboard from '@pages/environment/EnvironmentDashboard';
 import UmmahDashboard from '@pages/ummah/UmmahDashboard';
 import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
+import CeremonyGuard from '@components/islamic/CeremonyGuard';
 import ProjectBoard from '@components/work/ProjectBoard';
 import AssetsTab from '@components/money/AssetsTab';
 import ProjectJournal from '@components/journal/ProjectJournal';
@@ -161,36 +165,39 @@ export default function App() {
         <Route path="environment-core" element={<EnvironmentCorePage />} />
         <Route path="environment-growth" element={<EnvironmentGrowthPage />} />
         <Route path="environment-excellence" element={<EnvironmentExcellencePage />} />
-        <Route path="faith-shahada" element={<FaithShahadaPage />} />
-        <Route path="faith-salah" element={<FaithSalahPage />} />
-        <Route path="faith-zakah" element={<FaithZakahPage />} />
-        <Route path="faith-sawm" element={<FaithSawmPage />} />
-        <Route path="faith-hajj" element={<FaithHajjPage />} />
-        <Route path="life-physical" element={<LifePhysicalPage />} />
-        <Route path="life-mental" element={<LifeMentalPage />} />
-        <Route path="life-safety" element={<LifeSafetyPage />} />
-        <Route path="life-social" element={<LifeSocialPage />} />
-        <Route path="intellect-learning" element={<IntellectLearningPage />} />
-        <Route path="intellect-thinking" element={<IntellectThinkingPage />} />
-        <Route path="intellect-cognitive" element={<IntellectCognitivePage />} />
-        <Route path="intellect-professional" element={<IntellectProfessionalPage />} />
-        <Route path="family-marriage" element={<FamilyMarriagePage />} />
-        <Route path="family-parenting" element={<FamilyParentingPage />} />
-        <Route path="family-kinship" element={<FamilyKinshipPage />} />
-        <Route path="family-home" element={<FamilyHomePage />} />
+        <Route path="faith-shahada" element={<CeremonyGuard moduleId="faith-shahada"><FaithShahadaPage /></CeremonyGuard>} />
+        <Route path="faith-salah" element={<CeremonyGuard moduleId="faith-salah"><FaithSalahPage /></CeremonyGuard>} />
+        <Route path="faith-zakah" element={<CeremonyGuard moduleId="faith-zakah"><FaithZakahPage /></CeremonyGuard>} />
+        <Route path="faith-sawm" element={<CeremonyGuard moduleId="faith-sawm"><FaithSawmPage /></CeremonyGuard>} />
+        <Route path="faith-hajj" element={<CeremonyGuard moduleId="faith-hajj"><FaithHajjPage /></CeremonyGuard>} />
+        <Route path="life-physical" element={<CeremonyGuard moduleId="life-physical"><LifePhysicalPage /></CeremonyGuard>} />
+        <Route path="life-mental" element={<CeremonyGuard moduleId="life-mental"><LifeMentalPage /></CeremonyGuard>} />
+        <Route path="life-safety" element={<CeremonyGuard moduleId="life-safety"><LifeSafetyPage /></CeremonyGuard>} />
+        <Route path="life-social" element={<CeremonyGuard moduleId="life-social"><LifeSocialPage /></CeremonyGuard>} />
+        <Route path="intellect-learning" element={<CeremonyGuard moduleId="intellect-learning"><IntellectLearningPage /></CeremonyGuard>} />
+        <Route path="intellect-thinking" element={<CeremonyGuard moduleId="intellect-thinking"><IntellectThinkingPage /></CeremonyGuard>} />
+        <Route path="intellect-cognitive" element={<CeremonyGuard moduleId="intellect-cognitive"><IntellectCognitivePage /></CeremonyGuard>} />
+        <Route path="intellect-professional" element={<CeremonyGuard moduleId="intellect-professional"><IntellectProfessionalPage /></CeremonyGuard>} />
+        <Route path="family-marriage" element={<CeremonyGuard moduleId="family-marriage"><FamilyMarriagePage /></CeremonyGuard>} />
+        <Route path="family-parenting" element={<CeremonyGuard moduleId="family-parenting"><FamilyParentingPage /></CeremonyGuard>} />
+        <Route path="family-kinship" element={<CeremonyGuard moduleId="family-kinship"><FamilyKinshipPage /></CeremonyGuard>} />
+        <Route path="family-home" element={<CeremonyGuard moduleId="family-home"><FamilyHomePage /></CeremonyGuard>} />
         <Route path="family-office" element={<Office embedded />} />
         <Route path="wealth-core" element={<WealthCorePage />} />
         <Route path="wealth-growth" element={<WealthGrowthPage />} />
         <Route path="wealth-excellence" element={<WealthExcellencePage />} />
-        <Route path="wealth-earning" element={<WealthEarningPage />} />
-        <Route path="wealth-financial" element={<WealthFinancialPage />} />
-        <Route path="wealth-ownership" element={<WealthOwnershipPage />} />
-        <Route path="wealth-circulation" element={<WealthCirculationPage />} />
-        <Route path="env-resource" element={<EnvironmentResourcePage />} />
-        <Route path="env-waste" element={<EnvironmentWastePage />} />
-        <Route path="env-ecosystem" element={<EnvironmentEcosystemPage />} />
-        <Route path="env-sourcing" element={<EnvironmentSourcingPage />} />
+        <Route path="wealth-earning" element={<CeremonyGuard moduleId="wealth-earning"><WealthEarningPage /></CeremonyGuard>} />
+        <Route path="wealth-financial" element={<CeremonyGuard moduleId="wealth-financial"><WealthFinancialPage /></CeremonyGuard>} />
+        <Route path="wealth-ownership" element={<CeremonyGuard moduleId="wealth-ownership"><WealthOwnershipPage /></CeremonyGuard>} />
+        <Route path="wealth-circulation" element={<CeremonyGuard moduleId="wealth-circulation"><WealthCirculationPage /></CeremonyGuard>} />
+        <Route path="env-resource" element={<CeremonyGuard moduleId="env-resource"><EnvironmentResourcePage /></CeremonyGuard>} />
+        <Route path="env-waste" element={<CeremonyGuard moduleId="env-waste"><EnvironmentWastePage /></CeremonyGuard>} />
+        <Route path="env-ecosystem" element={<CeremonyGuard moduleId="env-ecosystem"><EnvironmentEcosystemPage /></CeremonyGuard>} />
+        <Route path="env-sourcing" element={<CeremonyGuard moduleId="env-sourcing"><EnvironmentSourcingPage /></CeremonyGuard>} />
         <Route path="collective" element={<CollectivePage />} />
+        <Route path="moontrance-land" element={<CeremonyGuard moduleId="moontrance-land"><MoontraceLandPage /></CeremonyGuard>} />
+        <Route path="moontrance-seasonal" element={<CeremonyGuard moduleId="moontrance-seasonal"><MoontranceSeasonalPage /></CeremonyGuard>} />
+        <Route path="moontrance-residency" element={<CeremonyGuard moduleId="moontrance-residency"><MoontranceResidencyPage /></CeremonyGuard>} />
         <Route path="pillar/faith" element={<FaithCorePage />} />
         <Route path="pillar/life" element={<LifeCorePage />} />
         <Route path="pillar/intellect" element={<IntellectCorePage />} />

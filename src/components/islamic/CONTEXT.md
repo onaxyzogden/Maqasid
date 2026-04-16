@@ -6,7 +6,8 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 ## File Inventory
 | File | Description |
 |------|-------------|
-| CeremonyGate.jsx | Pre-entry gate for modules — begin opening or skip |
+| CeremonyGate.jsx | Pre-entry gate UI for modules — begin opening or skip |
+| CeremonyGuard.jsx | Route-level wrapper — renders CeremonyGate until `completedOpening[moduleId]` is true, then renders `children`. Used in `App.jsx` around thin pillar-route elements |
 | ThresholdModal.jsx | Full ceremony flow: Dua → Attributes → Readiness [→ Pause] → Confirm |
 | NiyyahAct.jsx | Daily intention ceremony: orient step + pillar focus selection |
 | PrayerTime.jsx | Sidebar prayer schedule with geolocation + 5 daily times |
@@ -21,10 +22,21 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 ## Architecture
 
 ### CeremonyGate Pattern
-All pillar sub-pages gate access behind CeremonyGate:
+Module entry is gated by the opening ceremony. Two wiring modes coexist:
+
+**Route-level (preferred, thin pages)** — `<CeremonyGuard>` wraps the route element in `App.jsx`:
+```jsx
+<Route path="faith-salah" element={<CeremonyGuard moduleId="faith-salah"><FaithSalahPage /></CeremonyGuard>} />
+```
+The guarded page stays pure content — no `useThresholdStore` import, no gate check. Applied to all 28 sub-pillar pages (faith-*, life-*, intellect-*, family-*, wealth-*, env-*, moontrance-*).
+
+**In-body (legacy, thick pages)** — pages with hooks, dynamic moduleId, or embedded variants still gate themselves:
 ```jsx
 if (!completedOpening[moduleId]) return <CeremonyGate moduleId={moduleId} />;
 ```
+Still used in `Work`, `Money`, `People`, `Office`, `Tech`, `Project`, `FamilyPage`, `Neighbors`, `Community`, `CollectivePage`, `FivePillars`, `HadithPage`, `IslamicKnowledgePage`, `QuranPage`, `ModulePlaceholder`, `ComingSoon`. Phase 2 of the refactor will audit these case-by-case.
+
+Both modes end at the same UI:
 - Shows "Begin Opening" or "Return to Opening" (if deferred)
 - Skip flow: confirmation dialog → `completeOpening(moduleId)` immediately
 
