@@ -7,6 +7,24 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Phase 1 Faith — Islamic content for 9 Faith sub-modules
+
+- **MODULE_ATTRS blocks** added for the five pillars of Islam, the Sources module, and the three board tiers (`faith-shahada` Al-Ahad/As-Samad, `faith-salah` Al-Qarib/Al-Mujib, `faith-zakah` Ar-Razzaq/Al-Karim, `faith-sawm` As-Sabur/Ash-Shakur, `faith-hajj` Al-Malik/Al-Quddus, `sources` Al-Hadi/Al-Alim, `faith-core` Al-Muhyi/Al-Qayyum for Daruriyyat, `faith-growth` Ar-Rafi/Al-Fattah for Hajiyyat, `faith-excellence` Al-Muhsin/Al-Jamil for Tahsiniyyat)
+- Each block carries unique `dua` + `closingDua` + 3–4 readiness rows + 2 reflection rows; Asma ul-Husna pairings match `src/data/modules.js` attrs strings
+- **`faith-core`/`faith-growth`/`faith-excellence`** carry tier-specific (Daruriyyat/Hajiyyat/Tahsiniyyat) framing rather than pillar fallback — resolves the open call from `wiki/decisions/2026-04-16-threshold-content-phased-fix.md`
+- **PAUSE_QUESTIONS.faith** + **PAUSE_UNIVERSAL.questions.faith** added — all six `faith-*` sub-modules inside `faith.subModuleIds` inherit via Phase 0's pillar fallback
+- Verification: `npm run build` passes; `getModuleData` confirms all 9 blocks load with distinct attrs/dua/closing sources; `getPauseQuestion('faith-salah')` correctly falls back to the pillar question
+- Pillar-level `faith` block (Al-Mutakabbir/Al-Wakil) already existed and was left untouched
+- Commit: `e72ebc5`
+
+## [2026-04-16] feat | Phase 1 Family — Islamic content for pillar + 5 sub-modules
+
+- **MODULE_ATTRS blocks** added for `family` (Al-Wadud/Ar-Rahman), `family-marriage` (Al-Wadud/As-Salam), `family-parenting` (Ar-Rabb/Al-Hafiz), `family-kinship` (Al-Wakil/Ash-Shakur), `family-home` (As-Salam/Al-Quddus), `family-office` (Al-Jami/Al-Hafiz)
+- Each block: unique dua (Ar-Rum 30:21, Ibrahim 14:40, An-Nisa 4:1, Al-Muminun 23:29, Ali Imran 3:8), closingDua, 4–5 readiness rows, 2 reflection rows with governing/notYet pairs
+- **PAUSE_QUESTIONS.family** + **PAUSE_UNIVERSAL.questions.family** added — all five sub-modules inherit the pillar-level pause question via Phase 0's fallback
+- Verification: build passes; `family-marriage` ceremony renders Ar-Rum 30:21 dua and Al-Wadud/As-Salam attrs panel correctly in preview DOM
+- Commit: `fd8a0e8`
+
 ## [2026-04-16] feat | Phase 0 — Threshold popup code-path fixes
 
 - **Pause-question pillar fallback**: added `getPauseQuestion` / `getPauseQuestionUniversal` helpers in `src/data/islamic/islamic-data.js` that try module id → pillar id → `work` default. Wired into `DEFER_CONTENT.getGuidanceQuestion`, `DEFER_UNIVERSAL.getGuidanceQuestion`, and `ThresholdModal.jsx:222-224`. Replaces silent `PAUSE_QUESTIONS[id] || PAUSE_QUESTIONS.work` default that hit 36 of 42 modules.
