@@ -3765,6 +3765,466 @@ export const MODULE_ATTRS = {
     },
   },
 
+  'wealth-earning': {
+    attrs: [
+      {
+        name: 'Ar-Razzāq',
+        name_ar: 'الرزاق',
+        title: 'The Provider',
+        body: 'Ar-Razzāq is the one who provides; the employer, the client, the market are means He uses — they are not the source. To earn under Ar-Razzāq is to take the sabab seriously (apply, work, negotiate) without believing the effort itself is the provider. Its absence shows as panic in scarcity and arrogance in abundance — two forms of having forgotten where rizq actually comes from.',
+      },
+      {
+        name: 'Al-Fattāḥ',
+        name_ar: 'الفتاح',
+        title: 'The Opener',
+        body: 'Al-Fattāḥ opens doors that human effort alone cannot open, and closes doors that human effort alone cannot hold shut. Earning under Al-Fattāḥ is the confidence that a door closed to you is closed for your benefit, and the willingness to keep knocking on the next one. Its absence is either despair at closure or the insistence on forcing a door Allah has shut.',
+      },
+    ],
+    dua: {
+      title: 'Before Earning',
+      resumeTitle: 'Before Returning to Earning',
+      arabic: 'اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ',
+      trans: "Allāhumma-kfinī bi-ḥalālika ʿan ḥarāmik, wa aghninī bi-faḍlika ʿamman siwāk",
+      meaning: 'O Allah, suffice me with what You have made lawful so that I need not turn to what You have forbidden, and enrich me by Your favour so that I need not rely on anyone other than You.',
+      source: 'Jami at-Tirmidhi 3563',
+    },
+    closingDua: {
+      title: 'After Earning',
+      arabic: 'وَمَا مِن دَآبَّةٍ فِي ٱلْأَرْضِ إِلَّا عَلَى ٱللَّهِ رِزْقُهَا',
+      trans: "Wa mā min dābbatin fi-l-arḍi illā ʿala-llāhi rizquhā",
+      meaning: 'And there is no creature on earth but that its provision is with Allah.',
+      source: 'Surah Hud 11:6',
+    },
+    readiness: {
+      frame: 'Ar-Razzāq asks: am I earning with trust in the Provider, or with anxiety that I am the provider?',
+      yesLabel: 'I am earning in trust when',
+      notYetLabel: 'I am earning in fear when',
+      rows: [
+        {
+          id: 'RZ1', attr: 'Ar-Razzāq', attr_ar: 'الرزاق', attrTitle: 'The Provider',
+          attrFrame: 'Am I taking the means while trusting the Provider, or gripping the means as if they were the source?',
+          yesLabel: 'I am trusting the Provider when',
+          notYetLabel: 'I am gripping the means when',
+          governing: 'I am working diligently while my heart remains settled that the rizq is His to apportion, not mine to manufacture.',
+          notYet: 'I am working from a place of panic that treats the job, the deal, or the client as the actual source of my provision.',
+        },
+        {
+          id: 'RZ2', attr: 'Ar-Razzāq',
+          governing: 'I am refusing to compromise on halal sources of income even when scarcity is making it tempting — Ar-Razzāq has not run out.',
+          notYet: 'I am rationalizing a questionable source of income because the pressure feels too great to resist — functionally treating scarcity as greater than Him.',
+        },
+        {
+          id: 'RZ3', attr: 'Ar-Razzāq',
+          governing: 'I am giving thanks for the rizq I already have rather than treating it as a baseline I have earned.',
+          notYet: 'I am so focused on the next increment that I have stopped noticing — or thanking Him for — what is already in hand.',
+        },
+        {
+          id: 'FT1', attr: 'Al-Fattāḥ', attr_ar: 'الفتاح', attrTitle: 'The Opener',
+          attrFrame: 'Am I trusting that He opens and closes doors for my benefit, or am I forcing what He has closed?',
+          yesLabel: 'I am trusting the Opener when',
+          notYetLabel: 'I am forcing a closed door when',
+          governing: 'I am willing to let a door close without bitterness, knowing Al-Fattāḥ closes what is not for my good.',
+          notYet: 'I am refusing to accept a door He has clearly closed because accepting it would mean admitting I wanted the wrong thing.',
+        },
+        {
+          id: 'FT2', attr: 'Al-Fattāḥ',
+          governing: 'I am continuing to knock at the next door without resentment toward the last one that closed.',
+          notYet: 'I am stuck in the grief or the anger of the last closure, so paralyzed that I am not even approaching the next opening.',
+        },
+      ],
+      governing: [
+        'I am working diligently while my heart remains settled that the rizq is His to apportion, not mine to manufacture.',
+        'I am refusing to compromise on halal sources of income even when scarcity is making it tempting — Ar-Razzāq has not run out.',
+        'I am giving thanks for the rizq I already have rather than treating it as a baseline I have earned.',
+        'I am willing to let a door close without bitterness, knowing Al-Fattāḥ closes what is not for my good.',
+        'I am continuing to knock at the next door without resentment toward the last one that closed.',
+      ],
+      notYet: [
+        'I am working from a place of panic that treats the job, the deal, or the client as the actual source of my provision.',
+        'I am rationalizing a questionable source of income because the pressure feels too great to resist — functionally treating scarcity as greater than Him.',
+        'I am so focused on the next increment that I have stopped noticing — or thanking Him for — what is already in hand.',
+        'I am refusing to accept a door He has clearly closed because accepting it would mean admitting I wanted the wrong thing.',
+        'I am stuck in the grief or the anger of the last closure, so paralyzed that I am not even approaching the next opening.',
+      ],
+    },
+    reflection: {
+      frame: 'Ar-Razzāq is the one who provided today. Al-Fattāḥ is the one who opened or withheld each door.',
+      yesLabel: 'Earning was done in trust when',
+      notYetLabel: 'Earning was done in fear when',
+      rows: [
+        {
+          id: 'RRZ1', attr: 'Ar-Razzāq', attr_ar: 'الرزاق', attrTitle: 'The Provider',
+          attrFrame: 'Did I remember the Provider while earning today?',
+          yesLabel: 'The Provider was remembered when',
+          notYetLabel: 'The Provider was forgotten when',
+          governing: 'I thanked Him today for something specific in my rizq rather than treating it as automatic.',
+          notYet: 'I acted today as if my effort alone were the source of my provision.',
+        },
+        {
+          id: 'RFT1', attr: 'Al-Fattāḥ', attr_ar: 'الفتاح', attrTitle: 'The Opener',
+          attrFrame: 'Did I trust the Opener with today\'s doors?',
+          yesLabel: 'The Opener was trusted when',
+          notYetLabel: 'The Opener was doubted when',
+          governing: 'I accepted a closure today without resentment — or kept moving toward the next opening when one path ended.',
+          notYet: 'I spent the day bitter about a door He closed and refused to approach the one He left open.',
+        },
+      ],
+      governing: [
+        'I thanked Him today for something specific in my rizq rather than treating it as automatic.',
+        'I accepted a closure today without resentment — or kept moving toward the next opening when one path ended.',
+      ],
+      notYet: [
+        'I acted today as if my effort alone were the source of my provision.',
+        'I spent the day bitter about a door He closed and refused to approach the one He left open.',
+      ],
+    },
+  },
+
+  'wealth-financial': {
+    attrs: [
+      {
+        name: 'Ar-Razzāq',
+        name_ar: 'الرزاق',
+        title: 'The Provider',
+        body: 'Managing wealth under Ar-Razzāq means treating every unit of it as rizq — provision entrusted for a purpose, not earnings to be spent according to appetite. Its absence turns a budget into an indulgence log and a portfolio into a trophy case. Presence of Ar-Razzāq treats planning, saving, and deploying money as dhikr through numbers.',
+      },
+      {
+        name: 'Al-Ghanī',
+        name_ar: 'الغني',
+        title: 'The Self-Sufficient',
+        body: 'Al-Ghanī is absolutely self-sufficient — He needs nothing. To manage finances under Al-Ghanī is to steward money with a heart that does not need it for its security, even as the hands use it competently. Its absence is financial management driven by the anxious belief that the account balance determines your worth, your safety, and your standing.',
+      },
+    ],
+    dua: {
+      title: 'Before Financial Planning',
+      resumeTitle: 'Before Returning to Financial Work',
+      arabic: 'اللَّهُمَّ أَصْلِحْ لِي فِي مَا رَزَقْتَنِي، وَبَارِكْ لِي فِيهِ',
+      trans: "Allāhumma aṣliḥ lī fī mā razaqtanī, wa bārik lī fīh",
+      meaning: 'O Allah, set right for me what You have given as my provision, and bless me in it.',
+      source: 'Inspired by prophetic supplications; Musnad Ahmad variants',
+    },
+    closingDua: {
+      title: 'After Financial Work',
+      arabic: 'يَا أَيُّهَا النَّاسُ أَنتُمُ الْفُقَرَاءُ إِلَى اللَّهِ وَاللَّهُ هُوَ الْغَنِيُّ الْحَمِيدُ',
+      trans: "Yā ayyuha-n-nāsu antumu-l-fuqarāʾu ila-llāh, wa-llāhu huwa-l-ghaniyyu-l-ḥamīd",
+      meaning: 'O mankind, you are those in need of Allah, and Allah is the Free of need, the Praiseworthy.',
+      source: 'Surah Fatir 35:15',
+    },
+    readiness: {
+      frame: 'Ar-Razzāq asks: am I managing this money as amanah, or as appetite?',
+      yesLabel: 'I am managing as amanah when',
+      notYetLabel: 'I am managing as appetite when',
+      rows: [
+        {
+          id: 'RZ1', attr: 'Ar-Razzāq', attr_ar: 'الرزاق', attrTitle: 'The Provider',
+          attrFrame: 'Am I treating this wealth as rizq entrusted, or as earnings to dispose of as I please?',
+          yesLabel: 'I am treating it as rizq when',
+          notYetLabel: 'I am treating it as mine when',
+          governing: 'I am making this financial decision with the clear awareness that what I hold is entrusted and will be asked about.',
+          notYet: 'I am making this decision as if I owned the money outright and owed no one an account.',
+        },
+        {
+          id: 'RZ2', attr: 'Ar-Razzāq',
+          governing: 'I am keeping my financial affairs clean of riba, gharar, and contracts whose purity I have not verified.',
+          notYet: 'I am letting impermissible structures remain in my financial life because unwinding them is inconvenient.',
+        },
+        {
+          id: 'RZ3', attr: 'Ar-Razzāq',
+          governing: 'I am tracking where the money actually goes — I can honestly account for this month\'s rizq and how it was spent.',
+          notYet: 'I am moving through my finances without a clear picture of inflow and outflow, and calling the vagueness "trust."',
+        },
+        {
+          id: 'GH1', attr: 'Al-Ghanī', attr_ar: 'الغني', attrTitle: 'The Self-Sufficient',
+          attrFrame: 'Am I managing money from sufficiency in Him, or from fear of not having enough?',
+          yesLabel: 'I am managing from sufficiency when',
+          notYetLabel: 'I am managing from fear when',
+          governing: 'I am making this decision from a heart that is settled — Al-Ghanī is my sufficiency, the balance is only a number in His ledger.',
+          notYet: 'I am making this decision from a fear of insufficiency that has forgotten who the actual Ghanī is.',
+        },
+        {
+          id: 'GH2', attr: 'Al-Ghanī',
+          governing: 'I am refusing to let the balance sheet become the scorecard of my worth — my standing is with Him, not with my assets.',
+          notYet: 'I am measuring myself today — and others — by net worth, and my dignity is rising and falling with the number.',
+        },
+      ],
+      governing: [
+        'I am making this financial decision with the clear awareness that what I hold is entrusted and will be asked about.',
+        'I am keeping my financial affairs clean of riba, gharar, and contracts whose purity I have not verified.',
+        'I am tracking where the money actually goes — I can honestly account for this month\'s rizq and how it was spent.',
+        'I am making this decision from a heart that is settled — Al-Ghanī is my sufficiency, the balance is only a number in His ledger.',
+        'I am refusing to let the balance sheet become the scorecard of my worth — my standing is with Him, not with my assets.',
+      ],
+      notYet: [
+        'I am making this decision as if I owned the money outright and owed no one an account.',
+        'I am letting impermissible structures remain in my financial life because unwinding them is inconvenient.',
+        'I am moving through my finances without a clear picture of inflow and outflow, and calling the vagueness "trust."',
+        'I am making this decision from a fear of insufficiency that has forgotten who the actual Ghanī is.',
+        'I am measuring myself today — and others — by net worth, and my dignity is rising and falling with the number.',
+      ],
+    },
+    reflection: {
+      frame: 'Ar-Razzāq witnessed how the rizq was stewarded. Al-Ghanī witnessed whether my heart was settled or grasping.',
+      yesLabel: 'Money was stewarded well when',
+      notYetLabel: 'Money governed me when',
+      rows: [
+        {
+          id: 'RRZ1', attr: 'Ar-Razzāq', attr_ar: 'الرزاق', attrTitle: 'The Provider',
+          attrFrame: 'Did I steward the rizq as amanah today?',
+          yesLabel: 'Rizq was stewarded when',
+          notYetLabel: 'Rizq was consumed when',
+          governing: 'I made a financial decision today with a clear, honest view of what the money is for and whom it will be asked about.',
+          notYet: 'I spent today as if none of it would be asked about later.',
+        },
+        {
+          id: 'RGH1', attr: 'Al-Ghanī', attr_ar: 'الغني', attrTitle: 'The Self-Sufficient',
+          attrFrame: 'Was my heart settled or anxious about money today?',
+          yesLabel: 'My heart was settled when',
+          notYetLabel: 'My heart was ruled by money when',
+          governing: 'My sense of security today was rooted in Him, not in the balance of a particular account.',
+          notYet: 'I let a market movement, a bill, or a balance determine my mood today.',
+        },
+      ],
+      governing: [
+        'I made a financial decision today with a clear, honest view of what the money is for and whom it will be asked about.',
+        'My sense of security today was rooted in Him, not in the balance of a particular account.',
+      ],
+      notYet: [
+        'I spent today as if none of it would be asked about later.',
+        'I let a market movement, a bill, or a balance determine my mood today.',
+      ],
+    },
+  },
+
+  'wealth-ownership': {
+    attrs: [
+      {
+        name: 'Al-ʿAdl',
+        name_ar: 'العدل',
+        title: 'The Utterly Just',
+        body: 'Al-ʿAdl is absolute justice — giving each right-holder exactly what is due, neither more nor less. In ownership, this Name governs contracts, inheritance, partnerships, and promises. Its absence shows in paperwork that favors the strong, inheritances that sideline the weak, and contracts that keep options open at the other party\'s expense.',
+      },
+      {
+        name: 'Al-Muqsiṭ',
+        name_ar: 'المقسط',
+        title: 'The Equitable',
+        body: 'Al-Muqsiṭ is fairness in the granular distribution — the specific allocation between specific parties. Where Al-ʿAdl is the absolute standard, Al-Muqsiṭ is the careful apportioning in practice. Its absence is the generic "it\'s fair" that has not actually counted what each party carries, contributes, or is owed.',
+      },
+    ],
+    dua: {
+      title: 'Before Matters of Ownership and Rights',
+      resumeTitle: 'Before Returning to Contracts and Rights',
+      arabic: 'إِنَّ اللَّهَ يَأْمُرُكُم بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ',
+      trans: "Innallāha yaʾmurukum bi-l-ʿadli wa-l-iḥsāni wa ītāʾi dhi-l-qurbā",
+      meaning: 'Indeed, Allah commands justice, excellence, and giving to the near of kin.',
+      source: 'Surah An-Nahl 16:90',
+    },
+    closingDua: {
+      title: 'After Matters of Ownership and Rights',
+      arabic: 'يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ وَلَوْ عَلَىٰ أَنفُسِكُمْ',
+      trans: "Yā ayyuha-lladhīna āmanū kūnū qawwāmīna bi-l-qisṭi shuhadāʾa lillāhi wa law ʿalā anfusikum",
+      meaning: 'O you who believe, be upright in justice, witnesses for Allah, even if against yourselves.',
+      source: 'Surah An-Nisa 4:135',
+    },
+    readiness: {
+      frame: 'Al-ʿAdl asks: am I giving each right-holder what is due, or what is convenient for me?',
+      yesLabel: 'I am giving what is due when',
+      notYetLabel: 'I am giving what is convenient when',
+      rows: [
+        {
+          id: 'AD1', attr: 'Al-ʿAdl', attr_ar: 'العدل', attrTitle: 'The Utterly Just',
+          attrFrame: 'Am I willing to be just even when justice costs me?',
+          yesLabel: 'I am just even at cost when',
+          notYetLabel: 'I am just only when cheap when',
+          governing: 'I am ready to testify to the truth of this matter even if the testimony goes against my own interest.',
+          notYet: 'I am shaping the facts of this matter to fit the conclusion that benefits me.',
+        },
+        {
+          id: 'AD2', attr: 'Al-ʿAdl',
+          governing: 'I am giving every party to this contract — including the absent, the weak, and the heirs — the full right they are owed.',
+          notYet: 'I am drafting or accepting terms that quietly reduce what a weaker party is owed because they will not be able to contest it.',
+        },
+        {
+          id: 'AD3', attr: 'Al-ʿAdl',
+          governing: 'I am treating the right of the other party as a barrier I will not cross — not as a negotiation to be eroded.',
+          notYet: 'I am eroding the other party\'s rightful position by small degrees, telling myself each shave is negligible.',
+        },
+        {
+          id: 'MQ1', attr: 'Al-Muqsiṭ', attr_ar: 'المقسط', attrTitle: 'The Equitable',
+          attrFrame: 'Am I doing the specific apportioning, or settling for a vague "it\'s fair"?',
+          yesLabel: 'I am apportioning specifically when',
+          notYetLabel: 'I am hiding behind vagueness when',
+          governing: 'I am actually counting what each party contributes, bears, and is owed — not hiding behind a generic claim of fairness.',
+          notYet: 'I am declaring the split "fair" without doing the honest work of showing why it is fair.',
+        },
+        {
+          id: 'MQ2', attr: 'Al-Muqsiṭ',
+          governing: 'I am making the terms of this agreement clear, documented, and unambiguous — so no one is surprised later by what they signed.',
+          notYet: 'I am leaving ambiguity in the terms because ambiguity favors the side with more power, which today is mine.',
+        },
+      ],
+      governing: [
+        'I am ready to testify to the truth of this matter even if the testimony goes against my own interest.',
+        'I am giving every party to this contract — including the absent, the weak, and the heirs — the full right they are owed.',
+        'I am treating the right of the other party as a barrier I will not cross — not as a negotiation to be eroded.',
+        'I am actually counting what each party contributes, bears, and is owed — not hiding behind a generic claim of fairness.',
+        'I am making the terms of this agreement clear, documented, and unambiguous — so no one is surprised later by what they signed.',
+      ],
+      notYet: [
+        'I am shaping the facts of this matter to fit the conclusion that benefits me.',
+        'I am drafting or accepting terms that quietly reduce what a weaker party is owed because they will not be able to contest it.',
+        'I am eroding the other party\'s rightful position by small degrees, telling myself each shave is negligible.',
+        'I am declaring the split "fair" without doing the honest work of showing why it is fair.',
+        'I am leaving ambiguity in the terms because ambiguity favors the side with more power, which today is mine.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-ʿAdl witnessed every right I honored or eroded. Al-Muqsiṭ witnessed whether I counted honestly.',
+      yesLabel: 'Rights were honored when',
+      notYetLabel: 'Rights were eroded when',
+      rows: [
+        {
+          id: 'RAD1', attr: 'Al-ʿAdl', attr_ar: 'العدل', attrTitle: 'The Utterly Just',
+          attrFrame: 'Did I give each party their due today?',
+          yesLabel: 'Rights were given when',
+          notYetLabel: 'Rights were withheld when',
+          governing: 'I gave a right today to someone who might not have noticed if I had withheld it.',
+          notYet: 'I shaved a small portion of what was due to someone because I was confident they would not catch it.',
+        },
+        {
+          id: 'RMQ1', attr: 'Al-Muqsiṭ', attr_ar: 'المقسط', attrTitle: 'The Equitable',
+          attrFrame: 'Did I apportion honestly, or hide behind vagueness?',
+          yesLabel: 'I apportioned honestly when',
+          notYetLabel: 'I hid behind vagueness when',
+          governing: 'I made a specific, documented allocation today that I could defend line-by-line if asked.',
+          notYet: 'I left the terms of something vague today because vagueness was quietly working in my favor.',
+        },
+      ],
+      governing: [
+        'I gave a right today to someone who might not have noticed if I had withheld it.',
+        'I made a specific, documented allocation today that I could defend line-by-line if asked.',
+      ],
+      notYet: [
+        'I shaved a small portion of what was due to someone because I was confident they would not catch it.',
+        'I left the terms of something vague today because vagueness was quietly working in my favor.',
+      ],
+    },
+  },
+
+  'wealth-circulation': {
+    attrs: [
+      {
+        name: 'Al-Karīm',
+        name_ar: 'الكريم',
+        title: 'The Generous',
+        body: 'Al-Karīm gives without measure and without expectation of return. To circulate wealth under Al-Karīm is to refuse the calculus that asks what a gift will return — the giving is the return. Its absence reduces sadaqah to PR, zakat to compliance, and the hand of generosity to a spreadsheet of expected dividends.',
+      },
+      {
+        name: 'Al-Wahhāb',
+        name_ar: 'الوهاب',
+        title: 'The Bestower',
+        body: 'Al-Wahhāb bestows gifts freely and continuously — His giving is not triggered by our deserving. Circulating wealth under Al-Wahhāb is learning to pass on what was freely given as something that is meant to keep flowing. Its absence hoards provision as if it were finite, treating what was gifted as if it were earned.',
+      },
+    ],
+    dua: {
+      title: 'Before Giving',
+      resumeTitle: 'Before Returning to Giving',
+      arabic: 'لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ',
+      trans: "Lan tanālu-l-birra ḥattā tunfiqū mimmā tuḥibbūn",
+      meaning: 'You will not attain righteousness until you spend from that which you love.',
+      source: 'Surah Ali Imran 3:92',
+    },
+    closingDua: {
+      title: 'After Giving',
+      arabic: 'مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ',
+      trans: "Mathalu-lladhīna yunfiqūna amwālahum fī sabīli-llāhi ka-mathali ḥabbatin anbatat sabʿa sanābila fī kulli sunbulatin miʾatu ḥabbah",
+      meaning: 'The example of those who spend their wealth in the way of Allah is like a seed that sprouts seven spikes, in every spike a hundred grains.',
+      source: 'Surah Al-Baqarah 2:261',
+    },
+    readiness: {
+      frame: 'Al-Karīm asks: am I giving because I love Him, or giving because it will be noticed?',
+      yesLabel: 'I am giving for Him when',
+      notYetLabel: 'I am giving for show when',
+      rows: [
+        {
+          id: 'KR1', attr: 'Al-Karīm', attr_ar: 'الكريم', attrTitle: 'The Generous',
+          attrFrame: 'Am I giving without calculating return, or calculating return?',
+          yesLabel: 'I am giving without calculation when',
+          notYetLabel: 'I am giving with calculation when',
+          governing: 'I am giving this without waiting for acknowledgment, gratitude, or tax benefit — the giving itself is the return.',
+          notYet: 'I am giving this with a specific expectation of what it will bring back to me — social, financial, or reputational.',
+        },
+        {
+          id: 'KR2', attr: 'Al-Karīm',
+          governing: 'I am giving from what I actually love — not from the surplus I was going to throw out anyway.',
+          notYet: 'I am giving from the leftover, the out-of-style, or the about-to-expire, and calling it generosity.',
+        },
+        {
+          id: 'KR3', attr: 'Al-Karīm',
+          governing: 'I am protecting the dignity of the recipient — giving in a way that does not humiliate, showcase, or obligate them.',
+          notYet: 'I am giving in a way that makes the recipient feel small, or that positions me above them in the giving.',
+        },
+        {
+          id: 'WH1', attr: 'Al-Wahhāb', attr_ar: 'الوهاب', attrTitle: 'The Bestower',
+          attrFrame: 'Am I letting what was given flow onward, or hoarding it?',
+          yesLabel: 'I am letting it flow when',
+          notYetLabel: 'I am hoarding when',
+          governing: 'I am fulfilling the obligatory circulation — zakat at its proper time and amount — as a baseline, not a ceiling.',
+          notYet: 'I am delaying or minimizing zakat calculation because the correct number would be uncomfortable.',
+        },
+        {
+          id: 'WH2', attr: 'Al-Wahhāb',
+          governing: 'I am going beyond the obligatory toward sadaqah and sadaqah jariyah — investment in what continues to benefit after me.',
+          notYet: 'I am stopping at the minimum required and calling the floor a ceiling, while treating beyond-the-minimum as someone else\'s job.',
+        },
+      ],
+      governing: [
+        'I am giving this without waiting for acknowledgment, gratitude, or tax benefit — the giving itself is the return.',
+        'I am giving from what I actually love — not from the surplus I was going to throw out anyway.',
+        'I am protecting the dignity of the recipient — giving in a way that does not humiliate, showcase, or obligate them.',
+        'I am fulfilling the obligatory circulation — zakat at its proper time and amount — as a baseline, not a ceiling.',
+        'I am going beyond the obligatory toward sadaqah and sadaqah jariyah — investment in what continues to benefit after me.',
+      ],
+      notYet: [
+        'I am giving this with a specific expectation of what it will bring back to me — social, financial, or reputational.',
+        'I am giving from the leftover, the out-of-style, or the about-to-expire, and calling it generosity.',
+        'I am giving in a way that makes the recipient feel small, or that positions me above them in the giving.',
+        'I am delaying or minimizing zakat calculation because the correct number would be uncomfortable.',
+        'I am stopping at the minimum required and calling the floor a ceiling, while treating beyond-the-minimum as someone else\'s job.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Karīm witnessed the intention behind the giving. Al-Wahhāb witnessed what I let flow onward.',
+      yesLabel: 'Giving was sincere when',
+      notYetLabel: 'Giving was performative when',
+      rows: [
+        {
+          id: 'RKR1', attr: 'Al-Karīm', attr_ar: 'الكريم', attrTitle: 'The Generous',
+          attrFrame: 'Did I give today without calculating the return?',
+          yesLabel: 'I gave without calculation when',
+          notYetLabel: 'I gave with calculation when',
+          governing: 'I gave something today that no one else will know I gave.',
+          notYet: 'I gave today in a way designed to be seen, and counted the visibility as part of the return.',
+        },
+        {
+          id: 'RWH1', attr: 'Al-Wahhāb', attr_ar: 'الوهاب', attrTitle: 'The Bestower',
+          attrFrame: 'Did I let rizq flow onward today?',
+          yesLabel: 'Rizq flowed onward when',
+          notYetLabel: 'Rizq was hoarded when',
+          governing: 'I passed something onward today — money, time, or opportunity — that was gifted to me so it could keep moving.',
+          notYet: 'I held onto something today that was given to flow through me, not stop with me.',
+        },
+      ],
+      governing: [
+        'I gave something today that no one else will know I gave.',
+        'I passed something onward today — money, time, or opportunity — that was gifted to me so it could keep moving.',
+      ],
+      notYet: [
+        'I gave today in a way designed to be seen, and counted the visibility as part of the return.',
+        'I held onto something today that was given to flow through me, not stop with me.',
+      ],
+    },
+  },
+
   environment: {
     attrs: [
       {
@@ -4172,6 +4632,7 @@ export const PAUSE_QUESTIONS = {
   family: 'Which family member have you been emotionally absent from \u2014 and is the distance preserving peace, or deferring a conversation they need you to have?',
   life: 'Which signal from your body, heart, or household have you been overriding \u2014 and is continuing to push past it stewardship, or extraction?',
   intellect: 'Which idea have you stopped examining because examining it would cost you a position \u2014 and is the closure protecting truth, or protecting your comfort?',
+  wealth: 'Which financial decision are you about to make from fear of scarcity rather than trust in Ar-Razz\u0101q \u2014 and would the decision look different if you were truly settled on who the Provider is?',
   office: 'What are you about to say that you have not yet fully listened to \u2014 and what would change if you heard it first?',
   tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
 };
@@ -4188,6 +4649,7 @@ export const PAUSE_UNIVERSAL = {
     family: 'Which family member have you been emotionally absent from \u2014 and is the distance keeping peace, or avoiding a conversation they need you to have?',
     life: 'Which signal from your body, mind, or relationships have you been overriding \u2014 and is continuing to push past it sustainable, or depleting?',
     intellect: 'Which idea have you stopped examining because examining it would cost you a position \u2014 and is the closure protecting truth, or protecting your comfort?',
+    wealth: 'Which financial decision are you about to make from fear of not having enough \u2014 and would the decision look different if your sense of security were not tied to the balance?',
     office: 'What are you about to say that you have not yet fully listened to?',
     tech: 'What shortcut are you about to take \u2014 and who will bear the cost of it later?',
   },
