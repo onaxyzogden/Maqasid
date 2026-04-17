@@ -39,6 +39,7 @@ Append-only chronological record of all wiki operations.
   - `/app/fake-module-xyz` (after setting flag) → ModulePlaceholder renders "Module not found" (expected — gate then not-found; matches pre-refactor order).
   - `/app/work/faith_core` (after opening) → ProjectBoard pipeline renders.
 - **Refactor initiative CLOSED**. Final state: `CeremonyGuard` wraps all 38+ thin/homogeneous module routes statically; `CeremonyGuardDynamic` wraps the `:moduleId` catch-all. Only remaining in-body gates are the 3 Sources tabs (`QuranPage`, `HadithPage`, `IslamicKnowledgePage`) — intentional, per-tab semantics, not URL-driven.
+- **Graphify verification (post-refactor re-run on `src/`)**: `threshold_store` importers dropped from 93 (2026-04-11 baseline) to **13** (~86% reduction). All 13 remaining importers are correct-by-design: 6 ceremony primitives (`CeremonyGate`, `CeremonyGuard`, `CeremonyGuardDynamic`, `IslamicPanel`, `NiyyahAct`, `ThresholdModal`), 2 app-level (`AppShell`, `MobileNav`), 2 dashboard (`Dashboard`, `TodayFocusSection`), and the 3 intentional Sources tabs. No strays. Graph now 921 nodes / 853 edges / 209 communities; `threshold-store` betweenness dropped from 0.133 → ~0 (the module file node itself has degree 0 under path-id resolution; the shortname alias `threshold_store` carries the 13 import edges). `graphify-out/GRAPH_REPORT.md` + `graph.json` refreshed.
 
 ## [2026-04-16] refactor | CeremonyGuard Phase 2c-sources — closed as no-op + FivePillars dead-code deletion
 
