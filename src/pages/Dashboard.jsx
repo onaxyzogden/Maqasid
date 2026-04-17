@@ -18,6 +18,7 @@ import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
 import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
 import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import ChartTooltip from '../components/shared/ChartTooltip';
+import OnboardingChecklist from '../components/onboarding/OnboardingChecklist';
 import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
 
@@ -480,6 +481,9 @@ export default function Dashboard() {
           </Link>
         </div>
       </div>
+
+      {/* ── Onboarding Checklist ── */}
+      <OnboardingChecklist />
 
       {/* ── Today's Focus ── */}
       <TodayFocusSection pillarSummary={focusSummary} />
