@@ -47,3 +47,6 @@ stages/.embed-cache.json
 # QA sample working files (reproducible from sidecar)
 stages/_qa-sample-*.md
 
+
+# Git worktrees
+.worktrees/
