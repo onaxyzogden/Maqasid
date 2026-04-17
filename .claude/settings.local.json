@@ -11,13 +11,21 @@
       "Bash(wc -l \"/c/Users/MY OWN AXIS/Documents/MAQASID OS - V2.1/src/data/seed-tasks\"/*.js)",
       "Bash(node scripts/extract-subtask-matrix.mjs)",
       "Bash(node scripts/generate-hadith-candidates.mjs*)",
-      "Bash(node scripts/apply-hadith-sources.mjs*)"
+      "Bash(node scripts/apply-hadith-sources.mjs*)",
+      "Bash(node -e ' *)",
+      "mcp__10afb233-9de4-49d5-805d-a5accd4d0b2b__list_editions",
+      "Bash(curl -s \"https://api.quran.com/api/v4/verses/by_key/3:53?words=true&word_fields=text_uthmani,translation&translations=131\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); v=d['verse']; print\\('surah_name:', v['verse_key']\\); print\\('words:', json.dumps\\(v['words'][:2], ensure_ascii=False, indent=2\\)\\)\")",
+      "mcp__10afb233-9de4-49d5-805d-a5accd4d0b2b__fetch_grounding_rules"
     ]
   },
   "mcpServers": {
     "quran": {
       "command": "npx",
-      "args": ["-y", "@quranmcp/server"]
+      "args": [
+        "-y",
+        "@quranmcp/server"
+      ]
     }
   }
 }

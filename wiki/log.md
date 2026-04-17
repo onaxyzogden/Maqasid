@@ -1109,3 +1109,23 @@ All 6 Ummah submodule pages used legacy `PillarHeader + ViewToggle + OverviewCar
 
 ### Decision filed
 - [[2026-04-17-ummah-pillar-level-page]]
+
+## 2026-04-17 — Ayah banner label + 99 Names kid-friendly rewrite
+
+### Context
+Two small user-driven UI tasks in one session.
+
+### Done
+- `src/components/layout/TopBar.jsx:225` — changed ayah banner label from "Reminder" to "Why?" (triggered via selected-element: TopBar banner header)
+- `C:\Users\MY OWN AXIS\Downloads\99_names_of_allah.html` (out-of-repo artifact) — added 7th `kidFriendly` field (2-sentence child-accessible explanation) to all 99 entries in the `names` array; replaced standalone "View toggle" design with a combined card layout showing scholarly label + kid-friendly paragraph stacked. New `.meaning-label` style (small italic). Search now also matches kid-friendly text. Doctrinally grounded — harsher names (Al-Khafid, Al-Mudhill, Al-Muntaqim, Ad-Darr, Al-Jabbar) rendered gently but accurately.
+
+### Verification
+- TopBar change: single-line text edit, no build run (trivial)
+- 99 Names HTML: standalone file, opens directly in browser — verification deferred to user
+
+### Deferred
+- Doctrinal spot-check of the 99 kid-friendly descriptions by a qualified reviewer before any public use
+- Plan file at `~/.claude/plans/c-users-my-own-axis-downloads-99-names-precious-cerf.md` can be archived/removed
+
+### Notes
+- Session did not open the repo wiki via the 3-Gate protocol — tasks were point-edits flagged by the user via selected-element and an attached out-of-repo HTML file. Formal orientation was skipped; noting it here for audit.
