@@ -1,0 +1,247 @@
+# Ummah — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in ummah-seed-tasks.js).
+
+[collective>Core] Commit to attending Jumu'ah prayer every week without exception
+  A: 62:9
+  H: -
+
+[collective>Core] Establish a local prayer group if no jamaah exists nearby
+  A: 20:14, 2:3
+  H: -
+
+[collective>Core] Ensure the adhan is called for every congregational prayer
+  A: 62:9
+  H: b618, b615
+
+[collective>Core] Establish ground rules for handling legitimate differences of opinion
+  A: 51:8
+  H: -
+
+[collective>Core] Organise a joint educational programme on the foundations of Islam
+  A: -
+  H: b1586, b1585, b1583
+
+[collective>Growth] Identify and train community mediators in Islamic dispute resolution
+  A: 29:46
+  H: b25
+
+[collective>Excellence] Create a community playbook that other communities can adapt
+  A: 7:181
+  H: -
+
+[collective>Excellence] Advocate for the rights of oppressed Muslims through civic channels
+  A: 8:73
+  H: b1240, b393
+
+[collective>Excellence] Plant a community orchard or garden as a living sadaqah jariyah
+  A: -
+  H: b2348
+
+[collective>Excellence] Identify and begin developing the next generation of community leaders
+  A: 17:71
+  H: -
+
+[collective>Excellence] Create a community constitution that governs beyond any individual leader
+  A: 76:28
+  H: -
+
+[collective>Excellence] Implement a quarterly community self-assessment against Prophetic standards
+  A: 16:89
+  H: -
+
+[collective>Excellence] Establish the community as a force for justice in the broader society
+  A: 7:159
+  H: -
+
+[collective>Excellence] Make dua and renew intention for the community to be a light for the ummah and for humanity
+  A: 11:118
+  H: -
+
+[neighbors>Core] Establish a consistent daily greeting habit — say salam or a warm hello to every neighbor you encounter
+  A: 56:26, 11:69
+  H: -
+
+[neighbors>Core] Adopt the prophetic principle: never respond to a neighbor's harm with harm
+  A: 52:42, 10:12
+  H: b141
+
+[neighbors>Core] Keep a small emergency supply you can share with a neighbor in sudden need — torch, first aid, bottled water, non-perishable food
+  A: 107:7
+  H: -
+
+[neighbors>Growth] Make du'a for sick neighbors — at their bedside and in your own prayers
+  A: 33:60, 73:20
+  H: b90
+
+[neighbors>Growth] Speak positively about your neighbors to others — mention their good qualities and kind actions
+  A: 4:8
+  H: -
+
+[neighbors>Growth] Identify the neighbor relationship that is most challenging for you and commit to treating it as a test from Allah
+  A: 4:36, 49:13
+  H: b4477
+
+[neighbors>Growth] Respond to unkindness with deliberate kindness — the Quranic principle of repelling evil with good
+  A: 41:34
+  H: -
+
+[neighbors>Growth] Seek reward in endurance — remind yourself that patience with a difficult neighbor is among the highest forms of sabr
+  A: 2:45
+  H: -
+
+[neighbors>Excellence] Mentor a younger or newer neighbor in the practice of Haqq al-Jar — pass on the tradition
+  A: -
+  H: b494, b387
+
+[neighbors>Excellence] Treat every non-Muslim neighbor with the same — or greater — kindness and generosity as Muslim neighbors
+  A: 60:11, 60:10
+  H: -
+
+[neighbors>Excellence] Invite neighbors to experience Islamic occasions — iftar, Eid, Mawlid, or Friday dinner
+  A: 3:104
+  H: b600
+
+[neighbors>Excellence] Be the neighbor who dismantles stereotypes — let your conduct contradict every negative narrative about Muslims
+  A: 2:76, 40:35
+  H: -
+
+[community>Core] Identify the nearest masjid and map its prayer times for all five daily prayers
+  A: 30:18, 40:55, 2:238
+  H: b7517
+
+[community>Core] Attend Jumu'ah khutbah from the beginning — arrive early and sit close
+  A: 17:78, 62:9, 62:11
+  H: -
+
+[community>Core] Introduce yourself to the imam and at least five regular attendees at your masjid
+  A: 17:71
+  H: b63, b916
+
+[community>Core] Commit to praying Isha in jama'ah at least four nights per week
+  A: 76:26, 17:78, 30:17
+  H: -
+
+[community>Core] Have a private, honest conversation to address the root cause of the dispute
+  A: 20:62, 58:9
+  H: -
+
+[community>Core] Mediate or facilitate reconciliation between two people in your community who are estranged
+  A: 4:35
+  H: -
+
+[community>Core] Ask your imam or community leaders who in the community is currently ill or hospitalised
+  A: -
+  H: b63
+
+[community>Core] Learn the janazah prayer — its format, du'as, and when to attend
+  A: 17:78
+  H: b90
+
+[community>Core] Attend the next janazah prayer in your community and stay through the burial
+  A: -
+  H: m2189
+
+[community>Core] Participate in the ghusl (washing) of the deceased if the opportunity arises
+  A: -
+  H: b1256, b167
+
+[community>Core] Establish a monthly sadaqah habit — automate a recurring donation to a local cause
+  A: 58:13, 2:270
+  H: -
+
+[community>Excellence] Train community leaders in the art of giving nasihah (sincere advice) with wisdom and compassion
+  A: 2:269, 7:21
+  H: -
+
+[moontrance-land>Core] Research the land history — previous use, chemical applications, and indigenous vegetation
+  A: -
+  H: b2327
+
+[moontrance-land>Core] Identify water harvesting opportunities — roof catchment, earthworks, and grey water reuse
+  A: 50:9
+  H: -
+
+[moontrance-land>Core] Research Islamic waqf structures and their modern legal equivalents in your jurisdiction
+  A: 5:42
+  H: -
+
+[moontrance-land>Core] Register the land trust or covenant with the appropriate legal authority
+  A: 23:8, 70:32, 81:21
+  H: -
+
+[moontrance-land>Growth] Implement green manure cover cropping in all fallow beds between seasons
+  A: 44:26
+  H: -
+
+[moontrance-land>Growth] Interplant shrub, herbaceous, ground cover, and vine layers around established trees
+  A: 56:29, 53:16
+  H: -
+
+[moontrance-land>Growth] Plant native hedgerows and tree lines connecting isolated habitat patches
+  A: 86:12
+  H: -
+
+[moontrance-land>Excellence] Establish a global network of Islamic land stewardship projects sharing data, seeds, and knowledge
+  A: 22:41
+  H: -
+
+[moontrance-seasonal>Core] Assign Islamic spiritual themes and key Quranic ayat to each season
+  A: -
+  H: b2050, b2098
+
+[moontrance-seasonal>Core] Create a daily care rotation covering watering, weeding, pest monitoring, and harvest checks
+  A: 50:9
+  H: -
+
+[moontrance-seasonal>Core] Establish winter study circle programme focused on land ethics and Islamic ecology
+  A: 22:41
+  H: -
+
+[moontrance-seasonal>Growth] Establish a conflict resolution process rooted in Islamic principles
+  A: 8:7
+  H: b3587, b3588, b3589
+
+[moontrance-seasonal>Excellence] Create a practitioner's report for Islamic institutional and community audiences
+  A: -
+  H: b1359
+
+[moontrance-residency>Core] Study the Sahifat al-Madinah (Charter of Madinah) and extract its structural principles
+  A: -
+  H: b8, b2697
+
+[moontrance-residency>Core] Assess the land for water access, soil quality, natural shelter, and hazards
+  A: 23:18, 13:4
+  H: -
+
+[moontrance-residency>Core] Establish reliable water supply — well, rainwater harvesting, or municipal connection
+  A: 50:9
+  H: -
+
+[moontrance-residency>Growth] Train community mediators in Islamic conflict resolution (islah) principles
+  A: -
+  H: b8, b25
+
+[moontrance-residency>Growth] Create a restorative justice framework for post-conflict reconciliation
+  A: 49:9
+  H: -
+
+[moontrance-residency>Growth] Establish a community Quran and Islamic studies programme for all age groups
+  A: 3:104, 46:29
+  H: b1358, b1643
+
+[moontrance-residency>Growth] Establish a community Ramadan programme — collective iftar, night prayers, and service projects
+  A: 17:78
+  H: b37, b2018
+
+[moontrance-residency>Excellence] Engage Islamic scholarship — invite scholars to study, critique, and write about the community model
+  A: 3:104, 61:7, 26:197
+  H: -
+
+[moontrance-residency>Excellence] Offer the community as a case study for researchers studying Islamic social institutions
+  A: -
+  H: b25
+
+[moontrance-residency>Excellence] Speak at mosques, conferences, and community events — sharing the story as evidence of possibility
+  A: 11:120
+  H: -

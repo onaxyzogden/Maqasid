@@ -1,0 +1,167 @@
+# Family — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in family-seed-tasks.js).
+
+[marriage>Core] Study the husband's obligations: nafaqah, kind treatment, fair division of time
+  A: 4:8
+  H: -
+
+[marriage>Core] Study the wife's rights: financial maintenance, dignified treatment, consent in major decisions
+  A: 4:128
+  H: -
+
+[marriage>Core] Study the wife's obligations and husband's rights as outlined in authentic sources
+  A: 4:128
+  H: -
+
+[marriage>Core] Read Surah An-Nisa (4:19) and Surah Ar-Rum (30:21) with tafsir for Quranic grounding
+  A: 47:20
+  H: m902, b774.2
+
+[marriage>Core] If any form of abuse is identified, seek professional counselling immediately
+  A: 88:21, 87:9
+  H: -
+
+[marriage>Core] Learn the prophetic model of conflict — the Prophet would go silent, never violent or cruel
+  A: 3:146, 33:53
+  H: b1143, b5
+
+[marriage>Growth] End each meeting with a shared du'a for barakah in your marriage
+  A: 2:235
+  H: -
+
+[marriage>Growth] Study how the Prophet handled disagreements with his wives from authentic hadith
+  A: 33:55, 33:50
+  H: b2069, b89
+
+[marriage>Growth] Eliminate the "Four Horsemen" — criticism, contempt, defensiveness, stonewalling
+  A: 9:79
+  H: -
+
+[parenting>Core] Ensure food in the home is consistently halal — check sourcing, ingredients, and preparation
+  A: 23:51
+  H: -
+
+[parenting>Core] For ages 7-10: teach definitions, evidence from Quran/Sunnah, and practical application
+  A: 3:48, 21:106, 15:6
+  H: b122
+
+[parenting>Core] For ages 11+: introduce deeper concepts — qadr, conditions of shahada, fiqh of salah
+  A: -
+  H: b49
+
+[parenting>Growth] Assess each child's current Quran level — reading, memorisation, and tajwid proficiency
+  A: -
+  H: b4725
+
+[parenting>Growth] Schedule daily Quran time — minimum 15 minutes, ideally after Fajr or before Maghrib
+  A: 40:55, 30:17
+  H: b541
+
+[parenting>Growth] Enrol in a qualified Quran teacher or online programme if self-teaching is insufficient
+  A: 87:6, 39:23
+  H: -
+
+[parenting>Growth] Track progress weekly and celebrate milestones with meaningful rewards
+  A: 84:19
+  H: -
+
+[parenting>Growth] Choose a primary text — "Tuhfat al-Mawdud", "Child Education in Islam", or a modern equivalent
+  A: 5:95
+  H: b466, b6739
+
+[parenting>Growth] Connect each skill to an Islamic value — e.g., "We clean because Allah loves cleanliness"
+  A: -
+  H: m6238
+
+[parenting>Excellence] Map academic and life-skill goals that align with their natural gifts
+  A: 50:43
+  H: -
+
+[parenting>Excellence] Debrief afterwards: "How did it feel? What did you learn? Why does Allah love those who serve?"
+  A: 7:153, 39:21
+  H: b4418
+
+[parenting>Excellence] Express what you admire about them specifically — not generic praise
+  A: 37:108
+  H: -
+
+[kinship>Core] If reconciliation requires mediation, identify a trusted elder or imam to facilitate
+  A: -
+  H: b63, m878
+
+[kinship>Core] Study the Quranic verses on parents' rights — Surah Al-Isra 17:23-24 and Surah Luqman 31:14-15
+  A: -
+  H: b5037, b5006
+
+[kinship>Core] Study hadith on silat al-rahim and the consequences of severing ties
+  A: -
+  H: b119
+
+[kinship>Core] Understand the rulings on maintaining ties with non-Muslim relatives
+  A: 60:10, 60:11, 4:127
+  H: -
+
+[kinship>Core] If parents have passed, increase sadaqah, du'a, and Hajj/Umrah on their behalf
+  A: 2:196
+  H: b2468
+
+[kinship>Core] Never raise your voice to them — even if they are wrong, respond with gentleness
+  A: 49:2
+  H: -
+
+[kinship>Core] Prioritise attendance at weddings, aqiqah celebrations, and funeral prayers
+  A: 9:84
+  H: -
+
+[kinship>Growth] Include an Islamic element — a short reminder, du'a, or Quran recitation — in each gathering
+  A: 38:1, 98:7
+  H: -
+
+[kinship>Growth] Document names, dates, and locations for at least 3 generations on each side
+  A: 26:84
+  H: -
+
+[kinship>Growth] Give gifts on occasions — Eid, birthdays, or just because — without being asked
+  A: 38:39
+  H: -
+
+[kinship>Excellence] Include a section on Islamic heritage — how faith shaped your family's decisions and migrations
+  A: 8:72, 9:100
+  H: b3
+
+[kinship>Excellence] Research waqf structures — consult a scholar and a lawyer familiar with Islamic endowments
+  A: -
+  H: b25
+
+[kinship>Excellence] Mediate conflicts with wisdom, fairness, and patience — never take sides publicly
+  A: 73:10
+  H: -
+
+[home>Core] Place clean prayer mats, a Quran stand, and a small shelf with du'a books
+  A: 9:108, 73:2
+  H: -
+
+[home>Core] Mark the qibla direction visibly so guests and children can pray correctly
+  A: 2:144, 2:145
+  H: b417, b405
+
+[home>Core] Ensure the space stays clean and uncluttered — treat it as a sacred area of the home
+  A: 25:76
+  H: -
+
+[home>Core] Start with the essentials — Ayat al-Kursi, Al-Mu'awwidhat, and the core morning/evening du'as
+  A: 30:17, 2:255
+  H: -
+
+[home>Growth] Stock it with Quran copies, tafsir, hadith collections, and Islamic children's books
+  A: 2:121, 2:138
+  H: b933
+
+[home>Growth] Add a brief beneficial element — a short reminder, a Quran recitation, or a meaningful conversation starter
+  A: 73:4, 38:1
+  H: b1047, b3203
+
+[home>Excellence] Include an Islamic mission statement — e.g., "This home is a sanctuary of iman, ilm, and ihsan"
+  A: 98:7
+  H: -

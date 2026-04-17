@@ -1,0 +1,103 @@
+# Intellect — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in intellect-seed-tasks.js).
+
+[learning>Core] Learn the 28 Arabic letters and their forms (isolated, initial, medial, final)
+  A: 41:3
+  H: b3355
+
+[learning>Core] Record yourself reciting and compare against a sheikh's recitation
+  A: -
+  H: m2419, b4757
+
+[learning>Core] Choose your first book and set a specific daily reading time
+  A: 17:71
+  H: -
+
+[learning>Core] Study Surah Al-Alaq (96:1-5) and its significance as the first revelation
+  A: 24:1, 6:105
+  H: b2468
+
+[learning>Core] Read the hadith collections on the virtue of knowledge (Sahih Muslim, Kitab al-Ilm)
+  A: 28:78
+  H: -
+
+[learning>Growth] Evaluate each on cost, time commitment, credential value, and Islamic compatibility
+  A: 3:19
+  H: b42
+
+[learning>Growth] List 15-20 essential Islamic books (tafsir, fiqh, seerah, spirituality)
+  A: 2:121, 41:41, 3:85
+  H: b3, b3848
+
+[learning>Excellence] Map the learning outcomes — what should a graduate of this pathway be able to do?
+  A: 80:12
+  H: -
+
+[thinking>Core] Delete or correct any previously shared misinformation
+  A: 51:10
+  H: -
+
+[thinking>Core] Review your own recent arguments or opinions for fallacious reasoning
+  A: 12:95
+  H: -
+
+[thinking>Core] Research the strongest arguments for that position from its best advocates
+  A: 19:73
+  H: -
+
+[thinking>Growth] Choose your text — Al-Ghazali's Maqasid al-Falasifah, Aristotle's Organon, or an equivalent
+  A: -
+  H: b466
+
+[thinking>Growth] Pray istikharah with sincerity and an open heart
+  A: 3:17, 39:22
+  H: b3207, b3887
+
+[thinking>Excellence] Include an Islamic ethical lens — what does the Shariah framework illuminate about this issue?
+  A: 22:8, 39:22, 98:7
+  H: -
+
+[thinking>Excellence] Write a post-event reflection on what you learned from the discussion
+  A: 51:8
+  H: -
+
+[thinking>Excellence] Implement the solution (or a pilot) and measure results
+  A: 17:35
+  H: -
+
+[cognitive>Core] Design a morning protocol: Fajr, adhkar, Quran, then breakfast before any screen
+  A: 76:25, 30:17, 33:42
+  H: b577
+
+[cognitive>Core] Study the Quranic verses on not speaking without knowledge (17:36, 6:148)
+  A: 6:105, 2:190
+  H: b100
+
+[cognitive>Growth] Choose your memorisation focus: Quran surahs, 40 hadith of Imam Nawawi, or professional material
+  A: 27:92
+  H: b722, b377, b1114
+
+[cognitive>Growth] Plan restful activities: nature walks, family time, naps, light cooking
+  A: 16:80
+  H: -
+
+[cognitive>Excellence] Ground your model in Islamic principles — which maqasid or usul does it draw from?
+  A: 3:104
+  H: m2951, m2297
+
+[cognitive>Excellence] Seek critique from both Islamic scholars and domain experts
+  A: 26:197, 3:85
+  H: b2050, b1770
+
+[professional>Core] Write a 1-2 sentence professional mission statement connecting your work to a higher purpose
+  A: 20:32
+  H: -
+
+[professional>Core] Display it where you will see it daily
+  A: 79:36
+  H: -
+
+[professional>Excellence] Lead with the principles of shura, adl (justice), and ihsan (excellence)
+  A: 7:159
+  H: -

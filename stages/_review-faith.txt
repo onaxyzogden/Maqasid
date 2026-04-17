@@ -1,0 +1,403 @@
+# Faith — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in faith-seed-tasks.js).
+
+[shahada>Core] Recite the full Shahada with correct pronunciation and meaning
+  A: -
+  H: m6384, b5
+
+[shahada>Core] Reflect on what "no god but Allah" demands of your daily life
+  A: 37:35
+  H: b1976
+
+[shahada>Core] Learn what negation (la ilaha) and affirmation (illAllah) entail
+  A: 3:53, 22:24, 37:35
+  H: b6681, b6346, b7426
+
+[shahada>Core] Yaqin (Certainty) — have no doubt
+  A: 102:5
+  H: -
+
+[shahada>Core] Inqiyad (Submission) — act upon it
+  A: 27:31
+  H: -
+
+[shahada>Core] Ikhlas (Sincerity) — for Allah alone
+  A: 50:32, 40:65, 39:14
+  H: b3, b50
+
+[shahada>Core] Muhabbah (Love) — love Allah and His Messenger above all
+  A: 3:31, 2:165
+  H: -
+
+[shahada>Core] Study belief in Allah (al-Iman billah)
+  A: 30:56
+  H: m93, b16
+
+[shahada>Core] Study belief in the Angels (al-Mala'ikah)
+  A: 16:32, 6:158, 33:43
+  H: b3207, b7517, b4777
+
+[shahada>Core] Study belief in the Books (al-Kutub)
+  A: 2:121
+  H: -
+
+[shahada>Core] Study belief in the Messengers (ar-Rusul)
+  A: 2:121
+  H: b9
+
+[shahada>Core] Study belief in the Last Day (al-Yawm al-Akhir)
+  A: 30:56
+  H: b3611
+
+[shahada>Core] Study belief in Qadar — Divine Decree (al-Qadr)
+  A: 54:49, 64:11, 97:1
+  H: m93, b49, m99
+
+[shahada>Core] Check for habits of swearing by other than Allah
+  A: 22:40
+  H: b2705, b2468, b1284
+
+[shahada>Core] Read the full hadith text in Arabic and English
+  A: 41:44
+  H: b5191
+
+[shahada>Core] Memorise the Arabic text
+  A: 16:103, 41:44
+  H: -
+
+[shahada>Core] Islam — study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj
+  A: 27:3, 31:4, 24:56
+  H: b8, b45
+
+[shahada>Core] Iman — study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr
+  A: 4:136
+  H: m97, m93
+
+[shahada>Core] Ihsan — memorise the definition: worship Allah as though you see Him
+  A: 40:60
+  H: b50, m93
+
+[shahada>Core] Study the signs of the Hour mentioned at the end of the hadith
+  A: 43:61, 50:40
+  H: -
+
+[shahada>Growth] Obtain a reliable translation with commentary
+  A: -
+  H: b485, b486, b487
+
+[shahada>Growth] Read the section on the attributes of Allah
+  A: 16:60
+  H: b3, b6
+
+[shahada>Growth] Read the section on prophethood and revelation
+  A: 29:27, 57:26
+  H: -
+
+[shahada>Growth] Read the section on the unseen (angels, paradise, hellfire)
+  A: 16:32, 40:7
+  H: -
+
+[shahada>Growth] Study Tawhid al-Rububiyyah — Lordship of Allah
+  A: 59:6
+  H: b7364, b7365, b3220
+
+[shahada>Growth] Study Tawhid al-Uluhiyyah — worship of Allah alone
+  A: 40:65, 29:36
+  H: b50, b3
+
+[shahada>Growth] Understand how the three categories interrelate
+  A: 56:7, 81:7
+  H: -
+
+[shahada>Excellence] Identify three daily actions that express your Shahada
+  A: -
+  H: b1976
+
+[shahada>Excellence] Study how the Sahaba lived their Shahada practically
+  A: -
+  H: b1295
+
+[salah>Core] Set alarms or reminders for all five prayer times
+  A: 40:55, 30:18, 11:114
+  H: -
+
+[salah>Core] Track your prayer consistency for one full week
+  A: 23:9
+  H: -
+
+[salah>Core] Identify and resolve common excuses for missing prayers
+  A: 31:17, 19:59
+  H: -
+
+[salah>Core] Pray each salah within its earliest time window
+  A: 7:134
+  H: -
+
+[salah>Core] Learn the sunnah acts (miswak, rinsing mouth/nose, between fingers)
+  A: -
+  H: m604
+
+[salah>Core] Memorise the opening du'a (Subhanaka Allahumma or equivalent)
+  A: -
+  H: b4293, b794, b817
+
+[salah>Core] Memorise the Tashahhud (At-Tahiyyatu)
+  A: -
+  H: b830, b1202
+
+[salah>Core] Memorise the Salawat upon the Prophet (Allahumma salli ala Muhammad)
+  A: 2:23
+  H: b1120, b6357, b4797
+
+[salah>Core] Memorise the du'a before salam
+  A: 56:26
+  H: -
+
+[salah>Core] Identify the nearest masjid and its prayer times
+  A: 2:144
+  H: b1767
+
+[salah>Core] Commit to praying at least one salah daily in jama'ah
+  A: 40:49
+  H: -
+
+[salah>Core] If no masjid is nearby, establish jama'ah at home with family
+  A: 33:33
+  H: b1572
+
+[salah>Core] Understand when sujud al-sahw (prostration of forgetfulness) is required
+  A: 22:26
+  H: b6051, b1222, b3285
+
+[salah>Growth] Learn the meaning of the adhkar of ruku and sujud
+  A: 22:26
+  H: m867
+
+[salah>Growth] Pray at least 2 rak'at of Tahajjud
+  A: -
+  H: b1109, b1091, b1092
+
+[salah>Growth] Make du'a during the sujud of Tahajjud
+  A: -
+  H: b365
+
+[salah>Growth] Read Ibn al-Qayyim's description of khushuʿ in prayer
+  A: 48:29, 30:18, 17:78
+  H: b958, b959, b621
+
+[salah>Excellence] Learn the time window for Duha prayer
+  A: -
+  H: b1191
+
+[salah>Excellence] Pray Duha at least 3 times this week
+  A: -
+  H: b1775, b1776
+
+[salah>Excellence] Learn the 15 ayat of sajdah in the Quran
+  A: 54:32, 54:40, 54:17
+  H: m244, m2015
+
+[salah>Excellence] Study the du'a recited during Sujud al-Tilawah
+  A: 41:26, 75:16
+  H: b1065, b377, b50
+
+[salah>Excellence] Practice performing it when you encounter a sajdah ayah
+  A: 4:102
+  H: -
+
+[salah>Excellence] Include Witr as the final prayer of the night
+  A: 73:2, 17:78, 76:26
+  H: b1140, b4570
+
+[zakah>Core] Study zakah on gold and silver (2.5%)
+  A: -
+  H: b1404
+
+[zakah>Core] Study zakah on agricultural produce and livestock
+  A: 23:21
+  H: -
+
+[zakah>Core] Al-Fuqara (the poor)
+  A: 2:273
+  H: -
+
+[zakah>Core] Al-Masakin (the needy)
+  A: 4:8
+  H: b702, b704
+
+[zakah>Core] Al-Amilina Alayha (zakah collectors/administrators)
+  A: 23:4
+  H: m2298
+
+[zakah>Core] Al-Mu'allafati Qulubuhum (those whose hearts are to be reconciled)
+  A: -
+  H: b2468
+
+[zakah>Core] Al-Gharimin (those in debt)
+  A: 56:66
+  H: -
+
+[zakah>Core] Fi Sabilillah (in the way of Allah)
+  A: 18:43, 8:45, 2:249
+  H: b49, b29
+
+[zakah>Core] Ibn al-Sabil (the stranded traveller)
+  A: 59:7
+  H: m1576, m1594
+
+[zakah>Growth] Choose your zakah calculation date (e.g., 1st Ramadan)
+  A: -
+  H: b49
+
+[zakah>Growth] Study the Quranic ayat linking zakah with purification (9:103)
+  A: 33:33, 9:103
+  H: b22, b541, b547
+
+[zakah>Growth] Read about the blessings of zakah from hadith literature
+  A: 19:31
+  H: -
+
+[zakah>Excellence] Learn the Islamic principles of waqf
+  A: 3:104, 26:197
+  H: b1643, b3
+
+[sawm>Core] Learn when and how to make the intention (niyyah) for fasting
+  A: 2:183
+  H: -
+
+[sawm>Core] Know the fasting hours (Fajr to Maghrib)
+  A: 2:184
+  H: -
+
+[sawm>Core] Learn what you must abstain from (food, drink, relations)
+  A: 19:26
+  H: -
+
+[sawm>Core] Learn the deadline for making up Ramadan fasts
+  A: 2:185
+  H: b38
+
+[sawm>Core] Understand the fidyah ruling for those permanently unable to fast
+  A: 2:184
+  H: -
+
+[sawm>Core] Calculate the total number of missed fasts
+  A: 2:184
+  H: -
+
+[sawm>Core] Track your progress until all are completed
+  A: 84:19
+  H: -
+
+[sawm>Growth] Learn the du'a for breaking the fast
+  A: 2:183
+  H: -
+
+[sawm>Growth] Study what the Prophet (SAW) ate for suhoor and iftar
+  A: -
+  H: b1915
+
+[sawm>Excellence] Mark the dates of Arafah and Ashura on your calendar
+  A: 55:11
+  H: -
+
+[sawm>Excellence] Fast the day of Arafah (for non-pilgrims)
+  A: -
+  H: b4521
+
+[sawm>Excellence] Fast the 9th and 10th of Muharram (or 10th and 11th)
+  A: -
+  H: b1892, b1592
+
+[sawm>Excellence] Plan when to fast the six days (consecutively or spread out)
+  A: 2:184
+  H: -
+
+[sawm>Excellence] Complete the six fasts within Shawwal
+  A: -
+  H: m2758
+
+[sawm>Excellence] Make a habit of fasting them every year
+  A: 2:184
+  H: -
+
+[sawm>Excellence] Invite neighbours, new Muslims, and those in need
+  A: 4:36, 41:33
+  H: -
+
+[hajj>Core] Determine if Hajj is currently fard upon you
+  A: 2:197, 22:27
+  H: -
+
+[hajj>Core] Learn the four arkan: Ihram, Arafah, Tawaf al-Ifadah, Sa'i
+  A: -
+  H: b5851, b1643, b1691
+
+[hajj>Core] Learn the wajibat: Muzdalifah, stoning, shaving, Tawaf al-Wada
+  A: 2:125
+  H: b1643, b1755
+
+[hajj>Core] Ihram from the miqat with niyyah
+  A: -
+  H: b1522, b1524, b1526
+
+[hajj>Core] Two rak'at behind Maqam Ibrahim
+  A: -
+  H: b1627, b1623, b1624
+
+[hajj>Core] Research the average cost of Hajj from your country
+  A: 2:197
+  H: -
+
+[hajj>Growth] Study the symbolism of Tawaf — circling the House of Allah
+  A: 2:158
+  H: b1790
+
+[hajj>Growth] Reflect on Arafah — standing before Allah in humility
+  A: 34:46, 3:191
+  H: b66, b89
+
+[hajj>Growth] Read the Quranic account of Ibrahim building the Ka'bah (2:127)
+  A: 2:125
+  H: m416, b64
+
+[hajj>Growth] Study the story of Hajar and Isma'il in Makkah
+  A: 2:125
+  H: b3
+
+[hajj>Growth] Learn about Ibrahim's sacrifice and its connection to Eid al-Adha
+  A: 2:258
+  H: b951, b968, m2951
+
+[hajj>Growth] Memorise the Talbiyah in Arabic
+  A: 26:198, 16:103
+  H: -
+
+[hajj>Growth] Learn the du'a between the Yemeni corner and the Black Stone
+  A: -
+  H: b1606
+
+[hajj>Growth] Learn the du'a of Arafah (the best du'a)
+  A: 7:26
+  H: -
+
+[hajj>Growth] Research 3-5 licensed Hajj operators
+  A: 2:197
+  H: -
+
+[hajj>Excellence] Perform all the rites with full awareness and presence
+  A: 22:29, 2:158
+  H: -
+
+[hajj>Excellence] Identify a trustworthy Hajj sponsorship programme
+  A: 2:197
+  H: -
+
+[hajj>Excellence] Make du'a for the sponsored pilgrim
+  A: 22:29
+  H: -
+
+[hajj>Excellence] Keep a journal during your Hajj preparation
+  A: 2:197
+  H: -

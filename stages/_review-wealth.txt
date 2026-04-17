@@ -1,0 +1,147 @@
+# Wealth — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in wealth-seed-tasks.js).
+
+[earning>Core] Research the Islamic ruling on each industry and revenue model involved
+  A: 48:23
+  H: b3493, b3494
+
+[earning>Core] Consult a knowledgeable scholar or Islamic finance advisor on ambiguous cases
+  A: -
+  H: b6960
+
+[earning>Core] Study the Quranic verses on riba (2:275-280) and their tafsir
+  A: 2:275
+  H: b4540, b459
+
+[earning>Core] Review the conditions that make a sale or contract valid in Islamic law
+  A: 2:235
+  H: m3777, b2729, b2563
+
+[earning>Core] Make sincere tawbah — regret, cease, and resolve not to return
+  A: 56:65
+  H: -
+
+[earning>Core] Donate the calculated haram amount to eligible charitable causes as purification
+  A: 57:18
+  H: -
+
+[earning>Growth] Choose a budgeting tool or spreadsheet and set it up with halal-aware categories
+  A: 81:7
+  H: -
+
+[earning>Excellence] Define fair compensation based on market rates and Islamic principles of just wages
+  A: 2:241, 49:9
+  H: -
+
+[earning>Excellence] Recruit and hire a suitable candidate, prioritising trustworthiness and competence
+  A: 28:26
+  H: -
+
+[financial>Core] Study the core prohibition of riba and why Islam forbids it
+  A: 2:275, 3:104
+  H: b4513
+
+[financial>Core] Learn the structure of ijara (Islamic leasing) and its common applications
+  A: -
+  H: b3654, b1643
+
+[financial>Growth] Choose a recommended book (e.g., The Richest Man in Babylon, filtered through Islamic principles)
+  A: 3:19, 90:17
+  H: -
+
+[financial>Growth] Summarise 5 key takeaways that are compatible with your Islamic financial framework
+  A: 3:104
+  H: -
+
+[financial>Excellence] Verify their qualifications (Islamic finance certification, regulatory credentials)
+  A: 4:94
+  H: b25
+
+[ownership>Core] Learn the Quranic inheritance shares for your specific family structure (4:11-12, 4:176)
+  A: -
+  H: b6736
+
+[ownership>Core] Consult a scholar or Islamic estate planner to draft the wasiyyah
+  A: -
+  H: b25
+
+[ownership>Core] Study the concept of ownership as stewardship (khilafah) in Islamic law
+  A: 3:79, 5:44
+  H: b25, b2946
+
+[ownership>Core] Understand the prohibition of hoarding (kanz) and its conditions
+  A: 9:35
+  H: -
+
+[ownership>Core] Review the rights others have upon your wealth (zakah, nafaqah, debts)
+  A: 16:71
+  H: -
+
+[ownership>Growth] Study the fixed shares (furu'd) assigned to each category of heir in the Quran
+  A: 6:136, 4:11
+  H: b218, m3770
+
+[ownership>Growth] Understand the rules of 'asbah (residual heirs) and hajb (exclusion)
+  A: 4:176
+  H: b4580
+
+[ownership>Growth] Learn the permissible scope of the optional bequest (wasiyyah — up to 1/3 to non-heirs)
+  A: 4:33, 4:12
+  H: -
+
+[ownership>Growth] Apply this knowledge to update or create your Islamic will
+  A: 3:19, 16:60
+  H: b1359, b3
+
+[ownership>Excellence] Engage an Islamic scholar to advise on Shariah compliance of the trust structure
+  A: 26:197
+  H: -
+
+[ownership>Excellence] Draft the trust documents with both legal and Shariah review
+  A: 2:283
+  H: -
+
+[ownership>Excellence] Verify that the proposed transfer does not violate Islamic inheritance principles
+  A: 2:235, 18:108
+  H: b1643
+
+[circulation>Core] Subtract any immediate debts that are due from your total zakatable wealth
+  A: 68:46
+  H: b2287
+
+[circulation>Core] Research trustworthy zakah distribution organisations if distributing through an intermediary
+  A: 51:4
+  H: -
+
+[circulation>Core] Make dua that Allah accepts your zakah and places barakah in your remaining wealth
+  A: 33:33, 4:95, 30:39
+  H: -
+
+[circulation>Core] Create a repayment schedule if the total outstanding amount is large
+  A: 12:75
+  H: -
+
+[circulation>Growth] Shift at least 3 regular purchases to local Muslim or ethical vendors
+  A: 3:177
+  H: -
+
+[circulation>Growth] Document the loan terms clearly in writing (amount, repayment timeline) per Quran 2:282
+  A: 2:282
+  H: b2291
+
+[circulation>Growth] Follow up gently on repayment, and be prepared to forgive if the borrower faces hardship
+  A: 17:63
+  H: -
+
+[circulation>Excellence] Engage an Islamic scholar to ensure the waqf structure meets fiqhi requirements
+  A: 26:197
+  H: b25
+
+[circulation>Excellence] Allocate the Shariah-mandated inheritance shares for your heirs (minimum 2/3)
+  A: 4:11, 4:176
+  H: b4580, b2292
+
+[circulation>Excellence] Designate up to 1/3 for charitable causes via wasiyyah or waqf
+  A: 57:18
+  H: -

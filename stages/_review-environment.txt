@@ -1,0 +1,91 @@
+# Environment — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in environment-seed-tasks.js).
+
+[resource>Core] Study the hadith on the Prophet's wudu water usage (Bukhari & Muslim)
+  A: 72:16
+  H: b134
+
+[resource>Core] Read and reflect on Quran 7:31, 17:26-27, and 25:67 on moderation and waste
+  A: 22:32, 9:17
+  H: -
+
+[resource>Core] Study Ibn Ashur's commentary on israf as a violation of the maqasid of wealth and environment
+  A: 56:65
+  H: b1468, b1409, b1395
+
+[waste>Core] Commit to never discarding waste outside of a proper bin
+  A: 38:54
+  H: -
+
+[waste>Core] Study the hadith "Cleanliness is half of faith" and its scholarly commentaries
+  A: 2:121
+  H: m534
+
+[waste>Core] Research contemporary Islamic scholarship on environmental taharah
+  A: 3:104
+  H: b25, b42
+
+[waste>Growth] Carry a reusable water bottle and coffee cup daily
+  A: 76:5, 76:17
+  H: -
+
+[ecosystem>Core] Study the hadith collections on animal rights (Bukhari, Muslim, Abu Dawud)
+  A: -
+  H: b1240, m5650, b393
+
+[ecosystem>Core] Teach children the Islamic ethic of rahma (mercy) toward all creatures
+  A: 5:54, 22:41, 3:83
+  H: -
+
+[ecosystem>Core] Research native trees and plants suited to your local climate and soil
+  A: 86:12
+  H: -
+
+[ecosystem>Core] Make du'a that Allah places barakah in it and lets it benefit creation
+  A: 13:16
+  H: b1338, b806
+
+[ecosystem>Core] Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah
+  A: 59:21, 53:32
+  H: -
+
+[ecosystem>Core] Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir)
+  A: 2:132
+  H: m6161, m670, m2951
+
+[ecosystem>Growth] Source plants from native plant nurseries rather than generic garden centres
+  A: 56:89
+  H: -
+
+[ecosystem>Growth] When buying meat, choose pasture-raised, ethical, and halal-tayyib sources
+  A: 5:4, 23:51
+  H: -
+
+[ecosystem>Growth] Follow up on the site to see how planted trees are progressing
+  A: 86:12
+  H: -
+
+[ecosystem>Excellence] Evaluate projects for transparency, impact measurement, and alignment with Islamic values
+  A: -
+  H: b25
+
+[ecosystem>Excellence] Design the garden layout with beds, composting, water access, and communal tools
+  A: 55:54
+  H: -
+
+[ecosystem>Excellence] Compile Quranic verses, hadith, and scholarly references on environmental stewardship
+  A: 41:3, 15:1, 27:1
+  H: b118, b992
+
+[sourcing>Core] Study Quran 2:168, 5:88, and 16:114 on the command to consume what is halal and tayyib
+  A: 27:92, 6:153
+  H: -
+
+[sourcing>Core] Identify three product categories where you can apply the tayyib standard more rigorously
+  A: 56:7
+  H: -
+
+[sourcing>Growth] When replacing items, invest in ethically made, durable garments
+  A: 76:28
+  H: -

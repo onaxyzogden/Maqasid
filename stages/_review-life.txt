@@ -1,0 +1,151 @@
+# Life — Source Audit
+# Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
+# Below is the original audit snapshot (A:-/H:- entries now have sources in life-seed-tasks.js).
+
+[physical>Core] Calculate your ideal bedtime based on local Fajr time and 7-8 hour target
+  A: 18:12
+  H: -
+
+[physical>Core] Practise the Sunnah sleep etiquettes — wudu, right side, sleeping duas
+  A: 78:9, 51:17, 25:47
+  H: -
+
+[physical>Core] Set a daily reminder tied to your Fajr or Asr prayer time
+  A: 40:55, 76:25, 33:42
+  H: b560
+
+[physical>Core] Prepare a playlist of Quran recitation, lectures, or dhikr for the walk
+  A: 7:204, 17:78, 37:3
+  H: b1553, b2276
+
+[physical>Growth] Adjust intake based on activity level, climate, and fasting days
+  A: 2:184
+  H: -
+
+[physical>Growth] Research the health science behind intermittent fasting and autophagy
+  A: 2:184
+  H: -
+
+[physical>Growth] Track energy levels, mood, and focus on fasting vs. non-fasting days
+  A: 2:184
+  H: -
+
+[physical>Excellence] Create an optimised suhoor meal plan for fasting days (slow-digesting, hydrating)
+  A: 2:184
+  H: -
+
+[mental>Core] Prepare your Quran and journal in a designated morning spot the night before
+  A: 35:13
+  H: -
+
+[mental>Core] Memorise or print the morning adhkar (Hisn al-Muslim or equivalent)
+  A: 3:72
+  H: b1205, b558
+
+[mental>Core] Memorise Ayat al-Kursi (2:255) if not already memorised
+  A: 24:34
+  H: m1839
+
+[mental>Core] Memorise the last two ayat of Surah Al-Baqarah (2:285-286)
+  A: 24:1, 9:44, 24:34
+  H: b5040, m1013, b4439
+
+[mental>Core] Recite both after every fardh salah as a consistent practice
+  A: 33:62, 48:23
+  H: -
+
+[mental>Core] Add evening adhkar including the three Quls and Ayat al-Kursi before sleep
+  A: -
+  H: b2013
+
+[mental>Core] Notice and journal any changes in anxiety levels over 21 days
+  A: 79:8
+  H: -
+
+[mental>Excellence] Choose your track: Quran memorisation (hifz) or Arabic/language learning
+  A: 41:44, 13:37, 16:103
+  H: -
+
+[safety>Growth] Address noise issues with practical solutions (rugs, curtains, white noise, conversation)
+  A: 101:2
+  H: -
+
+[safety>Growth] Store a fire extinguisher in the kitchen and learn how to use it
+  A: 73:12
+  H: -
+
+[safety>Growth] Understand your rights to religious accommodation at work (prayer, fasting, dress)
+  A: 62:9, 9:122
+  H: -
+
+[safety>Excellence] Learn the Islamic rules of inheritance (mirath) and obligatory shares
+  A: 4:176, 4:127
+  H: b6736, b25, b1643
+
+[safety>Excellence] Draft an Islamic will (wasiyyah) with the help of a knowledgeable scholar or solicitor
+  A: 3:19, 8:72
+  H: b3
+
+[safety>Excellence] Express your interest to the mosque board or community organisation leadership
+  A: -
+  H: b2010
+
+[social>Core] Make it a habit to initiate salam with every Muslim you encounter
+  A: 28:53
+  H: -
+
+[social>Core] Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"
+  A: -
+  H: b831
+
+[social>Core] Greet strangers at the mosque, workplace, and in your neighbourhood
+  A: 4:86
+  H: b757
+
+[social>Core] Prioritise attending janazah prayers whenever you are notified of a death
+  A: -
+  H: b1091, b1092
+
+[social>Core] Visit at least one sick person per month — bring food, dua, and companionship
+  A: 2:184
+  H: -
+
+[social>Core] Accept invitations to walimah and other gatherings unless there is a valid Islamic reason not to
+  A: 2:221, 3:85
+  H: -
+
+[social>Core] Observe how others respond when you give them full, undivided attention
+  A: 26:181
+  H: -
+
+[social>Growth] When you cannot fulfil a commitment, communicate proactively and honestly
+  A: 17:34
+  H: -
+
+[social>Growth] Ask at least one thoughtful follow-up question in every meaningful conversation
+  A: 18:70
+  H: -
+
+[social>Growth] Choose one relationship to prioritise for reconciliation this month
+  A: 49:9
+  H: -
+
+[social>Growth] Reach out with humility — a call, visit, or sincere message
+  A: 13:40
+  H: -
+
+[social>Excellence] Identify a younger Muslim in your community, workplace, or family who could benefit from mentorship
+  A: -
+  H: b2070
+
+[social>Excellence] Handle complaints, conflicts, or rudeness with prophetic composure and grace
+  A: 68:2, 52:29
+  H: -
+
+[social>Excellence] Be willing to explain Islamic practices when asked, with warmth and confidence
+  A: 6:125, 42:13
+  H: b3
+
+[social>Excellence] Identify 2-4 trusted, like-minded Muslim peers who share your commitment to growth
+  A: 2:165
+  H: -
