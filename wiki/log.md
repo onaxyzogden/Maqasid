@@ -7,6 +7,22 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Hadith enrichment V3.1 — scholar review pass; expanded blacklists and fiqh gate
+
+### What was done
+- Acted as Islamic studies reviewer on all 322 V3 sourced blocks (full read of faith + ummah, sampled wealth/intellect/environment).
+- Identified gold-standard citations (e.g., 28:26 Shu'ayb's daughter on hiring, 2:282 ayat al-dayn on debt docs, 4:35 arbitrator on mediation, 107:7 Ma'un on neighbor aid, 9:35 on kanz).
+- Flagged 1 critical attribution error: 2:258 (Nimrud debate) cited for Ibrahim's sacrifice (correct: 37:102-107).
+- Flagged 1 fiqh leak: 2:235 (iddah marriage-proposal) on wealth/contract subtask — was unguarded.
+- Identified systemic pattern: paradise/eschatology verses (55, 56, 76, 88) pulled toward worldly subtasks via concrete-noun matches.
+- Extended `FIQH_SENSITIVE_AYAHS` +13 verses with per-ayah keyword gates.
+- Extended `AYAH_BLACKLIST` +30 entries, `HADITH_BLACKLIST` +14 entries.
+- Re-scored and re-applied: 322 → 287 sourced blocks at higher per-citation quality.
+- Review document at `stages/hadith-scholar-review-review.md`.
+
+### Commit
+- `ec6d76d` — feat(hadith): v3.1 scholar-reviewed — expanded blacklists, fiqh set, rewrote
+
 ## [2026-04-16] feat | Hadith enrichment V3 — semantic reranker (sentence-transformer embeddings) replaces lexical scoring
 
 ### What was done
