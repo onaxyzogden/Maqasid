@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Kanban, AlertTriangle, CalendarDays,
@@ -228,9 +228,9 @@ export default function Dashboard() {
   const completeTourStep = useOnboardingStore((s) => s.completeTourStep);
   const firstLoginAt = useOnboardingStore((s) => s.firstLoginAt);
 
-  const handleTourComplete = () => {
+  const handleTourComplete = useCallback(() => {
     completeTourStep();
-  };
+  }, [completeTourStep]);
 
   const [projectFilter, setProjectFilter] = useState('all');
   const [activityTab, setActivityTab] = useState('all');

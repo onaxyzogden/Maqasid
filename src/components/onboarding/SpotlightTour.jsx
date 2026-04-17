@@ -17,24 +17,33 @@ export default function SpotlightTour({ steps = [], onComplete }) {
 
   const measureTarget = useCallback(() => {
     if (!step) return;
-    const el = document.querySelector('[data-tour="' + step.target + '"]');
-    if (!el) {
-      // Skip step if element not found
-      if (currentStep < total - 1) {
-        setCurrentStep((s) => s + 1);
-      } else {
-        onComplete?.();
+    requestAnimationFrame(() => {
+      const el = document.querySelector('[data-tour="' + step.target + '"]');
+      if (!el) {
+        // Skip step if element not found
+        if (currentStep < total - 1) {
+          setCurrentStep((s) => s + 1);
+        } else {
+          onComplete?.();
+        }
+        return;
       }
-      return;
-    }
-    setRect(el.getBoundingClientRect());
+      setRect(el.getBoundingClientRect());
+    });
   }, [step, currentStep, total, onComplete]);
 
   useEffect(() => {
     measureTarget();
     window.addEventListener('resize', measureTarget);
-    return () => window.removeEventListener('resize', measureTarget);
-  }, [measureTarget]);
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onComplete?.();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('resize', measureTarget);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [measureTarget, onComplete]);
 
   if (!step || !rect) return null;
 
@@ -60,8 +69,8 @@ export default function SpotlightTour({ steps = [], onComplete }) {
   let popoverLeft = rect.left + rect.width / 2 - popoverWidth / 2;
   popoverLeft = Math.max(12, Math.min(popoverLeft, viewportWidth - popoverWidth - 12));
 
-  // Estimated popover height for overflow detection
-  const popoverEstimatedHeight = 180;
+  // Estimated popover height for overflow detection — estimated, actual height varies with description length
+  const popoverEstimatedHeight = 220;
   const spaceBelow = viewportHeight - (rect.bottom + gap);
   const placeAbove = spaceBelow < popoverEstimatedHeight && rect.top > popoverEstimatedHeight + gap;
 
@@ -73,17 +82,6 @@ export default function SpotlightTour({ steps = [], onComplete }) {
 
   return (
     <>
-      {/* Full-screen dimming overlay — non-blocking so highlighted element stays interactive */}
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 9000,
-          pointerEvents: 'none',
-          background: 'rgba(0,0,0,0.55)',
-        }}
-      />
-
       {/* Transparent cutout div — its box-shadow fills everything outside it */}
       <div
         style={{
@@ -92,7 +90,7 @@ export default function SpotlightTour({ steps = [], onComplete }) {
           left: rect.left - 4,
           width: rect.width + 8,
           height: rect.height + 8,
-          zIndex: 9001,
+          zIndex: 9000,
           pointerEvents: 'none',
           borderRadius: 'var(--radius-lg)',
           boxShadow: '0 0 0 9999px rgba(0,0,0,0.55)',
@@ -103,15 +101,14 @@ export default function SpotlightTour({ steps = [], onComplete }) {
 
       {/* Popover card */}
       <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={step.title}
+        role="region"
+        aria-label="Guided tour"
         style={{
           position: 'fixed',
           top: popoverTop,
           left: popoverLeft,
           width: popoverWidth,
-          zIndex: 9002,
+          zIndex: 9001,
           pointerEvents: 'all',
           background: 'var(--surface)',
           border: '1px solid var(--border)',
