@@ -2,7 +2,7 @@
 title: "Maqasid OS"
 type: entity
 created: 2026-04-09
-updated: 2026-04-11
+updated: 2026-04-17
 tags: [product, spa, react, islamic, operating-system, seven-maqasid]
 sources: 0
 ---
@@ -57,3 +57,4 @@ Active development on V2.1. Rich subtask descriptions (Why/How format) now compl
 | 2026-04-12 | Dashboard refresh: replaced static PillarCard grid with `PillarProgressStrip` (task-based status coloring, pillar accent borders, Arabic roots), replaced "coming soon" with live Maqasid Focus panel (pillars by open task count), trimmed stat cards to 2, renamed EPH → "Today", added OVERVIEW + MAQASID AL-SHARI'AH section labels. Bug fixed: pillar resolution must use `project.id.startsWith(pillar.id + '_')` as primary (subModuleId strings do not match project.moduleId for faith/life/intellect/family/environment). |
 | 2026-04-11 | Family module: added Family Office — embedded Office module accessible as (1) tab within `/app/family` (FamilyPage) and (2) dedicated sidebar entry at `/app/family-office`. |
 | 2026-04-09 | Wiki entity page bootstrapped. Monorepo expanded with ogden-hub subtree and atlas submodule. Knowledge graph at 882 nodes / 1,438 edges / 47 communities. |
+| 2026-04-17 | Subtask Sources view upgraded with `QuranEmbed` (live quran.com iframe, offline fallback) and `HadithCard` (509 bundled hadith, Amiri Arabic). Seed copy standardized (Why?/How?, heading renames, HR removed). 4 module icons refreshed; lucide-react bumped 0.511 → 1.8. Commits `1ae2793`, `cd5bd55`. |

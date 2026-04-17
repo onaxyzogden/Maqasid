@@ -7,6 +7,29 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-17] chore | Sidebar icon refresh (6 swaps)
+
+### What was done
+Live-element-driven icon swaps in the sidebar:
+- Projects (`work`): `Kanban` → `PencilRuler`
+- Assets (`money`): `Wallet` → `Landmark`
+- **Wealth pillar**: `Coins` → `ChessRook` (updated across 6 `PILLAR_ICON_MAP` sites: Sidebar, MobileNav, PillarCard, Landing, TodayFocusSection, Onboarding)
+- Earning & Provision (`wealth-earning`): `Wallet` → `GitPullRequestCreateArrow`
+- Financial Literacy (`wealth-financial`): `PiggyBank` → `ChessKnight`
+- Tech (`tech`): `Shield` → `SquareTerminal`
+
+### Files touched
+- `src/data/modules.js` — icon string updates
+- `src/data/maqasid.js` — wealth pillar icon
+- `src/components/layout/Sidebar.jsx` — lucide-react imports + ICON_MAP/PILLAR_ICON_MAP
+- `src/components/layout/MobileNav.jsx`, `src/components/dashboard/PillarCard.jsx`, `src/pages/Landing.jsx`, `src/pages/TodayFocusSection.jsx`, `src/pages/Onboarding.jsx` — ChessRook added to each pillar icon map
+
+### Verified
+Each swap confirmed in live preview via DOM class check (`lucide-pencil-ruler`, `lucide-landmark`, `lucide-chess-rook`, `lucide-git-pull-request-create-arrow`, `lucide-chess-knight`, `lucide-square-terminal`).
+
+### Deferred
+Uncommitted — left in working tree alongside unrelated prior changes.
+
 ## [2026-04-17] feat | Divine-attribute bodies rewritten to three-layer comprehensibility pattern
 
 ### What was done
