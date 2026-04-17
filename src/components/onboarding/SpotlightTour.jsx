@@ -97,7 +97,7 @@ export default function SpotlightTour({ steps = [], onComplete }) {
           borderRadius: 'var(--radius-lg)',
           boxShadow: '0 0 0 9999px rgba(0,0,0,0.55)',
           outline: '2px solid var(--primary)',
-          outlineOffset: '2px',
+          outlineOffset: '4px',
         }}
       />
 
