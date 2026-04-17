@@ -4,7 +4,7 @@ import { ChevronDown, ChevronUp, ChevronRight, CheckCircle } from 'lucide-react'
 import { useOnboardingStore } from '../../store/onboarding-store';
 
 const CHECKLIST_ITEMS = [
-  { id: 'profile',       label: 'Set up your profile',           href: null },
+  { id: 'profile',       label: 'Set up your profile',           href: null }, // auto-completed in wizard; no route needed
   { id: 'first-task',    label: 'Complete your first task',       href: '/app/work' },
   { id: 'sources',       label: 'Explore the Sources',           href: '/app/sources' },
   { id: 'second-pillar', label: 'Add a second pillar',           href: '/app/settings' },
@@ -15,27 +15,33 @@ export default function OnboardingChecklist() {
   const navigate = useNavigate();
   const checklistItems = useOnboardingStore((s) => s.checklistItems);
   const completeChecklistItem = useOnboardingStore((s) => s.completeChecklistItem);
+  const checklistDismissed = useOnboardingStore((s) => s.checklistDismissed);
+  const dismissChecklist = useOnboardingStore((s) => s.dismissChecklist);
 
   const [collapsed, setCollapsed] = useState(false);
   const [headerHovered, setHeaderHovered] = useState(false);
-  const [celebrated, setCelebrated] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const [justCompleted, setJustCompleted] = useState(null);
+  const [hoveredItemId, setHoveredItemId] = useState(null);
 
   const completedCount = checklistItems.filter((i) => i.completed).length;
   const total = CHECKLIST_ITEMS.length;
   const allDone = completedCount === total;
   const pct = (completedCount / total) * 100;
 
-  // When all items complete, show celebration then collapse
+  // If already dismissed (persisted via store), hide widget permanently
+  if (checklistDismissed) return null;
+
+  // When all items complete, show celebration for 4 seconds then dismiss
   useEffect(() => {
-    if (allDone && !celebrated) {
-      const timer = setTimeout(() => setCelebrated(true), 4000);
+    if (allDone && !showCelebration) {
+      setShowCelebration(true);
+      const timer = setTimeout(() => {
+        dismissChecklist();
+      }, 4000);
       return () => clearTimeout(timer);
     }
-  }, [allDone, celebrated]);
-
-  // If already celebrated (persisted via state), hide widget
-  if (celebrated) return null;
+  }, [allDone, showCelebration, dismissChecklist]);
 
   function isCompleted(id) {
     return checklistItems.find((i) => i.id === id)?.completed ?? false;
@@ -49,8 +55,8 @@ export default function OnboardingChecklist() {
     navigate(item.href);
   }
 
-  // Celebration banner (all done, before auto-hide)
-  if (allDone) {
+  // Celebration banner (show for 4 seconds after all done)
+  if (allDone && showCelebration) {
     return (
       <div style={{
         background: '#F0FFF4',
@@ -162,9 +168,10 @@ export default function OnboardingChecklist() {
                   gap: 'var(--space-3)',
                   cursor: clickable ? 'pointer' : 'default',
                   transition: 'background 0.1s ease',
+                  background: hoveredItemId === item.id && clickable ? 'var(--bg3)' : 'transparent',
                 }}
-                onMouseEnter={(e) => { if (clickable) e.currentTarget.style.background = 'var(--bg3)'; }}
-                onMouseLeave={(e) => { if (clickable) e.currentTarget.style.background = 'transparent'; }}
+                onMouseEnter={() => setHoveredItemId(item.id)}
+                onMouseLeave={() => setHoveredItemId(null)}
                 onClick={() => handleItemClick(item)}
                 onKeyDown={(e) => { if (clickable && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); handleItemClick(item); } }}
               >

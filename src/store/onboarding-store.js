@@ -17,6 +17,7 @@ export const useOnboardingStore = create((set) => {
   const seenPillars = safeGetJSON('onboarding_seen_pillars', []);
   const firstSubmodule = safeGet('onboarding_first_submodule', null) || null;
   const firstLoginAt = safeGetJSON('onboarding_first_login_at', null);
+  const checklistDismissed = safeGet('onboarding_checklist_dismissed', 'false') === 'true';
 
   return {
     // ── State ──
@@ -26,6 +27,7 @@ export const useOnboardingStore = create((set) => {
     seenPillars,
     firstSubmodule,
     firstLoginAt,
+    checklistDismissed,
 
     // ── Actions ──
     setWizardIntent: (intent) => {
@@ -70,5 +72,10 @@ export const useOnboardingStore = create((set) => {
         }
         return {};
       }),
+
+    dismissChecklist: () => {
+      safeSet('onboarding_checklist_dismissed', 'true');
+      set({ checklistDismissed: true });
+    },
   };
 });
