@@ -18,6 +18,31 @@ import { PRIORITIES } from '../../data/modules';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
+import QuranEmbed from '../islamic/QuranEmbed';
+import HadithCard from '../islamic/HadithCard';
+
+const HADITH_COLLECTION_SLUGS = {
+  'sahih bukhari': 'bukhari',
+  'sahih al-bukhari': 'bukhari',
+  'sahih muslim': 'muslim',
+  'sunan abi dawud': 'abudawud',
+  'sunan abu dawud': 'abudawud',
+  'sunan ibn majah': 'ibnmajah',
+  'sunan an-nasai': 'nasai',
+  "sunan an-nasa'i": 'nasai',
+  "sunan al-nasa'i": 'nasai',
+  'sunan al-nasai': 'nasai',
+  'jami at-tirmidhi': 'tirmidhi',
+  'sunan al-tirmidhi': 'tirmidhi',
+  'muwatta malik': 'malik',
+};
+
+function matchHadithHeading(text) {
+  const m = text.match(/^([A-Za-z][A-Za-z' -]+?)\s+(\d+)$/);
+  if (!m) return null;
+  const slug = HADITH_COLLECTION_SLUGS[m[1].trim().toLowerCase()];
+  return slug ? `${slug}:${m[2]}` : null;
+}
 import './TaskDetailPanel.css';
 
 /* Lucide icon name → component map for project/module icons */
@@ -98,6 +123,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   useEffect(() => {
     currentDoneCountRef.current = task?.subtasks?.filter((s) => s.done).length ?? 0;
   }, [task?.subtasks]);
+
 
   useEffect(() => {
     if (!task) return;
@@ -463,7 +489,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       <div className="tdp-body">
         <div className="tdp-subtask-detail">
           <div className="tdp-subtask-detail__header">
-            <h2 className="tdp-subtask-detail__title">Source(s)</h2>
+            <h2 className="tdp-subtask-detail__title">Source</h2>
           </div>
           <div className="tdp-subtask-detail__body">
             {activeSubtask.sources ? (
@@ -483,8 +509,32 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 <div className="tdp-subtask-detail__content">
                   <Markdown
                     remarkPlugins={[remarkGfm]}
-                    components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> }}
-                  >{activeSubtask.sources}</Markdown>
+                    components={{
+                      a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>,
+                      p: ({ children }) => {
+                        const flat = [children].flat();
+                        const firstStr = flat.find(c => typeof c === 'string' && c.trim());
+                        const isArabic = firstStr && /[\u0600-\u06FF]/.test(firstStr.trim()[0]);
+                        return <p dir={isArabic ? 'rtl' : undefined} style={isArabic ? { fontFamily: 'var(--font-arabic)', fontSize: '1.5em', lineHeight: '2.2', textAlign: 'center', margin: '12px 0' } : undefined}>{children}</p>;
+                      },
+                      h3: ({ children }) => {
+                        const text = [children].flat().map(c => typeof c === 'string' ? c : '').join('');
+                        const quran = text.match(/^Quran \((\d+):(\d+)\)$/);
+                        if (quran) {
+                          return <QuranEmbed verseKey={`${quran[1]}:${quran[2]}`} />;
+                        }
+                        const hadith = matchHadithHeading(text);
+                        if (hadith) {
+                          return <HadithCard hadithKey={hadith} />;
+                        }
+                        return <h3>{children}</h3>;
+                      },
+                    }}
+                  >{((activeSubtask.sources || '') + '\n\n### __END__ 0')
+                    .replace(/\*\*Arabic:\*\* [^\n]*\n\*\*Translation:\*\* [^\n]*/g, '')
+                    .replace(/(^### (?:Sahih (?:al-)?Bukhari|Sahih Muslim|Sunan (?:Abi|Abu) Dawud|Sunan Ibn Majah|Sunan a[ln]-Nasa'?i|Jami at-Tirmidhi|Sunan al-Tirmidhi|Muwatta Malik) \d+\s*$)([\s\S]*?)(?=^### )/gm, '$1\n\n')
+                    .replace(/\n*### __END__ 0\s*$/, '')
+                  }</Markdown>
                 </div>
               </>
             ) : (
@@ -541,7 +591,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           Complete later
         </button>
         <button className="tdp-sources-btn" onClick={openSources}>
-          Source(s)
+          Source
         </button>
         <button
           className="tdp-done-btn"

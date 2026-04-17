@@ -14,6 +14,7 @@
 }
 
 .dua-arabic {
+  font-family: var(--font-arabic);
   font-size: var(--text-xl);
   line-height: 2;
   margin-bottom: var(--space-3);

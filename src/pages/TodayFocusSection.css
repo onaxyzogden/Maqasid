@@ -65,6 +65,7 @@
 }
 
 .tfs-card__arabic {
+  font-family: var(--font-arabic);
   font-size: 11px;
   margin-top: 1px;
 }

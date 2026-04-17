@@ -341,6 +341,7 @@
 }
 .tdp-subtask-detail__content > *:first-child { margin-top: 0; }
 .tdp-subtask-detail__content > *:last-child { margin-bottom: 0; }
+.tdp-subtask-detail__content hr { display: none; }
 .tdp-subtask-detail__content h2,
 .tdp-subtask-detail__content h3 {
   font-size: 15px;
@@ -350,6 +351,32 @@
 }
 .tdp-subtask-detail__content p {
   margin: 0 0 12px;
+  text-align: start;
+}
+.tdp-quran-embed {
+  margin: 0 0 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.tdp-quran-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  border: none;
+}
+.tdp-subtask-detail__content blockquote {
+  margin: 0 0 16px;
+  padding: 0;
+  border: none;
+  text-align: center;
+  font-style: italic;
+  color: var(--text2);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.tdp-subtask-detail__content blockquote p {
+  margin: 0;
+  text-align: center;
 }
 .tdp-subtask-detail__content ul,
 .tdp-subtask-detail__content ol {

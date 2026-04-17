@@ -25,7 +25,7 @@
 }
 
 .ummah-arabic {
-  font-family: var(--font-mono);
+  font-family: var(--font-arabic);
   font-size: var(--text-sm-plus);
   color: #AD8E6E;
 }
@@ -217,4 +217,80 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-xs);
   flex-shrink: 0;
+}
+
+/* Moontrance Frameworks — collapsible overview + maqasid per submodule */
+.ummah-frameworks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ummah-framework {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--fw-color, var(--border));
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ummah-framework-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.ummah-framework-summary::-webkit-details-marker {
+  display: none;
+}
+
+.ummah-framework-summary::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid var(--text3);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  flex-shrink: 0;
+  transition: transform var(--duration) var(--ease);
+}
+
+.ummah-framework[open] > .ummah-framework-summary::before {
+  transform: rotate(90deg);
+}
+
+.ummah-framework-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--fw-color, var(--text3));
+  flex-shrink: 0;
+}
+
+.ummah-framework-label {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.ummah-framework-desc {
+  font-size: var(--text-sm-plus);
+  color: var(--text2);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ummah-framework-body {
+  padding: var(--space-4);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
 }
