@@ -36,4 +36,5 @@
   font-size: var(--text-sm-plus);
   color: var(--text2);
   line-height: 1.7;
+  white-space: pre-line;
 }

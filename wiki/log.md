@@ -7,6 +7,27 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-17] feat | Divine-attribute bodies rewritten to three-layer comprehensibility pattern
+
+### What was done
+- **Problem**: The Threshold Ceremony's Attributes step showed a single dense theological paragraph per divine Name — inaccessible to a general audience and missing any scriptural anchor.
+- **Pattern established**: Every `attrs[*].body` in `MODULE_ATTRS` (`src/data/islamic/islamic-data.js`) now follows three layers separated by `\n\n`:
+  1. **Elementary explanation** — plain-language description of the Name (child-accessible)
+  2. **Contextual application** — preserved/lightly edited from the prior body, tying the Name to the specific submodule
+  3. **`Source:` line** — scriptural reference with short excerpt on its own paragraph
+- **CSS support**: Added `white-space: pre-line` to `.attr-card-body` in `AttributeCard.css` so `\n\n` renders as paragraph breaks inside the existing `<p>` tag.
+- **Coverage**: 93 bodies rewritten across 47 modules (Work/Money/People/Office/Tech, Moontrance, Faith + 7 sub-pillars, Life, People submodules, Family + 5 submodules, Ummah + neighbors + community, Wealth + 4 submodules, Environment + 4 submodules, `collective` land module). Elementary paragraphs sourced from `99_names_of_allah.html` `kid` field for standard 99; authored for ~8 non-standard names (Al-Muhsin, Al-Qarib, Al-Jamil, Ash-Shafi, Ar-Rabb, Aṭ-Ṭāhir, Al-Mudabbir, Al-Muḥsin-variant).
+- **Verified**: grep `^\s*body: '(?!.*Source:)` returns zero matches; `npm run build` passes in 1.38s.
+
+### Deferred
+- Live browser spot-check of 3 ceremonies (salah-core, moontrance-land, family-parenting) to confirm three-layer rendering.
+- `UNIVERSAL_EQUIV` secular-operator principles — different register, separate session.
+
+### Commits
+- (uncommitted at time of log entry)
+
+---
+
 ## [2026-04-17] fix | IslamicPanel stale module content on navigation
 
 ### What was done
@@ -15,7 +36,7 @@ Append-only chronological record of all wiki operations.
 - **Verified** in preview: navigating `faith-salah → life-physical` via URL (bypassing sidebar click) correctly updates panel to Life · Physical Health content.
 
 ### Commits
-- TBD
+- `4818c67` — fix(islamic-panel): sync activeModule from URL on every navigation
 
 ---
 
@@ -992,3 +1013,42 @@ Read-only audit across 8 submodules: Build & Lint, BBOS Pipeline Workflow, Dashb
 
 ### Commit
 - `fe0a5a9` — pushed to main
+
+## [2026-04-17] feat+chore | Rich Quran/Hadith citation cards + module icon refresh
+
+### Citation cards in subtask Sources view
+- `QuranEmbed` — hybrid live quran.com iframe (translations=20 Saheeh, reciter=13, wbw + transliteration, tafsir/reflections/lessons/answers off) with offline `QuranVerseCard` fallback on `!navigator.onLine` or 5s load timeout
+- `HadithCard` — bundled offline render of 509 hadith across Bukhari, Muslim, Abi Dawud, Ibn Majah, Nasa'i, Tirmidhi (Amiri Arabic + italic English narration + grade chip)
+- `scripts/fetch-hadith.py` — concurrent fetch from fawazahmed0/hadith-api via jsdelivr; writes `src/data/hadith.js`
+- `scripts/fetch-quran-wbw.py` — companion fetch for word-by-word
+- `TaskDetailPanel` — h3 renderer substitutes embed/card for `### Quran (S:V)` and `### <Collection> N` headings; regex strips inline `**Arabic:** / **Translation:**` narration using sentinel workaround (JS has no `\Z`)
+- 9 early-Muslim refs (muslim:5,8,26,33,35,46,49,54,60) render graceful "View on sunnah.com" fallback due to fawazahmed0's 92-hadith intro numbering gap vs sunnah.com canonical
+- Musnad Ahmad skipped — no fawazahmed0 edition
+
+### Seed-task copy & layout
+- "Why does this matter?" → "Why?", "How do I accomplish this?" → "How?" across all 7 seed files
+- "Sources from the Quran/Hadith" → "Quran/Hadith"
+- Removed `---` HR divider between Why and How; CSS hides any residual hr inside subtask content
+- "Source(s)" button and heading → "Source"
+- Amiri font applied across DuaSection, TodayFocus, Ummah, HadithCard
+
+### Module icon refresh (lucide-react 0.511 → 1.8)
+- Circulation & Impact: `Gift` → `CircleFadingArrowUp`
+- Moontrance Residency: `Building` → `HousePlus`
+- Moontrance Land: `Mountain` → `MapPinned`
+- Collective: `UsersRound` → `Shapes`
+- Lucide bump required for `HousePlus` / `MapPinned`; Vite dep cache cleared (`rm node_modules/.vite`) to clear stale pre-bundle
+- Icon strings synced across `modules.js`, `Sidebar.jsx` ICON_MAP, `TaskDetailPanel` ICON_MAP, `CeremonyGate`, `ModulePlaceholder`, `WealthCorePage`, `WealthDashboard`, `project-store`
+
+### Commits
+- `1ae2793` feat(sources) — pushed to main
+- `cd5bd55` chore(icons) — pushed to main
+
+### Decisions filed
+- [[2026-04-17-quran-hadith-citation-cards]]
+- [[2026-04-17-lucide-react-1-8-upgrade]]
+
+### Deferred
+- Re-fetch Muslim using sunnah.com canonical numbering to fill 9 empty entries
+- Find a Musnad Ahmad source
+- Intellect, Family, Wealth, Environment seed files still have bare subtasks with no Why/How descriptions
