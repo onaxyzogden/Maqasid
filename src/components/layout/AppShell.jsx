@@ -32,6 +32,7 @@ export default function AppShell() {
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
   const toggleIslamicPanel = useAppStore((s) => s.toggleIslamicPanel);
   const activeModule = useAppStore((s) => s.activeModule);
+  const setActiveModule = useAppStore((s) => s.setActiveModule);
   const niyyahOverrideOpen = useAppStore((s) => s.niyyahOverrideOpen);
   const closeNiyyahOverride = useAppStore((s) => s.closeNiyyahOverride);
   const location = useLocation();
@@ -66,6 +67,15 @@ export default function AppShell() {
   useEffect(() => {
     if (niyyahOverrideOpen) closeNiyyahOverride();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  // Sync activeModule with current URL — covers all navigation paths (back/forward, in-page links, pillar headers)
+  // that don't go through the sidebar submodule onClick handler.
+  useEffect(() => {
+    const segment = location.pathname.replace(/^\/app\/?/, '').split('/')[0];
+    if (segment && segment !== 'pillar' && segment !== 'settings') {
+      setActiveModule(segment);
+    }
   }, [location.pathname]);
 
   // Preload all project tasks so cross-project search works

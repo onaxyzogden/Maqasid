@@ -7,6 +7,18 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-17] fix | IslamicPanel stale module content on navigation
+
+### What was done
+- **Root cause**: `activeModule` in app-store was only updated by sidebar submodule `<Link onClick>` — all other navigation paths (browser back/forward, pillar header clicks, in-page links) left it stale, causing IslamicPanel to show the previous module's dua, attrs, and readiness content.
+- **Fix**: Added a `useEffect` in `AppShell.jsx` watching `location.pathname`. Extracts the first path segment after `/app/` and calls `setActiveModule(segment)` for all non-pillar, non-settings routes. Single file change, ~10 lines.
+- **Verified** in preview: navigating `faith-salah → life-physical` via URL (bypassing sidebar click) correctly updates panel to Life · Physical Health content.
+
+### Commits
+- TBD
+
+---
+
 ## [2026-04-16] feat | V3.2 adab refactor — contextual gates; trust banner; reviewer brief
 
 ### What was done
@@ -25,6 +37,37 @@ Append-only chronological record of all wiki operations.
 - Visual preview verification of the trust banner inside an open subtask sources panel.
 - Outreach to a qualified reviewer.
 - Per-pillar coverage-vs-quality audit across the 289 retained blocks.
+
+---
+
+## [2026-04-17] feat | Dual-component source completion — Quran + Hadith for all 1829 subtasks
+
+### What was done
+- Audited all 7 pillar seed files against `stages/_review-[pillar].txt` for single-component sources (Quran-only or Hadith-only).
+- Found 219 gaps: 53 subtasks missing Quran section, 166 subtasks missing Hadith section.
+- Dispatched 7 parallel subagents (one per pillar) in two waves to fill gaps.
+- Each agent used quran.ai MCP (`fetch_quran`, `search_quran`, ar-simple-clean + en-abdel-haleem) for Arabic + translation, and WebSearch/sunnah.com for Sahih hadith text.
+- Applied indirect-evidence rule for logistical subtasks (no direct ayah/hadith): cited the nearest governing command with an italicised contextual note.
+- Agents also backfilled blank `**Arabic:**` fields within previously-added Quran sections, and fixed pre-existing curly-quote JS syntax errors in `faith-seed-tasks.js` and `life-seed-tasks.js`.
+- Final build: `✓ built in 1.52s` — 0 errors.
+
+### Gap summary
+| Pillar | Gaps | A:- filled | H:- filled |
+|--------|------|-----------|-----------|
+| Faith | 62 | 9 | 53 |
+| Ummah | 48 | 14 | 34 |
+| Family | 29 | 9 | 20 |
+| Life | 28 | 7 | 21 |
+| Wealth | 22 | 6 | 16 |
+| Environment | 15 | 3 | 12 |
+| Intellect | 15 | 5 | 10 |
+
+### Definition of done
+Every subtask now either cites a direct Quranic ayah and/or Sahih hadith in full rich-text format (Arabic + English + grade), or cites the nearest governing command as contextual/indirect evidence with an explanatory note.
+
+### Next steps
+- Scholar review pass should now include the newly added Hadith sections (contextual-evidence entries especially).
+- See `stages/_review-[pillar].txt` — headers updated to reflect completion.
 
 ---
 
