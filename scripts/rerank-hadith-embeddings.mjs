@@ -44,8 +44,12 @@ hfEnv.useBrowserCache = false;
 
 const FIQH_SENSITIVE_AYAHS = new Set([
   '2:222','2:228','2:229','2:230','2:231','2:232','2:233','2:234',
+  '2:235','2:236','2:237',
+  '4:3','4:19','4:20','4:21',
+  '24:2','24:6','24:7','24:8','24:9',
+  '33:4','33:49',
+  '58:2','58:3','58:4',
   '65:1','65:2','65:4','65:6','65:7',
-  '33:4','58:2','58:3','58:4',
 ]);
 // Per-ayah topical gate. The verse only passes if the subtask title
 // (lowercased) contains one of these trigger words — otherwise the
@@ -60,6 +64,19 @@ const FIQH_ALLOW_KEYWORDS = {
   '2:232': ['divorce','iddah','talaq','remarr'],
   '2:233': ['breastfeed','nursing','suckle','wet-nurse','wetnurse'],
   '2:234': ['widow','iddah','mourning','waiting period'],
+  '2:235': ['proposal','propose','marriage proposal','khitba','widow during iddah'],
+  '2:236': ['mahr','divorce before','unconsummated'],
+  '2:237': ['mahr','divorce before','half'],
+  '4:3': ['polygyn','multiple wives','orphan girls'],
+  '4:19': ['treat wives','kind treatment of wives','coerce wife','inherit women'],
+  '4:20': ['mahr','divorce','replace wife'],
+  '4:21': ['mahr','mithaq','marriage covenant'],
+  '24:2': ['zina','fornicat','adulter','lashes','hadd'],
+  '24:6': ['lian','accus','oath'],
+  '24:7': ['lian','oath'],
+  '24:8': ['lian','oath'],
+  '24:9': ['lian','oath'],
+  '33:49': ['divorce before','unconsummated','iddah'],
   '65:1': ['divorce','iddah','talaq'],
   '65:2': ['divorce','iddah','talaq','witness of divorce'],
   '65:4': ['divorce','iddah','talaq','menopaus','menstru'],
@@ -91,8 +108,24 @@ const HADITH_BLACKLIST = new Set([
   'bukhari:922',   // Same Asma eclipse narration
   'bukhari:5051',  // How much Quran in prayer — FP on riba verses study
   'bukhari:3906',  // Suraqa — FP on community liaison
+  // Scholar review additions
+  'muslim:2951',   // Pilgrim narrations — FP on Ibrahim sacrifice / env ethics
+  'bukhari:7517',  // Isra/Mi'raj — FP on "nearest masjid" logistics
+  'bukhari:42',    // Generic faith-branches — FP on course evaluation / taharah
+  'bukhari:25',    // Generic — FP on mediators / scholars / researchers
+  'bukhari:2468',  // Hudaybiyya/attribution-chain padding
+  'bukhari:1284',  // Same family — attribution-chain
+  'bukhari:3207',  // Mi'raj — FP on istikharah, angels-study
+  'bukhari:3887',  // Mi'raj — FP on istikharah
+  'bukhari:466',   // Generic book-choosing FP
+  'bukhari:3355',  // FP on Arabic letters
+  'bukhari:485',   // FP on reliable translation
+  'bukhari:486',
+  'bukhari:487',
+  'bukhari:1359',  // FP on waqf / practitioner report
 ]);
 const AYAH_BLACKLIST = new Set([
+  // Lexical false-friends (V3 first pass)
   '56:56',  // "accommodation on Day of Recompense" — FP on workplace accommodation
   '79:43',  // "in what position" — FP on "choose a position"
   '84:21',  // "don't prostrate when Quran is read" — FP on read Quran verses
@@ -110,9 +143,52 @@ const AYAH_BLACKLIST = new Set([
   '4:103',  // "when you finish prayer" — FP on duha time
   '12:93',  // Yusuf shirt — FP on family hosting
   '51:47',  // "construct firmament" — FP on home design
-  '5:1',    // "fulfill contracts" — FP on ihram miqat
+  '5:1',    // "fulfill contracts" — FP on ihram miqat (too generic)
   '72:6',   // jinn protection — FP on community liaison
   '45:28',  // "every community kneeling" — FP on community rights
+  // Scholar review additions — paradise/eschatology concrete-noun FPs
+  '76:5',   // paradise cup of kafoor — FP on reusable water bottle
+  '76:17',  // paradise cup of zanjabeel — FP on reusable water bottle
+  '76:28',  // "We created them" — FP on durable garments
+  '55:54',  // paradise couches — FP on garden layout
+  '56:7',   // "three kinds on Judgment Day" — FP on product categories
+  '56:29',  // paradise lote-trees — FP on interplanting
+  '56:89',  // paradise honoured ones — FP on native plant nurseries
+  '56:65',  // "debris" — FP on israf, tawbah
+  '44:26',  // paradise gardens/fountains — FP on green manure cropping
+  '88:14',  // paradise drinking cups
+  // Scholar review additions — wrong-topic verses
+  '2:258',  // Ibrahim-Nimrud debate — FP on "Ibrahim's sacrifice" (correct: 37:102-107)
+  '2:144',  // qibla direction — FP on "nearest masjid"
+  '40:49',  // dwellers of hellfire — FP on praying in jama'ah
+  '22:26',  // Ibrahim purifying Ka'bah — FP on sujud al-sahw / ruku adhkar
+  '7:21',   // Iblis's false "sincere advice" — ironic, FP on nasihah
+  '2:241',  // divorce-mata'a — FP on just wages
+  '4:95',   // mujahidun vs qa'idun — FP on zakah dua
+  '68:46',  // "do you ask them for payment" — opposite of "subtract debts"
+  '51:4',   // clouds/winds distributing — FP on trustworthy zakah orgs
+  '12:75',  // Yusuf finding cup — FP on repayment schedule
+  '17:63',  // Shaytan's claim on descendants — FP on forgiving borrower
+  '81:7',   // souls paired — FP on budgeting tool
+  '3:19',   // "religion is Islam" — FP on course evaluation, book choice
+  '16:60',  // "worst example" — FP on will updating
+  '18:108', // Kahf reward — FP on inheritance verification
+  '19:73',  // "better position" — same trap as 79:43
+  // Sura-opening "This is the Book" verses (leak on study/compile tasks)
+  '41:3',
+  '15:1',
+  '27:1',
+  // Additional paradise/judgment descriptions
+  '59:21',  // mountain humbled by Quran — FP on khilafah ayat
+  '53:32',  // "avoid great sins" — FP on khilafah
+  '2:132',  // Ibrahim commanded sons — FP on env ethics
+  '13:16',  // "who is Lord of heavens" — FP on barakah du'a
+  '86:12',  // "splitting land" — FP on native trees/hedgerows
+  '38:54',  // "Our provision never ending" — FP on waste bin
+  '2:121',  // "those who received Book recite it" — FP on cleanliness, books
+  '17:71',  // "every people with their imam" — too generic; FP on leader development
+  '28:78',  // Qarun — FP on hadith of knowledge virtue
+  '33:33',  // "stay in houses" (Prophet's wives) — FP on jama'ah at home, zakah dua
 ]);
 
 function titleWordCount(title) {

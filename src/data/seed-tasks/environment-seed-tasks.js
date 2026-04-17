@@ -295,14 +295,7 @@ These three Quranic passages form the scriptural foundation for understanding is
 6. Identify one specific personal habit that each ayah convicts — three habits total.
 7. Completion indicator: written reflections on all three passages with personal applications identified.` },
         { title: 'Study Ibn Ashur\'s commentary on israf as a violation of the maqasid of wealth and environment', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (56:65)
-**Arabic:** 
-**Translation:** Were it Our Will, We could crumble it to dry pieces, and you would be regretful (or left in wonderment) [Tafsir Ibn Kathîr].
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Bukhari 1468
@@ -1216,12 +1209,6 @@ The Prophet (peace be upon him) taught that removing a harmful object from the r
 6. If you encounter large or hazardous items (tyres, chemicals), report them to your local council rather than handling them yourself.
 7. Reflect on the hadith each time you act — this practice is worship, not mere housekeeping.` },
         { title: 'Commit to never discarding waste outside of a proper bin', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (38:54)
-**Arabic:** 
-**Translation:** Lo! this in truth is Our provision, which will never waste away.`,
           description: `**Why does this matter?**
 
 Before you can credibly remove litter from public spaces, you must ensure you are not contributing to the problem. Littering — even casually dropping a receipt or flicking a bottle cap — is a form of causing fasad (corruption) on earth. The Quran warns against those who spread corruption on earth and destroy crops and livestock (2:205). A personal commitment to zero littering is the moral foundation upon which all other clean-up efforts rest.
@@ -1295,14 +1282,7 @@ Individual clean-up efforts are valuable but limited in scale and sustainability
       description: 'Taharah in Islam is not limited to ritual purity — it extends to keeping one\'s surroundings, water sources, and shared spaces clean. Understanding this broader scope transforms environmental action from a secular obligation into an act of ibadah.',
       subtasks: [
         { title: 'Study the hadith "Cleanliness is half of faith" and its scholarly commentaries', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (2:121)
-**Arabic:** 
-**Translation:** Those to whom We have sent the Book study it as it should be studied: They are the ones that believe therein: Those who reject faith therein,- the loss is their own.
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Muslim 534
@@ -1345,18 +1325,7 @@ The Prophet (peace be upon him) specifically prohibited urinating in still water
 
 ### Ayah (3:104)
 **Arabic:** 
-**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.
-
-**II. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*
-
-### Sahih Bukhari 42
-Narrated Abu Huraira: Allah's Messenger (ﷺ) said, "If any one of you improves (follows strictly) his Islamic religion then his good deeds will be rewarded ten times to seven hundred times for each good deed and a bad deed will be recorded as it is
-*(Grade: Sahih)*`,
+**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.`,
           description: `**Why does this matter?**
 
 While the classical sources provide the foundation, contemporary Islamic scholars have done significant work extending taharah principles to modern environmental challenges — industrial pollution, plastic contamination, climate change, and urban waste. Engaging with this scholarship ensures your environmental practice is informed by both tradition and current reality. It also equips you to articulate an Islamic environmental ethic that resonates with modern audiences and addresses problems the classical scholars could not have anticipated in their specific forms.
@@ -1538,16 +1507,6 @@ The most common reason people revert to single-use bags is not lack of intention
 6. Consider attaching a foldable bag to your keychain so it literally cannot be forgotten.
 7. Benchmark: you have not accepted a single-use plastic bag from any shop for 30 consecutive days.` },
         { title: 'Carry a reusable water bottle and coffee cup daily', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (76:5)
-**Arabic:** 
-**Translation:** The virtuous shall drink from a cup tempered with camphor water.
-
-### Ayah (76:17)
-**Arabic:** 
-**Translation:** There are they watered with a cup whereof the mixture is of Zanjabil,`,
           description: `**Why does this matter?**
 
 Disposable water bottles and coffee cups are among the most ubiquitous forms of single-use waste. Plastic bottles take hundreds of years to decompose, and most disposable coffee cups are not recyclable due to their plastic lining — they go straight to landfill. Carrying a reusable bottle and cup eliminates this waste stream entirely while also saving significant money over time. Water is described in the Quran as the basis of all life (21:30) — honouring this ni'mah includes not polluting the earth with containers used for mere minutes.
@@ -2304,12 +2263,6 @@ The Prophet (peace be upon him) said: "Allah shows mercy to those who show mercy
       description: 'The Prophet (peace be upon him) said: "If the Hour comes and one of you has a seedling in his hand, let him plant it." This hadith establishes planting as an act of faith and hope, regardless of whether you will personally benefit from the harvest.',
       subtasks: [
         { title: 'Research native trees and plants suited to your local climate and soil', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (86:12)
-**Arabic:** 
-**Translation:** And the earth which splitteth (with the growth of trees and plants)`,
           description: `**Why does this matter?**
 
 Planting a tree that is not suited to your local climate and soil is an act of good intention that often ends in failure — the tree dies, resources are wasted, and discouragement sets in. Native species are adapted to your rainfall, temperature range, and soil type, meaning they require less water, no fertiliser, and provide far greater ecological value to local wildlife. Choosing the right species is the difference between a lasting sadaqah jariyah and a well-meaning gesture that produces no fruit.
@@ -2380,14 +2333,7 @@ Planting without follow-up care is like making a promise and breaking it. A newl
 
 **Benchmark:** Your tree or plant has survived its first full growing season with consistent care, showing healthy new growth.` },
         { title: 'Make du\'a that Allah places barakah in it and lets it benefit creation', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (13:16)
-**Arabic:** 
-**Translation:** Say (O Muhammad): Who is Lord of the heavens and the earth? Say: Allah. Say: Take ye then (others) beside Him for protectors, which, even for themselves, have neither benefit nor hurt? Say: Is the blind man equal to the seer, or is darkness equal to light? Or assign they unto Allah partners who created the like of His creation so that the creation (which they made and His creation) seemed alike to them? Say: Allah is the Creator of all things, and He is the One, the Almighty.
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Bukhari 1338
@@ -2421,16 +2367,6 @@ Every act of the Muslim begins and ends with Allah. Planting a tree is a physica
       description: 'Allah appointed humanity as khulafa (vicegerents) on earth (Quran 2:30), entrusted with its care — not its exploitation. Understanding khilafah reframes environmental action from optional activism to a core religious duty rooted in the covenant with Allah.',
       subtasks: [
         { title: 'Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (59:21)
-**Arabic:** 
-**Translation:** If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.
-
-### Ayah (53:32)
-**Arabic:** 
-**Translation:** Those who avoid great sins (See the Qur’ân, Verses: 6:152,153) and Al-Fawâhish (illegal sexual intercourse) except the small faults, - verily, your Lord is of Vast Forgiveness. He knows you well when He created you from the earth (Adam), and when you were fetuses in your mothers’ wombs. So ascribe not purity to yourselves. He knows best him who fears Allâh and keeps his duty to Him [i.e. those who are Al-Muttaqûn (the pious. See V.2:2)].`,
           description: `**Why does this matter?**
 
 These three verses form the theological foundation for humanity's relationship with the earth. Quran 2:30 announces the appointment of humanity as khulafa (vicegerents), 6:165 explains that this appointment is a test, and 33:72 describes the amanah (trust) that the heavens and earth refused to bear but humanity accepted. Without deeply understanding these verses, environmental action remains disconnected from its spiritual root — and khilafah is reduced to a buzzword rather than a lived obligation.
@@ -2448,14 +2384,7 @@ These three verses form the theological foundation for humanity's relationship w
 
 **Benchmark:** You can explain the concept of khilafah from these three verses without referring to notes, connecting it clearly to environmental stewardship.` },
         { title: 'Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir)', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (2:132)
-**Arabic:** 
-**Translation:** And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), "O my sons! Allâh has chosen for you the (true) religion, then die not except in the Faith of Islâm (as Muslims - Islâmic Monotheism)."
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Muslim 6161
@@ -2464,10 +2393,6 @@ Abu Huraira reported:It was said to Allah's Messenger (ﷺ) as to who was the mo
 
 ### Sahih Muslim 670
 Qutaiba b. Sa'id, Ishaq b. Ibrahim, Ibn Abi 'Aruba, Abu Ma'shar, Abu Bakr b. Abu Shaiba, Mansur and Mughira have all transmitted from Ibrahim, who transmitted it on the authority of A'isha's narration pertaining to the scraping off of the (drop) of semen from the garment of the Messenger of Allah (ﷺ) like the hadith of Khalid on the authority of Abu Ma'shar
-*(Grade: Sahih)*
-
-### Sahih Muslim 2951
-Ja'far b Muhammad reported on the authority of his father:We went to Jabir b. Abdullah and he began inquiring about the people (who had gone to see him) till it was my turn. I said: I am Muhammad b. 'Ali b. Husain. He placed his hand upon my head and opened my upper button and then the lower one and then placed his palm on my chest (in order to bless me), and I was, during those days, a young boy, and he said: You are welcome, my nephew. Ask whatever you want to ask. And I asked him but as he was blind (he could not respond to me immediately), and the time for prayer came. He stood up covering himself in his mantle. And whenever he placed its ends upon his shoulders they slipped down on account of being short (in size). Another mantle was, however, lying on the clothes rack near by. And he led us in the prayer. I said to him: Tell me about the Hajj of Allah's Messenger (May peace be upon him). And he pointed with his hand nine, and then stated: The Messenger of Allah (ﷺ) stayed in (Medina) for nine years but did not perform Hajj, then he made a public announcement in the tenth year to the effect that Allah's Messenger (ﷺ) was about to perform the Hajj. A large number of persons came to Medina and all of them were anxious to follow the Messenger of Allah (May peace be upon him) and do according to his doing. We set out with him till we reached Dhu'l-Hulaifa. Asma' daughter of Umais gave birth to Muhammad b. Abu Bakr. She sent message to the Messenger of Allah (May peace be upon him) asking him: What should 1 do? He (the Holy Prophet) said: Take a bath, bandage your private parts and put on Ihram. The Messenger of Allah (May peace be upon him) then prayed in the mosque and then mounted al-Qaswa (his she-camel) and it stood erect with him on its back at al-Baida'. And I saw as far as I could see in front of me but riders and pedestrians, and also on my right and on my left and behind me like this. And the Messenger of Allah (ﷺ) was prominent among us and the (revelation) of the Holy Qur'an was descending upon him. And it is he who knows (its true) significance. And whatever he did, we also did that. He pronounced the Oneness of Allah (saying):" Labbaik,0 Allah, Labbaik, Labbaik. Thou hast no partner, praise and grace is Thine and the Sovereignty too; Thou hast no partner." And the people also pronounced this Talbiya which they pronounce (today). The Messenger of Allah (May peace be upon him) did not reject anything out of it. But the Messenger of Allah (May peace. be upon him) adhered to his own Talbiya. Jabir (Allah be pleased with him) said: We did not have any other intention but that of Hajj only, being unaware of the Umra (at that season), but when we came with him to the House, he touched the pillar and (made seven circuits) running three of them and walking four. And then going to the Station of Ibrahim, he recited:" And adopt the Station of Ibrahim as a place of prayer." And this Station was between him and the House. My father said (and I do not know whether he had made a mention of it but that was from Allah's Apostle [May peace be upon him] that he recited in two rak'ahs:" say: He is Allah One," and say:" Say: 0 unbelievers." He then returned to the pillar (Hajar Aswad) and kissed it. He then went out of the gate to al-Safa' and as he reached near it he recited:" Al-Safa' and al-Marwa are among the signs appointed by Allah," (adding: ) I begin with what Allah (has commanded me) to begin. He first mounted al-Safa' till he saw the House, and facing Qibla he declared the Oneness of Allah and glorified Him, and said:" There is no god but Allah, One, there is no partner with Him. His is the Sovereignty. to Him praise is due. and He is Powerful over everything. There is no god but Allah alone, Who fulfilled His promise, helped His servant and routed the confederates alone." He then made supplication in the course of that saying such words three times. He then descended and walked towards al-Marwa, and when his feet came down in the bottom of the valley, he ran, and when he began to ascend he walked till he reached al-Marwa. There he did as he had done at al-Safa'. And when it was his last running at al-Marwa he said: If I had known beforehand what I have come to know afterwards, I would not have brought sacrificial animals and would have performed an 'Umra. So, he who among you has not the sacrificial animals with him should put off Ihram and treat it as an Umra. Suraqa b. Malik b. Ju'sham got up and said: Messenger of Allah, does it apply to the present year, or does it apply forever? Thereupon the Messenger of Allah (May peace be upon him) intertwined the fingers (of one hand) into another and said twice: The 'Umra has become incorporated in the Hajj (adding):" No, but for ever and ever." 'All came from the Yemen with the sacrificial animals for the Prophet (May peace be upon him) and found Fatimah (Allah be pleased with her) to be one among those who had put off Ihram and had put on dyed clothes and had applied antimony. He (Hadrat'Ali) showed disapproval to it, whereupon she said: My father has commanded me to do this. He (the narrator) said that 'Ali used to say in Iraq: I went to the Messenger of Allah (ﷺ) showing annoyance at Fatimah for what she had done, and asked the (verdict) of Allah's Messenger (ﷺ) regarding what she had narrated from him, and told him that I was angry with her, whereupon he said: She has told the truth, she has told the truth. (The Prophet then asked 'Ali): What did you say when you undertook to go for Hajj? I ('Ali) said: 0 Allah, I am putting on Ihram for the same purpose as Thy Messenger has put it on. He said: I have with me sacrificial animals, so do not put off the Ihram. He (Jabir) said: The total number of those sacrificial animals brought by 'Ali from the Yemen and of those brought by the Apostle (ﷺ) was one hundred. Then all the people except the Apostle (ﷺ) and those who had with them sacrificial animals, put off Ihram, and got their hair clipped; when it was the day of Tarwiya (8th of Dhu'l-Hijja) they went to Mina and put on the Ihram for Hajj and the Messenger of Ailah (ﷺ) rode and led the noon, afternoon, sunset 'Isha' and dawn prayers. He then waited a little till the sun rose, and commanded that a tent of hair should be pitched at Namira. The Messenger of Allah (ﷺ) then set out and the Quraish did not doubt that he would halt at al-Mash'ar al-Haram (the sacred site) as the Quraish used to do in the pre-Islamic period. The Messenger of Allah (ﷺ), however, passed on till he came to 'Arafa and he found that the tent had been pitched for him at Namira. There he got down till the sun had passed the meridian; he commanded that al-Qaswa should be brought and saddled for him. Then he came to the bottom of the valley, and addressed the people saying: Verily your blood, your property are as sacred and inviolable as the sacredness of this day of yours, in this month of yours, in this town of yours. Behold! Everything pertaining to the Days of Ignorance is under my feet completely abolished. Abolished are also the blood-revenges of the Days of Ignorance. The first claim of ours on blood-revenge which I abolish is that of the son of Rabi'a b. al-Harith, who was nursed among the tribe of Sa'd and killed by Hudhail. And the usury of she pre-Islamic period is abolished, and the first of our usury I abolish is that of 'Abbas b. 'Abd al-Muttalib, for it is all abolished. Fear Allah concerning women! Verily you have taken them on the security of Allah, and intercourse with them has been made lawful unto you by words of Allah. You too have right over them, and that they should not allow anyone to sit on your bed whom you do not like. But if they do that, you can chastise them but not severely. Their rights upon you are that you should provide them with food and clothing in a fitting manner. I have left among you the Book of Allah, and if you hold fast to it, you would never go astray. And you would be asked about me (on the Day of Resurrection), (now tell me) what would you say? They (the audience) said: We will bear witness that you have conveyed (the message), discharged (the ministry of Prophethood) and given wise (sincere) counsel. He (the narrator) said: He (the Holy Prophet) then raised his forefinger towards the sky and pointing it at the people (said):" O Allah, be witness. 0 Allah, be witness," saying it thrice. (Bilal then) pronounced Adhan and later on Iqama and he (the Holy Prophet) led the noon prayer. He (Bilal) then uttered Iqama and he (the Holy Prophet) led the afternoon prayer and he observed no other prayer in between the two. The Messenger of Allah (ﷺ) then mounted his camel and came to the place of stay, making his she-camel al-Qaswa, turn towards the side where there we are rocks, having the path taken by those who went on foot in front of him, and faced the Qibla. He kept standing there till the sun set, and the yellow light had somewhat gone, and the disc of the sun had disappeared. He made Usama sit behind him, and he pulled the nosestring of Qaswa so forcefully that its head touched the saddle (in order to keep her under perfect control), and he pointed out to the people with his right hand to be moderate (in speed), and whenever he happened to pass over an elevated tract of sand, he slightly loosened it (the nose-string of his camel) till she climbed up and this is how he reached al-Muzdalifa. There he led the evening and 'Isha prayers with one Adhan and two Iqamas and did not glorify (Allah) in between them (i. e. he did not observe supererogatory rak'ahs between Maghrib and 'Isha' prayers). The Messenger of Allah (ﷺ) then lay down till dawn and offered the dawn prayer with an Adhan and Iqama when the morning light was clear. He again mounted al-Qaswa, and when he came to al-Mash'ar al-Haram, he faced towards Qibla, supplicated Him, Glorified Him, and pronounced His Uniqueness (La ilaha illa Allah) and Oneness, and kept standing till the daylight was very clear. He then went quickly before the sun rose, and seated behind him was al-Fadl b. 'Abbas and he was a man having beautiful hair and fair complexion and handsome face. As the Messenger of Allah (May peace be upon him) was moving on, there was also going a group of women (side by side with them). Al-Fadl began to look at them. The Messenger of Allah (ﷺ) placed his hand on the face of Fadl who then turned his face to the other side, and began to see, and the Messenger of Allah (ﷺ) turned his hand to the other side and placed it on the face of al-Fadl. He again turned his face to the other side till he came to the bottom of Muhassir. 1680 He urged her (al-Qaswa) a little, and, following the middle road, which comes out at the greatest jamra, he came to the jamra which is near the tree. At this be threw seven small pebbles, saying Allah-o-Akbar while throwing every one of them in a manner in which the small pebbles are thrown (with the help of fingers) and this he did in the bottom of the valley. He then went to the place of sacrifice, and sacrificed sixty-three (camels) with his own hand. Then he gave the remaining number to 'All who sacrificed them, and he shared him in his sacrifice. He then commanded that a piece of flesh from each animal sacrificed should be put in a pot, and when it was cooked, both of them (the Prophet and Hadrat 'All) took some meat out of it and drank its soup. The Messenger of Allah (May peace be upon him) again rode and came to the House, and offered the Zuhr prayer at Mecca. He came to the tribe of Abd al-Muttalib, who were supplying water at Zamzam, and said: Draw water. O Bani 'Abd al-Muttalib; were it not that people would usurp this right of supplying water from you, I would have drawn it along with you. So they handed him a basket and he drank from it
 *(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
@@ -2639,12 +2564,6 @@ Pollinators need food throughout the entire growing season, not just during peak
 
 **Benchmark:** You have a documented planting plan showing species placement and confirming bloom coverage across the entire growing season with no gaps longer than two weeks.` },
         { title: 'Source plants from native plant nurseries rather than generic garden centres', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (56:89)
-**Arabic:** 
-**Translation:** then serenity1 andfragrant plants and a Garden of Bliss.`,
           description: `**Why does this matter?**
 
 Generic garden centres primarily stock commercially bred cultivars and non-native ornamentals because they sell on visual appeal. Native plant nurseries grow species from locally sourced seed, producing plants that are genetically adapted to your specific region and have not been treated with systemic pesticides (neonicotinoids) that are common in mass-market horticulture. Buying from specialist nurseries also supports small businesses dedicated to ecological restoration — your purchase directly funds the conservation of native plant genetics.
@@ -2841,12 +2760,6 @@ Environmental stewardship practised alone remains a personal virtue. Environment
 
 **Benchmark:** At least one family member or friend has attended a tree-planting or restoration event with you and expressed interest in participating again.` },
         { title: 'Follow up on the site to see how planted trees are progressing', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (86:12)
-**Arabic:** 
-**Translation:** And the earth which splitteth (with the growth of trees and plants)`,
           description: `**Why does this matter?**
 
 Planting a tree is a beginning, not an end. Following up on the trees you planted connects you to the long arc of restoration — you see which species thrived, which struggled, and how the ecosystem is responding. This builds ecological understanding that no textbook can provide. It also models the Islamic concept of ihsan (excellence) — doing your work to the highest standard and caring about the outcome beyond the moment of action. A Muslim does not plant and forget; a Muslim plants and nurtures.
@@ -2983,12 +2896,6 @@ Not all reforestation and land rehabilitation projects are equal. Some are monoc
 
 **Benchmark:** You have a documented shortlist of at least three verified projects with their credentials, costs, and measured outcomes clearly recorded.` },
         { title: 'Evaluate projects for transparency, impact measurement, and alignment with Islamic values', done: false,
-          sources: `**I. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 As a Muslim, your contribution is not merely a financial transaction — it is an act of stewardship that must align with Islamic principles. A project that displaces indigenous communities, exploits local labour, or creates monocultures that destroy biodiversity would violate the very values you are trying to uphold. Careful evaluation ensures your contribution is truly tayyib (wholesome) and not just technically carbon-positive. The Islamic principle of due diligence (tabayyun — Quran 49:6) requires you to verify before you act.
@@ -3101,12 +3008,6 @@ Establishing formal permission and a constituted community group protects the ga
 
 **Benchmark:** You have written permission from the landowner and a constituted community group with at least three named members and a basic constitution.` },
         { title: 'Design the garden layout with beds, composting, water access, and communal tools', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (55:54)
-**Arabic:** 
-**Translation:** [They are] reclining on beds whose linings are of silk brocade, and the fruit of the two gardens is hanging low.`,
           description: `**Why does this matter?**
 
 A well-designed garden layout makes the difference between a productive, welcoming space and a chaotic patch that discourages participation. Thoughtful design considers soil health, water efficiency, accessibility, social interaction, and long-term maintenance — the same principles of mizan (balance) and ihsan (excellence) that Islam applies to all human endeavours. A garden designed with wisdom produces more food, wastes less water, requires less labour, and attracts more community participation.
@@ -3185,22 +3086,7 @@ The excitement of a launch day fades within weeks. What sustains a community gar
       description: 'Most Islamic education programmes do not yet integrate environmental stewardship despite its strong Quranic and Prophetic foundations. Creating a structured programme fills this gap, raising a generation that sees caring for the earth as inseparable from their deen.',
       subtasks: [
         { title: 'Compile Quranic verses, hadith, and scholarly references on environmental stewardship', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (41:3)
-**Arabic:** 
-**Translation:** a Scripture whose verses are made distinct as a Quran in Arabic for people who understand,
-
-### Ayah (15:1)
-**Arabic:** 
-**Translation:** Alif Lam Ra These are the verses of the Scripture, a Quran that makes things clear.
-
-### Ayah (27:1)
-**Arabic:** 
-**Translation:** Ta Sin These are the verses of the Quran––a scripture that makes things clear;
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Bukhari 118
@@ -3623,12 +3509,6 @@ While the Quranic command "eat what is halal and tayyib" specifically addresses 
 
 Benchmark: Be able to articulate, with scholarly support, how tayyib applies to at least three non-food consumption categories.` },
         { title: 'Identify three product categories where you can apply the tayyib standard more rigorously', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (56:7)
-**Arabic:** 
-**Translation:** and you will be (divided into) three categories.`,
           description: `**Why does this matter?**
 
 Knowledge without application is like rain that falls on barren rock — it flows away without producing anything. After studying the tayyib principle, the next step is identifying where in your actual life you can apply it more rigorously. Choosing three specific categories creates a manageable scope for change rather than an overwhelming mandate to transform everything at once. The Prophet (peace be upon him) said, "Take on only as much as you can do of good deeds, for the best of deeds is that which is done consistently, even if it is small" (Ibn Majah).
@@ -4015,12 +3895,6 @@ The clothing you remove from your capsule still has value — to someone who nee
 
 Benchmark: All excess clothing responsibly donated, sold, or recycled within two weeks, with no items sent to landfill.` },
         { title: 'When replacing items, invest in ethically made, durable garments', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (76:28)
-**Arabic:** 
-**Translation:** It is We Who created them, and We have made them of strong built. And when We will, We can replace them with others like them with a complete replacement.`,
           description: `**Why does this matter?**
 
 The capsule wardrobe only delivers its environmental benefit if replacement pieces are chosen with care. Replacing a worn-out fast fashion item with another fast fashion item perpetuates the same cycle of waste. Investing in ethically made, durable garments means each replacement lasts years rather than months, reducing both your spending and your environmental footprint over time. Quality over quantity is the practical expression of moderation — you pay more per item but far less per year.

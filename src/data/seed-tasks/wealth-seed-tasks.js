@@ -299,14 +299,7 @@ Maysir (gambling) is prohibited in the Quran alongside intoxicants: "O you who b
 
 Completion indicator: a personal decision framework for distinguishing maysir from legitimate risk, with 5+ examples correctly classified.` },
         { title: 'Review the conditions that make a sale or contract valid in Islamic law', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (2:235)
-**Arabic:** 
-**Translation:** And there is no sin on you if you make a hint of betrothal or conceal it in yourself, Allâh knows that you will remember them, but do not make a promise of contract with them in secret except that you speak an honourable saying according to the Islâmic law. And do not consummate the marriage until the term prescribed is fulfilled. And know that Allâh knows what is in your minds, so fear Him. And know that Allâh is Oft-Forgiving, Most Forbearing.
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Muslim 3777
@@ -468,12 +461,6 @@ Purifying wealth requires knowing the scope of the contamination. If you earned 
 
 Completion indicator: a documented total estimate of past haram earnings, with sources and methodology recorded, ready for scholarly review.` },
         { title: 'Make sincere tawbah — regret, cease, and resolve not to return', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (56:65)
-**Arabic:** 
-**Translation:** If We willed, We verily could make it chaff, then would ye cease not to exclaim:`,
           description: `**Why does this matter?**
 
 Tawbah (repentance) is the spiritual foundation of wealth purification. Without it, donating haram funds is merely a financial transaction — with it, the act becomes a turning point in your relationship with Allah. The Prophet (peace be upon him) said: "The one who repents from sin is like the one who never sinned" (Ibn Majah). Sincere tawbah has three conditions: genuine regret for the action, immediately ceasing the haram behaviour, and firm resolve not to return to it. If the sin involved the rights of others, a fourth condition applies — restoring their rights. This is not a one-time verbal exercise but a transformation of orientation.
@@ -771,12 +758,6 @@ Completion indicator: a monthly tracking system in place with at least one month
       description: 'Consistent tracking of where your money comes from and where it goes is essential for intentional stewardship (khilafah) of wealth. A halal-aware budget explicitly accounts for zakah, sadaqah, and debt repayment as non-negotiable line items rather than afterthoughts.',
       subtasks: [
         { title: 'Choose a budgeting tool or spreadsheet and set it up with halal-aware categories', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (81:7)
-**Arabic:** 
-**Translation:** and when the people will be arranged in categories,`,
           description: `**Why does this matter?**
 
 Most conventional budgeting tools and frameworks are designed around categories that do not reflect Islamic financial priorities. They track entertainment and dining but have no concept of zakah, sadaqah, or Islamic financing payments. A halal-aware budgeting system makes your religious financial obligations visible alongside your worldly expenses, ensuring they receive the priority they deserve rather than being treated as optional afterthoughts. The tool itself does not matter — what matters is that your financial framework reflects your values.
@@ -991,10 +972,6 @@ Completion indicator: a clearly defined role with a description, required skills
         { title: 'Define fair compensation based on market rates and Islamic principles of just wages', done: false,
           sources: `**I. Sources from the Quran**
 
-
-### Ayah (2:241)
-**Arabic:** 
-**Translation:** And for divorced women there is a compensation in accordance with what is fair—a duty upon the mindfulpl .
 
 ### Ayah (49:9)
 **Arabic:** 
@@ -2255,10 +2232,6 @@ No financial plan survives contact with reality unchanged. Income fluctuates, ex
           sources: `**I. Sources from the Quran**
 
 
-### Ayah (3:19)
-**Arabic:** 
-**Translation:** The Religion before Allah is Islam (submission to His Will): Nor did the People of the Book dissent therefrom except through envy of each other, after knowledge had come to them. But if any deny the Signs of Allah, Allah is swift in calling to account.
-
 ### Ayah (90:17)
 **Arabic:** 
 **Translation:** Then he became one of those who believed (in the Islamic Monotheism) and recommended one another to perseverance and patience, and (also) recommended one another to pity and compassion.`,
@@ -2386,14 +2359,7 @@ As your wealth grows beyond basic budgeting and emergency savings into complex t
 
 ### Ayah (4:94)
 **Arabic:** 
-**Translation:** O you who believe! When you go (to fight) in the Cause of Allâh, verify (the truth), and say not to anyone who greets you (by embracing Islâm): "You are not a believer"; seeking the perishable goods of the worldly life. There are much more profits and booties with Allâh. Even as he is now, so were you yourselves before till Allâh conferred on you His Favours (i.e. guided you to Islâm), therefore, be cautious in discrimination. Allâh is Ever Well-Aware of what you do.
-
-**II. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*`,
+**Translation:** O you who believe! When you go (to fight) in the Cause of Allâh, verify (the truth), and say not to anyone who greets you (by embracing Islâm): "You are not a believer"; seeking the perishable goods of the worldly life. There are much more profits and booties with Allâh. Even as he is now, so were you yourselves before till Allâh conferred on you His Favours (i.e. guided you to Islâm), therefore, be cautious in discrimination. Allâh is Ever Well-Aware of what you do.`,
           description: `**Why does this matter?**
 
 The Islamic finance industry, while growing, is not uniformly regulated. Some advisors market themselves as "Islamic" or "halal" without formal training in Islamic jurisprudence of finance, recognised certifications, or regulatory oversight. Entrusting your wealth to an unqualified advisor risks both financial loss and inadvertent engagement with non-compliant products. Verification protects you from well-intentioned but unqualified practitioners and from outright fraud. In Islam, verifying the trustworthiness and competence of those you delegate to is an act of prudence, not suspicion.
@@ -2772,12 +2738,6 @@ An Islamic will can only distribute what it accounts for. If assets are missing 
 
 7. **Benchmark:** You have completed this step when you have a single document listing every asset and liability you own, categorised and roughly valued.` },
         { title: 'Consult a scholar or Islamic estate planner to draft the wasiyyah', done: false,
-          sources: `**I. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 While understanding inheritance shares is your personal responsibility, the actual drafting of a wasiyyah requires expertise in both Islamic jurisprudence and the legal framework of your jurisdiction. A scholar ensures Shariah compliance — correct share allocation, valid bequest conditions — while an estate planner ensures the document will be enforceable in court. Without both, your will may be either Islamically invalid or legally unenforceable.
@@ -2963,10 +2923,6 @@ Identifying unclear ownership is only half the work — the other half is resolv
 
 **II. Sources from the Hadith**
 
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*
 
 ### Sahih Bukhari 2946
 Narrated Abu Huraira:Allah's Apostle said, " I have been ordered to fight with the people till they say, 'None has the right to be worshipped but Allah,' and whoever says, 'None has the right to be worshipped but Allah,' his life and property will be saved by me except for Islamic law, and his accounts will be with Allah, (either to punish him or to forgive him)
@@ -3707,23 +3663,8 @@ The wasiyyah (bequest) is the one area of Islamic inheritance where you have dis
 
 6. **Benchmark:** You have completed this step when you understand the limits and conditions of the wasiyyah, can calculate the maximum bequest amount from your estate, and have identified specific causes or individuals you wish to benefit.` },
         { title: 'Apply this knowledge to update or create your Islamic will', done: false,
-          sources: `**I. Sources from the Quran**
+          sources: `**I. Sources from the Hadith**
 
-
-### Ayah (3:19)
-**Arabic:** 
-**Translation:** The true religion with Allah is Islam. The People of the Book adopted many different ways rather than follow the true way of Islam even after the knowledge of truth had reached them, and this merely to commit excesses against one another. Let him who refuses to follow the ordinances and directives of Allah know that Allah is swift in His reckoning.
-
-### Ayah (16:60)
-**Arabic:** 
-**Translation:** To those who believe not in the Hereafter, applies the similitude of evil: to Allah applies the highest similitude: for He is the Exalted in Power, full of Wisdom.
-
-**II. Sources from the Hadith**
-
-
-### Sahih Bukhari 1359
-Narrated Abu Huraira:Allah's Messenger (ﷺ) said, "Every child is born with a true faith of Islam (i.e. to worship none but Allah Alone) but his parents convert him to Judaism, Christianity or Magianism, as an animal delivers a perfect baby animal. Do you find it mutilated?" Then Abu Huraira recited the holy verses: "The pure Allah's Islamic nature (true faith of Islam) (i.e. worshipping none but Allah) with which He has created human beings. No change let there be in the religion of Allah (i.e. joining none in worship with Allah). That is the straight religion (Islam) but most of men know, not
-*(Grade: Sahih)*
 
 ### Sahih Bukhari 3
 Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered him till his fear was over and after that he told her everything that had happened and said, "I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones." Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out." Allah's Messenger (ﷺ) asked, "Will they drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly." But after a few days Waraqa died and the Divine Inspiration was also paused for a while
@@ -3942,10 +3883,6 @@ Probate laws vary dramatically between jurisdictions — what works in one count
 ### Ayah (2:235)
 **Arabic:** 
 **Translation:** There is no blame upon you whether you hint at a marriage proposal to such women or keep the proposal hidden in your hearts. Allah knows that you will think of them in that connection. But do not make any secret engagement with them and speak openly in an honourable manner. Do not resolve on the marriage tie until the ordained term has come to its end. Know well that Allah knows even what is in your hearts. So, have fear of Him and know well that Allah is All-Forgiving, All-Forbearing.
-
-### Ayah (18:108)
-**Arabic:** 
-**Translation:** Wherein they abide eternally. They will not desire from it any transfer.
 
 **II. Sources from the Hadith**
 
@@ -4180,14 +4117,7 @@ Zakah applies not just to the cash in your wallet but to a broad range of wealth
 
 8. **Benchmark:** You have completed this step when you have a single, dated list of every zakatable asset you own with its current value.` },
         { title: 'Subtract any immediate debts that are due from your total zakatable wealth', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (68:46)
-**Arabic:** 
-**Translation:** Is it that you ask them for a fee, due to which they are burdened with debt?
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Bukhari 2287
@@ -4278,12 +4208,6 @@ Allah did not leave zakah distribution to personal preference — He specified e
 
 6. **Benchmark:** You have completed this step when you have identified at least two to three specific individuals or organisations locally that serve verified eligible zakah recipients.` },
         { title: 'Research trustworthy zakah distribution organisations if distributing through an intermediary', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (51:4)
-**Arabic:** 
-**Translation:** then those who distribute things,`,
           description: `**Why does this matter?**
 
 Not everyone has direct access to all eight categories of zakah recipients, especially categories like those in bondage or stranded travellers. Trustworthy zakah organisations bridge this gap — they have the infrastructure to verify eligibility, reach underserved populations, and distribute funds efficiently. However, not all organisations are equal in transparency or Shariah compliance. Choosing poorly could mean your zakah funds are misallocated, delayed, or used for administrative overhead beyond what is permissible.
@@ -4348,14 +4272,6 @@ Keeping records of your zakah distribution is a practical safeguard, not a spiri
         { title: 'Make dua that Allah accepts your zakah and places barakah in your remaining wealth', done: false,
           sources: `**I. Sources from the Quran**
 
-
-### Ayah (33:33)
-**Arabic:** 
-**Translation:** Remain in your homes, and do not display (your) beauty as it used to be displayed in the days of earlier ignorance; and establish Salāh, and pay Zakāh, and obey Allah and His messenger. Allah only intends to keep (all sorts of) filth away from you, O members of the family (of the prophet), and to make you pure through a perfect purification.
-
-### Ayah (4:95)
-**Arabic:** 
-**Translation:** Not equal are those believers remaining [at home] - other than the disabled - and the mujāhideen, [who strive and fight] in the cause of Allāh with their wealth and their lives. Allāh has preferred the mujāhideen through their wealth and their lives over those who remain [behind], by degrees. And to all [i.e., both] Allāh has promised the best [reward]. But Allāh has preferred the mujāhideen over those who remain [behind] with a great reward -
 
 ### Ayah (30:39)
 **Arabic:** 
@@ -4447,12 +4363,6 @@ Zakah is a pillar of Islam with detailed fiqhi rulings, and situations involving
 
 6. **Benchmark:** You have completed this step when you have received and documented specific scholarly guidance on your outstanding zakah situation.` },
         { title: 'Create a repayment schedule if the total outstanding amount is large', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (12:75)
-**Arabic:** 
-**Translation:** They said, “The repayment should be that he in whose saddlebag it is found, he himself is the repayment. Thus we repay the unjust ones.”`,
           description: `**Why does this matter?**
 
 If the total outstanding zakah is substantial — which is common when multiple years have been missed — trying to pay it all at once may be financially destabilising. A structured repayment schedule allows you to clear the debt systematically without compromising your current obligations to family, creditors, or this year's zakah. The scholars generally permit spreading makeup zakah payments over time when the total is large, provided you are genuinely committed to completing the repayment and are paying as quickly as your circumstances allow.
@@ -5005,12 +4915,6 @@ The manner of giving is as important as the gift itself. A qard hasan delivered 
 
 6. **Benchmark:** You have completed this step when you have disbursed the loan privately, kindly, and without any words or actions that could burden or embarrass the recipient.` },
         { title: 'Follow up gently on repayment, and be prepared to forgive if the borrower faces hardship', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (17:63)
-**Arabic:** 
-**Translation:** He said, “Go! Whoever of them follows you—then indeed, Hell is yourpl repayment, an ample repayment.`,
           description: `**Why does this matter?**
 
 The post-disbursement period is where most qard hasan arrangements either strengthen or fracture relationships. Following up on repayment is your right as a lender, but the manner must reflect prophetic character — patient, gentle, and merciful. The Quran commands granting respite to those in genuine hardship (2:280) and praises those who forgive the debt entirely as an act of charity. Being prepared for both outcomes — repayment and forgiveness — protects you from resentment and protects the borrower from undue pressure during difficult times.
@@ -5202,14 +5106,7 @@ The purpose of a waqf is its soul — it determines who benefits, for how long, 
 
 ### Ayah (26:197)
 **Arabic:** 
-**Translation:** Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?
-
-**II. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*`,
+**Translation:** Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?`,
           description: `**Why does this matter?**
 
 A waqf is a Shariah instrument with specific fiqhi conditions that vary across the four madhhabs. These include rules about irrevocability, the types of assets that can be endowed, the rights of beneficiaries, and the permissible scope of the trustee's authority. A waqf that violates these conditions may be invalid from an Islamic legal perspective, meaning the intended perpetual reward may not materialise. Engaging a scholar ensures your waqf is structurally sound, spiritually valid, and protected from challenges based on Islamic jurisprudence.

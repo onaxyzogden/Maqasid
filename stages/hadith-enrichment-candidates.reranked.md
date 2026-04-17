@@ -126,27 +126,17 @@
 - [x] A3: 33:43 — He it is Who sends Salât (His blessings) on you, and His angels too (ask Allâh to bless and forgive you), that He may br…
 
 ### Hadith Candidates
-- [x] H1: Bukhari 3207 — Narrated Malik bin Sasaa:The Prophet (ﷺ) said, "While I was at the House in a state midway between sleep and wakefulness…
-- [x] H2: Bukhari 7517 — Narrated Anas bin Malik:The night Allah's Messenger (ﷺ) was taken for a journey from the sacred mosque (of Mecca) Al-Ka`…
-- [x] H3: Bukhari 4777 — Narrated Abu Huraira:One day while Allah's Messenger (ﷺ) was sitting with the people, a man came to him walking and said…
+- [x] H1: Bukhari 4777 — Narrated Abu Huraira:One day while Allah's Messenger (ﷺ) was sitting with the people, a man came to him walking and said…
 
 ---
 
 ## [faith > shahada > Core] Study belief in the Books (al-Kutub)
 <!-- id: faith > shahada > Core :: Study belief in the Books (al-Kutub) -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 2:121 — Those to whom We have sent the Book study it as it should be studied: They are the ones that believe therein: Those who …
-
----
+**Status:** NO_RESULTS
 
 ## [faith > shahada > Core] Study belief in the Messengers (ar-Rusul)
 <!-- id: faith > shahada > Core :: Study belief in the Messengers (ar-Rusul) -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 2:121 — Those to whom We have sent the Book study it as it should be studied: They are the ones that believe therein: Those who …
 
 ### Hadith Candidates
 - [x] H1: Bukhari 9 — Narrated Abu Huraira: The Prophet (ﷺ) said, "Faith (Belief) consists of more than sixty branches (i.e. parts). And Haya …
@@ -198,8 +188,6 @@
 
 ### Hadith Candidates
 - [x] H1: Bukhari 2705 — Narrated Aisha:Once Allah's Messenger (ﷺ) heard the loud voices of some opponents quarreling at the door. One of them wa…
-- [x] H2: Bukhari 2468 — Narrated `Abdullah bin `Abbas:I had been eager to ask `Umar about the two ladies from among the wives of the Prophet (ﷺ)…
-- [x] H3: Bukhari 1284 — Narrated Usama bin Zaid:The daughter of the Prophet (ﷺ) sent (a messenger) to the Prophet (ﷺ) requesting him to come as …
 
 ---
 
@@ -286,21 +274,11 @@
 
 ## [faith > shahada > Growth] Obtain a reliable translation with commentary
 <!-- id: faith > shahada > Growth :: Obtain a reliable translation with commentary -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 485 — See translation for hadith 484 above
-- [x] H2: Bukhari 486 — See translation for hadith 484 above
-- [x] H3: Bukhari 487 — See translation for hadith 484 above
-
----
+**Status:** NO_RESULTS
 
 ## [faith > shahada > Growth] Read the section on the attributes of Allah
 <!-- id: faith > shahada > Growth :: Read the section on the attributes of Allah -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 16:60 — Those who do not believe in the Hereafter have evil attributes, and to Allah belong the most exalted attributes. He is t…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 3 — Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (…
@@ -394,13 +372,7 @@
 
 ## [faith > shahada > Growth] Understand how the three categories interrelate
 <!-- id: faith > shahada > Growth :: Understand how the three categories interrelate -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 56:7 — and you will be (divided into) three categories.
-- [x] A2: 81:7 — and when the people will be arranged in categories,
-
----
+**Status:** NO_RESULTS
 
 ## [faith > shahada > Excellence] Prepare a simple outline of the seven conditions
 <!-- id: faith > shahada > Excellence :: Prepare a simple outline of the seven conditions -->
@@ -560,9 +532,6 @@
 <!-- id: faith > salah > Core :: Identify the nearest masjid and its prayer times -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 2:144 — Verily! We have seen the turning of your (Muhammad’s صلى الله عليه وسلم) face towards the heaven. Surely, We shall turn …
-
 ### Hadith Candidates
 - [x] H1: Bukhari 1767 — Narrated Nafi`:Ibn `Umar used to spend the night at Dhi-Tuwa in between the two Thaniyas and then he would enter Mecca t…
 
@@ -570,19 +539,11 @@
 
 ## [faith > salah > Core] Commit to praying at least one salah daily in jama'ah
 <!-- id: faith > salah > Core :: Commit to praying at least one salah daily in jama'ah -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 40:49 — Those in the Fire will say to the Keepers of Hell: "Pray to your Lord to lighten us the Penalty for a day (at least)!"
-
----
+**Status:** NO_RESULTS
 
 ## [faith > salah > Core] If no masjid is nearby, establish jama'ah at home with family
 <!-- id: faith > salah > Core :: If no masjid is nearby, establish jama'ah at home with family -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 33:33 — Remain in your homes, and do not display (your) beauty as it used to be displayed in the days of earlier ignorance; and …
 
 ### Hadith Candidates
 - [x] H1: Bukhari 1572 — Ibn 'Abbas said that he has been asked regarding Hajj-at-Tamattu' on which he said:"The Muhajirin and the Ansar and the …
@@ -600,9 +561,6 @@
 ## [faith > salah > Core] Understand when sujud al-sahw (prostration of forgetfulness) is required
 <!-- id: faith > salah > Core :: Understand when sujud al-sahw (prostration of forgetfulness) is required -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 22:26 — And (remember) when We pointed out for Ibrāhīm the place of the House (of Allah) saying, “Do not associate anything with…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 6051 — Narrated Abu Huraira:The Prophet (ﷺ) led us in the Zuhr prayer, offering only two rak`at and then (finished it) with Tas…
@@ -638,9 +596,6 @@
 ## [faith > salah > Growth] Learn the meaning of the adhkar of ruku and sujud
 <!-- id: faith > salah > Growth :: Learn the meaning of the adhkar of ruku and sujud -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 22:26 — And (remember) when We pointed out for Ibrāhīm the place of the House (of Allah) saying, “Do not associate anything with…
 
 ### Hadith Candidates
 - [x] H1: Muslim 867 — Abu Salama reported:Abu Huraira led prayer for them and recited takbir when he bent and raised himself (in ruku' and suj…
@@ -870,12 +825,7 @@
 
 ## [faith > zakah > Core] Al-Mu'allafati Qulubuhum (those whose hearts are to be reconciled)
 <!-- id: faith > zakah > Core :: Al-Mu'allafati Qulubuhum (those whose hearts are to be reconciled) -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 2468 — Narrated `Abdullah bin `Abbas:I had been eager to ask `Umar about the two ladies from among the wives of the Prophet (ﷺ)…
-
----
+**Status:** NO_RESULTS
 
 ## [faith > zakah > Core] Fi al-Riqab (freeing captives)
 <!-- id: faith > zakah > Core :: Fi al-Riqab (freeing captives) -->
@@ -976,8 +926,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 33:33 — Remain in your homes, and do not display (your) beauty as it used to be displayed in the days of earlier ignorance; and …
-- [x] A2: 9:103 — [9:103] (O Prophet)! "Take alms out of their riches and thereby cleanse them and bring about their growth (in righteousn…
+- [x] A1: 9:103 — [9:103] (O Prophet)! "Take alms out of their riches and thereby cleanse them and bring about their growth (in righteousn…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 22 — Narrated Abu Said Al-Khudri: The Prophet (ﷺ) said, "When the people of Paradise will enter Paradise and the people of He…
@@ -1426,13 +1375,9 @@
 <!-- id: faith > hajj > Growth :: Learn about Ibrahim's sacrifice and its connection to Eid al-Adha -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 2:258 — Do you not know the one who argued with Ibrāhīm about his Lord, because Allah had given him kingship? When Ibrāhīm said:…
-
 ### Hadith Candidates
 - [x] H1: Bukhari 951 — Narrated Al-Bara':I heard the Prophet (ﷺ) delivering a Khutba saying, "The first thing to be done on this day (first day…
 - [x] H2: Bukhari 968 — Narrated Al-Bara':The Prophet (ﷺ) delivered the Khutba on the day of Nahr (`Id-ul-Adha) and said, "The first thing we sh…
-- [x] H3: Muslim 2951 — Ja'far b Muhammad reported on the authority of his father:We went to Jabir b. Abdullah and he began inquiring about the …
 
 ---
 
@@ -2346,8 +2291,7 @@
 
 ### Hadith Candidates
 - [x] H1: Bukhari 6736 — Narrated Huzail bin Shirahbil:Abu Musa was asked regarding (the inheritance of) a daughter, a son's daughter, and a sist…
-- [x] H2: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-- [x] H3: Bukhari 1643 — Narrated `Urwa:I asked `Aisha : "How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-…
+- [x] H2: Bukhari 1643 — Narrated `Urwa:I asked `Aisha : "How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-…
 
 ---
 
@@ -2356,8 +2300,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 3:19 — The true religion with Allah is Islam. The People of the Book adopted many different ways rather than follow the true wa…
-- [x] A2: 8:72 — Surely those who believed and migrated and strove hard in the way of Allah with their possessions and their lives, and t…
+- [x] A1: 8:72 — Surely those who believed and migrated and strove hard in the way of Allah with their possessions and their lives, and t…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 3 — Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (…
@@ -2724,15 +2667,7 @@
 
 ## [intellect > learning > Core] Learn the 28 Arabic letters and their forms (isolated, initial, medial, final)
 <!-- id: intellect > learning > Core :: Learn the 28 Arabic letters and their forms (isolated, initial, medial, final) -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 41:3 — - a book whose verses are elaborated in the form of an Arabic Qur’ān for a people who understand,
-
-### Hadith Candidates
-- [x] H1: Bukhari 3355 — Narrated Mujahid:That when the people mentioned before Ibn `Abbas that the Dajjal would have the word Kafir, (i.e. unbel…
-
----
+**Status:** NO_RESULTS
 
 ## [intellect > learning > Core] Study the basic tajweed rules: noon sakinah, meem sakinah, and madd
 <!-- id: intellect > learning > Core :: Study the basic tajweed rules: noon sakinah, meem sakinah, and madd -->
@@ -2778,12 +2713,7 @@
 
 ## [intellect > learning > Core] Choose your first book and set a specific daily reading time
 <!-- id: intellect > learning > Core :: Choose your first book and set a specific daily reading time -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 17:71 — (Think of) the Day when We will call every people with their books of deeds. Then the ones who will be given their book …
-
----
+**Status:** NO_RESULTS
 
 ## [intellect > learning > Core] Designate a distraction-free reading space
 <!-- id: intellect > learning > Core :: Designate a distraction-free reading space -->
@@ -2805,19 +2735,11 @@
 - [x] A1: 24:1 — (This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and i…
 - [x] A2: 6:105 — This is how We explain Our revelations in various ways- though they will say, ‘You [Muhammad] have been studying’- to ma…
 
-### Hadith Candidates
-- [x] H1: Bukhari 2468 — Narrated `Abdullah bin `Abbas:I had been eager to ask `Umar about the two ladies from among the wives of the Prophet (ﷺ)…
-
 ---
 
 ## [intellect > learning > Core] Read the hadith collections on the virtue of knowledge (Sahih Muslim, Kitab al-Ilm)
 <!-- id: intellect > learning > Core :: Read the hadith collections on the virtue of knowledge (Sahih Muslim, Kitab al-Ilm) -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 28:78 — He said: "This has been given to me because of a certain knowledge which I have." Did he not know that Allah had destroy…
-
----
+**Status:** NO_RESULTS
 
 ## [intellect > learning > Core] Learn the distinction between fard ayn and fard kifayah knowledge
 <!-- id: intellect > learning > Core :: Learn the distinction between fard ayn and fard kifayah knowledge -->
@@ -2873,15 +2795,7 @@
 
 ## [intellect > learning > Growth] Evaluate each on cost, time commitment, credential value, and Islamic compatibility
 <!-- id: intellect > learning > Growth :: Evaluate each on cost, time commitment, credential value, and Islamic compatibility -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 3:19 — The true religion with Allah is Islam. The People of the Book adopted many different ways rather than follow the true wa…
-
-### Hadith Candidates
-- [x] H1: Bukhari 42 — Narrated Abu Huraira: Allah's Messenger (ﷺ) said, "If any one of you improves (follows strictly) his Islamic religion th…
-
----
+**Status:** NO_RESULTS
 
 ## [intellect > learning > Growth] Enrol and block out study time in your weekly schedule
 <!-- id: intellect > learning > Growth :: Enrol and block out study time in your weekly schedule -->
@@ -2916,9 +2830,8 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 2:121 — Those (who embraced Islâm from Banî Israel) to whom We gave the Book [the Taurât (Torah)] [or those (Muhammad’s صلى الله…
-- [x] A2: 41:41 — Verily, those who disbelieved in the Reminder (i.e. the Qur’ân) when it came to them (shall receive the punishment). And…
-- [x] A3: 3:85 — If anyone desires a religion other than Islam (submission to Allah), never will it be accepted of him; and in the Hereaf…
+- [x] A1: 41:41 — Verily, those who disbelieved in the Reminder (i.e. the Qur’ân) when it came to them (shall receive the punishment). And…
+- [x] A2: 3:85 — If anyone desires a religion other than Islam (submission to Allah), never will it be accepted of him; and in the Hereaf…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 3 — Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (…
@@ -3079,12 +2992,7 @@
 
 ## [intellect > thinking > Core] Research the strongest arguments for that position from its best advocates
 <!-- id: intellect > thinking > Core :: Research the strongest arguments for that position from its best advocates -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 19:73 — And when Our verses are recited to them as clear evidences, those who disbelieve say to those who believe, "Which of [ou…
-
----
+**Status:** NO_RESULTS
 
 ## [intellect > thinking > Core] Write a 1-page defence of the position as if you held it
 <!-- id: intellect > thinking > Core :: Write a 1-page defence of the position as if you held it -->
@@ -3120,12 +3028,7 @@
 
 ## [intellect > thinking > Growth] Choose your text — Al-Ghazali's Maqasid al-Falasifah, Aristotle's Organon, or an equivalent
 <!-- id: intellect > thinking > Growth :: Choose your text — Al-Ghazali's Maqasid al-Falasifah, Aristotle's Organon, or an equivalent -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 466 — Narrated Abu Sa`id Al-Khudri:The Prophet (ﷺ) delivered a sermon and said, "Allah gave a choice to one of (His) slaves ei…
-
----
+**Status:** NO_RESULTS
 
 ## [intellect > thinking > Growth] Find a commentary or study guide to read alongside the primary text
 <!-- id: intellect > thinking > Growth :: Find a commentary or study guide to read alongside the primary text -->
@@ -3162,10 +3065,6 @@
 ### Ayah Candidates
 - [x] A1: 3:17 — (They are) those who are patient, those who are true (in Faith, words, and deeds), and obedient with sincere devotion in…
 - [x] A2: 39:22 — So I ask about a person whose heart Allah has opened up for Islam, and consequently he proceeds in a light from his Lord…
-
-### Hadith Candidates
-- [x] H1: Bukhari 3207 — Narrated Malik bin Sasaa:The Prophet (ﷺ) said, "While I was at the House in a state midway between sleep and wakefulness…
-- [x] H2: Bukhari 3887 — Narrated Anas bin Malik:Malik bin Sasaa said that Allah's Messenger (ﷺ) described to them his Night Journey saying, "Whi…
 
 ---
 
@@ -3524,8 +3423,7 @@
 - [x] A1: 3:104 — Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Mon…
 
 ### Hadith Candidates
-- [x] H1: Muslim 2951 — Ja'far b Muhammad reported on the authority of his father:We went to Jabir b. Abdullah and he began inquiring about the …
-- [x] H2: Muslim 2297 — Jabir b. Abdullah reported the Messenger of Allah (ﷺ) as saying:No owner of camels or cattle or flock of sheep or goats …
+- [x] H1: Muslim 2297 — Jabir b. Abdullah reported the Messenger of Allah (ﷺ) as saying:No owner of camels or cattle or flock of sheep or goats …
 
 ---
 
@@ -3984,12 +3882,7 @@
 
 ## [family > marriage > Growth] End each meeting with a shared du'a for barakah in your marriage
 <!-- id: family > marriage > Growth :: End each meeting with a shared du'a for barakah in your marriage -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 2:235 — There is no blame upon you whether you hint at a marriage proposal to such women or keep the proposal hidden in your hea…
-
----
+**Status:** NO_RESULTS
 
 ## [family > marriage > Growth] Choose a book together — "Like a Garment", "Blissful Marriage", or "Reclaim Your Heart"
 <!-- id: family > marriage > Growth :: Choose a book together — "Like a Garment", "Blissful Marriage", or "Reclaim Your Heart" -->
@@ -4291,8 +4184,7 @@
 - [x] A1: 5:95 — O ye who believe! Kill not game while in the sacred precincts or in pilgrim garb. If any of you doth so intentionally, t…
 
 ### Hadith Candidates
-- [x] H1: Bukhari 466 — Narrated Abu Sa`id Al-Khudri:The Prophet (ﷺ) delivered a sermon and said, "Allah gave a choice to one of (His) slaves ei…
-- [x] H2: Bukhari 6739 — Narrated Ibn `Abbas:(During the early days of Islam), the inheritance used to be given to one's offspring and legacy use…
+- [x] H1: Bukhari 6739 — Narrated Ibn `Abbas:(During the early days of Islam), the inheritance used to be given to one's offspring and legacy use…
 
 ---
 
@@ -4535,9 +4427,6 @@
 ### Ayah Candidates
 - [x] A1: 2:196 — And perform properly (i.e. all the ceremonies according to the ways of Prophet Muhammad صلى الله عليه وسلم), the Hajj an…
 
-### Hadith Candidates
-- [x] H1: Bukhari 2468 — Narrated `Abdullah bin `Abbas:I had been eager to ask `Umar about the two ladies from among the wives of the Prophet (ﷺ)…
-
 ---
 
 ## [family > kinship > Core] Never raise your voice to them — even if they are wrong, respond with gentleness
@@ -4690,12 +4579,7 @@
 
 ## [family > kinship > Excellence] Research waqf structures — consult a scholar and a lawyer familiar with Islamic endowments
 <!-- id: family > kinship > Excellence :: Research waqf structures — consult a scholar and a lawyer familiar with Islamic endowments -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-
----
+**Status:** NO_RESULTS
 
 ## [family > kinship > Excellence] Determine the scope — education, healthcare, mosque, or community development
 <!-- id: family > kinship > Excellence :: Determine the scope — education, healthcare, mosque, or community development -->
@@ -4765,8 +4649,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 2:144 — We see the turning of thy face (for guidance to the heavens: now Shall We turn thee to a Qibla that shall please thee. T…
-- [x] A2: 2:145 — Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art …
+- [x] A1: 2:145 — Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art …
 
 ### Hadith Candidates
 - [x] H1: Bukhari 417 — Narrated Anas:The Prophet (ﷺ) saw expectoration (on the wall of the mosque) in the direction of the Qibla and scraped it…
@@ -4918,8 +4801,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 2:121 — Those (who embraced Islâm from Banî Israel) to whom We gave the Book [the Taurât (Torah)] [or those (Muhammad’s صلى الله…
-- [x] A2: 2:138 — [Our Sibghah (religion) is] the Sibghah (Religion) of Allâh (Islâm) and which Sibghah (religion) can be better than Allâ…
+- [x] A1: 2:138 — [Our Sibghah (religion) is] the Sibghah (Religion) of Allâh (Islâm) and which Sibghah (religion) can be better than Allâ…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 933 — Narrated Anas bin Malik:Once in the lifetime of the Prophet (ﷺ) the people were afflicted with drought (famine). While t…
@@ -5117,9 +4999,6 @@
 <!-- id: wealth > earning > Core :: Review the conditions that make a sale or contract valid in Islamic law -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 2:235 — And there is no sin on you if you make a hint of betrothal or conceal it in yourself, Allâh knows that you will remember…
-
 ### Hadith Candidates
 - [x] H1: Muslim 3777 — A'isha (Allah be pjeased with her) reported that Barira came to her in order to seek her help in securing freedom, but s…
 - [x] H2: Bukhari 2729 — Narrated `Urwa:Aisha said, "Barirah came to me and said, 'My people (masters) have written the contract for my emancipat…
@@ -5153,12 +5032,7 @@
 
 ## [wealth > earning > Core] Make sincere tawbah — regret, cease, and resolve not to return
 <!-- id: wealth > earning > Core :: Make sincere tawbah — regret, cease, and resolve not to return -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 56:65 — If We willed, We verily could make it chaff, then would ye cease not to exclaim:
-
----
+**Status:** NO_RESULTS
 
 ## [wealth > earning > Core] Consult a qualified scholar on how to dispose of the haram funds
 <!-- id: wealth > earning > Core :: Consult a qualified scholar on how to dispose of the haram funds -->
@@ -5219,12 +5093,7 @@
 
 ## [wealth > earning > Growth] Choose a budgeting tool or spreadsheet and set it up with halal-aware categories
 <!-- id: wealth > earning > Growth :: Choose a budgeting tool or spreadsheet and set it up with halal-aware categories -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 81:7 — and when the people will be arranged in categories,
-
----
+**Status:** NO_RESULTS
 
 ## [wealth > earning > Growth] Add dedicated line items for zakah, sadaqah, and debt repayment
 <!-- id: wealth > earning > Growth :: Add dedicated line items for zakah, sadaqah, and debt repayment -->
@@ -5267,8 +5136,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 2:241 — And for divorced women there is a compensation in accordance with what is fair—a duty upon the mindfulpl .
-- [x] A2: 49:9 — If two parties among the Believers fall into a quarrel, make ye peace between them: but if one of them transgresses beyo…
+- [x] A1: 49:9 — If two parties among the Believers fall into a quarrel, make ye peace between them: but if one of them transgresses beyo…
 
 ---
 
@@ -5509,8 +5377,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 3:19 — The Religion before Allah is Islam (submission to His Will): Nor did the People of the Book dissent therefrom except thr…
-- [x] A2: 90:17 — Then he became one of those who believed (in the Islamic Monotheism) and recommended one another to perseverance and pat…
+- [x] A1: 90:17 — Then he became one of those who believed (in the Islamic Monotheism) and recommended one another to perseverance and pat…
 
 ---
 
@@ -5541,9 +5408,6 @@
 
 ### Ayah Candidates
 - [x] A1: 4:94 — O you who believe! When you go (to fight) in the Cause of Allâh, verify (the truth), and say not to anyone who greets yo…
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
 
 ---
 
@@ -5614,12 +5478,7 @@
 
 ## [wealth > ownership > Core] Consult a scholar or Islamic estate planner to draft the wasiyyah
 <!-- id: wealth > ownership > Core :: Consult a scholar or Islamic estate planner to draft the wasiyyah -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-
----
+**Status:** NO_RESULTS
 
 ## [wealth > ownership > Core] Include the optional bequest (up to 1/3) for charitable or non-heir purposes
 <!-- id: wealth > ownership > Core :: Include the optional bequest (up to 1/3) for charitable or non-heir purposes -->
@@ -5658,8 +5517,7 @@
 - [x] A2: 5:44 — It was We who revealed the law (to Moses): therein was guidance and light. By its standard have been judged the Jews, by…
 
 ### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-- [x] H2: Bukhari 2946 — Narrated Abu Huraira:Allah's Apostle said, " I have been ordered to fight with the people till they say, 'None has the r…
+- [x] H1: Bukhari 2946 — Narrated Abu Huraira:Allah's Apostle said, " I have been ordered to fight with the people till they say, 'None has the r…
 
 ---
 
@@ -5825,13 +5683,8 @@
 <!-- id: wealth > ownership > Growth :: Apply this knowledge to update or create your Islamic will -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 3:19 — The true religion with Allah is Islam. The People of the Book adopted many different ways rather than follow the true wa…
-- [x] A2: 16:60 — To those who believe not in the Hereafter, applies the similitude of evil: to Allah applies the highest similitude: for …
-
 ### Hadith Candidates
-- [x] H1: Bukhari 1359 — Narrated Abu Huraira:Allah's Messenger (ﷺ) said, "Every child is born with a true faith of Islam (i.e. to worship none b…
-- [x] H2: Bukhari 3 — Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (…
+- [x] H1: Bukhari 3 — Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (…
 
 ---
 
@@ -5883,7 +5736,6 @@
 
 ### Ayah Candidates
 - [x] A1: 2:235 — There is no blame upon you whether you hint at a marriage proposal to such women or keep the proposal hidden in your hea…
-- [x] A2: 18:108 — Wherein they abide eternally. They will not desire from it any transfer.
 
 ### Hadith Candidates
 - [x] H1: Bukhari 1643 — Narrated `Urwa:I asked `Aisha : "How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-…
@@ -5930,9 +5782,6 @@
 <!-- id: wealth > circulation > Core :: Subtract any immediate debts that are due from your total zakatable wealth -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 68:46 — Is it that you ask them for a fee, due to which they are burdened with debt?
-
 ### Hadith Candidates
 - [x] H1: Bukhari 2287 — Narrated Abu Huraira:The Prophet (ﷺ) said, "Procrastination (delay) in paying debts by a wealthy man is injustice. So, i…
 
@@ -5952,12 +5801,7 @@
 
 ## [wealth > circulation > Core] Research trustworthy zakah distribution organisations if distributing through an intermediary
 <!-- id: wealth > circulation > Core :: Research trustworthy zakah distribution organisations if distributing through an intermediary -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 51:4 — then those who distribute things,
-
----
+**Status:** NO_RESULTS
 
 ## [wealth > circulation > Core] Distribute the full zakah amount within days of the hawl date
 <!-- id: wealth > circulation > Core :: Distribute the full zakah amount within days of the hawl date -->
@@ -5972,9 +5816,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 33:33 — Remain in your homes, and do not display (your) beauty as it used to be displayed in the days of earlier ignorance; and …
-- [x] A2: 4:95 — Not equal are those believers remaining [at home] - other than the disabled - and the mujāhideen, [who strive and fight]…
-- [x] A3: 30:39 — Whatever Ribā (increased amount) you give, so that it may increase in the wealth of the people, it does not increase wit…
+- [x] A1: 30:39 — Whatever Ribā (increased amount) you give, so that it may increase in the wealth of the people, it does not increase wit…
 
 ---
 
@@ -5992,12 +5834,7 @@
 
 ## [wealth > circulation > Core] Create a repayment schedule if the total outstanding amount is large
 <!-- id: wealth > circulation > Core :: Create a repayment schedule if the total outstanding amount is large -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 12:75 — They said, “The repayment should be that he in whose saddlebag it is found, he himself is the repayment. Thus we repay t…
-
----
+**Status:** NO_RESULTS
 
 ## [wealth > circulation > Core] Begin distributing the outstanding zakah immediately, starting with the oldest obligation
 <!-- id: wealth > circulation > Core :: Begin distributing the outstanding zakah immediately, starting with the oldest obligation -->
@@ -6106,12 +5943,7 @@
 
 ## [wealth > circulation > Growth] Follow up gently on repayment, and be prepared to forgive if the borrower faces hardship
 <!-- id: wealth > circulation > Growth :: Follow up gently on repayment, and be prepared to forgive if the borrower faces hardship -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 17:63 — He said, “Go! Whoever of them follows you—then indeed, Hell is yourpl repayment, an ample repayment.
-
----
+**Status:** NO_RESULTS
 
 ## [wealth > circulation > Growth] Research local sadaqah jariyah opportunities (masjid construction, wells, schools, libraries)
 <!-- id: wealth > circulation > Growth :: Research local sadaqah jariyah opportunities (masjid construction, wells, schools, libraries) -->
@@ -6147,9 +5979,6 @@
 
 ### Ayah Candidates
 - [x] A1: 26:197 — Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Chi…
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
 
 ---
 
@@ -6301,9 +6130,6 @@
 ## [environment > resource > Core] Study Ibn Ashur's commentary on israf as a violation of the maqasid of wealth and environment
 <!-- id: environment > resource > Core :: Study Ibn Ashur's commentary on israf as a violation of the maqasid of wealth and environment -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 56:65 — Were it Our Will, We could crumble it to dry pieces, and you would be regretful (or left in wonderment) [Tafsir Ibn Kath…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 1468 — Narrated Abu Huraira:Allah's Messenger (ﷺ) ordered (a person) to collect Zakat, and that person returned and told him th…
@@ -6514,12 +6340,7 @@
 
 ## [environment > waste > Core] Commit to never discarding waste outside of a proper bin
 <!-- id: environment > waste > Core :: Commit to never discarding waste outside of a proper bin -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 38:54 — Lo! this in truth is Our provision, which will never waste away.
-
----
+**Status:** NO_RESULTS
 
 ## [environment > waste > Core] Clean up the area around your home, street, or local masjid weekly
 <!-- id: environment > waste > Core :: Clean up the area around your home, street, or local masjid weekly -->
@@ -6537,9 +6358,6 @@
 <!-- id: environment > waste > Core :: Study the hadith "Cleanliness is half of faith" and its scholarly commentaries -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 2:121 — Those to whom We have sent the Book study it as it should be studied: They are the ones that believe therein: Those who …
-
 ### Hadith Candidates
 - [x] H1: Muslim 534 — Abu Malik at-Ash'ari reported:The Messenger of Allah (ﷺ) said: Cleanliness is half of faith and al-Hamdu Lillah (all pra…
 
@@ -6555,10 +6373,6 @@
 
 ### Ayah Candidates
 - [x] A1: 3:104 — Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Mon…
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-- [x] H2: Bukhari 42 — Narrated Abu Huraira: Allah's Messenger (ﷺ) said, "If any one of you improves (follows strictly) his Islamic religion th…
 
 ---
 
@@ -6600,13 +6414,7 @@
 
 ## [environment > waste > Growth] Carry a reusable water bottle and coffee cup daily
 <!-- id: environment > waste > Growth :: Carry a reusable water bottle and coffee cup daily -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 76:5 — The virtuous shall drink from a cup tempered with camphor water.
-- [x] A2: 76:17 — There are they watered with a cup whereof the mixture is of Zanjabil,
-
----
+**Status:** NO_RESULTS
 
 ## [environment > waste > Growth] Switch food storage from cling wrap to beeswax wraps or silicone lids
 <!-- id: environment > waste > Growth :: Switch food storage from cling wrap to beeswax wraps or silicone lids -->
@@ -6776,12 +6584,7 @@
 
 ## [environment > ecosystem > Core] Research native trees and plants suited to your local climate and soil
 <!-- id: environment > ecosystem > Core :: Research native trees and plants suited to your local climate and soil -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 86:12 — And the earth which splitteth (with the growth of trees and plants)
-
----
+**Status:** NO_RESULTS
 
 ## [environment > ecosystem > Core] Choose a species that supports local wildlife (birds, pollinators, beneficial insects)
 <!-- id: environment > ecosystem > Core :: Choose a species that supports local wildlife (birds, pollinators, beneficial insects) -->
@@ -6799,9 +6602,6 @@
 <!-- id: environment > ecosystem > Core :: Make du'a that Allah places barakah in it and lets it benefit creation -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 13:16 — Say (O Muhammad): Who is Lord of the heavens and the earth? Say: Allah. Say: Take ye then (others) beside Him for protec…
-
 ### Hadith Candidates
 - [x] H1: Bukhari 1338 — Narrated Anas:The Prophet (ﷺ) said, "When a human being is laid in his grave and his companions return and he even hears…
 - [x] H2: Bukhari 806 — Narrated Abu Huraira:The people said, "O Allah's Messenger (ﷺ)! Shall we see our Lord on the Day of Resurrection?" He re…
@@ -6810,25 +6610,15 @@
 
 ## [environment > ecosystem > Core] Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah
 <!-- id: environment > ecosystem > Core :: Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 59:21 — If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God…
-- [x] A2: 53:32 — Those who avoid great sins (See the Qur’ân, Verses: 6:152,153) and Al-Fawâhish (illegal sexual intercourse) except the s…
-
----
+**Status:** NO_RESULTS
 
 ## [environment > ecosystem > Core] Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir)
 <!-- id: environment > ecosystem > Core :: Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir) -->
 **Status:** APPROVE
 
-### Ayah Candidates
-- [x] A1: 2:132 — And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), "O…
-
 ### Hadith Candidates
 - [x] H1: Muslim 6161 — Abu Huraira reported:It was said to Allah's Messenger (ﷺ) as to who was the most worthy of respect amongst people. He sa…
 - [x] H2: Muslim 670 — Qutaiba b. Sa'id, Ishaq b. Ibrahim, Ibn Abi 'Aruba, Abu Ma'shar, Abu Bakr b. Abu Shaiba, Mansur and Mughira have all tra…
-- [x] H3: Muslim 2951 — Ja'far b Muhammad reported on the authority of his father:We went to Jabir b. Abdullah and he began inquiring about the …
 
 ---
 
@@ -6866,12 +6656,7 @@
 
 ## [environment > ecosystem > Growth] Source plants from native plant nurseries rather than generic garden centres
 <!-- id: environment > ecosystem > Growth :: Source plants from native plant nurseries rather than generic garden centres -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 56:89 — then serenity1 andfragrant plants and a Garden of Bliss.
-
----
+**Status:** NO_RESULTS
 
 ## [environment > ecosystem > Growth] Include a shallow water source for birds and insects
 <!-- id: environment > ecosystem > Growth :: Include a shallow water source for birds and insects -->
@@ -6917,12 +6702,7 @@
 
 ## [environment > ecosystem > Growth] Follow up on the site to see how planted trees are progressing
 <!-- id: environment > ecosystem > Growth :: Follow up on the site to see how planted trees are progressing -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 86:12 — And the earth which splitteth (with the growth of trees and plants)
-
----
+**Status:** NO_RESULTS
 
 ## [environment > ecosystem > Growth] Consider committing to a regular volunteer schedule with the organisation
 <!-- id: environment > ecosystem > Growth :: Consider committing to a regular volunteer schedule with the organisation -->
@@ -6950,12 +6730,7 @@
 
 ## [environment > ecosystem > Excellence] Evaluate projects for transparency, impact measurement, and alignment with Islamic values
 <!-- id: environment > ecosystem > Excellence :: Evaluate projects for transparency, impact measurement, and alignment with Islamic values -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-
----
+**Status:** NO_RESULTS
 
 ## [environment > ecosystem > Excellence] Commit to a recurring financial contribution or in-person volunteer schedule
 <!-- id: environment > ecosystem > Excellence :: Commit to a recurring financial contribution or in-person volunteer schedule -->
@@ -6979,12 +6754,7 @@
 
 ## [environment > ecosystem > Excellence] Design the garden layout with beds, composting, water access, and communal tools
 <!-- id: environment > ecosystem > Excellence :: Design the garden layout with beds, composting, water access, and communal tools -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 55:54 — [They are] reclining on beds whose linings are of silk brocade, and the fruit of the two gardens is hanging low.
-
----
+**Status:** NO_RESULTS
 
 ## [environment > ecosystem > Excellence] Recruit volunteers and allocate plots or shared responsibilities
 <!-- id: environment > ecosystem > Excellence :: Recruit volunteers and allocate plots or shared responsibilities -->
@@ -7001,11 +6771,6 @@
 ## [environment > ecosystem > Excellence] Compile Quranic verses, hadith, and scholarly references on environmental stewardship
 <!-- id: environment > ecosystem > Excellence :: Compile Quranic verses, hadith, and scholarly references on environmental stewardship -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 41:3 — a Scripture whose verses are made distinct as a Quran in Arabic for people who understand,
-- [x] A2: 15:1 — Alif Lam Ra These are the verses of the Scripture, a Quran that makes things clear.
-- [x] A3: 27:1 — Ta Sin These are the verses of the Quran––a scripture that makes things clear;
 
 ### Hadith Candidates
 - [x] H1: Bukhari 118 — Narrated Abu Huraira:People say that I have narrated many Hadiths (The Prophet's narration). Had it not been for two ver…
@@ -7101,12 +6866,7 @@
 
 ## [environment > sourcing > Core] Identify three product categories where you can apply the tayyib standard more rigorously
 <!-- id: environment > sourcing > Core :: Identify three product categories where you can apply the tayyib standard more rigorously -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 56:7 — and you will be (divided into) three categories.
-
----
+**Status:** NO_RESULTS
 
 ## [environment > sourcing > Core] Discuss the tayyib principle with family to build shared awareness
 <!-- id: environment > sourcing > Core :: Discuss the tayyib principle with family to build shared awareness -->
@@ -7186,12 +6946,7 @@
 
 ## [environment > sourcing > Growth] When replacing items, invest in ethically made, durable garments
 <!-- id: environment > sourcing > Growth :: When replacing items, invest in ethically made, durable garments -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 76:28 — It is We Who created them, and We have made them of strong built. And when We will, We can replace them with others like…
-
----
+**Status:** NO_RESULTS
 
 ## [environment > sourcing > Growth] Maintain the capsule by applying a "one in, one out" rule
 <!-- id: environment > sourcing > Growth :: Maintain the capsule by applying a "one in, one out" rule -->
@@ -7436,9 +7191,6 @@
 ### Ayah Candidates
 - [x] A1: 29:46 — And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with thos…
 
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-
 ---
 
 ## [ummah > collective > Growth] Define the scope and process of the dispute resolution service
@@ -7598,12 +7350,7 @@
 
 ## [ummah > collective > Excellence] Identify and begin developing the next generation of community leaders
 <!-- id: ummah > collective > Excellence :: Identify and begin developing the next generation of community leaders -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 17:71 — Then think of the Day We shall summon every community with its leader. Those who are given their Record in their right h…
-
----
+**Status:** NO_RESULTS
 
 ## [ummah > collective > Excellence] Institutionalise key community roles so they are not dependent on individuals
 <!-- id: ummah > collective > Excellence :: Institutionalise key community roles so they are not dependent on individuals -->
@@ -7611,12 +7358,7 @@
 
 ## [ummah > collective > Excellence] Create a community constitution that governs beyond any individual leader
 <!-- id: ummah > collective > Excellence :: Create a community constitution that governs beyond any individual leader -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 76:28 — Yet We created them; We strengthened their constitution; if We please, We can replace such people completely.
-
----
+**Status:** NO_RESULTS
 
 ## [ummah > collective > Excellence] Establish a mentorship culture where every experienced member invests in someone younger
 <!-- id: ummah > collective > Excellence :: Establish a mentorship culture where every experienced member invests in someone younger -->
@@ -8049,9 +7791,6 @@
 - [x] A2: 40:55 — So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault …
 - [x] A3: 2:238 — Guard strictly (five obligatory) As-Salawât (the prayers) especially the middle Salât (i.e. the best prayer - ‘Asr ). An…
 
-### Hadith Candidates
-- [x] H1: Bukhari 7517 — Narrated Anas bin Malik:The night Allah's Messenger (ﷺ) was taken for a journey from the sacred mosque (of Mecca) Al-Ka`…
-
 ---
 
 ## [ummah > community > Core] Establish a Fajr jama'ah routine — sleep early and arrange a wake-up system
@@ -8072,9 +7811,6 @@
 ## [ummah > community > Core] Introduce yourself to the imam and at least five regular attendees at your masjid
 <!-- id: ummah > community > Core :: Introduce yourself to the imam and at least five regular attendees at your masjid -->
 **Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 17:71 — One day We shall call together all human beings with their (respective) Imams: those who are given their record in their…
 
 ### Hadith Candidates
 - [x] H1: Bukhari 63 — Narrated Anas bin Malik:While we were sitting with the Prophet (ﷺ) in the mosque, a man came riding on a camel. He made …
@@ -8328,7 +8064,6 @@
 
 ### Ayah Candidates
 - [x] A1: 2:269 — He gives wisdom to whom He wills, and whoever is given wisdom is certainly given a lot of good. Only the people of under…
-- [x] A2: 7:21 — and he swore to them, ‘I am giving you sincere advice’-
 
 ---
 
@@ -8560,12 +8295,7 @@
 
 ## [ummah > moontrance-land > Growth] Implement green manure cover cropping in all fallow beds between seasons
 <!-- id: ummah > moontrance-land > Growth :: Implement green manure cover cropping in all fallow beds between seasons -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 44:26 — And green crops (fields) and goodly places,
-
----
+**Status:** NO_RESULTS
 
 ## [ummah > moontrance-land > Growth] Design the food forest guild layout with at least 7 layers of productive species
 <!-- id: ummah > moontrance-land > Growth :: Design the food forest guild layout with at least 7 layers of productive species -->
@@ -8584,8 +8314,7 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 56:29 — and the trees of TalH , (banana, or a fragrant tree) having layers one upon the other,
-- [x] A2: 53:16 — when there covered the Lote-tree what covered it.
+- [x] A1: 53:16 — when there covered the Lote-tree what covered it.
 
 ---
 
@@ -8619,12 +8348,7 @@
 
 ## [ummah > moontrance-land > Growth] Plant native hedgerows and tree lines connecting isolated habitat patches
 <!-- id: ummah > moontrance-land > Growth :: Plant native hedgerows and tree lines connecting isolated habitat patches -->
-**Status:** APPROVE
-
-### Ayah Candidates
-- [x] A1: 86:12 — And the earth which splitteth (with the growth of trees and plants)
-
----
+**Status:** NO_RESULTS
 
 ## [ummah > moontrance-land > Growth] Create pollinator habitat — wildflower meadows, bee hotels, and flowering hedgerows
 <!-- id: ummah > moontrance-land > Growth :: Create pollinator habitat — wildflower meadows, bee hotels, and flowering hedgerows -->
@@ -9079,12 +8803,7 @@
 
 ## [ummah > moontrance-seasonal > Excellence] Create a practitioner's report for Islamic institutional and community audiences
 <!-- id: ummah > moontrance-seasonal > Excellence :: Create a practitioner's report for Islamic institutional and community audiences -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 1359 — Narrated Abu Huraira:Allah's Messenger (ﷺ) said, "Every child is born with a true faith of Islam (i.e. to worship none b…
-
----
+**Status:** NO_RESULTS
 
 ## [ummah > moontrance-seasonal > Excellence] Develop a university-level curriculum module on faith-rooted seasonal agriculture
 <!-- id: ummah > moontrance-seasonal > Excellence :: Develop a university-level curriculum module on faith-rooted seasonal agriculture -->
@@ -9237,7 +8956,6 @@
 
 ### Hadith Candidates
 - [x] H1: Bukhari 8 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: Islam is based on (the following) five (principles): 1. To testify that …
-- [x] H2: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
 
 ---
 
@@ -9438,12 +9156,7 @@
 
 ## [ummah > moontrance-residency > Excellence] Offer the community as a case study for researchers studying Islamic social institutions
 <!-- id: ummah > moontrance-residency > Excellence :: Offer the community as a case study for researchers studying Islamic social institutions -->
-**Status:** APPROVE
-
-### Hadith Candidates
-- [x] H1: Bukhari 25 — Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they t…
-
----
+**Status:** NO_RESULTS
 
 ## [ummah > moontrance-residency > Excellence] Speak at mosques, conferences, and community events — sharing the story as evidence of possibility
 <!-- id: ummah > moontrance-residency > Excellence :: Speak at mosques, conferences, and community events — sharing the story as evidence of possibility -->
@@ -9458,5 +9171,5 @@
 <!-- id: ummah > moontrance-residency > Excellence :: Publish the community's story in lasting formats — book, documentary, or podcast series -->
 **Status:** NO_RESULTS
 
-**Generated:** 2026-04-17T00:41:47.176Z
-**Total blocks:** 1826 | **Approved:** 322 | **NO_RESULTS:** 1504
+**Generated:** 2026-04-17T01:01:57.983Z
+**Total blocks:** 1826 | **Approved:** 287 | **NO_RESULTS:** 1539

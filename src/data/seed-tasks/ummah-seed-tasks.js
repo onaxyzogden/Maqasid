@@ -597,14 +597,7 @@ The Prophet (peace be upon him) constantly refined his approach based on the nee
 
 ### Ayah (29:46)
 **Arabic:** 
-**Translation:** And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, "We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam)."
-
-**II. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*`,
+**Translation:** And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, "We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam)."`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) personally mediated disputes and appointed mediators like Abu Ubayda ibn al-Jarrah, known as the "trustworthy one of this ummah." Effective mediation requires specific skills: impartiality, deep listening, knowledge of Islamic rulings on justice, and the ability to help parties find common ground. Untrained mediators often make conflicts worse by taking sides or imposing solutions. Training ensures the community has people who can heal rather than inflame.
@@ -1247,12 +1240,6 @@ The preservation of the seerah (Prophetic biography) and the history of the Comp
       description: "The Prophet (peace be upon him) prepared his Companions to lead after him — Abu Bakr, Umar, Uthman, and Ali (may Allah be pleased with them all) were ready because he invested in their development throughout his life. This task ensures that your community's leadership, institutions, and culture can be sustained across generations, independent of any single individual.",
       subtasks: [
         { title: "Identify and begin developing the next generation of community leaders", done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (17:71)
-**Arabic:** 
-**Translation:** Then think of the Day We shall summon every community with its leader. Those who are given their Record in their right hand shall read the Record of their deeds and shall not be wronged a whit.`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for their flock" (Bukhari & Muslim). Every leader will eventually step down, age, or pass away. If no one is being prepared to take their place, the community will experience a leadership vacuum that can take years to recover from. Proactive succession planning is not a lack of trust in current leadership — it is the ultimate act of responsibility toward the community's future.
@@ -1285,12 +1272,6 @@ Umar ibn al-Khattab (may Allah be pleased with him) built institutions — the d
 6. Test the institutionalisation: when a leader goes on holiday or sabbatical, the role should function smoothly in their absence.
 7. Completion indicator: role descriptions and process documentation for at least 5 critical community roles, with at least one successful handoff test.` },
         { title: "Create a community constitution that governs beyond any individual leader", done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (76:28)
-**Arabic:** 
-**Translation:** Yet We created them; We strengthened their constitution; if We please, We can replace such people completely.`,
           description: `**Why does this matter?**
 
 The Sahifat al-Madinah (Constitution of Madinah) established governance principles that applied regardless of who was in charge. A community constitution — more comprehensive than the covenant created in the Core tier — defines the community's purpose, governance structure, decision-making processes, leadership selection, financial management, and conflict resolution. It ensures that the community operates by principles, not personalities, and that no single leader can unilaterally change its direction.
@@ -2917,14 +2898,7 @@ The Prophet (peace be upon him) said, "If the Hour is about to be established an
 
 ### Ayah (2:238)
 **Arabic:** 
-**Translation:** Guard strictly (five obligatory) As-Salawât (the prayers) especially the middle Salât (i.e. the best prayer - ‘Asr ). And stand before Allâh with obedience [and do not speak to others during the Salât (prayers)].
-
-**II. Sources from the Hadith**
-
-
-### Sahih Bukhari 7517
-Narrated Anas bin Malik:The night Allah's Messenger (ﷺ) was taken for a journey from the sacred mosque (of Mecca) Al-Ka\`ba: Three persons came to him (in a dreamy while he was sleeping in the Sacred Mosque before the Divine Inspiration was revealed to Him. One of them said, "Which of them is he?" The middle (second) angel said, "He is the best of them." The last (third) angle said, "Take the best of them." Only that much happened on that night and he did not see them till they came on another night, i.e. after The Divine Inspiration was revealed to him. (Fath-ul-Bari Page 258, Vol. 17) and he saw them, his eyes were asleep but his heart was not----and so is the case with the prophets: their eyes sleep while their hearts do not sleep. So those angels did not talk to him till they carried him and placed him beside the well of Zamzam. From among them Gabriel took charge of him. Gabriel cut open (the part of his body) between his throat and the middle of his chest (heart) and took all the material out of his chest and \`Abdomen and then washed it with Zamzam water with his own hands till he cleansed the inside of his body, and then a gold tray containing a gold bowl full of belief and wisdom was brought and then Gabriel stuffed his chest and throat blood vessels with it and then closed it (the chest). He then ascended with him to the heaven of the world and knocked on one of its doors. The dwellers of the Heaven asked, 'Who is it?' He said, "Gabriel." They said, "Who is accompanying you?" He said, "Muhammad." They said, "Has he been called?" He said, "Yes" They said, "He is welcomed." So the dwellers of the Heaven became pleased with his arrival, and they did not know what Allah would do to the Prophet (ﷺ) on earth unless Allah informed them. The Prophet (ﷺ) met Adam over the nearest Heaven. Gabriel said to the Prophet, "He is your father; greet him." The Prophet (ﷺ) greeted him and Adam returned his greeting and said, "Welcome, O my Son! O what a good son you are!" Behold, he saw two flowing rivers, while he was in the nearest sky. He asked, "What are these two rivers, O Gabriel?" Gabriel said, "These are the sources of the Nile and the Euphrates." Then Gabriel took him around that Heaven and behold, he saw another river at the bank of which there was a palace built of pearls and emerald. He put his hand into the river and found its mud like musk Adhfar. He asked, "What is this, O Gabriel?" Gabriel said, "This is the Kauthar which your Lord has kept for you." Then Gabriel ascended (with him) to the second Heaven and the angels asked the same questions as those on the first Heaven, i.e., "Who is it?" Gabriel replied, "Gabriel". They asked, "Who is accompanying you?" He said, "Muhammad." They asked, "Has he been sent for?" He said, "Yes." Then they said, "He is welcomed.'' Then he (Gabriel) ascended with the Prophet (ﷺ) to the third Heaven, and the angels said the same as the angels of the first and the second Heavens had said. Then he ascended with him to the fourth Heaven and they said the same; and then he ascended with him to the fifth Heaven and they said the same; and then he ascended with him to the sixth Heaven and they said the same; then he ascended with him to the seventh Heaven and they said the same. On each Heaven there were prophets whose names he had mentioned and of whom I remember Idris on the second Heaven, Aaron on the fourth Heavens another prophet whose name I don't remember, on the fifth Heaven, Abraham on the sixth Heaven, and Moses on the seventh Heaven because of his privilege of talking to Allah directly. Moses said (to Allah), "O Lord! I thought that none would be raised up above me." But Gabriel ascended with him (the Prophet) for a distance above that, the distance of which only Allah knows, till he reached the Lote Tree (beyond which none may pass) and then the Irresistible, the Lord of Honor and Majesty approached and came closer till he (Gabriel) was about two bow lengths or (even) nearer. (It is said that it was Gabriel who approached and came closer to the Prophet. (Fate Al-Bari Page 263, 264, Vol. 17). Among the things which Allah revealed to him then, was: "Fifty prayers were enjoined on his followers in a day and a night." Then the Prophet (ﷺ) descended till he met Moses, and then Moses stopped him and asked, "O Muhammad ! What did your Lord en join upon you?" The Prophet (ﷺ) replied," He enjoined upon me to perform fifty prayers in a day and a night." Moses said, "Your followers cannot do that; Go back so that your Lord may reduce it for you and for them." So the Prophet (ﷺ) turned to Gabriel as if he wanted to consult him about that issue. Gabriel told him of his opinion, saying, "Yes, if you wish." So Gabriel ascended with him to the Irresistible and said while he was in his place, "O Lord, please lighten our burden as my followers cannot do that." So Allah deducted for him ten prayers where upon he returned to Moses who stopped him again and kept on sending him back to his Lord till the enjoined prayers were reduced to only five prayers. Then Moses stopped him when the prayers had been reduced to five and said, "O Muhammad! By Allah, I tried to persuade my nation, Bani Israel to do less than this, but they could not do it and gave it up. However, your followers are weaker in body, heart, sight and hearing, so return to your Lord so that He may lighten your burden." The Prophet (ﷺ) turned towards Gabriel for advice and Gabriel did not disapprove of that. So he ascended with him for the fifth time. The Prophet (ﷺ) said, "O Lord, my followers are weak in their bodies, hearts, hearing and constitution, so lighten our burden." On that the Irresistible said, "O Muhammad!" the Prophet replied, "Labbaik and Sa\`daik." Allah said, "The Word that comes from Me does not change, so it will be as I enjoined on you in the Mother of the Book." Allah added, "Every good deed will be rewarded as ten times so it is fifty (prayers) in the Mother of the Book (in reward) but you are to perform only five (in practice)." The Prophet (ﷺ) returned to Moses who asked, "What have you done?" He said, "He has lightened our burden: He has given us for every good deed a tenfold reward." Moses said, "By Allah! I tried to make Bani Israel observe less than that, but they gave it up. So go back to your Lord that He may lighten your burden further." Allah's Messenger (ﷺ) said, "O Moses! By Allah, I feel shy of returning too many times to my Lord." On that Gabriel said, "Descend in Allah's Name." The Prophet (ﷺ) then woke while he was in the Sacred Mosque (at Mecca)
-*(Grade: Sahih)*`,
+**Translation:** Guard strictly (five obligatory) As-Salawât (the prayers) especially the middle Salât (i.e. the best prayer - ‘Asr ). And stand before Allâh with obedience [and do not speak to others during the Salât (prayers)].`,
           description: `**Why does this matter?**
 
 The first step to consistent jama'ah attendance is removing logistical barriers. Many Muslims skip congregational prayers simply because they have not planned their day around salah times. The Prophet (peace be upon him) said, "If people knew what was in the Adhan and the first row, and they had no other way than drawing lots, they would draw lots" (Bukhari). Mapping prayer times converts good intention into concrete scheduling — you cannot attend what you have not planned for.
@@ -2987,14 +2961,7 @@ Jumu'ah is the weekly gathering of the Muslim community and carries obligations 
 6. After salah, greet at least three people you do not normally speak to — this builds the relational fabric of the community.
 7. Completion indicator: four consecutive Fridays arriving before the khutbah begins and sitting in the front rows.` },
         { title: 'Introduce yourself to the imam and at least five regular attendees at your masjid', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (17:71)
-**Arabic:** 
-**Translation:** One day We shall call together all human beings with their (respective) Imams: those who are given their record in their right hand will read it (with pleasure), and they will not be dealt with unjustly in the least.
-
-**II. Sources from the Hadith**
+          sources: `**I. Sources from the Hadith**
 
 
 ### Sahih Bukhari 63
@@ -3946,11 +3913,7 @@ You cannot hold people accountable to standards they have not agreed to. A commu
 
 ### Ayah (2:269)
 **Arabic:** 
-**Translation:** He gives wisdom to whom He wills, and whoever is given wisdom is certainly given a lot of good. Only the people of understanding observe the advice.
-
-### Ayah (7:21)
-**Arabic:** 
-**Translation:** and he swore to them, ‘I am giving you sincere advice’-`,
+**Translation:** He gives wisdom to whom He wills, and whoever is given wisdom is certainly given a lot of good. Only the people of understanding observe the advice.`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) said, "The religion is nasihah" (Muslim). But nasihah delivered without wisdom, compassion, and tact does more harm than silence. Most people who give nasihah focus on what they want to say rather than what the recipient needs to hear. Training community leaders — imams, teachers, board members, and respected elders — in the art of effective, compassionate counsel ensures that amr bil-ma'ruf is practised as the Prophet intended: with gentleness that opens hearts rather than harshness that hardens them.
@@ -4892,12 +4855,6 @@ Purchasing seeds every season creates dependency on external suppliers and break
 6. Store the seed bank in a cool, dark, dry location — a refrigerator is ideal for long-term storage.
 7. Completion indicator: seeds saved from at least 10 varieties, cleaned, dried, labelled, and stored in a dedicated seed bank with a catalogue log.` },
         { title: 'Implement green manure cover cropping in all fallow beds between seasons', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (44:26)
-**Arabic:** 
-**Translation:** And green crops (fields) and goodly places,`,
           description: `**Why does this matter?**
 
 Bare soil is wounded soil — exposed to rain erosion, sun degradation, and weed colonisation. Cover cropping between seasons is the agricultural equivalent of bandaging a wound: it protects the soil surface, feeds the soil biology with living root exudates, fixes nitrogen (if leguminous), and adds organic matter when terminated. The Quran describes the earth as a living carpet (71:19), and cover crops are what keep that carpet intact between harvests.
@@ -4971,10 +4928,6 @@ The canopy and understory trees are the skeleton of the food forest — everythi
         { title: 'Interplant shrub, herbaceous, ground cover, and vine layers around established trees', done: false,
           sources: `**I. Sources from the Quran**
 
-
-### Ayah (56:29)
-**Arabic:** 
-**Translation:** and the trees of TalH , (banana, or a fragrant tree) having layers one upon the other,
 
 ### Ayah (53:16)
 **Arabic:** 
@@ -5121,12 +5074,6 @@ Before you can connect habitat, you must know what habitat already exists. Even 
 6. Research which species are native to your region and which are present on your land to understand what is missing.
 7. Completion indicator: an annotated wildlife and habitat map showing all existing habitat features, species sightings, and movement routes.` },
         { title: 'Plant native hedgerows and tree lines connecting isolated habitat patches', done: false,
-          sources: `**I. Sources from the Quran**
-
-
-### Ayah (86:12)
-**Arabic:** 
-**Translation:** And the earth which splitteth (with the growth of trees and plants)`,
           description: `**Why does this matter?**
 
 Isolated habitat patches are ecological islands — wildlife trapped in one patch cannot reach food, mates, or shelter in another. Hedgerows and tree lines function as green highways, allowing birds, mammals, insects, and even amphibians to move safely across the landscape. Planting these connectors transforms your land from a collection of fragments into a functioning ecosystem. The Quran describes how Allah sends water to revive dead land and "spread forth every kind of beautiful species in pairs" (22:5) — your corridors enable that spreading.
@@ -7035,12 +6982,6 @@ Academic publication subjects the Moontrance model to peer review — the most r
 6. If rejected, revise based on reviewer feedback and submit to the next journal on the list.
 7. Completion indicator: article submitted to at least one peer-reviewed journal, with revisions completed if requested.` },
         { title: 'Create a practitioner\'s report for Islamic institutional and community audiences', done: false,
-          sources: `**I. Sources from the Hadith**
-
-
-### Sahih Bukhari 1359
-Narrated Abu Huraira:Allah's Messenger (ﷺ) said, "Every child is born with a true faith of Islam (i.e. to worship none but Allah Alone) but his parents convert him to Judaism, Christianity or Magianism, as an animal delivers a perfect baby animal. Do you find it mutilated?" Then Abu Huraira recited the holy verses: "The pure Allah's Islamic nature (true faith of Islam) (i.e. worshipping none but Allah) with which He has created human beings. No change let there be in the religion of Allah (i.e. joining none in worship with Allah). That is the straight religion (Islam) but most of men know, not
-*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Academic papers reach scholars; practitioner reports reach the people who will actually build programmes. Islamic centres, community organisations, and Muslim farming initiatives need a document that speaks their language — practical, values-centred, and action-oriented. A practitioner's report bridges the gap between the academic case study and the framework guide, providing enough evidence to be credible and enough guidance to be useful. This is the document that lands on a community leader's desk and sparks action.
@@ -7659,10 +7600,6 @@ Ta'aruf is not a programme you launch and forget — it is a living practice tha
 
 ### Sahih Bukhari 8
 Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: Islam is based on (the following) five (principles): 1. To testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger (ﷺ). 2. To offer the (compulsory congregational) prayers dutifully and perfectly. 3. To pay Zakat (i.e. obligatory charity) . 4. To perform Hajj. (i.e. Pilgrimage to Mecca) 5. To observe fast during the month of Ramadan
-*(Grade: Sahih)*
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
 *(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
@@ -8454,12 +8391,6 @@ Scholarly engagement provides intellectual legitimacy that media presence alone 
 6. Create a visiting scholar programme with defined terms: annual invitations, research support, and mutual benefit expectations.
 7. Completion indicator: at least 2 scholars hosted, at least 1 academic paper or conference presentation produced, and a visiting scholar programme established with annual cycle.` },
         { title: "Offer the community as a case study for researchers studying Islamic social institutions", done: false,
-          sources: `**I. Sources from the Hadith**
-
-
-### Sahih Bukhari 25
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: "I have been ordered (by Allah) to fight against the people until they testify that none has the right to be worshipped but Allah and that Muhammad is Allah's Messenger (ﷺ), and offer the prayers perfectly and give the obligatory charity, so if they perform that, then they save their lives and property from me except for Islamic laws and then their reckoning (accounts) will be done by Allah
-*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Academic case studies reach audiences that blog posts and social media cannot — university classrooms, policy think tanks, development agencies, and doctoral dissertations that shape how institutions think about Muslim communities for decades. By proactively offering your community as a case study, you control the narrative: researchers who arrive uninvited may misrepresent what they find, but researchers you invite and support will have the context to tell the story accurately. Every case study published is a permanent entry in the academic record that proves Islamic social architecture works in practice — evidence that outlasts any single community member or generation.
