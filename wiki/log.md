@@ -7,6 +7,56 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | V3.2 adab refactor — contextual gates; trust banner; reviewer brief
+
+### What was done
+- **Adab correction (critical)**: refactored `AYAH_BLACKLIST` (30 entries) and `HADITH_BLACKLIST` (26 entries) in `scripts/rerank-hadith-embeddings.mjs` into `AYAH_CONTEXTUAL_GATES` / `HADITH_CONTEXTUAL_GATES`. Every authentic ayah and Sahih hadith is revelation; global vetoes are an adab violation. Gates now affirm each citation's true topical subject via keyword lists — a citation passes on subtasks whose title matches the topic, without ever declaring the revelation itself problematic. Re-score produced 289 blocks (vs 287 with blacklists — coverage effectively unchanged).
+- **Scholar-lens review** of 322 blocks: identified gold-standard exemplars (Muhabbah 3:31, Ayat al-Dayn, Surah Al-Ma'un, Shu'ayb's daughter on hiring), 22 critical errors (e.g., 2:258 Nimrud debate mis-paired with Ibrahim's sacrifice), paradise/eschatology false-positive cluster, and fiqh leak (2:235 iddah verse unguarded). Document: `stages/hadith-scholar-review-review.md`.
+- **UI trust banner split** in `src/components/work/TaskDetailPanel.jsx`: amber "Suggestive reference — pending scholar review" banner by default, green "Scholar-reviewed" affirmation when `activeSubtask.sourcesTrust === 'scholar-reviewed'`.
+- **External reviewer brief** drafted at `stages/scholar-reviewer-brief-review.md`: defines ~10-hour engagement for 289 blocks at ~30 blocks/hr, verdict taxonomy (approve/reject/revise/defer), and reviewer scope (pairing fit, not ijazah or fatwa).
+- **Feedback memory** persisted: never globally veto authentic revelation; use contextual pairing gates instead. `memory/feedback_no_blacklist_revelation.md`.
+
+### Commits
+- `b85b821` — refactor blacklists to contextual gates
+- `282d65e` — feat(sources): trust banner in sources view
+- `9371db2` — docs(sources): scholar reviewer brief + internal review
+
+### Deferred
+- Visual preview verification of the trust banner inside an open subtask sources panel.
+- Outreach to a qualified reviewer.
+- Per-pillar coverage-vs-quality audit across the 289 retained blocks.
+
+---
+
+## [2026-04-16] feat | Sources parity — 1829/1829 subtasks with Quran/hadith references
+
+### What was done
+- Achieved 100% `sources` field coverage across all 7 seed files (1,829 subtasks total).
+- Baseline was ~16% coverage (289 of 1,829 subtasks had sources from prior V3/V3.1 enrichment).
+- Built 3-stage pipeline: extract-missing-sources manifest → parallel agent generation → title-matching injection.
+- Dispatched 18 sub-agents across 3 rounds (R1: 8 agents / 693 entries, R2: 9 agents / 885 entries, R3: 1 agent / 23 entries).
+- Agents used quran.ai MCP server for canonical Arabic text (ar-simple-clean + en-sahih-international editions).
+- Wrote `inject-sources-v2.mjs` with unicode-escape-aware title matching to handle `\u2014` (em dash) and `\u02bf` (ʿ) in file text.
+- +15,202 lines added across 7 files. Build passes clean.
+
+### Coverage
+| Pillar | Subtasks | Sources |
+|--------|----------|---------|
+| Faith | 212 | 212 |
+| Life | 236 | 236 |
+| Intellect | 236 | 236 |
+| Family | 233 | 233 |
+| Wealth | 236 | 236 |
+| Environment | 226 | 226 |
+| Ummah | 450 | 450 |
+
+### Commit
+- `7de6a98` — feat(sources): add Quran/hadith sources to all 1829 subtasks across 7 pillars
+
+### Next steps
+- Scholar review pass on the ~1,540 newly generated sources (prior V3.1 review covered only 322 blocks).
+- Consider code-splitting seed files (Vite warns >500KB chunks).
+
 ## [2026-04-16] feat | Hadith enrichment V3.1 — scholar review pass; expanded blacklists and fiqh gate
 
 ### What was done
