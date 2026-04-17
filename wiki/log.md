@@ -1168,3 +1168,33 @@ Two small user-driven UI tasks in one session.
 
 ### Notes
 - Session did not open the repo wiki via the 3-Gate protocol — tasks were point-edits flagged by the user via selected-element and an attached out-of-repo HTML file. Formal orientation was skipped; noting it here for audit.
+
+## 2026-04-17 — TaskDetailPanel polish + seed-source bug fixes
+
+### Context
+Continuation session covering UI polish on TaskDetailPanel, a silent-failure bug in seed hydration, and a source-curation audit on the "Six Pillars of Iman" task.
+
+### Done
+- `src/components/work/TaskDetailPanel.css` — restored header/footer contrast (`.tdp-header`, `.tdp-project-name`, `.tdp-footer`, `.tdp-later-btn` now use `var(--surface)` / `var(--text)` instead of washed-out greys)
+- `src/components/work/TaskDetailPanel.jsx:342,550,591` — renamed "Complete later" / "Back to subtask" buttons to "Back"
+- `src/data/seed-tasks/faith-seed-tasks.js` — first Shahada subtask source replaced (Sahih Muslim 6384 → Sahih Bukhari 8); "Reflect on what 'no god but Allah' demands" subtask sources updated to Quran 65:3, 98:5 + Bukhari 16, 9
+- **Curly-quote bug** — diagnosed silent failure where Edit-introduced U+201C/U+201D in subtask titles broke `seed-hydrator.js:42,55,97` exact-string matching. Audited all 7 seed files: only 5 affected lines (4 in faith, 1 in ummah), all U+2019 in apostrophe positions (Jumu'ah, Ka'bah, Isma'il, du'a). Normalized to ASCII apostrophe.
+- `src/components/islamic/QuranEmbed.jsx:57` — added `scrolling="no"` to the Quran.com iframe to suppress nested scrollbar
+- **Six Pillars of Iman audit** ([faith-seed-tasks.js:535–712](src/data/seed-tasks/faith-seed-tasks.js#L535)) — fixed 4 source mismatches:
+  - Pillar 1 (Allah): swapped Quran 30:56 (Last-Day verse) + Bukhari 16 (sweetness of faith) → Quran 2:163, 2:255, 3:18 + Muslim 8
+  - Pillar 4 (Messengers): added Quran 2:285, 4:164, 33:40; replaced lone Bukhari 9 (haya hadith — irrelevant) with Bukhari 4777
+  - Pillar 5 (Last Day): added Quran 99:7, 101:4; replaced Bukhari 3611 (khawarij — tangential) with Muslim 8
+  - Pillar 6 (Qadar): removed Quran 97:1 and Bukhari 49 (both about Laylat al-Qadr, not divine decree — homonym confusion)
+
+### Verification
+- `npm run build` passes (1.32s / 1.40s)
+- Audit grep `title:.*[\u2018\u2019\u201C\u201D]` returns 0 matches across `src/data/seed-tasks/`
+- Preview navigation through all 4 fixed Iman subtasks confirms correct hadith/ayah cards render via HadithCard / QuranEmbed
+
+### Deferred
+- Multi-verse Quran ranges (e.g. `(112:1-4)`) don't match the `^Quran \((\d+):(\d+)\)$` regex in `TaskDetailPanel.jsx:522` — render as plain h3 with stripped Arabic/translation. Existing data uses ranges in places; needs a separate fix to handle ranges in QuranEmbed
+- Source-curation audit only covered the "Six Pillars of Iman" task (5 of ~270 faith subtasks); other subtasks may have similar mismatches
+- The full hadith narration text inline in seed `sources` markdown is redundant — stripped at render. Could be removed in a future cleanup pass
+
+### Notes
+- Session opened mid-flow from a prior compacted conversation; no formal 3-Gate orientation. All work was triggered by user requests on specific UI/data issues.

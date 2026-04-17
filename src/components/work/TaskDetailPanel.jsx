@@ -339,7 +339,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       {/* ── Footer ── */}
       <div className="tdp-footer tdp-footer--subtask">
         <button className="tdp-later-btn" onClick={() => handleClose.current()}>
-          Complete later
+          Back
         </button>
         <button
           className="tdp-done-btn"
@@ -547,7 +547,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       </div>
       <div className="tdp-footer tdp-footer--subtask">
         <button className="tdp-later-btn" onClick={closeSources}>
-          Back to subtask
+          Back
         </button>
       </div>
     </>
@@ -588,7 +588,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
       <div className="tdp-footer tdp-footer--subtask">
         <button className="tdp-later-btn" onClick={closeSubtask}>
-          Complete later
+          Back
         </button>
         <button className="tdp-sources-btn" onClick={openSources}>
           Source

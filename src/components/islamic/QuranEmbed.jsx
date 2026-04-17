@@ -54,6 +54,7 @@ export default function QuranEmbed({ verseKey }) {
         data-quran-embed="true"
         allow="clipboard-write"
         frameBorder="0"
+        scrolling="no"
         title={`Quran ${verseKey}`}
         onLoad={() => {
           setLoaded(true);

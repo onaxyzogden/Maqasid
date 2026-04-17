@@ -42,7 +42,7 @@ The Prophet (peace be upon him) said: "The prayer of a man in congregation is tw
 5. Map the results to identify geographic gaps — areas where Muslims live but no congregational prayer is accessible.
 6. Share the map with community leaders to begin discussions about filling gaps.
 7. Completion indicator: a documented inventory of all prayer spaces with a gap analysis shared with at least one community leader.` },
-        { title: "Commit to attending Jumu’ah prayer every week without exception", done: false,
+        { title: "Commit to attending Jumu'ah prayer every week without exception", done: false,
           sources: `**I. Quran**
 
 

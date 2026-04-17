@@ -22,8 +22,8 @@ export const FAITH_SEED_TASKS = {
 **II. Hadith**
 
 
-### Sahih Muslim 6384
-Abu Huraira reported that 'Umar happened to pass by Hassan as he was reciting verses in the mosque. He (Hadrat 'Umar) looked towards him (meaningfully), whereupon he (gassin) said:I used to recite (verses) when one better than you (the Holy Prophet) had been present (here). He then looked towards Abu Huraira and said to him: I adjure you by Allah (to tell) if you had not heard Allah's Messenger (ﷺ) as saying: (Hassan), give a reply on my behalf; Allah I help him with Ruh-ul-Qudus. He (Abu Huraira) said: By Allah, it is so (i. e. the Prophet actually said these words)
+### Sahih Bukhari 8
+The Prophet ﷺ said: "Islam is built upon five: Testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving zakah, performing Hajj to the House, and fasting Ramadan."
 *(Grade: Sahih)*
 
 ### Sahih Bukhari 5
@@ -84,15 +84,21 @@ Linguistically, the Shahada isn't just a statement of existence; it is a stateme
           sources: `**I. Quran**
 
 
-### Quran (37:35)
-**Arabic:** إِنَّهُمْ كَانُوا إِذَا قِيلَ لَهُمْ لَا إِلَٰهَ إِلَّا اللَّهُ يَسْتَكْبِرُونَ
-**Translation:** They were those to whom when it was said: “There is no god but Allah”, they waxed proud,
+### Quran (65:3)
+**Translation:** "And whoever relies upon Allah — then He is sufficient for him." *(Surah At-Talaq 65:3)*
+
+### Quran (98:5)
+**Translation:** "And they were not commanded except to worship Allah, [being] sincere to Him in religion..." *(Surah Al-Bayyinah 98:5)*
 
 **II. Hadith**
 
 
-### Sahih Bukhari 1976
-Narrated \`Abdullah bin \`Amr:Allah's Messenger (ﷺ) was informed that I had taken an oath to fast daily and to pray (every night) all the night throughout my life (so Allah's Messenger (ﷺ) came to me and asked whether it was correct): I replied, "Let my parents be sacrificed for you! I said so." The Prophet (ﷺ) said, "You can not do that. So, fast for few days and give it up for few days, offer Salat (prayer) and sleep. Fast three days a month as the reward of good deeds is multiplied ten times and that will be equal to one year of fasting." I replied, "I can do better than that." The Prophet (ﷺ) said to me, "Fast one day and give up fasting for two days." I replied, "I can do better than that." The Prophet (ﷺ) said to me, "Fast one day and give up fasting for a day and that is the fasting of Prophet David and that is the best fasting." I said, "I have the power to fast better (more) than that." The Prophet (ﷺ) said, "There is no better fasting than that
+### Sahih Bukhari 16
+The Prophet ﷺ said: "Whoever possesses the following three qualities will taste the sweetness of faith: 1. That Allah and His Messenger are dearer to him than anything else..."
+*(Grade: Sahih)*
+
+### Sahih Bukhari 9
+The Prophet ﷺ said: "Faith (Iman) has over sixty branches... and the least of which is removing a harmful object from the road." This shows that the Shahada must manifest in the smallest daily actions.
 *(Grade: Sahih)*`,
           description: `**Why?**
 
@@ -110,7 +116,7 @@ La ilaha illAllah is not a passive statement — it is an active negation of eve
 
 
 ### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ  
+**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ
 **Translation:** So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.
 
 **I. Hadith**
@@ -531,19 +537,23 @@ Love for Allah and His Messenger must surpass love for all else. Allah says in Q
           sources: `**I. Quran**
 
 
-### Quran (30:56)
-**Arabic:** وَقَالَ الَّذِينَ أُوتُوا الْعِلْمَ وَالْإِيمَانَ لَقَدْ لَبِثْتُمْ فِي كِتَابِ اللَّهِ إِلَىٰ يَوْمِ الْبَعْثِ ۖ فَهَٰذَا يَوْمُ الْبَعْثِ وَلَٰكِنَّكُمْ كُنتُمْ لَا تَعْلَمُونَ
-**Translation:** As for those who were given knowledge and belief, they will say, “You remained, according to the destiny written by Allah, up to the Day of Resurrection. So this is the Day of Resurrection, but you had no belief.”
+### Quran (2:163)
+**Arabic:** وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَّا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ
+**Translation:** And your god is one God. There is no deity [worthy of worship] except Him, the Most Merciful, the Especially Merciful.
+
+### Quran (2:255)
+**Arabic:** اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ
+**Translation:** Allah — there is no deity except Him, the Ever-Living, the Self-Sustaining.
+
+### Quran (3:18)
+**Arabic:** شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ ۚ لَا إِلَٰهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ
+**Translation:** Allah bears witness that there is no deity except Him, and [so do] the angels and those of knowledge — upholding justice. There is no deity except Him, the Exalted in Might, the Wise.
 
 **II. Hadith**
 
 
-### Sahih Muslim 93
+### Sahih Muslim 8
 It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion
-*(Grade: Sahih)*
-
-### Sahih Bukhari 16
-Narrated Anas: The Prophet (ﷺ) said, "Whoever possesses the following three qualities will have the sweetness (delight) of faith: 1. The one to whom Allah and His Apostle become dearer than anything else. 2. Who loves a person and he loves him only for Allah's sake. 3. Who hates to revert to Atheism (disbelief) as he hates to be thrown into the fire
 *(Grade: Sahih)*`,
           description: `**Why?**
 
@@ -621,11 +631,26 @@ Allah revealed scriptures to guide humanity throughout history: the Suhuf of Ibr
 3. Learn the distinction: we believe previous scriptures were from Allah, but we follow the Quran because it is the final, unaltered revelation.
 4. You have completed this when you can explain why Muslims believe in all scriptures yet follow only the Quran and Sunnah.` },
         { title: 'Study belief in the Messengers (ar-Rusul)', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
 
 
-### Sahih Bukhari 9
-Narrated Abu Huraira: The Prophet (ﷺ) said, "Faith (Belief) consists of more than sixty branches (i.e. parts). And Haya (This term "Haya" covers a large number of concepts which are to be taken together; amongst them are self respect, modesty, bashfulness, and scruple, etc.) is a part of faith
+### Quran (2:285)
+**Arabic:** آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ
+**Translation:** The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. "We make no distinction between any of His messengers."
+
+### Quran (4:164)
+**Arabic:** وَرُسُلًا قَدْ قَصَصْنَاهُمْ عَلَيْكَ مِن قَبْلُ وَرُسُلًا لَّمْ نَقْصُصْهُمْ عَلَيْكَ ۚ وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا
+**Translation:** Messengers We have already told you about, and other messengers We have not — and to Moses God spoke directly.
+
+### Quran (33:40)
+**Arabic:** مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ ۗ وَكَانَ اللَّهُ بِكُلِّ شَيْءٍ عَلِيمًا
+**Translation:** Muhammad is not the father of any of your men, but he is the Messenger of Allah and the Seal of the Prophets. And Allah has full knowledge of all things.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 4777
+Narrated Abu Huraira: The Prophet (ﷺ) said, "Belief is to believe in Allah, His Angels, His Books, His Apostles, and the meeting with Him, and to believe in the Resurrection."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
@@ -646,11 +671,19 @@ Believing in all prophets and messengers from Adam to Muhammad (SAW) is a pillar
 **Arabic:** وَقَالَ الَّذِينَ أُوتُوا الْعِلْمَ وَالْإِيمَانَ لَقَدْ لَبِثْتُمْ فِي كِتَابِ اللَّهِ إِلَىٰ يَوْمِ الْبَعْثِ ۖ فَهَٰذَا يَوْمُ الْبَعْثِ وَلَٰكِنَّكُمْ كُنتُمْ لَا تَعْلَمُونَ
 **Translation:** As for those who were given knowledge and belief, they will say, “You remained, according to the destiny written by Allah, up to the Day of Resurrection. So this is the Day of Resurrection, but you had no belief.”
 
+### Quran (99:7)
+**Arabic:** فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ
+**Translation:** So whoever does an atom's weight of good will see it.
+
+### Quran (101:4)
+**Arabic:** يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِ
+**Translation:** It is a Day when mankind will be like scattered moths.
+
 **II. Hadith**
 
 
-### Sahih Bukhari 3611
-Narrated \`Ali:I relate the traditions of Allah's Messenger (ﷺ) to you for I would rather fall from the sky than attribute something to him falsely. But when I tell you a thing which is between you and me, then no doubt, war is guile. I heard Allah's Messenger (ﷺ) saying, "In the last days of this world there will appear some young foolish people who will use (in their claim) the best speech of all people (i.e. the Qur'an) and they will abandon Islam as an arrow going through the game. Their belief will not go beyond their throats (i.e. they will have practically no belief), so wherever you meet them, kill them, for he who kills them shall get a reward on the Day of Resurrection
+### Sahih Muslim 8
+The Prophet (ﷺ) said: "Iman is to believe in Allah, His angels, His Books, His Messengers, and the Last Day, and to believe in the divine decree, both its good and its evil."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
@@ -675,19 +708,11 @@ Belief in the Last Day gives life its urgency and accountability. It encompasses
 **Arabic:** مَا أَصَابَ مِن مُّصِيبَةٍ إِلَّا بِإِذْنِ اللَّهِ ۗ وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ ۚ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ
 **Translation:** No calamity befalls, but by the Leave [i.e. Decision and Qadar (Divine Preordainments)] of Allâh, and whosoever believes in Allâh, He guides his heart [to the true Faith with certainty, i.e. what has befallen him was already written for him by Allâh from the Qadar (Divine Preordainments)]. And Allâh is the All-Knower of everything.
 
-### Quran (97:1)
-**Arabic:** إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ
-**Translation:** Verily, We have sent it (this Qur’ân) down in the night of Al-Qadr (Decree).
-
 **II. Hadith**
 
 
 ### Sahih Muslim 93
 It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion
-*(Grade: Sahih)*
-
-### Sahih Bukhari 49
-Narrated 'Ubada bin As-Samit:"Allah's Messenger (ﷺ) went out to inform the people about the (date of the) night of decree (Al-Qadr) but there happened a quarrel between two Muslim men. The Prophet (ﷺ) said, "I came out to inform you about (the date of) the night of Al-Qadr, but as so and so and so and so quarrelled, its knowledge was taken away (I forgot it) and maybe it was better for you. Now look for it in the 7th, the 9th and the 5th (of the last 10 nights of the month of Ramadan)
 *(Grade: Sahih)*
 
 ### Sahih Muslim 99
@@ -5081,7 +5106,7 @@ Study the narration of Ibrahim (AS) being approached by Shaytan at each of the t
       priority: 'medium', tags: ['hajj', 'seerah'],
       description: 'Hajj traces back to Ibrahim (AS). Understanding his story deepens the emotional and spiritual connection to the rites.',
       subtasks: [
-        { title: 'Read the Quranic account of Ibrahim building the Ka\’bah (2:127)', done: false,
+        { title: 'Read the Quranic account of Ibrahim building the Ka\'bah (2:127)', done: false,
           sources: `**I. Quran**
 
 
@@ -5107,7 +5132,7 @@ Ibrahim and Isma'il (AS) built the Ka'bah together as an act of pure worship, ma
 **How?**
 
 Read Surah al-Baqarah 2:125-129 with a reliable tafsir. Study the du'a they made: "Our Lord, accept this from us." Reflect on the humility of two prophets unsure if their monumental effort would be accepted -- and let that reshape how you approach your own acts of worship.` },
-        { title: 'Study the story of Hajar and Isma\’il in Makkah', done: false,
+        { title: 'Study the story of Hajar and Isma\'il in Makkah', done: false,
           sources: `**I. Quran**
 
 
@@ -5220,7 +5245,7 @@ This specific portion of Tawaf has a recommended du'a from the Quran (2:201), ma
 **How?**
 
 Memorise: "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina adhaban-nar" ("Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire"). Recite it each time you pass between the Yemeni corner and the Black Stone during Tawaf.` },
-        { title: 'Learn the du\’a of Arafah (the best du\’a)', done: false,
+        { title: 'Learn the du\'a of Arafah (the best du\'a)', done: false,
           sources: `**I. Quran**
 
 
@@ -5444,7 +5469,7 @@ Whether you sponsor a full Hajj or contribute partially, the reward is immense. 
 **How?**
 
 Decide on a contribution amount based on your means. Donate through the verified programme you identified. If sponsoring fully, coordinate with the programme to understand the pilgrim's needs. Make du'a that Allah accepts both the pilgrim's Hajj and your contribution as a means of drawing closer to Him.` },
-        { title: 'Make du\’a for the sponsored pilgrim', done: false,
+        { title: 'Make du\'a for the sponsored pilgrim', done: false,
           sources: `**I. Quran**
 
 
