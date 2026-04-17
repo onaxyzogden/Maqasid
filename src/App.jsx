@@ -143,9 +143,9 @@ export default function App() {
         <Route path="people" element={<CeremonyGuard moduleId="people"><People /></CeremonyGuard>} />
         <Route path="office" element={<CeremonyGuard moduleId="office"><Office /></CeremonyGuard>} />
         <Route path="tech" element={<CeremonyGuard moduleId="tech"><Tech /></CeremonyGuard>} />
-        <Route path="family" element={<FamilyPage />} />
-        <Route path="neighbors" element={<Neighbors />} />
-        <Route path="community" element={<Community />} />
+        <Route path="family" element={<CeremonyGuard moduleId="family"><FamilyPage /></CeremonyGuard>} />
+        <Route path="neighbors" element={<CeremonyGuard moduleId="neighbors"><Neighbors /></CeremonyGuard>} />
+        <Route path="community" element={<CeremonyGuard moduleId="community"><Community /></CeremonyGuard>} />
         <Route path="sources" element={<SourcesPage />} />
         <Route path="quran" element={<Navigate to="/app/sources?tab=quran" replace />} />
         <Route path="hadith" element={<Navigate to="/app/sources?tab=hadith" replace />} />
@@ -194,7 +194,7 @@ export default function App() {
         <Route path="env-waste" element={<CeremonyGuard moduleId="env-waste"><EnvironmentWastePage /></CeremonyGuard>} />
         <Route path="env-ecosystem" element={<CeremonyGuard moduleId="env-ecosystem"><EnvironmentEcosystemPage /></CeremonyGuard>} />
         <Route path="env-sourcing" element={<CeremonyGuard moduleId="env-sourcing"><EnvironmentSourcingPage /></CeremonyGuard>} />
-        <Route path="collective" element={<CollectivePage />} />
+        <Route path="collective" element={<CeremonyGuard moduleId="collective"><CollectivePage /></CeremonyGuard>} />
         <Route path="moontrance-land" element={<CeremonyGuard moduleId="moontrance-land"><MoontraceLandPage /></CeremonyGuard>} />
         <Route path="moontrance-seasonal" element={<CeremonyGuard moduleId="moontrance-seasonal"><MoontranceSeasonalPage /></CeremonyGuard>} />
         <Route path="moontrance-residency" element={<CeremonyGuard moduleId="moontrance-residency"><MoontranceResidencyPage /></CeremonyGuard>} />

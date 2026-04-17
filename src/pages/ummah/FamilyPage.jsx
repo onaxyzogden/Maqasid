@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import PillarHeader from '@components/shared/PillarHeader';
 import ViewToggle from '@components/shared/ViewToggle';
 import OverviewCards from '@components/shared/OverviewCards';
@@ -18,14 +16,9 @@ const MODULE_TABS = [
 ];
 
 export default function FamilyPage() {
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['family']);
   const [mainTab, setMainTab] = useState('content');
   const [view, setView] = useState('overview');
   useAyahBanner('ummah_family');
-
-  if (!hasCompletedOpening) {
-    return <CeremonyGate moduleId="family" />;
-  }
 
   return (
     <div style={{ maxWidth: 900 }}>

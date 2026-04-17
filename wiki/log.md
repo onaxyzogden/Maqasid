@@ -7,6 +7,14 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] refactor | CeremonyGuard Phase 2b-ummah — lift gating for 4 ummah pages
+
+- **App.jsx**: 4 ummah standalone routes (`/app/family`, `/app/neighbors`, `/app/community`, `/app/collective`) wrapped in `<CeremonyGuard moduleId="...">`. No embedded variants to reconcile — none of the 4 appear as children of other routes.
+- **4 page files stripped**: `FamilyPage.jsx`, `Neighbors.jsx`, `Community.jsx`, `CollectivePage.jsx` — removed `useThresholdStore` + `CeremonyGate` imports, `hasCompletedOpening` subscription, and in-body gate return. `useState`, `useAyahBanner`, and `<Office embedded />` (in FamilyPage only) left untouched.
+- **Behavior-change accepted**: `useAyahBanner('ummah_*')` previously ran before the gate's early return, so the global ayah banner was populated while the user sat on the CeremonyGate. Post-lift the page doesn't mount while gated, so the banner stays cleared until the user passes the gate. Accepted as a latent-bug fix — banner-for-unopened-module leaked module-specific UI into the gated state.
+- **Verification**: `npm run build` passes (2529 modules, 1.55s). Preview: cleared `bbiz_thr_open`, confirmed all 4 ummah routes show CeremonyGate. Set all 4 `completedOpening` flags → confirmed all 4 render their content (Family with Overview/Office tabs + Nikāḥ ayah, Neighbors, Community with Ummah framework, Collective with Khilāfah framework).
+- **Docs**: decision doc updated — Phase 2b-ummah marked complete with behavior-change rationale; Phase 2c deferred clusters enumerated (sources 4, dynamic 2, route-id-mismatch 1 — 7 remaining).
+
 ## [2026-04-16] refactor | CeremonyGuard Phase 2a — lift gating for 5 business-module pages
 
 - **App.jsx**: 5 standalone routes (`/app/work`, `/app/money`, `/app/people`, `/app/office`, `/app/tech`) wrapped in `<CeremonyGuard moduleId="...">`. Embedded child routes under `/work/:projectId/*` left unwrapped (option a) — parent `Project` route's own "work" in-body gate already covers them; matches pre-refactor behavior where the per-module in-body gate skipped when `embedded === true`.

@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import PillarHeader from '@components/shared/PillarHeader';
 import ViewToggle from '@components/shared/ViewToggle';
 import OverviewCards from '@components/shared/OverviewCards';
@@ -12,13 +10,8 @@ const GROUNDING =
   'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 2:30, 3:103, 66:6, 51:19, 51:24-26.';
 
 export default function CollectivePage() {
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['collective']);
   const [view, setView] = useState('overview');
   useAyahBanner('ummah_collective');
-
-  if (!hasCompletedOpening) {
-    return <CeremonyGate moduleId="collective" />;
-  }
 
   return (
     <div style={{ maxWidth: 900 }}>
