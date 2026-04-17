@@ -37,6 +37,11 @@ Append-only chronological record of all wiki operations.
 - `439b369` / `cd0fb74` — OnboardingChecklist + dismissal fix
 - `f82d6ee` / `a684727` / `bc7ec13` — SpotlightTour + fixes
 - `c73125a` / `877f71e` — PillarFirstEntry + fixes
+- `b164770` — merge to main (ChessRook import conflict resolved; wiki log entries reconciled)
+- `6e25ef8` — feat: Settings section to Disable / Reset onboarding hints (disableOnboarding + resetOnboarding store actions)
+
+### Deferred
+- Fresh-user walk-through: clear localStorage, run full wizard in browser, confirm tour + checklist + pillar modal render correctly.
 
 ---
 
