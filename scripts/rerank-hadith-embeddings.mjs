@@ -94,102 +94,126 @@ function fiqhGateAllows(ayahKey, subtaskTitle) {
   return kws.some(kw => t.includes(kw));
 }
 
-// Recurring false-positives observed across QA samples — absolute vetoes.
-const HADITH_BLACKLIST = new Set([
-  'muslim:3245',   // Ka'ba burnt during Yazid — resurfaces on 5-pillars, Madinah, etc.
-  'bukhari:3340',  // Banquet / cooked food — resurfaces on iman, faith articles
-  'bukhari:744',   // Takbir silence — lexical "between" FP on du'a / adhkar
-  'bukhari:2426',  // Found purse — FP on monthly reflection, public conduct
-  'bukhari:3617',  // Christian apostate — FP on reading sections
-  'bukhari:1269',  // Hypocrite son — FP on reading sections
-  'bukhari:804',   // Sami'a Allah — FP on migration/heritage
-  'bukhari:5441',  // Abu Huraira hosting — FP on zakah distribution
-  'bukhari:86',    // Asma eclipse — FP on Fatihah / salah word-study
-  'bukhari:922',   // Same Asma eclipse narration
-  'bukhari:5051',  // How much Quran in prayer — FP on riba verses study
-  'bukhari:3906',  // Suraqa — FP on community liaison
-  // Scholar review additions
-  'muslim:2951',   // Pilgrim narrations — FP on Ibrahim sacrifice / env ethics
-  'bukhari:7517',  // Isra/Mi'raj — FP on "nearest masjid" logistics
-  'bukhari:42',    // Generic faith-branches — FP on course evaluation / taharah
-  'bukhari:25',    // Generic — FP on mediators / scholars / researchers
-  'bukhari:2468',  // Hudaybiyya/attribution-chain padding
-  'bukhari:1284',  // Same family — attribution-chain
-  'bukhari:3207',  // Mi'raj — FP on istikharah, angels-study
-  'bukhari:3887',  // Mi'raj — FP on istikharah
-  'bukhari:466',   // Generic book-choosing FP
-  'bukhari:3355',  // FP on Arabic letters
-  'bukhari:485',   // FP on reliable translation
-  'bukhari:486',
-  'bukhari:487',
-  'bukhari:1359',  // FP on waqf / practitioner report
-]);
-const AYAH_BLACKLIST = new Set([
-  // Lexical false-friends (V3 first pass)
-  '56:56',  // "accommodation on Day of Recompense" — FP on workplace accommodation
-  '79:43',  // "in what position" — FP on "choose a position"
-  '84:21',  // "don't prostrate when Quran is read" — FP on read Quran verses
-  '80:33',  // "Deafening Noise" — FP on minimise visual noise
-  '19:74',  // "better in assets" — FP on asset strategy
-  '77:14',  // "Day of Decision" — FP on document decision
-  '30:4',   // "decision of matter with Allah" — FP on decision review
-  '46:11',  // "disbelievers say of poor" — weak on al-fuqara
-  '2:187',  // sexual relations at night of fast — FP on riba
-  '13:35',  // paradise rivers — FP on riba
-  '94:7',   // "toil hard when free" — too generic
-  '63:8',   // hypocrites returning to Madinah — weak on Sahifat
-  '3:78',   // "section who distort" — FP on "read section"
-  '39:18',  // "follow best meaning" — weak on word-study
-  '4:103',  // "when you finish prayer" — FP on duha time
-  '12:93',  // Yusuf shirt — FP on family hosting
-  '51:47',  // "construct firmament" — FP on home design
-  '5:1',    // "fulfill contracts" — FP on ihram miqat (too generic)
-  '72:6',   // jinn protection — FP on community liaison
-  '45:28',  // "every community kneeling" — FP on community rights
-  // Scholar review additions — paradise/eschatology concrete-noun FPs
-  '76:5',   // paradise cup of kafoor — FP on reusable water bottle
-  '76:17',  // paradise cup of zanjabeel — FP on reusable water bottle
-  '76:28',  // "We created them" — FP on durable garments
-  '55:54',  // paradise couches — FP on garden layout
-  '56:7',   // "three kinds on Judgment Day" — FP on product categories
-  '56:29',  // paradise lote-trees — FP on interplanting
-  '56:89',  // paradise honoured ones — FP on native plant nurseries
-  '56:65',  // "debris" — FP on israf, tawbah
-  '44:26',  // paradise gardens/fountains — FP on green manure cropping
-  '88:14',  // paradise drinking cups
-  // Scholar review additions — wrong-topic verses
-  '2:258',  // Ibrahim-Nimrud debate — FP on "Ibrahim's sacrifice" (correct: 37:102-107)
-  '2:144',  // qibla direction — FP on "nearest masjid"
-  '40:49',  // dwellers of hellfire — FP on praying in jama'ah
-  '22:26',  // Ibrahim purifying Ka'bah — FP on sujud al-sahw / ruku adhkar
-  '7:21',   // Iblis's false "sincere advice" — ironic, FP on nasihah
-  '2:241',  // divorce-mata'a — FP on just wages
-  '4:95',   // mujahidun vs qa'idun — FP on zakah dua
-  '68:46',  // "do you ask them for payment" — opposite of "subtract debts"
-  '51:4',   // clouds/winds distributing — FP on trustworthy zakah orgs
-  '12:75',  // Yusuf finding cup — FP on repayment schedule
-  '17:63',  // Shaytan's claim on descendants — FP on forgiving borrower
-  '81:7',   // souls paired — FP on budgeting tool
-  '3:19',   // "religion is Islam" — FP on course evaluation, book choice
-  '16:60',  // "worst example" — FP on will updating
-  '18:108', // Kahf reward — FP on inheritance verification
-  '19:73',  // "better position" — same trap as 79:43
-  // Sura-opening "This is the Book" verses (leak on study/compile tasks)
-  '41:3',
-  '15:1',
-  '27:1',
-  // Additional paradise/judgment descriptions
-  '59:21',  // mountain humbled by Quran — FP on khilafah ayat
-  '53:32',  // "avoid great sins" — FP on khilafah
-  '2:132',  // Ibrahim commanded sons — FP on env ethics
-  '13:16',  // "who is Lord of heavens" — FP on barakah du'a
-  '86:12',  // "splitting land" — FP on native trees/hedgerows
-  '38:54',  // "Our provision never ending" — FP on waste bin
-  '2:121',  // "those who received Book recite it" — FP on cleanliness, books
-  '17:71',  // "every people with their imam" — too generic; FP on leader development
-  '28:78',  // Qarun — FP on hadith of knowledge virtue
-  '33:33',  // "stay in houses" (Prophet's wives) — FP on jama'ah at home, zakah dua
-]);
+// ── Contextual pairing gates ──────────────────────────────────────────────────
+//
+// These are NOT blacklists. Every ayah is revelation; every Sahih hadith is
+// authentic. The gates below record the *proper topical contexts* for specific
+// citations that the embedding model tends to mis-pair on unrelated subtasks.
+//
+// A citation listed here may appear only on a subtask whose title contains at
+// least one of the declared topical keywords — affirming that the verse/hadith
+// belongs on topics where it belongs, not denying its truth.
+//
+// Add to these gates when a QA sample shows a citation mis-landing; describe
+// the citation's *true subject* via keyword list.
+
+const AYAH_CONTEXTUAL_GATES = {
+  // Akhira / paradise / hellfire description verses — belong on
+  // Hereafter/akhira-reflection subtasks, not on worldly implementation.
+  '76:5':   ['paradise','akhira','jannah','hereafter','reward of','drink of paradise'],
+  '76:17':  ['paradise','akhira','jannah','hereafter','reward of','drink of paradise'],
+  '76:28':  ['creation of mankind','resurrect','hereafter','akhira'],
+  '55:54':  ['paradise','akhira','jannah','hereafter'],
+  '56:7':   ['judgment day','akhira','hereafter','three groups'],
+  '56:29':  ['paradise','akhira','jannah'],
+  '56:56':  ['hereafter','akhira','recompense','hospitality of allah'],
+  '56:65':  ['hereafter','akhira','recompense'],
+  '56:89':  ['paradise','akhira','jannah','nearness to allah'],
+  '44:26':  ['paradise','akhira','jannah','pharaoh'],
+  '88:14':  ['paradise','akhira','jannah','hereafter'],
+  '77:14':  ['judgment day','yawm al-din','hereafter'],
+  '84:21':  ['hereafter','akhira','day of judgment'],
+  '79:43':  ['hereafter','resurrection','day of judgment','hour'],
+  '13:35':  ['paradise','akhira','jannah','reward of muttaqun'],
+  '30:4':   ['roman empire','byzantine','battle of badr','qadar'],
+  '45:28':  ['judgment day','akhira','book of deeds'],
+  '19:74':  ['past nations','destroyed peoples','hereafter'],
+  '19:73':  ['hereafter','past nations','believers vs disbelievers'],
+  '59:21':  ['humility before quran','reflect on quran','heart softening'],
+  '53:32':  ['major sins','kabair','taqwa','forgiveness'],
+  // Stories / historical context verses
+  '2:258':  ['nimrud','ibrahim debate','lordship','life and death'],
+  '2:132':  ['ibrahim last will','ibrahim commanded sons','tawhid teaching'],
+  '12:75':  ['yusuf','prophet joseph','cup story'],
+  '12:93':  ['yusuf','prophet joseph','yaqub reunion'],
+  '17:63':  ['shaytan','iblis oath','descendants of adam'],
+  '81:7':   ['judgment day','souls paired','qiyamah'],
+  '68:46':  ['prophet muhammad reward','payment from people','no wage for dawah'],
+  '38:54':  ['paradise','akhira','provision of allah'],
+  '22:26':  ['ibrahim','kaaba construction','purifying haram','hajj history'],
+  // Prayer / qibla-specific
+  '2:144':  ['qibla','direction of prayer','kaaba qibla','changing qibla'],
+  '40:49':  ['hellfire','punishment','regret of kuffar'],
+  '4:103':  ['prayer after battle','post-salah dhikr','shortening prayer'],
+  // Iblis irony / false claims
+  '7:21':   ['shaytan deception','iblis lies','false advice'],
+  // Concrete-instance economic verses
+  '2:187':  ['fasting rules','ramadan intimacy','suhoor','dawn of fast'],
+  '2:241':  ['divorced women','mata','compensation on divorce'],
+  '2:121':  ['people of the book','recite book','bani israil'],
+  '2:132':  ['ibrahim','last testament','tawhid teaching'],
+  '4:95':   ['jihad','mujahidun','striving vs sitting'],
+  '51:4':   ['wind','clouds','distribute affairs','natural signs'],
+  '51:47':  ['cosmology','firmament','creation of heavens'],
+  '46:11':  ['disbelievers mock poor','rejection of truth'],
+  '63:8':   ['hypocrites','munafiqun','madinah nifaq'],
+  '72:6':   ['jinn','protection from jinn','pagan customs'],
+  // Generic-meaning verses (allow only on exact topical match)
+  '94:7':   ['freedom from burden','after hardship','ibadah after work'],
+  '3:78':   ['distortion of scripture','tahrif','people of book'],
+  '3:19':   ['religion is islam','true religion','islam as deen'],
+  '3:33':   ['prophets chosen','ibrahim family','imran family'],
+  '33:33':  ['wives of the prophet','ahl al-bayt','modesty of prophet household'],
+  '28:78':  ['qarun','wealth arrogance','punishment of greed'],
+  '18:108': ['paradise','kahf reward','eternal dwelling'],
+  '16:60':  ['worst example','disbelievers','best example'],
+  '17:71':  ['judgment day','every nation with imam','book of deeds'],
+  '13:16':  ['lordship of heavens','tawhid'],
+  '86:12':  ['signs of creation','earth splitting','rain cycle'],
+  '39:18':  ['follow best of guidance','listen to speech','good listeners'],
+  '5:1':    ['fulfill contracts','covenant with allah','hajj ihram rules'],
+  '41:3':   ['arabic quran','clarity of revelation','revelation from allah'],
+  '15:1':   ['revelation of quran','clear book'],
+  '27:1':   ['revelation of quran','clear signs'],
+};
+
+// Hadith contextual gates — narrations whose true subject is narrower than
+// their frequent matches. Declare the proper topic so they appear only there.
+const HADITH_CONTEXTUAL_GATES = {
+  'muslim:3245':   ['kaaba history','yazid','ibn zubayr','kaaba reconstruction'],
+  'bukhari:3340':  ['prophet companions meal','banquet of prophet','hospitality of prophet'],
+  'bukhari:744':   ['opening takbir','silence between takbir','al-fatiha recitation'],
+  'bukhari:2426':  ['finding lost property','luqata','returning found items'],
+  'bukhari:3617':  ['christian who embraced islam','apostasy','early muslims'],
+  'bukhari:1269':  ['abdullah ibn ubay','hypocrites funeral','prophet kindness to munafiq'],
+  'bukhari:804':   ['ruku dhikr','sami allahu','rising from ruku'],
+  'bukhari:5441':  ['hospitality of abu huraira','guests of prophet','companion generosity'],
+  'bukhari:86':    ['eclipse prayer','solar eclipse','kusuf','aisha narration of eclipse'],
+  'bukhari:922':   ['eclipse prayer','kusuf','aisha narration'],
+  'bukhari:5051':  ['minimum quran for prayer','recitation amount in salah'],
+  'bukhari:3906':  ['hijra','migration of prophet','suraqa chasing prophet'],
+  'muslim:2951':   ['jabir narration of hajj','farewell hajj','prophet hajj'],
+  'bukhari:7517':  ['isra and miraj','night journey','ascension'],
+  'bukhari:42':    ['hearing and obeying rulers','branches of faith'],
+  'bukhari:25':    ['muslim kills muslim','fighting muslim','worst sins'],
+  'bukhari:2468':  ['hudaybiyya','treaty of hudaybiyya','prophet delegation'],
+  'bukhari:1284':  ['patience at first shock','sabr at calamity','grieving mother'],
+  'bukhari:3207':  ['isra and miraj','night journey','miraj ascent'],
+  'bukhari:3887':  ['isra and miraj','ascent to heavens','gibril accompanying prophet','miraj ascent'],
+  'bukhari:466':   ['building of the mosque','masjid nabawi construction'],
+  'bukhari:3355':  ['creation of adam','height of adam','first man'],
+  'bukhari:485':   ['mosque construction','masjid nabawi'],
+  'bukhari:486':   ['mosque construction','masjid nabawi'],
+  'bukhari:487':   ['mosque construction','masjid nabawi'],
+  'bukhari:1359':  ['funeral','janazah','grave digging'],
+};
+
+function contextualGateAllows(gates, key, subtaskTitle) {
+  const kws = gates[key];
+  if (!kws) return true;  // no gate declared → pass through
+  const t = (subtaskTitle || '').toLowerCase();
+  return kws.some(kw => t.includes(kw));
+}
 
 function titleWordCount(title) {
   return (title || '').split(/\s+/).filter(Boolean).length;
@@ -340,7 +364,7 @@ async function main() {
   // Score every block
   console.log('\nScoring blocks...');
   const reranked = {};
-  const stats = { kept: 0, dropped: 0, blocks_zeroed: 0, vetoed_fiqh: 0, vetoed_clash: 0, vetoed_blacklist: 0 };
+  const stats = { kept: 0, dropped: 0, blocks_zeroed: 0, vetoed_fiqh: 0, vetoed_clash: 0, gated_context: 0 };
 
   for (const [blockId, block] of Object.entries(sidecar)) {
     const { subtaskTitle, pillar, submodule } = block;
@@ -357,12 +381,14 @@ async function main() {
     const scoredHadiths = [];
     for (const h of block.hadiths) {
       const hKey = `${h.collection}:${h.number}`;
-      if (HADITH_BLACKLIST.has(hKey)) { stats.vetoed_blacklist++; stats.dropped++; continue; }
       const textKey = truncate(h.text || '');
       const vec = cache[textKey];
       if (!vec) { stats.dropped++; continue; }
       const sim = cosine(subtaskVec, vec);
       if (sim < thr) { stats.dropped++; continue; }
+      if (!contextualGateAllows(HADITH_CONTEXTUAL_GATES, hKey, subtaskTitle)) {
+        stats.gated_context++; stats.dropped++; continue;
+      }
       if (hasClash(h.text || '', pillar, submodule)) {
         stats.vetoed_clash++; stats.dropped++; continue;
       }
@@ -371,7 +397,6 @@ async function main() {
 
     const scoredAyahs = [];
     for (const a of block.ayahs) {
-      if (AYAH_BLACKLIST.has(a.key)) { stats.vetoed_blacklist++; stats.dropped++; continue; }
       const textKey = truncate((a.translation || '').trim());
       const vec = cache[textKey];
       if (!vec) { stats.dropped++; continue; }
@@ -379,6 +404,9 @@ async function main() {
       if (sim < thr) { stats.dropped++; continue; }
       if (FIQH_SENSITIVE_AYAHS.has(a.key) && !fiqhGateAllows(a.key, subtaskTitle)) {
         stats.vetoed_fiqh++; stats.dropped++; continue;
+      }
+      if (!contextualGateAllows(AYAH_CONTEXTUAL_GATES, a.key, subtaskTitle)) {
+        stats.gated_context++; stats.dropped++; continue;
       }
       if (hasClash(a.translation || '', pillar, submodule)) {
         stats.vetoed_clash++; stats.dropped++; continue;
@@ -403,7 +431,7 @@ async function main() {
   console.log(`  Dropped:       ${stats.dropped}`);
   console.log(`  Vetoed (fiqh):  ${stats.vetoed_fiqh}`);
   console.log(`  Vetoed (clash): ${stats.vetoed_clash}`);
-  console.log(`  Vetoed (blacklist): ${stats.vetoed_blacklist}`);
+  console.log(`  Gated (contextual): ${stats.gated_context}`);
   console.log(`  Blocks zeroed: ${stats.blocks_zeroed} / ${blockCount}`);
 
   if (DRY_RUN) { console.log('\nDRY RUN — no output files written.'); return; }

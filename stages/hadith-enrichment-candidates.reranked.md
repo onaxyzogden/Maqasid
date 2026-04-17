@@ -2178,7 +2178,8 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 101:2 — What is the (Day) of Noise and Clamour?
+- [x] A1: 80:33 — At length, when there comes the Deafening Noise,-
+- [x] A2: 101:2 — What is the (Day) of Noise and Clamour?
 
 ---
 
@@ -4649,7 +4650,8 @@
 **Status:** APPROVE
 
 ### Ayah Candidates
-- [x] A1: 2:145 — Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art …
+- [x] A1: 2:144 — We see the turning of thy face (for guidance to the heavens: now Shall We turn thee to a Qibla that shall please thee. T…
+- [x] A2: 2:145 — Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art …
 
 ### Hadith Candidates
 - [x] H1: Bukhari 417 — Narrated Anas:The Prophet (ﷺ) saw expectoration (on the wall of the mosque) in the direction of the Qibla and scraped it…
@@ -4766,7 +4768,12 @@
 
 ## [family > home > Growth] Minimise visual noise — fewer items, neutral tones, intentional placement
 <!-- id: family > home > Growth :: Minimise visual noise — fewer items, neutral tones, intentional placement -->
-**Status:** NO_RESULTS
+**Status:** APPROVE
+
+### Ayah Candidates
+- [x] A1: 80:33 — At length, when there comes the Deafening Noise,-
+
+---
 
 ## [family > home > Growth] Ask each family member what makes a room feel peaceful and incorporate their input
 <!-- id: family > home > Growth :: Ask each family member what makes a room feel peaceful and incorporate their input -->
@@ -6610,11 +6617,19 @@
 
 ## [environment > ecosystem > Core] Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah
 <!-- id: environment > ecosystem > Core :: Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah -->
-**Status:** NO_RESULTS
+**Status:** APPROVE
+
+### Ayah Candidates
+- [x] A1: 59:21 — If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God…
+
+---
 
 ## [environment > ecosystem > Core] Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir)
 <!-- id: environment > ecosystem > Core :: Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir) -->
 **Status:** APPROVE
+
+### Ayah Candidates
+- [x] A1: 2:132 — And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), "O…
 
 ### Hadith Candidates
 - [x] H1: Muslim 6161 — Abu Huraira reported:It was said to Allah's Messenger (ﷺ) as to who was the most worthy of respect amongst people. He sa…
@@ -9171,5 +9186,5 @@
 <!-- id: ummah > moontrance-residency > Excellence :: Publish the community's story in lasting formats — book, documentary, or podcast series -->
 **Status:** NO_RESULTS
 
-**Generated:** 2026-04-17T01:01:57.983Z
-**Total blocks:** 1826 | **Approved:** 287 | **NO_RESULTS:** 1539
+**Generated:** 2026-04-17T01:07:09.858Z
+**Total blocks:** 1826 | **Approved:** 289 | **NO_RESULTS:** 1537

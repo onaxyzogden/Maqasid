@@ -1866,6 +1866,10 @@ Pick one room to start with — ideally the one you spend the most time in. Go t
           sources: `**I. Sources from the Quran**
 
 
+### Ayah (80:33)
+**Arabic:** 
+**Translation:** At length, when there comes the Deafening Noise,-
+
 ### Ayah (101:2)
 **Arabic:** 
 **Translation:** What is the (Day) of Noise and Clamour?`,

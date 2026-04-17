@@ -3622,6 +3622,10 @@ Having the tools of worship readily accessible removes friction from the act of 
           sources: `**I. Sources from the Quran**
 
 
+### Ayah (2:144)
+**Arabic:** 
+**Translation:** We see the turning of thy face (for guidance to the heavens: now Shall We turn thee to a Qibla that shall please thee. Turn then Thy face in the direction of the sacred Mosque: Wherever ye are, turn your faces in that direction. The people of the Book know well that that is the truth from their Lord. Nor is Allah unmindful of what they do.
+
 ### Ayah (2:145)
 **Arabic:** 
 **Translation:** Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art thou going to follow their Qibla; nor indeed will they follow each other's Qibla. If thou after the knowledge hath reached thee, Wert to follow their (vain) desires,-then wert thou Indeed (clearly) in the wrong.
@@ -4104,6 +4108,12 @@ The Quran repeatedly draws attention to the natural world as a source of reflect
 4. **Reduce synthetic materials** — where possible, replace plastic storage with woven baskets, and synthetic cushions with cotton or linen.
 5. **Create a "nature corner"** — a small area with a plant, a natural-scent candle or diffuser, and a comfortable seat for reading or reflection.` },
         { title: 'Minimise visual noise — fewer items, neutral tones, intentional placement', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (80:33)
+**Arabic:** 
+**Translation:** At length, when there comes the Deafening Noise,-`,
           description: `**Why does this matter?**
 
 Visual noise — too many colours, objects, patterns, and stimuli — exhausts the mind and prevents rest. The Prophet\'s (peace be upon him) living quarters were famously simple, allowing focus on what truly mattered: worship, family, and reflection. A home with intentional placement and restrained colour palettes does not feel austere — it feels spacious, calm, and dignified. This is particularly important for children, whose developing minds are easily overstimulated by chaotic environments.

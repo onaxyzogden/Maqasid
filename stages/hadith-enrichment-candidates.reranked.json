@@ -4547,6 +4547,11 @@
     "hadiths": [],
     "ayahs": [
       {
+        "key": "80:33",
+        "arabic": "",
+        "translation": "At length, when there comes the Deafening Noise,-"
+      },
+      {
         "key": "101:2",
         "arabic": "",
         "translation": "What is the (Day) of Noise and Clamour?"
@@ -9826,6 +9831,11 @@
     ],
     "ayahs": [
       {
+        "key": "2:144",
+        "arabic": "",
+        "translation": "We see the turning of thy face (for guidance to the heavens: now Shall We turn thee to a Qibla that shall please thee. Turn then Thy face in the direction of the sacred Mosque: Wherever ye are, turn your faces in that direction. The people of the Book know well that that is the truth from their Lord. Nor is Allah unmindful of what they do."
+      },
+      {
         "key": "2:145",
         "arabic": "",
         "translation": "Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art thou going to follow their Qibla; nor indeed will they follow each other's Qibla. If thou after the knowledge hath reached thee, Wert to follow their (vain) desires,-then wert thou Indeed (clearly) in the wrong."
@@ -10072,7 +10082,13 @@
     "subtaskTitle": "Minimise visual noise — fewer items, neutral tones, intentional placement",
     "parentTask": "Curate the home aesthetic — add calligraphy, remove distracting decor, create a peaceful atmosphere",
     "hadiths": [],
-    "ayahs": []
+    "ayahs": [
+      {
+        "key": "80:33",
+        "arabic": "",
+        "translation": "At length, when there comes the Deafening Noise,-"
+      }
+    ]
   },
   "family > home > Growth :: Ask each family member what makes a room feel peaceful and incorporate their input": {
     "pillar": "family",
@@ -14055,7 +14071,13 @@
     "subtaskTitle": "Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah",
     "parentTask": "Learn the Islamic concept of khilafah (vicegerency) — your role as caretaker of the earth",
     "hadiths": [],
-    "ayahs": []
+    "ayahs": [
+      {
+        "key": "59:21",
+        "arabic": "",
+        "translation": "If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect."
+      }
+    ]
   },
   "environment > ecosystem > Core :: Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir)": {
     "pillar": "environment",
@@ -14075,7 +14097,13 @@
         "text": "Qutaiba b. Sa'id, Ishaq b. Ibrahim, Ibn Abi 'Aruba, Abu Ma'shar, Abu Bakr b. Abu Shaiba, Mansur and Mughira have all transmitted from Ibrahim, who transmitted it on the authority of A'isha's narration pertaining to the scraping off of the (drop) of semen from the garment of the Messenger of Allah (ﷺ) like the hadith of Khalid on the authority of Abu Ma'shar"
       }
     ],
-    "ayahs": []
+    "ayahs": [
+      {
+        "key": "2:132",
+        "arabic": "",
+        "translation": "And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), \"O my sons! Allâh has chosen for you the (true) religion, then die not except in the Faith of Islâm (as Muslims - Islâmic Monotheism).\""
+      }
+    ]
   },
   "environment > ecosystem > Core :: Reflect on how khilafah applies to your specific context — home, work, community": {
     "pillar": "environment",

@@ -2367,6 +2367,12 @@ Every act of the Muslim begins and ends with Allah. Planting a tree is a physica
       description: 'Allah appointed humanity as khulafa (vicegerents) on earth (Quran 2:30), entrusted with its care — not its exploitation. Understanding khilafah reframes environmental action from optional activism to a core religious duty rooted in the covenant with Allah.',
       subtasks: [
         { title: 'Read and reflect on Quran 2:30, 6:165, and 33:72 on the trust of khilafah', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (59:21)
+**Arabic:** 
+**Translation:** If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.`,
           description: `**Why does this matter?**
 
 These three verses form the theological foundation for humanity's relationship with the earth. Quran 2:30 announces the appointment of humanity as khulafa (vicegerents), 6:165 explains that this appointment is a test, and 33:72 describes the amanah (trust) that the heavens and earth refused to bear but humanity accepted. Without deeply understanding these verses, environmental action remains disconnected from its spiritual root — and khilafah is reduced to a buzzword rather than a lived obligation.
@@ -2384,7 +2390,14 @@ These three verses form the theological foundation for humanity's relationship w
 
 **Benchmark:** You can explain the concept of khilafah from these three verses without referring to notes, connecting it clearly to environmental stewardship.` },
         { title: 'Study contemporary Islamic environmental ethics (e.g., Fazlun Khalid, Ibrahim Ozdemir)', done: false,
-          sources: `**I. Sources from the Hadith**
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:132)
+**Arabic:** 
+**Translation:** And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), "O my sons! Allâh has chosen for you the (true) religion, then die not except in the Faith of Islâm (as Muslims - Islâmic Monotheism)."
+
+**II. Sources from the Hadith**
 
 
 ### Sahih Muslim 6161
