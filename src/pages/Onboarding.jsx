@@ -18,19 +18,9 @@ const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Gl
 // Steps: 0=Welcome, 1=Profile+Intent, 2=Pillar Focus, 3=Values Framing, 4=First Action
 const STEPS = ['Welcome', 'Profile', 'Pillars', 'Values', 'Begin'];
 
-const PILLAR_ACCENTS = {
-  faith: '#C8A96E',
-  life: '#6EAD8A',
-  intellect: '#6E8EAD',
-  family: '#AD6E9E',
-  wealth: '#8EAD6E',
-  environment: '#6EADAD',
-  ummah: '#AD8E6E',
-};
-
 const INTENT_OPTIONS = [
   { id: 'personal', emoji: '🕌', label: 'Personal & Spiritual' },
-  { id: 'family', emoji: '👨‍👩‍👧', label: 'Family & Community', Icon: Users },
+  { id: 'family', emoji: '👨‍👩‍👧', label: 'Family & Community' },
   { id: 'business', label: 'Business & Operations', Icon: Briefcase },
 ];
 
@@ -66,12 +56,16 @@ export default function Onboarding() {
 
   const pillarSubmodules = firstPillar
     ? MODULES.filter(
-        (m) =>
-          firstPillar.subModuleIds.includes(m.id) &&
-          m.id !== 'sources' &&
-          !m.id.startsWith('faith-core') &&
-          !m.id.startsWith('faith-growth') &&
-          !m.id.startsWith('faith-excellence')
+        (m) => {
+          // Exclude category-level nav nodes (core/growth/excellence) that aren't meaningful submodule entry points
+          return (
+            firstPillar.subModuleIds.includes(m.id) &&
+            m.id !== 'sources' &&
+            !m.id.startsWith('faith-core') &&
+            !m.id.startsWith('faith-growth') &&
+            !m.id.startsWith('faith-excellence')
+          );
+        }
       ).slice(0, 6)
     : [];
 
@@ -104,15 +98,6 @@ export default function Onboarding() {
 
   return (
     <>
-      <style>{`
-        @keyframes onboardingFadeUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .onboarding-fade-up {
-          animation: onboardingFadeUp var(--duration, 0.25s) ease both;
-        }
-      `}</style>
       <div style={{
         minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
         background: 'var(--bg)', padding: 'var(--space-6)',
@@ -277,7 +262,7 @@ export default function Onboarding() {
               </p>
               {selectedPillars.length > 3 && (
                 <p style={{ fontSize: '0.8rem', color: 'var(--warning, #D97706)', marginBottom: 'var(--space-3)' }}>
-                  {selectedPillars.length} of 3 selected — consider narrowing your focus.
+                  {selectedPillars.length} pillars selected — consider narrowing your focus.
                 </p>
               )}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-3)', marginBottom: 'var(--space-2)' }}>
