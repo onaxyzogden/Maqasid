@@ -7,6 +7,39 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-17] feat | Full end-to-end onboarding experience
+
+### What was done
+- **5-step wizard revamp** at `/get-started`: Welcome ("Peace be upon you.") → Profile + Intent micro-survey → Pillar Focus (Bento-style cards) → Values Framing (Islamic Governance vs Universal Ethics) → First Action (Level 1 submodule navigator with optimistic selection).
+- **OnboardingChecklist widget**: collapsible 5-item Dashboard card (Set up profile → First task → Explore Sources → Add pillar → Weekly review), progress bar, Masha'Allah celebration state, persistent dismissal.
+- **SpotlightTour**: 3-step cutout overlay (box-shadow technique) for first Dashboard visit — highlights sidebar, main area, and checklist. Dismissed permanently via onboarding-store.
+- **PillarFirstEntry modals**: just-in-time modal on first navigation to any pillar page, per-pillar persistence via `seenPillars` in store. Accent-color header, 2-sentence description, 3 module bullets.
+- **onboarding-store**: new Zustand store using `safeGet`/`safeSet` pattern for all onboarding state.
+- `data-tour` attributes added to Sidebar nav and Dashboard.
+- `@keyframes onboardingFadeUp` + `.onboarding-fade-up` class added to `landing.css`.
+
+### Files created/modified
+- `src/store/onboarding-store.js` (created)
+- `src/pages/Onboarding.jsx` (5-step revamp)
+- `src/components/onboarding/OnboardingChecklist.jsx` (created)
+- `src/components/onboarding/SpotlightTour.jsx` (created)
+- `src/components/onboarding/PillarFirstEntry.jsx` (created)
+- `src/pages/Dashboard.jsx`, `src/components/layout/AppShell.jsx`, `src/components/layout/Sidebar.jsx`, `src/styles/landing.css`
+
+### Verified
+`npm run build` ✓ in 1.36s — 0 errors.
+
+### Commits
+- `34cd28e` — fix(islamic-panel): sync activeModule from URL on every navigation
+- `f21e0e6` → `8637bec` — onboarding-store (persist middleware → safeGet/safeSet rewrite)
+- `c07238a` — feat(onboarding): revamp wizard to 5-step experience
+- `54c87fe` — fix(onboarding): code quality fixes from review
+- `439b369` / `cd0fb74` — OnboardingChecklist + dismissal fix
+- `f82d6ee` / `a684727` / `bc7ec13` — SpotlightTour + fixes
+- `c73125a` / `877f71e` — PillarFirstEntry + fixes
+
+---
+
 ## [2026-04-17] chore | Sidebar icon refresh (6 swaps)
 
 ### What was done
@@ -50,6 +83,7 @@ Uncommitted — left in working tree alongside unrelated prior changes.
 - (uncommitted at time of log entry)
 
 ---
+
 
 ## [2026-04-17] fix | IslamicPanel stale module content on navigation
 

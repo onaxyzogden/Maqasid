@@ -747,3 +747,13 @@
     pointer-events: auto;
   }
 }
+
+/* ── Onboarding fade-up animation ────────────────────────────────────────── */
+@keyframes onboardingFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.onboarding-fade-up {
+  animation: onboardingFadeUp var(--duration, 0.25s) ease both;
+}
