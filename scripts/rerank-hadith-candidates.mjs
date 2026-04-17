@@ -103,6 +103,91 @@ const DOMAIN_CLUSTERS = {
   ]),
 };
 
+// ── Fiqh-sensitive ayahs: hard-blocked from non-purity/non-marriage submodules ─
+// These ayahs deal with menstruation, divorce, iddah, and similar ahkam where
+// lexical matches on words like "monthly" or "divorce" produce misleading citations
+// on unrelated topics (e.g., "monthly review session" being cited with 65:4).
+const FIQH_SENSITIVE_AYAHS = new Set([
+  '2:222',  // menstruation
+  '2:228',  // divorce waiting period (quruu')
+  '2:229',  // divorce rulings
+  '2:230',  // divorce / halala
+  '2:231',  // divorce rulings
+  '2:232',  // divorce rulings
+  '2:233',  // breastfeeding / custody
+  '2:234',  // widowhood iddah
+  '65:1',   // talaq
+  '65:2',   // talaq witnesses
+  '65:4',   // iddah for non-menstruating / menstruating women
+  '65:6',   // housing during iddah
+  '65:7',   // maintenance
+  '33:4',   // dhihar
+  '58:2',   // dhihar expiation
+  '58:3',   // dhihar expiation
+  '58:4',   // dhihar expiation
+]);
+
+// Submodules where the fiqh-sensitive ayahs are genuinely on-topic.
+const FIQH_SENSITIVE_ALLOWED = new Set([
+  'family/marriage',
+  'family/kinship',   // custody/breastfeeding can touch kinship
+  'faith/hajj',       // menstruation and hajj
+  'faith/sawm',       // menstruation and fasting makeup
+]);
+
+// ── Fallback-hadith blacklist ──────────────────────────────────────────────────
+// Hadiths observed to recur across unrelated subtasks because they share a single
+// keyword with many queries. These require a much stronger overlap to survive.
+const FALLBACK_HADITH_BLACKLIST = new Set([
+  'bukhari-3',     // commencement of wahy
+  'bukhari-22',    // people of Paradise / Fire scene
+  'bukhari-40',    // Medina migration / qiblah change
+  'bukhari-63',    // man on camel asking about Islam
+  'bukhari-64',    // Prophet's letter
+  'bukhari-126',   // Aisha's secrets
+  'bukhari-160',   // Uthman's wudu
+  'bukhari-167',   // washing of deceased daughter (kept only for ghusl/janazah)
+  'bukhari-214',   // ablution per prayer
+  'bukhari-368',   // forbidden sale types (limais/nibadh)
+  'bukhari-378',   // Prophet fell off horse
+  'bukhari-380',   // meal invitation
+  'bukhari-424',   // prayer place in home
+  'bukhari-510',   // passing in front of one praying
+  'bukhari-917',   // differing opinions (kept for consultation/differences)
+  'bukhari-1166',  // Istikhara
+  'bukhari-1338',  // grave questioning
+  'bukhari-1584',  // round wall of Ka'ba
+  'bukhari-1824',  // Prophet's Hajj
+  'bukhari-2032',  // i'tikaf vow
+  'bukhari-2042',  // i'tikaf vow (duplicate)
+  'bukhari-2661',  // drawing lots for wives
+  'bukhari-2731',  // Hudaybiyya
+  'bukhari-2732',  // Hudaybiyya (duplicate)
+  'bukhari-3168',  // Ibn Abbas / Thursday
+  'bukhari-3207',  // Mi'raj
+  'bukhari-3700',  // Umar stabbed
+  'bukhari-4141',  // drawing lots for wives on travel
+  'bukhari-4553',  // Abu Sufyan truce
+  'bukhari-7517',  // Isra journey
+  'muslim-93',     // qadr discussion in Basra
+  'muslim-411',    // al-Buraq
+  'muslim-416',    // Mi'raj
+  'muslim-1522',   // generic Abu Huraira
+  'muslim-3245',   // Ka'ba burnt in Yazid's time
+  'muslim-3695',   // Ibn Abbas / Umar
+  'muslim-3696',   // Ibn Abbas / Umar (duplicate)
+  'muslim-4678',   // Hudaybiyya
+  'muslim-7021',   // generic attribution chain
+]);
+const BLACKLIST_OVERRIDE_THRESHOLD = 0.5;  // ≥50% overlap to survive blacklist
+
+// ── Single-keyword penalty ─────────────────────────────────────────────────────
+// For subtask queries with ≥4 content keywords, require ≥2 matches (not just 1).
+// Prevents noise where one ambiguous word (share/bank/practice/circle/aligned)
+// produces a match on an off-topic text.
+const MIN_MATCHES_FOR_LONG_QUERY = 2;
+const LONG_QUERY_THRESHOLD = 4;
+
 // Per-submodule: which domain clusters are ALLOWED (not penalised)
 const ALLOWED_DOMAINS = {
   // Faith pillar: jihad context is relevant in some areas
@@ -164,7 +249,7 @@ function hasClash(candidateTokens, pillar, submodule) {
 // overlap to survive. Otherwise it is blocked regardless of MIN_SCORE.
 const CLASH_OVERRIDE_THRESHOLD = 0.35;  // ≥35% of query words must appear in text to override a clash
 
-function scoreCandidate(subtaskTitle, candidateText, pillar, submodule) {
+function scoreCandidate(subtaskTitle, candidateText, pillar, submodule, candidateMeta = {}) {
   const queryTokens = tokenize(subtaskTitle);
   const candidateTokens = tokenize(candidateText);
 
@@ -179,7 +264,28 @@ function scoreCandidate(subtaskTitle, candidateText, pillar, submodule) {
 
   // Hard veto: clash word present + low overlap → reject
   if (hasClash(candidateTokens, pillar, submodule) && overlapRatio < CLASH_OVERRIDE_THRESHOLD) {
-    return -1;  // guaranteed reject
+    return -1;
+  }
+
+  // Fiqh-sensitive ayah blocklist
+  if (candidateMeta.type === 'ayah') {
+    if (FIQH_SENSITIVE_AYAHS.has(candidateMeta.key) &&
+        !FIQH_SENSITIVE_ALLOWED.has(`${pillar}/${submodule}`)) {
+      return -1;
+    }
+  }
+
+  // Fallback-hadith blacklist: require strong overlap to survive
+  if (candidateMeta.type === 'hadith') {
+    const hadithId = `${candidateMeta.collection}-${candidateMeta.number}`;
+    if (FALLBACK_HADITH_BLACKLIST.has(hadithId) && overlapRatio < BLACKLIST_OVERRIDE_THRESHOLD) {
+      return -1;
+    }
+  }
+
+  // Single-keyword penalty for long queries
+  if (queryTokens.size >= LONG_QUERY_THRESHOLD && overlap < MIN_MATCHES_FOR_LONG_QUERY) {
+    return -1;
   }
 
   return overlapRatio;
@@ -197,7 +303,9 @@ function rerankSidecar(sidecar) {
     const keptHadiths = [];
     for (const h of block.hadiths) {
       const text = h.text || '';
-      const score = scoreCandidate(subtaskTitle, text, pillar, submodule);
+      const score = scoreCandidate(subtaskTitle, text, pillar, submodule, {
+        type: 'hadith', collection: h.collection, number: h.number,
+      });
       if (score >= MIN_SCORE) {
         keptHadiths.push(h);
         stats.kept++;
@@ -209,7 +317,9 @@ function rerankSidecar(sidecar) {
     const keptAyahs = [];
     for (const a of block.ayahs) {
       const text = (a.translation || '') + ' ' + (a.arabic || '');
-      const score = scoreCandidate(subtaskTitle, text, pillar, submodule);
+      const score = scoreCandidate(subtaskTitle, text, pillar, submodule, {
+        type: 'ayah', key: a.key,
+      });
       if (score >= MIN_SCORE) {
         keptAyahs.push(a);
         stats.kept++;

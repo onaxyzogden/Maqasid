@@ -41,3 +41,9 @@ MOS_TA_1.txt
 # Hadith cache (fetched at authoring time, not committed)
 stages/.hadith-cache/
 
+# Embedding cache for semantic reranker (regenerable, ~50MB)
+stages/.embed-cache.json
+
+# QA sample working files (reproducible from sidecar)
+stages/_qa-sample-*.md
+

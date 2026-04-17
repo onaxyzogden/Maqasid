@@ -129,7 +129,10 @@ function titleToRegexFragment(title) {
 // do not corrupt the bracket depth counter.
 function findKeyBounds(content, key) {
   const escapedKey = escapeRegex(key);
-  const keyRe = new RegExp(`\\b${escapedKey}\\s*:\\s*\\[`, 'm');
+  // Tolerate both bare identifiers (ummah_collective_core:) and quoted keys
+  // ("ummah_moontrance-land_core":) — the latter are required when the key
+  // contains hyphens or other non-identifier chars.
+  const keyRe = new RegExp(`(?:\\b|["'])${escapedKey}["']?\\s*:\\s*\\[`, 'm');
   const m = keyRe.exec(content);
   if (!m) return null;
 
