@@ -7,6 +7,23 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] feat | Hadith enrichment V3 — semantic reranker (sentence-transformer embeddings) replaces lexical scoring
+
+### What was done
+- Replaced `rerank-hadith-candidates.mjs` (lexical) path with new `rerank-hadith-embeddings.mjs` using `Xenova/paraphrase-multilingual-MiniLM-L12-v2` (quantized, 384-dim).
+- Added `strip-hadith-sources.mjs` helper for clean re-apply cycles.
+- Fixed quoted-key regex bug in `apply-hadith-sources.mjs` that was skipping all 216 moontrance blocks.
+- Layered safety filters as post-embedding vetoes:
+  - Per-ayah fiqh gate (iddah/divorce/dhihar verses only pass when subtask title contains topical trigger words)
+  - Hadith blacklist (12 recurring FPs) + ayah blacklist (20 lexical false-friends)
+  - Short-title threshold bump (≤5 words → 0.50, else 0.45)
+  - Domain clash filter retained from V2
+- Coverage: 1,826 blocks → 322 sourced (17.6%). Per-citation quality ~60% strong (from ~40% V1 baseline).
+- QA audits at `stages/hadith-qa-audit-{review,v2-review}.md`; V3 decision at `wiki/decisions/2026-04-16-hadith-semantic-reranker.md`.
+
+### Commit
+- `2c36ce6` — feat(hadith): v3 semantic reranker — embeddings + fiqh/blacklist filters
+
 ## [2026-04-16] refactor | CeremonyGuard Phase 2d — dynamic guard for ModulePlaceholder + static wrap for Project; refactor initiative CLOSED
 
 - **New component** `src/components/islamic/CeremonyGuardDynamic.jsx` — param-driven sibling that reads `moduleId` from `useParams(paramKey)` (default `'moduleId'`). Keeps the prop-driven `CeremonyGuard` primitive pure (decision Q1 → option b). Same threshold-store subscription + `CeremonyGate` render; DEV-only warn on missing param.

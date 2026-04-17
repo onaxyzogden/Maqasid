@@ -42,6 +42,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-14-amanah-gate-protocol]] | 2026-04-14 | Amanah Gate Protocol named as cross-product pattern — tiered evidential honesty in Atlas, BBOS, Moontrance |
 | [[2026-04-16-threshold-content-phased-fix]] | 2026-04-16 | Phased repair of Threshold popup content — Phase 0 code-path fixes done; Phase 1 Islamic content pillar-by-pillar; Phase 2 universal |
 | [[2026-04-16-ceremony-guard-route-level]] | 2026-04-16 | CeremonyGuard wrapper lifts ceremony gating to the route layer — Phase 1 applied to 28 thin pillar pages; thick pages deferred |
+| [[2026-04-16-hadith-semantic-reranker]] | 2026-04-16 | V3 hadith enrichment — multilingual sentence-transformer embeddings replace lexical scoring; 322 blocks sourced at ~60% strong quality |
 
 ## Sources
 
