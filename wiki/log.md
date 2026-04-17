@@ -7,6 +7,14 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] refactor | CeremonyGuard Phase 2c-sources — closed as no-op + FivePillars dead-code deletion
+
+- **Discovery**: the "sources cluster" from the Phase 2a deferral list (`FivePillars`, `HadithPage`, `IslamicKnowledgePage`, `QuranPage`) was mis-grouped. Actual state: only `SourcesPage` is routed at `/app/sources`; `QuranPage`, `HadithPage`, `IslamicKnowledgePage` are **tab content** inside `SourcesPage`, each gating independently as `"quran"`, `"hadith"`, `"islamic-knowledge"`. `FivePillars.jsx` was dead code — not imported anywhere in live src (only its CSS is imported by `OverviewCards.jsx`).
+- **Decision: option (B)** — do NOT lift the 3 tab-content gates. Per-tab gating is the intended semantic (distinct openings for Quran/Hadith/Knowledge), not a wiring accident. Lifting would either (A) collapse them into one gate (behavior change) or (C) require a dynamic-moduleId guard reading `searchParams` — same category as the deferred `ModulePlaceholder`/`ComingSoon` dynamic cases, better handled in a single future pass.
+- **Cleanup**: deleted `src/pages/islamic/FivePillars.jsx` (unimported). Retained `FivePillars.css` — still used by `OverviewCards.jsx`. Updated `CeremonyGuard.jsx` header comment to list the actual remaining in-body gates (Project, ModulePlaceholder/ComingSoon, and the intentional Sources tab trio).
+- **Verification**: `npm run build` passes (1.64s). No preview check needed — a comment edit + deletion of an unimported file are not browser-observable.
+- **Docs**: decision doc updated — Phase 2c-sources marked closed as no-op + cleanup, rationale recorded; remaining deferred scope renamed Phase 2d (dynamic + route-id-mismatch, 3 pages total).
+
 ## [2026-04-16] refactor | CeremonyGuard Phase 2b-ummah — lift gating for 4 ummah pages
 
 - **App.jsx**: 4 ummah standalone routes (`/app/family`, `/app/neighbors`, `/app/community`, `/app/collective`) wrapped in `<CeremonyGuard moduleId="...">`. No embedded variants to reconcile — none of the 4 appear as children of other routes.
