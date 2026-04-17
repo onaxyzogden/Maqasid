@@ -11,6 +11,12 @@ export const ENVIRONMENT_SEED_TASKS = {
       description: 'Conduct a thorough walk-through of every water outlet in your home to find leaks, dripping taps, and inefficient fixtures. The Prophet (peace be upon him) forbade wasting water even when performing wudu at a flowing river — this audit is the first step to honouring that principle in your daily life.',
       subtasks: [
         { title: 'Inspect all taps, toilets, and hose connections for leaks or drips', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sunan Abu Dawud 29
+The Prophet (peace be upon him) passed by Sa‘d while he was performing wudu and said: "What is this extravagance, O Sa‘d?" Sa‘d replied: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A single dripping tap can waste over 20,000 litres of water per year. The Prophet (peace be upon him) warned against israf even at a flowing river, making it clear that waste is a spiritual failing regardless of abundance. Inspecting every water outlet in your home is the foundational step of khalifah responsibility over this essential resource — you cannot fix what you have not identified.
@@ -27,6 +33,12 @@ A single dripping tap can waste over 20,000 litres of water per year. The Prophe
 6. Record every issue found with its location and severity (drip, seep, or steady flow).
 7. Completion indicator: a written list of every leak and drip in the home, ready for repair prioritisation.` },
         { title: 'Check water meter before and after a 2-hour no-use window to detect hidden leaks', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Indeed, He does not love those who commit excess.`,
           description: `**Why does this matter?**
 
 Hidden leaks — in underground pipes, within walls, or in toilet cisterns — can waste enormous volumes of water without any visible sign. The meter test is the only reliable way to detect these invisible losses. As trustees (khulafa) of the earth's resources, uncovering hidden waste is just as important as fixing the obvious drips, because the harm to creation occurs regardless of whether we can see it.
@@ -43,6 +55,12 @@ Hidden leaks — in underground pipes, within walls, or in toilet cisterns — c
 6. To narrow the location, turn off the main shutoff valve and repeat: if the meter still moves, the leak is between the meter and the house; if it stops, the leak is inside the home.
 7. Completion indicator: a confirmed reading showing zero movement (no hidden leaks) or a documented leak for further investigation.` },
         { title: 'Replace worn washers, seals, or faulty valves on any leaking fixtures', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (17:27)
+**Arabic:** إنَّ المُبَذِّرينَ كانوا إخوانَ الشَّياطين
+**Translation:** Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.`,
           description: `**Why does this matter?**
 
 Identifying leaks without fixing them is knowledge without action — Islam emphasises that knowledge carries responsibility. A worn washer costing a few cents can waste thousands of litres over months. Repairing fixtures promptly embodies the amanah principle: the water passing through your home is a trust from Allah, and allowing it to drain away through neglect is a form of ingratitude for the ni\`mah (blessing) of clean water.
@@ -59,6 +77,21 @@ Identifying leaks without fixing them is knowledge without action — Islam emph
 6. Test each repair by restoring water flow and watching for drips over several minutes.
 7. Completion indicator: all items on the leak list are repaired and confirmed drip-free.` },
         { title: 'List all wasteful water habits (e.g., running tap while brushing teeth) and commit to stopping them', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** O children of Adam, take your adornment at every masjid, and eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (6:141)
+**Arabic:** وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** And be not excessive. Indeed, He does not like those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sunan an-Nasai 140
+The Prophet (peace be upon him) saw Sa'd performing wudu and said: "What is this extravagance?" Sa'd said: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Behavioural waste often exceeds mechanical waste. Running the tap while brushing teeth wastes approximately 6 litres per minute. The Prophet (peace be upon him) modelled intentional, measured use of water in every context — from wudu to drinking — establishing that mindful consumption is sunnah. Listing your habits makes the unconscious conscious, which is the first step toward lasting change in how your household treats water as amanah.
@@ -75,6 +108,21 @@ Behavioural waste often exceeds mechanical waste. Running the tap while brushing
 6. Commit as a household to follow the alternatives for 30 days to establish new norms.
 7. Completion indicator: a visible, shared list of old habits and new commitments, reviewed weekly.` },
         { title: 'Record current monthly water consumption as a baseline', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** O children of Adam, take your adornment at every masjid, and eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 6018
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him not waste water, even if he is at a running river."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Without a measured baseline, conservation efforts become guesswork. Recording your actual consumption in litres or cubic metres per month provides the reference point against which all future improvements are measured. This practice reflects the Islamic principle of itqan (excellence through precision) — you honour the resource by knowing exactly how much of it you use, rather than relying on vague impressions.
@@ -127,6 +175,21 @@ The Prophetic model of wudu is the original standard for mindful water use. The 
 6. Write a brief summary of what you learned to share with your household.
 7. Completion indicator: you can cite at least two specific hadith on wudu water usage and explain the mudd measurement to someone else.` },
         { title: 'Practise wudu with a small container instead of running water for one week', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+**II. Sources from the Hadith**
+
+### Sunan an-Nasai 140
+The Prophet (peace be upon him) saw Sa'd performing wudu and said: "What is this extravagance?" Sa'd said: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Sahih)*
+
+### Sunan Abu Dawud 96
+The Prophet (peace be upon him) used to perform wudu with a mudd (approximately 0.5 litres) of water.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Moving from a running tap to a container transforms wudu from an unconscious routine into a deliberate, measured act. Most people use 5-10 litres per wudu under a tap; a container constrains you to 1-2 litres, closely approximating the Prophetic mudd. This one-week practice builds the muscle memory and mindfulness needed to make efficient wudu a permanent habit — training the nafs to follow the sunnah in a tangible, daily act.
@@ -143,6 +206,12 @@ Moving from a running tap to a container transforms wudu from an unconscious rou
 6. After the week, you may return to a tap but aim to keep the tap flow low and turn it off between limbs.
 7. Completion indicator: after seven consecutive days, you can comfortably complete wudu with approximately 1 litre of water.` },
         { title: 'Install a push-tap or sensor tap at your wudu station if possible', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sunan Abu Dawud 29
+The Prophet (peace be upon him) passed by Sa‘d while he was performing wudu and said: "What is this extravagance, O Sa‘d?" He said: "Yes, even if you are at a flowing river." This establishes the Sunnah of conserving water even when it is abundant.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Technology can support sunnah-aligned habits by removing the option of leaving water running unattended. A push-tap (which shuts off automatically after a set time) or a sensor tap (which flows only when hands are present) eliminates the waste that occurs during pauses between washing limbs. This is a practical application of designing your environment to support taqwa — making the right action the easy action.
@@ -159,6 +228,21 @@ Technology can support sunnah-aligned habits by removing the option of leaving w
 6. Test that the flow rate and auto-shutoff timing allow comfortable completion of each wudu step.
 7. Completion indicator: a functioning tap at your wudu station that does not run continuously, reducing water use per wudu by at least 50%.` },
         { title: 'Teach family members the Sunnah method and its environmental significance', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** O children of Adam, eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sunan an-Nasai 140
+The Prophet (peace be upon him) saw Sa'd performing wudu and said: "What is this extravagance?" Sa'd said: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Sahih)*
+
+### Sunan Abu Dawud 96
+The Prophet (peace be upon him) used to perform wudu with a mudd of water and ghusl with a sa' to five mudds.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Individual change multiplied across a household creates lasting impact. If four family members each perform wudu five times daily, that is twenty wudu sessions per day — the difference between wasteful and sunnah-aligned practice compounds into thousands of litres saved each year. Teaching the sunnah method also fulfils the Islamic obligation of nasihah (sincere counsel) within the family and raises children with an integrated understanding that worship and environmental care are inseparable.
@@ -182,6 +266,17 @@ Individual change multiplied across a household creates lasting impact. If four 
       description: 'Standby power (phantom load) can account for 5-10% of household electricity consumption. Eliminating this waste is a direct application of the Quranic prohibition against israf — extravagance and needless consumption of resources entrusted to us.',
       subtasks: [
         { title: 'Walk through every room and unplug chargers and devices not in active use', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Indeed, He does not love those who commit excess.
+
+
+### Ayah (17:27)
+**Arabic:** إنَّ المُبَذِّرينَ كانوا إخوانَ الشَّياطين
+**Translation:** Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.`,
           description: `**Why does this matter?**
 
 Chargers and devices left plugged in draw power even when not charging or in use — this phantom load is pure israf, energy consumed with zero benefit. A phone charger left plugged in 24/7, a laptop adapter, a game console on standby — each one is small, but collectively they represent a constant drain on resources entrusted to you as khalifah. This walkthrough makes the invisible visible.
@@ -198,6 +293,12 @@ Chargers and devices left plugged in draw power even when not charging or in use
 6. For devices that are difficult to reach, note them for the next step (power strips with switches).
 7. Completion indicator: every outlet in the house has been checked, and no device is drawing power unless actively in use.` },
         { title: 'Install power strips with on/off switches for entertainment and office setups', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Indeed, He does not love those who commit excess.`,
           description: `**Why does this matter?**
 
 Entertainment centres and office desks often have 4-8 devices plugged in permanently — TV, speakers, router, monitor, printer, desk lamp. Unplugging each one individually is impractical, which is why the waste persists. A switched power strip solves this by letting you cut power to all peripherals with a single switch. This is designing your environment for tawfiq — making the halal choice (eliminating waste) the easiest choice.
@@ -214,6 +315,21 @@ Entertainment centres and office desks often have 4-8 devices plugged in permane
 6. Make it part of the routine: "switching off" the entertainment strip when leaving the room, the office strip at end of work.
 7. Completion indicator: all multi-device clusters run through switched power strips, and the switches are used daily.` },
         { title: 'Set a nightly routine to power down all non-essential electronics before sleep', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2616
+The Prophet (peace be upon him) said: "Take advantage of five before five: your youth before your old age, your health before your illness, your wealth before your poverty, your free time before your busyness, and your life before your death."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The hours between sleep and Fajr represent a significant portion of daily energy consumption if devices are left running. Establishing a nightly shutdown routine mirrors the sunnah practice of preparing for sleep with intention — just as the Prophet (peace be upon him) taught specific adhkar and actions before sleeping, adding an energy shutdown step integrates environmental stewardship into your nightly ibadah routine, turning a mundane task into a conscious act of amanah.
@@ -230,6 +346,21 @@ The hours between sleep and Fajr represent a significant portion of daily energy
 6. After one week, the routine should take less than 2 minutes and become automatic.
 7. Completion indicator: a documented nightly shutdown checklist that has been followed consistently for at least 7 days.` },
         { title: 'Label switches clearly so family members can identify and turn off unused circuits', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** O children of Adam, eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2169
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Unlabelled switches lead to confusion and inaction — people leave lights on because they do not know which switch controls which fixture, or they fear turning off something important. Clear labelling removes this barrier, empowering every household member (including children and guests) to participate in energy conservation. In Islamic household management, creating an environment where everyone can fulfil their share of amanah is a form of leadership (qiwamah) over the home.
@@ -246,6 +377,12 @@ Unlabelled switches lead to confusion and inaction — people leave lights on be
 6. Pay special attention to switches that control outdoor lights or hallway lights often left on by mistake.
 7. Completion indicator: every switch and breaker in the home is clearly labelled, and household members can confidently turn off unused circuits.` },
         { title: 'Check that heating/cooling systems are off in unoccupied rooms', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (17:27)
+**Arabic:** إنَّ المُبَذِّرينَ كانوا إخوانَ الشَّياطين
+**Translation:** Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.`,
           description: `**Why does this matter?**
 
 Heating and cooling represent the largest share of household energy consumption in most climates — often 40-60% of the total electricity or gas bill. Conditioning an empty room is one of the most wasteful energy habits, directly contradicting the Quranic instruction against israf. Closing vents, adjusting thermostats, or shutting doors to unused rooms is a high-impact action that aligns daily comfort with environmental responsibility.
@@ -325,6 +462,12 @@ Ibn Ashur's maqasid framework provides the intellectual bridge between individua
 6. Write a summary connecting Ibn Ashur's framework to your personal resource consumption.
 7. Completion indicator: a written summary explaining how israf violates the maqasid, with at least two specific references to Ibn Ashur's arguments.` },
         { title: 'Write a personal reflection on three areas where israf exists in your life', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Indeed, He does not love those who commit excess.`,
           description: `**Why does this matter?**
 
 Knowledge without self-application is a proof against the knower, not for them. After studying the Quranic and scholarly foundations of anti-waste ethics, turning the lens inward is essential. Honest self-assessment (muhasabah) is a practice commended by Umar ibn al-Khattab: "Take account of yourselves before you are taken to account." Identifying specific areas of personal israf transforms theoretical learning into a concrete action plan for change.
@@ -341,6 +484,19 @@ Knowledge without self-application is a proof against the knower, not for them. 
 6. Be specific — "I waste water" is too vague; "I run the shower for 3 minutes before getting in" is actionable.
 7. Completion indicator: a written reflection with three clearly identified areas of israf and a concrete first step for each.` },
         { title: 'Share key findings with your household to build a collective anti-waste ethic', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** O children of Adam, eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (6:141)
+**Arabic:** كُلُوا مِن ثَمَرِهِ إِذَا أَثْمَرَ وَآتُوا حَقَّهُ يَوْمَ حَصَادِهِ ۖ وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat of its fruit when it yields and give its due on the day of its harvest. And be not excessive. Indeed, He does not like those who commit excess.
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.`,
           description: `**Why does this matter?**
 
 Environmental stewardship in a household is a collective endeavour — one person's conservation can be undone by another's waste. Sharing what you have learned about israf creates a shared vocabulary and shared conviction within the family. The Quran addresses communities, not just individuals, when it speaks of waste and moderation. Building a household ethic ensures that conservation becomes a family value rooted in deen, not a burden imposed by one person on others.
@@ -364,6 +520,15 @@ Environmental stewardship in a household is a collective endeavour — one perso
       description: 'You cannot improve what you do not measure. Recording 3-6 months of utility data creates a reliable baseline so that future conservation efforts can be measured against real numbers rather than guesswork.',
       subtasks: [
         { title: 'Collect the last 3-6 months of electricity and water bills', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+### Ayah (17:26-27)
+**Arabic:** وَآتِ ذَا الْقُرْبَىٰ حَقَّهُ وَالْمِسْكِينَ وَابْنَ السَّبِيلِ وَلَا تُبَذِّرْ تَبْذِيرًا
+**Translation:** And give the relative his right, and also the poor and the traveler, and do not spend wastefully.`,
           description: `**Why does this matter?**
 
 Historical bills are the raw data upon which all meaningful conservation planning is built. Without at least three months of data, seasonal variations and one-off events distort your understanding of actual consumption. Gathering this data is an act of itqan (excellence through diligence) — the khalifah who takes stewardship seriously begins with accurate knowledge of the resources flowing through their household.
@@ -380,6 +545,12 @@ Historical bills are the raw data upon which all meaningful conservation plannin
 6. Organise the bills chronologically so patterns across months are visible.
 7. Completion indicator: you have consumption and cost data for at least 3 consecutive months for both electricity and water, organised and ready for analysis.` },
         { title: 'Create a simple spreadsheet or log tracking kWh and litres per month', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "Allah does not look at your forms and your wealth, but He looks at your hearts and your deeds." Accountability before Allah includes how one manages the resources entrusted to them.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A structured tracking system turns scattered bills into actionable intelligence. When consumption data is organised in a single view, trends, anomalies, and the impact of conservation measures become immediately visible. This is the practical application of the Islamic principle that responsible stewardship (amanah) requires systematic attention — you cannot guard what you do not track.
@@ -396,6 +567,12 @@ A structured tracking system turns scattered bills into actionable intelligence.
 6. Save the file in a location you will return to monthly — set a recurring calendar reminder to update it.
 7. Completion indicator: a functioning log with all historical data entered and a clear structure for ongoing monthly updates.` },
         { title: 'Calculate average monthly cost and consumption for each utility', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (25:67)
+**Arabic:** والَّذينَ إِذا أنفَقوا لم يسرفوا ولم يقتروا وكانَ بينَ ذلكَ قواما
+**Translation:** And those who, when they spend, are neither extravagant nor miserly, but hold a just balance between those extremes.`,
           description: `**Why does this matter?**
 
 Averages provide the baseline against which all future reduction targets are set. Knowing that your household uses, say, 350 kWh of electricity and 12,000 litres of water per month gives you concrete numbers to work with — not vague impressions. In the maqasid framework, hifz al-mal (wealth preservation) and hifz al-bi\`ah (environmental preservation) both depend on quantified understanding, because you cannot set meaningful targets without knowing your starting point.
@@ -412,6 +589,12 @@ Averages provide the baseline against which all future reduction targets are set
 6. Record the averages prominently in your tracking log as the official baseline.
 7. Completion indicator: documented average monthly consumption and cost for both electricity and water, with seasonal breakdown if data permits.` },
         { title: 'Identify the highest-consumption months and investigate the reasons', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (6:141)
+**Arabic:** ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** And do not be excessive. Indeed, He does not love those who commit excess.`,
           description: `**Why does this matter?**
 
 Peak consumption months reveal where the largest opportunities for reduction lie. A summer spike may indicate air conditioning inefficiency; a winter spike may point to heating waste. Investigating the causes behind the numbers transforms raw data into understanding, and understanding into targeted action. The Prophetic method was always to address root causes rather than symptoms — this diagnostic step follows that sunnah of thoughtful problem-solving.
@@ -428,6 +611,21 @@ Peak consumption months reveal where the largest opportunities for reduction lie
 6. Document the likely cause of each peak month next to its entry in your tracking log.
 7. Completion indicator: every peak month has a documented explanation, and you have identified at least two specific areas where targeted reduction can address the highest consumption.` },
         { title: 'Set a specific percentage reduction goal for the next quarter', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A goal without a number is a wish. Setting a specific, time-bound reduction target — for example, 15% less electricity and 20% less water over the next three months — creates accountability and makes progress measurable. This reflects the Islamic value of \`azm (firm resolve) — not vague intention, but decisive commitment backed by a plan. The target also provides a shared objective for the household, transforming individual habits into collective effort.
@@ -453,6 +651,15 @@ A goal without a number is a wish. Setting a specific, time-bound reduction targ
       description: 'LED bulbs use up to 80% less energy and last 15-25 times longer than incandescent bulbs. This single change can meaningfully reduce your electricity footprint and is one of the highest-return environmental investments for any household.',
       subtasks: [
         { title: 'Inventory all light fixtures and note bulb types and wattages', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils.
+
+### Ayah (15:19)
+**Arabic:** وَالْأَرْضَ مَدَدْنَاهَا وَأَلْقَيْنَا فِيهَا رَوَاسِيَ وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ
+**Translation:** And the earth - We have spread it and cast therein firmly set mountains and caused to grow therein [something] of every well-balanced thing.`,
           description: `**Why does this matter?**
 
 An accurate inventory prevents buying the wrong replacements and ensures no fixture is overlooked. Many households have a mix of bulb types — incandescent, halogen, CFL, and LED — scattered across dozens of fixtures. Knowing exactly what you have is the foundation for a systematic upgrade. This methodical approach reflects itqan (excellence in execution), ensuring that your investment in energy-efficient lighting delivers maximum impact.
@@ -469,6 +676,12 @@ An accurate inventory prevents buying the wrong replacements and ensures no fixt
 6. Record the information in a simple list or spreadsheet.
 7. Completion indicator: a complete written inventory of every light fixture in the home with bulb type, wattage, and base size documented.` },
         { title: 'Purchase LED replacements with equivalent lumens and appropriate colour temperature', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (17:27)
+**Arabic:** إنَّ المُبَذِّرينَ كانوا إخوانَ الشَّياطين
+**Translation:** Indeed, the wasteful are brothers of the devils, and ever has Satan been to his Lord ungrateful.`,
           description: `**Why does this matter?**
 
 Choosing the right LED is about more than wattage — lumens determine brightness, and colour temperature determines the quality of light in each space. Buying by wattage alone (a common mistake) can result in rooms that are too dim or too harsh, leading to dissatisfaction and a temptation to revert. Getting this right the first time avoids waste of money and materials, honouring the principle of hifz al-mal alongside hifz al-bi\`ah.
@@ -485,6 +698,17 @@ Choosing the right LED is about more than wattage — lumens determine brightnes
 6. Consider buying a few extra bulbs of each type to have on hand for future replacements.
 7. Completion indicator: all required LED bulbs are purchased, matched to the inventory by lumens, colour temperature, and base size.` },
         { title: 'Replace all incandescent and CFL bulbs room by room', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** O children of Adam, eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2346
+The Prophet (peace be upon him) said: "Be in this world as if you were a stranger or a traveler."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 This is the execution step where planning converts to real energy savings. Each incandescent bulb replaced with an LED immediately reduces that fixture's energy consumption by 75-80%. Doing this systematically room by room ensures nothing is missed and lets you experience the light quality of each new LED in context, making adjustments before moving on. The cumulative effect across the home is one of the most impactful single actions in household energy conservation.
@@ -501,6 +725,12 @@ This is the execution step where planning converts to real energy savings. Each 
 6. Place all removed bulbs in a box, keeping incandescent and CFL bulbs separated for proper disposal.
 7. Completion indicator: every non-LED bulb in the home has been replaced, all new LEDs are working correctly, and old bulbs are boxed for disposal.` },
         { title: 'Dispose of old bulbs properly — especially CFLs which contain mercury', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sunan Ibn Majah 3245
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, except that it is regarded as charity for him." Proper disposal prevents harm to creation.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Improper disposal of CFL bulbs releases mercury — a toxic heavy metal — into landfill and eventually into soil and water. Islam prohibits causing harm (la darar wa la dirar), and improper disposal of hazardous materials is a clear violation of this principle. Even incandescent bulbs should be disposed of responsibly to avoid glass hazards. Completing the lifecycle of old bulbs with proper disposal is the final act of responsible resource management.
@@ -517,6 +747,12 @@ Improper disposal of CFL bulbs releases mercury — a toxic heavy metal — into
 6. If a CFL breaks at home: ventilate the room, avoid vacuuming (which spreads mercury vapour), and clean up with damp paper towels following EPA or local guidelines.
 7. Completion indicator: all old bulbs are properly disposed of through appropriate channels, with no hazardous waste in general rubbish.` },
         { title: 'Compare next month\'s electricity bill to baseline to measure savings', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (25:67)
+**Arabic:** والَّذينَ إِذا أنفَقوا لم يسرفوا ولم يقتروا وكانَ بينَ ذلكَ قواما
+**Translation:** And those who, when they spend, are neither extravagant nor miserly, but hold a just balance between those extremes.`,
           description: `**Why does this matter?**
 
 Measuring the actual impact of the LED upgrade closes the feedback loop between action and result. Seeing a concrete reduction in kWh and cost validates the effort and motivates further conservation measures. It also provides data for calculating the payback period of the LED investment. This verification step embodies the sunnah of measuring and confirming outcomes — the Prophet (peace be upon him) emphasised weighing and measuring accurately in all transactions.
@@ -540,6 +776,21 @@ Measuring the actual impact of the LED upgrade closes the feedback loop between 
       description: 'Aerators mix air into the water stream, reducing flow by 30-50% without noticeably affecting water pressure. This is a low-cost, high-impact upgrade that directly reduces water waste in line with the khalifah responsibility over natural resources.',
       subtasks: [
         { title: 'Measure existing flow rates at each tap and showerhead (litres per minute)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:10)
+**Arabic:** هُوَ الَّذِي أَنزَلَ مِنَ السَّمَاءِ مَاءً ۖ لَّكُم مِّنْهُ شَرَابٌ وَمِنْهُ شَجَرٌ فِيهِ تُسِيمُونَ
+**Translation:** It is He who sends down rain from the sky; from it is drink and from it is foliage in which you pasture [animals].
+
+### Ayah (15:19)
+**Arabic:** وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ
+**Translation:** And We caused to grow therein [something] of every well-balanced thing.
+
+**II. Sources from the Hadith**
+
+### Sunan an-Nasai 140
+The Prophet (peace be upon him) said regarding wudu: "Yes [there is extravagance], even if you are at a flowing river."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Measuring flow rates before installing aerators provides the before-and-after data needed to quantify your water savings. Without this baseline, you cannot know how effective the upgrade is. Many taps flow at 12-15 litres per minute — far more than needed for handwashing or dishwashing. Quantifying the excess makes the case for change undeniable and allows you to calculate the return on a modest investment in water-saving fittings.
@@ -556,6 +807,12 @@ Measuring flow rates before installing aerators provides the before-and-after da
 6. Record the flow rate for every tap and showerhead in the home, noting which are highest priority for aerators.
 7. Completion indicator: a documented flow rate (litres per minute) for every tap and showerhead, identifying those exceeding 6 L/min as upgrade candidates.` },
         { title: 'Purchase aerators and low-flow showerheads compatible with your fixtures', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sunan Abu Dawud 29
+The Prophet (peace be upon him) passed by Sa‘d while he was performing wudu and said: "What is this extravagance?" He replied: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Compatibility is essential — the wrong thread size or fitting type wastes money and delays the project. Aerators come in different thread sizes (typically M22 or M24 for taps) and flow rates (typically 4-8 L/min). Low-flow showerheads vary by connection standard and spray pattern. Purchasing the correct fittings the first time respects the principle of hifz al-mal (not wasting money on returns) and ensures the upgrade proceeds smoothly.
@@ -572,6 +829,12 @@ Compatibility is essential — the wrong thread size or fitting type wastes mone
 6. Purchase from a plumbing supply store or reputable online retailer — bring your measurements.
 7. Completion indicator: compatible aerators for every tap and a low-flow showerhead for each shower, purchased and ready for installation.` },
         { title: 'Install the new fittings — most screw on without tools', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Indeed, He does not love those who commit excess.`,
           description: `**Why does this matter?**
 
 Installation is the step where investment converts to impact. Aerators and low-flow showerheads are designed for easy DIY installation, making this one of the most accessible environmental upgrades available. Every day between purchase and installation is a day of continued water waste. Prompt, careful installation demonstrates the Islamic value of \`azm — following through on intention with action without unnecessary delay.
@@ -588,6 +851,17 @@ Installation is the step where investment converts to impact. Aerators and low-f
 6. Turn on each tap and showerhead to check for leaks at the connection point. Tighten slightly if needed.
 7. Completion indicator: all new aerators and showerheads are installed, flowing smoothly, and leak-free.` },
         { title: 'Re-measure flow rates after installation to confirm reduction', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sunan an-Nasai 140
+The Prophet (peace be upon him) saw Sa'd performing wudu and said: "What is this extravagance?" Sa'd said: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Verification closes the loop — confirming that the installed fittings are actually delivering the expected water savings. Without re-measurement, a poorly seated aerator or an incorrectly rated showerhead could go unnoticed, leaving you with a false sense of accomplishment. This step reflects the Quranic emphasis on truthfulness and accuracy (sidq) — claiming a result without verifying it is contrary to the standard of honest self-assessment that Islam demands.
@@ -611,6 +885,15 @@ Verification closes the loop — confirming that the installed fittings are actu
       description: 'A clear, shared target turns individual conservation habits into a household commitment. The 20% target is ambitious but achievable for most homes through the combined effect of behavioural changes and efficiency upgrades already underway.',
       subtasks: [
         { title: 'Review your baseline data and calculate what a 20% reduction looks like in real numbers', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.`,
           description: `**Why does this matter?**
 
 A percentage target only becomes motivating when translated into tangible numbers — "save 60 kWh per month" is concrete and trackable in a way that "reduce by 20%" is not. Converting the target into real units (kWh, litres, and currency saved) makes the goal visceral and measurable. This step applies the principle of itqan (precision in execution) to goal-setting, ensuring the household knows exactly what success looks like.
@@ -627,6 +910,17 @@ A percentage target only becomes motivating when translated into tangible number
 6. Assess whether 20% is realistic given the conservation measures you have already implemented or planned — adjust up or down if needed.
 7. Completion indicator: a documented target expressed in percentage, absolute units, and cost savings, confirmed as realistic against your current action plan.` },
         { title: 'Hold a family meeting to agree on the target and discuss strategies', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A target imposed by one person rarely sticks — a target agreed upon by the household becomes a shared commitment. The family meeting transforms conservation from an individual project into a collective covenant, reflecting the Islamic principle of shura (consultation). When every family member understands the target and has contributed strategies, ownership is distributed and accountability becomes natural rather than forced.
@@ -643,6 +937,17 @@ A target imposed by one person rarely sticks — a target agreed upon by the hou
 6. Record the agreed strategies and assign ownership where appropriate (e.g., "Ahmad checks lights before bed," "Maryam monitors the tracking log").
 7. Completion indicator: a family meeting has occurred, the target is agreed upon by all members, and 3-5 specific strategies with ownership are documented.` },
         { title: 'Post the target visibly in the home (e.g., near the meter or on the fridge)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (25:67)
+**Arabic:** والَّذينَ إِذا أنفَقوا لم يسرفوا ولم يقتروا وكانَ بينَ ذلكَ قواما
+**Translation:** And those who, when they spend, are neither extravagant nor miserly, but hold a just balance between those extremes.
+
+
+### Sahih Bukhari 6416
+The Prophet (peace be upon him) said: "Be in this world as though you were a stranger or a traveler." This teaches moderation and not overconsumption of worldly resources.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Visibility sustains commitment. A target written in a notebook and forgotten cannot drive daily behaviour change. Posting the target in a high-traffic area — the kitchen, near the utility meter, or on the fridge — keeps it in everyone's awareness and creates a constant, gentle reminder. This is a practical application of the concept of tadhkirah (reminder) — the Quran itself describes its function as a reminder, affirming that humans need consistent prompts to stay on course.
@@ -659,6 +964,15 @@ Visibility sustains commitment. A target written in a notebook and forgotten can
 6. Update the poster at each monthly check-in with actual results alongside the target.
 7. Completion indicator: a visible, clear display of the reduction target posted in a common area, with space for monthly progress updates.` },
         { title: 'Set monthly check-ins to review progress and adjust habits', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (14:34)
+**Arabic:** وَإِن تَعُدُّوا نِعْمَتَ اللَّهِ لَا تُحْصُوهَا
+**Translation:** And if you should count the favors of Allah, you could not enumerate them.`,
           description: `**Why does this matter?**
 
 Goals without regular review decay into forgotten intentions. Monthly check-ins create a rhythm of accountability that keeps the conservation effort alive and allows course correction when strategies are not delivering expected results. This mirrors the Islamic practice of regular muhasabah (self-accounting) — a structured pause to assess whether actions align with intentions, applied here to the household's environmental commitments.
@@ -675,6 +989,15 @@ Goals without regular review decay into forgotten intentions. Monthly check-ins 
 6. Adjust strategies as needed — add new measures, drop ineffective ones, or recalibrate the target if circumstances have changed.
 7. Completion indicator: a recurring monthly check-in is scheduled, has occurred at least once, and produced documented results with any needed adjustments.` },
         { title: 'Celebrate milestones together when monthly targets are met', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (14:34)
+**Arabic:** وَآتَاكُم مِّن كُلِّ مَا سَأَلْتُمُوهُ ۚ وَإِن تَعُدُّوا نِعْمَتَ اللَّهِ لَا تُحْصُوهَا
+**Translation:** And He gave you from all you asked of Him. And if you should count the favors of Allah, you could not enumerate them.
+
+### Ayah (36:35)
+**Arabic:** لِيَأْكُلُوا مِن ثَمَرِهِ وَمَا عَمِلَتْهُ أَيْدِيهِمْ ۖ أَفَلَا يَشْكُرُونَ
+**Translation:** That they may eat of His fruit. And their hands have not produced it, so will they not be grateful?`,
           description: `**Why does this matter?**
 
 Celebration reinforces positive behaviour and builds intrinsic motivation for continued effort. When the household meets its conservation target, marking the achievement — even simply — creates positive associations with the effort. The Prophet (peace be upon him) expressed joy and gratitude for blessings, and celebrating milestones together strengthens family bonds around shared values. Conservation should feel like a source of collective pride, not a burden.
@@ -698,6 +1021,12 @@ Celebration reinforces positive behaviour and builds intrinsic motivation for co
       description: 'Many governments and utility companies offer rebates, grants, or interest-free financing for energy-efficient appliances, insulation, and solar installations. Taking advantage of these programmes makes larger environmental investments financially accessible.',
       subtasks: [
         { title: 'Search your local government website for energy efficiency rebate programmes', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:195)
+**Arabic:** وأنفقوا في سبيل اللّه ولا تلقوا بأيديكم إلى التهلكة
+**Translation:** And spend in the way of Allah and do not throw yourselves into destruction with your own hands.`,
           description: `**Why does this matter?**
 
 Many governments invest significantly in household energy efficiency through rebates, grants, and subsidised loans — but these programmes are often under-utilised because people do not know they exist. Accessing available financial support makes larger environmental investments (insulation, solar panels, efficient appliances) financially viable. Taking advantage of these programmes is consistent with hifz al-mal — it is wasteful to pay full price for an upgrade that is subsidised, just as it is wasteful to leave the subsidy unclaimed.
@@ -714,6 +1043,12 @@ Many governments invest significantly in household energy efficiency through reb
 6. Check whether any programmes cover energy audits — a professional audit may be subsidised and can identify further savings.
 7. Completion indicator: a documented list of all available government rebate programmes with eligibility criteria, amounts, and deadlines.` },
         { title: 'Contact your electricity provider about any available upgrade incentives', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:195)
+**Arabic:** وأنفقوا في سبيل اللّه ولا تلقوا بأيديكم إلى التهلكة
+**Translation:** And spend in the way of Allah and do not throw yourselves into destruction with your own hands.`,
           description: `**Why does this matter?**
 
 Electricity providers often offer their own incentive programmes — discounted smart thermostats, free energy audits, off-peak rate plans, or rebates on efficient appliances — separate from government programmes. These are funded by the utility's efficiency mandates and represent additional savings opportunities. Contacting your provider directly often reveals programmes not prominently advertised on their website, making this a high-value, low-effort research step.
@@ -730,6 +1065,15 @@ Electricity providers often offer their own incentive programmes — discounted 
 6. Note application deadlines, required documentation, and whether pre-approval is needed before purchasing upgrades.
 7. Completion indicator: a documented list of all utility provider incentive programmes with details on eligibility, amounts, and application processes.` },
         { title: 'Check for community or masjid-based group purchasing programmes', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (16:10-11)
+**Arabic:** هُوَ الَّذِي أَنزَلَ مِنَ السَّمَاءِ مَاءً ۖ لَّكُم مِّنْهُ شَرَابٌ وَمِنْهُ شَجَرٌ فِيهِ تُسِيمُونَ يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ
+**Translation:** It is He who sends down rain from the sky; from it is drink and from it is foliage. He causes to grow for you thereby the crops, olives, palm trees, grapevines, and of all the fruits.`,
           description: `**Why does this matter?**
 
 Group purchasing leverages collective buying power to secure bulk discounts on environmental upgrades — solar panels, insulation, and efficient appliances are all significantly cheaper when ordered for multiple households. Masjid-based or community programmes also create social accountability and shared learning, multiplying the impact beyond individual households. This is the Islamic principle of ta\`awun (mutual cooperation in righteousness) applied directly to environmental stewardship.
@@ -746,6 +1090,12 @@ Group purchasing leverages collective buying power to secure bulk discounts on e
 6. Share findings with your household and immediate community to gauge interest.
 7. Completion indicator: a documented assessment of available community purchasing programmes, or a proposal for starting one if none exist.` },
         { title: 'Create a shortlist of eligible upgrades ranked by cost-benefit ratio', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 1427
+The Prophet (peace be upon him) said: "The best charity is that which is given when one is self-sufficient. And the upper hand is better than the lower hand, and start giving first to your dependents." Wise stewardship of resources includes prudent planning.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Not all efficiency upgrades deliver equal value — some save more energy per dollar invested than others. Ranking eligible upgrades by cost-benefit ratio ensures that limited household budgets are directed toward the highest-impact improvements first. This is a direct application of the maqasid principle of prioritisation (tartib al-awlawiyyat): addressing the most impactful opportunities before the marginal ones, just as the Shariah prioritises necessities (daruriyyat) before needs (hajiyyat) before enhancements (tahsiniyyat).
@@ -771,6 +1121,12 @@ Not all efficiency upgrades deliver equal value — some save more energy per do
       description: 'Transitioning to renewable energy is one of the most significant steps a household can take toward environmental stewardship. Solar panels also provide long-term financial savings and energy independence, aligning the maqasid of wealth preservation with environmental care.',
       subtasks: [
         { title: 'Get quotes from at least three solar installers and compare system sizes and costs', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (24:35)
+**Arabic:** اللّهُ نورُ السَّماواتِ والأرض
+**Translation:** Allah is the Light of the heavens and the earth. The parable of His light is as a niche within which is a lamp. Harnessing the sun’s energy reflects reverence for Allah’s signs in creation.`,
           description: `**Why does this matter?**
 
 Solar installation is a significant investment, and prices, quality, and system designs vary considerably between providers. Getting multiple quotes protects against overpaying and ensures you understand the range of options available for your roof orientation, shading, and energy needs. The Islamic principle of fair dealing requires due diligence before major purchases — comparing at least three quotes is the minimum standard for informed decision-making in large transactions.
@@ -787,6 +1143,15 @@ Solar installation is a significant investment, and prices, quality, and system 
 6. Compare the quotes side by side in a simple table — price per watt, estimated generation, and warranty are the key comparison metrics.
 7. Completion indicator: three written quotes compared in a structured format, with a clear understanding of the differences in value, quality, and terms.` },
         { title: 'Research available government rebates, feed-in tariffs, and financing options', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (67:15)
+**Arabic:** هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ
+**Translation:** It is He who made the earth tame for you - so walk among its slopes and eat of His provision.
+
+### Ayah (16:10-11)
+**Arabic:** هُوَ الَّذِي أَنزَلَ مِنَ السَّمَاءِ مَاءً ۖ لَّكُم مِّنْهُ شَرَابٌ وَمِنْهُ شَجَرٌ فِيهِ تُسِيمُونَ
+**Translation:** It is He who sends down rain from the sky; from it is drink and from it is foliage in which you pasture [animals].`,
           description: `**Why does this matter?**
 
 Government incentives can reduce the upfront cost of solar by 20-40%, and feed-in tariffs provide ongoing revenue for excess energy exported to the grid. Understanding these financial mechanisms is critical for calculating the true cost and return of a solar investment. Ignoring available rebates is itself a form of israf — wasting money that could be saved and redirected toward other beneficial purposes, including sadaqah.
@@ -803,6 +1168,12 @@ Government incentives can reduce the upfront cost of solar by 20-40%, and feed-i
 6. Calculate the net cost after all rebates and the net annual benefit including feed-in tariff income.
 7. Completion indicator: a documented summary of all available financial incentives with amounts, eligibility, and a net cost calculation for the preferred solar system.` },
         { title: 'If solar is not feasible, research and switch to a certified renewable energy retailer', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (16:12)
+**Arabic:** وسَخَّرَ لَكُمُ اللَّيلَ والنَّهارَ والشَّمسَ والقَمَر
+**Translation:** And He has subjected for you the night and day and the sun and moon, and the stars are subjected by His command. Indeed, in that are signs for a people who reason.`,
           description: `**Why does this matter?**
 
 Not every home is suitable for rooftop solar — shading, orientation, rental status, or strata rules may prevent installation. Switching to a GreenPower-certified or equivalent renewable energy retailer is an alternative that ensures your electricity consumption is matched by renewable generation, even if the panels are not on your roof. This step ensures that the goal of clean energy is pursued regardless of physical constraints, maintaining the khalifah commitment to supporting renewable systems.
@@ -819,6 +1190,12 @@ Not every home is suitable for rooftop solar — shading, orientation, rental st
 6. Confirm the switch on your next bill and verify the renewable energy percentage.
 7. Completion indicator: a confirmed switch to a certified renewable energy plan, documented on a bill, or a clear record of why solar was not feasible with an alternative pathway identified.` },
         { title: 'Calculate expected payback period and annual carbon offset', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:164)
+**Arabic:** إنَّ في خلقِ السَّماواتِ والأرضِ واختلافِ اللَّيلِ والنَّهارِ
+**Translation:** Indeed, in the creation of the heavens and earth, and the alternation of the night and the day, and the ships which sail through the sea with that which benefits people... are signs for a people who use reason.`,
           description: `**Why does this matter?**
 
 The payback period tells you when your solar investment transitions from cost to pure savings, and the carbon offset quantifies your contribution to reducing greenhouse gas emissions. These numbers provide the rational basis for the decision and allow you to articulate the value to family members and community — both financially (hifz al-mal) and environmentally (hifz al-bi\`ah). A well-calculated payback also guards against overpaying or undersizing the system.
@@ -835,6 +1212,12 @@ The payback period tells you when your solar investment transitions from cost to
 6. Express the carbon offset in relatable terms — e.g., "equivalent to planting X trees" or "removing one car from the road."
 7. Completion indicator: a documented payback period (in years) and annual carbon offset (in kg or tonnes CO2), based on real quotes and local energy rates.` },
         { title: 'Schedule installation and arrange any required permits or inspections', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it." Acting for the earth’s benefit even at the end of time.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 This is the culmination of all the research and planning — the step where clean energy becomes a physical reality on your property. Proper permitting and scheduling ensures the installation is legally compliant, safely executed, and eligible for all rebates and feed-in tariffs. Rushing this step or skipping permits can void warranties, create safety hazards, and disqualify you from financial incentives. Completing it properly is the final act of diligence (itqan) in this major environmental investment.
@@ -858,6 +1241,12 @@ This is the culmination of all the research and planning — the step where clea
       description: 'Rainwater harvesting captures a free, clean resource that would otherwise run off into drains. Using collected rainwater for gardens, toilets, and laundry can reduce mains water consumption by 30-50%, embodying the khalifah principle of working with natural cycles rather than against them.',
       subtasks: [
         { title: 'Assess your roof area and local rainfall to estimate annual collection potential', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (23:18)
+**Arabic:** وأنزلنا منَ السَّماءِ ماءً بِقَدَرٍ فأسكَنّاهُ في الأرضِ وإنّا على ذهابِهِ لَقادِرون
+**Translation:** And We sent down rain from the sky in a measured amount and settled it in the earth. And indeed, We are able to take it away.`,
           description: `**Why does this matter?**
 
 The viability and sizing of a rainwater harvesting system depends entirely on two variables: your roof catchment area and your local annual rainfall. Together, these determine how much water you can realistically collect per year. Overestimating leads to an oversized, expensive tank that never fills; underestimating means missed collection capacity. This assessment grounds the project in data rather than assumption, reflecting the Islamic principle of planning with knowledge rather than guesswork.
@@ -874,6 +1263,12 @@ The viability and sizing of a rainwater harvesting system depends entirely on tw
 6. Compare this to your household's non-potable water needs (garden, toilets, laundry) to assess how much of the demand rainwater can meet.
 7. Completion indicator: a documented estimate of annual rainwater collection potential based on actual roof area and local rainfall data.` },
         { title: 'Choose an appropriate tank size and location (above-ground or underground)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (21:30)
+**Arabic:** وجعلنا منَ الماءِ كُلَّ شَيءٍ حَيّ
+**Translation:** And We made from water every living thing. Will they not then believe?`,
           description: `**Why does this matter?**
 
 Tank sizing and placement affect both the system's effectiveness and its integration with your property. A tank too small will overflow during heavy rain and run empty between showers; a tank too large wastes money and space. The location must balance gravity feed (for pressure), aesthetics, structural support, and proximity to the connection points. This decision is a balance of the practical and the prudent — hifz al-mal requires investing appropriately, not excessively.
@@ -890,6 +1285,15 @@ Tank sizing and placement affect both the system's effectiveness and its integra
 6. Consider a slimline tank if space is limited — these fit against walls and fences.
 7. Completion indicator: a specific tank size, type (above-ground or underground), and location selected based on collection estimates, space, budget, and local regulations.` },
         { title: 'Install guttering, first-flush diverters, and filtration as needed', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:10)
+**Arabic:** هُوَ الَّذِي أَنزَلَ مِنَ السَّمَاءِ مَاءً ۖ لَّكُم مِّنْهُ شَرَابٌ وَمِنْهُ شَجَرٌ فِيهِ تُسِيمُونَ
+**Translation:** It is He who sends down rain from the sky; from it is drink and from it is foliage in which you pasture [animals].
+
+### Ayah (27:60)
+**Arabic:** أَمَّنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ وَأَنزَلَ لَكُم مِّنَ السَّمَاءِ مَاءً فَأَنبَتْنَا بِهِ حَدَائِقَ ذَاتَ بَهْجَةٍ
+**Translation:** Is He [not best] who created the heavens and the earth and sent down for you rain from the sky, causing to grow thereby gardens of joyful beauty?`,
           description: `**Why does this matter?**
 
 The quality of collected rainwater depends on the infrastructure between the roof and the tank. First-flush diverters discard the initial flow of water that carries dust, bird droppings, and debris from the roof surface. Proper guttering channels water efficiently to the tank, and filtration removes leaf litter and particulates. Skipping these elements results in contaminated water that is unsuitable even for garden use, undermining the purpose of the system and violating the principle of taharah (purity) in water management.
@@ -906,6 +1310,12 @@ The quality of collected rainwater depends on the infrastructure between the roo
 6. Ensure all connections are sealed and the overflow outlet is directed to a safe drainage point away from foundations.
 7. Completion indicator: guttering is clean and functional, a first-flush diverter is installed, and appropriate filtration is in place at the tank inlet.` },
         { title: 'Connect the system to garden irrigation and/or toilet cisterns', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sunan Abu Dawud 29
+The Prophet (peace be upon him) prohibited wasting water even at a flowing river. Harvesting rainwater fulfils this Sunnah of conserving what Allah has provided.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A rainwater tank that is not connected to end uses is merely a storage vessel — the conservation benefit only materialises when collected rainwater displaces mains water in daily use. Garden irrigation and toilet flushing are the two highest-volume non-potable uses in most households, making them the ideal connection points. Successfully plumbing rainwater into these systems can reduce mains water consumption by 30-50%, embodying the khalifah principle of working with natural water cycles.
@@ -922,6 +1332,12 @@ A rainwater tank that is not connected to end uses is merely a storage vessel �
 6. Test all connections for leaks and verify that the system operates correctly under normal use conditions.
 7. Completion indicator: rainwater is actively supplying at least one non-potable use (garden or toilets), with proper backflow prevention and mains backup in place.` },
         { title: 'Track water savings monthly and compare to mains usage baseline', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (23:18)
+**Arabic:** وأنزلنا منَ السَّماءِ ماءً بِقَدَرٍ فأسكَنّاهُ في الأرضِ
+**Translation:** And We sent down rain from the sky in a measured amount and settled it in the earth. And indeed, We are able to take it away.`,
           description: `**Why does this matter?**
 
 Measuring the actual displacement of mains water by rainwater quantifies the return on your harvesting investment and provides ongoing motivation. Without tracking, the system becomes invisible — you lose awareness of how much it contributes and whether it is performing as expected. This measurement also allows you to calculate the financial payback of the system and identify any maintenance needs (e.g., a pump failure that goes unnoticed because mains backup silently takes over).
@@ -945,6 +1361,12 @@ Measuring the actual displacement of mains water by rainwater quantifies the ret
       description: 'Net-zero means your home generates as much clean energy as it consumes over a year. Documenting and sharing this journey creates a replicable model for other Muslim households and demonstrates that Islamic environmental stewardship is practical, not just aspirational.',
       subtasks: [
         { title: 'Calculate your total annual household carbon footprint (energy, transport, waste)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:30)
+**Arabic:** إِنّي جاعِلٌ في الأرضِ خليفةً
+**Translation:** Indeed, I will make upon the earth a khalifah (vicegerent). Humanity bears the trust of stewardship over the earth and its resources.`,
           description: `**Why does this matter?**
 
 A comprehensive carbon footprint calculation reveals the full scope of your household's environmental impact — not just electricity and water, but transport, food, waste, and consumption. Most people significantly underestimate their total footprint because they only consider direct energy use. As khalifah over the earth, honest accounting of your full impact is necessary before claiming net-zero status. This calculation also reveals which categories dominate your footprint, directing effort where it matters most.
@@ -961,6 +1383,12 @@ A comprehensive carbon footprint calculation reveals the full scope of your hous
 6. Sum all categories into a total annual footprint expressed in tonnes of CO2 equivalent (tCO2e).
 7. Completion indicator: a documented total annual carbon footprint broken down by category, identifying the top 2-3 contributors.` },
         { title: 'Identify remaining emission sources after efficiency and renewable upgrades', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (30:41)
+**Arabic:** ظهَرَ الفسادُ في البرِّ والبحرِ بما كسبت أيدي النّاس
+**Translation:** Corruption has appeared throughout the land and sea because of what the hands of people have earned, so He may let them taste part of what they have done that perhaps they will return.`,
           description: `**Why does this matter?**
 
 After implementing the efficiency measures and renewable energy upgrades from earlier tasks, some emissions will remain — from gas heating, petrol vehicles, waste, and embodied carbon in purchases. Identifying these residual sources is essential for planning the final steps to net-zero. This is the gap analysis between where your household is and where it needs to be. Clarity on the remaining gap prevents both complacency (thinking the job is done) and discouragement (feeling it is impossible).
@@ -977,6 +1405,12 @@ After implementing the efficiency measures and renewable energy upgrades from ea
 6. For unavoidable sources, these will need to be offset — note the total tonnes requiring offset.
 7. Completion indicator: a documented list of all remaining emission sources, categorised by whether they can be eliminated, reduced, or must be offset, with approximate tonnage for each.` },
         { title: 'Offset residual emissions through verified carbon offset programmes or tree planting', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it." Tree planting and carbon offsetting embody this prophetic spirit.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Even the most diligent household will have some residual emissions that cannot be eliminated through efficiency and renewables alone. Verified carbon offsets — whether through tree planting, methane capture, or renewable energy projects — balance these remaining emissions to achieve true net-zero. The key word is "verified" — unverified offsets may represent no real environmental benefit. In Islamic ethics, paying for a false offset would be a form of deception (ghishsh), so due diligence in selecting genuine programmes is essential.
@@ -993,6 +1427,15 @@ Even the most diligent household will have some residual emissions that cannot b
 6. Purchase offsets and retain certificates or receipts as documentation.
 7. Completion indicator: residual emissions are fully offset through verified programmes, with certificates or documentation retained, and the household can legitimately claim carbon-neutral or net-zero status.` },
         { title: 'Document the full journey — costs, savings, challenges, and lessons learned', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (57:7)
+**Arabic:** آمِنُوا بِاللَّهِ وَرَسُولِهِ وَأَنفِقُوا مِمَّا جَعَلَكُم مُّسْتَخْلَفِينَ فِيهِ
+**Translation:** Believe in Allah and His Messenger and spend out of that in which He has made you successive inheritors.
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.`,
           description: `**Why does this matter?**
 
 Your journey from wasteful baseline to net-zero is a case study of immense value — to your own future reference, to other Muslim households considering the same path, and to the broader community. Documenting the process with honesty — including the costs, the difficulties, the mistakes, and the unexpected benefits — creates a replicable model. The Prophet (peace be upon him) taught by example, and a well-documented journey becomes your way of teaching others what is practically possible in Islamic environmental stewardship.
@@ -1009,6 +1452,21 @@ Your journey from wasteful baseline to net-zero is a case study of immense value
 6. Add personal reflections: how the process changed your relationship with consumption, what your family learned, and how it deepened your understanding of khalifah responsibility.
 7. Completion indicator: a complete written document covering the full journey from baseline to net-zero, with financial data, environmental metrics, challenges, and personal reflections.` },
         { title: 'Share findings with your community, masjid, or online platforms as a case study', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ ۖ وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ ۖ إِنَّ اللَّهَ لَا يُحِبُّ الْمُفْسِدِينَ
+**Translation:** And do good as Allah has done good to you. And desire not corruption in the land. Indeed, Allah does not like corrupters.
+
+### Ayah (3:191)
+**Arabic:** الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا
+**Translation:** Who remember Allah while standing or sitting or [lying] on their sides and give thought to the creation of the heavens and the earth, [saying], "Our Lord, You did not create this aimlessly."
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Knowledge that remains private benefits only the knower. Sharing your net-zero journey with the ummah multiplies its impact exponentially — one household's documented experience can inspire and guide dozens of others. The Prophet (peace be upon him) said that the one who guides to good has the reward of the one who does it. Publishing your case study is an act of sadaqah jariyah (ongoing charity) — every household that follows your example adds to the reward, and the benefit compounds across generations.
@@ -1037,6 +1495,12 @@ Knowledge that remains private benefits only the knower. Sharing your net-zero j
       description: 'A clearly labelled recycling system removes the friction that causes recyclable materials to end up in landfill. Making recycling easy and visible for every household member is foundational to reducing waste as part of your environmental amanah.',
       subtasks: [
         { title: 'Research your local council\'s recycling categories and collection schedule', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith." Maintaining cleanliness through proper waste sorting and recycling is an expression of iman.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Recycling rules vary significantly between municipalities — what is recyclable in one area may contaminate the recycling stream in another. Placing the wrong materials in recycling bins can cause entire loads to be diverted to landfill, negating the effort entirely. As Muslims entrusted with amanah over the earth, we must ensure our recycling efforts are genuinely effective, not just performative. Understanding your local system is the essential first step.
@@ -1052,6 +1516,17 @@ Recycling rules vary significantly between municipalities — what is recyclable
 5. If anything is unclear, call the council hotline or visit a local recycling centre to ask questions directly.
 6. Save or print the guide and post it near your bin area for quick household reference.` },
         { title: 'Purchase or designate separate bins for each recyclable category', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Without dedicated, clearly distinct containers for each recycling stream, household members default to the path of least resistance — tossing everything into a single bin. The physical infrastructure of separate bins removes decision fatigue and makes correct sorting the easiest option. This is a practical application of the principle that the environment around us should facilitate good action, not hinder it — just as a well-designed wudu area facilitates proper purification.
@@ -1067,6 +1542,17 @@ Without dedicated, clearly distinct containers for each recycling stream, househ
 5. Place a small bin or bag in each high-waste-generation area (kitchen, home office, bathroom) to capture recyclables at the point of use.
 6. Ensure bins are sturdy, easy to clean, and have lids if needed to prevent odour or pest issues.` },
         { title: 'Label each bin clearly with text and/or visual icons', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Clear labelling bridges the gap between intention and action. Even when household members want to recycle correctly, ambiguity about which bin accepts which material leads to contamination or apathy. Labels serve as persistent reminders — a form of ongoing nasihah (sincere counsel) embedded in your environment. This is especially important for children, guests, and anyone unfamiliar with local recycling rules.
@@ -1082,6 +1568,17 @@ Clear labelling bridges the gap between intention and action. Even when househol
 5. Attach labels at eye level on the front of each bin where they are visible when approaching with waste in hand.
 6. Review and update labels if your council changes its accepted materials — recycling rules evolve over time.` },
         { title: 'Place bins in accessible locations (kitchen, garage, or utility area)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Behavioural research consistently shows that convenience is the strongest predictor of recycling compliance. If recycling bins are hidden in a garage while the general waste bin sits in the kitchen, the general waste bin will capture recyclable material by default. Strategic placement applies the Islamic principle of making the right action easy — removing barriers to good conduct (taysir) rather than relying solely on willpower.
@@ -1098,6 +1595,17 @@ Behavioural research consistently shows that convenience is the strongest predic
 6. Test the placement for a week — if you notice recyclables still ending up in general waste, adjust bin positions to be even more convenient.
 7. The benchmark: every household member should be able to reach the correct bin in under 10 seconds from their most common waste-generation spot.` },
         { title: 'Brief all household members on what goes in each bin', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A recycling system only works if every person in the household participates correctly. One uninformed family member can contaminate an entire recycling bin with a single wrong item. In Islam, the head of a household bears responsibility for guiding those under their care — the Prophet (peace be upon him) said "each of you is a shepherd and each is responsible for their flock." Briefing your household is an act of ra\'iyyah (responsible stewardship) over both your family and the environment.
@@ -1121,6 +1629,12 @@ A recycling system only works if every person in the household participates corr
       description: 'Toxic household waste contaminates soil and water when disposed of improperly. Islam prohibits causing harm (la darar wa la dirar), and improper chemical disposal harms both the environment and neighbouring communities who share these resources.',
       subtasks: [
         { title: 'Survey your home for old paint, solvents, batteries, expired medications, and e-waste', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing harmful objects from the road is an act of charity." Safely disposing of toxic materials extends this principle of removing harm from the community.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Many households unknowingly store hazardous materials — old paint tins in the garage, expired medications in the bathroom cabinet, dead batteries in junk drawers, and obsolete electronics in cupboards. These items contain heavy metals, corrosive chemicals, and toxic compounds that cause serious environmental harm when they enter landfill or waterways. The Islamic legal maxim "la darar wa la dirar" (no harm and no reciprocal harm) obligates us to identify and address these hidden sources of potential damage before they cause harm to others.
@@ -1137,6 +1651,12 @@ Many households unknowingly store hazardous materials — old paint tins in the 
 6. Look for other hazardous items: fluorescent light bulbs, pool chemicals, pesticides, herbicides, motor oil, and aerosol cans.
 7. Create a written inventory of everything found, noting quantities and condition, to plan your disposal trip efficiently.` },
         { title: 'Research local hazardous waste collection points or drop-off events', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:195)
+**Arabic:** ولا تلقوا بأيديكم إلى التهلكة
+**Translation:** And do not throw yourselves into destruction with your own hands. Improper disposal of hazardous waste endangers communities and the environment.`,
           description: `**Why does this matter?**
 
 Hazardous waste requires specialised handling — it cannot simply go in the household bin. Improper disposal contaminates soil and groundwater, harming communities downstream who depend on clean water. Knowing where and when to dispose of these materials is the bridge between identifying a problem and actually solving it. Many councils offer free periodic collection events specifically for household hazardous waste, making responsible disposal both accessible and cost-free.
@@ -1153,6 +1673,21 @@ Hazardous waste requires specialised handling — it cannot simply go in the hou
 6. Mark the next collection event or drop-off day on your calendar, and set a reminder one week beforehand to prepare your items.
 7. If no local options exist, contact your council directly to ask about alternatives or request a service.` },
         { title: 'Safely transport and dispose of all identified toxic items', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:205)
+**Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And when he goes away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.
+
+### Ayah (28:77)
+**Arabic:** وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ ۖ إِنَّ اللَّهَ لَا يُحِبُّ الْمُفْسِدِينَ
+**Translation:** And desire not corruption in the land. Indeed, Allah does not like corrupters.
+
+**II. Sources from the Hadith**
+
+### Sunan Abu Dawud 3692
+The Prophet (peace be upon him) forbade that which is harmful and that which causes harm (la darar wa la dirar).
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The actual act of transporting and handing over hazardous waste closes the loop on this obligation. Items sitting in your inventory list are still a risk — leaking chemicals, corroding batteries, and degrading electronics do not wait for convenient timing. In Islam, removing harm from the path is both a branch of faith and an act of sadaqah. Completing this step transforms knowledge into action, which is where real impact occurs.
@@ -1170,6 +1705,17 @@ The actual act of transporting and handing over hazardous waste closes the loop 
 7. Ask for a receipt or confirmation if available, and note what you disposed of for your household records.
 8. Completion indicator: zero hazardous items remaining in your home inventory from the initial survey.` },
         { title: 'Set up a small dedicated container for ongoing battery and e-waste collection', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ ۖ إِنَّ اللَّهَ لَا يُحِبُّ الْمُفْسِدِينَ
+**Translation:** And desire not corruption in the land. Indeed, Allah does not like corrupters.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Hazardous waste is not a one-time problem — batteries die, electronics become obsolete, and medications expire on an ongoing basis. Without a dedicated collection point, these items drift back into general waste bins out of convenience. Setting up a permanent collection container builds an ongoing system rather than relying on periodic clean-outs. This reflects the Islamic emphasis on istiqamah (consistency) — the Prophet (peace be upon him) said the most beloved deeds to Allah are those done consistently, even if small.
@@ -1193,6 +1739,17 @@ Hazardous waste is not a one-time problem — batteries die, electronics become 
       description: 'The Prophet (peace be upon him) said that removing a harmful object from the road is a branch of faith and an act of charity. This task extends that hadith into a regular practice of picking up litter and keeping shared spaces clean as an act of worship.',
       subtasks: [
         { title: 'Carry a small bag when walking to collect litter you encounter', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:205)
+**Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And when he goes away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing a harmful thing from the road is sadaqah (charity)."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) taught that removing a harmful object from the road is an act of charity (sadaqah). Carrying a bag transforms every walk — to the masjid, the shops, or around the neighbourhood — into an opportunity for ongoing reward. It shifts your mindset from passive observer to active caretaker. This simple preparation ensures you are always ready to act when you see litter, rather than walking past it with good intentions but no means to help.
@@ -1209,6 +1766,25 @@ The Prophet (peace be upon him) taught that removing a harmful object from the r
 6. If you encounter large or hazardous items (tyres, chemicals), report them to your local council rather than handling them yourself.
 7. Reflect on the hadith each time you act — this practice is worship, not mere housekeeping.` },
         { title: 'Commit to never discarding waste outside of a proper bin', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:222)
+**Arabic:** إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ
+**Translation:** God loves those who turn to Him, and He loves those who keep themselves clean.
+
+### Ayah (7:56)
+**Arabic:** وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا
+**Translation:** Do not corrupt the earth after it has been set right.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing harmful things from the road is an act of charity (sadaqah)."
+*(Grade: Sahih)*
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Before you can credibly remove litter from public spaces, you must ensure you are not contributing to the problem. Littering — even casually dropping a receipt or flicking a bottle cap — is a form of causing fasad (corruption) on earth. The Quran warns against those who spread corruption on earth and destroy crops and livestock (2:205). A personal commitment to zero littering is the moral foundation upon which all other clean-up efforts rest.
@@ -1224,6 +1800,21 @@ Before you can credibly remove litter from public spaces, you must ensure you ar
 5. Extend this to your vehicle: keep a small rubbish bag in the car and never discard anything from a car window.
 6. If you catch yourself about to litter out of habit, pause and correct — building taqwa (God-consciousness) in small actions trains it for larger ones.` },
         { title: 'Clean up the area around your home, street, or local masjid weekly', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:205)
+**Arabic:** وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And Allah does not like corruption.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing a harmful thing from the road is sadaqah (charity)."
+*(Grade: Sahih)*
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A clean environment around your home and masjid reflects the Islamic value of taharah (purity) extending beyond personal hygiene to communal spaces. The Prophet (peace be upon him) prohibited urinating in water sources and shade areas — places shared by the community. Regular weekly clean-ups prevent litter from accumulating into larger problems, protect local wildlife from ingesting waste, and visibly demonstrate that someone in this neighbourhood cares. It also beautifies the space, which benefits everyone who passes through.
@@ -1241,6 +1832,21 @@ A clean environment around your home and masjid reflects the Islamic value of ta
 7. If the masjid area is consistently littered, speak with the committee about installing additional bins or signage.
 8. Track your efforts for personal motivation — even a simple note of how many bags you filled each week shows cumulative impact.` },
         { title: 'Teach children the hadith and involve them in neighbourhood clean-ups', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ ۖ إِنَّ اللَّهَ لَا يُحِبُّ الْمُفْسِدِينَ
+**Translation:** And desire not corruption in the land. Indeed, Allah does not like corrupters.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing a harmful thing from the road is sadaqah (charity)."
+*(Grade: Sahih)*
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Children who learn environmental stewardship through Islamic teachings — not just secular environmentalism — develop a spiritual motivation that outlasts trends. Teaching them the hadith about removing harm from the road as sadaqah connects environmental action to their relationship with Allah. Involving them physically in clean-ups makes the lesson experiential rather than abstract, embedding the value in muscle memory and lived experience. These children become the next generation of khalifah (stewards) on earth.
@@ -1258,6 +1864,17 @@ Children who learn environmental stewardship through Islamic teachings — not j
 7. Let children share their experience with friends or at Islamic school to spread the practice.
 8. Benchmark: children independently pick up litter when they see it, without being prompted.` },
         { title: 'Encourage neighbours to participate — lead by example', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (3:191)
+**Arabic:** رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ
+**Translation:** Our Lord, You did not create this aimlessly; exalted are You.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing a harmful thing from the road is sadaqah (charity)."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Individual clean-up efforts are valuable but limited in scale and sustainability. When neighbours see you consistently cleaning shared spaces, it creates social proof — a visible demonstration that someone cares about the community. In Islam, enjoining good (amr bil ma\'ruf) is an obligation, and the most effective form is often leading by example rather than lecturing. A neighbourhood that collectively maintains its environment is healthier, safer, and more cohesive.
@@ -1304,6 +1921,21 @@ This foundational hadith (reported in Sahih Muslim) establishes cleanliness as n
 6. Consider how your current environmental practices align with the full scope of taharah as described by the scholars.
 7. Benchmark: you can explain to someone else why environmental cleanliness is a religious obligation, not just a social nicety, citing specific scholarly reasoning.` },
         { title: 'Read about the Prophet\'s prohibitions against polluting water sources and shade areas', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:205)
+**Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And when he goes away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.
+
+**II. Sources from the Hadith**
+
+### Sunan Abu Dawud 67
+The Prophet (peace be upon him) said: "Beware of the three acts that cause you to be cursed: relieving yourselves in shaded places, in a walkway, or in a water source."
+*(Grade: Hasan)*
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) specifically prohibited urinating in still water, defecating under shade trees, and contaminating shared pathways — these are among the earliest recorded environmental protection directives in human history. These ahadith demonstrate that Islam addressed pollution of shared resources fourteen centuries before modern environmentalism. Understanding these prohibitions reveals a comprehensive prophetic environmental ethic that protects commons — shared resources that belong to everyone and therefore require everyone's protection.
@@ -1342,6 +1974,12 @@ While the classical sources provide the foundation, contemporary Islamic scholar
 6. If available, attend or watch online lectures on Islamic environmental ethics from reputable Islamic institutions.
 7. Take notes on three key contemporary scholarly arguments that extend taharah beyond personal hygiene to environmental stewardship.` },
         { title: 'Write a personal reflection connecting taharah to your environmental responsibilities', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (74:4-5)
+**Arabic:** وَثِيابَكَ فَطَهِّرْ وَالرُّجْزَ فَاهْجُرْ
+**Translation:** And your garments purify. And uncleanliness avoid. Purity of one’s surroundings is a divine command linked to spiritual and physical well-being.`,
           description: `**Why does this matter?**
 
 Knowledge without personal integration remains theoretical. Writing a reflection forces you to synthesise what you have learned — from the hadith, classical commentaries, and contemporary scholarship — into a coherent personal understanding. This is the step where external knowledge becomes internal conviction (yaqin). A written reflection also serves as a reference point for your ongoing environmental journey, reminding you of the spiritual foundations underlying practical actions.
@@ -1366,6 +2004,21 @@ Knowledge without personal integration remains theoretical. Writing a reflection
       description: 'Roughly one-third of food produced globally is wasted. In Islam, food is a ni\'mah (blessing) and wasting it is a form of ingratitude and israf. Proper meal planning, storage, and composting address food waste at every stage.',
       subtasks: [
         { title: 'Plan weekly meals before grocery shopping to buy only what you need', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (6:141)
+**Arabic:** كُلُوا مِن ثَمَرِهِ إِذَا أَثْمَرَ وَآتُوا حَقَّهُ يَوْمَ حَصَادِهِ ۖ وَلَا تُسْرِفُوا
+**Translation:** Eat of its fruit when it yields and give its due on the day of its harvest. And be not excessive.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2380
+The Prophet (peace be upon him) said: "The son of Adam does not fill any vessel worse than his stomach. It is sufficient for the son of Adam to eat a few mouthfuls to keep him alive."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Impulse grocery shopping is one of the largest drivers of household food waste — buying without a plan leads to duplicate purchases, overbuying perishables, and ingredients that expire before they are used. The Quran explicitly warns against israf (wasteful excess): "Eat and drink, but do not be excessive — indeed, He does not love the excessive" (7:31). Meal planning is the most effective upstream intervention, preventing waste before it occurs rather than managing it after.
@@ -1383,6 +2036,12 @@ Impulse grocery shopping is one of the largest drivers of household food waste �
 7. Adjust the plan as the week progresses — if plans change, swap meals around rather than letting prepared ingredients go to waste.
 8. Benchmark: your grocery bill decreases and your bin shows noticeably less food waste within the first month.` },
         { title: 'Learn proper food storage techniques to extend freshness (fridge zones, airtight containers)', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sunan Ibn Majah 3322
+The Prophet (peace be upon him) said: "The son of Adam does not fill any vessel worse than his stomach. It is sufficient for the son of Adam to eat a few morsels to keep him alive." Preventing food waste begins with taking only what one needs.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Much food waste occurs not from overbuying but from improper storage — leafy greens wilting in two days instead of lasting a week, bread moulding because it was left in plastic on the counter, or herbs turning to slime in the fridge. Learning the science of food storage dramatically extends the usable life of your groceries. Each item saved from the bin is a ni'mah (blessing) preserved rather than squandered — a practical expression of shukr (gratitude) for the provision Allah has given.
@@ -1400,6 +2059,12 @@ Much food waste occurs not from overbuying but from improper storage — leafy g
 7. Wrap cheese in beeswax wraps or parchment paper rather than cling film to prevent sweating and mould.
 8. Label leftovers with the date before refrigerating so you know when they need to be consumed.` },
         { title: 'Implement a "first in, first out" system in your pantry and fridge', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا
+**Translation:** Eat and drink, but do not be excessive. A first-in-first-out system ensures food is consumed before it expires.`,
           description: `**Why does this matter?**
 
 Without a system, newer purchases get placed in front of older ones, and the older items get pushed to the back where they expire unnoticed. This is one of the most common and preventable causes of household food waste. The "first in, first out" (FIFO) principle — used in commercial kitchens and food service — ensures that the oldest items are always consumed first. Implementing this at home is a simple structural change that prevents the quiet, hidden waste of forgotten food — a form of israf that occurs through neglect rather than intention.
@@ -1416,6 +2081,12 @@ Without a system, newer purchases get placed in front of older ones, and the old
 6. Do a weekly 5-minute scan (before meal planning) to check for items that need to be used soon and incorporate them into the coming week's meals.
 7. Benchmark: you no longer discover expired items at the back of the fridge or pantry during clean-outs.` },
         { title: 'Use leftover ingredients creatively — soups, stir-fries, smoothies', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 5393
+The Prophet (peace be upon him) said: "The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight." Using leftovers creatively prevents waste and feeds more people.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Even with good planning, leftover ingredients accumulate — half an onion, a few wilting carrots, leftover rice, the end of a loaf. These remnants are still perfectly good food, and discarding them is both wasteful and ungrateful. The Prophet (peace be upon him) never wasted food and ate simply, using what was available. Learning to transform leftovers into meals is a skill that honours the ni'mah of food while reducing waste and saving money simultaneously.
@@ -1433,6 +2104,12 @@ Even with good planning, leftover ingredients accumulate — half an onion, a fe
 7. Search online for recipes based on specific leftover ingredients — "recipes with leftover [ingredient]" yields surprisingly creative options.
 8. Benchmark: your general waste bin contains almost no food items that were once edible.` },
         { title: 'Compost unavoidable food scraps (peels, cores, coffee grounds)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (6:141)
+**Arabic:** ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** And do not be excessive. Indeed, He does not love those who commit excess. Composting returns nutrients to the earth rather than wasting them.`,
           description: `**Why does this matter?**
 
 Even after planning, storing, and cooking creatively, some food waste is genuinely unavoidable — banana peels, onion skins, apple cores, coffee grounds, and eggshells. When these organic materials go to landfill, they decompose anaerobically and produce methane, a greenhouse gas roughly 80 times more potent than carbon dioxide over 20 years. Composting diverts this material from landfill and transforms it into nutrient-rich soil — turning waste into a resource. This reflects the Quranic principle that nothing in creation is without purpose (3:191).
@@ -1458,6 +2135,12 @@ Even after planning, storing, and cooking creatively, some food waste is genuine
       description: 'Single-use plastics persist in the environment for hundreds of years, harming wildlife and contaminating water. Switching to reusable alternatives is a practical expression of the khalifah principle — leaving the earth better than you found it.',
       subtasks: [
         { title: 'Audit your current single-use plastic consumption (bags, bottles, wraps, cutlery)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Single-use plastics are a form of israf — needless consumption.`,
           description: `**Why does this matter?**
 
 You cannot reduce what you have not measured. Most people significantly underestimate their single-use plastic consumption because it is habitual and invisible — a bag here, a straw there, cling wrap at every meal. An honest audit reveals the true scale of disposable plastic flowing through your household. This awareness is the necessary foundation for targeted reduction. The Quran commands: "Do not cause corruption on the earth after it has been set in order" (7:56) — and plastic pollution is one of the most visible forms of fasad in our time.
@@ -1474,6 +2157,15 @@ You cannot reduce what you have not measured. Most people significantly underest
 6. Record your findings — this becomes your baseline for measuring reduction progress.
 7. Repeat the audit in three months to measure improvement after implementing changes.` },
         { title: 'Purchase durable reusable alternatives for each identified category', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (30:41)
+**Arabic:** ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ
+**Translation:** Corruption has appeared throughout the land and sea by reason of what the hands of people have earned.`,
           description: `**Why does this matter?**
 
 The audit identified your main plastic consumption streams — now you need to replace the flow at its source. Purchasing quality reusable alternatives is an investment that pays for itself quickly in reduced purchasing of disposables and aligns with the Islamic principle of iqtisad (moderation and wise resource use). The key is durability: a reusable bag that tears after three uses is not a genuine solution. Choosing well-made alternatives ensures they actually replace hundreds or thousands of disposable items over their lifetime.
@@ -1491,6 +2183,17 @@ The audit identified your main plastic consumption streams — now you need to r
 7. Buy quality over quantity — one excellent reusable bottle is better than three cheap ones that leak or develop odours.
 8. Benchmark: within one month, every major single-use plastic category from your audit has a reusable replacement purchased and in regular use.` },
         { title: 'Keep reusable bags in your car, office bag, and by the front door', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2346
+The Prophet (peace be upon him) said: "Be in this world as if you were a stranger or a traveler."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The most common reason people revert to single-use bags is not lack of intention but lack of access — they forget their reusable bags at home. Strategic pre-positioning of bags in every location where you might need them eliminates the "I forgot" barrier entirely. This is a systems-thinking approach to behaviour change: rather than relying on memory (which fails under stress or distraction), you engineer your environment so the right option is always available. The Islamic concept of taking by the means (al-akhdh bil-asbab) applies here — you prepare the conditions for success.
@@ -1507,6 +2210,21 @@ The most common reason people revert to single-use bags is not lack of intention
 6. Consider attaching a foldable bag to your keychain so it literally cannot be forgotten.
 7. Benchmark: you have not accepted a single-use plastic bag from any shop for 30 consecutive days.` },
         { title: 'Carry a reusable water bottle and coffee cup daily', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink [as We have permitted] but do not be extravagant: God does not like extravagant people.
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** They are those who are neither wasteful nor niggardly when they spend, but keep to a just balance.
+
+**II. Sources from the Hadith**
+
+### Sunan Ibn Majah 425
+The Prophet (peace be upon him) passed by Sa'd while he was performing wudu and said: "What is this extravagance?" Sa'd replied: "Is there extravagance in wudu?" He said: "Yes, even if you are at a flowing river."
+*(Grade: Hasan)*`,
           description: `**Why does this matter?**
 
 Disposable water bottles and coffee cups are among the most ubiquitous forms of single-use waste. Plastic bottles take hundreds of years to decompose, and most disposable coffee cups are not recyclable due to their plastic lining — they go straight to landfill. Carrying a reusable bottle and cup eliminates this waste stream entirely while also saving significant money over time. Water is described in the Quran as the basis of all life (21:30) — honouring this ni'mah includes not polluting the earth with containers used for mere minutes.
@@ -1523,6 +2241,12 @@ Disposable water bottles and coffee cups are among the most ubiquitous forms of 
 6. If you frequently forget, pair the bottle with something you never forget: clip it to your bag, or place it on top of your car keys each night.
 7. Benchmark: you have not purchased a single-use water bottle or disposable coffee cup in 30 consecutive days.` },
         { title: 'Switch food storage from cling wrap to beeswax wraps or silicone lids', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (17:27)
+**Arabic:** إنَّ المُبَذِّرينَ كانوا إخوانَ الشَّياطين
+**Translation:** Indeed, the wasteful are brothers of the devils. Switching to reusable alternatives reflects the Islamic ethic of avoiding wastefulness.`,
           description: `**Why does this matter?**
 
 Cling wrap (plastic film) is one of the most insidious single-use plastics — it is used for minutes, cannot be recycled in most jurisdictions, and accumulates silently in landfill. An average household uses hundreds of metres of cling wrap per year. Beeswax wraps, silicone lids, and glass containers with fitted lids perform the same function — keeping food fresh — while being reusable for months or years. This switch is a direct, practical reduction in ongoing plastic consumption that requires only a one-time investment and a small habit adjustment.
@@ -1547,6 +2271,12 @@ Cling wrap (plastic film) is one of the most insidious single-use plastics — i
       description: 'Composting transforms organic waste into nutrient-rich soil, closing the loop between consumption and regeneration. It reduces methane emissions from landfill and produces a valuable resource for gardens — turning waste into provision, a reflection of divine resourcefulness.',
       subtasks: [
         { title: 'Choose a composting method appropriate to your space (bin, tumbler, worm farm, or bokashi)', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it." Composting nourishes the soil and supports the cycle of growth that the Prophet encouraged.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Not all composting methods suit all living situations — a large open compost bay works for a suburban house with a big yard, but would be impractical for an apartment. Choosing the right method for your space ensures the system is sustainable long-term rather than becoming a failed experiment that ends up abandoned. The diversity of composting options means that virtually anyone — from apartment dwellers to homesteaders — can divert organic waste from landfill. Understanding each method's requirements upfront prevents wasted money and frustration.
@@ -1564,6 +2294,12 @@ Not all composting methods suit all living situations — a large open compost b
 7. Choose the method that matches your space, lifestyle, and the volume of organic waste your household generates.
 8. Benchmark: you have selected a method and can explain why it suits your specific situation.` },
         { title: 'Set up the system in a suitable outdoor or balcony location', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (26:7)
+**Arabic:** أَوَلَمْ يَرَوْا إِلَى الأَرْضِ كَمْ أَنبَتْنا فيها مِن كُلِّ زَوْجٍ كَريمٍ
+**Translation:** Do they not look at the earth — how many We have produced therein from every noble kind? Supporting soil life through composting honours this divine system of growth.`,
           description: `**Why does this matter?**
 
 Proper placement of your composting system significantly affects its success. Too much sun dries out the compost and kills beneficial organisms; too much shade slows decomposition. Poor placement can also create odour or pest issues that make the system unsustainable for your household. Getting the setup right from the beginning prevents the common pattern of enthusiastic start followed by abandonment — which would mean wasted money and materials, a form of israf (waste) in its own right.
@@ -1581,6 +2317,15 @@ Proper placement of your composting system significantly affects its success. To
 7. If you live in a rental, ensure the system is portable and does not stain or damage the surface beneath it (use a tray under worm farms).
 8. Benchmark: the system is physically set up, stable, and ready to receive organic material.` },
         { title: 'Learn the correct green-to-brown ratio for healthy composting', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-34)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ
+**Translation:** And a sign for them is the dead earth. We have brought it to life and brought forth from it grain, and from it they eat. And We placed therein gardens of palm trees and grapevines.
+
+### Ayah (15:19)
+**Arabic:** وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ
+**Translation:** And We caused to grow therein [something] of every well-balanced thing.`,
           description: `**Why does this matter?**
 
 Composting is a biological process that requires the right balance of nitrogen-rich materials ("greens") and carbon-rich materials ("browns"). An imbalance causes the two most common composting problems: too many greens creates a wet, smelly, anaerobic mess; too many browns creates a dry pile that decomposes extremely slowly. Understanding this ratio is the single most important piece of composting knowledge — it is the difference between a thriving system that produces rich soil and an abandoned, foul-smelling bin. Like all natural systems, compost reflects divine balance (mizan) when its inputs are proportioned correctly.
@@ -1598,6 +2343,17 @@ Composting is a biological process that requires the right balance of nitrogen-r
 7. The compost should feel like a wrung-out sponge — moist but not dripping.
 8. Benchmark: your compost smells earthy (not foul), is warm in the centre, and shows visible decomposition within 2-4 weeks.` },
         { title: 'Keep a small kitchen caddy for daily scraps to transfer to the compost', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The kitchen is where most compostable waste is generated, but the compost system is usually outdoors or on a balcony. Without a convenient indoor collection point, the friction of walking outside for every apple core or onion peel leads to scraps going into the general waste bin instead. A kitchen caddy bridges this gap — it collects scraps throughout the day for a single transfer to the compost, making the habit effortless. Removing friction from righteous action is a recurring theme in Islamic guidance — the Prophet (peace be upon him) consistently made the good path the easy path.
@@ -1614,6 +2370,17 @@ The kitchen is where most compostable waste is generated, but the compost system
 6. Rinse the caddy with water and a splash of vinegar after emptying to keep it clean and odour-free.
 7. Make emptying the caddy part of your routine — pair it with an existing habit like taking out the bins or evening garden time.` },
         { title: 'Use finished compost in your garden or share with neighbours', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-35)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ ... لِيَأْكُلُوا مِن ثَمَرِهِ وَمَا عَمِلَتْهُ أَيْدِيهِمْ ۖ أَفَلَا يَشْكُرُونَ
+**Translation:** And a sign for them is the dead earth. We have brought it to life and brought forth from it grain ... That they may eat of His fruit. And their hands have not produced it, so will they not be grateful?
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as a charitable gift (sadaqah) for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Composting is a cycle, not a one-way disposal mechanism. The end product — rich, dark, crumbly compost — is a valuable soil amendment that feeds plants, improves soil structure, retains moisture, and reduces the need for synthetic fertilisers. Using your compost completes the loop from kitchen waste to garden nourishment to food production. If you do not garden, sharing the compost with neighbours or a community garden ensures it serves its purpose and builds community. This mirrors the Prophetic encouragement to plant and cultivate — "If the Hour begins while you have a palm seedling in your hand, plant it."
@@ -1638,6 +2405,15 @@ Composting is a cycle, not a one-way disposal mechanism. The end product — ric
       description: 'Overconsumption is a root cause of waste. The Islamic principle of iqtisad (moderation in spending) encourages purchasing fewer, higher-quality items that last longer — reducing waste, saving money, and breaking the cycle of disposable culture.',
       subtasks: [
         { title: 'Before any non-essential purchase, apply a 48-hour waiting period to test genuine need', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+### Ayah (17:26-27)
+**Arabic:** وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ
+**Translation:** And do not spend wastefully. Indeed, the wasteful are brothers of the devils.`,
           description: `**Why does this matter?**
 
 Impulse purchases are the engine of overconsumption and, ultimately, waste. Marketing is designed to create urgency — "limited time," "only 3 left," "sale ends tonight" — all of which bypass rational evaluation. A 48-hour waiting period breaks this cycle by introducing space between desire and action. The Quran describes the believers as those who spend "neither extravagantly nor miserly, but hold a just balance between those extremes" (25:67). This waiting period is a practical tool for achieving that balance — if the desire persists after 48 hours, it may be a genuine need; if it fades, it was mere impulse.
@@ -1654,6 +2430,12 @@ Impulse purchases are the engine of overconsumption and, ultimately, waste. Mark
 6. For items that survive the waiting period, proceed with the purchase knowing it is a considered decision, not an impulse.
 7. Benchmark: at least 50% of items on your waiting list are removed without purchase within the first month of practicing this habit.` },
         { title: 'Research product durability and repairability before buying', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (25:67)
+**Arabic:** والَّذينَ إِذا أنفَقوا لم يسرفوا ولم يقتروا وكانَ بينَ ذلكَ قواما
+**Translation:** And those who, when they spend, are neither extravagant nor miserly, but hold a just balance between those extremes.`,
           description: `**Why does this matter?**
 
 A cheap appliance that breaks after one year generates waste and requires replacement — costing more in the long run than a quality item that lasts a decade. Modern "planned obsolescence" — designing products to fail — is a systemic driver of waste that consumers can resist through informed purchasing. Researching durability and repairability before buying is an act of iqtisad (wise resource stewardship) that reduces both your environmental footprint and your lifetime spending. It is also a form of resistance against an economic system built on disposability.
@@ -1671,6 +2453,12 @@ A cheap appliance that breaks after one year generates waste and requires replac
 7. Consider the total cost of ownership: a \$200 blender that lasts 10 years costs less per year than a \$50 blender replaced every 18 months.
 8. Benchmark: your next three significant purchases are informed by durability and repairability research, not just price and features.` },
         { title: 'Choose items with longer warranties and available spare parts', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 6416
+The Prophet (peace be upon him) said: "Be in this world as though you were a stranger or a traveler." A traveler does not accumulate needlessly — buying durable, repairable goods aligns with this prophetic counsel.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A manufacturer willing to offer a long warranty is signalling confidence in their product's durability — it is a market-based indicator of quality. Products with available spare parts are designed to be maintained and repaired rather than replaced, directly opposing the disposable consumption model. Choosing these products channels your purchasing power toward manufacturers who build things to last, rewarding responsible production and reducing the volume of broken goods flowing to landfill. This aligns with the khalifah principle — stewards preserve and maintain, they do not consume and discard.
@@ -1687,6 +2475,17 @@ A manufacturer willing to offer a long warranty is signalling confidence in thei
 6. For major appliances, consider extended warranty options if the manufacturer's base warranty is short — compare the cost against the replacement cost.
 7. When a product fails, attempt repair before replacement — check if the part is available and whether the repair is within your capability or a local repair shop's.` },
         { title: 'Track your purchases for one month to identify patterns of impulse buying', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2346
+The Prophet (peace be upon him) said: "Be in this world as if you were a stranger or a traveler."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Self-awareness is the prerequisite for change. Most people significantly underestimate how much they buy on impulse because individual purchases feel small and forgettable. Tracking every purchase for a full month creates an undeniable, objective record that reveals patterns: the late-night online orders, the "just browsing" store visits that end in bags, the duplicate items bought because you forgot you already owned one. This data empowers you to identify specific triggers and habits driving overconsumption — the first step toward the Quranic iqtisad (balanced spending) described in Surah al-Furqan.
@@ -1711,6 +2510,21 @@ Self-awareness is the prerequisite for change. Most people significantly underes
       description: 'Items you no longer need may still have years of useful life for someone else. Donating clothes, furniture, electronics, and household items extends their lifespan and benefits those in need — combining waste reduction with sadaqah.',
       subtasks: [
         { title: 'Sort through belongings room by room and set aside items in good condition you no longer use', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ ۚ وَمَن يُوقَ شُحَّ نَفْسِهِ فَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ
+**Translation:** They give [them] preference over themselves, even though they are in privation. And whoever is protected from the stinginess of his soul - it is those who will be the successful.
+
+### Ayah (2:267)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ
+**Translation:** O you who have believed, spend from the good things which you have earned.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 1410
+The Prophet (peace be upon him) said: "Every day two angels come down from Heaven and one of them says, 'O Allah! Compensate every person who spends in Your cause,' and the other says, 'O Allah! Destroy every miser.'"
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Most households contain a significant volume of items that are in perfectly good condition but no longer used — clothes that do not fit, kitchen gadgets replaced by better ones, books already read, toys outgrown. These items occupy space, create clutter, and serve no one while they sit in cupboards. Sorting them systematically room by room ensures nothing is overlooked and prevents the overwhelm of trying to declutter the entire house at once. In Islam, hoarding usable goods while others are in need is contrary to the spirit of generosity that the Prophet (peace be upon him) embodied.
@@ -1728,6 +2542,15 @@ Most households contain a significant volume of items that are in perfectly good
 7. Bag or box the donate pile immediately and label it clearly — items left in piles get reabsorbed into the household.
 8. Benchmark: every room in the house has been sorted, and all donate-quality items are bagged and ready for the next step.` },
         { title: 'Research local charities, op-shops, and community groups that accept donations', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ
+**Translation:** They give [them] preference over themselves, even though they are in privation.
+
+### Ayah (2:267)
+**Arabic:** أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ
+**Translation:** Spend from the good things which you have earned and from that which We have produced for you from the earth.`,
           description: `**Why does this matter?**
 
 Not all donation recipients accept all items, and some have specific needs or limitations. Researching where to donate ensures your items actually reach people who need them rather than being dumped by overwhelmed charities. Some organisations specialise in clothing, others in furniture, electronics, or household goods. Matching your donations to the right recipient maximises their impact and respects the charity's capacity. This is part of ihsan (excellence) in giving — the Prophet (peace be upon him) said "Allah loves that when one of you does something, they do it with excellence."
@@ -1744,6 +2567,17 @@ Not all donation recipients accept all items, and some have specific needs or li
 6. Create a reference list of 3-5 donation options with their accepted items and contact details — keep this list for ongoing use.
 7. Benchmark: you have an actionable donation plan matching each category of items to a specific recipient.` },
         { title: 'List higher-value items on free community marketplaces or buy-nothing groups', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ
+**Translation:** They give [them] preference over themselves, even though they are in privation.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2566
+The Prophet (peace be upon him) said: "The upper hand is better than the lower hand. The upper hand is that of the giver and the lower hand is that of the beggar."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Some items — quality furniture, working electronics, sports equipment, musical instruments — have significant remaining value and utility. Simply dropping them at a charity shop may not connect them with the person who needs them most, and some charities cannot handle large or specialist items. Free community marketplaces and buy-nothing groups create direct connections between givers and receivers, ensuring items go to people who specifically want and will use them. This reduces the likelihood of items being discarded downstream and extends their useful life as far as possible.
@@ -1760,6 +2594,17 @@ Some items — quality furniture, working electronics, sports equipment, musical
 6. Set a deadline: if an item has not been claimed within 2 weeks, donate it to a charity shop rather than letting it linger.
 7. Benchmark: all higher-value unwanted items are either claimed by someone who will use them or donated within 2-3 weeks.` },
         { title: 'Schedule a regular seasonal declutter to prevent accumulation', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 2199
+The Prophet (peace be upon him) said: "Give gifts and you will love one another." Donating usable items strengthens community bonds and prevents waste.
+*(Grade: Sahih)*
+
+
+### Ayah (2:267)
+**Arabic:** يا أيّها الَّذينَ آمنوا أنفقوا مِن طَيِّباتِ ما كَسَبتم
+**Translation:** O you who have believed, spend from the good things which you have earned.`,
           description: `**Why does this matter?**
 
 A one-time declutter is valuable but insufficient — possessions accumulate continuously through gifts, purchases, and the natural flow of household goods. Without a regular rhythm of review and release, clutter returns within months. Scheduling a seasonal declutter (four times per year) prevents the problem from becoming overwhelming and maintains the clarity and order you established in the initial sort. The Prophet (peace be upon him) lived with few possessions and valued simplicity — regular decluttering is a practical path toward that Prophetic simplicity in a consumer culture that constantly pushes in the opposite direction.
@@ -1786,6 +2631,15 @@ A one-time declutter is valuable but insufficient — possessions accumulate con
       description: 'Near-zero waste means diverting 90%+ of household waste from landfill through reduction, reuse, recycling, and composting. Measuring your actual waste output creates accountability and reveals where the last stubborn waste streams originate.',
       subtasks: [
         { title: 'Weigh your landfill-bound waste weekly for a full month to establish a baseline', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (15:19)
+**Arabic:** وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ
+**Translation:** And We caused to grow therein [something] of every well-balanced thing.`,
           description: `**Why does this matter?**
 
 You cannot manage what you do not measure. Most households have no idea how much waste they actually send to landfill — estimates are vague and consistently underestimate the reality. Weighing your landfill-bound waste (after diverting recycling and compost) for a full month provides an honest, quantified baseline. This number is your starting point for meaningful reduction. In Islamic accountability, the Quran teaches that every deed — large and small — is recorded (99:7-8). Applying that same precision to your waste reveals exactly where you stand and where you need to go.
@@ -1803,6 +2657,12 @@ You cannot manage what you do not measure. Most households have no idea how much
 7. Keep the weekly weighing habit going throughout the six-month tracking period to monitor the impact of your reduction efforts.
 8. Benchmark: you have a documented monthly waste baseline in kilograms, ready to serve as the reference point for reduction targets.` },
         { title: 'Categorise remaining waste to identify the largest non-recyclable streams', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:31)
+**Arabic:** وكُلوا واشربوا ولا تسرفوا إنّهُ لا يحبُّ المسرفين
+**Translation:** Eat and drink, but do not be excessive. Identifying and eliminating remaining waste streams is the practical application of avoiding israf.`,
           description: `**Why does this matter?**
 
 Once you have diverted recyclables and compostables, the remaining landfill waste reveals your household's "stubborn waste" — the streams that current systems do not address. Categorising this remainder identifies specifically what you are still sending to landfill and in what proportions. This targeted analysis prevents wasted effort on marginal categories and focuses your attention on the items creating the most waste. It is the environmental equivalent of a financial audit: you need to know where the money goes before you can budget better.
@@ -1820,6 +2680,15 @@ Once you have diverted recyclables and compostables, the remaining landfill wast
 7. This categorisation becomes your reduction roadmap — each category addressed further reduces your landfill output.
 8. Benchmark: you can name your top three landfill waste categories and their approximate contribution to your total waste.` },
         { title: 'Research alternatives or elimination strategies for each remaining waste category', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (30:41)
+**Arabic:** ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ لِيُذِيقَهُم بَعْضَ الَّذِي عَمِلُوا لَعَلَّهُمْ يَرْجِعُونَ
+**Translation:** Corruption has appeared throughout the land and sea by reason of what the hands of people have earned so He may let them taste part of the consequence of what they have done that perhaps they will return to righteousness.
+
+### Ayah (7:31)
+**Arabic:** وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Be not excessive. Indeed, He likes not those who commit excess.`,
           description: `**Why does this matter?**
 
 The categorisation step identified the problem areas — now you need solutions. Each waste category has a different pathway to reduction or elimination: some require product substitutions, others require behaviour changes, and some may require advocating for better infrastructure in your area. Researching specific alternatives for each category transforms a vague aspiration ("less waste") into a concrete action plan. This is the application of tafakkur (deep reflection) and tadbir (planning) to environmental stewardship — not just good intentions, but strategic action.
@@ -1837,6 +2706,11 @@ The categorisation step identified the problem areas — now you need solutions.
 7. Not every category will have an immediate solution — note these as "advocacy items" where you may need to push for better infrastructure or product options.
 8. Benchmark: each major waste category has either a specific reduction strategy or is flagged as requiring systemic change beyond individual action.` },
         { title: 'Set a monthly reduction target and track progress over six months', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.`,
           description: `**Why does this matter?**
 
 Targets create accountability and make abstract goals concrete. Without a specific reduction target, progress is vague and motivation fades. Setting a monthly target (e.g., reduce landfill waste by 10% per month from baseline) gives you a clear metric to work toward and celebrate or troubleshoot. Tracking over six months provides enough time to implement changes, measure their impact, and adjust strategies. The Quran speaks of those who strive and improve: "Indeed, Allah will not change the condition of a people until they change what is in themselves" (13:11). This structured approach is how you change your condition — measurably.
@@ -1854,6 +2728,17 @@ Targets create accountability and make abstract goals concrete. Without a specif
 7. Graph your progress visually — seeing the trend line decline is powerful motivation.
 8. Benchmark: at the six-month mark, your landfill waste is at least 50% below your original baseline, and you have a documented record of the journey.` },
         { title: 'Document your journey and share practical tips with your community', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ ۖ وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ
+**Translation:** And do good as Allah has done good to you. And desire not corruption in the land.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Your near-zero waste journey — including the struggles, failures, and creative solutions — is a valuable resource for others considering the same path. Documenting and sharing it multiplies your individual impact by inspiring and equipping others. In Islam, the one who guides to good receives the same reward as the one who acts on it (Sahih Muslim). By sharing your practical experience, you create a replicable model specifically grounded in an Islamic household context, demonstrating that environmental excellence and Islamic living reinforce rather than contradict each other.
@@ -1878,6 +2763,12 @@ Your near-zero waste journey — including the struggles, failures, and creative
       description: 'Individual household changes are important but limited in scale. Advocating for systemic waste management improvements in organisations you belong to multiplies your impact and models Islamic environmental leadership in communal spaces.',
       subtasks: [
         { title: 'Audit the current waste management practices at your workplace or masjid', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith." Ensuring proper waste management in communal spaces like the masjid is a collective responsibility of the ummah.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Before you can advocate for improvement, you need a clear picture of current practices — what waste is generated, how it is managed, and where the gaps are. An audit provides objective evidence rather than assumptions, which is essential for credibility when presenting recommendations. Many workplaces and masjids have well-intentioned but ineffective waste systems — recycling bins that are contaminated, no composting despite kitchen waste, or no system at all. Understanding the current state is the diagnostic step that enables targeted, effective advocacy.
@@ -1895,6 +2786,12 @@ Before you can advocate for improvement, you need a clear picture of current pra
 7. Photograph the current setup (with permission) to use in your proposal for visual impact.
 8. Benchmark: you have a written summary of current practices, identified gaps, and estimated waste volumes for the organisation.` },
         { title: 'Prepare a brief proposal with specific, actionable recommendations', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (5:2)
+**Arabic:** وتعاونوا على البرِّ والتَّقوى ولا تعاونوا على الإثمِ والعدوان
+**Translation:** And cooperate in righteousness and piety, but do not cooperate in sin and aggression. Advocating for environmental improvement is cooperation in righteousness.`,
           description: `**Why does this matter?**
 
 Vague suggestions ("we should recycle more") are easily dismissed. A specific, well-structured proposal with clear recommendations, estimated costs, and implementation steps is far more likely to gain approval and action. Preparing a proper proposal demonstrates respect for the decision-makers' time, shows you have thought the issue through, and makes it easy for them to say yes. The Prophet (peace be upon him) valued clarity and preparation — making your case well is part of ihsan (excellence) in advocacy.
@@ -1912,6 +2809,17 @@ Vague suggestions ("we should recycle more") are easily dismissed. A specific, w
 7. Anticipate objections (cost, inconvenience, "we've always done it this way") and address them briefly in the proposal.
 8. Benchmark: a professional, concise proposal document ready for presentation, with specific recommendations, costs, and a proposed timeline.` },
         { title: 'Present the proposal to management or the masjid committee', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:90)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ وَيَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ وَالْبَغْيِ
+**Translation:** Indeed, Allah orders justice and good conduct and giving to relatives and forbids immorality and bad conduct and oppression.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart - and that is the weakest of faith."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A proposal sitting in a drawer changes nothing. Presenting it to the people with authority to act is the step where advocacy becomes influence. This requires both courage and wisdom — the Islamic concept of amr bil ma'ruf (enjoining good) includes the responsibility to speak up when you see an opportunity for improvement, but the Prophetic method emphasises doing so with gentleness, respect, and good timing. A well-delivered presentation can shift an entire organisation's environmental practices, multiplying your impact far beyond your household.
@@ -1929,6 +2837,17 @@ A proposal sitting in a drawer changes nothing. Presenting it to the people with
 7. Offer to help implement the changes personally — this removes the burden from the committee and significantly increases the chance of approval.
 8. Benchmark: the proposal has been formally presented and a decision (or next step) has been communicated.` },
         { title: 'Volunteer to help implement the changes if approved', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (5:32)
+**Arabic:** وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا النَّاسَ جَمِيعًا
+**Translation:** And whoever saves one [life] - it is as if he had saved mankind entirely.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Proposals without implementation champions often stall — committees approve ideas but lack the capacity or motivation to execute them. By volunteering to lead implementation, you dramatically increase the probability that approved changes actually happen. This is the difference between being a critic and being a contributor. The Prophet (peace be upon him) did not merely instruct — he participated, working alongside his companions in building the masjid in Medina. Your willingness to do the work transforms advocacy from words into tangible impact.
@@ -1946,6 +2865,12 @@ Proposals without implementation champions often stall — committees approve id
 7. Recruit one or two other volunteers to share the load and ensure continuity if you are unavailable.
 8. Benchmark: all approved changes are physically implemented and operational within the agreed timeline.` },
         { title: 'Track and report results to demonstrate the impact of improvements', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith." Reporting results demonstrates active engagement against environmental harm.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Tracking results closes the loop on your advocacy — it proves that the changes worked, justifies the investment, and builds the case for further improvements. Without data, even successful initiatives fade from memory and may be reversed when new leadership arrives. A documented track record also inspires other organisations to adopt similar practices — your masjid's success story can motivate masjids across the city. In Islam, accountability (muhasabah) is a virtue — measuring outcomes is not bureaucratic overhead but responsible stewardship of the trust placed in you.
@@ -1970,6 +2895,12 @@ Tracking results closes the loop on your advocacy — it proves that the changes
       description: 'Organising or joining community clean-ups is both an environmental act and a form of dawah — demonstrating that Islamic values produce people who care for public spaces. It builds bridges with neighbours and makes faith visible through service.',
       subtasks: [
         { title: 'Identify a local park, beach, or public area in need of a clean-up', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1914
+The Prophet (peace be upon him) said: "Removing a harmful thing from the road is a branch of faith." Community clean-ups are a direct embodiment of this prophetic teaching.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Choosing the right location maximises both the environmental impact and the visibility of your effort. A heavily littered park near a masjid creates a natural connection between the Muslim community and local environmental care. A neglected beach or waterway addresses immediate ecological harm to marine life. The location also affects volunteer turnout — an accessible, well-known area attracts more participants than an obscure one. Strategic site selection is the difference between a feel-good gesture and a genuinely impactful intervention.
@@ -1986,6 +2917,12 @@ Choosing the right location maximises both the environmental impact and the visi
 6. Check if any permits or permissions are required for organised clean-up events in public spaces — your council can advise.
 7. Benchmark: you have selected a specific, accessible site with a genuine need and confirmed any permissions required.` },
         { title: 'Partner with your masjid, Islamic centre, or local council to organise the event', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (5:2)
+**Arabic:** وتعاونوا على البرِّ والتَّقوى
+**Translation:** And cooperate in righteousness and piety. Partnering with the masjid or local council for clean-ups exemplifies communal cooperation.`,
           description: `**Why does this matter?**
 
 Partnering with an established organisation transforms a personal initiative into a community event with broader reach, resources, and legitimacy. A masjid-endorsed clean-up carries the weight of communal backing and frames environmental action as a faith community priority. Partnering with the local council can provide practical support (free waste collection, loan of equipment, public liability coverage) and demonstrates interfaith or civic collaboration. These partnerships amplify your impact and create the institutional scaffolding for repeat events — making this a lasting initiative rather than a one-off.
@@ -2002,6 +2939,12 @@ Partnering with an established organisation transforms a personal initiative int
 6. Establish a primary contact person at each partner organisation for smooth communication.
 7. Benchmark: at least one partner organisation is formally committed and the event date is confirmed.` },
         { title: 'Promote the event through community channels and social media', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (3:104)
+**Arabic:** ولتكُن مِنكم أُمَّةٌ يدعونَ إلى الخيرِ ويأمرونَ بالمعروف
+**Translation:** And let there be among you a community inviting to good, enjoining what is right, and forbidding what is wrong. Promoting clean-up events is calling to what is good.`,
           description: `**Why does this matter?**
 
 A clean-up event with five volunteers has limited impact; the same event with fifty volunteers transforms a public space and generates community pride and media interest. Effective promotion determines turnout, and turnout determines both environmental impact and dawah reach. Promoting through multiple channels — masjid announcements, social media, school newsletters, community boards — ensures the widest possible audience. Each participant who joins becomes an ambassador for the idea that Muslims are people who care for their neighbourhoods.
@@ -2019,6 +2962,12 @@ A clean-up event with five volunteers has limited impact; the same event with fi
 7. Send reminder messages 3 days and 1 day before the event to maintain momentum.
 8. Benchmark: the event is promoted through at least three distinct channels, and you have a rough headcount of expected attendees.` },
         { title: 'Provide supplies (gloves, bags, hi-vis vests) and coordinate volunteers on the day', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 5670
+The Prophet (peace be upon him) said: "Make things easy and do not make them difficult, and give glad tidings and do not make people run away." Providing supplies and coordinating well ensures volunteers have a positive experience.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A well-organised event where volunteers arrive to find gloves, bags, and clear instructions feels professional and purposeful — it respects people's time and energy. A poorly organised event where people stand around uncertain and unequipped creates frustration and discourages future participation. Coordination on the day is the difference between a productive clean-up and a social gathering that happens to pick up some litter. The Prophet (peace be upon him) was meticulous in organising community efforts — he assigned roles, set clear objectives, and ensured people had what they needed.
@@ -2036,6 +2985,12 @@ A well-organised event where volunteers arrive to find gloves, bags, and clear i
 7. Set a clear end time and gathering point for counting bags and taking a group photo.
 8. Benchmark: all volunteers are equipped, briefed, and actively cleaning within 15 minutes of the event start time.` },
         { title: 'Document the effort with photos and a summary to inspire repeat events', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1017
+The Prophet (peace be upon him) said: "Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him." Documenting the effort inspires others and multiplies the reward.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Documentation transforms a single event into a lasting resource. Photos and a written summary serve multiple purposes: they provide evidence for partners and sponsors, create social media content that inspires others, give volunteers a sense of pride and accomplishment, and build the case for making this a regular event. In the age of social media, a well-documented clean-up can reach thousands of people who were not present — each viewer is a potential future participant or organiser in their own community. This is modern dawah through action, amplified by media.
@@ -2066,6 +3021,15 @@ Documentation transforms a single event into a lasting resource. Photos and a wr
       description: 'The Prophet (peace be upon him) prohibited the unnecessary cutting of trees even in warfare. As khalifah (vicegerents) on earth, Muslims have a duty to protect plant and animal life from needless destruction — this is a baseline obligation, not an optional virtue.',
       subtasks: [
         { title: 'Assess your property for any ongoing harm to trees, plants, or animal habitats', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:205)
+**Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And when he goes away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on [or within] the earth or bird that flies with its wings except [that they are] communities like you.`,
           description: `**Why does this matter?**
 
 Before you can stop harm, you must first see it. Many forms of environmental destruction are invisible to us because they are normalised — trimming healthy trees without reason, paving over soil, removing "weeds" that are actually native plants supporting pollinators. The Quran describes those who "spread corruption on earth and destroy crops and cattle" (2:205) as earning Allah's displeasure. An honest assessment of your own property is the first step toward fulfilling your role as khalifah.
@@ -2083,6 +3047,12 @@ Before you can stop harm, you must first see it. Many forms of environmental des
 
 **Benchmark:** You have a written assessment document listing every instance of ongoing harm on your property, with a priority ranking for remediation.` },
         { title: 'Stop using herbicides or pesticides that harm beneficial insects and soil life', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:205)
+**Arabic:** وإِذا تولّى سعى في الأرضِ لِيفسِدَ فيها ويهلِكَ الحرثَ والنَّسلَ واللّهُ لا يحبُّ الفساد
+**Translation:** And when he turns away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.`,
           description: `**Why does this matter?**
 
 Chemical herbicides and pesticides do not distinguish between harmful and beneficial organisms. They kill the bees that pollinate your food, the earthworms that build healthy soil, and the ladybirds that control aphids naturally. The Prophet (peace be upon him) forbade killing bees and ants (Abu Dawud), recognising that these creatures serve essential roles in Allah's creation. Using broad-spectrum chemicals in your garden is a form of unnecessary destruction — fasad — that violates the trust of environmental stewardship.
@@ -2100,6 +3070,21 @@ Chemical herbicides and pesticides do not distinguish between harmful and benefi
 
 **Benchmark:** Your property is entirely free of synthetic herbicides and broad-spectrum pesticides, and you have at least two biological alternatives in active use.` },
         { title: 'Protect nesting birds, beneficial insects, and small wildlife on your property', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on [or within] the earth or bird that flies with its wings except [that they are] communities like you.
+
+### Ayah (24:45)
+**Arabic:** وَاللَّهُ خَلَقَ كُلَّ دَابَّةٍ مِّن مَّاءٍ
+**Translation:** Allah has created every [living] creature from water.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 3318
+The Prophet (peace be upon him) forbade the killing of four creatures: ants, bees, hoopoes, and shrikes.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) told of a man who earned Allah's forgiveness for giving water to a thirsty dog (Bukhari and Muslim), and he rebuked a companion who had taken chicks from a nest, commanding him to return them (Abu Dawud). These narrations establish that actively protecting wildlife — not merely avoiding harm — is a praiseworthy act of mercy (rahma) that draws one closer to Allah. Your property, however small, can serve as a refuge for creatures that are losing habitat to urbanisation.
@@ -2117,6 +3102,17 @@ The Prophet (peace be upon him) told of a man who earned Allah's forgiveness for
 
 **Benchmark:** You have identified and protected at least two types of wildlife on your property and installed at least one nesting or habitat feature.` },
         { title: 'Educate household members — especially children — about respecting living things', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Children learn their relationship with nature primarily from their parents and household environment. If a child grows up pulling wings off insects, uprooting plants for fun, or seeing adults treat animals with indifference, they internalise that creation has no inherent value. The Prophet (peace be upon him) modelled gentleness toward all creatures and corrected children who mistreated animals. Building this ethic early creates lifelong stewards of the earth — fulfilling the khalifah responsibility across generations.
@@ -2173,6 +3169,21 @@ The Prophetic traditions on animal rights are extensive, specific, and legally b
 
 **Benchmark:** You can cite at least five specific hadith on animal rights from memory and explain the legal obligations they establish.` },
         { title: 'Ensure any pets or animals in your care are properly fed, sheltered, and treated with kindness', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2363
+The Prophet (peace be upon him) said: "A woman was punished because of a cat which she had imprisoned till it died. She entered the Fire because of it, for she neither gave it food nor drink, nor set it free to eat from the vermin of the earth."
+*(Grade: Sahih)*
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If someone kills a sparrow for nothing, it will cry out to Allah on the Day of Judgement saying: 'O Lord, so-and-so killed me in vain and did not kill me for any useful purpose.'"
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) said: "Whoever keeps a pet and does not feed it or water it, Allah will hold him accountable on the Day of Judgement" (Muslim). Keeping an animal in your care creates a binding obligation — you have taken on a trust (amanah) for a creature that cannot advocate for itself. Neglecting this trust is not merely a moral failing but a sin with consequences in the Hereafter.
@@ -2191,6 +3202,17 @@ The Prophet (peace be upon him) said: "Whoever keeps a pet and does not feed it 
 
 **Benchmark:** Every animal in your care has documented provision for food, water, shelter, health, and companionship that meets or exceeds its species-specific needs.` },
         { title: 'Avoid products tested on animals where alternatives exist', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2466
+The Prophet (peace be upon him) told of a man who was forgiven all his sins because he quenched the thirst of a dog that was panting and eating moist earth from severe thirst.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Animal testing for cosmetics, household products, and many personal care items inflicts suffering on creatures that have been granted rights by Allah. When cruelty-free alternatives exist — and for most consumer products, they do — choosing the tested product is choosing unnecessary harm. The Islamic principle of la darar wa la dirar (no harm and no reciprocal harm) applies not only between humans but extends to all sentient beings in matters where alternatives are available.
@@ -2208,6 +3230,21 @@ Animal testing for cosmetics, household products, and many personal care items i
 
 **Benchmark:** At least 80% of your regularly purchased personal care and household products carry recognised cruelty-free certification.` },
         { title: 'Report any cases of animal cruelty you witness to appropriate authorities', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:90)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ
+**Translation:** Indeed, Allah orders justice and good conduct.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If someone kills a sparrow for nothing, it will cry out to Allah on the Day of Judgement."
+*(Grade: Sahih)*
+
+### Sahih al-Bukhari 2363
+The Prophet (peace be upon him) told of a woman who was punished because she imprisoned a cat until it died, giving it neither food nor water.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith" (Muslim). Witnessing animal cruelty and remaining silent is a failure of this obligation. Reporting is a form of changing wrong "with your tongue" — using the systems available to you to protect creatures that cannot speak for themselves.
@@ -2263,6 +3300,17 @@ The Prophet (peace be upon him) said: "Allah shows mercy to those who show mercy
       description: 'The Prophet (peace be upon him) said: "If the Hour comes and one of you has a seedling in his hand, let him plant it." This hadith establishes planting as an act of faith and hope, regardless of whether you will personally benefit from the harvest.',
       subtasks: [
         { title: 'Research native trees and plants suited to your local climate and soil', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-35)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ ۝ وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ وَفَجَّرْنَا فِيهَا مِنَ الْعُيُونِ ۝ لِيَأْكُلُوا مِن ثَمَرِهِ وَمَا عَمِلَتْهُ أَيْدِيهِمْ ۖ أَفَلَا يَشْكُرُونَ
+**Translation:** There is a sign for them in the lifeless earth: We give it life and We produce grain from it for them to eat; We have put gardens of date palms and grapes in the earth, and We have made springs of water gush out of it so that they could eat its fruit. It was not their own hands that made all this. How can they not give thanks?
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "If the Hour (Day of Judgment) is about to be established and one of you is holding a palm shoot, let him plant it if he can before it happens."
+*(Grade: Sahih — reported via Musnad Ahmad with Sahih chain)*`,
           description: `**Why does this matter?**
 
 Planting a tree that is not suited to your local climate and soil is an act of good intention that often ends in failure — the tree dies, resources are wasted, and discouragement sets in. Native species are adapted to your rainfall, temperature range, and soil type, meaning they require less water, no fertiliser, and provide far greater ecological value to local wildlife. Choosing the right species is the difference between a lasting sadaqah jariyah and a well-meaning gesture that produces no fruit.
@@ -2280,6 +3328,17 @@ Planting a tree that is not suited to your local climate and soil is an act of g
 
 **Benchmark:** You have identified at least three native species suited to your specific location, soil type, and available space.` },
         { title: 'Choose a species that supports local wildlife (birds, pollinators, beneficial insects)', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it." Choosing species that support wildlife follows the prophetic emphasis on planting for life.
+*(Grade: Sahih)*
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Not all trees and plants are ecologically equal. A non-native ornamental may look beautiful but offer nothing to the birds, bees, and insects that depend on native species for food and shelter. The Quran tells us that Allah created every living creature from water (24:45) and that they form communities of their own (6:38). Choosing a species that feeds and shelters these communities transforms your planting from a personal act into a contribution to the entire local ecosystem.
@@ -2297,6 +3356,21 @@ Not all trees and plants are ecologically equal. A non-native ornamental may loo
 
 **Benchmark:** Your chosen species is verified as supporting at least one category of local wildlife (pollinators, birds, or beneficial insects) through a reliable ecological resource.` },
         { title: 'Plant the tree or plant in your garden, balcony, or a community space', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-34)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ
+**Translation:** And a sign for them is the dead earth. We have brought it to life and brought forth from it grain. And We placed therein gardens of palm trees and grapevines.
+
+**II. Sources from the Hadith**
+
+### Musnad Ahmad 12902
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it."
+*(Grade: Sahih)*
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed, and then a bird, or a person, or an animal eats from it, except that it is regarded as a charitable gift (sadaqah) for him" (Bukhari and Muslim). The act of physically putting a plant into the ground is the moment where intention becomes reality. Every creature that benefits from this planting — for years, decades, or centuries to come — adds to your scale of good deeds.
@@ -2315,6 +3389,17 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 
 **Benchmark:** Your tree or plant is in the ground (or container), properly mulched, and has received its first deep watering.` },
         { title: 'Water and care for it regularly — set a reminder if needed', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (13:4)
+**Arabic:** وَفِي الْأَرْضِ قِطَعٌ مُّتَجَاوِرَاتٌ وَجَنَّاتٌ مِّنْ أَعْنَابٍ وَزَرْعٌ وَنَخِيلٌ
+**Translation:** And within the land are neighboring plots and gardens of grapevines and crops and palm trees.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Planting without follow-up care is like making a promise and breaking it. A newly planted tree is vulnerable — its roots have not yet established, and it depends entirely on you for water during its first one to two growing seasons. The hadith "even if the Hour is near, plant it" implies not just the act of planting but the seriousness of intent behind it. Neglecting aftercare turns a sadaqah jariyah into a missed opportunity.
@@ -2424,6 +3509,19 @@ Classical Islamic scholarship addressed environmental stewardship through concep
 
 **Benchmark:** You have read at least one full-length work and can articulate the key arguments of Islamic environmental ethics in your own words.` },
         { title: 'Reflect on how khilafah applies to your specific context — home, work, community', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:30)
+**Arabic:** وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً
+**Translation:** And [mention] when your Lord said to the angels, "Indeed, I will make upon the earth a successive authority."
+
+### Ayah (11:61)
+**Arabic:** هُوَ أَنشَأَكُم مِّنَ الْأَرْضِ وَاسْتَعْمَرَكُمْ فِيهَا
+**Translation:** He has produced you from the earth and settled you in it.
+
+### Ayah (57:7)
+**Arabic:** آمِنُوا بِاللَّهِ وَرَسُولِهِ وَأَنفِقُوا مِمَّا جَعَلَكُم مُّسْتَخْلَفِينَ فِيهِ
+**Translation:** Believe in Allah and His Messenger and spend out of that in which He has made you successive inheritors.`,
           description: `**Why does this matter?**
 
 Khilafah as an abstract theological concept is intellectually satisfying but practically useless unless you translate it into the specific circumstances of your life. The earth you are responsible for is not the whole planet in the abstract — it is your home, your workplace, your street, your local park. The test of khilafah is whether you steward what is actually within your sphere of influence, not whether you hold correct opinions about global environmental policy.
@@ -2441,6 +3539,21 @@ Khilafah as an abstract theological concept is intellectually satisfying but pra
 
 **Benchmark:** You have a written khilafah audit covering home, work, and community, with at least three actionable improvements identified.` },
         { title: 'Discuss the concept with family or a study circle to deepen collective understanding', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:30)
+**Arabic:** وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً
+**Translation:** And [mention] when your Lord said to the angels, "Indeed, I will make upon the earth a successive authority."
+
+### Ayah (55:10)
+**Arabic:** وَالْأَرْضَ وَضَعَهَا لِلْأَنَامِ
+**Translation:** And the earth He laid [out] for the creatures.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Environmental stewardship cannot remain an individual pursuit — it must become a household and community ethic to create lasting change. The Quran addresses humanity collectively as khulafa (vicegerents), not individually. Discussion deepens understanding: explaining a concept forces you to clarify your own thinking, and hearing others' perspectives reveals applications you may not have considered. A family or study circle that understands khilafah together will hold each other accountable.
@@ -2465,6 +3578,15 @@ Environmental stewardship cannot remain an individual pursuit — it must become
       description: 'The illegal wildlife trade drives species toward extinction and violates the Islamic principle that every creature has its own community and purpose (Quran 6:38). Refusing to purchase these products removes demand and protects biodiversity as an act of amanah.',
       subtasks: [
         { title: 'Learn which common products may involve endangered species (ivory, certain woods, exotic skins)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+### Ayah (2:205)
+**Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And when he goes away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.`,
           description: `**Why does this matter?**
 
 Many everyday products are connected to the illegal wildlife trade or unsustainable harvesting without consumers realising it. Certain hardwoods (teak, mahogany, rosewood), exotic leather goods, traditional medicine ingredients, and decorative items may come from endangered species. The Quran declares that every creature on earth and every bird in the sky belongs to communities like your own (6:38) — driving these communities toward extinction through consumer ignorance is a violation of the trust of khilafah.
@@ -2482,6 +3604,12 @@ Many everyday products are connected to the illegal wildlife trade or unsustaina
 
 **Benchmark:** You can identify at least five common product categories linked to endangered species and know what to look for when shopping.` },
         { title: 'Check certifications (FSC for timber, MSC for seafood) when purchasing', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (6:38)
+**Arabic:** وما مِن دابَّةٍ في الأرضِ ولا طائِرٍ يطيرُ بِجناحَيهِ إلّا أُمَمٌ أمثالُكم
+**Translation:** There is no creature on earth nor bird that flies with its wings except that they are communities like you. All animals are recognized communities worthy of ethical consideration.`,
           description: `**Why does this matter?**
 
 Certifications like FSC (Forest Stewardship Council) and MSC (Marine Stewardship Council) exist because supply chains are too complex for individual consumers to trace. These third-party audits verify that timber comes from sustainably managed forests and seafood from well-managed fisheries. Without checking certifications, you may unknowingly purchase products that contribute to deforestation or ocean depletion — both forms of fasad (corruption) on the earth that the Quran explicitly condemns (2:205, 30:41).
@@ -2499,6 +3627,15 @@ Certifications like FSC (Forest Stewardship Council) and MSC (Marine Stewardship
 
 **Benchmark:** You actively check for FSC and MSC certifications during your regular shopping and can explain what each certification guarantees.` },
         { title: 'Avoid souvenirs or decorative items made from coral, shells, or animal parts', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+### Ayah (30:41)
+**Arabic:** ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ
+**Translation:** Corruption has appeared throughout the land and sea by reason of what the hands of people have earned.`,
           description: `**Why does this matter?**
 
 The global souvenir trade drives enormous ecological damage. Coral reefs — which support 25% of all marine species — are harvested for decorative pieces. Seashells are collected in quantities that disrupt coastal ecosystems. Animal parts (teeth, bones, feathers, fur) are sold as curios while their populations decline. Each purchase creates demand that incentivises further harvesting. As Muslims entrusted with the earth's care, refusing to participate in this trade is a direct application of the principle that we must not contribute to fasad (corruption) even through indirect consumer choices.
@@ -2516,6 +3653,12 @@ The global souvenir trade drives enormous ecological damage. Coral reefs — whi
 
 **Benchmark:** You have a firm personal policy against purchasing wildlife-derived souvenirs and can explain your reasoning to others.` },
         { title: 'Report suspicious wildlife trade products if encountered locally or online', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart." Reporting illegal wildlife trade is changing evil with one’s tongue and hand.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The illegal wildlife trade is the fourth largest criminal enterprise globally, worth billions of dollars annually. It thrives partly because ordinary people encounter suspicious products — online listings for ivory, exotic pets, or endangered wood — and do nothing. Reporting these encounters is an act of enjoining good and forbidding evil (amr bil-ma'ruf wa nahi 'anil-munkar), one of the fundamental duties of the Muslim. Your report may be the one that triggers an investigation and saves a species.
@@ -2542,6 +3685,12 @@ The illegal wildlife trade is the fourth largest criminal enterprise globally, w
       description: 'Native plants provide the food and habitat that local pollinators — bees, butterflies, and birds — depend on. Exotic ornamentals often offer little ecological value. Choosing native species transforms your garden from a decorative space into a functioning ecosystem.',
       subtasks: [
         { title: 'Research native flowering plants for your region using a local plant database', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him." Planting native species is sadaqah jariyah.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Native plants and their local pollinators have co-evolved over millennia — each adapted to the other's needs. A native wildflower provides nectar at exactly the right time for a native bee's life cycle; an imported ornamental may bloom beautifully but offer nothing to the creatures that actually sustain your local food web. Researching what is native to your specific region ensures your planting effort produces genuine ecological benefit rather than aesthetic decoration. This is the difference between cosmetic gardening and true stewardship.
@@ -2559,6 +3708,12 @@ Native plants and their local pollinators have co-evolved over millennia — eac
 
 **Benchmark:** You have a documented list of at least 8 native flowering species suited to your region, organised by bloom period and growing conditions.` },
         { title: 'Plan a planting layout that provides year-round blooms for pollinators', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (50:7-8)
+**Arabic:** والأرضَ مَدَدناها وألقينا فيها رواسيَ وأنبتنا فيها مِن كُلِّ زَوْجٍ بَهيج
+**Translation:** And the earth — We spread it out and cast therein firmly set mountains and made grow therein every beautiful kind. Planning year-round blooms mirrors the beauty Allah placed in the earth.`,
           description: `**Why does this matter?**
 
 Pollinators need food throughout the entire growing season, not just during peak summer. A garden that blooms spectacularly in June but offers nothing in March or October leaves bees, butterflies, and hoverflies without sustenance during critical periods. Planning a succession of blooms — from the first early-spring flowers to the last autumn nectar sources — mirrors the Quranic principle of mizan (balance) in creation and ensures your garden functions as a reliable food source for the creatures that depend on it.
@@ -2577,6 +3732,17 @@ Pollinators need food throughout the entire growing season, not just during peak
 
 **Benchmark:** You have a documented planting plan showing species placement and confirming bloom coverage across the entire growing season with no gaps longer than two weeks.` },
         { title: 'Source plants from native plant nurseries rather than generic garden centres', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:10-11)
+**Arabic:** هُوَ الَّذِي أَنزَلَ مِنَ السَّمَاءِ مَاءً ۖ لَّكُم مِّنْهُ شَرَابٌ وَمِنْهُ شَجَرٌ فِيهِ تُسِيمُونَ ۝ يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ وَمِن كُلِّ الثَّمَرَاتِ ۗ إِنَّ فِي ذَٰلِكَ لَآيَةً لِّقَوْمٍ يَتَفَكَّرُونَ
+**Translation:** It is He who sends down water for you from the sky, from which comes a drink for you, and the shrubs that you feed to your animals. With it He grows for you grain, olives, palms, vines, and all kinds of other crops. There truly is a sign in this for those who reflect.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him."
+*(Grade: Sahih — narrated in Sahih al-Bukhari 2320 and Sahih Muslim 1553)*`,
           description: `**Why does this matter?**
 
 Generic garden centres primarily stock commercially bred cultivars and non-native ornamentals because they sell on visual appeal. Native plant nurseries grow species from locally sourced seed, producing plants that are genetically adapted to your specific region and have not been treated with systemic pesticides (neonicotinoids) that are common in mass-market horticulture. Buying from specialist nurseries also supports small businesses dedicated to ecological restoration — your purchase directly funds the conservation of native plant genetics.
@@ -2594,6 +3760,15 @@ Generic garden centres primarily stock commercially bred cultivars and non-nativ
 
 **Benchmark:** You have identified at least one native plant nursery or conservation seed supplier and sourced your planting stock from them rather than a generic garden centre.` },
         { title: 'Include a shallow water source for birds and insects', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:10)
+**Arabic:** هُوَ الَّذِي أَنزَلَ مِنَ السَّمَاءِ مَاءً ۖ لَّكُم مِّنْهُ شَرَابٌ وَمِنْهُ شَجَرٌ فِيهِ تُسِيمُونَ
+**Translation:** It is He who sends down rain from the sky; from it is drink and from it is foliage in which you pasture [animals].
+
+### Ayah (24:45)
+**Arabic:** وَاللَّهُ خَلَقَ كُلَّ دَابَّةٍ مِّن مَّاءٍ
+**Translation:** Allah has created every [living] creature from water.`,
           description: `**Why does this matter?**
 
 Water is as essential to pollinators and birds as food. Bees need water to cool their hives and dilute honey for larvae; butterflies "puddle" at shallow water sources to absorb minerals; birds drink and bathe daily. In urban and suburban environments, natural water sources are increasingly scarce. Providing a shallow water feature in your garden can be the difference between a pollinator surviving or perishing on a hot day. The Prophet (peace be upon him) highlighted the reward of giving water to thirsty creatures — this simple addition to your garden makes that reward continuous.
@@ -2612,6 +3787,15 @@ Water is as essential to pollinators and birds as food. Bees need water to cool 
 
 **Benchmark:** A functioning shallow water source with safe landing spots is in place near your pollinator garden and is being maintained with daily fresh water.` },
         { title: 'Avoid pesticides and herbicides that harm the pollinators you are trying to attract', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+### Ayah (2:205)
+**Arabic:** وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** And destroy crops and animals. And Allah does not like corruption.`,
           description: `**Why does this matter?**
 
 It is a contradiction to plant flowers for pollinators while simultaneously spraying chemicals that kill them. Neonicotinoid pesticides, in particular, are absorbed systemically by plants and present in the nectar and pollen that bees collect — even a sub-lethal dose impairs their navigation, memory, and reproductive capacity. Herbicides destroy the "weeds" (clover, dandelions, wildflowers) that are often the most important early-season food sources for pollinators. Committing to a chemical-free garden is the logical completion of your decision to support biodiversity.
@@ -2636,6 +3820,21 @@ It is a contradiction to plant flowers for pollinators while simultaneously spra
       description: 'Livestock farming is one of the largest drivers of deforestation, water use, and greenhouse gas emissions. The Prophet (peace be upon him) ate meat sparingly. Reducing red meat consumption honours the Sunnah of moderation while significantly lowering your environmental footprint.',
       subtasks: [
         { title: 'Designate 2-3 days per week as plant-based or poultry/fish-only meal days', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (6:141)
+**Arabic:** كُلُوا مِن ثَمَرِهِ إِذَا أَثْمَرَ وَآتُوا حَقَّهُ يَوْمَ حَصَادِهِ ۖ وَلَا تُسْرِفُوا
+**Translation:** Eat of its fruit when it yields and give its due on the day of its harvest. And be not excessive.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2380
+The Prophet (peace be upon him) said: "The son of Adam does not fill any vessel worse than his stomach. It is sufficient for the son of Adam to eat a few mouthfuls to keep him alive."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Red meat production requires vastly more land, water, and energy than any other food source — producing one kilogram of beef requires approximately 15,000 litres of water and generates 27kg of CO2 equivalent. By designating specific days as plant-based or alternative-protein days, you create a sustainable structure that reduces your environmental footprint without requiring willpower at every single meal. The Prophet (peace be upon him) did not eat meat daily, and his household sometimes went weeks without cooking meat (Bukhari) — this practice aligns with the Sunnah of moderation.
@@ -2653,6 +3852,15 @@ Red meat production requires vastly more land, water, and energy than any other 
 
 **Benchmark:** You have consistently maintained 2-3 meat-free or reduced-meat days per week for at least one full month.` },
         { title: 'Learn to cook satisfying plant-based meals from diverse culinary traditions', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (16:11)
+**Arabic:** يُنبِتُ لَكُم بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْأَعْنَابَ وَمِن كُلِّ الثَّمَرَاتِ
+**Translation:** He causes to grow for you thereby the crops, olives, palm trees, grapevines, and of all the fruits.
+
+### Ayah (36:33-34)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ
+**Translation:** And a sign for them is the dead earth. We have brought it to life and brought forth from it grain, and from it they eat.`,
           description: `**Why does this matter?**
 
 The most common reason people abandon reduced-meat eating is that they find plant-based meals unsatisfying. This is almost always a skills gap, not a limitation of plant-based food. Culinary traditions from South Asia, the Middle East, East Africa, East Asia, and the Mediterranean have centuries of expertise in creating deeply satisfying meals without red meat. Learning from these traditions transforms your plant-based days from a sacrifice into a pleasure — making the practice sustainable for life rather than a short-lived experiment.
@@ -2697,6 +3905,17 @@ The Quran commands us to eat what is halal and tayyib (2:168) — lawful and who
 
 **Benchmark:** All meat you purchase comes from verified pasture-raised or free-range halal-tayyib sources, even if this means buying less frequently.` },
         { title: 'Track your meat consumption for a month to see actual reduction', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2380
+The Prophet (peace be upon him) said: "The son of Adam does not fill any vessel worse than his stomach."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Perception and reality rarely match when it comes to dietary habits. People consistently underestimate how much meat they eat. Tracking forces honest measurement — you may discover that your "reduced" consumption is still higher than you thought, or you may find that your efforts have produced a more significant reduction than you realised. Either way, data replaces guesswork. The Islamic principle of muhasabah (self-accounting) applies here: you cannot improve what you do not honestly measure.
@@ -2722,6 +3941,17 @@ Perception and reality rarely match when it comes to dietary habits. People cons
       description: 'Joining organised restoration projects multiplies your impact far beyond what individual planting can achieve. These initiatives restore degraded land, sequester carbon, and rebuild ecosystems — and volunteering alongside others builds community bonds rooted in shared stewardship.',
       subtasks: [
         { title: 'Search for local tree-planting events through council, conservation groups, or masjid networks', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-34)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ
+**Translation:** And a sign for them is the dead earth. We have brought it to life and brought forth from it grain. And We placed therein gardens of palm trees and grapevines.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Organised restoration projects operate at scales that individual effort cannot match — they plant hundreds or thousands of trees in a single event, restore entire habitats, and have the expertise to select appropriate species and sites. Finding these events connects you to infrastructure that already exists, so you do not need to build everything from scratch. The Prophet (peace be upon him) emphasised collective action (jama'ah) — joining your effort to an organised movement multiplies both the ecological impact and the communal reward.
@@ -2739,6 +3969,17 @@ Organised restoration projects operate at scales that individual effort cannot m
 
 **Benchmark:** You have identified at least two tree-planting or restoration events within reasonable travel distance and noted their dates and registration details.` },
         { title: 'Register and attend at least one event this season', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (13:3-4)
+**Arabic:** وَهُوَ الَّذِي مَدَّ الْأَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَأَنْهَارًا ۖ وَمِن كُلِّ الثَّمَرَاتِ جَعَلَ فِيهَا زَوْجَيْنِ اثْنَيْنِ
+**Translation:** And it is He who spread the earth and placed therein firmly set mountains and rivers; and from all of the fruits He made therein two mates.
+
+**II. Sources from the Hadith**
+
+### Musnad Ahmad 12902
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Knowledge without action is incomplete. The gap between intending to participate and actually registering is where most good intentions die. Registration creates a commitment — once you have signed up, told others, and blocked the time in your calendar, attendance becomes far more likely. The Prophet (peace be upon him) said that the most beloved deeds to Allah are those done consistently, even if small (Bukhari). Attending one event this season is the small, consistent step that builds the habit of active environmental stewardship.
@@ -2756,6 +3997,17 @@ Knowledge without action is incomplete. The gap between intending to participate
 
 **Benchmark:** You have attended at least one tree-planting or restoration event this season and can describe the experience and what you learned.` },
         { title: 'Bring family or friends to make it a shared experience', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (49:13)
+**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا
+**Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Environmental stewardship practised alone remains a personal virtue. Environmental stewardship practised as a family or community becomes a shared value that multiplies and endures. Children who plant trees with their parents remember it for life. Friends who volunteer together build bonds around shared purpose rather than mere socialising. The Prophet (peace be upon him) consistently turned individual acts of worship into communal experiences — salah in jama'ah, iftar together, hajj as a global gathering. Tree-planting is no different.
@@ -2773,6 +4025,21 @@ Environmental stewardship practised alone remains a personal virtue. Environment
 
 **Benchmark:** At least one family member or friend has attended a tree-planting or restoration event with you and expressed interest in participating again.` },
         { title: 'Follow up on the site to see how planted trees are progressing', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:60)
+**Arabic:** كُلُوا وَاشْرَبُوا مِن رِّزْقِ اللَّهِ وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ
+**Translation:** Eat and drink the sustenance God has provided and do not cause corruption in the land.
+
+### Ayah (7:56)
+**Arabic:** وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا ۚ إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ
+**Translation:** Do not corrupt the earth after it has been set right -- call on Him fearing and hoping. The mercy of God is close to those who do good.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1553
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Planting a tree is a beginning, not an end. Following up on the trees you planted connects you to the long arc of restoration — you see which species thrived, which struggled, and how the ecosystem is responding. This builds ecological understanding that no textbook can provide. It also models the Islamic concept of ihsan (excellence) — doing your work to the highest standard and caring about the outcome beyond the moment of action. A Muslim does not plant and forget; a Muslim plants and nurtures.
@@ -2790,6 +4057,12 @@ Planting a tree is a beginning, not an end. Following up on the trees you plante
 
 **Benchmark:** You have revisited a planting site at least once after the initial event and documented the condition of the trees you planted.` },
         { title: 'Consider committing to a regular volunteer schedule with the organisation', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1017
+The Prophet (peace be upon him) said: "Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him." Regular volunteering for restoration sets a lasting precedent of environmental stewardship.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 One-off participation is valuable, but regular commitment transforms you from a visitor into a steward. Organisations that restore ecosystems need reliable, returning volunteers who build skills over time — someone who knows the site, understands the species, and can train newcomers. The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small (Bukhari). Committing to a regular schedule — even monthly — creates the consistency that produces lasting ecological impact and lasting personal reward.
@@ -2814,6 +4087,12 @@ One-off participation is valuable, but regular commitment transforms you from a 
       description: 'You cannot protect what you do not know. Learning to identify the birds, plants, and insects around you builds ecological literacy and deepens your connection to the land you inhabit. The Quran repeatedly draws attention to the signs (ayat) in creation.',
       subtasks: [
         { title: 'Download a local species identification app (e.g., iNaturalist, Merlin, PlantNet)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (6:38)
+**Arabic:** وما مِن دابَّةٍ في الأرضِ ولا طائِرٍ يطيرُ بِجناحَيهِ إلّا أُمَمٌ أمثالُكم
+**Translation:** There is no creature on earth nor bird that flies with its wings except that they are communities like you. Identifying local species builds awareness of the communities Allah has placed around us.`,
           description: `**Why does this matter?**
 
 Modern species identification apps use AI and community science to turn your smartphone into a powerful ecological learning tool. iNaturalist identifies plants, insects, and animals from photographs; Merlin identifies birds by sound or photo; PlantNet specialises in plant identification. These tools remove the barrier of needing expert knowledge to begin learning about the creation around you. The Quran repeatedly invites humanity to "look" and "observe" the signs (ayat) in nature (3:190, 88:17-20) — these apps help you do exactly that, transforming a casual walk into an act of contemplation.
@@ -2831,6 +4110,15 @@ Modern species identification apps use AI and community science to turn your sma
 
 **Benchmark:** You have installed at least two species identification apps, created accounts, and successfully identified at least five species in your local area.` },
         { title: 'Take a weekly nature walk and identify at least 2-3 new species each time', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+**Translation:** And there is no creature on the earth or bird that flies with its wings except [that they are] communities like you.
+
+### Ayah (3:191)
+**Arabic:** وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا
+**Translation:** And give thought to the creation of the heavens and the earth, [saying], "Our Lord, You did not create this aimlessly."`,
           description: `**Why does this matter?**
 
 Ecological literacy is built through repeated observation, not through reading alone. A weekly nature walk trains your eyes and ears to notice what was always there but invisible to you — the specific bird singing at dawn, the wildflower growing through a crack in the pavement, the hoverfly visiting your neighbour's lavender. The Quran describes those who reflect on creation as the people of understanding (3:190-191). Walking regularly in nature with the intention of observation is a form of tafakkur (contemplation) that deepens both your ecological knowledge and your connection to the Creator.
@@ -2848,6 +4136,15 @@ Ecological literacy is built through repeated observation, not through reading a
 
 **Benchmark:** You have maintained a weekly nature walk habit for at least one month, identifying a cumulative total of at least 10 new species.` },
         { title: 'Keep a nature journal noting seasonal changes, migrations, and blooming patterns', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (3:191)
+**Arabic:** الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ
+**Translation:** Who remember Allah while standing or sitting or [lying] on their sides and give thought to the creation of the heavens and the earth.
+
+### Ayah (13:3-4)
+**Arabic:** إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ ... إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَعْقِلُونَ
+**Translation:** Indeed in that are signs for a people who give thought ... Indeed in that are signs for a people who reason.`,
           description: `**Why does this matter?**
 
 A nature journal transforms scattered observations into a coherent understanding of your local ecosystem across time. Recording when the first swallows arrive, when the blackthorn blooms, when the hedgehogs emerge from hibernation — these phenological records reveal the rhythms of creation that the Quran draws attention to: "It is He who made the sun a shining light and the moon a derived light and determined for it phases — that you may know the number of years and account of time" (10:5). Your journal becomes a personal record of Allah's signs unfolding seasonally in your specific place.
@@ -2865,6 +4162,15 @@ A nature journal transforms scattered observations into a coherent understanding
 
 **Benchmark:** You have maintained a nature journal for at least three months with regular entries covering at least two seasonal transitions.` },
         { title: 'Visit a local nature reserve or botanical garden for guided learning', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (3:191)
+**Arabic:** وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ
+**Translation:** And give thought to the creation of the heavens and the earth, [saying], "Our Lord, You did not create this aimlessly; exalted are You."
+
+### Ayah (27:60)
+**Arabic:** أَمَّنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ وَأَنزَلَ لَكُم مِّنَ السَّمَاءِ مَاءً فَأَنبَتْنَا بِهِ حَدَائِقَ ذَاتَ بَهْجَةٍ
+**Translation:** Is He [not best] who created the heavens and the earth and sent down for you rain from the sky, causing to grow thereby gardens of joyful beauty?`,
           description: `**Why does this matter?**
 
 Nature reserves and botanical gardens are curated environments where ecological diversity is concentrated, labelled, and often explained by expert guides. A single guided walk can teach you more about local ecology than weeks of self-directed learning, because experienced naturalists show you how to see — they point out the details, connections, and patterns that untrained eyes miss. These visits also support the conservation organisations and institutions that protect biodiversity, making your entry fee a form of environmental contribution.
@@ -2892,6 +4198,12 @@ Nature reserves and botanical gardens are curated environments where ecological 
       description: 'Large-scale land rehabilitation — reforestation, wetland restoration, regenerative agriculture — sequesters significant carbon while rebuilding ecosystems. Contributing financially or physically to these projects extends your khalifah impact beyond your immediate surroundings to landscape-level restoration.',
       subtasks: [
         { title: 'Research verified reforestation and land rehabilitation projects (local and international)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:30)
+**Arabic:** إِنّي جاعِلٌ في الأرضِ خليفةً
+**Translation:** Indeed, I will make upon the earth a khalifah (vicegerent). Funding land rehabilitation fulfils humanity’s role as stewards of the earth.`,
           description: `**Why does this matter?**
 
 Not all reforestation and land rehabilitation projects are equal. Some are monoculture tree plantations that do little for biodiversity; others are verified ecological restoration programmes that rebuild complex ecosystems, sequester significant carbon, and support local communities. The difference between a vanity project and genuine restoration can be enormous. Your financial or physical contribution is an amanah (trust) — you are accountable for ensuring it produces real benefit, not just good intentions.
@@ -2909,6 +4221,21 @@ Not all reforestation and land rehabilitation projects are equal. Some are monoc
 
 **Benchmark:** You have a documented shortlist of at least three verified projects with their credentials, costs, and measured outcomes clearly recorded.` },
         { title: 'Evaluate projects for transparency, impact measurement, and alignment with Islamic values', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (30:41)
+**Arabic:** ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ لِيُذِيقَهُم بَعْضَ الَّذِي عَمِلُوا لَعَلَّهُمْ يَرْجِعُونَ
+**Translation:** Corruption has flourished on land and sea as a result of people's actions and He will make them taste the consequences of some of their own actions so that they may turn back.
+
+### Ayah (2:205)
+**Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ
+**Translation:** When he leaves, he sets out to spread corruption in the land, destroying crops and livestock -- God does not like corruption.
+
+**II. Sources from the Hadith**
+
+### Sunan Abi Dawud 5239
+The Prophet (peace be upon him) forbade cutting down fruit-bearing trees needlessly, and said this constitutes corruption on the earth.
+*(Grade: Hasan)*`,
           description: `**Why does this matter?**
 
 As a Muslim, your contribution is not merely a financial transaction — it is an act of stewardship that must align with Islamic principles. A project that displaces indigenous communities, exploits local labour, or creates monocultures that destroy biodiversity would violate the very values you are trying to uphold. Careful evaluation ensures your contribution is truly tayyib (wholesome) and not just technically carbon-positive. The Islamic principle of due diligence (tabayyun — Quran 49:6) requires you to verify before you act.
@@ -2927,6 +4254,12 @@ As a Muslim, your contribution is not merely a financial transaction — it is a
 
 **Benchmark:** Your shortlisted projects have been evaluated against transparency, impact measurement, and Islamic values criteria, with clear documentation of your assessment.` },
         { title: 'Commit to a recurring financial contribution or in-person volunteer schedule', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1631
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him." Recurring contributions to land rehabilitation are sadaqah jariyah.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Land rehabilitation is a long-term endeavour — ecosystems recover over years and decades, not weeks. One-off contributions help, but recurring commitment provides the sustained funding and labour that restoration projects depend on. The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small (Bukhari). A modest monthly contribution sustained over years produces far more impact than a large one-off donation, and a regular volunteer schedule builds the skills and relationships that make your contribution increasingly valuable.
@@ -2944,6 +4277,15 @@ Land rehabilitation is a long-term endeavour — ecosystems recover over years a
 
 **Benchmark:** You have a recurring financial contribution or volunteer schedule in place, with calendar reminders set and at least three months of consistent participation completed.` },
         { title: 'If possible, visit the project site to witness the impact firsthand', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:30)
+**Arabic:** وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً
+**Translation:** And [mention] when your Lord said to the angels, "Indeed, I will make upon the earth a successive authority."
+
+### Ayah (36:33-35)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا ... لِيَأْكُلُوا مِن ثَمَرِهِ وَمَا عَمِلَتْهُ أَيْدِيهِمْ ۖ أَفَلَا يَشْكُرُونَ
+**Translation:** And a sign for them is the dead earth. We have brought it to life ... That they may eat of His fruit. And their hands have not produced it, so will they not be grateful?`,
           description: `**Why does this matter?**
 
 Seeing a restored ecosystem in person transforms abstract data into lived experience. When you stand in a forest that was barren land five years ago, hear the birdsong that returned because of planting, and see the community that now has clean water because of watershed restoration — your commitment deepens from intellectual support to visceral conviction. Site visits also serve as verification: you see with your own eyes whether the project is delivering what it claims. The Quran encourages travel and observation: "Have they not travelled through the land and observed?" (30:9).
@@ -2961,6 +4303,12 @@ Seeing a restored ecosystem in person transforms abstract data into lived experi
 
 **Benchmark:** You have visited at least one project site (local or international) and documented your observations and reflections from the experience.` },
         { title: 'Share the project with your network to multiply contributions', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (3:104)
+**Arabic:** ولتكُن مِنكم أُمَّةٌ يدعونَ إلى الخيرِ
+**Translation:** And let there be among you a community inviting to good. Sharing restoration projects with your network invites others to participate in good.`,
           description: `**Why does this matter?**
 
 The Prophet (peace be upon him) said: "Whoever guides someone to goodness will have a reward like the one who does it" (Muslim). Sharing a verified, impactful restoration project with your network multiplies the benefit exponentially — every person who contributes because of your recommendation generates additional reward for you. This is the principle of sadaqah jariyah extended through social influence. A single share that inspires ten people to contribute accomplishes more than increasing your own contribution tenfold.
@@ -2986,6 +4334,21 @@ The Prophet (peace be upon him) said: "Whoever guides someone to goodness will h
       description: 'Community food gardens transform neglected urban land into productive, biodiverse spaces that provide fresh food, build community, and reconnect people with the earth. The Prophet (peace be upon him) said whoever revives dead land, it belongs to them — this is ihya al-mawat in practice.',
       subtasks: [
         { title: 'Identify underused land — vacant lots, council land, masjid grounds, or school yards', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-34)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ
+**Translation:** And a sign for them is the dead earth. We have brought it to life and brought forth from it grain. And We placed therein gardens of palm trees and grapevines.
+
+### Ayah (55:10)
+**Arabic:** وَالْأَرْضَ وَضَعَهَا لِلْأَنَامِ
+**Translation:** And the earth He laid [out] for the creatures.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Every community has land that is underperforming — vacant lots collecting litter, council-owned patches of mown grass that serve no one, masjid car parks that sit empty six days a week, school grounds that are locked after hours. The Prophet (peace be upon him) said: "Whoever revives dead land, it belongs to them" (Abu Dawud) — this is the principle of ihya al-mawat (reviving dead land), and it applies powerfully to neglected urban spaces. Identifying these sites is the essential first step toward transformation.
@@ -3003,6 +4366,21 @@ Every community has land that is underperforming — vacant lots collecting litt
 
 **Benchmark:** You have identified and documented at least three potential sites with ownership details, suitability assessments, and a clear recommendation for the best option.` },
         { title: 'Seek permission from the landowner or council and establish a community group', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (11:61)
+**Arabic:** هُوَ أَنشَأَكُم مِّنَ الْأَرْضِ وَاسْتَعْمَرَكُمْ فِيهَا
+**Translation:** He has produced you from the earth and settled you in it.
+
+### Ayah (2:30)
+**Arabic:** إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً
+**Translation:** Indeed, I will make upon the earth a successive authority.
+
+**II. Sources from the Hadith**
+
+### Sunan Abu Dawud 3073
+The Prophet (peace be upon him) said: "Whoever revives a dead land, it belongs to him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Establishing formal permission and a constituted community group protects the garden legally and socially. Without permission, the garden can be removed at any time. Without a group, the initiative depends entirely on you and collapses when you are unavailable. The Islamic emphasis on clear agreements (contracts, mutual consent) and collective responsibility (shura — consultation) means that taking the time to establish proper foundations is not bureaucracy — it is wisdom that ensures the garden endures beyond any single individual.
@@ -3021,6 +4399,21 @@ Establishing formal permission and a constituted community group protects the ga
 
 **Benchmark:** You have written permission from the landowner and a constituted community group with at least three named members and a basic constitution.` },
         { title: 'Design the garden layout with beds, composting, water access, and communal tools', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-35)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا وَأَخْرَجْنَا مِنْهَا حَبًّا فَمِنْهُ يَأْكُلُونَ ۝ وَجَعَلْنَا فِيهَا جَنَّاتٍ مِّن نَّخِيلٍ وَأَعْنَابٍ وَفَجَّرْنَا فِيهَا مِنَ الْعُيُونِ ۝ لِيَأْكُلُوا مِن ثَمَرِهِ وَمَا عَمِلَتْهُ أَيْدِيهِمْ ۖ أَفَلَا يَشْكُرُونَ
+**Translation:** There is a sign for them in the lifeless earth: We give it life and We produce grain from it for them to eat; We have put gardens of date palms and grapes in the earth, and We have made springs of water gush out of it so that they could eat its fruit. How can they not give thanks?
+
+### Ayah (6:141)
+**Arabic:** وَهُوَ الَّذِي أَنشَأَ جَنَّاتٍ مَّعْرُوشَاتٍ وَغَيْرَ مَعْرُوشَاتٍ وَالنَّخْلَ وَالزَّرْعَ مُخْتَلِفًا أُكُلُهُ
+**Translation:** It is He who produces both trellised and untrellised gardens, date palms, crops of diverse flavours. So when they bear fruit, eat some of it, paying what is due on the day of harvest, but do not be wasteful.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 1553
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A well-designed garden layout makes the difference between a productive, welcoming space and a chaotic patch that discourages participation. Thoughtful design considers soil health, water efficiency, accessibility, social interaction, and long-term maintenance — the same principles of mizan (balance) and ihsan (excellence) that Islam applies to all human endeavours. A garden designed with wisdom produces more food, wastes less water, requires less labour, and attracts more community participation.
@@ -3039,6 +4432,12 @@ A well-designed garden layout makes the difference between a productive, welcomi
 
 **Benchmark:** You have a drawn layout (even hand-sketched) showing bed placement, pathways, composting area, water access, tool storage, and social space, reviewed by at least two other group members.` },
         { title: 'Recruit volunteers and allocate plots or shared responsibilities', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him." A community garden produces ongoing sadaqah.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A community garden without a community is just a private allotment. Recruiting diverse volunteers creates the social ecosystem that sustains the physical one. The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body" (Muslim). A well-recruited group brings together different skills, ages, cultures, and abilities — each person contributing what they can. Allocating clear responsibilities prevents the common failure mode where enthusiasm is high at the start but no one takes ownership of ongoing tasks.
@@ -3056,6 +4455,17 @@ A community garden without a community is just a private allotment. Recruiting d
 
 **Benchmark:** You have at least 8-10 committed volunteers with clearly allocated plots or responsibilities and a functioning communication channel.` },
         { title: 'Host a planting day to launch the garden and celebrate with the community', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (36:33-35)
+**Arabic:** وَآيَةٌ لَّهُمُ الْأَرْضُ الْمَيْتَةُ أَحْيَيْنَاهَا ... أَفَلَا يَشْكُرُونَ
+**Translation:** And a sign for them is the dead earth. We have brought it to life ... so will they not be grateful?
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A launch event transforms the garden from a plan into a reality and creates the collective memory that binds the community to the space. When people physically dig beds, plant seeds, and share food together, they develop a sense of ownership and belonging that no amount of communication can create. The Islamic tradition of walimah (celebration of significant occasions) recognises that marking beginnings with communal gathering and gratitude strengthens the bonds that sustain the endeavour through the harder days ahead.
@@ -3074,6 +4484,12 @@ A launch event transforms the garden from a plan into a reality and creates the 
 
 **Benchmark:** The launch event has taken place with at least 10 participants, the first planting is complete, and the garden is visibly operational.` },
         { title: 'Establish an ongoing maintenance roster and seasonal planting calendar', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (55:10-12)
+**Arabic:** والأرضَ وضعها للأنام فيها فاكِهةٌ والنَّخلُ ذاتُ الأكمامِ والحبُّ ذو العَصفِ والرَّيحانُ
+**Translation:** And the earth He laid out for all living creatures. Therein is fruit and palm trees having sheaths of dates, and grain having husks, and sweet-scented plants. Seasonal planting calendars align with the natural order Allah established.`,
           description: `**Why does this matter?**
 
 The excitement of a launch day fades within weeks. What sustains a community garden over years is structure — a clear roster that ensures someone is responsible for watering, weeding, and composting every week, and a seasonal calendar that guides what to plant and when. Without these systems, gardens decline into neglect within a single growing season. The Islamic principle of itqan (perfection in work) demands that we do not merely begin things well but sustain them with consistent excellence.
@@ -3126,6 +4542,21 @@ An Islamic environmental education programme must stand on primary sources — Q
 
 **Benchmark:** You have a compiled and organised reference document containing at least 15 Quranic verses, 10 hadith, and 5 scholarly references, with educational notes for each.` },
         { title: 'Design an age-appropriate curriculum (children, youth, and adults)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:30)
+**Arabic:** وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً
+**Translation:** And [mention] when your Lord said to the angels, "Indeed, I will make upon the earth a successive authority."
+
+### Ayah (30:41)
+**Arabic:** ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ
+**Translation:** Corruption has appeared throughout the land and sea by reason of what the hands of people have earned.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A curriculum that speaks to a 7-year-old the same way it speaks to a 40-year-old will fail both audiences. Children learn through stories, activities, and sensory experience. Youth engage through challenge, relevance to their lives, and peer interaction. Adults respond to intellectual depth, practical application, and connection to existing knowledge. Designing age-appropriate tracks ensures your programme reaches every demographic in your masjid or school community — creating an intergenerational culture of environmental stewardship rather than reaching only one age group.
@@ -3143,6 +4574,17 @@ A curriculum that speaks to a 7-year-old the same way it speaks to a 40-year-old
 
 **Benchmark:** You have a written curriculum document with session plans for all three age tracks, each containing at least 6 sessions with learning objectives, activities, and materials lists.` },
         { title: 'Include practical components — planting, clean-ups, composting — alongside textual study', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:30)
+**Arabic:** إِنّي جاعِلٌ في الأرضِ خليفةً
+**Translation:** Indeed, I will make upon the earth a khalifah. Educating the next generation about Islamic environmental stewardship equips future khalifah of the earth.
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him." Practical components like planting connect theory to prophetic practice.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Islam does not separate knowledge from action — 'ilm (knowledge) without 'amal (action) is incomplete. A programme that teaches the hadith on tree-planting but never plants a tree has missed half its purpose. Practical components transform participants from passive learners into active stewards. They also produce visible, tangible results that inspire others and demonstrate that Islamic environmental ethics produce real-world outcomes. The Prophet (peace be upon him) was not a theorist — he acted on every principle he taught, and your programme should model the same integration.
@@ -3161,6 +4603,17 @@ Islam does not separate knowledge from action — 'ilm (knowledge) without 'amal
 
 **Benchmark:** At least 50% of your curriculum sessions include a hands-on practical component, and you have the materials, permissions, and risk assessments in place to deliver them.` },
         { title: 'Pilot the programme with a small group and gather feedback', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ ۖ وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ
+**Translation:** And do good as Allah has done good to you. And desire not corruption in the land.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Every curriculum looks good on paper but reveals its weaknesses in practice. Timing is off, activities take longer than expected, explanations that seemed clear to you confuse participants, and logistics that seemed simple create friction. Piloting with a small, forgiving group allows you to discover and fix these problems before scaling up. The Islamic principle of shura (consultation) applies here — the participants in your pilot are your consultants, and their feedback is a gift that makes the programme stronger.
@@ -3179,6 +4632,21 @@ Every curriculum looks good on paper but reveals its weaknesses in practice. Tim
 
 **Benchmark:** You have completed a pilot with at least 8 participants, collected structured feedback for every session, and compiled a prioritised list of improvements.` },
         { title: 'Refine and offer it as a recurring programme at your masjid or school', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (21:107)
+**Arabic:** وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ
+**Translation:** And We have not sent you, [O Muhammad], except as a mercy to the worlds.
+
+### Ayah (2:30)
+**Arabic:** إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً
+**Translation:** Indeed, I will make upon the earth a successive authority.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A programme that runs once and disappears creates a moment of inspiration but no lasting change. Offering it as a recurring programme — annually, bi-annually, or as a rolling intake — embeds environmental stewardship into the institutional culture of your masjid or school. Over time, it becomes part of "what we do here," reaching new participants each cycle and building a growing community of environmentally conscious Muslims. The principle of sadaqah jariyah is realised when the programme you created continues to educate and inspire long after your direct involvement.
@@ -3209,6 +4677,15 @@ A programme that runs once and disappears creates a moment of inspiration but no
       description: 'Every purchase is a vote for the supply chain behind it. Islam prohibits benefiting from dhulm (oppression), and buying from companies that exploit workers or destroy ecosystems makes you complicit. This audit reveals where your money is actually going.',
       subtasks: [
         { title: 'List your top 10-15 regular purchases by category (food, clothing, electronics, household)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good and do not follow the footsteps of Satan.
+
+### Ayah (16:90)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ
+**Translation:** Indeed, Allah orders justice and good conduct.`,
           description: `**Why does this matter?**
 
 You cannot reform what you have not measured. Most people vastly underestimate how many products they consume regularly, and each of those products carries a supply chain with real human and environmental consequences. The Prophet (peace be upon him) said, "Each of you is a shepherd, and each of you is responsible for his flock" (Bukhari & Muslim). Your purchasing list is your flock of economic choices — cataloguing it is the first step toward responsible stewardship.
@@ -3226,6 +4703,15 @@ You cannot reform what you have not measured. Most people vastly underestimate h
 
 Benchmark: You should have a comprehensive list of at least 10-15 regularly purchased items with brand names attached before moving to the next step.` },
         { title: 'Research each brand\'s supply chain practices using ethical rating tools (e.g., Good On You, B Corp)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (5:87-88)
+**Arabic:** لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ وَلَا تَعْتَدُوا ... وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا
+**Translation:** Do not prohibit the good things which Allah has made lawful to you and do not transgress ... And eat of what Allah has provided for you [which is] lawful and good.`,
           description: `**Why does this matter?**
 
 A brand's marketing tells you what they want you to believe; supply chain research tells you what they actually do. Many companies that appear ethical on the surface rely on exploitative labour, environmental destruction, or opaque sourcing deep in their supply chains. The Quran warns against following assumption without verification: "Do not pursue that of which you have no knowledge" (17:36). Ethical rating tools aggregate investigative research so you can make informed decisions without needing to audit factories yourself.
@@ -3244,6 +4730,12 @@ A brand's marketing tells you what they want you to believe; supply chain resear
 
 Benchmark: Each brand on your list should have a documented ethical rating or research summary before proceeding.` },
         { title: 'Flag any brands linked to environmental destruction, child labour, or forced labour', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (5:2)
+**Arabic:** وتعاونوا على البرِّ والتَّقوى ولا تعاونوا على الإثمِ والعدوان
+**Translation:** And cooperate in righteousness and piety, but do not cooperate in sin and aggression. Supporting exploitative brands is cooperating in sin.`,
           description: `**Why does this matter?**
 
 Islam categorically prohibits benefiting from dhulm (oppression). Purchasing from brands that exploit children, use forced labour, or destroy ecosystems makes the consumer complicit in that harm — your money directly funds the continuation of those practices. The Prophet (peace be upon him) cursed both the one who gives and the one who takes in corrupt transactions (Muslim). Flagging these brands is not performative activism; it is a moral obligation to withdraw support from injustice.
@@ -3261,6 +4753,12 @@ Islam categorically prohibits benefiting from dhulm (oppression). Purchasing fro
 
 Benchmark: Every brand on your purchase list should be classified as clear, flagged, or needs-more-research. No brand should remain unexamined.` },
         { title: 'Identify ethical alternatives for the worst offenders', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 2564
+The Prophet (peace be upon him) said: "A Muslim is the brother of a Muslim. He neither oppresses him nor does he let him down." Choosing ethical alternatives means refusing to fund the oppression of workers.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Identifying a problem without providing a solution leads to paralysis. Once you know which brands fail ethical standards, you need viable alternatives that maintain quality and accessibility while aligning with Islamic principles of halal, tayyib, and justice. The goal is not deprivation but redirection — channelling your spending toward businesses that honour both people and planet. As the Quran states, "Cooperate in righteousness and piety, and do not cooperate in sin and aggression" (5:2).
@@ -3279,6 +4777,12 @@ Identifying a problem without providing a solution leads to paralysis. Once you 
 
 Benchmark: You should have at least one vetted ethical alternative identified for each of your worst-offender brands.` },
         { title: 'Create a personal "do not buy" list and commit to transitioning away', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (83:1-3)
+**Arabic:** ويلٌ لِلمُطَفِّفينَ الَّذينَ إِذا اكتالوا على النّاسِ يستَوفونَ وإِذا كالوهم أَو وزنوهم يُخسِرون
+**Translation:** Woe to those who give short measure, who demand full measure when receiving from people, but give less when measuring or weighing for them.`,
           description: `**Why does this matter?**
 
 A written commitment transforms a vague intention into a concrete boundary. The "do not buy" list serves as your personal ethical red line — brands you will no longer fund because their practices violate your values as a Muslim. Writing it down creates accountability and makes it easier to resist convenience or habit when shopping. The Prophet (peace be upon him) emphasised the power of commitment: "The most beloved deeds to Allah are those done consistently, even if they are small" (Bukhari). A maintained boycott list is a consistent, small deed with cumulative impact.
@@ -3304,6 +4808,12 @@ Benchmark: A written, accessible "do not buy" list with at least 3-5 brands, sha
       description: 'Halal addresses the permissibility of slaughter, but tayyib addresses the wholesomeness of the entire chain — how the animal was raised, what it was fed, how workers were treated, and how the land was farmed. True Islamic food sourcing demands both dimensions.',
       subtasks: [
         { title: 'Research the farming practices behind your regular halal meat supplier', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:168)
+**Arabic:** يا أيّها النّاسُ كُلوا مِمّا في الأرضِ حلالاً طَيِّبا
+**Translation:** O mankind, eat from whatever is on earth that is lawful and wholesome (halal and tayyib).`,
           description: `**Why does this matter?**
 
 A halal certification on packaging tells you the animal was slaughtered according to Islamic law, but it tells you nothing about how the animal lived — whether it was caged in inhumane conditions, pumped with antibiotics, or fed unnatural diets. The concept of tayyib demands that the entire lifecycle be wholesome, not just the final moment. The Prophet (peace be upon him) said, "Allah has prescribed ihsan (excellence) in all things. So when you slaughter, slaughter well" (Muslim). Ihsan begins long before the blade — it starts with how the animal is raised.
@@ -3322,6 +4832,19 @@ A halal certification on packaging tells you the animal was slaughtered accordin
 
 Benchmark: You should be able to describe, in basic terms, how the animals behind your halal meat are raised, fed, and treated before slaughter.` },
         { title: 'Prioritise free-range, pasture-raised, and antibiotic-free halal meat sources', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (23:51)
+**Arabic:** يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا
+**Translation:** O messengers, eat from the good foods and work righteousness.
+
+### Ayah (5:88)
+**Arabic:** وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا
+**Translation:** And eat of what Allah has provided for you [which is] lawful and good.`,
           description: `**Why does this matter?**
 
 Animals raised in factory farming conditions endure extreme confinement, unnatural diets, and routine antibiotic use that contaminates the meat you consume. Free-range and pasture-raised animals live more natural lives, produce healthier meat, and align with the Islamic ethic of animal welfare. The Prophet (peace be upon him) warned against confining and mistreating animals, and scholars have long held that the wellbeing of animals in one's care is a religious obligation. Choosing better-raised meat is not a luxury — it is pursuing the tayyib standard that the Quran commands.
@@ -3339,6 +4862,12 @@ Animals raised in factory farming conditions endure extreme confinement, unnatur
 
 Benchmark: At least your primary meat purchases should come from suppliers who can verify free-range, pasture-raised, or antibiotic-free practices.` },
         { title: 'Evaluate fruit and vegetable sources for pesticide use and farming ethics', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (5:88)
+**Arabic:** وكُلوا مِمّا رزقكمُ اللّهُ حلالاً طَيِّبا واتَّقوا اللّهَ الَّذي أنتم بِهِ مؤمنون
+**Translation:** And eat of what Allah has provided for you, lawful and wholesome. And fear Allah, in whom you are believers.`,
           description: `**Why does this matter?**
 
 Tayyib applies to all food, not only meat. Fruits and vegetables grown with heavy pesticide use carry chemical residues linked to health problems, and the farming practices behind them often involve soil depletion, water contamination, and exploitation of agricultural workers. The Quran describes the earth as producing wholesome provision — "Eat of the good things We have provided for you" (2:172) — and it is your responsibility to ensure what reaches your table is genuinely good, not merely convenient.
@@ -3357,6 +4886,12 @@ Tayyib applies to all food, not only meat. Fruits and vegetables grown with heav
 
 Benchmark: You should know which of your regular fruit and vegetable purchases carry high pesticide risk and have a plan to address the worst offenders.` },
         { title: 'Switch to organic or sustainably farmed options for the "dirty dozen" produce items', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (16:114)
+**Arabic:** فكُلوا مِمّا رزقكمُ اللّهُ حلالاً طَيِّبا واشكروا نِعمتَ اللّهِ
+**Translation:** Then eat of what Allah has provided for you which is lawful and wholesome. And be grateful for the favour of Allah.`,
           description: `**Why does this matter?**
 
 The "dirty dozen" are the twelve fruits and vegetables found to carry the highest pesticide residues even after washing. Consuming these conventionally grown items means ingesting trace chemicals that accumulate in your body over time. Switching these specific items to organic or sustainably farmed sources is the most targeted, cost-effective way to reduce your family's chemical exposure. Protecting your body from harm is part of preserving nafs (life) — one of the five essential objectives (maqasid) of the Shariah.
@@ -3375,6 +4910,12 @@ The "dirty dozen" are the twelve fruits and vegetables found to carry the highes
 
 Benchmark: At least your top 3-5 most consumed dirty dozen items should be sourced organically or from verified spray-free suppliers.` },
         { title: 'Visit a local halal farm or supplier to see conditions firsthand if possible', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it." Visiting halal farms and seeing conditions firsthand connects you to the earth and the food cycle.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 There is no substitute for seeing with your own eyes. Certifications and labels provide useful information, but a personal visit to a farm or slaughterhouse gives you direct, unmediated knowledge of how your food is produced. The Prophet (peace be upon him) valued direct observation and personal verification. Visiting a farm also builds a relationship with the producer, supports local agriculture, and can be a powerful educational experience for your family — connecting the food on your plate to the land it came from.
@@ -3400,6 +4941,12 @@ Benchmark: Complete at least one farm or supplier visit, and use your observatio
       description: 'Fast fashion is built on planned obsolescence, exploitative labour, and massive textile waste. The average garment is worn only 7 times before disposal. Committing to buy less and buy better aligns with the Islamic virtues of moderation, contentment (qana\'ah), and avoiding israf.',
       subtasks: [
         { title: 'Audit your wardrobe — identify items rarely worn and donate them responsibly', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:26)
+**Arabic:** يا بني آدمَ قد أنزلنا عليكم لِباساً يواري سَوءاتِكم وريشاً ولِباسُ التَّقوى ذلكَ خيرٌ
+**Translation:** O children of Adam, We have bestowed upon you clothing to conceal your private parts and as adornment. But the clothing of righteousness — that is best.`,
           description: `**Why does this matter?**
 
 Most people wear only 20-30% of their wardrobe regularly, while the rest sits unused — representing wasted resources, wasted money, and clutter that weighs on you mentally. Auditing your wardrobe reveals the gap between what you own and what you actually need, and donating unused items puts them back into circulation where they can benefit others. The Prophet (peace be upon him) said, "The son of Adam has no better right than that he would have a house wherein he may live, a piece of cloth whereby he may hide his nakedness, and a piece of bread and some water" (Tirmidhi). Simplicity in dress is a Prophetic virtue.
@@ -3417,6 +4964,15 @@ Most people wear only 20-30% of their wardrobe regularly, while the rest sits un
 
 Benchmark: Complete the full wardrobe audit with a clear keep/donate/repair outcome for every item, and donate within two weeks of sorting.` },
         { title: 'Commit to a 30-day no-new-clothing challenge to reset purchasing habits', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.`,
           description: `**Why does this matter?**
 
 Fast fashion thrives on impulse — the constant feeling that you need something new. A 30-day pause breaks that cycle and reveals how much of your clothing purchasing is driven by desire rather than need. This is a practical exercise in qana'ah (contentment) and combating israf (wasteful excess). The Quran says, "Eat and drink, but do not be excessive. Indeed, He does not like those who commit excess" (7:31) — and this principle extends to all consumption, including clothing.
@@ -3435,6 +4991,17 @@ Fast fashion thrives on impulse — the constant feeling that you need something
 
 Benchmark: Complete 30 consecutive days with zero non-essential clothing purchases, and document the insights you gained about your consumption patterns.` },
         { title: 'Before any future clothing purchase, ask: "Do I need this, or do I want this?"', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2346
+The Prophet (peace be upon him) said: "Be in this world as if you were a stranger or a traveler."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The distinction between need and want is the foundation of Islamic moderation. Consumerism deliberately blurs this line, engineering desire to feel like necessity. Training yourself to pause and ask this question before every purchase is a form of muhasabah (self-accounting) — the daily practice of evaluating your intentions and actions. Umar ibn al-Khattab (may Allah be pleased with him) said, "Take account of yourselves before you are taken to account." Applied to consumption, this means interrogating every purchase before your money leaves your hand.
@@ -3452,6 +5019,12 @@ The distinction between need and want is the foundation of Islamic moderation. C
 
 Benchmark: The need-versus-want question should become automatic before every clothing purchase, consistently applied for at least 3 months.` },
         { title: 'Learn basic clothing repair — sewing buttons, hemming, patching', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 6416
+The Prophet (peace be upon him) said: "Be in this world as though you were a stranger or a traveler." A traveler repairs what they have rather than constantly acquiring new things.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A missing button or a small tear should not condemn an otherwise functional garment to the bin. Basic repair skills extend the life of your clothing by years, saving money and reducing textile waste. The Prophet (peace be upon him) mended his own shoes, patched his own garments, and did household work himself (Ahmad). Learning to repair clothing is not a step backward — it is recovering a Sunnah-aligned life skill that modern consumerism has deliberately eroded to keep you buying replacements.
@@ -3505,6 +5078,19 @@ These three verses form the Quranic foundation for understanding that Islamic di
 
 Benchmark: Be able to explain, from primary sources, why tayyib is a Quranic obligation distinct from and complementary to halal.` },
         { title: 'Read scholarly discussion on the scope of tayyib beyond food (clothing, cosmetics, services)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (23:51)
+**Arabic:** يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا
+**Translation:** O messengers, eat from the good foods and work righteousness.
+
+### Ayah (5:87)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ
+**Translation:** O you who have believed, do not prohibit the good things which Allah has made lawful to you.`,
           description: `**Why does this matter?**
 
 While the Quranic command "eat what is halal and tayyib" specifically addresses food, Islamic scholars have long recognised that the principle of tayyib extends to all forms of consumption. Clothing produced through child labour is not tayyib. Cosmetics tested on animals in cruel conditions are not tayyib. Services delivered through exploitation are not tayyib. Understanding this scholarly extension transforms tayyib from a narrow dietary concept into a comprehensive Islamic framework for ethical consumerism.
@@ -3522,6 +5108,19 @@ While the Quranic command "eat what is halal and tayyib" specifically addresses 
 
 Benchmark: Be able to articulate, with scholarly support, how tayyib applies to at least three non-food consumption categories.` },
         { title: 'Identify three product categories where you can apply the tayyib standard more rigorously', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ
+**Translation:** People, eat what is good and lawful from the earth, and do not follow Satan's footsteps, for he is your sworn enemy.
+
+### Ayah (7:157)
+**Arabic:** وَيُحِلُّ لَهُمُ الطَّيِّبَاتِ وَيُحَرِّمُ عَلَيْهِمُ الْخَبَائِثَ
+**Translation:** Who makes good things lawful to them and bad things unlawful.
+
+### Ayah (5:87-88)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ ۝ وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا
+**Translation:** You who believe, do not forbid the good things God has made lawful to you. But eat the lawful and good things that God provides for you.`,
           description: `**Why does this matter?**
 
 Knowledge without application is like rain that falls on barren rock — it flows away without producing anything. After studying the tayyib principle, the next step is identifying where in your actual life you can apply it more rigorously. Choosing three specific categories creates a manageable scope for change rather than an overwhelming mandate to transform everything at once. The Prophet (peace be upon him) said, "Take on only as much as you can do of good deeds, for the best of deeds is that which is done consistently, even if it is small" (Ibn Majah).
@@ -3540,6 +5139,21 @@ Knowledge without application is like rain that falls on barren rock — it flow
 
 Benchmark: Three clearly defined product categories with written tayyib criteria and at least one identified alternative for each.` },
         { title: 'Discuss the tayyib principle with family to build shared awareness', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (23:51)
+**Arabic:** يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا
+**Translation:** O messengers, eat from the good foods and work righteousness.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Household consumption is a collective act — if only one family member changes their purchasing habits while others continue as before, the impact is diluted and the effort feels isolating. Building shared awareness of tayyib within your family creates alignment, mutual support, and collective motivation. The Quran addresses families as units of moral responsibility: "O you who believe, protect yourselves and your families from a Fire" (66:6). Protecting your family from consuming harmful, exploitative, or unwholesome products is part of this protective responsibility.
@@ -3565,6 +5179,15 @@ Benchmark: At least one family discussion completed, with one shared tayyib comm
       description: 'Switching even a few regular purchases to ethical alternatives sends a market signal and supports businesses that treat workers and the environment justly. Start with three items you buy frequently — coffee, tea, chocolate, cleaning products, or personal care — and scale from there.',
       subtasks: [
         { title: 'Identify three everyday products you buy most frequently', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (16:90)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ
+**Translation:** Indeed, Allah orders justice and good conduct.`,
           description: `**Why does this matter?**
 
 Starting with your most frequently purchased items maximises the impact of every switch. A product you buy weekly has 52 opportunities per year to either support an exploitative supply chain or an ethical one. By focusing on frequency rather than cost or category, you target the products where your purchasing power is most concentrated. The principle of prioritising high-impact actions aligns with the Islamic concept of ihsan — doing what is best, not merely what is easy.
@@ -3582,6 +5205,15 @@ Starting with your most frequently purchased items maximises the impact of every
 
 Benchmark: Three specific, frequently purchased products identified by brand name, with purchase frequency and current cost documented.` },
         { title: 'Research fair-trade, local, or certified ethical alternatives for each', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** Eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (5:88)
+**Arabic:** وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا
+**Translation:** And eat of what Allah has provided for you [which is] lawful and good.`,
           description: `**Why does this matter?**
 
 Fair-trade and ethical certifications exist because the default global supply chain often exploits producers in developing countries — paying below living wages, exposing workers to dangerous conditions, and degrading the environment. Choosing certified alternatives ensures that farmers and workers receive fair compensation and that environmental standards are maintained. This aligns with the Islamic prohibition of ghaban fahish (gross exploitation in trade) and the principle that commerce must be built on mutual benefit and justice.
@@ -3600,6 +5232,15 @@ Fair-trade and ethical certifications exist because the default global supply ch
 
 Benchmark: At least one vetted ethical alternative identified for each of your three everyday products, with pricing and availability confirmed.` },
         { title: 'Make the switch and compare quality and cost over one month', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (5:88)
+**Arabic:** وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا ۚ وَاتَّقُوا اللَّهَ الَّذِي أَنتُم بِهِ مُؤْمِنُونَ
+**Translation:** And eat of what Allah has provided for you [which is] lawful and good. And fear Allah, in whom you are believers.
+
+### Ayah (16:90)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ
+**Translation:** Indeed, Allah orders justice and good conduct.`,
           description: `**Why does this matter?**
 
 Intention without action is wishful thinking. Making the actual switch — and tracking the results — transforms your ethical research into lived practice. A one-month trial period gives you enough data to evaluate whether the alternative meets your quality expectations and fits your budget, without requiring a permanent commitment upfront. The Prophet (peace be upon him) said, "Tie your camel, then trust in Allah" (Tirmidhi) — do the practical work of testing, then trust the outcome.
@@ -3618,6 +5259,12 @@ Intention without action is wishful thinking. Making the actual switch — and t
 
 Benchmark: One full month of using all three ethical alternatives, with a documented comparison of cost and quality versus your previous products.` },
         { title: 'If satisfied, add two more ethical swaps the following month', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 2564
+The Prophet (peace be upon him) said: "A Muslim is the brother of a Muslim. He neither oppresses him nor does he let him down." Supporting fair-trade and ethical suppliers upholds the rights of producers and workers.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Sustainable change is incremental. Trying to overhaul all your purchasing at once leads to overwhelm, higher costs, and eventual reversion to old habits. Adding two more swaps after your initial three are stable creates a steady expansion of ethical consumption without the friction of radical change. This mirrors the Quranic principle of gradual legislation — even the prohibition of alcohol was revealed in stages, not all at once, because Allah understands human capacity for change.
@@ -3636,6 +5283,17 @@ Sustainable change is incremental. Trying to overhaul all your purchasing at onc
 
 Benchmark: Five total ethical product swaps sustained consistently, with the pattern of gradual expansion established as an ongoing practice.` },
         { title: 'Share your findings with friends and family to encourage collective switching', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (4:36)
+**Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا ۖ وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ
+**Translation:** Worship Allah and associate nothing with Him, and to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
+
+**II. Sources from the Hadith**
+
+### Sahih al-Bukhari 6019
+The Prophet (peace be upon him) said: "He is not a believer whose stomach is filled while the neighbour to his side goes hungry."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Individual purchasing power is limited, but collective switching transforms markets. When you share your research and successful swaps with others, you multiply the impact exponentially — each person you convince represents another stream of revenue redirected from exploitative businesses to ethical ones. The Prophet (peace be upon him) said, "Whoever guides someone to goodness will have a reward like the one who did it" (Muslim). Sharing your ethical sourcing journey is a form of da'wah through action, not just words.
@@ -3663,6 +5321,12 @@ Benchmark: Share your ethical swap findings with at least 3-5 people or one comm
       description: 'Buying local reduces transport emissions, supports small-scale farmers, and gives you direct knowledge of how your food is produced. Community-supported agriculture (CSA) models create direct farmer-consumer relationships rooted in mutual benefit and trust — values deeply aligned with Islamic commerce ethics.',
       subtasks: [
         { title: 'Find local farmers\' markets, organic co-ops, or CSA programmes in your area', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:168)
+**Arabic:** يا أيّها النّاسُ كُلوا مِمّا في الأرضِ حلالاً طَيِّبا
+**Translation:** O mankind, eat from whatever is on earth that is lawful and wholesome. Local, organic produce is closer to what is truly tayyib.`,
           description: `**Why does this matter?**
 
 You cannot buy local if you do not know what is available locally. Many people assume local food options are scarce, but most urban and suburban areas have farmers' markets, organic cooperatives, or community-supported agriculture (CSA) programmes operating nearby. Finding them is the essential first step toward redirecting your food spending from industrial supply chains to local, transparent, and often more ethical sources. The Islamic emphasis on knowing your trading partner — the Prophet (peace be upon him) conducted commerce face-to-face with full transparency — is naturally fulfilled when you buy directly from the farmer.
@@ -3681,6 +5345,15 @@ You cannot buy local if you do not know what is available locally. Many people a
 
 Benchmark: A documented list of at least 2-3 local food sourcing options (markets, co-ops, or CSAs) with visit dates planned.` },
         { title: 'Visit at least two options and compare produce quality, variety, and pricing', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (6:141)
+**Arabic:** كُلُوا مِن ثَمَرِهِ إِذَا أَثْمَرَ وَآتُوا حَقَّهُ يَوْمَ حَصَادِهِ
+**Translation:** Eat of its fruit when it yields and give its due on the day of its harvest.`,
           description: `**Why does this matter?**
 
 Not all local food sources are equal. Visiting multiple options lets you compare quality, variety, pricing, and the overall experience before committing your regular grocery spending. A visit also gives you the chance to meet the farmers, ask questions about their practices, and assess whether the source aligns with your tayyib standards. The Prophet (peace be upon him) encouraged inspecting goods before purchase — informed buying is a Sunnah principle that protects against both poor quality and deception.
@@ -3699,6 +5372,12 @@ Not all local food sources are equal. Visiting multiple options lets you compare
 
 Benchmark: Two local food sources visited, with a written comparison covering quality, variety, pricing, and practicality for your household.` },
         { title: 'Commit to purchasing at least 50% of fresh produce from local sources', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (16:114)
+**Arabic:** فكُلوا مِمّا رزقكمُ اللّهُ حلالاً طَيِّبا واشكروا نِعمتَ اللّهِ
+**Translation:** Then eat of what Allah has provided for you which is lawful and wholesome, and be grateful for the favour of Allah.`,
           description: `**Why does this matter?**
 
 A 50% commitment strikes the balance between aspiration and practicality. It acknowledges that not everything can be sourced locally while ensuring that the majority of your fresh produce supports local farmers, reduces transport emissions, and provides your family with fresher, more transparent food. This threshold creates a meaningful shift in your spending patterns without demanding perfection. The Islamic approach to reform is gradual and sustainable — "the most beloved deeds to Allah are those done consistently, even if they are small" (Bukhari).
@@ -3717,6 +5396,12 @@ A 50% commitment strikes the balance between aspiration and practicality. It ack
 
 Benchmark: Consistently purchasing at least 50% of fresh produce from local sources for three consecutive months.` },
         { title: 'Build relationships with farmers — ask about their growing practices', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him." Building relationships with farmers connects you to the chain of provision Allah established.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 In Islamic commerce, the relationship between buyer and seller is sacred. The Prophet (peace be upon him) said, "The buyer and the seller have the option of cancelling or confirming the deal as long as they have not parted" (Bukhari) — commerce was conducted face-to-face, with trust built through repeated honest interaction. Knowing your farmer by name, understanding their methods, and building mutual loyalty transforms grocery shopping from an anonymous transaction into a relationship of trust and mutual benefit. This is how trade was meant to function.
@@ -3735,6 +5420,12 @@ In Islamic commerce, the relationship between buyer and seller is sacred. The Pr
 
 Benchmark: Be on a first-name basis with at least one local farmer, with a demonstrated understanding of their farming practices.` },
         { title: 'Adjust meal planning to align with seasonal, locally available produce', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (6:141)
+**Arabic:** كُلوا مِن ثَمَرِهِ إِذا أثمَرَ وآتوا حَقَّهُ يومَ حَصادِهِ ولا تسرفوا
+**Translation:** Eat of its fruit when it yields and give its due on the day of its harvest, and do not be excessive. Eating seasonally and locally aligns with the natural cycles Allah ordained.`,
           description: `**Why does this matter?**
 
 Seasonal eating is how humanity ate for thousands of years before industrial agriculture made every fruit and vegetable available year-round through energy-intensive global supply chains. Eating seasonally means your food is fresher, more nutritious, cheaper, and lower in carbon emissions from transport and cold storage. It also reconnects you to the natural rhythms Allah embedded in creation — "It is He who made the sun a shining light and the moon a derived light and determined for it phases — that you may know the number of years and account of time" (10:5). Seasons are a sign; eating in harmony with them is a form of gratitude.
@@ -3759,6 +5450,12 @@ Benchmark: A meal plan that rotates with the seasons, featuring primarily locall
       description: 'Ethical investment screening ensures your wealth does not fund industries that cause environmental destruction, exploit workers, or violate Islamic prohibitions. Combining Shariah compliance (no riba, gambling, alcohol) with environmental screening (no fossil fuels, deforestation, pollution) creates a comprehensive ethical framework.',
       subtasks: [
         { title: 'Review your current investments and superannuation for exposure to harmful industries', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:275)
+**Arabic:** الَّذينَ يأكُلونَ الرِّبا لا يقومونَ إلّا كما يقومُ الَّذي يتَخبَّطهُ الشَّيطانُ مِنَ المَسِّ
+**Translation:** Those who consume riba (interest) cannot stand except as one whom Satan has driven to madness by his touch. Screening investments for Shariah compliance begins with eliminating riba.`,
           description: `**Why does this matter?**
 
 Your investments and superannuation may be funding industries that directly contradict your Islamic values without your knowledge. Default superannuation funds and broad index investments often include fossil fuel companies, weapons manufacturers, gambling corporations, and businesses involved in deforestation or pollution. If your money is growing through harm to people and planet, the returns carry ethical weight. The Prophet (peace be upon him) said, "Every flesh that has been nourished by haram, the Fire is more deserving of it" (Tirmidhi). This extends to wealth grown through harmful channels.
@@ -3777,6 +5474,12 @@ Your investments and superannuation may be funding industries that directly cont
 
 Benchmark: A complete review of all investment and superannuation holdings, with each assessed against both Shariah and environmental screening criteria.` },
         { title: 'Research Shariah-compliant ethical investment funds and platforms', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1598
+The Prophet (peace be upon him) cursed the one who consumes riba, the one who pays it, the one who records it, and the two witnesses to it, and he said: "They are all the same." Shariah-compliant investment screens exclude riba-based instruments.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Shariah-compliant investment screens and environmental/ethical screens overlap significantly but are not identical. Shariah screens exclude riba-based financial instruments, alcohol, gambling, and pork — but may not exclude fossil fuels, weapons, or environmentally destructive industries. Environmental screens exclude polluters and extractive industries — but may not address riba or other Islamic prohibitions. The ideal is a combined screen that satisfies both dimensions, ensuring your wealth grows through genuinely wholesome channels.
@@ -3795,6 +5498,12 @@ Shariah-compliant investment screens and environmental/ethical screens overlap s
 
 Benchmark: A shortlist of 2-3 investment options that pass both Shariah compliance and environmental screening, with fees and performance compared.` },
         { title: 'Define your personal screening criteria — what industries will you exclude?', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (5:2)
+**Arabic:** وتعاونوا على البرِّ والتَّقوى ولا تعاونوا على الإثمِ والعدوان
+**Translation:** And cooperate in righteousness and piety, but do not cooperate in sin and aggression. Investing in harmful industries is cooperating in sin.`,
           description: `**Why does this matter?**
 
 Pre-built screening criteria from funds may not match your personal convictions. One Muslim investor may prioritise excluding fossil fuels; another may focus on weapons manufacturers; a third may care most about labour exploitation. Defining your own criteria forces you to think deeply about what your values demand and creates a personalised standard you can apply consistently across all financial decisions. This is an act of intentionality (niyyah) applied to your wealth — clarifying what your money will and will not support.
@@ -3813,6 +5522,12 @@ Pre-built screening criteria from funds may not match your personal convictions.
 
 Benchmark: A written personal investment screening policy with clear exclusion categories, thresholds, and rationale grounded in Islamic principles.` },
         { title: 'Transition at least one investment to a screened, ethical alternative', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:278)
+**Arabic:** يا أيّها الَّذينَ آمنوا اتَّقوا اللّهَ وذَروا ما بقيَ مِنَ الرِّبا إِن كنتم مؤمنين
+**Translation:** O you who have believed, fear Allah and give up what remains of riba, if you are believers. Transitioning investments to ethical alternatives is obedience to this command.`,
           description: `**Why does this matter?**
 
 Research and criteria-setting are preparatory — the actual transition is where change happens. Moving even one investment from a conventional fund to an ethically screened alternative redirects capital away from harmful industries and toward businesses that meet your Islamic and environmental standards. Every dirham withdrawn from a harmful fund is a dirham that no longer funds oppression, pollution, or exploitation. Start with one transition to build confidence and experience before moving more.
@@ -3831,6 +5546,12 @@ Research and criteria-setting are preparatory — the actual transition is where
 
 Benchmark: At least one investment or superannuation holding successfully transitioned to a Shariah-compliant, environmentally screened alternative.` },
         { title: 'Set a reminder to review your investment alignment annually', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 7151
+The Prophet (peace be upon him) said: "Every one of you is a shepherd and every one of you is responsible for his flock." Annual review of investment alignment is part of the shepherd’s vigilance over what has been entrusted.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Ethical alignment is not a one-time achievement — it requires ongoing vigilance. Fund compositions change, companies shift their practices, new information emerges about supply chains, and your own understanding of Islamic and environmental ethics deepens over time. An annual review ensures your investments remain aligned with your values rather than drifting back toward harmful industries through inattention. The concept of muhasabah (self-accounting) is not only spiritual — it extends to how you steward the wealth Allah has entrusted to you.
@@ -3856,6 +5577,15 @@ Benchmark: Annual investment review completed consistently, with documented asse
       description: 'A capsule wardrobe consists of a small number of versatile, high-quality pieces that mix and match across seasons. This approach reduces textile waste, saves money long-term, and frees mental energy from the cycle of trend-chasing — embodying the Prophetic simplicity in dress.',
       subtasks: [
         { title: 'Define your essential wardrobe categories (work, casual, formal, active, prayer)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.
+
+### Ayah (7:32)
+**Arabic:** قُلْ مَنْ حَرَّمَ زِينَةَ اللَّهِ الَّتِي أَخْرَجَ لِعِبَادِهِ وَالطَّيِّبَاتِ مِنَ الرِّزْقِ
+**Translation:** Say, "Who has forbidden the adornment of Allah which He has produced for His servants and the good [lawful] things of provision?"`,
           description: `**Why does this matter?**
 
 A capsule wardrobe begins with clarity about your actual life, not aspirational fashion. Defining categories based on how you spend your time ensures every garment serves a real function. A Muslim's wardrobe categories may differ from secular frameworks — prayer garments, modest formal wear, and clothing suitable for community gatherings are essential categories often overlooked in mainstream capsule wardrobe advice. The Prophet (peace be upon him) had specific garments for specific purposes — prayer, travel, and daily wear — demonstrating that intentional, purpose-driven dress is a Sunnah practice.
@@ -3873,6 +5603,12 @@ A capsule wardrobe begins with clarity about your actual life, not aspirational 
 
 Benchmark: A clear, written list of 4-6 wardrobe categories with specific requirements and estimated piece counts for each, tailored to your actual lifestyle.` },
         { title: 'Select 25-35 core pieces in a cohesive colour palette that work together', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (7:26)
+**Arabic:** يا بني آدمَ قد أنزلنا عليكم لِباساً يواري سَوءاتِكم وريشاً ولِباسُ التَّقوى ذلكَ خيرٌ
+**Translation:** O children of Adam, We have bestowed upon you clothing to conceal your private parts and as adornment. But the clothing of righteousness — that is best. A curated wardrobe prioritises purpose over excess.`,
           description: `**Why does this matter?**
 
 The power of a capsule wardrobe lies in versatility through cohesion. When every piece works with multiple other pieces, 30 garments can create hundreds of outfit combinations. A cohesive colour palette ensures that you always look put-together without owning excess. This approach embodies the Islamic balance between looking presentable — "Allah is beautiful and loves beauty" (Muslim) — and avoiding excess — "Eat and drink, but do not be excessive" (7:31). You honour both values simultaneously.
@@ -3891,6 +5627,15 @@ The power of a capsule wardrobe lies in versatility through cohesion. When every
 
 Benchmark: A curated capsule of 25-35 pieces in a cohesive palette, with at least 15 verified outfit combinations documented.` },
         { title: 'Donate or sell excess clothing responsibly', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ
+**Translation:** They give [them] preference over themselves, even though they are in privation.
+
+### Ayah (2:267)
+**Arabic:** أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ
+**Translation:** Spend from the good things which you have earned.`,
           description: `**Why does this matter?**
 
 The clothing you remove from your capsule still has value — to someone who needs it, to a textile recycler, or as raw material. Disposing of excess clothing irresponsibly (throwing it in the bin) sends it to landfill where synthetic fabrics take hundreds of years to decompose. Responsible donation and selling ensures your excess benefits others while keeping textiles in circulation. The Prophet (peace be upon him) said, "None of you truly believes until he loves for his brother what he loves for himself" (Bukhari). If the garment is good enough that you once wore it, it is good enough to find a new home.
@@ -3908,6 +5653,21 @@ The clothing you remove from your capsule still has value — to someone who nee
 
 Benchmark: All excess clothing responsibly donated, sold, or recycled within two weeks, with no items sent to landfill.` },
         { title: 'When replacing items, invest in ethically made, durable garments', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Children of Adam, dress well whenever you are at worship, and eat and drink [as We have permitted] but do not be extravagant: God does not like extravagant people.
+
+### Ayah (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** They are those who are neither wasteful nor niggardly when they spend, but keep to a just balance.
+
+**II. Sources from the Hadith**
+
+### Sunan al-Tirmidhi 2378
+The Prophet (peace be upon him) said: "Eat, drink, give charity, and wear clothes -- so long as it does not involve extravagance or pride."
+*(Grade: Hasan)*`,
           description: `**Why does this matter?**
 
 The capsule wardrobe only delivers its environmental benefit if replacement pieces are chosen with care. Replacing a worn-out fast fashion item with another fast fashion item perpetuates the same cycle of waste. Investing in ethically made, durable garments means each replacement lasts years rather than months, reducing both your spending and your environmental footprint over time. Quality over quantity is the practical expression of moderation — you pay more per item but far less per year.
@@ -3926,6 +5686,12 @@ The capsule wardrobe only delivers its environmental benefit if replacement piec
 
 Benchmark: Every replacement piece in your capsule should be sourced from an ethical brand or second-hand, with an expected useful life of at least 3 years.` },
         { title: 'Maintain the capsule by applying a "one in, one out" rule', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 6416
+The Prophet (peace be upon him) said: "Be in this world as though you were a stranger or a traveler." The "one in, one out" rule reflects the traveler’s discipline of carrying only what is needed.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Without a maintenance rule, wardrobes inevitably expand back to pre-capsule levels. The "one in, one out" rule is a simple, enforceable constraint that prevents accumulation: every new garment that enters your wardrobe requires one existing garment to leave. This creates a natural ceiling on consumption and forces you to evaluate every purchase against what you already own. It is a practical implementation of the Prophetic principle of moderation — the Prophet (peace be upon him) owned very few garments and maintained them carefully, never accumulating beyond need.
@@ -3950,6 +5716,12 @@ Benchmark: Six consecutive months of maintaining the one-in-one-out rule with no
       description: 'The throwaway culture encourages replacing items at the first sign of wear. Repairing extends product life, reduces waste, and saves money. The early Muslims were known for mending their clothing and maintaining their possessions with care — repair is a Sunnah-aligned habit.',
       subtasks: [
         { title: 'Find local repair services — tailors, cobblers, electronics repair shops, furniture restorers', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 6416
+The Prophet (peace be upon him) said: "Be in this world as though you were a stranger or a traveler." Repairing rather than replacing reflects the simplicity and resourcefulness of a traveler.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Even with basic repair skills, many fixes require professional expertise — a cobbler for resoling shoes, a tailor for structural garment alterations, an electronics technician for circuit board repairs, or a furniture restorer for joinery work. Having these contacts ready before you need them removes the friction that leads to discarding repairable items. These are often small, independent businesses run by skilled artisans — supporting them is a form of ta'awun (mutual cooperation) that keeps traditional trades alive while reducing waste.
@@ -3968,6 +5740,12 @@ Even with basic repair skills, many fixes require professional expertise — a c
 
 Benchmark: Contact details saved for at least one service in each category (clothing, shoes, electronics, furniture), with an initial visit completed.` },
         { title: 'Learn basic repair skills: sewing, gluing, tightening, and simple electronics fixes', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (17:27)
+**Arabic:** إنَّ المُبَذِّرينَ كانوا إخوانَ الشَّياطين
+**Translation:** Indeed, the wasteful are brothers of the devils. Learning repair skills combats the throw-away culture that leads to wastefulness.`,
           description: `**Why does this matter?**
 
 Self-sufficiency in basic repairs reduces your dependence on professional services for minor fixes, saves money, and builds a practical skill set that serves you for life. The Prophet (peace be upon him) mended his own shoes, sewed his own clothes, and milked his own goat (Ahmad) — he did not delegate what he could do himself. Learning to repair is recovering a form of practical self-reliance that modern consumer culture has systematically discouraged in order to sell you replacements.
@@ -3986,6 +5764,17 @@ Self-sufficiency in basic repairs reduces your dependence on professional servic
 
 Benchmark: Independently complete at least one repair in each category (textile, adhesive, tightening, electronics) without professional assistance.` },
         { title: 'Before discarding any broken item, get a repair quote first', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (7:31)
+**Arabic:** وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ
+**Translation:** Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.
+
+**II. Sources from the Hadith**
+
+### Jami at-Tirmidhi 2346
+The Prophet (peace be upon him) said: "Be in this world as if you were a stranger or a traveler."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The default modern response to a broken item is to replace it. This habit is so ingrained that most people discard items without even considering whether repair is possible — let alone affordable. Making a repair quote the mandatory first step before disposal changes the default from "throw away" to "can this be saved?" In many cases, a repair costs a fraction of replacement and extends the item's life by years. This is the practical embodiment of avoiding israf (wasteful excess) — the Quran's prohibition against waste applies not only to food but to all resources.
@@ -4004,6 +5793,12 @@ The default modern response to a broken item is to replace it. This habit is so 
 
 Benchmark: Apply the repair-quote-first rule to every broken item for three consecutive months, tracking decisions and outcomes.` },
         { title: 'Attend a community repair cafe or watch repair tutorials for common fixes', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (25:67)
+**Arabic:** والَّذينَ إِذا أنفَقوا لم يسرفوا ولم يقتروا وكانَ بينَ ذلكَ قواما
+**Translation:** And those who, when they spend, are neither extravagant nor miserly, but hold a just balance. Attending repair cafes is a practical step toward balanced consumption.`,
           description: `**Why does this matter?**
 
 Repair cafes are community events where volunteer fixers help people repair broken items for free — from toasters to trousers. Attending one connects you with skilled repairers, teaches you new techniques through observation, and embeds repair culture into your social life. If no repair cafe exists nearby, online tutorials provide the same knowledge. Either way, you are building competence and confidence in repair as a normal, accessible activity rather than a specialised service. Community repair also embodies the Islamic spirit of ta'awun — people helping each other freely for collective benefit.
@@ -4031,6 +5826,15 @@ Benchmark: Attend at least one repair cafe (or complete at least 3 tutorial-guid
       description: 'A circular economy business designs waste out of the system entirely — products are made to be reused, repaired, or recycled back into production. This represents the highest expression of Islamic environmental stewardship applied to commerce: generating halal profit while regenerating rather than depleting the earth.',
       subtasks: [
         { title: 'Study circular economy business models (product-as-service, take-back, remanufacturing)', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَابْتَغِ فِيمَا آتَاكَ اللَّهُ الدَّارَ الْآخِرَةَ ۖ وَلَا تَنسَ نَصِيبَكَ مِنَ الدُّنْيَا ۖ وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ ۖ وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ
+**Translation:** But seek, through that which Allah has given you, the home of the Hereafter; and [yet], do not forget your share of the world. And do good as Allah has done good to you. And desire not corruption in the land.
+
+### Ayah (11:61)
+**Arabic:** هُوَ أَنشَأَكُم مِّنَ الْأَرْضِ وَاسْتَعْمَرَكُمْ فِيهَا
+**Translation:** He has produced you from the earth and settled you in it.`,
           description: `**Why does this matter?**
 
 Before you can build or invest in a circular business, you need to understand the models that make circularity commercially viable. The circular economy is not a single approach but a family of business models, each suited to different industries and contexts. Product-as-service replaces ownership with access (leasing rather than selling). Take-back programmes recover products at end of life for refurbishment or recycling. Remanufacturing restores used products to like-new condition. Understanding these models equips you to identify which one fits your skills, community needs, and market opportunity.
@@ -4048,6 +5852,15 @@ Before you can build or invest in a circular business, you need to understand th
 
 Benchmark: Be able to explain at least three distinct circular business models with real-world examples, including their revenue mechanisms and key success factors.` },
         { title: 'Identify a market gap where a circular model could work in your community', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (30:41)
+**Arabic:** ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ
+**Translation:** Corruption has appeared throughout the land and sea by reason of what the hands of people have earned.
+
+### Ayah (28:77)
+**Arabic:** وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ ۖ إِنَّ اللَّهَ لَا يُحِبُّ الْمُفْسِدِينَ
+**Translation:** And desire not corruption in the land. Indeed, Allah does not like corrupters.`,
           description: `**Why does this matter?**
 
 A circular business must solve a real problem for real people — it cannot succeed on idealism alone. Identifying a genuine market gap in your community ensures that the business you design has customers who need what you offer. The most powerful circular businesses emerge from observing waste and inefficiency in daily life and designing a system to eliminate it. The Prophet (peace be upon him) was a successful merchant before prophethood — commercial acumen is not separate from Islamic service; it is a vehicle for it.
@@ -4066,6 +5879,21 @@ A circular business must solve a real problem for real people — it cannot succ
 
 Benchmark: 2-3 documented market gaps with evidence of community demand, evaluated against your personal capabilities and resources.` },
         { title: 'Draft a basic business concept with circular principles embedded from day one', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (28:77)
+**Arabic:** وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ ۖ وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ
+**Translation:** And do good as Allah has done good to you. And desire not corruption in the land.
+
+### Ayah (15:19)
+**Arabic:** وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ
+**Translation:** And We caused to grow therein [something] of every well-balanced thing.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Circularity cannot be bolted onto a linear business model after the fact — it must be designed in from the beginning. How you source materials, design products, price services, and handle end-of-life determines whether your business truly eliminates waste or merely shifts it. Drafting the concept with circularity embedded from day one ensures that every decision reinforces the closed-loop system rather than undermining it. This is the Islamic principle of ihsan (excellence) applied to business design — doing it right from the foundation, not patching it later.
@@ -4084,6 +5912,12 @@ Circularity cannot be bolted onto a linear business model after the fact — it 
 
 Benchmark: A clear one-page business concept document with circularity embedded in the material flow, revenue model, and end-of-life design.` },
         { title: 'Connect with existing circular economy networks, incubators, or Islamic finance providers', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (11:61)
+**Arabic:** هُوَ أنشَأكم مِنَ الأرضِ واستَعمَركم فيها
+**Translation:** He produced you from the earth and settled you therein (to develop it). Connecting with circular economy and Islamic finance networks fulfils the mandate of constructive stewardship.`,
           description: `**Why does this matter?**
 
 No business succeeds in isolation. Connecting with established networks provides mentorship, partnerships, funding pathways, and credibility that a solo founder cannot generate alone. Circular economy incubators can accelerate your learning curve and help you avoid common pitfalls. Islamic finance providers can fund your venture through Shariah-compliant structures (mudarabah, musharakah) that align with your values. The Prophet (peace be upon him) said, "The believer to another believer is like a building whose different parts enforce each other" (Bukhari). Build your support structure before you need it.
@@ -4102,6 +5936,12 @@ No business succeeds in isolation. Connecting with established networks provides
 
 Benchmark: Active membership or engagement with at least one circular economy network and one potential funding or mentorship connection identified.` },
         { title: 'Validate the concept with potential customers before investing capital', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 2072
+The Prophet (peace be upon him) said: "The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs on the Day of Judgement." Validating a business concept before investing reflects trustworthy commercial practice.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The most elegant business concept is worthless if customers will not pay for it. Validation means testing your assumptions with real potential customers before committing significant capital — reducing the risk of building something nobody wants. Islam prohibits gharar (excessive uncertainty) in transactions, and launching an unvalidated business is a form of self-imposed gharar with your own wealth. Validation is due diligence, and due diligence is a form of amanah (trustworthiness) in stewarding the resources Allah has given you.
@@ -4120,6 +5960,19 @@ The most elegant business concept is worthless if customers will not pay for it.
 
 Benchmark: At least 15 validation interviews completed and one pilot test run, with documented evidence of customer demand (or a clear signal to pivot).` },
         { title: 'Ensure the business model passes both Shariah compliance and environmental impact screening', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (5:87)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ وَلَا تَعْتَدُوا
+**Translation:** O you who have believed, do not prohibit the good things which Allah has made lawful to you and do not transgress.
+
+### Ayah (28:77)
+**Arabic:** وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ ۖ إِنَّ اللَّهَ لَا يُحِبُّ الْمُفْسِدِينَ
+**Translation:** And desire not corruption in the land. Indeed, Allah does not like corrupters.`,
           description: `**Why does this matter?**
 
 A circular economy business built by a Muslim must satisfy two screening frameworks simultaneously: Shariah compliance (ensuring all transactions, financing, and operations are halal) and environmental impact (ensuring the business genuinely reduces harm rather than shifting it elsewhere). Many "green" businesses fail the Shariah test through riba-based financing, and some "halal" businesses fail the environmental test through wasteful or exploitative practices. Your business must pass both — this dual compliance is what distinguishes an Islamic circular enterprise from a conventional one.
@@ -4145,6 +5998,15 @@ Benchmark: A documented dual-compliance assessment showing the business model pa
       description: 'Individual ethical purchasing has limited negotiating power. A community purchasing collective pools buying power to access wholesale pricing from ethical suppliers, making halal-tayyib products affordable for everyone. This is a modern application of the Islamic principle of ta\'awun (mutual cooperation).',
       subtasks: [
         { title: 'Gauge interest among community members, masjid contacts, and neighbours', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (59:9)
+**Arabic:** وَالَّذِينَ تَبَوَّءُوا الدَّارَ وَالْإِيمَانَ مِن قَبْلِهِمْ يُحِبُّونَ مَنْ هَاجَرَ إِلَيْهِمْ وَلَا يَجِدُونَ فِي صُدُورِهِمْ حَاجَةً مِّمَّا أُوتُوا وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ
+**Translation:** They love those who emigrated to them and find not any want in their breasts of what the emigrants were given but give them preference over themselves, even though they are in privation.
+
+### Ayah (49:13)
+**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا
+**Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.`,
           description: `**Why does this matter?**
 
 A purchasing collective only works if enough people commit to participate. Gauging interest before investing time in supplier negotiations and logistics prevents you from building infrastructure nobody uses. This step also identifies potential champions — enthusiastic community members who will help drive participation and share the organisational load. The Prophet (peace be upon him) consulted his companions (shura) before major decisions, and building a collective requires the same consultative approach to ensure genuine community buy-in rather than top-down imposition.
@@ -4163,6 +6025,12 @@ A purchasing collective only works if enough people commit to participate. Gaugi
 
 Benchmark: At least 10 households expressing firm interest, with 2-3 organising team members identified and committed.` },
         { title: 'Identify 3-5 ethical suppliers willing to offer bulk pricing (produce, cleaning, personal care)', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (5:2)
+**Arabic:** وتعاونوا على البرِّ والتَّقوى
+**Translation:** And cooperate in righteousness and piety. A purchasing collective is a direct form of cooperation in what is good and beneficial.`,
           description: `**Why does this matter?**
 
 The collective's value depends entirely on securing genuine wholesale pricing from suppliers who meet your ethical standards. Without confirmed suppliers offering real bulk discounts, the collective has no economic advantage over individual purchasing. Finding 3-5 suppliers across different product categories also gives members variety and reduces dependency on any single source. In Islamic commerce, the buyer has a right to fair pricing and full transparency — your supplier relationships should embody these principles from the first conversation.
@@ -4181,6 +6049,12 @@ The collective's value depends entirely on securing genuine wholesale pricing fr
 
 Benchmark: Confirmed agreements with 3-5 ethical suppliers across at least 2 product categories, with documented pricing that demonstrably undercuts individual retail.` },
         { title: 'Set up a simple ordering and distribution system (shared spreadsheet, collection point)', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Bukhari 2072
+The Prophet (peace be upon him) said: "The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs." Setting up transparent ordering and distribution systems reflects the prophetic standard of trustworthy commerce.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 The difference between a successful collective and a chaotic one is logistics. A clear, simple system for collecting orders, managing payments, and distributing products prevents confusion, disputes, and burnout among organisers. Over-engineering the system at this stage is as dangerous as under-engineering it — start simple and iterate based on real experience. The Prophet (peace be upon him) said, "Make things easy and do not make them difficult" (Bukhari). Your ordering system should be easy enough that any member can use it without technical assistance.
@@ -4199,6 +6073,17 @@ The difference between a successful collective and a chaotic one is logistics. A
 
 Benchmark: A functional ordering and distribution system tested internally by the organising team before the first member order cycle.` },
         { title: 'Run a pilot order with a small group to test logistics', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ
+**Translation:** They give preference over themselves, even though they are in privation.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Allah helps the servant as long as the servant helps his brother."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 A pilot order with a small group reveals logistical problems in a low-stakes environment before they affect the full membership. Issues like delivery timing, product quality on arrival, payment processing delays, storage requirements, and member communication gaps all surface during a pilot but are manageable at small scale. Scaling without piloting risks disappointing members, losing supplier trust, and collapsing the collective before it gains momentum. Testing before scaling is prudence — and prudence is a form of hikmah (wisdom) that Islam values highly.
@@ -4217,6 +6102,12 @@ A pilot order with a small group reveals logistical problems in a low-stakes env
 
 Benchmark: One complete pilot order cycle executed, with documented feedback from pilot members and a list of refinements for the full launch.` },
         { title: 'Scale gradually, adding more product categories and members over time', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1017
+The Prophet (peace be upon him) said: "Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him." Scaling a purchasing collective gradually creates a lasting precedent of ethical consumption.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Rapid scaling is the most common cause of collective failure. Adding too many members or product categories at once overwhelms logistics, strains organiser capacity, and introduces problems faster than they can be solved. Gradual scaling allows each expansion to stabilise before the next one begins, building a resilient organisation rather than a fragile one. The Quran was revealed over 23 years, not in a single day — gradual implementation is a divine methodology that respects human capacity for change and adaptation.
@@ -4243,6 +6134,12 @@ Benchmark: Sustained operation for at least 6 months with stable membership, at 
       description: 'A community sourcing guide compiles the research you have done into a shareable resource that helps others make ethical purchasing decisions without starting from scratch. This is sadaqah jariyah — ongoing charity through knowledge that continues to benefit others long after publication.',
       subtasks: [
         { title: 'Compile your vetted list of ethical suppliers, brands, and alternatives by category', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (3:110)
+**Arabic:** كُنتم خيرَ أُمَّةٍ أُخرِجت لِلنّاسِ تأمرونَ بالمعروفِ وتنهَونَ عنِ المُنكَر
+**Translation:** You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong. Compiling and sharing a sourcing guide is enjoining what is right.`,
           description: `**Why does this matter?**
 
 All the research you have done across previous tasks — auditing brands, finding ethical alternatives, visiting farms, testing products — represents hours of effort that should not remain locked in your personal notes. Compiling this knowledge into a structured, shareable format transforms individual research into community benefit. This compilation is the raw material for a guide that saves others from repeating your work from scratch. The Prophet (peace be upon him) said, "The best of people are those most beneficial to people" (al-Mu'jam al-Awsat). Sharing vetted sourcing knowledge is a tangible way to be beneficial.
@@ -4261,6 +6158,12 @@ All the research you have done across previous tasks — auditing brands, findin
 
 Benchmark: A complete compiled list covering at least 4 product categories with 3+ vetted recommendations per category, clearly organised and ready for formatting.` },
         { title: 'Include brief explanations of why each recommendation meets halal, tayyib, and environmental criteria', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (2:168)
+**Arabic:** يا أيّها النّاسُ كُلوا مِمّا في الأرضِ حلالاً طَيِّبا
+**Translation:** O mankind, eat from whatever is on earth that is lawful and wholesome. Explaining halal, tayyib, and environmental criteria helps others fulfil this command.`,
           description: `**Why does this matter?**
 
 A list of brand names without explanations is a recommendation without reasoning — readers have no way to evaluate whether your criteria match theirs or to make informed decisions when your specific recommendations are unavailable. Including the "why" behind each recommendation educates readers on what to look for, building their own discernment rather than creating dependency on your list. It also grounds each recommendation in the Islamic framework of halal, tayyib, and environmental stewardship, reinforcing that ethical sourcing is a religious commitment, not merely a lifestyle preference.
@@ -4279,6 +6182,12 @@ A list of brand names without explanations is a recommendation without reasoning
 
 Benchmark: Every recommendation and exclusion in the guide includes a clear, concise explanation grounded in halal, tayyib, or environmental criteria.` },
         { title: 'Format the guide for easy use — digital PDF, website, or printed booklet', done: false,
+          sources: `**I. Sources from the Hadith**
+
+
+### Sahih Muslim 1631
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him." A published sourcing guide is beneficial knowledge that continues to benefit the community.
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 Content that is difficult to access or navigate will not be used, no matter how valuable. Formatting your sourcing guide for easy use means choosing the right medium for your audience and designing the layout for quick reference rather than deep reading. A well-formatted guide gets pinned to fridges, bookmarked on phones, and shared in group chats. A poorly formatted one gets downloaded once and forgotten. The effort you put into research deserves a presentation that honours it and maximises its reach.
@@ -4297,6 +6206,12 @@ Content that is difficult to access or navigate will not be used, no matter how 
 
 Benchmark: A polished, publication-ready guide in at least one format, tested with community members for usability before distribution.` },
         { title: 'Share with your masjid, Islamic centre, and community social media channels', done: false,
+          sources: `**I. Sources from the Quran**
+
+
+### Ayah (3:104)
+**Arabic:** ولتكُن مِنكم أُمَّةٌ يدعونَ إلى الخيرِ ويأمرونَ بالمعروف
+**Translation:** And let there be among you a community inviting to good, enjoining what is right. Sharing the guide through masjid and community channels extends the call to good.`,
           description: `**Why does this matter?**
 
 A guide that sits on your hard drive helps nobody. Distribution is where your individual research becomes sadaqah jariyah — ongoing charity that benefits others continuously. Every person who uses your guide to make a more ethical purchasing decision extends the impact of your original work. The Prophet (peace be upon him) said, "When a person dies, their deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim). A sourcing guide that others use and share is beneficial knowledge in its purest practical form.
@@ -4315,6 +6230,21 @@ A guide that sits on your hard drive helps nobody. Distribution is where your in
 
 Benchmark: Guide distributed through at least 3 channels (masjid, social media, and direct sharing), with evidence of at least 10 community members accessing or downloading it.` },
         { title: 'Commit to updating the guide at least annually as suppliers and options change', done: false,
+          sources: `**I. Sources from the Quran**
+
+### Ayah (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on earth [that is] lawful and good.
+
+### Ayah (23:51)
+**Arabic:** يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا
+**Translation:** O messengers, eat from the good foods and work righteousness.
+
+**II. Sources from the Hadith**
+
+### Sahih Muslim 2742
+The Prophet (peace be upon him) said: "The world is sweet and green, and Allah has made you stewards over it, and He watches how you behave."
+*(Grade: Sahih)*`,
           description: `**Why does this matter?**
 
 An outdated guide is worse than no guide — it sends people to suppliers that may have changed their practices, closed down, or been exposed for ethical violations since your last review. Markets, businesses, and certifications evolve constantly. Committing to annual updates ensures the guide remains a trustworthy, living resource rather than a historical snapshot. This ongoing maintenance is part of the amanah (trust) you accepted when you published the guide — people are relying on your recommendations, and that trust carries responsibility.
