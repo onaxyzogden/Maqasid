@@ -1,9 +1,13 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
+import { hydrateTasks, stripSeedFields } from '../services/seed-hydrator';
 
 function persistTasks(projectId, tasks) {
-  safeSet(`tasks_${projectId}`, tasks);
+  // Strip seed reference fields (description/sources matching the seed) before
+  // writing, so in-memory state can stay hydrated without bloating localStorage.
+  const slim = tasks.map((t) => stripSeedFields(t, projectId));
+  safeSet(`tasks_${projectId}`, slim);
 }
 
 export const useTaskStore = create((set, get) => ({
@@ -11,7 +15,8 @@ export const useTaskStore = create((set, get) => ({
   tasksByProject: {},
 
   loadTasks: (projectId) => {
-    const tasks = safeGetJSON(`tasks_${projectId}`, []);
+    const raw = safeGetJSON(`tasks_${projectId}`, []);
+    const tasks = hydrateTasks(raw, projectId);
     set((s) => ({
       tasksByProject: { ...s.tasksByProject, [projectId]: tasks },
     }));

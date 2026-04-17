@@ -8,6 +8,7 @@ import { INTELLECT_SEED_TASKS } from '@data/seed-tasks/intellect-seed-tasks';
 import { FAMILY_SEED_TASKS } from '@data/seed-tasks/family-seed-tasks';
 import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
 import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
+import { UMMAH_SEED_TASKS } from '@data/seed-tasks/ummah-seed-tasks';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
 
 function persistProjects(projects) {
@@ -52,16 +53,18 @@ function seedTasks(boardId, seedMap) {
   if (existing.length > 0) return; // already has tasks
   const todoColId = `col_${boardId}_to_do`;
   const now = new Date().toISOString();
+  // Slim shape: description/sources are static reference data, hydrated at read time
+  // from the bundled seed (see src/services/seed-hydrator.js). Persisting them would
+  // blow the localStorage quota (~8 MB across 1,500+ subtasks).
   const seeded = tasks.map((t, i) => ({
     id: genTaskId(),
     projectId: boardId,
     columnId: todoColId,
     title: t.title,
-    description: t.description || '',
     priority: t.priority || 'medium',
     dueDate: t.dueDate || null,
     tags: t.tags || [],
-    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false, description: s.description || '', sources: s.sources || '' })),
+    subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false })),
     checklist: [],
     order: i,
     seedOrder: i,
@@ -72,7 +75,12 @@ function seedTasks(boardId, seedMap) {
   safeSet(storageKey, seeded);
 }
 
-function backfillSeedDescriptions() {
+// Backfills structural data (seedOrder, new subtasks added by seed updates) and
+// strips static reference data (description, sources) that lives in the bundle.
+// One-time migration flag prevents the strip-pass from running on every boot.
+const SEED_STRIP_FLAG_KEY = 'seed_strip_v2';
+
+function backfillAndStripSeeds() {
   const ALL_SEEDS = {
     ...FAITH_SEED_TASKS,
     ...LIFE_SEED_TASKS,
@@ -80,7 +88,12 @@ function backfillSeedDescriptions() {
     ...FAMILY_SEED_TASKS,
     ...WEALTH_SEED_TASKS,
     ...ENVIRONMENT_SEED_TASKS,
+    ...UMMAH_SEED_TASKS,
   };
+  const firstRun = safeGetJSON(SEED_STRIP_FLAG_KEY, null) === null;
+  let totalBefore = 0;
+  let totalAfter = 0;
+
   Object.keys(ALL_SEEDS).forEach((boardId) => {
     const storageKey = `tasks_${boardId}`;
     const tasks = safeGetJSON(storageKey, []);
@@ -89,45 +102,76 @@ function backfillSeedDescriptions() {
     const seedMap = {};
     seeds.forEach((s, i) => { seedMap[s.title] = { ...s, _seedIndex: i }; });
     let changed = false;
+    const beforeSize = firstRun ? JSON.stringify(tasks).length : 0;
+
     const updated = tasks.map((t) => {
       const seed = seedMap[t.title];
       if (!seed) return t;
       const patch = {};
-      if (!t.description && seed.description) patch.description = seed.description;
+
+      // Structural: set seedOrder if missing
       if (t.seedOrder === undefined) patch.seedOrder = seed._seedIndex;
+
+      // Structural: add any new subtasks introduced by seed updates (slim shape — no description/sources)
       const seedSubs = seed.subtasks || [];
       const storedSubs = t.subtasks || [];
       if (seedSubs.length > storedSubs.length) {
         const storedTitles = new Set(storedSubs.map((s) => s.title));
         const newSubs = seedSubs
           .filter((s) => !storedTitles.has(s.title))
-          .map((s) => ({ ...s, id: genSubtaskId() }));
+          .map((s) => ({ id: genSubtaskId(), title: s.title, done: false }));
         if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
       }
-      // Backfill subtask descriptions from seed data
-      const subs = patch.subtasks || storedSubs;
+
+      // Strip: remove description/sources when a seed match exists.
+      // These fields are read-only reference data in the UI — never user-edited —
+      // so unconditional strip is safe and avoids retaining stale prior seed versions.
+      let stripChanged = false;
+      const nextTask = { ...t, ...patch };
+      if (nextTask.description !== undefined && seed.description) {
+        delete nextTask.description;
+        stripChanged = true;
+      }
+      const subs = nextTask.subtasks || storedSubs;
       const seedSubMap = {};
       seedSubs.forEach((ss) => { seedSubMap[ss.title] = ss; });
-      const patchedSubs = subs.map((st) => {
+      const strippedSubs = subs.map((st) => {
         const ss = seedSubMap[st.title];
         if (!ss) return st;
-        let updated = st;
-        if (ss.description && ss.description !== st.description) {
-          updated = { ...updated, description: ss.description };
-        }
-        if (ss.sources && !st.sources) {
-          updated = { ...updated, sources: ss.sources };
-        }
-        return updated;
+        if (st.description === undefined && st.sources === undefined) return st;
+        const nst = { ...st };
+        if (ss.description !== undefined && nst.description !== undefined) delete nst.description;
+        if (ss.sources !== undefined && nst.sources !== undefined) delete nst.sources;
+        stripChanged = true;
+        return nst;
       });
-      if (patchedSubs.some((st, i) => st !== subs[i])) patch.subtasks = patchedSubs;
-      if (Object.keys(patch).length > 0) { changed = true; return { ...t, ...patch }; }
+      if (stripChanged) nextTask.subtasks = strippedSubs;
+
+      if (Object.keys(patch).length > 0 || stripChanged) {
+        changed = true;
+        return nextTask;
+      }
       return t;
     });
-    if (changed) safeSet(storageKey, updated);
+
+    if (changed) {
+      safeSet(storageKey, updated);
+      if (firstRun) {
+        totalBefore += beforeSize;
+        totalAfter += JSON.stringify(updated).length;
+      }
+    }
   });
+
+  if (firstRun) {
+    safeSet(SEED_STRIP_FLAG_KEY, true);
+    if (totalBefore > 0) {
+      const mb = (n) => (n / 1024 / 1024).toFixed(2);
+      console.info(`[bbiz] Seed reference strip: ${mb(totalBefore)} MB -> ${mb(totalAfter)} MB`);
+    }
+  }
 }
-backfillSeedDescriptions();
+backfillAndStripSeeds();
 
 function backfillBbosOrder() {
   const bbosIndexMap = {};
@@ -270,6 +314,21 @@ export const ENVIRONMENT_BOARDS = [
   { id: 'environment_sourcing_core',       name: 'SOURCING — CORE',       color: '#f97316', icon: 'ShoppingBag', description: 'Ethical Sourcing: Necessities (Daruriyyat)', moduleId: 'sourcing' },
   { id: 'environment_sourcing_growth',     name: 'SOURCING — GROWTH',     color: '#f97316', icon: 'ShoppingBag', description: 'Ethical Sourcing: Needs (Hajiyyat)', moduleId: 'sourcing' },
   { id: 'environment_sourcing_excellence', name: 'SOURCING — EXCELLENCE', color: '#f97316', icon: 'ShoppingBag', description: 'Ethical Sourcing: Excellence (Tahsiniyyat)', moduleId: 'sourcing' },
+];
+
+export const UMMAH_BOARDS = [
+  // Moontrance Land — Core / Growth / Excellence
+  { id: 'ummah_moontrance-land_core',       name: 'MOONTRANCE LAND — CORE',       color: '#6E8E5B', icon: 'Mountain', description: 'Moontrance Land: Necessities (Daruriyyat)', moduleId: 'moontrance-land' },
+  { id: 'ummah_moontrance-land_growth',     name: 'MOONTRANCE LAND — GROWTH',     color: '#6E8E5B', icon: 'Mountain', description: 'Moontrance Land: Needs (Hajiyyat)', moduleId: 'moontrance-land' },
+  { id: 'ummah_moontrance-land_excellence', name: 'MOONTRANCE LAND — EXCELLENCE', color: '#6E8E5B', icon: 'Mountain', description: 'Moontrance Land: Excellence (Tahsiniyyat)', moduleId: 'moontrance-land' },
+  // Moontrance Seasonal — Core / Growth / Excellence
+  { id: 'ummah_moontrance-seasonal_core',       name: 'MOONTRANCE SEASONAL — CORE',       color: '#8E9E5B', icon: 'Leaf', description: 'Moontrance Seasonal: Necessities (Daruriyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'ummah_moontrance-seasonal_growth',     name: 'MOONTRANCE SEASONAL — GROWTH',     color: '#8E9E5B', icon: 'Leaf', description: 'Moontrance Seasonal: Needs (Hajiyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'ummah_moontrance-seasonal_excellence', name: 'MOONTRANCE SEASONAL — EXCELLENCE', color: '#8E9E5B', icon: 'Leaf', description: 'Moontrance Seasonal: Excellence (Tahsiniyyat)', moduleId: 'moontrance-seasonal' },
+  // Moontrance Residency — Core / Growth / Excellence
+  { id: 'ummah_moontrance-residency_core',       name: 'MOONTRANCE RESIDENCY — CORE',       color: '#5B6E8E', icon: 'Building', description: 'Moontrance Residency: Necessities (Daruriyyat)', moduleId: 'moontrance-residency' },
+  { id: 'ummah_moontrance-residency_growth',     name: 'MOONTRANCE RESIDENCY — GROWTH',     color: '#5B6E8E', icon: 'Building', description: 'Moontrance Residency: Needs (Hajiyyat)', moduleId: 'moontrance-residency' },
+  { id: 'ummah_moontrance-residency_excellence', name: 'MOONTRANCE RESIDENCY — EXCELLENCE', color: '#5B6E8E', icon: 'Building', description: 'Moontrance Residency: Excellence (Tahsiniyyat)', moduleId: 'moontrance-residency' },
 ];
 
 // Migrate any existing BBOS projects from 9-column layout to standard columns
@@ -805,6 +864,59 @@ export const useProjectStore = create((set, get) => ({
       updatedAt: new Date().toISOString(),
       archived: false,
       _environmentModule: true,
+    }));
+
+    set((s) => {
+      const projects = [...s.projects, ...newProjects];
+      persistProjects(projects);
+      return { projects };
+    });
+  },
+
+  ensureUmmahProjects: () => {
+    const existing = get().projects;
+
+    // Backfill moduleId for existing projects that lack it
+    const moduleIdMap = Object.fromEntries(UMMAH_BOARDS.filter((ub) => ub.moduleId).map((ub) => [ub.id, ub.moduleId]));
+    const needsPatch = existing.some((p) => moduleIdMap[p.id] && !p.moduleId);
+    if (needsPatch) {
+      set((s) => {
+        const projects = s.projects.map((p) =>
+          moduleIdMap[p.id] && !p.moduleId ? { ...p, moduleId: moduleIdMap[p.id] } : p
+        );
+        persistProjects(projects);
+        return { projects };
+      });
+    }
+
+    const missing = UMMAH_BOARDS.filter(
+      (ub) => !existing.some((p) => p.id === ub.id)
+    );
+
+    // Seed tasks for any empty ummah boards (idempotent)
+    for (const ub of UMMAH_BOARDS) {
+      seedTasks(ub.id, UMMAH_SEED_TASKS);
+    }
+
+    if (missing.length === 0) return;
+
+    const newProjects = missing.map((ub) => ({
+      id: ub.id,
+      name: ub.name,
+      description: ub.description,
+      color: ub.color,
+      icon: ub.icon,
+      moduleId: ub.moduleId || null,
+      columns: DEFAULT_COLUMNS.map((col) => ({
+        id: `col_${ub.id}_${col.name.toLowerCase().replace(/\s+/g, '_')}`,
+        name: col.name,
+        color: col.color,
+      })),
+      defaultView: 'dashboard',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      archived: false,
+      _ummahModule: true,
     }));
 
     set((s) => {
