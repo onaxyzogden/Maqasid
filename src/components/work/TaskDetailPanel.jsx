@@ -467,12 +467,26 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           </div>
           <div className="tdp-subtask-detail__body">
             {activeSubtask.sources ? (
-              <div className="tdp-subtask-detail__content">
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> }}
-                >{activeSubtask.sources}</Markdown>
-              </div>
+              <>
+                <div className={`tdp-sources-trust tdp-sources-trust--${activeSubtask.sourcesTrust === 'scholar-reviewed' ? 'reviewed' : 'suggestive'}`}>
+                  {activeSubtask.sourcesTrust === 'scholar-reviewed' ? (
+                    <>
+                      <strong>Scholar-reviewed.</strong> These citations have been attested by a qualified reviewer.
+                    </>
+                  ) : (
+                    <>
+                      <strong>Suggestive reference — pending scholar review.</strong>{' '}
+                      Citations are curated via semantic matching against the Quran and Sahih Bukhari/Muslim. They are provided as starting points for reflection and study, not as a fatwa. Verify with a qualified scholar before acting on contested matters.
+                    </>
+                  )}
+                </div>
+                <div className="tdp-subtask-detail__content">
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> }}
+                  >{activeSubtask.sources}</Markdown>
+                </div>
+              </>
             ) : (
               <p className="tdp-subtask-detail__text tdp-subtask-detail__empty-text">
                 No sources available for this subtask yet.

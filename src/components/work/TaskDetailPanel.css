@@ -806,3 +806,26 @@
     font-size: 13px;
   }
 }
+
+/* ── Sources trust banner ───────────────────────────────────── */
+.tdp-sources-trust {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-left: 3px solid;
+}
+.tdp-sources-trust--suggestive {
+  background: color-mix(in oklab, var(--accent-warning, #d97706) 8%, transparent);
+  border-left-color: var(--accent-warning, #d97706);
+  color: var(--text-primary);
+}
+.tdp-sources-trust--reviewed {
+  background: color-mix(in oklab, var(--accent-success, #059669) 8%, transparent);
+  border-left-color: var(--accent-success, #059669);
+  color: var(--text-primary);
+}
+.tdp-sources-trust strong {
+  font-weight: 600;
+}
