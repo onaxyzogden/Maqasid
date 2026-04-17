@@ -8,6 +8,9 @@ import {
 
 // Identity map — pillarKey segments match module IDs exactly
 const UMMAH_PILLAR_MODULE_MAP = {
+  collective:             'collective',
+  neighbors:              'neighbors',
+  community:              'community',
   'moontrance-land':      'moontrance-land',
   'moontrance-seasonal':  'moontrance-seasonal',
   'moontrance-residency': 'moontrance-residency',

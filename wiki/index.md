@@ -45,6 +45,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-16-hadith-semantic-reranker]] | 2026-04-16 | V3 hadith enrichment — multilingual sentence-transformer embeddings replace lexical scoring; 322 blocks sourced at ~60% strong quality |
 | [[2026-04-17-quran-hadith-citation-cards]] | 2026-04-17 | Rich Quran iframe + offline HadithCard replace inline narration in subtask Sources view; 509 hadith bundled |
 | [[2026-04-17-lucide-react-1-8-upgrade]] | 2026-04-17 | Upgrade lucide-react 0.511 → 1.8 to unlock HousePlus / MapPinned and refresh 4 module icons |
+| [[2026-04-17-ummah-pillar-level-page]] | 2026-04-17 | Ummah pillar adopts shared PillarLevelPage pattern; 6 submodule pages collapsed to wrappers; OVERVIEW + MAQASID relocated to UmmahDashboard Frameworks section |
 
 ## Sources
 

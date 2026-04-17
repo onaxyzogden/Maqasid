@@ -1075,3 +1075,37 @@ Read-only audit across 8 submodules: Build & Lint, BBOS Pipeline Workflow, Dashb
 - Re-fetch Muslim using sunnah.com canonical numbering to fill 9 empty entries
 - Find a Musnad Ahmad source
 - Intellect, Family, Wealth, Environment seed files still have bare subtasks with no Why/How descriptions
+
+## 2026-04-17 — Ummah pillar → PillarLevelPage pattern
+
+### Context
+All 6 Ummah submodule pages used legacy `PillarHeader + ViewToggle + OverviewCards/MaqasidTable` layout. User requested Shahada-style layout (compact level navigator + kanban board) for parity with Faith.
+
+### Scaffold built
+- `UMMAH_BOARDS` (18 entries: collective/neighbors/community/moontrance-{land,seasonal,residency} × core/growth/excellence) added to `src/store/project-store.js`
+- `ensureUmmahProjects` store action (mirrors `ensureFaithProjects`) — seeds from `UMMAH_SEED_TASKS` via `seedTasks()` helper
+- `src/pages/ummah/UmmahLevelNavigator.jsx` — exports `UMMAH_PILLARS` (6), `UMMAH_LEVEL_ROUTES` (fallback to `/app/pillar/ummah`), `UMMAH_STORAGE_KEY`, `UMMAH_ENSURE_PROJECTS`
+- `src/pages/ummah/UmmahPillarPage.jsx` — wraps shared `PillarLevelPage` with `boardPrefix="ummah"` and identity `UMMAH_PILLAR_MODULE_MAP`
+
+### Page rewrites (6 files)
+- `MoontraceLandPage.jsx`, `MoontranceSeasonalPage.jsx`, `MoontranceResidencyPage.jsx`
+- `CollectivePage.jsx`, `Neighbors.jsx`, `Community.jsx`
+- All now: `export default function X() { return <UmmahPillarPage pillarKey="..." />; }` — CeremonyGuard already wraps at route level
+
+### UmmahDashboard updated
+- Imports all 6 OVERVIEW + MAQASID datasets
+- New "Frameworks" section with collapsible `<details>` per submodule (accent-colored border from `--mod-*` tokens)
+- CSS (`.ummah-framework*`) appended to `UmmahDashboard.css`
+- Label quirk preserved: `collective` id displays "Moontrance", `community` id displays "Collective" — matches existing module-id/label mapping in `modules.js`
+
+### Verification
+- `npm run build` passes (2645 modules, 1.28s)
+- Manual walkthrough not performed — deferred to user
+
+### Deferred
+- `useAyahBanner('ummah_*')` no longer invoked from submodule pages — needs re-wiring in `UmmahPillarPage` or `PillarLevelPage` if desired
+- Dedicated `/app/ummah-{core,growth,excellence}` level-overview routes (Faith-style `LevelOverviewPage`)
+- Citation verification for 450 subtasks in `ummah-seed-tasks.js` (generated in prior session by 6 parallel agents; hadith isnad and translation accuracy never audited)
+
+### Decision filed
+- [[2026-04-17-ummah-pillar-level-page]]

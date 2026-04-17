@@ -317,6 +317,18 @@ export const ENVIRONMENT_BOARDS = [
 ];
 
 export const UMMAH_BOARDS = [
+  // Collective (sidebar: "Moontrance" label) — Core / Growth / Excellence
+  { id: 'ummah_collective_core',       name: 'COLLECTIVE — CORE',       color: '#5B8E6E', icon: 'Moon',   description: 'Collective: Necessities (Daruriyyat)', moduleId: 'collective' },
+  { id: 'ummah_collective_growth',     name: 'COLLECTIVE — GROWTH',     color: '#5B8E6E', icon: 'Moon',   description: 'Collective: Needs (Hajiyyat)', moduleId: 'collective' },
+  { id: 'ummah_collective_excellence', name: 'COLLECTIVE — EXCELLENCE', color: '#5B8E6E', icon: 'Moon',   description: 'Collective: Excellence (Tahsiniyyat)', moduleId: 'collective' },
+  // Neighbors — Core / Growth / Excellence
+  { id: 'ummah_neighbors_core',       name: 'NEIGHBORS — CORE',       color: '#8E6EAD', icon: 'Home',   description: 'Neighbors: Necessities (Daruriyyat)', moduleId: 'neighbors' },
+  { id: 'ummah_neighbors_growth',     name: 'NEIGHBORS — GROWTH',     color: '#8E6EAD', icon: 'Home',   description: 'Neighbors: Needs (Hajiyyat)', moduleId: 'neighbors' },
+  { id: 'ummah_neighbors_excellence', name: 'NEIGHBORS — EXCELLENCE', color: '#8E6EAD', icon: 'Home',   description: 'Neighbors: Excellence (Tahsiniyyat)', moduleId: 'neighbors' },
+  // Community (sidebar: "Collective" label) — Core / Growth / Excellence
+  { id: 'ummah_community_core',       name: 'COMMUNITY — CORE',       color: '#6E8EAD', icon: 'Shapes', description: 'Community: Necessities (Daruriyyat)', moduleId: 'community' },
+  { id: 'ummah_community_growth',     name: 'COMMUNITY — GROWTH',     color: '#6E8EAD', icon: 'Shapes', description: 'Community: Needs (Hajiyyat)', moduleId: 'community' },
+  { id: 'ummah_community_excellence', name: 'COMMUNITY — EXCELLENCE', color: '#6E8EAD', icon: 'Shapes', description: 'Community: Excellence (Tahsiniyyat)', moduleId: 'community' },
   // Moontrance Land — Core / Growth / Excellence
   { id: 'ummah_moontrance-land_core',       name: 'MOONTRANCE LAND — CORE',       color: '#6E8E5B', icon: 'Mountain', description: 'Moontrance Land: Necessities (Daruriyyat)', moduleId: 'moontrance-land' },
   { id: 'ummah_moontrance-land_growth',     name: 'MOONTRANCE LAND — GROWTH',     color: '#6E8E5B', icon: 'Mountain', description: 'Moontrance Land: Needs (Hajiyyat)', moduleId: 'moontrance-land' },
