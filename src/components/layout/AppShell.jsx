@@ -24,6 +24,7 @@ import NiyyahAct from '../islamic/NiyyahAct';
 import JournalPanel from '../journal/JournalPanel';
 import DiscussionPanel from '../discussion/DiscussionPanel';
 import Toast from '../shared/Toast';
+import PillarFirstEntry from '../onboarding/PillarFirstEntry';
 import './AppShell.css';
 
 export default function AppShell() {
@@ -332,6 +333,7 @@ export default function AppShell() {
 
       <JournalPanel />
       <DiscussionPanel />
+      <PillarFirstEntry />
       <Toast />
     </>
   );
