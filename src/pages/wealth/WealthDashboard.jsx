@@ -4,7 +4,7 @@ import {
   Wallet,
   PiggyBank,
   Scale,
-  Gift,
+  CircleFadingArrowUp,
   ArrowRight,
   ScrollText,
   BookOpen,
@@ -30,7 +30,7 @@ const PILLARS = [
   { id: 'earning', label: 'Halal Earning', Icon: Wallet },
   { id: 'financial', label: 'Financial Management', Icon: PiggyBank },
   { id: 'ownership', label: 'Ownership & Rights', Icon: Scale },
-  { id: 'circulation', label: 'Wealth Circulation', Icon: Gift },
+  { id: 'circulation', label: 'Wealth Circulation', Icon: CircleFadingArrowUp },
 ];
 
 export default function WealthDashboard() {

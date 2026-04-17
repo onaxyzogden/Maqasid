@@ -8,9 +8,10 @@ import {
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
   GraduationCap, HandHeart, Scale,
-  PiggyBank, Store, Gift, BarChart3,
+  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
+  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned,
   Search,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
@@ -27,10 +28,11 @@ const ICON_MAP = {
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
   GraduationCap, HandHeart, Scale,
-  PiggyBank, Store, Gift, BarChart3,
+  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
   TrendingUp, Star, CheckCircle2, Moon, TreePine,
+  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned,
 };
 const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
 
@@ -81,6 +83,10 @@ const MODULE_ROUTES = {
   'env-sourcing': '/app/env-sourcing',
   // Standalone
   collective: '/app/collective',
+  // Moontrance (Ummah)
+  'moontrance-land': '/app/moontrance-land',
+  'moontrance-seasonal': '/app/moontrance-seasonal',
+  'moontrance-residency': '/app/moontrance-residency',
 };
 
 const modulesById = Object.fromEntries(MODULES.map((m) => [m.id, m]));

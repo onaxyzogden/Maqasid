@@ -292,9 +292,9 @@ export const WEALTH_BOARDS = [
   { id: 'wealth_ownership_growth',     name: 'OWNERSHIP — GROWTH',     color: '#f59e0b', icon: 'Scale',      description: 'Ownership & Rights: Needs (Hajiyyat)', moduleId: 'ownership' },
   { id: 'wealth_ownership_excellence', name: 'OWNERSHIP — EXCELLENCE', color: '#f59e0b', icon: 'Scale',      description: 'Ownership & Rights: Excellence (Tahsiniyyat)', moduleId: 'ownership' },
   // Circulation & Impact — Core / Growth / Excellence
-  { id: 'wealth_circulation_core',       name: 'CIRCULATION — CORE',       color: '#8b5cf6', icon: 'Gift',       description: 'Circulation & Impact: Necessities (Daruriyyat)', moduleId: 'circulation' },
-  { id: 'wealth_circulation_growth',     name: 'CIRCULATION — GROWTH',     color: '#8b5cf6', icon: 'Gift',       description: 'Circulation & Impact: Needs (Hajiyyat)', moduleId: 'circulation' },
-  { id: 'wealth_circulation_excellence', name: 'CIRCULATION — EXCELLENCE', color: '#8b5cf6', icon: 'Gift',       description: 'Circulation & Impact: Excellence (Tahsiniyyat)', moduleId: 'circulation' },
+  { id: 'wealth_circulation_core',       name: 'CIRCULATION — CORE',       color: '#8b5cf6', icon: 'CircleFadingArrowUp',       description: 'Circulation & Impact: Necessities (Daruriyyat)', moduleId: 'circulation' },
+  { id: 'wealth_circulation_growth',     name: 'CIRCULATION — GROWTH',     color: '#8b5cf6', icon: 'CircleFadingArrowUp',       description: 'Circulation & Impact: Needs (Hajiyyat)', moduleId: 'circulation' },
+  { id: 'wealth_circulation_excellence', name: 'CIRCULATION — EXCELLENCE', color: '#8b5cf6', icon: 'CircleFadingArrowUp',       description: 'Circulation & Impact: Excellence (Tahsiniyyat)', moduleId: 'circulation' },
 ];
 
 export const ENVIRONMENT_BOARDS = [

@@ -1,11 +1,11 @@
-import { Wallet, PiggyBank, Scale, Gift } from 'lucide-react';
+import { Wallet, PiggyBank, Scale, CircleFadingArrowUp } from 'lucide-react';
 import LevelOverviewPage from '@pages/shared/LevelOverviewPage';
 
 export const WEALTH_PILLARS = [
   { id: 'earning',     label: 'Earning & Provision', Icon: Wallet,   route: '/app/wealth-earning'     },
   { id: 'financial',   label: 'Financial Literacy',  Icon: PiggyBank, route: '/app/wealth-financial'  },
   { id: 'ownership',   label: 'Ownership & Rights',  Icon: Scale,    route: '/app/wealth-ownership'   },
-  { id: 'circulation', label: 'Circulation & Impact', Icon: Gift,    route: '/app/wealth-circulation' },
+  { id: 'circulation', label: 'Circulation & Impact', Icon: CircleFadingArrowUp,    route: '/app/wealth-circulation' },
 ];
 
 export const WEALTH_LEVEL_ROUTES = {

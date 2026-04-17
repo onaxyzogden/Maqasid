@@ -4,7 +4,7 @@ import {
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
   GraduationCap, HandHeart, Scale,
-  PiggyBank, Store, Gift, BarChart3,
+  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
 } from 'lucide-react';
 import { MODULES } from '../data/modules';
@@ -15,7 +15,7 @@ const ICON_MAP = {
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
   GraduationCap, HandHeart, Scale,
-  PiggyBank, Store, Gift, BarChart3,
+  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
 };
 

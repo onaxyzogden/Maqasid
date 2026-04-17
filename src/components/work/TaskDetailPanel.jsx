@@ -7,7 +7,7 @@ import {
   HandHeart, Moon, Landmark, Activity, BrainCircuit,
   Sparkles, Library, Lightbulb, Wrench, Heart,
   Baby, Handshake, Home, Building2, Wallet,
-  PiggyBank, Scale, Gift, Droplets, Recycle,
+  PiggyBank, Scale, CircleFadingArrowUp, Droplets, Recycle,
   TreeDeciduous, ShoppingBag, Globe, Users,
   Calendar, Tag, User, Flag, Columns3, ChevronRight,
 } from 'lucide-react';
@@ -51,7 +51,7 @@ const ICON_MAP = {
   HandHeart, Moon, Landmark, Activity, BrainCircuit,
   Sparkles, Library, Lightbulb, Wrench, Heart,
   Baby, Handshake, Home, Building2, Wallet,
-  PiggyBank, Scale, Gift, Droplets, Recycle,
+  PiggyBank, Scale, CircleFadingArrowUp, Droplets, Recycle,
   TreeDeciduous, ShoppingBag, Globe, Users, LayoutGrid,
 };
 
