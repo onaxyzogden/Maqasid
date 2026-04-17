@@ -102,6 +102,36 @@
   overflow: hidden;
 }
 
+/* ── Mobile Islamic panel — slide-over from right ── */
+.il-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 900;
+  animation: il-fade-in var(--duration-md, 200ms) ease;
+}
+.il-mobile-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(85vw, 360px);
+  z-index: 901;
+  background: var(--surface, #fff);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.18);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  animation: il-slide-in var(--duration-md, 200ms) ease;
+}
+@keyframes il-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes il-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
 /* Dark theme: boost edge line contrast (--border is too subtle against --surface) */
 [data-theme="dark"] .col-edge__line {
   background: var(--border2);

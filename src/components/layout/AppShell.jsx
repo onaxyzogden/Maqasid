@@ -281,6 +281,14 @@ export default function AppShell() {
             <IslamicPanel />
           </div>
         )}
+        {mobile && islamicPanelOpen && (
+          <>
+            <div className="il-mobile-backdrop" onClick={toggleIslamicPanel} />
+            <div className="il-mobile-panel">
+              <IslamicPanel />
+            </div>
+          </>
+        )}
         {mobile && <MobileNav />}
       </div>
       <SearchPalette />
