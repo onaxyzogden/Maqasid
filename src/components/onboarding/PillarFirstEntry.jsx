@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe } from 'lucide-react';
 import { MAQASID_PILLARS } from '../../data/maqasid';
@@ -29,16 +30,32 @@ const ID_LABEL_OVERRIDES = {
 
 // ── Special-case route segments that map to non-obvious pillars ──
 const WEALTH_SEGMENTS = new Set(['work', 'money', 'people', 'office', 'tech']);
-const UMMAH_SEGMENTS  = new Set(['neighbors', 'community']);
+const UMMAH_SEGMENTS  = new Set(['neighbors', 'community', 'collective']);
 const NULL_SEGMENTS   = new Set(['sources', 'settings']);
 const PILLAR_IDS      = new Set(['faith', 'life', 'intellect', 'family', 'wealth', 'environment', 'ummah']);
 
 /**
  * Derive the active pillar ID from a pathname like /app/faith-shahada.
+ * Handles:
+ *   - /app/faith-shahada       → faith
+ *   - /app/pillar/faith        → faith
+ *   - /app/env-resource        → environment
+ *   - /app/neighbors           → ummah
  * Returns a pillar ID string or null.
  */
 function getPillarFromPath(pathname) {
-  const segment = pathname.replace('/app/', '').split('/')[0].split('-')[0];
+  const parts = pathname.replace('/app/', '').split('/');
+  const first = parts[0];
+  const second = parts[1] ?? '';
+
+  // Handle /app/pillar/faith, /app/pillar/life, etc.
+  if (first === 'pillar' && PILLAR_IDS.has(second)) return second;
+
+  // Handle env-* routes (env-resource, env-waste, etc. → environment)
+  if (first === 'env' || first.startsWith('env-')) return 'environment';
+
+  // Handle segment-based routes (faith-shahada, wealth-finance, etc.)
+  const segment = first.split('-')[0];
 
   if (NULL_SEGMENTS.has(segment))   return null;
   if (WEALTH_SEGMENTS.has(segment)) return 'wealth';
@@ -60,16 +77,31 @@ function submoduleLabel(id, pillarId) {
   return base.charAt(0).toUpperCase() + base.slice(1);
 }
 
-// ── Component ──
+// ── Guard component: checks visibility and renders modal ──
 export default function PillarFirstEntry() {
   const { pathname } = useLocation();
-  const seenPillars    = useOnboardingStore((s) => s.seenPillars);
-  const markPillarSeen = useOnboardingStore((s) => s.markPillarSeen);
+  const seenPillars = useOnboardingStore((s) => s.seenPillars);
 
   const pillarId = getPillarFromPath(pathname);
   if (!pillarId || seenPillars.includes(pillarId)) return null;
 
+  return <PillarFirstEntryModal pillarId={pillarId} />;
+}
+
+// ── Modal component: handles interaction and Escape key ──
+function PillarFirstEntryModal({ pillarId }) {
+  const markPillarSeen = useOnboardingStore((s) => s.markPillarSeen);
   const pillar = MAQASID_PILLARS.find((p) => p.id === pillarId);
+
+  // Add Escape key handler
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') markPillarSeen(pillarId);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [pillarId, markPillarSeen]);
+
   if (!pillar) return null;
 
   const Icon        = ICON_MAP[pillar.icon];
@@ -82,11 +114,12 @@ export default function PillarFirstEntry() {
         position: 'fixed',
         inset: 0,
         background: 'rgba(0,0,0,0.4)',
-        zIndex: 8000,
+        zIndex: 7000,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       }}
+      onClick={() => markPillarSeen(pillarId)}
     >
       <div
         style={{
@@ -97,6 +130,7 @@ export default function PillarFirstEntry() {
           overflow: 'hidden',
           boxShadow: 'var(--shadow-lg)',
         }}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
