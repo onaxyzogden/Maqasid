@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
-  Kanban, Wallet, Users, Building2, Shield, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
+  Kanban, PencilRuler, Wallet, GitPullRequestCreateArrow, Users, Building2, Shield, SquareTerminal, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Compass, HeartPulse, Brain, Coins, TreePine, Globe, Moon, TrendingUp, Star, CheckCircle2,
+  ChevronDown, Bell, Compass, HeartPulse, Brain, Coins, ChessRook, TreePine, Globe, Moon, TrendingUp, Star, CheckCircle2,
   Activity, BrainCircuit, Sparkles, HeartHandshake,
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
   GraduationCap, HandHeart, Scale,
-  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
+  PiggyBank, ChessKnight, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
   Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned,
@@ -23,18 +23,18 @@ import NotificationsPanel from './NotificationsPanel';
 import './Sidebar.css';
 
 const ICON_MAP = {
-  Kanban, Wallet, Users, Building2, Shield, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
+  Kanban, PencilRuler, Wallet, GitPullRequestCreateArrow, Users, Building2, Shield, SquareTerminal, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
   Activity, BrainCircuit, Sparkles, HeartHandshake,
   Library, Wrench, Lightbulb, Share2,
   Baby, CalendarHeart, Handshake,
   GraduationCap, HandHeart, Scale,
-  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
+  PiggyBank, ChessKnight, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
   TrendingUp, Star, CheckCircle2, Moon, TreePine,
   Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned,
 };
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
 
 const MODULE_ROUTES = {
   work: '/app/work',

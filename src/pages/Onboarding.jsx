@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe, Moon, Sun } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe, Moon, Sun } from 'lucide-react';
 import { useAuthStore } from '../store/auth-store';
 import { useSettingsStore } from '../store/settings-store';
 import { genUserId } from '../services/id';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import '../styles/landing.css';
 
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
 
 const steps = ['Profile', 'Modules', 'Values'];
 

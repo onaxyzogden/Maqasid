@@ -1,13 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, Kanban, Settings,
-  Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe,
+  Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe,
 } from 'lucide-react';
 import { useThresholdStore } from '@store/threshold-store';
 import { MAQASID_PILLARS } from '@data/maqasid';
 import './MobileNav.css';
 
-const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
+const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
 
 export default function MobileNav() {
   const location = useLocation();

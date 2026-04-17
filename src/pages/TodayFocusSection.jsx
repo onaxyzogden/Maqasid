@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe, Kanban } from 'lucide-react';
+import { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe, Kanban } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import { useAppStore } from '../store/app-store';
 import { useSettingsStore } from '../store/settings-store';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import './TodayFocusSection.css';
 
-const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
+const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
 
 // pillarSummary: Array<{ pillar: object, openCount: number, overdueCount: number }>
 export default function TodayFocusSection({ pillarSummary = [] }) {
