@@ -400,8 +400,19 @@ Heating and cooling represent the largest share of household energy consumption 
 **Translation:** Thus it is [what has been mentioned in the above said Verses (27, 28, 29, 30, 31) is an obligation that mankind owes to Allâh] and whosoever honours the Symbols of Allâh, then it is truly from the piety of the hearts.
 
 ### Quran (9:17)
-**Arabic:** 
-**Translation:** [9:17] It does not become those who associate others with Allah in His Divinity to visit and tend Allah's mosques while they bear witness of unbelief against themselves. All their works have gone to waste. They shall abide in the Fire.`,
+**Arabic:**
+**Translation:** [9:17] It does not become those who associate others with Allah in His Divinity to visit and tend Allah's mosques while they bear witness of unbelief against themselves. All their works have gone to waste. They shall abide in the Fire.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 198
+The Prophet (peace be upon him) used to perform ablution with one mudd (approximately 750ml) of water and take a bath with one sa (approximately 3 litres) to five mudd of water.
+*(Grade: Sahih)*
+
+### Sahih Muslim 2022
+The Prophet (peace be upon him) forbade wasting water, even on the bank of a flowing river.
+*(Grade: Sahih — la darar principle; contextual: the prohibition on israf in all its forms encompasses material resources.)*`,
           description: `**Why?**
 
 These three Quranic passages form the scriptural foundation for understanding israf as a comprehensive divine prohibition — not limited to food or money, but encompassing all resources. Al-A\`raf 7:31 commands moderation in consumption, Al-Isra 17:26-27 links wastefulness to being a "brother of Shaytan," and Al-Furqan 25:67 praises those who are neither extravagant nor miserly. Reading these together reveals that resource stewardship is a matter of aqeedah, not merely good practice.
@@ -3021,7 +3032,18 @@ Children learn their relationship with nature primarily from their parents and h
       description: 'Islam grants animals explicit rights — to be fed, not overburdened, not harmed for sport, and slaughtered mercifully. The Prophet cursed those who brand animals on the face and told of a woman who entered Hell for starving a cat. Animal welfare is a serious obligation.',
       subtasks: [
         { title: 'Study the hadith collections on animal rights (Bukhari, Muslim, Abu Dawud)', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (6:38)
+**Arabic:** وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم ۚ مَّا فَرَّطْنَا فِي الْكِتَابِ مِن شَيْءٍ ۚ ثُمَّ إِلَىٰ رَبِّهِمْ يُحْشَرُونَ
+**Translation:** "All the creatures that crawl on the earth and those that fly with their wings are communities like yourselves. We have missed nothing out of the Record — in the end they will be gathered to their Lord."
+
+### Quran (22:18)
+**Arabic:** أَلَمْ تَرَ أَنَّ اللَّهَ يَسْجُدُ لَهُ مَن فِي السَّمَاوَاتِ وَمَن فِي الْأَرْضِ وَالشَّمْسُ وَالْقَمَرُ وَالنُّجُومُ وَالْجِبَالُ وَالشَّجَرُ وَالدَّوَابُّ وَكَثِيرٌ مِّنَ النَّاسِ
+**Translation:** "Do you not realize [Prophet] that everything in the heavens and earth submits to God: the sun, the moon, the stars, the mountains, the trees, and the animals? So do many human beings."
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 1240
@@ -3154,8 +3176,19 @@ The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him c
 **Translation:** Those (Muslim rulers) who, if We give them power in the land, (they) enjoin Iqamat-as-Salât [i.e. to perform the five compulsory congregational Salât (prayers) (the males in mosques)], to pay the Zakât and they enjoin Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do), and forbid Al-Munkar (i.e. disbelief, polytheism and all that Islâm has forbidden) [i.e. they make the Qur’ân as the law of their country in all the spheres of life]. And with Allâh rests the end of (all) matters (of creatures).
 
 ### Quran (3:83)
-**Arabic:** 
-**Translation:** Do they seek for other than the Religion of Allah?-while all creatures in the heavens and on earth have, willing or unwilling, bowed to His Will (Accepted Islam), and to Him shall they all be brought back.`,
+**Arabic:**
+**Translation:** Do they seek for other than the Religion of Allah?-while all creatures in the heavens and on earth have, willing or unwilling, bowed to His Will (Accepted Islam), and to Him shall they all be brought back.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2363
+The Prophet (peace be upon him) said: "A woman was punished because of a cat which she had imprisoned till it died. She entered the Fire because of it, for she neither gave it food nor drink, nor set it free to eat from the vermin of the earth."
+*(Grade: Sahih)*
+
+### Sahih Muslim 2319
+The Prophet (peace be upon him) said: "Allah will show mercy to those who show mercy. Show mercy to those on earth and the One in heaven will show mercy to you."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Allah shows mercy to those who show mercy to His creation" (Abu Dawud). Teaching children rahma toward animals is not simply about being kind — it is about forming the foundational character trait that Islam demands of believers. A child who learns to be gentle with a cat or careful with an ant is developing the same quality of mercy that should later extend to all human relationships. Cruelty toward animals in childhood is a well-documented predictor of broader behavioural problems.
@@ -3330,8 +3363,19 @@ Every act of the Muslim begins and ends with Allah. Planting a tree is a physica
 
 
 ### Quran (59:21)
-**Arabic:** 
-**Translation:** If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.`,
+**Arabic:**
+**Translation:** If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him."
+*(Grade: Sahih)*
+
+### Sahih Muslim 1631
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him."
+*(Grade: Sahih — contextual: the khalifah's stewardship of the earth is a form of sadaqah jariyah that outlasts one's lifetime.)*`,
           description: `**Why?**
 
 These three verses form the theological foundation for humanity's relationship with the earth. Quran 2:30 announces the appointment of humanity as khulafa (vicegerents), 6:165 explains that this appointment is a test, and 33:72 describes the amanah (trust) that the heavens and earth refused to bear but humanity accepted. Without deeply understanding these verses, environmental action remains disconnected from its spiritual root — and khilafah is reduced to a buzzword rather than a lived obligation.
@@ -3745,8 +3789,19 @@ The most common reason people abandon reduced-meat eating is that they find plan
 **Translation:** They ask you (O Muhammad صلى الله عليه وسلم) what is lawful for them (as food). Say: "Lawful unto you are At-Tayyibât [all kind of Halâl (lawful-good) foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables and fruits)]. And those beasts and birds of prey which you have trained as hounds, training and teaching them (to catch) in the manner as directed to you by Allâh; so eat of what they catch for you, but pronounce the Name of Allâh over it, and fear Allâh. Verily, Allâh is Swift in reckoning."
 
 ### Quran (23:51)
-**Arabic:** 
-**Translation:** O (you) Messengers! Eat of the Tayyibât [all kinds of Halâl foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables, fruits, etc.] and do righteous deeds. Verily! I am Well-Acquainted with what you do.`,
+**Arabic:**
+**Translation:** O (you) Messengers! Eat of the Tayyibât [all kinds of Halâl foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables, fruits, etc.] and do righteous deeds. Verily! I am Well-Acquainted with what you do.
+
+**II. Hadith**
+
+
+### Sahih Muslim 1955b
+The Prophet (peace be upon him) commanded: "When you slaughter, do so with ihsan (excellence). Let each of you sharpen his blade and put the animal at ease."
+*(Grade: Sahih)*
+
+### Sahih Bukhari 2488
+The Prophet (peace be upon him) said: "Allah has prescribed ihsan (excellence) in all things. So if you kill, kill well; and if you slaughter, slaughter well."
+*(Grade: Sahih — this establishes the tayyib standard for meat begins with how the animal is treated and slaughtered.)*`,
           description: `**Why?**
 
 The Quran commands us to eat what is halal and tayyib (2:168) — lawful and wholesome. Industrial factory farming may produce technically halal meat (if slaughtered correctly), but the conditions in which the animals are raised — confined, medicated, stressed, and fed unnatural diets — are far from tayyib. Pasture-raised animals live more natural lives, produce healthier meat, and have a significantly lower environmental impact per kilogram. Choosing halal-tayyib sources integrates your dietary obligations with your environmental stewardship.
@@ -4876,8 +4931,19 @@ Benchmark: Be able to independently sew a button, hem a garment, and patch a sma
 **Translation:** I am commanded to recite the Quran.’ Whoever chooses to follow the right path does so for his own good. Say to whoever deviates from it, ‘I am only here to warn.’
 
 ### Quran (6:153)
-**Arabic:** 
-**Translation:** "And verily, this (i.e. Allâh’s Commandments mentioned in the above two Verses 151 and 152) is My Straight Path, so follow it, and follow not (other) paths, for they will separate you away from His Path. This He has ordained for you that you may become Al-Muttaqûn (the pious - see V.2:2)."`,
+**Arabic:**
+**Translation:** "And verily, this (i.e. Allâh’s Commandments mentioned in the above two Verses 151 and 152) is My Straight Path, so follow it, and follow not (other) paths, for they will separate you away from His Path. This He has ordained for you that you may become Al-Muttaqûn (the pious - see V.2:2)."
+
+**II. Hadith**
+
+
+### Sahih Muslim 1015
+The Prophet (peace be upon him) said: "O people, Allah is pure and He accepts only that which is pure. Allah commands the believers to do what He commanded the messengers, saying: ‘O messengers, eat of the good things and do righteous deeds.’ And He said: ‘O you who believe, eat of the good things We have provided for you.’"
+*(Grade: Sahih)*
+
+### Sahih Bukhari 2059
+The Prophet (peace be upon him) mentioned a man who, after a long journey, raises his hands to the sky and says: "O Lord! O Lord!" — while his food is haram, his drink is haram, his clothing is haram, and he is nourished by haram. How can his prayer be accepted?
+*(Grade: Sahih — contextual: the purity of what one consumes (halal-tayyib) is foundational to one’s worship being accepted.)*`,
           description: `**Why?**
 
 These three verses form the Quranic foundation for understanding that Islamic dietary law has two dimensions, not one. Most Muslims focus on halal (permissibility) while overlooking tayyib (wholesomeness). Yet in every instance where Allah commands eating halal, He pairs it with tayyib — the two are inseparable in the divine command. Studying these verses directly gives you the scriptural grounding to understand why ethical sourcing is not a modern trend but a Quranic obligation.
@@ -4935,8 +5001,19 @@ Benchmark: Be able to articulate, with scholarly support, how tayyib applies to 
 **Translation:** Who makes good things lawful to them and bad things unlawful.
 
 ### Quran (5:87-88)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ ۝ وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا  
-**Translation:** You who believe, do not forbid the good things God has made lawful to you. But eat the lawful and good things that God provides for you.`,
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ ۝ وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا
+**Translation:** You who believe, do not forbid the good things God has made lawful to you. But eat the lawful and good things that God provides for you.
+
+**II. Hadith**
+
+
+### Sunan Ibn Majah 4240
+The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those done consistently, even if they are small."
+*(Grade: Sahih — contextual: applying the tayyib standard progressively in three categories is precisely this kind of consistent, sustainable improvement the Prophet described.)*
+
+### Sahih Muslim 1015
+The Prophet (peace be upon him) said: "O people, Allah is pure and He accepts only that which is pure."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Knowledge without application is like rain that falls on barren rock — it flows away without producing anything. After studying the tayyib principle, the next step is identifying where in your actual life you can apply it more rigorously. Choosing three specific categories creates a manageable scope for change rather than an overwhelming mandate to transform everything at once. The Prophet (peace be upon him) said, "Take on only as much as you can do of good deeds, for the best of deeds is that which is done consistently, even if it is small" (Ibn Majah).

@@ -113,7 +113,14 @@ Riba (interest/usury), gharar (excessive uncertainty in contracts), and involvem
 
 Completion indicator: a clear, prioritised list of every income source that has a potential or confirmed haram element, ready for scholarly consultation.` },
         { title: 'Consult a knowledgeable scholar or Islamic finance advisor on ambiguous cases', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (16:43)
+**Arabic:** وَمَا أَرْسَلْنَا مِن قَبْلِكَ إِلَّا رِجَالًا نُّوحِي إِلَيْهِمْ ۚ فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ
+**Translation:** "All the messengers We sent before you were simply men to whom We had given the Revelation: you can ask those who have knowledge if you do not know."
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 6960
@@ -684,8 +691,16 @@ Completion indicator: a documented scholarly ruling on the disposal method for y
 
 
 ### Quran (57:18)
-**Arabic:** 
-**Translation:** Indeed, charitable men and charitable women1 who have loaned Allah a good loan—it will be multiplied for them, and for them is a noble reward.`,
+**Arabic:** إِنَّ الْمُصَّدِّقِينَ وَالْمُصَّدِّقَاتِ وَأَقْرَضُوا اللَّهَ قَرْضًا حَسَنًا يُضَاعَفُ لَهُمْ وَلَهُمْ أَجْرٌ كَرِيمٌ
+**Translation:** "Charitable men and women who make a good loan to God will have it doubled and have a generous reward."
+*(Contextual: disposing of haram earnings by giving them away is an act of purification, not charity for reward — but this verse frames Allah's openness to receive charitable expenditure, grounding the act of releasing wealth for His sake.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2218
+The Prophet (peace be upon him) said: "Every one of you is a guardian and is responsible for his ward: the ruler is a guardian and is responsible for his subjects; the man is a guardian of his family and responsible for his ward; a woman is a guardian and is responsible for the house of her husband and she is responsible for her ward; the servant is a guardian of the property of his master and is responsible for his ward." Guarding your wealth from impurity by disposing of the haram portion is part of this stewardship responsibility.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Once the amount is calculated and the scholar has provided guidance, the funds must actually leave your possession. Haram wealth sitting in your account — even if you intend to donate it — continues to mix with your halal earnings and undermines the purity of your overall financial position. Most scholars agree that haram funds should be given to public welfare causes (infrastructure, sanitation, education for the poor) rather than to mosque construction or Quran printing, because the giver does not earn the reward of sadaqah for disposing of what was never rightfully theirs. The act is one of purification (takhallus), not generosity (ihsan).
@@ -1025,8 +1040,16 @@ Completion indicator: a monthly tracking system in place with at least one month
 
 
 ### Quran (2:282)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ  
-**Translation:** O you who have believed, when you contract a debt for a specified term, write it down.`,
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ ۚ وَلْيَكْتُب بَّيْنَكُمْ كَاتِبٌ بِالْعَدْلِ
+**Translation:** "O you who believe, when you contract a debt for a specified term, write it down; let a scribe write [it] between you in justice."
+*(Contextual: the Quran's command to document financial obligations grounds the Islamic practice of systematic financial record-keeping — of which budgeting is the foundational form.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 6503
+The Prophet (peace be upon him) said: "Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death." Establishing a halal-aware budget is how a Muslim takes advantage of wealth before it is gone.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Most conventional budgeting tools and frameworks are designed around categories that do not reflect Islamic financial priorities. They track entertainment and dining but have no concept of zakah, sadaqah, or Islamic financing payments. A halal-aware budgeting system makes your religious financial obligations visible alongside your worldly expenses, ensuring they receive the priority they deserve rather than being treated as optional afterthoughts. The tool itself does not matter — what matters is that your financial framework reflects your values.
@@ -1311,8 +1334,16 @@ Completion indicator: a clearly defined role with a description, required skills
 
 
 ### Quran (49:9)
-**Arabic:** 
-**Translation:** If two parties among the Believers fall into a quarrel, make ye peace between them: but if one of them transgresses beyond bounds against the other, then fight ye (all) against the one that transgresses until it complies with the command of Allah; but if it complies, then make peace between them with justice, and be fair: for Allah loves those who are fair (and just).`,
+**Arabic:** وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا ۖ فَإِن بَغَتْ إِحْدَاهُمَا عَلَى الْأُخْرَىٰ فَقَاتِلُوا الَّتِي تَبْغِي حَتَّىٰ تَفِيءَ إِلَىٰ أَمْرِ اللَّهِ ۚ فَإِن فَاءَتْ فَأَصْلِحُوا بَيْنَهُمَا بِالْعَدْلِ وَأَقْسِطُوا ۖ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ
+**Translation:** "If two groups of the believers fight, you should try to reconcile them; if one of them is clearly oppressing the other, fight the oppressors until they submit to God's command, then make a just and even-handed reconciliation between the two of them: God loves those who are even-handed."
+*(Contextual: the principle of qist — even-handedness and justice — that Allah loves applies directly to setting fair wages; paying below the equitable rate is a form of transgression against the worker.)*
+
+**II. Hadith**
+
+
+### Sunan Ibn Majah 2443
+The Prophet (peace be upon him) said: "Give the worker his wages before his sweat dries."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Give the worker his wages before his sweat dries" (Ibn Majah). This hadith establishes not only the timing of payment but the principle that wages must be fair — sufficient for the worker to live with dignity. Underpaying an employee because you have bargaining power is a form of zulm (oppression) that the Quran explicitly condemns. At the same time, overpaying beyond your means can threaten the sustainability of the position itself. Fair compensation balances market reality with Islamic justice, ensuring the worker is neither exploited nor the business endangered.
@@ -1335,8 +1366,15 @@ Completion indicator: a documented compensation package at or above market media
 
 
 ### Quran (28:26)
-**Arabic:** 
-**Translation:** One of the two women said: O my father! Hire him! For the best (man) that thou canst hire in the strong, the trustworthy.`,
+**Arabic:** قَالَتْ إِحْدَاهُمَا يَا أَبَتِ اسْتَأْجِرْهُ ۖ إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ
+**Translation:** "One of the women said, 'Father, hire him: a strong, trustworthy man is the best to hire.'"
+
+**II. Hadith**
+
+
+### Sahih Bukhari 3793
+The Prophet (peace be upon him) said: "The best of you are those who are best in character." When hiring, prioritising trustworthiness — character above all — follows this prophetic standard.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The Quran provides the hiring criteria directly: when advising her father to hire Musa (peace be upon him), one of the daughters of Shu'ayb said, "Indeed, the best one you can hire is the strong and the trustworthy" (Quran 28:26). Strength (quwwah) refers to competence and capability for the specific role, while trustworthiness (amanah) refers to integrity, reliability, and moral character. Both are essential — a competent person without integrity can cause great harm, and a trustworthy person without competence cannot fulfil the role. Prioritising these two qualities over nepotism, convenience, or surface impressions ensures you hire someone who will genuinely contribute.
@@ -2309,7 +2347,15 @@ Musharakah represents the ideal of Islamic finance — genuine risk-sharing betw
 
 6. **Benchmark:** Complete when you can explain the difference between musharakah and murabaha, describe how diminishing musharakah works for home ownership, and articulate the profit/loss sharing principles.` },
         { title: 'Learn the structure of ijara (Islamic leasing) and its common applications', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (28:26)
+**Arabic:** قَالَتْ إِحْدَاهُمَا يَا أَبَتِ اسْتَأْجِرْهُ ۖ إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الْأَمِينُ
+**Translation:** "One of the women said, 'Father, hire him: a strong, trustworthy man is the best to hire.'"
+*(Contextual: this verse establishes the Quranic basis for ijarah — the permissibility of hiring labour and leasing services for agreed compensation, which scholars extend to asset leasing arrangements.)*
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 3654
@@ -2950,8 +2996,16 @@ No financial plan survives contact with reality unchanged. Income fluctuates, ex
 
 
 ### Quran (90:17)
-**Arabic:** 
-**Translation:** Then he became one of those who believed (in the Islamic Monotheism) and recommended one another to perseverance and patience, and (also) recommended one another to pity and compassion.`,
+**Arabic:** ثُمَّ كَانَ مِنَ الَّذِينَ آمَنُوا وَتَوَاصَوْا بِالصَّبْرِ وَتَوَاصَوْا بِالْمَرْحَمَةِ
+**Translation:** "and to be one of those who believe and urge one another to steadfastness and compassion."
+*(Contextual: the ethos of mutual counsel in beneficial knowledge — including financial wisdom — is embedded in this verse; seeking out the best guidance and filtering it for Islamic compatibility fulfils this spirit.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 79
+The Prophet (peace be upon him) said: "If Allah wants to do good to a person, He makes him comprehend the religion. I am just a distributor, but the grant is from Allah. And remember that this nation (true Muslims) will keep on following Allah's teachings strictly and they will not be harmed by any one going on a different path till Allah's order (Day of Judgment) is established." Seeking Islamic financial knowledge fulfils the command to comprehend the deen.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The world's best personal finance wisdom is largely found in books written outside an Islamic framework. Dismissing all of it would mean ignoring centuries of practical knowledge about budgeting, saving, investing, and building wealth. The key is to approach these resources with a discerning Islamic lens — extracting the universal principles of discipline and stewardship while filtering out anything that normalises riba or contradicts Shariah. Choosing the right book to start with sets the tone for a lifelong practice of learning from diverse sources while remaining anchored in your principles.
@@ -3034,8 +3088,16 @@ Identifying conflicts is only half the work — finding halal alternatives compl
 
 
 ### Quran (3:104)
-**Arabic:** 
-**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.`,
+**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ
+**Translation:** "Be a community that calls for what is good, urges what is right, and forbids what is wrong: those who do this are the successful ones."
+*(Contextual: extracting and sharing financial wisdom compatible with Islamic principles — and rejecting what conflicts with it — fulfils this call to enjoin the good and forbid the wrong in the domain of wealth.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 3461
+The Prophet (peace be upon him) said: "The best of people are those of my generation, then those who follow them, then those who follow them." Transmitting beneficial knowledge — including Islamic financial wisdom — from generation to generation is part of what made those generations the best.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Distilling an entire book into five actionable takeaways forces you to identify the highest-value insights and commit them to memory. These five principles become part of your permanent financial operating system — mental shortcuts that guide daily decisions without requiring you to re-read the book. By filtering for Islamic compatibility, you create a personalised wisdom set that is both practically powerful and spiritually clean. This summary also becomes a resource you can share with family members or friends who may not read the full book but can benefit from its best ideas.
@@ -3100,8 +3162,16 @@ As your wealth grows beyond basic budgeting and emergency savings into complex t
 
 
 ### Quran (4:94)
-**Arabic:** 
-**Translation:** O you who believe! When you go (to fight) in the Cause of Allâh, verify (the truth), and say not to anyone who greets you (by embracing Islâm): "You are not a believer"; seeking the perishable goods of the worldly life. There are much more profits and booties with Allâh. Even as he is now, so were you yourselves before till Allâh conferred on you His Favours (i.e. guided you to Islâm), therefore, be cautious in discrimination. Allâh is Ever Well-Aware of what you do.`,
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا ضَرَبْتُمْ فِي سَبِيلِ اللَّهِ فَتَبَيَّنُوا وَلَا تَقُولُوا لِمَنْ أَلْقَىٰ إِلَيْكُمُ السَّلَامَ لَسْتَ مُؤْمِنًا تَبْتَغُونَ عَرَضَ الْحَيَاةِ الدُّنْيَا فَعِندَ اللَّهِ مَغَانِمُ كَثِيرَةٌ
+**Translation:** "So, you who believe, be careful when you go to fight in God's way, and do not say to someone who offers you a greeting of peace, 'You are not a believer,' out of desire for the chance gains of this life — God has plenty of gains for you."
+*(Contextual: the divine command to verify and investigate before acting — fatabayyanoo — applies directly to verifying an advisor's credentials before entrusting them with your wealth.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 25
+The Prophet (peace be upon him) said: "I have been ordered to fight the people until they say 'None has the right to be worshipped but Allah,' and whoever says it, then his life and wealth are saved from me." This establishes the Islamic principle that verification protects one's rights — including the right to entrust wealth only to those confirmed as trustworthy and qualified.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The Islamic finance industry, while growing, is not uniformly regulated. Some advisors market themselves as "Islamic" or "halal" without formal training in Islamic jurisprudence of finance, recognised certifications, or regulatory oversight. Entrusting your wealth to an unqualified advisor risks both financial loss and inadvertent engagement with non-compliant products. Verification protects you from well-intentioned but unqualified practitioners and from outright fraud. In Islam, verifying the trustworthiness and competence of those you delegate to is an act of prudence, not suspicion.
@@ -3511,7 +3581,14 @@ Financial independence is not the destination — it is the vehicle that enables
       description: 'Every Muslim with assets must have a valid Islamic will. Without one, secular probate law may distribute your estate in a way that violates the Quranic inheritance shares (fara\'id). A wasiyyah ensures your wealth passes to the right people in the right proportions as commanded by Allah.',
       subtasks: [
         { title: 'Learn the Quranic inheritance shares for your specific family structure (4:11-12, 4:176)', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (4:11)
+**Arabic:** يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۚ فَإِن كُنَّ نِسَاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۖ وَإِن كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ ۚ وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِّنْهُمَا السُّدُسُ مِمَّا تَرَكَ إِن كَانَ لَهُ وَلَدٌ
+**Translation:** "Concerning your children, God commands you that a son should have the equivalent share of two daughters. If there are only daughters, two or more should share two-thirds of the inheritance, if one, she should have half. Parents inherit a sixth each if the deceased leaves children."
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 6736
@@ -3567,8 +3644,10 @@ An Islamic will can only distribute what it accounts for. If assets are missing 
 
 
 ### Quran (4:11-12)
-**Arabic:** يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ  
+**Arabic:** يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ
 **Translation:** Allah instructs you concerning your children: for the male, what is equal to the share of two females.
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 2738
@@ -3858,8 +3937,15 @@ Islamic law recognises categories of property that belong to the community and c
 
 
 ### Quran (9:35)
-**Arabic:** 
-**Translation:** On the Day when that (Al-Kanz: money, gold and silver the Zakât of which has not been paid) will be heated in the Fire of Hell and with it will be branded their foreheads, their flanks, and their backs, (and it will be said unto them): "This is the treasure which you hoarded for yourselves. Now taste of what you used to hoard."`,
+**Arabic:** يَوْمَ يُحْمَىٰ عَلَيْهَا فِي نَارِ جَهَنَّمَ فَتُكْوَىٰ بِهَا جِبَاهُهُمْ وَجُنُوبُهُمْ وَظُهُورُهُمْ ۖ هَٰذَا مَا كَنَزْتُمْ لِأَنفُسِكُمْ فَذُوقُوا مَا كُنتُمْ تَكْنِزُونَ
+**Translation:** "on the Day it is heated up in Hell's Fire and used to brand their foreheads, sides, and backs, they will be told, 'This is what you hoarded up for yourselves! Now feel the pain of what you hoarded!'"
+
+**II. Hadith**
+
+
+### Sahih Bukhari 1403
+Abu Dharr (may Allah be pleased with him) reported that the Prophet (peace be upon him) said: "There is no owner of camels, cattle or sheep who does not pay their zakat except that they will be made to stand in front of them on the Day of Resurrection as they were at their fattest and they will trample and butt him with their horns." Refusing to pay zakah on wealth is the essence of the condemned hoarding.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Allah warns in Surah At-Tawbah (9:34-35) against those who hoard gold and silver and do not spend in His way — promising a painful punishment. However, "hoarding" in Islamic law has specific conditions: it does not mean merely saving money, but rather accumulating wealth while refusing to pay zakah and withholding it from beneficial circulation. Understanding this distinction prevents both extremes — reckless spending out of fear of hoarding, or complacent accumulation without fulfulling obligations.
@@ -3881,8 +3967,16 @@ Allah warns in Surah At-Tawbah (9:34-35) against those who hoard gold and silver
 
 
 ### Quran (16:71)
-**Arabic:** 
-**Translation:** And Allâh has preferred some of you above others in wealth and properties. Then, those who are preferred will by no means hand over their wealth and properties to those (slaves) whom their right hands possess, so that they may be equal with them in respect thereof. Do they then deny the Favour of Allâh?`,
+**Arabic:** وَاللَّهُ فَضَّلَ بَعْضَكُمْ عَلَىٰ بَعْضٍ فِي الرِّزْقِ ۚ فَمَا الَّذِينَ فُضِّلُوا بِرَادِّي رِزْقِهِمْ عَلَىٰ مَا مَلَكَتْ أَيْمَانُهُمْ فَهُمْ فِيهِ سَوَاءٌ ۚ أَفَبِنِعْمَةِ اللَّهِ يَجْحَدُونَ
+**Translation:** "God has given some of you more provision than others. Those who have been given more are unwilling to pass their provision on to the slaves they possess so that they become their equals. How can they refuse to acknowledge God's blessings?"
+*(Contextual: this verse critiques the withholding of provision from those who have a rightful claim — the principle underlying zakah, nafaqah, and debt obligations embedded in wealth.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2408
+The Prophet (peace be upon him) said: "Your body has a right over you, your eye has a right over you, and your wife has a right over you." The rights upon your wealth — to family, creditors, and the poor — are obligations just as physical care is an obligation.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 In Islam, your wealth is not exclusively yours. Allah has placed rights within it that belong to others — the poor (through zakah), your dependents (through nafaqah), your creditors (through debt repayment), and your community (through general obligations). Failing to honour these rights means you are withholding what does not belong to you, regardless of how much you have earned through your own effort. Recognising these obligations reframes wealth as a shared trust.
@@ -4695,12 +4789,19 @@ The fara'id system is not simply a list of fractions — it is a dynamic system 
 
 
 ### Quran (4:33)
-**Arabic:** 
-**Translation:** And to everyone, We have appointed heirs of that (property) left by parents and relatives. To those also with whom you have made a pledge (brotherhood), give them their due portion (by Wasiyyah - will). Truly, Allâh is Ever a Witness over all things.
+**Arabic:** وَلِكُلٍّ جَعَلْنَا مَوَالِيَ مِمَّا تَرَكَ الْوَالِدَانِ وَالْأَقْرَبُونَ ۚ وَالَّذِينَ عَقَدَتْ أَيْمَانُكُمْ فَآتُوهُمْ نَصِيبَهُمْ ۚ إِنَّ اللَّهَ كَانَ عَلَىٰ كُلِّ شَيْءٍ شَهِيدًا
+**Translation:** "We have appointed heirs for everything that parents and close relatives leave behind, including those to whom you have pledged your hands [in marriage], so give them their share: God is witness to everything."
 
 ### Quran (4:12)
-**Arabic:** 
-**Translation:** And youpl get one-half of what your spouses have left if theyhave no children. Yet if they have children, then you get one-fourth of what they have left, after(fulfilling) any bequest they may bequeath and(paying off) any debt. And they get one-fourth of what you have left if you have no children. Yet if you have children, then they get one-eighth of what you have left, after(fulfilling) any bequest you may bequeath and(paying off) any debt. And if a man or a woman is to be inherited by a non-lineal heir while having a brother or sister, then each of them gets one-sixth. But if they are more than that, then they share one-third, after(fulfilling) any bequest that may be bequeathed3 and(paying off) any debt, without any harm(to anyone). (This is) an injunction from Allah, for Allah is All-Knowing, Clement.`,
+**Arabic:** وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكْنَ ۚ مِن بَعْدِ وَصِيَّةٍ يُوصِينَ بِهَا أَوْ دَيْنٍ
+**Translation:** "You inherit half of what your wives leave, if they have no children; if they have children, you inherit a quarter. [In all cases, the distribution comes] after payment of any bequests or debts."
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2742
+Sa'd ibn Abi Waqqas (may Allah be pleased with him) said: I was stricken with an illness that led me to the verge of death. The Prophet (peace be upon him) came to visit me and I said, "O Allah's Messenger, I have much property and no heir except my single daughter. Shall I give two-thirds of my property in charity?" He said, "No." I said, "Half of it?" He said, "No." I said, "One-third of it?" He said, "You may give one-third, but even one-third is a lot. It is better for you to leave your heirs rich than to leave them poor, begging of others."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The wasiyyah (bequest) is the one area of Islamic inheritance where you have discretionary control. While the Quranic shares are fixed and immutable, you may allocate up to one-third of your net estate to non-heirs — charitable causes, friends in need, community institutions, or relatives who are not Islamic heirs. Understanding the scope and limits of this option allows you to maximise your charitable impact and provide for people who would otherwise receive nothing, while staying within the boundaries Allah has set.
@@ -4783,8 +4884,16 @@ A multi-generational estate plan sits at the intersection of Islamic law and sec
 
 
 ### Quran (26:197)
-**Arabic:** 
-**Translation:** Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?`,
+**Arabic:** أَوَلَمْ يَكُن لَّهُمْ آيَةً أَن يَعْلَمَهُ عُلَمَاءُ بَنِي إِسْرَائِيلَ
+**Translation:** "Is it not proof enough for them that the learned men of the Children of Israel have recognized it?"
+*(Contextual: the Quran affirms the authority and value of scholars whose knowledge confirms truth — engaging qualified Islamic scholars to validate the Shariah compliance of complex structures follows this principle.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 100
+The Prophet (peace be upon him) said: "Allah does not take away knowledge by taking it out of the hearts of the people, but takes it away by the death of the religious scholars till none of the scholars remain. People will then take ignorant men as their leaders who, when consulted, will give their verdict without knowledge. So they will go astray and will lead the people astray." Consulting living scholars of Islamic law is the prophetic safeguard against uninformed decisions about complex matters like trust structures.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 A trust structure that is legally sound but Islamically non-compliant defeats the purpose of this entire exercise. Common trust mechanisms — such as giving the settlor full discretionary control over distributions, or structuring the trust to circumvent Quranic inheritance shares — may be perfectly legal but impermissible in Shariah. An Islamic scholar ensures that the trust respects the fixed shares, does not deprive any heir of their right, and operates within the boundaries of what Allah has permitted.
@@ -4833,8 +4942,15 @@ A trust without clear objectives is a legal shell without purpose. The objective
 
 
 ### Quran (2:283)
-**Arabic:** 
-**Translation:** And if you are on a journey and do not find a scribe to write the document then resort to taking pledges in hand. But if any of you trusts another, let him who is trusted, fulfil the trust and fear Allah, his Lord. And do not conceal what you have witnessed, for whoever conceals it, his heart is sinful. Allah has full knowledge of all that you do.`,
+**Arabic:** وَإِن كُنتُمْ عَلَىٰ سَفَرٍ وَلَمْ تَجِدُوا كَاتِبًا فَرِهَانٌ مَّقْبُوضَةٌ ۖ فَإِنْ أَمِنَ بَعْضُكُم بَعْضًا فَلْيُؤَدِّ الَّذِي اؤْتُمِنَ أَمَانَتَهُ وَلْيَتَّقِ اللَّهَ رَبَّهُ ۗ وَلَا تَكْتُمُوا الشَّهَادَةَ
+**Translation:** "If you are on a journey, and cannot find a scribe, something should be handed over as security, but if you decide to trust one another, then let the one who is trusted fulfil his trust; let him be mindful of God, his Lord. Do not conceal evidence."
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2274
+The Prophet (peace be upon him) said: "The one who is entrusted with something must fulfil the trust (amanah), and there should be no betrayal of trust." A trust document that is drafted with both legal and Shariah integrity is the fullest expression of amanah in wealth planning.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The trust document is the binding instrument that will govern your wealth for generations. Every clause matters — from the definition of beneficiaries to the powers of the trustee, from distribution schedules to termination conditions. A document reviewed only by a lawyer may be legally valid but Islamically deficient. A document reviewed only by a scholar may be Shariah-compliant but legally unenforceable. Both reviews are essential, and ideally, the two professionals should collaborate on the same draft rather than reviewing independently.
@@ -5388,7 +5504,15 @@ Allah did not leave zakah distribution to personal preference — He specified e
 
 6. **Benchmark:** You have completed this step when you have identified at least two to three specific individuals or organisations locally that serve verified eligible zakah recipients.` },
         { title: 'Research trustworthy zakah distribution organisations if distributing through an intermediary', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (51:4)
+**Arabic:** فَالْمُقَسِّمَاتِ أَمْرًا
+**Translation:** "that distribute [rain] as ordained!"
+*(Contextual: this verse describes those who distribute provision as divinely ordained — scholars have cited it as a basis for the legitimacy of appointed distributors and intermediaries who allocate wealth according to Allah's command, including zakah organisations.)*
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 1496
@@ -5476,8 +5600,15 @@ Keeping records of your zakah distribution is a practical safeguard, not a spiri
 
 
 ### Quran (30:39)
-**Arabic:** 
-**Translation:** Whatever Ribā (increased amount) you give, so that it may increase in the wealth of the people, it does not increase with Allah; and whatever Zakāh you give, seeking Allah’s pleasure with it, (it is multiplied by Allah, and) it is such people who multiply (their wealth in real terms.)`,
+**Arabic:** وَمَا آتَيْتُم مِّن رِّبًا لِّيَرْبُوَ فِي أَمْوَالِ النَّاسِ فَلَا يَرْبُو عِندَ اللَّهِ ۖ وَمَا آتَيْتُم مِّن زَكَاةٍ تُرِيدُونَ وَجْهَ اللَّهَ فَأُولَٰئِكَ هُمُ الْمُضْعِفُونَ
+**Translation:** "Whatever you lend out in usury to gain value through other people’s wealth will not increase in God’s eyes, but whatever you give in charity, in your desire for God’s approval, will earn multiple rewards."
+
+**II. Hadith**
+
+
+### Sahih Bukhari 1497
+The Prophet (peace be upon him) would say to those who brought their zakah: "Allahumma salli ‘alayhim" (O Allah, bless them). He prayed for those who fulfilled their zakah obligation, affirming that dua for acceptance is a prophetic practice at the close of this act of worship.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Zakah is an act of worship, not merely a financial transaction. Like salah and fasting, its acceptance depends on sincerity (ikhlas) and proper intention (niyyah). Making dua after distributing zakah is the spiritual seal on the act — it expresses your awareness that the ability to give was itself from Allah, that acceptance is in His hands alone, and that you seek His barakah in what remains. The Prophet (peace be upon him) would make dua for those who brought their zakah, saying "Allahumma salli 'alayhi" — O Allah, bless them.
@@ -6067,8 +6198,16 @@ Every purchase is a vote for the kind of economy you want to exist. When Muslim 
 
 
 ### Quran (3:177)
-**Arabic:** 
-**Translation:** Those who purchase Unbelief at the price of faith,- not the least harm will they do to Allah, but they will have a grievous punishment.`,
+**Arabic:** إِنَّ الَّذِينَ اشْتَرَوُا الْكُفْرَ بِالْإِيمَانِ لَن يَضُرُّوا اللَّهَ شَيْئًا وَلَهُمْ عَذَابٌ أَلِيمٌ
+**Translation:** "Those who sell their faith for disbelief will not harm God in any way; agonizing torment awaits them."
+*(Contextual: the Quran describes economic choice as an expression of values — what one "purchases" reflects what one values. Redirecting spending to align with Islamic community and ethical principles is the positive expression of choosing faith over mere worldly convenience.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2072
+The Prophet (peace be upon him) said: "A truthful and trustworthy merchant will be on the Day of Resurrection with the Prophets, the truthful and the martyrs." Supporting honest, halal Muslim vendors strengthens the community of those who trade with integrity.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Identification without action changes nothing. The real impact comes when you deliberately redirect spending from default vendors to community businesses — and do so consistently. Even shifting three regular purchases creates a meaningful income stream for those businesses over time. If one hundred families in a community each redirect three purchases, the cumulative economic impact is transformative. This is the multiplier effect of intentional circulation: small individual changes aggregate into community-level economic strength.
@@ -6300,7 +6439,15 @@ The manner of giving is as important as the gift itself. A qard hasan delivered 
 
 6. **Benchmark:** You have completed this step when you have disbursed the loan privately, kindly, and without any words or actions that could burden or embarrass the recipient.` },
         { title: 'Follow up gently on repayment, and be prepared to forgive if the borrower faces hardship', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (2:280)
+**Arabic:** وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍ ۚ وَأَن تَصَدَّقُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** "If the debtor is in difficulty, then delay things until matters become easier for him; still, if you were to write it off as charity, that would be better for you, if only you knew."
+*(Grounded: this verse is the direct Quranic command governing the follow-up of loans — grant respite in hardship and consider writing off the debt as superior.)*
+
+**II. Hadith**
 
 
 ### Sahih Muslim 1563
@@ -6887,8 +7034,15 @@ Islamic inheritance law (ilm al-fara'id) is not optional — it is a divine comm
 
 
 ### Quran (57:18)
-**Arabic:** 
-**Translation:** Indeed, charitable men and charitable women1 who have loaned Allah a good loan—it will be multiplied for them, and for them is a noble reward.`,
+**Arabic:** إِنَّ الْمُصَّدِّقِينَ وَالْمُصَّدِّقَاتِ وَأَقْرَضُوا اللَّهَ قَرْضًا حَسَنًا يُضَاعَفُ لَهُمْ وَلَهُمْ أَجْرٌ كَرِيمٌ
+**Translation:** "Charitable men and women who make a good loan to God will have it doubled and have a generous reward."
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2742
+Sa'd ibn Abi Waqqas said: The Prophet (peace be upon him) visited me while I was ill and I asked whether I should give two-thirds of my property in charity. He said no. I asked half. He said no. He said: "One-third, and one-third is a lot. It is better to leave your heirs well-off than to leave them poor, begging from others. Whatever you spend seeking Allah's face, you will be rewarded for it — even the morsel you put in your wife's mouth."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The wasiyyah — your Islamic will's charitable bequest — is the portion of your estate where you have discretionary authority. The Prophet (peace be upon him) told Sa'd ibn Abi Waqqas that one-third is the maximum, and "one-third is a lot." This is your opportunity to extend your impact beyond death: funding education, endowing a masjid, supporting orphans, or any cause that serves the Maqasid. Without a deliberate wasiyyah designation, this portion defaults to inheritance shares — missing the chance for ongoing reward (sadaqah jariyah) that could benefit you in the grave.

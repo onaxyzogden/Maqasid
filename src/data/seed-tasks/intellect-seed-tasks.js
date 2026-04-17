@@ -149,7 +149,16 @@ Transliteration (writing Arabic sounds in English letters) is a crutch that prev
 
 6. **Build the streak.** Use a habit tracker (physical calendar with X marks, or an app like Streaks). Your target is 30 consecutive days. After that, the habit typically self-sustains.` },
         { title: 'Record yourself reciting and compare against a sheikh\'s recitation', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (47:24)
+**Arabic:** أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ أَمْ عَلَىٰ قُلُوبٍ أَقْفَالُهَا
+**Translation:** "Will they not contemplate the Quran? Do they have locks on their hearts?"
+
+*(Contextual: the command to contemplate the Quran implies a sustained, attentive engagement with its recitation — comparing oneself to a master reciter is one practical form of this tadabbur.)*
+
+**II. Hadith**
 
 
 ### Sahih Muslim 2419
@@ -2317,8 +2326,15 @@ A curriculum designed for "everyone" serves no one. The most effective education
 
 
 ### Quran (80:12)
-**Arabic:** 
-**Translation:** from which those who wish to be taught should learn,`,
+**Arabic:**
+**Translation:** from which those who wish to be taught should learn,
+
+**II. Hadith**
+
+
+### Sahih Muslim 2699a
+The Prophet (peace be upon him) said: "He who treads the path in search of knowledge, Allah will make easy for him the path to Paradise. The angels lower their wings over the seeker of knowledge, being pleased with what he does. The inhabitants of the heavens and the earth and even the fish in the depths of the water seek forgiveness for the scholar."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Learning outcomes are the promise your curriculum makes to the learner: "If you complete this pathway, you will be able to do X, Y, and Z." Without clearly defined outcomes, you cannot design effective modules, create meaningful assessments, or measure whether the curriculum works. Outcomes also force you to prioritise — you cannot teach everything, so you must decide what matters most. The Islamic educational tradition prizes ijazah (certification that a student has mastered specific material) — your learning outcomes define what mastery looks like.
@@ -2697,8 +2713,15 @@ Habits form through consistent repetition and self-monitoring. The 30-day practi
 
 
 ### Quran (51:10)
-**Arabic:** 
-**Translation:** Destroyed are the misinformers`,
+**Arabic:**
+**Translation:** Destroyed are the misinformers
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6018
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day should say what is good or remain silent; and whoever believes in Allah and the Last Day should not harm his neighbour; and whoever believes in Allah and the Last Day should honour his guest."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Tawbah (repentance) includes rectifying past wrongs where possible. If you have previously shared false information, it may still be circulating and misleading others. Correcting or deleting it is an act of intellectual integrity and a fulfilment of your responsibility toward truth (sidq). The Prophet (peace be upon him) emphasised truthfulness as the path to righteousness (Bukhari and Muslim).
@@ -2953,8 +2976,15 @@ Knowing fallacies in theory is different from spotting them in the wild. Real-wo
 
 
 ### Quran (12:95)
-**Arabic:** 
-**Translation:** They said, “By God, you are still in your old fallacy!”`,
+**Arabic:**
+**Translation:** They said, “By God, you are still in your old fallacy!”
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6114
+The Prophet (peace be upon him) said: “The strong man is not the one who overcomes people with his strength, but the strong man is the one who controls himself while in anger.”
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 It is easy to spot fallacies in others and much harder to see them in yourself. The Quran warns against the human tendency toward self-justification. Turning the lens of critical analysis inward is an act of intellectual muhasaba — it requires honesty, humility, and genuine commitment to truth over ego.
@@ -3056,12 +3086,19 @@ Growth happens at the boundary of your comfort zone. Selecting a position you ge
           sources: `**I. Quran**
 
 ### Quran (49:6)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ  
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ
 **Translation:** Believers, if a troublemaker brings you news, check it first, in case you wrong others unwittingly and later regret what you have done.
 
 ### Quran (17:36)
-**Arabic:** وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا  
-**Translation:** Do not follow blindly what you do not know to be true: ears, eyes, and heart, you will be questioned about all these.`,
+**Arabic:** وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا
+**Translation:** Do not follow blindly what you do not know to be true: ears, eyes, and heart, you will be questioned about all these.
+
+**II. Hadith**
+
+
+### Sahih Muslim 2670
+The Prophet (peace be upon him) said: "Allah does not take away knowledge by snatching it away from people, but He takes it away by taking away the scholars, until there remains no scholar, and then the people take ignorant ones as leaders; they are asked and they give verdicts without knowledge — they are misguided and they misguide others."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Most people only encounter opposing views through their critics — which guarantees a distorted picture. Imam al-Shafi\'i was known for saying he never debated anyone without first wishing that the truth would appear on their tongue rather than his own. Seeking out the strongest advocates of a position ensures you engage with the real argument, not a caricature.
@@ -3353,8 +3390,17 @@ Your attention is an amana (trust). Spending it on sources that consistently mis
 
 
 ### Quran (3:190)
-**Arabic:** إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ  
-**Translation:** Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.`,
+**Arabic:** إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ
+**Translation:** Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 466
+Narrated Abu Sa'id Al-Khudri: The Prophet (peace be upon him) delivered a sermon and said: "Allah gave a choice to one of His slaves — either to choose this world or what is with Him in the Hereafter. He chose what is with Allah."
+
+*(Contextual: choosing the path of deep knowledge and scholarship over superficial pursuits reflects the same orientation toward what endures — the choice of the text you study to build your intellect is a step in that direction.)*
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The choice of text determines the lens through which you will develop your logical thinking. Al-Ghazali\'s *Maqasid al-Falasifah* presents Greek philosophy through an Islamic scholarly lens, while Aristotle\'s *Organon* is the original foundation of formal logic. Choosing deliberately — rather than randomly — ensures the text matches your current level and learning goals.
@@ -4281,16 +4327,25 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
 
 
 ### Quran (22:8)
-**Arabic:** 
+**Arabic:**
 **Translation:** And of mankind is one who argues about Allah without knowledge or guidance or an illuminating scripture,
 
 ### Quran (39:22)
-**Arabic:** 
+**Arabic:**
 **Translation:** Can he whose breast Allah has opened up for Islam and who is thus (moving along a Path) illumined by a light from Allah (be likened to him who derives no lesson from what he observes)? Woe, then, to those whose hearts were further hardened after Allah's admonition. Such are indeed in obvious error.
 
 ### Quran (98:7)
-**Arabic:** 
-**Translation:** Verily, those who believe [in the Oneness of Allâh, and in His Messenger Muhammad صلى الله عليه وسلم) including all obligations ordered by Islâm] and do righteous good deeds, they are the best of creatures.`,
+**Arabic:**
+**Translation:** Verily, those who believe [in the Oneness of Allâh, and in His Messenger Muhammad صلى الله عليه وسلم) including all obligations ordered by Islâm] and do righteous good deeds, they are the best of creatures.
+
+**II. Hadith**
+
+
+### Sahih Muslim 1955a
+The Prophet (peace be upon him) said: "Verily Allah has prescribed proficiency (ihsan) in all things. So if you kill, kill well; and if you slaughter, slaughter well. Let each of you sharpen his blade and let him spare suffering to the animal he slaughters."
+
+*(Contextual: the command of ihsan — excellence and proficiency in all matters — applies equally to intellectual and ethical analysis; applying the Shariah framework with care and rigour is itself an act of ihsan.)*
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The maqasid al-Shariah (objectives of Islamic law) provide a comprehensive ethical framework that can illuminate dimensions of a problem that secular disciplines miss entirely. Adding this lens is not about imposing religious rulings on technical problems — it is about enriching the analysis with a values framework that prioritises human welfare, justice, and long-term flourishing. This is your unique contribution as a Muslim intellectual.
@@ -4594,8 +4649,17 @@ Preparation without delivery is incomplete. The act of presenting your ideas pub
 
 
 ### Quran (51:8)
-**Arabic:** 
-**Translation:** you are (involved) in a contradictory discussion.`,
+**Arabic:**
+**Translation:** you are (involved) in a contradictory discussion.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6018
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day should say what is good or remain silent; and whoever believes in Allah and the Last Day should not harm his neighbour; and whoever believes in Allah and the Last Day should honour his guest."
+
+*(Contextual: reflection after intellectual discourse is an extension of the command to speak with care and accountability — examining whether one's words built understanding or caused harm.)*
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The event itself is only half the learning. The reflection is where you consolidate what the discussion revealed — about your topic, your arguments, your audience, and yourself. Without reflection, even a brilliant discussion fades into a vague positive memory rather than becoming a concrete foundation for future growth.
@@ -4829,8 +4893,17 @@ Even the best solution fails without stakeholder buy-in. Presenting your solutio
 
 
 ### Quran (17:35)
-**Arabic:** 
-**Translation:** And give full measure when you measure, and weigh with an even [i.e., honest] balance. That is the best [way] and best in result.`,
+**Arabic:**
+**Translation:** And give full measure when you measure, and weigh with an even [i.e., honest] balance. That is the best [way] and best in result.
+
+**II. Hadith**
+
+
+### Sahih Muslim 1955a
+The Prophet (peace be upon him) said: "Verily Allah has prescribed proficiency (ihsan) in all things. So if you kill, kill well; and if you slaughter, slaughter well. Let each of you sharpen his blade and let him spare suffering to the animal he slaughters."
+
+*(Contextual: the principle of ihsan — doing everything with proficiency and excellence — applies to implementation: execute the solution with thoroughness and measure results honestly.)*
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Implementation is where intellectual work becomes real-world impact. Many brilliant analyses and proposals remain on paper. The difference between an intellectual and a change-maker is execution. The Prophet (peace be upon him) said: "Allah loves that when one of you does a task, they do it with itqan (excellence and thoroughness)" (al-Bayhaqi). Implementing with measurement ensures you know whether your solution actually works — and provides the evidence base for scaling or adjusting.
@@ -5784,8 +5857,15 @@ Without a designated day, rest becomes accidental — and accidental rest is usu
 
 
 ### Quran (16:80)
-**Arabic:** 
-**Translation:** And Allāh has made for you from your homes a place of rest and made for you from the hides of the animals tents which you find light on your day of travel and your day of encampment; and from their wool, fur and hair is furnishing and enjoyment [i.e., provision] for a time.`,
+**Arabic:**
+**Translation:** And Allāh has made for you from your homes a place of rest and made for you from the hides of the animals tents which you find light on your day of travel and your day of encampment; and from their wool, fur and hair is furnishing and enjoyment [i.e., provision] for a time.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 1901
+Narrated Anas bin Malik: The Prophet (peace be upon him) used to take a midday nap (qaylulah). Anas said: "Um Sulaim used to spread a leather sheet for the Prophet and he would take a midday nap on that leather sheet at her home."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Rest does not mean doing nothing — it means doing things that restore rather than deplete your cognitive resources. Nature, physical movement, social connection, and creative manual activities like cooking all replenish the mind without demanding the kind of focused attention that work requires. Planning these activities prevents the rest day from devolving into mindless screen time.
@@ -6670,8 +6750,15 @@ Every halal profession serves people in some way — directly or indirectly. Ide
 
 
 ### Quran (20:32)
-**Arabic:** 
-**Translation:** and associatehim with me in my mission1,`,
+**Arabic:**
+**Translation:** and associate him with me in my mission,
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 1
+Narrated Umar bin Al-Khattab: The Prophet (peace be upon him) said: "Actions are judged by their intentions, and every person will get the reward according to what he has intended. So whoever emigrated for the sake of Allah and His Messenger, his emigration was for Allah and His Messenger; and whoever emigrated for a worldly matter or a woman to marry, his emigration was for that which he emigrated."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 A mission statement crystallises your niyyah (intention) into words you can return to when decisions are difficult. It is not a marketing slogan — it is a personal covenant between you and Allah about why you do what you do. Writing it forces clarity; having it written gives you an anchor.
@@ -6717,8 +6804,17 @@ A mission statement that cannot be applied is just decoration. The true test of 
 
 
 ### Quran (79:36)
-**Arabic:** 
-**Translation:** and purgatory is displayed to whoever sees.`,
+**Arabic:**
+**Translation:** and Hell is there for all to see,
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6407
+The Prophet (peace be upon him) said: "The example of the one who remembers his Lord and the one who does not remember his Lord is like the example of the living and the dead."
+
+*(Contextual: keeping one's mission statement visible is a form of professional dhikr — constant remembrance of purpose — mirroring the Islamic principle that regular remembrance keeps the heart alive and oriented toward Allah.)*
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The purpose of displaying your mission statement is not vanity — it is remembrance. Just as the Muslim is reminded of their purpose through daily salah, a visible mission statement reminds you of your professional purpose at the moments you are most likely to forget it: when you are stressed, distracted, or tempted by misaligned opportunities.
@@ -7864,8 +7960,15 @@ The first 30 days of any leadership role set the tone for your entire tenure. Le
 
 
 ### Quran (7:159)
-**Arabic:** 
-**Translation:** And of the people of Mûsâ (Moses) there is a community who lead (the men) with truth and establish justice therewith (i.e. judge among men with truth and justice).`,
+**Arabic:**
+**Translation:** And of the people of Mûsâ (Moses) there is a community who lead (the men) with truth and establish justice therewith (i.e. judge among men with truth and justice).
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 660
+The Prophet (peace be upon him) said: "Allah will give shade to seven (people) under His Shade on the Day when there will be no shade but His. (These seven persons are:) a just ruler, a youth who has been brought up in the worship of Allah, a man whose heart is attached to the mosques, two persons who love each other only for Allah's sake and they meet and part in Allah's cause only, a man who refuses the call of a charming woman of noble birth for illicit intercourse with her and says: 'I am afraid of Allah,' a man who gives in charity so secretly that his left hand does not know what his right hand has given, and a man who remembered Allah in seclusion and his eyes became flooded with tears."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Islamic leadership is servant leadership: you are there to serve those you lead, not to accumulate authority. The three principles of shura (consultation), adl (justice), and ihsan (excellence) provide a complete framework for how to lead. Shura ensures wise decisions through collective input. Adl ensures fair treatment of everyone. Ihsan ensures that everything you do reflects the highest standard of quality and care.

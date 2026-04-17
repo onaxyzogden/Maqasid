@@ -119,8 +119,15 @@ Rewrite your standard grocery list, replacing any removed items with their halal
 
 
 ### Quran (18:12)
-**Arabic:** 
-**Translation:** Then We raised them up (from their sleep), that We might test which of the two parties was best at calculating the time period that they had tarried.`,
+**Arabic:** ثُمَّ بَعَثْنَاهُمْ لِنَعْلَمَ أَيُّ الْحِزْبَيْنِ أَحْصَىٰ لِمَا لَبِثُوا أَمَدًا
+**Translation:** Then We woke them so that We could make clear which of the two parties was better able to work out how long they had been there.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 574
+The Prophet (SAW) disliked sleeping before Isha prayer and disliked talk after it, indicating his practice of sleeping early to rise for the night and Fajr prayers.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Without a calculated bedtime, sleep becomes reactive rather than intentional. Working backwards from Fajr ensures you wake rested for the most blessed part of the day, rather than dragging through prayer in a fog of sleep deprivation.
@@ -177,21 +184,28 @@ Blue light from phones, tablets, and screens suppresses melatonin production by 
 **How?**
 
 After Isha prayer, place your phone on a charger outside the bedroom or across the room. If you use your phone as an alarm, switch to a simple alarm clock instead. Remove or cover any screens in the bedroom. If you must use a device, enable night mode and keep brightness at minimum. Replace screen time with a physical book or dhikr.` },
-        { title: 'Practise the Sunnah sleep etiquettes — wudu, right side, sleeping duas', done: false,
+        { title: "Practise the Sunnah sleep etiquettes — wudu, right side, sleeping duas", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (78:9)
-**Arabic:** 
+**Arabic:** وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا
 **Translation:** and made your sleep a source of rest,
 
 ### Quran (51:17)
-**Arabic:** 
-**Translation:** sleeping only little at night,
+**Arabic:** كَانُوا قَلِيلًا مِّنَ اللَّيْلِ مَا يَهْجَعُونَ
+**Translation:** sleeping only a little at night,
 
 ### Quran (25:47)
-**Arabic:** 
-**Translation:** And it is He Who makes the night a covering for you, and the sleep (as) a repose, and makes the day Nushûr (i.e. getting up and going about here and there for daily work, after one’s sleep at night, or like resurrection after one’s death).`,
+**Arabic:** وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا
+**Translation:** It is He who made the night a garment for you, and sleep for rest, and made the day a resurrection.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 247
+The Prophet (SAW) said: "If any one of you goes to sleep, he should perform wudu as he does for prayer, then lie down on his right side, then say: ‘O Allah, I submit myself to You...’"
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The Prophet (SAW) had a complete bedtime routine that combines spiritual protection with physical relaxation. Sleeping in wudu, on the right side, and with the prescribed duas turns every night into an act of worship and improves sleep posture.
@@ -708,8 +722,16 @@ Choose a tracking method: a tally on a sticky note (one mark per glass), a free 
 
 
 ### Quran (2:184)
-**Arabic:** 
-**Translation:** Fasting is for a fixed number of days, and if one of you be sick, or if one of you be on a journey, you will fast the same number of other days later on. For those who are capable of fasting (but still do not fast) there is a redemption: feeding a needy man for each day missed. Whoever voluntarily does more good than is required, will find it better for him; and that you should fast is better for you, if you only know.`,
+**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.
+*(Contextual: the divine permission to modify fasting due to illness or travel implies attending to the body's changing needs, including hydration and nutrition levels.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 1922
+The Prophet (SAW) said: "Allah has relieved the traveller of fasting and half of the prayer." (Indicating that adjusting practices according to physical circumstances is commanded by Allah.)
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 A flat 2-litre target ignores the reality that your body needs more water on hot days, training days, and when you are breaking a fast. Adjusting intake to your actual circumstances prevents both dehydration and the false confidence of hitting a static number.
@@ -730,8 +752,16 @@ On training days, add 500ml-1L extra around your workout. In hot weather, increa
 
 
 ### Quran (2:184)
-**Arabic:** 
-**Translation:** Fasting is for a fixed number of days, and if one of you be sick, or if one of you be on a journey, you will fast the same number of other days later on. For those who are capable of fasting (but still do not fast) there is a redemption: feeding a needy man for each day missed. Whoever voluntarily does more good than is required, will find it better for him; and that you should fast is better for you, if you only know.`,
+**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.
+*(Contextual: "fasting is better for you, if only you knew" — a direct invitation to understand the full benefit of fasting, including its physical dimensions such as autophagy and metabolic renewal.)*
+
+**II. Hadith**
+
+
+### Jami at-Tirmidhi 2038
+The Prophet (SAW) said: "Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease — old age."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Understanding the science strengthens your motivation and helps you optimise your fasting practice. When you know that autophagy (cellular cleanup) peaks during extended fasts and that insulin sensitivity improves measurably, fasting shifts from pure willpower to informed strategy.
@@ -787,8 +817,16 @@ For suhoor: include slow-digesting protein (eggs, Greek yoghurt), complex carbs 
 
 
 ### Quran (2:184)
-**Arabic:** 
-**Translation:** Fasting is for a fixed number of days, and if one of you be sick, or if one of you be on a journey, you will fast the same number of other days later on. For those who are capable of fasting (but still do not fast) there is a redemption: feeding a needy man for each day missed. Whoever voluntarily does more good than is required, will find it better for him; and that you should fast is better for you, if you only know.`,
+**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.
+*(Contextual: tracking your experience fulfils the Quranic invitation to "know" the benefit of fasting through lived, self-aware observation.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6464
+The Prophet (SAW) said: "The most beloved deeds to Allah are those done consistently, even if they are small."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Subjective tracking reveals how fasting actually affects your daily performance. Many people discover that their focus and energy are better on fasting days once adapted — data that reinforces the habit and helps you schedule demanding work strategically.
@@ -966,8 +1004,16 @@ Create two simple templates. Pre-workout (1-2 hours before): pick 2-3 go-to meal
 
 
 ### Quran (2:184)
-**Arabic:** 
-**Translation:** Fasting is for a fixed number of days, and if one of you be sick, or if one of you be on a journey, you will fast the same number of other days later on. For those who are capable of fasting (but still do not fast) there is a redemption: feeding a needy man for each day missed. Whoever voluntarily does more good than is required, will find it better for him; and that you should fast is better for you, if you only know.`,
+**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.
+*(Contextual: the command to fast implies preparing the body well for it, including nourishing suhoor planning.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 1923
+The Prophet (SAW) said: "Take suhoor, for in suhoor there is barakah (blessing)."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Suhoor is your fuel tank for the entire fasting day. A poorly planned suhoor — or skipping it entirely — leads to energy crashes, poor focus, and unnecessary suffering. The Prophet (SAW) emphasised the barakah of suhoor, and optimising it honours both the spiritual and physical dimensions of fasting.
@@ -1242,8 +1288,16 @@ List each element in order: Fajr salah, Quran reading, morning adhkar, journalin
 
 
 ### Quran (35:13)
-**Arabic:** 
-**Translation:** He maketh the night to pass into the day and He maketh the day to pass into the night. He hath subdued the sun and moon to service. Each runneth unto an appointed term. Such is Allah, your Lord; His is the Sovereignty; and those unto whom ye pray instead of Him own not so much as the white spot on a date-stone.`,
+**Arabic:** يُولِجُ اللَّيْلَ فِي النَّهَارِ وَيُولِجُ النَّهَارَ فِي اللَّيْلِ وَسَخَّرَ الشَّمْسَ وَالْقَمَرَ كُلٌّ يَجْرِي لِأَجَلٍ مُّسَمًّى ۚ ذَٰلِكُمُ اللَّهُ رَبُّكُمْ لَهُ الْمُلْكُ
+**Translation:** He makes the night merge into the day and the day into the night; He has subjected the sun and the moon — each runs for an appointed term. Such is God your Lord: all control belongs to Him.
+*(Contextual: Allah's ordering of night into day is the very architecture around which the morning routine is built; preparing the night before aligns with this divinely ordered rhythm.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6311
+The Prophet (SAW) had a consistent nightly routine of recitation and supplication before sleep, preparing himself spiritually for the following day.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Friction kills habits. If you have to search for your Quran or journal half-asleep after Fajr, you are far more likely to skip the routine. Preparing the night before removes every barrier between you and your morning worship.
@@ -1496,17 +1550,25 @@ The Prophet (SAW) said that whoever recites the last two ayat of Surah Al-Baqara
 **How?**
 
 These two verses are moderate in length. Break each verse into two halves. Learn one half per day using the same method: read 10 times, recite from memory 10 times. Within 4-5 days you should have both memorised. Recite them every night before sleep to lock them in.` },
-        { title: 'Recite both after every fardh salah as a consistent practice', done: false,
+        { title: "Recite both after every fardh salah as a consistent practice", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (33:62)
-**Arabic:** 
-**Translation:** - a consistent practice of Allah in the matter of those who have gone before. And you will never find a change in Allah’s consistent practice.
+**Arabic:** سُنَّةَ اللَّهِ فِي الَّذِينَ خَلَوْا مِن قَبْلُ ۖ وَلَن تَجِدَ لِسُنَّةِ اللَّهِ تَبْدِيلًا
+**Translation:** This has been God’s practice with those who went before. You will find no change in God’s practices.
 
 ### Quran (48:23)
-**Arabic:** 
-**Translation:** - according to the consistent practice of Allah that went on since before, and you will never find a change in Allah’s consistent practice.`,
+**Arabic:** سُنَّةَ اللَّهِ الَّتِي قَدْ خَلَتْ مِن قَبْلُ ۖ وَلَن تَجِدَ لِسُنَّةِ اللَّهِ تَبْدِيلًا
+**Translation:** such was God’s practice in the past and you will find no change in God’s practices.
+*(Contextual: the unchanging sunnah of Allah grounds the call to establish consistent, unvarying personal sunnah practices after every prayer.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 4723
+The Prophet (SAW) said: "Whoever recites Ayat al-Kursi after every obligatory prayer, nothing will prevent him from entering Paradise except death."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Sporadic dhikr provides sporadic benefit. Making these recitations a non-negotiable part of every obligatory prayer embeds them into the rhythm of your day, creating five daily anchors of spiritual protection and mental tranquillity.
@@ -1516,7 +1578,15 @@ Sporadic dhikr provides sporadic benefit. Making these recitations a non-negotia
 
 After each fardh prayer, before you get up from your place, recite Ayat al-Kursi followed by the last two ayat of Al-Baqarah. Pair this with your existing post-salah adhkar (tasbeeh, tahmeed, takbeer). It adds less than two minutes but creates a powerful protective habit.` },
         { title: 'Add evening adhkar including the three Quls and Ayat al-Kursi before sleep', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (17:111)
+**Arabic:** وَقُلِ الْحَمْدُ لِلَّهِ الَّذِي لَمْ يَتَّخِذْ وَلَدًا وَلَمْ يَكُن لَّهُ شَرِيكٌ فِي الْمُلْكِ وَلَمْ يَكُن لَّهُ وَلِيٌّ مِّنَ الذُّلِّ ۖ وَكَبِّرْهُ تَكْبِيرًا
+**Translation:** And say: "Praise be to God who has never had a child, who has no partner in His rule, who needs no one to protect Him from humiliation." Proclaim His greatness.
+*(Contextual: the Quran repeatedly commands glorification morning and evening; the evening adhkar fulfil this command before sleep.)*
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 2013
@@ -1535,8 +1605,16 @@ Set a reminder 10 minutes before your bedtime. Sit in bed and recite: Ayat al-Ku
 
 
 ### Quran (79:8)
-**Arabic:** 
-**Translation:** (Some) hearts that Day will shake with fear and anxiety.`,
+**Arabic:** قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ
+**Translation:** hearts will tremble on that Day.
+*(Contextual: awareness of the anxious heart — and its contrast with the tranquillity that dhikr brings — is the very insight this journaling practice is designed to cultivate.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6464
+The Prophet (SAW) said: "The most beloved deeds to Allah are those done consistently, even if they are small."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Tracking the impact of your dhikr practice turns faith into lived experience. When you can look back and see a measurable reduction in anxiety correlated with consistent remembrance of Allah, it deepens your conviction and motivates you to continue.
@@ -2125,21 +2203,28 @@ At the end of each book, review your notes and choose the single most impactful 
       priority: 'medium', tags: ['memorisation', 'cognitive'],
       description: 'The brain, like any muscle, grows stronger with consistent challenge. Quran memorisation is the pinnacle of cognitive training for a Muslim — it strengthens memory, builds discipline, and earns immense reward. Language learning (Arabic especially) opens doors to understanding the deen directly.',
       subtasks: [
-        { title: 'Choose your track: Quran memorisation (hifz) or Arabic/language learning', done: false,
+        { title: "Choose your track: Quran memorisation (hifz) or Arabic/language learning", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (41:44)
-**Arabic:** 
-**Translation:** And if We had sent this as a Qur’ân in a foreign language (other than Arabic), they would have said: "Why are not its verses explained in detail (in our language)? What! (A Book) not in Arabic and (the Messenger) an Arab?" Say: "It is for those who believe, a guide and a healing. And as for those who disbelieve, there is heaviness (deafness) in their ears, and it (the Qur’ân) is blindness for them. They are those who are called from a place far away (so they neither listen nor understand)."
+**Arabic:** وَلَوْ جَعَلْنَاهُ قُرْآنًا أَعْجَمِيًّا لَّقَالُوا لَوْلَا فُصِّلَتْ آيَاتُهُ ۖ أَأَعْجَمِيٌّ وَعَرَبِيٌّ ۗ قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ
+**Translation:** If We had made it a foreign Quran, they would have said, “If only its verses were clear!” Say, “It is guidance and healing for those who have faith.”
 
 ### Quran (13:37)
-**Arabic:** 
-**Translation:** So We have sent down the Quran to give judgement in the Arabic language. If you were to follow their desires, after the knowledge that has come to you, you would have no one to guard you or protect you from God.
+**Arabic:** وَكَذَٰلِكَ أَنزَلْنَاهُ حُكْمًا عَرَبِيًّا ۚ وَلَئِنِ اتَّبَعْتَ أَهْوَاءَهُم بَعْدَمَا جَاءَكَ مِنَ الْعِلْمِ مَا لَكَ مِنَ اللَّهِ مِن وَلِيٍّ وَلَا وَاقٍ
+**Translation:** So We have sent down the Quran to give judgement in the Arabic language. If you were to follow their desires, after the knowledge that has come to you, you would have no one to guard or protect you from God.
 
 ### Quran (16:103)
-**Arabic:** 
-**Translation:** We know well that they say, “There is a man who teaches him.” The language of the one they refer to is non-Arabic while this is clear Arabic language.`,
+**Arabic:** وَلَقَدْ نَعْلَمُ أَنَّهُمْ يَقُولُونَ إِنَّمَا يُعَلِّمُهُ بَشَرٌ ۗ لِّسَانُ الَّذِي يُلْحِدُونَ إِلَيْهِ أَعْجَمِيٌّ وَهَٰذَا لِسَانٌ عَرَبِيٌّ مُّبِينٌ
+**Translation:** We know very well that they say, “It is a man who teaches him,” but the language of the person they allude to is foreign, while this revelation is in clear Arabic.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 5027
+The Prophet (SAW) said: “The best of you are those who learn the Quran and teach it.”
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Trying to do everything at once diffuses your energy and leads to abandoning both. Choosing one track — hifz or language — allows you to channel your full cognitive effort into deep, sustained practice. You can always add the second track later once the first is established.
@@ -2953,12 +3038,20 @@ Pick one room to start with — ideally the one you spend the most time in. Go t
 
 
 ### Quran (80:33)
-**Arabic:** 
-**Translation:** At length, when there comes the Deafening Noise,-
+**Arabic:** فَإِذَا جَاءَتِ الصَّاخَّةُ
+**Translation:** When the Deafening Blast comes—
+*(Contextual: the Quran's vivid depiction of overwhelming sound underscores how noise disrupts the heart's ability to focus; reducing worldly noise is a prerequisite for spiritual presence.)*
 
 ### Quran (101:2)
-**Arabic:** 
-**Translation:** What is the (Day) of Noise and Clamour?`,
+**Arabic:** مَا الْقَارِعَةُ
+**Translation:** What is the Crashing Blow?
+
+**II. Hadith**
+
+
+### Sahih Muslim 2965
+The Prophet (SAW) said: "Whoever among you wakes up secure in his dwelling, healthy in his body, having his food for the day — it is as if the whole world has been gathered for him."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Chronic noise — traffic, neighbours, appliances, or even family activity — elevates cortisol, disrupts sleep, and makes concentration during salah or study nearly impossible. Reducing noise is one of the highest-impact improvements you can make.
@@ -3161,8 +3254,16 @@ For gas leaks: write down to not use any electrical switches, open windows, evac
 
 
 ### Quran (73:12)
-**Arabic:** 
-**Translation:** We have heavy fetters and a blazing Fire in store for them;`,
+**Arabic:** إِنَّ لَدَيْنَا أَنكَالًا وَجَحِيمًا
+**Translation:** We have fetters, a blazing fire,
+*(Contextual: the Quranic description of fire as a grave reality grounds the duty to protect one's household from its worldly danger.)*
+
+**II. Hadith**
+
+
+### Jami at-Tirmidhi 2517
+The Prophet (SAW) said: "Tie your camel and then put your trust in Allah." (Emphasising that practical precaution and tawakkul go together.)
+*(Grade: Hasan)*`,
           description: `**Why?**
 
 Most home fires start in the kitchen. A fire extinguisher within reach can stop a small fire before it becomes a deadly blaze — but only if you know how to use it. An unused extinguisher during a kitchen fire is a tragic missed opportunity.
@@ -3219,17 +3320,24 @@ You cannot assert rights you do not know you have. Many Muslims face workplace d
 **How?**
 
 Search for your country or state's anti-discrimination legislation regarding religion. Read the sections on religious discrimination specifically. Note what is protected: hiring, firing, harassment, dress code, prayer breaks. Look for any recent case law involving Muslim employees. Save or bookmark the key legal references for future use.` },
-        { title: 'Understand your rights to religious accommodation at work (prayer, fasting, dress)', done: false,
+        { title: "Understand your rights to religious accommodation at work (prayer, fasting, dress)", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (62:9)
-**Arabic:** 
-**Translation:** O you who believe (Muslims)! When the call is proclaimed for the Salât (prayer) on Friday (Jumu‘ah prayer), come to the remembrance of Allâh [Jumu‘ah religious talk (Khutbah) and Salât (prayer)] and leave off business (and every other thing). That is better for you if you did but know!
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِن يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** Believers! When the call to prayer is made on the day of congregation, hurry towards the reminder of God and leave off your trading — that is better for you, if only you knew.
 
 ### Quran (9:122)
-**Arabic:** 
-**Translation:** [9:122] It was not necessary for the believers to go forth all together (to receive religious instruction), but why did not a party of them go forth that they may grow in religious understanding, and that they may warn their people when they return to them, so that they may avoid (erroneous attitudes)?`,
+**Arabic:** وَمَا كَانَ الْمُؤْمِنُونَ لِيَنفِرُوا كَافَّةً ۚ فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنذِرُوا قَوْمَهُمْ إِذَا رَجَعُوا إِلَيْهِمْ لَعَلَّهُمْ يَحْذَرُونَ
+**Translation:** Yet it is not right for all the believers to go out together: out of each community, a group should go out to gain understanding of the religion, so that they can teach their people when they return and so that they can guard themselves against evil.
+
+**II. Hadith**
+
+
+### Sahih Muslim 1844
+The Prophet (SAW) said: "Help your brother, whether he is an oppressor or is being oppressed." They asked: "How do we help him if he is an oppressor?" He said: "By stopping him from oppressing."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Many employers are legally required to accommodate sincere religious practices unless it causes undue hardship. Knowing this empowers you to request prayer breaks, Ramadan adjustments, or hijab accommodation with confidence rather than apology.
@@ -3540,7 +3648,14 @@ Have a direct conversation with your designated executor about their role and re
       description: 'Taking a leadership role in safety infrastructure — whether at the mosque, school, or neighbourhood level — multiplies your impact and ensures that safety planning is proactive rather than reactive. It is a form of khidmah (service) that protects the most vulnerable.',
       subtasks: [
         { title: 'Express your interest to the mosque board or community organisation leadership', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (3:104)
+**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ
+**Translation:** Let there be a group among you who call others to good, and enjoin what is right, and forbid what is wrong: those who do this are the successful ones.
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 2010
@@ -3632,13 +3747,21 @@ Identify 3-5 community members who showed interest during events or training. In
       priority: 'high', tags: ['adab', 'sunnah'],
       description: 'The Prophet (SAW) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
       subtasks: [
-        { title: 'Make it a habit to initiate salam with every Muslim you encounter', done: false,
+        { title: "Make it a habit to initiate salam with every Muslim you encounter", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (28:53)
-**Arabic:** 
-**Translation:** And when it is recited to them, they say: "We believe in it. Verily, it is the truth from our Lord. Indeed even before it we have been from those who submit themselves to Allâh in Islâm as Muslims (like ‘Abdullâh bin Salâm and Salmân Al-Farisî).`,
+**Arabic:** وَإِذَا يُتْلَىٰ عَلَيْهِمْ قَالُوا آمَنَّا بِهِ إِنَّهُ الْحَقُّ مِن رَّبِّنَا إِنَّا كُنَّا مِن قَبْلِهِ مُسْلِمِينَ
+**Translation:** and, when it is recited to them, say, "We believe in it, it is the truth from our Lord. Before it came we had already devoted ourselves to Him."
+*(Contextual: those who submit to Allah naturally express peace — initiating salam is the outward expression of inner Islam.)*
+
+**II. Hadith**
+
+
+### Sahih Muslim 54
+The Prophet (SAW) said: "You will not enter Paradise until you believe, and you will not (fully) believe until you love one another. Shall I not tell you of something which, if you do it, you will love one another? Spread the salam amongst yourselves."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The one who initiates the greeting earns greater reward. By making salam your default, you break social barriers, soften hearts, and plant seeds of brotherhood with every encounter.
@@ -3648,7 +3771,14 @@ The one who initiates the greeting earns greater reward. By making salam your de
 
 Set a personal rule: you will be the first to say "As-salamu alaykum" in every interaction with a Muslim — at the store, the parking lot, the hallway. Do not wait for eye contact or familiarity. Track yourself for one week and notice how many new connections open up.` },
         { title: 'Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (4:86)
+**Arabic:** وَإِذَا حُيِّيتُم بِتَحِيَّةٍ فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا ۗ إِنَّ اللَّهَ كَانَ عَلَىٰ كُلِّ شَيْءٍ حَسِيبًا
+**Translation:** When you are greeted with a greeting, respond with a better one, or at least return it: God keeps account of everything.
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 831
@@ -3730,7 +3860,15 @@ Social obligations in Islam are not optional — they are rights that others hol
 
 Create a dedicated section in your calendar or notes app for social obligations. When you hear of a wedding, birth, illness, or death, add it immediately with a reminder. Review this list weekly so nothing falls through the cracks.` },
         { title: 'Prioritise attending janazah prayers whenever you are notified of a death', done: false,
-          sources: `**I. Hadith**
+          sources: `**I. Quran**
+
+
+### Quran (3:185)
+**Arabic:** كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ ۖ فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ ۗ وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ
+**Translation:** Every soul will taste death, and you will only be given your full reward on the Day of Resurrection. Whoever is kept away from the Fire and admitted to the Garden will have triumphed. The present world is only an illusory pleasure.
+*(Contextual: attending the janazah is the believer's response to this universal reality — honouring the deceased and reminding oneself of the return to Allah.)*
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 1091
@@ -3753,8 +3891,16 @@ Sign up for your local mosque notification list or community WhatsApp group that
 
 
 ### Quran (2:184)
-**Arabic:** 
-**Translation:** (This fasting is for) a limited number of days. But should any one of you be sick or on a journey, then(he should fast) a period of other days. Yet for those who can fast with difficulty, a compensation(is allowed instead)—food for a destitute person2 . But whoever volunteers a good act, it is better for him. Yet to fast is better for youpl , if you only knew.`,
+**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+**Translation:** Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.
+*(Contextual: the Quran's acknowledgement of illness as a condition requiring communal accommodation grounds the broader obligation to care for the sick.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 5649
+The Prophet (SAW) said: "Visit the sick, feed the hungry, and free the captive."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Visiting the sick is one of the five rights of a Muslim upon another Muslim. The Prophet (SAW) said that when you visit a sick person, you are surrounded by angels making dua for you. It strengthens the bond of community and reminds you of the blessing of health.
@@ -3768,12 +3914,20 @@ Ask around your circle each week — who is unwell, recovering from surgery, or 
 
 
 ### Quran (2:221)
-**Arabic:** 
-**Translation:** Do not marry the polytheist women, unless they come to believe (in Islam); a Muslim slave-girl is better than a polytheist woman, even though she may attract you; and do not give (your women) in marriage to polytheist men, unless they come to believe; a Muslim slave is better than a polytheist, even though he may attract you. They invite to the Fire when Allah invites, by His will, to Paradise, and to forgiveness. He makes His verses clear to the people, so that they may heed the advice.
+**Arabic:** وَلَا تَنكِحُوا الْمُشْرِكَاتِ حَتَّىٰ يُؤْمِنَّ ۚ وَلَأَمَةٌ مُّؤْمِنَةٌ خَيْرٌ مِّن مُّشْرِكَةٍ وَلَوْ أَعْجَبَتْكُمْ ۗ وَلَا تُنكِحُوا الْمُشْرِكِينَ حَتَّىٰ يُؤْمِنُوا ۚ وَلَعَبْدٌ مُّؤْمِنٌ خَيْرٌ مِّن مُّشْرِكٍ وَلَوْ أَعْجَبَكُمْ
+**Translation:** Do not marry idolatresses until they believe: a believing slave woman is certainly better than an idolatress, even though she may please you. And do not give your women in marriage to idolaters until they believe: a believing slave is certainly better than an idolater, even though he may please you.
+*(Contextual: this verse affirms the sanctity of Islamic marriage — the walimah is its public celebration, which believers are commanded to honour by attending.)*
 
 ### Quran (3:85)
-**Arabic:** 
-**Translation:** And whoever seeks other than Islam as a religion—it will not be accepted from him, and in the Hereafter he is one of the losers.`,
+**Arabic:** وَمَن يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَن يُقْبَلَ مِنْهُ وَهُوَ فِي الْآخِرَةِ مِنَ الْخَاسِرِينَ
+**Translation:** If anyone seeks a religion other than complete devotion to God, it will not be accepted from him: he will be one of the losers in the Hereafter.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 5173
+The Prophet (SAW) said: "Whoever does not accept the invitation to a walimah has disobeyed Allah and His Messenger."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The Prophet (SAW) said that whoever does not accept an invitation has disobeyed Allah and His Messenger. Accepting invitations strengthens social bonds, honours the host, and keeps you connected to your community rather than isolated.
@@ -3976,8 +4130,16 @@ When someone speaks to you, turn your full body toward them — not just your he
 
 
 ### Quran (26:181)
-**Arabic:** 
-**Translation:** Give full measure: do not sell others short.`,
+**Arabic:** أَوْفُوا الْكَيْلَ وَلَا تَكُونُوا مِنَ الْمُخْسِرِينَ
+**Translation:** Give full measure: do not sell others short.
+*(Contextual: giving full attention in conversation is the social expression of this Quranic command — giving people the full measure of your presence, not a diminished, distracted version.)*
+
+**II. Hadith**
+
+
+### Jami at-Tirmidhi 2641
+The Prophet (SAW) said: "The most beloved of you to me and the closest to me on the Day of Resurrection will be those who have the best manners."
+*(Grade: Hasan)*`,
           description: `**Why?**
 
 Noticing the impact of your improved presence reinforces the habit. When you see people open up, share more deeply, or thank you for listening, it proves that full attention is one of the greatest gifts you can give another human being.
@@ -4173,8 +4335,15 @@ Treat every small commitment with the same seriousness as a major deadline. When
 
 
 ### Quran (17:34)
-**Arabic:** 
-**Translation:** And do not approach the property of an orphan, except in the way that is best, until he reaches maturity. And fulfill [every] commitment. Indeed, the commitment is ever [that about which one will be] questioned.`,
+**Arabic:** وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ حَتَّىٰ يَبْلُغَ أَشُدَّهُ ۚ وَأَوْفُوا بِالْعَهْدِ ۖ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا
+**Translation:** Do not go near the orphan's property, except with the best intentions, until he reaches the age of maturity. Honour your pledges: you will be questioned about your pledges.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 33
+The Prophet (SAW) said: "The signs of a hypocrite are three: when he speaks, he lies; when he makes a promise, he breaks it; and when he is entrusted, he betrays."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Everyone occasionally falls short — what separates trustworthy people from unreliable ones is how they handle it. Proactive, honest communication when you cannot deliver preserves trust because it shows respect for the other person's time and expectations.
@@ -4335,8 +4504,16 @@ After someone shares something important, resist the urge to immediately give yo
 
 
 ### Quran (18:70)
-**Arabic:** 
-**Translation:** The other said: "If then thou wouldst follow me, ask me no questions about anything until I myself speak to thee concerning it."`,
+**Arabic:** قَالَ فَإِنِ اتَّبَعْتَنِي فَلَا تَسْأَلْنِي عَن شَيْءٍ حَتَّىٰ أُحْدِثَ لَكَ مِنْهُ ذِكْرًا
+**Translation:** The man said, "If you follow me then, do not query anything I do before I mention it to you myself."
+*(Contextual: the deliberate, patient inquiry modelled between Musa and al-Khidr illustrates how thoughtful questions deepen understanding — the opposite of hasty, surface-level conversation.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6250
+The Prophet (SAW) used to face the person he was speaking to completely and give them his full attention — a model of engaged, curious presence in every conversation.
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 A thoughtful follow-up question tells the speaker: "I am genuinely interested in what you are sharing." It deepens the conversation beyond surface-level exchanges and often leads to insights neither person expected.
@@ -4404,13 +4581,20 @@ You cannot reconcile what you have not acknowledged. Writing down strained relat
 **How?**
 
 Sit quietly and think through your family, friends, colleagues, and community members. Write the name of every person with whom things are not right — whether through conflict, neglect, or slow drift. Be honest; include relationships you have been avoiding thinking about. This list is your starting point.` },
-        { title: 'Choose one relationship to prioritise for reconciliation this month', done: false,
+        { title: "Choose one relationship to prioritise for reconciliation this month", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (49:9)
-**Arabic:** 
-**Translation:** If two groups of the believers fight each other, seek reconciliation between them. And if one of them commits aggression against the other, fight the one that commits aggression until it comes back to Allah’s command. So if it comes back, seek reconciliation between them with fairness, and maintain justice. Surely Allah loves those who maintain justice.`,
+**Arabic:** وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا ۖ فَإِن بَغَتْ إِحْدَاهُمَا عَلَى الْأُخْرَىٰ فَقَاتِلُوا الَّتِي تَبْغِي حَتَّىٰ تَفِيءَ إِلَىٰ أَمْرِ اللَّهِ ۚ فَإِن فَاءَتْ فَأَصْلِحُوا بَيْنَهُمَا بِالْعَدْلِ وَأَقْسِطُوا ۖ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ
+**Translation:** If two groups of the believers fight, you should try to reconcile them; if one of them is clearly oppressing the other, fight the oppressors until they submit to God’s command, then make a just and even-handed reconciliation between the two of them: God loves those who are even-handed.
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 2707
+The Prophet (SAW) said: "It is not permissible for a Muslim to forsake his brother for more than three days, both of them turning away from each other when they meet. The better of them is the one who initiates the greeting of salam."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Trying to fix everything at once leads to paralysis. Choosing one relationship focuses your energy and increases the likelihood of meaningful progress. One successful reconciliation also builds the confidence and skill to tackle others.
@@ -4446,8 +4630,16 @@ Before reaching out, spend time in honest self-examination. Ask yourself: What d
 
 
 ### Quran (13:40)
-**Arabic:** 
-**Translation:** Whether We shall show thee (within thy life-time) part of what we promised them or take to ourselves thy soul (before it is all accomplished),- thy duty is to make (the Message) reach them: it is our part to call them to account.`,
+**Arabic:** وَإِن مَّا نُرِيَنَّكَ بَعْضَ الَّذِي نَعِدُهُمْ أَوْ نَتَوَفَّيَنَّكَ فَإِنَّمَا عَلَيْكَ الْبَلَاغُ وَعَلَيْنَا الْحِسَابُ
+**Translation:** Whether We let you see part of what We threaten them with, or cause you to die before that, your duty is only to deliver the message: the Reckoning is Ours.
+*(Contextual: your duty is to make the sincere outreach — the outcome belongs to Allah. Reach out; do not wait for guaranteed results.)*
+
+**II. Hadith**
+
+
+### Sunan Abu Dawud 4919
+The Prophet (SAW) said: "Shall I not tell you of something better in degree than fasting, prayer, and charity?" They said: "Yes." He said: "Reconciling between people — for discord among people is the destroyer."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 The first move is always the hardest, and the one who initiates reconciliation earns the greater reward regardless of who was at fault. A humble, sincere outreach can melt years of resentment and reopen doors you thought were permanently closed.
@@ -4621,17 +4813,26 @@ Vague intentions to "be a good Muslim in public" rarely translate into action. M
 **How?**
 
 For each of your three contexts, set one specific excellence target this month. At work: deliver every project ahead of deadline. In your neighbourhood: be the first to offer help when someone is moving, shovelling, or struggling. At the school gate: greet every parent warmly and remember their names. Track your follow-through and raise the bar each month.` },
-        { title: 'Handle complaints, conflicts, or rudeness with prophetic composure and grace', done: false,
+        { title: "Handle complaints, conflicts, or rudeness with prophetic composure and grace", done: false,
           sources: `**I. Quran**
 
 
 ### Quran (68:2)
-**Arabic:** 
-**Translation:** Your Lord’s grace does not make you [Prophet] a madman:
+**Arabic:** مَا أَنتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ
+**Translation:** Your Lord’s grace does not make you [Prophet] a madman.
+*(Contextual: the Prophet (SAW) met slander and hostility with grace — this verse affirms that composure under attack is a mark of divine blessing, not weakness.)*
 
 ### Quran (52:29)
-**Arabic:** 
-**Translation:** So [Prophet] remind [people]. By the grace of your Lord [Prophet], you are neither oracle nor madman.`,
+**Arabic:** فَذَكِّرْ فَمَا أَنتَ بِنِعْمَتِ رَبِّكَ بِكَاهِنٍ وَلَا مَجْنُونٍ
+**Translation:** So [Prophet] remind [people]. By the grace of your Lord [Prophet], you are neither oracle nor madman.
+*(Contextual: the prophetic model is to continue with composure and clarity regardless of how others respond.)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 6114
+The Prophet (SAW) said: "The strong man is not the one who overcomes people by his strength, but the strong man is the one who controls himself while in anger."
+*(Grade: Sahih)*`,
           description: `**Why?**
 
 Anyone can be pleasant when things are going well. The true test of character — and the most powerful dawah — is how you respond when someone is rude, unfair, or hostile. The Prophet (SAW) met hostility with dignity, and many hearts were opened through his composure.
@@ -4700,8 +4901,16 @@ At the end of each month, set aside 15 minutes for honest reflection. Review you
 
 
 ### Quran (2:165)
-**Arabic:** 
-**Translation:** Yet of mankind is one who takes(others) apart from Allah as rivals to Him. Theylove them with a love like that due to Allah, yet those who have attained faith are stronger in love for Allah. And if only those who have done injustice could see2 , when they see3 the punishment, that4 all power belongs to Allah and thatAllah is severe in punishment.`,
+**Arabic:** وَمِنَ النَّاسِ مَن يَتَّخِذُ مِن دُونِ اللَّهِ أَندَادًا يُحِبُّونَهُمْ كَحُبِّ اللَّهِ ۖ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ ۗ وَلَوْ يَرَى الَّذِينَ ظَلَمُوا إِذْ يَرَوْنَ الْعَذَابَ أَنَّ الْقُوَّةَ لِلَّهِ جَمِيعًا وَأَنَّ اللَّهَ شَدِيدُ الْعَذَابِ
+**Translation:** Even so, there are some who choose to worship others besides God as rivals to Him, loving them with the love due to God, but the believers have greater love for God.
+*(Contextual: those who choose companions based on shared love of Allah — not merely comfort or convenience — are following the believers' way described here.)*
+
+**II. Hadith**
+
+
+### Sunan Abu Dawud 4833
+The Prophet (SAW) said: "A man follows the religion of his friend; so each of you should consider whom he makes his friend."
+*(Grade: Hasan Sahih)*`,
           description: `**Why?**
 
 The quality of your muhasaba circle determines its effectiveness. You need peers who are serious about their own growth, trustworthy with sensitive information, and willing to both give and receive honest feedback. The wrong group becomes a social gathering; the right group becomes a lifeline.
