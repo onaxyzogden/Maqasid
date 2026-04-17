@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useParams, useNavigate, useSearchParams, useLocation, Outlet } from 'react-router-dom';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
-import { useThresholdStore } from '@store/threshold-store';
-import CeremonyGate from '@components/islamic/CeremonyGate';
 import ProjectBoard from '@components/work/ProjectBoard';
 
 const TAB_SUFFIXES = ['/people', '/tasks', '/money', '/assets', '/office', '/tech', '/journal'];
@@ -15,7 +13,6 @@ export default function Project() {
   const [searchParams, setSearchParams] = useSearchParams();
   const project = useProjectStore((s) => s.getProject(projectId));
   const loadTasks = useTaskStore((s) => s.loadTasks);
-  const hasCompletedOpening = useThresholdStore((s) => !!s.completedOpening['work']);
   const isProjectsView = !TAB_SUFFIXES.some((s) => location.pathname.endsWith(s));
 
   useEffect(() => {
@@ -30,10 +27,6 @@ export default function Project() {
       setSearchParams(searchParams, { replace: true });
     }
   }, [searchParams]);
-
-  if (!hasCompletedOpening) {
-    return <CeremonyGate moduleId="work" />;
-  }
 
   if (!project) {
     return (

@@ -8,8 +8,6 @@ import {
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
 } from 'lucide-react';
 import { MODULES } from '../data/modules';
-import { useThresholdStore } from '../store/threshold-store';
-import CeremonyGate from '../components/islamic/CeremonyGate';
 import PillarHeader from '../components/shared/PillarHeader';
 
 const ICON_MAP = {
@@ -26,7 +24,6 @@ const modulesById = Object.fromEntries(MODULES.map((m) => [m.id, m]));
 export default function ModulePlaceholder() {
   const { moduleId } = useParams();
   const mod = modulesById[moduleId];
-  const hasCompleted = useThresholdStore((s) => !!s.completedOpening[moduleId]);
 
   if (!mod) {
     return (
@@ -38,8 +35,6 @@ export default function ModulePlaceholder() {
       </div>
     );
   }
-
-  if (!hasCompleted) return <CeremonyGate moduleId={moduleId} />;
 
   const Icon = ICON_MAP[mod.icon];
 

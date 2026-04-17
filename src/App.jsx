@@ -71,6 +71,7 @@ import UmmahDashboard from '@pages/ummah/UmmahDashboard';
 import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
 import CeremonyGuard from '@components/islamic/CeremonyGuard';
+import CeremonyGuardDynamic from '@components/islamic/CeremonyGuardDynamic';
 import ProjectBoard from '@components/work/ProjectBoard';
 import AssetsTab from '@components/money/AssetsTab';
 import ProjectJournal from '@components/journal/ProjectJournal';
@@ -130,7 +131,7 @@ export default function App() {
       >
         <Route index element={<Dashboard />} />
         <Route path="work" element={<CeremonyGuard moduleId="work"><Work /></CeremonyGuard>} />
-        <Route path="work/:projectId" element={<Project />}>
+        <Route path="work/:projectId" element={<CeremonyGuard moduleId="work"><Project /></CeremonyGuard>}>
           <Route path="people" element={<People embedded />} />
           <Route path="tasks" element={<ProjectTasks />} />
           <Route path="money" element={<Money embedded />} />
@@ -207,7 +208,7 @@ export default function App() {
         <Route path="pillar/ummah" element={<UmmahDashboard />} />
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />
         <Route path="settings" element={<Settings />} />
-        <Route path=":moduleId" element={<ModulePlaceholder />} />
+        <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
       </Route>
     </Routes>
   );

@@ -24,7 +24,6 @@
 - `Settings.jsx` — App settings
 - `PillarDashboard.jsx` + `.css` — Generic pillar reference table (4-column: Aspect | Necessities | Needs | Embellishments)
 - `ModulePlaceholder.jsx` — Catch-all for unknown module routes
-- `ComingSoon.jsx` — Placeholder for upcoming features
 
 ## Routing (defined in App.jsx)
 - All app routes nested under `/app` (wrapped in AppShell + ProtectedRoute)

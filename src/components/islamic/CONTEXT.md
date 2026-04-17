@@ -7,7 +7,8 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | File | Description |
 |------|-------------|
 | CeremonyGate.jsx | Pre-entry gate UI for modules — begin opening or skip |
-| CeremonyGuard.jsx | Route-level wrapper — renders CeremonyGate until `completedOpening[moduleId]` is true, then renders `children`. Used in `App.jsx` around thin pillar-route elements |
+| CeremonyGuard.jsx | Route-level wrapper (static moduleId prop) — renders CeremonyGate until `completedOpening[moduleId]` is true, then renders `children`. Used in `App.jsx` around pillar-route elements |
+| CeremonyGuardDynamic.jsx | Param-driven variant — reads `moduleId` from `useParams(paramKey)` (default `'moduleId'`). Used for catch-all routes like `/app/:moduleId` |
 | ThresholdModal.jsx | Full ceremony flow: Dua → Attributes → Readiness [→ Pause] → Confirm |
 | NiyyahAct.jsx | Daily intention ceremony: orient step + pillar focus selection |
 | PrayerTime.jsx | Sidebar prayer schedule with geolocation + 5 daily times |
@@ -24,17 +25,23 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 ### CeremonyGate Pattern
 Module entry is gated by the opening ceremony. Two wiring modes coexist:
 
-**Route-level (preferred, thin pages)** — `<CeremonyGuard>` wraps the route element in `App.jsx`:
+**Route-level static (default)** — `<CeremonyGuard>` wraps the route element in `App.jsx`:
 ```jsx
 <Route path="faith-salah" element={<CeremonyGuard moduleId="faith-salah"><FaithSalahPage /></CeremonyGuard>} />
 ```
-The guarded page stays pure content — no `useThresholdStore` import, no gate check. Applied to all 28 sub-pillar pages (faith-*, life-*, intellect-*, family-*, wealth-*, env-*, moontrance-*).
+The guarded page stays pure content — no `useThresholdStore` import, no gate check. Applied to 28 sub-pillar pages + 5 business modules + 4 ummah pages + `work/:projectId` (Project, gated as "work" to match pre-refactor semantics).
 
-**In-body (legacy, thick pages)** — pages with hooks, dynamic moduleId, or embedded variants still gate themselves:
+**Route-level dynamic** — `<CeremonyGuardDynamic>` reads `moduleId` from `useParams`:
+```jsx
+<Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
+```
+Used for the `:moduleId` catch-all. Accepts optional `paramKey` prop.
+
+**In-body (intentional, by design)** — only for tab content that is NOT URL-driven:
 ```jsx
 if (!completedOpening[moduleId]) return <CeremonyGate moduleId={moduleId} />;
 ```
-Still used in `Work`, `Money`, `People`, `Office`, `Tech`, `Project`, `FamilyPage`, `Neighbors`, `Community`, `CollectivePage`, `FivePillars`, `HadithPage`, `IslamicKnowledgePage`, `QuranPage`, `ModulePlaceholder`, `ComingSoon`. Phase 2 of the refactor will audit these case-by-case.
+Remaining: `QuranPage`, `HadithPage`, `IslamicKnowledgePage` — tab content inside `SourcesPage`. `activeTab` is local React state (button clicks don't update the URL), so a URL-driven guard can't gate what the user sees. Per-tab gating is also the intended semantic — Quran/Hadith/Knowledge are distinct openings.
 
 Both modes end at the same UI:
 - Shows "Begin Opening" or "Return to Opening" (if deferred)

@@ -7,6 +7,22 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-16] refactor | CeremonyGuard Phase 2d — dynamic guard for ModulePlaceholder + static wrap for Project; refactor initiative CLOSED
+
+- **New component** `src/components/islamic/CeremonyGuardDynamic.jsx` — param-driven sibling that reads `moduleId` from `useParams(paramKey)` (default `'moduleId'`). Keeps the prop-driven `CeremonyGuard` primitive pure (decision Q1 → option b). Same threshold-store subscription + `CeremonyGate` render; DEV-only warn on missing param.
+- **App.jsx wiring**: `/app/:moduleId` catch-all wrapped in `<CeremonyGuardDynamic>`; `/app/work/:projectId` wrapped in static `<CeremonyGuard moduleId="work">`. Audit revealed Project gated a hard-coded `"work"` literal — no dynamic resolution needed (decision Q2 → option i: preserve "work" gate, matches Phase 2a option-a contract for embedded tabs). Nested `Outlet`-based children (`people`, `tasks`, `money`, `assets`, `office`, `tech`, `journal`) still render through Project's `<Outlet />` after the gate passes — no per-child wrap needed.
+- **Pages stripped**: `ModulePlaceholder.jsx` and `Project.jsx` — removed `useThresholdStore` + `CeremonyGate` imports, subscription, and in-body gate return. Not-found branches and all other logic preserved intact.
+- **Dead-code deletion**: `src/pages/ComingSoon.jsx` removed (unimported in live src — only doc references existed). Parallel to `FivePillars.jsx` deletion in Phase 2c-sources. `src/pages/CONTEXT.md` updated.
+- **Stretch rejected (decision Q3 → decline)**: Lifting the 3 `SourcesPage` tab gates via a `searchParams`-driven guard is **technically blocked**, not just out of scope. `SourcesPage` holds `activeTab` in local React state set by button `onClick` — clicking a tab does NOT update the URL. A guard above `SourcesPage` reading `searchParams.get('tab')` cannot gate what the user sees. Per-tab in-body pattern is structurally load-bearing AND matches the Phase 2c-sources semantic intent (distinct openings for Quran/Hadith/Knowledge). Permanently retained.
+- **Docs**: `src/components/islamic/CONTEXT.md` rewritten — architecture section now documents three modes (route-level static, route-level dynamic, in-body-by-design). `CeremonyGuard.jsx` header comment trimmed to the intentional Sources-tab case. Decision doc `2026-04-16-ceremony-guard-route-level.md` marks Phase 2d complete.
+- **Verification**: `npm run build` passes (2530 modules, 2.04s). Preview cleared `bbiz_thr_open` and confirmed:
+  - `/app/fake-module-xyz` → CeremonyGate via dynamic guard ("Fake — Module — Xyz" title rendered by PillarHeader above).
+  - `/app/work/faith_core` (unopened work) → CeremonyGate.
+  - `/app/work/faith_core/money` (after setting `completedOpening.work = ISO`) → Money embedded UI renders with Dashboard/Income/Expenses/Accounts, **no per-module "money" gate** (CRITICAL Phase 2a option-a regression check — passed). Screenshot captured.
+  - `/app/fake-module-xyz` (after setting flag) → ModulePlaceholder renders "Module not found" (expected — gate then not-found; matches pre-refactor order).
+  - `/app/work/faith_core` (after opening) → ProjectBoard pipeline renders.
+- **Refactor initiative CLOSED**. Final state: `CeremonyGuard` wraps all 38+ thin/homogeneous module routes statically; `CeremonyGuardDynamic` wraps the `:moduleId` catch-all. Only remaining in-body gates are the 3 Sources tabs (`QuranPage`, `HadithPage`, `IslamicKnowledgePage`) — intentional, per-tab semantics, not URL-driven.
+
 ## [2026-04-16] refactor | CeremonyGuard Phase 2c-sources — closed as no-op + FivePillars dead-code deletion
 
 - **Discovery**: the "sources cluster" from the Phase 2a deferral list (`FivePillars`, `HadithPage`, `IslamicKnowledgePage`, `QuranPage`) was mis-grouped. Actual state: only `SourcesPage` is routed at `/app/sources`; `QuranPage`, `HadithPage`, `IslamicKnowledgePage` are **tab content** inside `SourcesPage`, each gating independently as `"quran"`, `"hadith"`, `"islamic-knowledge"`. `FivePillars.jsx` was dead code — not imported anywhere in live src (only its CSS is imported by `OverviewCards.jsx`).
