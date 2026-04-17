@@ -77,5 +77,32 @@ export const useOnboardingStore = create((set) => {
       safeSet('onboarding_checklist_dismissed', 'true');
       set({ checklistDismissed: true });
     },
+
+    disableOnboarding: () => {
+      const ALL_PILLARS = ['faith', 'life', 'intellect', 'family', 'wealth', 'environment', 'ummah'];
+      safeSet('onboarding_tour_completed', 'true');
+      safeSet('onboarding_checklist_dismissed', 'true');
+      safeSet('onboarding_seen_pillars', ALL_PILLARS);
+      set({
+        tourCompleted: true,
+        checklistDismissed: true,
+        seenPillars: ALL_PILLARS,
+      });
+    },
+
+    resetOnboarding: () => {
+      safeSet('onboarding_tour_completed', 'false');
+      safeSet('onboarding_checklist_dismissed', 'false');
+      safeSet('onboarding_seen_pillars', []);
+      safeSet('onboarding_checklist', DEFAULT_CHECKLIST);
+      safeSet('onboarding_first_login_at', null);
+      set({
+        tourCompleted: false,
+        checklistDismissed: false,
+        seenPillars: [],
+        checklistItems: DEFAULT_CHECKLIST,
+        firstLoginAt: null,
+      });
+    },
   };
 });

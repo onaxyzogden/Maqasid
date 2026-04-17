@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Moon, Sun, Download, Upload, Trash2, LogOut, Eye, EyeOff } from 'lucide-react';
+import { Moon, Sun, Download, Upload, Trash2, LogOut, Eye, EyeOff, Sparkles, RotateCcw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSettingsStore } from '../store/settings-store';
 import { useAuthStore } from '../store/auth-store';
+import { useOnboardingStore } from '../store/onboarding-store';
 import { exportAll, importAll, clearAll, validateImport, createBackup, restoreBackup, hasBackup } from '../services/storage';
 import { AI_PROVIDERS } from '../services/ai/ai-settings';
 
@@ -14,6 +15,12 @@ export default function Settings() {
     aiModel, setAiModel, aiBaseUrl, setAiBaseUrl,
   } = useSettingsStore();
   const { user, logout } = useAuthStore();
+  const {
+    tourCompleted, checklistDismissed, seenPillars,
+    disableOnboarding, resetOnboarding,
+  } = useOnboardingStore();
+  const onboardingDisabled =
+    tourCompleted && checklistDismissed && seenPillars.length >= 7;
   const [showKey, setShowKey] = useState(false);
 
   const handleExport = () => {
@@ -286,6 +293,39 @@ export default function Settings() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Onboarding */}
+      <section style={{ marginBottom: 'var(--space-8)' }}>
+        <h4 style={{ marginBottom: 'var(--space-3)', color: 'var(--text2)' }}>Onboarding</h4>
+        <div style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
+          display: 'flex', flexDirection: 'column', gap: 'var(--space-3)',
+        }}>
+          <div style={{ fontSize: '0.85rem', color: 'var(--text2)', lineHeight: 1.5 }}>
+            {onboardingDisabled
+              ? 'All onboarding hints are hidden. Reset to experience them again.'
+              : 'Guided tour, Dashboard checklist, and pillar intro modals are active.'}
+          </div>
+          <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+            <button
+              className="btn btn-secondary"
+              onClick={disableOnboarding}
+              disabled={onboardingDisabled}
+              style={{ justifyContent: 'center', flex: 1, opacity: onboardingDisabled ? 0.5 : 1 }}
+            >
+              <Sparkles size={16} /> Disable onboarding hints
+            </button>
+            <button
+              className="btn btn-ghost"
+              onClick={resetOnboarding}
+              style={{ justifyContent: 'center', flex: 1 }}
+            >
+              <RotateCcw size={16} /> Reset
+            </button>
+          </div>
         </div>
       </section>
 
