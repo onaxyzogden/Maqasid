@@ -132,7 +132,7 @@ export default function Sidebar() {
       </div>
 
       {/* Main Nav */}
-      <nav className="sidebar-nav" aria-label="Main navigation">
+      <nav className="sidebar-nav" aria-label="Main navigation" data-tour="sidebar-nav">
         <Link
           to="/app"
           className={`sidebar-item ${location.pathname === '/app' ? 'active' : ''}`}

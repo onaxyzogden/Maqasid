@@ -19,8 +19,16 @@ import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
 import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import ChartTooltip from '../components/shared/ChartTooltip';
 import OnboardingChecklist from '../components/onboarding/OnboardingChecklist';
+import SpotlightTour from '../components/onboarding/SpotlightTour';
+import { useOnboardingStore } from '../store/onboarding-store';
 import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
+
+const TOUR_STEPS = [
+  { target: 'sidebar-nav', title: 'Your seven domains', description: 'Each pillar of the Maqasid — Faith, Life, Intellect, and more — lives here. Click any to explore.' },
+  { target: 'dashboard-main', title: 'Your command center', description: 'Tasks, priorities, and your Barakah score — everything you need at a glance.' },
+  { target: 'onboarding-checklist', title: 'Your getting started guide', description: 'Complete these five steps to unlock the full power of Maqasid OS.' },
+];
 
 function BCGChart({ data }) {
   const svgRef = useRef(null);
@@ -216,6 +224,13 @@ export default function Dashboard() {
   const deferred = useThresholdStore((s) => s.deferred);
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
   const { nextPrayer } = usePrayerTimes();
+  const tourCompleted = useOnboardingStore((s) => s.tourCompleted);
+  const completeTourStep = useOnboardingStore((s) => s.completeTourStep);
+  const firstLoginAt = useOnboardingStore((s) => s.firstLoginAt);
+
+  const handleTourComplete = () => {
+    completeTourStep();
+  };
 
   const [projectFilter, setProjectFilter] = useState('all');
   const [activityTab, setActivityTab] = useState('all');
@@ -459,7 +474,11 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="insight">
+    <div className="insight" data-tour="dashboard-main">
+      {/* ── Spotlight Tour ── */}
+      {!tourCompleted && firstLoginAt !== null && (
+        <SpotlightTour steps={TOUR_STEPS} onComplete={handleTourComplete} />
+      )}
       {/* ── Top greeting bar ── */}
       <div className="insight-greeting">
         <div className="insight-greeting__avatar">{initials}</div>
@@ -483,7 +502,9 @@ export default function Dashboard() {
       </div>
 
       {/* ── Onboarding Checklist ── */}
-      <OnboardingChecklist />
+      <div data-tour="onboarding-checklist">
+        <OnboardingChecklist />
+      </div>
 
       {/* ── Today's Focus ── */}
       <TodayFocusSection pillarSummary={focusSummary} />
