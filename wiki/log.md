@@ -7,6 +7,30 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-18] feat | MILOS universal grounding — Phase 0 complete
+
+### What was done
+- `docs/grounding-schema.md` — formalised the `sources[]` structured entry shape. Two-axis resolution: `provenanceTier` (Amanah Gate Protocol, unchanged) + `relevance: direct|contextual|thematic`. Niyyah-blocks rule restated. Legacy Markdown-string shape documented for migration.
+- `scripts/lint-grounding.mjs` — read-only conformance linter. Baseline: 1,829 subtasks across 7 pillars, all `shape=string`, zero missing, zero errors.
+- `docs/grounding-runtime-prompt.md` — operational runtime prompt for grading sessions. Dual-corpus discipline (Muslim Scholar `1c17b03b` for citations; Claude Scholar `91d2bd2b` for query-craft). Pillar-boundary session atoms; 500K-token safety net for Opus 4.7 [1m]. §9 Session Continuity Block — 5-part literal paste-able handover prompt generated at every session end.
+- `wiki/references/notebooklm-grounding-corpora.md` + `wiki/index.md` — both corpora registered.
+- `wiki/decisions/2026-04-18-milos-grounding-two-axis.md` — ADR for two-axis schema.
+- `~/.claude/CLAUDE.md` — MUSLIM_SCHOLAR + CLAUDE_SCHOLAR added to legacy notebook registry.
+- Memory: `reference_notebooklm_grounding.md` added to MEMORY.md.
+
+### Linter counts (authoritative)
+Faith 212 · Life 236 · Intellect 236 · Family 233 · Wealth 236 · Environment 226 · Ummah 450 · **Total 1,829**
+
+### Why
+Unstructured Markdown-string `sources` fields on 1,829 subtasks cannot be machine-verified, tier-graded, or surface a `relevance` axis on the Sources card. Phase 0 establishes the schema and tooling before any grading runs.
+
+### Session Debrief
+**Completed:** Phase 0 — schema, linter, runtime prompt, corpus registration, two-axis ADR.
+**Deferred:** Phase 1 (worklist harness + dry-run on 5 Faith subtasks); Phases 2–7 (grading + website rollout).
+**Recommended next session:** Phase 1 — build `scripts/ground-subtasks.mjs` worklist generator, dry-run pipeline end-to-end on 5 Faith subtasks, generate a sample Session Continuity Block.
+
+---
+
 ## [2026-04-18] feat | Amanah Gate Protocol — universal Bayyinah/Qarina/Niyyah tier labels
 
 ### What was done
