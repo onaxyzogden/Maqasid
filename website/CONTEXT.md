@@ -7,11 +7,11 @@ Static marketing/landing site. Merged from [ogden-hub](https://github.com/onaxyz
 | Directory | Purpose |
 |---|---|
 | `index.html` | Main landing page |
-| `atlas/` | Atlas product section (land assessment tool) |
+| `atlas/` | OLOS product section (land assessment tool) |
 | `bbos/` | BBOS product section (business operating system) |
 | `connect/` | Contact/connect pages |
 | `journey/` | Journey narrative |
-| `moontrance/` | Moontrance product section (faith-centered land community) |
+| `moontrance/` | MTC product section (faith-centered land community) |
 | `vision/` | Vision statement |
 | `CNAME` | Custom domain config (`bismillah.ogden.ag`) |
 
@@ -30,16 +30,16 @@ All three products implement the same tiered evidential honesty pattern, but it 
 
 | Product | Mechanism | Tiers |
 |---|---|---|
-| Atlas | Confidence Framework | High (federal API) / Medium (user-provided) / Low (derived) |
+| OLOS | Confidence Framework | High (federal API) / Medium (user-provided) / Low (derived) |
 | BBOS | G-Label System | G1 (documented) / G2 (inferred) / G3 (aspiration) |
-| Moontrance | Not yet implemented | Proposed: M1 (committed) / M2 (agreed) / M3 (declared) |
+| MTC | Not yet implemented | Proposed: M1 (committed) / M2 (agreed) / M3 (declared) |
 
 Decision record: `wiki/decisions/2026-04-14-amanah-gate-protocol.md`
 
 ### Documentation Gap
-`rationale_land_as_trust` ("Land Is a Trust (Amanah) Not an Investment Vehicle") — on `index.html` — links the Amanah concept to Atlas and BBOS explicitly. It does **not** link to Moontrance, despite Moontrance being the most directly land-related product. This gap should be closed in a future copy update.
+`rationale_land_as_trust` ("Land Is a Trust (Amanah) Not an Investment Vehicle") — on `index.html` — links the Amanah concept to OLOS and BBOS explicitly. It does **not** link to MTC, despite MTC being the most directly land-related product. This gap should be closed in a future copy update.
 
 ### Knowledge Graph
 A graphify graph of this website lives at `website/graphify-out/graph.html`. Open in any browser. Run `/graphify --update website` after significant copy changes to keep it current.
 
-God nodes (most connected): BBOS Product (12 edges), Atlas Product (11), BBOS Nine-Stage Pipeline (11).
+God nodes (most connected): BBOS Product (12 edges), OLOS Product (11), BBOS Nine-Stage Pipeline (11).
