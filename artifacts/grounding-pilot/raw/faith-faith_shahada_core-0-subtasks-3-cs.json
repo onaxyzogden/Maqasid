@@ -1,0 +1,744 @@
+{
+  "answer": "<grounding>\nThe following architecture is derived from the \"Prompting best practices\" source material:\n*   **Literalism and Precision**: \"Claude Opus 4.7 interprets prompts more literally and explicitly... It will not silently generalize an instruction... state the scope explicitly\" [1].\n*   **Response Style**: \"Claude Opus 4.7 is more direct and opinionated, with less validation-forward phrasing... provides fact-based progress reports\" [2, 3].\n*   **Research Structure**: \"Identify primary-source citations (not commentary)... define what constitutes a successful answer... use a structured approach\" [4].\n*   **Preamble Removal**: \"Use direct instructions in the system prompt: 'Respond directly without preamble'\" [5].\n</grounding>\n\n<technical_details>\nTo facilitate the personal journaling subtask while maintaining primary-source integrity, the queries are calibrated at an **xhigh effort** level to bypass superficial results [6]. The phrasing targets the internal spiritual states (*Ikhlas*, *Sidq*) and the impact on the heart (*Qalb*), as the latest models are \"meaningfully better\" at high-recall extraction when given concrete anchors rather than qualitative terms [7, 8].\n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, such as Al-Anfal 8:2 and Az-Zumar 39:23, that describe the internal spiritual resonance and heart-based reflection necessitated by the remembrance and testimony of Allah's Oneness.\n2. Retrieve Sahih hadith from Bukhari and Muslim, specifically narrations regarding \"Ikhlas\" (sincerity) in the testimony and the \"sweetness of faith\" (e.g., Bukhari #16), to anchor the personal, experiential dimension of the Shahada.\n</queries>\n\n<action_items>\n- **Execute Retrieval**: Paste the queries into the `/notebooklm` terminal to gather the foundational texts.\n- **Apply Rubric**: Use the established 3-tier grading system (Bayinnah/Qarina/Niyyah) to assess if the results adequately support the \"lived conviction\" required for journaling.\n- **Session Threshold**: Monitor context usage; if the retrieval of these sources exceeds 60% capacity, trigger the handover protocol [9, 10].\n</action_items>\n\n<session_continuity_block>\n**Mission Continuity: Phase [Next]**\n\n1. **Orient**: Call `pwd` and `ls` to verify the presence of `master_plan.json` and the `results/` directory.\n2. **Ingest State**: Read the updated `progress.txt` containing the Shahada grounding findings; check `git log -n 3` for recent commits regarding the MILOS module `faith_shahada_core`.\n3. **Current Delta**: Queries for the \"Journal\" subtask have been formulated; primary scriptural evidence for personal internalization must now be synthesized into a coherent briefing.\n4. **Immediate Task**: Execute the provided retrieval queries in the Quran/Hadith corpus and utilize the 3-tier grading system to badge the findings.\n5. **Parameters**: Set `effort: xhigh` and maintain literal adherence to XML formatting constraints.\n</session_continuity_block>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "1f1b0d6e-8a60-4174-8c35-28209db8c491"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "80eb92be-16b5-404d-8241-071911016fc8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "ca153dc2-d845-4f13-8a77-7c3504547c4e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "1bf6cb2d-a231-4fc8-a145-a9b460b6ef1c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "a9182966-a07e-48fa-89e0-80c4232701fa"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "07f7349f-f13a-4b8d-a34d-8bbbc2cdc2f5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "fb6052bb-9545-4a34-86f2-0a14e4c58461"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "e3414c2a-4c2c-4939-86ca-0c4789880670"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "7305ee6f-f95f-467c-9398-643c5cee4f84"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "74d631fe-69a5-46d4-9553-d4b2e02ef7ae"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "a8094faf-bc03-4831-b1d7-2d887162657f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "63cffe72-6e4b-4c6a-a7cd-c00feb9fd4e1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "d35358ec-8ed4-4638-ac72-5716131d8a7b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "4929212f-7a53-4c46-9fdc-a9e2dd2dcf5f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "f5fb7555-48b6-487d-b95d-da3b086c3106"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "94a3a5b2-eb4d-4a6a-8fc9-f515abe98a85"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "7e6479c9-bc6e-48c2-821d-927e0dfa7ce0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "dc5d24e0-9097-4e31-a524-5771e02ef7a2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 19,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "013c16a2-3615-43d2-b77f-23679c5c6df9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 20,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "06542b2e-a5d0-4aa1-b55c-bd360a481e3c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 21,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "11fcccf3-5375-47f0-bc1d-fb3844096e50"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 22,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "6d685825-5d76-461c-bb77-6bd68ff1c42d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 23,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "2d1db929-aa97-4eb3-98c4-01fe23537407"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 24,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "8d0fca7a-f609-4a76-96a0-d60072ef802d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 25,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "66dfc355-5c19-4efe-bc5b-9d4906882341"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 26,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "34666b5d-ea59-446e-8a51-f710a853b174"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 27,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "d07eb4ce-766f-45b4-9184-0af9116d01cf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 28,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "41478373-83e1-4249-956e-5d6a4cd3e80d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 29,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "eb4d02cf-3483-4bd2-a838-f313ef31fcb6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 30,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "00e48106-7519-4069-b9b5-8d27b302a0bb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 31,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "d65459e6-a1b6-4014-a281-cf27b9c5fc65"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 32,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "878f1fe1-cf94-4e55-9ecb-76f039aca151"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 33,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "0dbb2945-6d2d-48eb-9dbe-7fb85482d0e3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 34,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "3846c7c7-2312-499d-b6d5-99c6a0cf4533"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 35,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "44ca6ca9-e38e-4035-b993-706a551bd450"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 36,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "68a7ab3f-24bf-4baa-92d7-46129cb6b763"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 37,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "7ceda488-d942-41a1-aa0c-6971a464789d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 38,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "05422a0a-6d4c-449d-a378-74b7bfd05957"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 39,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "cd7fe93a-2c44-46f9-b104-55d0fa3f4de3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 40,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "ce6d8add-889b-4ae9-9449-4051b18cc1b4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 41,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "234cc178-f0a5-4eef-96a1-492eb301ad70"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 42,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "50ed3b0c-3150-4337-90ce-8764c07fb354"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 43,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "8b7957f5-fda4-4342-b585-d434923ea101"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 44,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a1c5e5f2-ad67-4dc0-9a68-255dda2d7592"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 45,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "2603a521-28a6-4c5f-a453-562427dee17c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 46,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "ed5ffe3d-af28-488f-ad93-10eee2c6f0f9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 47,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "944566a4-9f2e-4c05-817c-7d7738617816"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 48,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "d402898d-b724-44f2-9c3b-57284cce8dab"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 49,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "4358c384-62d6-4eba-8ce9-5ad7b359eb0a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 50,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "cf4521d8-4826-4bae-877b-9866addf7693"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 51,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "d96f2c0a-9acb-43c5-9562-350f6d348a9f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 52,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "c9333456-8cac-4de3-bcaa-bf4a212439aa"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 53,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "2cd8cc9a-9922-498b-9e3f-a19970d81a17"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 54,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "40ad0b35-24b9-44c0-8de5-8d9a73e4b1c7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 55,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "273867ae-99c7-466b-bf10-59be5699e9cc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 56,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "095b33c8-0a76-4ded-b1e8-f2e94da03090"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 57,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "47d4e98b-789c-45dd-add6-d6edd189dabc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 58,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "9abe0cbb-df77-4388-9f57-9913a110e2b9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 59,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "5d4afa3c-4640-4ffa-9d71-945835e4a3af"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 60,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "e363752c-e6ff-4502-8716-b52f76923ec3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 61,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "960b2c49-0645-40bf-9320-314e2e0b98af"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 62,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "1a4c9567-6516-4737-ada2-51261dfb1c48"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 63,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "96fba415-e557-49f9-96cc-b52dcaa61b84"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 64,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "b9004a06-25f2-4301-b745-98c7c17add36"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 65,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "db64f499-b5dd-4bf7-9881-e6c638e20bf4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 66,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "637b8adf-abc9-4d9e-b53e-596017fa41b2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 67,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "ed75c703-9cfb-4f43-b8ab-ae6642d808d9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 68,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "15d1cccc-6ba6-4ceb-9aee-810d0e14d5b2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 69,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a2b650bc-1226-4359-98f1-df17437984e7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 70,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "a1ab5d54-2237-4424-82cf-985066edaebd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 71,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "76c5b876-fe08-4ad7-8bbb-b14d75edd078"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 72,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "4c1de185-07ce-4328-a1cf-a81a011a4b29"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 73,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "e0410a51-b500-46c8-9e8c-89560fe87f32"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 74,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "77aae0db-f5dd-4800-90b8-da02bada8a1c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 75,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "143d281a-9d1d-4274-b37e-b8561ed4e3a5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 76,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "25de2317-3484-4786-9556-5e1df046b952"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 77,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "efe2c067-224d-4a9b-94d6-6833ab6063e7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 78,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "85b1b844-d327-4865-a17f-6f2808de9898"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 79,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a13d02a4-8f14-47e2-9297-eccab2f90b2a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 80,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "49dd9433-def0-440b-a8d6-3ee863afee3d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 81,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "1b82ffc5-2d16-4551-b070-1387354690db"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 82,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "b17d8570-7cd0-44ff-b92c-2b6f0b2423b7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 83,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "85b1b844-d327-4865-a17f-6f2808de9898"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 84,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a13d02a4-8f14-47e2-9297-eccab2f90b2a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 85,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "49dd9433-def0-440b-a8d6-3ee863afee3d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 86,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "1b82ffc5-2d16-4551-b070-1387354690db"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 87,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "b17d8570-7cd0-44ff-b92c-2b6f0b2423b7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 88,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "85b1b844-d327-4865-a17f-6f2808de9898"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 89,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a13d02a4-8f14-47e2-9297-eccab2f90b2a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 90,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "49dd9433-def0-440b-a8d6-3ee863afee3d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 91,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "1b82ffc5-2d16-4551-b070-1387354690db"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 92,
+      "cited_text": "The memory tool pairs naturally with context awareness for seamless context transitions.",
+      "start_char": 26557,
+      "end_char": 26645,
+      "chunk_id": "b17d8570-7cd0-44ff-b92c-2b6f0b2423b7"
+    }
+  ]
+}

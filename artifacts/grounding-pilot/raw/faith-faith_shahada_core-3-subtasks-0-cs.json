@@ -1,0 +1,320 @@
+{
+  "answer": "<summary>\nThis response generates two targeted retrieval queries for the MILOS subtask 'Study belief in Allah (al-Iman billah)', engineered for **xhigh effort** agentic search in a primary-source Islamic corpus. \n</summary>\n\n<grounding>\nThe following instructions are grounded in the latest protocols for **Claude Opus 4.7**:\n*   **Literalism**: \"Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6... It will not silently generalize an instruction... and it will not infer requests you didn't make\" [1].\n*   **Effort Calibration**: \"Extra high effort is the best setting for most coding and agentic use cases\" [2].\n*   **Response Architecture**: \"Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs\" [3].\n*   **Preamble Suppression**: \"Use direct instructions in the system prompt: 'Respond directly without preamble. Do not start with phrases like 'Here is...', 'Based on...', etc.'\" [4].\n</grounding>\n\n<technical_details>\nTo facilitate high-precision grounding for the `faith_shahada_core` module, these queries target specific scriptural anchors that define the first pillar of Iman. By specifying the \"Hadith of Jibril\" and foundational verses like Al-Ikhlas, the queries leverage **adaptive thinking** [5] to bypass secondary commentary and focus on primary-source evidence. Operating at **xhigh effort** [2] ensures the model utilizes reasoning to prioritize these literal scriptural conditions.\n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, specifically Al-Baqarah 2:255 (Ayat al-Kursi) and Al-Ikhlas 112:1-4, that establish the foundational attributes and absolute Oneness of Allah as the core of al-Iman billah.\n2. Retrieve Sahih hadith from Bukhari and Muslim, notably the Hadith of Jibril defining the pillars of Iman and the Prophet\u2019s instruction to Mu\u2019adh ibn Jabal, to anchor the primary evidence for the obligation of belief in Allah.\n</queries>\n\n<action_items>\n*   **Retrieve Evidence**: Paste the numbered queries into the `/notebooklm` terminal to gather the foundational texts for the mission.\n*   **Apply Grading**: Subject the retrieved results to the 3-tier grading system (Bayinnah/Qarina/Niyyah) to ensure they meet the MILOS bar for literal primary evidence.\n*   **Monitor Threshold**: Observe the token budget; if the research exceeds 60% of the session's context window, initiate the \"Session Continuity\" protocol to preserve state in `progress.txt` [6, 7].\n</action_items>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "59020d0c-69c7-4670-b6c1-329763fe9c5d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "8973ecd4-91a0-4346-bf90-a2d7c70c8f04"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "7b404759-a98c-4419-953c-20a4d4571d31"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "20b01201-8532-418b-85ae-01ab29979a6d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "8ec7afa9-5416-4ceb-be64-214f83813e32"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "96d2369e-da0d-49db-8c36-a49ca7d22d6e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "524db110-bc13-440b-b7b6-88e4aedc69b6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "60a3e197-6e1a-47f9-a702-2bc36428fd02"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "716ab00b-fc57-48a0-acf6-b43fa387ec2a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "cce120dc-c5c4-4a46-a954-caac84d00cac"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "0375f7a8-9f14-4ae6-9757-768550b16a44"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f6b24553-e1b8-4ae9-97f4-80c20cb2cd6e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "0aeab8ba-4a6b-4dfd-a0b3-869ed5823851"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "3f38aa32-3d86-44bd-8098-4e55b5d42e16"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "7d34713e-f82d-4eee-8c80-eee131ae329c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "041ef541-f2de-40e3-8398-db360e9403ef"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "3df1f52d-f7d2-422f-bf09-76170a0d5d96"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f5479352-8f14-4c22-ab48-a8fb135a85a4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 19,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "75ca3ce4-3369-49cb-a3e3-ab2c7ebeaea1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 20,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1d253d86-4a4b-4e2a-aafb-ee1fcbb73ea3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 21,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "02e044d4-4d3d-4e28-928b-1988dd74e0fa"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 22,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "9a8788ac-53e0-496d-b499-42dee475ce47"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 23,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "d9a5f7a5-8225-40ba-8327-5a89fbdeb315"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 24,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "66fa2a26-a2f3-40bd-bdc0-2cef69a672bd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 25,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "093a14bb-3239-4b1c-b537-3197885b50f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 26,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "0541c026-b010-48e4-8990-b6f778812e07"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 27,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "0e848788-d616-4d61-b24c-3fbab347ae55"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 28,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "9a315619-b1ca-4bb2-8206-87b4313eac3f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 29,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "3b1cb59b-30fe-426a-be03-86e947b21881"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 30,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "faab4c1a-5951-4f56-b8c3-03f4e294063e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 31,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "fa6d4fc0-73e9-4079-b1b5-86d7b3f3e2e2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 32,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "9a315619-b1ca-4bb2-8206-87b4313eac3f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 33,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "3b1cb59b-30fe-426a-be03-86e947b21881"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 34,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "faab4c1a-5951-4f56-b8c3-03f4e294063e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 35,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "fa6d4fc0-73e9-4079-b1b5-86d7b3f3e2e2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 36,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "9a315619-b1ca-4bb2-8206-87b4313eac3f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 37,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "3b1cb59b-30fe-426a-be03-86e947b21881"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 38,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "faab4c1a-5951-4f56-b8c3-03f4e294063e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 39,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "fa6d4fc0-73e9-4079-b1b5-86d7b3f3e2e2"
+    }
+  ]
+}

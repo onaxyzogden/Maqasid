@@ -1,0 +1,7 @@
+{
+  "answer": "<grounding>\n\"Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6... state the scope explicitly\" [1].\n\"Providing well-specified, clear, and accurate task descriptions upfront can help maximize autonomy and intelligence\" [2].\n\"Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs\" [3].\n\"Respond directly without preamble. Do not start with phrases like 'Here is...', 'Based on...', etc.\" [4].\n</grounding>\n\n<queries>\n1. Retrieve primary Quranic verses, specifically Al-Hujurat 49:14 and Al-Ma\u2019idah 5:41, that explicitly distinguish between nominal verbal submission (Islam) and the internal reality of lived conviction (Iman) within the heart.\n2. Extract Sahih hadith from Bukhari and Muslim, including the Hadith of Jibril and narrations stating that faith is what settles in the heart and is verified by action, to establish the scriptural requirements of sincere conviction.\n</queries>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": []
+}

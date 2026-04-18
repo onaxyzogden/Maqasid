@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[2].subtasks[6]",
+  "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+  "subtaskTitle": "Muhabbah (Love) — love Allah and His Messenger above all",
+  "csQueryPrompt": "For a MILOS subtask titled 'Muhabbah (Love) — love Allah and His Messenger above all' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Muhabbah (Love) — love Allah and His Messenger above all",
+    "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Muhabbah (Love) — love Allah and His Messenger above all"
+  ],
+  "retrievedAt": "2026-04-18T13:00:05Z"
+}

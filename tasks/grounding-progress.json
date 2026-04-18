@@ -1,0 +1,6 @@
+{
+  "_schema": "docs/grounding-schema.md §3; runtime docs/grounding-runtime-prompt.md §4",
+  "_initialized": "2026-04-18",
+  "_note": "Per-subtask grading ledger. Keyed by idPath (e.g. 'faith.faith_shahada_core[0].subtasks[0]'). Values: { status, groundedBar, entryCount, reviewedAt, session }. Runtime appends; humans review.",
+  "records": {}
+}

@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[1].subtasks[0]",
+  "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+  "subtaskTitle": "Study the linguistic meaning of La ilaha illAllah",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study the linguistic meaning of La ilaha illAllah' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically 47:19 and 43:26-27, that anchor the linguistic structure of negation (Nafi) and affirmation (Ithbat) inherent in the declaration of \"La ilaha illAllah.\"",
+    "Retrieve Sahih hadith from Bukhari and Muslim, such as narrations regarding the \"Kalima\" as the key to Paradise, that directly define the primary-source linguistic meaning of \"La ilaha illAllah.\""
+  ],
+  "retrievedAt": "2026-04-18T12:51:17Z"
+}

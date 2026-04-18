@@ -7,6 +7,28 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-18] chore | Grounding runtime — Faith pilot session (infra only, no merges)
+
+### Completed
+- Adopted `docs/grounding-runtime-prompt.md`; ran §3 Session Initialization; user approved execution plan for Faith pillar (212 subtasks, Option A: 3 queries/subtask).
+- Created branch `grounding/faith` to isolate emitted patch from dirty working tree (graphify-out, website artifacts).
+- Initialized `tasks/grounding-progress.json` (empty records).
+- Wrote `scripts/grounding-enumerate.mjs` — emits idPath queue from a pillar seed file. Produced `artifacts/grounding-pilot/faith-queue.json` (212 entries across 15 modules).
+- **Pilot subtask graded end-to-end**: `faith.faith_shahada_core[0].subtasks[0]` ("Recite the full Shahada…"). 4 `GroundingSource` entries (Quran 47:19 + 48:29; Bukhari 8 + Muslim 20); grounded-bar passes. Entry file: `artifacts/grounding-pilot/pilot-entry-shahada-core-0-0.json`. User confirmed shape.
+- Built retrieval driver `scripts/grounding-retrieve-batch.py` with inter-call pacing (5s) and exponential backoff (30/90/180s) on rate-limit errors. 15 of 31 remaining shahada_core subtasks have complete clean raw retrievals under `artifacts/grounding-pilot/raw/` (`*-cs.json`, `*-ms-q1.json`, `*-ms-q2.json`, `*-meta.json`).
+- Windows mechanics captured: `/c/Python314/python -m notebooklm …`; `PYTHONIOENCODING=utf-8` mandatory; `--json` to file (never stdout — Arabic crashes cp1252).
+
+### Deferred
+- **Entry assembly requires LLM judgement, not regex.** Subagent-built `scripts/grounding-assemble-batch.py` emitted 4 entries that misattributed hadith refs (Bukhari 8 ≠ its actual matn; every hadith off-by-one). All 4 entry files purged; `progress.json` records cleared. Script kept on disk as a warning artifact — do not use.
+- 16 of 31 shahada_core subtasks still without raw retrievals (driver hit rate-limit loop mid-batch; backoff patch in place, resumable).
+- 0 subtasks migrated to structured-array shape in `src/data/seed-tasks/faith-seed-tasks.js`. No patch emitted. Linter delta: `faith.byShape.array` unchanged at 0/212; `groundedBar.yes` unchanged at 0/212.
+
+### Why it mattered
+Pilot established that (a) the 3-query retrieval loop works and produces clean primary-source data, (b) judgement cannot be delegated to regex — hadith-ref ↔ matn binding needs a model that reads the text, and (c) Google NotebookLM enforces rate limits that require backoff even at 3 calls/subtask.
+
+### Recommended next session
+Resume on branch `grounding/faith`. Finish retrieval (16 subtasks left), then dispatch tightly-scoped LLM assembly subagents (4–6 subtasks each, strict "quote directly from raw MS outputs, no regex ref-matching") starting with `faith_shahada_core[0].subtasks[1..3]` as the spot-check batch.
+
 ## [2026-04-18] feat | MILOS universal grounding — Phase 0 complete
 
 ### What was done

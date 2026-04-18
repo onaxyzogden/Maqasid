@@ -1,0 +1,1168 @@
+{
+  "answer": "<briefing_summary>\nThis response provides two precisely engineered retrieval queries designed for extra-high effort agentic search within a primary-source Islamic corpus [1, 2]. The queries are structured to satisfy the specific MILOS subtask by focusing on the literal demands of the Shahada on daily life as evidenced in scriptural texts [3, 4].\n</briefing_summary>\n\n<technical_details>\nTo maximize retrieval recall and precision, these queries utilize classical terminology and specific source indices (Ayat/Hadith) to anchor the retrieval system in primary data rather than secondary commentary [5, 6]. The phrasing is calibrated to trigger adaptive thinking and grounded extraction, ensuring the results are direct and relevant to the \"Tawhid\" and \"Shahada\" pillars [7, 8].\n</technical_details>\n\n<queries>\n1. Retrieve primary Quranic verses, specifically 2:165, 9:24, 98:5, and 65:3, that define the manifestation of Tawhid through daily reliance, absolute fear, and prioritized love for Allah.\n2. Extract Sahih hadith narrations, including the \"sweetness of faith\" (Bukhari #16) and \"branches of faith\" (Bukhari #9), that specify the daily ethical and spiritual requirements for fulfilling the Shahada testimony.\n</queries>\n\n<action_items>\n1. Paste the provided queries into the retrieval interface of the specified /notebooklm corpus to generate the grounding evidence [2, 9].\n2. Verify that the retrieved snippets are direct primary sources to maintain the high bar for MILOS task validation [6, 10].\n3. Apply the 3-tier grading system (Bayinnah/Qarina/Niyyah) to each result as previously instructed [3, 4].\n</action_items>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "ef4c1616-2b8f-433e-adcd-2b40b5514ae9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "49010887-9608-4e70-96b2-b141f9e8b22e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "0fc3a770-1e7e-4d3a-8454-91e4bf84d39d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "f6a4bb26-bc43-4ef5-a3ff-0d79a209cc1c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "20747824-3d82-43d9-945d-0cdf4abcd8a3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "8dc615aa-f208-49e9-883b-8acb476cfaf0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "57fa29e6-ba9c-4917-9509-61a2c3983580"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "4e9048a8-c2f5-456b-a464-82707fcc0208"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "975fe74a-3b33-4377-8369-36b945e55353"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "edf14ffd-7b90-49d0-b928-eda3256080f0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "1c18d81a-0250-4fe4-b724-dcc22d0b1dbd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "250d9fc2-fbcf-4428-b690-5d41b4505c26"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "5b515caa-2a82-4535-9f93-854e70610f95"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "6d5b356a-1eb1-4284-9100-78250e31f49b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "20db4156-87bc-4680-97ae-ec097a5cda37"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "2d58278b-bf0a-4a27-b085-eddcafdcab47"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "fa6182e9-b5d1-4a15-bc76-3320023a2086"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "4cf245a2-cbbc-42ec-ab98-3f2392364d2a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 19,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "064ec81b-89b8-42df-9175-afb3606044b8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 20,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "3aa51d3b-e021-4cbf-a027-508643cc986f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 21,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "a1c75e3c-f1f2-4fa5-9d12-d923f3749cf6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 22,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "df19096f-a4c7-4951-8d5c-9a2a11d6adf7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 23,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "680f942a-2819-4841-9ed8-50bb62834a0c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 24,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "59808826-798b-4625-a528-5f5822682141"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 25,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "94f45314-6f29-4848-8143-2cb0c6e9d43d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 26,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "47812168-8565-4b18-8c7f-7ee9439be0a4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 27,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "a7636e91-3a5e-4587-8354-581fd6b822bc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 28,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "34ea8262-a971-4642-87d5-687225e099af"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 29,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "2dbc424a-07f8-4b44-93db-9ae73c7f4b83"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 30,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "1b166588-c432-42c2-b600-e6b559b81ea9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 31,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "54764832-86bd-4683-8f54-9f7ef7a3a91a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 32,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "a7df2527-3f66-43e8-aea7-e0c1b5e68e79"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 33,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "ddc299d4-250d-4c36-83c0-b7211e136012"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 34,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "8516604b-bfe7-4c08-bbc9-755f13b2c922"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 35,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "175747c9-8083-4ad8-85e2-2cc40ba96ca7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 36,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "22003c2b-7bb0-4245-9eff-8aa76a7bb1c0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 37,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "b42de68c-f95e-4835-918f-680882f1a59d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 38,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "5aad61ea-ad2b-4f51-bf50-3efb9a06fefc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 39,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "c54c9b54-745e-4e7f-a6dd-86dc27298bde"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 40,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "ba74562f-5af9-4389-9c95-4bfe6e41892f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 41,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "e46529b1-a78d-43bf-ad61-178cd0e9a6ae"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 42,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "4b864e72-a984-4b92-bf97-7b2d18996728"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 43,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "9fd38c38-e75f-4728-a82c-affe1519fa53"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 44,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "b175cb19-b0d3-414b-8ab8-7ed52e875ca8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 45,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "add6b0fe-44af-4ff5-9567-e5332a7885b9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 46,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "1ced4ecc-133f-40dc-a989-51e85452e1f6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 47,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "35c8fddc-75ae-4f94-8fd7-3d2c36d1980d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 48,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "66cf9439-f182-4dc1-96de-9306edb0e652"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 49,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "e5c6b9a3-0579-4668-b210-7183ae4c2467"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 50,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "e5dd7f05-b152-496d-bdff-3a270dd7e59a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 51,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "1d645fae-7ca7-455e-aebc-9dea05666fd6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 52,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "214e45d1-c580-4daf-bca9-979ca7db7f91"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 53,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "f946ef8b-edf1-41cb-b665-94fdcc860724"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 54,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "addee187-fa0b-48b4-8afa-df395e0bc6ca"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 55,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "39e278f2-4db8-45f4-9613-9ae21912725f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 56,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "72dc867e-fda9-45a7-a71f-fafeb046d1d3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 57,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "97c6f8b4-91cd-4622-8c69-e2366a7d37e8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 58,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "49639feb-eb8d-436f-b1d7-ee14faf11c7f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 59,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "185e1690-c73e-4f8f-a1c2-d7f708d02c42"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 60,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "29f5c89c-9f1b-4600-8b1a-5fffe377be9b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 61,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "e081b087-a0bc-4ea5-90d4-9310d5a73f27"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 62,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "d0c96d0a-9c05-4085-91ec-c68abf2c5d3b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 63,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "d42bcaa7-a65a-4dfd-892c-74b68da797a8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 64,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "07f816dd-2cdb-42be-a1ed-863202011391"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 65,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "35037a48-9b49-486e-9fad-4180cd35d7c3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 66,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "5fba0fac-b04c-4517-8246-7d787d56ce1a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 67,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "6cad7962-a3c0-4185-85ef-daa41f02d311"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 68,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "63e9778a-1297-4be3-95be-44ec88d05467"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 69,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "98d7be93-5c2d-4e8a-a32c-1e617d42fd10"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 70,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "5215cd79-5402-479b-89f0-298e6f9ee2f4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 71,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "bb4fcdfe-4bc0-48ec-b901-e00641661483"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 72,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "6d8ade0e-3fab-4ac6-bb8e-1fd052915e8b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 73,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "c5b4e1a1-c5e6-485d-8f2e-9be650e5b36e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 74,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "6654dcb5-a591-4345-a47c-7807a769395a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 75,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "721ec2f4-272c-46aa-95bc-3139a04333e0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 76,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "58e87ba7-583e-461a-a3f9-ec7ae6cf7b37"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 77,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "8dd06bd3-195d-415d-9576-e2738d1e0f2a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 78,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "4a15b3be-0738-45f3-9f60-969f7bea0a80"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 79,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "d18dcbd3-7fa7-40bd-a428-122fc7f11ab3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 80,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "4836fb5c-954a-43e5-b105-2c46f8f3eea2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 81,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "9387d0ad-f474-4fec-8f3c-9ecfdff32b55"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 82,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "6dde35e6-5b01-4f5b-b6be-58b0f7a8ccfe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 83,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "9418fae9-4572-468e-9721-841fb46099ef"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 84,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "2defa86e-b5fb-4940-ad5f-83f255d88f75"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 85,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "36187ab8-2069-451d-a669-3199f3c1e015"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 86,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "637eb688-4cac-4083-aa50-358b3f1b5cd5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 87,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "bb070975-7db1-4ada-bec9-4e513ca26129"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 88,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "474b1a70-94d8-4e24-a9d0-6177ce222338"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 89,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "822602c6-3a13-409e-b0b7-f9a18dd2ee08"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 90,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "ecb5165b-777e-46a9-876e-687703f0a4cd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 91,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "62a206ec-ee9b-49b7-9128-dc76f7a1b657"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 92,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "3e42f93a-c75d-4c56-9487-6ec383350a68"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 93,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "c1515460-df12-4c87-bec1-b2f94c904d41"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 94,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "8b524999-194e-4d2f-aa65-e4ee2600f916"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 95,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "cc4681d6-65fa-44ef-a869-5e34fb86ad82"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 96,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "78263307-79ad-48c6-b6b9-a77d063ebcef"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 97,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "c6c4cf6a-a65b-4c0f-8dec-cade0ae12f18"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 98,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "e6adcfd3-0b31-46b8-b80e-7c16da8e7470"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 99,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "9e0b3b7d-7a09-4154-969e-d7224d8c34a0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 100,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "6ca80dd4-443d-4856-b712-802456931bb5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 101,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "e952b4b8-6f6b-4533-b3d9-e59e4d71bf7a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 102,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4964db6c-b4da-4b0b-ad3f-024b5e5609d6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 103,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "32fad973-6507-4215-a388-02f2cbae5473"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 104,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "8a45e0b2-1c6a-4980-b987-bf5c1adac2d3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 105,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "6381a371-7693-4aa3-826d-010c175c031e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 106,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "ca149da8-f692-45fe-b087-ba2112dc1eb4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 107,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "1b11d9e4-a1dc-4d29-8202-180c8369aff6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 108,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "bb2400be-c0b1-4091-b46e-7508d28dfca5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 109,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "8e794814-2eab-4e50-9b0a-41f4a873a33b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 110,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "8bc3f7c3-8877-4740-8d94-e1509b6098af"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 111,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "1c9cbe2e-b55d-4139-9677-aa0078ae487c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 112,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "cebf963b-00e9-4675-9209-b6df0f27c7c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 113,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "5c9f6e5d-45c8-43ce-bfbb-29892cd4450a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 114,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "4f099458-584e-4e59-8ae6-dac9f62165fe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 115,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "542ff774-7ad2-4aca-b6fd-f5eaf084f7a1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 116,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "4c8344b8-eb1b-4285-ba5d-36a6c2422036"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 117,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "3e8d8d85-8acf-432b-b33d-e61ede16782c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 118,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "1d10e391-f851-4f69-80b7-a56e4d8e9dd2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 119,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "aa7637e0-7354-4b8e-8615-052661f6324a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 120,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "87168476-f521-4fee-8523-70f1770e4fdf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 121,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "97dbbc19-71ba-46e2-bbd2-d18b4433da1d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 122,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4cf5c3bf-3293-4a11-93ec-b6ff53430a4b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 123,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "cabbdf2c-20fe-43fe-ab76-2508440069c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 124,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "26745657-5b68-4d37-9d1c-5805b382eebe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 125,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "267b9ffc-b320-4479-aa63-853e47ecd533"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 126,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "4c8344b8-eb1b-4285-ba5d-36a6c2422036"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 127,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "3e8d8d85-8acf-432b-b33d-e61ede16782c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 128,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "1d10e391-f851-4f69-80b7-a56e4d8e9dd2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 129,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "aa7637e0-7354-4b8e-8615-052661f6324a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 130,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "87168476-f521-4fee-8523-70f1770e4fdf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 131,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "97dbbc19-71ba-46e2-bbd2-d18b4433da1d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 132,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4cf5c3bf-3293-4a11-93ec-b6ff53430a4b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 133,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "cabbdf2c-20fe-43fe-ab76-2508440069c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 134,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "26745657-5b68-4d37-9d1c-5805b382eebe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 135,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "267b9ffc-b320-4479-aa63-853e47ecd533"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 136,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "4c8344b8-eb1b-4285-ba5d-36a6c2422036"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 137,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "3e8d8d85-8acf-432b-b33d-e61ede16782c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 138,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "1d10e391-f851-4f69-80b7-a56e4d8e9dd2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 139,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "aa7637e0-7354-4b8e-8615-052661f6324a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 140,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "87168476-f521-4fee-8523-70f1770e4fdf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 141,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "97dbbc19-71ba-46e2-bbd2-d18b4433da1d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 142,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4cf5c3bf-3293-4a11-93ec-b6ff53430a4b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 143,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "cabbdf2c-20fe-43fe-ab76-2508440069c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 144,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "26745657-5b68-4d37-9d1c-5805b382eebe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 145,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "267b9ffc-b320-4479-aa63-853e47ecd533"
+    }
+  ]
+}

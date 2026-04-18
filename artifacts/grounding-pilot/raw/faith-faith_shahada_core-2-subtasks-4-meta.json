@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[2].subtasks[4]",
+  "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+  "subtaskTitle": "Sidq (Truthfulness) — mean it sincerely",
+  "csQueryPrompt": "For a MILOS subtask titled 'Sidq (Truthfulness) — mean it sincerely' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically Al-Ankabut 29:2-3 and At-Tawbah 9:119, that define the condition of Sidq (truthfulness) as the internal verification of the verbal testimony through trials and heart-alignment.",
+    "Retrieve Sahih hadith from Bukhari and Muslim, notably the narration of the Prophet to Mu’adh regarding the person who testifies to the Shahada \"truthfully from his heart\" (*sidqan min qalbihi*), to anchor the condition of Sidq."
+  ],
+  "retrievedAt": "2026-04-18T12:58:53Z"
+}

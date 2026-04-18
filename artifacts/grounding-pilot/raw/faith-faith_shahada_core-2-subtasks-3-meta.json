@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[2].subtasks[3]",
+  "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+  "subtaskTitle": "Inqiyad (Submission) — act upon it",
+  "csQueryPrompt": "For a MILOS subtask titled 'Inqiyad (Submission) — act upon it' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically An-Nisa 4:65 and Luqman 31:22, that define the condition of Inqiyad as the total submission and practical compliance required for valid faith.",
+    "Retrieve Sahih hadith from Bukhari and Muslim, including the narration regarding the submission of one's desires to the prophetic message, to anchor the necessity of acting upon the testimony of faith."
+  ],
+  "retrievedAt": "2026-04-18T12:58:16Z"
+}

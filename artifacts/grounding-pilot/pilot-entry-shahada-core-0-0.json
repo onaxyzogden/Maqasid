@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[0].subtasks[0]",
+    "subtaskTitle": "Recite the full Shahada with correct pronunciation and meaning",
+    "parentTaskTitle": "Testify there is no God but Allah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "Propose 2 retrieval queries (Quran-biased, Hadith-biased) for primary-source evidence of the Shahada recitation subtask.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic ayat containing the verbatim declarations 'La ilaha illa Allah' and 'Muhammadun Rasulullah' (e.g., Quran 47:19 and 48:29) that establish the scriptural components of the Shahada…",
+        "retrievedAt": "2026-04-18T00:00:00Z",
+        "outputFile": "artifacts/grounding-pilot/ms-q1-shahada-quran.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih Hadith (Bukhari or Muslim) of 'Bunya al-Islam' that documents the verbal testimony of the Shahada as the first pillar of Islam…",
+        "retrievedAt": "2026-04-18T00:00:00Z",
+        "outputFile": "artifacts/grounding-pilot/ms-q2-shahada-hadith.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 47:19",
+      "arabic": "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+      "translation": "So know, [O Muhammad], that there is no deity except Allah, and ask forgiveness for your sin and for the believing men and believing women.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse contains the verbatim first half of the Shahada and issues an explicit command to 'know' it — directly anchoring the subtask's requirement of reciting with understanding, not mere utterance. Bayyinah: primary Quranic text; direct: the declaration itself is the operative text.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "primary Quranic ayat containing verbatim 'La ilaha illa Allah' and 'Muhammadun Rasulullah'",
+        "retrievedAt": "2026-04-18T00:00:00Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 48:29",
+      "arabic": "مُّحَمَّدٌ رَّسُولُ اللَّهِ",
+      "translation": "Muhammad is the Messenger of Allah.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Scriptural affirmation of the second half of the Shahada verbatim. Completes the pair of Quranic anchors for the testimony the subtask asks the user to recite. Bayyinah + direct by the same standard as 47:19.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "primary Quranic ayat containing verbatim 'La ilaha illa Allah' and 'Muhammadun Rasulullah'",
+        "retrievedAt": "2026-04-18T00:00:00Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari 8",
+      "translation": "Allah's Messenger (ﷺ) said: 'Islam is built on five: the testimony that there is no god but Allah and that Muhammad is the Messenger of Allah, the establishment of prayer, paying Zakat, performing Hajj, and fasting Ramadan.'",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The foundational 'Bunya al-Islam' hadith names the Shahada as the first of Islam's five pillars and frames it explicitly as a verbal testimony — directly supporting the subtask's act of reciting the full Shahada. Bayyinah (Sahih, Bukhari) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Sahih Hadith (Bukhari or Muslim) of 'Bunya al-Islam' documenting the verbal testimony of the Shahada as the first pillar",
+        "retrievedAt": "2026-04-18T00:00:00Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim 20",
+      "translation": "The Messenger of Allah (ﷺ) said: 'Islam is built on five: testifying that there is no god but Allah, that Muhammad is His bondsman and messenger, the establishment of prayer, payment of Zakat, pilgrimage to the House, and the fast of Ramadan.'",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Muslim narration adds the word 'abduhu (bondsman) alongside rasuluhu, sharpening the meaning the reciter should hold during pronunciation — the Prophet is at once servant and messenger. Contextual rather than direct because it re-frames rather than re-states the canonical testimony.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Sahih Hadith (Bukhari or Muslim) of 'Bunya al-Islam' documenting the verbal testimony of the Shahada as the first pillar",
+        "retrievedAt": "2026-04-18T00:00:00Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "4 entries; all Bayyinah; 3 direct + 1 contextual. At least one {Bayyinah|Qarina} ∩ {direct|contextual} → bar met."
+  }
+}

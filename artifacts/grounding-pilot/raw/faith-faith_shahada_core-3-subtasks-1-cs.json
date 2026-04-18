@@ -1,0 +1,5 @@
+{
+  "error": true,
+  "code": "ERROR",
+  "message": "Chat request was rate limited or rejected by the API. Wait a few seconds and try again."
+}
