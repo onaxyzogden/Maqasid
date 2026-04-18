@@ -27,6 +27,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 |---|---|
 | [[maqasid-al-shariah]] | The higher objectives of Islamic law — preservation of faith, life, intellect, family, wealth |
 | [[amanah-gate]] | Permissibility check protocol — ethical gate before any task execution |
+| [[amanah-gate-protocol]] | Amanah Gate Protocol — universal Bayyinah/Qarina/Niyyah evidence tier system across all OGDEN products |
 | [[ceremony-gate-pattern]] | UI access gating pattern — module entry overlay requiring Islamic grounding |
 | [[covenant-architecture]] | System design philosophy — structuring software around Islamic covenant principles |
 

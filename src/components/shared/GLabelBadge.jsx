@@ -9,7 +9,7 @@ export default function GLabelBadge({ gLabel, size = 'sm' }) {
   return (
     <span
       className="glabel-badge"
-      title={`${g.id}: ${g.label} — ${g.description}`}
+      title={`${g.id} (${g.label}) — ${g.description}`}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -27,7 +27,7 @@ export default function GLabelBadge({ gLabel, size = 'sm' }) {
         whiteSpace: 'nowrap',
       }}
     >
-      {g.id}
+      {g.label}
     </span>
   );
 }

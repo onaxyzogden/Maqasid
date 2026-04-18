@@ -7,6 +7,18 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-18] feat | Amanah Gate Protocol — universal Bayyinah/Qarina/Niyyah tier labels
+
+### What was done
+- Created `wiki/concepts/amanah-gate-protocol.md` — canonical spec for the three-tier evidence system with conformance test for future products.
+- Updated `wiki/concepts/amanah-gate.md` to reference the new spec and show the universal tier table.
+- Added `[[amanah-gate-protocol]]` to `wiki/index.md`.
+- Website: replaced product-specific labels (G1–G4, High/Medium/Low) with Bayyinah/Qarina/Niyyah on BBOS solution, OLOS solution, and hub. Added cross-product callout block to both solution pages. Added "Amanah Gate Protocol" section to hub `index.html`.
+- MILOS app: updated `src/data/config/g-labels.js` — label fields now read Bayyinah/Bayyinah/Qarina/Niyyah (G1/G2 internal ids preserved). Updated `GLabelBadge.jsx` to render `g.label` instead of `g.id`.
+
+### Why
+- G1–G4, High/Medium/Low, and M1–M3 were three independent implementations of the same pattern. Unifying on three Islamic epistemological terms (Bayyinah = verified, Qarina = inferred, Niyyah = declared) makes the Amanah Gate Protocol a legible cross-product standard, not a coincidence.
+
 ## [2026-04-18] refactor | Product rename — Maqasid OS → MILOS, Moontrance → MTC, Atlas → OLOS
 
 ### What was done

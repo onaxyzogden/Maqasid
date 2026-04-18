@@ -37,13 +37,25 @@ The protocol asks: *"Is the evidence strong enough to proceed?"* It appears inde
 2. **Tier assignment** — a confidence tier is assigned, visible at the decision point
 3. **Gate threshold** — the system cannot proceed to the consequential next action without meeting the minimum tier
 
+### Universal Tier Labels
+
+All three tiers use a single set of labels across all OGDEN products. See [[amanah-gate-protocol]] for the full canonical spec.
+
+| Tier | Label | Meaning |
+|---|---|---|
+| T1 | **Bayyinah** (بَيِّنَة) | Verified — named evidence, primary source, or documented pattern |
+| T2 | **Qarina** (قَرِينَة) | Inferred — limited data, estimated, user-provided |
+| T3 | **Niyyah** (نِيَّة) | Declared — aspiration or stated intent, not yet evidenced |
+
+**Gate rule:** Bayyinah and Qarina may advance. Niyyah alone blocks.
+
 ### Per-Product Implementation
 
-| Product | Mechanism | Gate |
-|---|---|---|
-| **OLOS** | Confidence Framework (High / Medium / Low) — by data source provenance | Site suitability score blocks low-confidence recommendations |
-| **BBOS** | G-Label System (G1 / G2 / G3) — by evidential weight of operator claims | Stage 02 Amanah Gate stops pipeline without sufficient evidence |
-| **MTC** | M1 / M2 / M3 — by acquisition channel commitment level | Community enrollment gate blocks founding member onboarding on unconfirmed channels |
+| Product | Bayyinah | Qarina | Niyyah | Gate |
+|---|---|---|---|---|
+| **OLOS** | Federal API data | User-provided | Derived / estimated | Site suitability score |
+| **BBOS** | G1 + G2 (evidence + documented pattern) | G3 (limited inference) | G4 (aspiration) | Stage 02 Amanah Gate |
+| **MTC** | M1 (capital committed) | M2 (agreement signed) | M3 (intent declared) | Community enrollment gate |
 
 ### Shared Theological Root
 
@@ -57,7 +69,8 @@ Amanah (trust) and Khilafah (stewardship) define the same obligation from two di
 - [[bbos-pipeline]] -- Stage 01 QAL implements the ethical gate; G-Label + Stage 02 implements the evidential gate
 - [[olos]] -- Confidence Framework + site suitability score implements the evidential gate
 - [[milos]] -- the system in which this protocol operates
-- [[2026-04-14-amanah-gate-protocol]] -- decision record for the cross-product evidential pattern
+- [[amanah-gate-protocol]] -- canonical spec for universal Bayyinah/Qarina/Niyyah tier labels
+- [[2026-04-14-amanah-gate-protocol]] -- decision record that named the cross-product evidential pattern
 
 ## Sources
 
