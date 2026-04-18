@@ -7,11 +7,12 @@ Static marketing/landing site. Merged from [ogden-hub](https://github.com/onaxyz
 | Directory | Purpose |
 |---|---|
 | `index.html` | Main landing page |
-| `atlas/` | OLOS product section (land assessment tool) |
+| `olos/` | OLOS product section (land assessment tool) |
 | `bbos/` | BBOS product section (business operating system) |
 | `connect/` | Contact/connect pages |
 | `journey/` | Journey narrative |
-| `moontrance/` | MTC product section (faith-centered land community) |
+| `milos/` | MILOS product section (Muslim Islamic Life OS) |
+| `mtc/` | MTC product section (faith-centered land community) |
 | `vision/` | Vision statement |
 | `CNAME` | Custom domain config (`bismillah.ogden.ag`) |
 

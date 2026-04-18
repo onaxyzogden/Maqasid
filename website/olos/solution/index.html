@@ -76,8 +76,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.875rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--moss);margin-bottom:2rem;padding:0.4rem 0.85rem;border:1px solid var(--line);border-radius:2px;background:rgba(58,74,53,0.06);}
 .hero-eyebrow span{color:var(--moss-light);}
 .hero-dua{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--soft);line-height:1.8;margin-bottom:2.5rem;padding-left:1.25rem;border-left:2px solid var(--line);}
-.hero-dua-arabic{display:block;font-size:1.35rem;font-style:normal;color:var(--moss);line-height:2;text-align:right;margin-bottom:0.4rem;direction:rtl;}
-.hero-dua-trans{display:block;font-size:0.82rem;font-style:italic;color:var(--faint);margin-bottom:0.4rem;}
+.hero-dua-arabic{display:block;font-size:1.5rem;font-style:normal;color:var(--moss);line-height:2;text-align:right;margin-bottom:0.4rem;direction:rtl;}
+.hero-dua-trans{display:block;font-size:1.1rem;font-style:italic;color:var(--faint);margin-bottom:0.4rem;}
 h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.8rem,5vw,4.5rem);line-height:1.1;color:var(--ink);margin-bottom:1.5rem;letter-spacing:-0.01em;}
 h1 em{font-style:italic;color:var(--moss);}
 .hero-sub{font-size:1.05rem;color:var(--mid);line-height:1.75;margin-bottom:0.75rem;}
@@ -107,8 +107,8 @@ h1 em{font-style:italic;color:var(--moss);}
 .score-info{}
 .score-name{font-family:var(--sans);font-size:0.875rem;font-weight:500;color:var(--ink);margin-bottom:0.15rem;}
 .score-row.featured .score-name{color:var(--moss);}
-.score-source{font-family:var(--serif);font-style:italic;font-size:0.78rem;color:var(--faint);}
-.score-badge{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:2px;white-space:nowrap;flex-shrink:0;}
+.score-source{font-family:var(--serif);font-style:italic;font-size:0.75rem;color:var(--faint);}
+.score-badge{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:2px;white-space:nowrap;flex-shrink:0;}
 .badge-t1{background:rgba(58,74,53,0.15);color:var(--moss);}
 .badge-t2{background:rgba(184,146,74,0.15);color:var(--gold-muted);}
 .badge-spirit{background:rgba(58,74,53,0.2);color:var(--moss-light);border:1px solid rgba(58,74,53,0.3);}
@@ -146,7 +146,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .score-row:hover{background:rgba(58,74,53,0.08);}
 .score-row.featured:hover{background:rgba(58,74,53,0.12);}
 .score-row:focus-visible{outline:2px solid var(--moss);outline-offset:-2px;}
-.score-open-hint{font-family:var(--mono);font-size:0.65rem;color:rgba(58,74,53,0.4);letter-spacing:0.08em;flex-shrink:0;transition:color 0.2s;}
+.score-open-hint{font-family:var(--mono);font-size:0.75rem;color:rgba(58,74,53,0.4);letter-spacing:0.08em;flex-shrink:0;transition:color 0.2s;}
 .score-row:hover .score-open-hint{color:var(--moss);}
 .score-panel-hint{padding:0.55rem 1.5rem;background:rgba(58,74,53,0.04);border-bottom:1px solid var(--line-soft);font-family:var(--mono);font-size:0.75rem;color:var(--faint);letter-spacing:0.08em;}
 
@@ -159,10 +159,10 @@ h2 em{font-style:italic;color:var(--moss);}
 .dim-drawer-header-left{}
 .dim-code{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--moss);margin-bottom:0.3rem;}
 .dim-name{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:0.2rem;}
-.dim-source{font-family:var(--serif);font-style:italic;font-size:0.9rem;color:var(--soft);}
+.dim-source{font-family:var(--serif);font-style:italic;font-size:0.75rem;color:var(--soft);}
 .dim-header-controls{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
 .dim-nav{display:flex;align-items:center;gap:0.3rem;}
-.dim-nav-btn{background:none;border:1px solid var(--dust);border-radius:2px;padding:0.38rem 1.1rem;cursor:pointer;font-family:var(--mono);font-size:0.82rem;color:var(--soft);transition:background 0.2s,color 0.2s,border-color 0.2s;line-height:1;}
+.dim-nav-btn{background:none;border:1px solid var(--dust);border-radius:2px;padding:0.38rem 1.1rem;cursor:pointer;font-family:var(--mono);font-size:0.875rem;color:var(--soft);transition:background 0.2s,color 0.2s,border-color 0.2s;line-height:1;}
 .dim-nav-btn:hover{background:var(--bone);color:var(--ink);border-color:var(--moss);}
 .dim-close{background:none;border:1px solid var(--dust);border-radius:2px;padding:0.4rem 0.7rem;cursor:pointer;font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;color:var(--soft);transition:all 0.2s;white-space:nowrap;}
 .dim-close:hover{background:var(--bone);color:var(--ink);}
@@ -176,7 +176,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .dim-signal-dot{width:5px;height:5px;border-radius:50%;background:var(--moss);opacity:0.7;margin-top:5px;flex-shrink:0;}
 .dim-signal-text{font-size:0.875rem;color:var(--mid);line-height:1.5;}
 .dim-confidence{padding:1rem 1.25rem;border:1px solid var(--dust);border-radius:3px;background:var(--bone);}
-.dim-confidence-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);margin-bottom:0.6rem;}
+.dim-confidence-label{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);margin-bottom:0.6rem;}
 .dim-confidence-row{display:flex;align-items:baseline;gap:0.5rem;font-size:0.875rem;margin-bottom:0.3rem;}
 .dim-confidence-row:last-child{margin-bottom:0;}
 .conf-high{color:var(--moss);font-weight:600;}
@@ -184,7 +184,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .conf-low{color:var(--ember);font-weight:600;}
 .conf-text{color:var(--soft);}
 .dim-special{padding:1rem 1.25rem;border:1px solid rgba(58,74,53,0.3);border-left:3px solid var(--moss);border-radius:3px;background:rgba(58,74,53,0.05);}
-.dim-special-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--moss);margin-bottom:0.5rem;}
+.dim-special-label{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--moss);margin-bottom:0.5rem;}
 .dim-special-text{font-size:0.875rem;color:var(--mid);line-height:1.6;}
 
 /* ── DESIGN VALUES (dark) ── */
@@ -202,7 +202,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .value-cell:hover{background:rgba(58,74,53,0.1);}
 .value-tag{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--moss-pale);margin-bottom:0.5rem;}
 .value-name{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--parchment);margin-bottom:0.4rem;}
-.value-meaning{font-size:0.82rem;color:rgba(245,240,232,0.72);line-height:1.5;}
+.value-meaning{font-size:0.875rem;color:rgba(245,240,232,0.72);line-height:1.5;}
 
 /* ── DATA SECTION ── */
 .data-section{background:#f9f5ee;border-top:1px solid var(--dust);border-bottom:1px solid var(--dust);}
@@ -216,7 +216,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .tier-2 .tier-badge{background:rgba(184,146,74,0.15);color:var(--gold-muted);}
 .tier-3 .tier-badge{background:rgba(160,116,90,0.15);color:var(--earth);}
 .tier-name{font-family:var(--sans);font-size:0.875rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem;}
-.tier-desc{font-size:0.82rem;color:var(--soft);line-height:1.6;}
+.tier-desc{font-size:0.875rem;color:var(--soft);line-height:1.6;}
 .confidence-box{margin-top:1.25rem;padding:1.25rem 1.5rem;border:1px solid var(--dust);border-radius:3px;background:var(--parchment);}
 .confidence-list{font-size:0.875rem;color:var(--soft);line-height:1.85;margin-top:0.5rem;}
 
@@ -232,7 +232,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .gc-editable .guardrail-icon{background:rgba(122,59,30,0.12);color:var(--ember);}
 .gc-honest .guardrail-icon{background:rgba(107,97,88,0.12);color:var(--soft);}
 .guardrail-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;}
-.guardrail-desc{font-size:0.82rem;color:var(--soft);line-height:1.6;}
+.guardrail-desc{font-size:0.875rem;color:var(--soft);line-height:1.6;}
 .ai-panel{padding:2rem;background:var(--ink);border-radius:3px;color:var(--parchment);}
 .ai-panel-label{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;}
 .ai-panel-rule{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(245,240,232,0.88);line-height:1.7;margin-bottom:0.75rem;}
@@ -245,8 +245,8 @@ h2 em{font-style:italic;color:var(--moss);}
 .domains-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--dust);border:1px solid var(--dust);border-radius:4px;overflow:hidden;}
 .domain-cell{padding:1.1rem 1rem;background:var(--parchment);transition:background 0.2s;min-height:80px;display:flex;flex-direction:column;justify-content:space-between;}
 .domain-cell:hover{background:var(--bone);}
-.domain-num{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--dust);margin-bottom:0.4rem;}
-.domain-name{font-family:var(--sans);font-size:0.82rem;font-weight:500;color:var(--ink);line-height:1.3;}
+.domain-num{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;color:var(--dust);margin-bottom:0.4rem;}
+.domain-name{font-family:var(--sans);font-size:0.875rem;font-weight:500;color:var(--ink);line-height:1.3;}
 
 /* ── OGDEN IDENTITY ── */
 .identity-section{background:#f9f5ee;border-top:1px solid var(--dust);border-bottom:1px solid var(--dust);}
@@ -271,7 +271,7 @@ h2 em{font-style:italic;color:var(--moss);}
 .cta-section{background:var(--ink);padding:6rem 0;}
 .cta-inner{max-width:900px;margin:0 auto;padding:0 3rem;text-align:center;}
 .cta-arabic{font-family:var(--serif);font-size:1.5rem;color:var(--sage);direction:rtl;margin-bottom:0.5rem;line-height:2;}
-.cta-trans{font-family:var(--serif);font-style:italic;font-size:0.875rem;color:rgba(245,240,232,0.65);margin-bottom:3rem;}
+.cta-trans{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.65);margin-bottom:3rem;}
 .cta-section h2{color:var(--parchment);margin-bottom:1.5rem;}
 .cta-section h2 em{color:var(--sage);}
 .cta-desc{font-size:1.05rem;color:rgba(245,240,232,0.7);line-height:1.8;margin-bottom:2.5rem;max-width:620px;margin-left:auto;margin-right:auto;}
@@ -338,7 +338,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 
 <header>
 <nav class="nav" aria-label="Main navigation">
-  <a href="/atlas/" class="nav-brand">
+  <a href="/olos/" class="nav-brand">
     <span class="nav-symbol" aria-hidden="true">◎</span>
     <span class="nav-name">OLOS</span>
   </a>
@@ -348,7 +348,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <li><a href="#data-sourcing">Data Intelligence</a></li>
     <li><a href="#guardrails">AI Guardrails</a></li>
     <li><a href="#domains">30 Domains</a></li>
-    <li><a href="/atlas/begin/" class="nav-cta">Begin Site Assessment</a></li>
+    <li><a href="#connect" class="nav-cta">Request Access</a></li>
   </ul>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open navigation menu">
     <span></span><span></span><span></span>
@@ -365,7 +365,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <li><a href="#domains">30 Domains</a></li>
     <li><a href="#identity">OGDEN Identity</a></li>
   </ul>
-  <a href="/atlas/begin/" class="nav-drawer-cta">◎ &nbsp; Begin Site Assessment</a>
+  <a href="#connect" class="nav-drawer-cta">◎ &nbsp; Request Access</a>
 </div>
 
 <div class="drawer-overlay" id="dimOverlay" role="presentation" aria-hidden="true"></div>
@@ -418,8 +418,19 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
         "what does this land need?" before "what can this land produce?"
         Assessments lead with ecological opportunity, not yield potential.
       </div>
+
+      <div class="hero-state-box" role="note">
+        <p class="hero-state-label">Current State &nbsp;·&nbsp; Functional Prototype</p>
+        <p class="hero-state-text">
+          The OLOS is a working prototype connected to seven federal data APIs.
+          The site assessment engine, scoring dimensions, and confidence framework
+          are functional. Pre-market validation is underway.
+          Request access to run a real assessment on your land.
+        </p>
+      </div>
+
       <div class="hero-actions">
-        <a href="/atlas/begin/" class="btn-primary">◎ &nbsp; Begin Site Assessment</a>
+        <a href="#connect" class="btn-primary">◎ &nbsp; Request Access</a>
         <a href="#philosophy" class="btn-secondary">Understand the philosophy →</a>
       </div>
     </div>
@@ -430,7 +441,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
           <span class="score-panel-title">Site Assessment Engine &nbsp;·&nbsp; Six Dimensions</span>
           <span class="score-panel-status">
             <span class="status-dot"></span>
-            Live System
+            Prototype Active
           </span>
         </div>
         <p class="score-panel-hint">Select any dimension to explore what it measures →</p>
@@ -521,7 +532,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 
 <!-- ── PHILOSOPHY ── -->
 <section class="section" id="philosophy">
-  <div class="section-label">Product Philosophy</div>
+  <p class="section-label">Product Philosophy</p>
   <h2>A tool that asks <em>"what does this land need?"</em><br>before "what can this land produce?"</h2>
   <div class="two-col">
     <div class="prose fade-up">
@@ -550,7 +561,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 <!-- ── DESIGN VALUES ── -->
 <div class="values-section" id="design-values">
   <div class="values-inner">
-    <div class="section-label">Core Design Values</div>
+    <p class="section-label">Core Design Values</p>
     <h2>Six principles that ground<br><em>every design decision.</em></h2>
     <p class="values-intro">These are not aspirational statements. <strong>Each principle has a direct, testable expression in the interface.</strong> If a feature contradicts any of these principles, it should not ship.</p>
     <blockquote class="values-principle">"The OGDEN Land Design OLOS is an act of stewardship rendered in software. Every feature exists to help land serve its highest purpose — ecologically, spiritually, economically, and generationally."</blockquote>
@@ -568,7 +579,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 <!-- ── DATA INTELLIGENCE ── -->
 <div class="data-section" id="data-sourcing">
   <div class="data-inner">
-    <div class="section-label">Data Intelligence</div>
+    <p class="section-label">Data Intelligence</p>
     <h2>Every data type sourced.<br><em>Every gap</em> surfaced honestly.</h2>
     <div class="two-col">
       <div class="prose fade-up">
@@ -584,7 +595,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
           <li class="tier-item tier-3"><span class="tier-badge">Tier 3</span><div><div class="tier-name">Derived &amp; Estimated</div><div class="tier-desc">Calculated from Tier 1 + 2. Slope, watershed delineation, viewshed, microclimate, frost pockets, runoff.</div></div></li>
         </ul>
         <div class="confidence-box">
-          <div class="section-label" style="margin-bottom:0.5rem;">Confidence Framework</div>
+          <p class="section-label" style="margin-bottom:0.5rem;">Confidence Framework</p>
           <div class="confidence-list">
             <span style="color:var(--moss);font-weight:500;">High</span> — Well-sourced data, clear signal. Full confidence.<br>
             <span style="color:var(--gold-muted);font-weight:500;">Medium</span> — Some data gaps. Usable with awareness.<br>
@@ -600,7 +611,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 <section class="section" id="guardrails">
   <div class="guardrails-header">
     <div>
-      <div class="section-label">AI Guardrails</div>
+      <p class="section-label">AI Guardrails</p>
       <h2>A thoughtful collaborator,<br><em>not an oracle.</em></h2>
     </div>
     <div class="prose" style="font-size:0.95rem;">AI is a powerful co-designer — and a liability if it speaks with false confidence. Every AI output in the OLOS explains its reasoning, expresses its uncertainty, and defers to site visits and human judgment when data is insufficient.</div>
@@ -612,7 +623,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <div class="guardrail-card gc-honest" role="listitem"><div class="guardrail-icon">VFY</div><h3 class="guardrail-title">Site Visit Flags</h3><div class="guardrail-desc">Any output below Medium confidence that would influence a design decision triggers a "Verify on site" flag automatically.</div></div>
   </div>
   <div class="ai-panel fade-up">
-    <div class="ai-panel-label">◎ &nbsp; The Core AI Principle</div>
+    <p class="ai-panel-label">◎ &nbsp; The Core AI Principle</p>
     <p class="ai-panel-rule">The OLOS's AI is a thoughtful collaborator, not an oracle. It explains its reasoning, expresses its uncertainty, and defers to site visits and human judgment when data is insufficient.</p>
     <p class="ai-panel-sub">AI must not generate specific cost figures, yield projections, or regulatory determinations unless drawn from real data sources cited in the output. No hallucinated specifics. Every output is design assistance — not professional engineering, legal, or regulatory determination.</p>
   </div>
@@ -621,7 +632,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 <!-- ── 30 DOMAINS ── -->
 <div class="domains-section" id="domains">
   <div class="domains-inner">
-    <div class="section-label">30 Design Domains</div>
+    <p class="section-label">30 Design Domains</p>
     <h2>Every dimension of land design.<br><em>None an afterthought.</em></h2>
     <p class="domains-intro">The OLOS covers 30 domains spanning ecological, spiritual, economic, and generational dimensions. Each is a first-class design concern — not a feature list, but a complete design intelligence layer.</p>
     <div class="domains-grid fade-up" role="list">
@@ -663,7 +674,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 <div class="identity-section" id="identity">
   <div class="identity-inner">
     <div>
-      <div class="section-label">The OGDEN Identity</div>
+      <p class="section-label">The OGDEN Identity</p>
       <h2>Not a generic farm tool.<br><em>Not a generic retreat tool.</em></h2>
       <div class="prose fade-up">
         <p>This OLOS exists in the context of a specific vision: a living property that integrates <strong>regenerative agriculture, Islamic-adab-conscious hospitality, men's cohort development, family life, education, and the experience of witnessing signs of the Creator in the natural world.</strong></p>
@@ -686,7 +697,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 
 <!-- ── WORKFLOW ── -->
 <section class="section" id="workflow">
-  <div class="section-label">The Workflow</div>
+  <p class="section-label">The Workflow</p>
   <h2>Assess. Design. Phase.<br><em>Then — and only then — build.</em></h2>
   <div class="workflow-steps fade-up">
     <div class="step">
@@ -714,13 +725,13 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <div class="cta-trans">Wa billāhi t-tawfīq — And with Allah is all success.</div>
     <h2>Ready to see land<br>with <em>genuine clarity</em>?</h2>
     <p class="cta-desc">
-      The OLOS is open. Begin with your parcel — enter your coordinates,
-      and the assessment engine assembles your site intelligence within minutes.
-      The land speaks first. You design from what you hear.
+      The OLOS is built for those who understand that land designed with honest foundations
+      carries a different quality than land decorated with ambition.
+      The system does not make the work easier. It makes it honest.
     </p>
     <div class="cta-actions">
-      <a href="/atlas/begin/" class="btn-gold">◎ &nbsp; Begin Site Assessment</a>
-      <a href="/atlas/sign-in/" class="btn-ghost">Sign in to continue →</a>
+      <a href="/olos/connect/" class="btn-gold">◎ &nbsp; Request Access</a>
+      <a href="/olos/" class="btn-ghost">← Back to OLOS overview</a>
     </div>
   </div>
 </div>
