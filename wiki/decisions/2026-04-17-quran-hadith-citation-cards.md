@@ -45,7 +45,7 @@ Seed-task copy standardized in parallel: "Why does this matter?" → "Why?", "Ho
 
 ## Related
 
-- [[maqasid-os]]
+- [[milos]]
 - `src/components/islamic/QuranEmbed.jsx`, `src/components/islamic/HadithCard.jsx`
 - `scripts/fetch-hadith.py`, `scripts/fetch-quran-wbw.py`
 - Commit `1ae2793`

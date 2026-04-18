@@ -6,7 +6,7 @@ domain: shared
 
 # Chart Tooltips
 
-Shared tooltip system for all chart components in Maqasid OS. Portal-rendered via `createPortal` to `document.body`, following the same proven pattern as `IslamicTerm` glossary tooltips.
+Shared tooltip system for all chart components in MILOS. Portal-rendered via `createPortal` to `document.body`, following the same proven pattern as `IslamicTerm` glossary tooltips.
 
 ## Component Location
 - JSX: `src/components/shared/ChartTooltip.jsx`

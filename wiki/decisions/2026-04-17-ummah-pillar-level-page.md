@@ -13,7 +13,7 @@ status: accepted
 Accepted — 2026-04-17
 
 ## Context
-All six Ummah submodule pages (Collective, Neighbors, Community, Moontrance Land, Moontrance Seasonal, Moontrance Residency) rendered a legacy layout consisting of `PillarHeader + ViewToggle + OverviewCards/MaqasidTable`. This layout was inconsistent with the Faith pillar's modern Shahada pattern (`CeremonyGate` → `PillarLevelPage`: compact level navigator + kanban board per core/growth/excellence level). The user wanted parity across the pillar system. The OVERVIEW + MAQASID content was still valuable and needed a new home.
+All six Ummah submodule pages (Collective, Neighbors, Community, MTC Land, MTC Seasonal, MTC Residency) rendered a legacy layout consisting of `PillarHeader + ViewToggle + OverviewCards/MaqasidTable`. This layout was inconsistent with the Faith pillar's modern Shahada pattern (`CeremonyGate` → `PillarLevelPage`: compact level navigator + kanban board per core/growth/excellence level). The user wanted parity across the pillar system. The OVERVIEW + MAQASID content was still valuable and needed a new home.
 
 ## Decision
 Convert all 6 Ummah submodule pages to the shared `PillarLevelPage` pattern. Build the supporting scaffold (`UMMAH_BOARDS`, `ensureUmmahProjects`, `UmmahLevelNavigator`, `UmmahPillarPage`). Relocate the OVERVIEW + MAQASID datasets into a collapsible "Frameworks" section on `UmmahDashboard` — one `<details>` block per submodule, accent-colored from `--mod-*` design tokens.
@@ -35,7 +35,7 @@ Convert all 6 Ummah submodule pages to the shared `PillarLevelPage` pattern. Bui
 
 ### Negative / trade-offs
 - `useAyahBanner('ummah_*')` no longer fires on submodule page mount (was called from all 6 legacy pages) — if the ambient ayah banner matters, needs re-wiring in `UmmahPillarPage` or upstream in `PillarLevelPage`
-- Label/id mismatch carried forward: `collective` id displays as "Moontrance", `community` id displays as "Collective". This reflects the existing `modules.js` data shape and sidebar mapping — not introduced here, but now more visible since the Frameworks section surfaces both id and label together
+- Label/id mismatch carried forward: `collective` id displays as "MTC", `community` id displays as "Collective". This reflects the existing `modules.js` data shape and sidebar mapping — not introduced here, but now more visible since the Frameworks section surfaces both id and label together
 - Citations in the 450 auto-generated subtask `sources:` fields remain unverified — authored by parallel agents in prior session; hadith isnad and translation accuracy never audited
 
 ## Files modified

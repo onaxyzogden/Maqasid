@@ -475,10 +475,10 @@ export const MODULES = [
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
 
-  // ── Standalone — Moontrance ──
+  // ── Standalone — MTC ──
   {
     id: 'collective',
-    name: 'Moontrance',
+    name: 'MTC',
     description: 'A faith-rooted land destination — experiences, community, and stewardship',
     icon: 'Moon',
     color: 'var(--mod-collective)',
@@ -494,7 +494,7 @@ export const MODULES = [
   },
   {
     id: 'moontrance-land',
-    name: 'Moontrance Land',
+    name: 'MTC Land',
     description: 'Land acquisition, soil stewardship (khilafah), water systems, and regenerative agriculture',
     icon: 'MapPinned',
     color: 'var(--mod-moontrance-land)',
@@ -510,7 +510,7 @@ export const MODULES = [
   },
   {
     id: 'moontrance-seasonal',
-    name: 'Moontrance Seasonal',
+    name: 'MTC Seasonal',
     description: 'Seasonal participation pathway — planting, tending, harvest, and reflection',
     icon: 'Leaf',
     color: 'var(--mod-moontrance-seasonal)',
@@ -526,7 +526,7 @@ export const MODULES = [
   },
   {
     id: 'moontrance-residency',
-    name: 'Moontrance Residency',
+    name: 'MTC Residency',
     description: 'Long-term community formation, residency model, trust-building, and permanence',
     icon: 'HousePlus',
     color: 'var(--mod-moontrance-residency)',

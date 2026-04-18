@@ -1,4 +1,4 @@
-// Moontrance Land module — Overview cards + Maqasid framework data.
+// MTC Land module — Overview cards + Maqasid framework data.
 // Land acquisition, soil stewardship (khilafah), water systems, regenerative agriculture.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 2:30, 7:56, 55:10.
@@ -16,7 +16,7 @@ export const OVERVIEW = [
     ayahTranslation:
       '[Prophet], when your Lord told the angels, \'I am putting a successor on earth...\'',
     description:
-      'The human being was placed on earth as khalifah \u2014 steward, not owner. Land acquisition for Moontrance begins with this framing: every parcel is an amanah (trust) to tend, protect, and pass forward. Due diligence is not merely financial \u2014 it is spiritual, ecological, and generational.',
+      'The human being was placed on earth as khalifah \u2014 steward, not owner. Land acquisition for MTC begins with this framing: every parcel is an amanah (trust) to tend, protect, and pass forward. Due diligence is not merely financial \u2014 it is spiritual, ecological, and generational.',
     conditions: [
       'Land is evaluated for stewardship potential, not just financial return',
       'Soil health, water access, and ecological integrity are primary acquisition criteria',
@@ -43,7 +43,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'Do not corrupt the earth after it has been set right...',
     description:
-      'Regenerative agriculture is not a modern invention \u2014 it is a return to the Quranic command not to corrupt the earth after Allah set it right. Soil is a living trust: its microbiome, nutrient cycles, and water-holding capacity are signs of Allah that sustain all life. Moontrance treats soil health as the foundation of everything built on the land.',
+      'Regenerative agriculture is not a modern invention \u2014 it is a return to the Quranic command not to corrupt the earth after Allah set it right. Soil is a living trust: its microbiome, nutrient cycles, and water-holding capacity are signs of Allah that sustain all life. MTC treats soil health as the foundation of everything built on the land.',
     conditions: [
       'Soil testing and baseline assessment before any development or planting',
       'No synthetic fertilisers, pesticides, or practices that degrade soil biology',
@@ -70,7 +70,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'He set down the earth for all living creatures.',
     description:
-      'Water is life, and its stewardship is among the most sacred responsibilities of the khalifah. Moontrance water systems \u2014 wells, rainwater harvesting, greywater recycling, and irrigation \u2014 are designed for abundance without waste. The Prophet \uFDFA forbade wasting water even when washing at a flowing river; this ethic governs every water decision on the land.',
+      'Water is life, and its stewardship is among the most sacred responsibilities of the khalifah. MTC water systems \u2014 wells, rainwater harvesting, greywater recycling, and irrigation \u2014 are designed for abundance without waste. The Prophet \uFDFA forbade wasting water even when washing at a flowing river; this ethic governs every water decision on the land.',
     conditions: [
       'Water sources assessed and protected before any development begins',
       'Rainwater harvesting infrastructure installed as a primary water strategy',
@@ -88,7 +88,7 @@ export const OVERVIEW = [
 ];
 
 export const MAQASID = {
-  label: 'Moontrance Land',
+  label: 'MTC Land',
   necessities: [
     'Land acquired through rigorous due diligence with khilafah framing',
     'Basic infrastructure: water access, road access, and legal protection from speculative resale',

@@ -1,7 +1,7 @@
 # Design Spec: Hadith + Ayah Enrichment Pipeline
 
 **Date:** 2026-04-16
-**Project:** Maqasid OS V2.1
+**Project:** MILOS V2.1
 **Status:** Approved
 
 ---

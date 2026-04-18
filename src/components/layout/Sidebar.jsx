@@ -83,7 +83,7 @@ const MODULE_ROUTES = {
   'env-sourcing': '/app/env-sourcing',
   // Standalone
   collective: '/app/collective',
-  // Moontrance (Ummah)
+  // MTC (Ummah)
   'moontrance-land': '/app/moontrance-land',
   'moontrance-seasonal': '/app/moontrance-seasonal',
   'moontrance-residency': '/app/moontrance-residency',

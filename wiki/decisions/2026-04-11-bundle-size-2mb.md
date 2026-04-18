@@ -56,5 +56,5 @@ The technical audit flagged this as Finding #31: no ADR documenting the bundle s
 
 ## Connections
 
-- [[maqasid-os]] — Host application
+- [[milos]] — Host application
 - [[2026-04-09-bootstrap-llm-wiki]] — Wiki system where this ADR is tracked

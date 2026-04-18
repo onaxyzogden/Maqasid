@@ -63,11 +63,11 @@ Treats AI as a specialized component within a deterministic architecture, not th
 
 ## Current Status
 
-Fully operational across the [[maqasid-os]] project ecosystem. The 3-layer system (CLAUDE.md > CONTEXT.md > Skills) governs all Claude Code sessions. The LLM Wiki was bootstrapped on 2026-04-09 as the persistent knowledge layer, replacing NotebookLM notebooks for session orientation. Session initialization follows the three-gate protocol defined in the global CLAUDE.md: Brief, Orient (from wiki), Plan (with explicit approval gate). The [[amanah-gate]] serves as the ethical pre-check before any task execution.
+Fully operational across the [[milos]] project ecosystem. The 3-layer system (CLAUDE.md > CONTEXT.md > Skills) governs all Claude Code sessions. The LLM Wiki was bootstrapped on 2026-04-09 as the persistent knowledge layer, replacing NotebookLM notebooks for session orientation. Session initialization follows the three-gate protocol defined in the global CLAUDE.md: Brief, Orient (from wiki), Plan (with explicit approval gate). The [[amanah-gate]] serves as the ethical pre-check before any task execution.
 
 ## Connections
 
-- [[maqasid-os]] — Primary project governed by MWP; CLAUDE.md and CONTEXT.md hierarchy fully deployed
+- [[milos]] — Primary project governed by MWP; CLAUDE.md and CONTEXT.md hierarchy fully deployed
 - [[graphify]] — Layer 3 tool providing structural code intelligence; complements the wiki's meaning layer
 - [[bbos-pipeline]] — Pipeline stages modeled as numbered folders following MWP's sequential-stage convention
 - [[covenant-architecture]] — Philosophical foundation; MWP's filesystem-as-structure reflects covenant principles of transparency and interpretability

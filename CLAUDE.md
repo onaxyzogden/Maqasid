@@ -1,4 +1,4 @@
-# Maqasid OS V2.1
+# MILOS V2.1
 
 Islamic life operating system — manage work, money, people, and operations across the Seven Maqasid (Faith, Life, Intellect, Family, Wealth, Environment, Ummah).
 React 19 SPA · Zustand 5 · React Router 7 · Vite 8 · dnd-kit · Lucide icons · date-fns
@@ -49,7 +49,7 @@ Always run a full build (`npm run build` or equivalent) after moving files or re
 | Machine | `src/`, `scripts/`, `dist/` | Claude Code | Full read/write |
 | Shared | `references/`, `stages/` | Both | Read (references); Write to stages, read+review by human |
 | Marketing | `website/` | Yousef | Read-only (static HTML, no build) |
-| Atlas | `atlas/` (submodule) | Both | Separate repo — read here, develop in atlas repo |
+| OLOS | `atlas/` (submodule) | Both | Separate repo — read here, develop in atlas repo |
 | Wiki | `wiki/` | Claude Code | Full read/write (LLM-owned knowledge base) |
 ## Naming Conventions — Status Tracking
 - Stage gate files: `[phase]-[slug]-[status].md` (e.g., `research-crm-revamp-review.md`)
@@ -76,7 +76,7 @@ Static marketing site merged from ogden-hub repo. Lives in `website/`.
 Pure HTML — no build system, no Node.js dependencies.
 Domain: bismillah.ogden.ag (deployment postponed).
 
-## Atlas (git submodule)
+## OLOS (git submodule)
 Geospatial land intelligence app. Linked as submodule at `atlas/`.
 Separate repo: `onaxyzogden/atlas`. Own monorepo (pnpm + Turborepo).
 Stack: React 18 + TypeScript + Vite + MapboxGL + Fastify + PostgreSQL/PostGIS.

@@ -3897,7 +3897,7 @@ export const MODULE_ATTRS = {
         name: 'Al-Khāliq',
         name_ar: 'الخالق',
         title: 'The Creator',
-        body: 'Allah made everything from nothing — the soil, the watershed, the seed, and you. He didn\'t copy anyone; He just decided things should exist and they came to be.\n\nEvery horizon of Moontrance land is māddah (matter) He originated. To stand on it as a steward is to hold a trust He placed in your hand — not property you own, but a living āyah you are answerable for. Its absence shows as treating the land as inert inventory to be scraped or traded rather than read.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator, the Fashioner of forms."',
+        body: 'Allah made everything from nothing — the soil, the watershed, the seed, and you. He didn\'t copy anyone; He just decided things should exist and they came to be.\n\nEvery horizon of MTC land is māddah (matter) He originated. To stand on it as a steward is to hold a trust He placed in your hand — not property you own, but a living āyah you are answerable for. Its absence shows as treating the land as inert inventory to be scraped or traded rather than read.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator, the Fashioner of forms."',
       },
       {
         name: 'Al-Bāriʾ',

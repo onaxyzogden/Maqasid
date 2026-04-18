@@ -6,7 +6,7 @@ domain: wealth
 
 # Money Dashboard
 
-The Money module's primary dashboard within Maqasid OS. Lives at `/app/money` under the Wealth pillar (Hifz al-Mal). Provides financial overview across income, expenses, accounts, vendors, assets, and invoices.
+The Money module's primary dashboard within MILOS. Lives at `/app/money` under the Wealth pillar (Hifz al-Mal). Provides financial overview across income, expenses, accounts, vendors, assets, and invoices.
 
 ## Component Location
 - JSX: `src/components/money/MoneyDashboard.jsx`

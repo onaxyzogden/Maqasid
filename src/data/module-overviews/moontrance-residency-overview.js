@@ -1,4 +1,4 @@
-// Moontrance Residency module — Overview cards + Maqasid framework data.
+// MTC Residency module — Overview cards + Maqasid framework data.
 // Long-term community formation, residency model, trust-building, permanence.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 59:9, 49:13, 42:38.
@@ -16,7 +16,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'Those who were already firmly established in their homes and firmly rooted in faith, who love those who migrated to them...',
     description:
-      'The Ansar of Madinah did not merely tolerate the Muhajirun \u2014 they loved them, shared with them, and built a new society together. Moontrance residency follows this model: founding families who commit to the land, welcome newcomers, and build permanent community. This is hijrah in its truest sense \u2014 not flight from something, but migration toward a life aligned with purpose.',
+      'The Ansar of Madinah did not merely tolerate the Muhajirun \u2014 they loved them, shared with them, and built a new society together. MTC residency follows this model: founding families who commit to the land, welcome newcomers, and build permanent community. This is hijrah in its truest sense \u2014 not flight from something, but migration toward a life aligned with purpose.',
     conditions: [
       'Founding families commit to a minimum residency period with clear expectations',
       'Newcomers are welcomed and integrated through a structured onboarding process',
@@ -43,7 +43,7 @@ export const OVERVIEW = [
     ayahTranslation:
       '...who respond to their Lord, keep up the prayer, conduct their affairs by mutual consultation...',
     description:
-      'Permanent community requires governance, and Islamic governance is built on shura (consultation). Moontrance residency establishes a governance structure where decisions affecting the community are made collectively, leadership rotates or is accountable, and the covenant is the constitution. No single family or personality dominates.',
+      'Permanent community requires governance, and Islamic governance is built on shura (consultation). MTC residency establishes a governance structure where decisions affecting the community are made collectively, leadership rotates or is accountable, and the covenant is the constitution. No single family or personality dominates.',
     conditions: [
       'Community governance structure documented and agreed upon before first residents arrive',
       'Regular shura meetings with documented decisions and transparent follow-through',
@@ -88,7 +88,7 @@ export const OVERVIEW = [
 ];
 
 export const MAQASID = {
-  label: 'Moontrance Residency',
+  label: 'MTC Residency',
   necessities: [
     'Community covenant signed and understood by all founding residents',
     'Governance structure (shura-based) documented and operational',

@@ -1,5 +1,5 @@
 /**
- * Maqasid OS — Life Module Readiness Ayat Matrix
+ * MILOS — Life Module Readiness Ayat Matrix
  * Opening Threshold · Pause Protocol Content
  * Attribute pairing: Al-Qawī (The Strong) · Al-Laṭīf (The Subtle, Gentle)
  * Row distribution: 3 rows Al-Qawī (Q1–Q3) · 3 rows Al-Laṭīf (L1–L3)

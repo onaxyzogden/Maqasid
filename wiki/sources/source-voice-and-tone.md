@@ -9,7 +9,7 @@ tags: [voice, tone, islamic-terminology, ux-copy, transliteration]
 
 ## Summary
 
-The voice-and-tone guide establishes how [[maqasid-os]] communicates with its users. It covers Islamic transliteration conventions, the naming of the Seven Maqasid with their Arabic equivalents, and editorial rules that preserve the application's Islamic identity without becoming preachy or exclusionary.
+The voice-and-tone guide establishes how [[milos]] communicates with its users. It covers Islamic transliteration conventions, the naming of the Seven Maqasid with their Arabic equivalents, and editorial rules that preserve the application's Islamic identity without becoming preachy or exclusionary.
 
 ## Key Extractions
 
@@ -39,7 +39,7 @@ Each pillar uses both its English name and Arabic transliteration:
 
 ## Connections
 
-- [[maqasid-os]] -- the application this guide governs
+- [[milos]] -- the application this guide governs
 - [[maqasid-al-shariah]] -- the theological framework behind the terminology
 - [[amanah-gate]] -- uses the "Amanah" concept directly in its naming
 - [[ceremony-gate-pattern]] -- a UI pattern where Islamic tone is most concentrated

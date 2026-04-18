@@ -9,7 +9,7 @@ sources: 0
 
 # Amanah Gate
 
-A permissibility check protocol and the first gate before any task execution in [[maqasid-os]]. The Amanah Gate confirms that a task serves a halal purpose. If riba (usury), gharar (deception/uncertainty), or other ethical concerns arise, work stops immediately and the concern is flagged for human review. Named after Amanah -- the Islamic principle of trust and stewardship.
+A permissibility check protocol and the first gate before any task execution in [[milos]]. The Amanah Gate confirms that a task serves a halal purpose. If riba (usury), gharar (deception/uncertainty), or other ethical concerns arise, work stops immediately and the concern is flagged for human review. Named after Amanah -- the Islamic principle of trust and stewardship.
 
 ## Core Idea
 
@@ -22,7 +22,7 @@ The protocol is documented in `docs/principles.md` and is a mandatory step in th
 - In the **Context-First Protocol** (`CLAUDE.md`), the Amanah Gate is Step 1 -- executed before identifying domains, reading CONTEXT.md files, or touching any source file.
 - In the [[bbos-pipeline]], it appears at **Stage 01 QAL (Qualification)** -- the first stage where a potential engagement is screened for alignment with Islamic business standards.
 - In the UI, the concept is echoed by the [[ceremony-gate-pattern]] -- the CeremonyGate component that gates module access with Quranic grounding.
-- AI subagents operating within [[maqasid-os]] are required to receive the Amanah Gate as part of their prompt context. No autonomous agent bypasses this check.
+- AI subagents operating within [[milos]] are required to receive the Amanah Gate as part of their prompt context. No autonomous agent bypasses this check.
 - When the gate triggers a stop, the concern is surfaced to the human operator with a clear description of which Maqasid objective is at risk.
 
 ## Amanah Gate Protocol (Cross-Product Pattern)
@@ -41,9 +41,9 @@ The protocol asks: *"Is the evidence strong enough to proceed?"* It appears inde
 
 | Product | Mechanism | Gate |
 |---|---|---|
-| **Atlas** | Confidence Framework (High / Medium / Low) — by data source provenance | Site suitability score blocks low-confidence recommendations |
+| **OLOS** | Confidence Framework (High / Medium / Low) — by data source provenance | Site suitability score blocks low-confidence recommendations |
 | **BBOS** | G-Label System (G1 / G2 / G3) — by evidential weight of operator claims | Stage 02 Amanah Gate stops pipeline without sufficient evidence |
-| **Moontrance** | M1 / M2 / M3 — by acquisition channel commitment level | Community enrollment gate blocks founding member onboarding on unconfirmed channels |
+| **MTC** | M1 / M2 / M3 — by acquisition channel commitment level | Community enrollment gate blocks founding member onboarding on unconfirmed channels |
 
 ### Shared Theological Root
 
@@ -55,8 +55,8 @@ Amanah (trust) and Khilafah (stewardship) define the same obligation from two di
 - [[ceremony-gate-pattern]] -- UI-layer parallel (gates interaction; Amanah Gate gates ethics)
 - [[covenant-architecture]] -- the design philosophy that mandates this gate
 - [[bbos-pipeline]] -- Stage 01 QAL implements the ethical gate; G-Label + Stage 02 implements the evidential gate
-- [[atlas]] -- Confidence Framework + site suitability score implements the evidential gate
-- [[maqasid-os]] -- the system in which this protocol operates
+- [[olos]] -- Confidence Framework + site suitability score implements the evidential gate
+- [[milos]] -- the system in which this protocol operates
 - [[2026-04-14-amanah-gate-protocol]] -- decision record for the cross-product evidential pattern
 
 ## Sources

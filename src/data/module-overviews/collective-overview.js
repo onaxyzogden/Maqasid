@@ -1,5 +1,5 @@
 // Collective module — Overview cards + Maqasid framework data.
-// Moontrance: A faith-rooted land destination for Muslim families.
+// MTC: A faith-rooted land destination for Muslim families.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 2:30, 3:103, 66:6, 51:19, 51:24-26.
 
@@ -16,7 +16,7 @@ export const OVERVIEW = [
     ayahTranslation:
       '[Prophet], when your Lord told the angels, \'I am putting a successor on earth,\' they said, \'How can You put someone there who will cause damage and bloodshed, when we celebrate Your praise and proclaim Your holiness?\' but He said, \'I know things you do not.\'',
     description:
-      'The human being was placed on earth as khalīfah — not as owner, but as steward. Land that is meant to give beyond your lifetime requires a relationship rooted in stewardship from the beginning. Moontrance begins here: the land is not an asset to extract from, but a trust (amānah) to tend, protect, and pass forward. Every design decision — from soil management to building placement — flows from this foundational appointment.',
+      'The human being was placed on earth as khalīfah — not as owner, but as steward. Land that is meant to give beyond your lifetime requires a relationship rooted in stewardship from the beginning. MTC begins here: the land is not an asset to extract from, but a trust (amānah) to tend, protect, and pass forward. Every design decision — from soil management to building placement — flows from this foundational appointment.',
     conditions: [
       'The land is treated as a trust (amānah), not a commodity to be traded or exploited',
       'Ecological balance is actively maintained — not just preserved, but restored',
@@ -43,7 +43,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'Hold fast to God\'s rope all together; do not split into factions. Remember God\'s favour to you: you were enemies and then He brought your hearts together and you became brothers by His grace; you were about to fall into a pit of Fire and He saved you from it- in this way God makes His revelations clear to you so that you may be rightly guided.',
     description:
-      'The communities most worth belonging to are the ones that have to be built. Jamāʿah is not a membership programme — it is the earned result of sustained presence and shared work. Moontrance\'s community model begins with seasonal participation: showing up for the land and for each other, season after season, until belonging is established in the most honest way. Trust built through proximity, prayer, and labour together.',
+      'The communities most worth belonging to are the ones that have to be built. Jamāʿah is not a membership programme — it is the earned result of sustained presence and shared work. MTC\'s community model begins with seasonal participation: showing up for the land and for each other, season after season, until belonging is established in the most honest way. Trust built through proximity, prayer, and labour together.',
     conditions: [
       'Community forms around shared worship (ṣalāh in jamāʿah) as its non-negotiable foundation',
       'Belonging is earned through sustained presence — not purchased through membership fees',
@@ -70,7 +70,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'Believers, guard yourselves and your families against a Fire fuelled by people and stones, over which stand angels, stern and strong; angels who never disobey God\'s commands to them, but do as they are ordered:',
     description:
-      'Children grow up in environments that do not model what they are being taught. The tarbiyah of daily proximity to believing adults, productive land, and the signs of creation in ordinary view — this is what the suburbs quietly take away, day by day. Moontrance restores what the Prophet ﷺ modelled: a community where children see faith lived, not just spoken. Homeschool immersions, farm-to-iftar gatherings, and the rhythm of ṣalāh on land are tarbiyah by design.',
+      'Children grow up in environments that do not model what they are being taught. The tarbiyah of daily proximity to believing adults, productive land, and the signs of creation in ordinary view — this is what the suburbs quietly take away, day by day. MTC restores what the Prophet ﷺ modelled: a community where children see faith lived, not just spoken. Homeschool immersions, farm-to-iftar gatherings, and the rhythm of ṣalāh on land are tarbiyah by design.',
     conditions: [
       'Children are surrounded by believing adults who model what they teach',
       'The environment reinforces Islamic values — not through signage, but through daily rhythm',
@@ -97,7 +97,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'giving a rightful share of their wealth to the beggar and the deprived.',
     description:
-      'Land is most often treated as an investment — acquired for return, held as asset, valued by the acre. But land meant to give beyond your lifetime requires a different relationship from the beginning. The waqf model ensures that Moontrance land is endowed — not owned by any individual, but held in trust for the community and for future generations. This is stewardship, not ownership. The land gives; the people tend. The reward continues long after the founders are gone.',
+      'Land is most often treated as an investment — acquired for return, held as asset, valued by the acre. But land meant to give beyond your lifetime requires a different relationship from the beginning. The waqf model ensures that MTC land is endowed — not owned by any individual, but held in trust for the community and for future generations. This is stewardship, not ownership. The land gives; the people tend. The reward continues long after the founders are gone.',
     conditions: [
       'Land is held in a waqf or trust structure — not privately owned or tradeable',
       'Revenue from the land serves the community, not individual shareholders',
@@ -124,7 +124,7 @@ export const OVERVIEW = [
     ayahTranslation:
       '[Muhammad], have you heard the story of the honoured guests of Abraham? They went in to see him and said, \'Peace.\' \'Peace,\' he said, [adding to himself] \'These people are strangers.\' He turned quickly to his household, brought out a fat calf,',
     description:
-      'Ibrāhīm عليه السلام did not wait to be asked. When guests arrived — strangers he did not recognise — he moved immediately to serve them with the best he had. This is the prophetic model of ḍiyāfah: generous, unhesitating, and dignified. The Collective is Moontrance\'s hospitality expression — five faith-designed experiences where beauty and Islamic values work together, not against each other. Guided walks through land read as creation. Overnight stays designed around ṣalāh, silence, and the quality of light at fajr. No secular template adapted; every experience built from the ground up.',
+      'Ibrāhīm عليه السلام did not wait to be asked. When guests arrived — strangers he did not recognise — he moved immediately to serve them with the best he had. This is the prophetic model of ḍiyāfah: generous, unhesitating, and dignified. The Collective is MTC\'s hospitality expression — five faith-designed experiences where beauty and Islamic values work together, not against each other. Guided walks through land read as creation. Overnight stays designed around ṣalāh, silence, and the quality of light at fajr. No secular template adapted; every experience built from the ground up.',
     conditions: [
       'Hospitality is offered before it is requested — the Ibrāhīmic standard',
       'Guests are honoured regardless of status, wealth, or familiarity',
@@ -162,6 +162,6 @@ export const MAQASID = {
     'CSRA (Community-Supported Regenerative Agriculture) offer architecture live',
     'Waqf endowment generating surplus for broader community benefit',
     'Self-sustaining ecosystem — land produces more than it consumes',
-    'Moontrance becomes a replicable model for other Muslim communities',
+    'MTC becomes a replicable model for other Muslim communities',
   ],
 };

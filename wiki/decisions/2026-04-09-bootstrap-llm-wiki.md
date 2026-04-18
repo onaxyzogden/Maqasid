@@ -13,7 +13,7 @@ The Session Initialization Protocol (Gate 2) previously relied on NotebookLM as 
 
 ## Decision
 
-Create an **LLM Wiki** -- a persistent, Claude-maintained knowledge base stored at `wiki/` in the Maqasid OS repo. The wiki replaces NotebookLM as the primary orientation source for Gate 2 of the Session Initialization Protocol.
+Create an **LLM Wiki** -- a persistent, Claude-maintained knowledge base stored at `wiki/` in the MILOS repo. The wiki replaces NotebookLM as the primary orientation source for Gate 2 of the Session Initialization Protocol.
 
 Three key sub-decisions:
 
@@ -48,7 +48,7 @@ Rejected. External tools add authentication overhead, cannot be read/written by 
 
 ## Connections
 
-- [[maqasid-os]] -- the project this wiki serves
+- [[milos]] -- the project this wiki serves
 - [[graphify]] -- complementary structural intelligence tool
 - [[covenant-architecture]] -- the wiki preserves and propagates covenant-level decisions
 - [[amanah-gate]] -- wiki pages are subject to the same ethical screening as code changes

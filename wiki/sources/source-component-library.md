@@ -9,7 +9,7 @@ tags: [components, react, ui, patterns, dnd-kit]
 
 ## Summary
 
-The component library document serves as a cross-reference catalog of all reusable components in [[maqasid-os]] V2.1. It maps shared components, layout primitives, Islamic ceremony surfaces, and dashboard building blocks, along with the recurring UI patterns they implement.
+The component library document serves as a cross-reference catalog of all reusable components in [[milos]] V2.1. It maps shared components, layout primitives, Islamic ceremony surfaces, and dashboard building blocks, along with the recurring UI patterns they implement.
 
 ## Key Extractions
 
@@ -50,7 +50,7 @@ The component library document serves as a cross-reference catalog of all reusab
 
 ## Connections
 
-- [[maqasid-os]] -- the application these components serve
+- [[milos]] -- the application these components serve
 - [[source-style-guide]] -- design tokens consumed by all components
 - [[source-voice-and-tone]] -- copy conventions used in component text
 - [[ceremony-gate-pattern]] -- the pattern behind CeremonyGate and ThresholdModal

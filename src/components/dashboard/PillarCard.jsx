@@ -10,8 +10,8 @@ const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, T
 
 const RELATIONSHIP_LABELS = {
   'bbos-contained':     { text: 'BBOS',        color: '#8EAD6E' },
-  'moontrance-partial': { text: 'Moontrance',  color: '#AD6E9E' },
-  'moontrance-atlas':   { text: 'Atlas',       color: '#6EADAD' },
+  'moontrance-partial': { text: 'MTC',  color: '#AD6E9E' },
+  'moontrance-atlas':   { text: 'OLOS',       color: '#6EADAD' },
   'self-contained':     { text: 'Native',      color: '#6EADAD' },
   'reserved-active':    { text: 'Practice',    color: '#999' },
 };

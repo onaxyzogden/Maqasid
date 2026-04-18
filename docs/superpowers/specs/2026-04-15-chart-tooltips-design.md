@@ -1,7 +1,7 @@
 # Chart Tooltips Design Spec
 
 **Date:** 2026-04-15
-**Project:** Maqasid OS V2.1
+**Project:** MILOS V2.1
 **Objective:** Add hover-over tooltips to all chart components, surfacing exact data values
 
 ---

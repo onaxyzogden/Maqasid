@@ -1,5 +1,5 @@
 /**
- * Maqasid OS — Intellect Module Default Readiness Ayat Matrix
+ * MILOS — Intellect Module Default Readiness Ayat Matrix
  * Opening Threshold · Pause Protocol Content
  * Attribute pairing: Al-Fattāḥ (The Opener) · Al-ʿAlīm (The All-Knowing)
  * Row distribution: 2 rows Al-Fattāḥ (F1–F2) · 4 rows Al-ʿAlīm (A1–A4)

@@ -1,4 +1,4 @@
-// Moontrance Seasonal module — Overview cards + Maqasid framework data.
+// MTC Seasonal module — Overview cards + Maqasid framework data.
 // Seasonal participation pathway: planting, tending, harvest, reflection.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 6:99, 36:33-35, 14:24-25.
@@ -16,7 +16,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'It is He who sends down water from the sky and with it We produce vegetation of all kinds...',
     description:
-      'Spring on Moontrance land is Ghars \u2014 planting faith into the soil. Participants arrive to prepare beds, plant seeds, and establish water systems for the growing season. Every act of planting is framed as sadaqah jariyah: charity that continues to give as long as the plant lives, feeds, and shelters. The daily rhythm is anchored by salah in jama\u2018ah on the land.',
+      'Spring on MTC land is Ghars \u2014 planting faith into the soil. Participants arrive to prepare beds, plant seeds, and establish water systems for the growing season. Every act of planting is framed as sadaqah jariyah: charity that continues to give as long as the plant lives, feeds, and shelters. The daily rhythm is anchored by salah in jama\u2018ah on the land.',
     conditions: [
       'Soil preparation completed before planting begins \u2014 compost, amendments, bed formation',
       'Seed selection prioritises heritage, open-pollinated, and regionally adapted varieties',
@@ -43,7 +43,7 @@ export const OVERVIEW = [
     ayahTranslation:
       'There is a sign for them in the lifeless earth: We give it life and produce grain from it for them to eat...',
     description:
-      'Summer is Ri\u2018ayah \u2014 the season of carrying through. The land is alive and demands daily attention: watering, weeding, pest management, and harvest of early crops. This is also the season of diyafah (hospitality) \u2014 Moontrance hosts guests for faith-designed experiences on the land. The rhythm of fajr-to-isha structures every day.',
+      'Summer is Ri\u2018ayah \u2014 the season of carrying through. The land is alive and demands daily attention: watering, weeding, pest management, and harvest of early crops. This is also the season of diyafah (hospitality) \u2014 MTC hosts guests for faith-designed experiences on the land. The rhythm of fajr-to-isha structures every day.',
     conditions: [
       'Daily tending schedule maintained \u2014 irrigation, weeding, pest observation',
       'Guest hospitality programme active \u2014 guided walks, overnight stays, farm-to-iftar',
@@ -115,7 +115,7 @@ export const OVERVIEW = [
 ];
 
 export const MAQASID = {
-  label: 'Moontrance Seasonal',
+  label: 'MTC Seasonal',
   necessities: [
     'Daily salah in jama\u2018ah as the anchor of every seasonal programme',
     'Seasonal calendar aligned with both agricultural and Islamic cycles',

@@ -9,7 +9,7 @@ sources: 2
 
 # Maqasid Al-Shariah
 
-The higher objectives of Islamic law (Shariah), articulated by classical scholars such as Al-Ghazali and Al-Shatibi, and modernized by Jasser Auda as a systems approach to Islamic jurisprudence. The framework identifies the fundamental purposes that Shariah seeks to protect and promote, serving as the evaluative lens for all design decisions in [[maqasid-os]] -- prioritizing purposefulness over literalism.
+The higher objectives of Islamic law (Shariah), articulated by classical scholars such as Al-Ghazali and Al-Shatibi, and modernized by Jasser Auda as a systems approach to Islamic jurisprudence. The framework identifies the fundamental purposes that Shariah seeks to protect and promote, serving as the evaluative lens for all design decisions in [[milos]] -- prioritizing purposefulness over literalism.
 
 ## Core Idea
 
@@ -27,9 +27,9 @@ The classical formulation identifies five essential objectives:
 
 Contemporary scholars have expanded the operative verb from mere "protection" (hifz) to "development and rights" -- a shift from defensive preservation to active cultivation. Modern additions to the discourse include human dignity, freedom of belief, and care for family as first-class objectives. Jasser Auda proposes "Human Development" as a standalone objective, measurable by empirical standards such as the UN Human Development Index.
 
-### The Seven Pillars in Maqasid OS
+### The Seven Pillars in MILOS
 
-In [[maqasid-os]], the classical five are extended to seven pillars, adding Environment (bi'ah) and Ummah (community) to reflect a holistic view of human flourishing. These seven pillars form the information architecture of the entire system:
+In [[milos]], the classical five are extended to seven pillars, adding Environment (bi'ah) and Ummah (community) to reflect a holistic view of human flourishing. These seven pillars form the information architecture of the entire system:
 
 1. **Faith** -- Hifz al-Din
 2. **Life** -- Hifz al-Nafs
@@ -41,7 +41,7 @@ In [[maqasid-os]], the classical five are extended to seven pillars, adding Envi
 
 ## Jasser Auda's Six Systems Features
 
-Auda reframes the Maqasid not as a static hierarchy but as an interconnected system. His six systems features provide the theoretical foundation for treating the Maqasid as a living architecture in [[maqasid-os]]:
+Auda reframes the Maqasid not as a static hierarchy but as an interconnected system. His six systems features provide the theoretical foundation for treating the Maqasid as a living architecture in [[milos]]:
 
 1. **Cognitive Nature** -- Fiqh is human cognition of revelation, not revelation itself. This validates pluralism in legal interpretation; multiple valid readings can coexist.
 2. **Wholeness** -- Holistic evidence and universal principles take precedence over partial, isolated rulings. The system is more than the sum of its parts.
@@ -67,9 +67,9 @@ The Maqasid framework moves ethical evaluation from formal procedural compliance
 - The [[covenant-architecture]] draws from the Scroll of Madinah (Sahifat al-Madinah) -- a model of peaceful co-existence, pluralism, and mutual obligation.
 - The [[amanah-gate]] operationalizes this screening at the task level: if a task undermines any of the seven objectives, it is flagged before execution.
 
-## Application in Maqasid OS
+## Application in MILOS
 
-- Each pillar has its own **dashboard** in [[maqasid-os]] with three-tier detail design (overview, module, detail).
+- Each pillar has its own **dashboard** in [[milos]] with three-tier detail design (overview, module, detail).
 - **Readiness checks** grounded in Quranic ayat assess the user's alignment with each pillar before task execution. See [[ceremony-gate-pattern]].
 - **Seed tasks** are generated per pillar, giving users a starting point rooted in the objective that pillar protects.
 - The [[amanah-gate]] uses the Maqasid as the evaluative framework for permissibility.
@@ -78,7 +78,7 @@ The Maqasid framework moves ethical evaluation from formal procedural compliance
 
 ## Connections
 
-- [[maqasid-os]] -- the operating system built on this framework
+- [[milos]] -- the operating system built on this framework
 - [[amanah-gate]] -- ethical instantiation of Maqasid at the task level
 - [[ceremony-gate-pattern]] -- UI instantiation of Maqasid at the interaction level
 - [[covenant-architecture]] -- design philosophy embedding these objectives into software structure; draws on the Scroll of Madinah

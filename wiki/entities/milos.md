@@ -1,5 +1,5 @@
 ---
-title: "Maqasid OS"
+title: "MILOS"
 type: entity
 created: 2026-04-09
 updated: 2026-04-17
@@ -7,9 +7,9 @@ tags: [product, spa, react, islamic, operating-system, seven-maqasid]
 sources: 0
 ---
 
-# Maqasid OS
+# MILOS
 
-Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-page application with Zustand 5 state management, React Router 7 navigation, and Vite 8 bundling. It manages work, money, people, and operations across the Seven Maqasid — Faith, Life, Intellect, Family, Wealth, Environment, and Ummah — providing module dashboards with a three-tier detail design, [[bbos-pipeline]] integration, and Islamic UI components such as CeremonyGate, ReadinessCheck, and PrayerOverlay. The project uses a CONTEXT.md routing hierarchy for developer orientation and is deployed via GitHub Pages. The monorepo now includes `website/` ([[ogden-hub]] subtree) and `atlas/` ([[atlas]] git submodule). Its knowledge graph, built via [[graphify]], contains 1,012 nodes, 1,517 edges, and 126 communities.
+MILOS V2.1 is an Islamic life operating system built as a React 19 single-page application with Zustand 5 state management, React Router 7 navigation, and Vite 8 bundling. It manages work, money, people, and operations across the Seven Maqasid — Faith, Life, Intellect, Family, Wealth, Environment, and Ummah — providing module dashboards with a three-tier detail design, [[bbos-pipeline]] integration, and Islamic UI components such as CeremonyGate, ReadinessCheck, and PrayerOverlay. The project uses a CONTEXT.md routing hierarchy for developer orientation and is deployed via GitHub Pages. The monorepo now includes `website/` ([[ogden-hub]] subtree) and `atlas/` ([[olos]] git submodule). Its knowledge graph, built via [[graphify]], contains 1,012 nodes, 1,517 edges, and 126 communities.
 
 ## Key Facts
 
@@ -19,7 +19,7 @@ Maqasid OS V2.1 is an Islamic life operating system built as a React 19 single-p
 - **Islamic UI components:** CeremonyGate, ReadinessCheck, PrayerOverlay, ThresholdModal, ResumeOverlay
 - **Context system:** CONTEXT.md routing hierarchy — root routes to domain-level files before source is touched
 - **Deployment:** GitHub Pages
-- **Monorepo structure:** `src/` (app), `website/` ([[ogden-hub]]), `atlas/` ([[atlas]])
+- **Monorepo structure:** `src/` (app), `website/` ([[ogden-hub]]), `atlas/` ([[olos]])
 - **Knowledge graph:** 1,012 nodes, 1,517 edges, 126 communities via [[graphify]]
 
 ## Current Status
@@ -30,7 +30,7 @@ Active development on V2.1. Rich subtask descriptions (Why/How format) now compl
 
 - [[bbos-pipeline]] — Business operating system module integrated into the app
 - [[ogden-hub]] — Marketing site merged as subtree at `website/`
-- [[atlas]] — Land intelligence app linked as git submodule at `atlas/`
+- [[olos]] — Land intelligence app linked as git submodule at `atlas/`
 - [[graphify]] — Knowledge graph extraction tool used for codebase analysis
 - [[maqasid-al-shariah]] — Jurisprudential framework grounding the Seven Maqasid pillar system
 - [[amanah-gate]] — Ethical screening pattern used in BBOS qualification stage
@@ -58,4 +58,4 @@ Active development on V2.1. Rich subtask descriptions (Why/How format) now compl
 | 2026-04-11 | Family module: added Family Office — embedded Office module accessible as (1) tab within `/app/family` (FamilyPage) and (2) dedicated sidebar entry at `/app/family-office`. |
 | 2026-04-09 | Wiki entity page bootstrapped. Monorepo expanded with ogden-hub subtree and atlas submodule. Knowledge graph at 882 nodes / 1,438 edges / 47 communities. |
 | 2026-04-17 | Subtask Sources view upgraded with `QuranEmbed` (live quran.com iframe, offline fallback) and `HadithCard` (509 bundled hadith, Amiri Arabic). Seed copy standardized (Why?/How?, heading renames, HR removed). 4 module icons refreshed; lucide-react bumped 0.511 → 1.8. Commits `1ae2793`, `cd5bd55`. |
-| 2026-04-17 | Ummah pillar converted to PillarLevelPage pattern. Added `UMMAH_BOARDS` (18 boards: 6 submodules × 3 levels), `ensureUmmahProjects`, `UmmahLevelNavigator`, `UmmahPillarPage`. All 6 submodule pages (Collective, Neighbors, Community, Moontrance Land/Seasonal/Residency) rewritten from legacy `PillarHeader + ViewToggle + OverviewCards/MaqasidTable` to minimal `<UmmahPillarPage pillarKey="…" />` wrappers. OVERVIEW + MAQASID content relocated to `UmmahDashboard` as collapsible "Frameworks" section. Build passes at 2645 modules. Seeded tasks (450 subtasks across 90 tasks) authored in prior session via 6 parallel agents — citation verification pass still deferred. |
+| 2026-04-17 | Ummah pillar converted to PillarLevelPage pattern. Added `UMMAH_BOARDS` (18 boards: 6 submodules × 3 levels), `ensureUmmahProjects`, `UmmahLevelNavigator`, `UmmahPillarPage`. All 6 submodule pages (Collective, Neighbors, Community, MTC Land/Seasonal/Residency) rewritten from legacy `PillarHeader + ViewToggle + OverviewCards/MaqasidTable` to minimal `<UmmahPillarPage pillarKey="…" />` wrappers. OVERVIEW + MAQASID content relocated to `UmmahDashboard` as collapsible "Frameworks" section. Build passes at 2645 modules. Seeded tasks (450 subtasks across 90 tasks) authored in prior session via 6 parallel agents — citation verification pass still deferred. |

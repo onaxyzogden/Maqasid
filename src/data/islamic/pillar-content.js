@@ -573,11 +573,11 @@ export const PILLAR_CONTENT = {
     },
   ],
 
-  // ── Standalone — Collective (Moontrance) ──
+  // ── Standalone — Collective (MTC) ──
   collective: [
     {
       subModuleId: 'collective',
-      label: 'The Collective — Moontrance',
+      label: 'The Collective — MTC',
       necessities: [
         'Land acquired through rigorous search with Spiritual Intentionality scoring',
         'Basic infrastructure: water, road access, shelter, and salah space',

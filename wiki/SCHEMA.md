@@ -183,8 +183,8 @@ The analysis, comparison, or answer. Free-form but should cite wiki pages with [
 ## Cross-Referencing
 
 Use `[[wikilinks]]` for all internal references. This enables Obsidian's graph view.
-- Link to pages by filename without extension: `[[maqasid-os]]`, `[[amanah-gate]]`
-- For display text: `[[maqasid-os|Maqasid OS V2.1]]`
+- Link to pages by filename without extension: `[[milos]]`, `[[amanah-gate]]`
+- For display text: `[[milos|MILOS V2.1]]`
 - Every page should have at least one inbound and one outbound link (no orphans)
 
 ## Frontmatter

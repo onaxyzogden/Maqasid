@@ -9,11 +9,11 @@ superseded_by: null
 
 ## Context
 
-The [[ogden-hub]] marketing site is a static HTML site with no build system. As [[maqasid-os]] moves toward a single-repo architecture, we needed to decide how to incorporate ogden-hub's codebase. The goal was a single source of truth without unnecessary tooling overhead.
+The [[ogden-hub]] marketing site is a static HTML site with no build system. As [[milos]] moves toward a single-repo architecture, we needed to decide how to incorporate ogden-hub's codebase. The goal was a single source of truth without unnecessary tooling overhead.
 
 ## Decision
 
-Merge ogden-hub into the Maqasid OS monorepo using **git subtree** (squash merge). The site lives at `website/`.
+Merge ogden-hub into the MILOS monorepo using **git subtree** (squash merge). The site lives at `website/`.
 
 ## Rationale
 
@@ -29,7 +29,7 @@ Rejected. Copying strips git history entirely. Subtree retains a squashed histor
 
 ## Consequences
 
-- `website/` is now part of the Maqasid OS repo and follows the same branch/PR workflow.
+- `website/` is now part of the MILOS repo and follows the same branch/PR workflow.
 - The original ogden-hub repo can be archived on GitHub.
 - Future upstream pulls (if needed) use `git subtree pull`.
 - Contributors working only on the React app never need to think about `website/` -- it is inert unless explicitly touched.
@@ -37,6 +37,6 @@ Rejected. Copying strips git history entirely. Subtree retains a squashed histor
 ## Connections
 
 - [[ogden-hub]] -- the entity being merged
-- [[maqasid-os]] -- the target monorepo
+- [[milos]] -- the target monorepo
 - [[2026-04-09-atlas-as-submodule]] -- contrasting decision for a complex repo
 - [[2026-04-09-bootstrap-llm-wiki]] -- this decision was recorded as part of the wiki bootstrap

@@ -22,7 +22,7 @@ export function generateTaskTemplate(taskDef) {
     label: taskDef.label,
     fields,
     g_label: null,
-    instructions: 'Fill in each field with your data. Re-upload this file into Maqasid OS to populate the task.',
+    instructions: 'Fill in each field with your data. Re-upload this file into MILOS to populate the task.',
   };
 }
 
@@ -109,7 +109,7 @@ export function generateStageBundleTemplate(stageId, stageDefs, existingTasks = 
         g_label: existing?.gLabel ?? null,
       };
     }),
-    instructions: 'Fill in the fields for each task in this bundle, then re-upload into Maqasid OS to populate all stage tasks at once.',
+    instructions: 'Fill in the fields for each task in this bundle, then re-upload into MILOS to populate all stage tasks at once.',
   };
 }
 

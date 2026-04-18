@@ -7,6 +7,24 @@ type: log
 
 Append-only chronological record of all wiki operations.
 
+## [2026-04-18] refactor | Product rename — Maqasid OS → MILOS, Moontrance → MTC, Atlas → OLOS
+
+### What was done
+- Website (ogden-hub subtree): reordered ecosystem hub to MILOS → MTC → OLOS → BBOS, added per-product journey one-liners, renamed folder paths (`/maqasid/` → `/milos/`, `/moontrance/` → `/mtc/`, `/atlas/` → `/olos/`), renamed CSS custom properties and class selectors site-wide.
+- App text surfaces: `\bMaqasid OS\b` → MILOS, `\bMoontrance\b` → MTC, `\bAtlas\b` (product noun) → OLOS across `src/`, `docs/`, `wiki/`, `CLAUDE.md`. Islamic concept "Maqasid" preserved (only " OS" suffixed form matched).
+- Wiki file renames: `entities/maqasid-os.md` → `milos.md`, `entities/atlas.md` → `olos.md`; all `[[maqasid-os]]` and `[[atlas]]` links rewritten.
+- Preserved: `atlas/` submodule directory name, `onaxyzogden/atlas` repo slug, Zustand `bbiz_` storage keys, app working directory `MAQASID OS - V2.1`.
+
+### Why
+- Shorter acronyms align product surface with everyday reference ("MILOS" beats "Maqasid OS V2.1" in nav, copy, and speech).
+- Hub reorder puts personal OS first, business OS last — mirrors user's priority stack.
+
+### Commits
+- Phase 1: `3a8f679` (hub reorder + one-liners)
+- Phase 2: `4c26e1f` (website text + CSS vars)
+- Phase 3: `e9ff0e5` (website folder rename)
+- Phase 4: this commit (app rename)
+
 ## [2026-04-17] feat | Full end-to-end onboarding experience
 
 ### What was done
@@ -77,7 +95,7 @@ Uncommitted — left in working tree alongside unrelated prior changes.
   2. **Contextual application** — preserved/lightly edited from the prior body, tying the Name to the specific submodule
   3. **`Source:` line** — scriptural reference with short excerpt on its own paragraph
 - **CSS support**: Added `white-space: pre-line` to `.attr-card-body` in `AttributeCard.css` so `\n\n` renders as paragraph breaks inside the existing `<p>` tag.
-- **Coverage**: 93 bodies rewritten across 47 modules (Work/Money/People/Office/Tech, Moontrance, Faith + 7 sub-pillars, Life, People submodules, Family + 5 submodules, Ummah + neighbors + community, Wealth + 4 submodules, Environment + 4 submodules, `collective` land module). Elementary paragraphs sourced from `99_names_of_allah.html` `kid` field for standard 99; authored for ~8 non-standard names (Al-Muhsin, Al-Qarib, Al-Jamil, Ash-Shafi, Ar-Rabb, Aṭ-Ṭāhir, Al-Mudabbir, Al-Muḥsin-variant).
+- **Coverage**: 93 bodies rewritten across 47 modules (Work/Money/People/Office/Tech, MTC, Faith + 7 sub-pillars, Life, People submodules, Family + 5 submodules, Ummah + neighbors + community, Wealth + 4 submodules, Environment + 4 submodules, `collective` land module). Elementary paragraphs sourced from `99_names_of_allah.html` `kid` field for standard 99; authored for ~8 non-standard names (Al-Muhsin, Al-Qarib, Al-Jamil, Ash-Shafi, Ar-Rabb, Aṭ-Ṭāhir, Al-Mudabbir, Al-Muḥsin-variant).
 - **Verified**: grep `^\s*body: '(?!.*Source:)` returns zero matches; `npm run build` passes in 1.38s.
 
 ### Deferred
@@ -286,7 +304,7 @@ Every subtask now either cites a direct Quranic ayah and/or Sahih hadith in full
 
 - **MODULE_ATTRS blocks** added for `neighbors` (Al-Wadūd/Al-Muḥsin), `community` (Al-Jāmiʿ/Al-Walī — Al-Walī axis to avoid pillar duplication), `moontrance-land` (Al-Khāliq/Al-Bāriʾ), `moontrance-seasonal` (Al-Mudabbir/Al-Fattāḥ), `moontrance-residency` (Al-Walī/Al-Ḥafīẓ). Asma ul-Husna pairings match `src/data/modules.js:100-128, 496-542`.
 - Each block carries unique `dua` + `closingDua` + 5 readiness rows + 2 reflection rows. Sources: An-Nisāʾ 4:36 / Bukhari 6014–Muslim 2624 (neighbors), Āl ʿImrān 3:103 / Al-Ḥujurāt 49:10 (community), Al-Baqarah 2:30 / Al-Aʿrāf 7:56 (moontrance-land), Al-Anʿām 6:99 / Bukhari 2320 sadaqah-jāriyah hadith (moontrance-seasonal), Al-Ḥashr 59:9 Ansar verse / Ash-Shūrā 42:38 (moontrance-residency). No source duplication with pillar (Al-Hashr 59:10) or pre-existing `collective` block (An-Naml 27:19 / Al-Mulk 67:15).
-- **Scope correction during session**: initial brief listed 6 sub-modules, but `collective` was already authored pre-Phase 1 (legacy block at line 535, Al-Khāliq/Ar-Razzāq — Moontrance umbrella). Scope reduced to 5 new blocks; existing `collective` block left untouched.
+- **Scope correction during session**: initial brief listed 6 sub-modules, but `collective` was already authored pre-Phase 1 (legacy block at line 535, Al-Khāliq/Ar-Razzāq — MTC umbrella). Scope reduced to 5 new blocks; existing `collective` block left untouched.
 - **PAUSE_QUESTIONS.ummah** + **PAUSE_UNIVERSAL.questions.ummah** added — all six `ummah.subModuleIds` inherit via Phase 0's pillar fallback.
 - Pillar-level `ummah` block (Al-Raḥīm/Al-Jāmiʿ, Al-Hashr 59:10 — recovered from Phase 0 people→ummah rename) left untouched.
 - Verification: `npm run build` passes; preview eval of `getModuleData` confirmed all 5 blocks load with distinct attrs/dua/closing sources, 5 readiness rows + 2 reflection rows each; `getPauseQuestion('moontrance-land')` and `getPauseQuestionUniversal('neighbors')` return the new ummah pillar-level fallback correctly.
@@ -472,8 +490,8 @@ Every subtask now either cites a direct Quranic ayah and/or Sahih hadith in full
 - Files created: ChartTooltip.jsx, ChartTooltip.css | Files modified: MoneyDashboard.jsx, Dashboard.jsx, ActivityChart.jsx, PillarLevelDashboard.jsx
 - Wiki: created `wiki/entities/chart-tooltips.md`, updated `wiki/entities/money-dashboard.md`
 
-## [2026-04-15] documentation | Comprehensive System Report — Maqasid OS V2.1
-- Produced a full dual-audience system report covering 11 sections: Executive Summary, Foundational Core Principles (Maqasid Al-Shariah, Covenant Architecture, Amanah Gate, Ceremony Gate, Truth-Safe Design), System Architecture (React 19 + Zustand 5 + Router 7 + Vite 8, 13 stores, CONTEXT.md protocol, knowledge graph), Seven Maqasid Pillars (Faith through Ummah, readiness ayah system, three-tier bento dashboards), Functional Modules (Work/Money/People/Office/CRM/Tech/Islamic/Family Office), BBOS Integration (v2.4 Two-Factory model, 8-stage pipeline, 118 tasks, role access matrix, dynamic scoring, Islamic grounding per stage), Islamic UI Layer (CeremonyGate, ThresholdModal, ReadinessCheck, Prayer system, NiyyahAct, ResumeOverlay), Integration Strategies (Atlas, Ogden Hub, Aladhan/Nominatim APIs, LLM/AI, Claude OS/MWP, wiki, graphify), Intended Use Cases, Benefits to Stakeholders, and Known Limitations
+## [2026-04-15] documentation | Comprehensive System Report — MILOS V2.1
+- Produced a full dual-audience system report covering 11 sections: Executive Summary, Foundational Core Principles (Maqasid Al-Shariah, Covenant Architecture, Amanah Gate, Ceremony Gate, Truth-Safe Design), System Architecture (React 19 + Zustand 5 + Router 7 + Vite 8, 13 stores, CONTEXT.md protocol, knowledge graph), Seven Maqasid Pillars (Faith through Ummah, readiness ayah system, three-tier bento dashboards), Functional Modules (Work/Money/People/Office/CRM/Tech/Islamic/Family Office), BBOS Integration (v2.4 Two-Factory model, 8-stage pipeline, 118 tasks, role access matrix, dynamic scoring, Islamic grounding per stage), Islamic UI Layer (CeremonyGate, ThresholdModal, ReadinessCheck, Prayer system, NiyyahAct, ResumeOverlay), Integration Strategies (OLOS, Ogden Hub, Aladhan/Nominatim APIs, LLM/AI, Claude OS/MWP, wiki, graphify), Intended Use Cases, Benefits to Stakeholders, and Known Limitations
 - Report saved to: `stages/maqasid-os-system-report-2026-04-11.md`
 - Sources used: wiki/entities/maqasid-os.md, wiki/entities/bbos-pipeline.md, wiki/concepts/ (all 4), all src CONTEXT.md files, src/data/bbos/* (4 files), src/data/maqasid.js, package.json
 
@@ -574,22 +592,22 @@ Every subtask now either cites a direct Quranic ayah and/or Sahih hadith in full
 - Verified in preview: card click opens modal, subseg click opens modal for correct task ("Testify there is no God but Allah")
 - Files: PillarLevelPage.jsx
 
-## [2026-04-14] website | Maqasid OS microsite and landing page update
+## [2026-04-14] website | MILOS microsite and landing page update
 - Created `website/maqasid/index.html` — product landing page with hero (59:18), purpose, threshold, solution, seven-pillar grid, CTA
 - Created `website/maqasid/journey/index.html` — journey detail page with spine, now-marker at 18%, 4 phases, 8 milestones (6 done)
-- Updated `website/index.html` — four-product grid, hero text, triptych, Maqasid OS product card with diamond badge
-- Added Maqasid OS nav link across all 10 existing product pages (BBOS, Atlas, Moontrance and their subpages)
-- Added "Full journey →" link to Maqasid OS row on ecosystem journey page
+- Updated `website/index.html` — four-product grid, hero text, triptych, MILOS product card with diamond badge
+- Added MILOS nav link across all 10 existing product pages (BBOS, OLOS, MTC and their subpages)
+- Added "Full journey →" link to MILOS row on ecosystem journey page
 - Pushed to both onaxyzogden/Maqasid and onaxyzogden/ogden-hub
 - Files: website/maqasid/{index,journey/index}.html, website/index.html, 10 nav updates, website/journey/index.html
 
-## [2026-04-14] website | Add Maqasid OS to ecosystem journey page
+## [2026-04-14] website | Add MILOS to ecosystem journey page
 - Fourth product row on `/journey/` — Development (Al-Musawwir) → Completion (Al-Muhsi) → Opening (Al-Fattah) → Ummah (Al-Wasi')
 - Phase 1 at 70%: 6/8 milestones done (seven pillar modules, dashboard, BBOS integration, Islamic UI, audit, pillar viz)
 - CSS: `--mq-*` color vars, `.mq` phase/milestone selectors following existing pattern
 - Header updated: "Four products. Four journeys. One intention."
-- Footer: fourth column with Maqasid OS summary
-- Also synced milestone counts on BBOS (+Operator Practice Companion), Moontrance (+stewardship model, +first founding member), fixed Atlas footer 85→86%, date March→April
+- Footer: fourth column with MILOS summary
+- Also synced milestone counts on BBOS (+Operator Practice Companion), MTC (+stewardship model, +first founding member), fixed OLOS footer 85→86%, date March→April
 - Pushed to both onaxyzogden/Maqasid and onaxyzogden/ogden-hub
 - Files: website/journey/index.html
 
@@ -631,10 +649,10 @@ Every subtask now either cites a direct Quranic ayah and/or Sahih hadith in full
 
 ## [2026-04-14] synthesize | Amanah Gate Protocol — cross-product pattern named via graphify
 - Ran `/graphify website/` — 28 HTML pages converted to Markdown, 161 nodes, 162 edges, 38 communities extracted
-- Graph found `semantically_similar_to` edge (INFERRED 0.72) between Atlas Confidence Framework and BBOS G-Label System — two independent implementations of the same tiered evidential honesty mechanism
-- Traced the pattern: all three products (Atlas, BBOS, Moontrance) implement Amanah as a decision gate, but BBOS is the only one that named it
-- Identified documentation gap: `rationale_land_as_trust` (root homepage) links to Atlas and BBOS but not Moontrance — the most land-relevant product
-- Filed `wiki/decisions/2026-04-14-amanah-gate-protocol.md` — cross-product pattern definition with Moontrance M1/M2/M3 tier proposal
+- Graph found `semantically_similar_to` edge (INFERRED 0.72) between OLOS Confidence Framework and BBOS G-Label System — two independent implementations of the same tiered evidential honesty mechanism
+- Traced the pattern: all three products (OLOS, BBOS, MTC) implement Amanah as a decision gate, but BBOS is the only one that named it
+- Identified documentation gap: `rationale_land_as_trust` (root homepage) links to OLOS and BBOS but not MTC — the most land-relevant product
+- Filed `wiki/decisions/2026-04-14-amanah-gate-protocol.md` — cross-product pattern definition with MTC M1/M2/M3 tier proposal
 - Updated `wiki/concepts/amanah-gate.md` — added Protocol section distinguishing ethical gate (halal check) from evidential gate (input quality)
 - Updated `website/CONTEXT.md` — cross-product architecture notes, documentation gap, graph reference
 - Graph outputs at `website/graphify-out/` (graph.html, GRAPH_REPORT.md, graph.json)
@@ -1096,8 +1114,8 @@ Read-only audit across 8 submodules: Build & Lint, BBOS Pipeline Workflow, Dashb
 
 ### Module icon refresh (lucide-react 0.511 → 1.8)
 - Circulation & Impact: `Gift` → `CircleFadingArrowUp`
-- Moontrance Residency: `Building` → `HousePlus`
-- Moontrance Land: `Mountain` → `MapPinned`
+- MTC Residency: `Building` → `HousePlus`
+- MTC Land: `Mountain` → `MapPinned`
 - Collective: `UsersRound` → `Shapes`
 - Lucide bump required for `HousePlus` / `MapPinned`; Vite dep cache cleared (`rm node_modules/.vite`) to clear stale pre-bundle
 - Icon strings synced across `modules.js`, `Sidebar.jsx` ICON_MAP, `TaskDetailPanel` ICON_MAP, `CeremonyGate`, `ModulePlaceholder`, `WealthCorePage`, `WealthDashboard`, `project-store`
@@ -1135,7 +1153,7 @@ All 6 Ummah submodule pages used legacy `PillarHeader + ViewToggle + OverviewCar
 - Imports all 6 OVERVIEW + MAQASID datasets
 - New "Frameworks" section with collapsible `<details>` per submodule (accent-colored border from `--mod-*` tokens)
 - CSS (`.ummah-framework*`) appended to `UmmahDashboard.css`
-- Label quirk preserved: `collective` id displays "Moontrance", `community` id displays "Collective" — matches existing module-id/label mapping in `modules.js`
+- Label quirk preserved: `collective` id displays "MTC", `community` id displays "Collective" — matches existing module-id/label mapping in `modules.js`
 
 ### Verification
 - `npm run build` passes (2645 modules, 1.28s)

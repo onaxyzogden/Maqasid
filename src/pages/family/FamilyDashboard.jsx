@@ -224,7 +224,7 @@ export default function FamilyDashboard() {
           <h3>Tarbiyah Bridge</h3>
         </div>
         <p className="family-tarbiyah-bridge__desc">
-          The parenting and mentorship track connects to the Moontrance Collective
+          The parenting and mentorship track connects to the MTC Collective
           through tarbiyah &mdash; the holistic cultivation of children within a
           community-supported environment.
         </p>
@@ -239,7 +239,7 @@ export default function FamilyDashboard() {
           </div>
           <div className="family-tarbiyah-bridge__condition">
             <span className="family-tarbiyah-bridge__dot" />
-            <span>Moontrance eco-village tarbiyah track initiated</span>
+            <span>MTC eco-village tarbiyah track initiated</span>
           </div>
         </div>
         <button

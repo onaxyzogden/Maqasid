@@ -9,7 +9,7 @@ sources: 4
 
 # BBOS Pipeline
 
-The Barakah Business Operating System (BBOS) v2.4 is a fully documented 8-stage operational framework built as a Direct-Injection Auto-Sequence for constructing "truth-safe" businesses within an LLM environment. It enforces strict linear progression (Stage 00 through 07), covenantal integrity via [[amanah-gate]], and a Two-Factory architecture at every stage. BBOS is integrated into [[maqasid-os]] as a module with dedicated UI components and has a marketing section at `website/bbos/` on the [[ogden-hub]] site.
+The Barakah Business Operating System (BBOS) v2.4 is a fully documented 8-stage operational framework built as a Direct-Injection Auto-Sequence for constructing "truth-safe" businesses within an LLM environment. It enforces strict linear progression (Stage 00 through 07), covenantal integrity via [[amanah-gate]], and a Two-Factory architecture at every stage. BBOS is integrated into [[milos]] as a module with dedicated UI components and has a marketing section at `website/bbos/` on the [[ogden-hub]] site.
 
 ## Key Facts
 
@@ -19,7 +19,7 @@ The Barakah Business Operating System (BBOS) v2.4 is a fully documented 8-stage 
 - **Core paradigm:** Direct-Injection Auto-Sequence for truth-safe business formation
 - **Source priority:** Stage Canon Index (highest) > Master Operating Protocol
 - **UI components:** BbosFullDashboard (unified stage view), BbosPipelineHeader (progress + sub-stage indicators), BbosTaskPanel (stage tasks), BbosRoleBadge, BbosRolePicker
-- **Integration:** Module within [[maqasid-os]] at `src/components/bbos/`
+- **Integration:** Module within [[milos]] at `src/components/bbos/`
 - **Marketing:** Landing page at `website/bbos/` on [[ogden-hub]]
 - **Governing philosophy:** [[covenant-architecture]]
 
@@ -78,7 +78,7 @@ Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11), with f
 
 ## Connections
 
-- [[maqasid-os]] — Host application; BBOS is a module at `src/components/bbos/`
+- [[milos]] — Host application; BBOS is a module at `src/components/bbos/`
 - [[ogden-hub]] — Marketing landing page at `website/bbos/`
 - [[amanah-gate]] — Ethical screening gate; Amanah Proof Audit at qualification stage
 - [[covenant-architecture]] — Structural philosophy governing the pipeline; truth-safe covenant enforcement

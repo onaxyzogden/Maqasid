@@ -13,8 +13,8 @@ tags: [dependencies, ui, icons, lucide]
 Four module icons were revised for semantic fit:
 
 - Circulation & Impact: `Gift` → `CircleFadingArrowUp`
-- Moontrance Residency: `Building` → `HousePlus`
-- Moontrance Land: `Mountain` → `MapPinned`
+- MTC Residency: `Building` → `HousePlus`
+- MTC Land: `Mountain` → `MapPinned`
 - Collective: `UsersRound` → `Shapes`
 
 `HousePlus` and `MapPinned` are not present in lucide-react 0.511 (the installed version). Options considered: substitute an available icon, or upgrade.
@@ -41,6 +41,6 @@ After upgrade, Vite's pre-bundled dep cache kept serving 0.511 artifacts and thr
 
 ## Related
 
-- [[maqasid-os]]
+- [[milos]]
 - `package.json`, `src/data/modules.js`, `src/components/layout/Sidebar.jsx`, `src/components/work/TaskDetailPanel.jsx`
 - Commit `cd5bd55`

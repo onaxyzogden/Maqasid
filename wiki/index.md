@@ -12,9 +12,9 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Summary |
 |---|---|
-| [[maqasid-os]] | Islamic life operating system — React 19 SPA managing work, money, people across Seven Maqasid |
+| [[milos]] | Islamic life operating system — React 19 SPA managing work, money, people across Seven Maqasid |
 | [[ogden-hub]] | Static marketing/landing site at bismillah.ogden.ag |
-| [[atlas]] | Geospatial land intelligence app — React + TypeScript + MapboxGL + Fastify + PostGIS |
+| [[olos]] | Geospatial land intelligence app — React + TypeScript + MapboxGL + Fastify + PostGIS |
 | [[bbos-pipeline]] | Barakah Business Operating System — 8-stage covenant pipeline for Islamic business |
 | [[graphify]] | Knowledge graph tool — builds persistent graphs from codebases with community detection |
 | [[claude-os]] | Claude OS / Model Workspace Protocol — 3-layer system architecture governing Claude Code across projects |
@@ -35,11 +35,11 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | Page | Date | Summary |
 |---|---|---|
 | [[2026-04-09-merge-ogden-hub-subtree]] | 2026-04-09 | Merged ogden-hub website into monorepo via git subtree at website/ |
-| [[2026-04-09-atlas-as-submodule]] | 2026-04-09 | Linked Atlas as git submodule (too complex for subtree merge) |
+| [[2026-04-09-atlas-as-submodule]] | 2026-04-09 | Linked OLOS as git submodule (too complex for subtree merge) |
 | [[2026-04-09-bootstrap-llm-wiki]] | 2026-04-09 | Bootstrapped LLM Wiki to replace NotebookLM as authoritative context source |
 | [[2026-04-11-dual-contact-stores]] | 2026-04-11 | Accept dual contact stores (contacts_v2 / crm_contacts) isolation until test framework exists |
 | [[2026-04-11-bundle-size-2mb]] | 2026-04-11 | Accept 2 MB monolithic bundle — revisit at 3 MB or multi-user deployment |
-| [[2026-04-14-amanah-gate-protocol]] | 2026-04-14 | Amanah Gate Protocol named as cross-product pattern — tiered evidential honesty in Atlas, BBOS, Moontrance |
+| [[2026-04-14-amanah-gate-protocol]] | 2026-04-14 | Amanah Gate Protocol named as cross-product pattern — tiered evidential honesty in OLOS, BBOS, MTC |
 | [[2026-04-16-threshold-content-phased-fix]] | 2026-04-16 | Phased repair of Threshold popup content — Phase 0 code-path fixes done; Phase 1 Islamic content pillar-by-pillar; Phase 2 universal |
 | [[2026-04-16-ceremony-guard-route-level]] | 2026-04-16 | CeremonyGuard wrapper lifts ceremony gating to the route layer — Phase 1 applied to 28 thin pillar pages; thick pages deferred |
 | [[2026-04-16-hadith-semantic-reranker]] | 2026-04-16 | V3 hadith enrichment — multilingual sentence-transformer embeddings replace lexical scoring; 322 blocks sourced at ~60% strong quality |

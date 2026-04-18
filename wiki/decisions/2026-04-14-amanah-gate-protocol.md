@@ -11,12 +11,12 @@ superseded_by: null
 
 A graphify knowledge graph analysis of the `website/` marketing site (2026-04-14) surfaced a structural pattern operating across all three OGDEN products that was never explicitly named or documented. The graph found a `semantically_similar_to` edge (INFERRED, score 0.72) between:
 
-- `Atlas Confidence Framework (High/Medium/Low)` — rates land data by provenance certainty
+- `OLOS Confidence Framework (High/Medium/Low)` — rates land data by provenance certainty
 - `BBOS G-Label System (Evidential Weight Tiers)` — rates operator claims by evidential weight
 
-Neither product page references the other. The rationale language is nearly verbatim across both ("Honesty about Uncertainty" / "Honesty Architectural Not Aspirational"). A third product, Moontrance, carries the same theological root (`rationale_land_as_trust`, `concept_khilafah`) but has no corresponding mechanism.
+Neither product page references the other. The rationale language is nearly verbatim across both ("Honesty about Uncertainty" / "Honesty Architectural Not Aspirational"). A third product, MTC, carries the same theological root (`rationale_land_as_trust`, `concept_khilafah`) but has no corresponding mechanism.
 
-The `index_concept_amanah` node on the root homepage is the only node in the graph with EXTRACTED edges pointing simultaneously to both Atlas and BBOS — confirming the homepage knowingly frames Amanah as the shared spine. Moontrance is not wired to this node via any extracted edge.
+The `index_concept_amanah` node on the root homepage is the only node in the graph with EXTRACTED edges pointing simultaneously to both OLOS and BBOS — confirming the homepage knowingly frames Amanah as the shared spine. MTC is not wired to this node via any extracted edge.
 
 ## Decision
 
@@ -30,7 +30,7 @@ The pattern name is distinct from the existing `amanah-gate` concept (ethical pe
 
 ## Cross-Product Mapping
 
-| | Atlas | BBOS | Moontrance (proposed) |
+| | OLOS | BBOS | MTC (proposed) |
 |---|---|---|---|
 | **Input** | Land data points | Operator self-declarations | Acquisition channel commitments |
 | **Tier 1** | High — federal API, auto-populated | G1 — documented evidence | M1 — capital committed, irrevocable |
@@ -40,7 +40,7 @@ The pattern name is distinct from the existing `amanah-gate` concept (ethical pe
 | **What it blocks** | Overconfident site recommendations | Pipeline advancement without evidence | Founding member onboarding on unconfirmed channels |
 | **What it protects** | Integrity of land decisions | Barakah — corrupt foundations corrupt the business | Community covenant — enrolling on M3-only channels breaks the founding promise |
 
-## Moontrance Gate Rules
+## MTC Gate Rules
 
 | Action | Minimum channel tier required |
 |---|---|
@@ -54,26 +54,26 @@ The pattern name is distinct from the existing `amanah-gate` concept (ethical pe
 
 The same design commitment appears independently in two products before being named. When a pattern recurs across unconnected contexts with identical rationale language, it is a load-bearing architectural principle — not a coincidence. Naming it:
 
-- Prevents Moontrance from needing to rediscover it a third time
+- Prevents MTC from needing to rediscover it a third time
 - Makes future products (and future contributors) heirs to the pattern rather than inventors of it
 - Creates a testable standard: any new product can be asked "where is your Amanah Gate Protocol?"
 
 ## Documentation Gap Identified
 
-`rationale_land_as_trust` ("Land Is a Trust (Amanah) Not an Investment Vehicle") is on the root homepage and points to both Atlas and the Amanah concept via EXTRACTED edges. It does not point to Moontrance — despite Moontrance being the most directly land-related product. This gap should be closed in the website copy and in this wiki.
+`rationale_land_as_trust` ("Land Is a Trust (Amanah) Not an Investment Vehicle") is on the root homepage and points to both OLOS and the Amanah concept via EXTRACTED edges. It does not point to MTC — despite MTC being the most directly land-related product. This gap should be closed in the website copy and in this wiki.
 
 ## Consequences
 
 - `wiki/concepts/amanah-gate.md` updated to include the tiered evidential honesty application
 - `website/CONTEXT.md` updated with cross-product rationale section
 - Future products must answer: what is your input, what are your tiers, and where is your gate?
-- Moontrance Journey page should display M1/M2/M3 tier indicators per acquisition channel
-- The land-as-Amanah rationale should be explicitly linked to Moontrance in website copy
+- MTC Journey page should display M1/M2/M3 tier indicators per acquisition channel
+- The land-as-Amanah rationale should be explicitly linked to MTC in website copy
 
 ## Connections
 
 - [[amanah-gate]] — existing concept page, extended by this decision
 - [[bbos-pipeline]] — BBOS implements G-Label and Stage 02 gate
-- [[atlas]] — Atlas implements Confidence Framework and site suitability gate
+- [[olos]] — OLOS implements Confidence Framework and site suitability gate
 - [[covenant-architecture]] — governing philosophy
 - [[graphify]] — the tool that surfaced this pattern from the website corpus

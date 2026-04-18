@@ -27,7 +27,7 @@ import '../components/bbos/BbosFullDashboard.css';
 const TOUR_STEPS = [
   { target: 'sidebar-nav', title: 'Your seven domains', description: 'Each pillar of the Maqasid — Faith, Life, Intellect, and more — lives here. Click any to explore.' },
   { target: 'dashboard-main', title: 'Your command center', description: 'Tasks, priorities, and your Barakah score — everything you need at a glance.' },
-  { target: 'onboarding-checklist', title: 'Your getting started guide', description: 'Complete these five steps to unlock the full power of Maqasid OS.' },
+  { target: 'onboarding-checklist', title: 'Your getting started guide', description: 'Complete these five steps to unlock the full power of MILOS.' },
 ];
 
 function BCGChart({ data }) {

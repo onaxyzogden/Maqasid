@@ -179,7 +179,7 @@
   flex-shrink: 0;
 }
 
-/* Atlas Bridge */
+/* OLOS Bridge */
 .ummah-atlas {
   display: flex;
   align-items: center;
@@ -219,7 +219,7 @@
   flex-shrink: 0;
 }
 
-/* Moontrance Frameworks — collapsible overview + maqasid per submodule */
+/* MTC Frameworks — collapsible overview + maqasid per submodule */
 .ummah-frameworks {
   display: flex;
   flex-direction: column;

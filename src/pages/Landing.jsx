@@ -68,18 +68,18 @@ const PILLAR_FEATURES = {
     items: [
       { title: 'Neighbors', desc: 'Neighborly relations, local connections, and mutual aid' },
       { title: 'Community', desc: 'Group initiatives, collective impact, and civic engagement' },
-      { title: 'Moontrance', desc: 'Faith-rooted land destination \u2014 experiences, stewardship, and community' },
+      { title: 'MTC', desc: 'Faith-rooted land destination \u2014 experiences, stewardship, and community' },
     ],
   },
 };
 
 const FAQS = [
-  { q: 'What is Maqasid OS?', a: "Maqasid OS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of the Shari\u2019ah." },
-  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven pillars form the organizing structure of everything in Maqasid OS." },
-  { q: 'Is Maqasid OS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
+  { q: 'What is MILOS?', a: "MILOS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of the Shari\u2019ah." },
+  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven pillars form the organizing structure of everything in MILOS." },
+  { q: 'Is MILOS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
   { q: 'What can I actually track?', a: 'Each pillar has dedicated sub-modules with Kanban boards, task management, and progress tracking. Examples: prayer consistency, health goals, learning plans, family commitments, budgets and expenses, environmental footprint, and community engagement.' },
   { q: 'Is my data private?', a: 'Yes. All data is stored locally on your device. Nothing is sent to external servers. You can export your full dataset as JSON at any time from Settings.' },
-  { q: 'Is it free?', a: 'Yes. Maqasid OS is completely free to use with full access to all seven pillars and every sub-module. No paywalls, no premium tiers.' },
+  { q: 'Is it free?', a: 'Yes. MILOS is completely free to use with full access to all seven pillars and every sub-module. No paywalls, no premium tiers.' },
 ];
 
 const PILLAR_MOCK_TASKS = {

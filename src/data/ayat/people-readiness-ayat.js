@@ -1,5 +1,5 @@
 /**
- * Maqasid OS — People Module Readiness Ayat Matrix
+ * MILOS — People Module Readiness Ayat Matrix
  * Opening Threshold · Pause Protocol Content
  * Attribute pairing: Al-Raḥīm (The Merciful) · Al-Jāmiʿ (The Gatherer)
  * Row distribution: 4 rows Al-Raḥīm (R1–R4) · 2 rows Al-Jāmiʿ (J1–J2)

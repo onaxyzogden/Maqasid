@@ -8484,7 +8484,7 @@ The ultimate test of any stewardship project is whether it survives its founders
     {
       title: 'Build a replicable Islamic land stewardship model that other communities can adopt and adapt',
       priority: 'medium', tags: ['model', 'ummah', 'replication'],
-      description: 'A single regenerative land project is an oasis. A replicable model is a civilisational shift. This task synthesises the entire Moontrance Land experience into an open-source, community-tested framework that any Muslim community in any climate can follow — scaling the khilafah al-ard mandate from one parcel to a global movement.',
+      description: 'A single regenerative land project is an oasis. A replicable model is a civilisational shift. This task synthesises the entire MTC Land experience into an open-source, community-tested framework that any Muslim community in any climate can follow — scaling the khilafah al-ard mandate from one parcel to a global movement.',
       subtasks: [
         { title: 'Conduct a post-implementation review identifying what worked, what failed, and what should be done differently', done: false,
           sources: `**I. Quran**
@@ -8687,7 +8687,7 @@ The Prophet (peace be upon him) said: "When a person dies, his deeds come to an 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Oral knowledge dies with its holder. The founding generation of Moontrance stewards has accumulated years of context-specific wisdom — which beds produce best, when the frost line shifts, how the water table behaves in drought, which amendments work on which soil zones. If this knowledge exists only in their minds, a single retirement, illness, or death creates an irreplaceable loss. A written stewardship manual is the institutional memory of the land — the accumulated intelligence of every season, every experiment, every failure and success, preserved for those who come after.
+Oral knowledge dies with its holder. The founding generation of MTC stewards has accumulated years of context-specific wisdom — which beds produce best, when the frost line shifts, how the water table behaves in drought, which amendments work on which soil zones. If this knowledge exists only in their minds, a single retirement, illness, or death creates an irreplaceable loss. A written stewardship manual is the institutional memory of the land — the accumulated intelligence of every season, every experiment, every failure and success, preserved for those who come after.
 
 
 **How?**
@@ -8796,7 +8796,7 @@ The land itself is the ultimate witness to the quality of stewardship it has rec
     {
       title: 'Establish a four-season calendar aligned with agricultural and Islamic cycles',
       priority: 'urgent', tags: ['calendar', 'seasons', 'planning'],
-      description: 'Map the four Moontrance seasons — Ghars (Spring/Planting), Ri\'ayah (Summer/Tending), Hisab (Autumn/Harvest), and Sukun (Winter/Stillness) — onto the local growing calendar and anchor each with its Islamic spiritual themes. This calendar becomes the master schedule for every programme, event, and resource allocation across the year.',
+      description: 'Map the four MTC seasons — Ghars (Spring/Planting), Ri\'ayah (Summer/Tending), Hisab (Autumn/Harvest), and Sukun (Winter/Stillness) — onto the local growing calendar and anchor each with its Islamic spiritual themes. This calendar becomes the master schedule for every programme, event, and resource allocation across the year.',
       subtasks: [
         { title: 'Research local frost dates, growing zones, and rainfall patterns to define season boundaries', done: false,
           sources: `**I. Quran**
@@ -8816,7 +8816,7 @@ The Prophet (peace be upon him) said: "Do not fast until you see the crescent mo
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The four Moontrance seasons must align with real agricultural conditions, not arbitrary calendar quarters. Planting before the last frost kills seedlings; harvesting too late loses crops to weather. Allah says "It is He who sends down rain from the sky; from it is drink and from it is foliage in which you pasture" (16:10) — timing our work to His provision means studying the patterns He set in the land. Getting the dates right is the foundation everything else builds on.
+The four MTC seasons must align with real agricultural conditions, not arbitrary calendar quarters. Planting before the last frost kills seedlings; harvesting too late loses crops to weather. Allah says "It is He who sends down rain from the sky; from it is drink and from it is foliage in which you pasture" (16:10) — timing our work to His provision means studying the patterns He set in the land. Getting the dates right is the foundation everything else builds on.
 
 
 **How?**
@@ -8850,7 +8850,7 @@ Narrated Ibn \`Abbas:\`Ukaz, Majanna and Dhul-Majaz were markets in the Pre-Isla
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Without spiritual anchoring, a seasonal farm programme is merely agriculture. Moontrance exists to make every act of planting, tending, harvesting, and resting an act of worship. Assigning Quranic ayat and themes to each season transforms routine labour into tafakkur (reflection) — participants see dead earth revived in spring (36:33) and understand it as a sign of resurrection, see the good tree rooted deep (14:24-25) and understand it as iman. The spiritual layer is what distinguishes this from any community garden.
+Without spiritual anchoring, a seasonal farm programme is merely agriculture. MTC exists to make every act of planting, tending, harvesting, and resting an act of worship. Assigning Quranic ayat and themes to each season transforms routine labour into tafakkur (reflection) — participants see dead earth revived in spring (36:33) and understand it as a sign of resurrection, see the good tree rooted deep (14:24-25) and understand it as iman. The spiritual layer is what distinguishes this from any community garden.
 
 
 **How?**
@@ -8880,7 +8880,7 @@ The Prophet (peace be upon him) said: "The prayer in congregation is twenty-seve
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Salah in congregation is the heartbeat of every Moontrance season — it is what makes this a Muslim community programme rather than simply a farm. The Prophet (peace be upon him) said congregational prayer is twenty-seven times superior to individual prayer (Bukhari 645). By anchoring every working day around jama'ah times, participants internalise that the land work serves the prayer, not the other way around. This structure also creates natural gathering points for instruction, reflection, and community bonding.
+Salah in congregation is the heartbeat of every MTC season — it is what makes this a Muslim community programme rather than simply a farm. The Prophet (peace be upon him) said congregational prayer is twenty-seven times superior to individual prayer (Bukhari 645). By anchoring every working day around jama'ah times, participants internalise that the land work serves the prayer, not the other way around. This structure also creates natural gathering points for instruction, reflection, and community bonding.
 
 
 **How?**
@@ -9035,7 +9035,7 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The hadith is explicit: "If a Muslim plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, it is regarded as a charitable gift (sadaqah) for him" (Bukhari 2320). Communal planting days transform agricultural labour into collective worship — every seed placed in the ground with the right intention becomes ongoing charity. These days also build community bonds, teach practical skills, and create shared ownership of the harvest. Without intentional gathering, planting becomes isolated tasks done by a few, missing the communal dimension that defines Moontrance.
+The hadith is explicit: "If a Muslim plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, it is regarded as a charitable gift (sadaqah) for him" (Bukhari 2320). Communal planting days transform agricultural labour into collective worship — every seed placed in the ground with the right intention becomes ongoing charity. These days also build community bonds, teach practical skills, and create shared ownership of the harvest. Without intentional gathering, planting becomes isolated tasks done by a few, missing the communal dimension that defines MTC.
 
 
 **How?**
@@ -9165,7 +9165,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said "Whoever believes in Allah and the Last Day, let him be generous to his guest" (Bukhari 6018). Summer is the peak season for visitors — the land is lush, crops are growing, and community energy is high. A structured hospitality rhythm ensures every visitor is welcomed with excellence, experiences the spiritual dimension of the programme, and leaves with a clear understanding of what Moontrance offers. Unstructured visitor experiences often feel chaotic and fail to convey the programme's depth.
+The Prophet (peace be upon him) said "Whoever believes in Allah and the Last Day, let him be generous to his guest" (Bukhari 6018). Summer is the peak season for visitors — the land is lush, crops are growing, and community energy is high. A structured hospitality rhythm ensures every visitor is welcomed with excellence, experiences the spiritual dimension of the programme, and leaves with a clear understanding of what MTC offers. Unstructured visitor experiences often feel chaotic and fail to convey the programme's depth.
 
 
 **How?**
@@ -9173,7 +9173,7 @@ The Prophet (peace be upon him) said "Whoever believes in Allah and the Last Day
 1. Designate one day per week (or fortnight) as "open visit" day when the site is prepared for guests.
 2. Assign a hospitality coordinator for each open day responsible for welcoming, guiding, and feeding visitors.
 3. Create a standard visitor experience: welcome with salaam and cold water, a guided walk through the growing areas with seasonal commentary, participation in a hands-on task (picking herbs, watering), and a shared meal.
-4. Prepare a simple welcome pack: a one-page overview of Moontrance, the seasonal calendar, and how to get involved.
+4. Prepare a simple welcome pack: a one-page overview of MTC, the seasonal calendar, and how to get involved.
 5. Keep a guest book for visitors to record their reflections — this becomes valuable documentation and feedback.
 6. Follow up with every visitor within one week to invite further participation or answer questions.
 7. Completion indicator: at least three open-visit days hosted with guest book entries and follow-up contacts made.` },
@@ -9352,7 +9352,7 @@ The Prophet (peace be upon him) said: "Seeking knowledge is an obligation upon e
 *(Contextual: a structured winter study circle fulfils this obligation — applying it to land ethics and Islamic ecology grounds the agricultural work in obligatory learning)*`,
           description: `**Why?**
 
-Winter is the season of deep learning — when hands rest from the soil, minds and hearts engage with the knowledge that will shape next year's work. The Quran repeatedly calls humanity to reflect on creation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding" (3:190). Study circles during Sukun connect the practical farming experience to its theological roots, producing participants who understand why they plant, not just how. This depth of understanding is what makes Moontrance transformative rather than transactional.
+Winter is the season of deep learning — when hands rest from the soil, minds and hearts engage with the knowledge that will shape next year's work. The Quran repeatedly calls humanity to reflect on creation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding" (3:190). Study circles during Sukun connect the practical farming experience to its theological roots, producing participants who understand why they plant, not just how. This depth of understanding is what makes MTC transformative rather than transactional.
 
 
 **How?**
@@ -9463,7 +9463,7 @@ Without intentional winter gatherings, the community that formed around shared a
 2. Theme each gathering around gratitude and reflection: share highlights from the year, express appreciation for volunteers, and celebrate what the community accomplished together.
 3. Include practical components: seed catalogue browsing parties (choosing next year's varieties together), preservation tastings (sampling what was canned and dried), and photo slideshows from the seasons.
 4. Create space for newcomers to learn about the programme and express interest in joining — Sukun gatherings are the primary recruitment opportunity for next year.
-5. Maintain the Moontrance communication channels with regular winter updates: planning progress, study circle highlights, and reminders of upcoming gatherings.
+5. Maintain the MTC communication channels with regular winter updates: planning progress, study circle highlights, and reminders of upcoming gatherings.
 6. Close the Sukun season with a formal gathering that previews the next-year plan and invites commitments for Ghars participation.
 7. Completion indicator: at least three winter gatherings hosted with attendance logged and new participant interest collected.` },
       ],
@@ -9548,7 +9548,7 @@ The guest experience is shaped by the people, not just the food. The Prophet (pe
 **How?**
 
 1. Recruit 8-12 community members for the hospitality team, selecting for warmth, reliability, and willingness to serve.
-2. Conduct a training session covering: greeting guests with salaam and a smile, guiding them through the site, explaining the Moontrance programme, serving food with Islamic etiquette (right hand, bismillah), and ensuring no guest leaves without being thanked.
+2. Conduct a training session covering: greeting guests with salaam and a smile, guiding them through the site, explaining the MTC programme, serving food with Islamic etiquette (right hand, bismillah), and ensuring no guest leaves without being thanked.
 3. Assign roles for each event: greeter, guide, kitchen lead, servers, clean-up crew, and a floater who handles unexpected needs.
 4. Practice with a mock iftar — role-play guest arrival, meal service, and departure to identify gaps.
 5. Create a hospitality checklist for each role so team members have a reference on the day.
@@ -9573,7 +9573,7 @@ Without a farm tour, guests eat a nice meal but miss the transformative connecti
 3. Train 3-4 tour guides from the hospitality team, ensuring they can answer basic questions about crops, seasons, and the programme.
 4. Time the tour to end at the iftar gathering area just before adhan al-Maghrib, so the meal follows naturally from the experience.
 5. Include a hands-on element: guests pick a herb or vegetable during the tour that will appear in their meal.
-6. Provide a take-home card summarising the Moontrance seasons and how to get involved.
+6. Provide a take-home card summarising the MTC seasons and how to get involved.
 7. Completion indicator: guided tour route designed, guides trained, and at least two tours delivered with guest feedback collected.` },
         { title: 'Measure hospitality programme impact and gather testimonials', done: false,
           sources: `**I. Quran**
@@ -9664,7 +9664,7 @@ The children's programme depends on dedicated adults who can facilitate learning
 
 **How?**
 
-1. Issue a call for parent-volunteers through the Moontrance community channels, emphasising that no farming expertise is needed — willingness and reliability are the requirements.
+1. Issue a call for parent-volunteers through the MTC community channels, emphasising that no farming expertise is needed — willingness and reliability are the requirements.
 2. Conduct a half-day training covering: the seasonal tarbiyah framework, age-group characteristics, safety protocols, Islamic values integration (how to connect each activity to a Quranic ayah or hadith), and basic facilitation skills.
 3. Pair each new facilitator with an experienced one for their first two sessions — mentorship builds confidence.
 4. Create a simple facilitator handbook with the seasonal curriculum, activity guides, safety checklist, and emergency procedures.
@@ -9783,7 +9783,7 @@ Seed-saving done poorly produces weak, diseased, or untrue-to-type seeds that fa
 5. Teach proper drying, testing (viability/germination tests), and storage methods with practical demonstrations.
 6. Provide each participant with a seed-saving reference card they can take home and use independently.
 7. Completion indicator: at least 3 workshops delivered covering all major crop categories, with participants successfully saving seeds independently.` },
-        { title: 'Create a seed swap network connecting Moontrance with other community gardens and farms', done: false,
+        { title: 'Create a seed swap network connecting MTC with other community gardens and farms', done: false,
           sources: `**I. Quran**
 
 ### Quran (6:141)
@@ -9807,7 +9807,7 @@ No single garden can maintain the full diversity of varieties a region needs. A 
 **How?**
 
 1. Identify other community gardens, Muslim farms, and urban agriculture projects within a reasonable distance (or connected digitally).
-2. Reach out to introduce the Moontrance seed-saving programme and propose mutual seed exchanges.
+2. Reach out to introduce the MTC seed-saving programme and propose mutual seed exchanges.
 3. Organise an annual seed swap event — either in person at a seasonal gathering or by mail for distant partners — where each participant brings labelled seed packets to share.
 4. Establish a shared catalogue of what each partner grows and saves, so needs and offerings can be matched efficiently.
 5. Create protocols for seed quality: only share seeds that have been properly processed, dried, tested for germination, and accurately labelled.
@@ -9839,7 +9839,7 @@ A well-documented seed-saving programme becomes a gift to the entire ummah — o
     {
       title: 'Formalise the community shura assessment process for continuous seasonal improvement',
       priority: 'urgent', tags: ['shura', 'assessment', 'governance', 'feedback'],
-      description: 'Develop a structured shura (consultation) process that goes beyond the annual autumn assessment to create ongoing feedback loops, transparent governance, and community-driven decision making. This process ensures the Moontrance programme is truly governed by its participants, not merely administered to them, fulfilling the Quranic mandate of "amruhum shura baynahum" (42:38).',
+      description: 'Develop a structured shura (consultation) process that goes beyond the annual autumn assessment to create ongoing feedback loops, transparent governance, and community-driven decision making. This process ensures the MTC programme is truly governed by its participants, not merely administered to them, fulfilling the Quranic mandate of "amruhum shura baynahum" (42:38).',
       subtasks: [
         { title: 'Design a multi-level shura structure with seasonal and ongoing consultation', done: false,
           sources: `**I. Quran**
@@ -9984,7 +9984,7 @@ A shura process that never examines itself risks becoming performative — going
     {
       title: 'Build a seasonal volunteer coordination system with clear pathways and recognition',
       priority: 'urgent', tags: ['volunteers', 'coordination', 'onboarding', 'recognition'],
-      description: 'Create a structured volunteer management system that recruits, onboards, schedules, supports, and recognises volunteers across all four seasons. Volunteers are the lifeblood of Moontrance — without them, no seed gets planted and no guest gets fed. A well-designed system treats volunteers as valued community members with their own growth journey, not as disposable labour.',
+      description: 'Create a structured volunteer management system that recruits, onboards, schedules, supports, and recognises volunteers across all four seasons. Volunteers are the lifeblood of MTC — without them, no seed gets planted and no guest gets fed. A well-designed system treats volunteers as valued community members with their own growth journey, not as disposable labour.',
       subtasks: [
         { title: 'Design a volunteer onboarding process that communicates vision and expectations', done: false,
           sources: `**I. Hadith**
@@ -9995,12 +9995,12 @@ The Prophet (peace be upon him) said: "Allah, His angels, and the inhabitants of
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Volunteers who arrive without understanding the programme's Islamic vision and practical expectations either disengage quickly or cause friction with established participants. Proper onboarding transforms a stranger into a community member by communicating what Moontrance is (a faith-rooted seasonal programme), what it expects (consistency, Islamic etiquette, teamwork), and what it offers (skill development, spiritual growth, community belonging). The Prophet (peace be upon him) said "Make things easy and do not make them difficult, give glad tidings and do not drive people away" (Bukhari 69) — onboarding should welcome and inspire, not overwhelm.
+Volunteers who arrive without understanding the programme's Islamic vision and practical expectations either disengage quickly or cause friction with established participants. Proper onboarding transforms a stranger into a community member by communicating what MTC is (a faith-rooted seasonal programme), what it expects (consistency, Islamic etiquette, teamwork), and what it offers (skill development, spiritual growth, community belonging). The Prophet (peace be upon him) said "Make things easy and do not make them difficult, give glad tidings and do not drive people away" (Bukhari 69) — onboarding should welcome and inspire, not overwhelm.
 
 
 **How?**
 
-1. Create a volunteer welcome packet covering: Moontrance mission and values, the four-season framework, site map and safety information, daily schedule including salah times, expected conduct (adab), and a FAQ.
+1. Create a volunteer welcome packet covering: MTC mission and values, the four-season framework, site map and safety information, daily schedule including salah times, expected conduct (adab), and a FAQ.
 2. Design a 2-hour onboarding session that includes: a site tour, introduction to current season activities, hands-on participation in a simple task, and a shared meal or chai.
 3. Pair every new volunteer with a "buddy" — an experienced participant who answers questions and provides support for the first month.
 4. Collect a simple volunteer registration form: contact details, available days, skills or interests, and any needs (accessibility, language, childcare).
@@ -10109,7 +10109,7 @@ High volunteer turnover is expensive in time, training, and community cohesion. 
     {
       title: 'Package the full four-season model as a replicable framework for other communities',
       priority: 'urgent', tags: ['replication', 'framework', 'documentation', 'scaling'],
-      description: 'Transform the Moontrance four-season model from a single-site operation into a documented, tested, and shareable framework that any Muslim community can adapt to their local conditions. This is the highest expression of sadaqah jariyah through agricultural knowledge — a system that multiplies itself across the ummah.',
+      description: 'Transform the MTC four-season model from a single-site operation into a documented, tested, and shareable framework that any Muslim community can adapt to their local conditions. This is the highest expression of sadaqah jariyah through agricultural knowledge — a system that multiplies itself across the ummah.',
       subtasks: [
         { title: 'Audit the current model to identify what is universal and what is site-specific', done: false,
           sources: `**I. Quran**
@@ -10120,19 +10120,19 @@ High volunteer turnover is expensive in time, training, and community cohesion. 
 **Translation:** And cooperate in righteousness and piety, but do not cooperate in sin and aggression. Auditing the model for replicability enables wider cooperation in goodness.`,
           description: `**Why?**
 
-A replicable model must distinguish between principles (universal) and practices (site-specific). The four-season spiritual framework applies everywhere, but planting dates, crop varieties, and gathering sizes vary by location. Without this audit, communities that adopt the model will struggle with inapplicable specifics or, worse, skip the spiritual foundations that make Moontrance distinct. The Quran describes universal signs in creation (6:99) while acknowledging that "every land has its own produce" — the framework must honour both dimensions.
+A replicable model must distinguish between principles (universal) and practices (site-specific). The four-season spiritual framework applies everywhere, but planting dates, crop varieties, and gathering sizes vary by location. Without this audit, communities that adopt the model will struggle with inapplicable specifics or, worse, skip the spiritual foundations that make MTC distinct. The Quran describes universal signs in creation (6:99) while acknowledging that "every land has its own produce" — the framework must honour both dimensions.
 
 
 **How?**
 
-1. List every component of the current Moontrance model: seasonal calendar, spiritual themes, crop plan, daily salah structure, hospitality programme, tarbiyah curriculum, seed library, shura process, and volunteer system.
+1. List every component of the current MTC model: seasonal calendar, spiritual themes, crop plan, daily salah structure, hospitality programme, tarbiyah curriculum, seed library, shura process, and volunteer system.
 2. Classify each component as: (a) universal principle — applies anywhere (e.g., "anchor every season with congregational salah"), (b) adaptable template — structure is transferable but content changes (e.g., "crop plan matched to local growing zone"), or (c) site-specific detail — unique to this location (e.g., "irrigation from the east well").
 3. For adaptable templates, identify which variables need local customisation and provide guidance on how to determine them.
 4. For site-specific details, note them as examples rather than prescriptions.
 5. Validate the classification by asking: "Could a community in a different climate, with different demographics, implement this component with the guidance provided?"
 6. Revise any component where the answer is no, adding the flexibility or guidance needed.
 7. Completion indicator: a complete component audit with universal/adaptable/site-specific classifications and customisation guidance for all adaptable templates.` },
-        { title: 'Write the Moontrance Seasonal Framework Guide for external audiences', done: false,
+        { title: 'Write the MTC Seasonal Framework Guide for external audiences', done: false,
           sources: `**I. Hadith**
 
 
@@ -10141,14 +10141,14 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The framework guide is the primary vehicle for sharing the Moontrance model. It must be comprehensive enough to enable implementation without hand-holding, yet accessible enough that a community leader with no farming experience can begin. The Prophet (peace be upon him) said "Convey from me, even if it is one ayah" (Bukhari 3461) — the guide conveys the ayat of the earth and the sunnah of stewardship in a form that empowers action. A poorly written guide wastes the community's accumulated wisdom; an excellent one multiplies it.
+The framework guide is the primary vehicle for sharing the MTC model. It must be comprehensive enough to enable implementation without hand-holding, yet accessible enough that a community leader with no farming experience can begin. The Prophet (peace be upon him) said "Convey from me, even if it is one ayah" (Bukhari 3461) — the guide conveys the ayat of the earth and the sunnah of stewardship in a form that empowers action. A poorly written guide wastes the community's accumulated wisdom; an excellent one multiplies it.
 
 
 **How?**
 
-1. Structure the guide in logical sections: Vision and Values (why Moontrance exists), The Four Seasons (spiritual and agricultural framework), Getting Started (site assessment, community mobilisation, first-season planning), Season-by-Season Operations (Ghars, Ri'ayah, Hisab, Sukun), Community Programmes (hospitality, tarbiyah, seed heritage, shura), and Sustainability (volunteers, finances, measurement).
+1. Structure the guide in logical sections: Vision and Values (why MTC exists), The Four Seasons (spiritual and agricultural framework), Getting Started (site assessment, community mobilisation, first-season planning), Season-by-Season Operations (Ghars, Ri'ayah, Hisab, Sukun), Community Programmes (hospitality, tarbiyah, seed heritage, shura), and Sustainability (volunteers, finances, measurement).
 2. Write each section with a consistent format: Islamic foundation (ayat, hadith, principle), practical guidance (step-by-step), templates and tools (forms, checklists, calendars), and local adaptation notes.
-3. Include real examples from the Moontrance site — not as prescriptions but as illustrations of the framework in action.
+3. Include real examples from the MTC site — not as prescriptions but as illustrations of the framework in action.
 4. Add a "Quick Start" section for communities who want to begin with one season (Ghars) and expand gradually.
 5. Have the guide reviewed by at least 3 external readers: an Islamic educator, an experienced farmer, and a community organiser.
 6. Design the guide for both print and digital distribution with clear layout, section navigation, and printable templates.
@@ -10178,7 +10178,7 @@ A framework is only proven replicable when someone else successfully replicates 
 
 1. Identify 2-3 potential pilot communities through existing networks: Islamic centres with land access, Muslim community gardens, or faith-based agricultural initiatives.
 2. Share the framework guide with pilot community leaders and conduct an introductory workshop (in person or virtual) walking through the model.
-3. Assign a Moontrance mentor to each pilot community for their first season — someone available for monthly calls and responsive to questions.
+3. Assign a MTC mentor to each pilot community for their first season — someone available for monthly calls and responsive to questions.
 4. Ask pilots to document their adaptation process: what they changed, what challenges arose, what worked immediately, and what the guide failed to address.
 5. Visit each pilot site at least once during their first season (or conduct a thorough virtual walkthrough) to observe and advise.
 6. Collect systematic feedback at the end of the pilot season: a structured debrief covering every section of the framework guide.
@@ -10204,25 +10204,25 @@ A printed guide is a starting point, but communities need ongoing access to temp
 5. Maintain a "Success Stories" section featuring pilot communities and their adaptations.
 6. Assign a content maintainer who updates resources based on feedback, adds new materials as the framework evolves, and moderates community discussions.
 7. Completion indicator: digital hub live with core framework materials, at least 5 downloadable templates, 3 video tutorials, and an active community channel.` },
-        { title: 'Establish quality standards for communities using the Moontrance Seasonal name', done: false,
+        { title: 'Establish quality standards for communities using the MTC Seasonal name', done: false,
           sources: `**I. Quran**
 
 
 ### Quran (17:36)
 **Arabic:** وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ  
-**Translation:** And do not pursue that of which you have no knowledge. Establishing quality standards ensures communities using the Moontrance name do so with verified knowledge and integrity.`,
+**Translation:** And do not pursue that of which you have no knowledge. Establishing quality standards ensures communities using the MTC name do so with verified knowledge and integrity.`,
           description: `**Why?**
 
-As the framework spreads, quality control becomes essential. A community that uses the Moontrance name but strips out the Islamic spiritual framework, neglects food safety, or mistreats volunteers damages the reputation of every community in the network. Quality standards protect both the brand and the mission — they ensure that "Moontrance Seasonal" consistently means a faith-rooted, well-managed, community-serving programme. This is not gatekeeping but guardianship (ri'ayah) of a shared trust.
+As the framework spreads, quality control becomes essential. A community that uses the MTC name but strips out the Islamic spiritual framework, neglects food safety, or mistreats volunteers damages the reputation of every community in the network. Quality standards protect both the brand and the mission — they ensure that "MTC Seasonal" consistently means a faith-rooted, well-managed, community-serving programme. This is not gatekeeping but guardianship (ri'ayah) of a shared trust.
 
 
 **How?**
 
-1. Define non-negotiable standards that every Moontrance Seasonal programme must meet: (a) daily congregational salah anchors every season, (b) Quranic and Prophetic themes are integrated into all programming, (c) shura process is active and documented, (d) food safety protocols are followed, and (e) volunteers are onboarded and recognised.
+1. Define non-negotiable standards that every MTC Seasonal programme must meet: (a) daily congregational salah anchors every season, (b) Quranic and Prophetic themes are integrated into all programming, (c) shura process is active and documented, (d) food safety protocols are followed, and (e) volunteers are onboarded and recognised.
 2. Define recommended practices that are strongly encouraged but adaptable: hospitality programme, children's tarbiyah, seed library, and formal volunteer pathways.
 3. Create a simple self-assessment checklist that communities can use annually to evaluate their adherence to standards.
 4. Establish a peer review process: communities in the network visit or virtually review each other annually, offering constructive feedback.
-5. Design a recognition system: communities meeting all non-negotiable standards receive a "Moontrance Seasonal Certified" designation.
+5. Design a recognition system: communities meeting all non-negotiable standards receive a "MTC Seasonal Certified" designation.
 6. Handle non-compliance with compassion and support — the goal is to help communities meet standards, not to exclude them.
 7. Completion indicator: quality standards document published, self-assessment checklist created, and peer review process piloted with at least 2 communities.` },
       ],
@@ -10230,7 +10230,7 @@ As the framework spreads, quality control becomes essential. A community that us
     {
       title: 'Design a year-round engagement pathway from first-time visitor to resident steward',
       priority: 'urgent', tags: ['engagement', 'pathway', 'visitor', 'resident', 'retention'],
-      description: 'Create a structured journey that guides individuals from their first encounter with Moontrance through deepening levels of involvement until they become resident stewards who carry the programme forward. This pathway ensures the community grows not just in numbers but in depth of commitment, skill, and spiritual connection to the land.',
+      description: 'Create a structured journey that guides individuals from their first encounter with MTC through deepening levels of involvement until they become resident stewards who carry the programme forward. This pathway ensures the community grows not just in numbers but in depth of commitment, skill, and spiritual connection to the land.',
       subtasks: [
         { title: 'Map the engagement stages from visitor to resident steward', done: false,
           sources: `**I. Quran**
@@ -10246,7 +10246,7 @@ Without a mapped pathway, engagement is random — some visitors return, most do
 
 **How?**
 
-1. Define 5 engagement stages: (a) Visitor — attends one event or tour, (b) Participant — joins seasonal activities regularly, (c) Volunteer — commits to regular shifts and training, (d) Leader — takes responsibility for a programme area, and (e) Resident Steward — lives the Moontrance mission year-round, mentors others, and shapes programme direction.
+1. Define 5 engagement stages: (a) Visitor — attends one event or tour, (b) Participant — joins seasonal activities regularly, (c) Volunteer — commits to regular shifts and training, (d) Leader — takes responsibility for a programme area, and (e) Resident Steward — lives the MTC mission year-round, mentors others, and shapes programme direction.
 2. For each stage, define: what the person does (activities and commitments), what they receive (skills, community, spiritual growth), and what signals readiness for the next stage.
 3. Create a visual pathway map that participants can see and aspire to — display it at the site and in the welcome packet.
 4. Design transition points between stages: a conversation with a leader, a seasonal review, or a formal invitation.
@@ -10292,7 +10292,7 @@ The Prophet (peace be upon him) said: "Whoever follows a path in pursuit of know
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Mentorship is the most effective accelerator of personal and spiritual growth. The Prophetic model was fundamentally mentorship-based — the companions learned by being in the presence of the Prophet (peace be upon him), watching, asking, and practising. At Moontrance, pairing experienced stewards with newer participants creates personal relationships that transmit not just skills but values, etiquette, and the intangible culture of the programme. People join programmes for the mission but stay for the relationships.
+Mentorship is the most effective accelerator of personal and spiritual growth. The Prophetic model was fundamentally mentorship-based — the companions learned by being in the presence of the Prophet (peace be upon him), watching, asking, and practising. At MTC, pairing experienced stewards with newer participants creates personal relationships that transmit not just skills but values, etiquette, and the intangible culture of the programme. People join programmes for the mission but stay for the relationships.
 
 
 **How?**
@@ -10322,7 +10322,7 @@ The Prophet (peace be upon him) said: "When a person dies, his deeds come to an 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Resident Stewards are the backbone of Moontrance — they carry institutional knowledge, maintain relationships across seasons, and ensure continuity when seasonal participants cycle in and out. Without a formal programme, the most committed people burn out from undefined expectations or drift away when their contribution is taken for granted. A structured Resident Steward programme honours their commitment with clear responsibilities, meaningful benefits, and genuine authority in programme governance.
+Resident Stewards are the backbone of MTC — they carry institutional knowledge, maintain relationships across seasons, and ensure continuity when seasonal participants cycle in and out. Without a formal programme, the most committed people burn out from undefined expectations or drift away when their contribution is taken for granted. A structured Resident Steward programme honours their commitment with clear responsibilities, meaningful benefits, and genuine authority in programme governance.
 
 
 **How?**
@@ -10360,7 +10360,7 @@ An engagement pathway on paper is meaningless if people are not actually progres
     {
       title: 'Develop national-level faith-designed seasonal experiences that attract wide participation',
       priority: 'urgent', tags: ['national', 'events', 'faith-designed', 'scaling'],
-      description: 'Create signature seasonal experiences of such quality and spiritual depth that they attract participants from beyond the local community, establishing Moontrance as a national model for faith-rooted agricultural engagement. These experiences are not merely scaled-up local events but carefully designed encounters that demonstrate what is possible when Islamic values and land stewardship are fully integrated.',
+      description: 'Create signature seasonal experiences of such quality and spiritual depth that they attract participants from beyond the local community, establishing MTC as a national model for faith-rooted agricultural engagement. These experiences are not merely scaled-up local events but carefully designed encounters that demonstrate what is possible when Islamic values and land stewardship are fully integrated.',
       subtasks: [
         { title: 'Design a signature spring planting retreat that draws regional participation', done: false,
           sources: `**I. Quran**
@@ -10371,7 +10371,7 @@ An engagement pathway on paper is meaningless if people are not actually progres
 **Translation:** And proclaim to the people the Hajj; they will come to you on foot and on every lean camel from every distant pass, that they may witness benefits for themselves. A planting retreat that draws regional participation echoes this gathering spirit.`,
           description: `**Why?**
 
-A signature event establishes Moontrance's identity and draws attention from beyond the local community. A spring planting retreat — combining hands-in-soil work with Islamic learning, communal worship, and fellowship — offers something unavailable in conventional agriculture or conventional Islamic programming. It demonstrates the integrated vision in a concentrated, immersive format. The Prophet (peace be upon him) made the annual Hajj a gathering point for the ummah; seasonal retreats can serve a similar unifying function at a regional scale.
+A signature event establishes MTC's identity and draws attention from beyond the local community. A spring planting retreat — combining hands-in-soil work with Islamic learning, communal worship, and fellowship — offers something unavailable in conventional agriculture or conventional Islamic programming. It demonstrates the integrated vision in a concentrated, immersive format. The Prophet (peace be upon him) made the annual Hajj a gathering point for the ummah; seasonal retreats can serve a similar unifying function at a regional scale.
 
 
 **How?**
@@ -10392,7 +10392,7 @@ A signature event establishes Moontrance's identity and draws attention from bey
 **Translation:** Eat of its fruit when it yields and give its [due] right on the day of its harvest. An autumn harvest festival showcases this complete cycle from planting to giving.`,
           description: `**Why?**
 
-The autumn harvest is the most visually compelling and emotionally satisfying moment of the agricultural year — tables overflowing with produce, seed packets neatly labelled, preserved jars gleaming, and a community gathered in gratitude. A harvest festival open to the public is the single best demonstration of what Moontrance achieves. Visitors who see the full cycle's results — from seed to table to seed again — understand in one afternoon what no brochure can convey. This is da'wah through demonstration, the most powerful kind.
+The autumn harvest is the most visually compelling and emotionally satisfying moment of the agricultural year — tables overflowing with produce, seed packets neatly labelled, preserved jars gleaming, and a community gathered in gratitude. A harvest festival open to the public is the single best demonstration of what MTC achieves. Visitors who see the full cycle's results — from seed to table to seed again — understand in one afternoon what no brochure can convey. This is da'wah through demonstration, the most powerful kind.
 
 
 **How?**
@@ -10422,13 +10422,13 @@ The Prophet (peace be upon him) said: "Whoever treads a path seeking knowledge, 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Winter is the intellectual season, and a knowledge symposium positions Moontrance as a thought leader in the intersection of Islamic values and ecological practice. This event gathers scholars, farmers, activists, and community builders to share research, experiences, and vision. It fills a gap in both the Islamic and agricultural landscapes: Muslim environmental thought exists in academic circles but rarely reaches practitioners, and sustainable agriculture conferences rarely centre faith. The symposium bridges these worlds.
+Winter is the intellectual season, and a knowledge symposium positions MTC as a thought leader in the intersection of Islamic values and ecological practice. This event gathers scholars, farmers, activists, and community builders to share research, experiences, and vision. It fills a gap in both the Islamic and agricultural landscapes: Muslim environmental thought exists in academic circles but rarely reaches practitioners, and sustainable agriculture conferences rarely centre faith. The symposium bridges these worlds.
 
 
 **How?**
 
 1. Define the symposium theme: "Faith, Food, and Future: Islamic Perspectives on Sustainable Land Stewardship."
-2. Invite 5-7 speakers from diverse backgrounds: Islamic scholars with ecological knowledge, Muslim farmers and permaculturists, food justice advocates, and Moontrance programme leaders.
+2. Invite 5-7 speakers from diverse backgrounds: Islamic scholars with ecological knowledge, Muslim farmers and permaculturists, food justice advocates, and MTC programme leaders.
 3. Design a format that mixes formal presentations (20 minutes each) with panel discussions, breakout workshops, and a closing collective du'a and action planning session.
 4. Select a venue that accommodates 80-120 attendees with proper audio-visual equipment, prayer space, and catering.
 5. Offer the symposium in hybrid format (in-person and livestreamed) to reach a national audience.
@@ -10443,19 +10443,19 @@ Winter is the intellectual season, and a knowledge symposium positions Moontranc
 **Translation:** And cooperate in righteousness and piety. Building partnerships with national organisations is institutional cooperation in goodness.`,
           description: `**Why?**
 
-National-level impact requires national-level partnerships. Moontrance operating alone can achieve local excellence; Moontrance partnering with ISNA, ICNA, national Muslim farming networks, and agricultural extension services can achieve systemic change. Partnerships provide access to larger audiences, funding opportunities, shared resources, and institutional credibility. The Quran commands "cooperate in righteousness and piety" (5:2) — strategic partnerships are the organisational expression of this cooperation.
+National-level impact requires national-level partnerships. MTC operating alone can achieve local excellence; MTC partnering with ISNA, ICNA, national Muslim farming networks, and agricultural extension services can achieve systemic change. Partnerships provide access to larger audiences, funding opportunities, shared resources, and institutional credibility. The Quran commands "cooperate in righteousness and piety" (5:2) — strategic partnerships are the organisational expression of this cooperation.
 
 
 **How?**
 
 1. Identify target partners in three categories: national Islamic organisations (ISNA, ICNA, MAS, local council of imams), agricultural organisations (Sustainable Agriculture Research and Education, local extension services, farming cooperatives), and allied movements (food justice organisations, interfaith environmental coalitions, community land trusts).
-2. Research each potential partner's mission, programmes, and contact points to identify alignment with Moontrance values.
-3. Prepare a partnership proposal packet: Moontrance overview, framework guide summary, impact data, and specific partnership opportunities (co-hosting events, co-branding educational materials, cross-promotion, resource sharing).
+2. Research each potential partner's mission, programmes, and contact points to identify alignment with MTC values.
+3. Prepare a partnership proposal packet: MTC overview, framework guide summary, impact data, and specific partnership opportunities (co-hosting events, co-branding educational materials, cross-promotion, resource sharing).
 4. Initiate contact through personal connections where possible — warm introductions convert far better than cold emails.
 5. Start with low-commitment collaborations (cross-promotion, speaker exchange) and build toward deeper partnership (co-hosted events, shared programmes) as trust develops.
 6. Formalise successful partnerships with a simple MOU (memorandum of understanding) outlining mutual expectations and benefits.
 7. Completion indicator: partnership proposals sent to at least 5 organisations, at least 2 partnerships formalised with MOUs, and at least 1 joint activity completed.` },
-        { title: 'Create a media and storytelling strategy that elevates Moontrance nationally', done: false,
+        { title: 'Create a media and storytelling strategy that elevates MTC nationally', done: false,
           sources: `**I. Quran**
 
 
@@ -10464,12 +10464,12 @@ National-level impact requires national-level partnerships. Moontrance operating
 **Translation:** Have you not considered how Allah presents an example — a good word like a good tree, whose root is firmly fixed and whose branches [high] in the sky? It produces its fruit all the time, by permission of its Lord. A media strategy elevates the good word nationally.`,
           description: `**Why?**
 
-The best programme in the world cannot scale if no one knows about it. A media and storytelling strategy ensures that the Moontrance story — Muslim communities reviving the earth through faith-rooted seasonal stewardship — reaches the audiences who need to hear it: potential participants, funders, partners, media, and the broader Muslim community. Storytelling is how the ummah has always transmitted knowledge and inspiration; the medium changes (from oral tradition to digital media) but the principle endures.
+The best programme in the world cannot scale if no one knows about it. A media and storytelling strategy ensures that the MTC story — Muslim communities reviving the earth through faith-rooted seasonal stewardship — reaches the audiences who need to hear it: potential participants, funders, partners, media, and the broader Muslim community. Storytelling is how the ummah has always transmitted knowledge and inspiration; the medium changes (from oral tradition to digital media) but the principle endures.
 
 
 **How?**
 
-1. Define the core narrative: "Moontrance Seasonal reconnects Muslim communities to the earth through a four-season pathway of planting, tending, harvesting, and reflecting — rooted in Quran and Sunnah, producing food, knowledge, and community."
+1. Define the core narrative: "MTC Seasonal reconnects Muslim communities to the earth through a four-season pathway of planting, tending, harvesting, and reflecting — rooted in Quran and Sunnah, producing food, knowledge, and community."
 2. Create a content calendar aligned with the four seasons: spring planting stories, summer growth updates, autumn harvest celebrations, winter reflection pieces.
 3. Produce high-quality visual content: professional photographs of each season's activities, short video documentaries (3-5 minutes each) following participants through a full cycle, and designed infographics explaining the model.
 4. Distribute through multiple channels: social media (Instagram and YouTube for visual content, Twitter/X for thought leadership), Muslim media outlets (press releases for events), agricultural publications (framework articles), and the programme's own newsletter.
@@ -10479,9 +10479,9 @@ The best programme in the world cannot scale if no one knows about it. A media a
       ],
     },
     {
-      title: 'Build a surplus food distribution network that channels Moontrance harvests to those in need',
+      title: 'Build a surplus food distribution network that channels MTC harvests to those in need',
       priority: 'urgent', tags: ['distribution', 'food-security', 'surplus', 'sadaqah'],
-      description: 'Create a systematic distribution network that ensures surplus harvest from Moontrance and affiliated programmes reaches families experiencing food insecurity, fulfilling the Quranic command to "give its due on the day of its harvest" (6:141). This network transforms excess into provision, waste into worship, and local production into community food security.',
+      description: 'Create a systematic distribution network that ensures surplus harvest from MTC and affiliated programmes reaches families experiencing food insecurity, fulfilling the Quranic command to "give its due on the day of its harvest" (6:141). This network transforms excess into provision, waste into worship, and local production into community food security.',
       subtasks: [
         { title: 'Map local food insecurity and identify distribution partners', done: false,
           sources: `**I. Quran**
@@ -10500,9 +10500,9 @@ Surplus food without a distribution plan either rots or reaches people who do no
 1. Research local food insecurity data: food bank usage statistics, school free lunch programme rates, and neighbourhood-level food access mapping.
 2. Identify existing organisations serving food-insecure populations: food banks, soup kitchens, refugee resettlement agencies, Islamic relief organisations, and community pantries.
 3. Visit potential distribution partners to understand their needs: what types of produce do they most need? What quantities can they handle? What delivery logistics work for them?
-4. Map the gap between what Moontrance can produce and what partners can distribute — identify whether additional sourcing partnerships are needed.
+4. Map the gap between what MTC can produce and what partners can distribute — identify whether additional sourcing partnerships are needed.
 5. Assess halal food accessibility in the community: are Muslim families being served by existing food security programmes, or do they face additional barriers?
-6. Prioritise distribution partners based on need, alignment with Moontrance values, and logistical feasibility.
+6. Prioritise distribution partners based on need, alignment with MTC values, and logistical feasibility.
 7. Completion indicator: a local food insecurity map created, at least 3 distribution partners identified and visited, and a needs assessment documented for each.` },
         { title: 'Design harvest allocation and logistics protocols for surplus distribution', done: false,
           sources: `**I. Quran**
@@ -10534,13 +10534,13 @@ The Prophet (peace be upon him) said: "The parable of the believers in their aff
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Local distribution is impactful but limited. Partnering with Islamic food relief organisations — who have established logistics, volunteer networks, and recipient databases — multiplies Moontrance's reach. These partnerships also connect Moontrance to the broader Islamic food security movement, creating mutual benefit: relief organisations gain access to locally grown, halal produce, and Moontrance gains distribution infrastructure and community credibility. The Prophet (peace be upon him) said "None of you truly believes until he loves for his brother what he loves for himself" (Bukhari 13) — partnering ensures the harvest reaches the brother in need.
+Local distribution is impactful but limited. Partnering with Islamic food relief organisations — who have established logistics, volunteer networks, and recipient databases — multiplies MTC's reach. These partnerships also connect MTC to the broader Islamic food security movement, creating mutual benefit: relief organisations gain access to locally grown, halal produce, and MTC gains distribution infrastructure and community credibility. The Prophet (peace be upon him) said "None of you truly believes until he loves for his brother what he loves for himself" (Bukhari 13) — partnering ensures the harvest reaches the brother in need.
 
 
 **How?**
 
 1. Identify Islamic food relief organisations operating locally and regionally: masjid food pantries, Islamic relief chapters, Muslim food banks, and Ramadan feeding programmes.
-2. Approach each with a partnership proposal: Moontrance provides fresh, locally grown produce on a predictable seasonal schedule; the partner provides distribution infrastructure and recipient access.
+2. Approach each with a partnership proposal: MTC provides fresh, locally grown produce on a predictable seasonal schedule; the partner provides distribution infrastructure and recipient access.
 3. Negotiate logistics: delivery schedules, minimum quantities, produce types accepted, and communication protocols.
 4. Align especially with Ramadan feeding programmes — the harvest calendar can be designed to peak in time for Ramadan iftar distribution, creating a powerful sadaqah cycle.
 5. Formalise partnerships with simple agreements covering responsibilities, schedules, and reporting.
@@ -10564,15 +10564,15 @@ The Prophet (peace be upon him) said: "Whoever has extra provisions should give 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Food distribution is more than logistics — it is a human encounter where dignity, compassion, and Islamic values must be present. Ambassadors trained in both the practical and spiritual dimensions of food distribution ensure that every interaction honours the recipient. The Prophet (peace be upon him) emphasised that charity should be given without making the recipient feel inferior (2:264). Trained ambassadors handle produce with care, deliver with a smile, respect privacy, and represent the Moontrance mission in every interaction.
+Food distribution is more than logistics — it is a human encounter where dignity, compassion, and Islamic values must be present. Ambassadors trained in both the practical and spiritual dimensions of food distribution ensure that every interaction honours the recipient. The Prophet (peace be upon him) emphasised that charity should be given without making the recipient feel inferior (2:264). Trained ambassadors handle produce with care, deliver with a smile, respect privacy, and represent the MTC mission in every interaction.
 
 
 **How?**
 
 1. Recruit 8-10 community members willing to commit to distribution shifts during harvest seasons.
-2. Conduct a training covering: food safety and handling, delivery logistics, Islamic etiquette of giving (giving with the right hand, not mentioning the charity, maintaining dignity), cultural sensitivity (language, dietary knowledge, respect for circumstances), and programme messaging (how to explain Moontrance to curious recipients).
+2. Conduct a training covering: food safety and handling, delivery logistics, Islamic etiquette of giving (giving with the right hand, not mentioning the charity, maintaining dignity), cultural sensitivity (language, dietary knowledge, respect for circumstances), and programme messaging (how to explain MTC to curious recipients).
 3. Assign distribution routes and partner relationships to specific ambassadors so they build consistent connections.
-4. Provide ambassadors with branded materials: Moontrance aprons or badges, information cards about the programme, and a feedback form for recipients.
+4. Provide ambassadors with branded materials: MTC aprons or badges, information cards about the programme, and a feedback form for recipients.
 5. Debrief after each major distribution: what went smoothly, what was difficult, and how can the experience improve for both ambassadors and recipients.
 6. Recognise ambassadors at seasonal gatherings for their service in this critical role.
 7. Completion indicator: at least 8 ambassadors trained, assigned routes, and active through one harvest-season distribution cycle with debrief completed.` },
@@ -10600,9 +10600,9 @@ Impact measurement completes the cycle of accountability. The community that gre
       ],
     },
     {
-      title: 'Document the complete Moontrance Seasonal model for academic publication and institutional sharing',
+      title: 'Document the complete MTC Seasonal model for academic publication and institutional sharing',
       priority: 'urgent', tags: ['publication', 'documentation', 'academic', 'institutional'],
-      description: 'Produce a comprehensive written account of the Moontrance Seasonal model suitable for academic journals, institutional reports, and educational curricula. This documentation elevates the model from a community project to a contribution to knowledge — accessible to researchers, policymakers, educators, and community leaders who can study, cite, critique, and build upon it.',
+      description: 'Produce a comprehensive written account of the MTC Seasonal model suitable for academic journals, institutional reports, and educational curricula. This documentation elevates the model from a community project to a contribution to knowledge — accessible to researchers, policymakers, educators, and community leaders who can study, cite, critique, and build upon it.',
       subtasks: [
         { title: 'Write a case study documenting the model\'s development, implementation, and outcomes', done: false,
           sources: `**I. Quran**
@@ -10643,7 +10643,7 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Academic publication subjects the Moontrance model to peer review — the most rigorous form of external validation. A published paper enters the permanent scholarly record, available to researchers, students, and policymakers worldwide. It also positions the model within broader academic conversations about faith-based development, community agriculture, and Islamic ecology. The Quran says "Are those who know equal to those who do not know?" (39:9) — contributing to the knowledge base is a form of worship and service.
+Academic publication subjects the MTC model to peer review — the most rigorous form of external validation. A published paper enters the permanent scholarly record, available to researchers, students, and policymakers worldwide. It also positions the model within broader academic conversations about faith-based development, community agriculture, and Islamic ecology. The Quran says "Are those who know equal to those who do not know?" (39:9) — contributing to the knowledge base is a form of worship and service.
 
 
 **How?**
@@ -10676,7 +10676,7 @@ Academic papers reach scholars; practitioner reports reach the people who will a
 
 **How?**
 
-1. Write a 15-20 page report structured for practitioners: Executive Summary (1 page), The Moontrance Model (2-3 pages covering the four seasons and Islamic framework), Impact Evidence (3-4 pages of key data and stories), Implementation Pathway (5-6 pages of practical guidance), and Resources (templates, contacts, further reading).
+1. Write a 15-20 page report structured for practitioners: Executive Summary (1 page), The MTC Model (2-3 pages covering the four seasons and Islamic framework), Impact Evidence (3-4 pages of key data and stories), Implementation Pathway (5-6 pages of practical guidance), and Resources (templates, contacts, further reading).
 2. Use clear, non-academic language with generous use of headers, bullet points, pull quotes, and visual elements.
 3. Include compelling data visualisations: harvest yield charts, participation growth graphs, distribution impact maps, and before/after photographs.
 4. Feature 3-5 participant stories that illustrate the model's human impact — with their permission and in their own words where possible.
@@ -10701,7 +10701,7 @@ The Prophet (peace be upon him) said: "Whoever treads a path seeking knowledge, 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Curriculum development embeds the Moontrance model in educational institutions, reaching future community leaders, farmers, scholars, and activists during their formative years. A well-designed module can be offered in Islamic studies programmes, environmental studies departments, or community development courses. This creates a pipeline of informed individuals who enter the field already understanding the integration of faith and agriculture, rather than having to discover it on their own.
+Curriculum development embeds the MTC model in educational institutions, reaching future community leaders, farmers, scholars, and activists during their formative years. A well-designed module can be offered in Islamic studies programmes, environmental studies departments, or community development courses. This creates a pipeline of informed individuals who enter the field already understanding the integration of faith and agriculture, rather than having to discover it on their own.
 
 
 **How?**
@@ -10713,7 +10713,7 @@ Curriculum development embeds the Moontrance model in educational institutions, 
 5. Create a slide deck and instructor's guide to lower the barrier for faculty adoption.
 6. Share the module with Islamic studies and environmental studies departments at 5-10 universities.
 7. Completion indicator: curriculum module written with lesson plans, reading list, assessment rubrics, and instructor guide, shared with at least 3 university departments.` },
-        { title: 'Archive the complete Moontrance Seasonal documentation in accessible public formats', done: false,
+        { title: 'Archive the complete MTC Seasonal documentation in accessible public formats', done: false,
           sources: `**I. Hadith**
 
 
@@ -10722,14 +10722,14 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Knowledge that is not archived is knowledge at risk. Digital files corrupt, websites go offline, organisations dissolve — but well-archived material survives. Archiving the complete Moontrance documentation in multiple formats and locations ensures that this work outlasts any individual, organisation, or technology platform. The Prophet (peace be upon him) said "When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim 1631). A permanent archive is the institutional expression of beneficial knowledge that continues giving.
+Knowledge that is not archived is knowledge at risk. Digital files corrupt, websites go offline, organisations dissolve — but well-archived material survives. Archiving the complete MTC documentation in multiple formats and locations ensures that this work outlasts any individual, organisation, or technology platform. The Prophet (peace be upon him) said "When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim 1631). A permanent archive is the institutional expression of beneficial knowledge that continues giving.
 
 
 **How?**
 
 1. Compile the complete documentation set: framework guide, case study, journal article, practitioner's report, curriculum module, all templates and forms, video content, and programme photographs.
 2. Organise the archive with a clear table of contents, version numbers, and date stamps for each document.
-3. Upload to at least three independent platforms: a dedicated section on the Moontrance website, an open-access repository (Internet Archive, Zenodo, or an institutional repository), and a shared cloud drive accessible to all partner organisations.
+3. Upload to at least three independent platforms: a dedicated section on the MTC website, an open-access repository (Internet Archive, Zenodo, or an institutional repository), and a shared cloud drive accessible to all partner organisations.
 4. Provide materials in multiple formats: PDF (for print and reading), editable documents (for adaptation), and HTML (for web access).
 5. License the materials under a Creative Commons licence (CC BY-SA recommended) that allows free use and adaptation with attribution and share-alike.
 6. Designate an archive steward responsible for maintaining access, updating materials, and responding to enquiries.

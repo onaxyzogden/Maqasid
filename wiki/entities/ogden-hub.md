@@ -9,26 +9,26 @@ sources: 0
 
 # OGDEN Hub
 
-OGDEN Hub is a static HTML marketing and landing site for the OGDEN platform. It lives at `website/` in the [[maqasid-os]] monorepo, merged via git subtree on 2026-04-09, and is deployed to GitHub Pages at bismillah.ogden.ag. The site contains landing pages for three products: Moontrance (faith-centered land community), [[bbos-pipeline]] (business operating system), and [[atlas]] (land assessment tool). It is pure HTML/CSS with no build system and no Node.js dependency.
+OGDEN Hub is a static HTML marketing and landing site for the OGDEN platform. It lives at `website/` in the [[milos]] monorepo, merged via git subtree on 2026-04-09, and is deployed to GitHub Pages at bismillah.ogden.ag. The site contains landing pages for three products: MTC (faith-centered land community), [[bbos-pipeline]] (business operating system), and [[olos]] (land assessment tool). It is pure HTML/CSS with no build system and no Node.js dependency.
 
 ## Key Facts
 
-- **Location:** `website/` directory in the [[maqasid-os]] monorepo
+- **Location:** `website/` directory in the [[milos]] monorepo
 - **Integration method:** git subtree (merged 2026-04-09)
 - **Deployment:** GitHub Pages at bismillah.ogden.ag
 - **Stack:** Pure HTML + CSS — no build system, no Node.js, no bundler
-- **Product pages:** Moontrance, BBOS (`website/bbos/`), Atlas
+- **Product pages:** MTC, BBOS (`website/bbos/`), OLOS
 - **Purpose:** Public-facing marketing site for the OGDEN platform umbrella
 
 ## Current Status
 
-Merged into the [[maqasid-os]] monorepo as a subtree. Serving as the primary public landing site for all three OGDEN products. No build pipeline required — changes to HTML/CSS deploy directly via GitHub Pages.
+Merged into the [[milos]] monorepo as a subtree. Serving as the primary public landing site for all three OGDEN products. No build pipeline required — changes to HTML/CSS deploy directly via GitHub Pages.
 
 ## Connections
 
-- [[maqasid-os]] — Parent monorepo; ogden-hub lives at `website/`
+- [[milos]] — Parent monorepo; ogden-hub lives at `website/`
 - [[bbos-pipeline]] — BBOS product landing page at `website/bbos/`
-- [[atlas]] — Atlas product landing page linked from the hub
+- [[olos]] — OLOS product landing page linked from the hub
 - [[covenant-architecture]] — Marketing language reflects covenant-grounded framing
 
 ## Open Questions

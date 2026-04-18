@@ -23,10 +23,10 @@ The term "covenant" (ahd) is deliberate. It signals mutual obligation: the syste
 
 - The [[amanah-gate]] enforces ethical permissibility before any task begins -- the covenant's first clause.
 - The [[ceremony-gate-pattern]] enforces intentionality before any interaction -- ensuring the user enters each module in a state of niyyah.
-- The **seven-pillar structure** of [[maqasid-os]] uses [[maqasid-al-shariah]] as information architecture, not merely as a thematic label.
+- The **seven-pillar structure** of [[milos]] uses [[maqasid-al-shariah]] as information architecture, not merely as a thematic label.
 - The [[bbos-pipeline]] grounds its stages in divine names (Asma al-Husna), mapping business operations to spiritual principles. Each stage carries both an operational function and a covenantal meaning.
 - **Readiness checks** backed by Quranic ayat assess the user's alignment with pillar objectives before surfacing tasks -- the system does not serve work that the user is not ready to steward.
-- The **Waqf (endowment) structure** in Moontrance applies Covenant Architecture to governance -- community resources are held in trust under Islamic endowment principles rather than conventional ownership models.
+- The **Waqf (endowment) structure** in MTC applies Covenant Architecture to governance -- community resources are held in trust under Islamic endowment principles rather than conventional ownership models.
 - **Operator onboarding** in the [[bbos-pipeline]] requires covenant acknowledgment before access -- new operators do not receive tools until they have affirmed alignment with the system's principles.
 
 ## Connections
@@ -35,7 +35,7 @@ The term "covenant" (ahd) is deliberate. It signals mutual obligation: the syste
 - [[amanah-gate]] -- ethical enforcement layer of the covenant
 - [[ceremony-gate-pattern]] -- UI enforcement layer of the covenant
 - [[bbos-pipeline]] -- business process layer where covenant principles govern stages and operator conduct
-- [[maqasid-os]] -- the operating system built on this architecture
+- [[milos]] -- the operating system built on this architecture
 
 ## Sources
 

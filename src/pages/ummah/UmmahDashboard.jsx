@@ -37,15 +37,15 @@ const SUBMODULES = [
 const MOONTRANCE_MILESTONES = [
   { id: 'mt1', label: 'Land Acquisition', status: 'planned', desc: 'Identify and secure land for the eco-village development.' },
   { id: 'mt2', label: 'Community Formation', status: 'planned', desc: 'Gather founding families and establish shared governance.' },
-  { id: 'mt3', label: 'Infrastructure Design', status: 'planned', desc: 'Design water, energy, and agricultural systems (Atlas integration).' },
+  { id: 'mt3', label: 'Infrastructure Design', status: 'planned', desc: 'Design water, energy, and agricultural systems (OLOS integration).' },
   { id: 'mt4', label: 'Waqf Entity', status: 'planned', desc: 'Establish three-entity legal structure (Ontario Waqf model).' },
-  { id: 'mt5', label: 'First Experience', status: 'planned', desc: 'Launch the first Moontrance collective experience.' },
+  { id: 'mt5', label: 'First Experience', status: 'planned', desc: 'Launch the first MTC collective experience.' },
 ];
 
 const FRAMEWORKS = [
   {
     id: 'collective',
-    label: 'Moontrance',
+    label: 'MTC',
     desc: 'Community-level coordination, shared governance, and collective wellbeing.',
     color: 'var(--mod-collective)',
     overview: COLLECTIVE_OVERVIEW,
@@ -72,7 +72,7 @@ const FRAMEWORKS = [
   },
   {
     id: 'moontrance-land',
-    label: 'Moontrance Land',
+    label: 'MTC Land',
     desc: 'Land acquisition, soil stewardship (khilafah), water systems, regenerative agriculture.',
     color: 'var(--mod-moontrance-land)',
     overview: LAND_OVERVIEW,
@@ -81,7 +81,7 @@ const FRAMEWORKS = [
   },
   {
     id: 'moontrance-seasonal',
-    label: 'Moontrance Seasonal',
+    label: 'MTC Seasonal',
     desc: 'Seasonal participation pathway — planting, tending, harvest, and reflection.',
     color: 'var(--mod-moontrance-seasonal)',
     overview: SEASONAL_OVERVIEW,
@@ -90,7 +90,7 @@ const FRAMEWORKS = [
   },
   {
     id: 'moontrance-residency',
-    label: 'Moontrance Residency',
+    label: 'MTC Residency',
     desc: 'Long-term community formation, residency model, trust-building, and permanence.',
     color: 'var(--mod-moontrance-residency)',
     overview: RESIDENCY_OVERVIEW,
@@ -136,11 +136,11 @@ export default function UmmahDashboard() {
         </div>
       </section>
 
-      {/* Moontrance Milestone Tracker */}
+      {/* MTC Milestone Tracker */}
       <section className="ummah-section">
         <h2 className="ummah-section-title">
           <Milestone size={18} />
-          Moontrance Milestones
+          MTC Milestones
         </h2>
         <p className="ummah-section-desc">
           Islamic eco-village development &mdash; CSRA offer architecture and Waqf-based governance.
@@ -193,16 +193,16 @@ export default function UmmahDashboard() {
         </div>
       </section>
 
-      {/* Atlas Bridge */}
+      {/* OLOS Bridge */}
       <section className="ummah-section">
         <h2 className="ummah-section-title">
           <ExternalLink size={18} />
-          Atlas Bridge
+          OLOS Bridge
         </h2>
         <div className="ummah-atlas">
           <div className="ummah-atlas-body">
-            <h3>OGDEN Atlas</h3>
-            <p>Land design feasibility platform, water systems design, and parameterized land templates. Atlas provides the spatial intelligence layer for Moontrance development.</p>
+            <h3>OGDEN OLOS</h3>
+            <p>Land design feasibility platform, water systems design, and parameterized land templates. OLOS provides the spatial intelligence layer for MTC development.</p>
           </div>
           <span className="ummah-atlas-status">Not Connected</span>
         </div>

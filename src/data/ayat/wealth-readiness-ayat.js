@@ -1,5 +1,5 @@
 /**
- * Maqasid OS — Wealth Module Default Readiness Ayat Matrix
+ * MILOS — Wealth Module Default Readiness Ayat Matrix
  * Opening Threshold · Pause Protocol Content
  * Attribute pairing: Al-Razzāq (The Provider) · Al-Ḥasīb (The Reckoner)
  * Row distribution: 4 rows Al-Razzāq (Z1–Z4) · 2 rows Al-Ḥasīb (H1–H2)

@@ -9,7 +9,7 @@ sources: 0
 
 # Ceremony Gate Pattern
 
-A UI access gating pattern used in [[maqasid-os]] that requires users to encounter an Islamic grounding overlay before entering any module. The pattern ensures that interaction with the system begins with intentionality (niyyah) -- displaying relevant Quranic ayat and requiring acknowledgment before proceeding.
+A UI access gating pattern used in [[milos]] that requires users to encounter an Islamic grounding overlay before entering any module. The pattern ensures that interaction with the system begins with intentionality (niyyah) -- displaying relevant Quranic ayat and requiring acknowledgment before proceeding.
 
 ## Core Idea
 
@@ -25,7 +25,7 @@ The [[graphify]] knowledge graph identified this pattern as semantically similar
 
 ## Application
 
-- Every module in [[maqasid-os]] is wrapped with a CeremonyGate. Users cannot bypass it to reach the dashboard content beneath.
+- Every module in [[milos]] is wrapped with a CeremonyGate. Users cannot bypass it to reach the dashboard content beneath.
 - The Quranic ayat displayed are specific to each pillar of the [[maqasid-al-shariah]] -- the Faith module shows ayat about din, the Wealth module shows ayat about rizq, and so on.
 - The ReadinessCheck component extends the pattern into a structured assessment, asking the user to evaluate their current state against pillar-specific criteria before beginning work.
 - The ResumeOverlay activates when a user returns after inactivity, re-establishing intentionality rather than allowing stale context to persist.
@@ -36,7 +36,7 @@ The [[graphify]] knowledge graph identified this pattern as semantically similar
 - [[amanah-gate]] -- ethical-layer parallel (Ceremony Gate gates UI; Amanah Gate gates task ethics)
 - [[maqasid-al-shariah]] -- the framework whose pillars determine which ayat appear in each gate
 - [[covenant-architecture]] -- the design philosophy that mandates intentionality at every system boundary
-- [[maqasid-os]] -- the operating system where this pattern is implemented
+- [[milos]] -- the operating system where this pattern is implemented
 - [[graphify]] -- identified the semantic relationship between this pattern and the Amanah Gate
 
 ## Sources

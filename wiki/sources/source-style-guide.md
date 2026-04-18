@@ -9,7 +9,7 @@ tags: [design, tokens, css, typography, color]
 
 ## Summary
 
-The style guide defines the complete visual language for [[maqasid-os]] V2.1. It establishes design tokens for color, typography, spacing, and surface effects, all exposed as CSS custom properties in `src/styles/tokens.css`. The guide enforces a single rule above all others: never hardcode values -- always reference the token system.
+The style guide defines the complete visual language for [[milos]] V2.1. It establishes design tokens for color, typography, spacing, and surface effects, all exposed as CSS custom properties in `src/styles/tokens.css`. The guide enforces a single rule above all others: never hardcode values -- always reference the token system.
 
 ## Key Extractions
 
@@ -43,6 +43,6 @@ The style guide defines the complete visual language for [[maqasid-os]] V2.1. It
 
 ## Connections
 
-- [[maqasid-os]] -- the application these tokens serve
+- [[milos]] -- the application these tokens serve
 - [[source-component-library]] -- components that consume these tokens
 - [[maqasid-al-shariah]] -- the Seven Pillars that drive the color taxonomy

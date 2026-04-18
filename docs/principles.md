@@ -1,5 +1,5 @@
 # بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-# Maqasid OS — Workflow Principles & Islamic Framework
+# MILOS — Workflow Principles & Islamic Framework
 
 ---
 
@@ -13,7 +13,7 @@ Before any work begins, run this check silently:
    - If any concern exists: STOP, flag it explicitly, do not proceed until resolved
 
 2. State project context and amanah status in one line at session start. Example:
-   > *Active: Maqasid OS | Amanah: ✓ Clear | Bismillah — proceeding.*
+   > *Active: MILOS | Amanah: ✓ Clear | Bismillah — proceeding.*
 
 ---
 
