@@ -41,12 +41,12 @@ body{background: var(--bg);color:var(--parchment);font-family:var(--sans);min-he
 /* ── PRODUCT ROWS ── */
 .products{display:flex;flex-direction:column;gap:2.5rem;max-width:1200px;margin:0 auto;}
 
-.product-row{display:grid;grid-template-columns:160px 1fr;gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+.product-row{display:grid;grid-template-columns:220px 1fr;gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
 
 .product-label{display:flex;flex-direction:column;justify-content:space-between;padding:1.75rem 1.5rem;border-right:1px solid var(--line);background:rgba(8,7,4,0.7);flex-shrink:0;}
 .product-symbol{font-size:1.25rem;color:var(--gold-muted);margin-bottom:0.75rem;line-height:1;}
 .product-name{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--parchment);line-height:1.2;margin-bottom:0.3rem;}
-.product-phase-current{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-muted);}
+.product-phase-current{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.04em;color:var(--gold-muted);line-height:1.5;}
 .product-progress-wrap{margin-top:auto;padding-top:1.25rem;}
 .product-progress-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dust);margin-bottom:0.4rem;}
 .product-progress-bar{height:2px;background:rgba(240,235,224,0.08);border-radius:2px;overflow:hidden;}
@@ -170,82 +170,13 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
 
 <main class="products">
 
-  <!-- ══ MAQASID OS ══ -->
-  <div class="product-row milos" aria-label="MILOS journey">
-    <div class="product-label">
-      <div>
-        <div class="product-symbol" aria-hidden="true">◇</div>
-        <p class="product-name">MILOS</p>
-        <p class="product-phase-current">Development</p>
-      </div>
-      <div class="product-progress-wrap">
-        <p class="product-progress-label">Phase 1</p>
-        <div class="product-progress-bar">
-          <div class="product-progress-fill milos-fill" style="width:70%"></div>
-        </div>
-        <p class="product-pct">70% complete</p>
-        <a href="/milos/journey/" style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,144,80,0.5);text-decoration:none;margin-top:0.5rem;display:block;transition:color 0.2s;" onmouseover="this.style.color='rgba(184,144,80,0.9)'" onmouseout="this.style.color='rgba(184,144,80,0.5)'">Full journey →</a>
-      </div>
-    </div>
-    <div class="product-phases">
-      <div class="phase-cell current" data-p="1">
-        <p class="phase-cell-num">01 <span class="now-dot" aria-label="current phase"></span></p>
-        <p class="phase-cell-name">Development</p>
-        <p class="phase-cell-attr">Al-Musawwir · Giving form to intention</p>
-        <ul class="phase-milestones">
-          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Seven Maqasid pillar modules built</span></li>
-          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Three-tier dashboard design</span></li>
-          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">BBOS pipeline fully integrated</span></li>
-          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Islamic UI components operational</span></li>
-          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">35-finding technical audit remediated</span></li>
-          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Pillar progress visualization live</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Remaining pillar data bootstrapped</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Cross-pillar analytics operational</span></li>
-        </ul>
-      </div>
-      <div class="phase-cell future" data-p="2">
-        <p class="phase-cell-num">02</p>
-        <p class="phase-cell-name">Completion</p>
-        <p class="phase-cell-attr">Al-Muhsi · Every pillar accounted for</p>
-        <ul class="phase-milestones">
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">All seven pillars with real user content</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Money, People, CRM fully integrated</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Cross-module flows tested end-to-end</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">The system runs one life &mdash; founder-validated</span></li>
-        </ul>
-      </div>
-      <div class="phase-cell future" data-p="3">
-        <p class="phase-cell-num">03</p>
-        <p class="phase-cell-name">Opening</p>
-        <p class="phase-cell-attr">Al-Fattah · Opening the door</p>
-        <ul class="phase-milestones">
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Onboarding for users beyond the founder</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Multi-user data isolation</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Deployment beyond GitHub Pages</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">First external user on the platform</span></li>
-        </ul>
-      </div>
-      <div class="phase-cell future" data-p="4">
-        <p class="phase-cell-num">04</p>
-        <p class="phase-cell-name">Ummah</p>
-        <p class="phase-cell-attr">Al-Wasi&lsquo; · Expanding without losing the root</p>
-        <ul class="phase-milestones">
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Community of users forming</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Customizable pillar configurations</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Platform open without founder involvement</span></li>
-          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">The standard for Islamic life management</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <!-- ══ MOONTRANCE ══ -->
   <div class="product-row mtc" aria-label="MTC journey">
     <div class="product-label">
       <div>
         <div class="product-symbol" aria-hidden="true">◐</div>
         <p class="product-name">MTC</p>
-        <p class="product-phase-current">Foundation</p>
+        <p class="product-phase-current">A faith-rooted land destination for Muslim families &mdash; designed from the ground up so that beauty, hospitality, and Islamic values work together to remind us of our Creator.</p>
       </div>
       <div class="product-progress-wrap">
         <p class="product-progress-label">Phase 1</p>
@@ -311,7 +242,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
       <div>
         <div class="product-symbol" aria-hidden="true">◎</div>
         <p class="product-name">OLOS</p>
-        <p class="product-phase-current">Prototype</p>
+        <p class="product-phase-current">A tool for those who want to know the land before they ask anything of it. A tool that considers soil, water, zoning, ecology, and design potential, then tells you honestly whether this is the right land for what you&rsquo;re building.</p>
       </div>
       <div class="product-progress-wrap">
         <p class="product-progress-label">Phase 1</p>
@@ -374,7 +305,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
       <div>
         <div class="product-symbol" aria-hidden="true">⧁</div>
         <p class="product-name">BBOS</p>
-        <p class="product-phase-current">Development</p>
+        <p class="product-phase-current">A business operating system that reminds the operator that their activities are acts of worship for Allah (not money), while systematically reminding us of who Allah is (Al Asma ul Husna) so we&rsquo;re not made to forget ourselves.</p>
       </div>
       <div class="product-progress-wrap">
         <p class="product-progress-label">Phase 1</p>
@@ -435,14 +366,79 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     </div>
   </div>
 
+  <!-- ══ MAQASID OS ══ -->
+  <div class="product-row milos" aria-label="MILOS journey">
+    <div class="product-label">
+      <div>
+        <div class="product-symbol" aria-hidden="true">◇</div>
+        <p class="product-name">MILOS</p>
+        <p class="product-phase-current">An Islamic life operating system that manages work, money, people, and operations across the Seven Maqasid &mdash; so your whole life runs as one coherent trust, not seven separate emergencies.</p>
+      </div>
+      <div class="product-progress-wrap">
+        <p class="product-progress-label">Phase 1</p>
+        <div class="product-progress-bar">
+          <div class="product-progress-fill milos-fill" style="width:70%"></div>
+        </div>
+        <p class="product-pct">70% complete</p>
+        <a href="/milos/journey/" style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,144,80,0.5);text-decoration:none;margin-top:0.5rem;display:block;transition:color 0.2s;" onmouseover="this.style.color='rgba(184,144,80,0.9)'" onmouseout="this.style.color='rgba(184,144,80,0.5)'">Full journey →</a>
+      </div>
+    </div>
+    <div class="product-phases">
+      <div class="phase-cell current" data-p="1">
+        <p class="phase-cell-num">01 <span class="now-dot" aria-label="current phase"></span></p>
+        <p class="phase-cell-name">Development</p>
+        <p class="phase-cell-attr">Al-Musawwir · Giving form to intention</p>
+        <ul class="phase-milestones">
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Seven Maqasid pillar modules built</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Three-tier dashboard design</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">BBOS pipeline fully integrated</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Islamic UI components operational</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">35-finding technical audit remediated</span></li>
+          <li class="pm done"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Pillar progress visualization live</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Remaining pillar data bootstrapped</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Cross-pillar analytics operational</span></li>
+        </ul>
+      </div>
+      <div class="phase-cell future" data-p="2">
+        <p class="phase-cell-num">02</p>
+        <p class="phase-cell-name">Completion</p>
+        <p class="phase-cell-attr">Al-Muhsi · Every pillar accounted for</p>
+        <ul class="phase-milestones">
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">All seven pillars with real user content</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Money, People, CRM fully integrated</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Cross-module flows tested end-to-end</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">The system runs one life &mdash; founder-validated</span></li>
+        </ul>
+      </div>
+      <div class="phase-cell future" data-p="3">
+        <p class="phase-cell-num">03</p>
+        <p class="phase-cell-name">Opening</p>
+        <p class="phase-cell-attr">Al-Fattah · Opening the door</p>
+        <ul class="phase-milestones">
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Onboarding for users beyond the founder</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Multi-user data isolation</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Deployment beyond GitHub Pages</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">First external user on the platform</span></li>
+        </ul>
+      </div>
+      <div class="phase-cell future" data-p="4">
+        <p class="phase-cell-num">04</p>
+        <p class="phase-cell-name">Ummah</p>
+        <p class="phase-cell-attr">Al-Wasi&lsquo; · Expanding without losing the root</p>
+        <ul class="phase-milestones">
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Community of users forming</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Customizable pillar configurations</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">Platform open without founder involvement</span></li>
+          <li class="pm"><span class="pm-dot" aria-hidden="true"></span><span class="pm-text">The standard for Islamic life management</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-col">
-    <p class="footer-product">MILOS</p>
-    <p class="footer-summary"><strong>70%</strong> through Phase 1 · Seven pillars built · Technical audit complete</p>
-  </div>
   <div class="footer-col">
     <p class="footer-product">MTC</p>
     <p class="footer-summary"><strong>75%</strong> through Phase 1 · Six milestones complete · Founding members search active</p>
@@ -454,6 +450,10 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
   <div class="footer-col">
     <p class="footer-product">BBOS</p>
     <p class="footer-summary"><strong>88%</strong> through Phase 1 · System Diagnostic complete · Validation underway</p>
+  </div>
+  <div class="footer-col">
+    <p class="footer-product">MILOS</p>
+    <p class="footer-summary"><strong>70%</strong> through Phase 1 · Seven pillars built · Technical audit complete</p>
   </div>
 </footer>
 
