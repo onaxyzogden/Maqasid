@@ -151,21 +151,21 @@ export default function App() {
         <Route path="quran" element={<Navigate to="/app/sources?tab=quran" replace />} />
         <Route path="hadith" element={<Navigate to="/app/sources?tab=hadith" replace />} />
         <Route path="islamic-knowledge" element={<Navigate to="/app/sources?tab=islamic-knowledge" replace />} />
-        <Route path="faith-core" element={<FaithCorePage />} />
-        <Route path="faith-growth" element={<FaithGrowthPage />} />
-        <Route path="faith-excellence" element={<FaithExcellencePage />} />
-        <Route path="life-core" element={<LifeCorePage />} />
-        <Route path="life-growth" element={<LifeGrowthPage />} />
-        <Route path="life-excellence" element={<LifeExcellencePage />} />
-        <Route path="intellect-core" element={<IntellectCorePage />} />
-        <Route path="intellect-growth" element={<IntellectGrowthPage />} />
-        <Route path="intellect-excellence" element={<IntellectExcellencePage />} />
-        <Route path="family-core" element={<FamilyCorePage />} />
-        <Route path="family-growth" element={<FamilyGrowthPage />} />
-        <Route path="family-excellence" element={<FamilyExcellencePage />} />
-        <Route path="environment-core" element={<EnvironmentCorePage />} />
-        <Route path="environment-growth" element={<EnvironmentGrowthPage />} />
-        <Route path="environment-excellence" element={<EnvironmentExcellencePage />} />
+        <Route path="faith-core" element={<CeremonyGuard moduleId="faith-core" isLevel1><FaithCorePage /></CeremonyGuard>} />
+        <Route path="faith-growth" element={<CeremonyGuard moduleId="faith-growth" isLevel23><FaithGrowthPage /></CeremonyGuard>} />
+        <Route path="faith-excellence" element={<CeremonyGuard moduleId="faith-excellence" isLevel23><FaithExcellencePage /></CeremonyGuard>} />
+        <Route path="life-core" element={<CeremonyGuard moduleId="life-core" isLevel1><LifeCorePage /></CeremonyGuard>} />
+        <Route path="life-growth" element={<CeremonyGuard moduleId="life-growth" isLevel23><LifeGrowthPage /></CeremonyGuard>} />
+        <Route path="life-excellence" element={<CeremonyGuard moduleId="life-excellence" isLevel23><LifeExcellencePage /></CeremonyGuard>} />
+        <Route path="intellect-core" element={<CeremonyGuard moduleId="intellect-core" isLevel1><IntellectCorePage /></CeremonyGuard>} />
+        <Route path="intellect-growth" element={<CeremonyGuard moduleId="intellect-growth" isLevel23><IntellectGrowthPage /></CeremonyGuard>} />
+        <Route path="intellect-excellence" element={<CeremonyGuard moduleId="intellect-excellence" isLevel23><IntellectExcellencePage /></CeremonyGuard>} />
+        <Route path="family-core" element={<CeremonyGuard moduleId="family-core" isLevel1><FamilyCorePage /></CeremonyGuard>} />
+        <Route path="family-growth" element={<CeremonyGuard moduleId="family-growth" isLevel23><FamilyGrowthPage /></CeremonyGuard>} />
+        <Route path="family-excellence" element={<CeremonyGuard moduleId="family-excellence" isLevel23><FamilyExcellencePage /></CeremonyGuard>} />
+        <Route path="environment-core" element={<CeremonyGuard moduleId="environment-core" isLevel1><EnvironmentCorePage /></CeremonyGuard>} />
+        <Route path="environment-growth" element={<CeremonyGuard moduleId="environment-growth" isLevel23><EnvironmentGrowthPage /></CeremonyGuard>} />
+        <Route path="environment-excellence" element={<CeremonyGuard moduleId="environment-excellence" isLevel23><EnvironmentExcellencePage /></CeremonyGuard>} />
         <Route path="faith-shahada" element={<CeremonyGuard moduleId="faith-shahada"><FaithShahadaPage /></CeremonyGuard>} />
         <Route path="faith-salah" element={<CeremonyGuard moduleId="faith-salah"><FaithSalahPage /></CeremonyGuard>} />
         <Route path="faith-zakah" element={<CeremonyGuard moduleId="faith-zakah"><FaithZakahPage /></CeremonyGuard>} />
@@ -184,9 +184,9 @@ export default function App() {
         <Route path="family-kinship" element={<CeremonyGuard moduleId="family-kinship"><FamilyKinshipPage /></CeremonyGuard>} />
         <Route path="family-home" element={<CeremonyGuard moduleId="family-home"><FamilyHomePage /></CeremonyGuard>} />
         <Route path="family-office" element={<Office embedded />} />
-        <Route path="wealth-core" element={<WealthCorePage />} />
-        <Route path="wealth-growth" element={<WealthGrowthPage />} />
-        <Route path="wealth-excellence" element={<WealthExcellencePage />} />
+        <Route path="wealth-core" element={<CeremonyGuard moduleId="wealth-core" isLevel1><WealthCorePage /></CeremonyGuard>} />
+        <Route path="wealth-growth" element={<CeremonyGuard moduleId="wealth-growth" isLevel23><WealthGrowthPage /></CeremonyGuard>} />
+        <Route path="wealth-excellence" element={<CeremonyGuard moduleId="wealth-excellence" isLevel23><WealthExcellencePage /></CeremonyGuard>} />
         <Route path="wealth-earning" element={<CeremonyGuard moduleId="wealth-earning"><WealthEarningPage /></CeremonyGuard>} />
         <Route path="wealth-financial" element={<CeremonyGuard moduleId="wealth-financial"><WealthFinancialPage /></CeremonyGuard>} />
         <Route path="wealth-ownership" element={<CeremonyGuard moduleId="wealth-ownership"><WealthOwnershipPage /></CeremonyGuard>} />

@@ -13,6 +13,8 @@ export default function Settings() {
     theme, setTheme, valuesLayer, setValuesLayer,
     aiProvider, setAiProvider, aiApiKey, setAiApiKey,
     aiModel, setAiModel, aiBaseUrl, setAiBaseUrl,
+    disableL1ThresholdGate, setDisableL1ThresholdGate,
+    disableL23ThresholdGate, setDisableL23ThresholdGate,
   } = useSettingsStore();
   const { user, logout } = useAuthStore();
   const {
@@ -293,6 +295,44 @@ export default function Settings() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Ritual Gates */}
+      <section style={{ marginBottom: 'var(--space-8)' }}>
+        <h4 style={{ marginBottom: 'var(--space-3)', color: 'var(--text2)' }}>Ritual Gates</h4>
+        <div style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
+        }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={disableL1ThresholdGate}
+              onChange={(e) => setDisableL1ThresholdGate(e.target.checked)}
+            />
+            <span>Disable Threshold Opening gate for Level 1 submodules</span>
+          </label>
+          <div style={{ fontSize: '0.8rem', color: 'var(--text3)', marginTop: 'var(--space-2)' }}>
+            When enabled, Level 1 (<code>*-core</code>) pages open without the ritual.
+          </div>
+        </div>
+        <div style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
+          marginTop: 'var(--space-3)',
+        }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={disableL23ThresholdGate}
+              onChange={(e) => setDisableL23ThresholdGate(e.target.checked)}
+            />
+            <span>Disable Threshold Opening gate for Level 2 &amp; 3 submodules</span>
+          </label>
+          <div style={{ fontSize: '0.8rem', color: 'var(--text3)', marginTop: 'var(--space-2)' }}>
+            When enabled, Level 2 (<code>*-growth</code>) and Level 3 (<code>*-excellence</code>) pages open without the ritual.
+          </div>
         </div>
       </section>
 

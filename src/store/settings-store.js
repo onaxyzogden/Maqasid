@@ -28,6 +28,18 @@ export const useSettingsStore = create((set) => ({
     set({ tooltipsEnabled: val });
   },
 
+  disableL1ThresholdGate: safeGet('disable_l1_threshold_gate', 'true') === 'true',
+  setDisableL1ThresholdGate: (val) => {
+    safeSet('disable_l1_threshold_gate', String(val));
+    set({ disableL1ThresholdGate: val });
+  },
+
+  disableL23ThresholdGate: safeGet('disable_l23_threshold_gate', 'false') === 'true',
+  setDisableL23ThresholdGate: (val) => {
+    safeSet('disable_l23_threshold_gate', String(val));
+    set({ disableL23ThresholdGate: val });
+  },
+
   // ── AI Provider Settings ──
   aiProvider: safeGet('ai_provider', 'openrouter'),
   aiApiKey: safeGet('ai_api_key', ''),
