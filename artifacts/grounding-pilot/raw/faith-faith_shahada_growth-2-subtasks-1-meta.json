@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[2].subtasks[1]",
+  "taskTitle": "Understand the difference between major and minor shirk",
+  "subtaskTitle": "Define minor shirk (shirk asghar) with examples",
+  "csQueryPrompt": "For a MILOS subtask titled 'Define minor shirk (shirk asghar) with examples' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Al-Kahf 18:110 which commands that one's worship must be entirely free of hidden association or showing off, that contextually anchor the definition of minor shirk (shirk asghar)?",
+    "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those explicitly cautioning against ostentation (riya) or performing good deeds to be praised by others, provide the foundational examples of minor shirk?"
+  ],
+  "retrievedAt": "2026-04-19T04:47:41Z"
+}

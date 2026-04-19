@@ -1,0 +1,568 @@
+{
+  "answer": "Drawing upon my extensive knowledge derived from the Quran and the authentic Hadith, I present the following comprehensive guidelines to shape an effective and meaningful user experience:\n\n1. **In-Depth User Understanding:** Above all, we must prioritize a profound comprehension of the user's individual journey, their specific needs, and their behavioral patterns, all interpreted through the lens of the spiritual guidance found within the scriptures. We should strive to anticipate their aspirations and challenges, much like the Prophet's understanding of his followers, by ensuring a pure comprehension of the Creator through Surah Ash-Shura 42:11, which explicitly establishes that there is nothing like unto Him, while affirming that He is the Hearing and the Seeing [1].\n2. **Robust and Enduring Framework:** The underlying structure of this system must be exceptionally resilient and capable of withstanding any potential challenges or disruptions, mirroring the unwavering strength and enduring nature of our faith. It needs to be built upon a foundation as steadfast as the pillars of the Kaaba, anchored directly by Surah Al-A'raf 7:180, which commands believers to invoke God by His best names and to distance themselves from those who practice deviation concerning His names [2].\n3. **Elegant and Lucid Presentation:** While the functionality of the system is of paramount importance, we must not neglect the significance of presenting information with beauty, clarity, and grace, much like the eloquent and inspiring verses of the Quran. The message should resonate with the user, making it both informative and aesthetically pleasing, as beautifully illuminated in Surah Al-Hashr 59:22-24, which lists His magnificent attributes\u2014such as the Sovereign, the Pure, the Perfection, the Creator, the Inventor, and the Fashioner\u2014affirming that to Him belong the best names [3-5].\n4. **Seamless and Accessible Experience:** The user experience should be characterized by exceptional ease of understanding and accessibility, ensuring that all individuals, regardless of their technical proficiency, can effortlessly navigate and benefit from the system. The teachings should be as readily available and clear as the light of guidance, flawlessly encapsulated in Surah Al-Ikhlas 112:1-4, which provides an accessible definition that God is One, the Eternal Refuge, who neither begets nor is born, and has no equivalent [6], reinforced by Surah Ta-Ha 20:8, which seamlessly states that there is no deity except Him, and to Him belong the best names [7].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "5cf76b23-36e9-4521-99fe-3c1b65d9ebb0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "cf058216-1e37-45ed-b641-086a9856c552"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "3fe62180-992b-4263-b0b2-43b4efdf5577"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "ae85fcfa-7b17-43ca-8633-1f4804d5b0fa"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "10f33224-1ff7-4ca2-b745-cabd49a293a7"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "e4f5011b-f670-4a9c-9a4c-16025b224627"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "f8927752-f22b-448a-a4cf-44a100c84dc6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "d070e923-a032-4adc-a8f4-ba4484991f20"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "8d28b5e5-b1c8-417f-aa7c-7ca365b604aa"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "06d7d9cf-2885-4829-a49a-025c2fc763d2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "c48e234e-244a-490a-9043-d20b229146a6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "8aaeb386-c2d2-4d64-a567-ba8647c902a9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "6db8bd62-2ded-4a5c-a30c-e10634a13bdd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "515848fb-ac79-48a3-9d95-be465a5edbc5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "eb3f08aa-0398-4919-98c7-5bfd063d3b78"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "714c51e7-bee3-4049-8a9a-4bb251ed9d32"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "941f549c-e11d-48c5-a493-94e0db05413f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "1033d1c1-580b-47e3-9d6c-51677c0b586b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "98d80668-85c4-4258-9d8a-9d24818fbce4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "caddb0d5-4c26-46c3-96b2-5cafd6d69d3d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "578b3d6e-0a34-4bf0-b0c1-b1112de9b058"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "6f81106c-eb15-4a8b-b1a1-438784c2be17"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 23,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "14f31949-5db0-492b-9973-385d41b18e02"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "c3cc8378-7eed-4089-b39d-6d0640af4e12"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "e0eed53e-4a79-4733-ba9a-a69c6835e8a2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "61c91a70-3b33-409c-aeda-6dd343f9a618"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "397db201-171e-4570-95e8-0ee73ea11066"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "8eac7031-8902-4348-8a96-91233e637761"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "7e1fcb5b-32fd-4c9b-9c13-3ac3c19cdd8f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "6461faf4-9013-4b9a-8189-0d65a7740eee"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "f1fcfba4-cda4-438c-a011-f11cfa2cfa63"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "a44952f8-c5c2-4dc9-9f47-bc17c6bc8216"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "5aa3599e-44ab-4623-88f1-f6ebc1b82e30"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "aafa4b31-4990-4869-aab1-58bf12e656ee"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "22d646e8-65c8-45dd-a4ea-77f79fdca53e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "2cd40693-4357-4e27-bffd-7dcf7beba2ca"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "4ac07b2a-497d-4aa4-9a82-f2912692907a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "64971029-3945-40a9-b163-cf145d09aef8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "970ff7a1-e19c-425b-9a14-d8b10c943668"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "1412cfe1-6be6-4361-ac99-ae1bc62ed622"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "ec11c8ab-2345-4938-8ae9-7a73e4ed2a86"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "80d22d5d-ed2c-43fe-bdc7-0aada32035c7"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "c76ceb00-863e-49ef-98a1-6b2e33578446"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "942a64ba-c818-4967-8d69-51cffa660ddb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "ff34d65c-db5b-477a-8a2d-f6b6dad3c7b0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "2fa0115a-e358-4b53-97ef-60ea3e9e5d11"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "2189b375-19de-44be-9484-36d468944848"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "f7679d5e-9a6c-4a78-b625-1635a5359fe5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "92f1cedd-4cc3-4e12-bd6b-7e605342e785"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "68c75f27-01b0-43ff-a4f5-cce3fa30d6a4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "5d358180-b9ee-4e0d-90be-0ad96f306253"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "56742366-2a80-4d8a-b855-ffb56bcf05ad"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "429e4218-8521-4db2-ac1b-d308dd8691ae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 54,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "aeb981b9-f6c6-4047-a516-d88ec364f136"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 55,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "4420ea8a-c212-4610-8d49-02b1e3dcedb8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 56,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "ffc124c8-244e-4a2e-8657-1548a6523e10"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 57,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "68c75f27-01b0-43ff-a4f5-cce3fa30d6a4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "5d358180-b9ee-4e0d-90be-0ad96f306253"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "56742366-2a80-4d8a-b855-ffb56bcf05ad"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 60,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "429e4218-8521-4db2-ac1b-d308dd8691ae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 61,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "aeb981b9-f6c6-4047-a516-d88ec364f136"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 62,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "4420ea8a-c212-4610-8d49-02b1e3dcedb8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 63,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "ffc124c8-244e-4a2e-8657-1548a6523e10"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 64,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "68c75f27-01b0-43ff-a4f5-cce3fa30d6a4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 65,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "5d358180-b9ee-4e0d-90be-0ad96f306253"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": "19. And be not like those who forgot God,",
+      "start_char": 1499473,
+      "end_char": 1499516,
+      "chunk_id": "56742366-2a80-4d8a-b855-ffb56bcf05ad"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "429e4218-8521-4db2-ac1b-d308dd8691ae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 68,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "aeb981b9-f6c6-4047-a516-d88ec364f136"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 69,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "4420ea8a-c212-4610-8d49-02b1e3dcedb8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 70,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "ffc124c8-244e-4a2e-8657-1548a6523e10"
+    }
+  ]
+}

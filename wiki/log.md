@@ -3,6 +3,29 @@ title: "Wiki Log"
 type: log
 ---
 
+## 2026-04-19 — Amanah Gate Tier Grading — Faith Pilot
+
+**Objective:** Grade all 212 Faith subtasks with T1/T2/T3 Amanah evidence tiers and surface badges + rationale in the UI.
+
+**Completed:**
+- Built `scripts/grade-amanah-tiers.mjs` — resumable NotebookLM grader (alt-auth `be921648`, 4-concurrent, JSONL output)
+- Built `scripts/apply-amanah-tiers.mjs` — idempotent apply script using bracket/brace-depth tracking to insert `tier` + `amanahRationale` into subtask objects only (not task-level objects)
+- Added `scripts/run-grader.cmd` — detached Windows launcher for long-running grading sessions
+- Created `src/data/config/amanah-tiers.js` — T1 Bayyinah (green), T2 Qarina (amber), T3 Aspiration (purple)
+- Created `src/components/shared/AmanahTierBadge.jsx` — inline badge mirroring GLabelBadge pattern
+- Updated `src/components/work/TaskDetailPanel.jsx` — badge in subtask row, subtask-detail header, and Sources rationale block
+- Updated `src/services/seed-hydrator.js` — hydrate/strip `tier` + `amanahRationale` from localStorage
+- Graded 212 Faith subtasks (193 NotebookLM + 19 conservative T2 fallbacks for empty-answer rows). Distribution: T1:11, T2:158, T3:43
+- Wrote `artifacts/amanah-grading/faith.jsonl` — 212 rows with grade, tier, rationale, gradedAt
+
+**Key decisions:**
+- Tiers are T1/T2/T3 (Bayyinah/Qarina/Aspiration) — not BBOS G-labels (different system)
+- Rationale is embedded in seed data and rendered in the Sources slide-in view above the trust banner
+- Alt-auth NotebookLM (`be921648`, env: `~/.notebooklm-alt`) used — default `1c17b03b` rate-limited
+
+**Deferred:** Grade remaining 6 pillars (life 236, family 233, intellect 236, wealth 236, environment 226, ummah 450) in subsequent sessions.
+
+
 # Wiki Log
 
 Append-only chronological record of all wiki operations.

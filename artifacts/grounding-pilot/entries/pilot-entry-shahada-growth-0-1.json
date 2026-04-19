@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[0].subtasks[1]",
+    "subtaskTitle": "Read the section on the attributes of Allah",
+    "parentTaskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+    "session": "faith-2026-04-19-c",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that 'there is nothing like unto Him' and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly those in Sahih al-Bukhari and Sahih Muslim detailing the 99 Names of Allah or His specific divine actions and attributes, contextually anchor the theological study of His nature in classical aqidah texts?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 42:11",
+      "translation": "There is nothing like unto Him, and He is the Hearing, the Seeing.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 names 42:11 as the foundational rule against tashbih (likening Allah to creation) — the axis every classical aqidah section on Allah's attributes pivots on: affirm the attributes, negate resemblance. Directly anchors the subtask. Arabic omitted: no verse-level Arabic supplied by MS.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that 'there is nothing like unto Him' and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 112:1-4 (Surah Al-Ikhlas)",
+      "translation": "Say: He is Allah, [who is] One. Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 surfaces Ikhlas as the most compact statement of Allah's oneness and the negation of any resemblance, equivalent, or human qualities. The surah is classically equated by the Prophet to one-third of the Qur'an (MS reference chunk [10] preserves this tafsir note). Directly anchors the attributes-of-Allah section of any foundational aqidah text. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that 'there is nothing like unto Him' and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 7:180",
+      "translation": "To Allah belong the best names, so invoke Him by them. And leave those who practice deviation concerning His names.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 cites 7:180 (alongside 20:8) as the scriptural warrant for the asma al-husna — the canonical starting point for the 'names and attributes' section of aqidah texts. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that 'there is nothing like unto Him' and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 59:22-24",
+      "translation": "He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. He is Allah... the Sovereign, the Pure, the Perfection, the Creator, the Inventor, the Fashioner; to Him belong the best names.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 highlights 59:22-24 as the most detailed Qur'anic exposition of Allah's names and attributes — the passage classical aqidah texts quote at length when teaching the names. MS reference chunk [55] preserves the Arabic-translated phrase 'Knower of the unseen and the witnessed' binding the citation to this verse block. Directly anchors the subtask.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that 'there is nothing like unto Him' and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 3, Book 50, Number 894",
+      "translation": "When Allah completed the creation, He wrote in His Book which is with Him on His Throne: 'My Mercy overpowers My Anger.'",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 binds this Sahih Bukhari narration (canonical Volume/Book/Number ref confirmed in reference chunks) as a direct anchor for teaching Allah's attribute of overwhelming mercy — a staple of the classical attributes section. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly those in Sahih al-Bukhari and Sahih Muslim detailing the 99 Names of Allah or His specific divine actions and attributes, contextually anchor the theological study of His nature in classical aqidah texts?",
+        "retrievedAt": "2026-04-19T04:31:38Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "5 entries; all Bayyinah; 5 direct. Bar met comfortably on both axes. Rejected: the '99 Names' hadith attributed by MS to 'Sahih al-Bukhari 2736 and Sahih Muslim 2677' — MS reference chunks for this claim returned only '[1] The 99 names of Allah' (a thematic header) and page refs 'Volume 4 - 742 / 1700' (page-level, not canonical V/B/N). Ref↔matn integrity fails: the canonical Bukhari numbering the MS answer asserts was not grounded in the returned chunks. Also rejected: Quran 2:255 (Ayat al-Kursi) — surfaced thematically in MS but chunks did not bind it specifically and 4 strong direct anchors already cover the bar."
+  }
+}

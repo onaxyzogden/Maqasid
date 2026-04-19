@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[2].subtasks[1]",
+    "subtaskTitle": "Define minor shirk (shirk asghar) with examples",
+    "parentTaskTitle": "Understand the difference between major and minor shirk",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Define minor shirk (shirk asghar) with examples' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Kahf 18:110 which commands that one's worship must be entirely free of hidden association or showing off, that contextually anchor the definition of minor shirk (shirk asghar)?",
+        "retrievedAt": "2026-04-19T04:47:41Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those explicitly cautioning against ostentation (riya) or performing good deeds to be praised by others, provide the foundational examples of minor shirk?",
+        "retrievedAt": "2026-04-19T04:47:41Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 4, Book 52, Number 65 (Narrated Abu Musa)",
+      "translation": "The Prophet was asked about men who engage in battle for fame or for showing off. He clarified that only the one who fights to make Allah's Word superior is truly fighting in Allah's Cause.",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 explicitly disclaims that the provided sources use the terms 'minor shirk' or 'shirk asghar', but this Sahih Bukhari narration on fighting for fame/showing off is the classical Prophetic warning against the act that scholars identify as shirk asghar (riya in a weighty deed). Canonical Volume/Book/Number ref returned by MS; the matn is paraphrased from MS's answer text since the reference chunks carried only the isnad header. Contextual rather than direct because the subtask needs 'minor shirk' terminology which MS confirms is absent from the corpus.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those explicitly cautioning against ostentation (riya) or performing good deeds to be praised by others, provide the foundational examples of minor shirk?",
+        "retrievedAt": "2026-04-19T04:47:41Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 2, Number 36 (Narrated Abu Huraira)",
+      "translation": "The Prophet conditioned the forgiveness of past sins during the nights of Ramadan on performing the prayers 'out of sincere faith and hoping to attain Allah's rewards (not to show off).'",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Canonical Bukhari ref from MS q2 cit. 11/15 et al. The exclusion clause 'not to show off' within the Prophetic condition for forgiveness is the practical contour of shirk asghar: worship performed for public display nullifies its reward. Matn paraphrased from MS answer text since reference chunks returned only the isnad header. Contextual for the same reason as above — the corpus does not use 'shirk asghar' terminology.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those explicitly cautioning against ostentation (riya) or performing good deeds to be praised by others, provide the foundational examples of minor shirk?",
+        "retrievedAt": "2026-04-19T04:47:41Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 hadith entries, both Bayyinah (Sahih Bukhari canonical Vol/Book/Number refs from MS q2), both contextual (corpus does not use 'shirk asghar' terminology per MS's own disclaimer, but the narrations are the classical Prophetic anchors for it). Bar met via hadith axis. Quran axis rejected: q1 answer named 18:110, 2:264, 4:38, 107:4-7 but reference chunks returned only page headers ('Surah 107: al-Ma'un' header, unrelated fragments 'what they denied...', '37. Who are stingy...') — none bound to the cited ayat's actual matn, so no Quran entry could be bound per ref↔matn rule. Also rejected: Volume 4 Book 52 Number 111 (Sahl bin Sad) — matn not quoted and MS used only to paraphrase a pride/pretense motif; insufficient binding."
+  }
+}

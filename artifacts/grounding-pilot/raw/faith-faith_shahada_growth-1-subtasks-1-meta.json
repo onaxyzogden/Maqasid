@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[1].subtasks[1]",
+  "taskTitle": "Study the nullifiers of Islam (Nawaqid al-Islam)",
+  "subtaskTitle": "Understand the difference between major and minor kufr",
+  "csQueryPrompt": "For a MILOS subtask titled 'Understand the difference between major and minor kufr' under the parent task 'Study the nullifiers of Islam (Nawaqid al-Islam)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, specifically Surah Al-Ma'idah 5:44 and its classical exegesis explaining \"kufr duna kufr\" (disbelief lesser than disbelief), that contextually anchor the theological distinction between major and minor kufr?",
+    "Which authentic narrations, such as the explicit statement in Sahih al-Bukhari and Sahih Muslim that fighting a fellow believer is an act of kufr, provide the primary evidence for actions classified as minor disbelief rather than the absolute nullification of faith?"
+  ],
+  "retrievedAt": "2026-04-19T04:41:44Z"
+}

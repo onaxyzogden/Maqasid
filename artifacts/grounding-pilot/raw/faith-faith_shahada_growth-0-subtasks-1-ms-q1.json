@@ -1,0 +1,848 @@
+{
+  "answer": "Surah Ash-Shura 42:11 establishes the fundamental rule that there is absolutely no similarity between the Creator and His creation in essence, attributes, or deeds [1]. This ayah anchors the theological framework that believers must accept God's attributes exactly as He has described them, without denying them, applying allegorical meanings, or comparing them to human qualities [2].\n\nSurah Al-Ikhlas 112:1-4 provides a concise, undefiled concept of God\u2019s oneness that eliminates all polytheistic concepts and leaves no room for ascribing human qualities to His Being [3, 4]. It definitively states that God is single and unique, the Eternal Refuge, who does not beget, is not born, and has no equivalent [5].\n\nSeveral other primary ayat directly support the scriptural framework for studying the attributes of Allah:\n\n*   **Surah Al-A'raf 7:180 and Surah Taha 20:8:** These ayat declare that \"to God belong the best names\" [6, 7]. They command believers to invoke Him using these names and to distance themselves from those who practice deviation concerning His names [6].\n*   **Surah Al-Hashr 59:22-24:** This passage provides a detailed exposition of His divine attributes, affirming that He is the Sovereign, the Pure, the Perfection, the Creator, the Inventor, and the Fashioner [8, 9].\n*   **Surah Al-Baqarah 2:255 (Ayat al-Kursi):** This ayah highlights His absolute perfection and boundless knowledge, affirming that He is the Ever-Living and Sustainer of existence who never experiences human limitations such as sleep or drowsiness [10].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "bbf0824b-3ed1-4998-a225-c0b96f81a7e3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "e9143840-158f-455f-9b1a-c11964debc7a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "fa67188f-f07a-4cca-b021-f2ecfdd1920e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "d415296d-339b-43b1-b947-6d4b1ad32406"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "230cda49-0fc9-4c84-b19b-1ef512971df1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "2066ce46-242c-4a3d-94b7-a837b0759347"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "e61778bc-a833-4ec8-99fd-f98705829c1d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "e529a5a9-840b-4fa2-8dec-d094021231a3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "529086d2-70eb-4cc2-ba6e-32363b4c4fa9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "a5d501ac-d439-4720-aec7-bf183fc605f3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "bd1f1be6-c19b-4e95-97b1-4fb928b61608"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "8c54b274-208c-4783-b437-d282979eb850"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "38ce4977-e672-4b78-a32a-34eac2411cbd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "e2e1a27f-3cd5-4465-b7ac-6db7dc9297c9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "91e15dfa-813a-40e3-ac2c-91045aab0ad4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "4bab781d-cb5d-4cbd-a2f4-b403db2eaa53"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "7d0acfad-b336-47d5-a29f-5fa313fc6ba0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "e9818bf5-4aba-4d02-9f0d-123c8de3fc4c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "1e317a0f-23f0-4036-a496-98f549c4d0f9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "61b84ec8-c848-475b-ba90-6894a581a6bf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "324552af-a1c4-495f-bab3-849c34ad047e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "548e6d00-3e6b-4baa-9cdb-a53963729500"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 23,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "bb8e92be-a8b1-4eba-8f79-13250aa6c702"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "1634fa56-bb23-47e6-b956-8940e62c7618"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "6ff172bd-febe-48d1-b12a-304610cc7ddd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "df8fc8b6-b5ad-4455-af89-ce68b5b05518"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "6b073356-18f3-4160-9932-455ef196ee31"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "c0d89d2c-1bec-423e-8ab1-49e809bb1f91"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "62c95892-a2a8-460b-8484-1f236572314e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "26daaf75-4fd8-4c07-8c69-51b9304ebb15"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "af0ba544-94ec-4acd-8bf7-17b166c4e183"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "5e22e4f5-2514-4141-a633-da0f300a5cef"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "2eba6004-7c50-4f07-9fb8-e84ed2dd73cb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "37dca677-3306-4e27-9f73-86e06fe6add2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "1c55b5f7-4e8b-4b66-85c0-7855c7b50708"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "4eb1e3c8-b4f6-47ef-8f97-f422ce5606d9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "30534640-7d03-4fd6-a278-3d84cda52fae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "f73ca027-8819-47b2-b266-3ce74f97ab92"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "238e0d58-c29e-444f-b10e-349569494a6a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "45fc3cb8-4d16-40ea-b5ee-f86ce7c8f6bb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "c2209700-c4d3-40d5-856c-d3f3b3891b4b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "b8c4d6f2-6b4d-4ebe-a74d-5a02d46f0cc3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "3c57531c-af0c-4b48-8147-1fd9c503f7e5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "e192b1d9-9cf4-456d-aa23-c504a5bf349a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "8e2dcf03-42b8-4879-b969-37a147dda773"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "a9cc4085-77e4-4a45-9cbf-87b408788471"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "ba863093-e90c-4a4b-bc65-651241377f05"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "95ca08dc-0b3b-4c72-b823-2a53cedc7d5e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "e293a82b-312b-456f-b40b-405d462cf831"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "20e94f4c-444d-4ec7-b3ee-3ae49eb2db53"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "55683402-a64f-4712-8890-10e0f5eec23c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "df7b7136-93b3-4b01-979a-256c78e907e7"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "9a0f9453-5530-41e6-8f53-3b609f93f4e2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 54,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "564cdf3b-97f0-471c-a9fb-1d6caa209889"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 55,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "018bc429-2fd7-4115-8c58-6aea432d8baf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 56,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "d14a4913-624f-4d18-b793-a9e55eeeac7a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 57,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "a14f6703-85b9-4032-ac13-ca325bc9a718"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "5fe815a5-8b10-49f6-8d51-27fc244fa87a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "d1443bd6-fbb5-4d77-b30a-5922b1cf0ff2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 60,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "a945b358-3a7a-4d39-8aad-6b48420b0fe9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 61,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "e06756af-bd14-4017-b4ec-fc2239e1d08a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 62,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "39b841a3-89a5-4a92-87c4-2936ef575d0c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 63,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "a1786e15-ecef-4bda-9a19-6031ebe21f32"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 64,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "ec5d195b-c20a-48dd-9cb3-1912802ecbf8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 65,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "f140f43f-e282-4d38-a5a7-697af08d520a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "f202a566-5aaf-427c-a950-961c8dfd183e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "c993e411-d040-4794-a6dc-2d47357078c5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 68,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "4b86610b-b94a-45b0-a5a4-9b1650be8ea6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 69,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "38f12ec9-5757-4879-af91-a0462f5c5a24"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 70,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "2854da4f-89d7-48c2-8662-5ca12919b995"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 71,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "4e66545d-aa6c-4d25-9014-9723e0c699ac"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 72,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "0ae2ce3c-3521-4034-be64-9e6872fd9e4e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 73,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "6c9859ee-fa35-4fd0-b2e3-825d07eb8252"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 74,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "7a3c432f-24cc-461d-8782-2a2c6416449f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 75,
+      "cited_text": "254. O you who have believed, spend from",
+      "start_char": 149346,
+      "end_char": 149388,
+      "chunk_id": "4671cced-5c87-4bb4-b1bd-659352b9684b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 76,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "51d9048a-e3c9-42bf-8faf-46747f6c0e62"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 77,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "5e2ecd59-f954-4ef5-9b2f-cd3d3f8cb723"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 78,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "fc3f2142-368f-4927-a25e-c545175d9cff"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 79,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "26e3dbbc-c3d8-4973-8b22-7e04d0367293"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 80,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "18f24a84-113b-4ef9-9fb1-f1ebadec2bd4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 81,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "fb7032a8-9145-47bd-89d1-0a0a6c2c1284"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 82,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "658b492d-1cb1-40d1-804c-e71d3e77eb36"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 83,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "b9092f17-8298-4f83-86d3-0d20496d220a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 84,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "1dd81817-3668-476d-b58c-faa225e66f74"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 85,
+      "cited_text": "254. O you who have believed, spend from",
+      "start_char": 149346,
+      "end_char": 149388,
+      "chunk_id": "415bce16-62fb-455a-8074-589bc9f19b5e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 86,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "51d9048a-e3c9-42bf-8faf-46747f6c0e62"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 87,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "5e2ecd59-f954-4ef5-9b2f-cd3d3f8cb723"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 88,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "fc3f2142-368f-4927-a25e-c545175d9cff"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 89,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "26e3dbbc-c3d8-4973-8b22-7e04d0367293"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 90,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "18f24a84-113b-4ef9-9fb1-f1ebadec2bd4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 91,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "fb7032a8-9145-47bd-89d1-0a0a6c2c1284"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 92,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "658b492d-1cb1-40d1-804c-e71d3e77eb36"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 93,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "b9092f17-8298-4f83-86d3-0d20496d220a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 94,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "1dd81817-3668-476d-b58c-faa225e66f74"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 95,
+      "cited_text": "254. O you who have believed, spend from",
+      "start_char": 149346,
+      "end_char": 149388,
+      "chunk_id": "415bce16-62fb-455a-8074-589bc9f19b5e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 96,
+      "cited_text": "10. And in anything over which you disag-",
+      "start_char": 1235973,
+      "end_char": 1236015,
+      "chunk_id": "51d9048a-e3c9-42bf-8faf-46747f6c0e62"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 97,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "5e2ecd59-f954-4ef5-9b2f-cd3d3f8cb723"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 98,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1888482,
+      "end_char": 1888600,
+      "chunk_id": "fc3f2142-368f-4927-a25e-c545175d9cff"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 99,
+      "cited_text": "This S\u016brah teaches Tawhid, pure and undefiled. Therefore, the Prophet regarded it as equal to one-third of the Qur\u2019\u0101n.  A tradition on the authority of \u0100\u2019isha has been related in Bukhari, Muslim and other collections of the ha-dith, saying that the Prophet sent a man as leader of an expedition. During the journey he concluded his reci-tation of the Qur\u2019\u0101n in every Prayer with Qul Huwa-Allahu ahad. On their return him companions men-tioned this before the Prophet. He said: \u201cAsk him why he did so.\u201d When the man was asked, he replied: \u201cIn this S\u016brah the attributes of the Merciful God have been stated; therefore, I love to recite it again and again.\u201d When the Prophet heard this reply, he said to the people: \u201cInform him that God holds him in great love and esteem.\u201d  A similar incident has been related in Bukhari, on the authority of Anas. He says: \u201cA man from among the Ans\u0101r led the Prayers in the Quba Mosque.",
+      "start_char": 1891537,
+      "end_char": 1892456,
+      "chunk_id": "26e3dbbc-c3d8-4973-8b22-7e04d0367293"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 100,
+      "cited_text": "S\u016brah 112: al-Ikhl\u0101s www.quranproject.org 112: Purification _________________________________________________________",
+      "start_char": 1893293,
+      "end_char": 1893411,
+      "chunk_id": "18f24a84-113b-4ef9-9fb1-f1ebadec2bd4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 101,
+      "cited_text": "livestock; rather, they are more as-tray.387 It is they who are the heedless.",
+      "start_char": 415468,
+      "end_char": 415546,
+      "chunk_id": "fb7032a8-9145-47bd-89d1-0a0a6c2c1284"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 102,
+      "cited_text": "and what is on the earth and what is be-tween them and what is under the soil.",
+      "start_char": 762043,
+      "end_char": 762122,
+      "chunk_id": "658b492d-1cb1-40d1-804c-e71d3e77eb36"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 103,
+      "cited_text": "no deity, Knower of the unseen and the witnessed.1544 He is the Entirely Merci-ful, the Especially Merciful.",
+      "start_char": 1499974,
+      "end_char": 1500083,
+      "chunk_id": "b9092f17-8298-4f83-86d3-0d20496d220a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 104,
+      "cited_text": null,
+      "start_char": 1500513,
+      "end_char": 1500514,
+      "chunk_id": "1dd81817-3668-476d-b58c-faa225e66f74"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 105,
+      "cited_text": "254. O you who have believed, spend from",
+      "start_char": 149346,
+      "end_char": 149388,
+      "chunk_id": "415bce16-62fb-455a-8074-589bc9f19b5e"
+    }
+  ]
+}

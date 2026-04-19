@@ -1,0 +1,648 @@
+{
+  "answer": "Drawing upon my extensive knowledge derived from the Quran and the authentic Hadith, I present the following comprehensive guidelines to shape an effective and meaningful user experience:\n\n1. **In-Depth User Understanding:** Above all, we must prioritize a profound comprehension of the user's individual journey, their specific needs, and their behavioral patterns, all interpreted through the lens of the spiritual guidance found within the scriptures. We should strive to anticipate their aspirations and challenges, much like the Prophet's understanding of his followers, by anchoring their foundational belief in Surah Al-A'raf 7:54, which establishes that God is the Lord who created the heavens and earth in six days, and that His alone is the creation and the command [1], [2].\n2. **Robust and Enduring Framework:** The underlying structure of this system must be exceptionally resilient and capable of withstanding any potential challenges or disruptions, mirroring the unwavering strength and enduring nature of our faith. It needs to be built upon a foundation as steadfast as the pillars of the Kaaba, reinforced by Surah Al-Mulk 67:1-2, which declares that absolute dominion is in God's hand, that He is competent over all things, and that He alone is the creator of death and life [3].\n3. **Elegant and Lucid Presentation:** While the functionality of the system is of paramount importance, we must not neglect the significance of presenting information with beauty, clarity, and grace, much like the eloquent and inspiring verses of the Quran. The message should resonate with the user, making it both informative and aesthetically pleasing by highlighting verses like Surah Ar-Ra'd 13:2 and 13:16, which beautifully illustrate how God erected the heavens without visible pillars, arranges every matter, and remains the sole, prevailing Creator of all things [4], [5].\n4. **Seamless and Accessible Experience:** The user experience should be characterized by exceptional ease of understanding and accessibility, ensuring that all individuals, regardless of their technical proficiency, can effortlessly navigate and benefit from the system. The teachings should be as readily available and clear as the light of guidance, as demonstrated in Surah Az-Zumar 39:5-6 and Surah Luqman 31:25, which seamlessly convey that God created the heavens and earth in truth, fashioned mankind from a single soul, holds all dominion, and is the undeniable Creator naturally acknowledged by human reason [6], [7], [8].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "d05a82cc-2f1d-425f-8665-196c2857e7c8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "839482f2-d5f3-46f7-b7ab-dfd9be7ef430"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "35559e40-f8e8-4521-944d-d5958acf6dd3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "5d7bdc24-0c0f-4fc8-bfc9-f0a4db1813e8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "06eb14d0-f892-41f0-adad-564658b2e51d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "c1fed5d5-3144-4285-998d-e748123c0982"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "0c5f1abd-4871-4c15-accc-21b906778847"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "c9d5a975-8f74-45b1-be98-9374322f0190"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "bcb4f73f-b8b7-49fc-a04d-5fb277c2bd27"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "ab2e124a-298d-48a9-a91d-0b41d5f1ec05"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "d5b62315-811a-4e61-b1f5-78a0f129365f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "c8dd0ec6-543c-44ed-a5d4-0759f4657ae6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "48b7cf14-7b53-406d-91ac-b6797ec3acc1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "4ff5c46e-094f-4be0-bf6c-87e0b75d6ddc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "18701db0-44f8-4cf6-bf91-849a31efa35a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "8f7b8281-7f32-477e-933c-0591fa3abad1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "332f578b-0bc9-4ae0-9701-f61324393790"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "5133cbe5-57cc-4f8c-bf43-73b9db541215"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "0457cd14-9c9f-4b47-88b8-55856a4af9db"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "424ecf7d-5bc4-436a-83a6-1c1da77e0cb8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "868df5b1-569e-4e63-bbc7-e63cf98d2243"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "5198d543-184d-4939-b297-50baa1416500"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 23,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "7de46213-ae1c-43ae-96d9-eff611994512"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "0dc7e5a8-adbc-49d5-b14c-13568c004b91"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "91ca251d-abe5-420c-a416-8ab56d66c05e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "6d971888-9319-40bd-b463-90113f1ed4a2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "ea73e692-0393-48ca-9472-aeb7f24002f8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "18812eb4-dfa1-44b1-b5c4-7b2a6f4c4820"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "979579e9-a1a5-45d7-8472-176776cfc7db"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "3a946c33-9840-414f-9eb9-c2e3e203f04d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "8eda5fb5-e4ff-4985-9a52-c3b871eb3265"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "db56edb0-a7a4-41ab-9309-21d081e0681c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "0e8d86ba-48d7-458b-8331-b1e0a03a16c3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "c65e1605-6618-477b-bddf-7100e3253ad7"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "c8f88cbc-685d-480c-bcf1-836f9a4dad9e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "3031b98c-2499-4c0f-b417-dfd3fab5139d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "078cbb33-ceda-47c7-9908-c5b736cb72ba"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "a3d48381-455b-46d4-bf61-81b9824aa92a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "ef5bdcdc-43e9-4d2b-9e33-da96911fbc77"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "e4ebb551-cf8f-47cf-ae8c-8c553fc54fbc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "8484202e-f224-47b2-90e4-8c6db70cbf94"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "a8383a64-829d-40af-b9a5-0326415c0aad"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "15f258a4-8497-4c40-9c7b-a3deb44dfc4a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "4de1f72c-caf3-480c-b249-488b5768e175"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "af229292-3184-4448-95a2-5182b5342732"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "425b6342-cc84-4d44-8d17-db36bf29b39b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "beb0d478-77df-45ae-babb-ca5c5e2cb0aa"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "eec5a924-0640-47ad-88b1-84c187857d30"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "6462408c-5b7e-4503-95bc-5962ab19ebfe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "9f07a385-d73d-435d-be6c-c3fb17fe5823"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "dc3cffc1-99e6-4732-b298-04b38f856597"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "cfe8bc45-cb5d-4734-b34f-626553dbdd5d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "23f6ace1-06af-422b-86ff-f226b85c9b76"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 54,
+      "cited_text": "then We will force them to a massive punishment.",
+      "start_char": 1021323,
+      "end_char": 1021372,
+      "chunk_id": "054974ba-5daf-4ac0-bacc-29c254b98e7b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 55,
+      "cited_text": "4. If God had intended to take a son, He",
+      "start_char": 1167402,
+      "end_char": 1167444,
+      "chunk_id": "7a263d4a-5f2c-4039-98e7-c049a63021c4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 56,
+      "cited_text": "1249 Az-Zumar: The Groups. 1250 i.e., acceptable to God is that none be asso-ciated with Him in worship and obedience. 1251 See 6:143-144.",
+      "start_char": 1168012,
+      "end_char": 1168200,
+      "chunk_id": "0a8e76b8-ab21-4e02-9144-75cd05396cf4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 57,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "99d617b4-ce2a-4a17-ac70-d90db3392727"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "d1084745-d7f7-4819-935d-f006f724933a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "c9cb7486-8956-4cf9-9814-98ce5adf325a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 60,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "cca3a800-d994-4af3-b47b-c6f432fcc073"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 61,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "56513cae-daae-41f6-9a23-308dbd4031b8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 62,
+      "cited_text": "then We will force them to a massive punishment.",
+      "start_char": 1021323,
+      "end_char": 1021372,
+      "chunk_id": "2b050f62-a0b6-43ae-8a25-7745fff0fd72"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 63,
+      "cited_text": "4. If God had intended to take a son, He",
+      "start_char": 1167402,
+      "end_char": 1167444,
+      "chunk_id": "c1552040-347c-44c4-a274-6e4f9bc18853"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 64,
+      "cited_text": "1249 Az-Zumar: The Groups. 1250 i.e., acceptable to God is that none be asso-ciated with Him in worship and obedience. 1251 See 6:143-144.",
+      "start_char": 1168012,
+      "end_char": 1168200,
+      "chunk_id": "a91faa4e-3007-436f-86dd-3116e27c5837"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 65,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "99d617b4-ce2a-4a17-ac70-d90db3392727"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "d1084745-d7f7-4819-935d-f006f724933a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "c9cb7486-8956-4cf9-9814-98ce5adf325a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 68,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "cca3a800-d994-4af3-b47b-c6f432fcc073"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 69,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "56513cae-daae-41f6-9a23-308dbd4031b8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 70,
+      "cited_text": "then We will force them to a massive punishment.",
+      "start_char": 1021323,
+      "end_char": 1021372,
+      "chunk_id": "2b050f62-a0b6-43ae-8a25-7745fff0fd72"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 71,
+      "cited_text": "4. If God had intended to take a son, He",
+      "start_char": 1167402,
+      "end_char": 1167444,
+      "chunk_id": "c1552040-347c-44c4-a274-6e4f9bc18853"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 72,
+      "cited_text": "1249 Az-Zumar: The Groups. 1250 i.e., acceptable to God is that none be asso-ciated with Him in worship and obedience. 1251 See 6:143-144.",
+      "start_char": 1168012,
+      "end_char": 1168200,
+      "chunk_id": "a91faa4e-3007-436f-86dd-3116e27c5837"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 73,
+      "cited_text": "53. Do they await except its result?341 The",
+      "start_char": 385941,
+      "end_char": 385986,
+      "chunk_id": "99d617b4-ce2a-4a17-ac70-d90db3392727"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 74,
+      "cited_text": "340 The humble believers who are now in Para-dise. Another interpretation regards them as the people on the elevated partition. 341 The fulfilment of what is promised in the Qur\u2019\u0101n. 342 See footnote to 2:19.",
+      "start_char": 386461,
+      "end_char": 386718,
+      "chunk_id": "d1084745-d7f7-4819-935d-f006f724933a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 75,
+      "cited_text": "S\u016brah 67: al-Mulk www.quranproject.org 67: Dominion _________________________________________________________",
+      "start_char": 1580138,
+      "end_char": 1580248,
+      "chunk_id": "c9cb7486-8956-4cf9-9814-98ce5adf325a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 76,
+      "cited_text": "S\u016brah 13: ar-Ra\u2019d www.quranproject.org 13: Thunder _________________________________________________________",
+      "start_char": 610568,
+      "end_char": 610677,
+      "chunk_id": "cca3a800-d994-4af3-b47b-c6f432fcc073"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 77,
+      "cited_text": "equivalent to the seeing? Or is darkness equivalent to light? Or have they attri-buted to God partners who created like His creation so that the creation [of each] seemed similar to them?\u201d582 Say, \u201cGod is the Creator of all things, and He is the One, the Prevailing.\u201d",
+      "start_char": 615321,
+      "end_char": 615589,
+      "chunk_id": "56513cae-daae-41f6-9a23-308dbd4031b8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 78,
+      "cited_text": "then We will force them to a massive punishment.",
+      "start_char": 1021323,
+      "end_char": 1021372,
+      "chunk_id": "2b050f62-a0b6-43ae-8a25-7745fff0fd72"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 79,
+      "cited_text": "4. If God had intended to take a son, He",
+      "start_char": 1167402,
+      "end_char": 1167444,
+      "chunk_id": "c1552040-347c-44c4-a274-6e4f9bc18853"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 80,
+      "cited_text": "1249 Az-Zumar: The Groups. 1250 i.e., acceptable to God is that none be asso-ciated with Him in worship and obedience. 1251 See 6:143-144.",
+      "start_char": 1168012,
+      "end_char": 1168200,
+      "chunk_id": "a91faa4e-3007-436f-86dd-3116e27c5837"
+    }
+  ]
+}

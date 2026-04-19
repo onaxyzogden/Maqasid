@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[0].subtasks[0]",
+  "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+  "subtaskTitle": "Obtain a reliable translation with commentary",
+  "csQueryPrompt": "For a MILOS subtask titled 'Obtain a reliable translation with commentary' under the parent task 'Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah An-Nahl 16:43 and Surah Ibrahim 14:4, that contextually anchor the necessity of relying on the people of knowledge and clear translations to accurately understand foundational theology?",
+    "Which authentic narrations, particularly those found in Sahih al-Bukhari and Sahih Muslim regarding scholars as the inheritors of the prophets or the strict obligation of seeking sound knowledge, establish the importance of authoritative commentary when studying foundational texts like Al-Aqidah al-Tahawiyyah?"
+  ],
+  "retrievedAt": "2026-04-19T04:29:41Z"
+}

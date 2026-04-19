@@ -1,0 +1,34 @@
+Processing 16 subtasks from module faith_shahada_growth.
+[1/16] faith.faith_shahada_growth[0].subtasks[0] :: Obtain a reliable translation with commentary
+  OK.
+[2/16] faith.faith_shahada_growth[0].subtasks[1] :: Read the section on the attributes of Allah
+  OK.
+[3/16] faith.faith_shahada_growth[0].subtasks[2] :: Read the section on prophethood and revelation
+  OK.
+[4/16] faith.faith_shahada_growth[0].subtasks[3] :: Read the section on the unseen (angels, paradise, hellfire)
+  OK.
+[5/16] faith.faith_shahada_growth[0].subtasks[4] :: Summarise key points and questions
+  OK.
+[6/16] faith.faith_shahada_growth[1].subtasks[0] :: Read the list of ten nullifiers with explanations
+  OK.
+[7/16] faith.faith_shahada_growth[1].subtasks[1] :: Understand the difference between major and minor kufr
+  OK.
+[8/16] faith.faith_shahada_growth[1].subtasks[2] :: Study the conditions for declaring takfir and why it requires caution
+  OK.
+[9/16] faith.faith_shahada_growth[2].subtasks[0] :: Define major shirk (shirk akbar) with examples
+  OK.
+[10/16] faith.faith_shahada_growth[2].subtasks[1] :: Define minor shirk (shirk asghar) with examples
+  OK.
+[11/16] faith.faith_shahada_growth[2].subtasks[2] :: Study riya (showing off) as a form of minor shirk
+  OK.
+[12/16] faith.faith_shahada_growth[2].subtasks[3] :: Learn the hadith on hidden shirk and its remedy
+  OK.
+[13/16] faith.faith_shahada_growth[3].subtasks[0] :: Study Tawhid al-Rububiyyah — Lordship of Allah
+  OK.
+[14/16] faith.faith_shahada_growth[3].subtasks[1] :: Study Tawhid al-Uluhiyyah — worship of Allah alone
+  OK.
+[15/16] faith.faith_shahada_growth[3].subtasks[2] :: Study Tawhid al-Asma wa al-Sifat — Names and Attributes
+  OK.
+[16/16] faith.faith_shahada_growth[3].subtasks[3] :: Understand how the three categories interrelate
+  OK.
+DONE.

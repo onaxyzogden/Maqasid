@@ -1,0 +1,576 @@
+{
+  "answer": "Surah An-Nisa 4:48 establishes the absolute severity and unforgivable nature of major shirk. It declares that while God may forgive lesser offenses for whomever He wills, He will never forgive the association of others with Him, categorizing this act as the fabrication of a tremendous sin [1]. This principle is firmly reiterated later in the same chapter, emphasizing that associating partners with God means one has gone far astray [2].\n\nSurah Al-Ma'idah 5:72 contextualizes major shirk by providing a clear example of directing worship to someone other than God, specifically condemning those who claim that God is the Messiah [3, 4]. This ayah anchors the ultimate consequences of major shirk, explicitly warning that God forbids Paradise to anyone who associates others with Him and decrees the Hellfire as their eternal, inescapable refuge [3, 4]. \n\nTogether with authentic narrations, these foundational texts define major shirk as the most grievous and shameful of all major sins [5-7]. They establish that true faith requires directing all forms of worship\u2014such as praying, invoking, or offering sacrifices\u2014exclusively to God alone [8]. Directing any of these acts of worship to a prophet, an angel, an idol, or any other creation fundamentally contradicts the core message of the religion [8].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "27723fd2-f182-4dd6-9bcf-82d8387d6fae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "dde796c8-baac-41e0-a0f5-f666073b1eb7"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "e0cf6e5d-7d54-4cfb-a565-9623a1e8a37f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "57be0d98-ecd4-4ff5-9b89-dbca3e837951"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "1f6253b6-0654-44ab-8964-775df5829700"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "a36de7f9-0574-4963-a09e-5ab6431379c9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "d350b28a-ed30-42e9-a1e1-4b81cc70ae87"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "cc6a00dd-09a1-4fb2-b628-0d7fd6d5b162"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "6af20959-1c3c-4b07-be0a-a18484d7630d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "629b2eff-e29b-424b-bbf5-28dd8f0b1223"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "fe239020-bb58-4e0f-80b8-f129a3e01793"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "fd8c9f41-18e4-44b1-8e8d-23aa7eb21db9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "6f561ae9-6d86-4c3e-a1fd-5750bfc353d3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "91c44f02-b302-43b0-b10a-2d351aaf3ae9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "04d61d98-1352-4c20-adc5-cbaeb0cb7cdf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "d09d6437-ef56-45d3-a07c-a0747004cb80"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "a6921bbd-5f0c-45b3-b81c-40a929e6544d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "8cdc6b49-d2eb-4fc8-8dc8-44f9bfc0c118"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "2a014bd4-cacf-4680-84c1-1c6ef3c3c61c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "b98cbe80-a2c6-497a-b6e7-d9c90f38a097"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "5e314352-a7fb-458b-b853-e7cb7ab4f1e9"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 22,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "1e13e2e2-e539-4522-a026-74de034e44ef"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 23,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "e136f922-0af6-4050-af91-f45bf8a92eef"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 24,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "b80b0cf8-1978-4a58-adb9-e83e067eee65"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "0b3f94a0-7842-45ae-93a7-b4464b067b46"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "f49d5e16-1d08-4fe7-bf01-8bf9919993a6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "e496506d-21fa-47fa-bfe8-0e9c619969c1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "6e03fbbe-faee-4c40-9d49-05921be7505f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 29,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "ddfec885-37ad-4c01-a5c5-19111e059f42"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 30,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "b3dd8a77-972b-4764-9f0b-887dba520759"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 31,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "7241f7ef-643e-4882-b01a-0373936c0ed6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "c503f264-c5ee-4411-852b-6d6ac31d7ddc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "fcaf982e-1909-486f-9087-8ddf4c5c8191"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "133bd0df-2aec-48d5-a700-81b1cee9e7ce"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "4daad233-1684-47fb-90c0-dedacdeadb94"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 36,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "50f68193-948f-4363-b299-32e3190e52f4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 37,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "836bbd62-47e9-4f6a-99c8-bae6807358ac"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 38,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "e610d08d-55f1-469b-bc11-3b2f04d2e18c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "Qur\u2019\u0101n 21:25  This conveys that all forms of worship, whether it be praying, fasting, invoking, seeking refuge in, and offering an animal as sacrifice, must be directed to God and to God alone. Directing any form of worship to other than God (whether it be an angel, a messenger, Jesus, Muhammad, a saint, an idol, the sun, the moon, a tree) is seen as a contradiction to the fundamental message of Isl\u0101m, and it is an unforgivable sin unless it is repented from before one dies. All forms of worship must be directed to God only.  Worship means the performance of deeds and sayings that please God, things which He com-manded or encouraged to be performed, either by direct textual proof or by analogy. Thus, wor-ship is not restricted to the implementation of the five pillars of Isl\u0101m, but also includes every as-pect of life. Providing food for one\u2019s family, and saying something pleasant to cheer a person up are also considered acts of worship, if such is done with the intention of pleasing God. This means that, to be accepted, all acts of worship must be carried out sincerely for the Sake of God alone.  The second part of the testimony means that Prophet Muhammad is the servant and chosen mes-senger of God. This implies that one obeys and follows the commands of the Prophet. One must believe in what he has said, practice his teachings and avoid what he has forbidden. One must therefore worship God only according to his teaching alone, for all the teachings of the Prophet were in fact revelations and inspirations conveyed to him by God.  One must try to mold their lives and character and emulate the Prophet, as he was a living example for humans to follow. God says:",
+      "start_char": 2105986,
+      "end_char": 2107674,
+      "chunk_id": "8c151414-8e9f-4b08-8a6c-bdfffc6ff8a4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "6a2acb8f-cba6-4501-9b8e-613f6400437a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "9cbabb08-e7b3-4f26-a621-4aee6974f2ac"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "865e2557-1d79-49d7-bc25-90682e8daa70"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "1a5e33ea-70b1-47b6-8ce9-baaf0a09518c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 44,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "5e540f24-b502-4f47-ad22-f26a0e5c071b"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 45,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "eecad503-4632-4000-b822-8bfbe296d9de"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 46,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "2285a191-001c-4749-adcb-e749e2f8d46e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "Qur\u2019\u0101n 21:25  This conveys that all forms of worship, whether it be praying, fasting, invoking, seeking refuge in, and offering an animal as sacrifice, must be directed to God and to God alone. Directing any form of worship to other than God (whether it be an angel, a messenger, Jesus, Muhammad, a saint, an idol, the sun, the moon, a tree) is seen as a contradiction to the fundamental message of Isl\u0101m, and it is an unforgivable sin unless it is repented from before one dies. All forms of worship must be directed to God only.  Worship means the performance of deeds and sayings that please God, things which He com-manded or encouraged to be performed, either by direct textual proof or by analogy. Thus, wor-ship is not restricted to the implementation of the five pillars of Isl\u0101m, but also includes every as-pect of life. Providing food for one\u2019s family, and saying something pleasant to cheer a person up are also considered acts of worship, if such is done with the intention of pleasing God. This means that, to be accepted, all acts of worship must be carried out sincerely for the Sake of God alone.  The second part of the testimony means that Prophet Muhammad is the servant and chosen mes-senger of God. This implies that one obeys and follows the commands of the Prophet. One must believe in what he has said, practice his teachings and avoid what he has forbidden. One must therefore worship God only according to his teaching alone, for all the teachings of the Prophet were in fact revelations and inspirations conveyed to him by God.  One must try to mold their lives and character and emulate the Prophet, as he was a living example for humans to follow. God says:",
+      "start_char": 2105986,
+      "end_char": 2107674,
+      "chunk_id": "445146ef-5374-4546-b3f6-0d214f9ea046"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "7aeef721-5275-496d-be0a-db36aa6c4edd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "9da27bfb-ab44-409f-baa6-b3d8724d99a9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "94b1f60d-8399-47cc-af35-6f29ee8fd70a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "73a1bae1-3f49-42a3-bf5b-8fcd7f571834"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 52,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "ef1a4bbe-380b-4a4a-aab2-8a022a113ae0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 53,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "b6472f60-fb1a-45e7-b038-068c9e86bcf4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 54,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "afe23438-2808-4092-b564-865a8245f4d5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 55,
+      "cited_text": "Qur\u2019\u0101n 21:25  This conveys that all forms of worship, whether it be praying, fasting, invoking, seeking refuge in, and offering an animal as sacrifice, must be directed to God and to God alone. Directing any form of worship to other than God (whether it be an angel, a messenger, Jesus, Muhammad, a saint, an idol, the sun, the moon, a tree) is seen as a contradiction to the fundamental message of Isl\u0101m, and it is an unforgivable sin unless it is repented from before one dies. All forms of worship must be directed to God only.  Worship means the performance of deeds and sayings that please God, things which He com-manded or encouraged to be performed, either by direct textual proof or by analogy. Thus, wor-ship is not restricted to the implementation of the five pillars of Isl\u0101m, but also includes every as-pect of life. Providing food for one\u2019s family, and saying something pleasant to cheer a person up are also considered acts of worship, if such is done with the intention of pleasing God. This means that, to be accepted, all acts of worship must be carried out sincerely for the Sake of God alone.  The second part of the testimony means that Prophet Muhammad is the servant and chosen mes-senger of God. This implies that one obeys and follows the commands of the Prophet. One must believe in what he has said, practice his teachings and avoid what he has forbidden. One must therefore worship God only according to his teaching alone, for all the teachings of the Prophet were in fact revelations and inspirations conveyed to him by God.  One must try to mold their lives and character and emulate the Prophet, as he was a living example for humans to follow. God says:",
+      "start_char": 2105986,
+      "end_char": 2107674,
+      "chunk_id": "97818c0d-d694-4de9-a354-1d13f55e253a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 56,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "7aeef721-5275-496d-be0a-db36aa6c4edd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 57,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "9da27bfb-ab44-409f-baa6-b3d8724d99a9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "94b1f60d-8399-47cc-af35-6f29ee8fd70a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "73a1bae1-3f49-42a3-bf5b-8fcd7f571834"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 60,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "ef1a4bbe-380b-4a4a-aab2-8a022a113ae0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 61,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "b6472f60-fb1a-45e7-b038-068c9e86bcf4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 62,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "afe23438-2808-4092-b564-865a8245f4d5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 63,
+      "cited_text": "Qur\u2019\u0101n 21:25  This conveys that all forms of worship, whether it be praying, fasting, invoking, seeking refuge in, and offering an animal as sacrifice, must be directed to God and to God alone. Directing any form of worship to other than God (whether it be an angel, a messenger, Jesus, Muhammad, a saint, an idol, the sun, the moon, a tree) is seen as a contradiction to the fundamental message of Isl\u0101m, and it is an unforgivable sin unless it is repented from before one dies. All forms of worship must be directed to God only.  Worship means the performance of deeds and sayings that please God, things which He com-manded or encouraged to be performed, either by direct textual proof or by analogy. Thus, wor-ship is not restricted to the implementation of the five pillars of Isl\u0101m, but also includes every as-pect of life. Providing food for one\u2019s family, and saying something pleasant to cheer a person up are also considered acts of worship, if such is done with the intention of pleasing God. This means that, to be accepted, all acts of worship must be carried out sincerely for the Sake of God alone.  The second part of the testimony means that Prophet Muhammad is the servant and chosen mes-senger of God. This implies that one obeys and follows the commands of the Prophet. One must believe in what he has said, practice his teachings and avoid what he has forbidden. One must therefore worship God only according to his teaching alone, for all the teachings of the Prophet were in fact revelations and inspirations conveyed to him by God.  One must try to mold their lives and character and emulate the Prophet, as he was a living example for humans to follow. God says:",
+      "start_char": 2105986,
+      "end_char": 2107674,
+      "chunk_id": "97818c0d-d694-4de9-a354-1d13f55e253a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 64,
+      "cited_text": "47. O you who were given the Scripture,",
+      "start_char": 239872,
+      "end_char": 239913,
+      "chunk_id": "7aeef721-5275-496d-be0a-db36aa6c4edd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 65,
+      "cited_text": "vate conversation, except for those who enjoin charity or that which is right or conciliation between people. And whoever does that seeking means to the approval of God - then We are going to give him a great reward.",
+      "start_char": 258880,
+      "end_char": 259097,
+      "chunk_id": "9da27bfb-ab44-409f-baa6-b3d8724d99a9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": "71. And they thought there would be no",
+      "start_char": 306582,
+      "end_char": 306622,
+      "chunk_id": "94b1f60d-8399-47cc-af35-6f29ee8fd70a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "\u201cThey have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.\u201d",
+      "start_char": 2073844,
+      "end_char": 2074169,
+      "chunk_id": "73a1bae1-3f49-42a3-bf5b-8fcd7f571834"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 68,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "ef1a4bbe-380b-4a4a-aab2-8a022a113ae0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 69,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "b6472f60-fb1a-45e7-b038-068c9e86bcf4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 70,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "afe23438-2808-4092-b564-865a8245f4d5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 71,
+      "cited_text": "Qur\u2019\u0101n 21:25  This conveys that all forms of worship, whether it be praying, fasting, invoking, seeking refuge in, and offering an animal as sacrifice, must be directed to God and to God alone. Directing any form of worship to other than God (whether it be an angel, a messenger, Jesus, Muhammad, a saint, an idol, the sun, the moon, a tree) is seen as a contradiction to the fundamental message of Isl\u0101m, and it is an unforgivable sin unless it is repented from before one dies. All forms of worship must be directed to God only.  Worship means the performance of deeds and sayings that please God, things which He com-manded or encouraged to be performed, either by direct textual proof or by analogy. Thus, wor-ship is not restricted to the implementation of the five pillars of Isl\u0101m, but also includes every as-pect of life. Providing food for one\u2019s family, and saying something pleasant to cheer a person up are also considered acts of worship, if such is done with the intention of pleasing God. This means that, to be accepted, all acts of worship must be carried out sincerely for the Sake of God alone.  The second part of the testimony means that Prophet Muhammad is the servant and chosen mes-senger of God. This implies that one obeys and follows the commands of the Prophet. One must believe in what he has said, practice his teachings and avoid what he has forbidden. One must therefore worship God only according to his teaching alone, for all the teachings of the Prophet were in fact revelations and inspirations conveyed to him by God.  One must try to mold their lives and character and emulate the Prophet, as he was a living example for humans to follow. God says:",
+      "start_char": 2105986,
+      "end_char": 2107674,
+      "chunk_id": "97818c0d-d694-4de9-a354-1d13f55e253a"
+    }
+  ]
+}

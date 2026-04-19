@@ -13,6 +13,7 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 | IslamicTerm.jsx | Portal-based hover tooltip for Islamic terms; smart positioning (above/below) | Throughout app |
 | IslamicTerm.css | Tooltip positioning, portal styles | Throughout app |
 | GLabelBadge.jsx | Displays G-Label (integrity label) badge | BbosTaskPanel |
+| AmanahTierBadge.jsx | Displays Amanah Gate Protocol tier (T1/T2/T3 — Bayyinah/Qarina/Aspiration) | TaskDetailPanel (subtask row + subtask-detail header) |
 | GLabelPicker.jsx | Dropdown picker for G-Labels with descriptions; escape to close | BbosTaskPanel |
 | MaqasidTable.jsx | Maqasid framework table (necessities/needs/embellishments rows) | Module pages (Quran, Hadith) |
 | OverviewCards.jsx | Card grid for overview items; Quranic ayah/hadith references | FivePillars, module overviews |

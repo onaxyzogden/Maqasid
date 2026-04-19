@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[0].subtasks[3]",
+  "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+  "subtaskTitle": "Read the section on the unseen (angels, paradise, hellfire)",
+  "csQueryPrompt": "For a MILOS subtask titled 'Read the section on the unseen (angels, paradise, hellfire)' under the parent task 'Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Al-Baqarah 2:3 which establishes belief in the unseen (al-ghayb) as a defining trait of the righteous, that contextually anchor the foundational theological study of angels, Paradise, and Hellfire?",
+    "Which authentic narrations, specifically those found in Sahih al-Bukhari and Sahih Muslim that describe the creation of angels from light and detail the physical realities of Paradise and Hellfire, directly anchor the study of the unseen in classical aqidah texts?"
+  ],
+  "retrievedAt": "2026-04-19T04:35:38Z"
+}

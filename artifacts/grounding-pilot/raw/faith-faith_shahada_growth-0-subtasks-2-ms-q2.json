@@ -1,0 +1,552 @@
+{
+  "answer": "**The Commencement of Revelation**\nThe foundational texts concerning divine communication are anchored by narrations detailing how revelation initially started in the form of good, true dreams that resembled bright daylight [1], [2]. Following this, the Prophet developed a love for seclusion and spent his time worshipping in the cave of Hira [1], [2]. There, the angel Gabriel appeared and commanded him to read, forcefully pressing him three times when the Prophet replied that he did not know how to read, before finally revealing the first verses of the Quran [1], [3], [2]. This overwhelming encounter caused the Prophet to return home with a severely beating heart, where his wife Khadija reassured him that God would never disgrace him because of his exceptionally righteous character and care for others [4], [2]. \n\n**The Finality of Messengership**\nThe core theological tenet of finality is anchored by the Prophet's explicit statement that while the Israelites were guided by successive prophets, \"There will be no prophet after me\" [5]. He vividly illustrated this concept by comparing the history of previous prophets to a beautifully constructed house missing only a single brick in its corner, declaring, \"I am that brick, and I am the last of the Prophets\" [6]. Furthermore, he taught that the closing of the line of prophets with his messengership is one of the distinct ways he was given superiority over all prior prophets [7].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 1,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "3b6cbaf6-61fc-4325-a6b5-3ac818b43baa"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 2,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "7619a78c-bbfc-4967-8afc-de68d6a5194d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 3,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "7294ad6d-9e22-4d94-8b8c-32308a5e9554"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 4,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "ff226c6e-5dd9-44db-bf81-e572bec331c2"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 5,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "cbd940e1-3e73-4806-a1ea-4365d62eafdc"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 6,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "00f5cbf8-9ab9-4f02-ae47-a296ef2514ac"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 7,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "791983e8-c5f4-4c4c-9ef1-251af2ded22a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 8,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "8e874ab4-eb7e-4916-867a-b85bc6a447dd"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 9,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "2b22f1eb-6bca-4685-8382-1c5d30fc75a1"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 10,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "ff102100-88f3-4389-8209-e0a9f76e8449"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 11,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "045d2d56-e4c6-4c24-983b-7bda754f1d5c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 12,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "c1b7fab4-0464-4dd4-8e98-046310302a36"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 13,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "fc964bda-9b0e-4f5b-b2d4-dc18809a3f50"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "726a0f5b-97d1-481c-be8e-c8f1e3118542"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 15,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "986c3cc9-f4bb-4605-866b-8ec21950ac52"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 16,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "cb1fa645-e6e8-46cf-b5fa-15df468eb19a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 17,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "ebe55957-54eb-4f07-bf33-ebb0079c49f5"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "9e4b2958-2ee7-4b36-ad8e-98559829b42c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 19,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "b9e6e673-794f-4945-bb10-3d4b60022d95"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 20,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "c89cd701-ee58-4501-95bd-8efb89fa499f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 21,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "4da7c38a-dfbb-4b80-8fbf-1f00d45bb566"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 22,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "8ef52266-7dd0-4a2a-8b12-04b15a876847"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "a7b34e7f-9d87-42d8-a3c4-aaafbc178e78"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 24,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "9dbcff23-9d82-478d-9471-a9f546af9054"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 25,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "8b2f1dc7-ddb3-4b3e-bcef-a4ca194747de"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 26,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "ac55504e-b9bf-4d43-b6ad-ce96d70f2ff1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 27,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "794d0fea-eada-446d-8c3d-1224ecd6f480"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 28,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "30979673-d4c3-46f4-995f-12e624a0ea7f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 29,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "a6c4e7cd-7cdc-4a2c-9eab-11740d95b5e0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 30,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "45bf21b0-8052-4e61-a247-bb64b36f49fe"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 31,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "59940217-f706-41ee-847e-f1d4acef19ca"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 32,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "a07c07a2-3b66-4967-b68c-97e37ebe27c7"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 33,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "3a7e0bc9-0260-4875-890c-b2da0f8ae2f5"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 34,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "da9a8fff-2ded-4c5d-be89-0e01b10c3f93"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 35,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "cac85bf4-3bf4-44b2-89cd-27ec90a5ab7f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 36,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "eb89ba5b-0d89-49b8-bf9a-d3960a1ebd4b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 37,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "7f8e7e9d-6562-45d3-a110-f794c0a76f97"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 38,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "635e6953-a340-451f-94ce-446406d16722"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 39,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "97c2e8ef-e59b-4630-9226-cdae8778bace"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 40,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "5caeca26-109f-4956-bfa5-92718b7abb18"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 41,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "9a156791-a0f4-419f-9831-d2d86d1e42b4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 42,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "c94ad829-e328-49fe-9afe-a1a690ea9298"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 43,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "883d61c3-54ba-4aa2-9701-410f14e8ec3e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 44,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "db25c7cc-4551-423f-8cd8-c0c0d31047ba"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 45,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "49da54e3-4846-4150-b131-8356af3e3249"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 46,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "0a004cc7-0724-4e99-8bb4-9a892f997930"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 47,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "63006647-4be7-409e-a350-3d9dd1c246f3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 48,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "889671e0-dac0-46d2-a3f5-393bd1f36366"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 49,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "6259c224-136f-4c0f-96fa-a88a281e97d2"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 50,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "d21cb588-c9a5-4fa3-8139-062ec616903f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 51,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "854a940c-f776-4e97-8031-17fb7f96c942"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 52,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "b2bd2aa5-d6aa-400c-b7b3-096cc4f09d2a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 53,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "4f4bb6ad-d376-433e-a08e-e51bb7f46784"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 54,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "fa4828ff-ca1f-4f0d-ba0e-70064953b2ee"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 55,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "889671e0-dac0-46d2-a3f5-393bd1f36366"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 56,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "6259c224-136f-4c0f-96fa-a88a281e97d2"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 57,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "d21cb588-c9a5-4fa3-8139-062ec616903f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 58,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "854a940c-f776-4e97-8031-17fb7f96c942"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 59,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "b2bd2aa5-d6aa-400c-b7b3-096cc4f09d2a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 60,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "4f4bb6ad-d376-433e-a08e-e51bb7f46784"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 61,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "fa4828ff-ca1f-4f0d-ba0e-70064953b2ee"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 62,
+      "cited_text": "Volume 1, Book 1, Number 3: Narrated 'Aisha:",
+      "start_char": 16819,
+      "end_char": 16864,
+      "chunk_id": "889671e0-dac0-46d2-a3f5-393bd1f36366"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 63,
+      "cited_text": "Book 001, Number 0300: Abu Dharr reported: I asked the Messenger of Allah (may peace be upon him) the (implication of",
+      "start_char": 407035,
+      "end_char": 407153,
+      "chunk_id": "6259c224-136f-4c0f-96fa-a88a281e97d2"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 64,
+      "cited_text": "The Prophet added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists) has created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Apostle returned",
+      "start_char": 17546,
+      "end_char": 18237,
+      "chunk_id": "d21cb588-c9a5-4fa3-8139-062ec616903f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 65,
+      "cited_text": "Volume 1 - 7 / 1700",
+      "start_char": 18237,
+      "end_char": 18256,
+      "chunk_id": "854a940c-f776-4e97-8031-17fb7f96c942"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 66,
+      "cited_text": "Volume 4, Book 56, Number 661: Narrated Abu Huraira:",
+      "start_char": 1733349,
+      "end_char": 1733402,
+      "chunk_id": "b2bd2aa5-d6aa-400c-b7b3-096cc4f09d2a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 67,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "4f4bb6ad-d376-433e-a08e-e51bb7f46784"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 68,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "fa4828ff-ca1f-4f0d-ba0e-70064953b2ee"
+    }
+  ]
+}

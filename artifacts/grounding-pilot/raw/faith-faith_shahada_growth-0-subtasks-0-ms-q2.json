@@ -1,0 +1,328 @@
+{
+  "answer": "The provided sources do not contain the specific narration stating that \"scholars are the inheritors of the prophets,\" nor do they mention the text *Al-Aqidah al-Tahawiyyah* (you may want to independently verify this information outside of the sources). \n\nHowever, authentic narrations in Sahih al-Bukhari strictly establish the obligation to seek sound knowledge from qualified scholars, which underlines the importance of relying on authoritative commentary for foundational texts.\n\n**The Crucial Role of Scholars**\n* **Preserving True Knowledge:** The Prophet taught that Allah does not take away religious knowledge by stripping it from people's hearts, but rather by the death of religious learned men [1]. \n* **The Danger of Ignorance:** Once genuine scholars pass away, people will take ignorant individuals as their leaders [1]. These unqualified leaders will issue verdicts without knowledge, leading themselves and the masses astray [1]. \n* **The Duty to Circulate Knowledge:** Early Muslim leaders like 'Umar bin 'Abdul 'Aziz commanded that religious knowledge be recorded and taught specifically to prevent it from vanishing with the passing of scholars [2].\n\n**The Value of Deep Comprehension**\n* **A Sign of Divine Favor:** The Prophet stated that if Allah wants to do good to a person, He grants them a deep comprehension of the religion [3, 4].\n* **Teaching Wisdom to Others:** One of the only things a believer is permitted to envy is a person whom Allah has given wisdom, who uses it to act righteously and teaches it to others [5]. \n\nThese narrations highlight that true religious comprehension is protected and transmitted by learned scholars, making their authoritative guidance essential for understanding the religion safely.",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 1,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "714a43b6-883b-4ce3-a5d2-b3284ec4ab5f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 2,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "353ea35a-0466-4d93-96a7-62b4ac034db0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 3,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "2d0e93fa-1cc3-42dd-8d54-3f3d16541b29"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 4,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "050e47be-928d-4f5e-8b56-042b680922c6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 5,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "b41b16af-2a5c-4cbf-8e15-f74cad310461"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 6,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "9d8e9c22-3618-40e9-9108-98b1b07ee896"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 7,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "99db1429-160d-4345-a93e-688e8c3c3b84"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 8,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "20323160-4072-4bc8-bfae-d232d32ba8b9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 9,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "08a757e0-e575-4c50-9272-7ae6a8c02d13"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 10,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "ce1fec15-9c7e-4385-93ef-f022d65562a9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 11,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "8d7a1549-755b-4fb5-9de7-b2cc3956a813"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 12,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "113ba1a0-6aee-437d-92f3-15f4d6f0d941"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 13,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "822c2466-0c0c-44a3-be96-c9ffb440578e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "289c233b-9f96-4767-8f18-ca83bd891429"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 15,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "d74e01d2-6637-4417-ae97-5178ce9909c6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 16,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "33b2436a-03da-481e-b2db-e5b547a76fde"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 17,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "36980651-c327-4166-a8c7-b1fd9e7f37c5"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "6776abc1-f20c-45c9-bb46-3ead57687bfb"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 19,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "5f5ff48b-22ba-4cc8-8ec4-1edf62967715"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 20,
+      "cited_text": "Volume 1, Book 3, Number 72: Narrated Ibn 'Umar:",
+      "start_char": 65693,
+      "end_char": 65742,
+      "chunk_id": "b728d1fe-e102-48d2-9ce3-9c61ba6d0387"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 21,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "12dff675-752f-47c1-8ed9-cd45eeb1d671"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 22,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "d4269a16-f0ad-4b8c-bc70-cc677c6df16b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "e3489d7d-03f2-479b-a790-8d736f50239a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 24,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "10bc88d7-5f14-4324-8781-a005e8083bdd"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 25,
+      "cited_text": "Volume 1, Book 3, Number 72: Narrated Ibn 'Umar:",
+      "start_char": 65693,
+      "end_char": 65742,
+      "chunk_id": "d72a9be6-3a86-45a9-9a25-072a43286d0f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 26,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "df791186-1004-483b-9a03-740c0a3fae52"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 27,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "607add3f-0e08-4469-89e8-2224c738ee42"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 28,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "01e34c0b-8e9b-4ad7-a243-fa6918a2be65"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 29,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "e4b82b1b-9506-4444-92ef-17d530e17e0c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 30,
+      "cited_text": "Volume 1, Book 3, Number 72: Narrated Ibn 'Umar:",
+      "start_char": 65693,
+      "end_char": 65742,
+      "chunk_id": "31ffbe65-4be5-44e0-ae4f-005571fef170"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 31,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "df791186-1004-483b-9a03-740c0a3fae52"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 32,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "607add3f-0e08-4469-89e8-2224c738ee42"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 33,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "01e34c0b-8e9b-4ad7-a243-fa6918a2be65"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 34,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "e4b82b1b-9506-4444-92ef-17d530e17e0c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 35,
+      "cited_text": "Volume 1, Book 3, Number 72: Narrated Ibn 'Umar:",
+      "start_char": 65693,
+      "end_char": 65742,
+      "chunk_id": "31ffbe65-4be5-44e0-ae4f-005571fef170"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 36,
+      "cited_text": "Volume 1, Book 3, Number 100:",
+      "start_char": 84280,
+      "end_char": 84310,
+      "chunk_id": "df791186-1004-483b-9a03-740c0a3fae52"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 37,
+      "cited_text": "And 'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm, \"Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).\"",
+      "start_char": 83668,
+      "end_char": 84058,
+      "chunk_id": "607add3f-0e08-4469-89e8-2224c738ee42"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 38,
+      "cited_text": "Volume 1, Book 3, Number 70: Narrated Abu Wail:",
+      "start_char": 64824,
+      "end_char": 64872,
+      "chunk_id": "01e34c0b-8e9b-4ad7-a243-fa6918a2be65"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 39,
+      "cited_text": "Volume 4, Book 53, Number 346: Narrated Muawiya:",
+      "start_char": 1531999,
+      "end_char": 1532048,
+      "chunk_id": "e4b82b1b-9506-4444-92ef-17d530e17e0c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 40,
+      "cited_text": "Volume 1, Book 3, Number 72: Narrated Ibn 'Umar:",
+      "start_char": 65693,
+      "end_char": 65742,
+      "chunk_id": "31ffbe65-4be5-44e0-ae4f-005571fef170"
+    }
+  ]
+}

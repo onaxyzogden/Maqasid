@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[3].subtasks[1]",
+    "subtaskTitle": "Study Tawhid al-Uluhiyyah — worship of Allah alone",
+    "parentTaskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study Tawhid al-Uluhiyyah — worship of Allah alone' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ad-Dhariyat 51:56 which defines the sole purpose of creation as worship and Surah Al-Fatihah 1:5 which establishes exclusive devotion, that directly anchor the scriptural foundation for Tawhid al-Uluhiyyah?",
+        "retrievedAt": "2026-04-19T04:56:00Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-3-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the definitive hadith of Mu'adh bin Jabal in Sahih al-Bukhari and Sahih Muslim establishing that the exclusive right of Allah over His slaves is that they worship Him without associating any partners, contextually anchor the theological study of Tawhid al-Uluhiyyah?",
+        "retrievedAt": "2026-04-19T04:56:00Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-3-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0046 (Narrated Mu'adh bin Jabal)",
+      "translation": "It is narrated on the authority of Mu'adh b. Jabal: I was riding behind the Prophet (may peace be upon him)... [the Prophet established that] Allah's exclusive right is that His slaves must worship Him alone and never associate any partners with Him; the right of the slaves upon Allah is that He will not punish anyone who upholds this pure, unassociated worship.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 cit. 2 returns the canonical Sahih Muslim ref (Book 001 Number 0046) with the opening isnad verbatim. The Hadith of Mu'adh is the definitive Prophetic statement of Tawhid al-Uluhiyyah: Allah's haqq over His slaves is exclusive worship with no partners — the exact content of this subtask. Matn paraphrased from MS answer text (the reference chunk captured only the isnad header; the operative ruling is quoted in the answer body).",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the definitive hadith of Mu'adh bin Jabal in Sahih al-Bukhari and Sahih Muslim establishing that the exclusive right of Allah over His slaves is that they worship Him without associating any partners, contextually anchor the theological study of Tawhid al-Uluhiyyah?",
+        "retrievedAt": "2026-04-19T04:56:00Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 4, Book 52, Number 107 (Narrated Sahl)",
+      "translation": "A parallel Prophetic narration preserved in Bukhari reinforcing the Prophet's teaching on the exclusive right of Allah to be worshipped.",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 cit. 1 returns this canonical Bukhari Volume/Book/Number alongside the Mu'adh narration. Contextual rather than direct because MS does not supply the matn verbatim beyond the isnad header — the narration supports the same ruling but cannot be tightly bound at the matn level.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the definitive hadith of Mu'adh bin Jabal in Sahih al-Bukhari and Sahih Muslim establishing that the exclusive right of Allah over His slaves is that they worship Him without associating any partners, contextually anchor the theological study of Tawhid al-Uluhiyyah?",
+        "retrievedAt": "2026-04-19T04:56:00Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 hadith entries, both Bayyinah, 1 direct + 1 contextual. Bar met via hadith axis. Quran axis rejected: q1 answer named 51:56, 1:5, 21:25, 16:36, 2:21 — but reference chunks returned were either null cited_text or generic surah headers (Surah 1 al-Fatihah header). No verse-level matn bound to any named ayah. The null-cited_text chunks are the strongest rejection — there is literally no text to cite from. Also rejected: 75/1800 page-only markers in q2."
+  }
+}

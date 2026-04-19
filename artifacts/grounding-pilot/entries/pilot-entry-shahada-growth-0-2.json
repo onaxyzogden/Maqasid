@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[0].subtasks[2]",
+    "subtaskTitle": "Read the section on prophethood and revelation",
+    "parentTaskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+    "session": "faith-2026-04-19-c",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:51 detailing the modes of divine communication and Surah Al-Ahzab 33:40 establishing the seal of the prophets, that contextually anchor the theological study of prophethood and revelation?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the detailed account of the commencement of revelation (Wahy) found in Sahih al-Bukhari 3 or the explicit hadiths affirming the finality of messengership in Sahih Muslim, directly anchor the foundational aqidah texts concerning the prophets?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 42:51",
+      "translation": "It is not for any human being that Allah should speak to him except by revelation or from behind a partition or [that] He sends a messenger to reveal, by His permission, what He wills.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 names 42:51 as the Qur'anic statement of the three modes of divine communication — the classical starting point for the revelation (wahy) section of any aqidah text. Reference chunk [1] ('Sūrah 42: ash-Shūrā') confirms the surah is in corpus. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:51 detailing the modes of divine communication and Surah Al-Ahzab 33:40 establishing the seal of the prophets, that contextually anchor the theological study of prophethood and revelation?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 33:40",
+      "translation": "Muhammad is not the father of any of your men, but he is the Messenger of Allah and the seal [i.e., last] of the prophets.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 surfaces 33:40 as the scriptural warrant for khatm al-nubuwwah (finality of prophethood) — the tenet every classical aqidah text anchors in this verse. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:51 detailing the modes of divine communication and Surah Al-Ahzab 33:40 establishing the seal of the prophets, that contextually anchor the theological study of prophethood and revelation?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 21:25",
+      "translation": "And We sent not before you any messenger except that We revealed to him that, 'There is no deity except Me, so worship Me.'",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 frames 21:25 as the unified core of all prophetic revelations — establishing the continuity the revelation section of an aqidah text asserts across prophets. Contextual: supports the 'unified message' tenet rather than a single ruling. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Ash-Shura 42:51 detailing the modes of divine communication and Surah Al-Ahzab 33:40 establishing the seal of the prophets, that contextually anchor the theological study of prophethood and revelation?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 1, Number 3",
+      "translation": "The commencement of the Divine Inspiration to Allah's Apostle was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him... The angel came to him and asked him to read. The Prophet replied: 'I do not know how to read.' The Prophet added: 'The angel caught me forcefully and pressed me so hard that I could not bear it any more. He then released me and again asked me to read...' (Narration of 'Aisha on the beginning of revelation.)",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 binds this Sahih Bukhari narration (canonical Volume/Book/Number ref confirmed in reference chunks, narrated by 'Aisha) as the foundational hadith on the commencement of wahy — the hadith classical aqidah texts excerpt when teaching how revelation began. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the detailed account of the commencement of revelation (Wahy) found in Sahih al-Bukhari 3 or the explicit hadiths affirming the finality of messengership in Sahih Muslim, directly anchor the foundational aqidah texts concerning the prophets?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 4, Book 56, Number 661",
+      "translation": "Allah's Apostle said: 'My similitude in comparison with the other prophets before me is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: Would that this brick be put in its place! So I am that brick, and I am the last of the Prophets.'",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 binds this hadith (canonical V4 B56 N661 ref and full matn confirmed verbatim in reference chunks) as the Prophetic declaration of khatm al-nubuwwah — the pair to Quran 33:40 that every aqidah text on finality of prophethood cites. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the detailed account of the commencement of revelation (Wahy) found in Sahih al-Bukhari 3 or the explicit hadiths affirming the finality of messengership in Sahih Muslim, directly anchor the foundational aqidah texts concerning the prophets?",
+        "retrievedAt": "2026-04-19T04:33:39Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "5 entries; all Bayyinah; 4 direct + 1 contextual. Bar met on both axes. Rejected: Quran 33:7 ('covenant from all prophets') and 4:136 — surfaced but thematic given that 42:51 + 33:40 + 21:25 already provide tight direct anchors. Also rejected: Muslim 'Book 004 Number 1061: Hudhaifa' (on superiority over prior prophets) — MS returned the ref but only a stub cited_text 'The Messenger of Allah said like this', no matn verbatim — ref↔matn integrity insufficient."
+  }
+}

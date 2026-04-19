@@ -1,0 +1,864 @@
+{
+  "answer": "To accurately understand foundational theology, the Quran directs believers to consult knowledgeable individuals and emphasizes the critical need for clear, accessible communication. \n\n**Relying on People of Knowledge**\n* **Seeking Expertise:** Both Surah An-Nahl 16:43 and Surah Al-Anbiya 21:7 explicitly command believers to \"ask the people of the message if you do not know\" [1, 2]. \n* **Resolving Doubt:** If doubts about the revelation arise, Surah Yunus 10:94 advises consulting \"those who have been reading the Scripture before you\" to find clarity [3]. \n* **Firmness in Faith:** Surah Al Imran 3:7 praises \"those firm in knowledge\" for properly understanding and believing in all of God's verses, contrasting them with those who exploit unclear verses to create discord [4].\n\n**The Need for Clear Language**\n* **Speaking the Audience's Language:** Surah Ibrahim 14:4 establishes that God \"did not send any messenger except [speaking] in the language of his people to state clearly for them\" [5]. This anchors the necessity of translating and conveying theology in a way the audience naturally comprehends.\n* **Clarity for Understanding:** The Quran repeatedly stresses that it was revealed in a \"clear Arabic language\" specifically so that its original audience might understand it [6-8]. \n* **Avoiding Confusion:** Surah Fussilat 41:44 notes that if the Quran had been revealed in a foreign language, the people would have justifiably objected, asking, \"Why are its verses not explained in detail [in our language]?\" [9]. \n* **The Duty to Explain:** The role of the Prophet was not just to deliver the text, but to explain it. Surah An-Nahl 16:44 states he was sent to \"make clear to the people what was sent down to them\" so that they might give it proper thought [10].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "d5dde8bd-463d-412d-b0e1-ca0fade3ff3f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "a3abe91c-36db-4e71-823e-e67aa61a7b9c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "1cf0d30a-a9a5-4de4-8089-605de7a28228"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "c1deaee1-4cb3-419e-8580-8534cabac55e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "45c58d56-6bea-4d2f-b370-7beae05e2aa5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "7777a847-ce5d-4491-a3b6-a4411005befc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "0dff06ab-e7f1-4dc5-8f62-23078ba75712"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "63430485-68d1-4118-8193-648450d1790b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "c2ecba76-3252-4ddc-aa3d-c09e3f1c8602"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "780803f2-ba0e-4cdb-8b0f-9837b1cf5bbb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "316b2934-63b9-482e-abcb-06a779002173"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "4e9acafc-8282-4603-a507-ddb5e394e109"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "30e60f69-b04f-4678-b04c-4cf325b1a6dc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "353cc7c8-a801-4a38-b7ac-326cb981c99b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "99e24fee-fdfa-4bde-bd49-19880b7f1daf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "20de234c-edad-4c69-b7e1-752bad8576ca"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "cfc881f0-b6fc-467d-913f-2f9eb3d4009c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "9fb58702-9dcc-4a97-b245-4061870dc5d5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "7c44a9b8-90a4-41b8-8f68-9393f6a1b35f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "1556a7ba-0d9f-4adc-8651-b694f5e85cb9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "2fa46efc-5da6-41f9-a8e7-17f9bd63e053"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "4c015819-ec60-46d3-9f23-93604850bd7c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 23,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "c23841e4-f611-40ac-9ed6-925d35927ce3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "2fcb881d-21b7-4965-b5e2-4fc1fb647b81"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "c638074a-f4d7-40df-bee0-9b0c142e245f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "189ca612-eb20-4fa8-8d1d-e8248d63ec81"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "b7df6950-e014-417f-9b07-2508252043c8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "df3d00b9-888c-4fa4-81e7-76dfafce940b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "349afc47-750c-4f25-997e-0b433fbb79c4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "ee57ad98-b090-49ec-a9bd-015dd8bfe524"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "c3311e03-39e4-419c-bb81-f738d1ed9c82"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "318cbd7b-25a6-4be4-8896-dbe47e9b9f37"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "c319b071-f3e7-4eae-b4f8-e8ace764c8a6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "8f7773bb-057e-44cd-8b6b-49fb461b063d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "645b471f-2552-4e96-a336-f22d5587dedf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "6fa32c76-83b7-4f87-931a-993e1b77f377"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "40953163-ebda-41e6-8e68-ca4824717ec3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "3f3a6511-5eb0-4a63-be49-9ace99c776d2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "f341b1f1-d4a7-4d99-8777-57cbbc73ad5c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "f1515af1-9c5a-45ae-8575-640d38d7ec50"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "cfb3dd96-c7c4-416c-981c-555645064937"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "d1b3d9fb-9447-4382-8675-dd32bc643f3f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "34420dfd-64d2-4fbc-83e1-0d3d7db7c667"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "21930ca9-1cc5-44e6-8436-249ca15e3d4a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "4c981f49-e49d-411d-8c26-db1567876d98"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "5ae767a5-29dc-4235-8483-26bfc030e215"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "ca671162-125a-4837-8c7a-9285c148068a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "1862d629-845c-4392-a52e-dfe2c713f8e2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "5d71a439-c13f-444b-8c3b-4d7470e07181"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "c5ef788b-3894-4bb2-82d9-06d18a385901"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "21553423-ce51-4edd-89d9-113ef7fb2283"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "fa327c0b-8803-4c8b-8bc1-ca3e19a3970b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "d0c49f55-c79e-47ce-a920-dc11b509d395"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 54,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "f000a35d-32fc-4ca3-af23-1cc0e48ab17e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 55,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "26a69dcc-d774-4a59-8064-baf6734e29e9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 56,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "d2d2288e-105e-474a-bd72-e0f340604e52"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 57,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "1cbd3bab-7f54-452d-a0ad-7882ff030326"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1221234,
+      "end_char": 1221356,
+      "chunk_id": "d110c5f0-8300-426c-932c-42a79f90a3a4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "22b4ae48-5dba-445c-809b-290e63f818d8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 60,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "1921e545-0404-4068-8497-3a8aeaedae75"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 61,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "b82943da-07ab-4da6-9fe8-22b40887aee4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 62,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "6e419003-9af1-4860-8345-344ec5ab6c99"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 63,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "db1d47d1-5d90-4d0e-8ace-581abdeedb49"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 64,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "0054da7d-613b-49de-8bcb-3c3539eafb6a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 65,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "75076a5a-86c2-4862-ac51-0bc4d8b2a929"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "3a21e346-9c67-43b5-986e-42cce1124eee"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1221234,
+      "end_char": 1221356,
+      "chunk_id": "d9b554de-aea0-40cd-9f22-e89bb5199c17"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 68,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "bf15d900-4754-47d2-8db8-558715217577"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 69,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "ae85c310-72a4-40de-a57a-42eed50bae8e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 70,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "7d2d56e8-0e23-469a-9c1d-ac82b7352681"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 71,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "3dbef24a-ff30-4297-b46f-3831b27b6d28"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 72,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "30827034-d671-46aa-b5b1-4fa3c328bbfe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 73,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "ea39b08f-64e0-48a5-b47f-5d842977dea0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 74,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "dad10306-e4a0-429c-83c6-11ed20d190b0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 75,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "2f918305-81ad-4996-9cb5-565a7a1532bd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 76,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1221234,
+      "end_char": 1221356,
+      "chunk_id": "ba72cd8b-01bc-4e86-934a-e09ac41512db"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 77,
+      "cited_text": "44. [We sent them] with clear proofs and",
+      "start_char": 659656,
+      "end_char": 659698,
+      "chunk_id": "7f09e03c-3568-43d5-a9da-75c360c3bd54"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 78,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "9c1f22ad-e29f-468c-809b-90211626069d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 79,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "57e623ab-a936-42b9-bf3e-4d651dfacee8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 80,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "ac318ec5-9952-4a87-b473-9b895a6eff09"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 81,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "8466f913-6333-4107-a658-8a4543b74c62"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 82,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "c0e3bb93-eea1-41b6-b519-31655f866cbc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 83,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "0c3a1280-aead-4936-be57-7957c7f8e7f2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 84,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "6ec4ae92-29e1-4f91-b032-81ea94132941"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 85,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "aa649084-5ee4-4c5d-ad0a-f798ab061b1f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 86,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1221234,
+      "end_char": 1221356,
+      "chunk_id": "e9279884-b4a2-4f51-a148-10694644c112"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 87,
+      "cited_text": "44. [We sent them] with clear proofs and",
+      "start_char": 659656,
+      "end_char": 659698,
+      "chunk_id": "aa9afc3f-604c-4f8a-a530-aebab9d2a629"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 88,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "9c1f22ad-e29f-468c-809b-90211626069d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 89,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "57e623ab-a936-42b9-bf3e-4d651dfacee8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 90,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "ac318ec5-9952-4a87-b473-9b895a6eff09"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 91,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "8466f913-6333-4107-a658-8a4543b74c62"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 92,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "c0e3bb93-eea1-41b6-b519-31655f866cbc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 93,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "0c3a1280-aead-4936-be57-7957c7f8e7f2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 94,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "6ec4ae92-29e1-4f91-b032-81ea94132941"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 95,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "aa649084-5ee4-4c5d-ad0a-f798ab061b1f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 96,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1221234,
+      "end_char": 1221356,
+      "chunk_id": "e9279884-b4a2-4f51-a148-10694644c112"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 97,
+      "cited_text": "44. [We sent them] with clear proofs and",
+      "start_char": 659656,
+      "end_char": 659698,
+      "chunk_id": "aa9afc3f-604c-4f8a-a530-aebab9d2a629"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 98,
+      "cited_text": "40. Indeed, Our word to a thing when We",
+      "start_char": 659123,
+      "end_char": 659164,
+      "chunk_id": "9c1f22ad-e29f-468c-809b-90211626069d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 99,
+      "cited_text": "4. He [the Prophet] said, \u201cMy Lord knows",
+      "start_char": 786226,
+      "end_char": 786268,
+      "chunk_id": "57e623ab-a936-42b9-bf3e-4d651dfacee8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 100,
+      "cited_text": "S\u016brah 10: Y\u016bnus www.quranproject.org 10: Jonah _________________________________________________________",
+      "start_char": 544116,
+      "end_char": 544221,
+      "chunk_id": "ac318ec5-9952-4a87-b473-9b895a6eff09"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 101,
+      "cited_text": "5. Indeed, from God nothing is hidden in",
+      "start_char": 169367,
+      "end_char": 169409,
+      "chunk_id": "8466f913-6333-4107-a658-8a4543b74c62"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 102,
+      "cited_text": "over the Hereafter and avert [people] from the way of God, seeking to make it [seem] deviant. Those are in extreme error.",
+      "start_char": 624793,
+      "end_char": 624915,
+      "chunk_id": "c0e3bb93-eea1-41b6-b519-31655f866cbc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 103,
+      "cited_text": "S\u016brah 12: Y\u016bsuf www.quranproject.org 12: Joseph _________________________________________________________",
+      "start_char": 583833,
+      "end_char": 583939,
+      "chunk_id": "0c3a1280-aead-4936-be57-7957c7f8e7f2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 104,
+      "cited_text": "them were not to be believers.  191. And indeed, your Lord - He is the Ex-",
+      "start_char": 921643,
+      "end_char": 921717,
+      "chunk_id": "6ec4ae92-29e1-4f91-b032-81ea94132941"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 105,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1212270,
+      "end_char": 1212392,
+      "chunk_id": "aa649084-5ee4-4c5d-ad0a-f798ab061b1f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 106,
+      "cited_text": "S\u016brah 41: Fussilat www.quranproject.org 41: Presented In Detail _________________________________________________________",
+      "start_char": 1221234,
+      "end_char": 1221356,
+      "chunk_id": "e9279884-b4a2-4f51-a148-10694644c112"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 107,
+      "cited_text": "44. [We sent them] with clear proofs and",
+      "start_char": 659656,
+      "end_char": 659698,
+      "chunk_id": "aa9afc3f-604c-4f8a-a530-aebab9d2a629"
+    }
+  ]
+}

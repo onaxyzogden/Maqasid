@@ -834,6 +834,25 @@
   }
 }
 
+/* ── Amanah Gate rationale block ───────────────────────────── */
+.tdp-amanah-rationale {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--accent-muted, #8b5cf6) 6%, transparent);
+  border-left: 3px solid #8b5cf630;
+}
+.tdp-amanah-rationale__text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 /* ── Sources trust banner ───────────────────────────────────── */
 .tdp-sources-trust {
   margin: 0 0 16px;

@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[3].subtasks[0]",
+    "subtaskTitle": "Study Tawhid al-Rububiyyah — Lordship of Allah",
+    "parentTaskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study Tawhid al-Rububiyyah — Lordship of Allah' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-A'raf 7:54 which details Allah's creation and command over the universe, that directly anchor the scriptural foundation for Tawhid al-Rububiyyah (the absolute Lordship of Allah)?",
+        "retrievedAt": "2026-04-19T04:54:03Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-3-subtasks-0-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those emphasizing Allah's exclusive power to sustain creation, grant provision, and decree life and death, contextually anchor the study of His divine Lordship?",
+        "retrievedAt": "2026-04-19T04:54:03Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-3-subtasks-0-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 6, Number 315 (Narrated Anas bin Malik)",
+      "translation": "Authentic narrations state that Allah appoints an angel in the womb to definitively write and decree a person's exact livelihood, provision, and time of death before they are even born.",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 cit. 1 returns this canonical Bukhari Volume/Book/Number. The 'angel-of-the-womb' hadith establishes Allah's exclusive decree over provision and life-span — a cornerstone instance of Tawhid al-Rububiyyah (Allah alone sustains and ordains). Matn paraphrased from MS answer text since the reference chunks returned only the isnad header. Contextual rather than direct because the narration demonstrates Rububiyyah via one act (decree in the womb) rather than defining the category itself.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those emphasizing Allah's exclusive power to sustain creation, grant provision, and decree life and death, contextually anchor the study of His divine Lordship?",
+        "retrievedAt": "2026-04-19T04:54:03Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "1 entry (Sahih Bukhari Vol 1 Book 6 Number 315, Bayyinah, contextual). Bar met. Quran axis rejected: q1's answer is a 'UX guidelines' template paraphrase naming 7:54, 67:1-2, 13:2/16, 39:5-6, 31:25 — but every reference chunk returned only generic fragments ('53. Do they await except its result?', surah header 'Surah 67: al-Mulk', footnote 340/341) with no verse-level matn for any named ayah. No Quran entry could be bound per ref↔matn integrity rule. Volume 4 - 746/1700 also in q2 refs but is a page-only marker, not a canonical Vol/Book/Number, so excluded. Vol 2 Book 17 Number 149 (Ibn Umar) returned but matn not quoted in MS answer — not usable."
+  }
+}

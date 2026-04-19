@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[3].subtasks[0]",
+  "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+  "subtaskTitle": "Study Tawhid al-Rububiyyah — Lordship of Allah",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study Tawhid al-Rububiyyah — Lordship of Allah' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Al-A'raf 7:54 which details Allah's creation and command over the universe, that directly anchor the scriptural foundation for Tawhid al-Rububiyyah (the absolute Lordship of Allah)?",
+    "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those emphasizing Allah's exclusive power to sustain creation, grant provision, and decree life and death, contextually anchor the study of His divine Lordship?"
+  ],
+  "retrievedAt": "2026-04-19T04:54:03Z"
+}

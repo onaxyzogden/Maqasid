@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[2].subtasks[2]",
+  "taskTitle": "Understand the difference between major and minor shirk",
+  "subtaskTitle": "Study riya (showing off) as a form of minor shirk",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study riya (showing off) as a form of minor shirk' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, specifically Surah Al-Ma'un 107:4-6 which strictly condemns those who pray only to be seen and Surah Al-Kahf 18:110 which commands pure worship, that directly anchor the scriptural prohibition of riya (showing off)?",
+    "Which authentic narrations, particularly the explicit warnings found in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies ostentation in good deeds as \"hidden shirk\" or minor shirk, directly anchor the theological study of riya?"
+  ],
+  "retrievedAt": "2026-04-19T04:49:45Z"
+}

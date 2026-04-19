@@ -1,0 +1,416 @@
+{
+  "answer": "Authentic narrations explicitly identify associating partners with Allah (shirk) as the most severe of all major sins. When asked to identify the greatest and most grievous sin in the sight of Allah, the Prophet Muhammad clearly defined it as setting up a rival to Allah despite the fact that He alone created you [1-3]. \n\nThis directly anchors the definition of major shirk by highlighting the ultimate injustice: attributing divine rights or equals to others when Allah is the sole Creator of humanity [1, 3]. \n\nFurthermore, the Prophet consistently placed shirk at the very top of explicitly defined categories of major offenses:\n*   **The Gravest Major Sins (Al-Kaba'ir):** When listing the most grievous of the major sins, the Prophet identified \"associating anyone with Allah\" as the absolute foremost offense, preceding other severe sins such as disobedience to parents, murder, and false testimony [4, 5]. \n*   **The Seven Noxious Things:** When warning his followers to avoid the seven most destructive acts, the Prophet again listed \"associating anything with Allah\" as the primary sin, placing it before practicing magic, unjust killing, consuming an orphan's wealth, consuming usury, fleeing the battlefield, and slandering chaste women [6].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 1,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "56078ea3-4122-44bd-af5f-e25000930118"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 2,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "f89a0e18-a42d-4c44-bebe-6c09fb7a4127"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 3,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "e1e0659b-4a08-4395-9777-4046302abbd1"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 4,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "d9dbc584-2623-4ac9-ae2a-70efcf968621"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 5,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "c6183688-11ca-4feb-9936-58b32b519f4e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 6,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "cf249ce8-f530-43b2-9bb0-94017defc7b9"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 7,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "601d7c12-3de4-4a6b-895c-877f0147a3bc"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 8,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "ab016983-1989-4d94-a1ff-c233c0b943ac"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 9,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "c1a572d6-dcf2-46e8-bd62-ba64f9f2382b"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 10,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "c626bce4-e67f-4f7a-8086-503b772ed327"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 11,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "f72d784f-e0fd-4deb-84ce-769ddceac8ad"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 12,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "192cf19a-0b00-4f84-b35c-8918974cd59d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 13,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "6ed28d4a-c902-45a6-93c0-b885347f764d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 14,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "1c4b6ee3-6bfa-48bf-b657-5ce9c14b3aa8"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 15,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "a8633058-bf94-4c3f-a33c-15c3747f09de"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 16,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "34fa453b-a5a2-4a9d-a30c-11f660cb3b64"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 17,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "b27e7dcc-65ef-4b8d-8c1a-f86765d7b7ca"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "e502b8b1-32ab-45d1-871e-0d8ade77fe85"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 19,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "94a0c22d-9e23-40e9-97a8-75d2ba3d40de"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 20,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "65f8fa43-fa1f-4bcd-ae3e-5a797268a807"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 21,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "460c067c-a5b8-4cee-b94f-0f562a04bc8c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 22,
+      "cited_text": "Book 001, Number 0159: Anas narrated from the Apostle (may peace be upon him) about the major sins. He (the Holy Pro-",
+      "start_char": 322235,
+      "end_char": 322352,
+      "chunk_id": "a08b62dd-3005-4d4e-908f-1dd59fc7cfb3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "17ffce92-0568-4411-a320-fffbfda4901f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 24,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "1866061f-709b-4f7d-a383-c151ccc801da"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 25,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "21fd056e-4ef6-4770-bce6-bddbacddf685"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 26,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "ae380f4c-eaf3-4f29-9c9f-7afe0fc09796"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 27,
+      "cited_text": "Book 001, Number 0159: Anas narrated from the Apostle (may peace be upon him) about the major sins. He (the Holy Pro-",
+      "start_char": 322235,
+      "end_char": 322352,
+      "chunk_id": "7f2f10bb-a37d-4fa5-a059-c6ed411f30f9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 28,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "9342e967-1b55-46f6-b491-876dba0ff945"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 29,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "af5e1cf7-9c8b-4716-8491-a9c4b1c0c2a3"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 30,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "9342481b-6c53-42ac-b9b4-05cbc6881e16"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 31,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "14fb798c-c5f0-42c3-9c47-ca6ce84a6f47"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 32,
+      "cited_text": "Book 001, Number 0159: Anas narrated from the Apostle (may peace be upon him) about the major sins. He (the Holy Pro-",
+      "start_char": 322235,
+      "end_char": 322352,
+      "chunk_id": "46c7e8dd-9526-4e1a-aa94-0902e4421345"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 33,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "592323ee-b69a-4d6a-b73b-5486cb8423e3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 34,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "29225cbf-3a01-46e1-b327-8d48080eba6c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 35,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "3ee9b91c-9c49-495e-bafb-414a4eb7f46e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 36,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "f6fdeec9-bf6b-4135-bd13-9ef2d6e1a5fe"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 37,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "5af7f522-2e63-493d-9423-ede956fd48f7"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 38,
+      "cited_text": "Book 001, Number 0159: Anas narrated from the Apostle (may peace be upon him) about the major sins. He (the Holy Pro-",
+      "start_char": 322235,
+      "end_char": 322352,
+      "chunk_id": "3a5c3870-028c-46e6-9c49-2f6290b2498f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 39,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "f56e181d-bada-45e5-8a3b-d24c56f983f4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 40,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "29225cbf-3a01-46e1-b327-8d48080eba6c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 41,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "3ee9b91c-9c49-495e-bafb-414a4eb7f46e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 42,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "f6fdeec9-bf6b-4135-bd13-9ef2d6e1a5fe"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 43,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "5af7f522-2e63-493d-9423-ede956fd48f7"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 44,
+      "cited_text": "Book 001, Number 0159: Anas narrated from the Apostle (may peace be upon him) about the major sins. He (the Holy Pro-",
+      "start_char": 322235,
+      "end_char": 322352,
+      "chunk_id": "3a5c3870-028c-46e6-9c49-2f6290b2498f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 45,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "f56e181d-bada-45e5-8a3b-d24c56f983f4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 46,
+      "cited_text": "\"They will dwell therein forever.\" (16.29)",
+      "start_char": 2131820,
+      "end_char": 2131863,
+      "chunk_id": "29225cbf-3a01-46e1-b327-8d48080eba6c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 47,
+      "cited_text": "this chain of narrators, with the addition that he pointed towards the house of 'Abdullah, but he did not mention his name for us.",
+      "start_char": 319595,
+      "end_char": 319726,
+      "chunk_id": "3ee9b91c-9c49-495e-bafb-414a4eb7f46e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 48,
+      "cited_text": "gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the, Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "start_char": 320157,
+      "end_char": 320745,
+      "chunk_id": "f6fdeec9-bf6b-4135-bd13-9ef2d6e1a5fe"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 49,
+      "cited_text": "All those who call not unto another god along with Allah, and slay not any soul which Allah has forbidden, except in the cause of justice, nor commit fornication, and he who does this shall meet a requital of sin (xxv. 68).",
+      "start_char": 321418,
+      "end_char": 321642,
+      "chunk_id": "5af7f522-2e63-493d-9423-ede956fd48f7"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 50,
+      "cited_text": "Book 001, Number 0159: Anas narrated from the Apostle (may peace be upon him) about the major sins. He (the Holy Pro-",
+      "start_char": 322235,
+      "end_char": 322352,
+      "chunk_id": "3a5c3870-028c-46e6-9c49-2f6290b2498f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 51,
+      "cited_text": "Book 001, Number 0161: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace be upon",
+      "start_char": 322982,
+      "end_char": 323099,
+      "chunk_id": "f56e181d-bada-45e5-8a3b-d24c56f983f4"
+    }
+  ]
+}

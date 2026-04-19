@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[2].subtasks[3]",
+  "taskTitle": "Understand the difference between major and minor shirk",
+  "subtaskTitle": "Learn the hadith on hidden shirk and its remedy",
+  "csQueryPrompt": "For a MILOS subtask titled 'Learn the hadith on hidden shirk and its remedy' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Al-Kahf 18:110 which explicitly commands pure worship devoid of hidden association, that contextually anchor the scriptural necessity of identifying and remedying concealed forms of shirk?",
+    "Which authentic narrations, particularly the specific hadith describing shirk as more hidden than the creeping of an ant along with its prescribed prophetic supplication for seeking refuge from known and unknown polytheism, provide the exact framework and remedy for hidden shirk?"
+  ],
+  "retrievedAt": "2026-04-19T04:51:57Z"
+}
