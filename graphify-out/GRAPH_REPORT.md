@@ -1,12 +1,12 @@
 # Graph Report - src/  (2026-04-16)
 
 ## Corpus Check
-- Large corpus: 331 files · ~1,828,315 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder, or use --no-semantic to run AST-only.
+- Large corpus: 331 files ï¿½ ~1,828,315 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder, or use --no-semantic to run AST-only.
 
 ## Summary
-- 921 nodes · 853 edges · 209 communities detected
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
-- Token cost: 0 input · 0 output
+- 921 nodes ï¿½ 853 edges ï¿½ 209 communities detected
+- Extraction: 100% EXTRACTED ï¿½ 0% INFERRED ï¿½ 0% AMBIGUOUS
+- Token cost: 0 input ï¿½ 0 output
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]
@@ -219,7 +219,7 @@
 - [[_COMMUNITY_Community 207|Community 207]]
 - [[_COMMUNITY_Community 208|Community 208]]
 
-## God Nodes (most connected - your core abstractions)
+## Keystone Nodes (most connected - your core abstractions)
 1. `buildPrompt()` - 11 edges
 2. `truncate()` - 7 edges
 3. `runMigrations()` - 6 edges
