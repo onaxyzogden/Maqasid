@@ -201,6 +201,8 @@ Blue light from phones, tablets, and screens suppresses melatonin production by 
 
 After Isha prayer, place your phone on a charger outside the bedroom or across the room. If you use your phone as an alarm, switch to a simple alarm clock instead. Remove or cover any screens in the bedroom. If you must use a device, enable night mode and keep brightness at minimum. Replace screen time with a physical book or dhikr.` },
         { title: "Practise the Sunnah sleep etiquettes — wudu, right side, sleeping duas", done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith from Sahih al-Bukhari explicitly instructs believers to perform wudu, lie on their right side, and recite a supplication before going to sleep, providing clear and direct proof for the core actions of the subtask.',
           sources: `**I. Quran**
 
 
@@ -231,6 +233,8 @@ The Prophet (SAW) had a complete bedtime routine that combines spiritual protect
 
 Make wudu before getting into bed. Lie on your right side as the Prophet (SAW) instructed. Recite the sleeping duas — blow into your palms and recite the three Quls, then wipe over your body. Recite Ayat al-Kursi and the dua "Bismika Allahumma amutu wa ahya." Keep a small card with these duas by your bed until they are memorised.` },
         { title: 'Track your sleep consistency for 14 days and adjust as needed', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources emphasize sleep as a divine rest and highlight the Prophet\'s consistent bedtime routine, they omit specific modern practices like maintaining a 14-day sleep log, making the subtask a practical logical inference to achieve this intended consistency.',
           sources: `**I. Quran**
 
 
@@ -260,6 +264,8 @@ Use a simple sleep log — note your bedtime, wake time, and how rested you feel
       description: 'Walking is the most accessible form of movement and carries immense physical and mental benefit. Scheduling it after Fajr or Asr ties it to an existing anchor, builds consistency, and provides time for reflection, dhikr, or beneficial audio content.',
       subtasks: [
         { title: 'Choose a safe and pleasant walking route near your home or mosque', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources commend the strong believer and instruct dispersing in the land after prayer, they do not explicitly prescribe scouting a safe walking route, making the subtask a practical logical inference to cultivate the physical strength beloved by Allah.',
           sources: `**I. Quran**
 
 
@@ -282,6 +288,8 @@ A pre-selected route removes the daily decision of "where should I go?" which is
 
 Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable. Aim for a loop that takes 20-30 minutes at a comfortable pace. Consider parks, quiet neighbourhood streets, or paths near your masjid. Walk each candidate route once to test it, then pick your favourite as your default. Having a backup route prevents weather or construction from becoming an excuse.` },
         { title: 'Set a daily reminder tied to your Fajr or Asr prayer time', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided sources emphasize the importance of observing and glorifying Allah during the morning and afternoon times of Fajr and Asr, they offer no textual proof or logical inference for the specific practice of habit-stacking a daily walk to these prayers via a phone reminder.',
           sources: `**I. Quran**
 
 
@@ -312,6 +320,8 @@ Habit stacking — attaching a new behaviour to an existing one — is the most 
 
 Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk now" at Fajr + 10 min). Lay out your walking shoes and clothes the night before if walking after Fajr. The key is removing friction — when the reminder fires, you should be able to walk out the door within two minutes.` },
         { title: 'Prepare a playlist of Quran recitation, lectures, or dhikr for the walk', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -346,6 +356,8 @@ Pairing physical movement with beneficial audio transforms a simple walk into a 
 
 Download 3-5 episodes of your favourite Islamic lecture series or Quran recitation to your phone for offline access. Organise them into a dedicated "Walk" playlist. Rotate between Quran days and lecture days to keep it fresh. Wireless earbuds make this seamless. Alternatively, some days walk in silence and use the time for personal dua and reflection.` },
         { title: 'Track your daily walks for the first 21 days to build the habit', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources commend the strong believer and encourage physical movement as part of daily worship, they omit specific modern practices like maintaining a 21-day habit tracker, making the subtask a practical logical inference to establish this intended daily walking routine.',
           sources: `**II. Hadith**
 
 
@@ -372,6 +384,8 @@ Use a simple habit tracker — a checkbox on your calendar, a streak app, or a t
       description: 'The body is an amanah (trust) from Allah. Preventive health screenings catch issues early when they are most treatable. A comprehensive check-up covers blood work, cardiovascular markers, vision, dental health, and age-appropriate screenings.',
       subtasks: [
         { title: 'Research clinics or doctors that offer comprehensive health panels', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly advises believers to take advantage of their health before illness, it omits specific modern preventive measures like researching clinics for comprehensive health panels, making the subtask a practical logical inference to implement this prophetic guidance.',
           sources: `**I. Quran**
 
 
@@ -394,6 +408,8 @@ Not all clinics offer the same depth of screening. A comprehensive panel coverin
 
 Search for clinics near you that offer "executive health panels" or "comprehensive wellness screenings." Compare what is included — at minimum, look for complete blood count, lipid panel, metabolic panel, thyroid, vitamin D, and HbA1c. Check reviews, insurance coverage, and whether the doctor spends time explaining results. Ask your community for recommendations as well.` },
         { title: 'Schedule the appointment and note any fasting requirements for blood work', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths explicitly advise believers to take advantage of their health before illness, they omit specific modern medical logistics like scheduling clinic appointments or noting fasting requirements for blood work, making the subtask a practical logical inference to fulfill this prophetic guidance.',
           sources: `**II. Hadith**
 
 
@@ -413,6 +429,8 @@ Many blood tests require 8-12 hours of fasting for accurate results. Scheduling 
 
 Call the clinic and confirm which tests require fasting and for how long. Schedule a morning appointment so the fasting period overlaps with sleep. Mark the appointment on your calendar with a note: "No food or drink (except water) after [time]." If you are already fasting for Sunnah Mondays/Thursdays, consider scheduling the screening on one of those days.` },
         { title: 'Prepare a list of current symptoms, medications, and family health history', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith emphasizes health as a profound blessing that people often neglect, it omits specific modern medical preparations like listing symptoms and family history, making the subtask a practical logical inference to actively safeguard this divine gift.',
           sources: `**II. Hadith**
 
 
@@ -428,6 +446,8 @@ Doctors make better diagnostic decisions when they have complete context. Walkin
 
 Create a one-page document listing: (1) any current symptoms or concerns, no matter how minor, (2) all medications, supplements, and vitamins you take with dosages, (3) family health history — conditions in parents, siblings, and grandparents such as diabetes, heart disease, cancer, or hypertension. Bring a printed copy or have it on your phone to hand to the doctor.` },
         { title: 'Attend the screening and obtain a copy of all results', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly advises believers to take advantage of their health before sickness, it omits specific modern medical practices like attending health screenings and obtaining copies of results, making the subtask a practical logical inference to implement this prophetic guidance.',
           sources: `**I. Hadith**
 
 
@@ -443,6 +463,8 @@ Having your own copy of results empowers you to track changes over time, seek se
 
 Attend the appointment on time with your prepared health summary. Ask the clinic if results will be available through an online patient portal or if you need to request a printed copy. Ensure you receive the full lab report with reference ranges, not just a verbal summary. Save a digital copy in a dedicated "Health Records" folder you can reference annually.` },
         { title: 'Review results with the doctor and create an action plan for any flagged areas', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly encourage making use of medical treatment and affirm Allah as the ultimate curer, they omit specific modern medical logistics like reviewing lab results or creating action plans with a doctor, making the subtask a practical logical inference to fulfill this prophetic command.',
           sources: `**I. Quran**
 
 
@@ -472,6 +494,8 @@ Schedule a follow-up consultation (in-person or phone) to review the results wit
       description: 'Allah commands us to consume what is tayyib (pure and wholesome) and forbids what harms. Tobacco, alcohol, and heavily processed foods damage the body and dull the mind. Removing them is both a health imperative and an act of obedience.',
       subtasks: [
         { title: 'Honestly inventory all harmful substances you currently consume', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses explicitly forbid self-harm and throwing oneself into destruction, they omit specific methods like taking a personal inventory of harmful substances, making the subtask a practical logical inference to identify and eliminate habits that lead to such destruction.',
           sources: `**I. Quran**
 
 
@@ -491,6 +515,8 @@ Honesty with yourself is the prerequisite for change. Many people underestimate 
 
 Sit down privately and list every substance you consume that you know is harmful or suspect might be. Include tobacco, vaping, alcohol, energy drinks, excessive caffeine, heavily processed snacks, fast food frequency, and any recreational substances. Note how often you consume each one (daily, weekly, occasionally). Be honest — this list is for you, not for anyone else.` },
         { title: 'Set a firm quit date for any addictive substances (tobacco, vaping, etc.)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided sources strictly forbid self-harm and the consumption of intoxicants, they omit specific modern psychological strategies like setting a firm quit date, making the subtask a practical logical inference to successfully abandon these prohibited substances.',
           sources: `**I. Quran**
 
 
@@ -513,6 +539,8 @@ A quit date transforms a vague intention into a commitment. Research shows that 
 
 Choose a date within the next 2-4 weeks — close enough to maintain urgency but far enough to prepare. Write it down and tell at least one person. Mark it on your calendar. Use the days before to gradually reduce intake if possible, research cessation methods, and remove triggers from your environment. Make dua for strength and renew your intention that this is an act of obedience to Allah.` },
         { title: 'Identify processed foods in your pantry and find whole-food replacements', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly warn against excessive eating and overfilling the stomach, they omit specific modern nutritional concepts like identifying and replacing processed foods, making the subtask a practical logical inference to avoid the very overconsumption these texts condemn.',
           sources: `**I. Quran**
 
 
@@ -535,6 +563,8 @@ Ultra-processed foods are engineered to be addictive, containing excessive sugar
 
 Go through your pantry and fridge. Any item with more than 5 ingredients or ingredients you cannot pronounce is likely ultra-processed. Common culprits: sugary cereals, packaged snacks, instant noodles, soft drinks, and ready meals. For each one, find a whole-food alternative — for example, replace packaged granola bars with dates and nuts, replace soft drinks with water infused with fruit. Make the swap gradual if needed, one category per week.` },
         { title: 'Seek support — accountability partner, counsellor, or cessation programme', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to cooperate in righteousness and relieve each other\'s hardships, they omit specific modern support systems like accountability partners, professional counsellors, or cessation programmes, making the subtask a practical logical inference to implement this divine and prophetic directive.',
           sources: `**I. Quran**
 
 
@@ -557,6 +587,8 @@ Overcoming harmful habits alone is significantly harder than with support. The P
 
 Choose at least one form of support: (1) an accountability partner — a trusted friend or family member you check in with weekly, (2) a professional counsellor or therapist experienced in habit change or addiction, or (3) a structured programme like a smoking cessation clinic. For Islamic-specific support, look for Muslim counsellors or community programmes. Be upfront about your goals and ask them to check on your progress regularly.` },
         { title: 'Remove harmful items from your home environment entirely', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly forbid self-harm and the infliction of harm, they omit specific practical strategies like removing harmful items from one\'s home environment, making the subtask a practical logical inference to effectively eliminate these sources of destruction.',
           sources: `**I. Quran**
 
 
@@ -588,6 +620,8 @@ Go through your home — kitchen, bedroom, car, desk, and any hidden stashes. Co
       description: 'The strong believer is better and more beloved to Allah than the weak believer. Strength training preserves muscle mass, strengthens bones, boosts metabolism, and builds the physical resilience needed to serve your family, community, and deen actively.',
       subtasks: [
         { title: 'Choose a programme suited to your level (bodyweight, gym, or home equipment)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths encourage physical training and praise the strong believer, they omit specific modern exercise methodologies like choosing a tailored fitness program, making the subtask a practical logical inference to build the physical strength praised by the Prophet.',
           sources: `**II. Hadith**
 
 
@@ -607,6 +641,8 @@ Starting with a programme matched to your current fitness level prevents injury 
 
 Honestly assess your current level: Can you do 10 push-ups? Have you trained before? Based on your answer, choose one path: (1) Complete beginner — start with a bodyweight programme, (2) Some experience — a basic gym programme like StrongLifts 5x5 or GZCLP, (3) Home equipment — a dumbbell or resistance band programme. Pick one and commit for at least 8 weeks before switching.` },
         { title: 'Schedule three specific days and times per week for training', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith encourages believers to be strong and to actively pursue what benefits them, it omits specific modern fitness strategies like scheduling three days a week for training, making the subtask a practical logical inference to systematically build the strength praised by the Prophet.',
           sources: `**II. Hadith**
 
 
@@ -622,6 +658,8 @@ Vague intentions like "I will train this week" almost never materialise. Specifi
 
 Open your weekly calendar and identify three days with at least a 60-minute window. Common splits: Monday/Wednesday/Friday or Saturday/Tuesday/Thursday. Block these times as recurring appointments. Choose times that do not conflict with prayer, work, or family obligations. Lay out your training clothes the night before and treat the session as immovable.` },
         { title: 'Learn proper form for foundational movements (squat, push, pull, hinge)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths encourage the mastery of physical skills and praise the strong believer, they omit specific modern exercise techniques like learning proper form for foundational movements, making the subtask a practical logical inference to safely and effectively build the physical strength praised by the Prophet.',
           sources: `**II. Hadith**
 
 
@@ -641,6 +679,8 @@ Proper form prevents injury and ensures the target muscles are actually doing th
 
 Focus on four foundational patterns: squat (goblet squat or bodyweight squat), push (push-up or bench press), pull (row or pull-up), and hinge (deadlift or hip hinge). Watch 2-3 reputable tutorial videos for each movement. Film yourself performing the movement and compare to the tutorials. If possible, book one session with a qualified trainer for in-person feedback on your form.` },
         { title: 'Track workouts and progressive overload in a training log', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith generally praises the strong believer, it omits specific modern fitness practices like tracking workouts or progressive overload, making the subtask a practical logical inference to systematically build the physical strength beloved by Allah.',
           sources: `**I. Hadith**
 
 
@@ -656,6 +696,8 @@ Progressive overload — gradually increasing weight, reps, or sets — is the f
 
 Use a simple training log — a notebook, spreadsheet, or app like Strong or JEFIT. For every session, record the exercise, sets, reps, and weight used. Each week, aim to add a small increment — 1-2 extra reps, or 1-2 kg more weight. Review your log weekly to confirm you are progressing. If a lift stalls for more than two weeks, adjust your approach.` },
         { title: 'Evaluate progress and adjust the programme every 4-6 weeks', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith encourages believers to strive for what benefits them and praises the strong believer, it omits specific modern fitness practices like evaluating progress and adjusting a training program every 4-6 weeks, making the subtask a practical logical inference to systematically build the physical strength beloved by Allah.',
           sources: `**I. Hadith**
 
 
@@ -678,6 +720,8 @@ Every 4-6 weeks, review your training log and ask: Am I still progressing on key
       description: 'Proper hydration is essential for cognitive function, digestion, joint health, and energy levels. The Prophet (SAW) advised drinking in three sips and not breathing into the vessel. Building a hydration habit supports every other health goal.',
       subtasks: [
         { title: 'Get a reusable water bottle with volume markings', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources advise allocating a specific proportion of the stomach for drink to maintain health, they omit specific modern tools like a volume-marked water bottle, making the subtask a practical logical inference to accurately measure and manage one\'s liquid intake.',
           sources: `**I. Quran**
 
 
@@ -700,6 +744,8 @@ You cannot manage what you cannot measure. A bottle with volume markings gives y
 
 Purchase a 1-litre reusable water bottle with clear volume markings on the side. Stainless steel or BPA-free plastic both work well. Aim to finish the bottle 2-3 times per day. Keep it visible on your desk or counter as a constant reminder. If you prefer, add time markers to the bottle with tape to pace your intake throughout the day.` },
         { title: 'Set hydration reminders at key intervals throughout the day', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish general prophetic etiquette for proportioning and pacing liquid intake, they omit specific modern strategies like setting daily hydration reminders, making the subtask a practical logical inference to ensure one drinks proactively and consistently.',
           sources: `**II. Hadith**
 
 
@@ -719,6 +765,8 @@ Thirst is a lagging indicator — by the time you feel thirsty, you are already 
 
 Set phone reminders at natural anchor points: after Fajr, mid-morning, after Dhuhr, mid-afternoon, and after Maghrib. Each reminder is a cue to drink a full glass (250ml). Alternatively, use a hydration app that sends periodic notifications. After two weeks, the habit typically becomes automatic and you can reduce the reminders.` },
         { title: 'Track daily intake using a simple app or tally method for two weeks', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the general prophetic principle of intentionally proportioning one\'s liquid intake, it omits specific modern methods like using an app or tally to track daily consumption, making the subtask a practical logical inference to accurately measure and manage one\'s hydration.',
           sources: `**I. Hadith**
 
 
@@ -734,6 +782,8 @@ Two weeks of tracking reveals your actual hydration pattern — most people disc
 
 Choose a tracking method: a tally on a sticky note (one mark per glass), a free hydration app, or a simple note in your phone. Record every glass or bottle you finish throughout the day. At the end of two weeks, calculate your daily average. If it is below 2 litres, identify the low-intake periods and add a reminder or routine to address them.` },
         { title: 'Adjust intake based on activity level, climate, and fasting days', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly establish the divine principle of modifying religious practices based on changing physical circumstances like illness or travel, they omit specific modern guidelines like adjusting daily hydration levels according to climate or activity, making the subtask a practical logical inference to safely accommodate the body\'s shifting needs.',
           sources: `**I. Quran**
 
 
@@ -764,6 +814,8 @@ On training days, add 500ml-1L extra around your workout. In hot weather, increa
       description: 'Fasting on Mondays and Thursdays is a confirmed Sunnah with extraordinary health benefits — improved insulin sensitivity, cellular repair (autophagy), mental clarity, and weight management. It combines spiritual reward with measurable physical benefit.',
       subtasks: [
         { title: 'Research the health science behind intermittent fasting and autophagy', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources state that fasting is beneficial and encourage the pursuit of medical remedies, they omit specific modern scientific concepts like researching autophagy, making the subtask a practical logical inference to uncover the physical health benefits hinted at by the Quranic phrase "if only you knew."',
           sources: `**I. Quran**
 
 
@@ -787,6 +839,8 @@ Understanding the science strengthens your motivation and helps you optimise you
 
 Read or watch 2-3 reputable sources on intermittent fasting science. Focus on understanding: what happens to your body at 12, 16, and 24 hours of fasting, how autophagy works, and the metabolic benefits of regular fasting cycles. Take notes on the key benefits to revisit when motivation dips.` },
         { title: 'Start with one day per week (Monday or Thursday) and build up', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths establish the Prophetic practice of fasting on Mondays and Thursdays, they omit specific habit-building strategies like starting with one day a week, making the subtask a practical logical inference to sustainably adopt this Sunnah without burnout.',
           sources: `**I. Hadith**
 
 
@@ -807,6 +861,8 @@ Jumping straight to two fasting days per week often leads to burnout, especially
 
 Pick either Monday or Thursday — whichever fits your schedule better. Make the niyyah (intention) the night before. For your first few fasts, keep your schedule light and avoid intense training. Eat a balanced suhoor with protein, healthy fats, and complex carbs to sustain you. After 4 consistent weeks of one day, you are ready to add the second day.` },
         { title: 'Plan suhoor and iftar meals that are nutritionally balanced', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources state that fasting is highly beneficial and praise the consistent fasting of Dawud, they omit specific modern dietary strategies like planning nutritionally balanced suhoor and iftar meals, making the subtask a practical logical inference to physically sustain the fasts and maximize their benefits.',
           sources: `**I. Quran**
 
 
@@ -829,6 +885,8 @@ Poor meal choices at suhoor and iftar can negate the health benefits of fasting.
 
 For suhoor: include slow-digesting protein (eggs, Greek yoghurt), complex carbs (oats, whole grain bread), healthy fats (avocado, nuts), and plenty of water. For iftar: break with dates and water as per the Sunnah, then eat a balanced meal with protein, vegetables, and whole grains. Prepare these meals in advance so you are not making poor choices when hungry.` },
         { title: 'Track energy levels, mood, and focus on fasting vs. non-fasting days', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources emphasize the underlying benefits of fasting and the value of consistent small deeds, they omit specific modern practices like tracking energy, mood, and focus in a daily log, making the subtask a practical logical inference to fulfill the Quranic invitation to consciously "know" the benefits of fasting.',
           sources: `**I. Quran**
 
 
@@ -852,6 +910,8 @@ Subjective tracking reveals how fasting actually affects your daily performance.
 
 Create a simple daily log with three ratings (1-10): energy, mood, and focus. Fill it in at the same time each day — mid-afternoon works well. After 4 weeks, compare your fasting-day averages to your non-fasting-day averages. Look for patterns: do you crash in the afternoon on fasting days? Is your morning focus sharper? Use these insights to adjust meal timing and activity scheduling.` },
         { title: 'Gradually add the second day once the first is consistent', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the Sunnah of fasting on both Mondays and Thursdays, it omits specific habit-building strategies like gradually adding the second day once the first is consistent, making the subtask a practical logical inference to sustainably complete this Prophetic practice.',
           sources: `**II. Hadith**
 
 
@@ -874,6 +934,8 @@ Once you have fasted consistently on your chosen day for at least 4 weeks with m
       description: 'Being prepared for medical emergencies is part of responsible stewardship over your household. A well-stocked, accessible first aid kit can prevent minor injuries from becoming serious and buy critical time in emergencies.',
       subtasks: [
         { title: 'Purchase a comprehensive first aid kit or assemble one from a checklist', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the general principles of taking precautions and coupling trust in Allah with practical preparation, they omit specific modern methods like purchasing or assembling a first aid kit, making the subtask a practical logical inference to ensure readiness for medical emergencies.',
           sources: `**I. Quran**
 
 
@@ -896,6 +958,8 @@ In a medical emergency, every second counts. Having a pre-stocked kit means you 
 
 Either purchase a pre-assembled first aid kit rated for household use (available at pharmacies and online) or assemble one using a Red Cross checklist. At minimum, include: adhesive bandages, sterile gauze, medical tape, antiseptic wipes, antibiotic ointment, scissors, tweezers, disposable gloves, a thermometer, and an instant cold pack. Store everything in a clearly labelled, waterproof container.` },
         { title: 'Add household-specific medications (prescriptions, allergy meds, pain relief)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes a general divine command to take precautions, it omits specific modern practices like adding household-specific medications to a first aid kit, making the subtask a practical logical inference to ensure one\'s family is adequately prepared for medical emergencies.',
           sources: `**I. Quran**
 
 
@@ -911,6 +975,8 @@ A generic first aid kit does not account for your family's specific needs. If so
 
 Review the medical needs of every household member. Add a backup supply of critical prescriptions (with doctor approval), antihistamines for allergic reactions, an EpiPen if prescribed, pain relievers (paracetamol, ibuprofen), anti-diarrhoeal medication, and any other household-specific needs. Label each medication clearly with the name, dosage, and expiration date.` },
         { title: 'Include an emergency contacts card (doctor, hospital, poison control, family)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad divine principles of taking precautions and relieving others\' hardships, they omit specific modern methods like creating an emergency contacts card, making the subtask a practical logical inference to ensure a swift medical response during a crisis.',
           sources: `**I. Quran**
 
 
@@ -933,6 +999,8 @@ In a crisis, stress impairs memory. Even phone numbers you know by heart can van
 
 Write or print a card with: your family doctor's phone number, the nearest hospital emergency department, poison control hotline, local ambulance number, and 2-3 emergency family contacts. Laminate it if possible for durability. Place one copy inside the first aid kit and tape another to the inside of a kitchen cabinet. Update it whenever a number changes.` },
         { title: 'Store the kit in an accessible, known location and inform all household members', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the general principles of taking precautions and coupling trust in Allah with practical preparation, they omit specific modern instructions like storing a first aid kit in an accessible location, making the subtask a practical logical inference to ensure the emergency equipment is actually useful in a crisis.',
           sources: `**I. Quran**
 
 
@@ -955,6 +1023,8 @@ A first aid kit hidden in a closet nobody can find is useless in an emergency. A
 
 Choose a central, accessible location — a kitchen cabinet, hallway closet, or bathroom shelf at an easy-to-reach height. Avoid locations that are locked, high up, or in a room that is frequently occupied. Walk every household member to the kit and show them where it is and what is inside. For children, teach them how to find it and call for help.` },
         { title: 'Set a 6-month reminder to check expiration dates and restock supplies', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly commands believers to make use of medical treatments and remedies, it omits specific modern administrative steps like setting a 6-month reminder to check expiration dates, making the subtask a practical logical inference to ensure those medical supplies remain safe and effective when needed.',
           sources: `**II. Hadith**
 
 
@@ -979,6 +1049,8 @@ Set a recurring calendar reminder every six months — a good anchor is the star
       description: 'Nutrient timing optimises when you eat specific macronutrients to maximise energy, recovery, and body composition. For Muslims, this also means strategically planning suhoor and iftar nutrition during Ramadan and voluntary fasts for sustained performance.',
       subtasks: [
         { title: 'Learn the basics of macronutrient timing (protein, carbs, fats) around training', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided sources emphasize the general spiritual and physical principles of moderation and portion control in eating, they offer neither explicit proof nor contextual indication for the highly specific modern practice of macronutrient timing around physical training.',
           sources: `**I. Quran**
 
 
@@ -1001,6 +1073,8 @@ Eating the right macronutrient at the right time can significantly improve worko
 
 Study the three key windows: (1) Pre-workout (1-2 hours before) — focus on easily digestible carbs and moderate protein, (2) Post-workout (within 1 hour after) — prioritise protein with some carbs for recovery, (3) General meals — balanced macros spread throughout the day. Read 2-3 articles from reputable sports nutrition sources to understand the principles before designing your own templates.` },
         { title: 'Design a pre-workout and post-workout meal template', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided source emphasizes the general Islamic principle of moderation in eating and portion control, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of designing pre-workout and post-workout meal templates.',
           sources: `**I. Hadith**
 
 
@@ -1016,6 +1090,8 @@ Having a meal template eliminates daily decision-making about what to eat around
 
 Create two simple templates. Pre-workout (1-2 hours before): pick 2-3 go-to meals — for example, oats with banana and honey, or rice with chicken. Post-workout (within 60 minutes): pick 2-3 protein-rich options — for example, a protein shake with fruit, or eggs with toast. Write these on a card and keep it on your fridge. Rotate between options to prevent boredom while maintaining nutritional consistency.` },
         { title: 'Create an optimised suhoor meal plan for fasting days (slow-digesting, hydrating)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command taking suhoor and highlight its inherent blessings, they omit specific modern nutritional guidelines, making the subtask a practical logical inference to physically sustain the fast and maximize the benefits of this Prophetic practice.',
           sources: `**I. Quran**
 
 
@@ -1039,6 +1115,8 @@ Suhoor is your fuel tank for the entire fasting day. A poorly planned suhoor —
 
 Design 3-4 rotating suhoor meals built around slow-digesting foods: complex carbs (oats, whole grain bread), protein (eggs, Greek yoghurt, cheese), healthy fats (avocado, nuts, olive oil), and hydrating foods (cucumber, watermelon). Drink at least 500ml of water at suhoor. Avoid high-sugar and high-salt foods that spike thirst. Prep ingredients the night before so suhoor takes under 10 minutes.` },
         { title: 'Create an optimised iftar meal plan (quick energy, then balanced nutrition)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided source establishes the timeframe for permissible eating and drinking until dawn, it offers neither explicit proof nor contextual indication for the highly specific modern practice of designing a two-phase, nutritionally optimized iftar meal plan.',
           sources: `**I. Quran**
 
 
@@ -1054,6 +1132,8 @@ The way you break your fast determines how quickly your body recovers and how we
 
 Follow the Sunnah two-phase approach: Phase 1 — break with dates and water to restore blood sugar gently. Phase 2 — after Maghrib prayer, eat a balanced meal with protein, vegetables, and complex carbs. Design 5-7 rotating iftar menus to cover the week. Keep portions moderate — you can eat again before bed if needed. Prep meals in advance to avoid the temptation of ordering takeaway when hungry.` },
         { title: 'Test and refine the protocol over 30 days, tracking energy and recovery', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith encourages the broad, general principle of striving for what is beneficial, it offers neither explicit proof nor contextual indication for the highly specific modern practice of tracking and refining a nutrition protocol over a 30-day period.',
           sources: `**I. Hadith**
 
 
@@ -1076,6 +1156,8 @@ Follow your nutrient-timing templates consistently for 30 days. Each day, rate y
       description: 'Umar (RA) said: "Teach your children swimming, archery, and horse riding." These sports build confidence, discipline, and physical capability. Pursuing them honours the Sunnah and develops skills that connect you to a tradition of strength and readiness.',
       subtasks: [
         { title: 'Research local facilities or clubs offering swimming, archery, or horse riding', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths explicitly encourage the practices of archery, swimming, and horse riding, they omit specific modern instructions on how to locate facilities, making the subtask a practical logical inference to facilitate learning and engaging in these Prophetic sports.',
           sources: `**II. Hadith**
 
 
@@ -1095,6 +1177,8 @@ Knowing what is available locally turns an aspiration into a concrete plan. Many
 
 Search online for swimming pools, archery clubs, and horse riding stables within 30 minutes of your home. Check community centres, university facilities, and parks departments — they often offer affordable options. Read reviews, compare prices, and note beginner-friendly options. If Muslim-specific facilities exist (women-only swimming sessions, for example), prioritise those.` },
         { title: 'Enrol in a beginner course or find an experienced instructor', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly encourages learning and practicing the skills of archery, swimming, and horse training, it omits specific modern methods of acquiring them, making the subtask a practical logical inference to safely and effectively master these Prophetic sports through proper instruction.',
           sources: `**II. Hadith**
 
 
@@ -1110,6 +1194,8 @@ Proper instruction from the start prevents bad habits, reduces injury risk, and 
 
 Contact the facility you identified and ask about beginner courses — most offer structured multi-week programmes. If group classes are unavailable, book private lessons with a certified instructor. For swimming, look for adult beginner classes if you are not yet confident in water. Commit to at least 8 sessions before evaluating whether to continue or switch to a different sport.` },
         { title: 'Commit to a regular practice schedule (weekly minimum)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the broad principle of striving for strength and actively pursuing what is beneficial, it omits specific administrative instructions like committing to a weekly practice schedule, making the subtask a practical logical inference to systematically achieve that Prophetic ideal.',
           sources: `**II. Hadith**
 
 
@@ -1125,6 +1211,8 @@ Skill development requires consistent repetition. Practising once a month yields
 
 Block one specific day and time per week for your chosen sport — treat it like an appointment you cannot cancel. If possible, find a training partner for mutual accountability. Start with one session per week; add a second session once the first is firmly established. Keep your gear ready to go so logistics never become an excuse to skip.` },
         { title: 'Set a 90-day proficiency goal for your chosen sport', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the broad principles of gradual mastery and consistent training in Prophetic sports, it omits specific modern frameworks like setting a 90-day proficiency goal, making the subtask a practical logical inference to systematically achieve that ideal.',
           sources: `**II. Hadith**
 
 
@@ -1140,6 +1228,8 @@ A specific proficiency goal gives your practice direction and a measurable finis
 
 Define a concrete, testable goal for 90 days out. For swimming: "Swim 500 metres continuously without stopping." For archery: "Consistently hit the target ring at 18 metres." For horse riding: "Confidently walk, trot, and canter independently." Write your goal down, share it with your instructor, and review progress monthly. Adjust if needed at the 45-day mark.` },
         { title: 'Consider involving family members to make it a shared Sunnah practice', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly includes "a man teaching his family" among praiseworthy physical activities, offering direct and clear proof for the core directive of the subtask to involve family members.',
           sources: `**I. Quran**
 
 
@@ -1169,6 +1259,8 @@ Invite your spouse or children to join you for a session. Many facilities offer 
       description: 'Moving beyond basic health to peak physical performance is a form of ihsan (excellence) in stewardship of the body. Setting a clear body composition target with a structured plan brings intentionality and measurement to your physical development.',
       subtasks: [
         { title: 'Measure current body composition (weight, body fat %, key measurements)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadiths emphasize the general Islamic principles of valuing strength and health, they offer neither explicit proof nor contextual indication for the highly specific modern fitness practice of measuring and tracking detailed body composition metrics.',
           sources: `**II. Hadith**
 
 
@@ -1188,6 +1280,8 @@ You need a precise starting point to set a realistic target and track meaningful
 
 Weigh yourself first thing in the morning after using the bathroom. Measure body fat percentage using a skinfold caliper, bioimpedance scale, or DEXA scan (most accurate). Take key body measurements with a tape measure: chest, waist, hips, arms, and thighs. Record everything in a spreadsheet or journal. Take front, side, and back photos in consistent lighting — these are often more telling than numbers.` },
         { title: 'Set a realistic 90-day target based on your goals and starting point', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith emphasizes the broad, general Islamic principles of valuing strength and striving for what is beneficial, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of setting a realistic 90-day target based on physiological benchmarks.',
           sources: `**II. Hadith**
 
 
@@ -1203,6 +1297,8 @@ Unrealistic targets lead to extreme measures (crash diets, overtraining) that ar
 
 Use evidence-based benchmarks: healthy fat loss is 0.5-1 kg per week; muscle gain for beginners is roughly 1-2 kg per month. Based on your starting measurements and goal (fat loss, muscle gain, or recomposition), calculate what is achievable in 90 days. Write your target as a specific number: "Reach 18% body fat" or "Add 3 kg of lean mass." Share the target with your training partner or coach for accountability.` },
         { title: 'Design or select a training programme aligned with the target', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith emphasizes the broad, general Islamic principles of valuing strength and striving for what is beneficial, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of designing a targeted, multi-day training program based on body composition goals.',
           sources: `**I. Hadith**
 
 
@@ -1218,6 +1314,8 @@ Different body composition goals require different training approaches. A fat-lo
 
 If your goal is fat loss: choose a 3-4 day resistance programme with 2 days of moderate cardio (walking, cycling). If your goal is muscle gain: choose a 4-day upper/lower or push/pull/legs split focused on compound lifts with progressive overload. Search for reputable programmes online or consult a certified trainer. Ensure the programme fits your schedule and equipment access.` },
         { title: 'Create a nutrition plan with caloric and macronutrient targets', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Quranic verse establishes the broad principle of avoiding excess in eating and drinking, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of creating a nutrition plan based on precise caloric and macronutrient targets.',
           sources: `**I. Quran**
 
 
@@ -1233,6 +1331,8 @@ Training without a nutrition plan is like building without blueprints. Your calo
 
 Calculate your Total Daily Energy Expenditure (TDEE) using an online calculator. For fat loss, subtract 300-500 calories; for muscle gain, add 200-300 calories. Set macros: protein at 1.6-2.2g per kg of bodyweight, fats at 0.8-1g per kg, and fill remaining calories with carbs. Plan your meals around these targets using a food tracking app for the first 2-3 weeks until you can estimate portions intuitively.` },
         { title: 'Schedule bi-weekly progress check-ins with measurements and photos', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith emphasizes the general Islamic principle of taking advantage of one\'s health and youth, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of scheduling bi-weekly progress check-ins with measurements and photos.',
           sources: `**I. Hadith**
 
 
@@ -1248,6 +1348,8 @@ Body composition changes happen gradually and are hard to notice in the mirror d
 
 Set a recurring bi-weekly reminder (every other Sunday morning works well). Each check-in: weigh yourself under the same conditions, retake body measurements, and take comparison photos in the same lighting and clothing. Log everything alongside your previous entries. Look for trends over 4+ weeks rather than reacting to any single data point — fluctuations are normal.` },
         { title: 'Review and adjust the plan at the 45-day midpoint', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Quranic verses offer a general spiritual reassurance that ease accompanies hardship, they provide neither explicit proof nor contextual indication for the highly specific modern fitness practice of reviewing and adjusting a 90-day training and nutrition plan at a 45-day midpoint.',
           sources: `**I. Quran**
 
 
@@ -1274,6 +1376,8 @@ At day 45, review all your data: compare your current measurements and photos to
       description: 'How you start your morning determines the quality of your entire day. This Prophetic morning sequence — prayer, Quran, remembrance of Allah, and self-reflection — anchors your mind in purpose and protects against anxiety and aimlessness.',
       subtasks: [
         { title: 'Write out the exact sequence and estimated time for each element', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the core spiritual elements of the morning routine—prayer, Quran recitation, and adhkar—and introduce the general concept of allocating specific portions of time for worship, they omit specific modern administrative methods like writing down an exact sequence with estimated minutes, making the subtask a practical logical inference to systematically implement these practices.',
           sources: `**I. Quran**
 
 
@@ -1300,6 +1404,8 @@ Without a written plan, your morning routine stays vague and easy to skip. Mappi
 
 List each element in order: Fajr salah, Quran reading, morning adhkar, journaling. Estimate realistic minutes for each (e.g., Fajr 10 min, Quran 10 min, adhkar 5 min, journal 5 min). Write the total and your target wake-up time. Post it where you will see it every morning.` },
         { title: 'Prepare your Quran and journal in a designated morning spot the night before', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided sources establish the general principle of the Prophet utilizing the night to prepare himself spiritually for the following day, they omit specific administrative instructions like setting out a Quran and journal, making the subtask a practical logical inference to minimize friction and systematically implement this nightly preparation.',
           sources: `**I. Quran**
 
 
@@ -1323,6 +1429,8 @@ Friction kills habits. If you have to search for your Quran or journal half-asle
 
 Choose a specific spot in your home — a prayer corner, desk, or reading chair. Each night before bed, place your Quran open to where you left off, your journal with a pen, and your adhkar card or phone (on airplane mode). Make this nightly preparation part of your evening wind-down.` },
         { title: 'Memorise or print the morning adhkar (Hisn al-Muslim or equivalent)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided sources reference the morning in the context of congregational prayer and parables of faith, they offer neither explicit proof nor contextual indication for the highly specific practice of memorizing or printing morning adhkar.',
           sources: `**I. Quran**
 
 
@@ -1349,6 +1457,8 @@ The morning adhkar are a spiritual shield prescribed by the Prophet (SAW). Havin
 
 Get a copy of Hisn al-Muslim (Fortress of the Muslim) in print or use a reliable app. Start with the 5-7 most essential morning supplications. Read them daily from the text for two weeks, then begin reciting from memory. Test yourself weekly until all core adhkar are memorised.` },
         { title: 'Start with a minimal version (5-10 min total) and expand gradually', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided Quranic verse specifically addresses only the recitation of the Quran, its core directive to do "what is easy for you" provides a strong logical inference for the subtask\'s practical advice to begin with a minimal, manageable morning routine to avoid burnout.',
           sources: `**I. Quran**
 
 
@@ -1364,6 +1474,8 @@ Attempting a 45-minute morning routine from day one almost guarantees burnout. S
 
 Begin with the absolute minimum: pray Fajr, read half a page of Quran, say 3 adhkar, write 1 sentence in your journal. Do this for 7-10 days. Once it feels automatic, add one more element or extend the time slightly. Increase by no more than 5 minutes per week.` },
         { title: 'Track completion daily for 30 days to solidify the habit', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the general spiritual principle that consistent deeds are most beloved to Allah, they omit specific modern administrative methods like using a daily habit tracker for 30 days, making the subtask a practical logical inference to systematically build that praised consistency.',
           sources: `**I. Quran**
 
 
@@ -1393,6 +1505,8 @@ Use a simple habit tracker — a printed calendar on the wall, a checklist in yo
       description: 'The eyes, ears, and heart are all accountable before Allah. Haram media — whether explicit content, idle entertainment that wastes time, or music that hardens the heart — erodes spiritual sensitivity and mental clarity. Setting boundaries is an act of self-preservation.',
       subtasks: [
         { title: 'Audit your subscriptions, apps, and social media follows for harmful content', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the core spiritual principles of lowering the gaze and avoiding apparent or concealed immoralities, they omit specific modern digital methods like auditing apps and social media subscriptions, making the subtask a practical logical inference to systematically guard one\'s eyes and digital environment from harmful content.',
           sources: `**I. Quran**
 
 
@@ -1419,6 +1533,8 @@ You cannot set boundaries on what you have not identified. An honest audit revea
 
 Set aside 30 minutes. Go through every app on your phone, every subscription service, and every social media follow list. For each one, ask: does this bring me closer to Allah, benefit my dunya, or waste my time? Make a list of everything that needs to go.` },
         { title: 'Unsubscribe, unfollow, or delete sources of haram or time-wasting media', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad spiritual principles of lowering the gaze and removing harm from pathways, they omit specific modern digital actions like unsubscribing from or deleting media sources, making the subtask a practical logical inference to apply these protective measures to one\'s digital environment.',
           sources: `**I. Quran**
 
 
@@ -1441,6 +1557,8 @@ Identification without action is just awareness. The real protection comes from 
 
 Work through your audit list systematically. Unsubscribe from streaming services you do not need. Unfollow social media accounts that post haram or idle content. Delete apps that are pure time-wasters. Do it in one focused session so you do not lose momentum.` },
         { title: 'Replace haram entertainment with beneficial alternatives (podcasts, lectures, nasheeds)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad spiritual principle of accountability for what one subjects their hearing and sight to, it omits specific modern practices like substituting harmful entertainment with podcasts or nasheeds, making the subtask a practical logical inference to systematically safeguard these vulnerable senses.',
           sources: `**I. Quran**
 
 
@@ -1456,6 +1574,8 @@ Simply removing entertainment creates a vacuum that your nafs will rush to fill.
 
 Subscribe to 3-5 Islamic podcasts or lecture series that genuinely interest you. Download a nasheed playlist for commutes. Bookmark beneficial YouTube channels. Keep a book or audiobook ready for downtime. The key is having the alternative already prepared before the craving hits.` },
         { title: 'Install content filters or screen time controls on your devices', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad spiritual principles of protecting one\'s family from the Fire and being a responsible shepherd over one\'s flock, they omit specific modern digital methods like installing content filters or screen time controls, making the subtask a practical logical inference to systematically apply these protective measures to one\'s digital environment.',
           sources: `**I. Quran**
 
 
@@ -1478,6 +1598,8 @@ Willpower alone is unreliable — the tech industry spends billions engineering 
 
 Enable built-in parental controls or screen time settings on your phone and computer. Install a DNS-level content filter like CleanBrowsing or OpenDNS on your home network. Set daily app time limits for social media. Use browser extensions that block distracting sites during work hours.` },
         { title: 'Establish a household media policy if you have children or dependents', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad spiritual principles of protecting one\'s family from the Fire and being a responsible shepherd over one\'s flock, they omit specific modern practices like establishing a household media policy, making the subtask a practical logical inference to systematically apply these protective measures to one\'s children in a contemporary digital environment.',
           sources: `**I. Quran**
 
 
@@ -1507,6 +1629,8 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
       description: 'Allah says: "Verily, in the remembrance of Allah do hearts find rest" (13:28). Specific adhkar have been prescribed by the Prophet (SAW) for protection and tranquillity. Making these a non-negotiable daily practice builds a spiritual shield against anxiety and intrusive thoughts.',
       subtasks: [
         { title: 'Memorise Ayat al-Kursi (2:255) if not already memorised', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided sources emphasize the general importance of the Quran\'s clear verses and the necessity of maintaining one\'s memorization of the Quran, they offer neither explicit proof nor contextual indication for the highly specific directive and distinct virtues of memorizing Ayat al-Kursi.',
           sources: `**I. Quran**
 
 
@@ -1529,6 +1653,8 @@ Ayat al-Kursi is the greatest ayah in the Quran. The Prophet (SAW) taught that w
 
 If you do not already know it, break it into 3-4 segments. Learn one segment per day by reading it 10 times, then reciting from memory 10 times. By the end of the week, connect all segments. Recite it after every fardh prayer for reinforcement.` },
         { title: 'Memorise the last two ayat of Surah Al-Baqarah (2:285-286)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided source explicitly establishes the immense spiritual benefit and sufficiency of reciting the last two verses of Surah Al-Baqarah at night, it does not explicitly command their memorization, making the subtask a practical logical inference to systematically ensure this nightly Prophetic practice.',
           sources: `**I. Quran**
 
 
@@ -1567,6 +1693,8 @@ The Prophet (SAW) said that whoever recites the last two ayat of Surah Al-Baqara
 
 These two verses are moderate in length. Break each verse into two halves. Learn one half per day using the same method: read 10 times, recite from memory 10 times. Within 4-5 days you should have both memorised. Recite them every night before sleep to lock them in.` },
         { title: "Recite both after every fardh salah as a consistent practice", done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith explicitly establishes the immense spiritual reward of reciting Ayat al-Kursi after every obligatory prayer, the sources offer neither explicit proof nor contextual indication for the subtask\'s specific directive to additionally recite the last two verses of Surah Al-Baqarah at this time.',
           sources: `**I. Quran**
 
 
@@ -1594,6 +1722,8 @@ Sporadic dhikr provides sporadic benefit. Making these recitations a non-negotia
 
 After each fardh prayer, before you get up from your place, recite Ayat al-Kursi followed by the last two ayat of Al-Baqarah. Pair this with your existing post-salah adhkar (tasbeeh, tahmeed, takbeer). It adds less than two minutes but creates a powerful protective habit.` },
         { title: 'Add evening adhkar including the three Quls and Ayat al-Kursi before sleep', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided sources establish the general spiritual practices of evening glorification and the Prophet\'s night prayer, they offer neither explicit proof nor contextual indication for the specific directive to recite the three Quls and Ayat al-Kursi before sleep.',
           sources: `**I. Quran**
 
 
@@ -1617,6 +1747,8 @@ The evening adhkar are the complement to the morning shield. The Prophet (SAW) w
 
 Set a reminder 10 minutes before your bedtime. Sit in bed and recite: Ayat al-Kursi, Surah Al-Ikhlas, Surah Al-Falaq, and Surah An-Nas (the three Quls three times each, blowing into your hands and wiping over your body as the Sunnah teaches). Add any other evening adhkar you know.` },
         { title: 'Notice and journal any changes in anxiety levels over 21 days', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources acknowledge the reality of anxious hearts and establish the spiritual value of consistent deeds, they omit specific modern psychological methods like journaling anxiety levels daily for 21 days, making the subtask a practical logical inference to systematically build consistency and observe its calming effects.',
           sources: `**I. Quran**
 
 
@@ -1647,6 +1779,8 @@ Each evening, rate your anxiety on a simple 1-10 scale in your journal. Note whe
       description: 'Uncontrolled social media use fragments attention, feeds comparison, and steals hours that could be spent in worship, learning, or meaningful connection. Setting firm time windows turns a passive habit into a controlled, intentional tool.',
       subtasks: [
         { title: 'Check your current daily screen time and identify the worst offending apps', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational spiritual principles of valuing time and warning against being deceived about free time, they omit specific modern digital methods like checking screen time and identifying offending apps, making the subtask a practical logical inference to systematically safeguard one\'s time from contemporary distractions.',
           sources: `**I. Quran**
 
 
@@ -1669,6 +1803,8 @@ You cannot fix what you have not measured. Most people drastically underestimate
 
 Open your phone's screen time or digital wellbeing settings right now. Look at your daily average and which apps consume the most time. Write down the top 3 offenders and their daily averages. This data becomes your baseline for measuring improvement.` },
         { title: 'Define two specific time windows per day for social media (e.g., 12-12:30, 8-8:30)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad spiritual principle of self-accountability and evaluating what one prepares for the Hereafter, it omits specific modern practices like defining time windows for social media, making the subtask a practical logical inference to systematically safeguard one\'s time from contemporary distractions.',
           sources: `**I. Quran**
 
 
@@ -1684,6 +1820,8 @@ Open-ended access to social media means it bleeds into every idle moment — ero
 
 Choose two 30-minute windows that do not conflict with prayer times or deep work. Write them down (e.g., 12:00-12:30 PM and 8:00-8:30 PM). Outside these windows, social media is off-limits. Set phone reminders for the start and end of each window. Commit to this for 14 days before adjusting.` },
         { title: 'Enable built-in screen time limits on your phone and computer', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational spiritual principles of valuing time and warning against being deceived about free time, they omit specific modern digital methods like enabling screen time limits, making the subtask a practical logical inference to systematically safeguard one\'s time from contemporary distractions.',
           sources: `**I. Quran**
 
 
@@ -1706,6 +1844,8 @@ Relying on willpower alone to resist apps engineered for addiction is a losing s
 
 On iPhone, go to Settings > Screen Time > App Limits. On Android, use Digital Wellbeing > App Timers. Set daily limits for each social media app (e.g., 30 minutes each). On your computer, use a browser extension like LeechBlock or Cold Turkey to block social sites during work hours.` },
         { title: 'Move social media apps off your home screen or into a folder', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the broad spiritual principle of living in this world with the detachment of a stranger or a traveler, it omits specific modern digital methods like moving social media apps off a home screen, making the subtask a practical logical inference to systematically cultivate this transient mindset against contemporary worldly distractions.',
           sources: `**I. Hadith**
 
 
@@ -1721,6 +1861,8 @@ Visual cues trigger habits. When social media icons sit on your home screen, eve
 
 Move all social media apps into a folder on your second or third home screen page. Better yet, delete the apps entirely and only access social media through the browser — the worse experience acts as a natural deterrent. Replace home screen slots with beneficial apps: Quran, adhkar, or a habit tracker.` },
         { title: 'Replace idle scrolling moments with dhikr, reading, or a beneficial app', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the spiritual reassurance found in dhikr and the transient mindset of a traveler avoiding worldly attachments, they omit specific modern concepts like idle scrolling, making the subtask a practical logical inference to systematically utilize contemporary free time for remembrance and beneficial activities.',
           sources: `**I. Quran**
 
 
@@ -1750,6 +1892,8 @@ Identify your top 3 idle scrolling triggers (e.g., waiting for food, riding the 
       description: 'Seeking help is a sign of strength, not weakness. The Prophet (SAW) said: "Make use of medical treatment, for Allah has not made a disease without a remedy." Islamic counselling integrates psychological science with spiritual healing for holistic care.',
       subtasks: [
         { title: 'Honestly assess whether you are experiencing persistent low mood, anxiety, or emotional distress', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources validate the reality of human sorrow, sadness, and distress and establish their spiritual expiation, they omit specific modern psychological methods like self-assessing for persistent low mood or anxiety, making the subtask a practical logical inference to properly identify and seek appropriate care for these very real afflictions.',
           sources: `**I. Quran**
 
 
@@ -1772,6 +1916,8 @@ Many Muslims push through emotional suffering silently, mistaking it for sabr or
 
 Set aside 15 quiet minutes. Ask yourself: Have I felt persistently sad, anxious, or hopeless for more than two weeks? Has my sleep, appetite, or concentration changed significantly? Am I withdrawing from people or activities I used to enjoy? If yes to two or more, this is a signal to seek professional support.` },
         { title: 'Research Muslim therapists or Islamic counselling services in your area or online', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith establishes the spiritual principle of maintaining patience during hardship, it offers neither explicit proof nor contextual indication for the specific modern directive to research Muslim therapists or Islamic counseling services.',
           sources: `**I. Hadith**
 
 
@@ -1787,6 +1933,8 @@ A therapist who understands your faith can integrate Islamic principles into the
 
 Search directories like Khalil Center, Noor Human Consulting, or the Muslim Mental Health directory. Ask your local imam or community for referrals. Check if your insurance covers Muslim therapists. If in-person options are limited, online platforms offer Muslim therapists worldwide. Shortlist 2-3 options.` },
         { title: 'Schedule an initial consultation or intake session', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the broad principle of seeking professional help alongside spiritual means, it omits specific logistical steps like scheduling an initial consultation or intake session, making the subtask a practical logical inference to initiate that professional care.',
           sources: `**I. Hadith**
 
 
@@ -1802,6 +1950,8 @@ The hardest step is the first one. Scheduling the appointment turns intention in
 
 Pick your top choice from your shortlist and call or email to schedule. Most practices have online booking. Request an initial consultation or intake session. If the first therapist is not available soon, book with your second choice — do not let a waitlist become an excuse to delay.` },
         { title: 'Discuss your spiritual practices as part of the therapeutic conversation', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided sources affirm the comforting power of Allah\'s remembrance and the spiritual virtues of patience and gratitude during hardships, they offer neither explicit proof nor contextual indication for the specific modern directive to discuss one\'s spiritual practices within a therapeutic setting.',
           sources: `**I. Quran**
 
 
@@ -1828,6 +1978,8 @@ Your relationship with Allah, your prayer life, and your spiritual struggles are
 
 In your first session, mention that your Islamic faith is central to your life and that you want it integrated into therapy. Share your daily spiritual practices (salah, Quran, dhikr). Be honest about spiritual struggles too — doubts, guilt, or feeling disconnected from Allah are important therapeutic material.` },
         { title: 'Commit to at least 4-6 sessions before evaluating whether to continue', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the spiritual principles of trusting that ease follows hardship and valuing consistent deeds, they omit specific modern clinical methods like committing to 4-6 therapy sessions, making the subtask a practical logical inference to systematically apply patience and consistency to mental health treatment.',
           sources: `**I. Quran**
 
 
@@ -1859,6 +2011,8 @@ Make a commitment to yourself: attend at least 6 sessions before making any judg
       description: 'Umar (RA) said: "Take account of yourselves before you are taken to account." Muhasaba is the practice of reviewing your day — what you did well, where you fell short, and what you intend for tomorrow. Five minutes of honest self-reflection accelerates personal growth dramatically.',
       subtasks: [
         { title: 'Get a dedicated journal or notebook for nightly muhasaba', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational spiritual principle of self-accountability and evaluating what one has prepared for the Hereafter, it omits specific methods like keeping a dedicated journal, making the subtask a practical logical inference to systematically engage in this reflective practice.',
           sources: `**I. Quran**
 
 
@@ -1874,6 +2028,8 @@ A dedicated journal signals to your mind that muhasaba is a serious, sacred prac
 
 Choose a simple notebook that feels pleasant to write in — nothing fancy that makes you afraid to use it. Keep it with a pen on your nightstand or beside your bed. Label the first page with your start date and the intention: "Muhasaba — taking account of my soul before Allah takes account of me." ` },
         { title: 'Create a simple template: 3 blessings, 1 shortcoming, 1 intention for tomorrow', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational spiritual principles of self-accountability and prioritizing obligatory duties, they omit specific modern journaling methods like a structured template for blessings, shortcomings, and intentions, making the subtask a practical logical inference to systematically fulfill the command to reflect on what one prepares for tomorrow.',
           sources: `**I. Quran**
 
 
@@ -1896,6 +2052,8 @@ A template removes the paralysis of the blank page. By structuring your reflecti
 
 Write this template on the inside cover of your journal: (1) Three blessings I noticed today — things to thank Allah for, (2) One area where I fell short — missed salah, harsh words, wasted time, (3) One intention for tomorrow — something specific I will do better. Each entry should take no more than 5 minutes.` },
         { title: 'Set a recurring alarm 15 minutes before your target bedtime', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the prophetic practice of maintaining a consistent nightly routine of remembrance and supplication before sleeping, it omits specific modern digital tools like setting a recurring phone alarm, making the subtask a practical logical inference to systematically trigger and establish this reflective habit.',
           sources: `**I. Hadith**
 
 
@@ -1911,6 +2069,8 @@ Without a trigger, muhasaba will be forgotten in the rush of nightly routines. A
 
 Set a daily recurring alarm on your phone for 15 minutes before your target bedtime. Label it "Muhasaba time." When it goes off, stop whatever you are doing, pick up your journal, and write. Treat this alarm with the same seriousness as your Fajr alarm.` },
         { title: 'Write consistently for 21 days without judging the quality of entries', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the broad spiritual principle of valuing regular, constant deeds even if they are small, it omits specific modern practices like journaling for 21 days without judging quality, making the subtask a practical logical inference to systematically build a consistent habit.',
           sources: `**I. Hadith**
 
 
@@ -1926,6 +2086,8 @@ Perfectionism kills journaling habits faster than laziness does. If you judge ev
 
 Write something every night for 21 days straight, even if it is one sentence. Do not reread old entries during this period. Do not compare yourself to anyone. If you miss a night, write the next night without guilt. Mark each completed day on a calendar to visualize your streak.` },
         { title: 'Review weekly patterns to identify recurring strengths and weaknesses', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational spiritual necessity of purifying the soul to achieve success, it omits specific methods like reviewing weekly journal patterns, making the subtask a practical logical inference to systematically identify the strengths and weaknesses needed to fulfill this purification.',
           sources: `**I. Quran**
 
 
@@ -1948,6 +2110,8 @@ Every Friday (or another consistent day), read through your past week of entries
       description: 'The mind needs genuine rest — not just sleep, but freedom from the constant stimulation of screens and notifications. An unplugged day restores mental clarity, deepens family bonds, and creates space for worship, nature, and unhurried thought.',
       subtasks: [
         { title: 'Choose a consistent day of the week for your digital detox', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the broad spiritual principle of valuing and not squandering the blessings of health and free time, it omits specific modern practices like scheduling a weekly digital detox, making the subtask a practical logical inference to intentionally preserve these blessings in the digital age.',
           sources: `**I. Hadith**
 
 
@@ -1963,6 +2127,8 @@ Consistency makes the unplugged day a ritual rather than a random experiment. Wh
 
 Pick a day that works with your schedule — many people choose Saturday or Sunday. Consider choosing Friday to align with Jummah and family time. Avoid choosing a workday if your job requires digital communication. Commit to the same day every week for at least one month before reassessing.` },
         { title: 'Inform key contacts and set an auto-reply for that day', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad spiritual principles of valuing the natural rhythms of rest and the blessings of health and free time, they omit specific modern logistical practices like setting a digital auto-reply, making the subtask a practical logical inference to systematically protect one\'s time and peace of mind from interruption.',
           sources: `**I. Quran**
 
 
@@ -1985,6 +2151,8 @@ Fear of missing something urgent is the number one reason people break their dig
 
 Tell your family, close friends, and work colleagues which day you will be offline. Set an auto-reply on email and messaging apps: "I am offline today for a weekly digital detox. For urgent matters, please call me directly." This sets expectations and frees you from the compulsion to check.` },
         { title: 'Plan alternative activities: reading, family time, nature walks, mosque visits', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad spiritual directive to disperse in the land and actively seek Allah\'s bounty after worship, it omits specific modern practices like planning alternative activities for a digital detox, making the subtask a practical logical inference to systematically engage in wholesome pursuits instead of remaining idle.',
           sources: `**I. Quran**
 
 
@@ -2000,6 +2168,8 @@ An unplugged day without a plan quickly becomes a boring day — and boredom dri
 
 The night before your unplugged day, write a loose plan: morning Quran and breakfast with family, a nature walk or park visit, an afternoon reading session, visiting the mosque for a prayer, cooking a meal together. You do not need to schedule every hour — just have enough options that you never feel idle and tempted.` },
         { title: 'Put devices in a drawer or designated storage for the full day', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the spiritual directive to remember Allah inwardly with humility during the mornings and evenings, it omits specific modern practices like physically storing digital devices, making the subtask a practical logical inference to systematically eliminate distractions and foster a conducive environment for this remembrance.',
           sources: `**I. Quran**
 
 
@@ -2015,6 +2185,8 @@ Out of sight, out of mind. If your phone is on the kitchen counter, you will pic
 
 Choose a drawer, box, or cabinet as your "device parking spot." The night before, charge all devices and place them there. In the morning, leave them. If you need a phone for emergency calls, put it on Do Not Disturb in another room — accessible but not convenient. Resist the urge to "just check one thing." ` },
         { title: 'Journal your experience after the first three unplugged days to notice the impact', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational spiritual principles of self-accountability and taking account of one\'s deeds, they omit specific modern practices like journaling after a digital detox, making the subtask a practical logical inference to systematically apply reflection to one\'s habits and well-being.',
           sources: `**I. Quran**
 
 
@@ -2044,6 +2216,8 @@ After each of your first three unplugged days, write a short journal entry answe
       description: 'The Prophet (SAW) prescribed specific spiritual actions for specific emotional states — wudu to cool anger, prayer to find relief in distress, and istighfar to release guilt. These are divinely guided coping mechanisms that address both the spiritual and psychological root of difficult emotions.',
       subtasks: [
         { title: 'Study the hadith sources for each technique (anger→wudu, distress→salah, guilt→istighfar)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths establish the prophetic prescription of making wudu to extinguish anger and the virtue of self-control, they omit the other mentioned techniques and specific modern practices like writing references on a card, making the subtask a practical logical inference to systematically study and internalize these spiritual coping strategies.',
           sources: `**II. Hadith**
 
 
@@ -2063,6 +2237,8 @@ Knowing the Prophetic source behind each technique transforms it from a generic 
 
 Look up the relevant hadith for each technique: the hadith about wudu extinguishing anger (Abu Dawud), the Prophet (SAW) turning to prayer when distressed, and the virtues of istighfar for relieving worry (Ahmad). Write each hadith on a card or in your phone for quick reference.` },
         { title: 'Create a personal cue card: "When I feel X, I will do Y"', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the psychological principle of adopting specific, pre-planned physical responses to manage anger, it omits modern methods like creating a written cue card, making the subtask a practical logical inference to systematically apply this prophetic strategy of emotional regulation.',
           sources: `**I. Hadith**
 
 
@@ -2078,6 +2254,8 @@ In the heat of a strong emotion, your rational mind goes offline. A pre-written 
 
 Write three simple if-then statements: "When I feel anger rising, I will make wudu." "When I feel overwhelmed or stressed, I will pray two rakaat." "When I feel guilt or shame, I will say istighfar 100 times." Keep this card in your wallet, on your desk, or as your phone lock screen.` },
         { title: 'Practise immediately the next time you experience anger, stress, or guilt', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the spiritual virtue of restraining anger and the specific Prophetic prescription to make wudu when angry, they omit explicit directives to practice this immediately for a broader range of emotions like stress or guilt, making the subtask a practical logical inference to systematically build emotional regulation habits.',
           sources: `**I. Quran**
 
 
@@ -2100,6 +2278,8 @@ Knowledge without practice is like medicine that stays in the bottle. The first 
 
 Commit right now: the very next time you feel a strong negative emotion, you will use the corresponding technique. Do not wait for a "big" moment — practice with mild irritation or minor stress first. The more you practice in small moments, the more automatic it becomes for the big ones.` },
         { title: 'Reflect on effectiveness in your muhasaba journal after each use', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the spiritual virtue of restraining anger, it omits specific modern practices like maintaining a muhasaba journal, making the subtask a practical logical inference to systematically track and improve one\'s emotional regulation over time.',
           sources: `**I. Quran**
 
 
@@ -2122,6 +2302,8 @@ After each time you use wudu for anger, salah for stress, or istighfar for guilt
       description: 'Islamic tradition has a rich body of knowledge on the purification of the soul and the diseases of the heart. Reading works by scholars like Imam al-Ghazali, Ibn al-Qayyim, and contemporary Muslim psychologists deepens self-understanding and provides tools for genuine inner transformation.',
       subtasks: [
         { title: 'Build a reading list — start with Ihya Ulum al-Din (abridged), Purification of the Heart, or Reclaim Your Heart', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational divine command to read, learn, and seek knowledge, they omit specific practices like curating a reading list with specific contemporary and classical titles, making the subtask a practical logical inference to systematically fulfill this directive.',
           sources: `**I. Quran**
 
 
@@ -2137,6 +2319,8 @@ Without a curated reading list, you either never start or waste time on low-qual
 
 Order or download at least two of these books today. If you prefer classical depth, start with Ihya Ulum al-Din (use an abridged English translation). If you prefer accessible modern writing, start with Reclaim Your Heart. Add 2-3 more titles recommended by scholars or friends you trust. Keep the list in your journal or phone.` },
         { title: 'Schedule 20-30 minutes of daily reading time', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational divine command to read and the general obligation to seek knowledge, they omit specific logistical practices like scheduling 20-30 minutes of daily reading time, making the subtask a practical logical inference to systematically fulfill this overarching spiritual duty.',
           sources: `**I. Quran**
 
 
@@ -2159,6 +2343,8 @@ Reading about tazkiyah in scattered, random moments means you never build moment
 
 Choose a time that naturally fits your routine — after Fajr, during lunch, or before bed. Block it on your calendar and treat it as an appointment with your soul. Keep your current book in your designated reading spot. Set a phone timer for 20 minutes so you do not have to watch the clock.` },
         { title: 'Take notes on key concepts and how they apply to your own nafs', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational spiritual necessity of purifying the soul (nafs) to achieve success, they omit specific practices like taking written notes on key concepts, making the subtask a practical logical inference to systematically engage in this process of self-purification.',
           sources: `**I. Quran**
 
 
@@ -2174,6 +2360,8 @@ Passive reading entertains the mind but does not transform it. Writing notes for
 
 Keep a small notebook or digital note file dedicated to your tazkiyah reading. After each session, write: one key concept from today's reading, how it applies to my own nafs, and one action I can take based on this insight. Review your notes before starting each new reading session.` },
         { title: 'Discuss insights with a friend, spouse, or study circle for deeper understanding', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the broad spiritual virtue and reward of pursuing knowledge, it omits specific modern social methods like discussing insights with a friend, spouse, or study circle, making the subtask a practical logical inference to systematically deepen one\'s understanding.',
           sources: `**I. Hadith**
 
 
@@ -2189,6 +2377,8 @@ The companions of the Prophet (SAW) learned in community, not isolation. Discuss
 
 Invite one or two people to read the same book as you, or simply share interesting insights over a weekly coffee or phone call. If you have a study circle or halaqa, propose discussing a tazkiyah book together. Even sharing one insight per week with your spouse over dinner counts as meaningful discussion.` },
         { title: 'Apply at least one practical lesson from each book to your daily life', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational spiritual principles of purifying the soul and consistently performing small good deeds, they omit specific modern practices like applying lessons from a book or tracking them daily, making the subtask a practical logical inference to systematically fulfill these overarching directives.',
           sources: `**I. Quran**
 
 
@@ -2220,6 +2410,8 @@ At the end of each book, review your notes and choose the single most impactful 
       description: 'The brain, like any muscle, grows stronger with consistent challenge. Quran memorisation is the pinnacle of cognitive training for a Muslim — it strengthens memory, builds discipline, and earns immense reward. Language learning (Arabic especially) opens doors to understanding the deen directly.',
       subtasks: [
         { title: "Choose your track: Quran memorisation (hifz) or Arabic/language learning", done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the spiritual virtue of learning the Quran and highlight its revelation in the clear Arabic language, they omit specific pedagogical strategies like choosing a single track to avoid diffusing energy, making the subtask a practical logical inference to systematically and effectively achieve these learning goals.',
           sources: `**I. Quran**
 
 
@@ -2250,6 +2442,8 @@ Trying to do everything at once diffuses your energy and leads to abandoning bot
 
 Ask yourself: what would benefit me more right now? If you already read Arabic but want a deeper connection to the Quran, choose hifz. If you cannot understand Arabic at all, learning the language first may be more foundational. Make your choice, commit for at least 6 months, and do not second-guess it.` },
         { title: 'Find a qualified teacher, programme, or structured app', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational virtues of seeking knowledge and the superiority of those who learn and teach the Quran, they omit specific modern methods like finding a structured app or program, making the subtask a practical logical inference to systematically facilitate guided learning.',
           sources: `**I. Quran**
 
 
@@ -2272,6 +2466,8 @@ Self-teaching Quran memorisation or Arabic is possible but dramatically slower a
 
 For hifz: ask your local mosque about memorisation circles, or search for online hifz programmes with one-on-one recitation sessions. For Arabic: consider structured programmes like Bayyinah TV, Arabic With Husna, or a local institute. Prioritise programmes that include regular assessment and teacher feedback.` },
         { title: 'Set a daily practice window of 20-30 minutes minimum', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the foundational spiritual principle that regular, consistent deeds are beloved to Allah even if small, it omits specific logistical details like setting a 20-30 minute daily practice window, making the subtask a practical logical inference to systematically apply this virtue.',
           sources: `**I. Hadith**
 
 
@@ -2287,6 +2483,8 @@ Cognitive training requires daily repetition to build neural pathways. Sporadic 
 
 Choose a time when your mind is freshest — for most people, this is after Fajr or in the early morning. Block 20-30 minutes on your daily schedule. Start your session the same way each time (e.g., recite what you know, then learn new material, then review). Protect this time as non-negotiable.` },
         { title: 'Establish a review system to retain what you have already learned', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly emphasize that the Quran has been made easy for remembrance and highly praise those who learn it, they omit specific modern study techniques like using spaced repetition or flashcard apps, making the subtask a practical logical inference to systematically retain and preserve this sacred knowledge.',
           sources: `**I. Quran**
 
 
@@ -2309,6 +2507,8 @@ Memorisation without review is like filling a bucket with holes. The brain natur
 
 Use a spaced repetition approach: review today's new material tomorrow, then again in 3 days, then weekly, then monthly. For hifz, recite previously memorised portions daily in your prayers. For language, use flashcard apps like Anki with spaced repetition built in. Dedicate at least half your practice time to review, not just new material.` },
         { title: 'Set monthly milestones (e.g., 1 page/week for hifz, 1 lesson/day for language)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly emphasize that the Quran is made easy for remembrance and highlight the eternal rewards tied to the extent of one\'s memorization, they omit specific modern goal-setting practices like establishing monthly milestones, making the subtask a practical logical inference to systematically track progress and achieve these spiritual aspirations.',
           sources: `**I. Quran**
 
 
@@ -2338,6 +2538,8 @@ Set a realistic monthly target based on your current pace. For hifz: 1 page per 
       description: 'Every great companion had a mentor. Working with someone who can see your blind spots, challenge your assumptions, and hold you accountable accelerates growth in ways self-study alone cannot. This could be a shaykh, a professional coach, or a therapist depending on your needs.',
       subtasks: [
         { title: 'Identify what you most need right now: spiritual guidance, life coaching, or therapeutic support', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational command to ask people of knowledge when in need, they omit specific modern distinctions between spiritual, life, and therapeutic support, making the subtask a practical logical inference to systematically identify and seek the appropriate expertise.',
           sources: `**I. Quran**
 
 
@@ -2360,6 +2562,8 @@ A shaykh, a coach, and a therapist serve different functions. Seeking spiritual 
 
 Reflect honestly: Are you struggling with iman, connection to Allah, or understanding your deen? You need a shaykh or spiritual mentor. Are you stuck on life direction, career, or productivity? You need a coach. Are you dealing with trauma, anxiety, depression, or emotional pain? You need a therapist. It is also okay to need more than one.` },
         { title: 'Research and shortlist 3-5 potential mentors, coaches, or therapists', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the broad spiritual virtue and reward of pursuing knowledge, it omits specific modern logistical steps like researching and shortlisting a set number of mentors, coaches, or therapists, making the subtask a practical logical inference to systematically seek proper guidance and learning.',
           sources: `**I. Hadith**
 
 
@@ -2375,6 +2579,8 @@ The quality of the mentoring relationship depends heavily on fit — credentials
 
 Ask trusted community members, imams, or friends for recommendations. Search professional directories for Muslim coaches or therapists. Check credentials, read reviews or testimonials, and look for someone whose approach resonates with you. Narrow your list to 3-5 strong candidates.` },
         { title: 'Reach out and schedule an introductory conversation with your top choice', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the Prophet\'s welcoming and advising nature toward those seeking guidance, it omits specific modern logistical steps like scheduling an introductory call with a mentor or therapist, making the subtask a practical logical inference to actively initiate the process of seeking advice.',
           sources: `**I. Hadith**
 
 
@@ -2390,6 +2596,8 @@ Research without action is procrastination in disguise. The introductory convers
 
 Send an email or make a call to your top choice today. Briefly introduce yourself, explain what you are looking for, and ask for a 15-20 minute introductory conversation. If they are unavailable or the fit does not feel right, move to the next person on your list. Do not let one rejection stop the process.` },
         { title: 'Commit to a regular cadence of sessions (weekly or bi-weekly)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the foundational spiritual principle that regular and constant deeds are most beloved to Allah, it omits specific logistical details like committing to a weekly or bi-weekly cadence for mentoring or therapy sessions, making the subtask a practical logical inference to systematically apply this virtue to personal development.',
           sources: `**I. Hadith**
 
 
@@ -2405,6 +2613,8 @@ Sporadic sessions prevent the depth and momentum that mentoring, coaching, or th
 
 Agree on a frequency with your mentor or therapist during the introductory conversation. Block the recurring time on your calendar and treat it as unmovable. Budget for the cost if applicable. Commit to the cadence for at least 3 months before evaluating whether to adjust.` },
         { title: 'Prepare for each session with specific questions, challenges, or reflections', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -2427,6 +2637,8 @@ Keep a running note on your phone or in your journal labeled "For next session."
       description: 'A soul-map is a deep, honest written exploration of who you are — your formative experiences, core values, emotional wounds, recurring patterns, and highest aspirations. This exercise brings unconscious drivers into conscious awareness, enabling intentional change and genuine self-knowledge.',
       subtasks: [
         { title: 'Write your life story in 3-5 pages, focusing on pivotal moments that shaped you', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational command to reflect on the soul and evaluate what one has put forth for the future, they omit specific modern practices like writing a 3-5 page life story, making the subtask a practical logical inference to systematically fulfill this duty of self-reflection.',
           sources: `**I. Quran**
 
 
@@ -2446,6 +2658,8 @@ Most of us have never sat down to write our own story. Pivotal moments — the l
 
 Set aside 2-3 hours in a quiet place. Write chronologically from childhood to now, focusing on turning points: moments of joy, pain, decision, loss, and growth. Do not edit as you write — let the story flow. You can always revise later. Aim for 3-5 handwritten or typed pages.` },
         { title: 'List your top 5 non-negotiable values and test whether your life reflects them', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational spiritual imperative to purify the soul by discerning between its inherent righteousness and wickedness, they omit specific modern practices like listing five core values to audit one\'s life, making the subtask a practical logical inference to systematically engage in this required self-purification.',
           sources: `**I. Quran**
 
 
@@ -2461,6 +2675,8 @@ Many people live with a disconnect between what they say they value and how they
 
 Write down the 5 values most important to you (e.g., tawakkul, family, honesty, justice, knowledge). For each one, ask: "In the last month, what evidence shows I actually lived this value?" and "Where did I contradict it?" Be ruthlessly honest. The gaps you find are your highest-priority areas for growth.` },
         { title: 'Identify your deepest emotional wounds and how they influence your behaviour today', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources describe the ideal state of a reassured soul and establish that sorrow and emotional hurt serve to expiate sins, they omit specific psychological practices like identifying deep emotional wounds and tracing their origins, making the subtask a practical logical inference to systematically achieve inner healing and peace.',
           sources: `**I. Quran**
 
 
@@ -2483,6 +2699,8 @@ Unexamined emotional wounds do not heal — they drive behaviour from the shadow
 
 Reflect on recurring emotional patterns in your life: what consistently triggers disproportionate anger, sadness, or fear? Trace each pattern back to its earliest memory. Write down what happened, how it made you feel, and how it still shows up in your behaviour today. This exercise may bring up strong emotions — be gentle with yourself, and consider sharing what you find with a therapist.` },
         { title: 'Describe the person you aspire to become in 5 years — spiritually, mentally, socially', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational spiritual commands to evaluate one\'s deeds and look toward the future, they omit specific modern practices like writing a detailed 5-year vision of oneself, making the subtask a practical logical inference to systematically fulfill this duty of self-accountability.',
           sources: `**I. Quran**
 
 
@@ -2505,6 +2723,8 @@ A clear vision of your future self creates a magnetic pull toward growth. Withou
 
 Write a detailed portrait of yourself 5 years from now across three dimensions. Spiritually: what is your relationship with Allah like? What is your Quran practice? Mentally: how do you handle stress, make decisions, and think? Socially: what are your relationships like, how do you serve your community? Be specific and vivid — this is not a wish list but a blueprint.` },
         { title: 'Share relevant portions with a trusted mentor or spouse for external reflection', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principle of mutual reflection by describing a believer as a mirror to their brother, they omit specific modern practices like sharing a personal "soul-map" with a mentor or spouse, making the subtask a practical logical inference to systematically seek an external perspective for self-improvement.',
           sources: `**I. Quran**
 
 
@@ -2538,6 +2758,8 @@ Choose someone you deeply trust — your spouse, a close friend, a mentor, or a 
       description: 'Shelter is one of the most fundamental human needs and a prerequisite for stability in every other area of life. Dignified housing means a space that is safe, clean, adequately sized, and free from threats — a foundation upon which spiritual and professional life can be built.',
       subtasks: [
         { title: 'Assess your current housing for safety issues (locks, lighting, structural integrity)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources highlight the profound value of having a secure dwelling and a safe place of return, they omit specific modern practices like checking locks, lighting, and structural integrity, making the subtask a practical logical inference to systematically ensure this physical security.',
           sources: `**I. Quran**
 
 
@@ -2560,6 +2782,8 @@ A home that is physically unsafe undermines every other pursuit — you cannot f
 
 Walk through your home room by room. Check that all exterior doors have functioning deadbolts and that windows lock securely. Test outdoor and hallway lighting — replace any burned-out bulbs. Look for structural concerns: cracks in walls, water damage, loose railings, or tripping hazards. Write down every issue you find and rank them by urgency.` },
         { title: 'Verify that your lease or mortgage terms are halal and sustainable', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational financial principle that trade is permitted and interest (riba) is forbidden, it omits specific modern applications like verifying lease or mortgage terms, making the subtask a practical logical inference to systematically ensure one\'s housing arrangements are halal.',
           sources: `**I. Quran**
 
 
@@ -2575,6 +2799,8 @@ Riba-based housing arrangements are among the most common haram financial entang
 
 Review your current lease or mortgage agreement. If you have a conventional mortgage, research Islamic home financing alternatives (murabaha, ijara, diminishing musharaka) available in your area. For renters, confirm your lease terms are transparent and fair. Consult a knowledgeable scholar or Islamic finance advisor if you are unsure about any terms.` },
         { title: 'Ensure the home provides adequate privacy and space for salah and family life', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational concepts of the home as a place of rest and the importance of respecting external boundaries for privacy, they omit specific logistical details like evaluating personal space and designating a specific area for salah, making the subtask a practical logical inference to systematically ensure domestic tranquility and internal privacy.',
           sources: `**I. Quran**
 
 
@@ -2594,6 +2820,8 @@ Privacy (sitr) is a core Islamic value, and your home should be a sanctuary wher
 
 Evaluate whether each family member has reasonable personal space. Designate a clean, quiet area for salah that can be kept free of distractions. Ensure bathrooms and bedrooms provide genuine privacy. If space is tight, use curtains, room dividers, or schedule coordination to create functional zones. Address any sight-line issues from windows or shared walls.` },
         { title: 'Address any urgent maintenance or safety concerns immediately', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith highlights the immense spiritual and worldly blessing of waking up secure in one\'s dwelling, it omits specific modern actions like repairing broken locks or exposed wiring, making the subtask a practical logical inference to systematically ensure this praised physical security.',
           sources: `**I. Hadith**
 
 
@@ -2609,6 +2837,8 @@ Delaying urgent repairs — a broken lock, exposed wiring, a gas leak, mould —
 
 From your housing assessment, identify any issues that pose an immediate safety threat. Fix what you can yourself today — replace a broken lock, cover exposed wires, install a smoke detector. For issues beyond your skill, contact your landlord or hire a qualified professional. Do not wait for a convenient time; urgency means acting now.` },
         { title: 'If housing is unstable, create a plan with timeline and budget for improvement', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad spiritual promise that Allah will provide a way out of hardships for those who fear Him, it omits specific modern logistical details like creating a timeline and budget for unstable housing, making the subtask a practical logical inference to systematically seek this promised relief.',
           sources: `**I. Quran**
 
 
@@ -2631,6 +2861,8 @@ Define what "stable housing" looks like for your family — location, size, cost
       description: 'The Prophet (SAW) taught that the son of Adam has no right to anything beyond basic food, clothing, and shelter. Ensuring these essentials are covered by halal income is both a spiritual obligation and the foundation of financial peace. Any haram source taints everything built upon it.',
       subtasks: [
         { title: 'List all current income sources and verify each is halal', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of not consuming wealth unjustly and ensuring that one\'s sustenance is pure to have supplications accepted, they omit specific accounting practices like listing all current income sources to verify they are halal, making the subtask a practical logical inference to systematically ensure this commanded financial purity.',
           sources: `**I. Quran**
 
 
@@ -2653,6 +2885,8 @@ Every dirham that enters your household either carries barakah or strips it away
 
 Write down every source of income: salary, side work, investments, rental income, government benefits, and gifts. For each one, assess whether the industry, the contract terms, and the way you earn it are halal. If you are unsure about any source, consult a knowledgeable scholar. Be honest — this exercise only works if you are willing to face uncomfortable truths.` },
         { title: 'Calculate your monthly essential expenses (food, clothing, shelter, utilities)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the fundamental obligation to spend according to one\'s means and to provide for dependents, they omit specific modern financial practices like calculating monthly essential expenses using a spreadsheet, making the subtask a practical logical inference to systematically ensure this duty is fulfilled without withholding necessary support.',
           sources: `**I. Quran**
 
 
@@ -2675,6 +2909,8 @@ You cannot know whether your halal income is sufficient unless you know exactly 
 
 Review the last three months of spending. Categorise expenses into essentials (rent/mortgage, food, utilities, clothing, transport, medical) and non-essentials. Total the essentials to get your monthly baseline. Use a spreadsheet or budgeting app to keep it precise. This number becomes the benchmark for your emergency fund and income planning.` },
         { title: 'Confirm that halal income fully covers these essentials with no shortfall', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad spiritual promise that Allah will provide a way out and provide for those who fear Him, it omits specific modern financial practices like comparing halal income against monthly expenses to confirm coverage, making the subtask a practical logical inference to systematically ensure one\'s reliance on halal provision.',
           sources: `**I. Quran**
 
 
@@ -2690,6 +2926,8 @@ If your halal income does not cover your essential expenses, you are vulnerable 
 
 Compare your total verified halal income against your monthly essential expenses. If halal income exceeds essentials, you have a surplus to build on. If there is a shortfall, quantify it exactly — this is the gap you need to close. Be precise; rounding or estimating can hide real problems.` },
         { title: 'If there is a gap, identify halal income opportunities to close it', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational spiritual truth that Allah is the provider for all creatures, it omits specific modern financial practices like brainstorming halal income opportunities to close a budget gap, making the subtask a practical logical inference to systematically seek the provision promised by Him.',
           sources: `**I. Quran**
 
 
@@ -2705,6 +2943,8 @@ A shortfall between halal income and essential expenses is an urgent problem tha
 
 Brainstorm halal income opportunities: freelance skills, a side business, a better-paying halal job, selling unused assets, or reducing non-essential expenses. Prioritise options by speed to revenue and alignment with your skills. Set a target date for closing the gap and track weekly progress. Ask Allah for barakah and then take concrete action.` },
         { title: 'Eliminate any haram income sources and replace them with halal alternatives', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse explicitly commands believers to give up interest (riba), it omits specific modern logistical steps like creating an exit plan to eliminate and replace all haram income sources with halal alternatives, making the subtask a practical logical inference to systematically fulfill this divine prohibition.',
           sources: `**I. Quran**
 
 
@@ -2727,6 +2967,8 @@ For each haram income source identified, create an exit plan with a timeline. If
       description: 'An emergency fund provides a buffer against unexpected job loss, medical expenses, or urgent needs — reducing the temptation to take on riba-based debt in a crisis. Three months of essential expenses, held in a halal account, is the minimum safety net every Muslim household should have.',
       subtasks: [
         { title: 'Calculate your total monthly essential expenses to determine the 3-month target', done: false,
+          tier: 'T3',
+          amanahRationale: 'The provided Hadith addresses the intentions and spiritual consequences associated with borrowing money, offering neither clear proof nor contextual indication to support the distinct financial subtask of calculating a three-month emergency fund target.',
           sources: `**I. Hadith**
 
 
@@ -2742,6 +2984,8 @@ Your emergency fund target must be based on real numbers, not guesses. An unders
 
 Use your monthly essential expenses calculation (food, shelter, utilities, transport, medical). Multiply by three to get your emergency fund target. Write this number down prominently — it is your goal. If you have not yet calculated your essentials, complete that subtask first.` },
         { title: 'Open a halal savings account (Islamic bank or halal investment vehicle)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of saving for future needs and taking practical precautions while trusting in Allah, they omit specific modern financial methods like opening a halal savings account, making the subtask a practical logical inference to systematically implement this required preparation.',
           sources: `**I. Quran**
 
 
@@ -2764,6 +3008,8 @@ Storing your emergency fund in a conventional interest-bearing account means you
 
 Research Islamic banks or credit unions in your area that offer savings accounts. If none are local, look into online Islamic banking options or halal money market funds. Compare fees, accessibility (you need quick access in emergencies), and any minimum balance requirements. Open the account and set it up for electronic transfers from your primary account.` },
         { title: 'Set up an automatic monthly transfer toward the emergency fund', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational financial principle of moderation in spending to avoid insolvency, it omits specific modern practices like setting up an automatic monthly transfer to an emergency fund, making the subtask a practical logical inference to systematically ensure this commanded financial balance.',
           sources: `**I. Quran**
 
 
@@ -2779,6 +3025,8 @@ Automation removes willpower from the equation. If you rely on manually transfer
 
 Log into your primary bank account and set up a recurring automatic transfer to your halal savings account. Schedule it for the day after your paycheck arrives. Start with whatever amount you can afford — even a small amount builds momentum. Increase the transfer amount whenever your income grows or expenses decrease.` },
         { title: 'Avoid touching the fund for non-emergencies — define what qualifies as an emergency', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational principles of avoiding wastefulness and practicing moderation in spending, they omit specific modern financial rules like defining and restricting the use of an emergency fund, making the subtask a practical logical inference to systematically ensure this commanded financial discipline.',
           sources: `**I. Quran**
 
 
@@ -2798,6 +3046,8 @@ An emergency fund that gets raided for vacations, gadgets, or "just this once" s
 
 Write a short list of what counts as an emergency: job loss, medical emergency, urgent home or car repair, or a family crisis. Post this list where you will see it. Anything not on the list requires you to find another funding source. If you do use the fund for a real emergency, prioritise replenishing it immediately afterward.` },
         { title: 'Track progress monthly until the 3-month target is reached', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the overarching principles of disciplined, long-term saving and the mindful utilization of time, they omit specific modern financial practices like tracking a savings target monthly on a spreadsheet, making the subtask a practical logical inference to systematically achieve the commanded financial preparedness.',
           sources: `**I. Quran**
 
 
@@ -2827,6 +3077,8 @@ Set a monthly reminder to check your emergency fund balance. Record the balance 
       description: 'Knowing how to respond in a medical emergency can save a life — a family member, a colleague, or a stranger. First aid and CPR certification equips you with practical skills that fulfil the Islamic duty of preserving life (hifz al-nafs) in its most direct form.',
       subtasks: [
         { title: 'Find a certified first aid and CPR course in your area or online', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the profound spiritual merit of saving a life and the imperative to use medical treatment, they omit specific modern methods like taking a certified first aid or CPR course, making the subtask a practical logical inference to systematically acquire the skills needed to fulfill this divine mandate.',
           sources: `**I. Quran**
 
 
@@ -2849,6 +3101,8 @@ You cannot learn these skills from a YouTube video alone — proper certificatio
 
 Search for Red Cross, Red Crescent, St John Ambulance, or equivalent certified courses in your area. Check local community centres, mosques, or hospitals for scheduled classes. Online-only courses work for theory but ensure you also get in-person practice. Compare cost, schedule, and certification validity before enrolling.` },
         { title: 'Register and complete the course (typically 4-8 hours)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the profound spiritual merit of saving a life, it omits specific modern logistical steps like registering for and completing a first aid or CPR course, making the subtask a practical logical inference to systematically acquire the skills necessary to fulfill this noble action.',
           sources: `**I. Quran**
 
 
@@ -2864,6 +3118,8 @@ Knowledge without action is worth nothing. Registering locks you into a commitme
 
 Register for the course you identified — pay the fee and block the time on your calendar. Attend the full session and participate actively in all practical exercises. Ask questions about scenarios you find confusing. Take the written and practical assessments seriously. Keep your certification card in a safe, accessible place.` },
         { title: 'Practise key skills: recovery position, CPR compressions, choking response', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the general medical principle that every disease has a matching medicine through which Allah grants recovery, it omits specific modern first-aid techniques like practicing CPR compressions and the choking response, making the subtask a practical logical inference to systematically prepare and apply these life-saving treatments.',
           sources: `**I. Hadith**
 
 
@@ -2879,6 +3135,8 @@ Skills fade quickly without reinforcement. In a real emergency, you will not hav
 
 After the course, practise the recovery position with a family member. Review the CPR compression technique monthly — 30 compressions to 2 breaths, 5-6 cm depth, 100-120 beats per minute. Walk through the choking response (back blows and abdominal thrusts) so the sequence is automatic. Consider purchasing a practice mannequin or attending refresher workshops.` },
         { title: 'Keep your certification current with renewal before expiry', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the general obligation to make use of medical treatment since Allah has appointed a remedy for every disease, it omits specific modern administrative steps like renewing a first-aid certification before its expiry, making the subtask a practical logical inference to systematically ensure one\'s medical knowledge and readiness remain effective.',
           sources: `**II. Hadith**
 
 
@@ -2901,6 +3159,8 @@ Note your certification expiry date and set a calendar reminder two months befor
       description: 'In an emergency — fire, natural disaster, or security threat — panic is the enemy. A pre-documented plan with clear contacts, meeting points, and exit routes ensures your family can act quickly and reunite safely. Tawakkul in Allah does not negate taking practical precautions.',
       subtasks: [
         { title: 'List emergency contacts: family, neighbours, local emergency services, mosque', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and coupling practical action with trust in Allah, they omit specific modern methods like creating a list of emergency contacts, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -2923,6 +3183,8 @@ In an emergency, you should not have to search for phone numbers. Having every c
 
 Create a contact list that includes: local emergency services (police, fire, ambulance), your nearest hospital, your family doctor, trusted neighbours, close relatives, your mosque or imam, and poison control. Include full names, phone numbers, and addresses where relevant. Format it clearly so even a child could use it.` },
         { title: 'Identify two exit routes from your home and a family meeting point outside', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking precautions and being responsible for the safety of one\'s family, they omit specific modern emergency procedures like identifying two exit routes and a family meeting point, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -2945,6 +3207,8 @@ If the primary exit is blocked by fire or debris, a second route can save your l
 
 Walk through your home and identify two ways out of every room — typically a door and a window. Ensure windows designated as exits can actually be opened quickly. Choose a meeting point outside that is far enough from the building to be safe but close enough to be obvious — a specific tree, lamppost, or neighbour's front yard. Make sure every family member knows both routes and the meeting point.` },
         { title: 'Print the plan and post it in a visible location (kitchen or hallway)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad mandate to take general precautions, it omits specific modern emergency procedures like printing a physical emergency plan and posting it in a visible location, making the subtask a practical logical inference to systematically fulfill this divine command.',
           sources: `**I. Quran**
 
 
@@ -2960,6 +3224,8 @@ A plan that only exists in your head or buried in a phone is useless during a cr
 
 Format your emergency plan clearly on a single page: contacts at the top, exit routes in the middle, meeting point at the bottom. Use large, readable font. Print it and laminate it if possible. Post it on the inside of a kitchen cabinet door, on the fridge, or in the main hallway — somewhere every family member passes daily. Keep a backup copy in your car or go-bag.` },
         { title: 'Save all emergency numbers in every family member\'s phone', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking precautions and being responsible for the safety of one\'s family, they omit specific modern emergency procedures like saving all emergency numbers in every family member\'s phone, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -2982,6 +3248,8 @@ Your printed plan covers the home, but emergencies happen everywhere. Having cri
 
 Go through each family member's phone and add all emergency contacts with clear labels (e.g., "ICE - Dad", "Doctor - Dr. Ahmad", "Poison Control"). Use the ICE (In Case of Emergency) prefix so first responders can identify key contacts. For children without phones, ensure their school and caretakers have the full contact list. Test that every number is correct by calling each one.` },
         { title: 'Conduct a family walkthrough of the plan so everyone knows what to do', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and bearing responsibility for the safety of one\'s household, they omit specific modern emergency preparedness procedures like conducting a family walkthrough of an evacuation plan, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -3013,6 +3281,8 @@ Gather your entire household and walk through the emergency plan step by step. P
       description: 'Your environment shapes your mental state. Overcrowding, excessive noise, clutter, and poor lighting create chronic stress that erodes well-being and makes ibadah, study, and family life harder. Improving your living conditions is an investment in every dimension of your life.',
       subtasks: [
         { title: 'Identify the top 3 environmental stressors in your home (noise, clutter, lighting, space)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith highlights the profound blessings of physical health and feeling secure in one\'s dwelling, it omits specific modern practices like identifying environmental stressors in the home, making the subtask a practical logical inference to systematically cultivate this promised domestic well-being.',
           sources: `**I. Hadith**
 
 
@@ -3028,6 +3298,8 @@ You cannot fix what you have not identified. Most people adapt to chronic enviro
 
 Spend a day paying deliberate attention to what bothers you in your home. Notice noise levels, clutter hotspots, dark corners, cramped spaces, temperature issues, or unpleasant smells. Ask family members what stresses them most. Rank everything and pick the top three that have the greatest daily impact on your mood and productivity.` },
         { title: 'Declutter one room at a time — remove what you do not need or use', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of making the home a place of rest and maintaining cleanliness, they omit specific modern practices like decluttering one room at a time, making the subtask a practical logical inference to systematically achieve this commanded domestic peace and order.',
           sources: `**I. Quran**
 
 
@@ -3050,6 +3322,8 @@ Clutter is not just an aesthetic problem — it creates visual noise that taxes 
 
 Pick one room to start with — ideally the one you spend the most time in. Go through every item and decide: keep, donate, or discard. Be honest about what you actually use versus what you are keeping "just in case." Box up donations immediately and remove them from the house. Organise what remains with clear storage. Move to the next room only after the first is complete.` },
         { title: 'Address noise issues with practical solutions (rugs, curtains, white noise, conversation)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources highlight the disruptive nature of overwhelming sound and the profound blessing of feeling secure and peaceful in one\'s dwelling, they omit specific modern acoustic solutions like using heavy curtains or white noise machines, making the subtask a practical logical inference to systematically cultivate this desired domestic tranquility and spiritual focus.',
           sources: `**I. Quran**
 
 
@@ -3077,6 +3351,8 @@ Chronic noise — traffic, neighbours, appliances, or even family activity — e
 
 Identify your primary noise sources. For external noise, add heavy curtains, seal window gaps, or use a white noise machine. For hard-floor echo, lay down rugs or carpet. For internal noise conflicts (children playing while someone studies), establish quiet hours or use room dividers. If a neighbour is the source, have a respectful conversation — many people are unaware of the impact.` },
         { title: 'Improve lighting — maximise natural light and add warm task lighting where needed', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational concept of the home as a place of rest, it omits specific modern interior design practices like maximizing natural light or adding warm task lighting, making the subtask a practical logical inference to systematically cultivate this promised domestic tranquility.',
           sources: `**I. Quran**
 
 
@@ -3092,6 +3368,8 @@ Poor lighting affects your mood, energy, eyesight, and circadian rhythm. Dark, d
 
 Start by maximising natural light: clean windows, open curtains during the day, and trim any outdoor vegetation blocking light. For rooms with limited natural light, add warm-toned LED lamps at desk, reading, and kitchen work areas. Avoid harsh overhead fluorescents in living spaces. Use dimmer switches in bedrooms to support healthy sleep. Replace any flickering or burned-out bulbs immediately.` },
         { title: 'Create a dedicated quiet space for salah, reading, and reflection', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational principles of the home as a place of rest and the command to remember Allah internally with humility, they omit specific modern logistical steps like creating a dedicated quiet space for worship, making the subtask a practical logical inference to systematically facilitate this commanded spiritual focus and domestic tranquility.',
           sources: `**I. Quran**
 
 
@@ -3118,6 +3396,8 @@ Choose a clean, quiet corner of your home — it does not need to be an entire r
       description: 'Takaful is the Islamic alternative to conventional insurance, based on mutual cooperation rather than riba and gharar. Securing takaful coverage for health and property protects your family from catastrophic financial loss while remaining within halal boundaries.',
       subtasks: [
         { title: 'Learn the difference between takaful and conventional insurance', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational mandate to cooperate in righteousness and avoid cooperating in sin, it omits specific modern financial concepts like takaful and conventional insurance, making the subtask a practical logical inference to systematically ensure one\'s financial practices align with this divine principle.',
           sources: `**I. Quran**
 
 
@@ -3133,6 +3413,8 @@ Conventional insurance involves riba (interest), gharar (excessive uncertainty),
 
 Read a clear comparison article or watch a short lecture on takaful vs. conventional insurance. Key differences: takaful is based on mutual cooperation (tabarru) where participants contribute to a shared pool, while conventional insurance is a for-profit risk-transfer contract. In takaful, surplus is returned to participants; in conventional insurance, it becomes company profit. Take notes so you can explain it to your spouse.` },
         { title: 'Identify takaful providers available in your country or region', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the profound spiritual rewards for truthful and trustworthy commerce, it omits specific modern financial steps like identifying regional takaful providers, making the subtask a practical logical inference to systematically ensure one\'s financial dealings align with this ethical standard.',
           sources: `**I. Hadith**
 
 
@@ -3148,6 +3430,8 @@ Takaful availability varies widely by region. In some countries, multiple provid
 
 Search online for "takaful providers in [your country/state]." Check Islamic finance directories and ask your local mosque or Muslim community for recommendations. If no takaful is available locally, research whether any providers offer online or cross-border coverage. Note each provider's product range, reputation, and Shariah board credentials.` },
         { title: 'Compare plans for health coverage — premiums, coverage limits, exclusions', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational financial principle of engaging in lawful trade by mutual consent and avoiding the unjust consumption of wealth, it omits specific modern steps like comparing health coverage plans and their details, making the subtask a practical logical inference to systematically ensure informed consent and fair financial dealings.',
           sources: `**I. Quran**
 
 
@@ -3163,6 +3447,8 @@ Not all takaful plans are equal. A plan with low premiums but severe exclusions 
 
 Request quotes from at least two takaful providers. For each plan, compare: monthly contribution amount, annual coverage limit, out-of-pocket maximum, covered services (hospitalisation, outpatient, dental, maternity), and any exclusions or waiting periods. Check whether your preferred doctors and hospitals are in-network. Create a simple comparison table to make the decision clear.` },
         { title: 'Evaluate property/home takaful options for your dwelling and valuables', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of cooperating in righteousness and relieving others of hardship, they omit specific modern financial practices like evaluating property or home takaful options, making the subtask a practical logical inference to systematically apply these concepts of mutual protection and risk mitigation.',
           sources: `**I. Quran**
 
 
@@ -3185,6 +3471,8 @@ A fire, flood, or theft could wipe out years of savings in a single event. Prope
 
 Estimate the replacement value of your home contents and any property you own. Request property takaful quotes and compare coverage for fire, theft, water damage, and natural disasters. Check whether the plan covers full replacement cost or depreciated value. Read the exclusions carefully — flood and earthquake coverage is often separate. Choose a plan that covers your most likely risks.` },
         { title: 'Select and enrol in the most suitable plans for your household', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith emphasizes the profound blessings of feeling secure in one\'s dwelling and maintaining physical health, it omits specific modern financial mechanisms like enrolling in health and property takaful plans, making the subtask a practical logical inference to systematically safeguard these recognized blessings.',
           sources: `**I. Hadith**
 
 
@@ -3207,6 +3495,8 @@ Based on your comparison, select the health and property takaful plans that offe
       description: 'A written safety protocol transforms vague intentions into clear, rehearsed actions. Covering fire escape, gas leaks, medical emergencies, and severe weather ensures your household is prepared for the most common domestic risks.',
       subtasks: [
         { title: 'Install or test smoke detectors and carbon monoxide alarms in your home', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the broad mandate to take general precautions, it omits specific modern safety measures like installing smoke detectors and carbon monoxide alarms, making the subtask a practical logical inference to systematically fulfill this divine command.',
           sources: `**I. Quran**
 
 
@@ -3222,6 +3512,8 @@ Smoke detectors and carbon monoxide alarms are your first line of defence agains
 
 Check every level of your home for smoke detectors — there should be one in every bedroom, outside each sleeping area, and on every floor including the basement. Test each detector by pressing the test button. Replace batteries immediately if the alarm is weak or chirping. If you have no carbon monoxide alarm, purchase and install one near sleeping areas. Replace any detector older than 10 years.` },
         { title: 'Write a fire escape plan with two exits per room and a meeting point', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and bearing responsibility for the safety of one\'s family, they omit specific modern emergency procedures like writing a fire escape plan, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -3244,6 +3536,8 @@ A documented fire escape plan removes the need to think during a crisis. When sm
 
 Draw a simple floor plan of your home. For each room, mark two exit routes (typically a door and a window). Indicate the location of smoke detectors and fire extinguishers. Mark the outdoor meeting point clearly. Write step-by-step instructions: hear alarm, get low, follow route, close doors behind you, meet outside, call emergency services. Keep the plan to one page.` },
         { title: 'Document procedures for gas leak, water leak, and power outage', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and coupling practical action with trust in Allah, they omit specific modern emergency preparedness procedures like documenting responses for gas leaks, water leaks, and power outages, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -3266,6 +3560,8 @@ These three emergencies are common yet often mishandled because people do not kn
 
 For gas leaks: write down to not use any electrical switches, open windows, evacuate, and call the gas company from outside. For water leaks: document where your main water shutoff valve is and how to turn it off. For power outages: note the location of your fuse box, torches, and how to safely use backup power. Print these procedures and keep them with your fire escape plan.` },
         { title: 'Store a fire extinguisher in the kitchen and learn how to use it', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the reality of fire and the broad principle of coupling practical precaution with trust in Allah, they omit specific modern safety measures like storing a fire extinguisher in the kitchen and learning its proper usage, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -3289,6 +3585,8 @@ Most home fires start in the kitchen. A fire extinguisher within reach can stop 
 
 Purchase an ABC-rated fire extinguisher (effective against ordinary, liquid, and electrical fires). Mount it on the wall near your kitchen exit — not next to the stove, where a fire would block access. Learn the PASS technique: Pull the pin, Aim at the base of the fire, Squeeze the handle, Sweep side to side. Check the pressure gauge monthly and replace the unit before its expiry date.` },
         { title: 'Rehearse the fire escape plan with all household members quarterly', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and bearing responsibility for the safety of one\'s family, they omit specific modern emergency preparedness procedures like rehearsing a fire escape plan quarterly, making the subtask a practical logical inference to systematically fulfill this mandate.',
           sources: `**I. Quran**
 
 
@@ -3318,6 +3616,8 @@ Set a quarterly calendar reminder for a family fire drill. Sound the alarm (or s
       description: 'Knowing your legal rights regarding religious practice — prayer breaks, hijab, dietary accommodation, holiday observance — empowers you to advocate for yourself professionally and protects you from unlawful discrimination. Knowledge here is both practical wisdom and a form of self-preservation.',
       subtasks: [
         { title: 'Research anti-discrimination laws regarding religion in your jurisdiction', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses establish the foundational principles of standing firm in justice and recognizing human diversity, they omit specific modern legal actions like researching anti-discrimination laws, making the subtask a practical logical inference to systematically uphold and protect this mandated justice.',
           sources: `**I. Quran**
 
 
@@ -3337,6 +3637,8 @@ You cannot assert rights you do not know you have. Many Muslims face workplace d
 
 Search for your country or state's anti-discrimination legislation regarding religion. Read the sections on religious discrimination specifically. Note what is protected: hiring, firing, harassment, dress code, prayer breaks. Look for any recent case law involving Muslim employees. Save or bookmark the key legal references for future use.` },
         { title: "Understand your rights to religious accommodation at work (prayer, fasting, dress)", done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the obligations to attend Friday prayers, gain religious understanding, and prevent oppression, they omit specific modern legal concepts like understanding one\'s rights to religious accommodation at work, making the subtask a practical logical inference to systematically secure the ability to fulfill these religious duties.',
           sources: `**I. Quran**
 
 
@@ -3363,6 +3665,8 @@ Many employers are legally required to accommodate sincere religious practices u
 
 Research the concept of "reasonable religious accommodation" in your jurisdiction. Understand what your employer is required to provide: a space for prayer, schedule flexibility for Jumu'ah, exceptions to dress codes for religious garments. Know the difference between a request and a demand — frame accommodation requests professionally, in writing, citing your legal rights. Keep copies of all correspondence.` },
         { title: 'Identify legal resources and Muslim advocacy organisations in your area', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational principle of human equality and the purpose of diversity as mutual understanding, it omits specific modern defensive strategies like identifying legal resources and Muslim advocacy organizations, making the subtask a practical logical inference to systematically protect this divine standard of respectful coexistence from being violated.',
           sources: `**I. Quran**
 
 
@@ -3378,6 +3682,8 @@ If your rights are ever violated, you need to know who to call before the crisis
 
 Search for Muslim civil rights organisations active in your country (e.g., CAIR in the US, MEND in the UK, NCCM in Canada). Save their hotline numbers and websites. Identify local legal aid societies that handle discrimination cases. Ask your mosque if they have a legal committee or partnerships with Muslim lawyers. Keep this information accessible — you may need it on short notice.` },
         { title: 'Document any current or past accommodation requests and their outcomes', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational duty to enjoin what is right and forbid what is wrong, it omits specific modern administrative actions like documenting accommodation requests and their outcomes, making the subtask a practical logical inference to systematically create accountability and oppose workplace injustice.',
           sources: `**I. Quran**
 
 
@@ -3393,6 +3699,8 @@ A paper trail is essential if a situation ever escalates to a formal complaint o
 
 Write down every accommodation request you have made at work: the date, what you asked for, who you asked, and what the response was. Include any follow-up conversations. If you made verbal requests in the past, send a follow-up email summarising the conversation to create a written record. Store these documents in a secure personal folder — not on your work computer.` },
         { title: 'Know the process for filing a complaint if your rights are violated', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational mandates to stand persistently firm in justice and actively prevent oppression, they omit specific modern legal procedures like knowing the process for filing a formal discrimination complaint, making the subtask a practical logical inference to systematically empower believers to combat injustice and fulfill this divine obligation.',
           sources: `**I. Quran**
 
 
@@ -3424,6 +3732,8 @@ Research the formal complaint process for religious discrimination in your juris
       description: 'Extending safety beyond your own household to your community is a manifestation of the Prophetic principle that the best of people are those most beneficial to others. Community safety initiatives build social cohesion, deter harm, and create networks of mutual support.',
       subtasks: [
         { title: 'Research existing community safety programmes in your neighbourhood or mosque', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of cooperating in righteousness and relieving others of hardship, they omit specific modern practices like researching existing community safety programmes, making the subtask a practical logical inference to systematically fulfill these mandates of mutual protection.',
           sources: `**I. Quran**
 
 
@@ -3446,6 +3756,8 @@ Before starting something new, find out what already exists. Joining an establis
 
 Ask your mosque board, local council, or neighbourhood association whether any safety programmes exist — neighbourhood watch, community emergency response teams, or disaster preparedness committees. Check local government websites for community safety initiatives. Attend a community meeting to learn about active efforts and unmet needs.` },
         { title: 'Attend an introductory meeting or training session', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the foundational duty to actively combat and change evil through direct action, it omits specific modern organizational steps like attending an introductory meeting or training session, making the subtask a practical logical inference to systematically prepare to fulfill this mandate.',
           sources: `**I. Hadith**
 
 
@@ -3461,6 +3773,8 @@ Showing up is the transition from intention to commitment. An introductory meeti
 
 Contact the programme coordinator and ask when the next meeting or training session is. Put it on your calendar and attend with an open mind. Listen more than you speak — learn the current structure, challenges, and how volunteers are deployed. Take notes on where you see opportunities to help. Introduce yourself and express your interest in contributing.` },
         { title: 'Volunteer for a specific role (coordinator, trainer, communications)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational mandate to cooperate in righteousness and piety, it omits specific modern organizational actions like volunteering for defined roles, making the subtask a practical logical inference to systematically fulfill this divine command of mutual assistance.',
           sources: `**I. Quran**
 
 
@@ -3476,6 +3790,8 @@ Vague involvement fades quickly. Committing to a specific role gives you account
 
 After attending a meeting, identify which role aligns with your skills and availability. If you are organised, coordinate schedules and logistics. If you are a good communicator, handle outreach and social media. If you have relevant professional skills (medical, legal, technical), offer to lead training. Tell the coordinator which role you want and commit to a specific time commitment per week or month.` },
         { title: 'Complete any required training (community emergency response, de-escalation)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of cooperating in righteousness and responding to the hardships of fellow believers like a single body, they omit specific modern preparedness steps like completing community emergency response training, making the subtask a practical logical inference to systematically fulfill these mandates of mutual care and protection.',
           sources: `**I. Quran**
 
 
@@ -3498,6 +3814,8 @@ Good intentions without training can cause more harm than good. Community emerge
 
 Ask the programme coordinator what training is required or recommended. Common options include CERT (Community Emergency Response Team) training, basic de-escalation and conflict resolution, first aid refreshers, and active threat response. Register for and complete the training within a set timeframe. Apply what you learn in practice scenarios and share key takeaways with your household.` },
         { title: 'Recruit at least two other community members to participate', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational mandate to form a group that invites to good and to act as a unified body, they omit specific modern organizational steps like recruiting community members to participate, making the subtask a practical logical inference to systematically build this collective capacity.',
           sources: `**I. Quran**
 
 
@@ -3527,6 +3845,8 @@ Think of two or three people in your community who are reliable and community-mi
       description: 'Islamic estate planning (mirath) is a fardh obligation, yet most Muslims die without a valid Islamic will. A family continuity plan ensures your assets are distributed according to Shariah, your children have designated guardians, and your family is not left in legal limbo during their most vulnerable moment.',
       subtasks: [
         { title: 'Learn the Islamic rules of inheritance (mirath) and obligatory shares', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -3557,6 +3877,8 @@ Islamic inheritance law is not optional — it is a divine command with specific
 
 Study the Quranic verses on inheritance (primarily Surah An-Nisa, verses 11-12 and 176). Take a class or read a clear guidebook on Islamic inheritance. Understand the fixed shares (fard) for spouses, parents, children, and siblings. Learn when shares adjust based on the presence or absence of other heirs. Use an online mirath calculator to see how your own estate would be divided.` },
         { title: 'Draft an Islamic will (wasiyyah) with the help of a knowledgeable scholar or solicitor', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -3579,6 +3901,8 @@ Without a valid will, your estate will be distributed according to local secular
 
 Find a solicitor or lawyer experienced with Islamic wills in your jurisdiction. Many Muslim organisations offer will-drafting services or templates. Work with a scholar to determine the correct shares for your heirs. Ensure the will is legally valid in your jurisdiction — it must meet local legal requirements to be enforceable. Sign it with witnesses as required by law.` },
         { title: 'Designate guardians for minor children in consultation with your spouse and family', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources emphasize the importance of protecting vulnerable offspring and leaving heirs financially secure, they omit specific legal steps like designating guardians, making the subtask a practical logical inference to systematically ensure the children\'s well-being and Islamic upbringing after their parents\' passing.',
           sources: `**I. Quran**
 
 
@@ -3601,6 +3925,8 @@ If both parents pass away without designated guardians, the court decides who ra
 
 Discuss with your spouse who you would trust to raise your children with Islamic values, love, and stability. Consider the candidates' deen, character, financial stability, and willingness. Have an honest conversation with your chosen guardians to confirm they accept. Document the guardianship designation in your will and ensure it is legally binding in your jurisdiction.` },
         { title: 'Document all assets, debts, accounts, and insurance policies in one secure location', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principles of leaving heirs financially secure and protecting vulnerable offspring, they omit specific modern administrative steps like documenting all assets and debts, making the subtask a practical logical inference to systematically ensure the heirs receive their rightful wealth.',
           sources: `**I. Quran**
 
 
@@ -3623,6 +3949,8 @@ When someone passes away, their family often has no idea what assets, debts, or 
 
 Create a master document listing: all bank accounts (with account numbers and institutions), investments, property deeds, vehicles, valuables, life insurance or takaful policies, debts owed and debts owing, pension or retirement accounts, and digital accounts with passwords. Store this document in a fireproof safe or a secure digital vault. Tell your spouse and executor where to find it.` },
         { title: 'Review and update the will annually or after any major life event', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the urgent foundational duty for a Muslim to have a written will prepared without delay, it omits specific modern administrative steps like reviewing and updating the document annually or after major life events, making the subtask a practical logical inference to systematically ensure this continuous obligation remains accurately fulfilled as circumstances change.',
           sources: `**II. Hadith**
 
 
@@ -3638,6 +3966,8 @@ Life changes — births, deaths, marriages, divorces, significant financial chan
 
 Set an annual calendar reminder to review your will — a good time is during Ramadan, when reflection on mortality is natural. After any major life event (new child, death of an heir, marriage, divorce, major purchase), review immediately. Check that guardian designations, asset lists, and heir shares are still accurate. Update and re-sign the will with witnesses if any changes are needed.` },
         { title: 'Inform your executor and family members where the will and key documents are stored', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths establish the urgent duty to write a will and the importance of leaving heirs financially secure, they omit specific modern administrative steps like informing executors and family members where key documents are stored, making the subtask a practical logical inference to systematically ensure the written will is actually executed and its purpose fulfilled.',
           sources: `**II. Hadith**
 
 
@@ -3664,6 +3994,8 @@ Have a direct conversation with your designated executor about their role and re
       description: 'Taking a leadership role in safety infrastructure — whether at the mosque, school, or neighbourhood level — multiplies your impact and ensures that safety planning is proactive rather than reactive. It is a form of khidmah (service) that protects the most vulnerable.',
       subtasks: [
         { title: 'Express your interest to the mosque board or community organisation leadership', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational mandate to form an organized group for good and demonstrate the value of taking initiative to structure mosque activities, they omit specific modern administrative steps like expressing interest to a mosque board, making the subtask a practical logical inference to systematically build collective capacity and leadership.',
           sources: `**I. Quran**
 
 
@@ -3686,6 +4018,8 @@ Leadership positions are rarely handed out — they go to those who step forward
 
 Request a meeting or send a message to the mosque board chairperson or community organisation leader. Explain your background, your interest in safety and emergency preparedness, and what specific experience or skills you bring. Ask what the current safety structure looks like and where they see the biggest need. Be specific about what you are offering — vague offers to "help out" get forgotten.` },
         { title: 'Assess the current state of safety protocols and identify the biggest gaps', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational mandate to form a group that invites to good, enjoins what is right, and forbids what is wrong, it omits specific modern administrative actions like assessing the current state of safety protocols and identifying gaps, making the subtask a practical logical inference to systematically ensure the community\'s well-being and fulfill this divine command.',
           sources: `**I. Quran**
 
 
@@ -3701,6 +4035,8 @@ Effective leadership starts with an honest assessment of the current state. Many
 
 Conduct a walkthrough of the community space with a safety checklist: fire exits (clear and marked?), fire extinguishers (present and inspected?), first aid kits (stocked?), emergency lighting, AED availability, security camera coverage, and written emergency procedures. Interview staff and regular attendees about their awareness of safety protocols. Document everything and rank gaps by severity and likelihood.` },
         { title: 'Propose a structured safety improvement plan with priorities and timelines', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational mandate to form a group that invites to good, enjoins what is right, and forbids what is wrong, it omits specific modern administrative actions like proposing a structured safety improvement plan with priorities and timelines, making the subtask a practical logical inference to systematically organize and fulfill this divine command.',
           sources: `**I. Quran**
 
 
@@ -3716,6 +4052,8 @@ A list of problems without a plan is just a complaint. A structured improvement 
 
 Based on your assessment, create a document with three priority tiers: immediate (fire safety, first aid), short-term (training, signage, protocols), and long-term (security systems, AED installation). For each item, include the action, responsible person, estimated cost, and target completion date. Present it to the board in a clear, professional format. Start with quick wins to build momentum and credibility.` },
         { title: 'Organise a safety training or awareness event for the community', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the foundational principle of leadership and being responsible for the well-being of one\'s community, it omits specific modern organizational actions like organizing a safety training or awareness event, making the subtask a practical logical inference to systematically fulfill this mandate of care and protection.',
           sources: `**I. Hadith**
 
 
@@ -3731,6 +4069,8 @@ Safety infrastructure is only effective if the community knows it exists and kno
 
 Plan a community event: a first aid workshop, a fire safety demonstration, or an emergency preparedness seminar. Partner with local fire departments, ambulance services, or qualified trainers who may offer free community sessions. Promote the event through the mosque announcement, social media, and word of mouth. Make it family-friendly and practical — people remember what they physically practise, not what they hear in a lecture.` },
         { title: 'Build a team of committed volunteers to sustain the initiative beyond you', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational mandates to form a dedicated group for good and to function collectively as a unified body, they omit specific modern organizational steps like building a team of committed volunteers with defined roles and succession plans, making the subtask a practical logical inference to systematically ensure the sustainability of this collective obligation.',
           sources: `**I. Quran**
 
 
@@ -3764,6 +4104,8 @@ Identify 3-5 community members who showed interest during events or training. In
       description: 'The Prophet (SAW) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
       subtasks: [
         { title: "Make it a habit to initiate salam with every Muslim you encounter", done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith explicitly commands believers to "spread the salam amongst yourselves," providing direct and clear proof for the core action of the subtask to habitually initiate peace greetings with fellow Muslims.',
           sources: `**I. Quran**
 
 
@@ -3787,6 +4129,8 @@ The one who initiates the greeting earns greater reward. By making salam your de
 
 Set a personal rule: you will be the first to say "As-salamu alaykum" in every interaction with a Muslim — at the store, the parking lot, the hallway. Do not wait for eye contact or familiarity. Track yourself for one week and notice how many new connections open up.` },
         { title: 'Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command responding to a greeting with a better one and demonstrate the use of "mercy and blessings" within the context of prayer, they omit the exact everyday phrase "Wa alaykum as-salam wa rahmatullahi wa barakatuh," making the subtask to learn and use this specific full reply a logical inference to fulfill the Quranic injunction.',
           sources: `**I. Quran**
 
 
@@ -3809,6 +4153,8 @@ Responding with the complete greeting maximises the reward and honours the one w
 
 Memorise the full response and practise it until it flows naturally. When someone gives you salam, pause for a beat and deliver the complete reply. Correct yourself out loud if you cut it short — this builds the habit quickly.` },
         { title: 'Greet strangers at the mosque, workplace, and in your neighbourhood', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the obligation to return greetings and demonstrate the practice of greeting within the mosque, they omit explicit instructions to initiate greetings with strangers in broader settings like the workplace or neighbourhood, making the subtask a practical logical inference to systematically spread peace and build community.',
           sources: `**I. Quran**
 
 
@@ -3831,6 +4177,8 @@ Salam is most impactful when given to those you do not know. It transforms a roo
 
 Choose one setting each week — the mosque, your office, or your neighbourhood — and deliberately greet every Muslim you see, including those you have never spoken to. Smile, make eye contact, and say it clearly. Notice how quickly walls come down.` },
         { title: 'Teach children the etiquette of giving and responding to salam', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths explicitly establish the commands to spread peace and detail the specific etiquette of the younger greeting the older, they omit the direct instruction to teach this to children, making the subtask a practical logical inference to systematically ensure the next generation learns and applies this prophetic tradition.',
           sources: `**II. Hadith**
 
 
@@ -3857,6 +4205,8 @@ Model the behaviour — greet everyone with salam in front of your children and 
       description: 'The Prophet (SAW) outlined five rights of a Muslim upon another Muslim, including visiting the sick, attending funerals, and accepting invitations. These are not optional courtesies — they are obligations that maintain the social fabric of the ummah and earn immense reward.',
       subtasks: [
         { title: 'Keep a calendar or list of upcoming social obligations (weddings, births, illnesses)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths explicitly establish the foundational social obligations and rights Muslims owe one another, such as visiting the sick and accepting invitations, they omit specific modern organizational tools like keeping a calendar or list, making the subtask a practical logical inference to systematically track and fulfill these duties.',
           sources: `**II. Hadith**
 
 
@@ -3876,6 +4226,8 @@ Social obligations in Islam are not optional — they are rights that others hol
 
 Create a dedicated section in your calendar or notes app for social obligations. When you hear of a wedding, birth, illness, or death, add it immediately with a reminder. Review this list weekly so nothing falls through the cracks.` },
         { title: 'Prioritise attending janazah prayers whenever you are notified of a death', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -3903,6 +4255,8 @@ Attending the janazah prayer is a communal obligation (fardh kifayah) and carrie
 
 Sign up for your local mosque notification list or community WhatsApp group that announces deaths. When a janazah is announced, treat it as a priority — rearrange your schedule if possible. Even if you did not know the deceased, your presence fulfils a right and earns immense reward.` },
         { title: 'Visit at least one sick person per month — bring food, dua, and companionship', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly commands believers to "visit the sick" and "feed the hungry," it omits specific modern parameters like visiting at least one sick person per month, making the subtask a practical logical inference to systematically fulfill this prophetic obligation of care and companionship.',
           sources: `**I. Quran**
 
 
@@ -3926,6 +4280,8 @@ Visiting the sick is one of the five rights of a Muslim upon another Muslim. The
 
 Ask around your circle each week — who is unwell, recovering from surgery, or housebound? Schedule a visit, bring a home-cooked meal or fruit, sit with them, make dua for their recovery, and keep the visit brief unless they want company. Consistency matters more than grand gestures.` },
         { title: 'Accept invitations to walimah and other gatherings unless there is a valid Islamic reason not to', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith from Sahih al-Bukhari explicitly states that failing to accept a walimah invitation constitutes disobedience to Allah and His Messenger, providing direct and clear proof for the core action of the subtask.',
           sources: `**I. Quran**
 
 
@@ -3953,6 +4309,8 @@ The Prophet (SAW) said that whoever does not accept an invitation has disobeyed 
 
 When invited to a walimah, aqeeqah, or community gathering, accept as your default response. Only decline if there is a legitimate Islamic reason (haram activity at the event, genuine hardship). If you cannot attend, send a gift or a warm message explaining your absence.` },
         { title: 'Follow up after visits with a message, call, or continued support', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths explicitly establish the foundational duties to maintain brotherhood, visit the sick, and attend funerals, they omit specific modern communication steps like following up with a message or call, making the subtask a practical logical inference to systematically sustain these relationships and fulfill the mandate of not severing ties.',
           sources: `**II. Hadith**
 
 
@@ -3979,6 +4337,8 @@ After visiting the sick, attending a funeral, or going to a wedding, send a brie
       description: 'Allah compares backbiting to eating the flesh of your dead brother (49:12). The tongue is the most dangerous limb — it can destroy relationships, reputations, and your own akhirah. An honest audit of your speech habits is the starting point for purifying your social character.',
       subtasks: [
         { title: 'For one week, actively monitor every conversation for gheebah, buhtan, or exaggeration', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses explicitly forbid backbiting, suspicion, and mocking, they omit specific modern behavioral interventions like monitoring and tallying conversations for a week, making the subtask a practical logical inference to systematically eliminate these sins and fulfill the divine command.',
           sources: `**I. Quran**
 
 
@@ -3998,6 +4358,8 @@ You cannot fix what you do not see. Most people backbite so habitually that they
 
 For seven days, carry a small notebook or use your phone to tally every instance where you speak negatively about someone who is not present — even if what you said is true. Note what you said, about whom, and in what context. Review the tally at the end of each day.` },
         { title: 'Identify your triggers — who, what, and when do you most often slip into harmful speech', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly forbid backbiting and clearly define its nature, they omit specific modern self-reflection techniques like identifying personal triggers, making the subtask a practical logical inference to systematically avoid this prohibited behavior and fulfill the divine command.',
           sources: `**I. Quran**
 
 
@@ -4020,6 +4382,8 @@ Harmful speech is rarely random — it follows patterns. Certain people, topics,
 
 Review your week-long audit and look for patterns. Do you backbite most with a particular friend? About a specific colleague? When you are stressed or bored? Write down your top three triggers and develop a plan for each — whether that means changing the subject, excusing yourself, or avoiding the trigger environment.` },
         { title: 'Establish a personal rule: speak about someone only as you would in their presence', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly forbid backbiting and clearly define it as mentioning a brother with something he dislikes, they omit specific modern behavioral techniques like establishing a personal rule or writing it on a reminder card, making the subtask a practical logical inference to systematically avoid this prohibited speech and fulfill the divine command.',
           sources: `**I. Quran**
 
 
@@ -4042,6 +4406,8 @@ This single rule, if followed consistently, eliminates the vast majority of harm
 
 Before you say anything about someone who is not present, pause and ask: "Would I say this exactly the same way if they were sitting here?" If the answer is no, do not say it. Write this rule on a card and keep it visible — in your wallet, on your desk, or as a phone reminder — until it becomes second nature.` },
         { title: 'When you catch yourself backbiting, make istighfar and say something positive about the person', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly forbid backbiting and emphasize the importance of guarding one\'s tongue, they omit specific behavioral correction steps like making istighfar and saying something positive upon slipping, making the subtask a practical logical inference to systematically repent and rectify the prohibited speech.',
           sources: `**I. Quran**
 
 
@@ -4064,6 +4430,8 @@ Catching yourself mid-slip and correcting it trains your nafs to associate backb
 
 The moment you realise you have said something that qualifies as gheebah, stop mid-conversation if necessary. Say "Astaghfirullah" and then immediately mention something genuinely positive about that person. This practice also signals to those around you that you are serious about guarding your tongue.` },
         { title: 'Find an accountability partner who will gently remind you when you slip', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the foundational principle that believers act as mirrors to gently correct one another, they omit specific modern methods like formally designating an accountability partner with weekly check-ins, making the subtask a practical logical inference to systematically fulfill this mutual obligation.',
           sources: `**I. Quran**
 
 
@@ -4093,6 +4461,8 @@ Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to
       description: 'The Prophet (SAW) was described as giving his full attention to whoever spoke to him, turning his entire body toward them. Positive body language — eye contact, leaning in, putting down your phone — communicates respect and builds trust in every interaction.',
       subtasks: [
         { title: 'Put your phone away (face down or in pocket) during all face-to-face conversations', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadiths establish the prophetic standard of giving full, undivided attention to a speaker and emphasizing excellent manners, they omit specific modern interventions like putting a mobile phone away, making the subtask a practical logical inference to systematically eliminate distractions and fulfill this standard of respect.',
           sources: `**II. Hadith**
 
 
@@ -4112,6 +4482,8 @@ A visible phone — even face-up on the table — signals divided attention. Res
 
 Make it a non-negotiable habit: when a conversation begins, your phone goes face-down on the table or into your pocket. Turn off vibration if you are easily distracted. Start with one-on-one conversations and expand to group settings. Notice how the quality of your interactions changes within a week.` },
         { title: 'Practise making comfortable eye contact — aim for 60-70% of the conversation', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided Hadith gives clear ethical guidance on verbal communication by commanding believers to either speak good or remain silent, it offers neither explicit proof nor a logical inference supporting the specific non-verbal practice of maintaining comfortable eye contact.',
           sources: `**I. Hadith**
 
 
@@ -4127,6 +4499,8 @@ Eye contact communicates engagement, confidence, and sincerity. Too little makes
 
 During your next few conversations, consciously maintain eye contact while the other person is speaking, and allow natural breaks when you are thinking or responding. If sustained eye contact feels difficult, focus on the triangle between the person's eyes and nose. Practise with trusted friends first and gradually extend to new people.` },
         { title: 'Face the speaker with open posture (uncrossed arms, slight lean forward)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith broadly emphasizes the spiritual and interpersonal importance of having the "best manners," it omits specific physical communication techniques like maintaining an open posture, making the subtask a practical logical inference to systematically embody this prophetic standard of respect during conversations.',
           sources: `**II. Hadith**
 
 
@@ -4142,6 +4516,8 @@ Your body communicates before your words do. Crossed arms, turned shoulders, or 
 
 When someone speaks to you, turn your full body toward them — not just your head. Uncross your arms and let your hands rest naturally. Lean forward slightly to show engagement. This mirrors the sunnah of the Prophet (SAW), who would turn his entire body to face whoever addressed him.` },
         { title: 'Observe how others respond when you give them full, undivided attention', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the overarching principles of giving full measure and exhibiting the best manners, they omit specific psychological techniques like observing others\' responses and journaling them, making the subtask a practical logical inference to systematically reinforce this prophetic standard of social interaction.',
           sources: `**I. Quran**
 
 
@@ -4172,6 +4548,8 @@ After practising the previous subtasks for two weeks, start paying attention to 
       description: 'The Prophet (SAW) said: "The strong person is not the one who can wrestle, but the one who controls himself when angry." The 24-hour rule creates a buffer between stimulus and response, allowing wisdom and hilm (forbearance) to replace impulsive reactions that you would regret.',
       subtasks: [
         { title: 'Commit to the rule: when wronged or angered, wait 24 hours before responding', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to suppress anger and repel evil with good, they omit a specific modern timeframe like waiting 24 hours, making the subtask a practical logical inference to systematically control impulsive reactions and fulfill these divine and prophetic instructions.',
           sources: `**I. Quran**
 
 
@@ -4194,6 +4572,8 @@ Most regrettable words and actions happen in the heat of the moment. A 24-hour b
 
 Write the rule down and place it where you will see it daily. When you feel the urge to fire back — via text, email, or in person — tell yourself "24 hours." If someone is in front of you, excuse yourself politely. Do not type, send, or say anything until the time has passed.` },
         { title: 'During the waiting period, make wudu, pray two rakaat, and seek counsel from Allah', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to restrain their anger and control themselves, they omit specific spiritual interventions like making wudu, praying two rakaat, and seeking counsel from Allah, making the subtask a practical logical inference to systematically manage anger and fulfill these divine and prophetic instructions.',
           sources: `**I. Quran**
 
 
@@ -4220,6 +4600,8 @@ The 24-hour window is not just about waiting — it is about redirecting your en
 
 As soon as you step away from the triggering situation, go make wudu. Then pray two voluntary rakaat and make a sincere dua asking Allah for patience, clarity, and the best response. If you are in a place where you cannot pray, sit down (the Prophet advised changing your position when angry) and make dhikr until the intensity fades.` },
         { title: 'Write down what happened and how you feel before deciding on a response', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to control their anger, exercise patience, and forgive, they omit specific modern psychological techniques like writing down the incident and one\'s feelings, making the subtask a practical logical inference to systematically achieve emotional regulation and fulfill these divine and prophetic instructions.',
           sources: `**I. Quran**
 
 
@@ -4242,6 +4624,8 @@ Writing forces clarity. When you put the incident on paper, you often discover t
 
 Within the first few hours of the 24-hour period, write a brief account: What happened? What exactly was said or done? How did it make you feel? What assumptions are you making about the other person's intent? Review what you wrote before deciding how to respond. Often, the act of writing itself brings peace.` },
         { title: 'After 24 hours, choose the response that is most just and most likely to preserve the relationship', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational principles of proportional justice, pardoning, and reconciliation, it omits a specific modern timeframe like waiting 24 hours, making the subtask a practical logical inference to systematically choose a response that fulfills this divine guidance.',
           sources: `**I. Quran**
 
 
@@ -4257,6 +4641,8 @@ The goal of the 24-hour rule is not to suppress your response but to refine it. 
 
 After 24 hours, review your written notes and ask: What is the most just response? What would the Prophet (SAW) do? Will this response preserve or destroy the relationship? Choose the path that balances your rights with mercy. If direct conversation is needed, approach the person calmly, state what happened, how it affected you, and what you need going forward.` },
         { title: 'Track incidents where the 24-hour rule prevented a regrettable reaction', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to restrain their anger and remain silent, they omit specific modern psychological tools like keeping a log to track successful interventions, making the subtask a practical logical inference to systematically reinforce emotional regulation and fulfill these divine and prophetic instructions.',
           sources: `**I. Quran**
 
 
@@ -4288,6 +4674,8 @@ Keep a simple log — date, what triggered you, what you would have said or done
       description: 'The Prophet (SAW) was known as al-Amin (the trustworthy) even before revelation. A reputation for honesty and reliability is built through consistent small actions — keeping promises, meeting deadlines, telling the truth even when it is inconvenient, and never overpromising.',
       subtasks: [
         { title: 'Audit your current commitments — are there any unfulfilled promises or overdue obligations?', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to fulfill their contracts and warn against breaking promises, they omit specific modern organizational practices like conducting an audit or listing commitments, making the subtask a practical logical inference to systematically track and fulfill these religious obligations.',
           sources: `**I. Quran**
 
 
@@ -4310,6 +4698,8 @@ You cannot build a reputation for reliability while carrying a backlog of broken
 
 Set aside 30 minutes and list every commitment you have made recently — to family, friends, colleagues, and community. For each one, mark whether it is fulfilled, in progress, or overdue. For anything overdue, either complete it this week or communicate honestly about the delay. This single exercise rebuilds trust faster than any grand gesture.` },
         { title: 'Adopt a policy of under-promising and over-delivering in all commitments', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly warns against breaking promises by classifying it as a sign of hypocrisy, it omits specific behavioral strategies like adopting a policy of under-promising and over-delivering, making the subtask a practical logical inference to systematically safeguard against this prohibited behavior.',
           sources: `**I. Hadith**
 
 
@@ -4325,6 +4715,8 @@ Over-promising feels generous in the moment but erodes trust when you cannot fol
 
 Before making any commitment, pause and ask: "Can I realistically deliver this, plus a little more, without stress?" If not, scale back what you promise. When someone asks for a favour, add extra time to your estimate. When you deliver early or beyond expectations, your reputation compounds.` },
         { title: 'Follow through on every small commitment (returning calls, showing up on time, completing favours)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to be attentive to their trusts and promises and warn against breaking them, they omit specific modern examples like returning calls or showing up on time, making the subtask a practical logical inference to systematically uphold these foundational religious obligations.',
           sources: `**I. Quran**
 
 
@@ -4347,6 +4739,8 @@ Trust is built in the small things. Returning a call when you said you would, sh
 
 Treat every small commitment with the same seriousness as a major deadline. When you tell someone "I will call you back," add it to your task list immediately. Set a personal standard of arriving five minutes early to everything. If you offer to do something, do it within 24 hours. These small wins accumulate into an unshakeable reputation.` },
         { title: 'When you cannot fulfil a commitment, communicate proactively and honestly', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to honor their pledges and warn against breaking promises as a sign of hypocrisy, they omit specific communication strategies like proactively informing others when a commitment cannot be met, making the subtask a practical logical inference to systematically uphold trust and avoid deceit.',
           sources: `**I. Quran**
 
 
@@ -4369,6 +4763,8 @@ Everyone occasionally falls short — what separates trustworthy people from unr
 
 The moment you realise you will miss a deadline or cannot fulfil a promise, reach out immediately — do not wait until the last minute. Explain the situation honestly (no excuses), apologise sincerely, and offer a concrete alternative or revised timeline. People forgive delays far more readily than silence.` },
         { title: 'Ask a trusted friend or colleague for honest feedback on your reliability', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to be attentive to their trusts and warn against betraying promises as a sign of hypocrisy, they omit specific modern self-assessment methods like seeking honest feedback from a friend, making the subtask a practical logical inference to systematically ensure one\'s reliability and fulfill these religious obligations.',
           sources: `**I. Quran**
 
 
@@ -4398,6 +4794,8 @@ Choose one or two people who know you well in different contexts (work and perso
       description: 'The Prophet (SAW) said: "The most beloved of people to Allah are those who are most beneficial to people." Regular service — whether structured volunteering or spontaneous acts of kindness — builds empathy, strengthens community bonds, and purifies the nafs from selfishness.',
       subtasks: [
         { title: 'Identify a cause or organisation aligned with your skills and values', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly encourages aiding one\'s brother to earn Allah\'s help, it omits specific modern organizational strategies like identifying a charitable cause aligned with personal skills, making the subtask a practical logical inference to systematically and sustainably fulfill this prophetic principle.',
           sources: `**I. Hadith**
 
 
@@ -4413,6 +4811,8 @@ Service is most sustainable and impactful when it aligns with what you are good 
 
 List your top three skills (organising, teaching, cooking, driving, technology, etc.) and your top three values (education, hunger relief, youth development, etc.). Search for local organisations or mosque programmes that sit at the intersection. Reach out to one this week and ask how you can contribute.` },
         { title: 'Commit to a regular schedule — even 2-4 hours per month makes a difference', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly praise charitable acts like feeding the vulnerable and relieving the hardships of believers, they omit specific modern organizational strategies like committing to a regular monthly schedule, making the subtask a practical logical inference to systematically and consistently fulfill these divine and prophetic exhortations.',
           sources: `**I. Quran**
 
 
@@ -4435,6 +4835,8 @@ Sporadic service is better than none, but consistent service creates real change
 
 Block a specific time on your calendar — the first Saturday morning of each month, every other Friday afternoon, whatever works. Treat it like a non-negotiable appointment. Start with just 2-4 hours per month and increase only when you can sustain it without resentment or burnout.` },
         { title: 'Look for daily micro-opportunities: carrying groceries, giving rides, checking on elderly neighbours', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith explicitly warns against neglecting a hungry neighbor, it omits specific daily micro-services like carrying groceries or giving rides, making the subtask a practical logical inference to systematically cultivate a servant mindset and fulfill this prophetic principle of neighborhood care.',
           sources: `**I. Hadith**
 
 
@@ -4450,6 +4852,8 @@ Structured volunteering is valuable, but the majority of service opportunities a
 
 Train your eye to notice needs around you: the elderly person struggling with bags, the neighbour whose bins are still out, the colleague who looks overwhelmed. Act immediately without overthinking — carry the bags, bring the bins in, offer to help. Keep a mental count of daily micro-services for one week to build awareness.` },
         { title: 'Involve your family in service activities to build a culture of giving', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly encourage feeding the vulnerable and establish the principle that individuals are responsible for guiding their families, they omit specific modern methods like choosing a monthly family-friendly service activity, making the subtask a practical logical inference to systematically instill these divine and prophetic values of charity within the household.',
           sources: `**I. Quran**
 
 
@@ -4479,6 +4883,8 @@ Choose one family-friendly service activity per month: cooking meals for a shelt
       description: 'Most people listen to respond, not to understand. Active listening — being fully present, reflecting back what you hear, and asking genuine follow-up questions — is one of the most powerful ways to honour another human being and build deep, trusting relationships.',
       subtasks: [
         { title: 'In your next 5 conversations, focus entirely on listening without planning your response', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided Quranic verse explicitly commands believers to investigate and verify information brought by an untrustworthy source, it offers neither explicit proof nor a logical inference supporting the general interpersonal habit of listening without planning a response.',
           sources: `**I. Quran**
 
 
@@ -4494,6 +4900,8 @@ The habit of mentally composing your reply while someone is still speaking means
 
 In your next five meaningful conversations, give yourself one instruction: do not think about what you will say next. When you notice your mind drifting to your response, gently bring your attention back to the speaker's words, tone, and body language. Allow a pause after they finish before you respond — the pause proves you were listening, not just waiting.` },
         { title: 'Practise paraphrasing: "So what I hear you saying is..." before responding', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided sources broadly commend those who listen to speech and encourage believers to embody the best manners, they offer neither explicit proof nor a logical inference supporting the specific active listening technique of paraphrasing someone\'s words to confirm understanding.',
           sources: `**I. Quran**
 
 
@@ -4516,6 +4924,8 @@ Paraphrasing confirms to the speaker that they have been understood — and it o
 
 After someone shares something important, resist the urge to immediately give your opinion. Instead, say: "So what I hear you saying is..." and summarise their point in your own words. Then ask: "Did I get that right?" This takes practice and may feel awkward at first, but the impact on your relationships will be immediate.` },
         { title: 'Ask at least one thoughtful follow-up question in every meaningful conversation', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the overarching principles of giving a speaker full attention and engaging in patient inquiry, they omit a specific metric like asking at least one thoughtful follow-up question, making the subtask a practical logical inference to systematically cultivate an engaged presence and fulfill this prophetic standard of communication.',
           sources: `**I. Quran**
 
 
@@ -4539,6 +4949,8 @@ A thoughtful follow-up question tells the speaker: "I am genuinely interested in
 
 After someone shares, ask a question that goes deeper: "What was that like for you?" "What do you think you will do next?" "How did that change your perspective?" Avoid questions that shift the topic to yourself. Make this a personal challenge — one genuine follow-up question per meaningful conversation, every day.` },
         { title: 'Notice the difference in connection quality when you listen deeply vs. superficially', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided Quranic verse broadly praises those who listen to speech and follow the best of it, it offers neither explicit proof nor a logical inference supporting the specific interpersonal exercise of rating and comparing the connection quality of deep versus superficial listening.',
           sources: `**I. Quran**
 
 
@@ -4554,6 +4966,8 @@ Awareness of the difference is what transforms active listening from a technique
 
 After each conversation this week, rate the connection quality on a scale of 1-5. Note whether you were fully present or distracted. Compare the ratings — you will see a clear pattern. Conversations where you truly listened will consistently score higher, reinforcing the habit with real evidence.` },
         { title: 'Read or watch one resource on active listening techniques this month', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Hadith**
 
 
@@ -4576,6 +4990,8 @@ Search for a highly-rated book, podcast episode, or video on active listening. G
       description: 'The Prophet (SAW) said: "It is not permissible for a Muslim to forsake his brother for more than three days." Broken relationships weigh on the heart, harden it, and block blessings. Reconciliation — even when you were wronged — is one of the highest acts of character in Islam.',
       subtasks: [
         { title: 'List relationships that are currently strained, broken, or distant', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to make settlement between brothers and forbid forsaking them, they omit specific modern organizational practices like listing strained relationships, making the subtask a practical logical inference to systematically identify and reconcile broken ties in fulfillment of these divine and prophetic instructions.',
           sources: `**I. Quran**
 
 
@@ -4598,6 +5014,8 @@ You cannot reconcile what you have not acknowledged. Writing down strained relat
 
 Sit quietly and think through your family, friends, colleagues, and community members. Write the name of every person with whom things are not right — whether through conflict, neglect, or slow drift. Be honest; include relationships you have been avoiding thinking about. This list is your starting point.` },
         { title: "Choose one relationship to prioritise for reconciliation this month", done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to reconcile conflicts and forbid forsaking a brother for more than three days, they omit specific modern organizational strategies like prioritizing a single relationship for a month, making the subtask a practical logical inference to systematically fulfill these divine and prophetic instructions.',
           sources: `**I. Quran**
 
 
@@ -4620,6 +5038,8 @@ Trying to fix everything at once leads to paralysis. Choosing one relationship f
 
 Review your list and select the relationship that weighs most heavily on your heart, or the one where reconciliation is most achievable. Consider factors like proximity, the severity of the rift, and whether the other person might be receptive. Commit to this one relationship for the next 30 days.` },
         { title: 'Reflect honestly on your role in the breakdown — make istighfar if needed', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to make settlement between brothers and forbid shunning them for more than three days, they omit specific internal steps like honest self-reflection and making istighfar, making the subtask a practical logical inference to systematically prepare the heart for genuine reconciliation.',
           sources: `**I. Quran**
 
 
@@ -4642,6 +5062,8 @@ It is human nature to see yourself as the victim in every conflict. Honest self-
 
 Before reaching out, spend time in honest self-examination. Ask yourself: What did I do or fail to do? Did I listen, or did I dismiss? Was I fair, or was I harsh? If you find fault in yourself, make sincere istighfar and be prepared to acknowledge your part when you reach out. This is not weakness — it is the strength of prophetic character.` },
         { title: 'Reach out with humility — a call, visit, or sincere message', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly emphasize the duty of conveying the message and highly praise the act of reconciling between people, they omit specific modern communication methods like making a call or sending a message, making the subtask a practical logical inference to systematically initiate reconciliation and fulfill these religious injunctions.',
           sources: `**I. Quran**
 
 
@@ -4665,6 +5087,8 @@ The first move is always the hardest, and the one who initiates reconciliation e
 
 Choose the medium that feels most personal — a face-to-face visit is best, followed by a phone call, then a heartfelt message. Keep it simple: express that you value the relationship, acknowledge any wrongdoing on your part, and express your desire to move forward. Do not demand an apology or relitigate the past. Your job is to open the door; let Allah handle the rest.` },
         { title: 'Focus on restoring basic goodwill, not necessarily resolving every issue at once', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly encourage and highly praise the act of reconciling between people, they omit specific conflict-resolution strategies like focusing initially on restoring basic goodwill rather than resolving every issue at once, making the subtask a practical logical inference to systematically achieve this religious objective.',
           sources: `**I. Quran**
 
 
@@ -4696,6 +5120,8 @@ Set realistic expectations: your goal is to move from hostility or silence to ba
       description: 'The Prophet (SAW) invested deeply in individual mentorship — his companionship with Abu Bakr, his guidance of Ali, his nurturing of Anas. Mentoring a younger Muslim passes on hard-won wisdom, multiplies your impact, and fulfils the obligation of mutual enjoining of good (amr bil maruf).',
       subtasks: [
         { title: 'Identify a younger Muslim in your community, workplace, or family who could benefit from mentorship', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided Hadith illustrates Abu Bakr\'s overarching dedication to serving the Muslim nation upon becoming Caliph, it offers neither explicit proof nor a logical inference supporting the specific personal initiative of identifying and mentoring a younger Muslim.',
           sources: `**I. Hadith**
 
 
@@ -4711,6 +5137,8 @@ Every generation needs guides who have walked the path before them. Without ment
 
 Look around your immediate circles: the mosque, your workplace, your extended family, or community programmes. Notice who is at a transition point — starting university, entering the workforce, newly married, or struggling with direction. Approach them naturally, not with a formal "I want to mentor you" speech, but with genuine interest in their life and a willingness to be available.` },
         { title: 'Initiate the relationship naturally — regular check-ins over coffee, walks, or shared activities', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided Hadith beautifully illustrates the general principle of mutual love and empathy among believers, it offers neither explicit proof nor a logical inference supporting the specific social mechanics of initiating a mentorship relationship naturally through shared activities like coffee or walks.',
           sources: `**I. Hadith**
 
 
@@ -4726,6 +5154,8 @@ Forced mentorship feels like a lecture. The most transformative mentoring relati
 
 Suggest a low-pressure activity: coffee, a walk after Jumuah, helping them with a project, or attending a community event together. Let conversations flow naturally rather than following a curriculum. Be consistent with your invitations — showing up regularly communicates that you genuinely care, not that you are fulfilling an obligation.` },
         { title: 'Listen first to understand their challenges, goals, and aspirations', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided sources explicitly command believers to invite others to the way of the Lord with wisdom and to convey knowledge, they offer neither explicit proof nor a logical inference supporting the specific mentoring technique of listening first to understand a person\'s challenges and goals.',
           sources: `**I. Quran**
 
 
@@ -4748,6 +5178,8 @@ Effective mentorship starts with understanding, not advice. If you jump straight
 
 In your early conversations, ask open-ended questions: "What are you working toward right now?" "What is your biggest challenge?" "What do you wish someone had told you a year ago?" Listen fully before responding. Take mental notes of recurring themes. Only offer advice when asked, or when you see a clear connection between their challenge and your experience.` },
         { title: 'Share relevant experiences, lessons, and resources without being preachy', done: false,
+          tier: 'T3',
+          amanahRationale: 'Although the provided source explicitly encourages the pursuit of knowledge and broadly commends sharing experiences with others, it offers neither explicit proof nor a logical inference supporting the specific mentoring communication style of sharing personal lessons and resources without being preachy.',
           sources: `**I. Hadith**
 
 
@@ -4763,6 +5195,8 @@ Young people tune out lectures but absorb stories. Sharing your own mistakes, fa
 
 When a topic arises where you have relevant experience, share it as a story, not a directive: "I went through something similar and here is what I learned..." Include your mistakes and what you wish you had done differently. Recommend books, podcasts, or people who helped you — but limit to one or two suggestions at a time. Let them ask for more rather than overwhelming them.` },
         { title: 'Meet consistently — at least monthly — and follow up on previous conversations', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly praise deeds done consistently and the embodiment of the best manners, they omit specific mentoring practices like meeting on a monthly basis and following up on previous conversations, making the subtask a practical logical inference to systematically apply these prophetic principles to a mentorship relationship.',
           sources: `**II. Hadith**
 
 
@@ -4789,6 +5223,8 @@ Set a recurring date — the first Sunday of each month, every other Friday afte
       description: 'The greatest dawah is not a speech or a pamphlet — it is your character. When non-Muslims see a Muslim who is honest, generous, patient, and excellent in their work, it speaks louder than any argument. This task is about being intentionally excellent in public-facing interactions as an act of worship.',
       subtasks: [
         { title: 'Identify 3 public-facing contexts where you interact with non-Muslims regularly', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verses explicitly command believers to invite others to the way of Allah with wisdom and righteous deeds, they omit specific modern organizational steps like identifying three public-facing contexts for interaction, making the subtask a practical logical inference to systematically integrate these divine injunctions into daily life.',
           sources: `**I. Quran**
 
 
@@ -4808,6 +5244,8 @@ You cannot be intentional about something you have not identified. Mapping the c
 
 Think through your weekly routine: your workplace, your neighbourhood, the school gate, local shops, the gym, community events. Write down three specific contexts where you interact with non-Muslims regularly. For each, note what impression you currently leave and what excellence would look like in that setting.` },
         { title: 'In each context, aim for measurably excellent conduct — extra courtesy, reliability, generosity', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -4830,6 +5268,8 @@ Vague intentions to "be a good Muslim in public" rarely translate into action. M
 
 For each of your three contexts, set one specific excellence target this month. At work: deliver every project ahead of deadline. In your neighbourhood: be the first to offer help when someone is moving, shovelling, or struggling. At the school gate: greet every parent warmly and remember their names. Track your follow-through and raise the bar each month.` },
         { title: "Handle complaints, conflicts, or rudeness with prophetic composure and grace", done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly praise controlling oneself in moments of anger and highlight the Prophet\'s composure under attack, they omit specific modern conflict-resolution steps like taking a breath, lowering one\'s voice, or reflecting afterward, making the subtask a practical logical inference to systematically emulate this prophetic grace in daily interactions.',
           sources: `**I. Quran**
 
 
@@ -4858,6 +5298,8 @@ Anyone can be pleasant when things are going well. The true test of character �
 
 When faced with rudeness or conflict in a public setting, take a breath before responding. Speak calmly, lower your voice rather than raising it, and seek resolution rather than victory. If someone is rude to you because of your faith, respond with warmth and facts rather than defensiveness. Afterwards, reflect on how you handled it and what you would improve.` },
         { title: 'Be willing to explain Islamic practices when asked, with warmth and confidence', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -4884,6 +5326,8 @@ When your excellent conduct sparks curiosity, people will ask about your faith. 
 
 Prepare simple, warm explanations for the practices people most commonly ask about: "I pray five times a day — it is like a reset button that keeps me grounded." "Ramadan is our month of fasting — it teaches gratitude and self-discipline." Practise saying these out loud so they feel natural. Welcome questions with a smile rather than treating them as intrusions.` },
         { title: 'Reflect monthly on whether your public conduct would make the Prophet (SAW) proud', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly establish the Prophet as an excellent pattern and emphasize the perfection of good character, they omit specific modern self-assessment practices like conducting a monthly 15-minute reflection, making the subtask a practical logical inference to systematically evaluate and align one\'s conduct with this prophetic standard.',
           sources: `**I. Quran**
 
 
@@ -4913,6 +5357,8 @@ At the end of each month, set aside 15 minutes for honest reflection. Review you
       description: 'Iron sharpens iron. A muhasaba circle is a small group of trusted Muslim peers who meet regularly to hold each other accountable in deen, character, and goals. This practice was modelled by the Sahaba and remains one of the most effective tools for sustained spiritual and personal growth.',
       subtasks: [
         { title: 'Identify 2-4 trusted, like-minded Muslim peers who share your commitment to growth', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly advise believers to carefully choose their friends and companions based on their religious commitment, they omit specific organizational practices like forming a small mutual accountability (muhasaba) circle of 2-4 peers, making the subtask a practical logical inference to systematically apply this prophetic guidance on companionship.',
           sources: `**I. Quran**
 
 
@@ -4936,6 +5382,8 @@ The quality of your muhasaba circle determines its effectiveness. You need peers
 
 Think of Muslim brothers or sisters who consistently demonstrate commitment to their deen and personal development. They should be people you respect, feel safe with, and who challenge you. Approach them individually, share your vision for a muhasaba circle, and gauge their interest and commitment before forming the group.` },
         { title: 'Propose the concept and agree on a format: weekly or bi-weekly, in person or virtual', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse explicitly commands believers to advise one another to truth and patience, it omits specific organizational logistics like agreeing on a weekly or bi-weekly meeting format, making the subtask a practical logical inference to systematically facilitate this mutual exhortation.',
           sources: `**I. Quran**
 
 
@@ -4951,6 +5399,8 @@ Without a clear format agreed upon upfront, groups quickly lose momentum. Defini
 
 Draft a simple one-page proposal: purpose of the group, suggested frequency (bi-weekly is often sustainable), duration (60-90 minutes), and whether meetings will be in person, virtual, or a mix. Share it with your potential members and invite feedback. Agree on a format that works for everyone and set the first three meeting dates immediately.` },
         { title: 'Establish ground rules: confidentiality, honesty, no judgement, constructive feedback only', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the overarching principles of Islamic brotherhood and describe a believer as a mirror to his brother, they omit specific organizational practices like establishing ground rules for confidentiality and constructive feedback, making the subtask a practical logical inference to systematically cultivate a safe environment that embodies this prophetic ideal.',
           sources: `**I. Quran**
 
 
@@ -4973,6 +5423,8 @@ Trust is the currency of accountability. Without explicit ground rules, people h
 
 At your first session, discuss and agree on ground rules together. Essential ones include: everything shared stays in the group; we speak with honesty and compassion; we do not judge or lecture; feedback is constructive and requested, not imposed. Write these down and revisit them if anyone feels they are being violated. The group is only as strong as its trust.` },
         { title: 'Structure each session: check-in on goals, share struggles, make dua for each other', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to make room in gatherings and encourage structured learning circles, they omit specific facilitation methods like a three-part session agenda, making the subtask a practical logical inference to systematically allocate equal conversational space and maintain group focus.',
           sources: `**I. Quran**
 
 
@@ -4995,6 +5447,8 @@ A structured session ensures the group stays focused and everyone gets equal tim
 
 Use a simple three-part structure: (1) Each member shares a brief update on goals set at the previous session — what went well, what did not. (2) Open floor for sharing current struggles, seeking advice, or requesting accountability on a specific area. (3) Close with each member making dua for the person next to them. Keep time so everyone gets equal space.` },
         { title: 'Rotate facilitation so no single person carries the burden of leading every session', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the overarching principle of believers acting as one body in mutual mercy and compassion, it omits specific organizational practices like rotating facilitation, making the subtask a practical logical inference to systematically distribute the burden of leading every session and embody this prophetic empathy within a group setting.',
           sources: `**II. Hadith**
 
 
@@ -5010,6 +5464,8 @@ When one person always leads, they carry a disproportionate burden and the group
 
 Assign facilitation on a rotating schedule — each member leads one session in turn. The facilitator is responsible for opening the session, keeping time, ensuring everyone speaks, and closing with dua. Create a simple facilitation guide so every member feels confident when their turn comes. Review the rotation quarterly and adjust as needed.` },
         { title: 'Evaluate the group dynamic after 3 months and adjust format as needed', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to consult one another and praise consistent deeds, they omit specific modern organizational practices like evaluating a group dynamic after three months, making the subtask a practical logical inference to systematically apply these divine and prophetic principles to maintain group health and longevity.',
           sources: `**I. Quran**
 
 
