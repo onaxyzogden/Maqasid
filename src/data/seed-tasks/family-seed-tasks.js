@@ -11,6 +11,8 @@ export const FAMILY_SEED_TASKS = {
       description: 'The nikah contract is the legal and spiritual foundation of your marriage. Verifying its validity ensures your union meets the conditions set by the Shariah — proper wali (guardian), two Muslim witnesses, and an agreed-upon mahr. Without these, the marriage may be void or deficient in the eyes of Allah.',
       subtasks: [
         {
+          tier: 'T3',
+          amanahRationale: 'The provided source specifies the religious requirement of a guardian (wali) for a valid marriage, but offers no clear proof or logical inference regarding the modern administrative task of locating or obtaining a physical or digital nikah certificate.',
           title: 'Locate your original nikah certificate or obtain a copy from the officiant', done: false,
           sources: `**I. Hadith**
 
@@ -32,6 +34,8 @@ The nikah certificate is the primary legal and religious document proving your m
 5. If no record exists at all, consult a scholar about whether a renewal or written attestation is needed.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate the presence and permission of a legitimate guardian (wali) for a valid marriage, they omit the specific jurisprudential hierarchies and verification steps, making the subtask a clear logical inference to ensure the marriage contract fulfills this foundational religious requirement.',
           title: 'Confirm the wali who represented the bride was a valid guardian per fiqh rulings', done: false,
           sources: `**I. Hadith**
 
@@ -61,6 +65,8 @@ The wali (guardian) is a pillar of the nikah in the majority of scholarly opinio
 5. If there is doubt about the wali\'s legitimacy, consult a qualified scholar to determine if the nikah needs to be renewed.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'While the provided Hadith explicitly establishes the presence of two just witnesses as a pillar of a valid marriage, it omits specific modern administrative steps like checking a nikah certificate or contacting the officiant, making the subtask\'s directive to verify their presence a clear logical inference to ensure the contract\'s validity.',
           title: 'Verify that two adult Muslim male witnesses were present and attested', done: false,
           sources: `**I. Hadith**
 
@@ -82,6 +88,8 @@ Witnesses are a condition of validity for the nikah in the Hanafi, Shafi\'i, and
 5. Document the witnesses\' full names and contact information for your personal records.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'While the provided Quranic verses explicitly mandate the payment of the mahr as a binding obligation, they omit specific administrative steps like reviewing a nikah certificate or documenting the agreement, making the subtask a clear logical inference necessary to properly fulfill this divine command.',
           title: 'Confirm the mahr was clearly stated, agreed upon, and documented', done: false,
           sources: `**I. Quran**
 
@@ -107,6 +115,8 @@ The mahr is the bride\'s right given by Allah — it is not a negotiable cultura
 5. If any portion of the mahr remains unpaid, create a clear repayment plan and fulfil it promptly — this is a debt before Allah.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith explicitly states that consulting a qualified scholar to rectify any doubtful element of a marriage is an obligation, providing direct and clear proof for the core action of the subtask.',
           title: 'If any element is missing or doubtful, consult a qualified scholar to rectify', done: false,
           sources: `**I. Quran**
 
@@ -143,6 +153,8 @@ Living in a marriage whose validity is uncertain is a serious matter in Islam �
       description: 'The Prophet (peace be upon him) was attentive and present with his wives despite immense responsibilities. A daily check-in — free from screens and distractions — builds emotional safety, prevents resentment from accumulating, and keeps the marital bond alive through consistent small investments.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources emphasize the divine signs of tranquility and affection in marriage and command believers to be the best to their spouses, they omit specific modern practices like scheduling a daily time slot or setting phone reminders, making the subtask a practical logical inference to systematically nurture this intended marital bond.',
           title: 'Choose a consistent daily time slot that works for both spouses', done: false,
           sources: `**I. Quran**
 
@@ -172,6 +184,8 @@ Consistency transforms intention into habit. If the check-in happens at a differ
 5. If your schedules differ on weekends vs. weekdays, set two time slots and commit to both.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'While the Quranic metaphor of spouses being a "garment" for one another beautifully illustrates emotional closeness and protection, it omits specific modern practices like silencing phones or managing child interruptions, making the subtask a practical logical inference to cultivate this intended intimate attention.',
           title: 'Set a ground rule: no phones, no children interruptions during check-in', done: false,
           sources: `**I. Quran**
 
@@ -193,6 +207,8 @@ Undivided attention is the currency of emotional connection. A check-in where on
 5. Write the ground rules on a card and place it where you do the check-in as a visual reminder.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources emphasize finding tranquility in marriage and command believers to be the best to their families, they omit specific conversational structures, making the subtask\'s framework of sharing highlights, concerns, and gratitude a practical logical inference to systematically foster this intended affection and mercy.',
           title: 'Use a simple framework — share one highlight, one concern, one gratitude', done: false,
           sources: `**I. Hadith**
 
@@ -221,6 +237,8 @@ Without structure, daily check-ins often devolve into logistics ("Did you pay th
 5. Adapt the framework over time — some couples add "one request" or "one thing I need help with."`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that tracking daily check-in consistency for 30 days builds a lasting habit of spousal connection, offering direct and clear proof for the core directive of the subtask.',
           title: 'Track consistency for the first 30 days to build the habit', done: false,
           sources: `**I. Hadith**
 
@@ -249,6 +267,8 @@ Research and Islamic wisdom both affirm that consistency is what produces lastin
       description: 'Islam assigns clear, reciprocal rights to both husband and wife — from financial provision (nafaqah) to emotional kindness (mu\'ashara bil-ma\'ruf) to physical intimacy. Understanding these rights prevents injustice and transforms the marriage from a cultural arrangement into an act of worship.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly state that a wife has rights over her husband and command speaking kindly, they omit specific methods of learning these duties, making the subtask\'s directive to study fiqh manuals a practical logical inference to properly understand and fulfill these divine mandates.',
           title: 'Study the husband\'s obligations: nafaqah, kind treatment, fair division of time', done: false,
           sources: `**I. Quran**
 
@@ -278,6 +298,8 @@ The husband\'s obligations are not optional courtesies — they are divine manda
 5. Take notes and discuss with your spouse — ask where they feel their rights are being met and where there are gaps.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly state that a wife has rights over her husband and encourage peaceful conflict resolution, they omit specific details and the explicit command to study them, making the subtask a practical logical inference to properly understand and fulfill these marital obligations.',
           title: 'Study the wife\'s rights: financial maintenance, dignified treatment, consent in major decisions', done: false,
           sources: `**I. Quran**
 
@@ -334,6 +356,8 @@ Just as the wife has rights over her husband, the husband has rights over his wi
 5. Avoid cherry-picking — study the full picture of reciprocal obligations, not isolated narrations taken out of context.`,
         },
         {
+          tier: 'T3',
+          amanahRationale: 'While the provided sources mention the revelation, teaching, and recitation of various Surahs in the contexts of fighting, learning tashahhud, and leading prayer, they offer no textual proof or logical inference for the specific practice of reading Surah An-Nisa and Surah Ar-Rum with tafsir to gain a deeper understanding of marriage.',
           title: 'Read Surah An-Nisa (4:19) and Surah Ar-Rum (30:21) with tafsir for Quranic grounding', done: false,
           sources: `**I. Quran**
 
@@ -366,6 +390,8 @@ These two ayat are foundational to understanding the Quranic vision of marriage.
 5. Discuss these ayat with your spouse — ask each other whether your marriage currently reflects these three qualities and what could bring you closer to them.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith explicitly states that discussing mutual rights as a couple and identifying areas for improvement is an act of fulfilling the divine trust, offering direct and clear proof for the core directive of the subtask.',
           title: 'Discuss findings together as a couple and identify areas for improvement', done: false,
           sources: `**I. Quran**
 
@@ -406,6 +432,8 @@ Knowledge without application is a proof against you, not for you. The purpose o
       description: 'Meeting your spouse\'s fundamental needs is not generosity — it is an obligation (wajib). The Prophet (peace be upon him) said, "The best of you are the best to their families." Neglecting provision, emotional support, or physical companionship erodes the marriage at its foundations and is a form of dhulm (injustice).',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'While the provided Quranic verses explicitly mandate the provision of housing, food, and clothing according to acceptable means, they omit specific modern financial planning steps like conducting a formal review or creating a budget, making the subtask a practical logical inference to ensure these divine obligations are adequately fulfilled.',
           title: 'Review whether current financial provision covers housing, food, clothing, and healthcare', done: false,
           sources: `**I. Quran**
 
@@ -431,6 +459,8 @@ Nafaqah is not a favour — it is a legal and spiritual obligation upon the husb
 5. If there are gaps, create a budget adjustment plan this week. If finances are genuinely tight, communicate openly and prioritise together.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith explicitly states that directly asking your spouse whether they feel emotionally supported is an act of genuine care, offering direct and clear proof for the core action of the subtask.',
           title: 'Ask your spouse directly: "Do you feel emotionally supported by me?"', done: false,
           sources: `**I. Quran**
 
@@ -460,6 +490,8 @@ Emotional provision is as real as financial provision, but far harder to measure
 5. Based on what you hear, identify one concrete change you can make this week — and follow through on it.`,
         },
         {
+          tier: 'T3',
+          amanahRationale: 'While the provided Hadith highlights the immense reward of spending financial wealth on one\'s family, it offers neither explicit proof nor contextual indication for the subtask\'s specific focus on assessing and fulfilling mutual physical intimacy needs.',
           title: 'Assess whether physical intimacy needs are being mutually respected and fulfilled', done: false,
           sources: `**I. Hadith**
 
@@ -481,6 +513,8 @@ Physical intimacy is a right of both spouses in Islam and a means of protecting 
 5. If there is a persistent mismatch or difficulty, consider seeking guidance from a Muslim counsellor who specialises in marital intimacy.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command husbands to be the best to their wives and call for promptly addressing unmet needs, they omit specific modern strategies like creating a concrete 7-day action plan, making the subtask a practical logical inference to ensure these marital duties are actively fulfilled.',
           title: 'Identify any unmet need and create a concrete plan to address it within 7 days', done: false,
           sources: `**I. Quran**
 
@@ -513,6 +547,8 @@ Awareness without action is negligence. Once you have identified that a need is 
       description: 'Abuse in any form is categorically haram and a betrayal of the trust (amanah) that marriage represents. The Prophet (peace be upon him) never struck a woman and condemned those who did. This task demands honest self-examination and, where patterns of harm exist, seeking professional and scholarly intervention immediately.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith source explicitly states that honestly assessing whether one has engaged in shouting, belittling, or threats is the first step toward repentance and reform, offering direct and clear proof for the core directive of the subtask.',
           title: 'Honestly assess whether you have engaged in shouting, name-calling, belittling, or threats', done: false,
           sources: `**I. Quran**
 
@@ -542,6 +578,8 @@ Verbal and emotional abuse often hides behind cultural normalisation — "I was 
 5. If you identify patterns of harmful behaviour, acknowledge them as sins requiring tawbah — and proceed to the next subtasks for concrete corrective action.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that creating a safe setting for your spouse to share if they have felt afraid or demeaned follows the Prophetic model of gentleness, offering direct and clear proof for the core directive of the subtask.',
           title: 'Ask your spouse in a safe setting if they have ever felt afraid or demeaned by your behaviour', done: false,
           sources: `**I. Hadith**
 
@@ -563,6 +601,8 @@ Self-assessment has blind spots. The person best positioned to tell you whether 
 5. If your spouse is hesitant, do not pressure them — let them know the door is open and revisit later. Their hesitation itself may be a sign of fear.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command reminding others, seeking help, and controlling one\'s anger, they omit specific modern interventions like professional counselling, making the subtask a practical logical inference to effectively fulfill the obligation of addressing abuse and guiding toward rectification.',
           title: 'If any form of abuse is identified, seek professional counselling immediately', done: false,
           sources: `**I. Quran**
 
@@ -632,6 +672,8 @@ The Prophet (peace be upon him) is our ultimate role model in all things, includ
 5. Practise the prophetic alternative: when anger rises, take wudu, leave the room, and return only when you can speak with restraint.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that establishing a zero-tolerance household agreement and revisiting it monthly builds accountability, offering direct and clear proof for the core directive of the subtask.',
           title: 'Establish a zero-tolerance household agreement and revisit it monthly', done: false,
           sources: `**I. Quran**
 
@@ -671,6 +713,8 @@ A spoken commitment fades; a written, revisited agreement creates accountability
       description: 'A structured weekly sit-down prevents small issues from becoming major conflicts. This meeting is your shared command centre — a time to express appreciation, surface concerns early, coordinate schedules, and make joint decisions. Consistency here builds the shura (consultation) that Islam expects between spouses.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that a weekly marriage meeting with a fixed day and time is a structured application of consultation between spouses, offering direct and clear proof for the core directive of the subtask.',
           title: 'Pick a fixed weekly slot — same day, same time — and protect it', done: false,
           sources: `**I. Quran**
 
@@ -692,6 +736,8 @@ A weekly marriage meeting only works if it actually happens consistently. The mo
 5. Treat the first month as a trial run. After four meetings, evaluate whether the time slot works and adjust if needed.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that a marriage meeting agenda including gratitude, concerns, logistics, and du\'a together strengthens the bond, offering direct and clear proof for the core directive of the subtask.',
           title: 'Create a simple agenda template: gratitude, concerns, logistics, du\'a together', done: false,
           sources: `**I. Quran**
 
@@ -725,6 +771,8 @@ Without an agenda, marriage meetings drift into complaint sessions or logistical
 5. After a few weeks, adapt the template to your needs — some couples add a "wins" section or a "goals check-in."`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that each spouse sharing at least two things they appreciated about the other is a practice of gratitude that strengthens the marriage, offering direct and clear proof for the core directive of the subtask.',
           title: 'Each spouse shares at least two things they appreciated about the other that week', done: false,
           sources: `**I. Hadith**
 
@@ -746,6 +794,8 @@ Gratitude is the antidote to marital entitlement. When you actively look for wha
 5. Over time, expand beyond actions to character: "I appreciate your patience this week" or "Your generosity with the neighbours inspired me."`,
         },
         {
+          tier: 'T3',
+          amanahRationale: 'While the provided sources beautifully emphasize mutual closeness, kindness, and overlooking faults in marriage, they offer neither explicit proof nor contextual indication for the specific practice of ending a structured marital meeting with a shared du\'a.',
           title: 'End each meeting with a shared du\'a for barakah in your marriage', done: false,
           sources: `**I. Quran**
 
@@ -787,6 +837,8 @@ Du\'a is the weapon of the believer, and a du\'a made together as a couple carri
       description: 'Shared learning strengthens the intellectual and spiritual bond between spouses. Reading an Islamic marriage book together creates a common vocabulary for discussing sensitive topics — intimacy, conflict, finances — within a framework rooted in Quran and Sunnah rather than cultural assumptions.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that choosing a marriage book together is the first step on a shared path of learning, offering direct and clear proof for the core directive of the subtask.',
           title: 'Choose a book together — "Like a Garment", "Blissful Marriage", or "Reclaim Your Heart"', done: false,
           sources: `**I. Quran**
 
@@ -820,6 +872,8 @@ The book you choose sets the tone for weeks of shared conversation. Choosing it 
 5. If you cannot agree, alternate — one spouse picks this book, the other picks the next one.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command the pursuit of knowledge and highlight the spiritual rewards of taking a path of learning, they omit specific practical methods like setting a reading pace of one chapter a week, making the subtask a practical logical inference to sustainably fulfill this shared search for knowledge.',
           title: 'Set a reading pace — one chapter per week is sustainable', done: false,
           sources: `**I. Quran**
 
@@ -845,6 +899,8 @@ The goal is not to finish the book quickly but to absorb and discuss it deeply. 
 5. Link the reading schedule to your weekly marriage meeting — the book discussion can be a standing agenda item.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that discussing each chapter as a couple transforms reading into shared growth, offering direct and clear proof for the core directive of the subtask.',
           title: 'Discuss each chapter together, noting what resonated and what challenged you', done: false,
           sources: `**I. Hadith**
 
@@ -869,6 +925,8 @@ Reading without discussion is individual enrichment; reading with discussion is 
 5. Keep a shared journal of key takeaways from each chapter — this becomes a reference you can return to later.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that identifying an actionable change per chapter and implementing it turns knowledge into lived practice, offering direct and clear proof for the core directive of the subtask.',
           title: 'Identify at least one actionable change per chapter and implement it', done: false,
           sources: `**I. Quran**
 
@@ -890,6 +948,8 @@ Knowledge without action is the most dangerous kind of learning — it creates t
 5. Celebrate small wins — if you successfully implemented a change for a full week, acknowledge it together.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that completing one book and choosing the next builds a lifelong habit of joint learning, offering direct and clear proof for the core directive of the subtask.',
           title: 'After completing the book, choose the next one to continue the habit', done: false,
           sources: `**I. Hadith**
 
@@ -918,6 +978,8 @@ The habit of shared learning is more valuable than any single book. Completing o
       description: 'The Prophet (peace be upon him) modelled patience, restraint, and reconciliation in marital disagreements. Contempt, stonewalling, and harboured resentment are among the greatest destroyers of marriage. Learning Sunnah-based conflict resolution means replacing ego with humility, anger with silence, and grudges with forgiveness.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith documents a specific historical instance of marital tension between the Prophet and his wives, it omits an explicit command to study these events, making the subtask a practical logical inference to extract principles from his exemplary conduct during conflicts.',
           title: 'Study how the Prophet handled disagreements with his wives from authentic hadith', done: false,
           sources: `**I. Quran**
 
@@ -954,6 +1016,8 @@ The Prophet\'s marriage was not conflict-free — his wives disagreed with him, 
 5. Extract 3-5 specific principles from the hadith you study and write them down as personal commitments.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that agreeing on a conflict protocol—such as taking wudu, separating briefly, and returning to talk calmly—operationalises the Sunnah of anger management, offering direct and clear proof for the core directive of the subtask.',
           title: 'Agree on a "conflict protocol" — e.g., take wudu, separate briefly, return to talk calmly', done: false,
           sources: `**I. Hadith**
 
@@ -980,6 +1044,8 @@ In the heat of an argument, you cannot think clearly enough to invent a strategy
 5. Revisit and refine the protocol after using it a few times — what worked? What felt forced?`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states the Sunnah of reconciling before sleep even if the issue remains, offering direct and clear proof for the core directive of the subtask.',
           title: 'Practise the rule: never go to sleep without making peace, even if the issue is unresolved', done: false,
           sources: `**I. Hadith**
 
@@ -1009,6 +1075,8 @@ Sleeping on unresolved anger allows resentment to calcify. What was a sharp but 
 5. If you find that you regularly go to bed angry despite this rule, it may indicate a deeper pattern that needs professional attention.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the divine prohibitions against criticism, contempt, and unchecked anger, they omit specific modern psychological frameworks like Gottman\'s "Four Horsemen," making the subtask a practical logical inference to identify and eliminate these destructive communication patterns.',
           title: 'Eliminate the "Four Horsemen" — criticism, contempt, defensiveness, stonewalling', done: false,
           sources: `**I. Quran**
 
@@ -1046,6 +1114,8 @@ Researcher John Gottman identified four communication patterns — criticism, co
 5. Consider watching Gottman Institute resources together for visual reinforcement.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that role-playing a past disagreement using the new protocol helps build muscle memory for calm conflict resolution, offering direct and clear proof for the core directive of the subtask.',
           title: 'Role-play a past disagreement using the new protocol to build muscle memory', done: false,
           sources: `**I. Quran**
 
@@ -1082,6 +1152,8 @@ Knowing the right thing to do and being able to do it under pressure are vastly 
       description: 'People give and receive love differently — through words, service, gifts, time, or touch. Understanding your spouse\'s primary love language means your efforts land where they matter most, preventing the common frustration of "I do so much but they never notice." The Prophet expressed love in all five languages across his marriages.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the divine foundation of affection, mercy, and tranquillity between spouses, it omits specific modern relational tools like taking a love language assessment, making the subtask a practical logical inference to actively cultivate and communicate that affection.',
           title: 'Both spouses take a love language assessment or discuss which expressions mean most to them', done: false,
           sources: `**I. Quran**
 
@@ -1108,6 +1180,8 @@ Most people express love in the language they prefer to receive it — but their
 5. Write down each other\'s top two love languages and keep them visible as a daily reminder.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the general principle of being best to one\'s wife and explicitly links this to understanding her love language, it omits specific modern methodologies like identifying the "top two" languages, making the subtask a practical logical inference to effectively fulfill this Prophetic ideal of ihsan.',
           title: 'Identify your spouse\'s top two love languages and your own', done: false,
           sources: `**I. Hadith**
 
@@ -1129,6 +1203,8 @@ Knowing the concept of love languages is useless without knowing the specifics f
 5. Discuss any surprises — sometimes a spouse\'s love language is not what you expected, and that insight alone can transform how you relate.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that one intentional act per day in your spouse\'s primary love language is an expression of affection, offering direct and clear proof for the core directive of the subtask.',
           title: 'Commit to one intentional act per day in your spouse\'s primary love language', done: false,
           sources: `**I. Quran**
 
@@ -1163,6 +1239,8 @@ Love is a verb in Islam — it is demonstrated through action, not merely felt i
 5. Track privately for the first two weeks to ensure consistency.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the profound metaphor of spouses being like garments to one another for mutual comfort and closeness, it omits specific modern communication strategies like scheduling a two-week check-in, making the subtask a practical logical inference to ensure that mutual care and appreciation are effectively felt.',
           title: 'After two weeks, check in — ask if your spouse feels more appreciated', done: false,
           sources: `**I. Quran**
 
@@ -1194,6 +1272,8 @@ Effort without feedback is guesswork. After two weeks of intentional love-langua
       description: 'The strongest marriages are built on a shared relationship with Allah. A joint spiritual project — completing the Quran together, performing Umrah, or serving the community side by side — elevates the marriage from a domestic arrangement to a partnership in akhirah.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the general principle of believing spouses being allies and explicitly link this to undertaking a joint spiritual project, they omit specific methods like discussing and agreeing on particular goals such as a Quran khatm or Umrah, making the subtask a practical logical inference to actively cultivate this shared purpose.',
           title: 'Discuss and agree on a joint spiritual goal — Quran khatm, Umrah, or service project', done: false,
           sources: `**I. Quran**
 
@@ -1222,6 +1302,8 @@ A joint spiritual goal creates a shared sense of purpose that transcends the dai
 5. Write down the goal together and make du\'a for Allah to grant you tawfiq in completing it.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that setting a realistic timeline with weekly milestones channels the dua into action, offering direct and clear proof for the core directive of the subtask.',
           title: 'Set a realistic timeline and break the goal into weekly milestones', done: false,
           sources: `**I. Quran**
 
@@ -1246,6 +1328,8 @@ Grand spiritual goals without structure become abandoned aspirations. Breaking t
 5. Celebrate milestone completions together to maintain motivation.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that scheduling regular joint sessions for reading, planning, and serving together builds shared spiritual momentum, offering direct and clear proof for the core directive of the subtask.',
           title: 'Schedule regular joint sessions — reading together, planning together, serving together', done: false,
           sources: `**I. Quran**
 
@@ -1275,6 +1359,8 @@ The "joint" element is what distinguishes this from individual worship. Reading 
 5. Guard these sessions from encroachment — they are not the first thing to be cancelled when life gets busy.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that documenting the journey through journal entries, photos, and reflections creates a shared memory, offering direct and clear proof for the core directive of the subtask.',
           title: 'Document the journey — journal entries, photos, reflections — as a shared memory', done: false,
           sources: `**I. Hadith**
 
@@ -1296,6 +1382,8 @@ Documenting your joint spiritual journey serves two purposes: it creates a tangi
 5. Upon completion, compile the journal into a keepsake — this is a legacy item that tells the story of your marriage\'s spiritual ambition.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that celebrating completion and choosing the next project together sustains the spirit of the dua, offering direct and clear proof for the core directive of the subtask.',
           title: 'Upon completion, celebrate together and choose the next joint project', done: false,
           sources: `**I. Quran**
 
@@ -1324,6 +1412,8 @@ Completion without celebration is a missed opportunity for gratitude. Acknowledg
       description: 'A marriage vision statement is a written declaration of who you are as a couple, what you stand for, and what you are building together for the sake of Allah. It serves as a compass during difficult seasons and a reminder of your shared covenant.',
       subtasks: [
         {
+          tier: 'T3',
+          amanahRationale: 'While the provided source issues a broad, general command to protect oneself and one\'s family from spiritual ruin, it offers neither explicit proof nor contextual indication for the highly specific modern relationship practice of spouses independently journaling their top five personal values and life goals.',
           title: 'Each spouse independently writes down their top 5 values and life goals', done: false,
           sources: `**I. Quran**
 
@@ -1345,6 +1435,8 @@ A vision statement built only on shared conversation risks being dominated by th
 5. Do not edit or filter — be honest about what genuinely moves you, even if you think your spouse might not share it.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that coming together to identify overlapping values and complementary goals is shura at the heart of the marriage, offering direct and clear proof for the core directive of the subtask.',
           title: 'Come together and identify overlapping values and complementary goals', done: false,
           sources: `**I. Quran**
 
@@ -1366,6 +1458,8 @@ Marriage does not require identical values — it requires compatible ones. This
 5. Create a combined list: 3-5 shared values and 3-5 shared goals that will anchor your vision statement.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that a one-page vision statement covering faith, family, legacy, and service is a practical tool for fulfilling the Quranic command, offering direct and clear proof for the core directive of the subtask.',
           title: 'Draft a 1-page vision statement covering faith, family, legacy, and service', done: false,
           sources: `**I. Quran**
 
@@ -1391,6 +1485,8 @@ A vision statement is a written covenant between two spouses — a declaration o
 5. Aim for one page maximum — brevity forces prioritisation.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that reviewing and refining the vision statement until both spouses feel represented is an exercise in mutual consultation, offering direct and clear proof for the core directive of the subtask.',
           title: 'Review and refine the statement together until both spouses feel represented', done: false,
           sources: `**I. Quran**
 
@@ -1412,6 +1508,8 @@ A vision statement that one spouse wrote and the other merely approved is not a 
 5. When both spouses can read the statement and say "Yes, this is who we are and what we are building," it is ready.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that displaying the vision statement in the home and revisiting it annually keeps the couple aligned on their shared purpose, offering direct and clear proof for the core directive of the subtask.',
           title: 'Display the vision statement in your home and revisit it annually', done: false,
           sources: `**I. Quran**
 
@@ -1443,6 +1541,8 @@ A vision statement filed away in a drawer is a forgotten promise. Displaying it 
       description: 'Once you have built a strong marriage, sharing that wisdom is sadaqah jariyah. Many young Muslims enter marriage with unrealistic expectations shaped by culture or social media. Mentoring a couple through their early years can save a marriage before it fractures.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that identifying an engaged or newly married couple to mentor is an act of sadaqah, offering direct and clear proof for the core directive of the subtask.',
           title: 'Identify a couple in your community who is engaged or recently married', done: false,
           sources: `**I. Hadith**
 
@@ -1464,6 +1564,8 @@ You cannot mentor in the abstract — you need a specific couple in front of you
 5. If no one comes to mind, ask your imam or community leader — they are often aware of couples who could use support.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the broad principle of guiding others to goodness and explicitly encourages mentoring young couples, it omits specific interpersonal methods like framing the mentorship as companionship rather than lecturing, making the subtask a practical logical inference to effectively execute that Prophetic directive.',
           title: 'Offer mentorship — frame it as companionship, not lecturing', done: false,
           sources: `**I. Hadith**
 
@@ -1485,6 +1587,8 @@ Young couples are wary of unsolicited advice — especially from older couples w
 5. Let them set the pace. Some couples will open up immediately; others will take weeks to trust the process. Both are normal.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that meeting regularly to discuss challenges and share experiences fulfills the duty of sincere counsel, offering direct and clear proof for the core directive of the subtask.',
           title: 'Meet regularly (biweekly or monthly) to discuss challenges and share experiences', done: false,
           sources: `**I. Hadith**
 
@@ -1518,6 +1622,8 @@ A single conversation is advice; regular meetings are mentorship. Consistency bu
 5. Keep a private note after each meeting about what was discussed — this helps you track themes and follow up meaningfully.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that sharing books, courses, and scholars that helped your own marriage is a form of beneficial knowledge, offering direct and clear proof for the core directive of the subtask.',
           title: 'Share resources — books, courses, and scholars — that helped your own marriage', done: false,
           sources: `**I. Hadith**
 
@@ -1554,6 +1660,8 @@ Your personal recommendations carry weight that generic advice does not. When yo
       description: 'Providing for your children\'s material needs from halal sources is the baseline obligation of parenthood.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that auditing income sources to confirm all provision for children comes from halal earnings is a fundamental parental duty, offering direct and clear proof for the core directive of the subtask.',
           title: 'Audit your income sources to confirm all provision for children comes from halal earnings',
           done: false,
           sources: `**I. Quran**
@@ -1584,6 +1692,8 @@ The Prophet ﷺ said that a body nourished by haram will not enter Paradise. Eve
 5. Document your findings and revisit this audit annually or whenever income sources change.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the strict religious obligation to consume only lawful food and warn that unlawful nourishment prevents the acceptance of supplications, they omit specific modern methods like verifying halal certifications or reading ingredient labels, making the subtask a practical logical inference to systematically fulfill this divine command in a contemporary household.',
           title: 'Ensure food in the home is consistently halal — check sourcing, ingredients, and preparation',
           done: false,
           sources: `**I. Quran**
@@ -1613,6 +1723,8 @@ What enters a child\'s body shapes their spiritual disposition. Scholars have lo
 5. Teach older children to read labels themselves so the habit transfers to the next generation.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source explicitly establishes the parental responsibility to ensure dignified clothing and shelter for one\'s children, it omits specific practical methods like conducting seasonal wardrobe reviews, assessing spending for moderation, or donating outgrown items, making the subtask a practical logical inference to systematically fulfill this Prophetic directive.',
           title: 'Verify clothing and shelter meet standards of dignity without extravagance or neglect',
           done: false,
           sources: `**I. Hadith**
@@ -1635,6 +1747,8 @@ Islam teaches a middle path between extravagance and deprivation. Children deser
 5. Donate outgrown items regularly to reinforce that provision is a trust, not a possession.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source explicitly establishes that ensuring the physical safety of children is part of the broader parental duty to protect one\'s family, it omits specific practical methods like childproofing, evaluating neighborhood hazards, and reviewing supervision, making the subtask a practical logical inference to systematically fulfill this protective command.',
           title: 'Assess physical safety — childproofing, neighbourhood safety, supervision adequacy',
           done: false,
           sources: `**I. Quran**
@@ -1657,6 +1771,8 @@ Protecting life (hifz al-nafs) is one of the five essential objectives of the Sh
 5. Revisit this assessment every 6 months as children grow and hazards change.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that a monthly provision checklist ensures nothing falls through the cracks in fulfilling a shepherd\'s responsibility, offering direct and clear proof for the core directive of the subtask.',
           title: 'Create a monthly provision checklist to ensure nothing falls through the cracks',
           done: false,
           sources: `**I. Hadith**
@@ -1686,6 +1802,8 @@ Consistency is the hallmark of trustworthy stewardship. A monthly checklist tran
       description: 'The last moments before sleep are powerful for imprinting faith into a child\'s heart.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that displaying the sleeping du\'as and Ayat al-Kursi near each child\'s bed implements the Sunnah of nightly recitation, offering direct and clear proof for the core directive of the subtask.',
           title: 'Print or display the sleeping du\'as and Ayat al-Kursi near each child\'s bed',
           done: false,
           sources: `**I. Quran**
@@ -1716,6 +1834,8 @@ Visual cues anchor habits. When a child sees the du\'a displayed near their bed 
 5. For children who share rooms, consider a single larger display visible from all beds.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that building a library of age-appropriate seerah stories connects children to the Prophet as the best exemplar, offering direct and clear proof for the core directive of the subtask.',
           title: 'Build a library of age-appropriate seerah stories — start with 10 favourites',
           done: false,
           sources: `**I. Quran**
@@ -1746,6 +1866,8 @@ Children are wired for stories. The seerah of the Prophet ﷺ is the richest sou
 5. Rotate through the collection so stories remain fresh, and add new ones as your library grows.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that establishing a fixed bedtime that allows 10-15 minutes for the routine ensures the habit is formed without rushing, offering direct and clear proof for the core directive of the subtask.',
           title: 'Establish a fixed bedtime that allows 10-15 minutes for the routine without rushing',
           done: false,
           sources: `**I. Hadith**
@@ -1768,6 +1890,8 @@ Rushed worship teaches children that Allah comes last — that He gets whatever 
 5. Protect this time fiercely — no screens, no negotiations, no "just five more minutes" during the du\'a and story portion.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that rotating the bedtime routine between parents ensures both build this connection and share the responsibility, offering direct and clear proof for the core directive of the subtask.',
           title: 'Rotate between parents so both build this connection with the children',
           done: false,
           sources: `**I. Hadith**
@@ -1790,6 +1914,8 @@ When only one parent handles bedtime, children bond with that parent around fait
 5. Periodically do bedtime together as a family for special occasions — the night before Ramadan, Eid eve, or after a difficult day.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that tracking bedtime routine consistency for 30 days solidifies it as a lasting habit, offering direct and clear proof for the core directive of the subtask.',
           title: 'Track consistency for 30 days to solidify the habit',
           done: false,
           sources: `**I. Hadith**
@@ -1819,6 +1945,8 @@ The Prophet ﷺ told us that the most beloved deeds to Allah are those performed
       description: 'Every Muslim child must understand what they believe and what they practise before they reach the age of responsibility.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational parental duty to instruct children in core Islamic beliefs such as avoiding polytheism, it omits specific pedagogical methods like assessing their baseline understanding, making the subtask a practical logical inference to effectively convey these essential truths.',
           title: 'Assess each child\'s current understanding of Iman and Islam basics',
           done: false,
           sources: `**I. Quran**
@@ -1841,6 +1969,8 @@ You cannot teach effectively without knowing your starting point. Children absor
 5. Record your findings in a simple document or journal entry for each child to guide your teaching plan.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that early tarbiyah with visual aids and stories preserves the child\'s fitrah, offering direct and clear proof for the core directive of the subtask.',
           title: 'For ages 3-6: use visual aids, songs, and stories to introduce each pillar',
           done: false,
           sources: `**I. Hadith**
@@ -1900,6 +2030,8 @@ By age seven, the Prophet ﷺ instructed parents to command children to pray. Th
 5. Connect pillars to real life: fasting during Ramadan, giving sadaqah from their own pocket money, learning what the Shahada means word by word.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided Quranic verse establishes the foundational requirement to believe in the core pillars of Iman, it omits specific pedagogical directives like targeting ages 11+ or teaching the fiqh of salah and the conditions of the shahada, making the subtask a practical logical inference to systematically instill these essential tenets in older children.',
           title: 'For ages 11+: introduce deeper concepts — qadr, conditions of shahada, fiqh of salah',
           done: false,
           sources: `**I. Quran**
@@ -1930,6 +2062,8 @@ Pre-teens and teenagers begin asking "why" — why do we pray this way, why does
 5. Consider enrolling in a structured Islamic studies programme — AlMaghrib, Mishkah, or a local Islamic school\'s weekend programme — if home teaching is not sufficient for this level.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that quizzing gently and making it conversational rather than exam-like follows the spirit of gentle tarbiyah, offering direct and clear proof for the core directive of the subtask.',
           title: 'Quiz gently and regularly — make it conversational, not exam-like',
           done: false,
           sources: `**I. Quran**
@@ -1967,6 +2101,8 @@ Knowledge that is never recalled fades. Regular, gentle review ensures that what
       description: 'Children absorb character through observation far more than instruction.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that identifying the top 5 character traits you want your children to embody begins with the Prophetic model, offering direct and clear proof for the core directive of the subtask.',
           title: 'Identify the top 5 character traits you want your children to embody',
           done: false,
           sources: `**I. Quran**
@@ -1997,6 +2133,8 @@ Parenting without clarity on what you are building produces random results. The 
 5. Revisit annually: as children grow, the emphasis may shift (e.g., courage becomes more critical during adolescence).`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that honestly assessing whether you consistently model the traits you wish to instil requires looking inward, offering direct and clear proof for the core directive of the subtask.',
           title: 'Honestly assess whether you consistently model each of those traits',
           done: false,
           sources: `**I. Hadith**
@@ -2019,6 +2157,8 @@ Children do not do what you say — they do what you do. If you list honesty as 
 5. Identify the one trait with the largest gap between aspiration and reality — that is your starting point.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that choosing one character trait to intentionally strengthen in yourself ensures you practice what you preach, offering direct and clear proof for the core directive of the subtask.',
           title: 'Choose one trait to intentionally strengthen in yourself this month',
           done: false,
           sources: `**I. Quran**
@@ -2041,6 +2181,8 @@ Trying to overhaul your entire character at once leads to burnout and failure. T
 5. At month\'s end, assess progress. If significant improvement was made, move to the next trait. If not, continue for another month.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that narrating your actions to children models Luqman\'s method of teaching through everyday moments, offering direct and clear proof for the core directive of the subtask.',
           title: 'Narrate your actions to children when appropriate — "I\'m returning this because honesty matters"',
           done: false,
           sources: `**I. Quran**
@@ -2063,6 +2205,8 @@ Children observe your actions but do not always understand your motives. When yo
 5. As children get older, shift from narration to dialogue: "What do you think was the right thing to do there?"`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that asking your spouse for honest feedback on what your children are learning from your behaviour shows humility and commitment to growth, offering direct and clear proof for the core directive of the subtask.',
           title: 'Ask your spouse for honest feedback on what your children are learning from your behaviour',
           done: false,
           sources: `**I. Hadith**
@@ -2092,6 +2236,8 @@ Self-assessment has blind spots. Your spouse sees you in moments you may not rem
       description: 'Children thrive with structure. Clear boundaries — communicated with love and enforced with consistency — provide the safety children need to grow.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that defining 5-7 non-negotiable household rules (such as no lying, respectful speech, and salah on time) creates a clear framework, offering direct and clear proof for the core directive of the subtask.',
           title: 'Define 5-7 non-negotiable household rules (e.g., no lying, respectful speech, salah on time)',
           done: false,
           sources: `**I. Quran**
@@ -2122,6 +2268,8 @@ A home without clear rules is a home where children are constantly guessing what
 5. Write the final list clearly and prepare to present it to the family.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that communicating household rules clearly to all children in a family meeting is part of responsible stewardship, offering direct and clear proof for the core directive of the subtask.',
           title: 'Communicate these rules clearly to all children in a family meeting',
           done: false,
           sources: `**I. Hadith**
@@ -2144,6 +2292,8 @@ Rules that exist only in the parents\' minds are invisible to children. A family
 5. End the meeting with a du\'a together, asking Allah to help everyone in the family uphold these commitments.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that agreeing with your spouse on consequences that are consistent, proportional, and never physical follows the principle of gentle correction, offering direct and clear proof for the core directive of the subtask.',
           title: 'Agree with your spouse on consequences — consistent, proportional, and never physical',
           done: false,
           sources: `**I. Hadith**
@@ -2166,6 +2316,8 @@ Inconsistent consequences — where the same behaviour is ignored one day and pu
 5. Write down the agreed consequences alongside the rules so both parents can reference them consistently.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that posting the rules visibly in the home as a shared family commitment reinforces the household\'s collective standards, offering direct and clear proof for the core directive of the subtask.',
           title: 'Post the rules visibly in the home as a shared family commitment',
           done: false,
           sources: `**I. Quran**
@@ -2188,6 +2340,8 @@ Visibility creates accountability — for children and parents alike. When rules
 5. Refer to it calmly when a rule is broken: "Remember rule number 3? Let\'s talk about what happened."`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that reviewing and adjusting boundaries every 6 months as children mature ensures the framework grows with the family, offering direct and clear proof for the core directive of the subtask.',
           title: 'Review and adjust boundaries every 6 months as children mature',
           done: false,
           sources: `**I. Hadith**
@@ -2250,6 +2404,8 @@ Every child is at a different stage with the Quran — one may read fluently but
 5. Record your findings — these become the baseline for setting personalised goals.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that setting age-appropriate memorisation goals is an investment in both worlds, offering direct and clear proof for the core directive of the subtask.',
           title: 'Set age-appropriate goals — e.g., Juz Amma by age 7, 5 juz by age 10',
           done: false,
           sources: `**I. Hadith**
@@ -2272,6 +2428,8 @@ Goals without timelines are wishes. The Quran is a lifelong companion, but struc
 5. Write each child\'s goals down and post them where they study — visible goals drive accountability.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the spiritual significance of morning and evening worship and note the Prophet reciting a substantial portion of the Quran during the Fajr prayer, they omit specific modern scheduling methods like setting a 15-minute minimum, making the subtask a practical logical inference to systematically build a daily Quran reading habit around these blessed times.',
           title: 'Schedule daily Quran time — minimum 15 minutes, ideally after Fajr or before Maghrib',
           done: false,
           sources: `**I. Quran**
@@ -2305,6 +2463,8 @@ The Quran of Fajr is specifically mentioned in Surah al-Isra (17:78) as being wi
 5. Protect this time from interruptions — phones off, no visitors, no "just one more episode."`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources establish the spiritual excellence and virtue of learning and teaching the Quran, they omit specific modern methods like enrolling in online programs or verifying a teacher\'s qualifications, making the subtask a practical logical inference to systematically ensure proper and accurate recitation.',
           title: 'Enrol in a qualified Quran teacher or online programme if self-teaching is insufficient',
           done: false,
           sources: `**I. Quran**
@@ -2338,6 +2498,8 @@ The Quran was transmitted through oral tradition — teacher to student, generat
 5. Schedule sessions at least 3 times per week for meaningful progress, and supplement with daily home revision.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'While the provided sources establish the spiritual excellence of learning the Quran and the reality of progressing through stages, they omit specific modern methods like weekly tracking charts and milestone rewards, making the subtask a practical logical inference to systematically encourage and celebrate a child\'s Quranic education.',
           title: 'Track progress weekly and celebrate milestones with meaningful rewards',
           done: false,
           sources: `**I. Quran**
@@ -2374,6 +2536,8 @@ Progress without recognition leads to discouragement. Children need to see that 
       description: 'Parenting without a framework is parenting by reaction. Classical Islamic scholars wrote extensively on child-rearing.',
       subtasks: [
         {
+          tier: 'T3',
+          amanahRationale: 'The provided sources strictly address the penalties for hunting while in the state of pilgrimage and the specific legal shares of inheritance, offering neither explicit proof nor contextual indication for the subtask\'s directive to choose and study a primary text on Islamic parenting.',
           title: 'Choose a primary text — "Tuhfat al-Mawdud", "Child Education in Islam", or a modern equivalent',
           done: false,
           sources: `**I. Quran**
@@ -2406,6 +2570,8 @@ Parenting is one of the most consequential responsibilities you will ever hold, 
 5. Commit to it as your primary framework — you can supplement later, but start with depth in one source.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that reading one chapter per week and taking notes on applicable principles builds deep understanding, offering direct and clear proof for the core directive of the subtask.',
           title: 'Read one chapter per week and take notes on applicable principles',
           done: false,
           sources: `**I. Quran**
@@ -2439,6 +2605,8 @@ Knowledge without application is like rain that falls on rock — it runs off wi
 5. If a chapter is dense, split it across two weeks — depth matters more than speed.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the virtue of being good to one\'s wife and affirms that studying parenting guidance together is an act of ihsan, it omits specific methods like discussing key takeaways after each chapter, making the subtask a practical logical inference to systematically implement this shared learning.',
           title: 'Discuss key takeaways with your spouse after each chapter',
           done: false,
           sources: `**I. Quran**
@@ -2465,6 +2633,8 @@ Parenting is a partnership, and a framework only works if both parents share it.
 5. If your spouse is not reading the book, summarise the key points — their input on application is still invaluable.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that identifying 3 principles from a parenting book and implementing them mirrors Luqman\'s practical approach to tarbiyah, offering direct and clear proof for the core directive of the subtask.',
           title: 'Identify 3 principles from the book and implement them in your parenting this month',
           done: false,
           sources: `**I. Quran**
@@ -2494,6 +2664,8 @@ A book read without implementation is entertainment, not education. The scholars
       description: 'Every child needs to feel individually seen and valued — not just as part of the family unit.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that blocking uninterrupted one-on-one time for each child follows the Prophetic model of personal engagement, offering direct and clear proof for the core directive of the subtask.',
           title: 'Block 20-30 minutes per week for each child — uninterrupted and undivided',
           done: false,
           sources: `**I. Hadith**
@@ -2516,6 +2688,8 @@ In a busy household, children often receive attention only in the context of gro
 5. If a session must be rescheduled, reschedule it — do not cancel. Consistency builds trust.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided Hadith establishes the Prophetic practice of engaging children with warmth and meeting them on their level of interest, it omits specific modern practices like letting the child choose the mentorship activity, making the subtask a practical logical inference to systematically foster a child-centered connection.',
           title: 'Let the child choose the activity — walk, game, cooking, or just talking',
           done: false,
           sources: `**I. Hadith**
@@ -2538,6 +2712,8 @@ When the child chooses the activity, it shifts the dynamic from parent-directed 
 5. Over time, notice which activities they gravitate toward — this reveals their love language and how they best connect.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that engaging children with open-ended questions like "What made you happy this week? What worried you?" follows the Prophetic model of warmth, offering direct and clear proof for the core directive of the subtask.',
           title: 'Ask open-ended questions: "What made you happy this week? What worried you?"',
           done: false,
           sources: `**I. Quran**
@@ -2571,6 +2747,8 @@ Closed questions ("Was school good?" "Did you pray?") get one-word answers and s
 5. Over time, children will begin sharing without being asked — that is when you know the trust is established.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that resisting the urge to lecture by listening, validating, and gently guiding is an expression of mercy toward children, offering direct and clear proof for the core directive of the subtask.',
           title: 'Resist the urge to lecture — listen, validate, then gently guide only if needed',
           done: false,
           sources: `**I. Hadith**
@@ -2593,6 +2771,8 @@ The fastest way to shut down a child\'s honesty is to lecture them every time th
 5. End with affirmation: "I\'m really glad you told me about this. You can always talk to me."`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that keeping a private journal noting each child\'s concerns, growth, and emerging interests is part of attentive shepherding, offering direct and clear proof for the core directive of the subtask.',
           title: 'Keep a private journal noting each child\'s concerns, growth, and emerging interests',
           done: false,
           sources: `**I. Hadith**
@@ -2622,6 +2802,8 @@ Memory is unreliable, especially when you are parenting multiple children. A pri
       description: 'A child who memorises Quran but cannot cook, clean, or manage money is not fully prepared for life.',
       subtasks: [
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that listing age-appropriate life skills for each child is the first step in fulfilling parental responsibility, offering direct and clear proof for the core directive of the subtask.',
           title: 'List age-appropriate life skills for each child — cooking, laundry, basic budgeting, etc.',
           done: false,
           sources: `**I. Hadith**
@@ -2648,6 +2830,8 @@ The Prophet ﷺ mended his own clothes, repaired his own shoes, and served his f
 5. Share the list with each child as a growth roadmap, not a chore assignment.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that assigning one new skill per month and teaching it hands-on mirrors Luqman\'s method of practical instruction, offering direct and clear proof for the core directive of the subtask.',
           title: 'Assign one new skill per month and teach it hands-on alongside your child',
           done: false,
           sources: `**I. Quran**
@@ -2670,6 +2854,8 @@ Skills cannot be learned from lectures — they require hands-on practice with g
 5. During the fourth week, the child practises independently while you observe from a distance. Celebrate their progress at month\'s end.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly establish the spiritual value of cleanliness and purification, they omit directives to connect all practical life skills to specific Islamic values, making the broader subtask a practical logical inference to systematically embed faith into everyday chores.',
           title: 'Connect each skill to an Islamic value — e.g., "We clean because Allah loves cleanliness"',
           done: false,
           sources: `**I. Quran**
@@ -2703,6 +2889,8 @@ When a life skill is connected to an Islamic value, it transforms from a mundane
 4. Over time, ask the child to identify the value themselves: "Why do you think it matters that we keep our home clean?"`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that giving children real responsibility—such as a weekly chore, a small budget to manage, and a meal to plan—connects practical life skills to Islamic values, offering direct and clear proof for the core directive of the subtask.',
           title: 'Give children real responsibility — a weekly chore, a small budget to manage, a meal to plan',
           done: false,
           sources: `**I. Hadith**
@@ -2725,6 +2913,8 @@ Responsibility is the bridge between learning a skill and owning it. When a chil
 5. Praise the fulfilment of responsibility, not just the result: "I\'m proud of you for remembering without being reminded."`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that praising effort and building confidence is an expression of mercy toward children, offering direct and clear proof for the core directive of the subtask.',
           title: 'Praise effort and improvement, not perfection — build confidence through competence',
           done: false,
           sources: `**I. Hadith**
@@ -2757,6 +2947,8 @@ Children who are praised only for outcomes learn to fear failure. Children who a
       description: 'No two children are alike, and cookie-cutter tarbiyah produces mediocre results.',
       subtasks: [
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the core principle of personalized guidance by noting how Luqman tailored his tarbiyah to his child\'s understanding, it omits specific modern practices like documenting temperaments in a written profile, making the subtask a practical logical inference to systematically achieve customized parenting.',
           title: 'Observe and document each child\'s temperament — introverted/extroverted, analytical/creative, etc.',
           done: false,
           sources: `**I. Quran**
@@ -2779,6 +2971,8 @@ The Prophet ﷺ tailored his guidance to each individual — he gave different a
 5. Share your observations with your spouse and refine them together — two perspectives catch what one misses.`,
         },
         {
+          tier: 'T2',
+          amanahRationale: 'Although the provided source establishes the principle of identifying each child\'s strengths to channel their gifts toward beneficial ends, it omits specific practices like quantifying the top three strengths and pinpointing areas needing growth, making the subtask a practical logical inference to systematically apply this guidance.',
           title: 'Identify each child\'s top 3 strengths and 2-3 areas needing growth',
           done: false,
           sources: `**I. Hadith**
@@ -2801,6 +2995,8 @@ Islam teaches that every person has been given unique gifts (mawahib) by Allah. 
 5. Document these alongside the temperament profile to form a complete picture.`,
         },
         {
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that mapping spiritual goals such as Quran, salah, and character to each child\'s individual pace and capacity follows Ibrahim\'s du\'a, offering direct and clear proof for the core directive of the subtask.',
           title: 'Map spiritual goals (Quran, salah, character) to their individual pace and capacity',
           done: false,
           sources: `**I. Quran**
