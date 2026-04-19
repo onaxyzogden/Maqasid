@@ -11,6 +11,8 @@ export const LIFE_SEED_TASKS = {
       description: 'Conduct a thorough review of everything you consume — food, drink, supplements, and medications — to ensure nothing haram or doubtful enters your body. The Prophet (SAW) said that a body nourished by haram will not enter Jannah; this audit is the foundation of physical tayyib living.',
       subtasks: [
         { title: 'List all regularly consumed foods, drinks, and supplements', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly commands mankind to eat only what is lawful and good, it omits specific modern practical steps like taking an inventory of pantry items or using spreadsheets, providing a clear logical inference to systematically list and audit consumed foods to ensure they meet this divine standard.',
           sources: `**I. Quran**
 
 
@@ -26,6 +28,8 @@ Taking inventory is the essential first step — you cannot purify what you have
 
 Open your pantry, fridge, and supplement shelf. Write down every item you regularly consume — food, drinks, snacks, vitamins, and medications. Include brand names so you can research their halal certification status in the next step. A simple spreadsheet or notes app works well for this.` },
         { title: 'Research halal certification status of each brand and product', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the verse explicitly commands believers to consume only what is lawful (halal) and good, it does not mention modern practices like checking certification logos or using apps, making the subtask a clear logical inference to practically fulfill this divine injunction.',
           sources: `**I. Quran**
 
 
@@ -41,6 +45,8 @@ Not all products labelled "halal" meet rigorous certification standards, and man
 
 Go through your inventory list one item at a time. Check packaging for recognised halal certification logos (IFANCA, HFA, MUI, etc.). For unlabelled items, search the manufacturer's website or contact them directly. Use apps like Halal Check or ScanHalal to speed up the process. Mark each item as halal, haram, or mashbuh (doubtful).` },
         { title: 'Identify and flag mashbuh (doubtful) items for further investigation', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources explicitly command believers to consume only what is lawful and good, they omit explicit mention of doubtful (mashbuh) items, making the subtask\'s directive to flag and investigate such items a clear logical inference necessary to ensure compliance with the divine injunction.',
           sources: `**I. Quran**
 
 
@@ -67,6 +73,8 @@ The Prophet (SAW) said: "Leave that which makes you doubt for that which does no
 
 Review every item you marked as mashbuh in the previous step. Research the specific doubtful ingredient — is it plant-derived or animal-derived? Contact the manufacturer for clarification. Consult a knowledgeable scholar or halal certification body if the answer remains unclear. Until resolved, treat the item as avoidable.` },
         { title: 'Find halal-certified alternatives for any haram or doubtful items', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the Quranic verses explicitly command believers to eat only what is lawful and good, they omit specific practical steps like finding halal-certified replacements at grocery stores or online, making the subtask a clear logical inference necessary to fulfill this divine injunction in modern daily life.',
           sources: `**I. Quran**
 
 
@@ -86,6 +94,8 @@ Removing haram items without replacing them leads to gaps that tempt you back to
 
 For each item flagged as haram or unresolved mashbuh, search for a halal-certified equivalent at your local grocery store or online halal retailers. Read reviews to find options that match your taste preferences. Stock up on the replacements before discarding the originals so there is no gap in your routine.` },
         { title: 'Update your grocery list and meal plan to reflect the audit results', done: false,
+          tier: 'T3',
+          amanahRationale: 'Because the provided sources focus exclusively on moderation and avoiding excess in food consumption, they offer neither clear proof nor logical inference for the subtask\'s specific qualitative directive to update grocery lists with halal alternatives, making the alignment aspirational.',
           sources: `**I. Quran**
 
 
@@ -115,6 +125,8 @@ Rewrite your standard grocery list, replacing any removed items with their halal
       description: 'Design your sleep rhythm around the Prophetic pattern — early to bed after Isha, rising before Fajr. Consistent sleep is the single most impactful health habit, affecting mood, cognitive function, immune strength, and spiritual energy for ibadah.',
       subtasks: [
         { title: 'Calculate your ideal bedtime based on local Fajr time and 7-8 hour target', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided Hadith explicitly highlights the Prophet\'s practice of sleeping early after Isha to ensure waking for Fajr, it does not mandate specific modern methods like calculating a 7-8 hour sleep target backward from Fajr, making the subtask a practical logical inference to implement this Sunnah.',
           sources: `**I. Quran**
 
 
@@ -137,6 +149,8 @@ Without a calculated bedtime, sleep becomes reactive rather than intentional. Wo
 
 Look up your local Fajr time (it shifts seasonally). Subtract 7.5 to 8 hours — that is your target bedtime. For example, if Fajr is at 5:30 AM, you should be asleep by 9:30-10:00 PM. Write this bedtime down and set it as a daily alarm on your phone.` },
         { title: 'Set a consistent wind-down alarm 30 minutes before bedtime', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided sources emphasize sleep as a divine means of rest and highlight the importance of consistency in night worship, they omit specific modern practices like setting a wind-down alarm, making the subtask a practical logical inference to achieve this intended restful consistency.',
           sources: `**I. Quran**
 
 
@@ -163,6 +177,8 @@ Your body cannot switch from stimulation to sleep instantly. A wind-down buffer 
 
 Set a recurring alarm 30 minutes before your calculated bedtime. When it goes off, stop all work and stimulating activity. Use this window for calm activities — wudu, reading Quran, light stretching, or quiet conversation. Consistency is key: keep this alarm even on weekends.` },
         { title: 'Remove screens and blue light from the bedroom after Isha', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the sources establish the night as a divine means for rest and highlight the Sunnah of sleeping early, they omit mention of modern technology, making the subtask\'s directive to remove screens a practical logical inference to protect this intended restful sleep.',
           sources: `**I. Quran**
 
 
