@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[4].subtasks[2]",
+  "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+  "subtaskTitle": "Check for habits of swearing by other than Allah",
+  "csQueryPrompt": "For a MILOS subtask titled 'Check for habits of swearing by other than Allah' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as those emphasizing the exclusivity of Allah's reverence and the severity of shirk in Surah An-Nisa 4:48, that contextually anchor the prohibition against exalting creation by swearing by other than Allah?",
+    "Which authentic narrations, particularly the explicit command found in Sahih al-Bukhari and Sahih Muslim stating that whoever has to take an oath should swear by Allah or remain silent, directly anchor the prohibition of swearing by anything other than Him?"
+  ],
+  "retrievedAt": "2026-04-18T18:43:02Z"
+}

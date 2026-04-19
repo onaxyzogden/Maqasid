@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[1].subtasks[3]",
+    "subtaskTitle": "Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+    "parentTaskTitle": "Study the meaning and conditions of La ilaha illAllah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+        "retrievedAt": "2026-04-18T12:55:35Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-3-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+        "retrievedAt": "2026-04-18T12:55:35Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-3-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 112:1-4",
+      "translation": "Say, 'He is God, [who is] One. God, the Eternal Refuge. He neither begets nor is born, Nor is there to Him any equivalent.'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Surah al-Ikhlas is the Quran's most compressed statement of Tawhid — one of the two verses explicitly named in the subtask title — and MS confirms via reference chunk that this surah 'teaches Tawhid, pure and undefiled' regarded by the Prophet as equal to one-third of the Quran. Bayyinah + direct. Arabic omitted: MS explicitly disclosed 'the Arabic text, while not present in the source snippets, is included for completeness' — per rule 7 the fabricated Arabic cannot be bound.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+        "retrievedAt": "2026-04-18T12:55:35Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 2:255",
+      "translation": "God - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursī extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Ayat al-Kursi is the second verse the subtask names by number and is the Quran's most comprehensive single-verse statement of Allah's unique divinity, self-subsistence, and all-encompassing sovereignty. Translation drawn from MS primary-source output. Bayyinah + direct. Arabic omitted per the same disclaimer rule.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+        "retrievedAt": "2026-04-18T12:55:35Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 3:18",
+      "translation": "God witnesses that there is no deity except Him, and [so do] the angels and those of knowledge – [that He is] maintaining [creation] in justice. There is no deity except Him, the Exalted in Might, the Wise.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Presents Tawhid as a fact witnessed by God Himself, the angels, and those of knowledge — a canonical ayah for the subtask's review of verses establishing oneness. Bayyinah + direct. Arabic omitted per the disclaimer rule stated in q1.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+        "retrievedAt": "2026-04-18T12:55:35Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 2, Book 24, Number 573 (Narrated Abu Ma'bad)",
+      "translation": "...invite them to testify that none has the right to be worshipped but Allah, and that Muhammad is His Apostle. And if they obey you in that, tell them that Allah has enjoined on them five prayers in each day and night...",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Mu'adh-to-Yemen instruction places the testimony of Tawhid as the indispensable first step — contextually supports the subtask's review of Quranic Tawhid-anchors by showing how the Prophetic mission treated that doctrine as the operative starting point. Bayyinah (Sahih Bukhari, ref confirmed via MS cited_text 'Volume 2, Book 24, Number 573: Narrated Abu Ma'bad,:'). Contextual because the hadith does not itself recite Quran but deploys Tawhid doctrine as operative ruling.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+        "retrievedAt": "2026-04-18T12:55:35Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "4 entries; all Bayyinah; 3 direct + 1 contextual. Bar met. All Quran Arabic omitted per rule 7: MS explicitly disclosed Arabic was not in the source snippets. Rejected: Quran 21:25 — named inline but weaker relevance to this subtask (prophetic-mission frame, not a Tawhid-anchor verse the user is reviewing). Rejected: Sahih Muslim Book 1 #0047 and #0051, Bukhari Vol 4 Book 52 #108 — cited_text for these was either generic chapter headings or fragmentary book/number, and the 1-2 entry already quoted the Mu'adh #0046 matn; avoided duplicating across subtasks when tighter binding was available via Bukhari #573."
+  }
+}

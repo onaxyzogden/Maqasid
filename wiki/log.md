@@ -3,9 +3,106 @@ title: "Wiki Log"
 type: log
 ---
 
+## 2026-04-19 — Amanah Gate Tier Grading — Faith Pilot
+
+**Objective:** Grade all 212 Faith subtasks with T1/T2/T3 Amanah evidence tiers and surface badges + rationale in the UI.
+
+**Completed:**
+- Built `scripts/grade-amanah-tiers.mjs` — resumable NotebookLM grader (alt-auth `be921648`, 4-concurrent, JSONL output)
+- Built `scripts/apply-amanah-tiers.mjs` — idempotent apply script using bracket/brace-depth tracking to insert `tier` + `amanahRationale` into subtask objects only (not task-level objects)
+- Added `scripts/run-grader.cmd` — detached Windows launcher for long-running grading sessions
+- Created `src/data/config/amanah-tiers.js` — T1 Bayyinah (green), T2 Qarina (amber), T3 Aspiration (purple)
+- Created `src/components/shared/AmanahTierBadge.jsx` — inline badge mirroring GLabelBadge pattern
+- Updated `src/components/work/TaskDetailPanel.jsx` — badge in subtask row, subtask-detail header, and Sources rationale block
+- Updated `src/services/seed-hydrator.js` — hydrate/strip `tier` + `amanahRationale` from localStorage
+- Graded 212 Faith subtasks (193 NotebookLM + 19 conservative T2 fallbacks for empty-answer rows). Distribution: T1:11, T2:158, T3:43
+- Wrote `artifacts/amanah-grading/faith.jsonl` — 212 rows with grade, tier, rationale, gradedAt
+
+**Key decisions:**
+- Tiers are T1/T2/T3 (Bayyinah/Qarina/Aspiration) — not BBOS G-labels (different system)
+- Rationale is embedded in seed data and rendered in the Sources slide-in view above the trust banner
+- Alt-auth NotebookLM (`be921648`, env: `~/.notebooklm-alt`) used — default `1c17b03b` rate-limited
+
+**Deferred:** Grade remaining 6 pillars (life 236, family 233, intellect 236, wealth 236, environment 226, ummah 450) in subsequent sessions.
+
+
 # Wiki Log
 
 Append-only chronological record of all wiki operations.
+
+## [2026-04-18] grounding | Faith session B — 17 shahada_core subtasks graded (ledger 32/212)
+
+### Completed
+- Adopted runtime; ran §3 Session Initialization from continuity block; user approved execution plan.
+- **Phase 1 (retrieval):** first attempt to resume driver hit the same NotebookLM rate-limit wall as session A (RPC 429 on MS primary `1c17b03b…`). User provided two high-rate-limit notebook copies under a different Google account: MS=`be921648-2088-4860-bdd8-283a5e7301f3`, CS=`5191ba7b-142c-436c-b967-86a5aa6d0f28`. Alt copies initially returned RPC `GET_NOTEBOOK` null-result errors — traced to auth (different Google account). Installed Playwright Chromium, ran `notebooklm login` with `NOTEBOOKLM_HOME=.notebooklm-alt` to isolate the alt auth/profile. Verified both notebooks return real citations under alt auth.
+- Driver extended with `MILOS_NOTEBOOKLM_HOME` env-var override (passes `NOTEBOOKLM_HOME` to subprocess env) and hardcoded default notebook IDs flipped to the alt copies. Relaunched successfully — completed retrieval for all 14 remaining queued subtasks + re-retrieved 2 stragglers (`[3].subtasks[1..2]` whose session-A raws were 148-byte error blobs).
+- **Phase 2 (assembly):** dispatched 2 parallel `general-purpose` assembly subagents (batches 7+7) + 1 cleanup subagent for the 2 stragglers. All 16 subtasks: `[3].subtasks[1..5]`, `[4].subtasks[0..3]`, `[5].subtasks[0..6]` plus `[3].subtasks[1..2]` re-done. All 16 returned `status: graded`, `groundedBar: yes`, no rejections to `insufficient`.
+- **Phase 3 (merge):** appended 16 new records to `tasks/grounding-progress.json` → ledger now at 32/212 (includes pilot `[0][0]`). Lint re-run unchanged on shape.array (patch emission still deferred per runtime §6).
+- Memory updated: `reference_notebooklm_grounding.md` now documents the alt-account high-rate-limit copies and the `MILOS_NOTEBOOKLM_HOME` env-var override.
+
+### Deferred
+- **180 of 212 faith subtasks still unretrieved** across 14 modules beyond `shahada_core` (`shahada_heart`, `shahada_tongue`, `shahada_action`, `tawhid_*`, `qadar_*`, `iman_*`, `ihsan_*`, etc. — see `artifacts/grounding-pilot/faith-queue.json`).
+- **Patch emission to `src/data/seed-tasks/faith-seed-tasks.js` still deferred** — emitted once the full pillar is graded, not per-session. Linter delta unchanged: `byShape.array=0/212`, `byGroundedBar.yes=0/212`.
+- **Query-template hardening**: still need to revise CS prompt to force paired ref+matn output from MS for hadith (same gap noted in session A).
+- **Session-A straggler pattern**: the driver's skip-if-all-3-files-exist logic skipped over the 2 stragglers even though those files were 148-byte error blobs. Consider adding a size/error-content check to the skip logic so future sessions don't mask prior failures.
+
+### Why it mattered
+Unblocked the rate-limit wall that capped session A. Alt-account notebook copies deliver high enough throughput to finish retrieval for an entire module in a single session (16 subtasks retrieved end-to-end in ~15 min). Pattern validated: a single session can retrieve + assemble ~16 subtasks cleanly when the primary bottleneck (API quota) is removed.
+
+### Recommended next session
+Pick the next shahada module (`shahada_heart` or `shahada_tongue`) and run the same pattern: retrieve via driver under alt auth → split into 2–3 parallel assembly subagents → merge records. Consider enumerating all of `shahada_*` into one batch (likely 4×6 ≈ 24 subtasks) since alt auth has headroom. Eventually need a single larger session to emit the seed-file patch once most of faith is graded.
+
+### Decision filed
+- None this session — procedural (auth/infra) work only.
+
+---
+
+## [2026-04-18] grounding | Faith session A — 15 shahada_core subtasks graded via LLM assembly
+
+### Completed
+- Adopted runtime; ran §3 Session Initialization from continuity block; user approved execution plan.
+- **Phase 1:** backfilled `tasks/grounding-progress.json` with prior pilot record `faith.faith_shahada_core[0].subtasks[0]`.
+- **Phase 2 (spot-check):** dispatched LLM assembly subagent for `[0].subtasks[1..3]`. Subagent respected hard rules (no regex ref-matching, direct quotation only, ref↔matn integrity, corpus discipline). 3 entries written; subagent surfaced rejections explicitly (e.g. dropped Quran 49:14/5:41 because MS flagged Arabic as "Not from sources" and refs pointed to 49:15 instead).
+- **Phase 3:** human spot-check — user approved methodology with 4 policy answers: (1) missing-Arabic tolerated when MS didn't return it, (2) bind to what MS returned not what query asked for, (3) 2-entry subtasks acceptable if grounded-bar passes, (4) mark such subtasks `graded` not `needs-review`.
+- **Phase 4:** dispatched 2 parallel assembly subagents for remaining 11 retrieved subtasks (`[1][0..3]`, `[2][0..6]`, `[3][0]`). All 12 entries written to `artifacts/grounding-pilot/entries/`, all grounded-bars pass, all rejections documented in subagent reports.
+- **Phase 5 (in flight):** retrieval driver resumed in background for remaining 16 shahada_core subtasks.
+- **15 progress ledger records** written — pilot [0][0] + 14 new (`[0][1..3]`, `[1][0..3]`, `[2][0..6]`, `[3][0]`).
+
+### Deferred
+- 16 of 31 shahada_core subtasks still need retrieval (driver running as of session close); assembly for those follows in next session.
+- 0 subtasks migrated to structured-array shape in `src/data/seed-tasks/faith-seed-tasks.js`. Linter delta: `byShape.array` unchanged 0/212; `groundedBar.yes` unchanged 0/212 (entries live in `artifacts/grounding-pilot/entries/` as pre-merge grading data; patch emission to seed file is a later phase).
+- Query-template hardening: multiple subtasks had q2 where MS quoted hadith matn without inlining canonical Bukhari/Muslim refs — assembler correctly rejected, but the query template should be revised to require paired ref+matn emission.
+- Other shahada modules beyond `shahada_core` (3 others in module list) not yet touched.
+
+### Why it mattered
+Validated that LLM-driven assembly preserves ref↔matn integrity where the regex assembler failed. The subagents rejected citations with loose binding (e.g. refs without inline matn, MS disclaimers on Arabic) rather than fabricate. Confirmed Opus 4.7's literalism handles the 10-rule prompt reliably when the template entry and a worked example are both provided as context.
+
+### Recommended next session
+Check retrieval-driver completion (see `artifacts/grounding-pilot/retrieve-log-session-faith-a.txt`); assemble the newly retrieved 16 subtasks using the same 2-subagent split pattern (balanced batches of ~8). Then move to the next shahada module in the queue. Consider revising retrieval query template to force paired ref+matn output from MS.
+
+---
+
+## [2026-04-18] chore | Grounding runtime — Faith pilot session (infra only, no merges)
+
+### Completed
+- Adopted `docs/grounding-runtime-prompt.md`; ran §3 Session Initialization; user approved execution plan for Faith pillar (212 subtasks, Option A: 3 queries/subtask).
+- Created branch `grounding/faith` to isolate emitted patch from dirty working tree (graphify-out, website artifacts).
+- Initialized `tasks/grounding-progress.json` (empty records).
+- Wrote `scripts/grounding-enumerate.mjs` — emits idPath queue from a pillar seed file. Produced `artifacts/grounding-pilot/faith-queue.json` (212 entries across 15 modules).
+- **Pilot subtask graded end-to-end**: `faith.faith_shahada_core[0].subtasks[0]` ("Recite the full Shahada…"). 4 `GroundingSource` entries (Quran 47:19 + 48:29; Bukhari 8 + Muslim 20); grounded-bar passes. Entry file: `artifacts/grounding-pilot/pilot-entry-shahada-core-0-0.json`. User confirmed shape.
+- Built retrieval driver `scripts/grounding-retrieve-batch.py` with inter-call pacing (5s) and exponential backoff (30/90/180s) on rate-limit errors. 15 of 31 remaining shahada_core subtasks have complete clean raw retrievals under `artifacts/grounding-pilot/raw/` (`*-cs.json`, `*-ms-q1.json`, `*-ms-q2.json`, `*-meta.json`).
+- Windows mechanics captured: `/c/Python314/python -m notebooklm …`; `PYTHONIOENCODING=utf-8` mandatory; `--json` to file (never stdout — Arabic crashes cp1252).
+
+### Deferred
+- **Entry assembly requires LLM judgement, not regex.** Subagent-built `scripts/grounding-assemble-batch.py` emitted 4 entries that misattributed hadith refs (Bukhari 8 ≠ its actual matn; every hadith off-by-one). All 4 entry files purged; `progress.json` records cleared. Script kept on disk as a warning artifact — do not use.
+- 16 of 31 shahada_core subtasks still without raw retrievals (driver hit rate-limit loop mid-batch; backoff patch in place, resumable).
+- 0 subtasks migrated to structured-array shape in `src/data/seed-tasks/faith-seed-tasks.js`. No patch emitted. Linter delta: `faith.byShape.array` unchanged at 0/212; `groundedBar.yes` unchanged at 0/212.
+
+### Why it mattered
+Pilot established that (a) the 3-query retrieval loop works and produces clean primary-source data, (b) judgement cannot be delegated to regex — hadith-ref ↔ matn binding needs a model that reads the text, and (c) Google NotebookLM enforces rate limits that require backoff even at 3 calls/subtask.
+
+### Recommended next session
+Resume on branch `grounding/faith`. Finish retrieval (16 subtasks left), then dispatch tightly-scoped LLM assembly subagents (4–6 subtasks each, strict "quote directly from raw MS outputs, no regex ref-matching") starting with `faith_shahada_core[0].subtasks[1..3]` as the spot-check batch.
 
 ## [2026-04-18] feat | MILOS universal grounding — Phase 0 complete
 

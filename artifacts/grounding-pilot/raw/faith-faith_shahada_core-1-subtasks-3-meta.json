@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[1].subtasks[3]",
+  "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+  "subtaskTitle": "Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+  "csQueryPrompt": "For a MILOS subtask titled 'Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+    "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)"
+  ],
+  "retrievedAt": "2026-04-18T12:55:35Z"
+}

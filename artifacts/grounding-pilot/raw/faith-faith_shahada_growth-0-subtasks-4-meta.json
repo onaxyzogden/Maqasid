@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[0].subtasks[4]",
+  "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+  "subtaskTitle": "Summarise key points and questions",
+  "csQueryPrompt": "For a MILOS subtask titled 'Summarise key points and questions' under the parent task 'Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Ta-Ha 20:114 which emphasizes the continuous pursuit of knowledge and Surah Al-Baqarah 2:260 which demonstrates questioning to achieve absolute certainty, that contextually anchor the practice of actively summarizing and interrogating theological texts?",
+    "Which authentic narrations, particularly instances in Sahih al-Bukhari and Sahih Muslim where the companions systematically asked the Prophet clarifying questions to crystallize their understanding of faith, directly anchor the methodology of extracting and summarizing key points from foundational aqidah texts?"
+  ],
+  "retrievedAt": "2026-04-19T04:37:49Z"
+}

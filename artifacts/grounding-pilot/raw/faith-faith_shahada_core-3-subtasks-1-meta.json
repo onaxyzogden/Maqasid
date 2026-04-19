@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[3].subtasks[1]",
+  "taskTitle": "Study the six pillars of Iman",
+  "subtaskTitle": "Study belief in the Angels (al-Mala'ikah)",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study belief in the Angels (al-Mala'ikah)' under the parent task 'Study the six pillars of Iman' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Al-Baqarah 2:285 and Surah Fatir 35:1, that directly establish the belief in angels (al-Mala'ikah) and describe their nature and duties as a fundamental pillar of faith?",
+    "Which authentic narrations, particularly the definitive Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, explicitly mandate the belief in His angels as the second core article of Iman?"
+  ],
+  "retrievedAt": "2026-04-18T19:12:53Z"
+}

@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[2].subtasks[1]",
+  "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+  "subtaskTitle": "Yaqin (Certainty) — have no doubt",
+  "csQueryPrompt": "For a MILOS subtask titled 'Yaqin (Certainty) — have no doubt' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically Al-Hujurat 49:15, that define the true believers as those who believe in Allah and His Messenger and subsequently harbor no doubt (*lam yartabu*) regarding their testimony.",
+    "Retrieve Sahih hadith from Muslim and Bukhari, such as the narration stating that any servant who meets Allah testifying to the Shahada without having any doubt in his heart will enter Paradise, to anchor the condition of Yaqin."
+  ],
+  "retrievedAt": "2026-04-18T12:56:49Z"
+}

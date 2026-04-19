@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[2].subtasks[0]",
+  "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+  "subtaskTitle": "Ilm (Knowledge) — know what it means",
+  "csQueryPrompt": "For a MILOS subtask titled 'Ilm (Knowledge) — know what it means' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically Muhammad 47:19, that establish the obligation of 'Ilm (knowledge) as a prerequisite for the verbal testimony of \"La ilaha illAllah.\"",
+    "Retrieve Sahih hadith from Muslim and Bukhari, such as the narration stating that whoever dies knowing that there is no god but Allah enters Paradise, to anchor the necessity of knowledge in the validity of the Shahada."
+  ],
+  "retrievedAt": "2026-04-18T12:56:15Z"
+}

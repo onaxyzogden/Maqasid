@@ -1,0 +1,552 @@
+{
+  "answer": "Drawing upon my extensive knowledge derived from the Quran and the authentic Hadith, I present the following comprehensive guidelines to shape an effective and meaningful user experience:\n\n1. **In-Depth User Understanding:** Above all, we must prioritize a profound comprehension of the user's individual journey, their specific needs, and their behavioral patterns, all interpreted through the lens of the spiritual guidance found within the scriptures. We should strive to anticipate their aspirations and challenges, much like the Prophet's understanding of his followers, by anchoring their study in the authentic narrations stating that Allah appoints an angel in the womb to definitively write and decree a person's exact livelihood, provision, and time of death before they are even born [1, 2].\n2. **Robust and Enduring Framework:** The underlying structure of this system must be exceptionally resilient and capable of withstanding any potential challenges or disruptions, mirroring the unwavering strength and enduring nature of our faith. It needs to be built upon a foundation as steadfast as the pillars of the Kaaba, supported by the Prophet's explicit declaration that only Allah possesses the five keys of the unseen, meaning no one else can ever know or decree what a soul will gain tomorrow or at what exact place it will die [3].\n3. **Elegant and Lucid Presentation:** While the functionality of the system is of paramount importance, we must not neglect the significance of presenting information with beauty, clarity, and grace, much like the eloquent and inspiring verses of the Quran. The message should resonate with the user, making it both informative and aesthetically pleasing, by highlighting authenticated divine attributes like Al-Muhyi (The Giver of Life), who exclusively grants life to all things, and Al-Mumit (The Taker of Life), who alone determines the perfect time for every living thing's life to end [4, 5].\n4. **Seamless and Accessible Experience:** The user experience should be characterized by exceptional ease of understanding and accessibility, ensuring that all individuals, regardless of their technical proficiency, can effortlessly navigate and benefit from the system. The teachings should be as readily available and clear as the light of guidance, easily conveying that Allah is Ar-Razzaq, the sole Provider who gives every single creature what it needs to survive, and Al-Qayyum, the Self-Subsisting Lord who sustains and holds the entire universe together without any help [5, 6].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 1,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "61935ffc-3ed1-498d-b166-608026382ab1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 2,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "4debe631-4ca8-4187-a1af-d3dfa34d1fd3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 3,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "e0f6d67f-3fad-40ce-aedf-4f4ac4e8ac2a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 4,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "6b61dcb6-42ba-4ce9-8b25-e39571d1f290"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 5,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "53902e4b-7998-4975-a993-ee1ed25fc310"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 6,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "a949bd7c-d8f1-4dd3-ac13-c51a7f9519d4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 7,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "449b7f1a-f9fb-4d1c-bc24-f0c5e7f01b9e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 8,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "6e194a29-9a53-43cb-928d-f36b989b9f2d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 9,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "e359fb0e-a1ad-4fc8-81e6-e8769fda8e02"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 10,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "50c1b4cc-36c2-4980-b828-f5c013772624"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 11,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "34bf63fa-63e4-4b98-9027-0e20de23d432"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 12,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "a85ff86f-a021-493e-8648-b489dfa81e9c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 13,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "67b777b7-e1a7-41e3-b4e8-133bcf417c5e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "ea571fed-29b6-4c24-b8ea-80bf849429ae"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 15,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "da0b2f2f-5bcf-4aaa-97d7-0152bead9c1e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 16,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "7dee5ebd-dba2-4f63-b006-323b2e79d90f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 17,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "c68ea378-18ba-4c01-a1ad-e046bc91a38a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "ea2e1f60-e027-4d88-93e5-38fc1a9ee7d9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 19,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "01eab3fd-8106-4714-b910-98adef14aa8e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 20,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "35ce2d34-45df-4a4e-9406-9e07bf2fed23"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 21,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "e7048433-14b5-4f4d-b455-1107a15d30ac"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 22,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "0a5025b0-6b7a-4fe4-9108-f5a56d84cecd"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "dd234fe7-8e42-43e1-88ee-48de780f9c05"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 24,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "1d1d65bc-4557-4ba0-a9b4-3a59668a2de6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 25,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "e2b3514e-653f-4970-bf3c-d7d110a7625e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 26,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "edb19fff-4050-4c71-9cd4-d7562b86c72b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 27,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "f7553de2-740c-4653-9c22-3bb88b97ccc8"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 28,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "42f830a7-dfc3-4d2d-8ada-036555b7e3f0"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 29,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "157eeeca-d1e8-44a6-b8f2-3940363f6f4d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 30,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "da78db92-0050-4385-8142-d0eebad7c819"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 31,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "93a49ac9-ce1e-4d9f-bd23-e986f3bc2e3a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 32,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "146e75a8-4e0f-4e7e-adc2-744133c51791"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 33,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "56a98433-52bf-4ed9-a19d-22a90b5faa1a"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 34,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "4387d655-1b1b-476a-a304-9b1fdc56b3d1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 35,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "ad1b4023-8a8b-4274-9795-7a3ccc87abaa"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 36,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "763d802c-b130-4dd4-b025-f5139f8e96ff"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 37,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "0986a9c5-2c8c-4712-afab-0ecaae4e4ee2"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 38,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "a4534a8b-030e-4706-b85c-1edfd9c2e1b2"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 39,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "14e2ac79-cfd9-483d-bed8-015be0998c6d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 40,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "34166ba4-f761-4404-aac7-940d133c96a1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 41,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "c0679e6f-cfdf-493f-bde3-ca9e3bb44af9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 42,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "da74d7b8-d7a1-49a1-8c03-6759415c94d9"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 43,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "0200bea6-a08a-4236-bd3c-aaf30a70bbac"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 44,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "7e14e728-7bc1-4fb3-b511-c9ed4c6b9efb"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 45,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "29afcc3b-5f81-4a8a-b631-abc0614b4630"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 46,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "54df9e5f-0648-4c36-a50a-d0dc6ae1a876"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 47,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "483254c5-aada-4e6c-ab18-94ab90192abf"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 48,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "f45705da-1aec-4780-a8a9-6e510ff6e556"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 49,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "f2031528-82ae-481a-88a1-27454813b6da"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 50,
+      "cited_text": "Quran 20:82",
+      "start_char": 3584,
+      "end_char": 3596,
+      "chunk_id": "8912cd8b-9989-4b4b-a440-f75d42c0f58f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 51,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "bf0606cd-d442-4dab-a21c-e4a76f73aa29"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 52,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "37d7680a-cadb-42fd-ae99-ae0d2cb473e1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 53,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "87fa5dfd-52ce-4191-9c5b-9fcb2012fe60"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 54,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "5426f615-0eb6-4d18-a8dc-3445b43e785a"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 55,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "cbeb15aa-58a5-42df-b621-29b8f74d1032"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 56,
+      "cited_text": "Quran 20:82",
+      "start_char": 3584,
+      "end_char": 3596,
+      "chunk_id": "6d701d8e-6b4c-4993-8d93-21d543ea3cd6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 57,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "bf0606cd-d442-4dab-a21c-e4a76f73aa29"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 58,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "37d7680a-cadb-42fd-ae99-ae0d2cb473e1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 59,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "87fa5dfd-52ce-4191-9c5b-9fcb2012fe60"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 60,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "5426f615-0eb6-4d18-a8dc-3445b43e785a"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 61,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "cbeb15aa-58a5-42df-b621-29b8f74d1032"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 62,
+      "cited_text": "Quran 20:82",
+      "start_char": 3584,
+      "end_char": 3596,
+      "chunk_id": "6d701d8e-6b4c-4993-8d93-21d543ea3cd6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 63,
+      "cited_text": "Volume 1, Book 6, Number 315: Narrated Anas bin Malik:",
+      "start_char": 179939,
+      "end_char": 179994,
+      "chunk_id": "bf0606cd-d442-4dab-a21c-e4a76f73aa29"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 64,
+      "cited_text": "Volume 4 - 746 / 1700",
+      "start_char": 1600364,
+      "end_char": 1600385,
+      "chunk_id": "37d7680a-cadb-42fd-ae99-ae0d2cb473e1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 65,
+      "cited_text": "Volume 2, Book 17, Number 149: Narrated Ibn 'Umar:",
+      "start_char": 502800,
+      "end_char": 502851,
+      "chunk_id": "87fa5dfd-52ce-4191-9c5b-9fcb2012fe60"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 66,
+      "cited_text": "Quran 72:28",
+      "start_char": 11075,
+      "end_char": 11087,
+      "chunk_id": "5426f615-0eb6-4d18-a8dc-3445b43e785a"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 67,
+      "cited_text": "Quran 30:50",
+      "start_char": 11609,
+      "end_char": 11621,
+      "chunk_id": "cbeb15aa-58a5-42df-b621-29b8f74d1032"
+    },
+    {
+      "source_id": "c1b0a057-8b0b-4923-b058-4d9befea222d",
+      "citation_number": 68,
+      "cited_text": "Quran 20:82",
+      "start_char": 3584,
+      "end_char": 3596,
+      "chunk_id": "6d701d8e-6b4c-4993-8d93-21d543ea3cd6"
+    }
+  ]
+}

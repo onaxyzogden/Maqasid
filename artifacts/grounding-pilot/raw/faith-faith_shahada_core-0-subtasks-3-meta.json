@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[0].subtasks[3]",
+  "taskTitle": "Testify there is no God but Allah",
+  "subtaskTitle": "Journal: what does this testimony mean to you personally?",
+  "csQueryPrompt": "For a MILOS subtask titled 'Journal: what does this testimony mean to you personally?' under the parent task 'Testify there is no God but Allah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, such as Al-Anfal 8:2 and Az-Zumar 39:23, that describe the internal spiritual resonance and heart-based reflection necessitated by the remembrance and testimony of Allah's Oneness.",
+    "Retrieve Sahih hadith from Bukhari and Muslim, specifically narrations regarding \"Ikhlas\" (sincerity) in the testimony and the \"sweetness of faith\" (e.g., Bukhari #16), to anchor the personal, experiential dimension of the Shahada."
+  ],
+  "retrievedAt": "2026-04-18T12:49:52Z"
+}

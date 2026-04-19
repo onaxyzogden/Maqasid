@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[0].subtasks[3]",
+    "subtaskTitle": "Read the section on the unseen (angels, paradise, hellfire)",
+    "parentTaskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+    "session": "faith-2026-04-19-c",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Baqarah 2:3 which establishes belief in the unseen (al-ghayb) as a defining trait of the righteous, that contextually anchor the foundational theological study of angels, Paradise, and Hellfire?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically those found in Sahih al-Bukhari and Sahih Muslim that describe the creation of angels from light and detail the physical realities of Paradise and Hellfire, directly anchor the study of the unseen in classical aqidah texts?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:3",
+      "translation": "Who believe in the unseen, establish prayer, and spend out of what We have provided for them.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 names 2:3 as the foundational ayah establishing belief in al-ghayb as a defining trait of the righteous — the scriptural warrant for the entire unseen section of any aqidah text. Directly anchors the subtask. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Baqarah 2:3 which establishes belief in the unseen (al-ghayb) as a defining trait of the righteous, that contextually anchor the foundational theological study of angels, Paradise, and Hellfire?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 2:177",
+      "translation": "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is [in] one who believes in Allah, the Last Day, the angels, the Book, and the prophets...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 cites 2:177 as the Qur'anic enumeration of the unseen articles of faith — Allah, the Last Day, the angels, the Book, the prophets. Reference chunk [5] preserves the verse opening. Directly anchors the subtask's framing of angels, Paradise, Hellfire as core unseen tenets.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Baqarah 2:3 which establishes belief in the unseen (al-ghayb) as a defining trait of the righteous, that contextually anchor the foundational theological study of angels, Paradise, and Hellfire?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 66:6",
+      "translation": "O you who have believed, protect yourselves and your families from a Fire whose fuel is people and stones, over which are [appointed] angels, harsh and severe; they do not disobey Allah in what He commands them but do what they are commanded.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 surfaces 66:6 as the verse coupling Hellfire with its angelic guardians — both unseen realities the subtask studies together. MS reference chunk [20] preserves the verse verbatim. Directly anchors the subtask.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Baqarah 2:3 which establishes belief in the unseen (al-ghayb) as a defining trait of the righteous, that contextually anchor the foundational theological study of angels, Paradise, and Hellfire?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 2:81-82",
+      "translation": "Yes, [on the contrary], whoever earns evil and his sin has encompassed him — those are the companions of the Fire; they will abide therein eternally. But those who believe and do righteous deeds — those are the companions of Paradise; they will abide therein eternally.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 cites 2:81-82 as the paired contrast of Paradise and Hellfire as eternal destinations — the scriptural anchor for the eschatology section of the unseen. Reference chunk [41] preserves the verse opening. Directly anchors the subtask.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Baqarah 2:3 which establishes belief in the unseen (al-ghayb) as a defining trait of the righteous, that contextually anchor the foundational theological study of angels, Paradise, and Hellfire?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 4, Book 54, Number 474",
+      "translation": "Authentic narrations detail specific physical realities of the Hereafter, including the punishment of adulterers placed in an oven-like hole, those who dealt in usury swimming in a river of blood while stones are thrown into their mouths, and liars having their cheeks continuously torn.",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 surfaces Bukhari V4 B54 N474 (canonical ref confirmed in reference chunks, Narrated Anas bin Malik / Abu Huraira) as part of a Sahih narration cluster on the physical realities of Hellfire's torments. Contextually anchors the unseen-realities section of a classical aqidah text. Bound at summary-of-matn level because MS paraphrased multiple torment details under a single ref block rather than quoting a single verbatim matn. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically those found in Sahih al-Bukhari and Sahih Muslim that describe the creation of angels from light and detail the physical realities of Paradise and Hellfire, directly anchor the study of the unseen in classical aqidah texts?",
+        "retrievedAt": "2026-04-19T04:35:38Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "5 entries; all Bayyinah; 4 direct + 1 contextual. Bar met on both axes. MS q2 explicitly disclaims the 'angels created from light' hadith ('you may want to independently verify') — not bound, correctly dropped. Rejected: claims attributed to 'page-level Volume 1 - 94 / 1700', 'Volume 4 - 754 / 1700' (bridge / As-Sirat paraphrase) — page-level refs without canonical V/B/N fail ref↔matn integrity. Also rejected: paraphrased 'tents of pearls / earth of musk' Paradise descriptions — the refs bound to these are page-level. Quran 4:136 and 74:31 surfaced but omitted as thematic/duplicative given 4 strong direct Quran anchors already attached."
+  }
+}

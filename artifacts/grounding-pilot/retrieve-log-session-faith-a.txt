@@ -1,0 +1,35 @@
+  Could not parse 2 queries from CS. Writing fallback.
+  retry 1/3 in 30s (rate-limited/error)
+  retry 2/3 in 90s (rate-limited/error)
+  retry 3/3 in 180s (rate-limited/error)
+  MS Q2 failed.
+  retry 1/3 in 30s (rate-limited/error)
+  retry 2/3 in 90s (rate-limited/error)
+  retry 3/3 in 180s (rate-limited/error)
+  CS call failed.
+  retry 1/3 in 30s (rate-limited/error)
+  retry 2/3 in 90s (rate-limited/error)
+  retry 3/3 in 180s (rate-limited/error)
+  CS call failed.
+STOP: 3 consecutive failures.
+Processing 31 subtasks.
+[1/31] SKIP (already retrieved): faith.faith_shahada_core[0].subtasks[1]
+[2/31] SKIP (already retrieved): faith.faith_shahada_core[0].subtasks[2]
+[3/31] SKIP (already retrieved): faith.faith_shahada_core[0].subtasks[3]
+[4/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[0]
+[5/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[1]
+[6/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[2]
+[7/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[3]
+[8/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[0]
+[9/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[1]
+[10/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[2]
+[11/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[3]
+[12/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[4]
+[13/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[5]
+[14/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[6]
+[15/31] SKIP (already retrieved): faith.faith_shahada_core[3].subtasks[0]
+[16/31] SKIP (already retrieved): faith.faith_shahada_core[3].subtasks[1]
+[17/31] SKIP (already retrieved): faith.faith_shahada_core[3].subtasks[2]
+[18/31] faith.faith_shahada_core[3].subtasks[3] :: Study belief in the Messengers (ar-Rusul)
+[19/31] faith.faith_shahada_core[3].subtasks[4] :: Study belief in the Last Day (al-Yawm al-Akhir)
+[20/31] faith.faith_shahada_core[3].subtasks[5] :: Study belief in Qadar — Divine Decree (al-Qadr)

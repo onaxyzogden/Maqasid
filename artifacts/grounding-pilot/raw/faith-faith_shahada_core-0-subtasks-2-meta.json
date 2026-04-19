@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[0].subtasks[2]",
+  "taskTitle": "Testify there is no God but Allah",
+  "subtaskTitle": "Study the difference between verbal declaration and lived conviction",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study the difference between verbal declaration and lived conviction' under the parent task 'Testify there is no God but Allah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Retrieve primary Quranic verses, specifically Al-Hujurat 49:14 and Al-Ma’idah 5:41, that explicitly distinguish between nominal verbal submission (Islam) and the internal reality of lived conviction (Iman) within the heart.",
+    "Extract Sahih hadith from Bukhari and Muslim, including the Hadith of Jibril and narrations stating that faith is what settles in the heart and is verified by action, to establish the scriptural requirements of sincere conviction."
+  ],
+  "retrievedAt": "2026-04-18T12:48:38Z"
+}

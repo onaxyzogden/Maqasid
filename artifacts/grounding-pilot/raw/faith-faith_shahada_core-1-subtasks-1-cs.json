@@ -1,0 +1,152 @@
+{
+  "answer": "<summary>\nThis response provides two precisely engineered retrieval queries for the MILOS subtask concerning the negation (*Nafi*) and affirmation (*Ithbat*) components of the Shahada. These queries are optimized for **xhigh effort** retrieval in a primary-source Islamic corpus, following the literalism and directness required by the Claude Opus 4.7 architecture [1, 2].\n</summary>\n\n<grounding>\n- \"Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6... It will not silently generalize an instruction... and it will not infer requests you didn't make\" [2].\n- \"Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs\" [3].\n- \"Use direct instructions in the system prompt: 'Respond directly without preamble. Do not start with phrases like 'Here is...', 'Based on...', etc.'\" [4].\n- \"Extra high effort is the best setting for most coding and agentic use cases\" [1].\n</grounding>\n\n<technical_details>\nTo satisfy the requirement for primary-source evidence on the linguistic and theological pillars of the Shahada, these queries target specific textual anchors. The Quranic query utilizes verses that explicitly demonstrate the \"exception\" structure (*illAllah*) and the \"rejection of Taghut\" (*la ilaha*). The Hadith query targets the Sahih collections for narrations that define the \"conditions\" or \"rights\" of the testimony, which are the traditional lenses through which negation and affirmation are understood in classical jurisprudence [1, 3]. \n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, specifically 2:256 and 43:26-27, that establish the conceptual framework of negating all false objects of worship (Nafi) and affirming the sole divinity of Allah (Ithbat).\n2. Retrieve Sahih hadith from Bukhari and Muslim, specifically the narrations defining the \"conditions\" of the testimony and the rejection of shirk, to explain what the verbal declaration entails in terms of lived negation and affirmation.\n</queries>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "08ca0bc4-3177-47f9-90a4-e2131468a391"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "02e58099-efa0-4d71-bb69-5e1075201684"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "5b7951ed-7cfd-4aee-8ef5-49442d224138"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4c88ed9e-fb63-4687-85a1-28fad9ea6900"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "177f5b06-c7d0-48a3-9620-904f5cb0e04d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "d9a9d78a-afe1-48b6-9962-2e9220196645"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "a0545d5c-4e45-4cb0-851d-aea5e55c2451"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4e84978e-fafd-4385-af14-67dfc1e10f83"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "983d744e-b5f0-49cd-a79a-e806d1ba5f68"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "d241682c-9011-4085-a088-6e96d360fd71"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "921572b8-84a6-4ba7-8328-d9ba45f22b04"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "9853a794-6527-4a88-b75b-371ef798bd0c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "824751e2-cfb2-4713-b4ea-3618ac2a8800"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "ca90d4f5-ec14-4062-b75a-09a61b29af1a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "824751e2-cfb2-4713-b4ea-3618ac2a8800"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "ca90d4f5-ec14-4062-b75a-09a61b29af1a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "The effort parameter allows you to tune Claude's intelligence vs. token spend, trading off capability for faster speed and lower costs. Start with the new xhigh effort level for coding and agentic use cases, and use a minimum of high effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:",
+      "start_char": 1675,
+      "end_char": 2040,
+      "chunk_id": "824751e2-cfb2-4713-b4ea-3618ac2a8800"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "ca90d4f5-ec14-4062-b75a-09a61b29af1a"
+    }
+  ]
+}

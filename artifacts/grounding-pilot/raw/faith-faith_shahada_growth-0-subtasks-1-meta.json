@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[0].subtasks[1]",
+  "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+  "subtaskTitle": "Read the section on the attributes of Allah",
+  "csQueryPrompt": "For a MILOS subtask titled 'Read the section on the attributes of Allah' under the parent task 'Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that \"there is nothing like unto Him\" and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?",
+    "Which authentic narrations, particularly those in Sahih al-Bukhari and Sahih Muslim detailing the 99 Names of Allah or His specific divine actions and attributes, contextually anchor the theological study of His nature in classical aqidah texts?"
+  ],
+  "retrievedAt": "2026-04-19T04:31:38Z"
+}

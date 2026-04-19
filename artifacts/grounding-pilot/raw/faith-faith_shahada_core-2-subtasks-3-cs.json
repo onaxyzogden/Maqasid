@@ -1,0 +1,64 @@
+{
+  "answer": "<grounding>\n\"Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make.\" [1]\n\"Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs.\" [2]\n\"Extra high effort is the best setting for most coding and agentic use cases.\" [3]\n\"Ground responses in quotes: For long document tasks, ask Claude to quote relevant parts of the documents first before carrying out its task. This helps Claude cut through the noise of the rest of the document's contents.\" [2]\n</grounding>\n\n<technical_details>\nTo satisfy the requirements of the MILOS subtask for 'Inqiyad' (Submission), these queries are engineered at an **xhigh effort** level to ensure high-recall extraction of primary scriptural evidence. By targeting specific linguistic anchors like \"Aslama Wajhahu\" (submitting one's face/self) and prophetic narrations regarding the alignment of personal desire with revelation, the queries provide a concrete \"stated bar\" for the model. This prevents the \"AI slop\" of generalized summaries and forces the model to engage with literal textual compliance, which is the core of the *Inqiyad* condition.\n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, specifically An-Nisa 4:65 and Luqman 31:22, that define the condition of Inqiyad as the total submission and practical compliance required for valid faith.\n2. Retrieve Sahih hadith from Bukhari and Muslim, including the narration regarding the submission of one's desires to the prophetic message, to anchor the necessity of acting upon the testimony of faith.\n</queries>\n\n<action_items>\n- **Execute Retrieval**: Paste the queries into the `/notebooklm` terminal to gather foundational texts for the `faith_shahada_core` module.\n- **Verify Grounding**: Ensure the model quotes the primary Ayat and Hadith verbatim before beginning any analysis to \"cut through the noise\" [2].\n- **Apply Grading**: Once retrieved, subject the evidence to the 3-tier grading system (Bayinnah/Qarina/Niyyah) to badge the results' literal relevance to the subtask.\n- **State Check**: Monitor the context window; if this research phase exceeds 60% capacity, trigger the Handover Procedure to preserve state for the next session.\n</action_items>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "af08e840-630e-4c88-9969-d2aeb4f46800"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "969b8603-dc5f-43b6-9944-d338f7d8e821"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "9ae84cab-034b-4277-9e47-12102fc61238"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "f52dff3b-dd8c-4984-a25b-3f78fd814f60"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "07dcf8d2-787a-4676-a1ff-673b12631164"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "07dcf8d2-787a-4676-a1ff-673b12631164"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "07dcf8d2-787a-4676-a1ff-673b12631164"
+    }
+  ]
+}

@@ -57,6 +57,8 @@ export function hydrateTask(task, boardId) {
       const patch = {};
       if (!st.description && seedSub.description) patch.description = seedSub.description;
       if (!st.sources && seedSub.sources) patch.sources = seedSub.sources;
+      if (!st.tier && seedSub.tier) patch.tier = seedSub.tier;
+      if (!st.amanahRationale && seedSub.amanahRationale) patch.amanahRationale = seedSub.amanahRationale;
       return Object.keys(patch).length > 0 ? { ...st, ...patch } : st;
     });
   }
@@ -96,10 +98,11 @@ export function stripSeedFields(task, boardId) {
     const subs = task.subtasks.map((st) => {
       const seedSub = seedSubMap.get(st.title);
       if (!seedSub) return st;
-      if (st.description === undefined && st.sources === undefined) return st;
+      if (st.description === undefined && st.sources === undefined && st.tier === undefined) return st;
       const nst = { ...st };
       if (seedSub.description !== undefined && nst.description !== undefined) delete nst.description;
       if (seedSub.sources !== undefined && nst.sources !== undefined) delete nst.sources;
+      if (seedSub.tier !== undefined && nst.tier !== undefined) delete nst.tier;
       subsChanged = true;
       return nst;
     });

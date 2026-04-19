@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[2].subtasks[0]",
+  "taskTitle": "Understand the difference between major and minor shirk",
+  "subtaskTitle": "Define major shirk (shirk akbar) with examples",
+  "csQueryPrompt": "For a MILOS subtask titled 'Define major shirk (shirk akbar) with examples' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah An-Nisa 4:48 detailing its unforgivable nature and Surah Al-Ma'idah 5:72 providing clear examples of directing worship to other than Allah, that contextually anchor the definition of major shirk (shirk akbar)?",
+    "Which authentic narrations, specifically the explicitly defined categories in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies the greatest of the major sins (Al-Kaba'ir) as associating a partner with Allah when He alone created you, directly anchor the definition and examples of major shirk?"
+  ],
+  "retrievedAt": "2026-04-19T04:45:30Z"
+}

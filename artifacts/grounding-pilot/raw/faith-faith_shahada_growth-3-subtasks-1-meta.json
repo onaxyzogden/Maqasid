@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[3].subtasks[1]",
+  "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+  "subtaskTitle": "Study Tawhid al-Uluhiyyah — worship of Allah alone",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study Tawhid al-Uluhiyyah — worship of Allah alone' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Ad-Dhariyat 51:56 which defines the sole purpose of creation as worship and Surah Al-Fatihah 1:5 which establishes exclusive devotion, that directly anchor the scriptural foundation for Tawhid al-Uluhiyyah?",
+    "Which authentic narrations, specifically the definitive hadith of Mu'adh bin Jabal in Sahih al-Bukhari and Sahih Muslim establishing that the exclusive right of Allah over His slaves is that they worship Him without associating any partners, contextually anchor the theological study of Tawhid al-Uluhiyyah?"
+  ],
+  "retrievedAt": "2026-04-19T04:56:00Z"
+}

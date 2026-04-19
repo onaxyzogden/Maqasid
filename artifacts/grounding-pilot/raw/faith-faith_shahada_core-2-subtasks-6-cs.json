@@ -1,0 +1,1320 @@
+{
+  "answer": "<summary>\nThis response generates two high-precision retrieval queries for the MILOS subtask regarding 'Muhabbah' (Love), engineered for **xhigh effort** agentic search in a primary-source Islamic corpus [1, 2]. These queries are optimized to leverage the literalism and high-recall capabilities of the latest Claude models to ensure grounded, scriptural evidence for the condition of love within the Shahada [3-5].\n</summary>\n\n<technical_details>\nTo satisfy the requirements of the `faith_shahada_core` module, these queries utilize specific textual anchors\u2014such as the \"Sweetness of Faith\" hadith and verses regarding the prioritization of love\u2014to trigger **adaptive thinking** and minimize \"AI slop\" or secondary commentary [6-8]. By providing explicit indices like 9:24 and Sahih Bukhari references, the queries ensure that the model does not \"silently generalize\" but instead fetches specific, grounded evidence required for MILOS validation [3, 9]. Following the \"Golden Rule\" of clarity, these queries are self-contained and formatted for immediate execution in a retrieval system [10, 11].\n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, specifically At-Tawbah 9:24 and Al-Baqarah 2:165, that establish the foundational obligation of loving Allah and His Messenger above all worldly attachments as a core condition of faith.\n2. Retrieve Sahih hadith from Bukhari and Muslim, notably the \"sweetness of faith\" narration (Bukhari #16) and the requirement of loving the Prophet more than one's family and wealth (Bukhari #15), to anchor the condition of Muhabbah.\n</queries>\n\n<action_items>\n*   **Execute Retrieval**: Paste the queries into the `/notebooklm` terminal to gather the foundational texts [2, 12].\n*   **Verify Grounding**: Instruct the agent to \"quote relevant parts of the documents first\" to ensure findings are grounded in the text and not generalized summaries [9].\n*   **Apply Grading**: Subject the retrieved results to the 3-tier grading system (Bayinnah/Qarina/Niyyah) to badge the literal relevance of the Muhabbah condition.\n*   **State Management**: If the retrieval process exceeds 60% of the session's context window, initiate the \"Session Continuity\" protocol to preserve state in `progress.txt` [13-15].\n</action_items>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "be2553a5-5d45-4181-9ca8-d49b4b76bc1d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "5f4c0955-c525-44e4-ac59-a3ca5b47169b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "03cddbc3-9f20-4098-8b5f-68491c23c549"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "a6f03892-e159-4887-9d4f-c4d44f831abf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "90096b0e-a810-4677-aeb1-809ef10d036e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "9cd524f1-107c-4e6f-ac2d-a2be191d472d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "0d91a0e5-5382-465d-a04c-8577ec7f780b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "d7e0a3f8-3ea6-477e-bc4a-a879bee5053f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "11275ae1-8560-4eb8-a7f0-a846494d3127"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "64f9a9fe-94dc-4d86-b843-26bfccf1b04d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "6243ccad-b74d-4fef-9b5c-c09bd7a37fe2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "346302fc-b9eb-4110-81fc-48be59a4fe29"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "6f4d9368-f02b-4c7e-8175-d55744ee7dbe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "49edf02e-c705-4b6f-8770-821b143c1d24"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "d8cfd3aa-877a-4e21-8672-b4f3a00793e9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "d32d2406-2078-4065-8ed1-66ad5dfd060b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "e2053076-46d2-468a-880d-fb4a1fa6f60d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "55d29a3a-2960-4275-ba64-e1faeea7520d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 19,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "0209d3ea-7346-44c0-b3cd-1ae5cf60d9e9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 20,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "3debdbbb-3f6d-4380-868a-570c16c11c00"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 21,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "36f40581-a399-4baf-9256-865b2a89e6d7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 22,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "07bd34e0-e3c8-482d-a01f-931fe3ba72f6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 23,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "41d3c43a-b2c2-4021-8b06-193baacc0b8b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 24,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "4c512966-a9ad-41f0-8a86-5b1a5166bacb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 25,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "9f19fd0c-17e6-4270-9d24-f4c99c333060"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 26,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "5b07a8b6-c947-4adb-bfb0-4aeb1cb44cf5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 27,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "59f19753-ac31-4197-8725-751e8d69daf1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 28,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "dcdbb559-c0d6-43f2-aab7-f7dc434b3ca1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 29,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "c42a1875-b2a6-4135-bc22-3692b323bb0e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 30,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "87bf14b3-4d12-428b-a50b-d7dc005d5b1f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 31,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "f0d1ac55-6e2e-4da2-807b-05d5a3e44f09"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 32,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "95ea35ec-909a-417d-b912-d3fdce1c580c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 33,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "c84176b8-ac1f-456b-8807-e2110807466c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 34,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "1b0f7abb-ce2e-4f07-8293-e8049d652dcf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 35,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "fd3b9be1-f598-4ada-a2f4-45e40cc9f598"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 36,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "581783ac-8c4a-441c-a07e-392d69ca91cf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 37,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "71ae8107-995a-45db-bdc9-7217c3e87add"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 38,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "664a8080-529e-4343-9f98-2694727a60af"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 39,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "a634eed7-8ac9-4e2e-a8b9-eab23bb1b266"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 40,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "275d386a-aa80-4623-ad6c-cc06eb6e9b9c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 41,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "7cd1c88a-7362-4608-8d30-8c1c60ed4caf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 42,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "cfbb099c-3d39-4cea-a6f0-02a9660cdad1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 43,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "f23055e8-f6f1-41e5-a29f-deda8b70101b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 44,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "00cfab65-a38c-46bd-bf78-12250405acad"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 45,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "00406f02-901b-41be-b762-0d2c8cf0e839"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 46,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "82875968-1262-4dee-acb2-5f539bb1bdd8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 47,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1db11f06-b28c-447d-96b2-6116f347720e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 48,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "1e5bb79a-aadf-4d0c-897d-19a0247a152a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 49,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "91037fa4-fcd8-41d0-ae43-45478f0df279"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 50,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "16093ef5-266e-4698-944a-ab4fa9af51e2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 51,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "8213a8a9-2926-4a1f-b68d-85c162eb2749"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 52,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "ca23fd43-901f-44f1-855f-92ca5200e250"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 53,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "8882d89c-a25c-4642-8ea0-54e74a5e7f67"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 54,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "e869c8fb-0c38-4b34-bbc7-064e725abaaf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 55,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "56034241-2e32-4524-b284-7aa79edbb9ae"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 56,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "4fc93b41-a068-4ad3-987c-387507602406"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 57,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "aba148b0-52a1-49ae-81e8-be41e2179426"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 58,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "ed006e96-8e7f-468c-9980-8f2ca570b80b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 59,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "e524e6e5-b496-4983-8506-1a6d8653510d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 60,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "fa239336-832c-4033-9de1-aad9d0efb107"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 61,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "c7dec213-61b9-4b9f-be32-559415ff8332"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 62,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "5e96f064-c60d-4036-9d63-608869e83c68"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 63,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "2ecfb3d3-e545-4567-9c4c-e727638e1fdb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 64,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "befba664-655f-4ca7-8b73-afb3795b0ba1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 65,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "7509a162-6fe1-4ef9-bb17-86aebfbd8f1e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 66,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "485ea419-aded-4ba1-97f9-49c789a03c1e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 67,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "07035ea2-9675-4f34-a2b7-b28f8625fd5a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 68,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "701a9902-1fc3-4bab-8da9-dbaaa8e44436"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 69,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "d82bbcb1-bdbf-41a0-9235-4adcaca28143"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 70,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "a74a8d76-dae6-4673-b1ee-34f025977f2c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 71,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "e87fb102-1c97-46c7-a3fc-d7238adedc06"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 72,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "4bd040e0-7c40-4780-939a-cd0cf9734cff"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 73,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "dd0a375c-8c2a-4878-8dc7-e29181f6af5f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 74,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "3c7c8aa7-6f1b-4486-8cdd-032d7d4c340f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 75,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "aa102e9e-cfb6-4dc0-ad85-232dfbc1c0a2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 76,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "52301c62-3c69-4c78-85c3-2875c6d7c7c1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 77,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "04941c71-86ac-4a06-bed2-e04bce55d005"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 78,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "5502fb68-a226-4aa6-a9c7-e29b770dd403"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 79,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "2f81db5e-a0f4-4b3f-a24a-c472b84196eb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 80,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "cad2b2ec-9dc1-4e74-b8a2-b84a9eb42516"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 81,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "24e79b4c-0605-4e33-ade5-415a79973c3c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 82,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "4285be1b-1ee5-4c47-a953-8f108b7f7f5b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 83,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "f6c11212-bd38-42da-bc3b-c012d3005db5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 84,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "403a3ad2-ad5b-432e-b21b-ad280a27e171"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 85,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "bbd5bfa3-6714-4af3-b146-2642fc9c4654"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 86,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "3b4e4bbc-10f0-441d-97a1-7b0811426beb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 87,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "45b31e07-8d24-4c1c-8a26-341281cb533f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 88,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "db7e0d1f-bff5-4593-b2c2-0f16b5d9eb1c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 89,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "6918d4dd-a3c4-4488-94a9-6626f2ebd6e7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 90,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "72b30745-00c5-4e66-84f2-a0c202e456f7"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 91,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "ced39058-7b75-4fe5-860e-8280195dd895"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 92,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "d453dcee-6aa1-41da-998a-fd803a55c1c3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 93,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "274dfbdf-c208-4fca-a241-a8aefd61e76e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 94,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "ecf3014f-a114-4735-9a3c-4e9954e06d33"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 95,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "81e87f73-813d-4a3e-8982-4929e2cc408a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 96,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "b105abea-7f30-4078-b037-4b91ce0fde74"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 97,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "fadc84fd-b624-47fa-91b9-db9cbe40950b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 98,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "d39b5d2b-fe37-4860-867c-f7812ec9b60a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 99,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "16b469d4-1e45-4f82-9213-51efeaceefd0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 100,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "65983290-29a6-4f5c-9670-386ac1099e40"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 101,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "3aae64ca-4a9f-49b7-9392-71e67e330b8c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 102,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "90818bad-4800-4530-b8db-3338eb5fdacf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 103,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "92334459-027a-403e-8f4f-ae8547a504da"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 104,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "f94e2735-1580-4765-b9be-72dbc0a452f5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 105,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "874e2b43-e02a-4984-885e-e8b0fc683b5f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 106,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1a58812b-903e-4049-a928-66545c96bf8e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 107,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "a9c0cb68-8293-4045-86b8-2bec8642ca28"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 108,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "16b216b8-2e2d-4d53-9d5c-ad5ba2c2ec7b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 109,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "ba90a4da-ffdc-4fcf-b8bf-b0f1c2e797a0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 110,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "ae7778f6-3a60-44de-b82d-cf10ab5e4d60"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 111,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "0109aa55-7ca4-4215-988a-66d8090d501a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 112,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "5fac288c-696e-4fde-86fe-9a37fe3954d3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 113,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "adc3d33a-9f30-499b-b134-d67c23dab828"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 114,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "c31ae4c3-abde-4cc4-ba76-594f46e76f2c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 115,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "1e821768-c17f-4691-b6a3-63a2a02d1cf1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 116,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "8961f43c-0da8-498e-8f44-9b48b2db9a72"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 117,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "20d767b4-fb1e-4757-8933-085add1efcf3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 118,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1ae0ddc4-7993-4333-af8d-1ff1971688e4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 119,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "adc04e8c-c619-40d9-b572-7264eec8e1f6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 120,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "d5290dbf-3991-4fdf-a5a6-6d85854d796c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 121,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "24156a3b-35f2-4178-8f3f-3deee6d3356f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 122,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "dd8c458e-6d8e-47a5-ba98-7526b40687fc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 123,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "0fa2c72a-d54d-484d-935b-73df630ee10b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 124,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "58ccc534-2cb6-4d61-af66-e1c2c96a22c5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 125,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "6896f158-7b3e-42fa-879e-e0b3708ecc55"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 126,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "a8d60099-ebf8-4dfd-a6c6-bd4178d91d17"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 127,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "09e252b6-13a9-443a-b951-aabfb786c702"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 128,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "eb30695b-3691-4b4d-9341-f6a17d1bb3ce"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 129,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "c3c705e1-be4f-422c-a866-ff3cf6151fc0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 130,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "d8bd0133-5300-4ba7-8a73-9a7dfd96cc0f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 131,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "c51facb7-e409-4ee0-8d92-c144949412d3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 132,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "83a2833b-588f-4979-a6a7-8323a5b5503c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 133,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "7c8d03a5-53a0-4fc4-9eff-0a1e1e98c792"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 134,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "b9655ae0-0659-41bd-99a9-c14d84b769ba"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 135,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "9038d84c-c9bc-4067-b4f7-a2978de22ac6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 136,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "cf01662e-dfac-47d5-8c6c-6bdec839e62d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 137,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "c2fd8b3e-18cd-4ac9-8e13-a75640b69bec"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 138,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "f1a6e818-ab2a-41a9-9a55-0ce92db955bb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 139,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "db780b2a-2add-48a1-a8fc-531cbd59ce3f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 140,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "aa218af4-951d-4342-9ee4-97d27cc841f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 141,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "c3c705e1-be4f-422c-a866-ff3cf6151fc0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 142,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "d8bd0133-5300-4ba7-8a73-9a7dfd96cc0f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 143,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "c51facb7-e409-4ee0-8d92-c144949412d3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 144,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "83a2833b-588f-4979-a6a7-8323a5b5503c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 145,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "7c8d03a5-53a0-4fc4-9eff-0a1e1e98c792"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 146,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "b9655ae0-0659-41bd-99a9-c14d84b769ba"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 147,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "9038d84c-c9bc-4067-b4f7-a2978de22ac6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 148,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "cf01662e-dfac-47d5-8c6c-6bdec839e62d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 149,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "c2fd8b3e-18cd-4ac9-8e13-a75640b69bec"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 150,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "f1a6e818-ab2a-41a9-9a55-0ce92db955bb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 151,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "db780b2a-2add-48a1-a8fc-531cbd59ce3f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 152,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "aa218af4-951d-4342-9ee4-97d27cc841f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 153,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "c3c705e1-be4f-422c-a866-ff3cf6151fc0"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 154,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "d8bd0133-5300-4ba7-8a73-9a7dfd96cc0f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 155,
+      "cited_text": "Frontend design",
+      "start_char": 33532,
+      "end_char": 33547,
+      "chunk_id": "c51facb7-e409-4ee0-8d92-c144949412d3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 156,
+      "cited_text": "Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6, particularly at lower effort levels. It will not silently generalize an instruction from one item to another, and it will not infer requests you didn't make. The upside of this literalism is precision and less thrash, and it generally performs better for API use cases with carefully tuned prompts, structured extraction, and pipelines where you want predictable behavior. If you need Claude to apply an instruction broadly, state the scope explicitly (for example, \"Apply this formatting to every section, not just the first one\").",
+      "start_char": 5013,
+      "end_char": 5632,
+      "chunk_id": "83a2833b-588f-4979-a6a7-8323a5b5503c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 157,
+      "cited_text": "Give Claude a role",
+      "start_char": 13745,
+      "end_char": 13763,
+      "chunk_id": "7c8d03a5-53a0-4fc4-9eff-0a1e1e98c792"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 158,
+      "cited_text": "General principles",
+      "start_char": 11406,
+      "end_char": 11424,
+      "chunk_id": "b9655ae0-0659-41bd-99a9-c14d84b769ba"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 159,
+      "cited_text": "Be specific about the desired output format and constraints.",
+      "start_char": 12003,
+      "end_char": 12063,
+      "chunk_id": "9038d84c-c9bc-4067-b4f7-a2978de22ac6"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 160,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "cf01662e-dfac-47d5-8c6c-6bdec839e62d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 161,
+      "cited_text": "Migration: For very long conversations, inject what were previously prefilled-assistant reminders into the user turn. If context hydration is part of a more complex agentic system, consider hydrating via tools (expose or encourage use of tools containing context based on heuristics such as number of turns) or during context compaction.",
+      "start_char": 19217,
+      "end_char": 19554,
+      "chunk_id": "c2fd8b3e-18cd-4ac9-8e13-a75640b69bec"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 162,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "f1a6e818-ab2a-41a9-9a55-0ce92db955bb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 163,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "db780b2a-2add-48a1-a8fc-531cbd59ce3f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 164,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "aa218af4-951d-4342-9ee4-97d27cc841f1"
+    }
+  ]
+}

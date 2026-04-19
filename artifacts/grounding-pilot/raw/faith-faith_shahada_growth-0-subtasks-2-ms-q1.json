@@ -1,0 +1,984 @@
+{
+  "answer": "**Modes of Divine Communication**\nSurah Ash-Shura 42:51 establishes that God does not speak to any human being face-to-face [1]. Instead, divine communication occurs through three specific methods: direct revelation, speaking from behind a partition or veil, or sending an angelic messenger to reveal God's will [1, 2]. This ayah anchors the theological understanding that prophets receive guidance through protected, divine channels [1]. \n\n**The Seal of the Prophets**\nSurah Al-Ahzab 33:40 defines the finality of prophethood by declaring that Prophet Muhammad is the Messenger of God and the \"seal\" or very last of the prophets [3]. The sources emphasize that while previous prophets were sent exclusively to their own nations, Prophet Muhammad was sent to all of mankind, officially closing the line of prophets [4, 5]. The Prophet illustrated this theological concept by comparing the history of prophethood to a beautifully built house, with himself acting as the final brick that completes the structure [6].\n\n**The Nature and Continuity of Prophethood**\nSeveral other ayat contextually anchor the study of how and why prophets were sent:\n*   **A Unified Message:** Surah Al-Anbiya 21:25 confirms that every messenger prior to Muhammad received the exact same core revelation: that there is no deity except God, and He alone must be worshipped [7]. \n*   **The Divine Covenant:** Surah Al-Ahzab 33:7 outlines that God took a solemn covenant from all the major prophets, linking Muhammad directly with Noah, Abraham, Moses, and Jesus in a shared mission [8].\n*   **Humanity of the Prophets:** The Qur'an emphasizes that messengers were not angels or immortal beings; they were mortal men who ate food and walked in the markets [9, 10].\n*   **The Purpose of Revelation:** God sent these messengers as bringers of good tidings and warners, ensuring that mankind would have no argument or excuse against God after their arrival [11].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "d822d3da-88ae-4eef-97f1-90afe87e815e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "a27e2c30-06ef-45c1-a43b-05a8e23f3e9e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "8185f318-8695-4dac-b4dc-9d17f1f704e4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "fe4e9b69-1358-48da-acbc-99935fa22391"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "59876dd0-2cf3-4953-9eda-9896fc7181a4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "5b2f7fc3-1838-49db-8b50-cb5a468effed"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "ff26dd50-f299-4bb2-94e2-92b2914f2e57"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "e53f89f3-8b20-4231-aac1-9c0de3e7fd0c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "01df7560-c3de-4c6a-a860-94f6124e3d0d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "c74afd4e-c7f1-4a45-8940-917d59ca92b1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "65a23dd7-fe25-4e6d-967d-0df121d781d3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "59b14bec-9f25-4b62-89bf-742cca8cbb29"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "d9e827b5-8413-4221-ab56-f0389fd6a6a3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "b4aa6207-a619-4fb3-9b9f-60d334265024"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "6e6c57f7-df17-4ea3-ad3a-b3b4e7e0bb60"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "89b7acba-f33c-4e27-bd10-834a1d14327a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "a8a15592-f0f3-4054-8d14-744be3eaefe4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "7a921724-5645-4f43-8e93-ee843476af86"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 19,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "4bc45e13-c942-47a4-9c2b-f73e96f2b4c2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "49623831-2c3c-43d2-b06f-b3f6426b8ef5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "4e1c0864-cbe5-4910-b78c-783ddeae7a7d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "f09d9cdd-dac8-44e1-80e6-811718b8d94e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "0ef203f3-c45e-4a9b-9d4b-f7763cc6fbea"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 24,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "349b1b9a-2d5e-4f0c-a2fb-a99a55418758"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 25,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "722b8cd9-783a-4b02-b56d-c3d66c62e583"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "64eae8da-e29d-4c26-a375-447e8ac27902"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "d3ed3968-ddcb-479f-b583-dd88fa5d9e79"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "14af1408-e614-4ade-bf35-8df750956357"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 29,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "991fb1b2-1e73-47b0-93f7-3aa5dd677fd9"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 30,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "09cf13fb-da41-4ede-9c06-96a4a9f4b840"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 31,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "9219638a-1e68-4a84-9cdf-d813926fd4e4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "32f6f03d-979a-4794-9d18-475dbb1ad5dd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "b508a092-430d-4dd4-be78-17fabf255268"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "7f9dadb9-c3d7-4d88-b691-0d1d6af9c5ad"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 35,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "90f9e54e-021c-4322-b914-bd77d7ca5203"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 36,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "420b026f-ac40-4691-81dc-bc5273003afa"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 37,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "3057f069-61fa-4f4b-9a2c-2c545ac471e5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "1e8c127b-9377-47e4-8da7-5daf0142a014"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "8e381867-8124-466e-ad99-eccac9d96569"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "74ef3be8-5933-430d-b51a-1aca92c3e2d5"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 41,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "c2e6f44e-a2ae-4692-a6e1-5c6a4facb0c0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 42,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "096231b5-0f14-4161-a085-a5e476850e22"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 43,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "d4baadeb-d094-43b0-babe-ddcdcf4ecff3"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "fc4d88da-8b5c-4393-8449-5d77d54d45ad"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "f9f7c541-3b51-4b65-b540-5179e5945bb6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "ec78508f-525b-480c-a40c-2a87e3c20764"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "f27988a0-b0e4-4272-8d35-7abd5724e5eb"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 48,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "d882a0a3-764f-495c-8b70-c126e7359116"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 49,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "a154f372-edea-4f13-ab7c-3793927c53db"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 50,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "3d34c822-cc33-4bef-8cd7-3e2b9b97bc22"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "3f0f0511-b4bb-4a84-a192-dd557c0a4a83"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "883baa67-6d0b-419e-aecf-74eed7b7df21"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "fd7cc044-4f5c-4106-8683-24288c589d15"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 54,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "41e2dbdb-502f-49de-bc43-3b8b310f4cf9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 55,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "3ed60c78-a2e0-492e-9c08-4e349253c431"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 56,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "90da1092-79fa-4c16-a5b4-07911a3adae0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 57,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "6ad2791b-4ee9-47ad-8e58-11f780cacd50"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "826e97c2-d1b4-4025-9e75-8a5873ee021b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "18f821e1-e3b9-420c-88bb-d08d662f1fb0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 60,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "de860de8-a3dc-4b43-bb34-b9a0b7c9a0b6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 61,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "1ca2de36-4999-44dc-94b2-461a45f39608"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 62,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "c6501f27-9bd9-45cb-91e7-a221d4834e21"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 63,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "9292d2b3-2adb-4287-9560-a3ea30cc5f22"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 64,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "93eaa70c-9120-419b-bff8-924131c6c7ea"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 65,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "5cb8b8d3-f7f7-433b-8d12-12be0086a515"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "18680305-677f-4e61-9f6a-1c0e42444b23"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "e71bcb00-d010-432f-a3dc-08d264e05e59"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 68,
+      "cited_text": null,
+      "start_char": 786828,
+      "end_char": 786829,
+      "chunk_id": "a8ee1bb2-d19e-410f-9a03-13a995fe697d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 69,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "973d6ad7-c7e2-428f-9a9d-861cc54043ea"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 70,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "7f8305f0-09ca-44f5-9d8a-4d79af22350a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 71,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "80a188e7-d9f3-41db-8cbd-2f9845505ddc"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 72,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "15bea46e-6717-46f1-a7e0-b0d381681c78"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 73,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "361556be-0a31-48bd-b2cf-6ebd649f47b3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 74,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "f46af92b-0f93-478a-ba50-7b418dfca714"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 75,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "850584e4-7bfa-4d28-8c0d-d60728bee306"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 76,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "59cb192d-1695-4f41-bee8-4334654c17c8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 77,
+      "cited_text": null,
+      "start_char": 786828,
+      "end_char": 786829,
+      "chunk_id": "ab42f74a-4cb2-46e7-8008-c5cf2534a3c0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 78,
+      "cited_text": "18. They will say, \u201cExalted are You! It was",
+      "start_char": 889858,
+      "end_char": 889903,
+      "chunk_id": "490da55a-e14b-40ea-9619-2cd26050ae57"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 79,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "575d7ea4-910f-48e5-a4cf-fe2296a497b4"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 80,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "8b871cb5-b559-4aa4-b00f-cd64eec69b39"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 81,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "7a620064-a2ff-40df-89ab-294f62728f91"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 82,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "0da7af74-a59d-457d-9c86-4c69a6a79b36"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 83,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "6dcc3069-3bf8-447d-8191-718ca359f06d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 84,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "1f603b84-e36c-44df-b64b-d162afdcf26b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 85,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "4cc36835-f3dd-4acd-bb15-841598dc9b9e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 86,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "9b0f7789-036b-4c75-8e41-e436040d6f5f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 87,
+      "cited_text": null,
+      "start_char": 786828,
+      "end_char": 786829,
+      "chunk_id": "9016a590-f981-4061-acda-87ff727e052e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 88,
+      "cited_text": "18. They will say, \u201cExalted are You! It was",
+      "start_char": 889858,
+      "end_char": 889903,
+      "chunk_id": "f05e4195-f4b9-43ad-8564-dcfae1a31a39"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 89,
+      "cited_text": "S\u016brah 4: an-Nis\u0101\u2019 www.quranproject.org 4: The Women _________________________________________________________",
+      "start_char": 271146,
+      "end_char": 271256,
+      "chunk_id": "ad8fa271-fb78-4368-ac66-8eba85629128"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 90,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "7aff7df2-d21a-4e1b-90c6-2de724d0ae48"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 91,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "2f322c34-77b6-4b74-bd06-74b8a4d7417a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 92,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "a4210bf1-3d23-4ea7-ad5b-6395216a9db0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 93,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "1c9cd04f-5e73-4f32-b90c-f62566c87b14"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 94,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "d72356ef-31a0-48a6-bff8-9e4fc4226f72"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 95,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "02ac317d-d6b9-42bd-b15b-69c75fffd520"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 96,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "02ddff8e-e684-4a2f-ac1d-4948ff135b00"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 97,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "d52556a9-754a-4c48-bc67-da0ad55a9a18"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 98,
+      "cited_text": null,
+      "start_char": 786828,
+      "end_char": 786829,
+      "chunk_id": "abb3ecd3-082b-4442-ac80-969cc75f613b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 99,
+      "cited_text": "18. They will say, \u201cExalted are You! It was",
+      "start_char": 889858,
+      "end_char": 889903,
+      "chunk_id": "0a92e8b4-8fa0-48f0-a35d-94cec09b9fae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 100,
+      "cited_text": "S\u016brah 4: an-Nis\u0101\u2019 www.quranproject.org 4: The Women _________________________________________________________",
+      "start_char": 271146,
+      "end_char": 271256,
+      "chunk_id": "67a503c0-1ef5-400d-ae46-41e5efcb6412"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 101,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "7aff7df2-d21a-4e1b-90c6-2de724d0ae48"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 102,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "2f322c34-77b6-4b74-bd06-74b8a4d7417a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 103,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "a4210bf1-3d23-4ea7-ad5b-6395216a9db0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 104,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "1c9cd04f-5e73-4f32-b90c-f62566c87b14"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 105,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "d72356ef-31a0-48a6-bff8-9e4fc4226f72"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 106,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "02ac317d-d6b9-42bd-b15b-69c75fffd520"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 107,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "02ddff8e-e684-4a2f-ac1d-4948ff135b00"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 108,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "d52556a9-754a-4c48-bc67-da0ad55a9a18"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 109,
+      "cited_text": null,
+      "start_char": 786828,
+      "end_char": 786829,
+      "chunk_id": "abb3ecd3-082b-4442-ac80-969cc75f613b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 110,
+      "cited_text": "18. They will say, \u201cExalted are You! It was",
+      "start_char": 889858,
+      "end_char": 889903,
+      "chunk_id": "0a92e8b4-8fa0-48f0-a35d-94cec09b9fae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 111,
+      "cited_text": "S\u016brah 4: an-Nis\u0101\u2019 www.quranproject.org 4: The Women _________________________________________________________",
+      "start_char": 271146,
+      "end_char": 271256,
+      "chunk_id": "67a503c0-1ef5-400d-ae46-41e5efcb6412"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 112,
+      "cited_text": "S\u016brah 42: ash-Sh\u016br\u0101 www.quranproject.org 42: Consultation _________________________________________________________",
+      "start_char": 1233323,
+      "end_char": 1233439,
+      "chunk_id": "7aff7df2-d21a-4e1b-90c6-2de724d0ae48"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 113,
+      "cited_text": "49. To God belongs the dominion of the",
+      "start_char": 1245312,
+      "end_char": 1245352,
+      "chunk_id": "2f322c34-77b6-4b74-bd06-74b8a4d7417a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 114,
+      "cited_text": "39. [God praises] those who convey the",
+      "start_char": 1075510,
+      "end_char": 1075550,
+      "chunk_id": "a4210bf1-3d23-4ea7-ad5b-6395216a9db0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 115,
+      "cited_text": "4. I have been given the right of intercession (on the Day of Resurrection).",
+      "start_char": 188629,
+      "end_char": 188706,
+      "chunk_id": "1c9cd04f-5e73-4f32-b90c-f62566c87b14"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 116,
+      "cited_text": "Book 004, Number 1061: Hudhaifa reported: The Messenger of Allah (may peace be upon him) said like this.",
+      "start_char": 802802,
+      "end_char": 802907,
+      "chunk_id": "d72356ef-31a0-48a6-bff8-9e4fc4226f72"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 117,
+      "cited_text": "Allah's Apostle said, \"My similitude in comparison with the other prophets before me, is that of a man who has built a house nicely and beautifully, except for a place of one brick in a corner. The people go about it and wonder at its beauty, but say: 'Would that this brick be put in its place!' So I am that brick, and I am the last of the Prophets.\"",
+      "start_char": 1780219,
+      "end_char": 1780572,
+      "chunk_id": "02ac317d-d6b9-42bd-b15b-69c75fffd520"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 118,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "02ddff8e-e684-4a2f-ac1d-4948ff135b00"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 119,
+      "cited_text": "6. The Prophet is more worthy of the believers than themselves,1104 and his wives are [in the position of] their mothers. And those of [blood] relation-ship are more entitled [to inheritance] in the decree of God than the [other] believers and the emigrants, except that you may do to your close associates a kindness [through bequest]. That was in the Book1105 inscribed.",
+      "start_char": 1065755,
+      "end_char": 1066128,
+      "chunk_id": "d52556a9-754a-4c48-bc67-da0ad55a9a18"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 120,
+      "cited_text": null,
+      "start_char": 786828,
+      "end_char": 786829,
+      "chunk_id": "abb3ecd3-082b-4442-ac80-969cc75f613b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 121,
+      "cited_text": "18. They will say, \u201cExalted are You! It was",
+      "start_char": 889858,
+      "end_char": 889903,
+      "chunk_id": "0a92e8b4-8fa0-48f0-a35d-94cec09b9fae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 122,
+      "cited_text": "S\u016brah 4: an-Nis\u0101\u2019 www.quranproject.org 4: The Women _________________________________________________________",
+      "start_char": 271146,
+      "end_char": 271256,
+      "chunk_id": "67a503c0-1ef5-400d-ae46-41e5efcb6412"
+    }
+  ]
+}

@@ -1,0 +1,400 @@
+{
+  "answer": "Surah Ta-Ha 20:114 establishes the continuous pursuit of learning by commanding the Prophet Muhammad to pray, \"My Lord, increase me in knowledge\" [1]. \n\nSurah Al-Baqarah 2:260 demonstrates that questioning to achieve absolute certainty is a valid practice, as Abraham asks God how He brings the dead to life specifically so his heart may be satisfied and stronger in faith [2, 3]. \n\nSurah S\u0101d 38:29 anchors the practice of interrogating scripture by stating the Quran was revealed so that people of understanding might deeply reflect upon its verses [4]. \n\nSurah An-Nisa 4:82 emphasizes active analysis by challenging readers to reflect upon the Quran, noting that if it were not from God, they would find much contradiction within it [5]. \n\nSurah Az-Zumar 39:18 praises active evaluation, describing guided people of understanding as those who carefully listen to speech and follow the best of it [6].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "0e2bc097-0f7d-44de-baae-3b176fc5da26"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "ec1461dc-db01-4a69-85ad-5d7293438494"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "3a19351b-c039-459a-b0b0-c8c517cc436b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "08e706b2-0bfd-4a99-af64-a1e4a79aa7e6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "69817f1c-54f8-4b80-84b8-9a3c5362a6b8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "d06abdd6-3248-4523-b8cc-7d8e7900b587"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 7,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "856cedef-66c7-4227-ae0c-4d1f59841478"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "ba0439f6-1a04-4fc1-90bb-a175f8ee46eb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "709cdfec-de79-407f-b955-7c7f796aae3d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 10,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "976117d3-dd2e-42d4-bb9f-567789fa6335"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "14437d33-0b29-4a49-83ef-2757cfc49eb1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "81e2667a-224e-4c71-b997-a1df18eae25f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "8bb0f905-e2d1-401e-a7a9-4e478b673845"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "3dc476df-4472-412e-a9ff-e28cf5c1617f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "1f82ebf6-1e2a-44b2-825c-cbeb35f11ec1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "cc083fc1-a17a-49b1-82ca-b21792bdea2a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "5286233c-b33d-4921-b099-3cf99c4068d6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "e1da9221-e1bb-4abe-a5c0-2305727a3ddc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "26b1f4b7-41b4-43a6-91ad-57935c2e7569"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "82. Then do they not reflect upon the",
+      "start_char": 248050,
+      "end_char": 248089,
+      "chunk_id": "97673233-164e-4d4e-a00a-0d4828e5cc78"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "30e8ea64-bb48-4f4f-8195-56a586e2bd44"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "692d17ca-b71a-4d01-b7e3-ad05a695657a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "908defc3-e8fc-435d-8a1a-19aaa7b0cb5a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "01e1a92b-8b30-4540-9140-3dc9e7fdcbe8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "82. Then do they not reflect upon the",
+      "start_char": 248050,
+      "end_char": 248089,
+      "chunk_id": "050b3162-6c31-463c-800d-60f1bb93ec0d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "4beb7f7b-657b-48a4-8ff1-17dda87c55c9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "a9f94311-7979-4a95-9f65-2426b32e4a74"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 28,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "8081f52a-43bd-4d6f-9c01-cf1288361331"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "3a6af92a-eabc-4e93-bce2-b3be322f04a8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": "82. Then do they not reflect upon the",
+      "start_char": 248050,
+      "end_char": 248089,
+      "chunk_id": "8cd61707-6054-44be-86d0-80ede0b157cf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": "16. They will have canopies [i.e., layers] of",
+      "start_char": 1170493,
+      "end_char": 1170540,
+      "chunk_id": "2d0fb79e-4faf-48fb-b9c3-f1015611d969"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "e64a9d4e-c6ef-45e9-8ddb-c777a0fd0d21"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "d34e6f7a-9172-417c-9d8e-a98b532f715b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 34,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "76e8c015-0fff-428d-854d-e1650d7bf7c6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "f5ae648e-d8d0-4c1d-89cd-be318f791427"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": "82. Then do they not reflect upon the",
+      "start_char": 248050,
+      "end_char": 248089,
+      "chunk_id": "2330d8f3-0072-49e1-a88c-515386278a6f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": "16. They will have canopies [i.e., layers] of",
+      "start_char": 1170493,
+      "end_char": 1170540,
+      "chunk_id": "1f10cfc8-71b8-40fc-8e5e-0e4e2fa8f461"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "e64a9d4e-c6ef-45e9-8ddb-c777a0fd0d21"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "d34e6f7a-9172-417c-9d8e-a98b532f715b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 40,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "76e8c015-0fff-428d-854d-e1650d7bf7c6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "f5ae648e-d8d0-4c1d-89cd-be318f791427"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "82. Then do they not reflect upon the",
+      "start_char": 248050,
+      "end_char": 248089,
+      "chunk_id": "2330d8f3-0072-49e1-a88c-515386278a6f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "16. They will have canopies [i.e., layers] of",
+      "start_char": 1170493,
+      "end_char": 1170540,
+      "chunk_id": "1f10cfc8-71b8-40fc-8e5e-0e4e2fa8f461"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": "113. And thus We have sent it down as an",
+      "start_char": 777346,
+      "end_char": 777388,
+      "chunk_id": "e64a9d4e-c6ef-45e9-8ddb-c777a0fd0d21"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "260. And [mention] when Abraham said,",
+      "start_char": 152406,
+      "end_char": 152445,
+      "chunk_id": "d34e6f7a-9172-417c-9d8e-a98b532f715b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 46,
+      "cited_text": "Volume 6, Book 60, Number 60: Narrated Ibn Az-Zubair:",
+      "start_char": 2166524,
+      "end_char": 2166578,
+      "chunk_id": "76e8c015-0fff-428d-854d-e1650d7bf7c6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "27. And We did not create the heaven and",
+      "start_char": 1157607,
+      "end_char": 1157649,
+      "chunk_id": "f5ae648e-d8d0-4c1d-89cd-be318f791427"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "82. Then do they not reflect upon the",
+      "start_char": 248050,
+      "end_char": 248089,
+      "chunk_id": "2330d8f3-0072-49e1-a88c-515386278a6f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "16. They will have canopies [i.e., layers] of",
+      "start_char": 1170493,
+      "end_char": 1170540,
+      "chunk_id": "1f10cfc8-71b8-40fc-8e5e-0e4e2fa8f461"
+    }
+  ]
+}

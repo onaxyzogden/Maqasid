@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[5].subtasks[4]",
+  "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+  "subtaskTitle": "Ihsan — memorise the definition: worship Allah as though you see Him",
+  "csQueryPrompt": "For a MILOS subtask titled 'Ihsan — memorise the definition: worship Allah as though you see Him' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah An-Nahl 16:128 and Surah Yunus 10:26, that contextually anchor the concept of Ihsan by emphasizing Allah's constant presence and the ultimate spiritual reward for those who perfect their worship?",
+    "Which authentic narrations, specifically the definitive explanation provided in the Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, explicitly define Ihsan as the practice of worshipping Allah as though you see Him, or with the absolute certainty that He sees you?"
+  ],
+  "retrievedAt": "2026-04-18T18:57:16Z"
+}

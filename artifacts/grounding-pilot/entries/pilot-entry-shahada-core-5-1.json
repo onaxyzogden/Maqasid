@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[5].subtasks[1]",
+    "subtaskTitle": "Memorise the Arabic text",
+    "parentTaskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Memorise the Arabic text' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Qamar 54:17 which establishes the divine facilitation of memorizing sacred texts, that contextually anchor the religious imperative of preserving and memorizing foundational Arabic revelation?",
+        "retrievedAt": "2026-04-18T18:48:59Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-5-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically targeting the exact Arabic transcriptions of Sahih Muslim 8 and Sahih al-Bukhari 50, provide the definitive verbatim text of the Hadith of Jibril required for accurate memorization?",
+        "retrievedAt": "2026-04-18T18:48:59Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-5-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 54:17",
+      "translation": "And We have certainly made the Qur'an easy for remembrance, so is there any who will remember?",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Scriptural anchor for the act of memorisation itself: Allah declares that He made the revealed text easy to commit to memory. While the subtask targets the Arabic of the Hadith of Jibril (not the Qur'an), this verse supplies the theological warrant and encouragement for memorising sacred Arabic text generally. Contextual; Bayyinah. Arabic omitted — MS returned only a fragmentary English paraphrase and no Arabic in the cited chunks.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Qamar 54:17 which establishes the divine facilitation of memorizing sacred texts, that contextually anchor the religious imperative of preserving and memorizing foundational Arabic revelation?",
+        "retrievedAt": "2026-04-18T18:48:59Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 15:9",
+      "arabic": "إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ",
+      "translation": "Indeed, it is We who sent down the Qur'an and indeed, We will be its guardian.",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Verse confirmed by MS with explicit ref ('Qur'an 15:9') in a direct cited_text chunk. Anchors the theological reason for preserving and memorising revealed text — divine guardianship operates through human memorisation. Contextual to the subtask (the hadith is not the Qur'an, but the principle of verbatim preservation of sacred Arabic extends by analogy). Bayyinah.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Qamar 54:17 which establishes the divine facilitation of memorizing sacred texts, that contextually anchor the religious imperative of preserving and memorizing foundational Arabic revelation?",
+        "retrievedAt": "2026-04-18T18:48:59Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim 8 (Book 1, Hadith of Jibril via Umar ibn al-Khattab)",
+      "translation": "A man dressed in pure white clothes... knelt before the Apostle and said: Muhammad, inform me about al-Islam. The Messenger of Allah said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the House if you are solvent enough... Inform me about Iman. He replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil... Inform me about al-Ihsan. He said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The hadith the subtask instructs the user to memorise. Supplying the canonical English matn (with the ref pointing to the Arabic source the user must memorise externally) is load-bearing for this subtask. Bayyinah + direct. Arabic omitted per MS explicit disclaimer that the Arabic transcription is not contained in the provided sources.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically targeting the exact Arabic transcriptions of Sahih Muslim 8 and Sahih al-Bukhari 50, provide the definitive verbatim text of the Hadith of Jibril required for accurate memorization?",
+        "retrievedAt": "2026-04-18T18:48:59Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; 1 direct (Muslim 8) + 2 contextual (Quran 54:17, 15:9). Bar met."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[2].subtasks[4]",
+    "subtaskTitle": "Sidq (Truthfulness) — mean it sincerely",
+    "parentTaskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Sidq (Truthfulness) — mean it sincerely' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically Al-Ankabut 29:2-3 and At-Tawbah 9:119, that define the condition of Sidq (truthfulness) as the internal verification of the verbal testimony through trials and heart-alignment.",
+        "retrievedAt": "2026-04-18T12:58:53Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-4-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, notably the narration of the Prophet to Mu’adh regarding the person who testifies to the Shahada \"truthfully from his heart\" (*sidqan min qalbihi*), to anchor the condition of Sidq.",
+        "retrievedAt": "2026-04-18T12:58:53Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-4-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 9:119",
+      "translation": "O you who have believed, fear God and be with those who are true.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse issues the Qur'anic command to 'be with the truthful' (al-sadiqin) — naming Sidq as a communal and personal condition of Taqwa. Directly supports the subtask: 'mean it sincerely' is the first-person form of being among the truthful. Bayyinah (primary Quran) + direct. Arabic omitted: MS explicitly noted the Arabic text in its response was supplied from general knowledge, not from the source corpus, so per the schema's integrity rule the Arabic is not bound.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "At-Tawbah 9:119 defines Sidq as internal verification of the verbal testimony",
+        "retrievedAt": "2026-04-18T12:58:53Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 49:15",
+      "translation": "The believers are only the ones who have believed in God and His Messenger and then doubt not but strive with their properties and their lives in the cause of God. It is those who are the truthful.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Names al-sadiqun as those whose belief is followed by doubt-free striving — the exact pairing of internal truthfulness with outward action that the subtask asks the user to cultivate. Bayyinah + direct. Arabic omitted for the same corpus-disclaimer reason as 9:119.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "At-Tawbah 9:119 defines Sidq as internal verification of the verbal testimony",
+        "retrievedAt": "2026-04-18T12:58:53Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 Quran entries; both Bayyinah; both direct. Bar met. Notes: (1) q1 MS answer disclaimed that Arabic was supplied from general knowledge rather than the source corpus, so Arabic was omitted from both entries per the direct-quotation rule. (2) q2 (Mu'adh 'sidqan min qalbihi' narration) was described with quoted matn but MS did NOT inline a canonical Bukhari/Muslim ref next to the matn, so no hadith entry could be bound with ref↔matn integrity."
+  }
+}

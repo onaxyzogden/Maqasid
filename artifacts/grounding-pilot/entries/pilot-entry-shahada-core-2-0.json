@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[2].subtasks[0]",
+    "subtaskTitle": "Ilm (Knowledge) — know what it means",
+    "parentTaskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Ilm (Knowledge) — know what it means' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically Muhammad 47:19, that establish the obligation of 'Ilm (knowledge) as a prerequisite for the verbal testimony of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:56:15Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-0-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Muslim and Bukhari, such as the narration stating that whoever dies knowing that there is no god but Allah enters Paradise, to anchor the necessity of knowledge in the validity of the Shahada.",
+        "retrievedAt": "2026-04-18T12:56:15Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-0-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 47:19",
+      "arabic": "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ",
+      "translation": "So know, [O Muhammad], that there is no deity except God...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse commands 'fa'lam' (so know) — making knowledge of Tawhid the grammatical and theological prerequisite of the Shahada itself. This is the scriptural anchor of Ilm as the first of the seven conditions: the testimony must be preceded by knowledge of what it denies and affirms. Bayyinah (primary Quran) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically Muhammad 47:19, that establish the obligation of 'Ilm (knowledge) as a prerequisite for the verbal testimony of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:56:15Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 39:9",
+      "arabic": "قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ",
+      "translation": "...Say, 'Are those who know equal to those who do not know?' Only they will remember [who are] people of understanding.",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Establishes the Quranic asymmetry between the knowing and the unknowing — supporting the subtask by framing Ilm not as optional erudition but as the dividing line between understanding believers and the heedless. Contextual because it speaks to knowledge generally rather than naming the Shahada-condition directly. Bayyinah (primary Quran).",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically Muhammad 47:19, that establish the obligation of 'Ilm (knowledge) as a prerequisite for the verbal testimony of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:56:15Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0039",
+      "translation": "He who died knowing (fully well) that there is no god but Allah entered Paradise.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The hadith explicitly makes 'knowing' the Shahada — not merely pronouncing it — the ground of salvation. Directly anchors Ilm as a Shahada-validity condition by the subtask's exact framing. Bayyinah (Sahih Muslim) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Sahih hadith such as the narration stating that whoever dies knowing that there is no god but Allah enters Paradise",
+        "retrievedAt": "2026-04-18T12:56:15Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; 2 direct (47:19, Muslim 0039) + 1 contextual (39:9). Bar met: ≥1 {Bayyinah|Qarina} ∩ {direct|contextual}."
+  }
+}

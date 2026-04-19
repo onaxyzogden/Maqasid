@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[3].subtasks[3]",
+    "subtaskTitle": "Understand how the three categories interrelate",
+    "parentTaskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Understand how the three categories interrelate' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, specifically Surah Maryam 19:65 which seamlessly integrates Allah's lordship over the heavens and earth, the direct command to worship Him exclusively, and the absolute uniqueness of His attributes, that directly anchor the scriptural interrelationship between the three categories of Tawhid?",
+        "retrievedAt": "2026-04-19T05:00:11Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-3-subtasks-3-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, such as the comprehensive supplication of Sayyid al-Istighfar found in Sahih al-Bukhari where the believer simultaneously affirms Allah's creation (Rububiyyah), pledges exclusive servitude (Uluhiyyah), and invokes His specific attributes for forgiveness (Asma wa Sifat), contextually anchor the practical unification of these categories?",
+        "retrievedAt": "2026-04-19T05:00:11Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-3-subtasks-3-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 4, Number 1695 (Narrated Ali b. Abu Talib)",
+      "translation": "'Ali b. Abu Talib reported that when the Messenger of Allah (may peace be upon him) got up at [night to pray, he would praise Allah as] the Supporter of the heavens and the earth, the Originator of the heaven and the earth... the best of Creators. [He declared:] 'Thou art my God. There is no god but Thee... I am Thy bondman... Verily my prayer, my sacrifice, my living and my dying are for Allah, the Lord of the worlds.' [He sought forgiveness invoking Allah's attributes:] 'Forgive all my sins, for no one forgives the sins but Thee.'",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 cit. 3 returns the canonical Sahih Muslim ref (Book 004 Number 1695) with the isnad header verbatim, and the MS answer quotes the three unified clauses of the supplication inline: Rububiyyah ('Supporter of the heavens and the earth... best of Creators'), Uluhiyyah ('Thou art my God. There is no god but Thee... I am Thy bondman... my prayer, my sacrifice... are for Allah'), and Asma wa Sifat ('no one forgives the sins but Thee'). This is precisely the subtask's target: a single Prophetic text unifying the three categories in practice. Note: MS explicitly disclaims Sayyid al-Istighfar ('not present in the provided sources') — we do NOT cite it; we cite the parallel Ali-narration which MS did return.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, such as the comprehensive supplication of Sayyid al-Istighfar found in Sahih al-Bukhari where the believer simultaneously affirms Allah's creation (Rububiyyah), pledges exclusive servitude (Uluhiyyah), and invokes His specific attributes for forgiveness (Asma wa Sifat), contextually anchor the practical unification of these categories?",
+        "retrievedAt": "2026-04-19T05:00:11Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "1 entry (Sahih Muslim Book 4 Number 1695, Bayyinah, direct). Bar met. Sayyid al-Istighfar (the subtask's named hadith) explicitly rejected per MS q2 disclaimer: 'The specific supplication known as Sayyid al-Istighfar from Sahih al-Bukhari is not present in the provided sources' — per hard rule #3 we do not fabricate a Bukhari ref. The Ali-narration (Muslim 4/1695) that MS did return as an alternative is a true canonical parallel with matn clauses quoted inline by MS, and it genuinely does unify the three categories — so it stands in. Quran axis rejected: q1 named 19:65 but all reference chunks returned '63. That is Paradise, which We give as in-' — a fragment from a different ayah block, not 19:65's matn. No Quran binding achievable. Page-only markers 440/1800, 441/1800 in q2 also excluded."
+  }
+}

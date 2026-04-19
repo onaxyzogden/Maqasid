@@ -1,0 +1,928 @@
+{
+  "answer": "Authentic narrations in the sources explicitly use the term \"unbelief\" (kufr) or \"infidelity\" to describe certain major sins and acts of ingratitude, establishing the framework for actions that diminish faith without absolutely nullifying it [1]. The primary narrations providing this evidence include:\n\n*   **Fighting or Killing a Believer:** The Prophet stated that abusing a Muslim is an outrage or evil doing, and fighting or killing him constitutes an act of unbelief [2, 3]. \n*   **Slandering Lineage and Lamentation:** Two practices among people are described as being tantamount to unbelief: slandering another person's lineage and lamenting over the dead [4].\n*   **Denying True Parentage:** Knowingly claiming someone other than one's real father as one's parent is classified as an act of infidelity [5, 6].\n*   **A Fleeing Slave:** A slave who runs away from his master is said to commit an act of infidelity for as long as he refuses to return [7].\n*   **Attributing Rain to Stars:** Claiming that rainfall is caused by the movement or rising of stars, rather than the blessing and mercy of Allah, is classified as a form of disbelief [8, 9].\n*   **Ungratefulness (Ingratitude):** The concept of unbelief is also applied to extreme ingratitude, such as a wife being ungrateful to her husband's lifelong kindness [1, 10]. \n\nThese hadiths demonstrate that the term \"unbelief\" is applied in classical texts to describe severe sins and ungratefulness, categorizing them as a diminution of faith rather than the complete abandonment of Islamic monotheism [1].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 1,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "52da5f78-f903-4173-b3e7-b3ff82189618"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 2,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "7dc8af3d-ba3d-4c28-b5f9-88663d493e72"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 3,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "27fbc6cf-a7cd-4e2d-b2b5-44b94205f30b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 4,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "bc7f86b3-0de9-4c85-b3ec-8f92ddf1a3fb"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 5,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "1fb1ee66-a13f-4f85-9b37-4f4e69d2501f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 6,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "707c2228-be3e-4bb7-8cc3-6dd0005eaf9d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 7,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "14c45ae4-83d1-411a-93a9-3656100fef20"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 8,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "89c61c97-8245-44ab-b725-4b346cfcda8d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 9,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "36b3465a-5d8c-48fa-8be6-eb4de703b5b9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 10,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "01786c01-f66c-469a-a65e-8aee0fcc768d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 11,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "5b0b3b47-6d80-4ce4-8965-1fc23c81679c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 12,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "616aacff-0f14-4008-a1e6-4218ffa9a98e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 13,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "12ce5598-39dd-425b-b729-fa9442d3aeac"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "cdea0fd9-06e8-4302-b7ef-94ce520d5628"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 15,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "06248b73-8222-4027-aa10-148a1037b439"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 16,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "c2d34432-6778-46b7-b0bb-96b4c478a0d6"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 17,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "0ea58d8e-1bbc-417e-9212-6ab527310070"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 18,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "27f41c2e-c2c3-40ab-acc4-e4962c66dc8b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 19,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "fb0eaa20-fbdb-4bda-af65-f4bd053be350"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 20,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "70894425-98bf-48a4-8fde-39d7e26715c4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 21,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "43ff5fd2-b5d7-465a-aa18-9ae96b3504d4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 22,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "88cb6340-cbe9-494f-acdd-61b3fc7fc44c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 23,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "fe64cb10-b03a-40cf-9902-5614b3a8ca49"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 24,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "ae2fda4e-ee5c-4149-a908-2c74abfbe826"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 25,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "462cc0d8-2bc6-4697-8104-ef3ed17231df"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 26,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "12b29ffb-6c1c-4f52-85fb-77744637b66f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 27,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "9550cc50-2d67-4154-b831-f50e3bcaed2e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 28,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "0229ef32-4d24-4e5c-a6be-811026e9ca3f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 29,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "5816cba0-168d-4047-bdc1-6ae014d66811"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 30,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "ac4f4ef8-0ba2-4239-89bc-3a8580d29c93"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 31,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "3b6204dd-d188-4cb0-8130-89da82eee398"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 32,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "231f3158-d118-43a8-b73c-20ad7f820feb"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 33,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "fe6934bd-0c0b-4b76-82b5-d128b37eb141"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 34,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "60f9d701-e14f-4350-a59f-1b7b4d961557"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 35,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "6ebc0a32-2c81-4182-9e2f-584aab541a7a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 36,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "6d1ceb04-c542-445f-9f58-ae810a63bb02"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 37,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "f8775e4e-b59e-45f6-9196-3e9d1f6a1ada"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 38,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "476e50de-63b2-44dd-8063-b65931e23079"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 39,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "f27b86f9-0609-4053-9ada-0ed8ae9f3e5a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 40,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "bb804019-f221-48a9-ab6d-5ad5aa04c8b0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 41,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "7eb755e8-5d53-40b7-962f-bddf54e7bb56"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 42,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "ae27651d-fbcd-4ce6-b4ac-3b6af324d2cf"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 43,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "2d1d7ad0-2323-497a-a9ab-7d098b7c8502"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 44,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "b43ba628-5509-463c-bb2e-a83d81ffcec2"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 45,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "c694c612-16dc-49d5-94d9-3e0db2cc696d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 46,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "efbced6b-5684-421b-b8a5-030a93073762"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 47,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "d79999dc-706d-4a0d-9012-fdf74c7d72a4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 48,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "c7911d77-8408-41ad-83ac-f44776fe9771"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 49,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "4a56b614-a0df-4252-855d-519f9a68e14a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 50,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "8427a501-8144-402e-ad02-ffa3d6f561f4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 51,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "63aa542c-5451-40b7-92ad-2fa9a951fe36"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 52,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "01d4ce99-7da3-4ea5-b2c1-1ae4b010cf5f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 53,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "e09042fb-09ac-41f7-aeab-387f8f930d23"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 54,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "eef63aeb-ec1f-4f98-99e3-9680eba37e62"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 55,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "faf0eeea-214c-4cb7-abea-c0bc41ba4dff"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 56,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "1f1c04c6-1d4b-4557-937b-184defe9e48e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 57,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "33762787-b25e-4864-8391-d9c1cf7c7afc"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 58,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "2b543cbf-39f0-40ba-99ec-4ee7d2a6c7e7"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 59,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "9fe90c8b-d5f2-43a5-95c7-9db821dd2d58"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 60,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "8c17cf69-c73e-4fc3-9fa5-07d4d71e77f3"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 61,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "4bc7d241-030e-4f3e-9433-975dae63ff48"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 62,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "4c4a7fb3-5dbd-46c2-a3c6-a6cff34ab5b1"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 63,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "f8d6cb4e-94e7-4b18-8531-a0210e53332e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 64,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "8147de1a-bf0a-4707-a11d-3af009a86150"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 65,
+      "cited_text": "Volume 1, Book 2, Number 27: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 39788,
+      "end_char": 39846,
+      "chunk_id": "c4616335-cf8a-4a5c-b270-9895376faef9"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 66,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "aaee3e61-2f1f-4a83-8f2e-36b8b5c4c6b6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 67,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "238ba670-0d64-410c-96bd-123b743d8150"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 68,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "881a5372-1fd7-463f-8cdf-023ef437fcb4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 69,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "e72cf80a-c86b-435e-8a85-3407b52011d7"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 70,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "69c11d09-3cae-4de6-954f-1c97005e114e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 71,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "9dfa22aa-a6dc-4439-b51d-52e9bc008c52"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 72,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "12f973dc-1d67-48cc-81e1-e43431e89973"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 73,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "1caf0771-5a98-4251-836d-06721fde7a82"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 74,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "29eaf483-189c-4bd1-9fdb-d27161ce93f9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 75,
+      "cited_text": "Volume 1, Book 2, Number 27: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 39788,
+      "end_char": 39846,
+      "chunk_id": "d9269e97-d19b-4378-a167-01ee21827357"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 76,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "033177bc-2f5e-49ba-be9d-a63cbed29330"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 77,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "503dfa7e-8d5e-487f-98f7-7b737f04a8ee"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 78,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "c1bb0773-a15c-4e4d-9123-6bd98dec1e00"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 79,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "34dc7c22-40c0-4ed5-8179-06d2b2bbb302"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 80,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "874ca337-ece3-47d8-81d5-2920d8f71144"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 81,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "1c030d0e-7087-44a1-8926-7d78add1284c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 82,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "877a37fd-cc3a-45ca-8322-ac835bc40d15"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 83,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "782c977d-8f7d-46bc-a829-73d2e7d53eac"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 84,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "b2f61c7e-eb1a-4fd3-a56c-09d55980ec94"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 85,
+      "cited_text": "Volume 1, Book 2, Number 27: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 39788,
+      "end_char": 39846,
+      "chunk_id": "bfd646b2-c46c-42be-afc2-d47a03fb6226"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 86,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "7cf50bc4-b851-4c7e-ab7a-37ebc89e5a3e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 87,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "e8f85027-a5a3-44fb-96a9-2c3ed4564760"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 88,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "13e0e5b0-992f-49a9-8e4f-53a1196950c6"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 89,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "82218e9d-d517-4858-9bad-4ca8deb7d3ee"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 90,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "35783c85-9ba9-4a4e-8138-457784787986"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 91,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "37a7a2ee-5584-418b-bc77-c6ae1b84a2bf"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 92,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "1c9d233c-4775-426d-aa12-a3da5f9c4b59"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 93,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "4ee86b44-db48-482c-979f-66bf5f775352"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 94,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "363d0c78-831c-40d1-bb0a-85e3b47fed04"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 95,
+      "cited_text": "Volume 1, Book 2, Number 27: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 39788,
+      "end_char": 39846,
+      "chunk_id": "9872bd8a-f13e-409c-9119-a142df2cac85"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 96,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "7cf50bc4-b851-4c7e-ab7a-37ebc89e5a3e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 97,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "e8f85027-a5a3-44fb-96a9-2c3ed4564760"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 98,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "13e0e5b0-992f-49a9-8e4f-53a1196950c6"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 99,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "82218e9d-d517-4858-9bad-4ca8deb7d3ee"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 100,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "35783c85-9ba9-4a4e-8138-457784787986"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 101,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "37a7a2ee-5584-418b-bc77-c6ae1b84a2bf"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 102,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "1c9d233c-4775-426d-aa12-a3da5f9c4b59"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 103,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "4ee86b44-db48-482c-979f-66bf5f775352"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 104,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "363d0c78-831c-40d1-bb0a-85e3b47fed04"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 105,
+      "cited_text": "Volume 1, Book 2, Number 27: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 39788,
+      "end_char": 39846,
+      "chunk_id": "9872bd8a-f13e-409c-9119-a142df2cac85"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 106,
+      "cited_text": "Apostle (may peace and blessings be upon him) gave me a promise that no one but a believer would love me, and none but a hypocrite would nurse grudge against me.",
+      "start_char": 313633,
+      "end_char": 313795,
+      "chunk_id": "7cf50bc4-b851-4c7e-ab7a-37ebc89e5a3e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 107,
+      "cited_text": "Volume 1, Book 2, Number 46: Narrated 'Abdullah:",
+      "start_char": 50057,
+      "end_char": 50106,
+      "chunk_id": "e8f85027-a5a3-44fb-96a9-2c3ed4564760"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 108,
+      "cited_text": "Chapter 29: Abusing a muslim is an outrage and figh-ting against him is unbelief",
+      "start_char": 306682,
+      "end_char": 306763,
+      "chunk_id": "13e0e5b0-992f-49a9-8e4f-53a1196950c6"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 109,
+      "cited_text": "ported by Shu'ba on the authority of Waqid.",
+      "start_char": 308419,
+      "end_char": 308463,
+      "chunk_id": "82218e9d-d517-4858-9bad-4ca8deb7d3ee"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 110,
+      "cited_text": "Chapter 28: The condition of the faith of one who kno-wingly denies his true parentage",
+      "start_char": 305126,
+      "end_char": 305213,
+      "chunk_id": "35783c85-9ba9-4a4e-8138-457784787986"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 111,
+      "cited_text": "saying this: He who claimed the fatherhood of anyone else besides his real father knowingly (com-mitted a great sin) ;Paradise is forbidden to him. Abu Bakra asserted that he too heard it from the Messenger of Allah (may peace be upon him ).",
+      "start_char": 306137,
+      "end_char": 306379,
+      "chunk_id": "37a7a2ee-5584-418b-bc77-c6ae1b84a2bf"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 112,
+      "cited_text": "Book 001, Number 0129: It is narrated on the authority of Jarir that he heard (the Holy Prophet) saying, The slave who fled",
+      "start_char": 308954,
+      "end_char": 309078,
+      "chunk_id": "1c9d233c-4775-426d-aa12-a3da5f9c4b59"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 113,
+      "cited_text": "upon him) observed: The slave who fled from his master, responsibility with regard to him was ab-solved.",
+      "start_char": 309469,
+      "end_char": 309574,
+      "chunk_id": "4ee86b44-db48-482c-979f-66bf5f775352"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 114,
+      "cited_text": "Book 001, Number 0133: It is reported on the authority of Abu Huraira that the Messenger of Allah (may peace and bles-",
+      "start_char": 310594,
+      "end_char": 310712,
+      "chunk_id": "363d0c78-831c-40d1-bb0a-85e3b47fed04"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 115,
+      "cited_text": "Volume 1, Book 2, Number 27: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 39788,
+      "end_char": 39846,
+      "chunk_id": "9872bd8a-f13e-409c-9119-a142df2cac85"
+    }
+  ]
+}

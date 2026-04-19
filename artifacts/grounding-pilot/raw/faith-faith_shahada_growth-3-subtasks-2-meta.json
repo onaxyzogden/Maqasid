@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[3].subtasks[2]",
+  "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+  "subtaskTitle": "Study Tawhid al-Asma wa al-Sifat — Names and Attributes",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study Tawhid al-Asma wa al-Sifat — Names and Attributes' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, particularly Surah Al-A'raf 7:180 which commands invoking Allah by His most beautiful names and Surah Ash-Shura 42:11 which establishes that there is nothing like Him, that directly anchor the scriptural foundation for Tawhid al-Asma wa al-Sifat?",
+    "Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, specifically the definitive hadith stating that Allah has ninety-nine names and whoever preserves them will enter Paradise, contextually anchor the theological study of His divine Names and Attributes?"
+  ],
+  "retrievedAt": "2026-04-19T04:58:08Z"
+}

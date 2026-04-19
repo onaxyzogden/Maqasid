@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[2].subtasks[3]",
+    "subtaskTitle": "Learn the hadith on hidden shirk and its remedy",
+    "parentTaskTitle": "Understand the difference between major and minor shirk",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Learn the hadith on hidden shirk and its remedy' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Kahf 18:110 which explicitly commands pure worship devoid of hidden association, that contextually anchor the scriptural necessity of identifying and remedying concealed forms of shirk?",
+        "retrievedAt": "2026-04-19T04:51:57Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-3-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the specific hadith describing shirk as more hidden than the creeping of an ant along with its prescribed prophetic supplication for seeking refuge from known and unknown polytheism, provide the exact framework and remedy for hidden shirk?",
+        "retrievedAt": "2026-04-19T04:51:57Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-3-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 18:110",
+      "translation": "...whom has been revealed that your god is one God. So whoever would hope for the meeting with his Lord - let him do righteous work and not associate in the worship of his Lord anyone.",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 cit. 1 supplies the closing clause of 18:110 verbatim: '...let him do righteous work and not associate in the worship of his Lord anyone.' This is the classical Quranic seat for the prohibition of hidden shirk within worship; many scholars cite it as the scriptural backdrop to the 'creeping of an ant' hadith. Contextual because the subtask targets a specific hadith and its remedy which are absent from the corpus — 18:110 is the parallel Quranic anchor for the same concept. Arabic omitted: MS did not supply Arabic for this ayah.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Al-Kahf 18:110 which explicitly commands pure worship devoid of hidden association, that contextually anchor the scriptural necessity of identifying and remedying concealed forms of shirk?",
+        "retrievedAt": "2026-04-19T04:51:57Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "1 entry (Quran 18:110, Bayyinah, contextual — matn verbatim from MS q1 cit. 1). Bar met: {Bayyinah} ∩ {contextual}. Hadith axis entirely rejected — q2's MS answer literally states: 'The provided sources do not contain the specific hadith describing shirk as more hidden than the creeping of an ant, nor do they include the prescribed prophetic supplication for seeking refuge from known and unknown polytheism... the following information is not from your sources'. Per hard rule #3 (disclaimer prefix) the entire q2 content is omitted — no fabricated hadith bindings. Rejected from q1: 107:4-6, 2:264, 4:38, 4:142 named in answer but reference chunks carried only surah-header fragments and one unrelated '37. Who are stingy' snippet — no verse-level binding. 2:264 fragment ('than charity followed by injury') was returned but is from the closing tail, not the 'spending to be seen' operative clause, so not bound. Note: this subtask is candidates for a 'needs-review' flag given only one contextual entry and the canonical hadith is absent from the corpus — but the grounded-bar test passes literally."
+  }
+}

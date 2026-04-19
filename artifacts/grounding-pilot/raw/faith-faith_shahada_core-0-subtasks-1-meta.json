@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[0].subtasks[1]",
+  "taskTitle": "Testify there is no God but Allah",
+  "subtaskTitle": "Reflect on what \"no god but Allah\" demands of your daily life",
+  "csQueryPrompt": "(initial test call — pre-driver)",
+  "extractedQueries": [
+    "Retrieve primary Quranic verses, specifically 2:165, 9:24, 98:5, and 65:3, with Arabic and English translations, that define the manifestation of Tawhid through daily reliance, absolute fear, and prioritized love for Allah.",
+    "Extract Sahih hadith narrations, including the sweetness of faith (Sahih Bukhari 16) and branches of faith (Sahih Bukhari 9), that specify the daily ethical and spiritual requirements for fulfilling the Shahada testimony."
+  ],
+  "retrievedAt": "2026-04-18T12:46:50Z"
+}

@@ -20,6 +20,7 @@ import remarkGfm from 'remark-gfm';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import QuranEmbed from '../islamic/QuranEmbed';
 import HadithCard from '../islamic/HadithCard';
+import AmanahTierBadge from '../shared/AmanahTierBadge';
 
 const HADITH_COLLECTION_SLUGS = {
   'sahih bukhari': 'bukhari',
@@ -315,6 +316,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 <span className={`tdp-subtask-text ${st.done ? 'tdp-subtask-text--done' : ''}`}>
                   {st.title}
                 </span>
+                {st.tier && <AmanahTierBadge tier={st.tier} size="sm" />}
                 <ChevronRight size={16} className="tdp-subtask-chevron" />
               </div>
             ))}
@@ -492,6 +494,12 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             <h2 className="tdp-subtask-detail__title">Source</h2>
           </div>
           <div className="tdp-subtask-detail__body">
+            {activeSubtask.tier && activeSubtask.amanahRationale && (
+              <div className="tdp-amanah-rationale">
+                <AmanahTierBadge tier={activeSubtask.tier} size="md" />
+                <p className="tdp-amanah-rationale__text">{activeSubtask.amanahRationale}</p>
+              </div>
+            )}
             {activeSubtask.sources ? (
               <>
                 <div className={`tdp-sources-trust tdp-sources-trust--${activeSubtask.sourcesTrust === 'scholar-reviewed' ? 'reviewed' : 'suggestive'}`}>
@@ -570,6 +578,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             <h2 className={`tdp-subtask-detail__title ${activeSubtask.done ? 'tdp-subtask-text--done' : ''}`}>
               {activeSubtask.title}
             </h2>
+            {activeSubtask.tier && <AmanahTierBadge tier={activeSubtask.tier} size="md" />}
           </div>
 
           <div className="tdp-subtask-detail__body">

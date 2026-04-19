@@ -1,0 +1,648 @@
+{
+  "answer": "<grounding>\nThe following analysis is anchored in the prompt engineering principles for **Claude Opus 4.7 and 4.6**:\n*   **Literal Instruction Following**: \"Claude Opus 4.7 interprets prompts more literally and explicitly than Claude Opus 4.6... It will not silently generalize an instruction... and it will not infer requests you didn't make\" [1].\n*   **Grounding Strategy**: \"Ground responses in quotes: For long document tasks, ask Claude to quote relevant parts of the documents first before carrying out its task\" [2].\n*   **Contextual Weight**: \"Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs\" [2].\n*   **Communication Style**: \"Claude Opus 4.7 is more direct and opinionated, with less validation-forward phrasing... provides fact-based progress reports\" [3, 4].\n</grounding>\n\n<summary>\nThis response generates two targeted retrieval queries for the MILOS subtask 'Study the linguistic meaning of La ilaha illAllah'. The queries are optimized for **xhigh effort** [5] retrieval within a primary-source Islamic corpus, focusing on the dual pillars of negation and affirmation that define the testimony's linguistic structure.\n</summary>\n\n<technical_details>\nTo ensure high precision in a large corpus, these queries employ specific Quranic indices (Ayat) and canonical Hadith collections (Bukhari/Muslim) [6]. By specifying the linguistic components of *Nafi* (negation) and *Ithbat* (affirmation), the queries steer Claude's **adaptive thinking** [7] toward structural analysis of the text rather than broad thematic summaries. This approach minimizes \"overthinking\" by providing a concrete \"stated bar\" for relevance [8, 9].\n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, specifically 47:19 and 43:26-27, that anchor the linguistic structure of negation (Nafi) and affirmation (Ithbat) inherent in the declaration of \"La ilaha illAllah.\"\n2. Retrieve Sahih hadith from Bukhari and Muslim, such as narrations regarding the \"Kalima\" as the key to Paradise, that directly define the primary-source linguistic meaning of \"La ilaha illAllah.\"\n</queries>\n\n<action_items>\n*   **Tool Triggering**: Use these queries with the `/notebooklm` tool, ensuring the **effort** is set to `xhigh` to maximize tool usage in agentic search [10].\n*   **Source Verification**: Review the retrieved snippets to ensure they are primary scriptural texts (Ayat/Hadith) rather than secondary Tafsir, maintaining high recall for the MILOS validation stage [8, 11].\n*   **Session Management**: If the context used during this research phase approaches 60%, trigger the previously established handover protocol to maintain state across windows [12, 13].\n</action_items>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "35325942-caf1-42a6-ae91-8c8606c62f12"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "0e4fab13-8057-4905-b564-bd06c54354c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "c459148b-142d-48d2-9278-d8a0480d2a0a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "b9651613-7e19-461f-b1d0-cd3653ba3a36"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "922b4d3b-eba8-4885-ad70-0745c7b789ed"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1f4ce50b-666b-4cf7-8285-6dbd65129eff"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "270f0067-942b-4d74-ac28-51bd05c81177"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "4d93fabc-45aa-474b-b1d5-0c78c58ac4bb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "821f3822-2254-4a5e-8e04-c2013563762e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "89b75a25-ce75-4a31-acae-0d05726b301b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "20355ee4-c5df-40cb-8871-c02d813d2d9e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "70dd62c4-9c29-4660-bd79-39e3e65b6b21"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "ec923ac9-f95d-498f-a9c8-403882c4317c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "195aa6cb-bd1e-4f15-a732-2cad0ecbf40e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a0ce2f02-7e72-47b2-a9dd-e2d100aa7365"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "37024f93-43db-4ed4-abae-884ca1cf876b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "47e5bfc2-f74f-42e1-8d3f-1703045d2fdf"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "d6e9518e-01a5-4cb1-a74c-47ee83d054c2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 19,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "5a2ea9c6-ec3d-4399-af9b-1970d134d2f2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 20,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "4d4ece61-d4a0-4b79-839a-43984d914320"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 21,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "dbf58764-012b-4e5e-a5cf-1a871f701b79"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 22,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "c7e4f4b8-648c-4090-a545-4ea5681dfba3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 23,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "2dcde05f-6ad2-4f87-8330-81fa26b229fd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 24,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "3c098cc0-0067-42d3-a77b-2e14bc4bf2c5"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 25,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "602a66a6-ab10-4237-bf40-c9c2ae18da58"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 26,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f7f5628d-d616-4514-89e4-7e9d348273fc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 27,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "08ca97db-977e-4551-b860-3b0f4c532453"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 28,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "c01296d0-0c50-4114-af2d-b2e0caa2ee4d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 29,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "2aab842b-c336-4a27-a09c-943ce5445d52"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 30,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f18eaeab-c5ec-4a40-8145-70724c874671"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 31,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "b5e5add2-59e4-4ccb-a8ca-0db8191c749a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 32,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "27ce4f5f-546e-47c2-9e27-8636d9e61f40"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 33,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "731eaf39-fac6-4640-b951-c59f65cac26e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 34,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "20fb2e22-b650-4bab-9e2d-9c9b3972108f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 35,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "5263addd-8c7e-4b19-8d4d-674d0798e2a3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 36,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "5e783c02-05cf-4a2d-aad1-ad0597f5241d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 37,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "010c8506-17b6-4ce7-8abb-92fc6091d121"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 38,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "12102c72-5d45-49ae-9a04-2ca8809084bc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 39,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "2e8c6fb7-b670-4986-9d6a-5e6b0dcec4ce"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 40,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "288824ce-a3d5-4636-b3ac-743e79badc5d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 41,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "ad647ffc-4d50-441d-8163-619be55561ca"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 42,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "7b6ae7ec-6984-49b2-acc9-5568f655f3c3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 43,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "36f02433-2669-469f-a0a5-3192e3135f3e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 44,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "cfff2283-531a-4209-82ba-bed1440e6860"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 45,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "630b12e2-82d5-476f-9ae8-58dc2ef18bab"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 46,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "82202bb9-2dfc-4c37-af28-9cb88b572fad"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 47,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "000dd60d-6aa5-4738-abac-e6c2c7a48ac2"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 48,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "461d97ad-870f-4348-a8dc-3af6d5111fb3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 49,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "7a0ea765-ac52-4961-9732-1fa99c046292"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 50,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f4f86b98-c9bb-4d8a-b512-7048b94c7739"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 51,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "b0bcfdad-83ae-4ceb-9e76-b8c9d91b7132"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 52,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "0ce5e2bc-77ce-4d4a-af23-52a475e7b247"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 53,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "6f4d8c3b-0c26-4f3f-9148-75daa5fde84a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 54,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "d6f0d1ab-c2fe-4095-b70e-b859c823f02d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 55,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "b4bf78b5-ba7d-48fd-9ed0-e4c1575213b4"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 56,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "ebc2c8dc-66b3-4653-b3e3-c014eba652ec"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 57,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "af754ba5-83f7-41b6-ad67-e13ba2a285d8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 58,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "06ec08ce-c7be-4acf-8ed8-f7bb80e335de"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 59,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "729ff98c-3844-42db-9017-faa0824d1e2b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 60,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "fbc35ccd-9682-40a6-b45b-35a5841c8d53"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 61,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "0c6a6394-6843-4f4f-b6df-dfc05bfc82f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 62,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "f6c11cec-0b6d-4b04-b6b0-4cb473832e22"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 63,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "307c6040-b5dc-4dfc-ab94-c1018a8e9954"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 64,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "ed182eb4-3809-4ec9-999d-886e3ccab0c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 65,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "af754ba5-83f7-41b6-ad67-e13ba2a285d8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 66,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "06ec08ce-c7be-4acf-8ed8-f7bb80e335de"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 67,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "729ff98c-3844-42db-9017-faa0824d1e2b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 68,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "fbc35ccd-9682-40a6-b45b-35a5841c8d53"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 69,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "0c6a6394-6843-4f4f-b6df-dfc05bfc82f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 70,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "f6c11cec-0b6d-4b04-b6b0-4cb473832e22"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 71,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "307c6040-b5dc-4dfc-ab94-c1018a8e9954"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 72,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "ed182eb4-3809-4ec9-999d-886e3ccab0c8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 73,
+      "cited_text": "Balancing autonomy and safety",
+      "start_char": 29062,
+      "end_char": 29091,
+      "chunk_id": "af754ba5-83f7-41b6-ad67-e13ba2a285d8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 74,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "06ec08ce-c7be-4acf-8ed8-f7bb80e335de"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 75,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "729ff98c-3844-42db-9017-faa0824d1e2b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 76,
+      "cited_text": "Claude Opus 4.6 does significantly more upfront exploration than previous models, especially at higher effort settings. This initial work often helps to optimize the final results, but the model may gather extensive context or pursue multiple threads of research without being prompted. If your prompts previously encouraged the model to be more thorough, you should tune that guidance for Claude Opus 4.6:",
+      "start_char": 21239,
+      "end_char": 21645,
+      "chunk_id": "fbc35ccd-9682-40a6-b45b-35a5841c8d53"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 77,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "0c6a6394-6843-4f4f-b6df-dfc05bfc82f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 78,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "f6c11cec-0b6d-4b04-b6b0-4cb473832e22"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 79,
+      "cited_text": "<Note> When extended thinking is disabled, Claude Opus 4.5 is particularly sensitive to the word \"think\" and its variants. Consider using alternatives like \"consider,\" \"evaluate,\" or \"reason through\" in those cases. </Note>",
+      "start_char": 25114,
+      "end_char": 25335,
+      "chunk_id": "307c6040-b5dc-4dfc-ab94-c1018a8e9954"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 80,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "ed182eb4-3809-4ec9-999d-886e3ccab0c8"
+    }
+  ]
+}

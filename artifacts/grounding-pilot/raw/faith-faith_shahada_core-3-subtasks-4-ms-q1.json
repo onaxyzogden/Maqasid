@@ -1,0 +1,672 @@
+{
+  "answer": "**The Foundation of Righteousness:** Surah Al-Baqarah 2:177 defines true righteousness not merely as an outward action, but as firmly believing in God, the Last Day, the angels, the Book, and the prophets [1]. Conversely, Surah An-Nisa 4:136 warns that whoever disbelieves in the Last Day, along with God and His revelations, has gone completely astray [2].\n\n**The Promise of Salvation:** Surah Al-Baqarah 2:62 and Surah Al-Ma'idah 5:69 offer a direct promise that anyone who believes in God and the Last Day and does righteous deeds will be rewarded by their Lord, and they will experience no fear or grief [3, 4]. \n\n**The Certainty of Resurrection:** Surah Al-Hajj 22:7 provides the absolute guarantee that the Hour is coming without a doubt, and that God will resurrect everyone in their graves [5]. Surah At-Taghabun 64:7 directly addresses deniers, commanding the Prophet to swear by God: \"Yes, by my Lord, you will surely be resurrected; then you will surely be informed of what you did\" [6].\n\n**The Guide for Worldly Actions:** In the sources, belief in the Last Day directly informs how believers live their lives. It is a prerequisite for those who maintain the mosques of God [7]. It also drives the believers to strive in the cause of God with their wealth and lives [8] and prevents them from having affection for those who oppose God and His Messenger [9].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "26fccb99-8180-4d6e-a54c-d36e1cd6812d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "a128e0cc-165a-4965-a99c-6fc2160625a5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "a25b868b-36f3-4628-b30e-8d9f2699276a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "ad1740ea-a16b-4a51-b908-95fa0a3e90dd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "273c011f-cfcd-4386-988d-64f85a95a711"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "0289f049-56d9-4892-ae86-25f63763e501"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "4f18228f-73bf-4f4c-8ccc-32895a1885d8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "93fd2ce1-6e2a-4d28-9ce0-bd48c44b6e52"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "04ef0e93-2f6f-451a-8065-1d62be926bc9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "e9c7f774-75f9-48b0-858e-53db3c3e67fe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "58581a2f-d945-456d-8170-9d6ab44edb50"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "f684803e-363c-443c-8cd7-0c8e7682586a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "ad13598b-0883-4108-abb0-5e0430f9b783"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "58dbe02e-e65e-4202-88e5-fb920d686f15"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "73e965cb-1636-41c7-b7fa-593a2b9cd5ae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "de6dc855-12c3-45e4-84b1-9c0bea455b04"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "76303c69-b2c8-4885-bc9f-83b07454c52a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "6ec9fa50-e7ec-464f-9742-fef6c8b4c98d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "182fd34e-c5af-4822-b608-72582f67a2be"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "6b32ad08-c0c5-44f4-9de0-70a517fd1307"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "25315a88-856d-40ad-b6b1-507e6f2290cb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "c637af01-2ba7-4458-b935-b05cbad5c892"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 23,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "5d4fe0a5-5ea9-44d2-89db-3518e50fc772"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "a98ece0a-8819-418a-b321-650b56e01bfb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "249036d5-fd51-4b21-af68-8ca86293885b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "ca746112-41f3-4425-9470-35f74e41b0f6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "037da844-cccd-4ff0-af92-602202790c39"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "dac4b50e-cf7a-4b3d-9e1a-159d9f6a016a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "5123b767-a354-4bff-b152-ec4d79346889"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "0a8bb752-8d2f-4243-b2d0-70b3796cde87"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "7ca877e3-a792-4e11-868d-d898cad4161e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "05660ef9-6beb-4035-9f70-359f8ddb91d2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "4fff5046-bced-4566-abaa-4d6cb4972678"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "01731556-8e8d-4b30-80e5-ee0a225c50e1"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "4623f7b7-605c-48a0-b5dd-852b928bee29"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "fac73473-e795-4ace-9686-f5bb3c31a7c9"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "2342df43-1338-4e88-84f9-a8a47321d1ee"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "2e40efde-8b6b-43f1-acb0-5bb3531d6dc2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": "maintained by those who believe in God and the Last Day and establish prayer and give zak\u0101h and do not fear except God, for it is expected that those will be of the [rightly] guided.",
+      "start_char": 488877,
+      "end_char": 489060,
+      "chunk_id": "e4cb83c3-f79a-41e0-8254-f958ec9565fe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "84bbd1e2-be19-4474-ac22-98f30776298b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "10115679-3ff2-4f77-9d49-4ff98b7aef68"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "a2f3910a-1d62-4cc0-84e2-d5ee8b238e24"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "4aa0f6bc-0bec-4551-a943-3dfac6806a9c"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "6774d382-d0ff-4f43-8d3b-225502c4c919"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "a1d4348a-e515-43a3-9709-29ace0df053e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "maintained by those who believe in God and the Last Day and establish prayer and give zak\u0101h and do not fear except God, for it is expected that those will be of the [rightly] guided.",
+      "start_char": 488877,
+      "end_char": 489060,
+      "chunk_id": "8522ac09-88ef-4d1b-99f0-2724493b8349"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": "44. Those who believe in God and the Last",
+      "start_char": 496553,
+      "end_char": 496596,
+      "chunk_id": "0f1f8683-f455-472b-9c90-d83476fb9e88"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "08889088-cc11-4e39-a830-c2b62ca01759"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "ed103d64-6e5b-4ded-bec2-68036a18df02"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "cf50bc78-a209-4db3-b2af-43ab26758371"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "c298ba05-d22d-403c-9fda-c27003aeceef"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "92e8f3a9-826f-4889-8c95-750fa79d49b8"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "e46e9dce-843c-4be2-b19f-cb7caeac5d0b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 54,
+      "cited_text": "maintained by those who believe in God and the Last Day and establish prayer and give zak\u0101h and do not fear except God, for it is expected that those will be of the [rightly] guided.",
+      "start_char": 488877,
+      "end_char": 489060,
+      "chunk_id": "b4cd71d7-3959-4934-a35c-2f5f8bf828b6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 55,
+      "cited_text": "44. Those who believe in God and the Last",
+      "start_char": 496553,
+      "end_char": 496596,
+      "chunk_id": "257ae970-8589-4b49-9a66-998eb55fae45"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 56,
+      "cited_text": "in God and the Last Day having affec-tion for those who oppose God and His Messenger, even if they were their fathers or their sons or their brothers or their kindred. Those - He has de-creed within their hearts faith and sup-ported them with spirit1535 from Him. And We will admit them to gardens beneath which rivers flow, wherein they abide eternally. God is pleased with them, and they are pleased with Him - those are the party of God. Un-questionably, the party of God - they are the successful.",
+      "start_char": 1467359,
+      "end_char": 1467861,
+      "chunk_id": "90092d5e-b70e-45c6-858e-107b084a7938"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 57,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "0407ad70-e538-4aea-a82b-3ba060fa02bc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 58,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "94fd1ab7-564f-4b1e-8211-fb20cb4b7037"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 59,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "7d018067-c22d-47d0-b488-4a2c69a03f6f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 60,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "ce28d78a-d928-4793-a6e4-3054a605a422"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 61,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "a62460cd-8090-41c8-9e8a-4ec108956030"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 62,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "63c9e5c3-b5c1-4634-b0c3-40196b01edbe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 63,
+      "cited_text": "maintained by those who believe in God and the Last Day and establish prayer and give zak\u0101h and do not fear except God, for it is expected that those will be of the [rightly] guided.",
+      "start_char": 488877,
+      "end_char": 489060,
+      "chunk_id": "49158863-88d3-4772-a36e-03ac909f6c0b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 64,
+      "cited_text": "44. Those who believe in God and the Last",
+      "start_char": 496553,
+      "end_char": 496596,
+      "chunk_id": "873905d1-a273-4cb1-8ba7-ab9c6081f077"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 65,
+      "cited_text": "in God and the Last Day having affec-tion for those who oppose God and His Messenger, even if they were their fathers or their sons or their brothers or their kindred. Those - He has de-creed within their hearts faith and sup-ported them with spirit1535 from Him. And We will admit them to gardens beneath which rivers flow, wherein they abide eternally. God is pleased with them, and they are pleased with Him - those are the party of God. Un-questionably, the party of God - they are the successful.",
+      "start_char": 1467359,
+      "end_char": 1467861,
+      "chunk_id": "fa8073ba-74be-4cd2-bee6-b621b94bf0db"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 66,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "0407ad70-e538-4aea-a82b-3ba060fa02bc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 67,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "94fd1ab7-564f-4b1e-8211-fb20cb4b7037"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 68,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "7d018067-c22d-47d0-b488-4a2c69a03f6f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 69,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "ce28d78a-d928-4793-a6e4-3054a605a422"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 70,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "a62460cd-8090-41c8-9e8a-4ec108956030"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 71,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "63c9e5c3-b5c1-4634-b0c3-40196b01edbe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 72,
+      "cited_text": "maintained by those who believe in God and the Last Day and establish prayer and give zak\u0101h and do not fear except God, for it is expected that those will be of the [rightly] guided.",
+      "start_char": 488877,
+      "end_char": 489060,
+      "chunk_id": "49158863-88d3-4772-a36e-03ac909f6c0b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 73,
+      "cited_text": "44. Those who believe in God and the Last",
+      "start_char": 496553,
+      "end_char": 496596,
+      "chunk_id": "873905d1-a273-4cb1-8ba7-ab9c6081f077"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 74,
+      "cited_text": "in God and the Last Day having affec-tion for those who oppose God and His Messenger, even if they were their fathers or their sons or their brothers or their kindred. Those - He has de-creed within their hearts faith and sup-ported them with spirit1535 from Him. And We will admit them to gardens beneath which rivers flow, wherein they abide eternally. God is pleased with them, and they are pleased with Him - those are the party of God. Un-questionably, the party of God - they are the successful.",
+      "start_char": 1467359,
+      "end_char": 1467861,
+      "chunk_id": "fa8073ba-74be-4cd2-bee6-b621b94bf0db"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 75,
+      "cited_text": "177. Righteousness is not that you turn your",
+      "start_char": 122238,
+      "end_char": 122284,
+      "chunk_id": "0407ad70-e538-4aea-a82b-3ba060fa02bc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 76,
+      "cited_text": "136. O you who have believed, believe195 in",
+      "start_char": 263930,
+      "end_char": 263975,
+      "chunk_id": "94fd1ab7-564f-4b1e-8211-fb20cb4b7037"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 77,
+      "cited_text": "24 In gratitude to God and admission of sin.",
+      "start_char": 92405,
+      "end_char": 92499,
+      "chunk_id": "7d018067-c22d-47d0-b488-4a2c69a03f6f"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 78,
+      "cited_text": "69. Indeed, those who have believed [in",
+      "start_char": 306071,
+      "end_char": 306112,
+      "chunk_id": "ce28d78a-d928-4793-a6e4-3054a605a422"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 79,
+      "cited_text": "Hour is coming \u2013 no doubt about it \u2013 and that God will resurrect those in the graves.",
+      "start_char": 811036,
+      "end_char": 811122,
+      "chunk_id": "a62460cd-8090-41c8-9e8a-4ec108956030"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 80,
+      "cited_text": "7. Those who disbelieve have claimed that",
+      "start_char": 1551075,
+      "end_char": 1551118,
+      "chunk_id": "63c9e5c3-b5c1-4634-b0c3-40196b01edbe"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 81,
+      "cited_text": "maintained by those who believe in God and the Last Day and establish prayer and give zak\u0101h and do not fear except God, for it is expected that those will be of the [rightly] guided.",
+      "start_char": 488877,
+      "end_char": 489060,
+      "chunk_id": "49158863-88d3-4772-a36e-03ac909f6c0b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 82,
+      "cited_text": "44. Those who believe in God and the Last",
+      "start_char": 496553,
+      "end_char": 496596,
+      "chunk_id": "873905d1-a273-4cb1-8ba7-ab9c6081f077"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 83,
+      "cited_text": "in God and the Last Day having affec-tion for those who oppose God and His Messenger, even if they were their fathers or their sons or their brothers or their kindred. Those - He has de-creed within their hearts faith and sup-ported them with spirit1535 from Him. And We will admit them to gardens beneath which rivers flow, wherein they abide eternally. God is pleased with them, and they are pleased with Him - those are the party of God. Un-questionably, the party of God - they are the successful.",
+      "start_char": 1467359,
+      "end_char": 1467861,
+      "chunk_id": "fa8073ba-74be-4cd2-bee6-b621b94bf0db"
+    }
+  ]
+}

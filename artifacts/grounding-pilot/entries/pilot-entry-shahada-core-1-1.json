@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[1].subtasks[1]",
+    "subtaskTitle": "Learn what negation (la ilaha) and affirmation (illAllah) entail",
+    "parentTaskTitle": "Study the meaning and conditions of La ilaha illAllah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Learn what negation (la ilaha) and affirmation (illAllah) entail' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically 2:256 and 43:26-27, that establish the conceptual framework of negating all false objects of worship (Nafi) and affirming the sole divinity of Allah (Ithbat).",
+        "retrievedAt": "2026-04-18T12:54:09Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, specifically the narrations defining the \"conditions\" of the testimony and the rejection of shirk, to explain what the verbal declaration entails in terms of lived negation and affirmation.",
+        "retrievedAt": "2026-04-18T12:54:09Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:256",
+      "translation": "...So whoever disbelieves in tāghūt and believes in God has grasped the most trustworthy handhold with no break in it. And God is Hearing and Knowing.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse spells out the two-move structure the subtask asks the user to learn: first disbelieving in tāghūt (the la ilaha / Nafi move), then believing in God (the illAllah / Ithbat move) — naming the result as 'the most trustworthy handhold.' Bayyinah: primary Quran, confirmed by MS reference chunk anchoring at '256. There shall be no compulsion in'. Arabic omitted: MS returned only English translation for this ayah; no verse-level Arabic was present in the primary-source passages to quote verbatim.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically 2:256 and 43:26-27, that establish the conceptual framework of negating all false objects of worship (Nafi) and affirming the sole divinity of Allah (Ithbat).",
+        "retrievedAt": "2026-04-18T12:54:09Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "1 entry; Bayyinah + direct. Bar met. Rejected: Quran 43:26-27 — MS reference chunks cite 43:24 ('Even if I brought') and 43:28 ('And he made it a word remaining among his descendants'), not the queried 26-27, so binding at 43:26-27 would violate ref↔matn integrity. Rejected: entire hadith q2 output — the references array is empty, so no hadith matn can be bound to a specific ref (Muslim/Bukhari book-number) with integrity. Grounded bar passes via Quran alone; hadith axis is thin for this subtask."
+  }
+}

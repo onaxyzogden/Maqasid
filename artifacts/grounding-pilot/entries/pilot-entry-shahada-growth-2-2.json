@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[2].subtasks[2]",
+    "subtaskTitle": "Study riya (showing off) as a form of minor shirk",
+    "parentTaskTitle": "Understand the difference between major and minor shirk",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study riya (showing off) as a form of minor shirk' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, specifically Surah Al-Ma'un 107:4-6 which strictly condemns those who pray only to be seen and Surah Al-Kahf 18:110 which commands pure worship, that directly anchor the scriptural prohibition of riya (showing off)?",
+        "retrievedAt": "2026-04-19T04:49:45Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-2-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the explicit warnings found in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies ostentation in good deeds as \"hidden shirk\" or minor shirk, directly anchor the theological study of riya?",
+        "retrievedAt": "2026-04-19T04:49:45Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-2-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 2, Number 36 (Narrated Abu Huraira)",
+      "translation": "The Prophet emphasized that establishing prayers during the nights of Ramadan must be done out of sincere faith and the hope for divine reward, explicitly excluding those performed for the purpose of showing off.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 cit. 1/2/etc returns this canonical Bukhari ref as the anchor for the Prophetic exclusion of show-off worship. The narration names 'showing off' as the disqualifier of even the most meritorious acts — a direct scriptural seat for the study of riya. Matn paraphrased from MS answer text; the reference chunks returned only the isnad header.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the explicit warnings found in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies ostentation in good deeds as \"hidden shirk\" or minor shirk, directly anchor the theological study of riya?",
+        "retrievedAt": "2026-04-19T04:49:45Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 4, Book 52, Number 111 (Narrated Sahl bin Sad Saidi)",
+      "translation": "The Prophet warned that if a person keeps an animal, such as a horse, for the sake of pride and pretense, it becomes a source of sins for them rather than a reward.",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 cit. 13 returns this canonical Bukhari ref as the anchor for pride/pretense rendering an otherwise-permissible good into sin — the operative mechanism of riya converting deed into liability. Contextual rather than direct because it frames the principle via an animal-ownership example rather than naming worship itself.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the explicit warnings found in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies ostentation in good deeds as \"hidden shirk\" or minor shirk, directly anchor the theological study of riya?",
+        "retrievedAt": "2026-04-19T04:49:45Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 hadith entries, both Bayyinah, 1 direct + 1 contextual. Bar met via hadith axis. Quran axis rejected: q1 named 107:4-6, 18:110, 2:264, 4:38 but reference chunks were only page headers ('Surah 107: al-Ma'un' — no ayah-level text) and unrelated fragments — no ayah-level ref↔matn binding achievable. MS q2 also explicitly states 'sources do not explicitly record the Prophet Muhammad identifying ostentation with the exact terms hidden shirk, minor shirk, or riya', so the riya-as-minor-shirk framing is scholarly synthesis external to the corpus — not promoted to a tier-claim."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[0].subtasks[0]",
+    "subtaskTitle": "Obtain a reliable translation with commentary",
+    "parentTaskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+    "session": "faith-2026-04-19-c",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah An-Nahl 16:43 and Surah Ibrahim 14:4, that contextually anchor the necessity of relying on the people of knowledge and clear translations to accurately understand foundational theology?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly those found in Sahih al-Bukhari and Sahih Muslim regarding scholars as the inheritors of the prophets or the strict obligation of seeking sound knowledge, establish the importance of authoritative commentary when studying foundational texts like Al-Aqidah al-Tahawiyyah?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 16:43",
+      "translation": "Ask the people of the message if you do not know.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 cites 16:43 (with parallel 21:7) as the direct Quranic command to consult people of knowledge when the reader lacks it — the subtask's exact warrant for obtaining a reliable translation with qualified commentary rather than self-interpreting. Arabic omitted: MS supplied only English paraphrase in the answer body; no verse-level Arabic returned.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah An-Nahl 16:43 and Surah Ibrahim 14:4, that contextually anchor the necessity of relying on the people of knowledge and clear translations to accurately understand foundational theology?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 14:4",
+      "translation": "[God] did not send any messenger except [speaking] in the language of his people to state clearly for them.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 surfaces 14:4 as the scriptural warrant for conveying revelation in a language the audience comprehends — the principle that legitimises translation itself and anchors the subtask's requirement to obtain a reliable rendering. Arabic omitted per MS (no verse-level Arabic in answer).",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah An-Nahl 16:43 and Surah Ibrahim 14:4, that contextually anchor the necessity of relying on the people of knowledge and clear translations to accurately understand foundational theology?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 16:44",
+      "translation": "[Allah sent the Prophet to] make clear to the people what was sent down to them so that they might give it proper thought.",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 frames the Prophet's role not merely as transmitter but as explainer — establishing that revelation requires authoritative commentary (bayān) for proper understanding. Supports the subtask's emphasis on reading with commentary, not translation alone. Contextual: about the Prophet's role, applied by extension to scholarly commentary.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah An-Nahl 16:43 and Surah Ibrahim 14:4, that contextually anchor the necessity of relying on the people of knowledge and clear translations to accurately understand foundational theology?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 3, Number 100",
+      "translation": "Allah does not take away religious knowledge by stripping it from people's hearts, but rather by the death of religious learned men. Once genuine scholars pass away, people will take ignorant individuals as their leaders, who will issue verdicts without knowledge, leading themselves and the masses astray.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 anchors the subtask by naming a Sahih Bukhari hadith warning against taking religious instruction from the unqualified — the precise failure mode a reliable translation with scholarly commentary is meant to prevent. Canonical Volume/Book/Number ref confirmed in MS reference chunks. Arabic omitted (not supplied by MS).",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly those found in Sahih al-Bukhari and Sahih Muslim regarding scholars as the inheritors of the prophets or the strict obligation of seeking sound knowledge, establish the importance of authoritative commentary when studying foundational texts like Al-Aqidah al-Tahawiyyah?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 3 (Kitab al-'Ilm), Chapter on 'Umar bin 'Abdul 'Aziz and the recording of knowledge",
+      "translation": "'Umar bin 'Abdul 'Aziz wrote to Abu Bakr bin Hazm: Look for the knowledge of Hadith and get it written, as I am afraid that religious knowledge will vanish and the religious learned men will pass away (die). Do not accept anything save the Hadiths of the Prophet. Circulate knowledge and teach the ignorant, for knowledge does not vanish except when it is kept secretly (to oneself).",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q2 returns this athar of 'Umar bin 'Abdul 'Aziz (transmitted in Kitab al-'Ilm of Sahih Bukhari preceding Number 100) directly commanding that religious knowledge be recorded in reliable written form to prevent loss. Contextually anchors the subtask: the believer obtains written, authoritative texts precisely because scholars die and knowledge must be preserved in readable form. Canonical text confirmed verbatim in MS reference chunks; bound at chapter level because the khabar is narrated in the pre-hadith introductory block of Bukhari's Book 3 without a separate hadith number.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly those found in Sahih al-Bukhari and Sahih Muslim regarding scholars as the inheritors of the prophets or the strict obligation of seeking sound knowledge, establish the importance of authoritative commentary when studying foundational texts like Al-Aqidah al-Tahawiyyah?",
+        "retrievedAt": "2026-04-19T04:29:41Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "5 entries; all Bayyinah; 3 direct + 2 contextual. Bar met on both axes. MS explicitly disclaims the 'scholars are inheritors of the prophets' narration and Al-Aqidah al-Tahawiyyah — so neither was fabricated. Rejected: MS q2 answer also paraphrased 'deep comprehension of the religion' (canonical Bukhari V1 B3 N71) but refs [3,4] for that claim both pointed to Volume 1, Book 3, Number 100 (about knowledge vanishing through scholars' deaths) — ref↔matn mismatch, so the deep-comprehension hadith is dropped. Also rejected Bukhari V1 B3 N72 ('envy for the one given wisdom who teaches it') — surfaced in chunks but thematic at best for this subtask on acquiring translation+commentary. Quran 21:7, 10:94, 3:7 omitted as thematic/duplicative; 16:43 + 14:4 + 16:44 are the tighter anchors."
+  }
+}

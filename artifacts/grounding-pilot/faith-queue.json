@@ -1,0 +1,1914 @@
+{
+  "pillar": "faith",
+  "total": 212,
+  "subtasks": [
+    {
+      "idPath": "faith.faith_shahada_core[0].subtasks[0]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Testify there is no God but Allah",
+      "subtaskTitle": "Recite the full Shahada with correct pronunciation and meaning",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[0].subtasks[1]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Testify there is no God but Allah",
+      "subtaskTitle": "Reflect on what \"no god but Allah\" demands of your daily life",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[0].subtasks[2]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Testify there is no God but Allah",
+      "subtaskTitle": "Study the difference between verbal declaration and lived conviction",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[0].subtasks[3]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Testify there is no God but Allah",
+      "subtaskTitle": "Journal: what does this testimony mean to you personally?",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[1].subtasks[0]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+      "subtaskTitle": "Study the linguistic meaning of La ilaha illAllah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[1].subtasks[1]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+      "subtaskTitle": "Learn what negation (la ilaha) and affirmation (illAllah) entail",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[1].subtasks[2]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+      "subtaskTitle": "Understand what it means to worship Allah alone without partners",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[1].subtasks[3]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 1,
+      "subtaskIndex": 3,
+      "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+      "subtaskTitle": "Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[0]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Ilm (Knowledge) — know what it means",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[1]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Yaqin (Certainty) — have no doubt",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[2]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Qabul (Acceptance) — accept all its implications",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[3]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Inqiyad (Submission) — act upon it",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[4]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 4,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Sidq (Truthfulness) — mean it sincerely",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[5]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 5,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Ikhlas (Sincerity) — for Allah alone",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[2].subtasks[6]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 2,
+      "subtaskIndex": 6,
+      "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+      "subtaskTitle": "Muhabbah (Love) — love Allah and His Messenger above all",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[3].subtasks[0]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the six pillars of Iman",
+      "subtaskTitle": "Study belief in Allah (al-Iman billah)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[3].subtasks[1]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the six pillars of Iman",
+      "subtaskTitle": "Study belief in the Angels (al-Mala'ikah)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[3].subtasks[2]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the six pillars of Iman",
+      "subtaskTitle": "Study belief in the Books (al-Kutub)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[3].subtasks[3]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 3,
+      "subtaskIndex": 3,
+      "taskTitle": "Study the six pillars of Iman",
+      "subtaskTitle": "Study belief in the Messengers (ar-Rusul)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[3].subtasks[4]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 3,
+      "subtaskIndex": 4,
+      "taskTitle": "Study the six pillars of Iman",
+      "subtaskTitle": "Study belief in the Last Day (al-Yawm al-Akhir)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[3].subtasks[5]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 3,
+      "subtaskIndex": 5,
+      "taskTitle": "Study the six pillars of Iman",
+      "subtaskTitle": "Study belief in Qadar — Divine Decree (al-Qadr)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[4].subtasks[0]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 4,
+      "subtaskIndex": 0,
+      "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+      "subtaskTitle": "List any superstitious beliefs or practices you hold",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[4].subtasks[1]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 4,
+      "subtaskIndex": 1,
+      "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+      "subtaskTitle": "Identify any reliance on amulets, charms, or talismans",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[4].subtasks[2]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 4,
+      "subtaskIndex": 2,
+      "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+      "subtaskTitle": "Check for habits of swearing by other than Allah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[4].subtasks[3]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 4,
+      "subtaskIndex": 3,
+      "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+      "subtaskTitle": "Remove or correct any identified contradictions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[0]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 0,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Read the full hadith text in Arabic and English",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[1]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 1,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Memorise the Arabic text",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[2]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 2,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Islam — study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[3]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 3,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Iman — study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[4]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 4,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Ihsan — memorise the definition: worship Allah as though you see Him",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[5]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 5,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Study the signs of the Hour mentioned at the end of the hadith",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_core[5].subtasks[6]",
+      "moduleKey": "faith_shahada_core",
+      "taskIndex": 5,
+      "subtaskIndex": 6,
+      "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+      "subtaskTitle": "Reflect: which level describes your current state?",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[0].subtasks[0]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+      "subtaskTitle": "Obtain a reliable translation with commentary",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[0].subtasks[1]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+      "subtaskTitle": "Read the section on the attributes of Allah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[0].subtasks[2]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+      "subtaskTitle": "Read the section on prophethood and revelation",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[0].subtasks[3]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+      "subtaskTitle": "Read the section on the unseen (angels, paradise, hellfire)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[0].subtasks[4]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 4,
+      "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+      "subtaskTitle": "Summarise key points and questions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[1].subtasks[0]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the nullifiers of Islam (Nawaqid al-Islam)",
+      "subtaskTitle": "Read the list of ten nullifiers with explanations",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[1].subtasks[1]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the nullifiers of Islam (Nawaqid al-Islam)",
+      "subtaskTitle": "Understand the difference between major and minor kufr",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[1].subtasks[2]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the nullifiers of Islam (Nawaqid al-Islam)",
+      "subtaskTitle": "Study the conditions for declaring takfir and why it requires caution",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[2].subtasks[0]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Understand the difference between major and minor shirk",
+      "subtaskTitle": "Define major shirk (shirk akbar) with examples",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[2].subtasks[1]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Understand the difference between major and minor shirk",
+      "subtaskTitle": "Define minor shirk (shirk asghar) with examples",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[2].subtasks[2]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Understand the difference between major and minor shirk",
+      "subtaskTitle": "Study riya (showing off) as a form of minor shirk",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[2].subtasks[3]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Understand the difference between major and minor shirk",
+      "subtaskTitle": "Learn the hadith on hidden shirk and its remedy",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[3].subtasks[0]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+      "subtaskTitle": "Study Tawhid al-Rububiyyah — Lordship of Allah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[3].subtasks[1]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+      "subtaskTitle": "Study Tawhid al-Uluhiyyah — worship of Allah alone",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[3].subtasks[2]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+      "subtaskTitle": "Study Tawhid al-Asma wa al-Sifat — Names and Attributes",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_growth[3].subtasks[3]",
+      "moduleKey": "faith_shahada_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 3,
+      "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+      "subtaskTitle": "Understand how the three categories interrelate",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[0].subtasks[0]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Teach the Shahada and its conditions to a family member or student",
+      "subtaskTitle": "Prepare a simple outline of the seven conditions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[0].subtasks[1]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Teach the Shahada and its conditions to a family member or student",
+      "subtaskTitle": "Schedule a teaching session with a family member or student",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[0].subtasks[2]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Teach the Shahada and its conditions to a family member or student",
+      "subtaskTitle": "Deliver the lesson and encourage questions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[1].subtasks[0]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the relationship between Shahada and daily actions (amal)",
+      "subtaskTitle": "Reflect on how Tawhid influences business decisions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[1].subtasks[1]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the relationship between Shahada and daily actions (amal)",
+      "subtaskTitle": "Identify three daily actions that express your Shahada",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[1].subtasks[2]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the relationship between Shahada and daily actions (amal)",
+      "subtaskTitle": "Study how the Sahaba lived their Shahada practically",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[2].subtasks[0]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Reflect on how Tawhid governs every decision — write a personal reflection",
+      "subtaskTitle": "Set aside 30 minutes of focused reflection time",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[2].subtasks[1]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Reflect on how Tawhid governs every decision — write a personal reflection",
+      "subtaskTitle": "Write about an area where Tawhid challenged your habits",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_shahada_excellence[2].subtasks[2]",
+      "moduleKey": "faith_shahada_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Reflect on how Tawhid governs every decision — write a personal reflection",
+      "subtaskTitle": "Identify one change you will make based on this reflection",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[0].subtasks[0]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Establish all five daily prayers on time consistently",
+      "subtaskTitle": "Set alarms or reminders for all five prayer times",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[0].subtasks[1]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Establish all five daily prayers on time consistently",
+      "subtaskTitle": "Track your prayer consistency for one full week",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[0].subtasks[2]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Establish all five daily prayers on time consistently",
+      "subtaskTitle": "Identify and resolve common excuses for missing prayers",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[0].subtasks[3]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Establish all five daily prayers on time consistently",
+      "subtaskTitle": "Pray each salah within its earliest time window",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[1].subtasks[0]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the correct method of wudu with all fard and sunnah acts",
+      "subtaskTitle": "Learn the four fard acts of wudu (Hanafi) or six (Shafi'i)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[1].subtasks[1]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the correct method of wudu with all fard and sunnah acts",
+      "subtaskTitle": "Learn the sunnah acts (miswak, rinsing mouth/nose, between fingers)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[1].subtasks[2]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the correct method of wudu with all fard and sunnah acts",
+      "subtaskTitle": "Learn what nullifies wudu",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[1].subtasks[3]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 3,
+      "taskTitle": "Learn the correct method of wudu with all fard and sunnah acts",
+      "subtaskTitle": "Practice performing wudu with correct sequence and du'a",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[2].subtasks[0]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)",
+      "subtaskTitle": "Memorise the opening du'a (Subhanaka Allahumma or equivalent)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[2].subtasks[1]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)",
+      "subtaskTitle": "Memorise the Tashahhud (At-Tahiyyatu)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[2].subtasks[2]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)",
+      "subtaskTitle": "Memorise the Salawat upon the Prophet (Allahumma salli ala Muhammad)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[2].subtasks[3]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)",
+      "subtaskTitle": "Memorise the du'a before salam",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[2].subtasks[4]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 4,
+      "taskTitle": "Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)",
+      "subtaskTitle": "Learn the meanings of each recitation",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[3].subtasks[0]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Pray in congregation (jama'ah) whenever possible",
+      "subtaskTitle": "Identify the nearest masjid and its prayer times",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[3].subtasks[1]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Pray in congregation (jama'ah) whenever possible",
+      "subtaskTitle": "Commit to praying at least one salah daily in jama'ah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[3].subtasks[2]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Pray in congregation (jama'ah) whenever possible",
+      "subtaskTitle": "If no masjid is nearby, establish jama'ah at home with family",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[4].subtasks[0]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 4,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the conditions that invalidate salah",
+      "subtaskTitle": "Study the acts that invalidate salah (talking, eating, turning away)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[4].subtasks[1]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 4,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the conditions that invalidate salah",
+      "subtaskTitle": "Learn the ruling on excessive movement in salah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_core[4].subtasks[2]",
+      "moduleKey": "faith_salah_core",
+      "taskIndex": 4,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the conditions that invalidate salah",
+      "subtaskTitle": "Understand when sujud al-sahw (prostration of forgetfulness) is required",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[0].subtasks[0]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Establish the 12 regular Sunnah prayers (Rawatib)",
+      "subtaskTitle": "2 before Fajr",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[0].subtasks[1]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Establish the 12 regular Sunnah prayers (Rawatib)",
+      "subtaskTitle": "4 before Dhuhr and 2 after",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[0].subtasks[2]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Establish the 12 regular Sunnah prayers (Rawatib)",
+      "subtaskTitle": "2 after Maghrib",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[0].subtasks[3]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Establish the 12 regular Sunnah prayers (Rawatib)",
+      "subtaskTitle": "2 after Isha",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[0].subtasks[4]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 4,
+      "taskTitle": "Establish the 12 regular Sunnah prayers (Rawatib)",
+      "subtaskTitle": "Track consistency for one month",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[1].subtasks[0]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the meanings of Surah Al-Fatihah and what you recite in salah",
+      "subtaskTitle": "Study the word-by-word meaning of Al-Fatihah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[1].subtasks[1]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the meanings of Surah Al-Fatihah and what you recite in salah",
+      "subtaskTitle": "Learn the meaning of the adhkar of ruku and sujud",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[1].subtasks[2]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the meanings of Surah Al-Fatihah and what you recite in salah",
+      "subtaskTitle": "Memorise and understand three short surahs you recite regularly",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[2].subtasks[0]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Pray Tahajjud at least once a week",
+      "subtaskTitle": "Set a weekly alarm for the last third of the night",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[2].subtasks[1]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Pray Tahajjud at least once a week",
+      "subtaskTitle": "Pray at least 2 rak'at of Tahajjud",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[2].subtasks[2]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Pray Tahajjud at least once a week",
+      "subtaskTitle": "Make du'a during the sujud of Tahajjud",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[3].subtasks[0]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the inner dimensions of salah (khushuʿ)",
+      "subtaskTitle": "Read Ibn al-Qayyim's description of khushuʿ in prayer",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[3].subtasks[1]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the inner dimensions of salah (khushuʿ)",
+      "subtaskTitle": "Identify three personal barriers to focus in salah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_growth[3].subtasks[2]",
+      "moduleKey": "faith_salah_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the inner dimensions of salah (khushuʿ)",
+      "subtaskTitle": "Practice one technique for improving khushuʿ this week",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[0].subtasks[0]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Pray Duha prayer regularly",
+      "subtaskTitle": "Learn the time window for Duha prayer",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[0].subtasks[1]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Pray Duha prayer regularly",
+      "subtaskTitle": "Pray Duha at least 3 times this week",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[0].subtasks[2]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Pray Duha prayer regularly",
+      "subtaskTitle": "Gradually increase to daily practice",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[1].subtasks[0]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Master the prostration of recitation (Sujud al-Tilawah)",
+      "subtaskTitle": "Learn the 15 ayat of sajdah in the Quran",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[1].subtasks[1]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Master the prostration of recitation (Sujud al-Tilawah)",
+      "subtaskTitle": "Study the du'a recited during Sujud al-Tilawah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[1].subtasks[2]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Master the prostration of recitation (Sujud al-Tilawah)",
+      "subtaskTitle": "Practice performing it when you encounter a sajdah ayah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[2].subtasks[0]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Develop a consistent Qiyam al-Layl routine",
+      "subtaskTitle": "Choose a consistent time in the last third of the night",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[2].subtasks[1]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Develop a consistent Qiyam al-Layl routine",
+      "subtaskTitle": "Start with 2-4 rak'at and gradually increase",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[2].subtasks[2]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Develop a consistent Qiyam al-Layl routine",
+      "subtaskTitle": "Include Witr as the final prayer of the night",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_salah_excellence[2].subtasks[3]",
+      "moduleKey": "faith_salah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Develop a consistent Qiyam al-Layl routine",
+      "subtaskTitle": "Maintain the routine for 30 consecutive days",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[0].subtasks[0]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Calculate your nisab and determine if zakah is obligatory on you",
+      "subtaskTitle": "Look up the current nisab threshold in your currency",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[0].subtasks[1]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Calculate your nisab and determine if zakah is obligatory on you",
+      "subtaskTitle": "List all your zakatable assets (cash, gold, investments, trade goods)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[0].subtasks[2]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Calculate your nisab and determine if zakah is obligatory on you",
+      "subtaskTitle": "Determine if you meet the nisab after deducting debts",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[0].subtasks[3]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Calculate your nisab and determine if zakah is obligatory on you",
+      "subtaskTitle": "Mark your zakah anniversary date (hawl)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[1].subtasks[0]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn which categories of wealth are zakatable (gold, silver, cash, trade goods, livestock)",
+      "subtaskTitle": "Study zakah on gold and silver (2.5%)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[1].subtasks[1]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn which categories of wealth are zakatable (gold, silver, cash, trade goods, livestock)",
+      "subtaskTitle": "Study zakah on cash and bank savings",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[1].subtasks[2]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn which categories of wealth are zakatable (gold, silver, cash, trade goods, livestock)",
+      "subtaskTitle": "Study zakah on trade goods (uruud al-tijarah)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[1].subtasks[3]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 3,
+      "taskTitle": "Learn which categories of wealth are zakatable (gold, silver, cash, trade goods, livestock)",
+      "subtaskTitle": "Study zakah on agricultural produce and livestock",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[1].subtasks[4]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 1,
+      "subtaskIndex": 4,
+      "taskTitle": "Learn which categories of wealth are zakatable (gold, silver, cash, trade goods, livestock)",
+      "subtaskTitle": "Learn what is exempt (personal use items, primary home)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[0]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Al-Fuqara (the poor)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[1]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Al-Masakin (the needy)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[2]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Al-Amilina Alayha (zakah collectors/administrators)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[3]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Al-Mu'allafati Qulubuhum (those whose hearts are to be reconciled)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[4]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 4,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Fi al-Riqab (freeing captives)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[5]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 5,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Al-Gharimin (those in debt)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[6]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 6,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Fi Sabilillah (in the way of Allah)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[2].subtasks[7]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 2,
+      "subtaskIndex": 7,
+      "taskTitle": "Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)",
+      "subtaskTitle": "Ibn al-Sabil (the stranded traveller)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[3].subtasks[0]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Pay any outstanding zakah immediately",
+      "subtaskTitle": "Calculate any overdue zakah from previous years",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[3].subtasks[1]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Pay any outstanding zakah immediately",
+      "subtaskTitle": "Identify trustworthy recipients or organisations",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_core[3].subtasks[2]",
+      "moduleKey": "faith_zakah_core",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Pay any outstanding zakah immediately",
+      "subtaskTitle": "Distribute the outstanding amount",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[0].subtasks[0]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Set up a zakah calendar with annual calculation date",
+      "subtaskTitle": "Choose your zakah calculation date (e.g., 1st Ramadan)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[0].subtasks[1]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Set up a zakah calendar with annual calculation date",
+      "subtaskTitle": "Set annual calendar reminders",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[0].subtasks[2]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Set up a zakah calendar with annual calculation date",
+      "subtaskTitle": "Create a spreadsheet or use a zakah calculator app",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[1].subtasks[0]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Research local and international zakah-eligible organisations",
+      "subtaskTitle": "Research 3 local zakah-accepting organisations",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[1].subtasks[1]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Research local and international zakah-eligible organisations",
+      "subtaskTitle": "Research 2 international zakah organisations",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[1].subtasks[2]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Research local and international zakah-eligible organisations",
+      "subtaskTitle": "Verify their zakah compliance and transparency reports",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[2].subtasks[0]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the rulings of Zakah al-Fitr and its timing",
+      "subtaskTitle": "Learn the amount and types of food acceptable for Fitr",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[2].subtasks[1]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the rulings of Zakah al-Fitr and its timing",
+      "subtaskTitle": "Understand the timing (before Eid prayer)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[2].subtasks[2]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the rulings of Zakah al-Fitr and its timing",
+      "subtaskTitle": "Learn who is responsible to pay and for whom",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[3].subtasks[0]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the spiritual purpose of zakah — purification and growth",
+      "subtaskTitle": "Study the Quranic ayat linking zakah with purification (9:103)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[3].subtasks[1]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the spiritual purpose of zakah — purification and growth",
+      "subtaskTitle": "Reflect on how giving reduces attachment to dunya",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_growth[3].subtasks[2]",
+      "moduleKey": "faith_zakah_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the spiritual purpose of zakah — purification and growth",
+      "subtaskTitle": "Read about the blessings of zakah from hadith literature",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[0].subtasks[0]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Establish a regular sadaqah habit beyond obligatory zakah",
+      "subtaskTitle": "Set up a monthly automated sadaqah donation",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[0].subtasks[1]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Establish a regular sadaqah habit beyond obligatory zakah",
+      "subtaskTitle": "Identify causes that resonate with you (orphans, education, water)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[0].subtasks[2]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Establish a regular sadaqah habit beyond obligatory zakah",
+      "subtaskTitle": "Track your giving for motivation and accountability",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[1].subtasks[0]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Explore setting up a waqf (endowment) for ongoing benefit",
+      "subtaskTitle": "Learn the Islamic principles of waqf",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[1].subtasks[1]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Explore setting up a waqf (endowment) for ongoing benefit",
+      "subtaskTitle": "Research existing waqf platforms and institutions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[1].subtasks[2]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Explore setting up a waqf (endowment) for ongoing benefit",
+      "subtaskTitle": "Explore contributing to or establishing a small waqf",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[2].subtasks[0]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Mentor someone on zakah calculation and distribution",
+      "subtaskTitle": "Identify someone who needs guidance on zakah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[2].subtasks[1]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Mentor someone on zakah calculation and distribution",
+      "subtaskTitle": "Walk them through calculating their zakatable wealth",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_zakah_excellence[2].subtasks[2]",
+      "moduleKey": "faith_zakah_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Mentor someone on zakah calculation and distribution",
+      "subtaskTitle": "Help them identify appropriate recipients",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[0].subtasks[0]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the fard requirements of Ramadan fasting (intention, abstaining, timing)",
+      "subtaskTitle": "Learn when and how to make the intention (niyyah) for fasting",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[0].subtasks[1]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the fard requirements of Ramadan fasting (intention, abstaining, timing)",
+      "subtaskTitle": "Know the fasting hours (Fajr to Maghrib)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[0].subtasks[2]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the fard requirements of Ramadan fasting (intention, abstaining, timing)",
+      "subtaskTitle": "Learn what you must abstain from (food, drink, relations)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[0].subtasks[3]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Learn the fard requirements of Ramadan fasting (intention, abstaining, timing)",
+      "subtaskTitle": "Understand who is exempt from fasting and their alternatives",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[1].subtasks[0]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Understand the conditions that break the fast vs. those that do not",
+      "subtaskTitle": "List the acts that clearly break the fast",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[1].subtasks[1]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Understand the conditions that break the fast vs. those that do not",
+      "subtaskTitle": "Learn common misconceptions (e.g., swallowing saliva, eye drops)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[1].subtasks[2]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Understand the conditions that break the fast vs. those that do not",
+      "subtaskTitle": "Understand when kaffarah vs. qada is required",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[2].subtasks[0]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the rules for making up (qada) missed fasts",
+      "subtaskTitle": "Calculate how many fasts you owe from previous years",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[2].subtasks[1]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the rules for making up (qada) missed fasts",
+      "subtaskTitle": "Learn the deadline for making up Ramadan fasts",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[2].subtasks[2]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the rules for making up (qada) missed fasts",
+      "subtaskTitle": "Understand the fidyah ruling for those permanently unable to fast",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[3].subtasks[0]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Make up any missed Ramadan fasts from previous years",
+      "subtaskTitle": "Calculate the total number of missed fasts",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[3].subtasks[1]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Make up any missed Ramadan fasts from previous years",
+      "subtaskTitle": "Create a schedule to make them up (e.g., Mondays and Thursdays)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_core[3].subtasks[2]",
+      "moduleKey": "faith_sawm_core",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Make up any missed Ramadan fasts from previous years",
+      "subtaskTitle": "Track your progress until all are completed",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[0].subtasks[0]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Fast the voluntary Mondays and Thursdays regularly",
+      "subtaskTitle": "Start with one day per week (Monday or Thursday)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[0].subtasks[1]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Fast the voluntary Mondays and Thursdays regularly",
+      "subtaskTitle": "Build up to both days consistently",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[0].subtasks[2]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Fast the voluntary Mondays and Thursdays regularly",
+      "subtaskTitle": "Track your voluntary fasting for one month",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[1].subtasks[0]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Fast the three white days (13th, 14th, 15th of each lunar month)",
+      "subtaskTitle": "Download a Hijri calendar to track the white days",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[1].subtasks[1]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Fast the three white days (13th, 14th, 15th of each lunar month)",
+      "subtaskTitle": "Fast the white days for one lunar month as a trial",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[1].subtasks[2]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Fast the three white days (13th, 14th, 15th of each lunar month)",
+      "subtaskTitle": "Make it a consistent monthly practice",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[2].subtasks[0]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the inner dimensions of fasting — taqwa, patience, gratitude",
+      "subtaskTitle": "Study the ayah linking fasting to taqwa (2:183)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[2].subtasks[1]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the inner dimensions of fasting — taqwa, patience, gratitude",
+      "subtaskTitle": "Reflect on how fasting develops patience with hunger and anger",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[2].subtasks[2]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the inner dimensions of fasting — taqwa, patience, gratitude",
+      "subtaskTitle": "Journal about gratitude for provisions after breaking fast",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[3].subtasks[0]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the Sunnah of iftar and suhoor",
+      "subtaskTitle": "Learn the du'a for breaking the fast",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[3].subtasks[1]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the Sunnah of iftar and suhoor",
+      "subtaskTitle": "Study what the Prophet (SAW) ate for suhoor and iftar",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_growth[3].subtasks[2]",
+      "moduleKey": "faith_sawm_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the Sunnah of iftar and suhoor",
+      "subtaskTitle": "Practice delaying suhoor and hastening iftar as Sunnah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[0].subtasks[0]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Fast the day of Arafah (9th Dhul Hijjah) and Ashura (10th Muharram)",
+      "subtaskTitle": "Mark the dates of Arafah and Ashura on your calendar",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[0].subtasks[1]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Fast the day of Arafah (9th Dhul Hijjah) and Ashura (10th Muharram)",
+      "subtaskTitle": "Fast the day of Arafah (for non-pilgrims)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[0].subtasks[2]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Fast the day of Arafah (9th Dhul Hijjah) and Ashura (10th Muharram)",
+      "subtaskTitle": "Fast the 9th and 10th of Muharram (or 10th and 11th)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[1].subtasks[0]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Fast the six days of Shawwal after Ramadan",
+      "subtaskTitle": "Plan when to fast the six days (consecutively or spread out)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[1].subtasks[1]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Fast the six days of Shawwal after Ramadan",
+      "subtaskTitle": "Complete the six fasts within Shawwal",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[1].subtasks[2]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Fast the six days of Shawwal after Ramadan",
+      "subtaskTitle": "Make a habit of fasting them every year",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[2].subtasks[0]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Organise a community iftar for neighbours and those in need",
+      "subtaskTitle": "Plan the logistics (venue, menu, invitations)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[2].subtasks[1]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Organise a community iftar for neighbours and those in need",
+      "subtaskTitle": "Invite neighbours, new Muslims, and those in need",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_sawm_excellence[2].subtasks[2]",
+      "moduleKey": "faith_sawm_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Organise a community iftar for neighbours and those in need",
+      "subtaskTitle": "Host the iftar and foster community bonds",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[0].subtasks[0]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the conditions that make Hajj obligatory (Islam, sanity, maturity, ability, provision)",
+      "subtaskTitle": "Study the five conditions of obligation",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[0].subtasks[1]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the conditions that make Hajj obligatory (Islam, sanity, maturity, ability, provision)",
+      "subtaskTitle": "Assess your current financial and physical ability",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[0].subtasks[2]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the conditions that make Hajj obligatory (Islam, sanity, maturity, ability, provision)",
+      "subtaskTitle": "Determine if Hajj is currently fard upon you",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[1].subtasks[0]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the pillars (arkan) and obligatory acts (wajibat) of Hajj",
+      "subtaskTitle": "Learn the four arkan: Ihram, Arafah, Tawaf al-Ifadah, Sa'i",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[1].subtasks[1]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the pillars (arkan) and obligatory acts (wajibat) of Hajj",
+      "subtaskTitle": "Learn the wajibat: Muzdalifah, stoning, shaving, Tawaf al-Wada",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[1].subtasks[2]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the pillars (arkan) and obligatory acts (wajibat) of Hajj",
+      "subtaskTitle": "Understand the penalties for missing a wajib act",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[2].subtasks[0]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the rites of Umrah and their sequence",
+      "subtaskTitle": "Ihram from the miqat with niyyah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[2].subtasks[1]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the rites of Umrah and their sequence",
+      "subtaskTitle": "Tawaf around the Ka'bah (7 circuits)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[2].subtasks[2]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the rites of Umrah and their sequence",
+      "subtaskTitle": "Two rak'at behind Maqam Ibrahim",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[2].subtasks[3]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Learn the rites of Umrah and their sequence",
+      "subtaskTitle": "Sa'i between Safa and Marwah (7 laps)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[2].subtasks[4]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 2,
+      "subtaskIndex": 4,
+      "taskTitle": "Learn the rites of Umrah and their sequence",
+      "subtaskTitle": "Shaving or trimming the hair to exit Ihram",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[3].subtasks[0]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Begin saving for Hajj if financially able",
+      "subtaskTitle": "Research the average cost of Hajj from your country",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[3].subtasks[1]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Begin saving for Hajj if financially able",
+      "subtaskTitle": "Open a dedicated Hajj savings account or fund",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_core[3].subtasks[2]",
+      "moduleKey": "faith_hajj_core",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Begin saving for Hajj if financially able",
+      "subtaskTitle": "Set up monthly automatic contributions",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[0].subtasks[0]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Study the spiritual meanings behind each Hajj rite (Tawaf, Sa'i, Arafah, stoning)",
+      "subtaskTitle": "Study the symbolism of Tawaf — circling the House of Allah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[0].subtasks[1]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Study the spiritual meanings behind each Hajj rite (Tawaf, Sa'i, Arafah, stoning)",
+      "subtaskTitle": "Understand Sa'i — Hajar's trust and striving",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[0].subtasks[2]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Study the spiritual meanings behind each Hajj rite (Tawaf, Sa'i, Arafah, stoning)",
+      "subtaskTitle": "Reflect on Arafah — standing before Allah in humility",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[0].subtasks[3]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 0,
+      "subtaskIndex": 3,
+      "taskTitle": "Study the spiritual meanings behind each Hajj rite (Tawaf, Sa'i, Arafah, stoning)",
+      "subtaskTitle": "Learn the meaning of stoning — rejecting Shaytan's whispers",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[1].subtasks[0]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Learn the history of Ibrahim (AS) and the founding of the Ka'bah",
+      "subtaskTitle": "Read the Quranic account of Ibrahim building the Ka'bah (2:127)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[1].subtasks[1]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Learn the history of Ibrahim (AS) and the founding of the Ka'bah",
+      "subtaskTitle": "Study the story of Hajar and Isma'il in Makkah",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[1].subtasks[2]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Learn the history of Ibrahim (AS) and the founding of the Ka'bah",
+      "subtaskTitle": "Learn about Ibrahim's sacrifice and its connection to Eid al-Adha",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[2].subtasks[0]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Memorise the Talbiyah and key du'as of Hajj",
+      "subtaskTitle": "Memorise the Talbiyah in Arabic",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[2].subtasks[1]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Memorise the Talbiyah and key du'as of Hajj",
+      "subtaskTitle": "Learn the du'a for entering Ihram",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[2].subtasks[2]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Memorise the Talbiyah and key du'as of Hajj",
+      "subtaskTitle": "Learn the du'a between the Yemeni corner and the Black Stone",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[2].subtasks[3]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 2,
+      "subtaskIndex": 3,
+      "taskTitle": "Memorise the Talbiyah and key du'as of Hajj",
+      "subtaskTitle": "Learn the du'a of Arafah (the best du'a)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[3].subtasks[0]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 0,
+      "taskTitle": "Research accredited Hajj operators and packages",
+      "subtaskTitle": "Research 3-5 licensed Hajj operators",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[3].subtasks[1]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 1,
+      "taskTitle": "Research accredited Hajj operators and packages",
+      "subtaskTitle": "Compare packages (economy, standard, premium)",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_growth[3].subtasks[2]",
+      "moduleKey": "faith_hajj_growth",
+      "taskIndex": 3,
+      "subtaskIndex": 2,
+      "taskTitle": "Research accredited Hajj operators and packages",
+      "subtaskTitle": "Read reviews and ask community members for recommendations",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[0].subtasks[0]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 0,
+      "taskTitle": "Perform Umrah as preparation for the full Hajj experience",
+      "subtaskTitle": "Book an Umrah trip during a less crowded season",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[0].subtasks[1]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 1,
+      "taskTitle": "Perform Umrah as preparation for the full Hajj experience",
+      "subtaskTitle": "Perform all the rites with full awareness and presence",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[0].subtasks[2]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 0,
+      "subtaskIndex": 2,
+      "taskTitle": "Perform Umrah as preparation for the full Hajj experience",
+      "subtaskTitle": "Document lessons learned for your future Hajj preparation",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[1].subtasks[0]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 0,
+      "taskTitle": "Sponsor someone for Hajj who cannot afford it",
+      "subtaskTitle": "Identify a trustworthy Hajj sponsorship programme",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[1].subtasks[1]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 1,
+      "taskTitle": "Sponsor someone for Hajj who cannot afford it",
+      "subtaskTitle": "Contribute to sponsoring a pilgrim",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[1].subtasks[2]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 1,
+      "subtaskIndex": 2,
+      "taskTitle": "Sponsor someone for Hajj who cannot afford it",
+      "subtaskTitle": "Make du'a for the sponsored pilgrim",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[2].subtasks[0]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 0,
+      "taskTitle": "Document and share your Hajj preparation journey for others",
+      "subtaskTitle": "Keep a journal during your Hajj preparation",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[2].subtasks[1]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 1,
+      "taskTitle": "Document and share your Hajj preparation journey for others",
+      "subtaskTitle": "Share key lessons with family or community",
+      "hasLegacySources": true
+    },
+    {
+      "idPath": "faith.faith_hajj_excellence[2].subtasks[2]",
+      "moduleKey": "faith_hajj_excellence",
+      "taskIndex": 2,
+      "subtaskIndex": 2,
+      "taskTitle": "Document and share your Hajj preparation journey for others",
+      "subtaskTitle": "Create a resource list (books, courses, du'a cards) for future pilgrims",
+      "hasLegacySources": true
+    }
+  ]
+}

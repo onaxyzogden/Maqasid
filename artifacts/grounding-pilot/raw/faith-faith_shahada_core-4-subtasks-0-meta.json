@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[4].subtasks[0]",
+  "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+  "subtaskTitle": "List any superstitious beliefs or practices you hold",
+  "csQueryPrompt": "For a MILOS subtask titled 'List any superstitious beliefs or practices you hold' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Yunus 10:107 or Surah Al-Ma'idah 5:90, that directly anchor the prohibition of superstitious practices by establishing that ultimate benefit and harm come solely from Allah?",
+    "Which authentic narrations, specifically those found in Sahih al-Bukhari and Sahih Muslim regarding \"Tiyarah\" (evil omens), explicitly contextualize superstitious beliefs as contradictions to the core principles of Tawhid?"
+  ],
+  "retrievedAt": "2026-04-18T18:39:25Z"
+}

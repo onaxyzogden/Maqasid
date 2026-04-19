@@ -1,0 +1,432 @@
+{
+  "answer": "Drawing upon my extensive knowledge derived from the Quran and the authentic Hadith, I present the following comprehensive guidelines to shape an effective and meaningful user experience:\n\n1. **In-Depth User Understanding:** Above all, we must prioritize a profound comprehension of the user's individual journey, their specific needs, and their behavioral patterns, all interpreted through the lens of the spiritual guidance found within the scriptures. We should strive to anticipate their aspirations and challenges, much like the Prophet's understanding of his followers, by anchoring their fundamental purpose in Surah Ad-Dhariyat 51:56, which explicitly states that God did not create jinn and mankind except to worship Him [1].\n2. **Robust and Enduring Framework:** The underlying structure of this system must be exceptionally resilient and capable of withstanding any potential challenges or disruptions, mirroring the unwavering strength and enduring nature of our faith. It needs to be built upon a foundation as steadfast as the pillars of the Kaaba, grounded in the exclusive devotion established in Surah Al-Fatihah 1:5, which declares that it is God alone we worship and God alone we ask for help [2].\n3. **Elegant and Lucid Presentation:** While the functionality of the system is of paramount importance, we must not neglect the significance of presenting information with beauty, clarity, and grace, much like the eloquent and inspiring verses of the Quran. The message should resonate with the user, making it both informative and aesthetically pleasing, by highlighting the universal message of all prophets in Surah Al-Anbiya 21:25 and Surah An-Nahl 16:36, which beautifully declare that every messenger was sent with the clear command to worship God alone and avoid false deities [3, 4].\n4. **Seamless and Accessible Experience:** The user experience should be characterized by exceptional ease of understanding and accessibility, ensuring that all individuals, regardless of their technical proficiency, can effortlessly navigate and benefit from the system. The teachings should be as readily available and clear as the light of guidance, easily conveying the universal call found in Surah Al-Baqarah 2:21, which invites all mankind to worship their Lord who created them so that they may become righteous [5].",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 1,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "e0b474e0-52e6-4809-90f4-c90d6e6f5654"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 2,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "7af4ba2c-e1c0-4537-92e7-94273753f5cf"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 3,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "48c9e12d-97b5-4fef-b2d5-10a16512ac38"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 4,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "a778da86-17cb-42e7-907e-be223247b773"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 5,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "47c5e865-aa4c-4cc0-9e9a-57a7ca0b1a00"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 6,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "168fcee0-6679-42d2-bbdb-b755e7d30f51"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 7,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "0647efde-3e37-4b43-88de-6907630f3ec6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 8,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "62fbaeef-1dd7-446e-be26-ed4e7eb06f73"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 9,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "4553237b-fb7c-44cb-8fb6-3af91ae6ec91"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 10,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "17a89e4e-742e-4dba-a06a-660bc50dbe75"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 11,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "2a6bd5cc-0dec-43e9-90cf-034921bab423"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 12,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "abe66eaa-7b94-46e5-97de-593d23550c10"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 13,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "8580d63f-4ce4-49bc-9f69-853063ebe63d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 14,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "c274a46a-387f-4028-83e4-1070a75886c5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 15,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "d2c525ed-ee36-4eec-aa7e-c184c2355f54"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 16,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "3798573e-4c4a-4c0b-af72-8a42ae29a385"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 17,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "671b1754-0d19-4453-b506-4676dc57c41b"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 18,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "89dcc8ee-e467-43e3-aec7-94ca44fd1a55"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 19,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "a220b3c0-3345-4afe-891a-2c14c0ee4e3d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 20,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "5cd21196-6c1a-4079-a2a1-ee29ac5b9bf0"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 21,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "9ffd0797-02c3-4eab-8337-ec6741d18c1e"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 22,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "9d037b5c-9014-454d-80ec-b03d4a712697"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 23,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "5b731cd0-f3d2-488e-88ca-2c649d595057"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 24,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "472dfecc-a6be-4dc9-af9e-c7c6b05624d6"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 25,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "06441355-1db3-4f01-9f37-d046492cd4fc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 26,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "c25e83ac-4895-424c-8323-22784b1359e2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 27,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "90133e7b-fdbe-4f60-bc4e-06b0e557663d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 28,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "e14f6d2f-81db-418b-90b8-e253fca1771d"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 29,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "ee058f1e-0e4f-4bd9-9e4f-1b5141d2b4cd"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 30,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "6006529b-7f0c-4ad1-8883-8f78aca55754"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 31,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "df9a395c-88e7-4234-b97d-398777860c21"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 32,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "ffb75123-c389-4634-b1da-037703916618"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 33,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "4406203d-97f6-4ecc-aaaf-78a5a04a3fc2"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 34,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "37854e77-c49c-4a14-be84-0f3e9b0fe6dc"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 35,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "649c9354-f48b-4a1a-b515-b5f98666e214"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 36,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "28096bec-589a-4c4a-b597-c67d764b5ea5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 37,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "c0a2f412-a154-4da5-9fd3-8ac1c75f9227"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 38,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "82acd735-7585-4536-88be-550130363bae"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 39,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "997d7edf-de48-408e-9843-0261f7d4e7eb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 40,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "1c89831b-8537-4985-95df-b381ff241146"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 41,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "dcf0e65e-1737-4b2f-9d77-33119f70f2a5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 42,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "aae6b05a-ccf9-485f-9d58-f98cdfe41a7a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 43,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "dddd20a2-2d7c-4383-8612-3cda7cf7b017"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 44,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "997d7edf-de48-408e-9843-0261f7d4e7eb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 45,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "1c89831b-8537-4985-95df-b381ff241146"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 46,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "dcf0e65e-1737-4b2f-9d77-33119f70f2a5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 47,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "aae6b05a-ccf9-485f-9d58-f98cdfe41a7a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 48,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "dddd20a2-2d7c-4383-8612-3cda7cf7b017"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 49,
+      "cited_text": null,
+      "start_char": 1380838,
+      "end_char": 1380839,
+      "chunk_id": "997d7edf-de48-408e-9843-0261f7d4e7eb"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 50,
+      "cited_text": "S\u016brah 1: al-F\u0101tihah www.quranproject.org 1: The Opening _________________________________________________________",
+      "start_char": 68941,
+      "end_char": 69055,
+      "chunk_id": "1c89831b-8537-4985-95df-b381ff241146"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 51,
+      "cited_text": "34. So they were struck by the evil conse-",
+      "start_char": 657770,
+      "end_char": 657813,
+      "chunk_id": "dcf0e65e-1737-4b2f-9d77-33119f70f2a5"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 52,
+      "cited_text": null,
+      "start_char": 789527,
+      "end_char": 789528,
+      "chunk_id": "aae6b05a-ccf9-485f-9d58-f98cdfe41a7a"
+    },
+    {
+      "source_id": "6e2aa952-2370-4153-9e9e-1fdc4d086a83",
+      "citation_number": 53,
+      "cited_text": "their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if God had willed, He could have taken away their hearing and their sight. Indeed, God is over all things competent.",
+      "start_char": 82075,
+      "end_char": 82324,
+      "chunk_id": "dddd20a2-2d7c-4383-8612-3cda7cf7b017"
+    }
+  ]
+}

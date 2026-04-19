@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[5].subtasks[6]",
+    "subtaskTitle": "Reflect: which level describes your current state?",
+    "parentTaskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Reflect: which level describes your current state?' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Fatir 35:32 which categorizes believers into three distinct spiritual ranks, that contextually anchor the theological imperative of self-reflection regarding one's current state of faith?",
+        "retrievedAt": "2026-04-18T19:00:34Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the progressive framework of Islam, Iman, and Ihsan established in the Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, provide the exact criteria for evaluating and reflecting upon one's personal religious level?",
+        "retrievedAt": "2026-04-18T19:00:34Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 35:32",
+      "translation": "Then We caused to inherit the Book those We have chosen of Our servants; and among them is he who wrongs himself, and among them is he who is moderate, and among them is he who is foremost in good deeds by permission of Allah. That [inheritance] is what is the great bounty.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS returned this ayah via direct cited_text ('32. Then We caused to inherit the Book'). The verse explicitly ranks the believing community into three spiritual tiers — the Qur'anic structural parallel to the Islam / Iman / Ihsan progression the subtask asks the user to self-assess against. Bayyinah + direct. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Fatir 35:32 which categorizes believers into three distinct spiritual ranks, that contextually anchor the theological imperative of self-reflection regarding one's current state of faith?",
+        "retrievedAt": "2026-04-18T19:00:34Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 56:7-11",
+      "translation": "And you become [of] three kinds: Then the companions of the right — what are the companions of the right? And the companions of the left — what are the companions of the left? And the forerunners, the forerunners — those are the ones brought near [to Allah].",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS returned this passage via direct cited_text. The eschatological three-fold ranking of humanity parallels the three-tier progression of the hadith, offering the user a second scriptural frame for honest self-placement. Contextual (the axis is Day-of-Judgment grouping rather than religious-level per se). Bayyinah. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Fatir 35:32 which categorizes believers into three distinct spiritual ranks, that contextually anchor the theological imperative of self-reflection regarding one's current state of faith?",
+        "retrievedAt": "2026-04-18T19:00:34Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim 8 (Book 1, Hadith of Jibril via Umar ibn al-Khattab)",
+      "translation": "Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage... Iman [is] that you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and the Divine Decree about good and evil... Ihsan [is] that you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The three-tier framework the subtask asks the user to self-assess against. Reciting the Prophetic definitions in one entry gives the reflection prompt its rubric. Bayyinah + direct. Arabic omitted per MS disclaimer.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the progressive framework of Islam, Iman, and Ihsan established in the Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, provide the exact criteria for evaluating and reflecting upon one's personal religious level?",
+        "retrievedAt": "2026-04-18T19:00:34Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; 2 direct + 1 contextual. Bar met."
+  }
+}

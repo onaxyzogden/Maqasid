@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[0].subtasks[2]",
+  "taskTitle": "Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)",
+  "subtaskTitle": "Read the section on prophethood and revelation",
+  "csQueryPrompt": "For a MILOS subtask titled 'Read the section on prophethood and revelation' under the parent task 'Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Ash-Shura 42:51 detailing the modes of divine communication and Surah Al-Ahzab 33:40 establishing the seal of the prophets, that contextually anchor the theological study of prophethood and revelation?",
+    "Which authentic narrations, particularly the detailed account of the commencement of revelation (Wahy) found in Sahih al-Bukhari 3 or the explicit hadiths affirming the finality of messengership in Sahih Muslim, directly anchor the foundational aqidah texts concerning the prophets?"
+  ],
+  "retrievedAt": "2026-04-19T04:33:39Z"
+}

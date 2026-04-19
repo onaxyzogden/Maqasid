@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_growth[2].subtasks[0]",
+    "subtaskTitle": "Define major shirk (shirk akbar) with examples",
+    "parentTaskTitle": "Understand the difference between major and minor shirk",
+    "session": "faith-2026-04-19-c",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Define major shirk (shirk akbar) with examples' under the parent task 'Understand the difference between major and minor shirk' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah An-Nisa 4:48 detailing its unforgivable nature and Surah Al-Ma'idah 5:72 providing clear examples of directing worship to other than Allah, that contextually anchor the definition of major shirk (shirk akbar)?",
+        "retrievedAt": "2026-04-19T04:45:30Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-0-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the explicitly defined categories in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies the greatest of the major sins (Al-Kaba'ir) as associating a partner with Allah when He alone created you, directly anchor the definition and examples of major shirk?",
+        "retrievedAt": "2026-04-19T04:45:30Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_growth-2-subtasks-0-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 5:72",
+      "translation": "They have certainly disbelieved who say, \"God is the Messiah, the son of Mary\" while the Messiah has said, \"O Children of Israel, worship God, my Lord and your Lord.\" Indeed, he who associates others with God - God has forbidden him Paradise, and his refuge is the Fire. And there are not for the wrongdoers any helpers.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS q1 returned this ayah verbatim (citation 9) and it is the paradigm example of shirk akbar: directing worship/divinity to a created being and the eternal consequence thereof. Direct textual anchor for defining major shirk with an example. Arabic omitted — MS did not supply Arabic for this verse, only the English matn.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah An-Nisa 4:48 detailing its unforgivable nature and Surah Al-Ma'idah 5:72 providing clear examples of directing worship to other than Allah, that contextually anchor the definition of major shirk (shirk akbar)?",
+        "retrievedAt": "2026-04-19T04:45:30Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0160 (via Abdullah b. Mas'ud)",
+      "translation": "[Which sin is] gravest in the eye of Allah? He (the Holy Prophet) replied: That you associate a partner with Allah (despite the fact) that He has created you. He (the reporter) said: I told him (the Holy Prophet): Verily it is indeed grave. He (the reporter) said: I asked him what the next (gravest sin) was. He (the Holy Prophet) replied: That you kill your child out of fear that he shall join you in food. He (the reporter) said: I asked (him) what the next (gravest sin) was. He (the Holy Prophet) observed: Then (the next gravest sin) is that you commit adultery with the wife of your neighbour.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The canonical Prophetic definition of the gravest sin — associating a partner with Allah who alone created you — is the textbook definition of shirk akbar. Matn quoted verbatim from MS reference chunks in both q1 (cit. 22) and q2 (cit. 5). Book 001 Number 0161 appears adjacent in MS, confirming the Kitab al-Iman chapter on kaba'ir as the source location for this narration (Book 1 / Kitab al-Iman).",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the explicitly defined categories in Sahih al-Bukhari and Sahih Muslim where the Prophet identifies the greatest of the major sins (Al-Kaba'ir) as associating a partner with Allah when He alone created you, directly anchor the definition and examples of major shirk?",
+        "retrievedAt": "2026-04-19T04:45:30Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 entries, both Bayyinah, both direct. Quran 5:72 (matn verbatim from MS q1 cit. 9) + Sahih Muslim Book 1 #0160 (matn verbatim from MS q1 cit. 22 / q2 cit. 5). Bar met. Rejected: Quran 4:48 and 4:116 named in MS answer but reference chunks for them returned only fragments ('47. O you who were given the Scripture' / 'vate conversation...') not the unforgivable-shirk clause itself — cannot bind ref to matn. Arabic omitted throughout: MS did not supply Arabic for any of the ayat in this retrieval. Also present in refs but not used: Quran 21:25 block which is tafsir commentary rather than a canonical ayah citation."
+  }
+}

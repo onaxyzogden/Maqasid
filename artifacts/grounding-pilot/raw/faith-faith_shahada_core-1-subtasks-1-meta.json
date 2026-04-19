@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[1].subtasks[1]",
+  "taskTitle": "Study the meaning and conditions of La ilaha illAllah",
+  "subtaskTitle": "Learn what negation (la ilaha) and affirmation (illAllah) entail",
+  "csQueryPrompt": "For a MILOS subtask titled 'Learn what negation (la ilaha) and affirmation (illAllah) entail' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically 2:256 and 43:26-27, that establish the conceptual framework of negating all false objects of worship (Nafi) and affirming the sole divinity of Allah (Ithbat).",
+    "Retrieve Sahih hadith from Bukhari and Muslim, specifically the narrations defining the \"conditions\" of the testimony and the rejection of shirk, to explain what the verbal declaration entails in terms of lived negation and affirmation."
+  ],
+  "retrievedAt": "2026-04-18T12:54:09Z"
+}

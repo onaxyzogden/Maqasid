@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[2].subtasks[2]",
+  "taskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+  "subtaskTitle": "Qabul (Acceptance) — accept all its implications",
+  "csQueryPrompt": "For a MILOS subtask titled 'Qabul (Acceptance) — accept all its implications' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "Identify primary Quranic verses, specifically As-Saaffat 37:35-36, that contrast the condition of Qabul (acceptance) with the arrogance (*kibr*) of those who rejected the declaration of \"La ilaha illAllah.\"",
+    "Retrieve Sahih hadith from Bukhari and Muslim, notably the parable of the rain and the three types of soil, to establish the prophetic evidence for the hearts that accept and benefit from divine guidance versus those that reject it."
+  ],
+  "retrievedAt": "2026-04-18T12:57:24Z"
+}

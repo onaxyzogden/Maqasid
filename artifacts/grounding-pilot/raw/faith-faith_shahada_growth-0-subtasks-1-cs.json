@@ -1,0 +1,7 @@
+{
+  "answer": "<technical_details>\nThe provided sources are strictly focused on prompt engineering best practices for Claude models and contain no material regarding the Quran, Hadith, or foundational Islamic theology. The queries provided below are generated using external knowledge that requires independent verification.\n</technical_details>\n\n<queries>\n1. What are the primary ayat, such as Surah Ash-Shura 42:11 which establishes that \"there is nothing like unto Him\" and Surah Al-Ikhlas 112:1-4, that directly anchor the scriptural framework for studying the attributes of Allah?\n2. Which authentic narrations, particularly those in Sahih al-Bukhari and Sahih Muslim detailing the 99 Names of Allah or His specific divine actions and attributes, contextually anchor the theological study of His nature in classical aqidah texts?\n</queries>\n\n<action_items>\nSince the active document corpus lacks the required theological texts, do you want me to use the discovery tool to run a fast_research search to locate comprehensive sources detailing the Quranic and Hadith evidence for the attributes of Allah?\n</action_items>",
+  "conversation_id": "341df2d4-45b1-4a26-9f9e-5830b933eac0",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": []
+}

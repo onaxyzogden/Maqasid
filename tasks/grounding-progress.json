@@ -1,0 +1,288 @@
+{
+  "_schema": "docs/grounding-schema.md §3; runtime docs/grounding-runtime-prompt.md §4",
+  "_initialized": "2026-04-18",
+  "_note": "Per-subtask grading ledger. Keyed by idPath (e.g. 'faith.faith_shahada_core[0].subtasks[0]'). Values: { status, groundedBar, entryCount, reviewedAt, session }. Runtime appends; humans review.",
+  "records": {
+    "faith.faith_shahada_core[0].subtasks[0]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/pilot-entry-shahada-core-0-0.json"
+    },
+    "faith.faith_shahada_core[0].subtasks[1]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-0-1.json"
+    },
+    "faith.faith_shahada_core[0].subtasks[2]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-0-2.json",
+      "notes": "Quran axis empty — MS flagged 49:14/5:41 Arabic as 'Not from sources' and refs pointed to 49:15. Grounded via hadith (Jibril + heart-hadith)."
+    },
+    "faith.faith_shahada_core[0].subtasks[3]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-0-3.json",
+      "notes": "Hadith axis empty — q2 returned paraphrases not verbatim matn. Quran 8:2 missing Arabic (MS didn't return it). 39:22 used instead of queried 39:23 per bind-to-what-MS-returned rule."
+    },
+    "faith.faith_shahada_core[1].subtasks[0]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-1-0.json",
+      "notes": "Arabic for 47:19 dropped — MS disclaimed it as 'provided from standard knowledge'."
+    },
+    "faith.faith_shahada_core[1].subtasks[1]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 1,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-1-1.json",
+      "notes": "Hadith axis completely empty — q2 references array was empty. Bar passes via Quran 2:256 alone."
+    },
+    "faith.faith_shahada_core[1].subtasks[2]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-1-2.json"
+    },
+    "faith.faith_shahada_core[1].subtasks[3]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-1-3.json",
+      "notes": "All Quran Arabic omitted per MS disclaimer. Hadith tagged contextual."
+    },
+    "faith.faith_shahada_core[2].subtasks[0]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-0.json"
+    },
+    "faith.faith_shahada_core[2].subtasks[1]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-1.json"
+    },
+    "faith.faith_shahada_core[2].subtasks[2]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-2.json"
+    },
+    "faith.faith_shahada_core[2].subtasks[3]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-3.json"
+    },
+    "faith.faith_shahada_core[2].subtasks[4]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-4.json",
+      "notes": "Arabic omitted (MS disclaimer). Hadith rejected — matn quoted without canonical ref."
+    },
+    "faith.faith_shahada_core[2].subtasks[5]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-5.json",
+      "notes": "Arabic omitted (MS disclaimer). Hadith axis empty."
+    },
+    "faith.faith_shahada_core[2].subtasks[6]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-2-6.json",
+      "notes": "Hadith rejected — matn quoted without inline canonical ref."
+    },
+    "faith.faith_shahada_core[3].subtasks[0]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-a",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-3-0.json",
+      "notes": "q2 retrieval failed (rate-limited). Hadith drawn from q1 body."
+    },
+    "faith.faith_shahada_core[3].subtasks[3]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-3-3.json",
+      "notes": "Quran axis empty — q1 rate-limited (ERROR). Grounded via Jibril hadith (Muslim Book 1 #0005 + Bukhari V1B2#47)."
+    },
+    "faith.faith_shahada_core[3].subtasks[4]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-3-4.json",
+      "notes": "22:7 dropped (not ref-confirmed). Grounded via Quran 2:177, 64:7 + Jibril hadith."
+    },
+    "faith.faith_shahada_core[3].subtasks[5]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-3-5.json",
+      "notes": "54:49 bound per answer-text verbatim quote despite ref chunk pointing to 54:47. Bukhari V4B55#549 + Jibril Muslim Book 1 #0005."
+    },
+    "faith.faith_shahada_core[4].subtasks[0]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-4-0.json",
+      "notes": "10:107 dropped (not ref-confirmed). Quran 5:3 + 5:90 + Muslim 0423 + Bukhari V4B52#111."
+    },
+    "faith.faith_shahada_core[4].subtasks[1]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-4-1.json",
+      "notes": "6:17 not ref-confirmed; Bukhari camel-necklace rejected (page-level ref, not canonical). Grounded via Quran 39:38 + Muslim #0423."
+    },
+    "faith.faith_shahada_core[4].subtasks[2]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-4-2.json",
+      "notes": "Quran axis empty — 4:48/4:116 not in ref chunks. Bukhari matn rejected. Grounded via Muslim Kitab Al-Aiman Ch.1, Ch.2."
+    },
+    "faith.faith_shahada_core[4].subtasks[3]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-4-3.json",
+      "notes": "Strong on both axes. Quran 39:54 + 21:54 + Bukhari V3B43#658 + V2B26#671."
+    },
+    "faith.faith_shahada_core[5].subtasks[0]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 2,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-0.json",
+      "notes": "Quran axis empty — q1 paraphrases only. Hadith carries bar: Muslim 8 + Bukhari V1/B2/#47. Arabic omitted per MS disclaimer."
+    },
+    "faith.faith_shahada_core[5].subtasks[1]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-1.json",
+      "notes": "Quran 15:9 Arabic preserved (MS returned it); others omitted."
+    },
+    "faith.faith_shahada_core[5].subtasks[2]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-2.json",
+      "notes": "All Arabic omitted per MS pattern. Standalone Shahada matn without canonical ref not bound."
+    },
+    "faith.faith_shahada_core[5].subtasks[3]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-3.json",
+      "notes": "Quran 2:177 and 4:136 confirmed via direct cited_text."
+    },
+    "faith.faith_shahada_core[5].subtasks[4]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-4.json",
+      "notes": "Both Muslim and Bukhari Ihsan wordings included as parallel direct citations."
+    },
+    "faith.faith_shahada_core[5].subtasks[5]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-5.json",
+      "notes": "Quran 31:34 and 7:187 direct cited_text confirmed. 47:18 not bound."
+    },
+    "faith.faith_shahada_core[5].subtasks[6]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-5-6.json",
+      "notes": "Quran 35:32 and 56:7-11 direct cited_text confirmed."
+    },
+    "faith.faith_shahada_core[3].subtasks[1]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 4,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-3-1.json",
+      "notes": "Re-retrieved under alt MS (session-A raws were rate-limit errors). Quran 2:285 + 35:1 + Muslim Book 1 No. 0005 + Bukhari V1/B2/#47. Arabic omitted."
+    },
+    "faith.faith_shahada_core[3].subtasks[2]": {
+      "status": "graded",
+      "groundedBar": "yes",
+      "entryCount": 3,
+      "reviewedAt": "2026-04-18T00:00:00Z",
+      "session": "faith-2026-04-18-b",
+      "entryFile": "artifacts/grounding-pilot/entries/pilot-entry-shahada-core-3-2.json",
+      "notes": "Re-retrieved under alt MS. Quran 4:136 + 2:285 + Muslim Book 1 No. 0005. Bukhari 1.2.47 excluded (matn omits 'His Books'). Arabic omitted."
+    }
+  }
+}

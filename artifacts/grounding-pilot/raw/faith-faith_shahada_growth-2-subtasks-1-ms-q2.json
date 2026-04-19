@@ -1,0 +1,680 @@
+{
+  "answer": "The provided sources do not explicitly use the classical theological terms \"minor shirk\" or \"shirk asghar\" to categorize these acts (you may want to independently verify this specific terminology outside of the sources). However, authentic narrations in Sahih al-Bukhari and Sahih Muslim severely caution against ostentation (showing off) and seeking praise, providing foundational examples of this concept:\n\n*   **Fighting for Show:** The Prophet was asked about men who engage in battle for fame or for \"showing off\" [1]. He clarified that only the one who fights to make Allah's Word superior is truly fighting in Allah's Cause [1]. Additionally, Sahih Muslim includes a chapter emphasizing that anyone \"who fought for ostentation and vanity deserved (punishment in) hell\" [2].\n*   **Worship and Fasting:** The Prophet conditioned the forgiveness of past sins during the Night of Qadr and the month of Ramadan on performing prayers and fasts \"out of sincere faith and hoping to attain Allah's rewards (not to show off)\" [3, 4].\n*   **Pride and Pretense:** The Prophet warned that if a person keeps an animal, such as a horse, \"for the sake of pride and pretense,\" it becomes a source of sins for them rather than a reward [5]. \n*   **Seeking Undeserved Praise:** Authentic narrations strongly condemn hypocrites who avoided joining the Prophet in battle but still took oaths \"wishing to be praised for what they had not done\" [6]. \n*   **Charity and Ostentation:** Sahih Muslim features a chapter explicitly detailing the \"prohibition of simulation and ostentation\" [7]. In another instance, when a man gave abundant charity, others falsely accused him of \"showing off,\" which led to a divine revelation defending sincere voluntary givers [8].\n\nThese narrations establish that performing religious or righteous deeds for public display, fame, or praise invalidates the sincerity required by God.",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 1,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "f11d7a00-a595-4375-b13d-b06860342c44"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 2,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "b3264c6f-9a2d-481d-99ae-5831d237c2bf"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 3,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "ee23680e-1990-4c46-8d53-023cd19d4e24"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 4,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "0a6dae9c-43f1-432b-a746-0beb9c575a77"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 5,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "17302811-0790-41c1-85cd-7114f7a8869a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 6,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "0c8bcb96-81fa-4db1-8929-a396b2281391"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 7,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "cd44e3ec-af25-46d2-aa8e-29e620286528"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 8,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "4e4e4ed2-ae2f-49a5-888a-29bc8091c5c8"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 9,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "fdbeb115-8c57-4f65-8b59-4c177ba71bd5"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 10,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "352de14f-7b12-4214-9bf5-3e6f26f05c87"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 11,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "f550d240-f370-4d03-8e2c-f8af9ff35720"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 12,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "3b32c386-83b8-487f-a76a-9672bd31778a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 13,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "3eff9f93-6a81-46e1-aba1-76c4f754a684"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 14,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "e41ba4d9-1281-43dc-9363-e4fd4cede65e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 15,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "729e995c-3f45-418d-b50b-57bd4c51b74c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 16,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "c041f502-a814-42d2-b0c5-5e7555b0fd12"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 17,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "6a3e3594-0539-42ab-91ba-e8d5d61551e8"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "4797c20e-9105-4fc8-a54a-849c21b75bf0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 19,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "58f9cbb4-daad-4e8f-9cad-2c77be440d5d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 20,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "e94e9140-0a98-4853-806f-2acd47d3631a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 21,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "76eadbbc-74dd-4ca6-98a3-9ec3faf5bf3c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 22,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "e94cc7e5-c0fc-4fc1-8599-bdc4e0d04187"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "07101671-0ba9-4ed1-9f8a-49263b3254a7"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 24,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "3e59bfb8-bec2-4b7c-9708-2bf9a893c782"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 25,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "4e546735-9a2f-452e-8c56-dd0a5ffb4fd0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 26,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "88e1ce91-a3e0-41ff-9ed5-37ffb81fda36"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 27,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "8cb4c6ae-b6bb-41f4-8e88-28eaccaa229b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 28,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "be0918ee-cf3a-452d-8fff-91c2835585b3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 29,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "042d299e-2b5f-48e7-9c2b-9db143b9ae17"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 30,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "0470c493-e4a0-404c-8945-446f47d3644d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 31,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "bb7f9f8d-912c-4a37-87c5-eab7d85577f6"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 32,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "ca11f8bb-a8dd-4833-95d5-03fd6677df0f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 33,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "a7d7a0f5-12c5-408b-9d22-dd26073ac5a9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 34,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "63432f6d-bf01-4e07-a1b3-ffd420747c3f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 35,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "e22dab33-db33-4856-88db-5c3d83b6275b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 36,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "1cf78c62-f2ad-4ab9-9a85-d0c8d6cec128"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 37,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "cf74201d-aae4-40f9-99f4-177da2477d5d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 38,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "7e6bd1fb-88e7-41a1-a993-ec1f0dc869fa"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 39,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "a7751c54-a6cc-4513-b1fb-4c5cf863273a"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 40,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "55ba877b-5b40-47ea-a525-774024fc8c07"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 41,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "91d4343b-b78b-4a2f-bd55-31a52e41c0d2"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 42,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "4d528a5a-7b88-4e73-9c69-a4a46d5c2ea8"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 43,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "a0053b91-bacc-4567-aa3b-a7b67c17d790"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 44,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "1c1647cb-ca3b-49ee-869c-fd1e084bbe88"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 45,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "5b762e95-b5c2-40c4-9b8e-eeeeaac3aa2d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 46,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "ea297d64-baf5-4759-a613-696ca11ca8cc"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 47,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "9dddcd56-0da7-4cd6-b7da-5f01ad1ef3b0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 48,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "9b7debad-d5c4-4301-8b99-ae71138e78d3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 49,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "1c99efd5-5cdd-41bb-b9fa-192c71517bb3"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 50,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "cf7008ff-2b32-4349-b23c-aca8be007a93"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 51,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "6c7cb159-f6a9-4c5f-874e-f9c3f2e55c43"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 52,
+      "cited_text": "Volume 2, Book 24, Number 496: Narrated Abu Masud:",
+      "start_char": 681285,
+      "end_char": 681336,
+      "chunk_id": "3f6f7dc9-f304-47b9-8e02-04b227406f06"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 53,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "7285dbb1-0dbc-4d67-bf1b-5efac9accf1f"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 54,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "64171666-02ca-41b5-bd35-4fec0a5217e7"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 55,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "6932bffd-7852-4fb0-b1c2-99f0417d328e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 56,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "0655808c-560c-41e8-a054-15dcf7f88bdb"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 57,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "bff45c37-37fa-4c0f-b096-ec61330ce44b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 58,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "7fd73505-5af4-4957-a096-70c7f4ec14e4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 59,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "81f19399-3749-4849-ae94-a8355c2d27f9"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 60,
+      "cited_text": "Volume 2, Book 24, Number 496: Narrated Abu Masud:",
+      "start_char": 681285,
+      "end_char": 681336,
+      "chunk_id": "34beca19-e16c-46cc-a831-0ad814072132"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 61,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "1695a467-7634-4a2b-b145-291e7d332494"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 62,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "e8cd544c-e4e3-48c9-bb31-dcc81c4598c4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 63,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "ba053c5b-12b8-4a70-a68d-98718fff4812"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 64,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "9a9e9add-b230-495e-b454-49896eb45198"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 65,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "5a8e12df-8d3e-4c6b-9620-137e99457757"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 66,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "41f4c216-a5cc-4cd6-8938-2247a715636d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 67,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "00d26de7-efb1-49de-acbc-b35ffae2081d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 68,
+      "cited_text": "Volume 2, Book 24, Number 496: Narrated Abu Masud:",
+      "start_char": 681285,
+      "end_char": 681336,
+      "chunk_id": "9b227338-1856-4819-9f29-027f372248fe"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 69,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "1695a467-7634-4a2b-b145-291e7d332494"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 70,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "e8cd544c-e4e3-48c9-bb31-dcc81c4598c4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 71,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "ba053c5b-12b8-4a70-a68d-98718fff4812"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 72,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "9a9e9add-b230-495e-b454-49896eb45198"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 73,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "5a8e12df-8d3e-4c6b-9620-137e99457757"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 74,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "41f4c216-a5cc-4cd6-8938-2247a715636d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 75,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "00d26de7-efb1-49de-acbc-b35ffae2081d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 76,
+      "cited_text": "Volume 2, Book 24, Number 496: Narrated Abu Masud:",
+      "start_char": 681285,
+      "end_char": 681336,
+      "chunk_id": "9b227338-1856-4819-9f29-027f372248fe"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 77,
+      "cited_text": "Volume 4, Book 52, Number 65: Narrated Abu Musa:",
+      "start_char": 1369835,
+      "end_char": 1369884,
+      "chunk_id": "1695a467-7634-4a2b-b145-291e7d332494"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 78,
+      "cited_text": "37 / 1800",
+      "start_char": 147879,
+      "end_char": 147888,
+      "chunk_id": "e8cd544c-e4e3-48c9-bb31-dcc81c4598c4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 79,
+      "cited_text": "1. Whenever he is entrusted, he betrays.",
+      "start_char": 42972,
+      "end_char": 43013,
+      "chunk_id": "ba053c5b-12b8-4a70-a68d-98718fff4812"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 80,
+      "cited_text": "Volume 1, Book 2, Number 36: Narrated Abu Huraira:",
+      "start_char": 44061,
+      "end_char": 44112,
+      "chunk_id": "9a9e9add-b230-495e-b454-49896eb45198"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 81,
+      "cited_text": "Volume 4, Book 52, Number 111: Narrated Sahl bin Sad Saidi:",
+      "start_char": 1390269,
+      "end_char": 1390329,
+      "chunk_id": "5a8e12df-8d3e-4c6b-9620-137e99457757"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 82,
+      "cited_text": "Volume 6 - 994 / 1700",
+      "start_char": 2191104,
+      "end_char": 2191125,
+      "chunk_id": "41f4c216-a5cc-4cd6-8938-2247a715636d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 83,
+      "cited_text": "Book 42: The Book Pertaining to Piety and Softening of Hearts (Kitab Al-Zuhd wa Al-Raqa'iq)...........................................................................................................................................................1760",
+      "start_char": 224457,
+      "end_char": 224708,
+      "chunk_id": "00d26de7-efb1-49de-acbc-b35ffae2081d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 84,
+      "cited_text": "Volume 2, Book 24, Number 496: Narrated Abu Masud:",
+      "start_char": 681285,
+      "end_char": 681336,
+      "chunk_id": "9b227338-1856-4819-9f29-027f372248fe"
+    }
+  ]
+}

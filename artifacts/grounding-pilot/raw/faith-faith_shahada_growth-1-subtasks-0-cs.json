@@ -1,0 +1,7 @@
+{
+  "answer": "<grounding>\nThe provided text is the \"single reference for prompt engineering with Claude's latest models\" [1] and focuses exclusively on technical configurations.\n</grounding>\n\n<technical_details>\nThe active document corpus lacks any theological material regarding the Quran, Hadith, or the nullifiers of Islam. The queries below are generated using external information, which you must independently verify before deployment.\n</technical_details>\n\n<queries>\n1. What are the primary ayat, such as Surah At-Tawbah 9:65-66 which addresses mocking the religion and Surah An-Nisa 4:48 which defines the absolute nullification through shirk, that directly anchor the scriptural foundation for the classical ten nullifiers of Islam?\n2. Which authentic narrations in Sahih al-Bukhari and Sahih Muslim, particularly those explicitly detailing the consequences of apostasy or defining the abandonment of the daily prayer as an act of absolute disbelief, contextually anchor the explanations of these nullifiers?\n</queries>\n\n<action_items>\nSince the current sources do not contain the necessary theological texts, do you want me to initiate a fast_research search using the discovery tool to locate comprehensive primary source references detailing the ten nullifiers of Islam?\n</action_items>",
+  "conversation_id": "341df2d4-45b1-4a26-9f9e-5830b933eac0",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": []
+}

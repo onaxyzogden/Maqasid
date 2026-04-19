@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[3].subtasks[3]",
+  "taskTitle": "Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)",
+  "subtaskTitle": "Understand how the three categories interrelate",
+  "csQueryPrompt": "For a MILOS subtask titled 'Understand how the three categories interrelate' under the parent task 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, specifically Surah Maryam 19:65 which seamlessly integrates Allah's lordship over the heavens and earth, the direct command to worship Him exclusively, and the absolute uniqueness of His attributes, that directly anchor the scriptural interrelationship between the three categories of Tawhid?",
+    "Which authentic narrations, such as the comprehensive supplication of Sayyid al-Istighfar found in Sahih al-Bukhari where the believer simultaneously affirms Allah's creation (Rububiyyah), pledges exclusive servitude (Uluhiyyah), and invokes His specific attributes for forgiveness (Asma wa Sifat), contextually anchor the practical unification of these categories?"
+  ],
+  "retrievedAt": "2026-04-19T05:00:11Z"
+}

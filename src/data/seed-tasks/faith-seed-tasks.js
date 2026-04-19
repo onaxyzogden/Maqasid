@@ -11,6 +11,8 @@ export const FAITH_SEED_TASKS = {
       description: 'The Shahada \u2014 "Ashhadu an la ilaha illAllah wa ashhadu anna Muhammadan rasulullah" \u2014 is the first pillar of Islam and the gateway into the faith. Renew and deepen your understanding of this testimony, ensuring it is uttered with full knowledge, certainty, sincerity, and love. This is not merely a declaration but a covenant with Allah.',
       subtasks: [
         { title: 'Recite the full Shahada with correct pronunciation and meaning', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -81,6 +83,8 @@ Linguistically, the Shahada isn't just a statement of existence; it is a stateme
 2. **The Affirmation:** When you say *"illAllah,"* settle the heart on the fact that only He provides, sustains, and deserves your ultimate devotion.
 3. **The Follow-through:** Acknowledging Muhammad (peace be upon him) as the *Rasool* means accepting his sunnah as the practical map for your life.` },
         { title: 'Reflect on what "no god but Allah" demands of your daily life', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe journaling or listing specific fears and dependencies, they provide clear logical inference for the subtask by emphasizing ultimate reliance on Allah, prioritizing Him above all else, and manifesting faith in daily actions.',
           sources: `**I. Quran**
 
 
@@ -112,6 +116,8 @@ La ilaha illAllah is not a passive statement — it is an active negation of eve
 3. Journal about how "no god but Allah" reframes one specific decision you are currently facing.
 4. You have completed this when you can articulate how Tawhid reshapes at least one priority, one fear, and one hope in your daily life.` },
         { title: 'Study the difference between verbal declaration and lived conviction', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention the hypocrites or the three specific dimensions of faith, they offer a clear logical inference for the subtask by pairing the verbal declaration of the Shahada with the necessary inward conviction of truly disbelieving in false deities.',
           sources: `**I. Quran**
 
 
@@ -137,6 +143,8 @@ The Shahada is not merely words on the tongue — it must settle in the heart an
 3. Ask yourself: "Are there areas of my life where my tongue says one thing but my actions say another?"
 4. You have completed this when you can explain, with evidence, why the Shahada requires all three dimensions — tongue, heart, and limbs — to be valid.` },
         { title: 'Journal: what does this testimony mean to you personally?', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe journaling, they offer a clear contextual indication for the subtask by emphasizing the necessity of knowing the truth of the testimony and uttering it with sincere conviction from the heart.',
           sources: `**I. Quran**
 
 
@@ -176,6 +184,8 @@ The Shahada is not abstract theology — it is the core of your identity as a Mu
       description: 'Deeply understand the testimony of faith \u2014 its linguistic meaning, theological implications, and the conditions scholars have derived from the Quran and Sunnah that make it valid.',
       subtasks: [
         { title: 'Study the linguistic meaning of La ilaha illAllah', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the verse does not explicitly detail the grammatical breakdown of the testimony, its central declaration that "there is no god but Him" witnessed by those of knowledge provides a strong logical inference for studying the linguistic meaning and implications of this core phrase.',
           sources: `**I. Quran**
 
 
@@ -215,6 +225,8 @@ To study the meaning linguistically is to understand that the sentence cannot fu
 
 **Note:** Scholarly analysis emphasizes that the hidden predicate (*khabar*) in the sentence is **bi-haqqin** (in truth). Thus, the full linguistic meaning is: *"There is no deity worthy of worship **in truth** except Allah."*` },
         { title: 'Learn what negation (la ilaha) and affirmation (illAllah) entail', done: false,
+          tier: 'T2',
+          amanahRationale: 'Although the provided texts do not explicitly detail the grammatical pillars of negation and affirmation, their specific translation of the phrase as "none has the right to be worshipped but Allâh" provides a clear contextual indication for internalizing this exact meaning.',
           sources: `**I. Quran**
 
 
@@ -263,6 +275,8 @@ To successfully complete this subtask, you must move beyond a simple translation
    * **Practice:** Recite the phrase while pausing slightly after "La ilaha" to symbolize the rejection, then firmly stating "illAllah" to symbolize the commitment.
    * **Verification:** You have completed this task when you can explain why "There is no God but Allah" is a less accurate translation than "There is no deity **rightfully** worshipped except Allah."` },
         { title: 'Understand what it means to worship Allah alone without partners', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the verses explicitly command worshipping Allah alone and joining nothing with Him, the detailed breakdown of worship into physical, verbal, and internal categories, as well as the identification of subtle partners, is derived through logical inference from these foundational commands.',
           sources: `**I. Quran**
 
 
@@ -291,6 +305,8 @@ To complete this subtask, expand your definition of worship from physical ritual
 3. **The Test of Sincerity:**
    * You have completed this task when you can list five distinct acts of worship—both internal and external—and verify that they are directed solely to Allah in your daily life.` },
         { title: 'Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided verses do not explicitly prescribe the use of a tafsir or a structured deconstruction of specific Arabic terms, their direct presentation of Allah\'s foundational attributes provides a clear logical inference for deeply reviewing and analyzing these specific texts.',
           sources: `**I. Quran**
 
 
@@ -324,6 +340,8 @@ Surah al-Ikhlas (112) defines Allah's oneness and absolute independence, serving
       description: 'The Shahada is not merely uttered \u2014 it requires seven conditions to be fulfilled for it to benefit the one who declares it. Study each condition with its evidence.',
       subtasks: [
         { title: 'Ilm (Knowledge) \u2014 know what it means', done: false,
+          tier: 'T2',
+          amanahRationale: 'While Quran 47:19 explicitly commands the believer to "know" that there is no deity except Allah, the specific practical steps of studying its linguistic meaning, reading tafsir, and testing one\'s articulation are derived through clear logical inference to fulfill this divine directive.',
           sources: `**I. Quran**
 
 
@@ -353,6 +371,8 @@ You must know what you are testifying to. Ignorance of the Shahada's meaning inv
 3. Test yourself: can you explain to someone else what the Shahada means beyond a surface translation?
 4. You have completed this when you can articulate the meaning of both halves of the Shahada (negation and affirmation) without referring to notes.` },
         { title: 'Yaqin (Certainty) \u2014 have no doubt', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the practical steps of identifying and researching specific doubts, they provide a clear logical inference for the subtask by establishing that meeting Allah with certainty and without doubt in the testimonies is a prerequisite for entering Paradise.',
           sources: `**I. Quran**
 
 
@@ -378,6 +398,8 @@ The heart must be free of doubt regarding Allah's oneness. Certainty distinguish
 3. For each doubt, seek knowledge: read a tafsir passage, a hadith, or consult a teacher. Doubt is addressed through learning, not suppression.
 4. You have completed this when you can affirm the Shahada with a heart settled in conviction, having confronted and resolved your major areas of uncertainty.` },
         { title: 'Qabul (Acceptance) \u2014 accept all its implications', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe reflecting on specific rulings or studying their wisdom, they offer a clear logical inference for the subtask by strictly prohibiting partial belief and demanding complete acceptance of divine and prophetic judgments.',
           sources: `**I. Quran**
 
 
@@ -407,6 +429,8 @@ Acceptance means embracing everything the Shahada requires — every ruling, obl
 3. Distinguish between struggling to implement (which is human) and rejecting the ruling itself (which contradicts acceptance).
 4. You have completed this when you can say — even if implementation is a work in progress — "I accept that this is from Allah and it is binding upon me."` },
         { title: 'Inqiyad (Submission) \u2014 act upon it', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail auditing daily practices or the five pillars, they provide a clear logical inference for the subtask by explicitly commanding submission to God and establishing that active obedience is the requirement for entering Paradise.',
           sources: `**I. Quran**
 
 
@@ -432,6 +456,8 @@ Knowledge and acceptance must lead to action. Submission (*inqiyad*) is the brid
 3. Create a concrete plan to begin acting on that obligation — start small but start now.
 4. You have completed this when you have identified your primary gap between knowledge and action, and taken a measurable first step to close it.` },
         { title: 'Sidq (Truthfulness) \u2014 mean it sincerely', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention reading Surah al-Munafiqun or performing a specific self-assessment regarding the Shahada, they provide a clear logical inference for the subtask by explicitly commanding believers to be truthful and establishing truthfulness as the foundational path to righteousness.',
           sources: `**I. Quran**
 
 
@@ -461,6 +487,8 @@ The Shahada must be said truthfully from the heart, not merely with the tongue. 
 3. Identify any areas where you perform Islam outwardly but feel emptiness or contradiction inwardly.
 4. You have completed this when you have made a sincere self-assessment and begun addressing any gap between your outward declaration and inner state — even if the journey is ongoing.` },
         { title: 'Ikhlas (Sincerity) \u2014 for Allah alone', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -498,6 +526,8 @@ The Shahada must be for Allah's sake alone, not for worldly gain, social accepta
 3. Learn the du'a for protection from riya (showing off): "Allahumma inni a'udhu bika an ushrika bika shay'an a'lamuhu, wa astaghfiruka lima la a'lamu."
 4. You have completed this when you can honestly assess your primary motivation for declaring the Shahada and have taken steps to purify your intention for Allah alone.` },
         { title: 'Muhabbah (Love) \u2014 love Allah and His Messenger above all', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe reading tafsir or reflecting on personal conflicts between desires and divine commands, they provide a clear logical inference for the subtask by explicitly stating that believers must love Allah and His Messenger above all else to experience the sweetness of faith.',
           sources: `**I. Quran**
 
 
@@ -534,6 +564,8 @@ Love for Allah and His Messenger must surpass love for all else. Allah says in Q
       description: 'As described in the Hadith of Jibril, Iman consists of six pillars. Understand each pillar, its evidence, and what it demands of the believer.',
       subtasks: [
         { title: 'Study belief in Allah (al-Iman billah)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -567,6 +599,8 @@ Belief in Allah is the foundation of all other beliefs. It encompasses four dime
 3. Read Ayat al-Kursi (2:255) and list the attributes of Allah it mentions.
 4. You have completed this when you can explain all four dimensions and give one Quranic evidence for each.` },
         { title: 'Study belief in the Angels (al-Mala\'ikah)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -600,6 +634,8 @@ Angels are a pillar of the unseen that Muslims must affirm. They are created fro
 3. Study the hadith describing the angels who record your deeds (Kiraman Katibin) and how this awareness should influence your daily behaviour.
 4. You have completed this when you can name four angels, their roles, and explain why belief in them is a pillar of Iman.` },
         { title: 'Study belief in the Books (al-Kutub)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly list all the previous scriptures or prescribe studying verse 5:48, they provide a clear logical inference for the subtask by explicitly commanding belief in all the Books and Scriptures revealed by God.',
           sources: `**I. Quran**
 
 ### Quran (4:136)
@@ -631,6 +667,8 @@ Allah revealed scriptures to guide humanity throughout history: the Suhuf of Ibr
 3. Learn the distinction: we believe previous scriptures were from Allah, but we follow the Quran because it is the final, unaltered revelation.
 4. You have completed this when you can explain why Muslims believe in all scriptures yet follow only the Quran and Sunnah.` },
         { title: 'Study belief in the Messengers (ar-Rusul)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly list the 25 prophets or prescribe a specific study method, they provide a clear logical inference for the subtask by explicitly commanding belief in all messengers without distinction and designating Muhammad as the Seal of the Prophets.',
           sources: `**I. Quran**
 
 
@@ -664,6 +702,8 @@ Believing in all prophets and messengers from Adam to Muhammad (SAW) is a pillar
 3. Study the unique role of Muhammad (SAW) as the final messenger and what "Seal of the Prophets" (33:40) means.
 4. You have completed this when you can explain why Muslims must believe in all prophets, why we do not distinguish between them in belief, and what makes Muhammad (SAW) the final messenger.` },
         { title: 'Study belief in the Last Day (al-Yawm al-Akhir)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly outline a study sequence or list all stages of the Hereafter, they provide a clear logical inference for the subtask by explicitly commanding belief in the Last Day and providing specific verses from Surahs 99 and 101 that describe its events and absolute accountability.',
           sources: `**I. Quran**
 
 
@@ -697,6 +737,8 @@ Belief in the Last Day gives life its urgency and accountability. It encompasses
 3. Reflect on how belief in the Last Day should influence one specific decision you make this week.
 4. You have completed this when you can describe the major stages from death to the final abode and explain how this belief shapes moral accountability.` },
         { title: 'Study belief in Qadar \u2014 Divine Decree (al-Qadr)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -737,6 +779,8 @@ Belief in divine decree (*qadar*) means affirming that Allah's knowledge encompa
       description: 'Conduct a personal audit to identify anything in your life that may compromise the purity of Tawhid \u2014 from superstitions to seeking barakah from objects or graves.',
       subtasks: [
         { title: 'List any superstitious beliefs or practices you hold', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe listing personal superstitions or studying the specific hadith on bird omens, they provide a clear logical inference for the subtask by explicitly condemning amulets and love-charms as shirk and prohibiting the association of anything with Allah.',
           sources: `**I. Quran**
 
 
@@ -766,6 +810,8 @@ Superstitious beliefs — like "bad luck" from broken mirrors, black cats, or ce
 3. Study the hadith: "There is no tiyarah (superstitious belief in bird omens)" (Bukhari 5776) and understand the broader principle.
 4. You have completed this when you have an honest list and can distinguish between legitimate caution and superstitious attribution of power to created things.` },
         { title: 'Identify any reliance on amulets, charms, or talismans', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly condemn wearing amulets as an act of shirk, the practical steps of physically checking for them and replacing them with specific Quranic protections are derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -795,6 +841,8 @@ Wearing items believed to bring protection or luck — such as evil eye bracelet
 3. Replace any reliance on objects with the prescribed Quranic and prophetic protections: the morning/evening adhkar, Ayat al-Kursi, and the three Quls.
 4. You have completed this when you have removed any such items and replaced them with authentic means of seeking Allah's protection.` },
         { title: 'Check for habits of swearing by other than Allah', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention an incident involving an oath sworn by Allah, they do not address or prohibit the specific practice of swearing by other than Him, providing neither clear proof nor contextual indication for the subtask.',
           sources: `**I. Quran**
 
 
@@ -820,6 +868,8 @@ The Prophet (SAW) said: "Whoever swears by other than Allah has committed shirk"
 3. Study the hadith in full context (Ahmad, Tirmidhi) and understand why oaths are reserved for Allah alone.
 4. You have completed this when you have consciously replaced the habit and can go a full week without swearing by other than Allah.` },
         { title: 'Remove or correct any identified contradictions', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the verses do not explicitly detail the step-by-step process of physically removing amulets or correcting specific oaths, their severe warning that associating partners with God is unforgivable and nullifies all good deeds provides a clear logical inference that believers must actively eliminate any such contradictions to Tawhid.',
           sources: `**I. Quran**
 
 
@@ -849,6 +899,8 @@ Identifying contradictions to Tawhid is only the first step — removing them is
       description: 'This hadith is considered Umm al-Sunnah \u2014 the mother of the Sunnah. It defines Islam, Iman, and Ihsan in a single narration. Memorise it and understand its layers.',
       subtasks: [
         { title: 'Read the full hadith text in Arabic and English', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -874,6 +926,8 @@ The hadith of Jibril is one of the most comprehensive narrations in Islam — it
 3. Read the Arabic text alongside the English to begin familiarising yourself with the key terms.
 4. You have completed this when you have read the full hadith in both languages and can describe what happened in the narration from memory.` },
         { title: 'Memorise the Arabic text', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly focus on the importance of learning and teaching the Quran in its clear Arabic language, the accompanying contextual note provides a logical inference for the subtask by extending this principle of learning sacred texts to the memorization of the foundational Hadith of Jibril.',
           sources: `**I. Quran**
 
 
@@ -904,6 +958,8 @@ Memorising the Arabic text of this hadith embeds the precise prophetic definitio
 3. Recite what you have memorised to someone else or record yourself to check accuracy.
 4. You have completed this when you can recite the definitions of Islam, Iman, and Ihsan from the hadith in Arabic from memory.` },
         { title: 'Islam \u2014 study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj', done: false,
+          tier: 'T2',
+          amanahRationale: 'While Sahih Bukhari explicitly lists the five pillars upon which Islam is based, the specific practical steps of assessing one\'s fulfillment of each, identifying weaknesses, and creating a personal improvement plan are derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -941,6 +997,8 @@ In the hadith, the Prophet (SAW) defined Islam as the outward acts of submission
 3. Identify the pillar you are weakest in and create a plan to strengthen it this month.
 4. You have completed this when you can recite the five pillars from the hadith and have assessed your personal standing with each one.` },
         { title: 'Iman \u2014 study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -970,6 +1028,8 @@ Iman in the hadith refers to the inner beliefs of the heart — the six articles
 3. Identify which article you find most challenging to understand or feel weakest in — prioritise studying that one.
 4. You have completed this when you can recite all six articles and explain each in your own words with conviction.` },
         { title: 'Ihsan \u2014 memorise the definition: worship Allah as though you see Him', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -999,6 +1059,8 @@ Ihsan is the highest level of faith — constant God-consciousness. The Prophet 
 3. Identify one daily action (e.g., speaking, eating, working) and practice doing it with the awareness that Allah sees you.
 4. You have completed this when you have memorised the definition and can describe how Ihsan transforms the quality of worship from mechanical to spiritually present.` },
         { title: 'Study the signs of the Hour mentioned at the end of the hadith', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention certain signs of the Hour such as the sun rising from the West, they entirely lack the specific signs regarding the slave-girl and barefoot shepherds that the subtask instructs the user to read, providing neither clear proof nor contextual indication for this specific exercise.',
           sources: `**I. Quran**
 
 
@@ -1028,6 +1090,8 @@ The hadith concludes with the Prophet (SAW) mentioning minor signs of the Day of
 3. Reflect: how does awareness of these signs influence your sense of urgency regarding your faith?
 4. You have completed this when you can list the signs mentioned in this hadith and explain at least one scholarly interpretation of each.` },
         { title: 'Reflect: which level describes your current state?', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe a structured self-assessment or goal-setting exercise, their introduction of Islam, Iman, and Ihsan as the foundational levels of religion provides a clear logical inference for reflecting on one\'s spiritual state against these definitions.',
           sources: `**I. Quran**
 
 
@@ -1062,6 +1126,8 @@ The hadith of Jibril presents three levels — Islam, Iman, and Ihsan — as a l
       description: 'Engage with a classical creed text to build a systematic understanding of Islamic theology as understood by the early generations.',
       subtasks: [
         { title: 'Obtain a reliable translation with commentary', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention specific works like "Al-Aqidah al-Tahawiyyah" or particular translators, the accompanying contextual note provides a clear logical inference for the subtask by explicitly stating that studying aqidah requires scholarly commentary to be understood correctly.',
           sources: `**I. Quran**
 
 
@@ -1088,6 +1154,8 @@ A creed text without commentary can be dense and easily misunderstood. Scholarly
 3. Obtain a physical or digital copy that you can annotate as you read.
 4. You have completed this when you have a reliable, annotated edition in hand and are ready to begin reading.` },
         { title: 'Read the section on the attributes of Allah', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Hadith**
 
 
@@ -1110,6 +1178,8 @@ The attributes of Allah are among the most debated topics in Islamic theology. A
 3. Practice applying the methodology: when you encounter an attribute like "Allah's hand" in the Quran, affirm it as real without imagining a form.
 4. You have completed this when you can explain the Ahl al-Sunnah approach to divine attributes and identify at least one common deviation from it.` },
         { title: 'Read the section on prophethood and revelation', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe reading a creedal text or studying specific theological terms like "ma\'sum," they offer a clear logical inference for the subtask by establishing the divine lineage of prophethood and explicitly declaring Muhammad as the final prophet.',
           sources: `**I. Quran**
 
 
@@ -1139,6 +1209,8 @@ Correct belief about the prophets prevents both extremes: excessive veneration (
 3. Study the concept of the "Seal of the Prophets" (Quran 33:40) and why it matters theologically.
 4. You have completed this when you can state the creedal position on prophethood and explain why the finality of Muhammad (SAW) is a non-negotiable article of faith.` },
         { title: 'Read the section on the unseen (angels, paradise, hellfire)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe reading a creedal text or studying the rejection of rationalistic reinterpretation, they provide a clear logical inference for the subtask by explicitly establishing the realities of the unseen, such as angels, jinn, the Throne, and Paradise.',
           sources: `**I. Quran**
 
 
@@ -1168,6 +1240,8 @@ Matters of the unseen — angels, jinn, paradise, hellfire, the throne — are a
 3. Reflect: are there any aspects of the unseen you struggle to accept? If so, study the relevant evidences.
 4. You have completed this when you can affirm the major elements of the unseen as described in the text and explain why rationalistic reinterpretation is rejected by Ahl al-Sunnah.` },
         { title: 'Summarise key points and questions', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the process of writing summaries or consulting a teacher, they provide a clear logical inference for the subtask by emphasizing the importance of acquiring a deep understanding (fiqh) of the religion.',
           sources: `**I. Quran**
 
 
@@ -1200,6 +1274,8 @@ Summarising forces you to process and consolidate what you have read. It also re
       description: 'Learn the ten nullifiers identified by scholars so you can avoid them and understand the boundaries of the faith.',
       subtasks: [
         { title: 'Read the list of ten nullifiers with explanations', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention the ten nullifiers compiled by Imam Muhammad ibn Abd al-Wahhab, they provide a clear logical inference for the subtask by explicitly warning against specific actions—such as shirk and fighting other Muslims—that void a person\'s faith and constitute disbelief.',
           sources: `**I. Quran**
 
 
@@ -1229,6 +1305,8 @@ Just as a contract has terms that can void it, the Shahada has boundaries that �
 3. For each one, ask: "Do I understand why this nullifies Islam? Is there anything in my life that comes close to this?"
 4. You have completed this when you can list all ten nullifiers and explain the evidence for each in your own words.` },
         { title: 'Understand the difference between major and minor kufr', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly use the terms major and minor kufr or mention the Kharijite deviation, they provide a clear logical inference for the subtask by explicitly distinguishing between the unforgivable sin of shirk and lesser forgivable sins, as well as outlining behavioral traits of hypocrisy that do not automatically expel one from the faith.',
           sources: `**I. Quran**
 
 
@@ -1258,6 +1336,8 @@ Confusing major and minor kufr leads to one of two dangerous extremes: either de
 3. Note the key principle: sin does not equal disbelief unless it involves rejection, mockery, or replacement of what Allah has revealed.
 4. You have completed this when you can clearly distinguish between major and minor kufr and give two examples of each.` },
         { title: 'Study the conditions for declaring takfir and why it requires caution', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly list the scholarly conditions or excuses for takfir, they provide a clear logical inference for the subtask by severely warning against unjustly calling a believer a disbeliever and establishing the extreme gravity and caution required for such an accusation.',
           sources: `**I. Hadith**
 
 
@@ -1287,6 +1367,8 @@ Declaring someone a disbeliever (*takfir*) is one of the most serious acts in Is
       description: 'Major shirk expels from Islam; minor shirk is a grave sin but does not. Learn to distinguish them with practical examples.',
       subtasks: [
         { title: 'Define major shirk (shirk akbar) with examples', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly define major shirk or list specific historical and contemporary examples, they provide a clear logical inference for the subtask by explicitly declaring the joining of partners with God as the only unforgivable sin and introducing the concept of different types of shirk.',
           sources: `**I. Quran**
 
 
@@ -1312,6 +1394,8 @@ Major shirk (*shirk akbar*) is the most severe sin in Islam — it is the one si
 3. List three historical and three contemporary examples of major shirk.
 4. You have completed this when you can define major shirk, cite its Quranic evidence, and identify examples in both historical and modern contexts.` },
         { title: 'Define minor shirk (shirk asghar) with examples', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly list all categories of minor shirk or prescribe learning the specific prophetic remedy, they provide a clear logical inference for the subtask by explicitly identifying and warning against minor shirk, specifically defining it as "riya" (showing off).',
           sources: `**I. Quran**
 
 
@@ -1337,6 +1421,8 @@ Minor shirk (*shirk asghar*) does not expel from Islam but is gravely sinful and
 3. Learn the prophetic remedy: the du'a seeking refuge from shirk both known and unknown.
 4. You have completed this when you can define minor shirk, list its common forms, and identify any that may apply to your own behaviour.` },
         { title: 'Study riya (showing off) as a form of minor shirk', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly identify and condemn "riya" (showing off) as a form of minor shirk, the specific self-reflection exercises and practical countermeasures are derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -1366,6 +1452,8 @@ The Prophet (SAW) called riya "hidden shirk" because it corrupts the sincerity o
 3. Practice three counter-measures: (a) perform hidden acts of worship regularly, (b) make du'a for sincerity before each act, (c) remind yourself that only Allah's acceptance matters.
 4. You have completed this when you can describe what riya looks like in practice and have implemented at least one strategy to guard against it.` },
         { title: 'Learn the hadith on hidden shirk and its remedy', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly share the hadith on minor shirk and provide the exact prophetic supplication to be used as a remedy, the specific practical steps of memorizing the Arabic text and incorporating it into daily morning and evening routines are derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -1398,6 +1486,8 @@ The Prophet (SAW) taught a specific du'a to protect against shirk — both the f
       description: 'Scholars have categorised Tawhid into three domains. Understanding this framework helps identify where deviations occur.',
       subtasks: [
         { title: 'Study Tawhid al-Rububiyyah \u2014 Lordship of Allah', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention Allah\'s absolute capability and the general study of the Quran, they do not address Tawhid al-Rububiyyah or the specific verses in Surah 29 regarding the Quraysh\'s beliefs, providing neither clear proof nor contextual indication for the subtask.',
           sources: `**I. Quran**
 
 
@@ -1431,6 +1521,8 @@ Tawhid al-Rububiyyah — affirming that Allah alone is the Creator, Sustainer, a
 3. Reflect: do you know anyone (or any modern philosophy) that acknowledges a "higher power" but does not worship Allah alone?
 4. You have completed this when you can explain Tawhid al-Rububiyyah, cite its evidence, and explain why it is necessary but not sufficient for correct monotheism.` },
         { title: 'Study Tawhid al-Uluhiyyah \u2014 worship of Allah alone', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -1464,6 +1556,8 @@ Tawhid al-Uluhiyyah — directing all acts of worship exclusively to Allah — i
 3. Study Quran 6:162: "Say: Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds."
 4. You have completed this when you can list the major acts of worship and have audited each one for exclusive direction to Allah.` },
         { title: 'Study Tawhid al-Asma wa al-Sifat \u2014 Names and Attributes', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe the structured study of Tawhid al-Asma wa al-Sifat or applying the specific filter of Quran 42:11, they provide a clear logical inference for the subtask by explicitly commanding believers to call upon God using His Most Excellent Names and promising Paradise to those who enumerate and act upon them.',
           sources: `**I. Quran**
 
 
@@ -1489,6 +1583,8 @@ Tawhid al-Asma wa al-Sifat requires affirming Allah's names and attributes as de
 3. Practice applying Quran 42:11 as a filter: when you learn an attribute, affirm it as real without imagining a form.
 4. You have completed this when you can explain the methodology of Ahl al-Sunnah regarding Allah's names and attributes and give examples of correct affirmation.` },
         { title: 'Understand how the three categories interrelate', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts discuss the obligation to exclusively worship God and mention certain divine attributes, they do not address the three specific scholarly categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat) or contain Quran 7:180, providing neither clear proof nor contextual indication for the subtask.',
           sources: `**I. Quran**
 
 ### Quran (51:56)
@@ -1525,6 +1621,8 @@ The three categories of Tawhid are not isolated compartments — they form a uni
       description: 'The best way to solidify knowledge is to teach it. Share the meaning and conditions of the Shahada with someone in your household or community.',
       subtasks: [
         { title: 'Prepare a simple outline of the seven conditions', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided hadith highlights the supreme reward and importance of the Shahada, it does not explicitly mention or contextually imply the seven specific conditions (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah) required by the subtask.',
           sources: `**I. Hadith**
 
 
@@ -1543,6 +1641,8 @@ Preparing a summary forces you to distil complex knowledge into clear, teachable
 3. Use plain language — avoid jargon that a beginner would not understand.
 4. You have completed this when you have a clear, one-page summary that someone unfamiliar with the topic could follow.` },
         { title: 'Schedule a teaching session with a family member or student', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided hadith encourages spreading the salam to foster love among believers, it does not explicitly mention or contextually imply the scheduling of a formal teaching session to share knowledge.',
           sources: `**I. Hadith**
 
 
@@ -1561,6 +1661,8 @@ Knowledge that is not shared stagnates. Teaching is one of the most powerful way
 3. Let them know in advance that you would like to share something meaningful — this builds anticipation and respect for the topic.
 4. You have completed this when you have a confirmed time, place, and person for your teaching session.` },
         { title: 'Deliver the lesson and encourage questions', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly outline a specific pedagogical method or mention the Shahada\'s conditions, they provide a clear logical inference for the subtask by explicitly commanding believers to convey the Prophet\'s teachings.',
           sources: `**I. Quran**
 
 
@@ -1593,6 +1695,8 @@ The goal of teaching the Shahada's conditions is not to deliver a lecture — it
       description: 'Explore how the declaration of faith should manifest in everyday decisions \u2014 from business ethics to interpersonal conduct.',
       subtasks: [
         { title: 'Reflect on how Tawhid influences business decisions', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts broadly emphasize that the purpose of creation is worship and that actions are judged by intentions, they do not mention business decisions, commercial ethics, or the prohibition of riba, providing neither clear proof nor contextual indication for this specific financial self-audit.',
           sources: `**I. Quran**
 
 
@@ -1618,6 +1722,8 @@ Tawhid is not confined to the prayer mat — it extends into every transaction, 
 3. Identify one area where your business or financial life may conflict with Tawhid and research the Islamic ruling on it.
 4. You have completed this when you have conducted an honest financial audit and identified any adjustments needed to align your commerce with your Shahada.` },
         { title: 'Identify three daily actions that express your Shahada', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe identifying exactly three daily actions to track for a week, the accompanying contextual note for Quran 47:19 provides a clear logical inference for the subtask by explicitly calling for daily actions to continuously align one\'s life with the testimony of faith.',
           sources: `**I. Quran**
 
 ### Quran (47:19)
@@ -1644,6 +1750,8 @@ The Shahada is not a one-time declaration — it is a living testimony expressed
 3. Commit to being intentional about these three actions for one full week.
 4. You have completed this when you have identified three daily expressions of your Shahada and practiced them consciously for at least one week.` },
         { title: 'Study how the Sahaba lived their Shahada practically', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly name specific figures like Abu Bakr, Bilal, or Khadijah, the accompanying contextual note provides a clear logical inference for the subtask by explicitly highlighting how the companions practically lived out their testimony of faith through submission and obedience.',
           sources: `**I. Quran**
 
 ### Quran (2:285)
@@ -1677,6 +1785,8 @@ The Sahaba did not merely recite the Shahada — they lived it under the most ex
       description: 'Write a personal reflection journal entry exploring how the oneness of Allah shapes your worldview, priorities, and decision-making.',
       subtasks: [
         { title: 'Set aside 30 minutes of focused reflection time', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided verses emphasize that a believer\'s entire life and worship must be dedicated solely to Allah, they do not mention or contextually imply the specific practice of setting aside a 30-minute block for focused reflection and journaling.',
           sources: `**I. Quran**
 
 
@@ -1699,6 +1809,8 @@ Meaningful reflection requires stillness. Without dedicated, distraction-free ti
 3. Have your journal or writing tool ready before you begin the dhikr so you can transition smoothly into writing.
 4. You have completed this when you have sat down in a quiet space, completed your opening dhikr, and are ready to write.` },
         { title: 'Write about an area where Tawhid challenged your habits', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts describe God\'s absolute vigilance and the sweetness of finding contentment in faith, they do not mention or contextually imply the specific exercise of writing a personal reflection on a time when Tawhid challenged one\'s habits or life decisions.',
           sources: `**I. Quran**
 
 
@@ -1724,6 +1836,8 @@ Tawhid is tested not in comfort but in difficulty. The moments where believing i
 3. Be honest about whether you followed through fully or compromised. Both outcomes are valuable for reflection.
 4. You have completed this when you have written a detailed, honest account of at least one situation where Tawhid challenged your life.` },
         { title: 'Identify one change you will make based on this reflection', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts offer profound comfort regarding God\'s nearness, responsiveness to prayer, and the peace found in His remembrance, they do not mention or contextually imply the specific practical exercise of committing to a measurable behavioral change or setting up an accountability system.',
           sources: `**I. Quran**
 
 
@@ -1764,6 +1878,8 @@ Reflection without action is incomplete. Committing to one concrete, actionable 
       description: 'Salah is the first obligation after Shahada and the first thing judged on the Day of Resurrection. Make every prayer on time without exception.',
       subtasks: [
         { title: 'Set alarms or reminders for all five prayer times', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention setting modern phone alarms or using apps, they provide a clear logical inference for the subtask by commanding believers to establish their prayers at specific, designated times throughout the day and night.',
           sources: `**I. Quran**
 
 
@@ -1798,6 +1914,8 @@ Without reliable reminders, even sincere believers miss prayers due to distracti
 
 Use a prayer time app (such as Muslim Pro or Athan) or set individual phone alarms for Fajr, Dhuhr, Asr, Maghrib, and Isha. Ensure reminders account for seasonal time changes. Test your setup for one full week and adjust alarm lead times so you have enough time to make wudu before the adhan.` },
         { title: 'Track your prayer consistency for one full week', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe creating a 5-column log or tracking prayers for exactly one week, the accompanying contextual note provides a clear logical inference for the subtask by explicitly linking the Quranic command to "guard/maintain" prayers with the practice of tracking consistency.',
           sources: `**I. Quran**
 
 
@@ -1822,6 +1940,8 @@ What gets measured gets managed. Without honest tracking, you may overestimate y
 
 Create a simple log (notebook or app) with five columns for each day: Fajr, Dhuhr, Asr, Maghrib, Isha. For each prayer, record whether it was on time, slightly delayed, or missed. At the end of the week, identify your weakest prayer and the most common reason for delays.` },
         { title: 'Identify and resolve common excuses for missing prayers', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly outline the practical steps of listing specific barriers and testing countermeasures for a week, the accompanying contextual note and verses provide a clear logical inference for the subtask by mandating the unconditional establishment of prayer and warning against neglecting it due to personal desires or excuses.',
           sources: `**I. Quran**
 
 
@@ -1850,6 +1970,8 @@ Shaytan's strategy is to make missing prayer feel justified through "reasonable"
 
 List your top three barriers to prayer (e.g., oversleeping for Fajr, work meetings during Dhuhr, fatigue at Isha). For each barrier, write a specific countermeasure: a sleep routine for Fajr, a calendar block for Dhuhr, or praying Isha immediately after Maghrib to avoid delay. Test each countermeasure for one week.` },
         { title: 'Pray each salah within its earliest time window', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe a strict 15-minute window or the use of modern prayer apps for a week-long exercise, they provide a clear logical inference for the subtask by explicitly declaring that offering prayers at their early stated fixed times is the best of deeds.',
           sources: `**I. Quran**
 
 
@@ -1881,6 +2003,8 @@ For one week, aim to begin each prayer within 15 minutes of the adhan. Note your
       description: 'Wudu is the key to salah. Learn the obligatory and recommended acts to ensure your purification is valid and complete.',
       subtasks: [
         { title: 'Learn the four fard acts of wudu (Hanafi) or six (Shafi\'i)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate the four physical actions of washing the face, arms, head, and feet for prayer, the specific scholarly categorization of these as four or six obligatory acts according to different madhabs is derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -1903,6 +2027,8 @@ Your salah is only valid if your wudu is valid. Knowing the fard acts of wudu ac
 
 Study the fard acts according to your madhab. Hanafi fard: wash face, wash arms to elbows, wipe one-quarter of the head, wash feet to ankles. Shafi'i adds intention (niyyah) and proper order (tartib). Consult a reliable fiqh manual and practice until you can list the fard acts from memory.` },
         { title: 'Learn the sunnah acts (miswak, rinsing mouth/nose, between fingers)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided hadith explicitly lists using the tooth-stick, snuffing water in the nose, washing finger joints, and rinsing the mouth as natural acts of fitra, their specific application and categorization as sunnah acts of wudu are derived through clear logical inference.',
           sources: `**I. Hadith**
 
 
@@ -1918,6 +2044,8 @@ The sunnah acts of wudu perfect your purification and multiply your reward. They
 
 Learn and incorporate these sunnah acts: using miswak before wudu, saying bismillah, rinsing the mouth and nose, washing between the fingers and toes, wiping the ears, and starting with the right side before the left. Add them one at a time until the full sunnah wudu becomes your default.` },
         { title: 'Learn what nullifies wudu', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly identify several foundational actions that break wudu, such as relieving oneself, passing wind, and contacting women, the comprehensive study of both agreed-upon and madhab-specific nullifiers is derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -1940,6 +2068,8 @@ If your wudu is unknowingly broken, every prayer you perform afterward may be in
 
 Study the agreed-upon nullifiers: anything exiting the front or back passage, sleep, and loss of consciousness. Then learn the madhab-specific ones: touching private parts directly (Shafi'i fiqh), skin-to-skin contact with the opposite gender (Shafi'i), and eating camel meat (Hanbali). Consult a fiqh reference for your madhab's position.` },
         { title: 'Practice performing wudu with correct sequence and du\'a', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts outline the physical requirements of wudu and the immense reward for performing it well followed by prayer, they do not mention or contextually imply reciting the Shahada or the specific supplication upon its completion.',
           sources: `**I. Quran**
 
 
@@ -1969,6 +2099,8 @@ After completing wudu, recite the Shahada followed by the du'a: "Allahummaj'alni
       description: 'Ensure you know the essential recitations of prayer with correct Arabic pronunciation and understand their meanings.',
       subtasks: [
         { title: 'Memorise the opening du\'a (Subhanaka Allahumma or equivalent)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention a supplication starting with "Subhanaka Allahumma," they explicitly locate it within the bowing and prostrations rather than as the opening du\'a recited after the initial takbir as required by the subtask.',
           sources: `**I. Hadith**
 
 
@@ -1992,6 +2124,8 @@ The opening du'a sets the tone for your entire prayer. It is the first words you
 
 Memorise the du'a al-istiftah recited after the takbirat al-ihram: "Subhanaka Allahumma wa bihamdika, wa tabaraka-smuka, wa ta'ala jadduka, wa la ilaha ghayruk." Recite it slowly in each prayer, reflecting on its meaning: you are glorifying Allah, praising Him, and declaring His unmatched greatness.` },
         { title: 'Memorise the Tashahhud (At-Tahiyyatu)', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadiths provide explicit, clear proof for the subtask by detailing the exact wording of the Tashahhud and demonstrating that it must be recited while sitting after every two rak\'at.',
           sources: `**I. Hadith**
 
 
@@ -2011,6 +2145,8 @@ The Tashahhud is a conversation that took place during the Prophet's Mi'raj (nig
 
 Memorise "At-Tahiyyatu lillahi was-salawatu wat-tayyibatu, as-salamu 'alayka ayyuhan-nabiyyu wa rahmatullahi wa barakatuh, as-salamu 'alayna wa 'ala 'ibadillahis-salihin." Recite it in the sitting position after every two rak'at. Study the meaning of each phrase so that the words carry weight in your heart.` },
         { title: 'Memorise the Salawat upon the Prophet (Allahumma salli ala Muhammad)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -2041,6 +2177,8 @@ Sending salawat upon the Prophet (SAW) in prayer fulfils a direct command from A
 
 Memorise the Ibrahimiyyah: "Allahumma salli 'ala Muhammadin wa 'ala ali Muhammad, kama sallayta 'ala Ibrahim wa 'ala ali Ibrahim, innaka Hamidun Majid. Allahumma barik 'ala Muhammadin wa 'ala ali Muhammad, kama barakta 'ala Ibrahim wa 'ala ali Ibrahim, innaka Hamidun Majid." Recite it in the final sitting of every prayer.` },
         { title: 'Memorise the du\'a before salam', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadith explicitly commands believers to seek refuge from the punishment of Hell, the grave, the trials of life and death, and the evil of the Dajjal after completing the final Tashahhud, offering clear proof for the subtask.',
           sources: `**I. Quran**
 
 
@@ -2065,6 +2203,8 @@ The Prophet (SAW) specifically instructed Muslims to seek refuge from these four
 
 After the Salawat Ibrahimiyyah, recite: "Allahumma inni a'udhu bika min 'adhabi jahannam, wa min 'adhabil-qabr, wa min fitnatil-mahya wal-mamat, wa min fitnatil-masihid-dajjal." Memorise it and understand each of the four things you are seeking protection from: Hellfire, the grave, the trials of life and death, and the Dajjal.` },
         { title: 'Learn the meanings of each recitation', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe studying word-by-word translations of specific adhkar, they provide a clear logical inference for the subtask by depicting prayer as a direct, interactive conversation with Allah that inherently requires the worshipper to understand the words being recited.',
           sources: `**I. Quran**
 
 
@@ -2094,6 +2234,8 @@ Take each adhkar you have memorised (opening du'a, Tashahhud, Salawat, du'a befo
       description: 'Prayer in congregation carries 27 times the reward. Make it a priority to attend the masjid or pray with family when possible.',
       subtasks: [
         { title: 'Identify the nearest masjid and its prayer times', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided hadith details specific travel routes, resting places, and pilgrimage rituals involving the Sacred Mosque in Mecca, it provides neither explicit proof nor contextual indication for the daily logistical task of identifying a local masjid and its prayer times.',
           sources: `**I. Hadith**
 
 
@@ -2109,6 +2251,8 @@ You cannot consistently pray in congregation if you do not know where and when. 
 
 Search online or use apps (like Salah Times or Google Maps) to find the nearest masjid. Note its prayer schedule, including any seasonal adjustments. Calculate your travel time and determine which prayers you can feasibly attend. Save the schedule on your phone for easy reference.` },
         { title: 'Commit to praying at least one salah daily in jama\'ah', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe the step-by-step habit of attending exactly one daily congregational prayer for two weeks, they provide a clear logical inference for the subtask by strongly emphasizing the twenty-seven-fold reward and the overall obligation of praying in jama\'ah.',
           sources: `**I. Quran**
 
 ### Quran (2:43)
@@ -2137,6 +2281,8 @@ Committing to just one prayer in congregation daily builds the habit without ove
 
 Choose the prayer that is most feasible for you to attend at the masjid -- Fajr if you live nearby, Isha if evenings work better, or Dhuhr if you work near a masjid. Commit to attending that one prayer in congregation every day for two weeks. Once it becomes routine, add a second prayer.` },
         { title: 'If no masjid is nearby, establish jama\'ah at home with family', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided text provides detailed instructions regarding the rituals and rulings of Hajj-at-Tamattu\', it does not mention or contextually imply the practice of establishing congregational prayers at home when a masjid is inaccessible.',
           sources: `**I. Hadith**
 
 
@@ -2159,6 +2305,8 @@ If you cannot reach a masjid, establish jama'ah at home. Pray with your spouse, 
       description: 'Know what actions or omissions break the prayer so you can avoid them and know when to repeat a prayer.',
       subtasks: [
         { title: 'Study the acts that invalidate salah (talking, eating, turning away)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts establish that prayer is an obligation and that losing ritual purity (hadath) renders it unacceptable, they do not mention or contextually imply the specific internal actions that invalidate the prayer itself, such as talking, eating, or turning away.',
           sources: `**I. Quran**
 
 
@@ -2181,6 +2329,8 @@ If you unknowingly do something that invalidates your prayer, you may walk away 
 
 Study the major invalidators: deliberate speech, eating or drinking, excessive continuous movement, turning the chest away from the qiblah, and laughing out loud. Learn the difference between what invalidates the prayer entirely versus what merely diminishes its reward. Use a fiqh manual specific to your madhab.` },
         { title: 'Learn the ruling on excessive movement in salah', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts instruct believers to stand devoutly in prayer and address mental uncertainty regarding the number of rak\'ahs performed, they do not mention or contextually imply the specific jurisprudential rules regarding excessive physical movement.',
           sources: `**I. Quran**
 
 
@@ -2203,6 +2353,8 @@ Understanding the boundary between permissible and excessive movement prevents y
 
 Study the scholarly position of your madhab on movement in salah. In the Hanafi and Shafi'i schools, three consecutive unnecessary movements invalidate the prayer. Brief, necessary movements (scratching an itch, adjusting a garment) are permissible. Practice stillness in prayer and minimise fidgeting.` },
         { title: 'Understand when sujud al-sahw (prostration of forgetfulness) is required', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided hadiths explicitly illustrate instances of omission and doubt that require the prostration of forgetfulness, the comprehensive categorization of these scenarios and the study of madhab-specific rulings are derived through clear logical inference.',
           sources: `**I. Hadith**
 
 
@@ -2235,6 +2387,8 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       description: 'The Prophet (SAW) regularly prayed 12 rak\'at of Sunnah with the fard prayers. A house in Jannah is built for whoever maintains them.',
       subtasks: [
         { title: '2 before Fajr', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadith explicitly identifies offering "two before Fajr" as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise, providing clear proof for the core subtask.',
           sources: `**I. Quran**
 
 
@@ -2257,6 +2411,8 @@ The Prophet (SAW) said the two rak'at before Fajr are "better than the world and
 
 Pray two light rak'at after the Fajr adhan and before the fard prayer. Recite short surahs (such as Al-Kafirun in the first rak'ah and Al-Ikhlas in the second, as was the Prophet's practice). Keep the prayer brief and focused.` },
         { title: '4 before Dhuhr and 2 after', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadith explicitly identifies offering four rak\'ahs before Dhuhr and two after it as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise, providing clear proof for the core subtask.',
           sources: `**I. Hadith**
 
 
@@ -2272,6 +2428,8 @@ The Prophet (SAW) was consistent with the Dhuhr Sunnah prayers and said: "Whoeve
 
 Pray four rak'at (two sets of two, or four continuous with one salam) before the Dhuhr fard, and two rak'at after the Dhuhr fard. Build this into your midday routine so it becomes automatic.` },
         { title: '2 after Maghrib', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadiths explicitly identify offering two rak\'ahs after Maghrib as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise and emphasize the Prophet\'s unyielding consistency in performing them, offering clear proof for the core subtask.',
           sources: `**I. Hadith**
 
 
@@ -2291,6 +2449,8 @@ The Maghrib Sunnah prayers are part of the twelve Rawatib that build a house in 
 
 Immediately after completing the fard of Maghrib, pray two rak'at of Sunnah. If you are at the masjid, you may pray them there or return home first. The key is consistency -- do not skip them due to the short Maghrib window.` },
         { title: '2 after Isha', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadith explicitly identifies offering two rak\'ahs after Isha as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise, providing clear proof for the core subtask.',
           sources: `**I. Hadith**
 
 
@@ -2310,6 +2470,8 @@ These two rak'at after Isha complete the twelve daily Rawatib. The Prophet (SAW)
 
 After the fard of Isha, pray two rak'at of Sunnah before moving on to Witr or other activities. Make it a non-negotiable part of your evening routine.` },
         { title: 'Track consistency for one month', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe creating a 30-day checklist to track prayer habits, they provide a clear logical inference for the subtask by heavily emphasizing that consistency in performing voluntary prayers and other deeds is highly beloved to Allah.',
           sources: `**I. Hadith**
 
 
@@ -2336,6 +2498,8 @@ Create a simple daily checklist with four entries: 2 before Fajr, 4+2 around Dhu
       description: 'Al-Fatihah is recited in every rak\'ah. Understanding its meaning transforms your salah from ritual to conversation with Allah.',
       subtasks: [
         { title: 'Study the word-by-word meaning of Al-Fatihah', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe studying a word-by-word translation of Al-Fatihah, they provide a clear logical inference for the subtask by establishing that the recitation of this chapter is a direct, interactive dialogue between Allah and the servant.',
           sources: `**I. Quran**
 
 
@@ -2358,6 +2522,8 @@ Al-Fatihah is not a monologue -- it is a dialogue. In a hadith qudsi (Muslim), A
 
 Study a word-by-word translation of Al-Fatihah. Then read the hadith qudsi in Sahih Muslim that describes Allah's response to each verse. During your next prayer, pause briefly after each ayah and imagine the response. Repeat this practice until the awareness becomes natural.` },
         { title: 'Learn the meaning of the adhkar of ruku and sujud', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided hadith describes the recitation of takbir during the transitions into bowing and prostration, it provides neither explicit proof nor contextual indication for learning the specific adhkar recited while in those positions.',
           sources: `**I. Hadith**
 
 
@@ -2373,6 +2539,8 @@ In ruku you are bowing before Allah's magnificence; in sujud you are prostrating
 
 Learn the meanings: "Subhana Rabbiyal Adhim" (Glory to my Lord, the Magnificent) is said in ruku, and "Subhana Rabbiyal A'la" (Glory to my Lord, the Most High) is said in sujud. Reflect on why "Magnificent" pairs with bowing and "Most High" pairs with the lowest physical position. Say each at least three times, as the Prophet (SAW) did.` },
         { title: 'Memorise and understand three short surahs you recite regularly', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts broadly establish the obligation of timely prayer and the immense virtue of learning the Quran, the specific practice of memorizing and deeply understanding three short surahs for regular recitation is derived through clear logical inference.',
           sources: `**I. Quran**
 
 
@@ -2402,6 +2570,8 @@ Choose three surahs you commonly recite after Al-Fatihah (e.g., Al-Ikhlas, Al-Fa
       description: 'The night prayer is among the most beloved voluntary acts. Start with even two rak\'at in the last third of the night.',
       subtasks: [
         { title: 'Set a weekly alarm for the last third of the night', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe setting a weekly alarm to slowly build a habit, they provide a clear logical inference for the subtask by emphasizing the immense virtue of the night prayer and specifically highlighting the hours before dawn as the ideal time for worship and seeking forgiveness.',
           sources: `**I. Quran**
 
 
@@ -2428,6 +2598,8 @@ The last third of the night is the most blessed time for worship. Allah descends
 
 Calculate the last third by dividing the time between Isha and Fajr into three equal parts. For example, if Isha is at 9 PM and Fajr at 6 AM, the last third begins at 3 AM. Set a weekly alarm for that time. Start with one night per week and work up from there.` },
         { title: 'Pray at least 2 rak\'at of Tahajjud', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 ### Quran (17:79)
@@ -2457,6 +2629,8 @@ Tahajjud is about quality of connection, not quantity of rak'at. Even two sincer
 
 Pray at least two rak'at. Recite at a moderate, unhurried pace. Lengthen your sujud and use that time for personal du'a in your own language. Pour your heart out -- the night prayer is your most private audience with Allah. There is no minimum surah length; recite what you know well.` },
         { title: 'Make du\'a during the sujud of Tahajjud', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided Quranic verse generally commands prostrating to draw close to Allah, the accompanying commentary provides a clear contextual indication for the subtask by highlighting the sujud of Tahajjud as the ideal moment for supplication.',
           sources: `**I. Quran**
 
 ### Quran (96:19)
@@ -2487,6 +2661,8 @@ During the sujud of your Tahajjud prayer, make du'a in your own language. Bring 
       description: 'Khushu\u02bf is the soul of salah. Study how scholars describe presence of heart, humility, and focus in prayer.',
       subtasks: [
         { title: 'Read Ibn al-Qayyim\'s description of khushu\u02bf in prayer', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -2525,6 +2701,8 @@ Ibn al-Qayyim's classification of five levels of prayer provides a powerful self
 
 Read Ibn al-Qayyim's description in "al-Wabil al-Sayyib" or "as-Salah wa Hukm Tarikuha." The five levels range from the one who wrongs himself (negligent in wudu and timing) to the one who perfects prayer with full khushu'. Honestly identify which level describes your typical prayer. Set a goal to move up one level.` },
         { title: 'Identify three personal barriers to focus in salah', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe the diagnostic exercise of identifying and ranking personal distractions, they provide a clear logical inference for the subtask by establishing that attaining khushu\' (humility and focus) is a fundamental characteristic of successful believers.',
           sources: `**I. Quran**
 
 
@@ -2547,6 +2725,8 @@ Khushu' is not lost by accident -- it is stolen by specific, identifiable distra
 
 After your next five prayers, immediately note what distracted you most. Common barriers include: phone nearby, rushing to finish, praying while hungry or needing the bathroom, not understanding what you recite, or mental to-do lists. Write down your top three personal barriers and rank them by frequency.` },
         { title: 'Practice one technique for improving khushu\u02bf this week', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts emphasize the protective nature of prayer and the closeness to Allah achieved during prostration, they provide neither explicit proof nor contextual indication for the specific practice of adopting scholarly techniques to purposefully improve khushu\' (focus) over a week.',
           sources: `**I. Quran**
 
 
@@ -2578,6 +2758,8 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
       description: 'Duha prayer (after sunrise until before Dhuhr) is a charity for every joint in the body. Start with 2 rak\'at and build up.',
       subtasks: [
         { title: 'Learn the time window for Duha prayer', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the exact minute-by-minute boundaries of the prayer window, they provide a clear logical inference for the subtask by linking the Duha prayer to the "morning brightness" and "forenoon" while explicitly forbidding prayer exactly at sunrise.',
           sources: `**I. Quran**
 
 ### Quran (93:1-2)
@@ -2601,6 +2783,8 @@ Knowing the exact time window prevents you from accidentally praying outside it 
 
 Duha begins approximately 15-20 minutes after sunrise and extends until shortly before Dhuhr. The preferred time is when the sun's heat intensifies (roughly mid-morning). Check your prayer app for sunrise time and add 20 minutes. Set a reminder in that window for your first week of practice.` },
         { title: 'Pray Duha at least 3 times this week', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided Quranic verse elevates the morning hours as sacred, the accompanying hadiths describe a companion referring to the Duha prayer as a heresy, providing neither explicit proof nor contextual indication for the specific practice of praying it at least three times a week.',
           sources: `**I. Quran**
 
 ### Quran (93:1-2)
@@ -2628,6 +2812,8 @@ The Prophet (SAW) advised Abu Hurayrah (RA) to never abandon Duha prayer. It ser
 
 Choose three days this week and pray two rak'at of Duha during the mid-morning window. The Prophet (SAW) prayed between 2 and 8 rak'at. Start with 2 to keep it easy and build consistency. Mark the days you prayed it to track your progress.` },
         { title: 'Gradually increase to daily practice', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe a step-by-step plan to gradually build a prayer routine, they provide a clear logical inference for the subtask\'s ultimate goal of daily practice by establishing that the charitable obligation for one\'s joints is due "every day the sun rises" and can be fulfilled by the Duha prayer.',
           sources: `**I. Hadith**
 
 
@@ -2654,6 +2840,8 @@ Once you have established Duha three times per week for at least two weeks, begi
       description: 'There are 15 places in the Quran where prostration is recommended when recited. Learn the ruling and practice.',
       subtasks: [
         { title: 'Learn the 15 ayat of sajdah in the Quran', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly specify the number of prostration verses or mandate memorizing their exact locations, they provide a clear logical inference for the subtask by highlighting the immense spiritual significance and reward of prostrating whenever an Ayah of Sajdah is recited.',
           sources: `**I. Quran**
 
 
@@ -2688,6 +2876,8 @@ When Allah commands prostration in the Quran and you respond immediately, you ar
 
 Learn the locations of the 15 ayat of sajdah. They appear in surahs such as Al-A'raf (7:206), Ar-Ra'd (13:15), An-Nahl (16:50), Al-Isra (17:109), Maryam (19:58), and others. Most masahif mark them with a sajdah symbol in the margin. Bookmark or highlight them in your personal mushaf for quick reference.` },
         { title: 'Study the du\'a recited during Sujud al-Tilawah', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -2722,6 +2912,8 @@ The du'a of Sujud al-Tilawah is an act of profound humility -- you are declaring
 
 Memorise the du'a: "Sajada wajhi lilladhi khalaqahu wa sawwarahu wa shaqqa sam'ahu wa basarahu, bi hawlihi wa quwwatihi" -- meaning "My face prostrates to the One who created it and formed it, and opened its hearing and sight by His might and power." Recite it each time you perform Sujud al-Tilawah.` },
         { title: 'Practice performing it when you encounter a sajdah ayah', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadith explicitly records the Prophet and all those present performing a prostration immediately upon the recitation of a chapter containing a verse of prostration, providing clear proof for the core subtask.',
           sources: `**I. Quran**
 
 
@@ -2753,6 +2945,8 @@ When you recite or hear an ayah of sajdah, prostrate immediately if you are in a
       description: 'Move from occasional Tahajjud to a regular nightly routine. The Prophet (SAW) never abandoned Qiyam al-Layl even when ill.',
       subtasks: [
         { title: 'Choose a consistent time in the last third of the night', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts strongly encourage the night prayer and detail the specific proportions of Prophet Dawud\'s nightly routine, they provide neither explicit proof nor contextual indication for the specific subtask of choosing a consistent time specifically in the last third of the night.',
           sources: `**I. Quran**
 
 
@@ -2779,6 +2973,8 @@ The Prophet (SAW) said: "The most beloved deeds to Allah are those done consiste
 
 Pick a specific time in the last third of the night that you can realistically maintain -- even 20 minutes before Fajr is sufficient. Set it as a daily alarm. The key is choosing a time you will not abandon when motivation dips. Start with what is easy and let Allah expand it.` },
         { title: 'Start with 2-4 rak\'at and gradually increase', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts detail the proportions of the night spent in prayer by the Prophet and Prophet Dawud, they provide neither explicit proof nor contextual indication for the specific subtask of starting with a small number of rak\'ahs and gradually increasing to eleven.',
           sources: `**I. Quran**
 
 
@@ -2801,6 +2997,8 @@ Starting small protects you from the common trap of beginning with long sessions
 
 Begin with 2 rak'at of Qiyam followed by Witr. Once this feels comfortable for two weeks, add two more rak'at. Gradually work toward 8 rak'at plus 3 Witr (11 total). Do not rush the progression -- each level should feel sustainable before you increase.` },
         { title: 'Include Witr as the final prayer of the night', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided hadith explicitly describes the Prophet\'s sequence of night prayers, concluding "finally" with the one rak\'ah Witr prayer, thereby providing clear proof for the core subtask.',
           sources: `**I. Quran**
 
 
@@ -2835,6 +3033,8 @@ Witr seals your night worship with an odd-numbered prayer, as the Prophet (SAW) 
 
 After completing your Qiyam rak'at, pray Witr as the final prayer of the night. You may pray 1 rak'ah or 3 rak'at. In the last rak'ah, after rising from ruku, recite the Qunut du'a: "Allahumma-hdini fi man hadayt..." If you fear you may not wake for Tahajjud, pray Witr before sleeping.` },
         { title: 'Maintain the routine for 30 consecutive days', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe a 30-day tracking routine, they provide a clear logical inference for the subtask by heavily emphasizing the importance of consistency and specifically warning against the abandonment of the night prayer once started.',
           sources: `**I. Quran**
 
 
@@ -2872,6 +3072,8 @@ Track your Qiyam streak for 30 consecutive days using a simple checklist or app.
       description: 'Nisab is the minimum threshold of wealth that makes zakah obligatory. Calculate based on current gold/silver values and your total zakatable assets.',
       subtasks: [
         { title: 'Look up the current nisab threshold in your currency', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention looking up modern fiat currency conversions, the hadith\'s specification of a minimum threshold (five uqiyahs of silver) provides a clear logical inference that believers must calculate this equivalent value to determine their obligatory zakah.',
           sources: `**I. Quran**
 
 
@@ -2898,6 +3100,8 @@ Without knowing the nisab in your local currency, you cannot determine whether z
 
 Nisab is the value of 85 grams of gold or 595 grams of silver. Look up today's gold and silver prices and multiply to get the threshold in your currency. Many scholars recommend using the silver standard for a more conservative and inclusive calculation. Bookmark a reliable source so you can check annually.` },
         { title: 'List all your zakatable assets (cash, gold, investments, trade goods)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe writing a detailed annual list of specific assets, they provide a clear logical inference for the subtask by establishing the overarching obligation to accurately calculate and pay zakah from one\'s wealth.',
           sources: `**I. Quran**
 
 
@@ -2920,6 +3124,8 @@ Zakah applies only to specific categories of wealth. Missing an asset means unde
 
 List every zakatable asset you own: bank balances, cash on hand, gold and silver jewellery (above personal-use exemptions in some madhabs), stocks and investments, business inventory, and receivable debts. Write each item with its current value. Keep this list updated annually.` },
         { title: 'Determine if you meet the nisab after deducting debts', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention spending from earned wealth and the existence of a minimum threshold (nisab) for zakah, they provide neither explicit proof nor contextual indication for the specific rulings regarding the deduction of personal debts, the passing of a lunar year, or the 2.5% rate.',
           sources: `**I. Quran**
 
 
@@ -2942,6 +3148,8 @@ Islam is just — debts you owe are deducted before zakah is assessed, ensuring 
 
 Subtract your immediate debts and obligations from your total zakatable wealth. If the remainder exceeds the nisab and a full lunar year (hawl) has passed since you first held nisab-level wealth, zakah of 2.5% is due on the total zakatable amount.` },
         { title: 'Mark your zakah anniversary date (hawl)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe marking a specific anniversary date on calendars or setting reminders, they provide a clear logical inference for the subtask by establishing that the passage of one lunar year (hawl) is a necessary condition for the obligation of paying zakah.',
           sources: `**I. Quran**
 
 
@@ -2971,6 +3179,8 @@ Identify the date you first possessed nisab-level wealth. Mark this as your zaka
       description: 'Not all wealth is zakatable. Study the specific categories and their rates as defined by the Quran and Sunnah.',
       subtasks: [
         { title: 'Study zakah on gold and silver (2.5%)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the 2.5% rate or specific weight thresholds, they provide a clear logical inference for the subtask by warning of severe punishment for hoarding gold and silver without paying their obligatory zakah, which inherently necessitates studying its specific rules.',
           sources: `**I. Quran**
 
 ### Quran (9:34)
@@ -2992,6 +3202,8 @@ Gold and silver are the original assets on which zakah was legislated. Understan
 
 Gold above 85g and silver above 595g are subject to 2.5% zakah annually. In the Hanafi school, all gold and silver jewellery is zakatable regardless of use. Other schools exempt jewellery worn regularly for personal adornment. Know your madhab's position and weigh your gold and silver to determine if they meet the threshold.` },
         { title: 'Study zakah on cash and bank savings', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not detail modern banking structures or the specific 2.5% rate, the explicit statement that zakah on cash follows the nisab of silver provides a clear logical inference for the subtask to study and calculate zakah on cash holdings.',
           sources: `**I. Quran**
 
 
@@ -3014,6 +3226,8 @@ Most modern wealth is held as cash rather than gold or silver. Understanding tha
 
 Total all cash holdings: bank balances (checking, savings, fixed deposits), cash on hand, and digital wallet balances. If the combined total meets the nisab threshold and a lunar year has passed, 2.5% is due. Include any currency holdings in foreign accounts as well.` },
         { title: 'Study zakah on trade goods (uruud al-tijarah)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the specific rules, rates, or valuation methods for business inventory, they provide a clear logical inference for the subtask by establishing the overarching obligation to pay zakah on all acquired wealth and earned goods.',
           sources: `**I. Quran**
 
 
@@ -3036,6 +3250,8 @@ Trade goods (uruud al-tijarah) are a major category of zakatable wealth. Entrepr
 
 On your zakah date, value all business inventory held for sale at its current market price (not cost price). The zakah rate is 2.5% of the total market value. Items purchased for personal use or business operations (like equipment) are exempt. Only goods intended for resale count.` },
         { title: 'Study zakah on agricultural produce and livestock', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not detail the exact percentage rates or sliding scales for agricultural and livestock zakah, they provide a clear logical inference for the subtask by explicitly establishing distinct minimum thresholds for camels and harvested foodstuff.',
           sources: `**I. Quran**
 
 
@@ -3060,6 +3276,8 @@ Agricultural and livestock zakah have distinct rules that differ significantly f
 
 For crops: zakah is 10% of the harvest if rain-watered, and 5% if irrigated with paid water. This is due at harvest time, not annually. For livestock (camels, cows, sheep/goats), each animal type has its own nisab threshold and a sliding scale of what is owed. Consult a fiqh reference for the detailed tables applicable to your situation.` },
         { title: 'Learn what is exempt (personal use items, primary home)', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly states that personal use items and one\'s primary home are exempt from zakah, providing direct and clear proof for the core subtask.',
           sources: `**I. Hadith**
 
 
@@ -3082,6 +3300,8 @@ Exclude from your zakah calculation: your primary residence, personal clothing, 
       description: 'Allah specified exactly eight categories of people eligible to receive zakah. Know them so your distribution is valid.',
       subtasks: [
         { title: 'Al-Fuqara (the poor)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly list food, shelter, and clothing or prescribe using trusted organizations, they provide a clear logical inference for the subtask to proactively identify such individuals by defining the truly poor as those who lack enough to fulfill their needs but whose condition remains unknown because they do not beg.',
           sources: `**I. Quran**
 
 
@@ -3104,6 +3324,8 @@ The fuqara are the first category Allah mentions in the zakah verse (9:60). Reco
 
 Identify individuals whose income falls significantly short of meeting basic needs: food, shelter, and clothing. They may have little to no regular income. Look within your local community, extended family, or through trusted organisations that serve the destitute.` },
         { title: 'Al-Masakin (the needy)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention "the needy" (al-masakin) in the contexts of property distribution and congregational prayer, they provide neither explicit proof nor contextual indication for the specific definitions and practical identification methods detailed in the subtask.',
           sources: `**I. Quran**
 
 
@@ -3130,6 +3352,8 @@ The masakin are often invisible -- they have some means but not enough. Recognis
 
 Look for people who have some income or resources but cannot fully cover their needs. They may not ask for help openly. Pay attention to those in your community who struggle with rent, medical bills, or feeding their families despite working.` },
         { title: 'Al-Amilina Alayha (zakah collectors/administrators)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention paying zakah and the historical existence of "collectors of Sadaqa," they provide neither explicit proof nor contextual indication that these administrators represent a designated category eligible to receive a portion of the collected zakah funds for operational costs.',
           sources: `**I. Quran**
 
 
@@ -3152,6 +3376,8 @@ Allah designated zakah administrators as eligible recipients to ensure the syste
 
 When donating through an organisation, understand that a portion may go to administrative costs -- this is Islamically valid. Verify that the organisation's administrative share is reasonable and transparent. If distributing personally, this category does not apply.` },
         { title: 'Al-Mu\'allafati Qulubuhum (those whose hearts are to be reconciled)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly list "those whose hearts need winning over" as a designated category for receiving zakah, they do not explicitly define them as new converts facing financial hardship or detail specific identification methods, providing a clear logical inference for the subtask to identify and support such individuals.',
           sources: `**I. Quran**
 
 ### Quran (9:60)
@@ -3172,6 +3398,8 @@ Islam recognises that new Muslims or those whose hearts incline toward Islam may
 
 Identify new Muslims in your community who may face financial hardship due to their conversion (family estrangement, job loss). Support them through zakah to strengthen their faith and ease their transition. Some scholars also include those whose goodwill prevents harm to the Muslim community.` },
         { title: 'Fi al-Riqab (freeing captives)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly designate the freeing of captives and slaves as a valid category for zakah expenditures, they do not explicitly mention modern organizations or specific contemporary manifestations like human trafficking and bonded labor, providing a clear logical inference to apply this timeless principle to modern forms of enslavement.',
           sources: `**I. Quran**
 
 
@@ -3191,6 +3419,8 @@ Although chattel slavery has largely been abolished, this category remains relev
 
 In the modern context, scholars apply this category to freeing prisoners of war, paying ransoms for captives, and liberating those trapped in bonded labour or human trafficking. Support organisations that work to free people from modern forms of enslavement using zakah-compliant channels.` },
         { title: 'Al-Gharimin (those in debt)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly designate those in debt (al-gharimin) as eligible to receive charity until they clear their obligations, they do not explicitly detail the specific types of qualifying debts or the exact methods of payment, providing a clear logical inference for the practical steps outlined in the subtask.',
           sources: `**I. Quran**
 
 
@@ -3215,6 +3445,8 @@ Debt can be crushing and spiritually debilitating. Allah made debt relief an exp
 
 Identify individuals burdened with debts they genuinely cannot repay -- medical bills, essential living expenses, or business debts from halal ventures. The debt must not have been incurred for sinful purposes. You can pay their creditors directly or give them funds earmarked for debt repayment.` },
         { title: 'Fi Sabilillah (in the way of Allah)', done: false,
+          tier: 'T3',
+          amanahRationale: 'The provided texts do not mention zakah, its recipient categories, or the concept of "fi sabilillah," providing neither explicit proof nor contextual indication for the subtask.',
           sources: `**I. Quran**
 
 
@@ -3249,6 +3481,8 @@ This is one of the broadest and most discussed categories of zakah recipients. U
 
 Scholars differ on the scope of 'fi sabilillah.' Some limit it to military defence of Muslim lands. Others include da'wah efforts, Islamic education, building masjids and institutions, and supporting Islamic media. Research your madhab's position and direct zakah to causes that serve Allah's cause within those guidelines.` },
         { title: 'Ibn al-Sabil (the stranded traveller)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly designate the stranded traveler as a valid recipient for the distribution of community wealth, they do not explicitly detail the rules regarding their wealth at home or contemporary applications like refugees, providing a clear logical inference to identify and support such individuals.',
           sources: `**I. Quran**
 
 
@@ -3282,6 +3516,8 @@ If you encounter a traveller who is stranded and lacks funds to continue or retu
       description: 'If zakah is due and has not been paid, it remains a debt upon you. Settle it as soon as possible \u2014 delaying without reason is sinful.',
       subtasks: [
         { title: 'Calculate any overdue zakah from previous years', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe the retroactive calculation methods or the 2.5% rate, they provide a clear logical inference for the subtask by issuing severe warnings of punishment for failing to pay zakah on accumulated wealth, logically necessitating the rectification of past unpaid obligations to avoid such consequences.',
           sources: `**I. Quran**
 
 
@@ -3308,6 +3544,8 @@ Unpaid zakah does not expire -- it accumulates as a debt to Allah. Calculating o
 
 For each year you missed, estimate your total zakatable wealth at that time (bank balances, gold, investments, etc.) and calculate 2.5%. If exact figures are unavailable, make your best estimate with sincerity. Document each year's calculation and the total owed. Seek forgiveness from Allah for the delay.` },
         { title: 'Identify trustworthy recipients or organisations', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention the eight Quranic categories or verified organizations, they provide a clear logical inference for the subtask by establishing the strict obligation to ensure zakah is specifically taken from the wealthy and given to "the poor among them," which inherently necessitates identifying eligible and trustworthy recipients.',
           sources: `**I. Quran**
 
 
@@ -3330,6 +3568,8 @@ Zakah must reach eligible recipients for it to be valid. Giving to the wrong peo
 
 Choose recipients from the eight Quranic categories. You can distribute directly to known individuals in need, or donate through verified zakah organisations that have sharia boards and publish distribution reports. Prioritise local need first, then expand to wider communities.` },
         { title: 'Distribute the outstanding amount', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention formulating a clear intention or creating written instalment schedules, they provide a clear logical inference for the subtask by explicitly defining zakah as a strict obligation from Allah that must be taken from the wealthy and given to the poor, inherently necessitating its timely distribution.',
           sources: `**I. Quran**
 
 
@@ -3361,6 +3601,8 @@ Pay the full calculated amount as soon as possible. Make a clear intention (niyy
       description: 'Consistency in zakah requires a fixed annual date (hawl). Set it up and create a reminder system.',
       subtasks: [
         { title: 'Choose your zakah calculation date (e.g., 1st Ramadan)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe recording a specific zakah anniversary on Hijri and Gregorian calendars, they provide a clear logical inference for the subtask by establishing that choosing a fixed date is a practical means to fulfill the divine command of annual wealth purification.',
           sources: `**I. Quran**
 
 ### Quran (9:103)
@@ -3384,6 +3626,8 @@ A fixed annual date eliminates guesswork and procrastination. Many Muslims choos
 
 Pick a date you can remember and commit to -- 1st Ramadan is popular for its barakah, but 1st Muharram or your birthday also work. Record it in both Hijri and Gregorian calendars. This becomes your permanent zakah anniversary. Every year on this date, you will calculate and pay.` },
         { title: 'Set annual calendar reminders', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text does not explicitly prescribe using phone calendars or setting specific two-week notifications, it provides a clear logical inference for the subtask by emphasizing that setting a consistent annual date ensures the timely calculation of zakah.',
           sources: `**I. Hadith**
 
 
@@ -3399,6 +3643,8 @@ Without reminders, zakah dates can slip by unnoticed, leading to delayed payment
 
 Set two calendar reminders: one 2 weeks before your zakah date (to start gathering bank statements, investment records, and asset valuations) and one on the date itself (to perform the final calculation and distribute). Use your phone calendar or a dedicated Islamic app.` },
         { title: 'Create a spreadsheet or use a zakah calculator app', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided text establishes the general principle of taking charity from one\'s property for purification, it provides neither explicit proof nor contextual indication for the specific 2.5% rate, deduction of debts, or the use of modern tools like spreadsheets and calculators detailed in the subtask.',
           sources: `**I. Quran**
 
 
@@ -3421,6 +3667,8 @@ Create a simple spreadsheet with columns for: asset type, description, and curre
       description: 'Identify reputable organisations that distribute zakah to the correct recipients with transparency and accountability.',
       subtasks: [
         { title: 'Research 3 local zakah-accepting organisations', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mandate researching exactly three specific organizations, they provide a clear logical inference for the subtask by formally recognizing zakah administrators and strictly restricting disbursements to eight specific categories within the local community, which inherently necessitates verifying a local organization\'s compliance with these rules.',
           sources: `**I. Quran**
 
 
@@ -3443,6 +3691,8 @@ Local organisations can distribute zakah efficiently to people in your own commu
 
 Research at least 3 local Islamic centres, masjids, or charities that accept zakah. Ask them directly: do they maintain a separate zakah fund? Do they have criteria for verifying recipients against the eight categories? Visit their websites or speak with their administrators to confirm.` },
         { title: 'Research 2 international zakah organisations', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided text encourages believers to generally give from the wealth God has entrusted to them, it provides neither explicit proof nor contextual indication for the specific subtask of researching international zakah organizations or evaluating their distribution data and overhead costs.',
           sources: `**I. Quran**
 
 
@@ -3458,6 +3708,8 @@ International organisations can reach zakah-eligible Muslims in conflict zones, 
 
 Research at least 2 established international zakah organisations. Look for those with sharia advisory boards, published annual reports, and transparent distribution data. Evaluate their reach, overhead costs, and the categories of recipients they serve. Save their donation links for your annual zakah distribution.` },
         { title: 'Verify their zakah compliance and transparency reports', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text emphasizes the essential need to verify that organizations comply with Sharia distribution to fulfill the trust of zakah, it does not explicitly detail specific modern methods like checking for a Sharia board or reviewing published transparency reports, providing a clear logical inference for the subtask\'s practical verification steps.',
           sources: `**I. Hadith**
 
 
@@ -3480,6 +3732,8 @@ For each organisation you are considering, check three things: (1) Do they have 
       description: 'Zakah al-Fitr is obligatory at the end of Ramadan. Learn its amount, timing, and recipients.',
       subtasks: [
         { title: 'Learn the amount and types of food acceptable for Fitr', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided texts explicitly state the required amount as one sa\' of specific foods like dates or barley and define its purpose as purification for the fasting person and food for the poor, providing clear and direct proof for the subtask.',
           sources: `**I. Hadith**
 
 
@@ -3499,6 +3753,8 @@ Zakah al-Fitr purifies the fasting person from any shortcomings during Ramadan a
 
 The amount is one sa' (approximately 2.5-3 kg) of a staple food per person -- dates, barley, wheat, rice, or the local equivalent. Some scholars (particularly Hanafi) permit paying the monetary value instead. Check with your local masjid for the recommended amount in your area, as it may vary by food prices.` },
         { title: 'Understand the timing (before Eid prayer)', done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided source explicitly commands that Zakah al-Fitr must be given before the people go out for the Eid prayer, providing clear and direct proof for the core timing rule of the subtask.',
           sources: `**I. Hadith**
 
 
@@ -3514,6 +3770,8 @@ The timing of Zakah al-Fitr is a condition of its validity. Paying after the Eid
 
 The preferred time is before the Eid prayer on 1st Shawwal. Paying 1-2 days before Eid is permissible and recommended by many scholars to give recipients time to prepare for Eid. Set a reminder for the 28th of Ramadan to ensure you do not miss the window. If you pay through an organisation, confirm they distribute before the prayer.` },
         { title: 'Learn who is responsible to pay and for whom', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly state that the head of the household pays Zakat al-Fitr for all dependents regardless of age before the Eid prayer, they do not explicitly detail specific edge cases like newborns born the night before or elderly parents, providing a clear logical inference for the practical counting and calculation methods outlined in the subtask.',
           sources: `**I. Hadith**
 
 
@@ -3540,6 +3798,8 @@ Count every person you are financially responsible for: yourself, your spouse, y
       description: 'Zakah literally means purification and growth. Understand how it purifies the giver\'s soul and grows barakah in wealth.',
       subtasks: [
         { title: 'Study the Quranic ayat linking zakah with purification (9:103)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly establishes the foundational principle that alms cleanse and purify the giver, it does not explicitly prescribe modern study methods like journaling or using a tafsir, providing a clear logical inference to deeply reflect on its meaning as outlined in the subtask.',
           sources: `**I. Quran**
 
 
@@ -3570,6 +3830,8 @@ This ayah reveals the dual purpose of zakah: it purifies the giver's soul from g
 
 Read Surah At-Tawbah 9:103 with a reliable tafsir. Reflect on how 'purification' (tathir) applies to your heart -- what attachments to wealth do you carry? Journal your reflections. Consider memorising this ayah as a reminder each time you calculate zakah.` },
         { title: 'Reflect on how giving reduces attachment to dunya', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention the term \'dunya\' or prescribe specific reflective practices like sitting with intention, they provide a clear logical inference for the subtask by emphasizing purification through charity and declaring ultimate success for those who overcome the stinginess of their souls.',
           sources: `**I. Quran**
 
 
@@ -3596,6 +3858,8 @@ Attachment to dunya is one of the greatest diseases of the heart. Zakah is a div
 
 Before paying zakah, sit with your intention. Notice any reluctance or tightness in your heart -- this is precisely what zakah is designed to treat. Give with gratitude that Allah has blessed you with enough to be a giver rather than a receiver. Reflect on the hadith: 'The upper hand (the giving hand) is better than the lower hand.'` },
         { title: 'Read about the blessings of zakah from hadith literature', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly encourages reading hadith literature to deepen one\'s appreciation of zakah\'s blessings, it does not detail the specific narrations to study or the use of modern tools like hadith apps, providing a clear logical inference for the practical study methods outlined in the subtask.',
           sources: `**I. Quran**
 
 
@@ -3629,6 +3893,8 @@ Study key hadith on zakah: the promise that wealth does not decrease from charit
       description: 'Voluntary charity is unlimited in reward. Set up recurring giving \u2014 even a small consistent amount is beloved to Allah.',
       subtasks: [
         { title: 'Set up a monthly automated sadaqah donation', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts highly encourage the general practice of giving charity secretly and from one\'s surplus, they provide neither explicit proof nor contextual indication for the subtask\'s specific focus on the importance of consistency or the modern method of setting up automated monthly bank transfers.',
           sources: `**I. Quran**
 
 
@@ -3655,6 +3921,8 @@ Consistency in giving is more beloved to Allah than occasional large donations. 
 
 Set up an automatic monthly bank transfer to a charity of your choice. Start with an amount you can sustain without hardship -- even a small amount counts. The Prophet (SAW) said the most beloved deeds to Allah are the most consistent, even if small. Review and increase the amount as your income grows.` },
         { title: 'Identify causes that resonate with you (orphans, education, water)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly highlight the immense reward and virtue of supporting specific causes like orphans and feeding the hungry, they do not explicitly mention modern practices like researching specific organizations or signing up for updates, providing a clear logical inference to identify and dedicate oneself to such impactful causes.',
           sources: `**I. Quran**
 
 
@@ -3681,6 +3949,8 @@ When you give to a cause that deeply moves you, your giving becomes an act of lo
 
 Reflect on which needs stir your heart most: orphan sponsorship, clean water projects, Islamic education, feeding the hungry, or supporting refugees. Choose one primary cause and one secondary cause. Research specific organisations serving those causes. Sign up for their updates so you stay connected to the impact of your giving.` },
         { title: 'Track your giving for motivation and accountability', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts heavily emphasize the immense spiritual virtue of concealing one\'s charity to the point that the left hand does not know what the right hand has given, they provide neither explicit proof nor contextual indication for the modern practice of meticulously tracking or logging one\'s donations for personal accountability.',
           sources: `**I. Quran**
 
 
@@ -3710,6 +3980,8 @@ Create a simple log (spreadsheet, notes app, or journal) with columns for: date,
       description: 'A waqf is an endowment whose benefits continue indefinitely \u2014 sadaqah jariyah in its highest form. Explore options suited to your capacity.',
       subtasks: [
         { title: 'Learn the Islamic principles of waqf', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -3740,6 +4012,8 @@ Waqf is one of the most powerful forms of sadaqah jariyah -- an endowment whose 
 
 Study the Islamic principles of waqf: an asset is dedicated permanently to a charitable purpose, the original asset (the 'ayn') is preserved and cannot be sold, and only its returns or benefits are distributed. Learn the difference between waqf ahli (family endowment) and waqf khayri (public charitable endowment). Read about historical awqaf that funded hospitals, schools, and masjids for centuries.` },
         { title: 'Research existing waqf platforms and institutions', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text highlights the immense spiritual value of ongoing charity and its institutionalised form as waqf, it does not explicitly prescribe modern practices like researching platforms or evaluating governance structures, providing instead a clear logical inference to actively identify and utilize such institutions to secure this everlasting reward.',
           sources: `**I. Hadith**
 
 
@@ -3755,6 +4029,8 @@ You do not need to be wealthy to participate in waqf. Modern platforms offer col
 
 Research established waqf institutions in your region and internationally. Look for platforms that offer collective waqf participation with low minimum contributions. Evaluate their governance structure, investment strategy, and distribution track record. Shortlist 2-3 that align with causes you care about.` },
         { title: 'Explore contributing to or establishing a small waqf', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention the term "waqf" or detail modern examples like medical clinics, they provide a clear logical inference for the subtask by highlighting the immense, multiplied rewards of spending in Allah\'s cause and explicitly establishing "ongoing charity" (sadaqah jariyah) as one of the few deeds that continuously benefits a person after death.',
           sources: `**I. Quran**
 
 
@@ -3784,6 +4060,8 @@ Choose a waqf cause that resonates with you: a masjid, an Islamic school, a wate
       description: 'Many Muslims are uncertain about zakah calculation. Help someone in your circle understand their obligations.',
       subtasks: [
         { title: 'Identify someone who needs guidance on zakah', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention identifying specific individuals to teach about zakah calculation, they provide a clear logical inference for the subtask by combining the principles of zakah with the general directives to invite others to good and the promise of reward for guiding someone to a righteous deed.',
           sources: `**I. Quran**
 
 
@@ -3810,6 +4088,8 @@ Many Muslims neglect zakah not out of unwillingness but out of confusion about h
 
 Think of friends, family members, colleagues, or new Muslims who may not be calculating zakah. Approach them with gentleness and without judgment. You might say: 'I recently learned more about zakah calculation -- would you like to go through it together?' Sensitivity is key, as financial matters are private.` },
         { title: 'Walk them through calculating their zakatable wealth', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly prescribe modern teaching methods, spreadsheets, or the specific 2.5% calculation rate, they provide a clear logical inference for the subtask by establishing distinct nisab thresholds and emphasizing that accurate calculation fundamentally requires identifying qualifying assets.',
           sources: `**I. Quran**
 
 
@@ -3832,6 +4112,8 @@ Walking someone through the calculation step by step demystifies zakah and empow
 
 Sit down together (in person or virtually) and go through each step: list all zakatable assets, look up the current nisab, subtract qualifying debts, and calculate 2.5% of the net total. Use a spreadsheet or a zakah calculator app to make it visual and clear. Save the template so they can reuse it next year.` },
         { title: 'Help them identify appropriate recipients', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail explaining the eight specific categories or splitting zakah internationally, they provide a clear logical inference for the subtask by establishing the core principle that wealth must not merely circulate among the rich and explicitly defining the prophetic mission of taking zakah from the wealthy to give to the poor.',
           sources: `**I. Quran**
 
 
@@ -3865,6 +4147,8 @@ Briefly explain the eight categories from Surah At-Tawbah 9:60. Share your own l
       description: 'Fasting in Ramadan is the fourth pillar of Islam. Know what is required for a valid fast \u2014 the intention, what to abstain from, and the time boundaries.',
       subtasks: [
         { title: 'Learn when and how to make the intention (niyyah) for fasting', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the specific timing and non-verbal method of making the intention for fasting, they provide a clear logical inference for the subtask to learn these rules by establishing that the reward and validity of all prescribed deeds fundamentally depend upon one\'s intention.',
           sources: `**I. Quran**
 
 
@@ -3889,6 +4173,8 @@ The niyyah distinguishes a genuine act of worship from mere hunger. Without a co
 
 The intention must be made before Fajr for obligatory fasts. It resides in the heart — no verbal declaration is required. Renew it each night before sleeping or during suhoor. Confirm you understand the distinction between obligatory and voluntary fast intentions.` },
         { title: 'Know the fasting hours (Fajr to Maghrib)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mention the ending boundary of breaking the fast at Maghrib, they omit the starting boundary of Fajr and modern tools like prayer-time apps, providing a strong contextual indication rather than complete explicit proof for the subtask.',
           sources: `**I. Quran**
 
 
@@ -3911,6 +4197,8 @@ Knowing the exact boundaries of the fast protects its validity. Eating even a mo
 
 Fasting begins at the onset of Fajr (true dawn) and ends at Maghrib (sunset). Eating during suhoor is permissible until the Fajr adhan. Use a reliable prayer-time app for precise times in your location and stop eating a few minutes before Fajr as a safety margin.` },
         { title: 'Learn what you must abstain from (food, drink, relations)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly identify giving up food and drink as fundamental physical components of fasting, they omit specific details regarding marital relations, precise timings, and fiqh consequences like kaffarah, providing a clear contextual indication to formally study these essential physical boundaries.',
           sources: `**I. Quran**
 
 
@@ -3935,6 +4223,8 @@ The physical restraints of fasting are the pillars that hold the fast together. 
 
 A fasting person abstains from food, drink, and marital relations from Fajr to Maghrib. Intentional violation requires making up the day and possibly kaffarah. Study a reliable fiqh source to understand the difference between accidental and deliberate violations and their respective consequences.` },
         { title: 'Understand who is exempt from fasting and their alternatives', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly detail the core exemptions for the ill and travelers along with the alternatives of making up days or paying fidyah, they omit specific categories like pregnant women, the elderly, or children, providing a clear logical inference to comprehensively study and categorize these exemptions as outlined in the subtask.',
           sources: `**I. Quran**
 
 
@@ -3961,6 +4251,8 @@ Exemptions include: the ill, the traveller, pregnant/nursing women, the elderly 
       description: 'Many common situations cause confusion. Study the fiqh of what invalidates the fast versus what is permissible.',
       subtasks: [
         { title: 'List the acts that clearly break the fast', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly identify eating and drinking as fundamental acts to abstain from during the fast, they omit other invalidating acts like intentional vomiting or the modern practice of writing a reference list, providing a clear logical inference to compile and clarify these rules to protect one\'s worship.',
           sources: `**I. Quran**
 
 
@@ -3983,6 +4275,8 @@ Confusing what does and does not break the fast leads to either unnecessary guil
 
 Deliberate eating, drinking, and sexual intercourse during fasting hours invalidate the fast. Vomiting intentionally also breaks it according to most scholars. Write out a clear list and keep it accessible during Ramadan for quick reference.` },
         { title: 'Learn common misconceptions (e.g., swallowing saliva, eye drops)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly correct the specific misconception that eating or drinking forgetfully invalidates the fast, they omit everyday and modern scenarios like swallowing saliva or using eye drops, providing a clear logical inference to study these boundaries comprehensively to prevent needless anxiety.',
           sources: `**I. Quran**
 
 
@@ -4005,6 +4299,8 @@ Misconceptions about what breaks the fast cause needless anxiety and may lead pe
 
 Swallowing saliva, using eye drops, tasting food without swallowing, and receiving injections (non-nutritional) do not break the fast according to most scholars. Study a fiqh reference that addresses modern scenarios (toothpaste, blood tests, asthma inhalers) and note the scholarly consensus for each.` },
         { title: 'Understand when kaffarah vs. qada is required', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly detail the specific expiation (kaffarah) required for intentionally breaking the fast, they omit the concept of simply making up missed days (qada), providing a clear logical inference to study and distinguish between these two methods of rectification.',
           sources: `**I. Quran**
 
 
@@ -4034,6 +4330,8 @@ Qada (making up) is required for any missed fast. Kaffarah (expiation \u2014 fre
       description: 'Anyone who misses obligatory fasts must make them up. Learn the rulings around timing, sequence, and fidyah for those unable to fast.',
       subtasks: [
         { title: 'Calculate how many fasts you owe from previous years', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate making up an equal number of missed fasting days and mention owing days from Ramadan, they omit modern tracking methods like using a dedicated app, providing a clear logical inference to systematically calculate and account for this obligation as outlined in the subtask.',
           sources: `**I. Quran**
 
 
@@ -4056,6 +4354,8 @@ Missed fasts are a debt to Allah. You cannot repay what you have not counted. An
 
 Honestly account for any Ramadan fasts you missed due to illness, travel, menstruation, or other valid reasons. Go year by year through each previous Ramadan. Record the total owed in a dedicated note or app.` },
         { title: 'Learn the deadline for making up Ramadan fasts', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate the core obligation to make up missed fasts on "other days later," they omit specific details regarding the deadline before the next Ramadan and the fiqh consequences of unjustified delay, providing a clear logical inference to study these temporal boundaries to ensure the duty is properly fulfilled.',
           sources: `**I. Quran**
 
 
@@ -4078,6 +4378,8 @@ Delaying make-up fasts without awareness of the deadline can compound your oblig
 
 Missed fasts should ideally be made up before the next Ramadan arrives. Scholars differ on whether additional fidyah is owed if they are delayed beyond that without valid excuse. Set a personal deadline well before the next Ramadan and schedule make-up fasts accordingly.` },
         { title: 'Understand the fidyah ruling for those permanently unable to fast', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the core fidyah ruling of feeding one poor person for each missed day for those permanently unable to fast, they omit modern administrative steps like calculating monetary equivalents or identifying trustworthy charities, providing a clear logical inference to systematically organize and fulfill this obligation.',
           sources: `**I. Quran**
 
 
@@ -4107,6 +4409,8 @@ The elderly or chronically ill who cannot fast pay fidyah: feeding one poor pers
       description: 'Outstanding fasts are a debt to Allah. Begin making them up systematically \u2014 even one per week adds up.',
       subtasks: [
         { title: 'Calculate the total number of missed fasts', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate making up an "equal number" of missed fasting days and demonstrate an awareness of owing fasts, they omit modern practices like reviewing year by year or using a dedicated tracker, providing a clear logical inference to systematically calculate and quantify the exact obligation.',
           sources: `**I. Quran**
 
 
@@ -4129,6 +4433,8 @@ You cannot systematically repay a debt you have not quantified. A clear number t
 
 Review each previous Ramadan year by year. Count days missed for valid reasons. If uncertain, estimate on the higher side to be safe. Record the final number in a dedicated tracker so you can measure progress.` },
         { title: 'Create a schedule to make them up (e.g., Mondays and Thursdays)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate making up missed fasting days on "other days later," they omit specific strategies like combining them with Sunnah days or using modern calendar reminders, providing a clear logical inference to systematically plan and schedule this obligation as outlined in the subtask.',
           sources: `**I. Quran**
 
 
@@ -4151,6 +4457,8 @@ A schedule transforms good intentions into consistent action. Combining make-up 
 
 Combine make-up fasts with Sunnah days for double reward. Mondays and Thursdays or the white days (13th-15th of each lunar month) are ideal choices. Block these days on your calendar and set reminders the night before to make your niyyah.` },
         { title: 'Track your progress until all are completed', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts highly encourage gradual spiritual progression and the consistent performance of good deeds, they provide neither explicit proof nor contextual indication for the modern practice of systematically tracking progress through tallies, spreadsheets, or celebrating milestones to sustain motivation.',
           sources: `**I. Quran**
 
 
@@ -4184,6 +4492,8 @@ Use a simple tally, spreadsheet, or app to count down your remaining fasts. Mark
       description: 'The Prophet (SAW) used to fast Mondays and Thursdays. Deeds are presented to Allah on these days, and he loved to be fasting when his deeds were shown.',
       subtasks: [
         { title: 'Start with one day per week (Monday or Thursday)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly highlight the Prophetic practice and immense virtue of fasting on Mondays and Thursdays, they omit specific modern habit-building strategies like starting with one day a week for four weeks or setting recurring reminders, providing a clear logical inference to adopt these specific days for voluntary fasting.',
           sources: `**I. Hadith**
 
 
@@ -4203,6 +4513,8 @@ The Prophet (SAW) said deeds are shown to Allah on Mondays and Thursdays, and he
 
 Choose whichever day fits your schedule better — Monday or Thursday. Set a recurring reminder the night before to make your niyyah and prepare suhoor. Fast consistently for at least four weeks before adding the second day.` },
         { title: 'Build up to both days consistently', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the Prophetic preference for fasting on Mondays and Thursdays alongside the high virtue of consistent fasting like that of Dawud, they omit modern habit-building strategies such as waiting 4-6 weeks or preparing meals in advance, providing a clear logical inference to systematically build up to this two-day rhythm.',
           sources: `**I. Hadith**
 
 
@@ -4222,6 +4534,8 @@ Two voluntary fasts per week creates a sustainable rhythm of weekly spiritual re
 
 Once one day feels natural (typically after 4-6 weeks), add the second. Prepare meals in advance to reduce friction. If you miss a week, resume without guilt — consistency over perfection is the Prophetic way.` },
         { title: 'Track your voluntary fasting for one month', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly highlight the Prophetic practice of fasting on Mondays and Thursdays and emphasize the immense virtue of consistent deeds, they provide neither explicit proof nor contextual indication for the modern practice of systematically tracking fasts in a journal or app to analyze personal energy and mood patterns.',
           sources: `**I. Hadith**
 
 
@@ -4248,6 +4562,8 @@ Log each voluntary fast in a journal or app. After one month, review: How did fa
       description: 'The Prophet (SAW) encouraged fasting the Ayyam al-Bid (white days). It is like fasting the entire month due to the ten-fold reward.',
       subtasks: [
         { title: 'Download a Hijri calendar to track the white days', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly identifies the "white days" as the 13th, 14th, and 15th of the lunar month, it omits modern technological methods like downloading a calendar app or setting reminders, providing a clear logical inference to track the Hijri calendar to properly fulfill this Prophetic recommendation.',
           sources: `**I. Hadith**
 
 
@@ -4263,6 +4579,8 @@ The white days follow the lunar calendar, which shifts relative to the Gregorian
 
 Download an Islamic calendar app that displays Hijri dates alongside the Gregorian calendar. The 13th, 14th, and 15th of each lunar month are the target days. Set monthly reminders a day before the 13th so you can prepare suhoor and make your niyyah.` },
         { title: 'Fast the white days for one lunar month as a trial', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the Prophetic command to fast the 13th, 14th, and 15th of each lunar month for the reward of a lifetime, they omit modern habit-building strategies like using a single month as a trial or noting physical and spiritual feelings, providing a clear logical inference to test and systematically adopt this practice.',
           sources: `**I. Hadith**
 
 
@@ -4282,6 +4600,8 @@ Three fasts per month equals 36 per year, which with the ten-fold multiplier equ
 
 Identify the 13th, 14th, and 15th of the upcoming lunar month on your Hijri calendar. Fast all three days consecutively. Note how you feel physically and spiritually. If one month works, you have the evidence to commit long-term.` },
         { title: 'Make it a consistent monthly practice', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the Prophetic command to fast three days of every month and emphasize the virtue of consistency, they omit modern practical strategies like adding recurring calendar events or preparing a balanced suhoor, providing a clear logical inference to adopt these specific methods to ensure the practice becomes a lifelong habit.',
           sources: `**I. Hadith**
 
 
@@ -4308,6 +4628,8 @@ Add the white days to your calendar as a recurring monthly event. Prepare by eat
       description: 'Fasting is not merely abstaining from food \u2014 it is training the nafs in taqwa, sabr, and shukr. Study these spiritual dimensions.',
       subtasks: [
         { title: 'Study the ayah linking fasting to taqwa (2:183)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish that the purpose of fasting is to attain mindfulness of God (taqwa), they omit modern educational practices like reading trusted translations or journaling reflections, providing a clear logical inference to actively study and internalize this foundational verse.',
           sources: `**I. Quran**
 
 
@@ -4330,6 +4652,8 @@ Allah explicitly states the purpose of fasting in Surah al-Baqarah 2:183 — tha
 
 Read the ayah in Arabic and a trusted translation. Reflect on how physical restraint develops God-consciousness: when you choose to obey Allah over your hunger, you are training your will to choose His guidance in every domain. Journal your reflections.` },
         { title: 'Reflect on how fasting develops patience with hunger and anger', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish fasting as a shield and command restraint against anger and ignorant behavior, they omit modern reflective practices like journaling, providing a clear logical inference to actively monitor and reflect on one\'s temper to attain the prescribed mindfulness of God (taqwa).',
           sources: `**I. Quran**
 
 
@@ -4352,6 +4676,8 @@ The Prophet (SAW) called fasting a shield (Bukhari). It is not merely about hung
 
 During your next fast, pay deliberate attention to moments of irritation or impatience. When they arise, recall the hadith and consciously choose restraint. At the end of the day, journal which moments tested you and how you responded.` },
         { title: 'Journal about gratitude for provisions after breaking fast', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly encourage gratitude and highlight the special acceptance of a fasting person\'s supplication upon breaking the fast, they omit modern reflective practices like journaling, providing a clear logical inference to actively cultivate and record this gratitude.',
           sources: `**I. Quran**
 
 
@@ -4381,6 +4707,8 @@ Keep a small notebook or phone note dedicated to fasting reflections. After brea
       description: 'There is great barakah in suhoor and prescribed etiquette for breaking the fast. Follow the Prophetic way.',
       subtasks: [
         { title: 'Learn the du\'a for breaking the fast', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly document the exact Prophetic supplication (du\'a) for breaking the fast, they omit explicit learning directives like memorization and the specific detail that iftar is a time when supplication is most accepted, providing a clear logical inference to actively learn and habituate this practice.',
           sources: `**I. Quran**
 
 
@@ -4405,6 +4733,8 @@ The moment of iftar is one of the times when du'a is most accepted. Learning the
 
 Memorize the du'a: "Dhahaba al-dhama', wabtallat al-uruq, wa thabata al-ajr in sha Allah" \u2014 meaning the thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills. Say it each time you break your fast until it becomes second nature.` },
         { title: 'Study what the Prophet (SAW) ate for suhoor and iftar', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided text explicitly recounts the revelation permitting eating and drinking during the night of fasting, it provides neither explicit proof nor contextual indication regarding the specific foods the Prophet ate for suhoor and iftar, such as dates or water.',
           sources: `**I. Hadith**
 
 
@@ -4420,6 +4750,8 @@ Following the Prophetic example in suhoor and iftar connects your daily meals to
 
 The Prophet (SAW) would break his fast with fresh dates; if not available, then dried dates; if not, then water. He encouraged suhoor even if with just a sip of water. Keep dates and water ready before Maghrib. For suhoor, eat something nourishing close to Fajr time.` },
         { title: 'Practice delaying suhoor and hastening iftar as Sunnah', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate hastening the breaking of the fast and the general practice of eating suhoor, they omit the specific directive to delay suhoor and modern practical strategies like setting alarms or preparing food in advance, providing a clear logical inference to adopt these specific methods to properly fulfill this Prophetic practice.',
           sources: `**I. Hadith**
 
 
@@ -4452,6 +4784,8 @@ Set an alarm for suhoor 20-30 minutes before Fajr so you eat close to the deadli
       description: 'The day of Arafah expiates sins of two years; Ashura expiates sins of one year. These are among the most rewarding voluntary fasts.',
       subtasks: [
         { title: 'Mark the dates of Arafah and Ashura on your calendar', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly highlight the immense expiation of sins for fasting on specific sacred days like Arafah, they omit modern tracking methods such as using calendar apps or setting reminders, providing a clear logical inference to systematically identify and prepare for these dates to ensure their immense rewards are not missed.',
           sources: `**I. Quran**
 
 
@@ -4476,6 +4810,8 @@ These are among the most rewarding voluntary fasts in the entire year. Missing t
 
 Arafah is the 9th of Dhul Hijjah; Ashura is the 10th of Muharram. At the start of each Hijri year, look up both dates on your Hijri calendar app and add them to your Gregorian calendar with reminders one week and one day before each.` },
         { title: 'Fast the day of Arafah (for non-pilgrims)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided text identifies the day of Arafat as the 9th of Dhul-Hijja and discusses a specific compensatory fast for pilgrims, it provides neither explicit proof nor contextual indication for the highly rewarded practice of voluntary fasting specifically recommended for non-pilgrims.',
           sources: `**I. Hadith**
 
 
@@ -4491,6 +4827,8 @@ The Prophet (SAW) said fasting the day of Arafah expiates the sins of the previo
 
 Confirm the Gregorian date of 9th Dhul Hijjah using your Hijri calendar. Make your niyyah the night before and fast the day. Note: pilgrims performing Hajj do not fast on Arafah. If you are not on Hajj, seize this opportunity every year without fail.` },
         { title: 'Fast the 9th and 10th of Muharram (or 10th and 11th)', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly establish the practice and voluntary nature of fasting on the 10th of Muharram (\'Ashura), they omit any mention of fasting on the 9th or 11th, the intention to distinguish Muslim practice, or the expiation of sins, providing neither explicit proof nor contextual indication for these specific details outlined in the subtask.',
           sources: `**I. Hadith**
 
 
@@ -4517,6 +4855,8 @@ Identify the 9th and 10th of Muharram on your Hijri calendar. Fast both days if 
       description: 'Whoever fasts Ramadan and follows it with six days of Shawwal, it is as if they fasted the entire year.',
       subtasks: [
         { title: 'Plan when to fast the six days (consecutively or spread out)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the highly rewarded Sunnah of fasting six days in Shawwal, they omit specific logistical details such as whether to fast them consecutively or spread them out and modern planning methods like calendar marking, providing a clear logical inference to systematically plan and schedule these fasts to ensure their completion.',
           sources: `**I. Quran**
 
 
@@ -4541,6 +4881,8 @@ Planning ahead ensures you complete all six fasts within Shawwal. Without a plan
 
 You can fast the six days consecutively starting from 2nd Shawwal, or spread them throughout the month. Both approaches are valid. Choose dates that fit your schedule, mark them on your calendar before Eid, and prepare suhoor supplies in advance.` },
         { title: 'Complete the six fasts within Shawwal', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly establishes the highly rewarded Sunnah of fasting six days in Shawwal after completing Ramadan, it omits modern practical steps such as tracking completed days, consulting scholars on making up missed fasts (qada), and aiming to finish early, providing a clear logical inference to systematically fulfill this specific obligation within the month.',
           sources: `**I. Hadith**
 
 
@@ -4556,6 +4898,8 @@ The reward — equivalent to fasting the entire year — is tied specifically to
 
 The hadith specifies Shawwal (the month after Ramadan). If you owe make-up fasts from Ramadan, consult your school of thought — some scholars require qada first, others allow combining intentions. Track each completed day and aim to finish all six well before the month ends.` },
         { title: 'Make a habit of fasting them every year', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly emphasize the virtue of voluntary fasting and the immense value of making good deeds regular and constant, they omit the specific mention of the six days of Shawwal, their ten-fold reward multiplier, and modern habit-building techniques like setting reminders, providing a clear logical inference to establish this specific fast as a consistent annual habit.',
           sources: `**I. Quran**
 
 
@@ -4585,6 +4929,8 @@ After completing the six fasts this year, immediately add a reminder for next Sh
       description: 'Feeding a fasting person earns the reward of their fast without diminishing it. Organise a shared iftar for your community.',
       subtasks: [
         { title: 'Plan the logistics (venue, menu, invitations)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly highlights the immense reward for providing iftar to a fasting person, it omits specific modern logistical details such as choosing a venue, planning a menu, or sending invitations via WhatsApp, providing a clear logical inference to systematically plan and organize these efforts to successfully fulfill this highly rewarded practice.',
           sources: `**I. Hadith**
 
 
@@ -4600,6 +4946,8 @@ Feeding a fasting person earns you the reward of their fast without diminishing 
 
 Choose a venue (masjid, community hall, or your home). Plan a simple, nutritious menu that can be prepared in bulk. Send invitations through local networks, WhatsApp groups, or masjid announcements at least one week in advance. Delegate tasks — cooking, setup, cleanup — to willing volunteers.` },
         { title: 'Invite neighbours, new Muslims, and those in need', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly command doing good to neighbors, the needy, and travelers, they omit modern practical applications such as hosting community iftars or sourcing guest lists from local mosques and student associations, providing a clear logical inference to fulfill these divine directives by specifically inviting isolated and vulnerable individuals to break their fast together.',
           sources: `**I. Quran**
 
 
@@ -4626,6 +4974,8 @@ The greatest impact of a community iftar comes from reaching those who would oth
 
 Prioritise those who may not have community connections \u2014 new Muslims, international students, elderly living alone, and low-income families. Ask your local masjid, Islamic centre, or university MSA for names. Personal invitations are more effective than general announcements.` },
         { title: 'Host the iftar and foster community bonds', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly command humanity to get to know one another and emphasize loving for one\'s brother what one loves for oneself to build brotherhood, they omit specific modern hosting details like using simple decorations, sharing food family-style, and following up after Ramadan, providing a clear logical inference to actively employ these practical methods to foster community bonds.',
           sources: `**I. Quran**
 
 
@@ -4659,6 +5009,8 @@ Create a welcoming atmosphere with simple decorations and warm greetings. Begin 
       description: 'Hajj is obligatory once in a lifetime for those who meet specific conditions. Understand each condition to determine your obligation.',
       subtasks: [
         { title: 'Study the five conditions of obligation', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish that Hajj is obligatory only for those with the physical and financial ability to perform it, they omit the specific scholarly enumeration of the five conditions and the modern recommendation to use a reliable fiqh reference, providing a clear logical inference to systematically study these requirements to properly understand one\'s obligation.',
           sources: `**I. Quran**
 
 
@@ -4685,6 +5037,8 @@ Hajj is one of Islam's five pillars, but it is only obligatory when specific con
 
 Study the five conditions: being Muslim, sane, having reached puberty, being physically able to travel, and having sufficient financial means beyond one's dependants' needs. Use a reliable fiqh reference to understand each condition in detail and note any scholarly differences of opinion.` },
         { title: 'Assess your current financial and physical ability', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish that the pilgrimage is a duty for those who are able to undertake it, they omit explicit definitions of this ability and modern practical steps like consulting a doctor or reviewing finances, providing a clear logical inference to systematically assess one\'s physical and financial capacity to fulfill this obligation.',
           sources: `**I. Quran**
 
 
@@ -4707,6 +5061,8 @@ Hajj requires both financial and physical capacity. An honest self-assessment en
 
 Ask yourself: can you afford the trip without going into debt or depriving your family of necessities? Are you physically healthy enough for the demanding journey? Consult a doctor if needed, and review your finances honestly against the estimated costs of Hajj from your country.` },
         { title: 'Determine if Hajj is currently fard upon you', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish that Allah has made Hajj obligatory for Muslims, they omit the specific enumeration of the five conditions and the scholarly consensus regarding the sinfulness of delaying, providing a clear logical inference to systematically review one\'s personal circumstances to determine if the obligation currently applies.',
           sources: `**I. Quran**
 
 
@@ -4740,6 +5096,8 @@ Review the five conditions against your current situation. If all are met, begin
       description: 'Hajj has pillars without which it is invalid, and obligations whose omission requires a penalty. Know the difference.',
       subtasks: [
         { title: 'Learn the four arkan: Ihram, Arafah, Tawaf al-Ifadah, Sa\'i', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Hadith**
 
 
@@ -4763,6 +5121,8 @@ The arkan (pillars) are the non-negotiable core of Hajj. Missing even one of the
 
 Study the four pillars: entering the state of Ihram, standing at Arafah, performing Tawaf al-Ifadah, and performing Sa'i between Safa and Marwah. For each, learn its timing, conditions, and what constitutes valid performance. Use a detailed Hajj manual from your madhab as your primary reference.` },
         { title: 'Learn the wajibat: Muzdalifah, stoning, shaving, Tawaf al-Wada', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -4789,6 +5149,8 @@ The wajibat (obligatory acts) are a tier below the pillars -- missing one does n
 
 Study the obligatory acts: staying at Muzdalifah, stoning the Jamarat, shaving or trimming hair, and performing the farewell Tawaf (Tawaf al-Wada'). Learn the timing and conditions for each, and understand that missing any wajib requires sacrificing an animal as a penalty.` },
         { title: 'Understand the penalties for missing a wajib act', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mandate offering a sacrifice in compensation for missing an obligatory (wajib) act during Hajj, they omit specific logistical and jurisprudential details such as sacrificing a sheep or goat in Makkah and distributing the meat to the poor, providing a clear logical inference to systematically study and understand these penalties to ensure the pilgrimage is not compromised.',
           sources: `**I. Quran**
 
 
@@ -4818,6 +5180,8 @@ Learn that if you miss a wajib act, you must sacrifice a sheep or goat in Makkah
       description: 'Umrah is the lesser pilgrimage and excellent preparation for Hajj. Learn its rites in the correct order.',
       subtasks: [
         { title: 'Ihram from the miqat with niyyah', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the designated miqat points for assuming Ihram based on one\'s travel route, they omit specific practical and jurisprudential details such as performing ghusl, reciting the Talbiyah, making the niyyah, and learning the prohibitions of Ihram, providing a clear logical inference to systematically study and implement these associated acts to properly enter this sacred state.',
           sources: `**I. Hadith**
 
 
@@ -4841,6 +5205,8 @@ Ihram is the first pillar of Umrah -- without it your rites are invalid. Enterin
 
 Identify the designated miqat point for your travel route. Perform ghusl, put on the Ihram garments, make the intention for Umrah, and begin reciting the Talbiyah. Learn the prohibitions of Ihram (perfume, cutting hair/nails, marital relations, etc.) before entering this state.` },
         { title: 'Tawaf around the Ka\'bah (7 circuits)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly command performing tawaf around the Ka\'bah in seven circuits and specify brisk walking (raml) in the first three, they omit specific practical and jurisprudential details such as starting from the Black Stone, moving counter-clockwise, maintaining wudu, and making supplication (du\'a), providing a clear logical inference to systematically incorporate these associated acts to properly fulfill this foundational ritual.',
           sources: `**I. Quran**
 
 
@@ -4867,6 +5233,8 @@ Tawaf is a pillar of Umrah and one of the most spiritually powerful acts a Musli
 
 Circle the Ka'bah seven times counter-clockwise, starting from the Black Stone. Men may perform raml (brisk walking) in the first three circuits. Maintain wudu throughout, make du'a freely during each circuit, and try to touch or point toward the Black Stone at the start of each lap.` },
         { title: 'Two rak\'at behind Maqam Ibrahim', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the Prophetic practice of offering a two-rak\'at prayer behind Maqam Ibrahim after circumambulating the Ka\'bah, they omit specific practical and jurisprudential details such as reciting Surah al-Kafirun and Surah al-Ikhlas, relocating if the area is crowded, and drinking Zamzam water, providing a clear logical inference to systematically incorporate these associated acts to properly complete this ritual.',
           sources: `**I. Hadith**
 
 
@@ -4890,6 +5258,8 @@ These two rak'at are a Sunnah completion of Tawaf, performed at the very station
 
 After completing Tawaf, pray two rak'at behind the Station of Ibrahim if possible, or anywhere in the Haram if the area is crowded. Recite Surah al-Kafirun in the first rak'ah and Surah al-Ikhlas in the second. Then drink from Zamzam water before proceeding to Sa'i.` },
         { title: 'Sa\'i between Safa and Marwah (7 laps)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly establishes the rite of circulating between Safa and Marwa during pilgrimage, it omits specific historical context like Hajar\'s search for water and practical details such as completing seven laps, jogging between green markers, and making supplication, providing a clear logical inference to systematically incorporate these associated acts to properly fulfill this ritual.',
           sources: `**I. Quran**
 
 
@@ -4905,6 +5275,8 @@ Sa'i commemorates Hajar's desperate search for water for baby Isma'il. It teache
 
 Walk seven times between the hills of Safa and Marwah, starting at Safa and ending at Marwah. Each direction counts as one lap. Men should jog lightly between the green markers. Make du'a at the top of each hill, and reflect on Hajar's example of faith under trial.` },
         { title: 'Shaving or trimming the hair to exit Ihram', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the rites of shaving or trimming the head and the Prophet\'s supplication for those who perform them, they omit specific practical and jurisprudential details such as how women should cut their hair and that this act formally releases one from the state of Ihram, providing a clear logical inference to systematically incorporate these associated rules to properly complete the pilgrimage.',
           sources: `**I. Quran**
 
 
@@ -4934,6 +5306,8 @@ Men shave their heads completely (preferred, as the Prophet made du'a three time
       description: 'Hajj is a significant financial commitment. Start saving early with a dedicated fund to make this pillar achievable.',
       subtasks: [
         { title: 'Research the average cost of Hajj from your country', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly command believers to take provisions for the journey and hasten to perform the pilgrimage, they omit specific modern financial planning steps like researching average costs and contacting tour operators, providing a clear logical inference to systematically determine these expenses to ensure the obligation is fulfilled without unnecessary delay.',
           sources: `**I. Quran**
 
 
@@ -4958,6 +5332,8 @@ Hajj costs vary enormously by country and package tier. Without researching actu
 
 Research costs for economy, standard, and premium Hajj packages from your country, including visa fees, flights, accommodation, and food. Contact 2-3 licensed operators for quotes. Factor in spending money for gifts and incidentals. Record the range so you can set an informed savings goal.` },
         { title: 'Open a dedicated Hajj savings account or fund', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the necessity of having provision and a means of transport to fulfill the obligation of Hajj, they omit modern financial strategies like opening a dedicated savings account or fund, providing a clear logical inference to systematically save and secure the required funds to undertake the journey.',
           sources: `**I. Quran**
 
 
@@ -4980,6 +5356,8 @@ Separating your Hajj fund from general savings protects it from being spent on o
 
 Open a separate savings account labelled for Hajj. Some Islamic banks offer sharia-compliant Hajj savings plans with no interest. If those are unavailable, any standard savings account will work -- the key is isolation from your everyday spending.` },
         { title: 'Set up monthly automatic contributions', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly highlight the requirement of securing provision and note that steady saving fulfills the condition of financial ability for Hajj, they omit specific modern methods like setting up monthly automatic contributions, providing a clear logical inference to systematically automate savings to reach this obligatory financial goal.',
           sources: `**I. Quran**
 
 
@@ -5011,6 +5389,8 @@ Calculate how much you need to save monthly to reach your target by your intende
       description: 'Each rite of Hajj carries profound spiritual symbolism. Understanding these transforms the physical acts into transformative experiences.',
       subtasks: [
         { title: 'Study the symbolism of Tawaf \u2014 circling the House of Allah', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts discuss the historical context and obligation of performing the going (Tawaf) between the hills of Safa and Marwah, they omit any mention of the symbolism of circumambulating the Ka\'bah, angels circling the Throne, or modern reflective practices like reading commentaries and journaling, providing neither explicit proof nor contextual indication for the subtask.',
           sources: `**I. Quran**
 
 
@@ -5033,6 +5413,8 @@ Tawaf represents the believer's life revolving around Allah. Just as the angels 
 
 Read scholarly commentaries on the spiritual dimensions of Tawaf. Reflect on what it means for your entire life to orbit around Allah's commands. Journal about how this symbolism applies to your daily priorities and whether Allah is truly at the centre of your decisions.` },
         { title: 'Understand Sa\'i \u2014 Hajar\'s trust and striving', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly recount the story of Hajar\'s trusting and striving search for water between Safa and Marwah, they omit specific modern reflective practices such as studying tafsir and journaling about balancing effort with trust, providing a clear logical inference to actively contemplate her example to deepen one\'s understanding of Sa\'i.',
           sources: `**I. Quran**
 
 
@@ -5055,6 +5437,8 @@ Sa'i commemorates Hajar's desperate search for water between Safa and Marwah. It
 
 Study the story of Hajar in detail from Sahih al-Bukhari and Quranic tafsir. Reflect on moments in your own life where you must balance effort with trust. Write down how Hajar's example challenges you to act rather than simply wait for provision.` },
         { title: 'Reflect on Arafah \u2014 standing before Allah in humility', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts mention standing before Allah and reflecting generally, they omit any reference to the Day of Arafah, the pilgrimage of Hajj, or visualizing the Day of Judgement, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Quran**
 
 
@@ -5085,6 +5469,8 @@ Standing at Arafah is the essence of Hajj. It is a rehearsal for the Day of Judg
 
 Study the significance of the Day of Arafah in hadith literature. Visualise the scene: stripped of all worldly markers of status, standing under the open sky, begging Allah for forgiveness. Reflect on what you would say to Allah if this were your last chance, and begin making those du'as now.` },
         { title: 'Learn the meaning of stoning \u2014 rejecting Shaytan\'s whispers', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly establishes that stoning the Jamarat symbolizes the rejection of Shaytan\'s temptations, it omits specific modern reflective practices such as identifying personal rationalizations and doubts, providing a clear logical inference to actively internalize this symbolism to resist daily whispers.',
           sources: `**I. Hadith**
 
 
@@ -5107,6 +5493,8 @@ Study the narration of Ibrahim (AS) being approached by Shaytan at each of the t
       description: 'Hajj traces back to Ibrahim (AS). Understanding his story deepens the emotional and spiritual connection to the rites.',
       subtasks: [
         { title: 'Read the Quranic account of Ibrahim building the Ka\'bah (2:127)', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -5133,6 +5521,8 @@ Ibrahim and Isma'il (AS) built the Ka'bah together as an act of pure worship, ma
 
 Read Surah al-Baqarah 2:125-129 with a reliable tafsir. Study the du'a they made: "Our Lord, accept this from us." Reflect on the humility of two prophets unsure if their monumental effort would be accepted -- and let that reshape how you approach your own acts of worship.` },
         { title: 'Study the story of Hajar and Isma\'il in Makkah', done: false,
+          tier: 'T2',
+          amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
           sources: `**I. Quran**
 
 
@@ -5155,6 +5545,8 @@ Ibrahim left Hajar and baby Isma'il in the barren valley of Makkah by Allah's co
 
 Read the full narration in Sahih al-Bukhari (Kitab al-Anbiya). Pay attention to Hajar's question -- "Did Allah command you to do this?" -- and her immediate acceptance when Ibrahim confirmed. Reflect on what absolute trust in Allah's plan looks like, especially when circumstances seem impossible.` },
         { title: 'Learn about Ibrahim\'s sacrifice and its connection to Eid al-Adha', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly outline the proper timing and procedure for offering sacrifices on Eid al-Adha, they omit any mention of Prophet Ibrahim, his son Isma\'il, the historical origin of the practice, or modern reflective practices like reading specific Quranic verses and contemplating personal sacrifices, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Hadith**
 
 
@@ -5181,6 +5573,8 @@ Read Surah as-Saffat 37:99-111 with tafsir. Study how both father and son submit
       description: 'The Talbiyah is the anthem of the pilgrim. Memorise it along with the key du\'as for each rite.',
       subtasks: [
         { title: 'Memorise the Talbiyah in Arabic', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly establish the exact Arabic wording of the Talbiyah recited by the Prophet and emphasize the significance of the Arabic language, they omit specific practical steps such as learning its translation and reciting it daily, providing a clear logical inference to actively commit this declaration to memory to properly fulfill this pilgrimage rite.',
           sources: `**I. Quran**
 
 
@@ -5209,6 +5603,8 @@ The Talbiyah is the pilgrim's constant declaration from the moment of Ihram unti
 
 Memorise: "Labbayk Allahumma labbayk, labbayka la sharika laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, la sharika lak." Learn its meaning: "Here I am, O Allah, here I am. You have no partner, here I am. All praise, grace, and dominion are Yours. You have no partner." Recite it daily until it flows naturally.` },
         { title: 'Learn the du\'a for entering Ihram', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly mention entering the state of Ihram and reciting the general Talbiyah, they omit the specific Arabic formulations for the intention (niyyah) based on the type of pilgrimage, providing a clear logical inference to systematically learn and practice these precise phrases to ensure the validity of the rite.',
           sources: `**I. Quran**
 
 
@@ -5231,6 +5627,8 @@ The intention (niyyah) for Ihram determines what you are performing -- Hajj, Umr
 
 Make your intention clearly: "Labbayk Allahumma Hajjan" (for Hajj) or "Labbayk Allahumma Umratan" (for Umrah). If performing both (Qiran), say "Labbayk Allahumma Hajjan wa Umratan." Then begin the Talbiyah. Practise saying these phrases aloud until they are natural and confident.` },
         { title: 'Learn the du\'a between the Yemeni corner and the Black Stone', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided text explicitly describes the physical actions of walking between and touching the Black Stone and the Yemenite Corner, it entirely omits any mention of reciting a prescribed supplication or the modern recommendation to memorize a specific Quranic du\'a during this portion of Tawaf, providing neither explicit proof nor contextual indication for the subtask.',
           sources: `**I. Hadith**
 
 
@@ -5246,6 +5644,8 @@ This specific portion of Tawaf has a recommended du'a from the Quran (2:201), ma
 
 Memorise: "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina adhaban-nar" ("Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire"). Recite it each time you pass between the Yemeni corner and the Black Stone during Tawaf.` },
         { title: 'Learn the du\'a of Arafah (the best du\'a)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly identifies the exact Arabic phrasing of the best supplication for the Day of Arafah, it omits specific practical steps such as memorizing its translation and repeating it frequently alongside personal prayers, providing a clear logical inference to actively learn and utilize this prophetic invocation during the pilgrimage.',
           sources: `**I. Quran**
 
 
@@ -5277,6 +5677,8 @@ Memorise: "La ilaha illAllahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu
       description: 'Choose a reputable Hajj operator who provides proper guidance and ensures a safe, compliant Hajj experience.',
       subtasks: [
         { title: 'Research 3-5 licensed Hajj operators', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly command believers to take provisions for the pilgrimage and emphasize general preparation, they omit specific modern logistical steps like researching and verifying licensed Hajj operators, providing a clear logical inference to systematically secure reliable travel and accommodation arrangements to fulfill the obligation safely.',
           sources: `**I. Quran**
 
 
@@ -5301,6 +5703,8 @@ Only licensed operators can guarantee your visa and accommodation in Makkah and 
 
 Check your country's official Hajj authority for the list of licensed operators. Shortlist 3-5 that serve your region. Verify their licensing status independently -- do not rely solely on their marketing claims. Note their years of operation and any regulatory actions against them.` },
         { title: 'Compare packages (economy, standard, premium)', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided text explicitly commands believers to provide well for themselves for the pilgrimage, it omits specific modern logistical details like comparing economy, standard, and premium packages, providing a clear logical inference to systematically evaluate travel options to ensure adequate preparation for the journey.',
           sources: `**I. Quran**
 
 
@@ -5316,6 +5720,8 @@ The package you choose affects your proximity to the Haram, the quality of schol
 
 Request detailed itineraries from your shortlisted operators. Compare: proximity to the Haram, group size, whether a scholar accompanies the group, meal plans, and transport between sacred sites. Ask specifically about the Arafah and Mina camp locations, as distance from the Jamarat significantly affects the experience.` },
         { title: 'Read reviews and ask community members for recommendations', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts highlight the general call to perform Hajj, the journey of pilgrims from distant places, and the spiritual reward of a sinless pilgrimage, they omit any mention of modern logistical preparations such as reading reviews or asking community members for recommendations regarding tour operators, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Quran**
 
 
@@ -5347,6 +5753,8 @@ Ask community members at your masjid who have recently performed Hajj about thei
       description: 'Umrah familiarises you with the sacred sites and rites, making Hajj less overwhelming when the time comes.',
       subtasks: [
         { title: 'Book an Umrah trip during a less crowded season', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly establish the obligation and spiritual rewards of performing Umrah and Hajj, they omit any mention of modern practical travel strategies such as booking during an off-peak season to avoid crowds, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Quran**
 
 
@@ -5369,6 +5777,8 @@ Performing Umrah outside of peak seasons (Ramadan and Hajj) gives you space to l
 
 Research off-peak travel periods (typically Rabi al-Awwal through Sha'ban, excluding school holidays). Book with a reputable operator or arrange independently. Plan to spend enough days in Makkah and Madinah to perform the rites without rushing and to visit key historical sites.` },
         { title: 'Perform all the rites with full awareness and presence', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly outline the physical rites of the pilgrimage and their immense spiritual rewards, they omit any mention of specific modern mindful practices such as taking notes, monitoring focus, and treating Umrah as a deliberate practice run for Hajj, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Quran**
 
 
@@ -5395,6 +5805,8 @@ This Umrah is practice for Hajj. Performing it with full khushu' (presence of he
 
 Focus on understanding each rite as you perform it, making du'a at the appropriate places, and maintaining presence throughout. Take notes on what you learn -- which du'as felt most powerful, where you struggled with focus, what practical challenges arose. These observations become your personal Hajj preparation guide.` },
         { title: 'Document lessons learned for your future Hajj preparation', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly mention taking provisions and highlight the spiritual rewards of Umrah and Hajj, they omit any reference to documenting practical lessons, creating checklists, or treating Umrah as a learning experience for future Hajj preparation, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Quran**
 
 
@@ -5424,6 +5836,8 @@ Write down practical lessons immediately after returning: what worked, what you 
       description: 'Enabling someone to fulfil this pillar is among the greatest acts of charity. Research sponsorship opportunities.',
       subtasks: [
         { title: 'Identify a trustworthy Hajj sponsorship programme', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly encourage performing good deeds and highlight the reward of an honest treasurer, they omit specific modern charitable practices like researching and verifying a trustworthy Hajj sponsorship programme, providing a clear logical inference to systematically ensure that donated funds are managed honestly and reach legitimate recipients.',
           sources: `**I. Quran**
 
 
@@ -5448,6 +5862,8 @@ Sponsoring someone's Hajj enables them to fulfil a pillar of Islam they could no
 
 Research organisations and masjids that run Hajj sponsorship funds for those who meet the conditions but lack financial means. Verify their credibility: check registration, transparency reports, and distribution process. Ask your local imam or community leaders for trusted recommendations.` },
         { title: 'Contribute to sponsoring a pilgrim', done: false,
+          tier: 'T3',
+          amanahRationale: 'While the provided texts explicitly establish the obligation of Hajj for those who are able to undertake it and highlight the immense spiritual rewards of the pilgrimage, they omit any mention of charitable giving, ongoing sadaqah, or financially sponsoring another person\'s journey, providing neither explicit proof nor contextual indication for the specific subtask.',
           sources: `**I. Quran**
 
 
@@ -5470,6 +5886,8 @@ Whether you sponsor a full Hajj or contribute partially, the reward is immense. 
 
 Decide on a contribution amount based on your means. Donate through the verified programme you identified. If sponsoring fully, coordinate with the programme to understand the pilgrim's needs. Make du'a that Allah accepts both the pilgrim's Hajj and your contribution as a means of drawing closer to Him.` },
         { title: 'Make du\'a for the sponsored pilgrim', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly encourage making supplication for a brother in his absence and highlight the angel\'s reciprocal response, they omit specific practices like praying for a sponsored pilgrim on the Day of Arafah and requesting mutual supplications, providing a clear logical inference to actively pray for their successful pilgrimage to attain these shared blessings.',
           sources: `**I. Quran**
 
 
@@ -5501,6 +5919,8 @@ Pray that Allah accepts their Hajj, forgives their sins, and returns them home r
       description: 'Your preparation process can benefit others. Share what you learn \u2014 practical tips, fiqh notes, and spiritual reflections.',
       subtasks: [
         { title: 'Keep a journal during your Hajj preparation', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly encourage taking adequate provisions for the pilgrimage and teaching acquired wisdom to others, they omit specific modern methods like keeping a journal, providing a clear logical inference to document one\'s preparation journey as a means of spiritual provision and a resource to educate future pilgrims.',
           sources: `**I. Quran**
 
 
@@ -5525,6 +5945,8 @@ Documenting your learning journey creates a resource for both yourself and other
 
 Start a journal (digital or physical) that tracks: what books and courses you study, what fiqh questions arise and how you resolve them, what practical preparations you make (fitness, packing, finances), and any spiritual reflections along the way. Date each entry so it forms a timeline others can follow.` },
         { title: 'Share key lessons with family or community', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly state the immense reward for guiding someone to goodness and the overarching benefits of Hajj, they omit specific modern practices like hosting preparation sessions and sharing personal journal notes, providing a clear logical inference to actively share one\'s pilgrimage lessons to educate and inspire the community.',
           sources: `**I. Quran**
 
 
@@ -5551,6 +5973,8 @@ Many Muslims feel overwhelmed by Hajj preparation because they lack accessible, 
 
 Host a Hajj preparation session at your local masjid or with family. Share what you have learned about the fiqh, logistics, and spiritual dimensions of the pilgrimage. Use your journal notes as the foundation. Be honest about challenges and uncertainties -- authenticity is more helpful than polish.` },
         { title: 'Create a resource list (books, courses, du\'a cards) for future pilgrims', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly encourage completing the pilgrimage and note that sharing preparation resources assists future pilgrims, they omit specific modern methods like compiling a curated digital list of books and courses, providing a clear logical inference to create and share these materials to help others achieve an accepted Hajj.',
           sources: `**I. Quran**
 
 

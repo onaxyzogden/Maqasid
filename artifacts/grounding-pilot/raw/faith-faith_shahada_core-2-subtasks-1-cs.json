@@ -1,0 +1,576 @@
+{
+  "answer": "<summary>\nThis response provides two precisely engineered retrieval queries for the MILOS subtask regarding 'Yaqin' (Certainty). The queries are optimized for **xhigh effort** agentic search in a primary-source Islamic corpus, following the literalism and structural requirements of the Claude Opus 4.7 architecture. [1-3]\n</summary>\n\n<technical_details>\nTo facilitate high-recall extraction from scriptural texts, these queries specify the Arabic linguistic anchors (e.g., *lam yartabu*) and canonical indices (Al-Hujurat 49:15) that define the \"stated bar\" for certainty. [4, 5] By utilizing **adaptive thinking** triggered by an **xhigh effort** setting, the model is directed to prioritize primary scriptural evidence over secondary commentary, ensuring the findings meet the rigorous validation standards of the MILOS framework. [6, 7]\n</technical_details>\n\n<queries>\n1. Identify primary Quranic verses, specifically Al-Hujurat 49:15, that define the true believers as those who believe in Allah and His Messenger and subsequently harbor no doubt (*lam yartabu*) regarding their testimony.\n2. Retrieve Sahih hadith from Muslim and Bukhari, such as the narration stating that any servant who meets Allah testifying to the Shahada without having any doubt in his heart will enter Paradise, to anchor the condition of Yaqin.\n</queries>\n\n<action_items>\n- **Execute Retrieval**: Use the `/notebooklm` tool to run these queries against the specified corpus. [8]\n- **Apply Grading**: Once sources are retrieved, apply the 3-tier grading system (Bayinnah/Qarina/Niyyah) to each finding to assess literal relevance.\n- **Monitor Context**: Track session context; if the retrieval process exceeds 60% capacity, initiate the handover protocol to preserve state for the next session. [9, 10]\n</action_items>",
+  "conversation_id": "9978d6df-307d-4662-9986-6cb1759da816",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 1,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "1eed11ba-f48c-47bd-aeab-34143fcfa616"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 2,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "bc48cce8-2de9-4e29-b965-70c5a9f7822c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 3,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "39f01295-e3d7-4699-9d1c-b729cfb8b6e1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 4,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "b42bf5a9-2212-4cff-8c91-600af203ee62"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 5,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "f65a12e9-f0f0-4596-9060-76f5434dd5b1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 6,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "e52759d8-b163-4cb7-a654-c724739342ec"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 7,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "5d5b8935-5391-4db9-8d54-6d6fd672e1fe"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 8,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "301aead0-9d54-4f58-ba92-b14ec14fec42"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 9,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "6ef42831-4a37-40b7-a8cf-31c5e304d1bc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 10,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "03a2bc85-bc57-452c-bf6a-b64844994cdc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 11,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "4e9f3de3-0118-4922-aa19-156b04c16df9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 12,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "2150fc21-81f5-4fdd-b524-1de2fbe722f1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 13,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "5a95d14f-eaa8-4eb5-9828-be7cf4534419"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 14,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "7b89547c-c006-4c61-be1d-b5e662b2692b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 15,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "337e02f1-3a9d-48e6-a3ea-b08e0e92c57f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 16,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "5eb53652-abbf-4191-a945-e4dc8149008e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 17,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "de656e10-6f78-4ef7-8df3-a5a6246a704f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 18,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "ee37e7b8-8491-47d9-8da3-d9cc69d21429"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 19,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1a2cc1bc-4266-406b-9c77-bd175e3b2836"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 20,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "5413cdcd-c1d4-4e18-ab1a-51f294007d6a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 21,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "3a2edb84-39f8-4cbb-90ec-a95b2c4d524c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 22,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "2455cc7f-33fc-4143-af18-1dc8256022da"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 23,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f6da2fe5-c396-481f-8c72-db8f6a68a7cc"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 24,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "38e3adb1-ec84-466c-9d7f-4c435c374542"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 25,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "45232f98-4f81-4685-8504-2b96ebd12533"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 26,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "e18fae2f-628b-4bef-a03c-599d239df83c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 27,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1ed1dd99-e32d-45eb-a05d-1fd328a16def"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 28,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "53e9ce58-6de9-4356-a95b-f501f0e3663f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 29,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "549cb08c-b8e2-4612-b114-af30cf9d847c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 30,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "75188808-eff8-4d12-b30f-0f88738f91d8"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 31,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "d9698a54-a089-4e64-bfa5-a82a11cb132c"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 32,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "6414837d-a0bc-4fa9-a4e3-9646bfac575a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 33,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "c34b1823-8575-45c4-b8f3-6d304757afc3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 34,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "930a8049-5fb6-41dc-8cdd-a32cbf148c82"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 35,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "a94b2376-39c9-4618-b35f-df823124c7eb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 36,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "f9ece461-8e23-4688-a81c-1b0e04dd8e40"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 37,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "b8a1f22e-f4ab-4267-ac00-9f69cc2e343d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 38,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "b3407165-2d8c-471d-b6b6-d3f11622f362"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 39,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "a428de17-af0c-4d42-8166-52bdbb89d73a"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 40,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "924a8b16-2c2c-4d12-89d9-d1f189cebcd1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 41,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "c763a6e4-d7ba-4e4a-8fde-47654b72da5e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 42,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "e88e8db7-9e08-4fae-894c-63cbddc926e9"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 43,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "683e8f9f-4032-4c22-b441-b82385f86aeb"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 44,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "2a81a5dc-d3ba-4524-b543-fb054af2a332"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 45,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "00da08be-7bd5-4cbb-af77-5e1332db526e"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 46,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "1ef9221f-6ea6-4f96-9e28-2e47bbaa8de1"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 47,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "b2e317ad-075a-49d2-9475-fb2dbf0ba51b"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 48,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "3777f107-c3ec-4296-b2f9-eae81e6623da"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 49,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "00bf9189-a6f5-4e8b-9c2f-fd6e5e814d28"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 50,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "76c4cc6b-c0a4-4dec-8d30-6f812b7264a3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 51,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "b1700153-2dcf-4db6-b298-7708486a703d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 52,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "f933b226-e39a-4155-a24b-a93d93405948"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 53,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "06704e15-e6da-4b80-a754-490aa3e4fa2f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 54,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "99917230-46ca-4efc-b932-78cc7292d3dd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 55,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "a43c249d-0f1b-4293-b575-a522b3fac1a3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 56,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "f4d9dcfa-003d-4dbb-8f58-b3371f0fece3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 57,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "3a28700d-f8f2-4715-adce-ff3d87a53176"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 58,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "b1700153-2dcf-4db6-b298-7708486a703d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 59,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "f933b226-e39a-4155-a24b-a93d93405948"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 60,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "06704e15-e6da-4b80-a754-490aa3e4fa2f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 61,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "99917230-46ca-4efc-b932-78cc7292d3dd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 62,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "a43c249d-0f1b-4293-b575-a522b3fac1a3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 63,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "f4d9dcfa-003d-4dbb-8f58-b3371f0fece3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 64,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "3a28700d-f8f2-4715-adce-ff3d87a53176"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 65,
+      "cited_text": "Code review harnesses",
+      "start_char": 9103,
+      "end_char": 9124,
+      "chunk_id": "b1700153-2dcf-4db6-b298-7708486a703d"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 66,
+      "cited_text": "Some recommended prompt language:",
+      "start_char": 10130,
+      "end_char": 10163,
+      "chunk_id": "f933b226-e39a-4155-a24b-a93d93405948"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 67,
+      "cited_text": "Leverage thinking & interleaved thinking capabilities",
+      "start_char": 22645,
+      "end_char": 22698,
+      "chunk_id": "06704e15-e6da-4b80-a754-490aa3e4fa2f"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 68,
+      "cited_text": "Provide clear success criteria : Define what constitutes a successful answer to your research question",
+      "start_char": 29591,
+      "end_char": 29692,
+      "chunk_id": "99917230-46ca-4efc-b932-78cc7292d3dd"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 69,
+      "cited_text": "Tool use triggering",
+      "start_char": 3847,
+      "end_char": 3866,
+      "chunk_id": "a43c249d-0f1b-4293-b575-a522b3fac1a3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 70,
+      "cited_text": "Context awareness and multi-window workflows",
+      "start_char": 25864,
+      "end_char": 25908,
+      "chunk_id": "f4d9dcfa-003d-4dbb-8f58-b3371f0fece3"
+    },
+    {
+      "source_id": "9c7cc614-b12e-4c32-bece-0e48f198673a",
+      "citation_number": 71,
+      "cited_text": "State management best practices",
+      "start_char": 28402,
+      "end_char": 28433,
+      "chunk_id": "3a28700d-f8f2-4715-adce-ff3d87a53176"
+    }
+  ]
+}

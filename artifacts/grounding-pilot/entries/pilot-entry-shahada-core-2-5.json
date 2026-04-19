@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[2].subtasks[5]",
+    "subtaskTitle": "Ikhlas (Sincerity) — for Allah alone",
+    "parentTaskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Ikhlas (Sincerity) — for Allah alone' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically Al-Bayyinah 98:5 and Az-Zumar 39:2, 11, 14, that establish the obligation of worshipping Allah with absolute sincerity (Ikhlas) as the essential condition of the Shahada.",
+        "retrievedAt": "2026-04-18T12:59:31Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-5-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, notably the narration regarding the person who testifies to the Shahada \"sincerely from his heart\" (*mukhlisan min qalbihi*), to anchor the necessity of Ikhlas in the acceptance of faith.",
+        "retrievedAt": "2026-04-18T12:59:31Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-5-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 39:2",
+      "translation": "Indeed, We have sent down to you the Book, [O Muhammad], in truth. So worship God, [being] sincere to Him in religion.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse commands 'mukhlisan lahu al-din' — sincerity to God in religion — as the direct object of worship. Directly names the Ikhlas condition the subtask is asking the user to learn: worship, and therefore the Shahada itself, is for Allah alone. Bayyinah + direct. Arabic omitted: MS's response explicitly noted the Arabic was supplied from general knowledge, not from the source corpus, so Arabic is not bound per the direct-quotation rule.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Az-Zumar 39:2, 11, 14 establish the obligation of worshipping Allah with absolute sincerity (Ikhlas)",
+        "retrievedAt": "2026-04-18T12:59:31Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 39:11",
+      "translation": "Say, [O Muhammad], 'Indeed, I have been commanded to worship God, [being] sincere to Him in religion.'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Prophet is commanded in the first person to declare sincere worship — giving the subtask a prophetic template for the Ikhlas-condition of the Shahada. Bayyinah + direct. Arabic omitted for the same corpus-disclaimer reason as 39:2.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Az-Zumar 39:2, 11, 14 establish the obligation of worshipping Allah with absolute sincerity (Ikhlas)",
+        "retrievedAt": "2026-04-18T12:59:31Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 39:14",
+      "translation": "Say, 'God [alone] do I worship, sincere to Him in my religion.'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Third of the named Zumar Ikhlas verses, amplifying the first-person declaration of sincere worship. Directly anchors the subtask's 'for Allah alone' framing. Bayyinah + direct. Arabic omitted for the same reason.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Az-Zumar 39:2, 11, 14 establish the obligation of worshipping Allah with absolute sincerity (Ikhlas)",
+        "retrievedAt": "2026-04-18T12:59:31Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 Quran entries; all Bayyinah; all direct. Bar met. Notes: (1) q1 MS answer disclaimed that Arabic was from general knowledge, not source corpus; Arabic omitted from all entries per direct-quotation rule. (2) q2 (Abu Huraira intercession 'mukhlisan min qalbihi' and Mu'adh narrations) was summarised in MS without inlining canonical Bukhari/Muslim refs next to the quoted matn, so no hadith entry could be bound with ref↔matn integrity. The Surah al-Ikhlas (112:1-4) block in q1 was not bound as a distinct Shahada-Ikhlas-condition anchor because it concerns Allah's oneness rather than the sincerity-condition of the testimony directly."
+  }
+}

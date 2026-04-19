@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_growth[1].subtasks[2]",
+  "taskTitle": "Study the nullifiers of Islam (Nawaqid al-Islam)",
+  "subtaskTitle": "Study the conditions for declaring takfir and why it requires caution",
+  "csQueryPrompt": "For a MILOS subtask titled 'Study the conditions for declaring takfir and why it requires caution' under the parent task 'Study the nullifiers of Islam (Nawaqid al-Islam)' (module: faith_shahada_growth), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah An-Nisa 4:94 which strictly warns against hastily denying the faith of one who offers a greeting of peace, that contextually anchor the stringent conditions and extreme caution required before declaring takfir?",
+    "Which authentic narrations, specifically the severe warning found in Sahih al-Bukhari and Sahih Muslim stating that if a person calls their brother a disbeliever the accusation will return upon one of them, explicitly mandate strict caution regarding takfir?"
+  ],
+  "retrievedAt": "2026-04-19T04:43:34Z"
+}
