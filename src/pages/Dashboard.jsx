@@ -399,8 +399,9 @@ export default function Dashboard() {
     return MAQASID_PILLARS.map((pillar) => {
       const pillarProjects = projects.filter(
         (p) => !p.archived && (
-          p.id.startsWith(pillar.id + '_') ||
-          (p.moduleId && pillar.subModuleIds.includes(p.moduleId))
+          (p.moduleId
+            ? pillar.subModuleIds.includes(p.moduleId)
+            : p.id.startsWith(pillar.id + '_'))
         )
       );
       const pillarTasks = pillarProjects.flatMap((p) => tasksByProject[p.id] || []);

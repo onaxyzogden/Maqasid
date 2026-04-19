@@ -49,7 +49,7 @@ export const AYAH_BANNER_DATA = {
     color: FAITH,
   },
 
-  faith_sawm: {
+  faith_siyam: {
     arabic: 'يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ',
     translation: 'You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.',
     source: 'Quran 2:183',

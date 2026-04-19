@@ -58,7 +58,7 @@ const ISLAMIC_SHORT_WORDS = new Set([
   'zud','nuh','lut','dua','dhk','dhx','ilm','nafs','ruh','haq',
   'adl','aql','ulul','maal','riba','waqf','qard','wahy','nabi','wali',
   'zuhd','taqw','khul','nikah','mahr','iddah','wudu','ghusl','tayammum',
-  'sawm','hajj','zakat','jiha','taqwa','niyyah',
+  'sawm','siyam','hajj','zakat','jiha','taqwa','niyyah',
 ]);
 
 function tokenize(text) {
@@ -132,7 +132,7 @@ const FIQH_SENSITIVE_ALLOWED = new Set([
   'family/marriage',
   'family/kinship',   // custody/breastfeeding can touch kinship
   'faith/hajj',       // menstruation and hajj
-  'faith/sawm',       // menstruation and fasting makeup
+  'faith/siyam',      // menstruation and fasting makeup
 ]);
 
 // ── Fallback-hadith blacklist ──────────────────────────────────────────────────
@@ -194,7 +194,7 @@ const ALLOWED_DOMAINS = {
   'faith/shahada':   [],
   'faith/salah':     [],
   'faith/zakah':     [],
-  'faith/sawm':      [],
+  'faith/siyam':     [],
   'faith/hajj':      ['menstrual'], // haidh and hajj genuinely intersect
   // Life
   'life/physical':   [],

@@ -11,7 +11,7 @@ const FAITH_PILLAR_MODULE_MAP = {
   shahada: 'shahada',
   salah:   'salat',
   zakah:   'zakat',
-  sawm:    'siyam',
+  siyam:   'siyam',
   hajj:    'hajj',
 };
 

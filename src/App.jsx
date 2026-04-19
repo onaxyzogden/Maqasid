@@ -32,7 +32,7 @@ import EnvironmentExcellencePage from '@pages/environment/EnvironmentExcellenceP
 import FaithShahadaPage from '@pages/faith/FaithShahadaPage';
 import FaithSalahPage from '@pages/faith/FaithSalahPage';
 import FaithZakahPage from '@pages/faith/FaithZakahPage';
-import FaithSawmPage from '@pages/faith/FaithSawmPage';
+import FaithSiyamPage from '@pages/faith/FaithSiyamPage';
 import FaithHajjPage from '@pages/faith/FaithHajjPage';
 import LifePhysicalPage from '@pages/life/LifePhysicalPage';
 import LifeMentalPage from '@pages/life/LifeMentalPage';
@@ -68,6 +68,7 @@ import IntellectDashboard from '@pages/intellect/IntellectDashboard';
 import FamilyDashboard from '@pages/family/FamilyDashboard';
 import EnvironmentDashboard from '@pages/environment/EnvironmentDashboard';
 import UmmahDashboard from '@pages/ummah/UmmahDashboard';
+import MoontraceDashboard from '@pages/moontrance/MoontraceDashboard';
 import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
 import CeremonyGuard from '@components/islamic/CeremonyGuard';
@@ -169,7 +170,7 @@ export default function App() {
         <Route path="faith-shahada" element={<CeremonyGuard moduleId="faith-shahada"><FaithShahadaPage /></CeremonyGuard>} />
         <Route path="faith-salah" element={<CeremonyGuard moduleId="faith-salah"><FaithSalahPage /></CeremonyGuard>} />
         <Route path="faith-zakah" element={<CeremonyGuard moduleId="faith-zakah"><FaithZakahPage /></CeremonyGuard>} />
-        <Route path="faith-sawm" element={<CeremonyGuard moduleId="faith-sawm"><FaithSawmPage /></CeremonyGuard>} />
+        <Route path="faith-siyam" element={<CeremonyGuard moduleId="faith-siyam"><FaithSiyamPage /></CeremonyGuard>} />
         <Route path="faith-hajj" element={<CeremonyGuard moduleId="faith-hajj"><FaithHajjPage /></CeremonyGuard>} />
         <Route path="life-physical" element={<CeremonyGuard moduleId="life-physical"><LifePhysicalPage /></CeremonyGuard>} />
         <Route path="life-mental" element={<CeremonyGuard moduleId="life-mental"><LifeMentalPage /></CeremonyGuard>} />
@@ -206,6 +207,7 @@ export default function App() {
         <Route path="pillar/wealth" element={<WealthCorePage />} />
         <Route path="pillar/environment" element={<EnvironmentCorePage />} />
         <Route path="pillar/ummah" element={<UmmahDashboard />} />
+        <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />
         <Route path="settings" element={<Settings />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />

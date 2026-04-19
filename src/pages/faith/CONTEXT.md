@@ -1,7 +1,7 @@
 # Faith Pages — CONTEXT.md
 
 ## Purpose
-Faith pillar pages -- FaithDashboard (main dashboard with CeremonyGate, module seeding, progress tracking) plus 8 sub-pages covering the three tiers (Core, Growth, Excellence) and five pillars of Islam (Shahada, Salah, Zakah, Sawm, Hajj). Each sub-page renders a pillar header and overview cards for its specific dimension.
+Faith pillar pages -- FaithDashboard (main dashboard with CeremonyGate, module seeding, progress tracking) plus 8 sub-pages covering the three tiers (Core, Growth, Excellence) and five pillars of Islam (Shahada, Salah, Zakah, Siyam, Hajj). Each sub-page renders a pillar header and overview cards for its specific dimension.
 
 ## File Inventory
 | File | Description |
@@ -14,7 +14,7 @@ Faith pillar pages -- FaithDashboard (main dashboard with CeremonyGate, module s
 | FaithShahadaPage.jsx | Shahada sub-page -- testimony of faith dimension |
 | FaithSalahPage.jsx | Salah sub-page -- prayer dimension |
 | FaithZakahPage.jsx | Zakah sub-page -- purification of wealth dimension |
-| FaithSawmPage.jsx | Sawm sub-page -- fasting dimension |
+| FaithSiyamPage.jsx | Siyam sub-page -- fasting dimension |
 | FaithHajjPage.jsx | Hajj sub-page -- pilgrimage dimension |
 
 ## Dependencies

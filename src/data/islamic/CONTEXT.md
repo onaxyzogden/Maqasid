@@ -8,7 +8,7 @@ Core Islamic content — module attributes, glossary, five pillars educational c
 |------|------|
 | islamic-data.js | Module-level Islamic attributes — names, icons, colors, descriptions per maqsad |
 | islamic-glossary.js | Arabic/Islamic term definitions used across the app |
-| five-pillars-content.js | Educational content for the Five Pillars of Islam (Shahada, Salah, Zakat, Sawm, Hajj) |
+| five-pillars-content.js | Educational content for the Five Pillars of Islam (Shahada, Salah, Zakat, Siyam, Hajj) |
 | pillar-content.js | Seven Maqasid pillar classification — maps each pillar to its category and metadata |
 | pillar-dashboard-data.js | Dashboard metrics, KPIs, and display config per pillar |
 

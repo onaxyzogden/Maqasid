@@ -1083,13 +1083,13 @@ export const MODULE_ATTRS = {
     },
   },
 
-  'faith-sawm': {
+  'faith-siyam': {
     attrs: [
       {
         name: 'As-Sabur',
         name_ar: 'الصبور',
         title: 'The Patient',
-        body: 'Allah is super patient with people, giving them time to learn and change. Even when people forget Him for years, He keeps waiting for them to come back.\n\nAs-Sabūr does not rush. Sawm is not primarily about food — it is an apprenticeship in the sabr of waiting. The fast trains you to sit with hunger, with lowered expectation, with delayed reward, and to do so without dropping your adab.\n\nSource: Tirmidhi 3507 — one of the ninety-nine Names, reflecting forbearance attested throughout the Qur\'an and Sunnah.',
+        body: 'Allah is super patient with people, giving them time to learn and change. Even when people forget Him for years, He keeps waiting for them to come back.\n\nAs-Sabūr does not rush. Siyam is not primarily about food — it is an apprenticeship in the sabr of waiting. The fast trains you to sit with hunger, with lowered expectation, with delayed reward, and to do so without dropping your adab.\n\nSource: Tirmidhi 3507 — one of the ninety-nine Names, reflecting forbearance attested throughout the Qur\'an and Sunnah.',
       },
       {
         name: 'Ash-Shakur',

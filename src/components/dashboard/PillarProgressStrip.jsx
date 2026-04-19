@@ -7,18 +7,19 @@ import { MAQASID_PILLARS } from '../../data/maqasid';
 /**
  * Resolve which pillar a project belongs to.
  *
- * Primary:  project ID follows the pattern `{pillarId}_{submodule}_{level}`
+ * Primary:  if project.moduleId is set, match against pillar.subModuleIds —
+ *           this takes precedence so modules like moontrance-land resolve to
+ *           their own pillar even when the project ID starts with a different prefix.
+ * Fallback: project ID follows the pattern `{pillarId}_{submodule}_{level}`
  *           e.g. faith_shahada_core → faith, life_physical_growth → life
- * Fallback: match project.moduleId against pillar.subModuleIds
- *           (covers generic modules: work, money, collective, sources, etc.)
  */
 function getPillarId(project) {
-  for (const pillar of MAQASID_PILLARS) {
-    if (project.id.startsWith(pillar.id + '_')) return pillar.id;
-  }
   if (project.moduleId) {
     const match = MAQASID_PILLARS.find((p) => p.subModuleIds.includes(project.moduleId));
     if (match) return match.id;
+  }
+  for (const pillar of MAQASID_PILLARS) {
+    if (project.id.startsWith(pillar.id + '_')) return pillar.id;
   }
   return null;
 }

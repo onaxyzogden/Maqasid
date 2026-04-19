@@ -5,7 +5,7 @@ export const FAITH_PILLARS = [
   { id: 'shahada', label: 'Shahada', Icon: CheckCircle2,   route: '/app/faith-shahada' },
   { id: 'salat',   label: 'Salah',   Icon: HeartHandshake, route: '/app/faith-salah'   },
   { id: 'zakat',   label: 'Zakah',   Icon: HandHeart,      route: '/app/faith-zakah'   },
-  { id: 'siyam',   label: 'Siyam',   Icon: Moon,           route: '/app/faith-sawm'    },
+  { id: 'siyam',   label: 'Siyam',   Icon: Moon,           route: '/app/faith-siyam'   },
   { id: 'hajj',    label: 'Hajj',    Icon: Landmark,       route: '/app/faith-hajj'    },
 ];
 

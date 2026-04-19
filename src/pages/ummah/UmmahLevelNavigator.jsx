@@ -1,13 +1,10 @@
-import { Globe, MapPin, Users, Mountain, Leaf, Building } from 'lucide-react';
+import { Globe, MapPin, Users } from 'lucide-react';
 import LevelNavigator from '@components/shared/LevelNavigator';
 
 export const UMMAH_PILLARS = [
-  { id: 'collective',           label: 'Collective',           Icon: Globe,    route: '/app/collective'           },
-  { id: 'neighbors',            label: 'Neighbors',            Icon: MapPin,   route: '/app/neighbors'            },
-  { id: 'community',            label: 'Community',            Icon: Users,    route: '/app/community'            },
-  { id: 'moontrance-land',      label: 'MTC Land',      Icon: Mountain, route: '/app/moontrance-land'      },
-  { id: 'moontrance-seasonal',  label: 'MTC Seasonal',  Icon: Leaf,     route: '/app/moontrance-seasonal'  },
-  { id: 'moontrance-residency', label: 'MTC Residency', Icon: Building, route: '/app/moontrance-residency' },
+  { id: 'collective', label: 'Collective', Icon: Globe,  route: '/app/collective' },
+  { id: 'neighbors',  label: 'Neighbors',  Icon: MapPin, route: '/app/neighbors'  },
+  { id: 'community',  label: 'Community',  Icon: Users,  route: '/app/community'  },
 ];
 
 export const UMMAH_LEVEL_ROUTES = {

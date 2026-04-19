@@ -12,7 +12,7 @@ const PILLAR_FEATURES = {
   faith: {
     description: 'Preserve and cultivate your relationship with Allah through the five pillars of Islam, spiritual reflection, and access to primary sources.',
     items: [
-      { title: 'Five Pillars Boards', desc: 'Dedicated Kanban boards for Shahada, Salah, Zakah, Sawm, and Hajj' },
+      { title: 'Five Pillars Boards', desc: 'Dedicated Kanban boards for Shahada, Salah, Zakah, Siyam, and Hajj' },
       { title: 'Primary Sources', desc: "Integrated Qur\u2019an study, Hadith collections, and Islamic knowledge" },
       { title: 'Spiritual Readiness', desc: 'Quranic grounding checks before every task to align intention with action' },
       { title: 'Three-Tier Growth', desc: 'Progress through Necessities, Needs, and Excellence in your faith journey' },

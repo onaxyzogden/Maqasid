@@ -211,10 +211,10 @@ export const FAITH_BOARDS = [
   { id: 'faith_zakah_core',       name: 'ZAKAH — CORE',       color: '#6a994e', icon: 'HandHeart', description: 'Zakah: Necessities (Daruriyyat)', moduleId: 'zakat' },
   { id: 'faith_zakah_growth',     name: 'ZAKAH — GROWTH',     color: '#6a994e', icon: 'HandHeart', description: 'Zakah: Needs (Hajiyyat)', moduleId: 'zakat' },
   { id: 'faith_zakah_excellence', name: 'ZAKAH — EXCELLENCE', color: '#6a994e', icon: 'HandHeart', description: 'Zakah: Excellence (Tahsiniyyat)', moduleId: 'zakat' },
-  // Sawm — Core / Growth / Excellence
-  { id: 'faith_sawm_core',       name: 'SAWM — CORE',       color: '#bc6c25', icon: 'Moon', description: 'Sawm: Necessities (Daruriyyat)', moduleId: 'siyam' },
-  { id: 'faith_sawm_growth',     name: 'SAWM — GROWTH',     color: '#bc6c25', icon: 'Moon', description: 'Sawm: Needs (Hajiyyat)', moduleId: 'siyam' },
-  { id: 'faith_sawm_excellence', name: 'SAWM — EXCELLENCE', color: '#bc6c25', icon: 'Moon', description: 'Sawm: Excellence (Tahsiniyyat)', moduleId: 'siyam' },
+  // Siyam — Core / Growth / Excellence
+  { id: 'faith_siyam_core',       name: 'SIYAM — CORE',       color: '#bc6c25', icon: 'Moon', description: 'Siyam: Necessities (Daruriyyat)', moduleId: 'siyam' },
+  { id: 'faith_siyam_growth',     name: 'SIYAM — GROWTH',     color: '#bc6c25', icon: 'Moon', description: 'Siyam: Needs (Hajiyyat)', moduleId: 'siyam' },
+  { id: 'faith_siyam_excellence', name: 'SIYAM — EXCELLENCE', color: '#bc6c25', icon: 'Moon', description: 'Siyam: Excellence (Tahsiniyyat)', moduleId: 'siyam' },
   // Hajj — Core / Growth / Excellence
   { id: 'faith_hajj_core',       name: 'HAJJ — CORE',       color: '#7b2d8e', icon: 'Landmark', description: 'Hajj: Necessities (Daruriyyat)', moduleId: 'hajj' },
   { id: 'faith_hajj_growth',     name: 'HAJJ — GROWTH',     color: '#7b2d8e', icon: 'Landmark', description: 'Hajj: Needs (Hajiyyat)', moduleId: 'hajj' },

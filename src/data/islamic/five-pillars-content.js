@@ -86,9 +86,9 @@ export const FIVE_PILLARS = [
     ],
   },
   {
-    id: 'sawm',
-    name: 'Sawm',
-    arabic: '\u0627\u0644\u0635\u064E\u0651\u0648\u0652\u0645',
+    id: 'siyam',
+    name: 'Siyam',
+    arabic: '\u0627\u0644\u0635\u0650\u064A\u064E\u0627\u0645',
     meaning: 'Fasting',
     order: 4,
     ayahKey: '2:183',

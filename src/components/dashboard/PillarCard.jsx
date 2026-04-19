@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import {
-  Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe,
+  Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe, Moon,
   CheckCircle2, Clock, Circle,
 } from 'lucide-react';
 import { getPillarLabel, getPillarStewardship } from '../../data/maqasid';
 import './PillarCard.css';
 
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe, Moon };
 
 const RELATIONSHIP_LABELS = {
   'bbos-contained':     { text: 'BBOS',        color: '#8EAD6E' },

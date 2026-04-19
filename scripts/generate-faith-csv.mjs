@@ -7,7 +7,7 @@ const SUBMODULE_DISPLAY = {
   shahada: 'Shahada',
   salah: 'Salah',
   zakah: 'Zakah',
-  sawm: 'Sawm',
+  siyam: 'Siyam',
   hajj: 'Hajj',
 };
 

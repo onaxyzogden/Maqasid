@@ -3,6 +3,46 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-19] rename | Sawm → Siyam across active source
+
+Fourth pillar of Islam renamed from "Sawm" (صَوْم) to "Siyam" (صِيَام) — the Qur'anic prescribed-fasting form (2:183). `FaithLevelNavigator` already used "Siyam"; this change aligns the rest of the stack.
+
+- Module id: `faith-sawm` → `faith-siyam` (modules.js, maqasid.js, App.jsx route + moduleId, Sidebar MODULE_ROUTES)
+- Page file: `FaithSawmPage.jsx` → `FaithSiyamPage.jsx`; function + `pillarKey="siyam"`
+- Store project ids: `faith_sawm_{core,growth,excellence}` → `faith_siyam_*`; names + descriptions capitalised SIYAM
+- Seed tasks: keys, section header, tags (`['sawm', …]` → `['siyam', …]`), five-pillars list strings
+- Islamic data: `faith-sawm` / `faith_sawm` / `sawm:` keys in islamic-data.js, ayah-banner-data.js, pillar-dashboard-data.js, five-pillars-content.js (Arabic updated from الصَّوْم → الصِيَام)
+- Scripts: generate-faith-csv.mjs, rerank-hadith-candidates.mjs (topic id `faith/sawm` → `faith/siyam`; kept `sawm` in tokenizer whitelist alongside `siyam`)
+- Preserved literal Qur'anic quote in faith-seed-tasks.js line 4209 (Maryam 19:26 uses `صَوْمًا`, not `صِيَامًا`) and the `sawm` glossary alias entry in islamic-glossary.js
+- Intentionally NOT changed: `graphify-out/`, `artifacts/`, `stages/`, prior `wiki/log.md` entries — frozen historical records
+- Store migration: accepted reset for `faith_sawm_*` → `faith_siyam_*` (dev env, single user)
+- Verified: `npm run build` passes; grep on src/ returns only the glossary alias and the preserved Qur'anic quote
+
+## 2026-04-19 — Ummah Pillar Split → Ummah + Moontrance
+
+**Objective:** Split the single Ummah pillar (7 sub-modules) into two independent pillars: Ummah (social/community) and Moontrance (land/residency).
+
+**Completed:**
+- `src/data/maqasid.js` — Trimmed ummah `subModuleIds` to `['collective', 'neighbors', 'community']`; changed ummah `relationship` to `'self-contained'`; added new `moontrance` pillar (order: 8, icon: Moon, accentColor: #6E8E5B, arabicRoot: Hifz al-Ard, subModuleIds: moontrance-land/seasonal/residency, relationship: moontrance-atlas)
+- `src/styles/tokens.css` — Added `--pillar-moontrance` / `--pillar-moontrance-bg` / `--pillar-moontrance-border` in both light and dark `:root` blocks
+- `src/pages/moontrance/MoontraceDashboard.jsx` — New Moontrance pillar dashboard (milestones, sub-module cards, frameworks, OLOS bridge); reuses UmmahDashboard.css classes
+- `src/pages/moontrance/MoontraceLevelNavigator.jsx` — Level navigator for the 3 Moontrance sub-modules
+- `src/pages/ummah/UmmahDashboard.jsx` — Stripped moontrance content; now shows only collective/neighbors/community + their frameworks
+- `src/pages/ummah/UmmahLevelNavigator.jsx` — Removed moontrance-* entries from UMMAH_PILLARS
+- `src/App.jsx` — Imported MoontraceDashboard; added `pillar/moontrance` route
+- `src/components/layout/Sidebar.jsx` — Added Moon to PILLAR_ICON_MAP
+- `src/components/dashboard/PillarCard.jsx` — Added Moon import + PILLAR_ICON_MAP entry
+- `src/pages/Dashboard.jsx` — Fixed pillar resolution: prefer moduleId match over id.startsWith to prevent double-counting
+- `src/components/dashboard/PillarProgressStrip.jsx` — Same resolution fix (moduleId first, id prefix fallback)
+
+**Key decisions:**
+- Board IDs (ummah_moontrance-*) intentionally NOT renamed — resolution fix via moduleId preference makes renaming unnecessary and avoids localStorage migration risk
+- Moontrance readinessAyatKey temporarily reuses 'community'; dedicated ayat data deferred
+- MoontraceDashboard imports UmmahDashboard.css for layout classes (shared, no duplication)
+
+**Deferred:** Add dedicated Moontrance readiness ayat; add moontrance entry to pillar-content.js for generic PillarDashboard; update CONTEXT.md routing files.
+
+
 ## 2026-04-19 — Amanah Gate Tier Grading — Faith Pilot
 
 **Objective:** Grade all 212 Faith subtasks with T1/T2/T3 Amanah evidence tiers and surface badges + rationale in the UI.

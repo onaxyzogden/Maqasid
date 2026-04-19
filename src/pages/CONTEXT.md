@@ -13,7 +13,8 @@
 | `family/` | FamilyDashboard + 4 sub-pages | `family/CONTEXT.md` |
 | `wealth/` | WealthDashboard + 4 sub-pages | `wealth/CONTEXT.md` |
 | `environment/` | EnvironmentDashboard + 4 sub-pages | `environment/CONTEXT.md` |
-| `ummah/` | UmmahDashboard + Community, Neighbors, Collective, FamilyPage | `ummah/CONTEXT.md` |
+| `ummah/` | UmmahDashboard (social) + Neighbors, Community, CollectivePage, Moontrance sub-pages (legacy location) | `ummah/CONTEXT.md` |
+| `moontrance/` | MoontraceDashboard + MoontraceLevelNavigator (pillar 8 — land/seasonal/residency) | — |
 | `islamic/` | FivePillars, QuranPage, HadithPage, IslamicKnowledgePage | `islamic/CONTEXT.md` |
 | `modules/` | Work, Project, Money, People, Office, Tech, CRM | `modules/CONTEXT.md` |
 
@@ -27,7 +28,7 @@
 
 ## Routing (defined in App.jsx)
 - All app routes nested under `/app` (wrapped in AppShell + ProtectedRoute)
-- Pillar dashboards: `/app/pillar/faith`, `/app/pillar/life`, etc.
+- Pillar dashboards: `/app/pillar/faith`, `/app/pillar/life`, … `/app/pillar/ummah`, `/app/pillar/moontrance`
 - Sub-page routes: `/app/faith-salah`, `/app/life-physical`, etc.
 - Business modules: `/app/work`, `/app/money`, `/app/people`, `/app/office`, `/app/tech`
 - Project sub-routes: `/app/work/:projectId` with nested tabs

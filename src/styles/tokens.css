@@ -243,6 +243,9 @@
   --pillar-ummah: #AD8E6E;
   --pillar-ummah-bg: rgba(173, 142, 110, 0.08);
   --pillar-ummah-border: rgba(173, 142, 110, 0.25);
+  --pillar-moontrance: #6E8E5B;
+  --pillar-moontrance-bg: rgba(110, 142, 91, 0.08);
+  --pillar-moontrance-border: rgba(110, 142, 91, 0.25);
 }
 
 /* Dark theme */
@@ -328,6 +331,9 @@
   --pillar-ummah: #BD9E7E;
   --pillar-ummah-bg: rgba(189, 158, 126, 0.1);
   --pillar-ummah-border: rgba(189, 158, 126, 0.25);
+  --pillar-moontrance: #7E9E6B;
+  --pillar-moontrance-bg: rgba(126, 158, 107, 0.1);
+  --pillar-moontrance-border: rgba(126, 158, 107, 0.25);
 }
 
 /* ── Faith Dashboard — Material Design 3 color tokens ── */

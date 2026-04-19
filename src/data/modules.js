@@ -114,7 +114,7 @@ export const MODULES = [
   },
   {
     id: 'community',
-    name: 'Collective',
+    name: 'Community',
     description: 'Community engagement and collective stewardship',
     icon: 'Shapes',
     color: 'var(--mod-community)',
@@ -213,8 +213,8 @@ export const MODULES = [
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
   {
-    id: 'faith-sawm',
-    name: 'Sawm',
+    id: 'faith-siyam',
+    name: 'Siyam',
     description: 'Fasting — Abstinence during Ramadan',
     icon: 'Moon',
     color: '#bc6c25',
@@ -366,7 +366,7 @@ export const MODULES = [
     id: 'family-home',
     name: 'Home Environment',
     description: 'Home Environment — Sanctity, Wholesome Atmosphere, Hospitality',
-    icon: 'Home',
+    icon: 'HouseHeart',
     color: '#34d399',
     attrs: 'As-Salam · Al-Quddus',
     attrs_ar: 'السلام · القدوس',
@@ -478,9 +478,9 @@ export const MODULES = [
   // ── Standalone — MTC ──
   {
     id: 'collective',
-    name: 'MTC',
+    name: 'Collective',
     description: 'A faith-rooted land destination — experiences, community, and stewardship',
-    icon: 'Moon',
+    icon: 'Boxes',
     color: 'var(--mod-collective)',
     attrs: 'Al-Khaliq · Al-Razzaq',
     attrs_ar: 'الخالق · الرزّاق',

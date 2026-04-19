@@ -11,7 +11,7 @@ import {
   PiggyBank, ChessKnight, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
-  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned,
+  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, Boxes, HouseHeart,
   Search,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
@@ -32,9 +32,9 @@ const ICON_MAP = {
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
   TrendingUp, Star, CheckCircle2, Moon, TreePine,
-  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned,
+  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, Boxes, HouseHeart,
 };
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe, Moon };
 
 const MODULE_ROUTES = {
   work: '/app/work',
@@ -53,7 +53,7 @@ const MODULE_ROUTES = {
   'faith-shahada': '/app/faith-shahada',
   'faith-salah': '/app/faith-salah',
   'faith-zakah': '/app/faith-zakah',
-  'faith-sawm': '/app/faith-sawm',
+  'faith-siyam': '/app/faith-siyam',
   'faith-hajj': '/app/faith-hajj',
   // Life
   'life-physical': '/app/life-physical',

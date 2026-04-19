@@ -957,7 +957,7 @@ Memorising the Arabic text of this hadith embeds the precise prophetic definitio
 2. Break the Arabic text into short phrases and memorise one phrase per day.
 3. Recite what you have memorised to someone else or record yourself to check accuracy.
 4. You have completed this when you can recite the definitions of Islam, Iman, and Ihsan from the hadith in Arabic from memory.` },
-        { title: 'Islam \u2014 study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj', done: false,
+        { title: 'Islam \u2014 study the 5 pillars: Shahada, Salah, Zakah, Siyam, Hajj', done: false,
           tier: 'T2',
           amanahRationale: 'While Sahih Bukhari explicitly lists the five pillars upon which Islam is based, the specific practical steps of assessing one\'s fulfillment of each, identifying weaknesses, and creating a personal improvement plan are derived through clear logical inference.',
           sources: `**I. Quran**
@@ -992,7 +992,7 @@ In the hadith, the Prophet (SAW) defined Islam as the outward acts of submission
 
 **How?**
 
-1. List the five pillars as defined in the hadith: Shahada, Salah, Zakah, Sawm, and Hajj.
+1. List the five pillars as defined in the hadith: Shahada, Salah, Zakah, Siyam, and Hajj.
 2. For each pillar, honestly assess: am I fulfilling this? If not, what is the barrier?
 3. Identify the pillar you are weakest in and create a plan to strengthen it this month.
 4. You have completed this when you can recite the five pillars from the hadith and have assessed your personal standing with each one.` },
@@ -4139,11 +4139,11 @@ Briefly explain the eight categories from Surah At-Tawbah 9:60. Share your own l
     },
   ],
 
-  // \u2500\u2500 SAWM \u2500\u2500
-  faith_sawm_core: [
+  // \u2500\u2500 SIYAM \u2500\u2500
+  faith_siyam_core: [
     {
       title: 'Learn the fard requirements of Ramadan fasting (intention, abstaining, timing)',
-      priority: 'urgent', tags: ['sawm', 'fard'],
+      priority: 'urgent', tags: ['siyam', 'fard'],
       description: 'Fasting in Ramadan is the fourth pillar of Islam. Know what is required for a valid fast \u2014 the intention, what to abstain from, and the time boundaries.',
       subtasks: [
         { title: 'Learn when and how to make the intention (niyyah) for fasting', done: false,
@@ -4247,7 +4247,7 @@ Exemptions include: the ill, the traveller, pregnant/nursing women, the elderly 
     },
     {
       title: 'Understand the conditions that break the fast vs. those that do not',
-      priority: 'high', tags: ['sawm', 'fiqh'],
+      priority: 'high', tags: ['siyam', 'fiqh'],
       description: 'Many common situations cause confusion. Study the fiqh of what invalidates the fast versus what is permissible.',
       subtasks: [
         { title: 'List the acts that clearly break the fast', done: false,
@@ -4326,7 +4326,7 @@ Qada (making up) is required for any missed fast. Kaffarah (expiation \u2014 fre
     },
     {
       title: 'Learn the rules for making up (qada) missed fasts',
-      priority: 'high', tags: ['sawm', 'fiqh'],
+      priority: 'high', tags: ['siyam', 'fiqh'],
       description: 'Anyone who misses obligatory fasts must make them up. Learn the rulings around timing, sequence, and fidyah for those unable to fast.',
       subtasks: [
         { title: 'Calculate how many fasts you owe from previous years', done: false,
@@ -4405,7 +4405,7 @@ The elderly or chronically ill who cannot fast pay fidyah: feeding one poor pers
     },
     {
       title: 'Make up any missed Ramadan fasts from previous years',
-      priority: 'urgent', tags: ['sawm', 'qada'],
+      priority: 'urgent', tags: ['siyam', 'qada'],
       description: 'Outstanding fasts are a debt to Allah. Begin making them up systematically \u2014 even one per week adds up.',
       subtasks: [
         { title: 'Calculate the total number of missed fasts', done: false,
@@ -4485,10 +4485,10 @@ Use a simple tally, spreadsheet, or app to count down your remaining fasts. Mark
       ],
     },
   ],
-  faith_sawm_growth: [
+  faith_siyam_growth: [
     {
       title: 'Fast the voluntary Mondays and Thursdays regularly',
-      priority: 'medium', tags: ['sawm', 'sunnah'],
+      priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'The Prophet (SAW) used to fast Mondays and Thursdays. Deeds are presented to Allah on these days, and he loved to be fasting when his deeds were shown.',
       subtasks: [
         { title: 'Start with one day per week (Monday or Thursday)', done: false,
@@ -4558,7 +4558,7 @@ Log each voluntary fast in a journal or app. After one month, review: How did fa
     },
     {
       title: 'Fast the three white days (13th, 14th, 15th of each lunar month)',
-      priority: 'medium', tags: ['sawm', 'sunnah'],
+      priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'The Prophet (SAW) encouraged fasting the Ayyam al-Bid (white days). It is like fasting the entire month due to the ten-fold reward.',
       subtasks: [
         { title: 'Download a Hijri calendar to track the white days', done: false,
@@ -4624,7 +4624,7 @@ Add the white days to your calendar as a recurring monthly event. Prepare by eat
     },
     {
       title: 'Study the inner dimensions of fasting \u2014 taqwa, patience, gratitude',
-      priority: 'medium', tags: ['sawm', 'spirituality'],
+      priority: 'medium', tags: ['siyam', 'spirituality'],
       description: 'Fasting is not merely abstaining from food \u2014 it is training the nafs in taqwa, sabr, and shukr. Study these spiritual dimensions.',
       subtasks: [
         { title: 'Study the ayah linking fasting to taqwa (2:183)', done: false,
@@ -4703,7 +4703,7 @@ Keep a small notebook or phone note dedicated to fasting reflections. After brea
     },
     {
       title: 'Learn the Sunnah of iftar and suhoor',
-      priority: 'low', tags: ['sawm', 'sunnah'],
+      priority: 'low', tags: ['siyam', 'sunnah'],
       description: 'There is great barakah in suhoor and prescribed etiquette for breaking the fast. Follow the Prophetic way.',
       subtasks: [
         { title: 'Learn the du\'a for breaking the fast', done: false,
@@ -4777,10 +4777,10 @@ Set an alarm for suhoor 20-30 minutes before Fajr so you eat close to the deadli
       ],
     },
   ],
-  faith_sawm_excellence: [
+  faith_siyam_excellence: [
     {
       title: 'Fast the day of Arafah (9th Dhul Hijjah) and Ashura (10th Muharram)',
-      priority: 'medium', tags: ['sawm', 'sunnah'],
+      priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'The day of Arafah expiates sins of two years; Ashura expiates sins of one year. These are among the most rewarding voluntary fasts.',
       subtasks: [
         { title: 'Mark the dates of Arafah and Ashura on your calendar', done: false,
@@ -4851,7 +4851,7 @@ Identify the 9th and 10th of Muharram on your Hijri calendar. Fast both days if 
     },
     {
       title: 'Fast the six days of Shawwal after Ramadan',
-      priority: 'medium', tags: ['sawm', 'sunnah'],
+      priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'Whoever fasts Ramadan and follows it with six days of Shawwal, it is as if they fasted the entire year.',
       subtasks: [
         { title: 'Plan when to fast the six days (consecutively or spread out)', done: false,
@@ -4925,7 +4925,7 @@ After completing the six fasts this year, immediately add a reminder for next Sh
     },
     {
       title: 'Organise a community iftar for neighbours and those in need',
-      priority: 'low', tags: ['sawm', 'community'],
+      priority: 'low', tags: ['siyam', 'community'],
       description: 'Feeding a fasting person earns the reward of their fast without diminishing it. Organise a shared iftar for your community.',
       subtasks: [
         { title: 'Plan the logistics (venue, menu, invitations)', done: false,

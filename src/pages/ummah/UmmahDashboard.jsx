@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Globe, Users, MapPin, ArrowRight, Milestone, ExternalLink, BookOpen } from 'lucide-react';
+import { Globe, Users, MapPin, ArrowRight, BookOpen } from 'lucide-react';
 import OverviewCards from '@components/shared/OverviewCards';
 import MaqasidTable from '@components/shared/MaqasidTable';
 import {
@@ -14,32 +14,12 @@ import {
   OVERVIEW as COMMUNITY_OVERVIEW,
   MAQASID as COMMUNITY_MAQASID,
 } from '@data/module-overviews/community-overview';
-import {
-  OVERVIEW as LAND_OVERVIEW,
-  MAQASID as LAND_MAQASID,
-} from '@data/module-overviews/moontrance-land-overview';
-import {
-  OVERVIEW as SEASONAL_OVERVIEW,
-  MAQASID as SEASONAL_MAQASID,
-} from '@data/module-overviews/moontrance-seasonal-overview';
-import {
-  OVERVIEW as RESIDENCY_OVERVIEW,
-  MAQASID as RESIDENCY_MAQASID,
-} from '@data/module-overviews/moontrance-residency-overview';
 import './UmmahDashboard.css';
 
 const SUBMODULES = [
-  { id: 'collective', label: 'Collective Stewardship', desc: 'Community-level coordination, shared governance, and collective wellbeing.', Icon: Globe, route: '/app/collective' },
-  { id: 'neighbors', label: 'Neighbors', desc: 'Rights of neighbors, local engagement, and neighbourhood ihsan.', Icon: MapPin, route: '/app/neighbors' },
-  { id: 'community', label: 'Community', desc: 'Broader community building, institutional engagement, and social contribution.', Icon: Users, route: '/app/community' },
-];
-
-const MOONTRANCE_MILESTONES = [
-  { id: 'mt1', label: 'Land Acquisition', status: 'planned', desc: 'Identify and secure land for the eco-village development.' },
-  { id: 'mt2', label: 'Community Formation', status: 'planned', desc: 'Gather founding families and establish shared governance.' },
-  { id: 'mt3', label: 'Infrastructure Design', status: 'planned', desc: 'Design water, energy, and agricultural systems (OLOS integration).' },
-  { id: 'mt4', label: 'Waqf Entity', status: 'planned', desc: 'Establish three-entity legal structure (Ontario Waqf model).' },
-  { id: 'mt5', label: 'First Experience', status: 'planned', desc: 'Launch the first MTC collective experience.' },
+  { id: 'collective', label: 'Collective Stewardship', desc: 'Community-level coordination, shared governance, and collective wellbeing.', Icon: Globe,  route: '/app/collective' },
+  { id: 'neighbors',  label: 'Neighbors',              desc: 'Rights of neighbors, local engagement, and neighbourhood ihsan.',            Icon: MapPin, route: '/app/neighbors'  },
+  { id: 'community',  label: 'Community',              desc: 'Broader community building, institutional engagement, and social contribution.', Icon: Users, route: '/app/community'  },
 ];
 
 const FRAMEWORKS = [
@@ -69,33 +49,6 @@ const FRAMEWORKS = [
     overview: COMMUNITY_OVERVIEW,
     maqasid: COMMUNITY_MAQASID,
     grounding: 'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 3:110, 49:10, 5:2.',
-  },
-  {
-    id: 'moontrance-land',
-    label: 'MTC Land',
-    desc: 'Land acquisition, soil stewardship (khilafah), water systems, regenerative agriculture.',
-    color: 'var(--mod-moontrance-land)',
-    overview: LAND_OVERVIEW,
-    maqasid: LAND_MAQASID,
-    grounding: 'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 2:30, 7:56, 55:10.',
-  },
-  {
-    id: 'moontrance-seasonal',
-    label: 'MTC Seasonal',
-    desc: 'Seasonal participation pathway — planting, tending, harvest, and reflection.',
-    color: 'var(--mod-moontrance-seasonal)',
-    overview: SEASONAL_OVERVIEW,
-    maqasid: SEASONAL_MAQASID,
-    grounding: 'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 6:99, 36:33-35, 14:24-25.',
-  },
-  {
-    id: 'moontrance-residency',
-    label: 'MTC Residency',
-    desc: 'Long-term community formation, residency model, trust-building, and permanence.',
-    color: 'var(--mod-moontrance-residency)',
-    overview: RESIDENCY_OVERVIEW,
-    maqasid: RESIDENCY_MAQASID,
-    grounding: 'Grounded with quran.ai: fetch_quran & fetch_translation (ar-simple-clean, en-abdel-haleem) for ayat 59:9, 49:13, 42:38.',
   },
 ];
 
@@ -136,29 +89,6 @@ export default function UmmahDashboard() {
         </div>
       </section>
 
-      {/* MTC Milestone Tracker */}
-      <section className="ummah-section">
-        <h2 className="ummah-section-title">
-          <Milestone size={18} />
-          MTC Milestones
-        </h2>
-        <p className="ummah-section-desc">
-          Islamic eco-village development &mdash; CSRA offer architecture and Waqf-based governance.
-        </p>
-        <div className="ummah-milestones">
-          {MOONTRANCE_MILESTONES.map((ms, i) => (
-            <div key={ms.id} className={`ummah-milestone ummah-milestone--${ms.status}`}>
-              <div className="ummah-ms-number">{i + 1}</div>
-              <div className="ummah-ms-body">
-                <h4>{ms.label}</h4>
-                <p>{ms.desc}</p>
-              </div>
-              <span className="ummah-ms-status">{ms.status}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Frameworks — OVERVIEW + MAQASID per submodule */}
       <section className="ummah-section">
         <h2 className="ummah-section-title">
@@ -190,21 +120,6 @@ export default function UmmahDashboard() {
               </div>
             </details>
           ))}
-        </div>
-      </section>
-
-      {/* OLOS Bridge */}
-      <section className="ummah-section">
-        <h2 className="ummah-section-title">
-          <ExternalLink size={18} />
-          OLOS Bridge
-        </h2>
-        <div className="ummah-atlas">
-          <div className="ummah-atlas-body">
-            <h3>OGDEN OLOS</h3>
-            <p>Land design feasibility platform, water systems design, and parameterized land templates. OLOS provides the spatial intelligence layer for MTC development.</p>
-          </div>
-          <span className="ummah-atlas-status">Not Connected</span>
         </div>
       </section>
     </div>

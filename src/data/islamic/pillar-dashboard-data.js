@@ -89,7 +89,7 @@ export const PILLAR_DASHBOARD_DATA = {
     },
   },
 
-  sawm: {
+  siyam: {
     mastery: 55,
     quote: '"Fasting is a shield; it will protect you from the Hellfire and prevent you from sins."',
     description:
