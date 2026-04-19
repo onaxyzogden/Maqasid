@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[3].subtasks[5]",
+    "subtaskTitle": "Study belief in Qadar — Divine Decree (al-Qadr)",
+    "parentTaskTitle": "Study the six pillars of Iman",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study belief in Qadar — Divine Decree (al-Qadr)' under the parent task 'Study the six pillars of Iman' (module: faith_shahada_core), propose exactly 2 NotebookLM queries: (1) Quran-biased; (2) Hadith-biased.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for belief in Qadar (Divine Decree)",
+        "retrievedAt": "2026-04-18T18:37:27Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-3-subtasks-5-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for belief in Qadar (Divine Decree)",
+        "retrievedAt": "2026-04-18T18:37:27Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-3-subtasks-5-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 54:49",
+      "translation": "Indeed, all things We created with predestination.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The most explicit Quranic anchor for Qadar — declares that every created thing came into being by God's predestination (qadar). MS answer quotes the ayah verbatim and names it as the primary anchor. Arabic omitted per MS disclaimer pattern. Note: reference chunk body pointed to '47. Indeed, the criminals...' (54:47) — bound to 54:49 per the session-A rule because the MS answer text explicitly names the ref and quotes the matn.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for belief in Qadar (Divine Decree)",
+        "retrievedAt": "2026-04-18T18:37:27Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0005 (Hadith of Jibril — Umar ibn al-Khattab)",
+      "translation": "That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Hadith of Jibril — the Prophet's canonical inclusion of belief in Divine Decree 'both its good and evil' as a pillar of Iman. Direct anchor; canonical ref confirmed and matn quoted in MS answer.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for belief in Qadar (Divine Decree)",
+        "retrievedAt": "2026-04-18T18:37:27Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih al-Bukhari, Volume 4, Book 55, Number 549 (Narrated Abdullah)",
+      "translation": "Allah sends an angel [to the fetus in the womb] who is ordered to write four things: his provision, his age, his deeds, and whether he will be blessed or wretched.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Pre-recorded-decree hadith — the concrete mechanism of Qadar demonstrated in each life. Canonical ref confirmed by MS chunk 'Volume 4, Book 55, Number 549: Narrated Abdullah' and matn paraphrased by MS answer.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for belief in Qadar (Divine Decree)",
+        "retrievedAt": "2026-04-18T18:37:27Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries, all Bayyinah and direct. Bar met on both axes."
+  }
+}

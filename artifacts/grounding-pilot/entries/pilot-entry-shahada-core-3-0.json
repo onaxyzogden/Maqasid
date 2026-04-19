@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[3].subtasks[0]",
+    "subtaskTitle": "Study belief in Allah (al-Iman billah)",
+    "parentTaskTitle": "Study the six pillars of Iman",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study belief in Allah (al-Iman billah)' under the parent task 'Study the six pillars of Iman' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Study belief in Allah (al-Iman billah)",
+        "retrievedAt": "2026-04-18T13:00:33Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-3-subtasks-0-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Study belief in Allah (al-Iman billah)",
+        "retrievedAt": "2026-04-18T13:00:33Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-3-subtasks-0-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 47:19",
+      "arabic": "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ",
+      "translation": "So know, [O Muhammad], that there is no deity except Allah...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse commands knowledge ('So know') of Allah's sole divinity — directly anchoring al-Iman billah as an intellectual and spiritual imperative, not mere verbal assent. Bayyinah (primary Quran, confirmed by MS reference chunk '19. So know, [O Muhammad], that there is') + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Study belief in Allah (al-Iman billah)",
+        "retrievedAt": "2026-04-18T13:00:33Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 3:18",
+      "arabic": "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ",
+      "translation": "God witnesses that there is no deity except Him, and [so do] the angels and those of knowledge – [that He is] maintaining [creation] in justice...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The ayah names the testimony of Allah's oneness as something witnessed by God Himself, the angels, and 'those of knowledge' — framing belief in Allah as both the content and the cognitive act the subtask asks the user to study. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Study belief in Allah (al-Iman billah)",
+        "retrievedAt": "2026-04-18T13:00:33Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0001 (Hadith of Jibril)",
+      "translation": "That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Hadith of Jibril is the canonical Prophetic definition of Iman and names belief in Allah as the first of its six articles — directly anchoring the subtask's study of al-Iman billah within the pillars of Iman. Bayyinah (Sahih Muslim Book 1 #0001, matn quoted verbatim from MS q1 raw answer) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Study belief in Allah (al-Iman billah)",
+        "retrievedAt": "2026-04-18T13:00:33Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; all direct. Bar met. Note: the hadith-biased q2 retrieval returned a rate-limit error (no body), so the Hadith of Jibril was drawn from the q1 raw where it was quoted inline with its Sahih Muslim Book 1 #0001 ref — still MS corpus output, direct quotation preserved. Rejected: Quran 112:1-4, 2:255, 2:164, 45:3-4 — named inline but MS provided only English translations for these (no Arabic in the q1 answer block for these ayat) and reference chunks did not bind specifically to their verse-chunks, so their ref↔matn integrity on the Arabic axis could not be established. Kept 47:19 and 3:18 where Arabic was supplied inline by MS without any 'standard-knowledge' disclaimer (unlike 1-0 q1 and 1-3 q1)."
+  }
+}

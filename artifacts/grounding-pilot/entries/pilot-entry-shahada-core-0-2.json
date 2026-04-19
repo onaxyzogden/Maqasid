@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[0].subtasks[2]",
+    "subtaskTitle": "Study the difference between verbal declaration and lived conviction",
+    "parentTaskTitle": "Testify there is no God but Allah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study the difference between verbal declaration and lived conviction' under the parent task 'Testify there is no God but Allah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses, specifically Al-Hujurat 49:14 and Al-Ma'idah 5:41, that explicitly distinguish between nominal verbal submission (Islam) and the internal reality of lived conviction (Iman) within the heart.",
+        "retrievedAt": "2026-04-18T12:48:38Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-0-subtasks-2-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Extract Sahih hadith from Bukhari and Muslim, including the Hadith of Jibril and narrations stating that faith is what settles in the heart and is verified by action, to establish the scriptural requirements of sincere conviction.",
+        "retrievedAt": "2026-04-18T12:48:38Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-0-subtasks-2-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0001 (Hadith of Jibril)",
+      "translation": "...[Gabriel] said: Muhammad, inform me about al-Islam... [The Prophet] said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah... He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Hadith of Jibril is the Prophetic source text that explicitly separates Islam (verbal/outward testimony and the five pillars) from Iman (internal affirmation of the six articles of faith) — precisely the distinction the subtask asks the user to study. Bayyinah (Sahih Muslim) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Extract Sahih hadith from Bukhari and Muslim, including the Hadith of Jibril and narrations stating that faith is what settles in the heart and is verified by action, to establish the scriptural requirements of sincere conviction.",
+        "retrievedAt": "2026-04-18T12:48:38Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 2, Number 49",
+      "translation": "The Prophet said... 'Beware! There is a piece of flesh in the body if it becomes good (reformed) the whole body becomes good but if it gets spoilt the whole body gets spoilt and that is the heart.'",
+      "hadithGrade": "Sahih",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Locates the seat of conviction in the heart and ties the body's uprightness to the heart's condition — the Prophetic anchor for the claim that a verbal Shahada unaccompanied by a reformed heart is incomplete. Contextual because it supplies the mechanism (heart as locus) rather than directly naming the Islam/Iman distinction. Bayyinah (Sahih Bukhari).",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Extract Sahih hadith from Bukhari and Muslim, including the Hadith of Jibril and narrations stating that faith is what settles in the heart and is verified by action, to establish the scriptural requirements of sincere conviction.",
+        "retrievedAt": "2026-04-18T12:48:38Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 hadith entries; both Bayyinah; 1 direct (Hadith of Jibril) + 1 contextual (heart-hadith). Bar met. Note: the Quran-biased query's candidate ayat (49:14, 5:41) were rejected — MS flagged the Arabic as 'Not from sources' and the references array did not confirm the named verses (it pointed to 49:15 instead). No Quran entries could be bound with integrity from the available raws."
+  }
+}

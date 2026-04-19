@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[2].subtasks[1]",
+    "subtaskTitle": "Yaqin (Certainty) — have no doubt",
+    "parentTaskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Yaqin (Certainty) — have no doubt' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically Al-Hujurat 49:15, that define the true believers as those who believe in Allah and His Messenger and subsequently harbor no doubt (*lam yartabu*) regarding their testimony.",
+        "retrievedAt": "2026-04-18T12:56:49Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Muslim and Bukhari, such as the narration stating that any servant who meets Allah testifying to the Shahada without having any doubt in his heart will enter Paradise, to anchor the condition of Yaqin.",
+        "retrievedAt": "2026-04-18T12:56:49Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:2",
+      "arabic": "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
+      "translation": "This is the Book about which there is no doubt, a guidance for those conscious of God.",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Establishes the Quran itself as la rayba fih — without doubt — mirroring the psychological requirement of Yaqin: the believer's conviction in the Book's truth must match the Book's own self-description. Contextual: anchors the Yaqin condition in the object of belief rather than naming the Shahada directly. Bayyinah (primary Quran).",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Quranic verses that define the true believers as those who believe in Allah and His Messenger and subsequently harbor no doubt (*lam yartabu*)",
+        "retrievedAt": "2026-04-18T12:56:49Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0041",
+      "translation": "...I bear testimony to the fact that there is no god but Allah, and I am His messenger. The bondsman who would meet Allah without entertaining any doubt about these (two fundamentals) would enter heaven.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Names the exact Yaqin condition: to meet Allah testifying the Shahada 'without entertaining any doubt.' Directly operationalises the subtask — Yaqin is the named precondition of entering heaven. Bayyinah (Sahih Muslim) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Sahih hadith stating that any servant who meets Allah testifying to the Shahada without having any doubt in his heart will enter Paradise",
+        "retrievedAt": "2026-04-18T12:56:49Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0042",
+      "translation": "...The man who meets his Lord without harboring any doubt about these two (truths) would never be kept away from Paradise.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "A parallel narration reinforcing the same Yaqin-condition with slightly different wording ('would never be kept away'), sharpening the reward-clause of doubt-free testimony. Bayyinah (Sahih Muslim) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Sahih hadith stating that any servant who meets Allah testifying to the Shahada without having any doubt in his heart will enter Paradise",
+        "retrievedAt": "2026-04-18T12:56:49Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; 2 direct (Muslim 0041, 0042) + 1 contextual (Quran 2:2). Bar met. Note: Quran 49:15 (the named query target) was not quoted verbatim in the MS answer for this subtask, so it was not bound; Quran 2:2 was the nearest verbatim Quranic doubt-negation MS actually produced.”"
+  }
+}

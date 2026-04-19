@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[4].subtasks[3]",
+    "subtaskTitle": "Remove or correct any identified contradictions",
+    "parentTaskTitle": "Identify and eliminate any practices that contradict Tawhid",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Remove or correct any identified contradictions' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries: (1) Quran-biased; (2) Hadith-biased.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for removing/correcting contradictions to Tawhid",
+        "retrievedAt": "2026-04-18T18:45:08Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-3-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for removing/correcting contradictions to Tawhid",
+        "retrievedAt": "2026-04-18T18:45:08Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-3-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 39:54",
+      "translation": "And return [in repentance] to your Lord and submit to Him before the punishment comes upon you; then you will not be helped.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Direct Quranic command to actively return and submit — the scriptural mechanism for removing/correcting contradictions once identified. Ref-confirmed by MS chunk '54. And return [in repentance] to your'. Arabic omitted per MS disclaimer pattern.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for removing/correcting contradictions to Tawhid",
+        "retrievedAt": "2026-04-18T18:45:08Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 21:54",
+      "translation": "He said, 'You were certainly, you and your fathers, in manifest error.'",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Ibrahim's confrontation with his people's idols — scriptural precedent for naming and actively dismantling inherited contradictions to Tawhid. Contextual (narrative precedent rather than direct imperative). Ref-confirmed by MS chunk 'your fathers, in manifest error.'",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for removing/correcting contradictions to Tawhid",
+        "retrievedAt": "2026-04-18T18:45:08Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih al-Bukhari, Volume 3, Book 43, Number 658 (Narrated 'Abdullah bin Masud)",
+      "translation": "The Prophet entered Mecca and [found] three hundred and sixty idols around the Ka'ba. He then started striking them with a stick in his hand saying, 'Truth has come and falsehood has vanished...'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "The Prophet's own conquest-of-Mecca act — physical removal of shirk-objects — is the paradigmatic Sunnah precedent for 'remove or correct any identified contradictions.' Canonical ref confirmed by MS chunk 'Volume 3, Book 43, Number 658: Narrated Abdullah bin Masud'.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for removing/correcting contradictions to Tawhid",
+        "retrievedAt": "2026-04-18T18:45:08Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih al-Bukhari, Volume 2, Book 26, Number 671 (Narrated Ibn Abbas)",
+      "translation": "The Prophet refused to enter the Ka'ba until the idols and pictures within it were removed; he then corrected depictions of Abraham and Ishmael practicing divination with arrows.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Demonstrates corrective action against both physical idols and false iconography — precedent for removing material and representational contradictions. Canonical ref confirmed by MS chunk 'Volume 2, Book 26, Number 671: Narrated Ibn Abbas'.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for removing/correcting contradictions to Tawhid",
+        "retrievedAt": "2026-04-18T18:45:08Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "4 entries, 3 direct + 1 contextual, all Bayyinah. Bar met on both axes."
+  }
+}

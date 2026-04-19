@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[5].subtasks[6]",
+  "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+  "subtaskTitle": "Reflect: which level describes your current state?",
+  "csQueryPrompt": "For a MILOS subtask titled 'Reflect: which level describes your current state?' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Fatir 35:32 which categorizes believers into three distinct spiritual ranks, that contextually anchor the theological imperative of self-reflection regarding one's current state of faith?",
+    "Which authentic narrations, specifically the progressive framework of Islam, Iman, and Ihsan established in the Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, provide the exact criteria for evaluating and reflecting upon one's personal religious level?"
+  ],
+  "retrievedAt": "2026-04-18T19:00:34Z"
+}

@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[4].subtasks[1]",
+  "taskTitle": "Identify and eliminate any practices that contradict Tawhid",
+  "subtaskTitle": "Identify any reliance on amulets, charms, or talismans",
+  "csQueryPrompt": "For a MILOS subtask titled 'Identify any reliance on amulets, charms, or talismans' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as Surah Az-Zumar 39:38 and Surah Al-An'am 6:17, that establish that only Allah can avert harm or bring benefit, contextually anchoring the theological prohibition against relying on amulets and charms?",
+    "Which authentic narrations, particularly those discussing \"Tama'im\" (amulets) or the command to remove string necklaces from camels found in Sahih al-Bukhari and Sahih Muslim, explicitly identify the use of talismans as a contradiction to Tawhid?"
+  ],
+  "retrievedAt": "2026-04-18T18:41:24Z"
+}

@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[3].subtasks[1]",
+    "subtaskTitle": "Study belief in the Angels (al-Mala'ikah)",
+    "parentTaskTitle": "Study the six pillars of Iman",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study belief in the Angels (al-Mala'ikah)' under the parent task 'Study the six pillars of Iman' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased; (2) Hadith-biased.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for belief in the Angels (al-Mala'ikah) — Baqarah 2:285, Fatir 35:1",
+        "retrievedAt": "2026-04-18T19:12:53Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-3-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for belief in the Angels — Hadith of Jibril (Muslim Book 1 No. 0005; Bukhari Vol 1 Book 2 No. 47)",
+        "retrievedAt": "2026-04-18T19:12:53Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-3-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:285",
+      "translation": "The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers. All of them have believed in Allah and His angels and His books and His messengers...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The foundational Quranic statement of comprehensive belief explicitly names 'His angels' as a core article. MS reference chunk anchors the ayah ('285. The Messenger has believed in what…'). Directly anchors the subtask. Arabic omitted: MS did not return verse-level Arabic text.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for belief in the Angels (al-Mala'ikah)",
+        "retrievedAt": "2026-04-18T19:12:53Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 35:1",
+      "translation": "[All] praise is [due] to Allah, Creator of the heavens and the earth, [who] made the angels messengers having wings, two or three or four. He increases in creation what He wills. Indeed, Allah is over all things competent.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Surah Fatir opens by directly describing the nature of angels as divinely created messengers, anchoring their ontological reality. MS reference confirms the Surah 35 Fatir chunk. Directly supports study of al-Mala'ikah. Arabic omitted per MS output.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for belief in the Angels (al-Mala'ikah)",
+        "retrievedAt": "2026-04-18T19:12:53Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0005 (Hadith of Jibril — Umar ibn al-Khattab)",
+      "translation": "That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Hadith of Jibril — the Prophet's canonical definition of Iman explicitly names belief in the angels as the second article. Canonical ref confirmed by MS chunk 'Book 001, Number 0005'. Directly anchors the subtask.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for belief in the Angels",
+        "retrievedAt": "2026-04-18T19:12:53Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih al-Bukhari, Volume 1, Book 2, Number 47 (Narrated Abu Huraira)",
+      "translation": "Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Bukhari's companion narration of the Gabriel encounter explicitly names 'His angels' among the articles of faith. Canonical ref confirmed by MS chunk 'Volume 1, Book 2, Number 47: Narrated Abu Huraira'. Directly anchors the subtask.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for belief in the Angels",
+        "retrievedAt": "2026-04-18T19:12:53Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "4 entries, all Bayyinah and direct. Bar met on both Quran and Hadith axes. Ayat 16:50 and 21:19-20 paraphrased in MS answer but reference chunks only quoted fragments without full matn; stuck to 2:285 and 35:1 where chunk anchoring is solid."
+  }
+}

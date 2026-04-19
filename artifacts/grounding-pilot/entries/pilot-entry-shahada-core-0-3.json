@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[0].subtasks[3]",
+    "subtaskTitle": "Journal: what does this testimony mean to you personally?",
+    "parentTaskTitle": "Testify there is no God but Allah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Journal: what does this testimony mean to you personally?' under the parent task 'Testify there is no God but Allah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, such as Al-Anfal 8:2 and Az-Zumar 39:23, that describe the internal spiritual resonance and heart-based reflection necessitated by the remembrance and testimony of Allah's Oneness.",
+        "retrievedAt": "2026-04-18T12:49:52Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-0-subtasks-3-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, specifically narrations regarding \"Ikhlas\" (sincerity) in the testimony and the \"sweetness of faith\" (e.g., Bukhari #16), to anchor the personal, experiential dimension of the Shahada.",
+        "retrievedAt": "2026-04-18T12:49:52Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-0-subtasks-3-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 8:2",
+      "translation": "The believers are only those who, when God is mentioned, their hearts become fearful, and when His verses are recited to them, it increases them in faith; and upon their Lord they rely -",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Defines the believer personally as one whose heart responds — trembling at remembrance, growing through recitation, relying in trust. The verse describes exactly the first-person, experiential register the journaling subtask elicits. Bayyinah (primary Quran) + direct. Arabic omitted: MS output did not include verse-level Arabic for this ayah in the returned passage.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, such as Al-Anfal 8:2 and Az-Zumar 39:23, that describe the internal spiritual resonance and heart-based reflection necessitated by the remembrance and testimony of Allah's Oneness.",
+        "retrievedAt": "2026-04-18T12:49:52Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 39:22",
+      "translation": "So is one whose breast God has expanded to [accept] Islām and he is upon [i.e., guided by] a light from his Lord [like one whose heart rejects it]? Then woe to those whose hearts are hardened against the remembrance of God...",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Frames the testimony as an expansion of the breast — a deeply personal interior transformation — and contrasts it with hardness of heart. Supports the journaling prompt by giving the user scriptural language for the qualitative felt-state of the Shahada. Contextual rather than direct because the ayah speaks of Islām-acceptance generally, not the testimony's personal meaning per se. Bayyinah (primary Quran, ref confirmed by reference chunk citing '22. So is one whose breast God has ex-').",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, such as Al-Anfal 8:2 and Az-Zumar 39:23, that describe the internal spiritual resonance and heart-based reflection necessitated by the remembrance and testimony of Allah's Oneness.",
+        "retrievedAt": "2026-04-18T12:49:52Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 Quran entries; both Bayyinah; 1 direct (8:2) + 1 contextual (39:22). Bar met: ≥1 entry with provenanceTier ∈ {Bayyinah, Qarina} ∧ relevance ∈ {direct, contextual}. Note: the Hadith-biased query (q2) yielded descriptive paraphrases rather than quotable matn — the 'bottom of the heart' / Mu'adh narration and Muslim Book 1 Number 51 were referenced but not quoted verbatim in the MS answer, so no hadith entry could be bound with ref↔matn integrity. Subtask is grounded via Quran alone."
+  }
+}

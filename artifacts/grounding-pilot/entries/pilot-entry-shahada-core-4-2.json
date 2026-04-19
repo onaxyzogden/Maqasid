@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[4].subtasks[2]",
+    "subtaskTitle": "Check for habits of swearing by other than Allah",
+    "parentTaskTitle": "Identify and eliminate any practices that contradict Tawhid",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Check for habits of swearing by other than Allah' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries: (1) Quran-biased; (2) Hadith-biased.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for swearing by other than Allah",
+        "retrievedAt": "2026-04-18T18:43:02Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-2-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for swearing by other than Allah",
+        "retrievedAt": "2026-04-18T18:43:02Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-2-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 15 (Kitab Al-Aiman — The Book of Oaths), Chapter 1",
+      "translation": "Chapter 1: It is forbidden to take the oaths in the name of anyone else besides Allah.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Muslim's kitab/chapter header in the canonical Book of Oaths explicitly codifies the prohibition against swearing by other than Allah — the subject of the subtask. Canonical book-and-chapter ref confirmed by MS chunk showing the Book 15 table of contents with chapter titles. Bound at chapter-level because MS did not return a numbered hadith matn verbatim.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for swearing by other than Allah",
+        "retrievedAt": "2026-04-18T18:43:02Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 15 (Kitab Al-Aiman), Chapter 2",
+      "translation": "Chapter 2: He who takes an oath by Lat and Uzza, he should say: There is no god but Allah.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Chapter heading encodes the Prophetic corrective — anyone who slips and swears by idols/false deities must immediately affirm the Shahada. Directly anchors the 'check and correct' discipline the subtask calls for. Canonical book-and-chapter ref confirmed in MS reference chunks.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for swearing by other than Allah",
+        "retrievedAt": "2026-04-18T18:43:02Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 entries, both Bayyinah and direct (via Muslim Kitab Al-Aiman chapter headings — canonical book/chapter references). Bar met via hadith axis. Quran axis empty — q1 answer cited 4:48/4:116 but reference chunks for that query pointed to 4:47, 4:114 and Luqman 31:11-style passages; none are direct-anchor ayat for 'swearing by other than Allah', so no Quran entry could be bound to what MS actually returned. The Bukhari 'swear by Allah or remain silent' matn quoted in q2 rejected — only page-level page refs ('Volume 5 - 897 / 1700') returned, no canonical Volume/Book/Number."
+  }
+}

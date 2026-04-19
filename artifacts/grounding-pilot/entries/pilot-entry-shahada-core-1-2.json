@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[1].subtasks[2]",
+    "subtaskTitle": "Understand what it means to worship Allah alone without partners",
+    "parentTaskTitle": "Study the meaning and conditions of La ilaha illAllah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Understand what it means to worship Allah alone without partners' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Understand what it means to worship Allah alone without partners",
+        "retrievedAt": "2026-04-18T12:54:52Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-2-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Understand what it means to worship Allah alone without partners",
+        "retrievedAt": "2026-04-18T12:54:52Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-2-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 51:56",
+      "arabic": "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+      "translation": "And I did not create the jinn and mankind except to worship Me.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse names the exclusive purpose of creation as worship of Allah — the scriptural foundation for the subtask's framing that worshipping Allah alone is not one option among many but the very reason for existence. Bayyinah (primary Quran); direct (operative statement of worship-only-Him).",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Understand what it means to worship Allah alone without partners",
+        "retrievedAt": "2026-04-18T12:54:52Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 112:1-4",
+      "arabic": "قُلْ هُوَ اللَّهُ أَحَدٌ. اللَّهُ الصَّمَدُ. لَمْ يَلِدْ وَلَمْ يُولَدْ. وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+      "translation": "Say, 'He is Allah, [who is] One. Allah, the Eternal Refuge. He neither begets nor is born, Nor is there to Him any equivalent.'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Surah al-Ikhlas is the Quran's definitive statement of Allah's absolute oneness and incomparability — the negation of equivalents is precisely what 'without partners' means. Directly supplies the doctrinal content the subtask asks the user to understand. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Understand what it means to worship Allah alone without partners",
+        "retrievedAt": "2026-04-18T12:54:52Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0046 (narration of Mu'adh b. Jabal)",
+      "translation": "Allah's right on His slaves is that they should worship Him (Alone) and should not worship any besides Him.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Mu'adh narration states verbatim the operative ruling the subtask names — that the right Allah holds over His servants is to be worshipped alone, associating nothing with Him. Bayyinah (Sahih Muslim, Book 001 Number 0046 confirmed by MS reference chunk) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Understand what it means to worship Allah alone without partners",
+        "retrievedAt": "2026-04-18T12:54:52Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; all direct. Bar met. Rejected: Quran 21:25, 2:163, 39:2, 16:36, 4:36, 31:13 — while named inline in MS answer with Arabic and translation, MS reference chunks for these indices were null or pointed to general Shahada-introduction matter rather than the ayah chunks themselves. Kept 51:56 and 112:1-4 as the most canonical and thematically tightest anchors (no contrary disclaimer was issued in this q1 output, unlike 1-0 q1). Rejected: Bukhari Vol 4 Book 52 #107 (Sahl narration) — no verbatim matn surfaced in MS answer, only cited_text 'Volume 4, Book 52, Number 107: Narrated Sahl:' which cannot stand as matn."
+  }
+}

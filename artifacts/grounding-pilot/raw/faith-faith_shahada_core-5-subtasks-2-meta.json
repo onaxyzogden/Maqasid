@@ -1,0 +1,11 @@
+{
+  "idPath": "faith.faith_shahada_core[5].subtasks[2]",
+  "taskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+  "subtaskTitle": "Islam — study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj",
+  "csQueryPrompt": "For a MILOS subtask titled 'Islam — study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+  "extractedQueries": [
+    "What are the primary ayat, such as the commands for Salah and Zakah in Surah Al-Baqarah 2:43, fasting in Surah Al-Baqarah 2:183, and pilgrimage in Surah Ali 'Imran 3:97, that directly establish the foundational obligations of the five pillars of Islam?",
+    "Which authentic narrations, specifically the Hadith of Jibril (Sahih Muslim 8) and the hadith stating \"Islam is based on five principles\" (Sahih al-Bukhari 8), explicitly enumerate Shahada, Salah, Zakah, Sawm, and Hajj as the definitive pillars of the religion?"
+  ],
+  "retrievedAt": "2026-04-18T18:51:53Z"
+}

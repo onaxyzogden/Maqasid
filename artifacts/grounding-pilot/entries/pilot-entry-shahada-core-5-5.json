@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[5].subtasks[5]",
+    "subtaskTitle": "Study the signs of the Hour mentioned at the end of the hadith",
+    "parentTaskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study the signs of the Hour mentioned at the end of the hadith' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Luqman 31:34 which restricts exact knowledge of the Hour to Allah, and Surah Muhammad 47:18 which references the suddenness of its signs, that contextually anchor the theological study of the Last Day's approach?",
+        "retrievedAt": "2026-04-18T18:58:57Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the concluding dialogue of the Hadith of Jibril in Sahih Muslim 8 and Sahih al-Bukhari 50, explicitly detail the specific signs of the Hour such as the slave girl giving birth to her master and barefoot shepherds competing in constructing tall buildings?",
+        "retrievedAt": "2026-04-18T18:58:57Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 31:34",
+      "translation": "Indeed, Allah [alone] has knowledge of the Hour and sends down the rain and knows what is in the wombs. And no soul perceives what it will earn tomorrow, and no soul perceives in what land it will die. Indeed, Allah is Knowing and Acquainted.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The subtask studies the signs-of-the-Hour portion of the hadith, where the Prophet says 'the one asked knows no more than the inquirer.' This ayah is the Qur'anic foundation for that position — exclusive divine knowledge of the Hour. MS returned a direct cited_text fragment for verse 34. Bayyinah + direct. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Luqman 31:34 which restricts exact knowledge of the Hour to Allah, and Surah Muhammad 47:18 which references the suddenness of its signs, that contextually anchor the theological study of the Last Day's approach?",
+        "retrievedAt": "2026-04-18T18:58:57Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 7:187",
+      "translation": "They ask you, [O Muhammad], about the Hour: when is its arrival? Say, 'Its knowledge is only with my Lord. None will reveal its time except Him...'",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS returned verse 187 via direct cited_text. Reinforces 31:34 — the Prophet himself is instructed to disclaim knowledge of the Hour's arrival, matching the exact Prophetic reply in the hadith. Contextual to the subtask (which focuses on the signs) but directly parallel to the hadith's framing statement. Bayyinah. Arabic omitted.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, such as Surah Luqman 31:34 which restricts exact knowledge of the Hour to Allah, and Surah Muhammad 47:18 which references the suddenness of its signs, that contextually anchor the theological study of the Last Day's approach?",
+        "retrievedAt": "2026-04-18T18:58:57Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim 8 (Book 1, Hadith of Jibril via Umar ibn al-Khattab)",
+      "translation": "He (the inquirer) said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The exact portion of the hadith the subtask instructs the user to study — the Prophet's naming of two specific portents of the Hour. Bayyinah + direct. Arabic omitted per MS disclaimer.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, specifically the concluding dialogue of the Hadith of Jibril in Sahih Muslim 8 and Sahih al-Bukhari 50, explicitly detail the specific signs of the Hour such as the slave girl giving birth to her master and barefoot shepherds competing in constructing tall buildings?",
+        "retrievedAt": "2026-04-18T18:58:57Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; 2 direct + 1 contextual. Bar met."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[5].subtasks[3]",
+    "subtaskTitle": "Iman — study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr",
+    "parentTaskTitle": "Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Iman — study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr' under the parent task 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, specifically Surah An-Nisa 4:136 and Surah Al-Baqarah 2:177, that directly establish the scriptural foundation for belief in Allah, His angels, His books, His messengers, and the Last Day?",
+        "retrievedAt": "2026-04-18T18:55:16Z"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the definitive Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, explicitly enumerate all six articles of Iman including the divine decree (Qadr)?",
+        "retrievedAt": "2026-04-18T18:55:16Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:177",
+      "translation": "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is [in] one who believes in Allah, the Last Day, the angels, the Book, and the prophets...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS returned this verse via a direct cited_text fragment ('177. Righteousness is not that you turn your...'). The ayah enumerates five of the six articles of Iman verbatim as the content of true belief — precisely the subtask's study target. Bayyinah + direct. Arabic omitted — MS did not return verse-level Arabic.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, specifically Surah An-Nisa 4:136 and Surah Al-Baqarah 2:177, that directly establish the scriptural foundation for belief in Allah, His angels, His books, His messengers, and the Last Day?",
+        "retrievedAt": "2026-04-18T18:55:16Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 4:136",
+      "translation": "O you who have believed, believe in Allah and His Messenger and the Book that He sent down upon His Messenger and the Scripture which He sent down before. And whoever disbelieves in Allah, His angels, His books, His messengers, and the Last Day has certainly gone far astray.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "MS returned this verse via a direct cited_text fragment ('136. O you who have believed, believe...'). Ayah explicitly names five articles of Iman and warns against their rejection — direct scriptural anchor. Bayyinah + direct. Arabic omitted per the same MS pattern.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "What are the primary ayat, specifically Surah An-Nisa 4:136 and Surah Al-Baqarah 2:177, that directly establish the scriptural foundation for belief in Allah, His angels, His books, His messengers, and the Last Day?",
+        "retrievedAt": "2026-04-18T18:55:16Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim 8 (Book 1, Hadith of Jibril via Umar ibn al-Khattab)",
+      "translation": "Inform me about Iman. He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Prophetic definition of Iman explicitly enumerating all six articles — the subtask's precise study target, including Qadr (which the Qur'anic anchor verses do not spell out by name). Bayyinah + direct. Arabic omitted per MS disclaimer.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Which authentic narrations, particularly the definitive Hadith of Jibril found in Sahih Muslim 8 and Sahih al-Bukhari 50, explicitly enumerate all six articles of Iman including the divine decree (Qadr)?",
+        "retrievedAt": "2026-04-18T18:55:16Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; 3 direct. Bar met."
+  }
+}

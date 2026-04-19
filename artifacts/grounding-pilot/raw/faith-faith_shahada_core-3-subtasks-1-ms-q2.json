@@ -1,5 +1,648 @@
 {
-  "error": true,
-  "code": "ERROR",
-  "message": "Chat request was rate limited or rejected by the API. Wait a few seconds and try again."
+  "answer": "**1. In-Depth User Understanding:** Recognizing the believer's profound need to comprehend the foundational tenets of faith, the authentic narrations establish clear articles of belief [1, 2]. The Prophet understood that his followers needed explicit guidance on the unseen, which was delivered when the angel Gabriel came to teach the people their religion [3-5].\n\n**2. Robust and Enduring Framework:** To build a resilient and steadfast theological structure, the Hadith of Jibril explicitly mandates belief in angels as a core article of Iman [1, 2]. In Sahih al-Bukhari, the Prophet establishes this framework by stating that faith is to believe in Allah, His angels, the meeting with Him, His Apostles, and the Resurrection [1].\n\n**3. Elegant and Lucid Presentation:** This fundamental doctrine is presented with exceptional clarity and grace in Sahih Muslim, where the Prophet defines Iman as affirming your faith in Allah, His angels, His Books, His meeting, His Apostles, and the Resurrection [2, 6]. \n\n**4. Seamless and Accessible Experience:** By organizing the core beliefs into these easily understandable pillars, the teachings provide an exceptionally accessible spiritual path for all individuals [1, 6]. Believers can seamlessly internalize these tenets, knowing that the angel Gabriel engaged in this public dialogue specifically to instruct the people in a highly accessible manner [3, 4]",
+  "conversation_id": "b75c54d4-0ca8-4686-8f68-eef116d359e6",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 1,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "84477d4e-af1a-4e48-8e07-e1cb869a6f25"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 2,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "bdeaeba9-9322-4e8e-8329-ef89e4c4fe3e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 3,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "bb8919df-f839-4b98-9da0-25650805bc52"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 4,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "c7f14a48-894a-450a-a183-a5baa88d402c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 5,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "1ce9f552-92b1-4c39-9621-599a838983ad"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 6,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "a0e19a46-24ed-4ee9-86f2-906c5cb1b171"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 7,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "40d155ff-7188-48e9-aa50-6629ccad81d0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 8,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "82b7bfe7-eeb6-444e-9420-f1aa2e8f9361"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 9,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "45779ae4-d0b4-41f0-b28f-54afdae8c9bc"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 10,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "86a84b75-97f7-439f-8311-d266789440fc"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 11,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "9c696e52-aef9-4e01-b465-f007761563b4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 12,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "c1d2a330-fba8-43ef-8318-9d2783da52f6"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 13,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "edec7cab-dd1e-4176-9aa6-6952eb6cfdb7"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 14,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "911e90bb-7e68-4b86-8a83-b6bb0b962814"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 15,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "0f8e9c23-15a5-4a86-be8c-1a7651fbd36c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 16,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "f315f21d-3d88-47e8-825e-d90d0c70e9bf"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 17,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "5a79135b-aca3-413f-a351-7c22b295f9da"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 18,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "8b83ddd6-90cd-4618-b087-325b3a8325cd"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 19,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "6f5cd29d-43b5-4ca0-b476-d50f76a130e8"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 20,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "88947d64-84e5-43a7-9587-e5ea2f0fd564"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 21,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "2eaa101e-98c3-46d8-9e46-70c9c716921b"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 22,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "f95c7d48-a3dd-482c-aaef-80d029beeb9d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 23,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "18592785-b28f-4586-85cb-dc52d78fedb3"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 24,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "3e1f192c-cf76-4aef-be02-943201a78553"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 25,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "7bde2986-2dac-4e8b-8c90-3a1075c46cf3"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 26,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "089d49ba-25f4-4408-9591-312e7428db1e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 27,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "d26289f6-b549-4284-bdde-b29dd7c113b7"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 28,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "38f02cd0-a922-48d6-88f9-0057295ceca4"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 29,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "ee6a54e5-b4b1-477c-9caf-d8c402d20cc1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 30,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "12541a4d-bd7d-44d8-ae6d-5a7ed6433b59"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 31,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "60eab158-063a-4b45-92af-b7989f27fc10"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 32,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "5f157414-8377-4332-af15-44a9b8ee8da4"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 33,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "4a9c4d72-27be-4016-8a20-8e14aa1432ec"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 34,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "02b771ad-3adc-4bdb-a1a5-4041522b5289"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 35,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "ba6bbf47-0a26-4ae3-8d9e-dcde0045158d"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 36,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "1b9c629c-dbb6-42c0-9522-7eb05cbb65c3"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 37,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "156f204c-8351-4932-8233-98f408964fca"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 38,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "15d77235-556d-4f1a-9933-31c801ca852c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 39,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "ce1bf096-91bf-4cb7-be2f-25f31d00fd31"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 40,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "196ee56f-8e5b-4849-8019-c1f9b611382f"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 41,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "7a864eb8-fd15-4b9c-93d9-c11a477105c9"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 42,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "7c3735f2-d012-41c7-a512-812050d3d0cc"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 43,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "08f17333-7644-403f-84fb-8641baa778d1"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 44,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "4e360665-d6b2-4f13-b731-852eae38c86b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 45,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "811245dd-ac92-4fde-8264-de505da96e69"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 46,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "4e220b7d-41b7-4c30-aa9a-873b66e4070c"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 47,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "37a9d460-f0aa-46e7-9e3e-9d8d198aed0a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 48,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "54fddbd5-b8a3-4ac7-ba9f-221f63fdd625"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 49,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "1f5542ab-dfb5-4e5e-b1de-5290c25fe825"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 50,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "cd026e73-7832-4916-8f2a-04baf8da0e9e"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 51,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "c8b02366-d662-4ef4-ade7-15a07f30871c"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 52,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "c061f1dc-5334-4853-8819-6f0d0b75c0e0"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 53,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "42b00d49-1f45-43bc-aebc-bc62ae872ff1"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 54,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "0bfa958f-a102-4849-b3cb-01ea9598a00e"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 55,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "d68ea7eb-a072-43b1-8d6a-05662a336e01"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 56,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "79c6a1f5-0f5d-452e-9fc5-58284749ed28"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 57,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "771cb31e-bd2c-4d89-a959-5ae03f9fa122"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 58,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "55c54274-f946-46a8-be3a-f45dd92110d1"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 59,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "4435cd89-5f83-4846-b5de-f5025b0407e0"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 60,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "1d89c27c-5108-4812-9c6b-18435020b6f2"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 61,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "5c245494-bd3f-4059-bd0a-2fcb0515e54a"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 62,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "937f810d-9f1c-4391-98b3-7b61959db58b"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 63,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "fc160e9d-84aa-44b5-a8fb-f3b7d5770922"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 64,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "91366d18-0378-4b02-a289-dd7da5d24436"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 65,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "63d1871b-8e07-4c1f-bd3b-79d71ede2aff"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 66,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "4261f72a-6e01-4fcb-90c2-a529c69e8353"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 67,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "388b3cdc-3c4b-41c6-a728-884d6bf82993"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 68,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "341ac0bf-7448-495b-86f7-d852f1b0104d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 69,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "fc160e9d-84aa-44b5-a8fb-f3b7d5770922"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 70,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "91366d18-0378-4b02-a289-dd7da5d24436"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 71,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "63d1871b-8e07-4c1f-bd3b-79d71ede2aff"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 72,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "4261f72a-6e01-4fcb-90c2-a529c69e8353"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 73,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "388b3cdc-3c4b-41c6-a728-884d6bf82993"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 74,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "341ac0bf-7448-495b-86f7-d852f1b0104d"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 75,
+      "cited_text": "Volume 1, Book 2, Number 47: Narrated Abu Huraira:",
+      "start_char": 50688,
+      "end_char": 50739,
+      "chunk_id": "fc160e9d-84aa-44b5-a8fb-f3b7d5770922"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 76,
+      "cited_text": "Book 001, Number 0005: This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the autho-",
+      "start_char": 236316,
+      "end_char": 236435,
+      "chunk_id": "91366d18-0378-4b02-a289-dd7da5d24436"
+    },
+    {
+      "source_id": "fd43f41a-8f3b-40a2-8359-4be5c4682e07",
+      "citation_number": 77,
+      "cited_text": "1. When a slave (lady) gives birth to her master.",
+      "start_char": 51622,
+      "end_char": 51672,
+      "chunk_id": "63d1871b-8e07-4c1f-bd3b-79d71ede2aff"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 78,
+      "cited_text": "61 / 1800",
+      "start_char": 235368,
+      "end_char": 235377,
+      "chunk_id": "4261f72a-6e01-4fcb-90c2-a529c69e8353"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 79,
+      "cited_text": "62 / 1800",
+      "start_char": 238709,
+      "end_char": 238718,
+      "chunk_id": "388b3cdc-3c4b-41c6-a728-884d6bf82993"
+    },
+    {
+      "source_id": "30a315f3-55bb-4c32-8a22-9d8b4523a910",
+      "citation_number": 80,
+      "cited_text": "Chapter 2: What is iman and what are its Characteri-stics",
+      "start_char": 233894,
+      "end_char": 233952,
+      "chunk_id": "341ac0bf-7448-495b-86f7-d852f1b0104d"
+    }
+  ]
 }

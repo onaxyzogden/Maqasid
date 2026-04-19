@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[2].subtasks[6]",
+    "subtaskTitle": "Muhabbah (Love) — love Allah and His Messenger above all",
+    "parentTaskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Muhabbah (Love) — love Allah and His Messenger above all' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses (Arabic and English) that directly or contextually establish: Muhabbah (Love) — love Allah and His Messenger above all",
+        "retrievedAt": "2026-04-18T13:00:05Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-6-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith (Bukhari/Muslim preferred) with grade that directly or contextually establish: Muhabbah (Love) — love Allah and His Messenger above all",
+        "retrievedAt": "2026-04-18T13:00:05Z"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:165",
+      "arabic": "وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ",
+      "translation": "...But those who believe are stronger in love for God.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Directly states the Muhabbah-condition of faith: believers are distinguished by the intensity and singularity of their love for Allah. Bayyinah (primary Quran) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "primary Quranic verses that directly or contextually establish Muhabbah — love Allah and His Messenger above all",
+        "retrievedAt": "2026-04-18T13:00:05Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 9:24",
+      "arabic": "قُلْ إِن كَانَ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ وَإِخْوَانُكُمْ وَأَزْوَاجُكُمْ وَعَشِيرَتُكُمْ وَأَمْوَالٌ اقْتَرَفْتُمُوهَا وَتِجَارَةٌ تَخْشَوْنَ كَسَادَهَا وَمَسَاكِنُ تَرْضَوْنَهَا أَحَبَّ إِلَيْكُم مِّنَ اللَّهِ وَرَسُولِهِ وَجِهَادٍ فِي سَبِيلِهِ فَتَرَبَّصُوا حَتَّىٰ يَأْتِيَ اللَّهُ بِأَمْرِهِ",
+      "translation": "Say, [O Muhammad], 'If your fathers, your sons, your brothers, your wives, your relatives, wealth which you have obtained, commerce wherein you fear decline, and dwellings with which you are pleased are more beloved to you than God and His Messenger and jihād [i.e., striving] in His cause, then wait until God executes His command...'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Names the exact hierarchy-of-loves the subtask asks the user to examine: family, wealth, commerce, dwelling, all placed below love of Allah and His Messenger. Directly scripts the Muhabbah condition as operative priority, not emotion alone. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "primary Quranic verses that directly or contextually establish Muhabbah — love Allah and His Messenger above all",
+        "retrievedAt": "2026-04-18T13:00:05Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 3:31",
+      "arabic": "قُلْ إِن كُنتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللَّهُ",
+      "translation": "Say, [O Muhammad], 'If you should love God, then follow me, [so] God will love you and forgive you your sins...'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Supplies the Quranic test of Muhabbah: claimed love of Allah is verified by following the Messenger. Directly binds love to practice — the subtask's 'above all' translates into concrete ittibaʿ. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "primary Quranic verses that directly or contextually establish Muhabbah — love Allah and His Messenger above all",
+        "retrievedAt": "2026-04-18T13:00:05Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 Quran entries; all Bayyinah; all direct. Bar met. Note: q2 Sahih hadith block (Bukhari 'Sweetness of faith' three qualities; 'None of you will have faith till he loves me more than his father...') contained quoted matn but MS did NOT inline canonical Bukhari/Muslim numbers next to the quoted matn, so no hadith entry could be bound with ref↔matn integrity under the no-regex-ref-matching rule. The Quran-biased q1 was sufficient to ground the subtask."
+  }
+}

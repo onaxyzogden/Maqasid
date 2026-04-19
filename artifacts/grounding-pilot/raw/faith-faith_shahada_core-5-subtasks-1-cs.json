@@ -1,0 +1,7 @@
+{
+  "answer": "<disclaimer>\nThe provided sources focus exclusively on prompt engineering best practices and contain no relevant information regarding the Quran, Hadith, or the Hadith of Jibril. The queries below are formulated using external information that you must independently verify.\n</disclaimer>\n\n<queries>\n1. What are the primary ayat, such as Surah Al-Qamar 54:17 which establishes the divine facilitation of memorizing sacred texts, that contextually anchor the religious imperative of preserving and memorizing foundational Arabic revelation?\n2. Which authentic narrations, specifically targeting the exact Arabic transcriptions of Sahih Muslim 8 and Sahih al-Bukhari 50, provide the definitive verbatim text of the Hadith of Jibril required for accurate memorization?\n</queries>\n\n<action_items>\nSince the existing sources lack the information needed to execute this subtask directly, would you like me to use the discovery tool to search the web for comprehensive sources containing the exact Arabic text of the Hadith of Jibril?\n</action_items>",
+  "conversation_id": "341df2d4-45b1-4a26-9f9e-5830b933eac0",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": []
+}

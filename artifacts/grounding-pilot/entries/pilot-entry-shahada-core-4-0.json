@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[4].subtasks[0]",
+    "subtaskTitle": "List any superstitious beliefs or practices you hold",
+    "parentTaskTitle": "Identify and eliminate any practices that contradict Tawhid",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'List any superstitious beliefs or practices you hold' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries: (1) Quran-biased; (2) Hadith-biased.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for superstitious beliefs/practices",
+        "retrievedAt": "2026-04-18T18:39:25Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-0-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for superstitious beliefs/practices",
+        "retrievedAt": "2026-04-18T18:39:25Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-0-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 5:3",
+      "translation": "Prohibited to you are dead animals... and [prohibited is] that you seek decision through divining arrows. That is grave disobedience.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Explicit Quranic prohibition of a superstitious practice — seeking decisions via divining arrows (al-azlam). Directly anchors the subtask's identification of superstitions. Ref-confirmed by MS chunk '3. Prohibited to you are dead animals'.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for superstitious beliefs/practices",
+        "retrievedAt": "2026-04-18T18:39:25Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 5:90",
+      "translation": "O you who have believed, indeed, intoxicants, gambling, [sacrificing on] stone altars [to other than God], and divining arrows are but defilement from the work of Satan, so avoid it that you may be successful.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Names divining arrows and pagan-altar practices alongside intoxicants and gambling as 'defilement from Satan' — directly condemns superstitious categories. Ref-confirmed by MS chunk '90. O you who have believed, indeed, in-'.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for superstitious beliefs/practices",
+        "retrievedAt": "2026-04-18T18:39:25Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0423 (Narrated 'Imran b. Husain)",
+      "translation": "They are those persons who neither practise charm, nor ask others to practise it, nor do they take omens, and repose their trust in their Lord.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "The Prophet identifies the seventy-thousand who enter Paradise without reckoning precisely by negation of charm-practice and omen-taking — directly anchors the subtask's identification of superstitions as theologically disqualifying. Canonical ref and matn both confirmed in MS reference chunks.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for superstitious beliefs/practices",
+        "retrievedAt": "2026-04-18T18:39:25Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih al-Bukhari, Volume 4, Book 52, Number 111 (Narrated Sahl bin Sad Saidi)",
+      "translation": "If there is an evil omen in anything, it is in a house, a woman, and a horse.",
+      "relevance": "contextual",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "Contextual — narration delimiting the scope of omen-belief; classically read alongside 'la tiyarah' (no evil omen) to reject superstitious causation. Canonical ref confirmed by MS chunk 'Volume 4, Book 52, Number 111'.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for superstitious beliefs/practices",
+        "retrievedAt": "2026-04-18T18:39:25Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "4 entries, 3 direct + 1 contextual, all Bayyinah. Bar met on both axes. 10:107 candidate dropped — ref not confirmed in reference chunks for q1."
+  }
+}

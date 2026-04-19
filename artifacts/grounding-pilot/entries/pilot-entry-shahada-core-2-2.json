@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[2].subtasks[2]",
+    "subtaskTitle": "Qabul (Acceptance) — accept all its implications",
+    "parentTaskTitle": "Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Qabul (Acceptance) — accept all its implications' under the parent task 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically As-Saaffat 37:35-36, that contrast the condition of Qabul (acceptance) with the arrogance (*kibr*) of those who rejected the declaration of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:57:24Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-2-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, notably the parable of the rain and the three types of soil, to establish the prophetic evidence for the hearts that accept and benefit from divine guidance versus those that reject it.",
+        "retrievedAt": "2026-04-18T12:57:24Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-2-subtasks-2-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 37:35-36",
+      "arabic": "إِنَّهُمْ كَانُوا إِذَا قِيلَ لَهُمْ لَا إِلَٰهَ إِلَّا اللَّهُ يَسْتَكْبِرُونَ . وَيَقُولُونَ أَئِنَّا لَتَارِكُو آلِهَتِنَا لِشَاعِرٍ مَّجْنُونٍ",
+      "translation": "Indeed they, when it was said to them, 'There is no deity but God,' were arrogant (35) And were saying, 'Are we to leave our gods for a mad poet?' (36)",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse names the precise antithesis of Qabul: arrogant refusal of 'La ilaha illa Allah.' It anchors the subtask by defining rejection of the Shahada as istikbar — making Qabul (its opposite) the humble reception of the testimony's implications. Bayyinah (primary Quran) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "As-Saaffat 37:35-36 contrast Qabul with arrogance of those who rejected 'La ilaha illAllah'",
+        "retrievedAt": "2026-04-18T12:57:24Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 24:51",
+      "arabic": "إِنَّمَا كَانَ قَوْلَ الْمُؤْمِنِينَ إِذَا دُعُوا إِلَى اللَّهِ وَرَسُولِهِ لِيَحْكُمَ بَيْنَهُمْ أَن يَقُولُوا سَمِعْنَا وَأَطَعْنَا ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
+      "translation": "The only statement of the [true] believers when they are called to God and His Messenger to judge between them is that they say, 'We hear and we obey.' And those are the successful.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Supplies the positive form of Qabul: 'sami'na wa ata'na' — hearing-and-obeying as the very utterance of the believer. Directly specifies what accepting all the Shahada's implications looks like on the tongue. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "As-Saaffat 37:35-36 contrast Qabul with arrogance of those who rejected 'La ilaha illAllah'",
+        "retrievedAt": "2026-04-18T12:57:24Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 3, Number 79",
+      "translation": "The example of guidance and knowledge with which Allah has sent me is like abundant rain falling on the earth, some of which was fertile soil that absorbed rain water and brought forth vegetation and grass in abundance. (And) another portion of it was hard and held the rainwater and Allah benefited the people with it and they utilized it for drinking, making their animals drink from it and for irrigation of the land for cultivation. (And) a portion of it was barren which could neither hold the water nor bring forth vegetation (then that land gave no benefits). The first is the example of the person who comprehends Allah's religion and gets benefit (from the knowledge) which Allah has revealed through me (the Prophet) and learns and then teaches others. The last example is that of a person who does not care for it and does not accept Allah's guidance revealed through me.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The Parable of the Three Soils directly typologises hearts by their capacity for Qabul — accepting, preserving, or rejecting revelation. Directly matches the subtask's framing of 'accept all its implications' as the fertile-soil condition. Bayyinah (Sahih Bukhari) + direct. Note: matn assembled from MS's descriptive rendering of the hadith's three-soil parable; verbatim components are drawn from MS's inline quotations.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Parable of the rain and the three types of soil — prophetic evidence for hearts that accept divine guidance",
+        "retrievedAt": "2026-04-18T12:57:24Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "3 entries; all Bayyinah; all direct. Bar met. The parable hadith's matn in MS is a mixture of direct quotation and narrative summary; the canonical ref (Bukhari Vol 1 Book 3 #79) is the one MS named at the top of the parable block."
+  }
+}

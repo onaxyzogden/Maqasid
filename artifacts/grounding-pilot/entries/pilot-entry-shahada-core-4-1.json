@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[4].subtasks[1]",
+    "subtaskTitle": "Identify any reliance on amulets, charms, or talismans",
+    "parentTaskTitle": "Identify and eliminate any practices that contradict Tawhid",
+    "session": "faith-2026-04-18-b",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Identify any reliance on amulets, charms, or talismans' under the parent task 'Identify and eliminate any practices that contradict Tawhid' (module: faith_shahada_core), propose exactly 2 NotebookLM queries: (1) Quran-biased; (2) Hadith-biased.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for reliance on amulets/charms/talismans",
+        "retrievedAt": "2026-04-18T18:41:24Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for reliance on amulets/charms/talismans",
+        "retrievedAt": "2026-04-18T18:41:24Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-4-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 39:38",
+      "translation": "And if you asked them, 'Who created the heavens and the earth?' they would surely say, 'God.' Say, 'Then have you considered what you invoke besides God? If God intended me harm, are they removers of His harm; or if He intended me mercy, are they withholders of His mercy?' Say, 'Sufficient for me is God; upon Him [alone] rely the [wise] reliers.'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Quran confronts the very logic of amulet/charm-reliance — powerless intermediaries cannot avert God's decree or withhold His mercy. Concludes with the command to rely on God alone. Ref confirmed by MS chunk '38. And if you asked them, \"Who created\"'.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Quran-biased query for reliance on amulets/charms/talismans",
+        "retrievedAt": "2026-04-18T18:41:24Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1, Number 0423 (Narrated 'Imran b. Husain)",
+      "translation": "They are those persons who neither practise charm, nor ask others to practise it, nor do they take omens, and repose their trust in their Lord.",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "hadithGrade": "Sahih",
+      "rationale": "The seventy-thousand-without-reckoning hadith explicitly names avoidance of charm-practice (ruqyah via forbidden means / talismanic reliance) as the defining trait of pure tawakkul. Direct anchor for identifying amulet/charm reliance as a contradiction to Tawhid. Canonical ref and matn both confirmed.",
+      "notebookTrace": {
+        "corpusId": "be921648-2088-4860-bdd8-283a5e7301f3",
+        "query": "Hadith-biased query for reliance on amulets/charms/talismans",
+        "retrievedAt": "2026-04-18T18:41:24Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 entries, both Bayyinah and direct. Bar met on both axes. 6:17 candidate and the Bukhari camel-necklace narration dropped — page-level reference 'Volume 4 - 691 / 1700' is not a canonical hadith ref (Volume/Book/Number or Kitab/Hadith#); rejected per session-A matn-without-canonical-ref rule."
+  }
+}

@@ -1,0 +1,50 @@
+  Could not parse 2 queries from CS. Writing fallback.
+  retry 1/3 in 30s (rate-limited/error)
+  retry 1/3 in 30s (rate-limited/error)
+Processing 31 subtasks.
+[1/31] SKIP (already retrieved): faith.faith_shahada_core[0].subtasks[1]
+[2/31] SKIP (already retrieved): faith.faith_shahada_core[0].subtasks[2]
+[3/31] SKIP (already retrieved): faith.faith_shahada_core[0].subtasks[3]
+[4/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[0]
+[5/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[1]
+[6/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[2]
+[7/31] SKIP (already retrieved): faith.faith_shahada_core[1].subtasks[3]
+[8/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[0]
+[9/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[1]
+[10/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[2]
+[11/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[3]
+[12/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[4]
+[13/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[5]
+[14/31] SKIP (already retrieved): faith.faith_shahada_core[2].subtasks[6]
+[15/31] SKIP (already retrieved): faith.faith_shahada_core[3].subtasks[0]
+[16/31] SKIP (already retrieved): faith.faith_shahada_core[3].subtasks[1]
+[17/31] SKIP (already retrieved): faith.faith_shahada_core[3].subtasks[2]
+[18/31] faith.faith_shahada_core[3].subtasks[3] :: Study belief in the Messengers (ar-Rusul)
+  OK.
+[19/31] faith.faith_shahada_core[3].subtasks[4] :: Study belief in the Last Day (al-Yawm al-Akhir)
+  OK.
+[20/31] faith.faith_shahada_core[3].subtasks[5] :: Study belief in Qadar — Divine Decree (al-Qadr)
+  OK.
+[21/31] faith.faith_shahada_core[4].subtasks[0] :: List any superstitious beliefs or practices you hold
+  OK.
+[22/31] faith.faith_shahada_core[4].subtasks[1] :: Identify any reliance on amulets, charms, or talismans
+  OK.
+[23/31] faith.faith_shahada_core[4].subtasks[2] :: Check for habits of swearing by other than Allah
+  OK.
+[24/31] faith.faith_shahada_core[4].subtasks[3] :: Remove or correct any identified contradictions
+  OK.
+[25/31] faith.faith_shahada_core[5].subtasks[0] :: Read the full hadith text in Arabic and English
+  OK.
+[26/31] faith.faith_shahada_core[5].subtasks[1] :: Memorise the Arabic text
+  OK.
+[27/31] faith.faith_shahada_core[5].subtasks[2] :: Islam — study the 5 pillars: Shahada, Salah, Zakah, Sawm, Hajj
+  OK.
+[28/31] faith.faith_shahada_core[5].subtasks[3] :: Iman — study the 6 articles: Allah, Angels, Books, Messengers, Last Da
+  OK.
+[29/31] faith.faith_shahada_core[5].subtasks[4] :: Ihsan — memorise the definition: worship Allah as though you see Him
+  OK.
+[30/31] faith.faith_shahada_core[5].subtasks[5] :: Study the signs of the Hour mentioned at the end of the hadith
+  OK.
+[31/31] faith.faith_shahada_core[5].subtasks[6] :: Reflect: which level describes your current state?
+  OK.
+DONE.

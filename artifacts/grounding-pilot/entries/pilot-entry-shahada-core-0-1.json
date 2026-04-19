@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[0].subtasks[1]",
+    "subtaskTitle": "Reflect on what \"no god but Allah\" demands of your daily life",
+    "parentTaskTitle": "Testify there is no God but Allah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "(initial test call — pre-driver)",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses, specifically 2:165, 9:24, 98:5, and 65:3, with Arabic and English translations, that define the manifestation of Tawhid through daily reliance, absolute fear, and prioritized love for Allah.",
+        "retrievedAt": "2026-04-18T12:46:50Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-0-subtasks-1-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Extract Sahih hadith narrations, including the sweetness of faith (Sahih Bukhari 16) and branches of faith (Sahih Bukhari 9), that specify the daily ethical and spiritual requirements for fulfilling the Shahada testimony.",
+        "retrievedAt": "2026-04-18T12:46:50Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-0-subtasks-1-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 2:165",
+      "arabic": "وَمِنَ النَّاسِ مَن يَتَّخِذُ مِن دُونِ اللَّهِ أَندَادًا يُحِبُّونَهُمْ كَحُبِّ اللَّهِ ۖ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ",
+      "translation": "And [yet], among the people are those who take other than Allah as equals [to Him]. They love them as they [should] love Allah. But those who believe are stronger in love for Allah...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse explicitly names the daily test of 'no god but Allah' — whether the heart's love for rival objects (persons, wealth, status) competes with love of Allah — and commands that the believer's love be strongest for Him. Bayyinah: primary Quran text; direct: the subtask asks precisely this reflection.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses, specifically 2:165, 9:24, 98:5, and 65:3, with Arabic and English translations, that define the manifestation of Tawhid through daily reliance, absolute fear, and prioritized love for Allah.",
+        "retrievedAt": "2026-04-18T12:46:50Z"
+      }
+    },
+    {
+      "kind": "quran",
+      "ref": "Quran 9:24",
+      "arabic": "قُلْ إِن كَانَ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ وَإِخْوَانُكُمْ وَأَزْوَاجُكُمْ وَعَشِيرَتُكُمْ وَأَمْوَالٌ اقْتَرَفْتُمُوهَا وَتِجَارَةٌ تَخْشَوْنَ كَسَادَهَا وَمَسَاكِنُ تَرْضَوْنَهَا أَحَبَّ إِلَيْكُم مِّنَ اللَّهِ وَرَسُولِهِ وَجِهَادٍ فِي سَبِيلِهِ فَتَرَبَّصُوا حَتَّىٰ يَأْتِيَ اللَّهُ بِأَمْرِهِ",
+      "translation": "Say, [O Muhammad], 'If your fathers, your sons, your brothers, your wives, your relatives, wealth which you have obtained, commerce wherein you fear decline, and dwellings with which you are pleased are more beloved to you than Allah and His Messenger and jihad [i.e., striving] in His cause, then wait until Allah executes His command...'",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The ayah enumerates the exact categories of daily attachment — family, wealth, commerce, dwelling — against which 'no god but Allah' is tested. It converts the Shahada from abstract doctrine into a daily audit of priority, matching the subtask's reflective framing. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve primary Quranic verses, specifically 2:165, 9:24, 98:5, and 65:3, with Arabic and English translations, that define the manifestation of Tawhid through daily reliance, absolute fear, and prioritized love for Allah.",
+        "retrievedAt": "2026-04-18T12:46:50Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 2, Number 8",
+      "translation": "Faith (Belief) consists of more than sixty branches (i.e. parts). And Haya (modesty, bashfulness, and self-respect) is a part of faith.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Names faith itself as a branching framework with the Shahada at its apex and everyday ethical acts (haya, removing harm) as its lower branches — making the testimony something that demands daily ethical enactment, exactly what the subtask asks the user to reflect on. Bayyinah (Sahih Bukhari) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Extract Sahih hadith narrations, including the sweetness of faith (Sahih Bukhari 16) and branches of faith (Sahih Bukhari 9), that specify the daily ethical and spiritual requirements for fulfilling the Shahada testimony.",
+        "retrievedAt": "2026-04-18T12:46:50Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Bukhari, Volume 1, Book 2, Number 15",
+      "translation": "Whoever possesses the following three qualities will have the sweetness (delight) of faith: 1. The one to whom Allah and His Apostle becomes dearer than anything else. 2. Who loves a person... only for Allah's sake. 3. Who hates to revert to Atheism (disbelief) as he hates to be thrown into the fire.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "Specifies the affective daily signature of 'no god but Allah': that Allah and His Messenger are dearer than all else, that love of others is for Allah's sake, and that apostasy is dreaded as fire. These are the live-wire daily demands of the testimony the subtask asks the user to reflect on. Bayyinah + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Extract Sahih hadith narrations, including the sweetness of faith (Sahih Bukhari 16) and branches of faith (Sahih Bukhari 9), that specify the daily ethical and spiritual requirements for fulfilling the Shahada testimony.",
+        "retrievedAt": "2026-04-18T12:46:50Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "4 entries; all Bayyinah; all direct. Bar met: ≥1 entry with provenanceTier ∈ {Bayyinah, Qarina} ∧ relevance ∈ {direct, contextual}."
+  }
+}

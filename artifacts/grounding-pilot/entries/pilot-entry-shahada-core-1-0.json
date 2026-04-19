@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "idPath": "faith.faith_shahada_core[1].subtasks[0]",
+    "subtaskTitle": "Study the linguistic meaning of La ilaha illAllah",
+    "parentTaskTitle": "Study the meaning and conditions of La ilaha illAllah",
+    "session": "faith-2026-04-18-a",
+    "claudeScholarQuery": "For a MILOS subtask titled 'Study the linguistic meaning of La ilaha illAllah' under the parent task 'Study the meaning and conditions of La ilaha illAllah' (module: faith_shahada_core), propose exactly 2 NotebookLM queries to a Quran/Hadith primary-source corpus: (1) Quran-biased — name likely primary ayat that directly or contextually anchor this subtask; (2) Hadith-biased — name likely Sahih hadith (Bukhari/Muslim preferred) that directly or contextually anchor this subtask. Return the queries inside a <queries></queries> block as a numbered list, each one sentence, ready to paste into a retrieval system. Do NOT answer the queries — query formulation only.",
+    "muslimScholarQueries": [
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically 47:19 and 43:26-27, that anchor the linguistic structure of negation (Nafi) and affirmation (Ithbat) inherent in the declaration of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:51:17Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-0-ms-q1.json"
+      },
+      {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, such as narrations regarding the \"Kalima\" as the key to Paradise, that directly define the primary-source linguistic meaning of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:51:17Z",
+        "outputFile": "artifacts/grounding-pilot/raw/faith-faith_shahada_core-1-subtasks-0-ms-q2.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "kind": "quran",
+      "ref": "Quran 47:19",
+      "translation": "So know, [O Muhammad], that there is no deity except God...",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "The verse is the canonical Quranic locus of the La ilaha illAllah formula and is imperatively framed as knowledge ('So know') — directly anchoring the subtask's study of its linguistic meaning as negation-then-affirmation. Bayyinah: primary Quran text confirmed by MS reference chunk '19. So know, [O Muhammad], that there is'. Arabic omitted: MS explicitly disclosed that its Arabic rendering was supplied from 'standard knowledge' rather than the primary source material, so no verbatim Arabic was available to bind.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Identify primary Quranic verses, specifically 47:19 and 43:26-27, that anchor the linguistic structure of negation (Nafi) and affirmation (Ithbat) inherent in the declaration of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:51:17Z"
+      }
+    },
+    {
+      "kind": "hadith",
+      "ref": "Sahih Muslim, Book 1 (Kitab al-Iman), narration of 'He who professed that there is no god but Allah'",
+      "translation": "He who professed that there is no god but Allah and made a denial of everything which the people worship beside Allah, his property and blood became inviolable, and their affairs rest with Allah.",
+      "hadithGrade": "Sahih",
+      "relevance": "direct",
+      "provenanceTier": "Bayyinah",
+      "rationale": "This narration articulates the exact linguistic two-move structure of the Kalima — profession of Allah's sole divinity and denial of everything worshipped beside Him — which is the Nafi/Ithbat pair the subtask asks the user to study. Bayyinah (Sahih Muslim, matn quoted verbatim from MS reference chunk) + direct.",
+      "notebookTrace": {
+        "corpusId": "1c17b03b-3537-4fde-b5ba-562dbe0c1aab",
+        "query": "Retrieve Sahih hadith from Bukhari and Muslim, such as narrations regarding the \"Kalima\" as the key to Paradise, that directly define the primary-source linguistic meaning of \"La ilaha illAllah.\"",
+        "retrievedAt": "2026-04-18T12:51:17Z"
+      }
+    }
+  ],
+  "_groundedBarCheck": {
+    "passes": true,
+    "reason": "2 entries; both Bayyinah; both direct. Bar met: ≥1 entry with provenanceTier ∈ {Bayyinah, Qarina} ∧ relevance ∈ {direct, contextual}. Rejected: Quran 43:26-27 — MS reference chunks point to 43:24 and 43:28 (not the queried 26-27), so no verse at 43:26-27 could be bound with ref↔matn integrity. Rejected: 'Bunya al-Islam' variant and '74/1800' (knowing-death) narration — cited_text snippets were too fragmentary (book/number only) to bind matn verbatim. Arabic for 47:19 omitted by rule 7: MS disclosed it supplied Arabic from outside the corpus."
+  }
+}

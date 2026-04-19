@@ -27,8 +27,8 @@ SEED = ROOT / "src/data/seed-tasks/faith-seed-tasks.js"
 RAW = ROOT / "artifacts/grounding-pilot/raw"
 RAW.mkdir(parents=True, exist_ok=True)
 
-CS_ID = "91d2bd2b-b786-4f0e-a846-6be740ec05ab"
-MS_ID = "1c17b03b-3537-4fde-b5ba-562dbe0c1aab"
+CS_ID = os.environ.get("MILOS_CS_ID", "5191ba7b-142c-436c-b967-86a5aa6d0f28")
+MS_ID = os.environ.get("MILOS_MS_ID", "be921648-2088-4860-bdd8-283a5e7301f3")
 
 PY = r"C:\Python314\python.exe"
 
@@ -65,6 +65,9 @@ def run_ask(notebook_id: str, query: str, outfile: Path) -> bool:
     """
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
+    alt_home = os.environ.get("MILOS_NOTEBOOKLM_HOME")
+    if alt_home:
+        env["NOTEBOOKLM_HOME"] = alt_home
 
     delays = [30, 90, 180]  # backoff for up to 3 retries
     for attempt in range(len(delays) + 1):
