@@ -390,7 +390,7 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
   const doneColId     = columns.find((c) => c.id.endsWith('_done'))?.id ?? null;
   const progressColId = columns.find((c) => c.id.endsWith('_progress'))?.id ?? null;
 
-  const { tasks, tagGroups, metrics } = useMemo(() => {
+  const { tasks, tagGroups, statusGroups, metrics } = useMemo(() => {
     const tasks = tasksByProject[project.id] || [];
 
     // Tag grouping
@@ -407,6 +407,15 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
     const tagGroups = [...grouped.entries()]
       .map(([tag, items]) => ({ tag, tasks: [...items].sort(byPriority) }))
       .sort((a, b) => b.tasks.length - a.tasks.length);
+
+    // Status groups (for 3-column kanban layout)
+    const statusGroups = { todo: [], 'in-progress': [], done: [] };
+    for (const task of tasks) {
+      if (task.columnId === doneColId)          statusGroups['done'].push(task);
+      else if (task.columnId === progressColId) statusGroups['in-progress'].push(task);
+      else                                       statusGroups['todo'].push(task);
+    }
+    for (const arr of Object.values(statusGroups)) arr.sort(byPriority);
 
     // Metrics
     const doneTasks     = tasks.filter((t) => t.columnId === doneColId);
@@ -428,6 +437,7 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
     return {
       tasks,
       tagGroups,
+      statusGroups,
       metrics: {
         total, completedPct, doneTasks, inProgress, urgentTasks, urgentDone,
         criticalGaps, totalSubs, doneSubs, subtaskPct, recentlyDone, masteryCandidates,
@@ -460,48 +470,56 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
 
   return (
     <div className="pld">
-      {/* Task Grid */}
-      <div className="pld__grid">
-        {tagGroups.map(({ tag, tasks: groupTasks }) => {
+      {/* 3-Column Kanban */}
+      <div className="pld__kanban">
+        {['todo', 'in-progress', 'done'].map((status) => {
+          const colTasks = statusGroups[status];
+          const colLabel = status === 'todo' ? 'To Do'
+                         : status === 'in-progress' ? 'In Progress' : 'Done';
           return (
-            <div key={tag} style={{ display: 'contents' }}>
-              {/* Section divider */}
-              <div className="pld__divider">
-                <span className="pld__divider-label">{capitalize(tag)}</span>
-                <span className="pld__divider-count">{groupTasks.length} task{groupTasks.length !== 1 ? 's' : ''}</span>
+            <div key={status} className={`pld__col pld__col--${status}`}>
+              <div className="pld__col-head">
+                <span className="pld__col-head-label">{colLabel}</span>
+                <span className="pld__col-head-count">{colTasks.length}</span>
               </div>
-              {/* Task cards — full width, sorted by priority */}
-              {groupTasks.map((task, i) => (
-                selectedTaskId === task.id ? (
-                  <InlineTaskDetail
-                    key={task.id}
-                    project={project}
-                    projectId={project.id}
-                    taskId={task.id}
-                    levelColor={levelColor}
-                    onClose={() => onSelectTask(null)}
-                  />
-                ) : (
-                  <PillarTaskCard
-                    key={task.id}
-                    task={task}
-                    index={i}
-                    span={12}
-                    status={getStatus(task)}
-                    levelColor={levelColor}
-                    onSelectTask={onSelectTask}
-                  />
-                )
-              ))}
+              <div className="pld__col-body">
+                {colTasks.map((task, i) =>
+                  selectedTaskId === task.id ? (
+                    <InlineTaskDetail
+                      key={task.id}
+                      project={project}
+                      projectId={project.id}
+                      taskId={task.id}
+                      levelColor={levelColor}
+                      onClose={() => onSelectTask(null)}
+                    />
+                  ) : (
+                    <PillarTaskCard
+                      key={task.id}
+                      task={task}
+                      index={i}
+                      span={12}
+                      status={status}
+                      levelColor={levelColor}
+                      onSelectTask={onSelectTask}
+                    />
+                  )
+                )}
+                {colTasks.length === 0 && (
+                  <div className="pld__col-empty">No tasks</div>
+                )}
+              </div>
             </div>
           );
         })}
-
-        {/* Level-specific insight panel */}
-        {InsightCard && (
-          <InsightCard metrics={metrics} levelColor={levelColor} />
-        )}
       </div>
+
+      {/* Level-specific insight panel */}
+      {InsightCard && (
+        <div className="pld__insight-wrap">
+          <InsightCard metrics={metrics} levelColor={levelColor} />
+        </div>
+      )}
 
       {/* Footer */}
       <div className="pld__footer">

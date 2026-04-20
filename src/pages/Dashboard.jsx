@@ -570,27 +570,6 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* ── Top greeting bar ── */}
-      <div className="insight-greeting">
-        <div className="insight-greeting__avatar">{initials}</div>
-        <div className="insight-greeting__text-block">
-          <span className="insight-greeting__name">{firstName}, {greeting}.</span>
-          <span className="insight-greeting__motivation">{motivation}</span>
-        </div>
-        {isIslamic && nextPrayer && (
-          <div className="insight-greeting__prayer">
-            <span className="insight-prayer-name">{nextPrayer.name}</span>
-            <span className="insight-prayer-time">{nextPrayer.time}</span>
-          </div>
-        )}
-        <div className="insight-greeting__actions">
-          <Link to="/app/work" className="insight-action-btn">+ Create Task</Link>
-          <button className="insight-action-btn insight-action-btn--outline">Start meeting</button>
-          <Link to="/app/office" className="insight-action-btn insight-action-btn--outline">
-            <CalendarDays size={14} /> View Calendar
-          </Link>
-        </div>
-      </div>
 
       {/* ── Onboarding Checklist ── */}
       <div data-tour="onboarding-checklist">

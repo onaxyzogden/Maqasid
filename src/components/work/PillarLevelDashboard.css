@@ -102,6 +102,68 @@
 
 /* Card styles moved to shared/DashboardTaskCard.css */
 
+/* ── 3-Column Kanban layout ── */
+.pld__kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+.pld__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+.pld__col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+}
+.pld__col--todo .pld__col-head {
+  background: var(--bg3);
+}
+.pld__col--in-progress .pld__col-head {
+  background: color-mix(in srgb, #F59E0B 14%, var(--surface));
+}
+.pld__col--done .pld__col-head {
+  background: color-mix(in srgb, var(--col-done) 12%, var(--surface));
+}
+.pld__col-head-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text2);
+  font-family: var(--font-heading);
+}
+.pld__col-head-count {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text3);
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+.pld__col-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.pld__col-empty {
+  text-align: center;
+  color: var(--text3);
+  font-size: var(--text-sm);
+  padding: var(--space-8) var(--space-4);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+}
+.pld__insight-wrap {
+  margin-top: var(--space-6);
+}
+
 /* ── Insight panel (full-width) ── */
 .pld__insight {
   grid-column: 1 / -1;
@@ -281,6 +343,9 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
+  .pld__kanban {
+    grid-template-columns: 1fr;
+  }
   .pld__grid {
     grid-template-columns: 1fr;
     gap: 14px;

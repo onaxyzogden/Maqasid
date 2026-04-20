@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-19] ui | PillarLevelDashboard — 3-Column Kanban + Dashboard Greeting Removed
+
+**Completed:**
+- `PillarLevelDashboard` task grid replaced from tag-group dividers to 3-column TO DO / IN PROGRESS / DONE kanban layout. Status derived from existing `doneColId`/`progressColId` column ID matching (no new data fields). Columns have colored header tints (neutral/amber/green). Empty columns show dashed placeholder. Insight card preserved below kanban. Responsive: stacks to 1 column on ≤900px.
+- `insight-greeting` bar (avatar + name + Create Task / Start meeting / View Calendar) removed from `Dashboard.jsx`.
+
+**Files changed:** `src/components/work/PillarLevelDashboard.jsx`, `src/components/work/PillarLevelDashboard.css`, `src/pages/Dashboard.jsx`
+
 ## [2026-04-19] feat | Amanah Grade Pipeline — Session 2 (multi-pillar)
 
 Extended the Amanah Gate grading pipeline to cover remaining 6 pillars (life, family, intellect, wealth, environment, ummah).
