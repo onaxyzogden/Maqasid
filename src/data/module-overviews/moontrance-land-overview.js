@@ -1,4 +1,4 @@
-// MTC Land module — Overview cards + Maqasid framework data.
+// Land module — Overview cards + Maqasid framework data.
 // Land acquisition, soil stewardship (khilafah), water systems, regenerative agriculture.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 2:30, 7:56, 55:10.
@@ -88,7 +88,7 @@ export const OVERVIEW = [
 ];
 
 export const MAQASID = {
-  label: 'MTC Land',
+  label: 'Land',
   necessities: [
     'Land acquired through rigorous due diligence with khilafah framing',
     'Basic infrastructure: water access, road access, and legal protection from speculative resale',

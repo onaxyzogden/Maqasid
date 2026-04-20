@@ -1,4 +1,4 @@
-// MTC Residency module — Overview cards + Maqasid framework data.
+// Residency module — Overview cards + Maqasid framework data.
 // Long-term community formation, residency model, trust-building, permanence.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 59:9, 49:13, 42:38.
@@ -88,7 +88,7 @@ export const OVERVIEW = [
 ];
 
 export const MAQASID = {
-  label: 'MTC Residency',
+  label: 'Residency',
   necessities: [
     'Community covenant signed and understood by all founding residents',
     'Governance structure (shura-based) documented and operational',

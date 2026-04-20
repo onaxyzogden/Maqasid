@@ -8484,7 +8484,7 @@ The ultimate test of any stewardship project is whether it survives its founders
     {
       title: 'Build a replicable Islamic land stewardship model that other communities can adopt and adapt',
       priority: 'medium', tags: ['model', 'ummah', 'replication'],
-      description: 'A single regenerative land project is an oasis. A replicable model is a civilisational shift. This task synthesises the entire MTC Land experience into an open-source, community-tested framework that any Muslim community in any climate can follow — scaling the khilafah al-ard mandate from one parcel to a global movement.',
+      description: 'A single regenerative land project is an oasis. A replicable model is a civilisational shift. This task synthesises the entire Land experience into an open-source, community-tested framework that any Muslim community in any climate can follow — scaling the khilafah al-ard mandate from one parcel to a global movement.',
       subtasks: [
         { title: 'Conduct a post-implementation review identifying what worked, what failed, and what should be done differently', done: false,
           sources: `**I. Quran**
@@ -10132,7 +10132,7 @@ A replicable model must distinguish between principles (universal) and practices
 5. Validate the classification by asking: "Could a community in a different climate, with different demographics, implement this component with the guidance provided?"
 6. Revise any component where the answer is no, adding the flexibility or guidance needed.
 7. Completion indicator: a complete component audit with universal/adaptable/site-specific classifications and customisation guidance for all adaptable templates.` },
-        { title: 'Write the MTC Seasonal Framework Guide for external audiences', done: false,
+        { title: 'Write the Seasonal Framework Guide for external audiences', done: false,
           sources: `**I. Hadith**
 
 
@@ -10204,7 +10204,7 @@ A printed guide is a starting point, but communities need ongoing access to temp
 5. Maintain a "Success Stories" section featuring pilot communities and their adaptations.
 6. Assign a content maintainer who updates resources based on feedback, adds new materials as the framework evolves, and moderates community discussions.
 7. Completion indicator: digital hub live with core framework materials, at least 5 downloadable templates, 3 video tutorials, and an active community channel.` },
-        { title: 'Establish quality standards for communities using the MTC Seasonal name', done: false,
+        { title: 'Establish quality standards for communities using the Seasonal name', done: false,
           sources: `**I. Quran**
 
 
@@ -10213,16 +10213,16 @@ A printed guide is a starting point, but communities need ongoing access to temp
 **Translation:** And do not pursue that of which you have no knowledge. Establishing quality standards ensures communities using the MTC name do so with verified knowledge and integrity.`,
           description: `**Why?**
 
-As the framework spreads, quality control becomes essential. A community that uses the MTC name but strips out the Islamic spiritual framework, neglects food safety, or mistreats volunteers damages the reputation of every community in the network. Quality standards protect both the brand and the mission — they ensure that "MTC Seasonal" consistently means a faith-rooted, well-managed, community-serving programme. This is not gatekeeping but guardianship (ri'ayah) of a shared trust.
+As the framework spreads, quality control becomes essential. A community that uses the MTC name but strips out the Islamic spiritual framework, neglects food safety, or mistreats volunteers damages the reputation of every community in the network. Quality standards protect both the brand and the mission — they ensure that "Seasonal" consistently means a faith-rooted, well-managed, community-serving programme. This is not gatekeeping but guardianship (ri'ayah) of a shared trust.
 
 
 **How?**
 
-1. Define non-negotiable standards that every MTC Seasonal programme must meet: (a) daily congregational salah anchors every season, (b) Quranic and Prophetic themes are integrated into all programming, (c) shura process is active and documented, (d) food safety protocols are followed, and (e) volunteers are onboarded and recognised.
+1. Define non-negotiable standards that every Seasonal programme must meet: (a) daily congregational salah anchors every season, (b) Quranic and Prophetic themes are integrated into all programming, (c) shura process is active and documented, (d) food safety protocols are followed, and (e) volunteers are onboarded and recognised.
 2. Define recommended practices that are strongly encouraged but adaptable: hospitality programme, children's tarbiyah, seed library, and formal volunteer pathways.
 3. Create a simple self-assessment checklist that communities can use annually to evaluate their adherence to standards.
 4. Establish a peer review process: communities in the network visit or virtually review each other annually, offering constructive feedback.
-5. Design a recognition system: communities meeting all non-negotiable standards receive a "MTC Seasonal Certified" designation.
+5. Design a recognition system: communities meeting all non-negotiable standards receive a "Seasonal Certified" designation.
 6. Handle non-compliance with compassion and support — the goal is to help communities meet standards, not to exclude them.
 7. Completion indicator: quality standards document published, self-assessment checklist created, and peer review process piloted with at least 2 communities.` },
       ],
@@ -10469,7 +10469,7 @@ The best programme in the world cannot scale if no one knows about it. A media a
 
 **How?**
 
-1. Define the core narrative: "MTC Seasonal reconnects Muslim communities to the earth through a four-season pathway of planting, tending, harvesting, and reflecting — rooted in Quran and Sunnah, producing food, knowledge, and community."
+1. Define the core narrative: "Seasonal reconnects Muslim communities to the earth through a four-season pathway of planting, tending, harvesting, and reflecting — rooted in Quran and Sunnah, producing food, knowledge, and community."
 2. Create a content calendar aligned with the four seasons: spring planting stories, summer growth updates, autumn harvest celebrations, winter reflection pieces.
 3. Produce high-quality visual content: professional photographs of each season's activities, short video documentaries (3-5 minutes each) following participants through a full cycle, and designed infographics explaining the model.
 4. Distribute through multiple channels: social media (Instagram and YouTube for visual content, Twitter/X for thought leadership), Muslim media outlets (press releases for events), agricultural publications (framework articles), and the programme's own newsletter.
@@ -10600,9 +10600,9 @@ Impact measurement completes the cycle of accountability. The community that gre
       ],
     },
     {
-      title: 'Document the complete MTC Seasonal model for academic publication and institutional sharing',
+      title: 'Document the complete Seasonal model for academic publication and institutional sharing',
       priority: 'urgent', tags: ['publication', 'documentation', 'academic', 'institutional'],
-      description: 'Produce a comprehensive written account of the MTC Seasonal model suitable for academic journals, institutional reports, and educational curricula. This documentation elevates the model from a community project to a contribution to knowledge — accessible to researchers, policymakers, educators, and community leaders who can study, cite, critique, and build upon it.',
+      description: 'Produce a comprehensive written account of the Seasonal model suitable for academic journals, institutional reports, and educational curricula. This documentation elevates the model from a community project to a contribution to knowledge — accessible to researchers, policymakers, educators, and community leaders who can study, cite, critique, and build upon it.',
       subtasks: [
         { title: 'Write a case study documenting the model\'s development, implementation, and outcomes', done: false,
           sources: `**I. Quran**
@@ -10713,7 +10713,7 @@ Curriculum development embeds the MTC model in educational institutions, reachin
 5. Create a slide deck and instructor's guide to lower the barrier for faculty adoption.
 6. Share the module with Islamic studies and environmental studies departments at 5-10 universities.
 7. Completion indicator: curriculum module written with lesson plans, reading list, assessment rubrics, and instructor guide, shared with at least 3 university departments.` },
-        { title: 'Archive the complete MTC Seasonal documentation in accessible public formats', done: false,
+        { title: 'Archive the complete Seasonal documentation in accessible public formats', done: false,
           sources: `**I. Hadith**
 
 

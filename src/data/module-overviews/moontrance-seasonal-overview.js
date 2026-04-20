@@ -1,4 +1,4 @@
-// MTC Seasonal module — Overview cards + Maqasid framework data.
+// Seasonal module — Overview cards + Maqasid framework data.
 // Seasonal participation pathway: planting, tending, harvest, reflection.
 // Quranic text grounded via quran.ai MCP (fetch_quran + fetch_translation,
 // editions: ar-simple-clean, en-abdel-haleem) for ayat 6:99, 36:33-35, 14:24-25.
@@ -115,7 +115,7 @@ export const OVERVIEW = [
 ];
 
 export const MAQASID = {
-  label: 'MTC Seasonal',
+  label: 'Seasonal',
   necessities: [
     'Daily salah in jama\u2018ah as the anchor of every seasonal programme',
     'Seasonal calendar aligned with both agricultural and Islamic cycles',
