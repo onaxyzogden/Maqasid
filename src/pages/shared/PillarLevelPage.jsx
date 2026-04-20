@@ -58,7 +58,19 @@ export default function PillarLevelPage({
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
 
-  useEffect(() => { ensureProjectsFn(); }, []);
+  useEffect(() => {
+    ensureProjectsFn();
+    // After seeding, explicitly reload tasks. The projects-dep effect below
+    // won't re-fire when the project already existed in the store (AppShell
+    // preloads all projects on startup), leaving the store stale if localStorage
+    // was cleared between visits. Read store state directly — no subscription.
+    const currentProjects = useProjectStore.getState().projects;
+    for (const lvl of VALID_LEVELS) {
+      const boardId = `${boardPrefix}_${pillarKey}_${lvl}`;
+      if (currentProjects.some((p) => p.id === boardId)) loadTasks(boardId);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     for (const lvl of VALID_LEVELS) {
