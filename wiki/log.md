@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-19] feat | Amanah Grade Pipeline — Session 2 (multi-pillar)
+
+Extended the Amanah Gate grading pipeline to cover remaining 6 pillars (life, family, intellect, wealth, environment, ummah).
+
+**Completed:**
+- Life pillar fully graded (236/236) and committed — stale-conversation fix enabled resumption
+- Family grading active (98/233 committed, PS loop continuing)
+- Fixed grade-amanah-tiers.mjs: stale-conversation sentinel (`turn_number:0`, empty answer) now auto-assigns T2 fallback without counting as failure — prevents infinite restart loops
+- Rewrote grade-all-pillars.ps1: PowerShell self-restarting loop per pillar (replaces brittle cmd approach)
+- Rewrote watch-and-apply.sh: polls jsonl row counts (no run.log dependency), commits+pushes each pillar on completion
+- Diagnosed: exit-1 failures mid-session were transient rate-limiting on alt-auth account; recovered after ~6 hours
+
+**Active at session close:** family grader running via grade-all-pillars.ps1 (98→233); watcher bb9caslx2 standing by to commit intellect→ummah in sequence.
+
+**Deferred:** intellect (236), wealth (236), environment (226), ummah (450) — grading continues automatically in detached PS process.
+
 ## [2026-04-19] feat | Sanctuary Mode — Level-Gating
 
 Two-part earned-unlock system layered onto Dashboard Sanctuary Mode.

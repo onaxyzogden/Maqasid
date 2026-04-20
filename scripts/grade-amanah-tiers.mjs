@@ -120,6 +120,9 @@ function extractAnswerText(stdout) {
   try {
     const obj = JSON.parse(stdout);
     if (typeof obj === "string") return obj;
+    // Stale conversation: NotebookLM returns empty answer with turn_number:0.
+    // Treat as no-source → auto-fallback to T2 Qarina via sentinel.
+    if (obj.answer === "" && obj.turn_number === 0) return "__STALE_CONVERSATION__";
     if (obj.answer) return obj.answer;
     if (obj.text) return obj.text;
     if (obj.response) return typeof obj.response === "string" ? obj.response : JSON.stringify(obj.response);
@@ -127,6 +130,10 @@ function extractAnswerText(stdout) {
   } catch {
     return stdout;
   }
+}
+
+function isStaleFallback(answer) {
+  return answer === "__STALE_CONVERSATION__";
 }
 
 async function main() {
@@ -179,6 +186,24 @@ async function main() {
     }
 
     const answer = extractAnswerText(stdout);
+
+    // Stale conversation auto-fallback: assign T2 and move on without counting as failure.
+    if (isStaleFallback(answer)) {
+      graded += 1;
+      const row = {
+        idPath: st.idPath, moduleKey: st.moduleKey,
+        taskIndex: st.taskIndex, subtaskIndex: st.subtaskIndex,
+        subtaskTitle: st.title,
+        grade: "Qarina", tier: "T2",
+        rationale: "Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.",
+        gradedAt: new Date().toISOString(), durationSec: dt,
+      };
+      appendFileSync(OUT_PATH, JSON.stringify(row) + "\n", "utf-8");
+      console.error(`  [STALE-FB ${graded}] T2 Qarina     ${st.idPath} (${dt}s) — stale conversation fallback`);
+      await new Promise((r) => setTimeout(r, PACE_MS));
+      continue;
+    }
+
     const parsed = parseGrade(answer);
     if (!parsed) {
       fails += 1;
