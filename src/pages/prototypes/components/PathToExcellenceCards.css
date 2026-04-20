@@ -1,0 +1,78 @@
+.pte-card {
+  background: rgba(10, 38, 44, 0.7);
+  border: 1px solid rgba(201, 160, 90, 0.25);
+  border-radius: 12px;
+  padding: 24px 28px 28px;
+}
+
+.pte-title {
+  color: #f3efe4;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  letter-spacing: 0.01em;
+}
+
+.pte-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.pte-item {
+  background: rgba(8, 28, 33, 0.85);
+  border: 1px solid rgba(201, 160, 90, 0.22);
+  border-radius: 8px;
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pte-item-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pte-icon {
+  color: #c9a05a;
+  flex-shrink: 0;
+}
+
+.pte-item-title {
+  color: #f3efe4;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pte-body {
+  color: #b8c4c7;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  flex: 1;
+}
+
+.pte-cta {
+  background: #c9a05a;
+  color: #0a2327;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease;
+}
+
+.pte-cta:hover {
+  background: #d6b06a;
+}
+
+@media (max-width: 720px) {
+  .pte-grid { grid-template-columns: 1fr; }
+}

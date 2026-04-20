@@ -1,0 +1,66 @@
+.dwt-page {
+  min-height: 100%;
+  background:
+    radial-gradient(ellipse at top, rgba(20, 60, 70, 0.4) 0%, transparent 60%),
+    #051a1e;
+  padding: 24px;
+}
+
+.dwt-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dwt-card {
+  background: rgba(10, 38, 44, 0.7);
+  border: 1px solid rgba(201, 160, 90, 0.25);
+  border-radius: 12px;
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dwt-heading {
+  color: #f3efe4;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.dwt-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #b8c4c7;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dwt-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dwt-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dwt-legend-solid {
+  background: #4ab8a8;
+}
+
+.dwt-legend-dotted {
+  background: transparent;
+  border: 1.5px dashed #c9a05a;
+}

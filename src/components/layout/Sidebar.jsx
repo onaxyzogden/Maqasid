@@ -12,7 +12,7 @@ import {
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
   Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, Boxes, HouseHeart,
-  Search,
+  Search, FlaskConical,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
@@ -231,6 +231,16 @@ export default function Sidebar() {
         })}
 
         <div className="sidebar-divider" />
+
+        <Link
+          to="/app/dashboard-wheel-test"
+          className={`sidebar-item ${location.pathname === '/app/dashboard-wheel-test' ? 'active' : ''}`}
+          onClick={handleNavClick}
+          title="Dashboard Wheel Test (prototype)"
+        >
+          <FlaskConical size={18} />
+          {!collapsed && <span>Dashboard Wheel Test</span>}
+        </Link>
       </nav>
 
       {/* Projects list removed from sidebar — accessible via Work module page */}

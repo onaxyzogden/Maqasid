@@ -1,0 +1,98 @@
+.mcw-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.mcw-svg {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  display: block;
+}
+
+.mcw-seg-bg {
+  fill-opacity: 0.55;
+}
+
+.mcw-seg-current {
+  fill-opacity: 0.95;
+  stroke: #3fb0a3;
+  stroke-width: 1.2;
+  stroke-opacity: 0.85;
+}
+
+.mcw-divider {
+  stroke: rgba(63, 176, 163, 0.85);
+  stroke-width: 1.2;
+}
+
+.mcw-progress-outline {
+  fill: none;
+  stroke: rgba(201, 160, 90, 0.25);
+  stroke-width: 1;
+}
+
+.mcw-outer-stroke {
+  fill: none;
+  stroke: rgba(10, 20, 24, 0.9);
+  stroke-width: 1;
+}
+
+.mcw-dotted {
+  fill: none;
+  stroke: #c9a05a;
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+  opacity: 0.95;
+}
+
+.mcw-percent {
+  fill: #f3efe4;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.mcw-segment-label {
+  fill: #f3efe4;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.mcw-hub {
+  fill: #0a2327;
+  stroke: #c9a05a;
+  stroke-width: 1.5;
+}
+
+.mcw-hub-inner {
+  fill: transparent;
+  stroke: rgba(201, 160, 90, 0.35);
+  stroke-width: 1;
+}
+
+.mcw-hub-label {
+  fill: #c9a05a;
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.mcw-gap-line {
+  stroke: #c9a05a;
+  stroke-width: 1.5;
+}
+
+.mcw-gap-label {
+  fill: #c9a05a;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
