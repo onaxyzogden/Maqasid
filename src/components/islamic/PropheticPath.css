@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap');
+
+/* ---------- Scoped palette (dark) ---------- */
+.prophetic-path {
+  --pp-bg: #131313;
+  --pp-surface-low: rgba(28, 27, 27, 0.7);
+  --pp-surface-low-50: rgba(28, 27, 27, 0.5);
+  --pp-surface-high: rgba(42, 42, 42, 0.8);
+  --pp-surface-container: #201f1f;
+  --pp-surface-container-high: #2a2a2a;
+  --pp-surface-container-highest: #353534;
+  --pp-primary: #70d8c8;
+  --pp-secondary: #a5d0b9;
+  --pp-tertiary: #e9c349;
+  --pp-on-surface: #e5e2e1;
+  --pp-on-surface-variant: #bfc9c4;
+  --pp-outline-variant-10: rgba(63, 73, 69, 0.1);
+  --pp-outline-variant-15: rgba(63, 73, 69, 0.15);
+  --pp-outline-variant-20: rgba(63, 73, 69, 0.2);
+  --pp-surface-variant: #353534;
+  --pp-font-headline: "Noto Serif", serif;
+  --pp-font-body: "Manrope", sans-serif;
+
+  background: var(--pp-bg);
+  color: var(--pp-on-surface);
+  font-family: var(--pp-font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Main stage ---------- */
+.prophetic-path .pp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.prophetic-path .pp-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  gap: 3rem;
+  z-index: 10;
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-content {
+    padding: 3rem;
+  }
+}
+
+.prophetic-path .pp-timeline-col {
+  flex: 1 1 0%;
+}
+
+.prophetic-path .pp-intro {
+  margin-bottom: 3rem;
+}
+
+.prophetic-path .pp-heading {
+  font-family: var(--pp-font-headline);
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: var(--pp-on-surface);
+  margin: 0 0 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-heading {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.prophetic-path .pp-subheading {
+  font-family: var(--pp-font-body);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--pp-on-surface-variant);
+  margin: 0;
+}
+
+/* ---------- Ambient background blobs ---------- */
+.prophetic-path .pp-ambient {
+  position: absolute;
+  pointer-events: none;
+  z-index: -10;
+  border-radius: 9999px;
+  filter: blur(100px);
+}
+.prophetic-path .pp-ambient--teal {
+  top: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle at top right, rgba(112, 216, 200, 0.05), transparent 70%);
+}
+.prophetic-path .pp-ambient--gold {
+  bottom: 10%;
+  left: -20%;
+  width: 50vw;
+  height: 50vw;
+  filter: blur(120px);
+  background: radial-gradient(circle at bottom left, rgba(233, 195, 73, 0.05), transparent 70%);
+}
+
+/* ---------- Timeline spine ---------- */
+.prophetic-path .pp-spine {
+  position: relative;
+  padding-left: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-spine {
+    padding-left: 50%;
+  }
+}
+
+.prophetic-path .pp-spine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(112, 216, 200, 0),
+    rgba(112, 216, 200, 0.5),
+    rgba(112, 216, 200, 1),
+    rgba(112, 216, 200, 0.5),
+    rgba(112, 216, 200, 0)
+  );
+  box-shadow: 0 0 15px rgba(112, 216, 200, 0.4);
+  z-index: 0;
+  left: 24px;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-spine::before {
+    left: 50%;
+  }
+}
+
+/* ---------- Nodes ---------- */
+.prophetic-path .pp-node {
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-node {
+    width: 90%;
+  }
+  .prophetic-path .pp-node[data-side='right'] {
+    margin-left: -90%;
+    padding-right: 3rem;
+    text-align: right;
+  }
+  .prophetic-path .pp-node[data-side='left'] {
+    margin-left: 0;
+    padding-left: 3rem;
+    text-align: left;
+  }
+}
+
+/* ---------- Marker ---------- */
+.prophetic-path .pp-marker {
+  position: absolute;
+  top: 1rem;
+  left: -36px;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: var(--pp-surface-container);
+  border: 4px solid var(--pp-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(180, 180, 180, 0.1);
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-node[data-side='right'] .pp-marker {
+    left: auto;
+    right: -12px;
+  }
+  .prophetic-path .pp-node[data-side='left'] .pp-marker {
+    left: -12px;
+  }
+}
+
+.prophetic-path .pp-marker[data-tone='primary'] {
+  border-color: var(--pp-primary);
+  box-shadow: 0 0 15px rgba(112, 216, 200, 0.2);
+}
+.prophetic-path .pp-marker[data-tone='secondary'] {
+  border-color: var(--pp-secondary);
+  box-shadow: 0 0 8px rgba(165, 208, 185, 0.2);
+}
+.prophetic-path .pp-marker[data-tone='tertiary'] {
+  border-color: var(--pp-tertiary);
+  box-shadow: 0 0 20px rgba(233, 195, 73, 0.4);
+}
+.prophetic-path .pp-marker[data-tone='muted'] {
+  border-color: var(--pp-surface-variant);
+  box-shadow: 0 0 15px rgba(180, 180, 180, 0.1);
+}
+
+.prophetic-path .pp-marker-icon {
+  color: var(--pp-on-surface-variant);
+}
+.prophetic-path .pp-marker[data-tone='primary'] .pp-marker-icon {
+  color: var(--pp-primary);
+}
+.prophetic-path .pp-marker[data-tone='secondary'] .pp-marker-icon {
+  color: var(--pp-secondary);
+}
+.prophetic-path .pp-marker[data-tone='tertiary'] .pp-marker-icon {
+  color: var(--pp-tertiary);
+}
+
+/* ---------- Card ---------- */
+.prophetic-path .pp-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--pp-outline-variant-15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--pp-surface-low);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.prophetic-path .pp-card:hover {
+  transform: translateY(-0.25rem);
+}
+
+.prophetic-path .pp-card[data-style='subtle'] {
+  background: var(--pp-surface-low-50);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: var(--pp-outline-variant-10);
+  box-shadow: none;
+}
+
+.prophetic-path .pp-card[data-style='primary-flat'] {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+
+.prophetic-path .pp-card[data-style='divine'] {
+  background: var(--pp-surface-high);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-color: rgba(233, 195, 73, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.prophetic-path .pp-card-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(233, 195, 73, 0.1);
+  border-radius: 9999px;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.prophetic-path .pp-card-hover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(53, 53, 52, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 150ms;
+  pointer-events: none;
+}
+.prophetic-path .pp-card:hover .pp-card-hover {
+  opacity: 1;
+}
+
+.prophetic-path .pp-card-body {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-node[data-side='right'] .pp-card-body {
+    align-items: flex-end;
+  }
+}
+
+/* ---------- Eyebrow ---------- */
+.prophetic-path .pp-eyebrow {
+  font-family: var(--pp-font-body);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  color: var(--pp-on-surface-variant);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.prophetic-path .pp-eyebrow[data-tone='primary'] {
+  color: var(--pp-primary);
+}
+.prophetic-path .pp-eyebrow[data-tone='secondary'] {
+  color: var(--pp-secondary);
+}
+.prophetic-path .pp-eyebrow[data-tone='tertiary'] {
+  color: var(--pp-tertiary);
+}
+
+.prophetic-path .pp-pulse-dot {
+  display: inline-block;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: var(--pp-tertiary);
+  animation: pp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pp-pulse {
+  50% { opacity: 0.5; }
+}
+
+/* ---------- Title ---------- */
+.prophetic-path .pp-title {
+  font-family: var(--pp-font-headline);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--pp-on-surface);
+}
+.prophetic-path .pp-title[data-tone='tertiary'] {
+  color: var(--pp-tertiary);
+}
+
+/* ---------- Body text ---------- */
+.prophetic-path .pp-body-text {
+  font-family: var(--pp-font-body);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--pp-on-surface-variant);
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .prophetic-path .pp-node[data-side='right'] .pp-body-text {
+    text-align: right;
+  }
+}
+
+/* ---------- Pillars ---------- */
+.prophetic-path .pp-pillars {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.prophetic-path .pp-pillar-chip {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: var(--pp-font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  background: var(--pp-surface-container-high);
+  border: 1px solid var(--pp-outline-variant-20);
+  color: var(--pp-secondary);
+}
+.prophetic-path .pp-pillar-chip[data-tone='primary'] {
+  color: var(--pp-primary);
+}
+.prophetic-path .pp-pillar-chip[data-tone='secondary'] {
+  color: var(--pp-secondary);
+}
+.prophetic-path .pp-pillar-chip[data-tone='tertiary'] {
+  background: var(--pp-surface-container-highest);
+  border-color: rgba(233, 195, 73, 0.3);
+  color: var(--pp-tertiary);
+}
+
+
+/* =========================================================
+   LIGHT THEME — scoped overrides for <PropheticPath variant="light" />
+   Mirrors the dark palette with a warm parchment surface,
+   deeper teal/gold accents, and softer shadows.
+   ========================================================= */
+.prophetic-path[data-theme='light'] {
+  --pp-bg: #f8f6f1;
+  --pp-surface-low: rgba(255, 255, 255, 0.75);
+  --pp-surface-low-50: rgba(255, 255, 255, 0.55);
+  --pp-surface-high: rgba(255, 253, 247, 0.92);
+  --pp-surface-container: #ffffff;
+  --pp-surface-container-high: #f1f3f5;
+  --pp-surface-container-highest: #e9ecef;
+  --pp-primary: #2d8a7e;
+  --pp-secondary: #3a7a4a;
+  --pp-tertiary: #a07a38;
+  --pp-on-surface: #1a1d21;
+  --pp-on-surface-variant: #5f6b7a;
+  --pp-outline-variant-10: rgba(26, 29, 33, 0.07);
+  --pp-outline-variant-15: rgba(26, 29, 33, 0.1);
+  --pp-outline-variant-20: rgba(26, 29, 33, 0.14);
+  --pp-surface-variant: #d7dadd;
+}
+
+/* Ambient blobs — keep the teal, drop the gold on light (it muddies parchment) */
+.prophetic-path[data-theme='light'] .pp-ambient--teal {
+  background: radial-gradient(circle at top right, rgba(45, 138, 126, 0.12), transparent 70%);
+}
+.prophetic-path[data-theme='light'] .pp-ambient--gold {
+  display: none;
+}
+
+/* Spine — deeper teal for contrast on parchment */
+.prophetic-path[data-theme='light'] .pp-spine::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 138, 126, 0),
+    rgba(45, 138, 126, 0.35),
+    rgba(45, 138, 126, 0.85),
+    rgba(45, 138, 126, 0.35),
+    rgba(45, 138, 126, 0)
+  );
+  box-shadow: 0 0 15px rgba(45, 138, 126, 0.25);
+}
+
+/* Marker rings — softer glows */
+.prophetic-path[data-theme='light'] .pp-marker {
+  box-shadow: 0 2px 10px rgba(26, 29, 33, 0.08);
+}
+.prophetic-path[data-theme='light'] .pp-marker[data-tone='primary'] {
+  box-shadow: 0 0 12px rgba(45, 138, 126, 0.25);
+}
+.prophetic-path[data-theme='light'] .pp-marker[data-tone='secondary'] {
+  box-shadow: 0 0 10px rgba(58, 122, 74, 0.2);
+}
+.prophetic-path[data-theme='light'] .pp-marker[data-tone='tertiary'] {
+  box-shadow: 0 0 18px rgba(201, 160, 90, 0.45);
+}
+.prophetic-path[data-theme='light'] .pp-marker[data-tone='muted'] {
+  box-shadow: 0 2px 10px rgba(26, 29, 33, 0.08);
+}
+
+/* Card shadows — lifted, not gloomy */
+.prophetic-path[data-theme='light'] .pp-card {
+  box-shadow: 0 8px 28px rgba(26, 29, 33, 0.08);
+}
+.prophetic-path[data-theme='light'] .pp-card[data-style='subtle'],
+.prophetic-path[data-theme='light'] .pp-card[data-style='primary-flat'] {
+  box-shadow: 0 4px 16px rgba(26, 29, 33, 0.05);
+}
+.prophetic-path[data-theme='light'] .pp-card[data-style='divine'] {
+  border-color: rgba(201, 160, 90, 0.35);
+  box-shadow: 0 10px 32px rgba(26, 29, 33, 0.1);
+}
+
+/* Divine card inner halo — hidden on light; the gold border + title carry the accent */
+.prophetic-path[data-theme='light'] .pp-card-glow {
+  display: none;
+}
+
+/* Hover overlay — tint of parchment instead of smoke */
+.prophetic-path[data-theme='light'] .pp-card-hover {
+  background: linear-gradient(to bottom right, rgba(45, 138, 126, 0.05), transparent);
+}
+
+/* Pillar chips — solid-ish on light */
+.prophetic-path[data-theme='light'] .pp-pillar-chip {
+  background: var(--pp-surface-container-high);
+  border-color: var(--pp-outline-variant-20);
+}
+.prophetic-path[data-theme='light'] .pp-pillar-chip[data-tone='tertiary'] {
+  background: rgba(201, 160, 90, 0.1);
+  border-color: rgba(201, 160, 90, 0.4);
+}
+
+/* ==========================================================================
+   Mirror card — task panel on the opposite side of the spine
+   ========================================================================== */
+
+.prophetic-path .pp-card {
+  cursor: pointer;
+  width: 100%;
+  text-align: inherit;
+  color: inherit;
+  font: inherit;
+  appearance: none;
+}
+.prophetic-path .pp-card:focus-visible {
+  outline: 2px solid var(--pp-primary);
+  outline-offset: 2px;
+}
+
+/* Mobile default: stacks inline beneath the tapped TOD card */
+.prophetic-path .pp-mirror-card {
+  position: relative;
+  margin-top: 0.75rem;
+  padding: 1rem 1.15rem 1.1rem;
+  border-radius: 0.9rem;
+  background: var(--pp-surface-low);
+  border: 1px solid var(--pp-outline-variant-15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  animation: pp-mirror-in 220ms ease-out;
+  font-family: var(--pp-font-body);
+  text-align: left;
+}
+
+@keyframes pp-mirror-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Desktop: absolutely positioned opposite the card, connected via a dashed line */
+@media (min-width: 768px) {
+  .prophetic-path .pp-mirror-card {
+    position: absolute;
+    top: 0;
+    margin-top: 0;
+    width: calc(100% - 1rem);
+  }
+  /* node[data-side='left'] card is on the right half — mirror sits on the left */
+  .prophetic-path .pp-node[data-side='left'] .pp-mirror-card {
+    right: calc(100% + 1.5rem);
+  }
+  /* node[data-side='right'] card is on the left half — mirror sits on the right */
+  .prophetic-path .pp-node[data-side='right'] .pp-mirror-card {
+    left: calc(100% + 1.5rem);
+  }
+
+  /* Connector line from the spine marker to the mirror card */
+  .prophetic-path .pp-mirror-card::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--pp-primary);
+    opacity: 0.5;
+  }
+  .prophetic-path .pp-node[data-side='left'] .pp-mirror-card::before {
+    right: -1.5rem;
+  }
+  .prophetic-path .pp-node[data-side='right'] .pp-mirror-card::before {
+    left: -1.5rem;
+  }
+}
+
+.prophetic-path .pp-mirror-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--pp-outline-variant-10);
+}
+.prophetic-path .pp-mirror-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pp-primary);
+}
+.prophetic-path .pp-mirror-title {
+  margin: 0;
+  font-family: var(--pp-font-headline);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--pp-on-surface);
+}
+.prophetic-path .pp-mirror-empty {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--pp-on-surface-variant);
+  font-style: italic;
+}
+
+/* Task list */
+.prophetic-path .pp-task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 24rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.prophetic-path .pp-task-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.4rem 0.25rem;
+  border-radius: 0.4rem;
+  transition: background 150ms;
+}
+.prophetic-path .pp-task-row:hover {
+  background: var(--pp-outline-variant-10);
+}
+
+/* Level pill */
+.prophetic-path .pp-task-level {
+  flex: 0 0 auto;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.35rem;
+  line-height: 1.2;
+  margin-top: 0.1rem;
+}
+.prophetic-path .pp-task-level[data-level='1'] {
+  background: color-mix(in srgb, #d64545 18%, transparent);
+  color: #e56b6b;
+}
+.prophetic-path .pp-task-level[data-level='2'] {
+  background: color-mix(in srgb, #d49a2b 18%, transparent);
+  color: #e2b256;
+}
+.prophetic-path .pp-task-level[data-level='3'] {
+  background: color-mix(in srgb, var(--pp-primary) 18%, transparent);
+  color: var(--pp-primary);
+}
+
+/* Priority dot */
+.prophetic-path .pp-task-priority {
+  flex: 0 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--pp-on-surface-variant);
+  margin-top: 0.45rem;
+}
+.prophetic-path .pp-task-priority[data-priority='urgent'] { background: #e56b6b; }
+.prophetic-path .pp-task-priority[data-priority='high']   { background: #e2b256; }
+.prophetic-path .pp-task-priority[data-priority='medium'] { background: var(--pp-primary); }
+.prophetic-path .pp-task-priority[data-priority='low']    { background: var(--pp-on-surface-variant); opacity: 0.6; }
+
+.prophetic-path .pp-task-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.prophetic-path .pp-task-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--pp-on-surface);
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.prophetic-path .pp-task-meta {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  color: var(--pp-on-surface-variant);
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+.prophetic-path .pp-task-priority-label { text-transform: uppercase; letter-spacing: 0.05em; }
+.prophetic-path .pp-task-sep { opacity: 0.5; }
+.prophetic-path .pp-task-submodule { font-weight: 500; color: var(--pp-on-surface); }
+
+/* Footer link */
+.prophetic-path .pp-mirror-footer {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--pp-outline-variant-10);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pp-primary);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity 150ms;
+}
+.prophetic-path .pp-mirror-footer:hover { opacity: 0.8; }
+
+/* Expanded node: give breathing room so mirror doesn't overlap next node.
+   Mirror card is absolutely positioned, so use min-height on the node to
+   reserve vertical space in the spine's flex layout. */
+@media (min-width: 768px) {
+  .prophetic-path .pp-node[data-expanded='true'] {
+    min-height: 30rem;
+  }
+}
+
+/* Light-theme tuning */
+.prophetic-path[data-theme='light'] .pp-mirror-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(26, 29, 33, 0.1);
+  box-shadow: 0 8px 28px rgba(26, 29, 33, 0.08);
+}
+.prophetic-path[data-theme='light'] .pp-task-level[data-level='1'] {
+  background: rgba(180, 50, 50, 0.12);
+  color: #9a2f2f;
+}
+.prophetic-path[data-theme='light'] .pp-task-level[data-level='2'] {
+  background: rgba(160, 122, 56, 0.14);
+  color: #7a5a22;
+}
+.prophetic-path[data-theme='light'] .pp-task-level[data-level='3'] {
+  background: rgba(45, 138, 126, 0.12);
+  color: #236d63;
+}
+.prophetic-path[data-theme='light'] .pp-task-priority[data-priority='urgent'] { background: #c23838; }
+.prophetic-path[data-theme='light'] .pp-task-priority[data-priority='high']   { background: #a07a38; }
+.prophetic-path[data-theme='light'] .pp-task-priority[data-priority='medium'] { background: #2d8a7e; }
+

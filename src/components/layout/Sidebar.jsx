@@ -241,6 +241,16 @@ export default function Sidebar() {
           <FlaskConical size={18} />
           {!collapsed && <span>Dashboard Wheel Test</span>}
         </Link>
+
+        <Link
+          to="/app/prophetic-path-test"
+          className={`sidebar-item ${location.pathname === '/app/prophetic-path-test' ? 'active' : ''}`}
+          onClick={handleNavClick}
+          title="Prophetic Path (prototype)"
+        >
+          <FlaskConical size={18} />
+          {!collapsed && <span>Prophetic Path</span>}
+        </Link>
       </nav>
 
       {/* Projects list removed from sidebar — accessible via Work module page */}
