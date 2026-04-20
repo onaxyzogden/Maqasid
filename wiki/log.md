@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-19] feat | Sanctuary Mode — Level-Gating
+
+Two-part earned-unlock system layered onto Dashboard Sanctuary Mode.
+
+**Dashboard (FocusTaskList):** Deep Work now filtered to the user's effective level — `niyyahLevel` if set, otherwise the lowest incomplete level from `getSubmoduleActiveLevel`. Level eyebrow chip ("Level 1 · Foundation" etc.) added to FocusTaskList header. `getFocusTasks` signature extended to `(submoduleId, level)`.
+
+**Niyyah intention setter (NiyyahAct):** Per-submodule level badge (L1/L2/L3) rendered in the submodule picker. "↑ Advance to Growth/Excellence" affordance appears only when `getPillarLevelProgress` confirms every leveled submodule in the pillar has completed the current level — enforcing pillar-advances-together rule. Tapping bumps that submodule's level for the session; saved via `completeNiyyah({ …, level })`.
+
+**Store changes:** `task-store.js` — added `getProjectLevel`, `getLevelStatus`, `getSubmoduleActiveLevel`, `getPillarLevelProgress`. `threshold-store.js` — `niyyahLevel` field persisted at `thr_niyyah_level`, cleared on rollover/skip, archived in history entries.
+
+Verified: build passes (2668 modules); level badges visible in picker; FocusTaskList shows correct level chip and filters tasks to `_core` projects only; `niyyahLevel` written to localStorage on save.
+
+Known gap: `continueYesterday` echo prefill does not restore yesterday's advanced level — deferred.
+
 ## [2026-04-19] rename | Sawm → Siyam across active source
 
 Fourth pillar of Islam renamed from "Sawm" (صَوْم) to "Siyam" (صِيَام) — the Qur'anic prescribed-fasting form (2:183). `FaithLevelNavigator` already used "Siyam"; this change aligns the rest of the stack.
@@ -1389,3 +1403,36 @@ Continuation session covering UI polish on TaskDetailPanel, a silent-failure bug
 
 ### Notes
 - Session opened mid-flow from a prior compacted conversation; no formal 3-Gate orientation. All work was triggered by user requests on specific UI/data issues.
+
+---
+
+## 2026-04-19 — Dashboard Sanctuary Mode + rollover self-healing
+
+### Context
+Continuation of the Ad-lib Niyyah work. The authored sentence (feeling → pillar → submodule) was persisted and surfaced in ManifestoBanner, but the dashboard itself still treated all eight pillars uniformly. Six-phase revamp + follow-up rollover wiring + echo verification.
+
+### Done
+- **Phase 1 — Task schema + backfill:** added `pillarId` / `submoduleId` fields to task records; `backfillPillarFields()` idempotent one-shot action on `useTaskStore` gated by `bbiz_task_pillar_migrated_v1` sentinel; `getFocusTasks(submoduleId)` selector returning `{ deepWork, maintenance }`.
+- **Phase 2 — Sun & Stars layout:** `--dashboard-accent` CSS var on `.insight` root when niyyah is complete. Primary pillar card on `TodayFocusSection` gets `--sun` (tint, glow, 1.2× type scale); secondary pillars get `--star` demotion. `PillarProgressStrip` bars dimmed to 40% for non-focus pillars.
+- **Phase 3 — Guided Task List:** new `FocusTaskList.jsx` — Today's Deep Work (primary section) + collapsible "Keep the Lights On" with count badge. Hidden when niyyah incomplete or skipped.
+- **Phase 4 — Ripple Ring + toast:** new `RippleRing.jsx` SVG ring bound to focus-submodule completion %, positioned at top-right of Sun card. 2-second-debounced toast *"One step closer to your {pillar.sidebarLabel}"* on Deep Work completion via `useToastStore`.
+- **Phase 5 — Context Widget Slot:** new `ContextWidgetSlot.jsx` with `submoduleId → Component` registry. Widgets: `PrayerCountdownWidget` (extracted shared `useNextPrayer` hook from `PrayerOverlay.jsx`), `PomodoroWidget` (self-contained useReducer, no persistence), `HydrateWidget` (localStorage glass counter), `PriorityProjectWidget` (top open project from `project-store`). Fallback "Focus Tip" card for unmapped submodules.
+- **Phase 6 — Evening Reflection:** `niyyahReflection` slice on `threshold-store` with `saveReflection({ feeling, note })`; archived into `niyyahHistory` entry on day-rollover. `EveningReflectButton` appears when Deep Work completion ≥ 50% OR hour ≥ 18. `EveningReflectModal.jsx` reuses the 12-pill ḥāl al-qalb grid for evening feeling.
+- **Day-rollover self-healing:** added `rolloverIfStale` action to `threshold-store` (idempotent — early-returns when `niyyahDate === today`). Archives stale niyyah with nested reflection via `archiveStaleNiyyah(get, today)` then clears current-day slots in memory + localStorage (`thr_niyyah_date`, `_feeling`, `_submodule`, `_reflection`; resets `_focus` to `[]`). Wired to Dashboard mount via dedicated useEffect at `src/pages/Dashboard.jsx:310-312`.
+- **Yesterday's Echo verified:** morning Niyyah modal step 2 renders `.niyyah-echo` block when `niyyahHistory[last].date === yesterday`. Text: *"Yesterday, you tended to {submodule} with a heart of {feeling}. You closed the day feeling {evening feeling}. Want to chase that feeling again?"* + "Continue the journey" button prefilling Ad-lib with yesterday's values.
+
+### Verification
+- Phases 1–6 verified via preview_eval + preview_snapshot + manual interaction during session.
+- `rolloverIfStale` verified end-to-end: seeded `bbiz_thr_niyyah_date = '2026-04-17'` + reflection in localStorage + in-memory store → invocation returned `true` → history gained entry with nested `reflection.feeling: 'sakinah'` → all current-day keys cleared in both memory and localStorage (prefix-aware test — the `bbiz_` prefix from `services/storage.js` was the root cause of earlier false negatives).
+- Echo verified at `/app` with seeded 2026-04-18 history entry: modal step 2 rendered *"Yesterday, you tended to Learning & Literacy with a heart of Yearning. You closed the day feeling Settled tranquility. Want to chase that feeling again?"*
+
+### Deferred
+- Geometric tile / Islamic-pattern variant of the ripple ring (v1 uses plain SVG circle).
+- Widgets beyond the four mapped submodules — other submodules fall back to the generic Focus Tip card.
+- Pomodoro widget state persistence across reloads (acceptable for v1).
+- Reflection comparison history UI (past N days) — data stored, only yesterday's echo surfaced.
+
+### Notes
+- HMR fragmentation bug made preview_eval-based verification noisy — `location.reload()` within the iframe didn't always re-evaluate dynamically-imported modules. Workaround: force in-memory store state + localStorage state jointly, then invoke actions directly.
+- `services/storage.js` uses a `bbiz_` prefix on every key — tests seeding localStorage raw (without prefix) will diverge from what the store reads. Always seed through `safeSet` or use the prefix explicitly.
+- ADR filed: `wiki/decisions/2026-04-19-dashboard-sanctuary-mode.md`.

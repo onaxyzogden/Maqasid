@@ -1,6 +1,9 @@
 // Maqasid al-Shari'ah pillar definitions
 // Seven pillars governing the BBOS module hierarchy
 
+import { MODULES } from './modules';
+import { FIVE_PILLARS } from './islamic/five-pillars-content';
+
 export const MAQASID_PILLARS = [
   {
     id: 'faith',
@@ -158,4 +161,49 @@ export function getPillarLabel(pillar, valuesLayer) {
 /** Get stewardship description based on values layer */
 export function getPillarStewardship(pillar, valuesLayer) {
   return valuesLayer === 'islamic' ? pillar.stewardshipLabel : pillar.universalStewardship;
+}
+
+// Non-prefixed submodule labels (sources, cross-pillar modules, etc.)
+// Extended from the local override map previously duplicated in
+// PillarFirstEntry.jsx. Prefer MODULES[].name where available.
+const SUBMODULE_LABEL_OVERRIDES = {
+  sources: "Sources (Qur'an & Hadith)",
+  collective: 'Collective',
+};
+
+// Bare faith ids (shahada, salah, ...) — pulled from FIVE_PILLARS.name
+const FAITH_ID_LABELS = FIVE_PILLARS.reduce((acc, p) => {
+  acc[p.id] = p.name;
+  return acc;
+}, {});
+
+/**
+ * Resolve a submodule id to a human-readable display label.
+ * Handles:
+ *   - prefixed ids  ('faith-salah', 'life-physical')  → strips prefix and title-cases
+ *   - faith ids     ('faith-shahada' → 'Shahada')     → via FIVE_PILLARS.name
+ *   - module ids    ('work', 'money', 'people', ...)  → via MODULES[].name
+ *   - overrides     ('sources', 'collective')
+ *
+ * @param {string} id        submodule id
+ * @param {string} [pillarId] owning pillar id (for prefix stripping)
+ */
+export function getSubmoduleLabel(id, pillarId) {
+  if (!id) return '';
+  if (SUBMODULE_LABEL_OVERRIDES[id]) return SUBMODULE_LABEL_OVERRIDES[id];
+
+  // Faith bare ids via FIVE_PILLARS
+  if (pillarId === 'faith') {
+    const bare = id.startsWith('faith-') ? id.slice('faith-'.length) : id;
+    if (FAITH_ID_LABELS[bare]) return FAITH_ID_LABELS[bare];
+  }
+
+  // Module-level ids (work, money, people, ...)
+  const mod = MODULES.find((m) => m.id === id);
+  if (mod?.name) return mod.name;
+
+  // Generic pillar-prefixed id — strip and title-case
+  const prefix = pillarId ? pillarId + '-' : null;
+  const base = prefix && id.startsWith(prefix) ? id.slice(prefix.length) : id;
+  return base.charAt(0).toUpperCase() + base.slice(1);
 }

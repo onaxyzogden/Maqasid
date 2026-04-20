@@ -4,12 +4,17 @@ import { useThresholdStore } from '../store/threshold-store';
 import { useAppStore } from '../store/app-store';
 import { useSettingsStore } from '../store/settings-store';
 import { MAQASID_PILLARS } from '../data/maqasid';
+import RippleRing from '../components/dashboard/RippleRing';
 import './TodayFocusSection.css';
 
 const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
 
 // pillarSummary: Array<{ pillar: object, openCount: number, overdueCount: number }>
-export default function TodayFocusSection({ pillarSummary = [] }) {
+export default function TodayFocusSection({ pillarSummary = [], primaryPillarId = null, focusProgress = null }) {
+  const ringPct = focusProgress && focusProgress.total > 0
+    ? (focusProgress.completed / focusProgress.total) * 100
+    : 0;
+  const showRing = !!focusProgress && focusProgress.total > 0 && !!primaryPillarId;
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
   const openNiyyahOverride = useAppStore((s) => s.openNiyyahOverride);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
@@ -33,7 +38,7 @@ export default function TodayFocusSection({ pillarSummary = [] }) {
 
   return (
     <>
-      <div className="tfs-cards">
+      <div className={`tfs-cards${primaryPillarId ? ' tfs-cards--sanctuary' : ''}`}>
         {focusedIds.map((pid) => {
           const pillar = MAQASID_PILLARS.find((p) => p.id === pid);
           if (!pillar) return null;
@@ -44,14 +49,16 @@ export default function TodayFocusSection({ pillarSummary = [] }) {
             ? `${openCount} open · ${overdueCount} overdue`
             : `${openCount} open`;
           const Icon = PILLAR_ICONS[pillar.icon] ?? Kanban;
+          const isSun = primaryPillarId === pid;
+          const isStar = !!primaryPillarId && !isSun;
           return (
             <Link
               key={pid}
               to={`/app/pillar/${pillar.id}`}
-              className="tfs-card"
+              className={`tfs-card${isSun ? ' tfs-card--sun' : ''}${isStar ? ' tfs-card--star' : ''}`}
               style={{
-                borderColor: pillar.accentColor + '30',
-                background: pillar.accentColor + '08',
+                borderColor: pillar.accentColor + (isSun ? '60' : '30'),
+                background: pillar.accentColor + (isSun ? '14' : '08'),
               }}
             >
               <div className="tfs-card__bar" style={{ background: pillar.accentColor }} />
@@ -73,6 +80,11 @@ export default function TodayFocusSection({ pillarSummary = [] }) {
                 )}
                 <div className="tfs-card__meta">{meta}</div>
               </div>
+              {isSun && showRing && (
+                <div className="tfs-card__ring" style={{ color: pillar.accentColor }}>
+                  <RippleRing percent={ringPct} color={pillar.accentColor} size={52} stroke={4} />
+                </div>
+              )}
             </Link>
           );
         })}

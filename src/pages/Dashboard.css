@@ -17,6 +17,19 @@
   gap: var(--space-3);
 }
 
+/* ── Manifesto + Reflect chip row ── */
+.insight-manifesto-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.insight-manifesto-row .manifesto-banner { flex: 1; }
+.insight-manifesto-row .erm-chip {
+  align-self: center;
+  flex-shrink: 0;
+}
+
 /* ── Greeting bar ── */
 .insight-greeting {
   display: flex;
@@ -845,6 +858,11 @@
   transition: opacity var(--duration-sm);
 }
 .pps__col:hover { opacity: 0.75; }
+
+/* Sun & Stars — demote non-focus pillars; elevate focused ones */
+.pps__col--muted { opacity: 0.4; }
+.pps__col--muted:hover { opacity: 0.6; }
+.pps__col--focus { opacity: 1; }
 
 .pps__bar {
   width: 100%;

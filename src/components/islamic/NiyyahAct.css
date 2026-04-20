@@ -87,6 +87,162 @@
   margin: var(--space-1) 0 0;
 }
 
+/* Yesterday's Echo card */
+.niyyah-echo {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  margin: 0 0 var(--space-3);
+}
+
+.niyyah-echo-text {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  margin: 0 0 var(--space-2);
+  line-height: 1.5;
+}
+
+.niyyah-echo-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.niyyah-echo-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.niyyah-echo-btn {
+  padding: 4px 10px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.niyyah-echo-btn:hover,
+.niyyah-echo-btn:focus-visible {
+  background: var(--accent);
+  color: var(--surface);
+  outline: none;
+}
+
+.niyyah-echo-hint {
+  font-size: var(--text-xs);
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* Ad-lib sentence (step 2) */
+.niyyah-adlib {
+  font-size: var(--text-md);
+  line-height: 1.9;
+  color: var(--text);
+  margin: 0 0 var(--space-3);
+  text-align: left;
+}
+
+/* Sentence line wrapper — progressive reveal */
+.niyyah-adlib-line {
+  animation: fadeIn 240ms ease both;
+}
+
+.niyyah-adlib-line + .niyyah-adlib-line {
+  margin-top: var(--space-2);
+}
+
+/* Feeling word in sentence (click to open pills) */
+.niyyah-feeling-word {
+  font: inherit;
+  font-style: italic;
+  color: var(--text3);
+  background: none;
+  border: none;
+  border-bottom: 1px dashed var(--text3);
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.niyyah-feeling-word:hover,
+.niyyah-feeling-word:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  outline: none;
+}
+
+.niyyah-feeling-word--filled {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Feeling pill grid */
+.niyyah-feeling-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+  animation: fadeIn 180ms ease both;
+}
+
+.niyyah-feeling-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 140ms ease;
+  text-align: left;
+}
+
+.niyyah-feeling-pill:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.niyyah-feeling-pill--selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--surface);
+}
+
+.niyyah-feeling-pill-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.niyyah-feeling-pill-translit {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  opacity: 0.75;
+  line-height: 1.2;
+}
+
+.niyyah-overachiever {
+  font-size: var(--text-sm);
+  color: var(--accent);
+  font-style: italic;
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg2);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+
 /* Step: Pillar focus */
 .niyyah-focus-heading {
   font-size: var(--text-sm-plus);
@@ -240,4 +396,37 @@
   .niyyah-pillars {
     grid-template-columns: 1fr;
   }
+}
+
+.niyyah-level-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+  opacity: 0.85;
+}
+.niyyah-advance-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 6px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1b5e3c;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  user-select: none;
+}
+.niyyah-advance-chip:hover {
+  background: #e7f7ee;
 }

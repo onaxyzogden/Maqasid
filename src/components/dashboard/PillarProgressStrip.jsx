@@ -43,10 +43,12 @@ function isTaskInProgress(task) {
  *   --col-review  (amber)  = tasks in progress
  *   --bg3         (gray)   = tasks not started / no tasks yet
  */
-export default function PillarProgressStrip({ valuesLayer }) {
+export default function PillarProgressStrip({ valuesLayer, focusPillarIds = null }) {
   const projects = useProjectStore((s) => s.projects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const isIslamic = valuesLayer === 'islamic';
+  const hasFocus = Array.isArray(focusPillarIds)
+    && focusPillarIds.some((id) => id && id !== '_skipped');
 
   const pillarStats = useMemo(() => {
     const stats = {};
@@ -73,12 +75,14 @@ export default function PillarProgressStrip({ valuesLayer }) {
         const { completed, inProgress, todo } = pillarStats[pillar.id];
         const total = completed + inProgress + todo;
         const label = isIslamic ? pillar.sidebarLabel : pillar.universalLabel;
+        const isFocus = hasFocus && focusPillarIds.includes(pillar.id);
+        const isMuted = hasFocus && !isFocus;
 
         return (
           <Link
             key={pillar.id}
             to={`/app/pillar/${pillar.id}`}
-            className="pps__col"
+            className={`pps__col${isMuted ? ' pps__col--muted' : ''}${isFocus ? ' pps__col--focus' : ''}`}
             style={{ '--pps-color': pillar.accentColor }}
             title={label}
           >

@@ -26,6 +26,52 @@
   filter: brightness(1.08);
 }
 
+/* ── Sun & Stars ── Primary focus expanded; secondary pillars demoted. */
+.tfs-cards--sanctuary {
+  align-items: stretch;
+}
+
+.tfs-card--sun {
+  flex: 2 1 340px;
+  padding: 16px 18px;
+  box-shadow:
+    0 0 0 1px var(--dashboard-accent, var(--accent))20,
+    0 4px 24px -12px var(--dashboard-accent, var(--accent))55;
+  transform: translateY(0);
+  transition: filter 0.15s, box-shadow 0.2s;
+}
+
+.tfs-card--sun .tfs-card__eyebrow {
+  font-size: 10px;
+}
+
+.tfs-card--sun .tfs-card__name {
+  font-size: 17px;
+}
+
+.tfs-card--sun .tfs-card__bar {
+  width: 5px;
+}
+
+.tfs-card--star {
+  flex: 1 1 160px;
+  opacity: 0.72;
+  transform: scale(0.985);
+}
+
+.tfs-card--star:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tfs-card__ring {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
 .tfs-card__bar {
   position: absolute;
   left: 0;

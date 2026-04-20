@@ -329,18 +329,18 @@ export const UMMAH_BOARDS = [
   { id: 'ummah_community_core',       name: 'COMMUNITY — CORE',       color: '#6E8EAD', icon: 'Shapes', description: 'Community: Necessities (Daruriyyat)', moduleId: 'community' },
   { id: 'ummah_community_growth',     name: 'COMMUNITY — GROWTH',     color: '#6E8EAD', icon: 'Shapes', description: 'Community: Needs (Hajiyyat)', moduleId: 'community' },
   { id: 'ummah_community_excellence', name: 'COMMUNITY — EXCELLENCE', color: '#6E8EAD', icon: 'Shapes', description: 'Community: Excellence (Tahsiniyyat)', moduleId: 'community' },
-  // MTC Land — Core / Growth / Excellence
-  { id: 'ummah_moontrance-land_core',       name: 'MOONTRANCE LAND — CORE',       color: '#6E8E5B', icon: 'Mountain', description: 'MTC Land: Necessities (Daruriyyat)', moduleId: 'moontrance-land' },
-  { id: 'ummah_moontrance-land_growth',     name: 'MOONTRANCE LAND — GROWTH',     color: '#6E8E5B', icon: 'Mountain', description: 'MTC Land: Needs (Hajiyyat)', moduleId: 'moontrance-land' },
-  { id: 'ummah_moontrance-land_excellence', name: 'MOONTRANCE LAND — EXCELLENCE', color: '#6E8E5B', icon: 'Mountain', description: 'MTC Land: Excellence (Tahsiniyyat)', moduleId: 'moontrance-land' },
-  // MTC Seasonal — Core / Growth / Excellence
-  { id: 'ummah_moontrance-seasonal_core',       name: 'MOONTRANCE SEASONAL — CORE',       color: '#8E9E5B', icon: 'Leaf', description: 'MTC Seasonal: Necessities (Daruriyyat)', moduleId: 'moontrance-seasonal' },
-  { id: 'ummah_moontrance-seasonal_growth',     name: 'MOONTRANCE SEASONAL — GROWTH',     color: '#8E9E5B', icon: 'Leaf', description: 'MTC Seasonal: Needs (Hajiyyat)', moduleId: 'moontrance-seasonal' },
-  { id: 'ummah_moontrance-seasonal_excellence', name: 'MOONTRANCE SEASONAL — EXCELLENCE', color: '#8E9E5B', icon: 'Leaf', description: 'MTC Seasonal: Excellence (Tahsiniyyat)', moduleId: 'moontrance-seasonal' },
-  // MTC Residency — Core / Growth / Excellence
-  { id: 'ummah_moontrance-residency_core',       name: 'MOONTRANCE RESIDENCY — CORE',       color: '#5B6E8E', icon: 'Building', description: 'MTC Residency: Necessities (Daruriyyat)', moduleId: 'moontrance-residency' },
-  { id: 'ummah_moontrance-residency_growth',     name: 'MOONTRANCE RESIDENCY — GROWTH',     color: '#5B6E8E', icon: 'Building', description: 'MTC Residency: Needs (Hajiyyat)', moduleId: 'moontrance-residency' },
-  { id: 'ummah_moontrance-residency_excellence', name: 'MOONTRANCE RESIDENCY — EXCELLENCE', color: '#5B6E8E', icon: 'Building', description: 'MTC Residency: Excellence (Tahsiniyyat)', moduleId: 'moontrance-residency' },
+  // Land — Core / Growth / Excellence
+  { id: 'ummah_moontrance-land_core',       name: 'MOONTRANCE LAND — CORE',       color: '#6E8E5B', icon: 'Mountain', description: 'Land: Necessities (Daruriyyat)', moduleId: 'moontrance-land' },
+  { id: 'ummah_moontrance-land_growth',     name: 'MOONTRANCE LAND — GROWTH',     color: '#6E8E5B', icon: 'Mountain', description: 'Land: Needs (Hajiyyat)', moduleId: 'moontrance-land' },
+  { id: 'ummah_moontrance-land_excellence', name: 'MOONTRANCE LAND — EXCELLENCE', color: '#6E8E5B', icon: 'Mountain', description: 'Land: Excellence (Tahsiniyyat)', moduleId: 'moontrance-land' },
+  // Seasonal — Core / Growth / Excellence
+  { id: 'ummah_moontrance-seasonal_core',       name: 'MOONTRANCE SEASONAL — CORE',       color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Necessities (Daruriyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'ummah_moontrance-seasonal_growth',     name: 'MOONTRANCE SEASONAL — GROWTH',     color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Needs (Hajiyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'ummah_moontrance-seasonal_excellence', name: 'MOONTRANCE SEASONAL — EXCELLENCE', color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Excellence (Tahsiniyyat)', moduleId: 'moontrance-seasonal' },
+  // Residency — Core / Growth / Excellence
+  { id: 'ummah_moontrance-residency_core',       name: 'MOONTRANCE RESIDENCY — CORE',       color: '#5B6E8E', icon: 'Building', description: 'Residency: Necessities (Daruriyyat)', moduleId: 'moontrance-residency' },
+  { id: 'ummah_moontrance-residency_growth',     name: 'MOONTRANCE RESIDENCY — GROWTH',     color: '#5B6E8E', icon: 'Building', description: 'Residency: Needs (Hajiyyat)', moduleId: 'moontrance-residency' },
+  { id: 'ummah_moontrance-residency_excellence', name: 'MOONTRANCE RESIDENCY — EXCELLENCE', color: '#5B6E8E', icon: 'Building', description: 'Residency: Excellence (Tahsiniyyat)', moduleId: 'moontrance-residency' },
 ];
 
 // Migrate any existing BBOS projects from 9-column layout to standard columns

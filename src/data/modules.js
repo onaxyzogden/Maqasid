@@ -494,7 +494,7 @@ export const MODULES = [
   },
   {
     id: 'moontrance-land',
-    name: 'MTC Land',
+    name: 'Land',
     description: 'Land acquisition, soil stewardship (khilafah), water systems, and regenerative agriculture',
     icon: 'MapPinned',
     color: 'var(--mod-moontrance-land)',
@@ -510,7 +510,7 @@ export const MODULES = [
   },
   {
     id: 'moontrance-seasonal',
-    name: 'MTC Seasonal',
+    name: 'Seasonal',
     description: 'Seasonal participation pathway — planting, tending, harvest, and reflection',
     icon: 'Leaf',
     color: 'var(--mod-moontrance-seasonal)',
@@ -526,7 +526,7 @@ export const MODULES = [
   },
   {
     id: 'moontrance-residency',
-    name: 'MTC Residency',
+    name: 'Residency',
     description: 'Long-term community formation, residency model, trust-building, and permanence',
     icon: 'HousePlus',
     color: 'var(--mod-moontrance-residency)',

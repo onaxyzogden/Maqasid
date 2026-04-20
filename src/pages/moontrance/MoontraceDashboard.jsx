@@ -33,7 +33,7 @@ const MILESTONES = [
 const FRAMEWORKS = [
   {
     id: 'moontrance-land',
-    label: 'MTC Land',
+    label: 'Land',
     desc: 'Land acquisition, soil stewardship (khilafah), water systems, regenerative agriculture.',
     color: 'var(--mod-moontrance-land)',
     overview: LAND_OVERVIEW,
@@ -42,7 +42,7 @@ const FRAMEWORKS = [
   },
   {
     id: 'moontrance-seasonal',
-    label: 'MTC Seasonal',
+    label: 'Seasonal',
     desc: 'Seasonal participation pathway — planting, tending, harvest, and reflection.',
     color: 'var(--mod-moontrance-seasonal)',
     overview: SEASONAL_OVERVIEW,
@@ -51,7 +51,7 @@ const FRAMEWORKS = [
   },
   {
     id: 'moontrance-residency',
-    label: 'MTC Residency',
+    label: 'Residency',
     desc: 'Long-term community formation, residency model, trust-building, and permanence.',
     color: 'var(--mod-moontrance-residency)',
     overview: RESIDENCY_OVERVIEW,

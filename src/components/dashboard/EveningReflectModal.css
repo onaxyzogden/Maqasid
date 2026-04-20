@@ -1,0 +1,165 @@
+.erm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 10, 20, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+  animation: erm-fade 180ms ease;
+}
+
+@keyframes erm-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.erm-card {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--erm-accent, var(--accent));
+  border-radius: var(--radius-lg);
+  padding: 22px 24px 20px;
+  box-shadow: 0 24px 60px -24px rgba(6, 10, 20, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.erm-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+}
+.erm-close:hover { color: var(--text); background: var(--bg3); }
+
+.erm-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.erm-prompt {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text2);
+}
+.erm-prompt strong {
+  color: var(--erm-accent, var(--accent));
+  font-weight: 600;
+}
+
+.erm-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.erm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  font-size: 12px;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.erm-pill:hover { border-color: var(--erm-accent, var(--accent)); color: var(--text); }
+.erm-pill--active {
+  background: var(--erm-accent, var(--accent));
+  color: #fff;
+  border-color: var(--erm-accent, var(--accent));
+}
+.erm-pill--neg { opacity: 0.78; }
+.erm-pill--neg.erm-pill--active { opacity: 1; }
+.erm-pill-arabic {
+  font-family: var(--font-arabic);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.erm-note {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.erm-note-label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-weight: 600;
+}
+.erm-note textarea {
+  resize: vertical;
+  min-height: 56px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg3);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+}
+.erm-note textarea:focus {
+  outline: none;
+  border-color: var(--erm-accent, var(--accent));
+}
+
+.erm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.erm-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--erm-accent, var(--accent));
+  background: var(--erm-accent, var(--accent));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.erm-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.erm-btn--ghost {
+  background: transparent;
+  color: var(--text3);
+  border-color: var(--border);
+}
+.erm-btn--ghost:hover { color: var(--text); }
+
+/* Evening Reflect chip */
+.erm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--dashboard-accent, var(--accent)) 12%, transparent);
+  color: var(--dashboard-accent, var(--accent));
+  border: 1px solid color-mix(in srgb, var(--dashboard-accent, var(--accent)) 32%, transparent);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  animation: erm-fade 300ms ease;
+}
+.erm-chip:hover {
+  background: color-mix(in srgb, var(--dashboard-accent, var(--accent)) 20%, transparent);
+}

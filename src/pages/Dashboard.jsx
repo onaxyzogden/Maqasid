@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useCallback } from 'react';
+import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Kanban, AlertTriangle, CalendarDays,
@@ -13,6 +13,11 @@ import { useOfficeStore } from '../store/office-store';
 import { usePrayerTimes } from '../hooks/usePrayerTimes';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
+import ManifestoBanner from '../components/dashboard/ManifestoBanner';
+import FocusTaskList from '../components/dashboard/FocusTaskList';
+import ContextWidgetSlot from '../components/dashboard/ContextWidgetSlot';
+import EveningReflectButton from '../components/dashboard/EveningReflectButton';
+import { useToastStore } from '../store/toast-store';
 import TodayFocusSection from './TodayFocusSection';
 import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
 import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
@@ -223,7 +228,65 @@ export default function Dashboard() {
   const completedOpening = useThresholdStore((s) => s.completedOpening);
   const deferred = useThresholdStore((s) => s.deferred);
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
+  const niyyahSubmodule = useThresholdStore((s) => s.niyyahSubmodule);
   const { nextPrayer } = usePrayerTimes();
+  const isIslamic = valuesLayer === 'islamic';
+
+  // Sun & Stars — primary pillar from today's niyyah becomes the accent anchor
+  const primaryPillar = useMemo(() => {
+    const firstId = (niyyahFocus || []).find((id) => id && id !== '_skipped');
+    return MAQASID_PILLARS.find((p) => p.id === firstId) || null;
+  }, [niyyahFocus]);
+
+  // Focus submodule progress — completed / total for tasks tagged to today's submodule
+  const focusProgress = useMemo(() => {
+    if (!niyyahSubmodule || niyyahSubmodule === '_skipped') return { completed: 0, total: 0 };
+    let completed = 0;
+    let total = 0;
+    for (const tasks of Object.values(tasksByProject)) {
+      for (const task of tasks) {
+        if (task.submoduleId !== niyyahSubmodule) continue;
+        total += 1;
+        if (task.completedAt) completed += 1;
+      }
+    }
+    return { completed, total };
+  }, [tasksByProject, niyyahSubmodule]);
+
+  // Ripple toast — when a focus task transitions uncompleted → completed, nudge the user.
+  const completedFocusRef = useRef(null);
+  const lastToastAtRef = useRef(0);
+  const addToast = useToastStore((s) => s.addToast);
+  useEffect(() => {
+    if (!niyyahSubmodule || niyyahSubmodule === '_skipped') {
+      completedFocusRef.current = null;
+      return;
+    }
+    const current = new Set();
+    for (const tasks of Object.values(tasksByProject)) {
+      for (const task of tasks) {
+        if (task.submoduleId === niyyahSubmodule && task.completedAt) current.add(task.id);
+      }
+    }
+    const prev = completedFocusRef.current;
+    if (prev != null) {
+      let newCount = 0;
+      for (const id of current) if (!prev.has(id)) newCount += 1;
+      if (newCount > 0 && primaryPillar) {
+        const now = Date.now();
+        if (now - lastToastAtRef.current > 2000) {
+          lastToastAtRef.current = now;
+          const label = isIslamic ? primaryPillar.sidebarLabel : primaryPillar.universalLabel;
+          addToast({
+            type: 'success',
+            message: `One step closer to your ${label}.`,
+            variant: 'toast',
+          });
+        }
+      }
+    }
+    completedFocusRef.current = current;
+  }, [tasksByProject, niyyahSubmodule, primaryPillar, addToast, isIslamic]);
   const tourCompleted = useOnboardingStore((s) => s.tourCompleted);
   const completeTourStep = useOnboardingStore((s) => s.completeTourStep);
   const firstLoginAt = useOnboardingStore((s) => s.firstLoginAt);
@@ -232,10 +295,25 @@ export default function Dashboard() {
     completeTourStep();
   }, [completeTourStep]);
 
+  // One-shot migration: tag tasks with pillarId/submoduleId derived from
+  // their project's moduleId. Runs once per browser via a sentinel key.
+  useEffect(() => {
+    const MIGRATED_KEY = 'bbiz_task_pillar_migrated_v1';
+    if (localStorage.getItem(MIGRATED_KEY)) return;
+    useTaskStore.getState().backfillPillarFields();
+    localStorage.setItem(MIGRATED_KEY, '1');
+  }, []);
+
+  // Day-rollover: if yesterday's niyyah is still the current one,
+  // archive it (with any evening reflection) into history and clear
+  // today's slots so the morning Niyyah Act opens fresh.
+  useEffect(() => {
+    useThresholdStore.getState().rolloverIfStale();
+  }, []);
+
   const [projectFilter, setProjectFilter] = useState('all');
   const [activityTab, setActivityTab] = useState('all');
 
-  const isIslamic = valuesLayer === 'islamic';
   const projects = useMemo(() => allProjects.filter((p) => !p.archived), [allProjects]);
 
   // BBOS projects with per-stage progress
@@ -475,11 +553,23 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="insight" data-tour="dashboard-main">
+    <div
+      className={`insight${primaryPillar ? ' insight--sanctuary' : ''}`}
+      data-tour="dashboard-main"
+      style={primaryPillar ? { '--dashboard-accent': primaryPillar.accentColor } : undefined}
+    >
       {/* ── Spotlight Tour ── */}
       {!tourCompleted && firstLoginAt !== null && (
         <SpotlightTour steps={TOUR_STEPS} onComplete={handleTourComplete} />
       )}
+      {/* ── Daily Manifesto (Ad-lib banner) + Evening Reflect chip ── */}
+      <div className="insight-manifesto-row">
+        <ManifestoBanner />
+        <EveningReflectButton
+          deepWorkPct={focusProgress.total > 0 ? (focusProgress.completed / focusProgress.total) * 100 : 0}
+        />
+      </div>
+
       {/* ── Top greeting bar ── */}
       <div className="insight-greeting">
         <div className="insight-greeting__avatar">{initials}</div>
@@ -508,7 +598,14 @@ export default function Dashboard() {
       </div>
 
       {/* ── Today's Focus ── */}
-      <TodayFocusSection pillarSummary={focusSummary} />
+      <TodayFocusSection
+        pillarSummary={focusSummary}
+        primaryPillarId={primaryPillar?.id ?? null}
+        focusProgress={focusProgress}
+      />
+
+      {/* ── Guided Task List — Today's Deep Work ── */}
+      <FocusTaskList />
 
       {/* ── Empty state for new users ── */}
       {projects.length === 0 && allTasks.length === 0 && (
@@ -536,7 +633,7 @@ export default function Dashboard() {
 
       {/* ── Maqasid Progress Strip ── */}
       <div className="insight-section-label">Maqasid al-Shari&apos;ah</div>
-      <PillarProgressStrip valuesLayer={valuesLayer} />
+      <PillarProgressStrip valuesLayer={valuesLayer} focusPillarIds={niyyahFocus} />
 
       {/* ── BBOS Pipeline Overviews ── */}
       {bbosProjects.length > 0 && bbosProjects.map(({ project: bp, progress, activeStage }) => (
@@ -690,6 +787,9 @@ export default function Dashboard() {
               })}
             </div>
           </div>
+
+          {/* Context Widget (submodule-aware) */}
+          <ContextWidgetSlot />
 
           {/* Workflow Pressure */}
           <WorkflowPressure level={pressureLevel} inProgressCount={stats.inProgress} />
