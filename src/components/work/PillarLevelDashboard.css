@@ -121,6 +121,23 @@
   justify-content: space-between;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+}
+.pld__col-head:hover {
+  opacity: 0.85;
+}
+.pld__col-head-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.pld__col-chevron {
+  color: var(--text3);
+  transition: transform 0.2s ease;
+}
+.pld__col-chevron--collapsed {
+  transform: rotate(-90deg);
 }
 .pld__col--todo .pld__col-head {
   background: var(--bg3);
@@ -147,10 +164,20 @@
   padding: 2px 8px;
   border-radius: 99px;
 }
+.pld__col-body-wrap {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.25s ease;
+}
+.pld__col-body-wrap--collapsed {
+  grid-template-rows: 0fr;
+}
 .pld__col-body {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  overflow: hidden;
+  min-height: 0;
 }
 .pld__col-empty {
   text-align: center;

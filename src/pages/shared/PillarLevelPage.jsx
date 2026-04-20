@@ -27,7 +27,7 @@ const LEVEL_COLORS = { core: '#C8A96E', growth: '#4ab8a8', excellence: '#8b5cf6'
  *   levelRoutes    — { core: '/app/...', growth: '...', excellence: '...' }
  */
 export default function PillarLevelPage({
-  pillarKey,
+  pillarKey: initialPillarKey,
   pillarModuleMap = {},
   boardPrefix,
   storageKey,
@@ -36,6 +36,9 @@ export default function PillarLevelPage({
   levelRoutes = {},
   levelDescriptions,
 }) {
+  // Local submodule state — initialised from the wrapper page's prop, then
+  // updated in-place on tab click so the page never unmounts on submodule switch.
+  const [pillarKey, setPillarKey] = useState(initialPillarKey);
   const [subsegTask, setSubsegTask] = useState(null);
 
   const [activeLevel, setActiveLevelRaw] = useState(() => {
@@ -81,6 +84,28 @@ export default function PillarLevelPage({
 
   const boardId = `${boardPrefix}_${pillarKey}_${activeLevel}`;
   const project = getProject(boardId);
+
+  // Keep the last-rendered project so the UI never goes blank mid-switch.
+  const lastProjectRef = useRef(project);
+  if (project) lastProjectRef.current = project;
+  const displayProject = project || lastProjectRef.current;
+  const displayProjectId = project ? boardId : lastProjectRef.current?.id;
+
+  // Two-layer cross-fade on level switch.
+  const [prevProject, setPrevProject] = useState(null);
+  const prevTimerRef = useRef(null);
+  const trackedBoardIdRef = useRef(boardId);
+  useEffect(() => {
+    if (trackedBoardIdRef.current === boardId) return;
+    const outgoingProject = getProject(trackedBoardIdRef.current);
+    trackedBoardIdRef.current = boardId;
+    if (outgoingProject) {
+      setPrevProject(outgoingProject);
+      clearTimeout(prevTimerRef.current);
+      prevTimerRef.current = setTimeout(() => setPrevProject(null), 320);
+    }
+  }, [boardId, getProject]);
+
   const moduleId = pillarModuleMap[pillarKey] ?? pillarKey;
   // Reverse map: moduleId → pillarKey (e.g. 'salat' → 'salah')
   const moduleToKey = useMemo(() => {
@@ -102,6 +127,13 @@ export default function PillarLevelPage({
         ensureProjects={ensureProjects}
         levelRoutes={levelRoutes}
         levelDescriptions={levelDescriptions}
+        onSegmentClick={(clickedPillarId) => {
+          const nextKey = moduleToKey[clickedPillarId] || clickedPillarId;
+          if (nextKey === pillarKey) return;
+          const nextRoute = pillars.find((p) => p.id === clickedPillarId)?.route;
+          setPillarKey(nextKey);
+          if (nextRoute) window.history.replaceState(null, '', nextRoute);
+        }}
         onSubsegClick={(taskId, pillarId) => {
           const key = moduleToKey[pillarId] || pillarId;
           const proj = getProject(`${boardPrefix}_${key}_${activeLevel}`);
@@ -119,11 +151,18 @@ export default function PillarLevelPage({
         />
       )}
       <div className="fpb-layout">
-        <div key={boardId} className={`fpb-content${slideDirRef.current ? ` fpb-content--slide-${slideDirRef.current}` : ''}`}>
-          {project ? (
-            <ProjectBoard projectId={boardId} project={project} hideFilter hideViewSwitcher />
+        <div className="fpb-content">
+          {prevProject && prevProject.id !== displayProjectId && (
+            <div key={prevProject.id} className="fpb-content__layer fpb-content__layer--out">
+              <ProjectBoard projectId={prevProject.id} project={prevProject} hideFilter hideViewSwitcher />
+            </div>
+          )}
+          {displayProject ? (
+            <div key={displayProjectId} className="fpb-content__layer fpb-content__layer--in">
+              <ProjectBoard projectId={displayProjectId} project={displayProject} hideFilter hideViewSwitcher />
+            </div>
           ) : (
-            <div style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+            <div className="fpb-content__layer" style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
               <SkeletonCard />
               <SkeletonCard />
             </div>

@@ -1,0 +1,29 @@
+/* ── ProjectBoard — two-layer cross-fade on view/stage swap ── */
+
+.pb-content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.pb-content__layer {
+  grid-area: 1 / 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pb-content__layer--in  { animation: pbFadeIn  300ms var(--ease) both; }
+.pb-content__layer--out { animation: pbFadeOut 300ms var(--ease) both; pointer-events: none; }
+
+@keyframes pbFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes pbFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}

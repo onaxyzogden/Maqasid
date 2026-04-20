@@ -842,18 +842,29 @@
 }
 
 /* ── Factory sections ── */
-/* Factory slide animation on tab switch */
+/* Two-layer cross-fade on tab switch (Groundwork ↔ Workshop) */
 .bfd__factory-content {
   grid-column: 1 / -1;
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.bfd__factory-content__layer {
+  grid-area: 1 / 1;
+  display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: var(--space-3);
+  min-width: 0;
 }
-.bfd__factory-slide-left {
-  animation: slideInFromRight var(--duration-lg) var(--ease);
+.bfd__factory-content__layer--in  { animation: bfdFadeIn  300ms var(--ease) both; }
+.bfd__factory-content__layer--out { animation: bfdFadeOut 300ms var(--ease) both; pointer-events: none; }
+@keyframes bfdFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
 }
-.bfd__factory-slide-right {
-  animation: slideInFromLeft var(--duration-lg) var(--ease);
+@keyframes bfdFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 .bfd__factory {

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import {
   AlertTriangle, CheckCircle, Star, Activity, TrendingUp,
-  LayoutDashboard,
+  LayoutDashboard, ChevronDown,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { PRIORITIES } from '../../data/modules';
@@ -382,6 +382,13 @@ function MasteryRing({ percent, pillarColor, pillarKey, doneCount, totalCount })
 
 export default function PillarLevelDashboard({ project, onSelectTask, selectedTaskId }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
+  const [collapsedCols, setCollapsedCols] = useState(new Set());
+  const toggleCol = (status) =>
+    setCollapsedCols((prev) => {
+      const next = new Set(prev);
+      next.has(status) ? next.delete(status) : next.add(status);
+      return next;
+    });
 
   const level      = detectPillarLevel(project.id);
   const levelColor = LEVEL_COLORS[level] || '#64748b';
@@ -478,36 +485,51 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
                          : status === 'in-progress' ? 'In Progress' : 'Done';
           return (
             <div key={status} className={`pld__col pld__col--${status}`}>
-              <div className="pld__col-head">
+              <div
+                className="pld__col-head"
+                role="button"
+                tabIndex={0}
+                aria-expanded={!collapsedCols.has(status)}
+                onClick={() => toggleCol(status)}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleCol(status)}
+              >
                 <span className="pld__col-head-label">{colLabel}</span>
-                <span className="pld__col-head-count">{colTasks.length}</span>
+                <div className="pld__col-head-right">
+                  <span className="pld__col-head-count">{colTasks.length}</span>
+                  <ChevronDown
+                    size={14}
+                    className={`pld__col-chevron${collapsedCols.has(status) ? ' pld__col-chevron--collapsed' : ''}`}
+                  />
+                </div>
               </div>
-              <div className="pld__col-body">
-                {colTasks.map((task, i) =>
-                  selectedTaskId === task.id ? (
-                    <InlineTaskDetail
-                      key={task.id}
-                      project={project}
-                      projectId={project.id}
-                      taskId={task.id}
-                      levelColor={levelColor}
-                      onClose={() => onSelectTask(null)}
-                    />
-                  ) : (
-                    <PillarTaskCard
-                      key={task.id}
-                      task={task}
-                      index={i}
-                      span={12}
-                      status={status}
-                      levelColor={levelColor}
-                      onSelectTask={onSelectTask}
-                    />
-                  )
-                )}
-                {colTasks.length === 0 && (
-                  <div className="pld__col-empty">No tasks</div>
-                )}
+              <div className={`pld__col-body-wrap${collapsedCols.has(status) ? ' pld__col-body-wrap--collapsed' : ''}`}>
+                <div className="pld__col-body">
+                  {colTasks.map((task, i) =>
+                    selectedTaskId === task.id ? (
+                      <InlineTaskDetail
+                        key={task.id}
+                        project={project}
+                        projectId={project.id}
+                        taskId={task.id}
+                        levelColor={levelColor}
+                        onClose={() => onSelectTask(null)}
+                      />
+                    ) : (
+                      <PillarTaskCard
+                        key={task.id}
+                        task={task}
+                        index={i}
+                        span={12}
+                        status={status}
+                        levelColor={levelColor}
+                        onSelectTask={onSelectTask}
+                      />
+                    )
+                  )}
+                  {colTasks.length === 0 && (
+                    <div className="pld__col-empty">No tasks</div>
+                  )}
+                </div>
               </div>
             </div>
           );

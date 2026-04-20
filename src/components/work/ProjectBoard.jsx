@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, Fragment } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, Fragment } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Upload, RefreshCw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
@@ -16,6 +16,7 @@ import GanttView from './GanttView';
 import TaskDetailPanel from './TaskDetailPanel';
 import FilterBar from './FilterBar';
 import LevelNavigator from '../shared/LevelNavigator';
+import './ProjectBoard.css';
 
 /* Level accent colors — mirrors PillarLevelDashboard */
 const LEVEL_COLORS = { core: '#C8A96E', growth: '#4ab8a8', excellence: '#8b5cf6' };
@@ -212,6 +213,39 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     };
     reader.readAsText(file);
     e.target.value = '';
+  };
+
+  // Two-layer cross-fade on view or BBOS stage swap.
+  const contentKey = `${view}::${isBbos ? bbosFilter : 'x'}`;
+  const [prevContentKey, setPrevContentKey] = useState(null);
+  const prevViewRef = useRef(view);
+  const prevBbosRef = useRef(bbosFilter);
+  const prevTimerRef = useRef(null);
+  const trackedKeyRef = useRef(contentKey);
+  const lastViewRef = useRef(view);
+  const lastBbosRef = useRef(bbosFilter);
+  const hasTransitionedRef = useRef(false);
+  useLayoutEffect(() => {
+    if (trackedKeyRef.current === contentKey) return;
+    hasTransitionedRef.current = true;
+    prevViewRef.current = lastViewRef.current;
+    prevBbosRef.current = lastBbosRef.current;
+    setPrevContentKey(trackedKeyRef.current);
+    trackedKeyRef.current = contentKey;
+    lastViewRef.current = view;
+    lastBbosRef.current = bbosFilter;
+    clearTimeout(prevTimerRef.current);
+    prevTimerRef.current = setTimeout(() => setPrevContentKey(null), 320);
+    // No cleanup — strict-mode double-invoke would clear the timer and strand
+    // the outgoing layer. Setting state on an unmounted component is a no-op.
+  }, [contentKey, view, bbosFilter]);
+
+  const renderView = (v, stage) => {
+    const fm = isBbos ? { ...filters, bbosStage: stage } : hideBbos && project.bbosEnabled ? { ...filters, excludeBbos: true } : filters;
+    if (v === 'dashboard') return <DashboardView project={project} bbosFilter={isBbos ? stage : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} onStageAdvance={isBbos ? handleStageAdvance : undefined} onStageSelect={isBbos ? handleStageSelect : undefined} />;
+    if (v === 'board')     return <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={fm} bbosFilter={isBbos ? stage : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />;
+    if (v === 'gantt')     return <GanttView project={project} onSelectTask={setSelectedTaskId} filters={fm} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? stage : null} />;
+    return <ListView project={project} onSelectTask={setSelectedTaskId} filters={fm} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? stage : null} />;
   };
 
   const mergedFilters = isBbos
@@ -442,16 +476,15 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
 
         {/* Content */}
         <div style={{ flex: 1, minHeight: view === 'dashboard' ? undefined : 0, display: 'flex' }}>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            {view === 'dashboard' ? (
-              <DashboardView project={project} bbosFilter={isBbos ? bbosFilter : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} onStageAdvance={isBbos ? handleStageAdvance : undefined} onStageSelect={isBbos ? handleStageSelect : undefined} />
-            ) : view === 'board' ? (
-              <KanbanBoard project={project} onSelectTask={setSelectedTaskId} selectedTaskId={selectedTaskId} filters={mergedFilters} bbosFilter={isBbos ? bbosFilter : null} bbosRole={project.bbosRole || 'all'} draggable={draggable} />
-            ) : view === 'gantt' ? (
-              <GanttView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? bbosFilter : null} />
-            ) : (
-              <ListView project={project} onSelectTask={setSelectedTaskId} filters={mergedFilters} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? bbosFilter : null} />
+          <div className="pb-content">
+            {prevContentKey && prevContentKey !== contentKey && (
+              <div key={prevContentKey} className="pb-content__layer pb-content__layer--out">
+                {renderView(prevViewRef.current, prevBbosRef.current)}
+              </div>
             )}
+            <div key={contentKey} className={`pb-content__layer${hasTransitionedRef.current ? ' pb-content__layer--in' : ''}`}>
+              {renderView(view, bbosFilter)}
+            </div>
           </div>
 
         </div>

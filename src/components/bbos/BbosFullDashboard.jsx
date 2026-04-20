@@ -1,4 +1,4 @@
-import { useMemo, useState, useRef, Fragment } from 'react';
+import { useMemo, useState, useRef, useLayoutEffect, Fragment } from 'react';
 import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
@@ -1669,13 +1669,21 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactoryRaw] = useState('research');
-  const slideDirRef = useRef(null);
-  const setActiveFactory = (key) => {
-    if (key !== activeFactory) {
-      slideDirRef.current = key === 'asset' ? 'left' : 'right';
-    }
-    setActiveFactoryRaw(key);
-  };
+  const setActiveFactory = (key) => setActiveFactoryRaw(key);
+
+  // Two-layer cross-fade on factory swap (Groundwork ↔ Workshop).
+  const [prevFactory, setPrevFactory] = useState(null);
+  const trackedFactoryRef = useRef(activeFactory);
+  const prevTimerRef = useRef(null);
+  const hasTransitionedRef = useRef(false);
+  useLayoutEffect(() => {
+    if (trackedFactoryRef.current === activeFactory) return;
+    hasTransitionedRef.current = true;
+    setPrevFactory(trackedFactoryRef.current);
+    trackedFactoryRef.current = activeFactory;
+    clearTimeout(prevTimerRef.current);
+    prevTimerRef.current = setTimeout(() => setPrevFactory(null), 320);
+  }, [activeFactory]);
 
   const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, doneCount, totalCount, stagePct } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
@@ -1827,36 +1835,51 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
                 </div>
               )}
 
-              {/* Active factory content */}
-              <div
-                key={activeFactory}
-                className={`bfd__factory-content${slideDirRef.current ? ` bfd__factory-slide-${slideDirRef.current}` : ''}`}
-              >
-                {(hasBoth ? activeFactory === 'research' : researchGroups.length > 0) && (
-                  <div className="bfd__factory bfd__factory--research">
-                    {researchGroups.map((g) => renderGroup(g, false))}
-                  </div>
-                )}
-
-                {(hasBoth ? activeFactory === 'asset' : assetGroups.length > 0 && researchGroups.length === 0) && (
-                  <>
-                    {!gateCleared ? (
-                      <div className="bfd__assembly-gate bfd__assembly-gate--locked">
-                        <span className="bfd__assembly-gate-icon">⏳</span>
-                        <span className="bfd__assembly-gate-text">Assembly Gate: LOCKED — complete Research tasks first</span>
+              {/* Active factory content — two-layer cross-fade */}
+              {(() => {
+                const renderFactoryBody = (factory) => {
+                  if (hasBoth ? factory === 'research' : researchGroups.length > 0) {
+                    return (
+                      <div className="bfd__factory bfd__factory--research">
+                        {researchGroups.map((g) => renderGroup(g, false))}
                       </div>
-                    ) : (
-                      <div className="bfd__assembly-gate bfd__assembly-gate--cleared">
-                        <span className="bfd__assembly-gate-icon">✅</span>
-                        <span className="bfd__assembly-gate-text">Assembly Gate: CLEARED</span>
+                    );
+                  }
+                  if (hasBoth ? factory === 'asset' : assetGroups.length > 0 && researchGroups.length === 0) {
+                    return (
+                      <>
+                        {!gateCleared ? (
+                          <div className="bfd__assembly-gate bfd__assembly-gate--locked">
+                            <span className="bfd__assembly-gate-icon">⏳</span>
+                            <span className="bfd__assembly-gate-text">Assembly Gate: LOCKED — complete Research tasks first</span>
+                          </div>
+                        ) : (
+                          <div className="bfd__assembly-gate bfd__assembly-gate--cleared">
+                            <span className="bfd__assembly-gate-icon">✅</span>
+                            <span className="bfd__assembly-gate-text">Assembly Gate: CLEARED</span>
+                          </div>
+                        )}
+                        <div className={`bfd__factory bfd__factory--asset${!gateCleared ? ' bfd__factory--locked' : ''}`}>
+                          {assetGroups.map((g) => renderGroup(g, !gateCleared))}
+                        </div>
+                      </>
+                    );
+                  }
+                  return null;
+                };
+                return (
+                  <div className="bfd__factory-content">
+                    {prevFactory && prevFactory !== activeFactory && (
+                      <div key={prevFactory} className="bfd__factory-content__layer bfd__factory-content__layer--out">
+                        {renderFactoryBody(prevFactory)}
                       </div>
                     )}
-                    <div className={`bfd__factory bfd__factory--asset${!gateCleared ? ' bfd__factory--locked' : ''}`}>
-                      {assetGroups.map((g) => renderGroup(g, !gateCleared))}
+                    <div key={activeFactory} className={`bfd__factory-content__layer${hasTransitionedRef.current ? ' bfd__factory-content__layer--in' : ''}`}>
+                      {renderFactoryBody(activeFactory)}
                     </div>
-                  </>
-                )}
-              </div>
+                  </div>
+                );
+              })()}
             </>
           );
         })()}
