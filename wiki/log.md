@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-20] fix | Salah Level 1 tasks missing — board re-seed race fixed
+
+**Root cause:** `bbiz_tasks_faith_salah_core` was cleared from localStorage (likely during Siyam rename testing). AppShell preloads all projects on startup via `loadTasks`, caching `[]` for the board in the Zustand store. When the user visited the Salah board, `PillarLevelPage` effect-1 called `ensureFaithProjects → seedTasks` (re-seeding correctly to localStorage) but effect-2 (deps: `[projects]`) did NOT re-fire because the project entry was already in the store — leaving the store stale at `[]` even though localStorage was now seeded.
+
+**Fix:** effect-1 now calls `useProjectStore.getState().projects` directly after `ensureProjectsFn()` and invokes `loadTasks` for all 3 level boards immediately, bypassing the projects-dep re-render dependency. effect-2 retained for new-project-entry path.
+
+**Data restore:** cleared `bbiz_tasks_faith_salah_core` via DevTools → `seedTasks` re-seeded 5 Salah Level 1 tasks on next board visit.
+
+**Files changed:** `src/pages/shared/PillarLevelPage.jsx`
+
 ## [2026-04-19] ui | PillarLevelDashboard — 3-Column Kanban + Dashboard Greeting Removed
 
 **Completed:**
