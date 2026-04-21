@@ -1910,7 +1910,7 @@ Reflection without action is incomplete. Committing to one concrete, actionable 
   faith_salah_core: [
     {
       title: 'Establish all five daily prayers on time consistently',
-      priority: 'urgent', tags: ['salah', 'fard'],
+      priority: 'urgent', tags: ['salah', 'fard', 'prayer-phase:main'],
       description: 'Salah is the first obligation after Shahada and the first thing judged on the Day of Resurrection. Make every prayer on time without exception.',
       subtasks: [
         { title: 'Set alarms or reminders for all five prayer times', done: false,
@@ -2040,7 +2040,7 @@ For one week, aim to begin each prayer within 15 minutes of the adhan. Note your
     },
     {
       title: 'Learn the correct method of wudu with all fard and sunnah acts',
-      priority: 'high', tags: ['salah', 'wudu'],
+      priority: 'high', tags: ['salah', 'wudu', 'prayer-phase:main'],
       description: 'Wudu is the key to salah. Learn the obligatory and recommended acts to ensure your purification is valid and complete.',
       subtasks: [
         { title: 'Learn the four fard acts of wudu (Hanafi) or six (Shafi\'i)', done: false,
@@ -2141,7 +2141,7 @@ After completing wudu, recite the Shahada followed by the du'a: "Allahummaj'alni
     },
     {
       title: 'Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)',
-      priority: 'high', tags: ['salah', 'memorisation'],
+      priority: 'high', tags: ['salah', 'memorisation', 'prayer-phase:main'],
       description: 'Ensure you know the essential recitations of prayer with correct Arabic pronunciation and understand their meanings.',
       subtasks: [
         { title: 'Memorise the opening du\'a (Subhanaka Allahumma or equivalent)', done: false,
@@ -2275,7 +2275,7 @@ Take each adhkar you have memorised (opening du'a, Tashahhud, Salawat, du'a befo
     },
     {
       title: 'Pray in congregation (jama\'ah) whenever possible',
-      priority: 'high', tags: ['salah', 'jamaah'],
+      priority: 'high', tags: ['salah', 'jamaah', 'prayer-phase:main'],
       description: 'Prayer in congregation carries 27 times the reward. Make it a priority to attend the masjid or pray with family when possible.',
       subtasks: [
         { title: 'Identify the nearest masjid and its prayer times', done: false,
@@ -2344,7 +2344,7 @@ If you cannot reach a masjid, establish jama'ah at home. Pray with your spouse, 
     },
     {
       title: 'Learn the conditions that invalidate salah',
-      priority: 'medium', tags: ['salah', 'fiqh'],
+      priority: 'medium', tags: ['salah', 'fiqh', 'prayer-phase:main'],
       description: 'Know what actions or omissions break the prayer so you can avoid them and know when to repeat a prayer.',
       subtasks: [
         { title: 'Study the acts that invalidate salah (talking, eating, turning away)', done: false,
@@ -2494,11 +2494,235 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
         },
       ],
     },
+    {
+      title: "Reclaim the day with the waking du'a and morning adhkar",
+      priority: "high",
+      tags: ["salah", "sunnah", "adhkar", "prayer-phase:before", "transition:waking", "transition:morning-adhkar"],
+      description: "Sleep is a minor death. The Prophet (SAW) treated waking and the post-Fajr window as the sacred reset of the day \u2014 a sequence of remembrance from the first breath until the sun cleared the horizon.",
+      subtasks: [
+        {
+          title: "Recite the waking du'a the moment you open your eyes",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Bukhari 6312 establishes the exact wording the Prophet (SAW) used upon waking; Quran 30:23 and 6:60 ground sleep/waking as a divine sign of resurrection.",
+          sources: "**I. Quran**\n\n### Quran (30:23)\n**Arabic:** \u0648\u064E\u0645\u0650\u0646\u0652 \u0622\u064A\u064E\u0627\u062A\u0650\u0647\u0650 \u0645\u064E\u0646\u064E\u0627\u0645\u064F\u0643\u064F\u0645 \u0628\u0650\u0627\u0644\u0644\u064E\u0651\u064A\u0652\u0644\u0650 \u0648\u064E\u0627\u0644\u0646\u064E\u0651\u0647\u064E\u0627\u0631\u0650 \u0648\u064E\u0627\u0628\u0652\u062A\u0650\u063A\u064E\u0627\u0624\u064F\u0643\u064F\u0645 \u0645\u0650\u0651\u0646 \u0641\u064E\u0636\u0652\u0644\u0650\u0647\u0650\n**Translation:** 'And of His signs is your sleep by night and day and your seeking of His bounty. Indeed in that are signs for a people who listen.'\n\n**II. Hadith**\n\n### Sahih Bukhari 6312\nThe Prophet (SAW) used to say upon waking: 'Alhamdulillahi alladhi ahyana ba'da ma amatana wa ilayhi an-nushur' \u2014 'All praise is for Allah who gave us life after having taken it from us, and unto Him is the resurrection.' *(Grade: Sahih)*",
+          description: "**Why?** The first breath of consciousness should belong to Allah. The Prophet (SAW) anchored every awakening in this acknowledgement \u2014 sleep is a rehearsal of death, waking a rehearsal of resurrection.\n\n**How?** Memorise the Arabic. The instant you become aware of waking \u2014 before reaching for the phone, before stretching \u2014 say it once, slowly, with meaning."
+        },
+        {
+          title: "Establish the morning adhkar after Fajr (Asbahna, Sayyid al-Istighfar, three Quls, Ayat al-Kursi)",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Muslim 2723 and Tirmidhi 3391 attest the prophetic morning du'a; Sunan Abi Dawud 5082 and Bukhari 2311 attest the protective recitations bundled into the morning routine.",
+          sources: "**I. Quran**\n\n### Quran (33:41-42)\n**Arabic:** \u064A\u064E\u0627 \u0623\u064E\u064A\u064F\u0651\u0647\u064E\u0627 \u0627\u0644\u064E\u0651\u0630\u0650\u064A\u0646\u064E \u0622\u0645\u064E\u0646\u064F\u0648\u0627 \u0627\u0630\u0652\u0643\u064F\u0631\u064F\u0648\u0627 \u0627\u0644\u0644\u064E\u0651\u0647\u064E \u0630\u0650\u0643\u0652\u0631\u064B\u0627 \u0643\u064E\u062B\u0650\u064A\u0631\u064B\u0627 \u0648\u064E\u0633\u064E\u0628\u0650\u0651\u062D\u064F\u0648\u0647\u064F \u0628\u064F\u0643\u0652\u0631\u064E\u0629\u064B \u0648\u064E\u0623\u064E\u0635\u0650\u064A\u0644\u064B\u0627\n**Translation:** 'O you who have believed, remember Allah with much remembrance. And exalt Him in the morning and evening.'\n\n### Quran (2:255)\nAyat al-Kursi \u2014 the greatest verse in the Qur'an.\n\n**II. Hadith**\n\n### Sahih Muslim 2723\nIn the morning the Prophet (SAW) said: 'All praise is for Allah. There is no god but Allah alone. To Him belongs the kingdom and to Him belongs all praise. My Lord, I ask You for the good of this day and the good of what follows it, and I seek refuge in You from the evil of this day and the evil of what follows it.' *(Grade: Sahih)*\n\n### Sunan al-Tirmidhi 3391\n'Allahumma bika asbahna, wa bika amsayna, wa bika nahya, wa bika namutu, wa ilayka an-nushur' \u2014 'O Allah, by You we enter the morning and by You we enter the evening, by You we live and by You we die, and to You is the Resurrection.' *(Grade: Sahih)*\n\n### Sunan Abi Dawud 5082\nWhoever recites Surat al-Ikhlas and the Mu'awwidhatayn (al-Falaq and an-Nas) three times in the morning and evening, they will suffice him from everything. *(Grade: Hasan Sahih)*\n\n### Sahih Bukhari 2311\nWhoever recites Ayat al-Kursi after every prayer (and morning/evening), Allah appoints a guard for him and no Satan will come near him until morning. *(Grade: Sahih)*",
+          description: "**Why?** The morning adhkar are the spiritual armour the Prophet (SAW) put on before stepping into the day. Skipping them leaves the day undefended.\n\n**How?** Sit in your musalla after Fajr. In order: 'Allahumma bika asbahna...' \u2192 Sayyid al-Istighfar (once) \u2192 three Quls (\u00d73 each) \u2192 Ayat al-Kursi \u2192 'La ilaha illallah wahdahu la sharika lah...' (\u00d7100 across the day). Use Hisnul-Muslim or a printed adhkar card if memorisation is incomplete."
+        },
+        {
+          title: "Remain in your musalla in dhikr until sunrise, then pray two rak'at of Ishraq",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih Muslim narrates the Prophet (SAW) sat in his musalla until sunrise; Tirmidhi 586 attaches the reward of a complete Hajj and Umrah to this practice.",
+          sources: "**II. Hadith**\n\n### Sahih Muslim 670\nJabir bin Samura reported that the Messenger of Allah (SAW) used to sit at the place where he had observed the morning prayer until the sun had risen. *(Grade: Sahih)*\n\n### Jami at-Tirmidhi 586\nThe Prophet (SAW) said: 'Whoever prays Fajr in congregation, then sits remembering Allah until the sun rises, then prays two rak'at \u2014 he will have the reward of a complete Hajj and Umrah, complete, complete.' *(Grade: Hasan)*",
+          description: "**Why?** A Hajj-and-Umrah reward for thirty extra minutes of dhikr and two rak'at \u2014 there is no equivalent return on time anywhere else in the day.\n\n**How?** After Fajr, do not leave the prayer place. Continue dhikr / Qur'an / morning adhkar until the sun has cleared the horizon by a spear's length (~15 min after sunrise). Then pray 2 rak'at quietly. Move into the day."
+        },
+      ],
+    },
+    {
+      title: "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a",
+      priority: "high",
+      tags: ["salah", "sunnah", "adhkar", "dua", "prayer-phase:before", "transition:morning-adhkar"],
+      description: "Two prophetic supplications that frame the moral and practical posture of the morning: confession of servitude (Sayyid al-Istighfar) and a request for the day's good with refuge from its evil.",
+      subtasks: [
+        {
+          title: "Recite Sayyid al-Istighfar once each morning",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Bukhari 6306 names this supplication 'the master of seeking forgiveness' and promises Paradise to whoever says it sincerely in the morning and dies that day.",
+          sources: "**I. Quran**\n\n### Quran (3:135)\n**Translation:** 'And those who, when they commit an immorality or wrong themselves, remember Allah and ask forgiveness for their sins. And who can forgive sins except Allah?'\n\n### Quran (40:55)\n**Translation:** 'So be patient. Indeed, the promise of Allah is truth. And ask forgiveness for your sin and exalt your Lord with praise in the evening and the morning.'\n\n**II. Hadith**\n\n### Sahih Bukhari 6306\nThe Prophet (SAW) said: 'The master of seeking forgiveness is to say: Allahumma anta Rabbi la ilaha illa anta, khalaqtani wa ana abduka, wa ana ala ahdika wa wa'dika ma istata'tu, a'udhu bika min sharri ma sana'tu, abu'u laka bi ni'matika alayya wa abu'u bidhanbi faghfir li, fa-innahu la yaghfiru adh-dhunuba illa anta. Whoever says it during the day with firm faith and dies that day before the evening, he will be among the people of Paradise; and whoever says it at night with firm faith and dies before morning, he will be among the people of Paradise.' *(Grade: Sahih)*",
+          description: "**Why?** Bukhari calls this 'the master of istighfar' \u2014 a complete acknowledgement of servitude, covenant, sin, and Allah's exclusive right to forgive. Said sincerely in the morning, it carries a Paradise-promise.\n\n**How?** Memorise the Arabic. Recite once after the morning adhkar block, slowly, internalising each clause."
+        },
+        {
+          title: "Make the morning du'a for the day's good and refuge from its evil",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sunan Abi Dawud 5084 preserves the prophetic wording asking for the day's victory, support, light, blessing, and guidance \u2014 and refuge from its evil.",
+          sources: "**I. Quran**\n\n### Quran (7:205)\n**Translation:** 'And remember your Lord within yourself in humility and in fear without loudness of voice in the mornings and the evenings. And do not be among the heedless.'\n\n**II. Hadith**\n\n### Sunan Abi Dawud 5084\nThe Prophet (SAW) used to say in the morning: 'Allahumma inni as'aluka khayra hadhal yawm: fathahu wa nasrahu wa nurahu wa barakatahu wa hudahu, wa a'udhu bika min sharri ma fihi wa sharri ma ba'dahu' \u2014 'O Allah, I ask You for the good of this day: its victory, its support, its light, its blessings, and its guidance. And I seek refuge in You from the evil of what is in it and the evil of what follows it.' *(Grade: Hasan)*",
+          description: "**Why?** This du'a covers the entire surface area of a day: opening, support, light, blessing, guidance \u2014 and explicit refuge from the day's hidden evils. It pre-empts the day before circumstances pre-empt you.\n\n**How?** Recite once after Sayyid al-Istighfar, before opening laptop / inbox / calendar. Renew it mentally if the day shifts unexpectedly."
+        },
+      ],
+    },
+    {
+      title: "Recite the evening adhkar between Asr and Maghrib",
+      priority: "high",
+      tags: ["salah", "sunnah", "adhkar", "prayer-phase:before", "transition:evening-adhkar"],
+      description: "The evening counterpart of the morning adhkar. The Prophet (SAW) recited a near-mirror set of supplications and surahs as the day faded \u2014 closing the day's spiritual ledger before night fell.",
+      subtasks: [
+        {
+          title: "Recite 'Amsayna wa amsal-mulku lillah' and the evening Allahumma bika du'a",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Muslim 2723 narrates the prophetic evening parallel to the morning du'a; Tirmidhi 3391 preserves 'wa bika amsayna' explicitly.",
+          sources: "**I. Quran**\n\n### Quran (33:41-42)\n**Translation:** 'O you who have believed, remember Allah with much remembrance. And exalt Him in the morning and evening.'\n\n**II. Hadith**\n\n### Sahih Muslim 2723\nThe Prophet (SAW) said in the evening: 'Amsayna wa amsal-mulku lillah, walhamdu lillah, la ilaha illallah wahdahu la sharika lah... Rabbi as'aluka khayra ma fi hadhihil-laylah wa khayra ma ba'daha, wa a'udhu bika min sharri ma fi hadhihil-laylah wa sharri ma ba'daha.' *(Grade: Sahih)*\n\n### Sunan al-Tirmidhi 3391\n'Allahumma bika amsayna, wa bika asbahna, wa bika nahya, wa bika namutu, wa ilayka al-masir.' *(Grade: Sahih)*",
+          description: "**Why?** The evening adhkar close the day's ledger and seek refuge from the night's evils before they begin. They are a mirror obligation to the morning set.\n\n**How?** Sit after Asr (or before Maghrib if travelling). Recite the 'Amsayna' opening, the prophetic evening du'a, and continue into the protective recitations below."
+        },
+        {
+          title: "Recite Surat al-Ikhlas, al-Falaq, and an-Nas three times in the evening",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sunan Abi Dawud 5082 explicitly instructs reciting the three Quls three times in the morning and evening, promising they suffice from everything.",
+          sources: "**I. Quran**\n\n### Surat al-Ikhlas (112)\n**Arabic:** \u0642\u064F\u0644\u0652 \u0647\u064F\u0648\u064E \u0627\u0644\u0644\u064E\u0651\u0647\u064F \u0623\u064E\u062D\u064E\u062F\u064C ...\n**Translation:** 'Say: He is Allah, [who is] One...'\n\n### Surat al-Falaq (113)\n**Translation:** 'Say: I seek refuge in the Lord of daybreak from the evil of that which He created...'\n\n### Surat an-Nas (114)\n**Translation:** 'Say: I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind...'\n\n**II. Hadith**\n\n### Sunan Abi Dawud 5082\nThe Prophet (SAW) said: 'Recite Qul Huwa Allahu Ahad and the Mu'awwidhatayn three times in the morning and evening; they will suffice you from everything.' *(Grade: Hasan Sahih)*",
+          description: "**Why?** Three short surahs, three repetitions, complete coverage. The Prophet (SAW) framed them as sufficient against 'everything' \u2014 an extraordinarily broad protective scope.\n\n**How?** Recite each surah 3\u00d7. With practice the entire sequence takes under three minutes."
+        },
+        {
+          title: "Recite Ayat al-Kursi in the evening for night-long protection",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Bukhari 2311 attaches the appointment of an angelic guard until morning to the recitation of Ayat al-Kursi at night.",
+          sources: "**I. Quran**\n\n### Quran (2:255)\nAyat al-Kursi \u2014 the verse of the Throne, declaring Allah's sovereignty and appointing night-long protection when recited at nightfall.\n\n**II. Hadith**\n\n### Sahih Bukhari 2311\nAbu Hurayra reported that a thief (a jinn in human form) told him: 'When you go to bed recite Ayat al-Kursi: Allah will appoint a guardian for you and no Satan will come near you until morning.' The Prophet (SAW) confirmed: 'He told you the truth though he is a liar; that was Satan.' *(Grade: Sahih)*",
+          description: "**Why?** A single verse buys a night under angelic guard. Ayat al-Kursi is the greatest verse of the Quran (Sahih Muslim 810).\n\n**How?** Recite once in the evening adhkar block, and again before sleep \u2014 the two recitations cover the entire fade from work into rest."
+        },
+      ],
+    },
+    {
+      title: "Complete the prophetic pre-sleep sunnah",
+      priority: "high",
+      tags: ["salah", "sunnah", "adhkar", "sleep", "prayer-phase:after", "transition:pre-sleep"],
+      description: "The Prophet (SAW) had a precise, repeatable sequence for entering sleep \u2014 wudu, recitation, blowing into the palms, posture, and final words. Together they convert the bed from a passive collapse into an act of worship.",
+      subtasks: [
+        {
+          title: "Recite Ayat al-Kursi as you lie down to sleep",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Bukhari 2311 narrates the explicit prophetic instruction to recite Ayat al-Kursi at bedtime for night-long protection.",
+          sources: "**I. Quran**\n\n### Quran (2:255)\nAyat al-Kursi \u2014 the verse of the Throne, recited at bedtime for night-long protection.\n\n**II. Hadith**\n\n### Sahih Bukhari 2311\nThe Prophet (SAW) said: 'Whenever you go to bed, recite Ayat al-Kursi. If you do so, Allah will appoint a guard for you who will stay with you and no Satan will come near you until morning.' *(Grade: Sahih)*",
+          description: "**Why?** Direct prophetic guarantee: an angelic guard assigned for the entire night.\n\n**How?** Recite once in your bed before closing your eyes. Pair with the next subtask (Quls + wipe)."
+        },
+        {
+          title: "Blow into your palms with the three Quls and wipe over your body three times",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Bukhari 5017 narrates Aisha's eyewitness account of the Prophet (SAW) practising this nightly without exception.",
+          sources: "**I. Quran**\n\n### Surat al-Ikhlas / al-Falaq / an-Nas (112, 113, 114)\nThe three Quls used in the prophetic bedtime ruqyah.\n\n**II. Hadith**\n\n### Sahih Bukhari 5017\nAisha (RA) narrated: 'Whenever the Prophet (SAW) went to bed every night, he used to cup his hands together and blow over them after reciting Surat al-Ikhlas, Surat al-Falaq, and Surat an-Nas, then rub his hands over whatever parts of his body he was able to rub, starting with his head, face, and front of his body. He did that three times.' *(Grade: Sahih)*",
+          description: "**Why?** A complete prophetic ruqyah \u2014 self-applied, nightly. The Prophet (SAW) never abandoned it.\n\n**How?** Cup both hands. Recite Ikhlas / Falaq / Nas once each into the palms with a soft blow. Wipe over head, face, front of body. Repeat the cycle three times in total."
+        },
+        {
+          title: "Recite Surah al-Mulk before sleep",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Jami at-Tirmidhi 2891 (hasan) names Surah al-Mulk as the surah that intercedes for its reciter until forgiven; Tirmidhi 2892 narrates the Prophet (SAW) never slept without reciting it.",
+          sources: "**I. Quran**\n\n### Quran (67:1)\n**Arabic:** \u062A\u064E\u0628\u064E\u0627\u0631\u064E\u0643\u064E \u0627\u0644\u064E\u0651\u0630\u0650\u064A \u0628\u0650\u064A\u064E\u062F\u0650\u0647\u0650 \u0627\u0644\u0652\u0645\u064F\u0644\u0652\u0643\u064F \u0648\u064E\u0647\u064F\u0648\u064E \u0639\u064E\u0644\u064E\u0649\u0670 \u0643\u064F\u0644\u0650\u0651 \u0634\u064E\u064A\u0652\u0621\u064D \u0642\u064E\u062F\u0650\u064A\u0631\u064C\n**Translation:** 'Blessed is He in whose hand is dominion, and He is over all things competent.'\n\n**II. Hadith**\n\n### Jami at-Tirmidhi 2891\nThe Prophet (SAW) said: 'A surah from the Quran containing thirty verses interceded for a man until he was forgiven \u2014 it is Surat Tabarakal-ladhi bi-yadihil-mulk.' *(Grade: Hasan)*\n\n### Jami at-Tirmidhi 2892\nThe Prophet (SAW) would not sleep until he had recited Alif Lam Mim Tanzil (al-Sajdah) and Tabarakal-ladhi bi-yadihil-mulk. *(Grade: Hasan)*",
+          description: "**Why?** Thirty verses, one intercessor on the Day of Judgement. The Prophet (SAW) never slept without it.\n\n**How?** Recite Surah al-Mulk from memory or from the mushaf in bed. Roughly five minutes; pair with the wipe sequence above."
+        },
+        {
+          title: "Sleep on your right side, hand under cheek, facing qibla",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih Bukhari 6314 records the prophetic posture and du'a sequence at bedtime.",
+          sources: "**II. Hadith**\n\n### Sahih Bukhari 6314\nThe Prophet (SAW) said: 'Whenever you go to bed perform ablution like that for the prayer, lie on your right side, and say: O Allah! I surrender myself to You and entrust all my affairs to You...' *(Grade: Sahih)*\n\n### Sahih Muslim 2710\nThe Messenger of Allah (SAW) used to lie down on his right side and place his right hand under his right cheek when retiring to bed. *(Grade: Sahih)*",
+          description: "**Why?** Posture is sunnah. The body's last position before sleep imitates the Prophet (SAW); the bed becomes a place of worship rather than collapse.\n\n**How?** Make wudu before bed. Lie on the right side, right hand under the right cheek, face the qibla if room layout allows."
+        },
+        {
+          title: "Make 'Bismika Allahumma amutu wa ahya' your final words",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Bukhari 6314 preserves the exact prophetic wording said as the last words before sleep.",
+          sources: "**II. Hadith**\n\n### Sahih Bukhari 6314\nThe Prophet (SAW) said when going to bed: 'Bismika Allahumma amutu wa ahya' \u2014 'In Your name, O Allah, I die and I live.' And upon waking he would say: 'Alhamdulillahi alladhi ahyana ba'da ma amatana wa ilayhi an-nushur.' *(Grade: Sahih)*",
+          description: "**Why?** The Prophet (SAW) framed sleep as a small death entrusted to Allah \u2014 the last word of the day belongs to Him.\n\n**How?** Make this the final phrase you say before sleep takes you, after Ayat al-Kursi / Quls / Mulk / posture sequence."
+        },
+      ],
+    },
+    {
+      title: "Close the morning by praying Dhuhr at its first time",
+      priority: "high",
+      tags: ["salah", "sunnah", "prayer-phase:after", "transition:end-of-morning"],
+      description: "The morning's spiritual close is not a feeling; it is a return to the musalla at the first call of Dhuhr. The Prophet (SAW) named praying at the appointed time the most beloved deed to Allah \u2014 the work block ends when the adhan begins.",
+      subtasks: [
+        {
+          title: "Pause work the moment Dhuhr enters and pray at its first time",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Quran 4:103 fixes salah at specified times; Bukhari 527 names prayer at its first time as the most beloved deed to Allah.",
+          sources: "**I. Quran**\n\n### Quran (4:103)\n**Arabic:** \u0625\u0650\u0646\u064E\u0651 \u0627\u0644\u0635\u064E\u0651\u0644\u064E\u0627\u0629\u064E \u0643\u064E\u0627\u0646\u064E\u062A\u0652 \u0639\u064E\u0644\u064E\u0649 \u0627\u0644\u0652\u0645\u064F\u0624\u0652\u0645\u0650\u0646\u0650\u064A\u0646\u064E \u0643\u0650\u062A\u064E\u0627\u0628\u064B\u0627 \u0645\u064E\u0651\u0648\u0652\u0642\u064F\u0648\u062A\u064B\u0627\n**Translation:** 'Indeed, prayer has been decreed upon the believers a decree of specified times.'\n\n**II. Hadith**\n\n### Sahih Bukhari 527\nIbn Mas'ud (RA) asked the Prophet (SAW): 'Which deed is the most beloved to Allah?' He said: 'To offer the prayers at their early stated fixed times.' I asked: 'What is next?' He said: 'To be good and dutiful to your parents.' I asked again: 'What is next?' He said: 'Jihad in the cause of Allah.' *(Grade: Sahih)*",
+          description: "**Why?** A morning of work that overruns Dhuhr is a morning that traded the most beloved deed for less beloved ones. The first-time prayer ends the morning block cleanly.\n\n**How?** Set a Dhuhr alarm 5 minutes before adhan. When it fires: stop the current sentence, save, walk to wudu. Treat the adhan as non-negotiable, the way you would treat a flight call."
+        },
+      ],
+    },
+    {
+      title: "Rise for Tahajjud with the prophetic waking protocol",
+      priority: "high",
+      tags: ["salah", "sunnah", "qiyam", "tahajjud", "prayer-phase:before", "transition:tahajjud-waking"],
+      description: "The Prophet \u2ADC, when he woke at night for Qiyam, followed a deliberate entry: wipe sleep from the face, recite the last ten verses of Al-Imran, say the wake-du'a of tawhid and hamd, use the siwak, then open the prayer with the istiftah of Tahajjud. Each step was narrated and each earned its place \u2014 together they shape a prophetic waking, not a generic one.",
+      subtasks: [
+        {
+          title: "Wipe sleep from the face and recite the last 10 verses of Al-Imran (3:190-200)",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Direct sahih narration from Ibn Abbas in Bukhari describing the Prophet\u2019s ﷺ exact practice upon waking for Tahajjud.",
+          sources: "**I. Quran**\n\n### Quran (3:190)\n**Arabic:** \u0625\u0650\u0646\u064E\u0651 \u0641\u0650\u064A \u062E\u064E\u0644\u0652\u0642\u0650 \u0627\u0644\u0633\u064E\u0651\u0645\u064E\u0627\u0648\u064E\u0627\u062A\u0650 \u0648\u064E\u0627\u0644\u0652\u0623\u064E\u0631\u0652\u0636\u0650 \u0648\u064E\u0627\u062E\u0652\u062A\u0650\u0644\u064E\u0627\u0641\u0650 \u0627\u0644\u0644\u064E\u0651\u064A\u0652\u0644\u0650 \u0648\u064E\u0627\u0644\u0646\u064E\u0651\u0647\u064E\u0627\u0631\u0650 \u0644\u064E\u0622\u064A\u064E\u0627\u062A\u064D \u0644\u0650\u0651\u0623\u064F\u0648\u0644\u0650\u064A \u0627\u0644\u0652\u0623\u064E\u0644\u0652\u0628\u064E\u0627\u0628\u0650\n**Translation:** 'Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.'\n\n**II. Hadith**\n\n### Sahih Bukhari 4569\nIbn Abbas (RA) spent the night at his aunt Maymuna's house. The Prophet (SAW) woke from sleep, wiped sleep from his face with his hand, and recited the last ten verses of Surah Al-Imran before beginning Tahajjud. *(Grade: Sahih)*",
+          description: "**Why?** The Prophet ﷺ treated waking itself as an act of worship \u2014 the physical wipe reorients the body, and reciting 3:190-200 reorients the heart to creation as a sign of its Creator before the first prostration.\n\n**How?** On waking for Qiyam, sit up, wipe your face with both palms, then quietly recite 3:190-200 (or as many as you have memorised, building up over nights). Keep a mushaf or Quran app at the bedside if needed."
+        },
+        {
+          title: "Recite the wake-during-night du'a of tawhid, hamd, and istighfar",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih narration in Bukhari with an explicit promise: the du'a, followed by istighfar or prayer, is answered and accepted.",
+          sources: "**I. Hadith**\n\n### Sahih Bukhari 1154\nThe Prophet (SAW) said: Whoever wakes at night and says \u2014 \u0644\u064E\u0627 \u0625\u0650\u0644\u064E\u0647\u064E \u0625\u0650\u0644\u064E\u0651\u0627 \u0627\u0644\u0644\u064E\u0651\u0647\u064F \u0648\u064E\u062D\u0652\u062F\u064E\u0647\u064F \u0644\u064E\u0627 \u0634\u064E\u0631\u0650\u064A\u0643\u064E \u0644\u064E\u0647\u064F\u060C \u0644\u064E\u0647\u064F \u0627\u0644\u0652\u0645\u064F\u0644\u0652\u0643\u064F \u0648\u064E\u0644\u064E\u0647\u064F \u0627\u0644\u0652\u062D\u064E\u0645\u0652\u062F\u064F\u060C \u0648\u064E\u0647\u064F\u0648\u064E \u0639\u064E\u0644\u064E\u0649 \u0643\u064F\u0644\u0650\u0651 \u0634\u064E\u064A\u0652\u0621\u064D \u0642\u064E\u062F\u0650\u064A\u0631\u064C. \u0627\u0644\u0652\u062D\u064E\u0645\u0652\u062F\u064F \u0644\u0650\u0644\u064E\u0651\u0647\u0650\u060C \u0648\u064E\u0633\u064F\u0628\u0652\u062D\u064E\u0627\u0646\u064E \u0627\u0644\u0644\u064E\u0651\u0647\u0650\u060C \u0648\u064E\u0644\u064E\u0627 \u0625\u0650\u0644\u064E\u0647\u064E \u0625\u0650\u0644\u064E\u0651\u0627 \u0627\u0644\u0644\u064E\u0651\u0647\u064F\u060C \u0648\u064E\u0627\u0644\u0644\u064E\u0651\u0647\u064F \u0623\u064E\u0643\u0652\u0628\u064E\u0631\u064F\u060C \u0648\u064E\u0644\u064E\u0627 \u062D\u064E\u0648\u0652\u0644\u064E \u0648\u064E\u0644\u064E\u0627 \u0642\u064F\u0648\u064E\u0651\u0629\u064E \u0625\u0650\u0644\u064E\u0651\u0627 \u0628\u0650\u0627\u0644\u0644\u064E\u0651\u0647\u0650 \u2014 then says 'Allahumma-ghfir li' or makes du'a, it is answered; if he performs wudu and prays, his prayer is accepted. *(Grade: Sahih)*\n\n**Translation:** 'There is no deity except Allah alone, without partner. To Him belongs the dominion and to Him belongs all praise, and He is over all things Omnipotent. Praise is to Allah, glory to Allah, there is no deity except Allah, Allah is the Greatest, and there is no power nor might except with Allah.'",
+          description: "**Why?** This is not a background dhikr \u2014 the hadith promises that what follows it (du'a or prayer) is answered and accepted. It is the key that opens the door of night-worship.\n\n**How?** The moment you sit up from sleep, before reaching for the phone or the light, recite the formula from memory. Then ask Allah for forgiveness, or a specific du'a, or stand for wudu."
+        },
+        {
+          title: "Use the siwak before standing for Qiyam",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih narration of 'Aishah (RA) describing the Prophet\u2019s ﷺ consistent practice of cleaning his mouth when rising at night.",
+          sources: "**I. Hadith**\n\n### Sahih Bukhari 245\n'Aishah (RA) said: When the Prophet (SAW) rose at night (for Qiyam), he would clean his mouth with the siwak. *(Grade: Sahih)*\n\n### Sahih Muslim 255\nThe Prophet (SAW) said: 'The siwak is a purification for the mouth and pleasing to the Lord.' *(Grade: Sahih)*",
+          description: "**Why?** The Prophet ﷺ treated the mouth about to recite Quran at night as deserving of preparation. Siwak is a Sunnah before wudu, before prayer, and on waking \u2014 all three converge at Tahajjud.\n\n**How?** Keep a miswak at the bedside. Use it for 20-30 seconds before wudu, brushing top-bottom along each side. A toothbrush is a valid substitute when miswak is unavailable."
+        },
+        {
+          title: "Open Tahajjud with the prophetic istiftah du'a",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih narration in Muslim of 'Aishah (RA) transmitting the Prophet\u2019s ﷺ exact Tahajjud opening du'a.",
+          sources: "**I. Hadith**\n\n### Sahih Muslim 770\n'Aishah (RA) said: When the Prophet (SAW) stood for Tahajjud, he would open with: 'Allahumma rabba Jibrila wa Mika'ila wa Israfila, fatiras-samawati wal-ard, 'alimal-ghaybi wash-shahada, anta tahkumu bayna 'ibadika fima kanu fihi yakhtalifun. Ihdini limakhtulifa fihi minal-haqqi bi-idhnik, innaka tahdi man tasha'u ila siratim-mustaqim.' *(Grade: Sahih)*\n\n**Translation:** 'O Allah, Lord of Jibril, Mika'il, and Israfil, Creator of the heavens and the earth, Knower of the unseen and the seen, You judge between Your servants concerning that wherein they differ. Guide me, by Your leave, to the truth of what is disputed \u2014 for You guide whom You will to a straight path.'",
+          description: "**Why?** The istiftah names Allah as the One who judges differences and asks Him for guidance in what is disputed. It is the du'a of a servant approaching night prayer with the disposition of a seeker, not a performer.\n\n**How?** After takbir, before al-Fatihah, recite the du'a silently (or audibly in Tahajjud solitude). Memorise in stages if needed \u2014 the opening clause first, then each subsequent clause across a week of nights."
+        },
+      ],
+    },
+    {
+      title: "Seal the night with the post-Witr adhkar and last-third du'a",
+      priority: "high",
+      tags: ["salah", "sunnah", "qiyam", "witr", "prayer-phase:after", "transition:post-witr"],
+      description: "The Prophet \u2ADC never ended Witr without three tasbihs of 'Subhanal-Malikil-Quddus', taught the Qunut du'a of Witr to al-Hasan ibn Ali, and pointed to the last third of the night as the hour of Allah's descent \u2014 the moment of answered du'a and granted forgiveness. These close the night in the way the Messenger ﷺ closed his.",
+      subtasks: [
+        {
+          title: "Say 'Subhanal-Malikil-Quddus' three times after Witr, lengthening the third",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih narration in Nasa'i and Abu Dawud of Ubayy ibn Ka'b describing the Prophet\u2019s ﷺ exact post-Witr adhkar.",
+          sources: "**I. Hadith**\n\n### Sunan an-Nasa'i 1733\nUbayy ibn Ka'b (RA) said: When the Prophet (SAW) finished Witr with the salam, he would say 'Subhanal-Malikil-Quddus' three times, lengthening and raising his voice on the third. *(Grade: Sahih)*\n\n**Arabic:** \u0633\u064F\u0628\u0652\u062D\u064E\u0627\u0646\u064E \u0627\u0644\u0652\u0645\u064E\u0644\u0650\u0643\u0650 \u0627\u0644\u0652\u0642\u064F\u062F\u064F\u0651\u0648\u0633\u0650\n**Translation:** 'Glory to the Sovereign, the Most Holy.'\n\n### Sunan Abu Dawud 1430\nSame narration with the added wording that the Prophet (SAW) lengthened the third repetition. *(Grade: Sahih)*",
+          description: "**Why?** The Sovereign and the Holy \u2014 the two names that seal a night of worship by returning all sovereignty and all purity to their Owner. The lengthening of the third is prophetic emphasis, not mere repetition.\n\n**How?** After the salam of Witr, remain seated. Say the phrase thrice, pronouncing the third with deliberate length. Then proceed to other adhkar or du'a."
+        },
+        {
+          title: "Recite the Witr Qunut du'a ('Allahumma-hdini fi man hadayt...')",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Hasan-sahih narration in Abu Dawud, Tirmidhi, and Nasa'i of the Prophet ﷺ teaching this du'a directly to al-Hasan ibn Ali.",
+          sources: "**I. Hadith**\n\n### Sunan Abu Dawud 1425\nal-Hasan ibn Ali (RA) said: The Messenger of Allah (SAW) taught me words to say in the Qunut of Witr: 'Allahumma-hdini fi man hadayt, wa 'afini fi man 'afayt, wa tawallani fi man tawallayt, wa barik li fima a'tayt, wa qini sharra ma qadayt. Fa innaka taqdi wa la yuqda 'alayk, wa innahu la yadhillu man wallayt, wa la ya'izzu man 'adayt. Tabarakta rabbana wa ta'alayt.' *(Grade: Hasan-Sahih)*\n\n**Translation:** 'O Allah, guide me among those You have guided, pardon me among those You have pardoned, turn to me in friendship among those on whom You have turned in friendship, and bless me in what You have bestowed. Save me from the evil of what You have decreed \u2014 for verily You decree and none can influence You; and he is not humbled whom You have befriended, nor is he honoured who is Your enemy. Blessed are You, our Lord, and Exalted.'\n\n### Jami' at-Tirmidhi 464 / Sunan an-Nasa'i 1745\nSame narration, with Tirmidhi grading it Hasan and noting no other du'a is known from the Prophet (SAW) for Qunut more authentic than this. *(Grade: Hasan-Sahih)*",
+          description: "**Why?** This is the du'a the Prophet ﷺ handed to his grandson \u2014 a complete statement of tawakkul: guidance, well-being, friendship with Allah, blessing, protection from qadar, and the acknowledgement that sovereignty belongs to Allah alone.\n\n**How?** In the last rak'ah of Witr, after rising from ruku', raise the hands and recite audibly (or silently if alone). Memorise across multiple nights \u2014 learning one clause per night is enough."
+        },
+        {
+          title: "Make du'a and istighfar in the last third of the night",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih narration in Bukhari and Muslim: the last third of the night is explicitly named as the hour of Allah's descent to the nearest heaven, answering, granting, and forgiving.",
+          sources: "**I. Hadith**\n\n### Sahih Bukhari 1145\nAbu Hurairah (RA) reported: The Prophet (SAW) said: 'Our Lord descends each night to the lowest heaven when the last third of the night remains, saying: Who is calling upon Me that I may answer him? Who is asking of Me that I may grant him? Who is seeking My forgiveness that I may forgive him?' *(Grade: Sahih)*\n\n### Sahih Muslim 758\nSame narration with the added detail that this continues until the break of dawn. *(Grade: Sahih)*",
+          description: "**Why?** There is no du'a-window more explicitly named by the Prophet ﷺ than this one. The hadith describes Allah's response \u2014 answering, granting, forgiving \u2014 as the default posture of that hour. Missing it is missing the most responsive moment of the 24 hours.\n\n**How?** After Witr (or before it, if Witr is your final prayer), sit in the musalla. Make du'a in your own language for what matters most \u2014 parents, children, work, health, guidance \u2014 and seek forgiveness explicitly (Astaghfirullah). Stay until the Fajr adhan if you can."
+        },
+      ],
+    },
   ],
   faith_salah_growth: [
     {
       title: 'Establish the 12 regular Sunnah prayers (Rawatib)',
-      priority: 'high', tags: ['salah', 'sunnah'],
+      priority: 'high', tags: ['salah', 'sunnah', 'prayer-phase:main'],
       description: 'The Prophet (SAW) regularly prayed 12 rak\'at of Sunnah with the fard prayers. A house in Jannah is built for whoever maintains them.',
       subtasks: [
         { title: '2 before Fajr', done: false,
@@ -2618,7 +2842,7 @@ Create a simple daily checklist with four entries: 2 before Fajr, 4+2 around Dhu
     },
     {
       title: 'Learn the meanings of Surah Al-Fatihah and what you recite in salah',
-      priority: 'high', tags: ['salah', 'quran'],
+      priority: 'high', tags: ['salah', 'quran', 'prayer-phase:main'],
       description: 'Al-Fatihah is recited in every rak\'ah. Understanding its meaning transforms your salah from ritual to conversation with Allah.',
       subtasks: [
         { title: 'Study the word-by-word meaning of Al-Fatihah', done: false,
@@ -2690,7 +2914,7 @@ Choose three surahs you commonly recite after Al-Fatihah (e.g., Al-Ikhlas, Al-Fa
     },
     {
       title: 'Pray Tahajjud at least once a week',
-      priority: 'medium', tags: ['salah', 'qiyam'],
+      priority: 'medium', tags: ['salah', 'qiyam', 'prayer-phase:main'],
       description: 'The night prayer is among the most beloved voluntary acts. Start with even two rak\'at in the last third of the night.',
       subtasks: [
         { title: 'Set a weekly alarm for the last third of the night', done: false,
@@ -2780,7 +3004,7 @@ During the sujud of your Tahajjud prayer, make du'a in your own language. Bring 
     },
     {
       title: 'Study the inner dimensions of salah (khushu\u02bf)',
-      priority: 'medium', tags: ['salah', 'spirituality'],
+      priority: 'medium', tags: ['salah', 'spirituality', 'prayer-phase:main'],
       description: 'Khushu\u02bf is the soul of salah. Study how scholars describe presence of heart, humility, and focus in prayer.',
       subtasks: [
         { title: 'Read Ibn al-Qayyim\'s description of khushu\u02bf in prayer', done: false,
@@ -2893,7 +3117,7 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
   faith_salah_excellence: [
     {
       title: 'Pray Duha prayer regularly',
-      priority: 'medium', tags: ['salah', 'sunnah'],
+      priority: 'medium', tags: ['salah', 'sunnah', 'prayer-phase:main'],
       description: 'Duha prayer (after sunrise until before Dhuhr) is a charity for every joint in the body. Start with 2 rak\'at and build up.',
       subtasks: [
         { title: 'Learn the time window for Duha prayer', done: false,
@@ -2974,7 +3198,7 @@ Once you have established Duha three times per week for at least two weeks, begi
     },
     {
       title: 'Master the prostration of recitation (Sujud al-Tilawah)',
-      priority: 'low', tags: ['salah', 'fiqh'],
+      priority: 'low', tags: ['salah', 'fiqh', 'prayer-phase:main'],
       description: 'There are 15 places in the Quran where prostration is recommended when recited. Learn the ruling and practice.',
       subtasks: [
         { title: 'Learn the 15 ayat of sajdah in the Quran', done: false,
@@ -3079,7 +3303,7 @@ When you recite or hear an ayah of sajdah, prostrate immediately if you are in a
     },
     {
       title: 'Develop a consistent Qiyam al-Layl routine',
-      priority: 'medium', tags: ['salah', 'qiyam'],
+      priority: 'medium', tags: ['salah', 'qiyam', 'prayer-phase:main'],
       description: 'Move from occasional Tahajjud to a regular nightly routine. The Prophet (SAW) never abandoned Qiyam al-Layl even when ill.',
       subtasks: [
         { title: 'Choose a consistent time in the last third of the night', done: false,

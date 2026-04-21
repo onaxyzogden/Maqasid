@@ -3,6 +3,37 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] feat | PropheticPath — Morning & Isha-rest transition-sunnah phase buckets
+
+**Completed:**
+- **Source gathering:** Fresh NotebookLM Muslim Scholar round for transition sunnah (waking, morning adhkar, evening adhkar, pre-sleep, end-of-morning). Raw + rendered persisted at `tasks/notebook-prophet-transition-sunnah.json` + `-answer.md` for drift audit.
+- **5 new parent tasks** (14 subtasks) authored in `faith_salah_core` with Amanah-Gate source blocks:
+  - "Reclaim the day with the waking du'a and morning adhkar" — tags `prayer-phase:before`, `transition:waking`, `transition:morning-adhkar` (Bukhari 6312, Muslim 2723, Tirmidhi 3391, Muslim 670, Tirmidhi 586).
+  - "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a" — `prayer-phase:before`, `transition:morning-adhkar` (Bukhari 6306, Abu Dawud 5084).
+  - "Recite the evening adhkar between Asr and Maghrib" — `prayer-phase:before`, `transition:evening-adhkar` (Muslim 2723, Abu Dawud 5082, Bukhari 2311).
+  - "Complete the prophetic pre-sleep sunnah" — `prayer-phase:after`, `transition:pre-sleep` (Bukhari 2311/5017/6314, Tirmidhi 2891+2892, Muslim 2710).
+  - "Close the morning by praying Dhuhr at its first time" — `prayer-phase:after`, `transition:end-of-morning` (Quran 4:103, Bukhari 527).
+- **phaseMatchers added to `morning` node** + `faith-salah` added to its submodule scope in `src/data/prophetic-path-submodules.js`. `isha.phaseMatchers` extended with evening-adhkar + pre-sleep regexes.
+- **Isha `phaseMatchers.after` tightened:** removed bare `dhikr|adhkar|istighfar|ayat al-kursi` keywords (the existing post-prayer adhkar seed task already carries `prayer-phase:after` tag, so keyword fallback was redundant and was leaking the evening-adhkar task into both Isha buckets).
+- **Morning main matchers:** added title regex for "Close the morning" / "pray…Dhuhr…first time" because main-matcher pipeline is title-only (tags are scanned only at phase-filter stage).
+
+**Verification (dev preview on port 5173, accessibility snapshots):**
+- Morning Before → "Reclaim the day…", "Anchor the morning…" ✓
+- Morning After → "Close the morning by praying Dhuhr at its first time" ✓
+- Isha Before → pre-prayer sunnah, evening adhkar (new), Rawatib ✓ (no morning leak)
+- Isha After → post-prayer adhkar, pre-sleep sunnah (new), muhasaba, prophetic supplications ✓ (no evening/morning leak)
+- Screenshot tool unresponsive (30s timeout, no console errors); relying on accessibility-tree snapshots.
+
+**Decisions:** [[2026-04-21-prophetic-transition-phase-tasks]]
+
+**Follow-up (same session):** Tahajjud transition content authored — 2 new parent tasks in `faith_salah_core` ("Rise for Tahajjud with the prophetic waking protocol" × 4 subtasks; "Seal the night with the post-Witr adhkar and last-third du'a" × 3 subtasks). Citations: Bukhari 4569, 1154, 245, 1145; Muslim 255, 770, 758; Nasa'i 1733, 1745; Abu Dawud 1425, 1430; Tirmidhi 464. Tahajjud `phaseMatchers` extended with `transition:tahajjud-waking|post-witr` + specific keyword regexes. Main matchers narrowed (removed bare `du'a|supplication|guidance|decision`) to prevent morning-du'a task leak into Tahajjud pool. Preview-verified Tahajjud Before ("Rise for Tahajjud..." + pre-prayer sunnah) and After ("Seal the night..." + prophetic supplications). Artifact at `tasks/notebook-prophet-tahajjud-transition.md`.
+
+**Deferred (closed same session):** Production `npm run build` ran clean (exit 0). Lint script authored at `scripts/lint-prayer-phase-tags.mjs` — asserts every parent task in `faith_salah_*` projects carries one of `prayer-phase:before|main|after|none`. Backfilled 12 existing main-bucket tasks (5 core, 4 growth, 3 excellence) with `prayer-phase:main` to make routing intent self-documenting. Lint now passes 23/23.
+
+**Files changed:** `src/data/seed-tasks/faith-seed-tasks.js`, `src/data/prophetic-path-submodules.js`, `tasks/notebook-prophet-transition-sunnah.json`, `tasks/notebook-prophet-transition-sunnah-answer.md`, `wiki/decisions/2026-04-21-prophetic-transition-phase-tasks.md`, `wiki/index.md`, `wiki/log.md`.
+
+---
+
 ## [2026-04-21] feat | PropheticPath — Prophetic sunnah tasks, phase-filtered Before/Main/After
 
 **Completed:**
