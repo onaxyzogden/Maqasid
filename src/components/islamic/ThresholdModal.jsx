@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { X, Check, Pause } from 'lucide-react';
+import { X, Pause } from 'lucide-react';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useThresholdStore } from '../../store/threshold-store';
 import { MODULES } from '../../data/modules';
 import {
   getModuleData, ONGOING_DUA, ISTIRJA, PAUSE_ACKNOWLEDGMENT,
-  PAUSE_UNIVERSAL, DEFER_CONTENT, DEFER_UNIVERSAL,
+  PAUSE_UNIVERSAL,
   getPauseQuestion, getPauseQuestionUniversal,
 } from '@data/islamic/islamic-data';
 import { lookupReadinessAyahByKey } from '@data/ayat/readiness-ayat-router';
@@ -53,13 +53,10 @@ export default function ThresholdModal({ type }) {
   const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
   const completeOpening = useThresholdStore((s) => s.completeOpening);
   const completeClosing = useThresholdStore((s) => s.completeClosing);
-  const deferOpening = useThresholdStore((s) => s.deferOpening);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
 
   const [step, setStep] = useState(0);
-  const [confirmed, setConfirmed] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [showingDeferScreen, setShowingDeferScreen] = useState(false);
   const [leaving, setLeaving] = useState(false);
   // Keyed by row id (dynamic per module — starts empty, keys added on selection)
   const [readinessSelections, setReadinessSelections] = useState({});
@@ -125,9 +122,7 @@ export default function ThresholdModal({ type }) {
 
   const resetState = () => {
     setStep(0);
-    setConfirmed(false);
     setPaused(false);
-    setShowingDeferScreen(false);
     setReadinessSelections({});
     setReflectionSelections({});
   };
@@ -146,33 +141,21 @@ export default function ThresholdModal({ type }) {
 
   if (!moduleId) return null;
 
-  // Dynamic steps — Pause inserts between Readiness and Confirm when triggered
+  // Dynamic steps — Pause or Closing Dua appends after Readiness/Reflection when triggered
   const baseSteps = isOpening
-    ? ['Dua', 'Attributes', 'Readiness', 'Confirm']
-    : ['Dua', 'Attributes', 'Reflection', 'Confirm'];
+    ? ['Dua', 'Attributes', 'Readiness']
+    : ['Dua', 'Attributes', 'Reflection'];
 
   const showClosingDuaStep = hasInteractiveReflection && reflectionFilled && !reflectionAllYes;
   const steps = paused
-    ? [...baseSteps.slice(0, 3), 'Pause', baseSteps[3]]
+    ? [...baseSteps, 'Pause']
     : showClosingDuaStep
-      ? [...baseSteps.slice(0, 3), 'Closing Dua', baseSteps[3]]
+      ? [...baseSteps, 'Closing Dua']
       : baseSteps;
 
   const currentStepName = steps[step];
 
-  const closeDeferScreen = () => {
-    if (isOpening) deferOpening(moduleId);
-    setLeaving(true);
-    setTimeout(() => {
-      resetState();
-      setLeaving(false);
-      if (isOpening) setOpeningModuleId(null);
-      else setClosingModuleId(null);
-    }, 200);
-  };
-
   const complete = () => {
-    if (!confirmed) return;
     setLeaving(true);
     setTimeout(() => {
       if (isOpening) completeOpening(moduleId);
@@ -187,7 +170,6 @@ export default function ThresholdModal({ type }) {
     if (step > 0) {
       if (currentStepName === 'Pause') { setPaused(false); setStep(2); return; }
       if (currentStepName === 'Closing Dua') { setStep(2); return; }
-      if (currentStepName === 'Confirm') setConfirmed(false);
       setStep(step - 1);
     }
   };
@@ -196,9 +178,6 @@ export default function ThresholdModal({ type }) {
     setPaused(true);
     setStep(3);
   };
-
-  const defer = () => { setShowingDeferScreen(true); };
-  const returnToReadiness = () => { setPaused(false); setStep(2); };
 
   const handleNext = () => {
     if (currentStepName === 'Readiness' && hasInteractiveReadiness && readinessFilled && !readinessAllYes) {
@@ -224,13 +203,6 @@ export default function ThresholdModal({ type }) {
     ? getPauseQuestion(moduleId)
     : getPauseQuestionUniversal(moduleId);
 
-  const deferGuidance = isIslamic
-    ? DEFER_CONTENT.getGuidanceQuestion(moduleId)
-    : DEFER_UNIVERSAL.getGuidanceQuestion(moduleId);
-
-  const deferAck = isIslamic ? DEFER_CONTENT.acknowledgment : DEFER_UNIVERSAL.acknowledgment;
-  const deferHolding = isIslamic ? DEFER_CONTENT.holdingMessage : DEFER_UNIVERSAL.holdingMessage;
-
   // Count unanswered rows for hint text
   const unfilledCount = readinessRows.filter(
     (r) => readinessSelections[r.id] === null || readinessSelections[r.id] === undefined
@@ -241,54 +213,8 @@ export default function ThresholdModal({ type }) {
       <div className="thr-modal" ref={trapRef} role="dialog" aria-modal="true" aria-labelledby="threshold-modal-title">
 
         {/* ══════════════════════════════════════════════ */}
-        {/* DEFER SCREEN — compassionate off-ramp         */}
+        {/* CEREMONY FLOW                                 */}
         {/* ══════════════════════════════════════════════ */}
-        {showingDeferScreen ? (
-          <>
-            <div className="thr-header">
-              <div>
-                <span className="thr-module-badge">{mod?.name || 'Module'}</span>
-                <h2 className="thr-title" id="threshold-modal-title">Threshold Deferred</h2>
-              </div>
-              <button className="thr-close" onClick={closeDeferScreen} aria-label="Close">
-                <X size={18} />
-              </button>
-            </div>
-
-            <div className="thr-body">
-              <div className="thr-defer-content fade-in">
-                <p className="thr-defer-ack">{deferAck}</p>
-
-                {deferGuidance && (
-                  <div>
-                    <p className="thr-defer-guidance-label">A question to sit with:</p>
-                    <p className="thr-defer-guidance">{deferGuidance}</p>
-                  </div>
-                )}
-
-                {isIslamic ? (
-                  <DuaSection dua={ONGOING_DUA} color={accentColor} />
-                ) : (
-                  <div className="il-mindfulness">
-                    <p>{DEFER_UNIVERSAL.reflection}</p>
-                  </div>
-                )}
-
-                <p className="thr-defer-holding">{deferHolding}</p>
-              </div>
-            </div>
-
-            <div className="thr-footer thr-defer-footer">
-              <button className="thr-btn thr-btn-ghost" onClick={closeDeferScreen}>
-                Close
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            {/* ══════════════════════════════════════════════ */}
-            {/* NORMAL CEREMONY FLOW                          */}
-            {/* ══════════════════════════════════════════════ */}
 
             <div className="thr-header">
               <div>
@@ -386,75 +312,91 @@ export default function ThresholdModal({ type }) {
 
               {currentStepName === 'Pause' && (
                 <div className="thr-step-content thr-pause-content fade-in">
-                  <p className="thr-pause-ack">
-                    {isIslamic ? PAUSE_ACKNOWLEDGMENT : PAUSE_UNIVERSAL.acknowledgment}
-                  </p>
-
-                  {pauseAyah && (
-                    <div className="thr-pause-ayah">
-                      <p className="thr-pause-ayah-framing">{pauseAyah.framing}</p>
-                      <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
-                        <p className="dua-arabic arabic">{pauseAyah.arabic}</p>
-                        <p className="dua-trans">{pauseAyah.transliteration}</p>
-                        <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>
-                          {pauseAyah.translation}
-                        </p>
-                        <p className="dua-source">
-                          {pauseAyah.source}
-                          {citationsVisible && citationMap[pauseAyah.source] != null && (
-                            <span className="dua-citation-badge">[{citationMap[pauseAyah.source]}]</span>
-                          )}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {isIslamic ? (
-                    <div className="thr-pause-istirja">
-                      <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
-                        <p className="dua-arabic arabic">{ISTIRJA.arabic}</p>
-                        <p className="dua-trans">{ISTIRJA.trans}</p>
-                        <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{ISTIRJA.meaning}</p>
-                        <p className="dua-source">
-                          {ISTIRJA.source}
-                          {citationsVisible && citationMap[ISTIRJA.source] != null && (
-                            <span className="dua-citation-badge">[{citationMap[ISTIRJA.source]}]</span>
-                          )}
-                        </p>
-                      </div>
-                      <p className="thr-pause-note">{ISTIRJA.note}</p>
-                    </div>
+                  {isIslamic && data?.pauseWarning && data?.pauseRiseNow ? (
+                    <>
+                      {data.pauseWarning && (
+                        <div className="thr-pause-ayah">
+                          <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
+                            <p className="dua-arabic arabic">{data.pauseWarning.arabic}</p>
+                            <p className="dua-trans">{data.pauseWarning.trans}</p>
+                            <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{data.pauseWarning.meaning}</p>
+                            <p className="dua-source">{data.pauseWarning.source}</p>
+                          </div>
+                        </div>
+                      )}
+                      {data.pauseRiseNow && (
+                        <div className="thr-pause-istirja">
+                          <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
+                            <p className="dua-arabic arabic">{data.pauseRiseNow.arabic}</p>
+                            <p className="dua-trans">{data.pauseRiseNow.trans}</p>
+                            <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{data.pauseRiseNow.meaning}</p>
+                            <p className="dua-source">{data.pauseRiseNow.source}</p>
+                          </div>
+                        </div>
+                      )}
+                      <p className="thr-pause-question">This prayer has not yet left its time. Rise.</p>
+                    </>
                   ) : (
-                    <div className="il-mindfulness"><p>{PAUSE_UNIVERSAL.reflection}</p></div>
+                    <>
+                      <p className="thr-pause-ack">
+                        {isIslamic ? PAUSE_ACKNOWLEDGMENT : PAUSE_UNIVERSAL.acknowledgment}
+                      </p>
+
+                      {pauseAyah && (
+                        <div className="thr-pause-ayah">
+                          <p className="thr-pause-ayah-framing">{pauseAyah.framing}</p>
+                          <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
+                            <p className="dua-arabic arabic">{pauseAyah.arabic}</p>
+                            <p className="dua-trans">{pauseAyah.transliteration}</p>
+                            <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>
+                              {pauseAyah.translation}
+                            </p>
+                            <p className="dua-source">
+                              {pauseAyah.source}
+                              {citationsVisible && citationMap[pauseAyah.source] != null && (
+                                <span className="dua-citation-badge">[{citationMap[pauseAyah.source]}]</span>
+                              )}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      {isIslamic ? (
+                        <div className="thr-pause-istirja">
+                          <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
+                            <p className="dua-arabic arabic">{ISTIRJA.arabic}</p>
+                            <p className="dua-trans">{ISTIRJA.trans}</p>
+                            <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{ISTIRJA.meaning}</p>
+                            <p className="dua-source">
+                              {ISTIRJA.source}
+                              {citationsVisible && citationMap[ISTIRJA.source] != null && (
+                                <span className="dua-citation-badge">[{citationMap[ISTIRJA.source]}]</span>
+                              )}
+                            </p>
+                          </div>
+                          <p className="thr-pause-note">{ISTIRJA.note}</p>
+                        </div>
+                      ) : (
+                        <div className="il-mindfulness"><p>{PAUSE_UNIVERSAL.reflection}</p></div>
+                      )}
+                      <p className="thr-pause-question">{pauseQuestion}</p>
+                    </>
                   )}
-                  <p className="thr-pause-question">{pauseQuestion}</p>
                 </div>
               )}
 
-              {currentStepName === 'Confirm' && (
-                <div className="thr-step-content fade-in">
-                  <div className="thr-confirm-box">
-                    <label className="thr-confirm-label">
-                      <input type="checkbox" checked={confirmed} onChange={(e) => setConfirmed(e.target.checked)} className="thr-checkbox" />
-                      <span>
-                        {isIslamic
-                          ? `I have read the ${isOpening ? 'opening' : 'closing'} dua, reviewed the governing attributes, and completed the ${isOpening ? 'readiness check' : 'reflection'} for ${mod?.name || 'this module'}.`
-                          : `I have set my intention, reviewed the guiding principles, and completed the ${isOpening ? 'readiness check' : 'reflection'} for ${mod?.name || 'this module'}.`
-                        }
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              )}
               </div>{/* end thr-step-anim */}
             </div>
 
             <div className="thr-footer">
               {currentStepName === 'Pause' ? (
                 <>
-                  <button className="thr-btn thr-btn-ghost" onClick={defer}>Defer to Later</button>
+                  <button className="thr-btn thr-btn-ghost" onClick={prev}>Previous</button>
                   <div className="thr-footer-spacer" />
-                  <button className="thr-btn thr-btn-primary" onClick={returnToReadiness}>I'm Ready Now</button>
+                  <button className="thr-btn thr-btn-primary thr-btn-bismillah" onClick={complete}>
+                    <span className="thr-btn-label">{isOpening ? 'Bismillah' : 'Alhamdulillah'}</span>
+                    <span className="thr-btn-arabic arabic" dir="rtl">{isOpening ? '\u0628\u0650\u0633\u0652\u0645\u0650\u0020\u0627\u0644\u0644\u0651\u064E\u0647\u0650' : '\u0627\u0644\u0652\u062D\u064E\u0645\u0652\u062F\u064F\u0020\u0644\u0650\u0644\u0651\u064E\u0647\u0650'}</span>
+                  </button>
                 </>
               ) : (
                 <>
@@ -500,36 +442,40 @@ export default function ThresholdModal({ type }) {
                   })()}
 
                   <div className="thr-footer-spacer" />
-                  {currentStepName === 'Confirm' ? (
-                    <button className="thr-btn thr-btn-primary thr-btn-confirm" onClick={complete} disabled={!confirmed} style={{ opacity: confirmed ? 1 : 0.4 }}>
-                      <Check size={16} /> {isOpening ? 'Begin Module' : 'Complete Session'}
-                    </button>
-                  ) : currentStepName !== 'Pause' && (
-                    (() => {
-                      const nextDisabled =
-                        (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ||
-                        (currentStepName === 'Reflection' && hasInteractiveReflection && !reflectionFilled);
+                  {(() => {
+                    const isFinalize =
+                      (currentStepName === 'Readiness' && hasInteractiveReadiness && readinessAllYes) ||
+                      (currentStepName === 'Reflection' && hasInteractiveReflection && reflectionAllYes) ||
+                      currentStepName === 'Closing Dua';
+                    if (isFinalize) {
                       return (
-                        <button
-                          className="thr-btn thr-btn-primary"
-                          onClick={handleNext}
-                          disabled={nextDisabled}
-                          style={{
-                            opacity: nextDisabled ? 0.4 : 1,
-                            cursor: nextDisabled ? 'not-allowed' : 'pointer',
-                          }}
-                        >
-                          Next
+                        <button className="thr-btn thr-btn-primary thr-btn-bismillah" onClick={complete}>
+                          <span className="thr-btn-label">{isOpening ? 'Bismillah' : 'Alhamdulillah'}</span>
+                          <span className="thr-btn-arabic arabic" dir="rtl">{isOpening ? '\u0628\u0650\u0633\u0652\u0645\u0650\u0020\u0627\u0644\u0644\u0651\u064E\u0647\u0650' : '\u0627\u0644\u0652\u062D\u064E\u0645\u0652\u062F\u064F\u0020\u0644\u0650\u0644\u0651\u064E\u0647\u0650'}</span>
                         </button>
                       );
-                    })()
-                  )}
+                    }
+                    const nextDisabled =
+                      (currentStepName === 'Readiness' && hasInteractiveReadiness && !readinessFilled) ||
+                      (currentStepName === 'Reflection' && hasInteractiveReflection && !reflectionFilled);
+                    return (
+                      <button
+                        className="thr-btn thr-btn-primary"
+                        onClick={handleNext}
+                        disabled={nextDisabled}
+                        style={{
+                          opacity: nextDisabled ? 0.4 : 1,
+                          cursor: nextDisabled ? 'not-allowed' : 'pointer',
+                        }}
+                      >
+                        Next
+                      </button>
+                    );
+                  })()}
                 </>
               )}
             </div>
             <ReferenceList citations={citations} visible={citationsVisible && isIslamic} />
-          </>
-        )}
       </div>
     </div>
   );
