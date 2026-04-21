@@ -8,7 +8,10 @@ import {
   Sun,
   SunMedium,
   Sunset,
+  HardHat,
   ArrowRight,
+  BookOpen,
+  Play,
 } from 'lucide-react';
 import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
@@ -16,12 +19,16 @@ import { useTaskStore } from '@store/task-store';
 import { MODULES, PRIORITIES } from '@data/modules';
 import {
   buildTasksForNode,
+  buildProjectsForNode,
+  getModuleGroups,
   inferNodeFromHour,
   LEVEL_LABEL,
   LEVEL_FULL_LABEL,
 } from '@data/prophetic-path-submodules';
 import DashboardTaskCard from '@components/shared/DashboardTaskCard';
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
+import SubtaskSources from '@components/work/SubtaskSources';
+import ProjectSlideUp from '@components/work/ProjectSlideUp';
 import './PropheticPath.css';
 
 // Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
@@ -128,6 +135,22 @@ const NODES = [
     markerTone: 'primary',
   },
   {
+    id: 'midday-labor',
+    side: 'left',
+    cardStyle: 'subtle',
+    eyebrow: 'Midday Labor',
+    eyebrowTone: 'secondary',
+    title: 'Livelihood & Stewardship',
+    titleTone: 'on-surface',
+    body: 'The post-Dhuhr execution window. Earning rizq with ihsan and serving the community that surrounds the work.',
+    pillars: [
+      { label: 'Wealth', tone: 'secondary' },
+      { label: 'Ummah', tone: 'secondary' },
+    ],
+    Icon: HardHat,
+    markerTone: 'secondary',
+  },
+  {
     id: 'asr',
     side: 'left',
     cardStyle: 'primary-flat',
@@ -202,14 +225,117 @@ function PPTaskCard({ task, index, onSelectTask }) {
   );
 }
 
-function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask, phaseLabel = 'Now' }) {
+function ProjectRow({ project, onClick }) {
+  return (
+    <button type="button" className="pp-project-row" onClick={() => onClick(project.id)}>
+      <span className="pp-project-row__swatch" style={{ background: project.color || '#70d8c8' }} aria-hidden="true" />
+      <span className="pp-project-row__name">{project.name}</span>
+      <ArrowRight size={14} strokeWidth={2} className="pp-project-row__chev" />
+    </button>
+  );
+}
+
+function EducationList({ tasks }) {
+  const withSources = (tasks || []).flatMap((t) =>
+    (t.subtasks || [])
+      .filter((s) => s && s.sources)
+      .map((s) => ({ taskTitle: t.title, subtask: s, key: `${t.id}:${s.id || s.title}` })),
+  );
+  if (withSources.length === 0) {
+    return <p className="pp-mirror-empty">No source material yet for this window.</p>;
+  }
+  return (
+    <div className="pp-education-list">
+      {withSources.map((row) => (
+        <article key={row.key} className="pp-education-card">
+          <header className="pp-education-card__header">
+            <span className="pp-education-card__eyebrow">{row.taskTitle}</span>
+            <h5 className="pp-education-card__title">{row.subtask.title}</h5>
+          </header>
+          <SubtaskSources subtask={row.subtask} />
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function MirrorCard({
+  node,
+  tasks,
+  projects,
+  mirrorSide,
+  onSelectTask,
+  onSelectProject,
+  phaseLabel = 'Now',
+  viewMode,
+  moduleGroups,
+  moduleId,
+  onViewMode,
+  onModuleId,
+  showProjects,
+}) {
   return (
     <aside className="pp-mirror-card" data-side={mirrorSide}>
       <div className="pp-mirror-header">
         <span className="pp-mirror-eyebrow">{phaseLabel} · {node.eyebrow}</span>
         <h4 className="pp-mirror-title">{node.title}</h4>
+        <div className="pp-mirror-toggles">
+          {moduleGroups && moduleGroups.length > 1 && (
+            <div className="pp-pill-switch" role="tablist" aria-label="Module">
+              {moduleGroups.map((g) => (
+                <button
+                  key={g.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={moduleId === g.id}
+                  className="pp-pill-switch__btn"
+                  data-active={moduleId === g.id || undefined}
+                  onClick={() => onModuleId(g.id)}
+                >
+                  {g.label}
+                </button>
+              ))}
+            </div>
+          )}
+          <div className="pp-pill-switch" role="tablist" aria-label="View">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={viewMode === 'action'}
+              className="pp-pill-switch__btn"
+              data-active={viewMode === 'action' || undefined}
+              onClick={() => onViewMode('action')}
+            >
+              <Play size={12} strokeWidth={2.25} />
+              Action
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={viewMode === 'education'}
+              className="pp-pill-switch__btn"
+              data-active={viewMode === 'education' || undefined}
+              onClick={() => onViewMode('education')}
+            >
+              <BookOpen size={12} strokeWidth={2.25} />
+              Education
+            </button>
+          </div>
+        </div>
       </div>
-      {tasks.length === 0 ? (
+      {viewMode === 'education' ? (
+        <EducationList tasks={tasks} />
+      ) : showProjects ? (
+        (projects || []).length === 0 ? (
+          <p className="pp-mirror-empty">No projects in this scope yet.</p>
+        ) : (
+          <div className="pp-project-list">
+            {projects.map((p) => (
+              <ProjectRow key={p.id} project={p} onClick={onSelectProject} />
+            ))}
+          </div>
+        )
+      ) : (tasks.length === 0 ? (
         <p className="pp-mirror-empty">No tasks queued for this window.</p>
       ) : (
         <div className="pp-task-list">
@@ -222,7 +348,7 @@ function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask, pha
             />
           ))}
         </div>
-      )}
+      ))}
       <Link to="/app/work" className="pp-mirror-footer">
         <span>View all in Work</span>
         <ArrowRight size={14} strokeWidth={2} />
@@ -231,21 +357,61 @@ function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask, pha
   );
 }
 
-function TimelineNode({ node, expandedSlot, onToggle, tasks, selectedTaskId, onSelectTask }) {
+function TimelineNode({
+  node,
+  expandedSlot,
+  onToggle,
+  projects,
+  tasksByProject,
+  submoduleNameById,
+  onSelectTask,
+  onSelectProject,
+}) {
   const { Icon, pulse } = node;
   const mirrorSide = node.side === 'left' ? 'right' : 'left';
   const isExpanded = expandedSlot !== null;
   const mirrorId = `pp-mirror-${node.id}`;
-  const phaseTasks = tasks?.[expandedSlot] || [];
+
+  const moduleGroups = useMemo(() => getModuleGroups(node.id), [node.id]);
+  const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
+  const [viewMode, setViewMode] = useState('action');
+
+  const phaseTasks = useMemo(() => {
+    if (!isExpanded) return [];
+    return buildTasksForNode(node.id, projects, tasksByProject, {
+      limit: 8,
+      submoduleNameById,
+      phase: expandedSlot,
+      moduleId,
+    });
+  }, [isExpanded, node.id, projects, tasksByProject, submoduleNameById, expandedSlot, moduleId]);
+
+  const showProjects = node.id === 'midday-labor' && expandedSlot === 'main' && viewMode === 'action';
+  const scopeProjects = useMemo(() => (
+    showProjects ? buildProjectsForNode(node.id, projects, { moduleId }) : []
+  ), [showProjects, node.id, projects, moduleId]);
+
+  const handleSelectTask = (taskId) => {
+    const row = phaseTasks.find((r) => r.id === taskId);
+    if (row) onSelectTask(row);
+  };
+
   const mirror = isExpanded ? (
     <div id={mirrorId}>
       <MirrorCard
         node={node}
         tasks={phaseTasks}
+        projects={scopeProjects}
         mirrorSide={mirrorSide}
-        selectedTaskId={selectedTaskId}
-        onSelectTask={onSelectTask}
+        onSelectTask={handleSelectTask}
+        onSelectProject={onSelectProject}
         phaseLabel={slotLabel(expandedSlot)}
+        viewMode={viewMode}
+        moduleGroups={moduleGroups}
+        moduleId={moduleId}
+        onViewMode={setViewMode}
+        onModuleId={setModuleId}
+        showProjects={showProjects}
       />
     </div>
   ) : null;
@@ -327,6 +493,8 @@ export default function PropheticPath({ variant }) {
   const [expanded, setExpanded] = useState(() => ({ nodeId: inferNodeFromHour(new Date()), slot: 'main' }));
   // { taskId, project, projectId, levelColor } | null
   const [selectedTask, setSelectedTask] = useState(null);
+  // projectId for the slide-up overlay (null = closed)
+  const [slideUpProjectId, setSlideUpProjectId] = useState(null);
 
   // Hydrate tasks for all relevant projects once on mount. The task store
   // lazily loads tasks per project — ensure every project referenced in the
@@ -344,54 +512,16 @@ export default function PropheticPath({ variant }) {
     return map;
   }, []);
 
-  const tasksByNode = useMemo(() => {
-    const out = {};
-    for (const node of NODES) {
-      out[node.id] = {
-        before: buildTasksForNode(node.id, projects, tasksByProject, {
-          limit: 8,
-          submoduleNameById,
-          phase: 'before',
-        }),
-        main: buildTasksForNode(node.id, projects, tasksByProject, {
-          limit: 8,
-          submoduleNameById,
-          phase: 'main',
-        }),
-        after: buildTasksForNode(node.id, projects, tasksByProject, {
-          limit: 8,
-          submoduleNameById,
-          phase: 'after',
-        }),
-      };
-    }
-    return out;
-  }, [projects, tasksByProject, submoduleNameById]);
-
   const toggleNode = (id, slot) => {
     setExpanded((curr) =>
       curr && curr.nodeId === id && curr.slot === slot ? null : { nodeId: id, slot }
     );
   };
 
-  // Build a flat { taskId → task-row } lookup so clicking any card can pass the
-  // right project + level into TaskDetailPanel.
-  const taskById = useMemo(() => {
-    const map = {};
-    for (const phases of Object.values(tasksByNode)) {
-      for (const rows of Object.values(phases)) {
-        for (const r of rows) map[r.id] = r;
-      }
-    }
-    return map;
-  }, [tasksByNode]);
-
-  const openTask = (taskId) => {
-    if (!taskId) { setSelectedTask(null); return; }
-    const row = taskById[taskId];
-    if (!row) return;
+  const openTask = (row) => {
+    if (!row) { setSelectedTask(null); return; }
     setSelectedTask({
-      taskId,
+      taskId: row.id,
       project: row._project,
       projectId: row.projectId,
       levelColor: LEVEL_COLOR[row._level] || LEVEL_COLOR[3],
@@ -418,9 +548,11 @@ export default function PropheticPath({ variant }) {
                   node={node}
                   expandedSlot={expanded && expanded.nodeId === node.id ? expanded.slot : null}
                   onToggle={toggleNode}
-                  tasks={tasksByNode[node.id] || []}
-                  selectedTaskId={selectedTask?.taskId || null}
+                  projects={projects}
+                  tasksByProject={tasksByProject}
+                  submoduleNameById={submoduleNameById}
                   onSelectTask={openTask}
+                  onSelectProject={setSlideUpProjectId}
                 />
               ))}
             </div>
@@ -435,6 +567,12 @@ export default function PropheticPath({ variant }) {
           onClose={() => setSelectedTask(null)}
           bbosRole={selectedTask.project.bbosRole || 'all'}
           accentColor={selectedTask.levelColor}
+        />
+      )}
+      {slideUpProjectId && (
+        <ProjectSlideUp
+          projectId={slideUpProjectId}
+          onClose={() => setSlideUpProjectId(null)}
         />
       )}
     </div>

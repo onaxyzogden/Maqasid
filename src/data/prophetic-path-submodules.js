@@ -15,12 +15,19 @@
 // surface at which time of day.
 
 // Each entry is either a plain array of canonical submodule ids (legacy shape)
-// or a richer object: { submodules, matchers }.
-//   - submodules: pre-filter scope (same as the legacy array form)
-//   - matchers:   array of RegExp that a task TITLE must match against.
-//                 If at least one matcher hits, the task is included.
-//                 If matchers filter out every task, buildTasksForNode falls
-//                 back to the unfiltered submodule pool for that node.
+// or a richer object: { submodules, matchers, phaseMatchers, moduleGroups }.
+//   - submodules:   pre-filter scope (same as the legacy array form)
+//   - matchers:     array of RegExp that a task TITLE must match against.
+//                   If at least one matcher hits, the task is included.
+//                   If matchers filter out every task, buildTasksForNode falls
+//                   back to the unfiltered submodule pool for that node.
+//   - phaseMatchers:{ before: [RegExp], after: [RegExp] } — splits tasks into
+//                   Before/Main/After slots within a node.
+//   - moduleGroups: OPTIONAL [{ id, label, submodules: [...] }] — lets a node
+//                   expose a pillar-scoped toggle (e.g., Wealth vs Community).
+//                   When caller passes options.moduleId, buildTasksForNode
+//                   intersects scope with that group's submodules.
+//                   Nodes without moduleGroups expose a single implicit group.
 //
 // Matchers below are drafted from each node's descriptive text. Iterate freely.
 export const TOD_SUBMODULES = {
@@ -152,6 +159,41 @@ export const TOD_SUBMODULES = {
       ],
     },
   },
+  'midday-labor': {
+    submodules: ['wealth-earning', 'wealth-circulation', 'intellect-professional', 'work', 'community', 'neighbors', 'collective'],
+    moduleGroups: [
+      {
+        id: 'wealth',
+        label: 'Wealth',
+        submodules: ['wealth-earning', 'wealth-circulation', 'intellect-professional', 'work'],
+      },
+      {
+        id: 'community',
+        label: 'Community',
+        submodules: ['community', 'neighbors', 'collective'],
+      },
+    ],
+    matchers: [
+      /\b(?:work|project|task|deliverable|goal|deep\s+work|focus)\b/i,
+      /\b(?:earn|income|business|revenue|client|customer|contract|invoice)\b/i,
+      /\b(?:halal|amanah|rizq|livelihood|barakah)\b/i,
+      /\b(?:plan|schedul|prioriti[sz]e|roadmap|standup|handoff|shutdown)\b/i,
+      /\b(?:meeting|collaborat|team|colleague|co-?worker)\b/i,
+      /\b(?:community|neighbo[u]?r|ummah|collective|mutual\s+aid|dawah)\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:plan|planning|standup|intent|niyyah|prepare|prep|warm-?up)\b/i,
+        /\b(?:shura|consult|align|kickoff)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:handoff|shutdown|retro|review|close[\s-]?out|wrap)\b/i,
+        /\b(?:gratitude|alhamdulillah|reflection)\b/i,
+      ],
+    },
+  },
   dhuhr: {
     submodules: ['faith-salah', 'life-social', 'people'],
     matchers: [
@@ -280,7 +322,8 @@ export function inferNodeFromHour(date = new Date()) {
   if (h < 5.5) return 'tahajjud';
   if (h < 7) return 'fajr';
   if (h < 12) return 'morning';
-  if (h < 15) return 'dhuhr';
+  if (h < 13) return 'dhuhr';
+  if (h < 15) return 'midday-labor';
   if (h < 18) return 'asr';
   if (h < 20) return 'maghrib';
   return 'isha';
@@ -310,16 +353,48 @@ const PRIORITY_RANK = { urgent: 0, high: 1, medium: 2, low: 3 };
 //   tasksByProject — object from useTaskStore().tasksByProject
 //   limit          — optional cap on returned rows (default 8)
 // Returns: [{ id, projectId, title, priority, dueDate, _level, _submoduleId, _submoduleName }]
-// Normalise a TOD entry (array or object) to { submodules, matchers, phaseMatchers }.
+// Normalise a TOD entry (array or object) to
+// { submodules, matchers, phaseMatchers, moduleGroups }.
 function resolveEntry(nodeId) {
   const raw = TOD_SUBMODULES[nodeId];
-  if (!raw) return { submodules: [], matchers: null, phaseMatchers: null };
-  if (Array.isArray(raw)) return { submodules: raw, matchers: null, phaseMatchers: null };
+  if (!raw) return { submodules: [], matchers: null, phaseMatchers: null, moduleGroups: [] };
+  if (Array.isArray(raw)) return { submodules: raw, matchers: null, phaseMatchers: null, moduleGroups: [] };
   return {
     submodules: raw.submodules || [],
     matchers: (raw.matchers && raw.matchers.length > 0) ? raw.matchers : null,
     phaseMatchers: raw.phaseMatchers || null,
+    moduleGroups: Array.isArray(raw.moduleGroups) ? raw.moduleGroups : [],
   };
+}
+
+// Public helper: return module groups for a node, or [] if none are defined.
+// UI layers use this to decide whether to render a Wealth/Community-style toggle.
+export function getModuleGroups(nodeId) {
+  return resolveEntry(nodeId).moduleGroups;
+}
+
+// Return the list of (non-archived) projects that fall within a node's scope,
+// optionally narrowed to a single module group. Used by the midday-labor node's
+// Action mode, which renders a project list instead of a task list.
+export function buildProjectsForNode(nodeId, projects, options = {}) {
+  const { moduleId = null } = options;
+  const { submodules: targetSubmodules, moduleGroups } = resolveEntry(nodeId);
+  if (targetSubmodules.length === 0) return [];
+
+  let scopeSubmodules = targetSubmodules;
+  if (moduleId && moduleGroups.length > 0) {
+    const group = moduleGroups.find((g) => g.id === moduleId);
+    if (group && Array.isArray(group.submodules) && group.submodules.length > 0) {
+      scopeSubmodules = group.submodules;
+    }
+  }
+  const targetSet = new Set(scopeSubmodules);
+
+  return (projects || []).filter((p) => {
+    if (p.archived) return false;
+    const canonical = MODULE_ID_TO_SUBMODULE_ID[p.moduleId] || p.moduleId;
+    return canonical && targetSet.has(canonical);
+  });
 }
 
 function titleMatches(title, matchers) {
@@ -344,10 +419,19 @@ function taskMatchesPhase(task, phaseRegexes) {
 }
 
 export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}) {
-  const { limit = 8, submoduleNameById = {}, phase = null } = options;
-  const { submodules: targetSubmodules, matchers, phaseMatchers } = resolveEntry(nodeId);
+  const { limit = 8, submoduleNameById = {}, phase = null, moduleId = null } = options;
+  const { submodules: targetSubmodules, matchers, phaseMatchers, moduleGroups } = resolveEntry(nodeId);
   if (targetSubmodules.length === 0) return [];
-  const targetSet = new Set(targetSubmodules);
+
+  // If a module group is active, intersect scope with that group's submodules.
+  let scopeSubmodules = targetSubmodules;
+  if (moduleId && moduleGroups.length > 0) {
+    const group = moduleGroups.find((g) => g.id === moduleId);
+    if (group && Array.isArray(group.submodules) && group.submodules.length > 0) {
+      scopeSubmodules = group.submodules;
+    }
+  }
+  const targetSet = new Set(scopeSubmodules);
 
   const matchingProjects = (projects || []).filter((p) => {
     const canonical = MODULE_ID_TO_SUBMODULE_ID[p.moduleId] || p.moduleId;
