@@ -8,6 +8,3416 @@ export const UMMAH_SEED_TASKS = {
   // ── CORE: Foundational Obligations ──
   ummah_collective_core: [
     {
+      title: "Sustain daily du'a for the global ummah's oppressed and afflicted",
+      priority: 'urgent', tags: ['dua', 'global-ummah', 'foundation'],
+      description: "The ummah is one body; when any part suffers the whole must respond. Before hands can act or wealth can flow, the heart must turn to Allah on behalf of the Muslims suffering in every region of the earth. This task establishes du'a for the global ummah as a fixed daily act of worship — not an emotional reaction to headlines.",
+      subtasks: [
+        { title: "Fix a daily slot for global-ummah du'a (after Fajr and before sleep)", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:186)
+**Arabic:** وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+**Translation:** When My servants ask you concerning Me — indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.
+
+### Quran (40:60)
+**Arabic:** وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ
+**Translation:** And your Lord says: Call upon Me; I will respond to you.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 3370
+The Prophet (peace be upon him) said: "Du'a is the essence of worship."
+*(Grade: Hasan)*
+
+### Sahih Bukhari 618
+Recorded in Sahih al-Bukhari 618: 'The prayer in congregation is twenty seven times superior to the prayer offered by person alone.' Also found in Sahih Muslim 1365 (degrees).
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "Du'a is worship" (Tirmidhi). Without a fixed daily slot, du'a for the ummah becomes sporadic — triggered only by viral atrocities and fading when the news cycle moves on. A reserved time, ideally in the mustajab hours after Fajr and in the last third of the night, converts occasional concern into a binding covenant with Allah on behalf of His suffering servants.
+
+
+**How?**
+
+1. Choose two fixed windows: immediately after Fajr salah and in the final minutes before sleep.
+2. Block each window as a non-negotiable appointment in your calendar or prayer app — at least 3 minutes each.
+3. Write out a short opening formula (hamd, salawat on the Prophet) so you do not start cold.
+4. Keep a small card, note on your phone, or printed sheet with the specific names, regions, and afflictions you will mention — remove the friction of remembering.
+5. Do not skip the slot even when news is quiet; consistency matters more than intensity.
+6. Track compliance on a simple calendar — one tick per slot fulfilled.
+7. Completion indicator: 30 consecutive days of both slots fulfilled with documented ticks.` },
+        { title: "Memorise Quranic and Prophetic du'as for the oppressed", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:75)
+**Arabic:** وَمَا لَكُمْ لَا تُقَاتِلُونَ فِي سَبِيلِ اللَّهِ وَالْمُسْتَضْعَفِينَ مِنَ الرِّجَالِ وَالنِّسَاءِ وَالْوِلْدَانِ الَّذِينَ يَقُولُونَ رَبَّنَا أَخْرِجْنَا مِنْ هَٰذِهِ الْقَرْيَةِ الظَّالِمِ أَهْلُهَا
+**Translation:** And what is wrong with you that you do not fight in the cause of Allah and for the oppressed among men, women and children who say: Our Lord, take us out of this town whose people are oppressors.
+
+### Quran (2:286)
+**Arabic:** رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا
+**Translation:** Our Lord, do not take us to task if we forget or err. Our Lord, do not lay upon us a burden like that which You laid upon those before us.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 2448
+The Prophet (peace be upon him) said: "Beware of the supplication of the oppressed, for there is no barrier between it and Allah."
+*(Grade: Sahih)*
+
+### Sahih Muslim 1882
+Recorded in Sahih Muslim 1882: 'People must cease to neglect the Friday prayer or Allah will seal their hearts...'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Quran preserves the cries of the oppressed so that we may echo them. Borrowed Prophetic and Quranic words carry a weight our own words never reach — they are already in Allah's speech and His Messenger's tongue. Memorising them removes the excuse of "I don't know what to say" when tragedy strikes.
+
+
+**How?**
+
+1. Select 5 short, high-impact du'as: (a) 4:75's cry of the oppressed, (b) the closing verses of al-Baqarah, (c) "Hasbunallahu wa ni'mal-wakil", (d) the du'a of Prophet Yunus "La ilaha illa Anta, subhanaka inni kuntu min az-zalimin", (e) the Prophetic du'a against the hizb al-ahzab.
+2. Write each out in Arabic with transliteration and translation on a single card.
+3. Memorise one per week — recite it at least 10 times in your daily slots during that week.
+4. Learn the context of each so the meaning lives in you, not just the syllables.
+5. Test yourself at the end of each week: recite from memory without looking.
+6. After 5 weeks, rotate them through your daily slot so none fall dormant.
+7. Completion indicator: all 5 du'as memorised, understood in context, and rotated in daily use for at least 4 weeks.` },
+        { title: "Name specific regions, peoples, and afflictions in your du'a", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:75)
+**Arabic:** رَبَّنَا أَخْرِجْنَا مِنْ هَٰذِهِ الْقَرْيَةِ الظَّالِمِ أَهْلُهَا وَاجْعَل لَّنَا مِن لَّدُنكَ وَلِيًّا وَاجْعَل لَّنَا مِن لَّدُنكَ نَصِيرًا
+**Translation:** Our Lord, take us out of this town whose people are oppressors, and appoint for us from Yourself a protector and appoint for us from Yourself a helper.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1006
+The Prophet (peace be upon him) supplicated against specific tribes by name — Ri'l, Dhakwan, and 'Usayyah — who had treacherously killed the reciters at Bi'r Ma'unah.
+*(Grade: Sahih)*
+
+### Sahih al-Bukhari 4094
+In the qunut al-nazilah, the Prophet (peace be upon him) named specific persecuted Muslims — al-Walid ibn al-Walid, Salamah ibn Hisham, 'Ayyash ibn Abi Rabi'ah — and asked Allah to rescue them by name.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) named specific persecuted Muslims in his qunut and named specific oppressor tribes in his imprecation. Generalised du'a is easier to forget and easier for the heart to detach from; specific du'a — for Gaza, Kashmir, Sudan, East Turkestan, Rohingya, Yemen, the Central African Republic — binds the heart to real people whose names and circumstances you know.
+
+
+**How?**
+
+1. Compile a standing list of the 6-8 most severe active afflictions against Muslim populations worldwide — research from reliable sources (see the awareness task).
+2. For each, note the specific people being harmed (children, prisoners, displaced families, imams detained), not just the region.
+3. Write each affliction as a one-line petition — "O Allah, relieve the people of [region] from [specific oppression] and replace their fear with safety."
+4. Recite this list in your daily slot; update it as circumstances change.
+5. When a new calamity strikes, add it immediately — do not wait for a round update.
+6. Keep the language concrete and honest; avoid abstraction that insulates the heart.
+7. Completion indicator: a named, specific petition list of at least 6 regions recited daily for 30 consecutive days.` },
+        { title: "Perform qunut al-nazilah during salah when major calamities strike the ummah", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:153)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ
+**Translation:** O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 4094
+Ibn 'Umar reported: The Prophet (peace be upon him) supplicated in the Fajr prayer for a month after the ruku', asking Allah to save certain oppressed believers and to punish specific oppressor tribes.
+*(Grade: Sahih)*
+
+### Sahih Muslim 675
+Anas reported: The Prophet (peace be upon him) made qunut for a month after ruku', supplicating against the tribes who killed the reciters at Bi'r Ma'unah.
+*(Grade: Sahih)*
+
+### Sahih Bukhari 690
+Recorded in Sahih al-Bukhari 690: 'Straighten your rows as the straightening of rows is essential for a perfect and correct prayer.'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+Qunut al-nazilah is the Prophetic response to catastrophe: an extended du'a inserted into the obligatory prayers when a calamity strikes the Muslim body. It is sunnah mu'akkadah in the view of the majority and has been practised by the Prophet (peace be upon him), the Companions, and the imams of every generation during major afflictions. Reviving it transforms your salah from a private act into a communal frontline response.
+
+
+**How?**
+
+1. Study the fiqh of qunut al-nazilah in your madhab — where it is inserted (after ruku' in the final rak'ah), which prayers it is made in (typically the obligatory prayers, beginning with Fajr), and its wording.
+2. Memorise a short, well-sourced qunut du'a in Arabic with understanding.
+3. Coordinate with your local imam: encourage the establishment of qunut al-nazilah during active major calamities against the ummah.
+4. If no imam leads it, perform it yourself in your own salah when praying individually.
+5. Continue the qunut until the calamity lifts or for a defined period (the Prophet's qunut for Bi'r Ma'unah lasted one month).
+6. Teach your household and circle so the practice is not a private curiosity.
+7. Completion indicator: qunut al-nazilah performed personally in obligatory prayers for one full calamity cycle (minimum 30 days) and proposed to at least one local imam.` },
+        { title: "Cultivate khushu' and tears — refuse hollow du'a for the ummah", done: false,
+          sources: `**I. Quran**
+
+### Quran (23:76)
+**Arabic:** وَلَقَدْ أَخَذْنَاهُم بِالْعَذَابِ فَمَا اسْتَكَانُوا لِرَبِّهِمْ وَمَا يَتَضَرَّعُونَ
+**Translation:** And We seized them with punishment, but they did not humble themselves to their Lord, nor did they supplicate with humility.
+
+### Quran (7:55)
+**Arabic:** ادْعُوا رَبَّكُمْ تَضَرُّعًا وَخُفْيَةً ۚ إِنَّهُ لَا يُحِبُّ الْمُعْتَدِينَ
+**Translation:** Call upon your Lord in humility and privately. Indeed, He does not like transgressors.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 3479
+The Prophet (peace be upon him) said: "Call upon Allah while being certain of being answered, and know that Allah does not respond to a du'a from a heedless, distracted heart."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+Du'a without presence of heart is a body without a soul. The Prophet (peace be upon him) warned that Allah does not answer from a heart that is heedless. Rattling off petitions while scrolling or half-asleep is not du'a — it is performance. For the ummah's situation to shift, the believer's heart must shift first: tears for the oppressed, urgency in the tongue, and attentiveness to the One being addressed.
+
+
+**How?**
+
+1. Before beginning du'a, pause for 10 seconds: recall that Allah hears, that the oppressed cry out right now, and that you are a cause Allah may use.
+2. Physically lower your voice and raise your hands — posture shapes presence.
+3. Read or recall a short passage about the afflicted before du'a — a verified news line, a named child, an imam imprisoned — to break numbness.
+4. Do not rush. Repeat the most urgent petitions 3 times with deliberate slowness.
+5. If tears do not come, ask for them — the Prophet (peace be upon him) taught us to seek a heart that weeps.
+6. End with salawat and hamd; do not abandon the slot until the heart has been stirred, even briefly.
+7. Completion indicator: 30 documented slots in which the believer can honestly say the du'a was attentive, not mechanical.` },
+      ],
+    },
+    {
+      title: "Maintain informed awareness of major ummah afflictions",
+      priority: 'urgent', tags: ['awareness', 'global-ummah', 'crisis-literacy'],
+      description: "A Muslim cannot weep, give, boycott, or bear witness for what they do not know. Strategic ignorance of the ummah's wounds is not neutrality — it is abandonment. This task establishes a disciplined, sustainable practice of staying informed about major afflictions against Muslims worldwide, without falling into doomscrolling, despair, or propaganda capture.",
+      subtasks: [
+        { title: "Identify the major active afflictions against the global ummah", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:10)
+**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ
+**Translation:** The believers are but brothers, so make settlement between your brothers.
+
+### Quran (4:75)
+**Arabic:** وَمَا لَكُمْ لَا تُقَاتِلُونَ فِي سَبِيلِ اللَّهِ وَالْمُسْتَضْعَفِينَ
+**Translation:** And what is wrong with you that you do not fight in the cause of Allah and for the oppressed?
+
+**II. Hadith**
+
+### Sahih Muslim 2586
+The Prophet (peace be upon him) said: "The example of the believers in their mutual love, mercy and compassion is like one body: when one limb aches, the whole body responds with sleeplessness and fever."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophetic image of the ummah as one body makes ignorance of its afflictions a spiritual pathology — a body that does not feel its own wounds is diseased. Before any coherent response, a believer must clearly know what is happening: which peoples are under occupation, which are being displaced, which are imprisoned for their faith, which are being erased culturally. Vagueness produces vague action; specificity produces targeted response.
+
+
+**How?**
+
+1. Set aside 60 focused minutes to produce a written inventory of major active afflictions — occupation, genocide, ethnic cleansing, mass incarceration, forced displacement, religious persecution, famine, and war affecting Muslim populations.
+2. For each entry, note: the people affected, the nature of the oppression, the duration, the key actors, and the scale (numbers of killed, displaced, imprisoned).
+3. Cross-reference at least 3 sources per entry — do not rely on a single outlet.
+4. Categorise entries by severity: daruri (life-threatening, active killing), haji (systemic oppression short of mass killing), tahsini (cultural, religious restriction).
+5. Date the inventory and commit to reviewing it quarterly.
+6. Share the inventory with family or close circle as a baseline for informed household du'a and giving.
+7. Completion indicator: a dated, sourced, household-shared inventory of at least 6 major active afflictions against the global ummah.` },
+        { title: "Curate a trustworthy roster of Muslim news and analysis sources", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:6)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ
+**Translation:** O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become regretful over what you have done.
+
+**II. Hadith**
+
+### Sahih Muslim 5
+The Prophet (peace be upon him) said: "It is enough lying for a man to narrate everything he hears."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Most mainstream outlets systematically misrepresent Muslim affairs — laundering aggressors as defenders, framing victims as threats, and burying stories that indict power. Uncritical consumption produces a distorted mental map of the ummah. At the same time, not every Muslim-branded outlet is honest — some are regime mouthpieces, some are sensationalist, some are captured by factions. Curation is an act of wara' (cautious scrupulousness) applied to information.
+
+
+**How?**
+
+1. Compile a short list of candidate sources: independent outlets (e.g., Middle East Eye, Al Jazeera English investigations, The Cradle, regional journalists), scholarly voices, and on-the-ground reporters.
+2. For each candidate, apply three tests: (a) track record of factual accuracy, (b) transparency about funding and affiliation, (c) willingness to criticise both enemies and allies of its editorial line.
+3. Remove any source that fails on consistent fact-checks or shows clear factional capture.
+4. Aim for 4-6 sources covering complementary regions (MENA, South Asia, Southeast Asia, Africa, Europe, Americas).
+5. Follow them in a dedicated reader (RSS, bookmarks, a subscription list) — not through the algorithmic feed of a social platform.
+6. Review the roster every 6 months; sources drift.
+7. Completion indicator: a written, dated roster of 4-6 vetted sources with documented justification for each inclusion.` },
+        { title: "Establish a weekly rhythm for ummah news — refuse doomscrolling", done: false,
+          sources: `**I. Quran**
+
+### Quran (25:67)
+**Arabic:** وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا
+**Translation:** And those who, when they spend, do so without excess or stinginess, but in between that, moderately.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2517
+The Prophet (peace be upon him) said: "Leave that which makes you doubt for that which does not make you doubt."
+*(Grade: Sahih)*
+
+### Sunan Ibn Majah 4102
+The Prophet (peace be upon him) said: "Part of the excellence of a man's Islam is his leaving that which does not concern him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Doomscrolling is not awareness — it is anxiety dressed as solidarity. Compulsively consuming atrocity footage degrades the heart, numbs response capacity, and substitutes emotional consumption for action. Islam teaches moderation even in otherwise good things. A structured rhythm — deep, focused weekly review and immediate alert for major events — produces a more responsive and durable believer than a constant drip of trauma.
+
+
+**How?**
+
+1. Block a fixed 45-60 minute window per week (e.g., Saturday morning) for a concentrated review of ummah news across your curated sources.
+2. During the week, disable push notifications from news apps and unfollow algorithm-driven feeds; rely on your reader and explicit check-ins.
+3. Set one emergency trigger: a single trusted person or channel that alerts you to genuinely major events so you need not hover.
+4. Use the weekly window to: update your affliction inventory, add names to your du'a list, identify one concrete response (donation, boycott verification, public statement).
+5. Close the session with du'a and then put the feeds away.
+6. Track your compliance; if you find yourself scrolling outside the window, treat it as a slip to be corrected.
+7. Completion indicator: 8 consecutive weeks of structured rhythm with no compulsive scrolling, documented via time-tracking or honest journal.` },
+        { title: "Share verified information with household and community", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:104)
+**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ
+**Translation:** And let there be arising from you a community inviting to good, enjoining what is right, and forbidding what is wrong.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 3461
+The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Information hoarded is information neutralised. Many Muslims remain passive about the ummah's crises because no one in their life ever explained what was happening with clarity and restraint. Transmitting verified information to your household, children, and inner circle breaks the isolation that enemies of the ummah rely on. Transmission must be disciplined — only what you have verified, without exaggeration, without sensationalism.
+
+
+**How?**
+
+1. Appoint yourself the "amanah reporter" for your household — commit to one brief, calm, fact-based update per week on what is happening to Muslims globally.
+2. Prepare a 5-minute summary drawn from your weekly review: region, situation, key numbers, one action the household can take.
+3. Deliver it at a regular time — Friday dinner, Saturday breakfast, a family gathering — without phones present.
+4. Age-adapt the content for children; they deserve truth, not shielding and not nightmare material.
+5. Encourage questions; do not speak beyond what you have verified.
+6. Extend the practice to close friends or a study circle if appropriate.
+7. Completion indicator: 12 consecutive weeks of household updates delivered with notes and documented engagement.` },
+        { title: "Protect your heart from despair and cynicism while bearing the burden", done: false,
+          sources: `**I. Quran**
+
+### Quran (12:87)
+**Arabic:** وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِن رَّوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ
+**Translation:** And do not despair of relief from Allah. Indeed, no one despairs of relief from Allah except the disbelieving people.
+
+### Quran (94:5-6)
+**Arabic:** فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا
+**Translation:** For indeed, with hardship will be ease. Indeed, with hardship will be ease.
+
+**II. Hadith**
+
+### Sahih Muslim 2999
+The Prophet (peace be upon him) said: "Amazing is the affair of the believer — all of it is good for him, and this is not for anyone except the believer. If good befalls him he is grateful, and that is good for him; and if harm befalls him he is patient, and that is good for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Allah forbids despair of His mercy and categorises it with kufr (12:87). Yet a steady diet of atrocity without corresponding spiritual grounding produces despair, cynicism, and paralysis — the very outcome the oppressors would choose for the ummah if they could. Tawakkul and yaqin in Allah's promise that "with hardship comes ease" are not decorative — they are load-bearing beams for the Muslim who stays informed.
+
+
+**How?**
+
+1. Pair every awareness session with a tethering act: recite the last verses of al-Baqarah, or the closing of Surah al-Ahzab, or Surah ash-Sharh.
+2. Keep a running list of victories — relief, births, conversions, releases from prison, rebuilt mosques — so that losses are not the only data you see.
+3. Limit input and enforce output: for every hour of news, ensure at least one concrete act of response (du'a, giving, speaking, writing).
+4. Seek companionship — isolation amplifies despair; shared grief with believers who also respond converts despair into resolve.
+5. Consult a trusted scholar or counsellor if despair persists — it is a spiritual condition, not a permanent verdict.
+6. Rehearse the language of qadar: what is happening is under Allah's decree and within His plan.
+7. Completion indicator: 90 days of sustained awareness with no episode of paralysing despair, supported by a tethering practice and documented victories list.` },
+      ],
+    },
+    {
+      title: "Direct a standing portion of sadaqah and cross-border zakat to the global ummah",
+      priority: 'urgent', tags: ['sadaqah', 'zakat', 'global-aid', 'solidarity'],
+      description: "Du'a and awareness are incomplete without material flow. The wealth of the ummah must reach the parts of it that bleed. This task establishes an intentional, ongoing financial pipeline — distinct from ad-hoc emotional giving — that channels a fixed portion of sadaqah and zakat across borders to the Muslims most afflicted by war, famine, displacement, and persecution.",
+      subtasks: [
+        { title: "Calculate and commit a standing monthly allocation for global-ummah causes", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:261)
+**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ
+**Translation:** The example of those who spend their wealth in the way of Allah is like a seed which grows seven spikes; in each spike is a hundred grains.
+
+### Quran (63:10)
+**Arabic:** وَأَنفِقُوا مِن مَّا رَزَقْنَاكُم مِّن قَبْلِ أَن يَأْتِيَ أَحَدَكُمُ الْمَوْتُ فَيَقُولَ رَبِّ لَوْلَا أَخَّرْتَنِي إِلَىٰ أَجَلٍ قَرِيبٍ فَأَصَّدَّقَ
+**Translation:** And spend from what We have provided you before death approaches one of you and he says: My Lord, if only You would delay me for a brief term so I would give charity.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1410
+The Prophet (peace be upon him) said: "The most beloved deed to Allah is the most regular and constant, even if it is little."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Emotional giving spikes with crises and collapses between them — leaving gaps precisely when sustained support is needed most. A standing monthly allocation, however modest, produces predictable flow that aid organisations can plan around and builds a sadaqah jariyah of consistency. The Prophet (peace be upon him) praised the constant small act over the inconsistent large one. This is the structure that outlasts the news cycle.
+
+
+**How?**
+
+1. Review your last 6 months of discretionary spending to identify capacity honestly.
+2. Set an intentional monthly figure — framed as a fixed line item in your budget, not a leftover.
+3. Allocate the total across categories: acute relief (e.g., Gaza, Sudan), persecuted minorities (Uyghurs, Rohingya), and long-term support (orphans, rebuilding, education).
+4. Commit in writing to maintain or increase (never decrease) the amount for 12 months.
+5. Write the niyyah: "O Allah, I make this a standing sadaqah for the afflicted of the ummah — accept it and multiply it."
+6. Review the allocation quarterly; raise it if Allah has expanded your rizq.
+7. Completion indicator: a written 12-month standing allocation with category breakdown, first 3 months executed on schedule.` },
+        { title: "Verify cross-border zakat eligibility in your madhab and act on it", done: false,
+          sources: `**I. Quran**
+
+### Quran (9:60)
+**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ
+**Translation:** Zakat is only for the poor, the needy, those employed to collect it, those whose hearts are to be reconciled, for freeing captives, for those in debt, for the way of Allah, and for the stranded traveller.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1395
+The Prophet (peace be upon him) said to Mu'adh when he sent him to Yemen: "Inform them that Allah has enjoined on them zakat, to be taken from their wealthy and given to their poor."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The classical ruling in most madhahib is that zakat should ideally be distributed to the poor of one's own locality first — but this is a preference, not an absolute prohibition on cross-border distribution, and scholars across schools have long permitted and even recommended sending zakat where the need is catastrophically greater. When Muslim populations face famine, siege, or ethnic cleansing, the fuqara' and masakin of those regions have a claim that no believer can responsibly ignore on a technicality.
+
+
+**How?**
+
+1. Identify your madhab's position on cross-border zakat and the conditions under which it is permitted or recommended.
+2. If unclear, consult a qualified local scholar who is familiar with the current global context, not just classical hypotheticals.
+3. Calculate your zakat accurately when due — nisab, hawl, and all zakatable assets.
+4. Allocate a specific portion of your zakat (not just sadaqah) to vetted channels reaching the poor of afflicted regions; document the intention and the madhab basis.
+5. Retain receipts and the fatwa reference so your zakat is both executed and defensible.
+6. Review annually — as circumstances shift, the allocation should shift with them.
+7. Completion indicator: a documented zakat calculation and cross-border distribution with scholarly basis recorded, executed for at least one hawl cycle.` },
+        { title: "Select vetted relief organisations with transparent delivery to afflicted regions", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 33
+The Prophet (peace be upon him) said: "The signs of a hypocrite are three: when he speaks he lies, when he promises he breaks his promise, and when he is entrusted he betrays the trust."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Giving is worship; misdirected giving is worship wasted and sometimes worse — it can fund overhead, fraud, or actors compromised by regimes. Organisations handling Muslim aid have widely varying levels of integrity, access, and operational capacity. The believer's amanah extends to who receives the flow: choose carefully or the trust entrusted to you fails to reach its rightful recipients.
+
+
+**How?**
+
+1. Identify 8-12 candidate organisations across the regions you plan to support.
+2. Apply verification criteria: (a) audited financials and transparent overhead ratio, (b) direct operational presence in the affected region or verified local partners, (c) track record in previous crises, (d) clarity about religious orientation and compatibility with your giving intent, (e) no known entanglement with regimes oppressing Muslims.
+3. Prefer organisations run by or accountable to Muslims with standing in the affected community.
+4. Narrow to a shortlist of 3-5 that cover your allocation categories.
+5. Diversify rather than concentrating all flow in one channel.
+6. Re-verify annually — organisations evolve, sometimes in compromised directions.
+7. Completion indicator: a documented, dated shortlist of 3-5 vetted organisations with verification notes for each.` },
+        { title: "Set up automated recurring transfers to remove mood dependence", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:274)
+**Arabic:** الَّذِينَ يُنفِقُونَ أَمْوَالَهُم بِاللَّيْلِ وَالنَّهَارِ سِرًّا وَعَلَانِيَةً فَلَهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+**Translation:** Those who spend their wealth by night and by day, secretly and publicly — they will have their reward with their Lord. There will be no fear upon them, nor will they grieve.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1410
+The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those done consistently, even if small."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Human intention is a fragile thing — the niyyah made today can be worn down by fatigue, distraction, or competing expenses by the end of the month. Automation preserves the intention by acting on it before the self has a chance to renegotiate. The verse praises those who spend "by night and by day, secretly and publicly" — the rhythm is what is praised. Scheduled transfers institutionalise that rhythm.
+
+
+**How?**
+
+1. For each shortlisted organisation, set up a recurring monthly transfer matching your allocation.
+2. Time the transfers to immediately after income arrives — first payer, not last.
+3. Use bank-level standing orders or direct debit rather than relying on an organisation's portal, so you retain control and visibility.
+4. Keep a simple spreadsheet tracking: date, amount, recipient, purpose, zakat-or-sadaqah.
+5. Renew niyyah weekly or monthly — the reward depends on intention, and automation must not erode it.
+6. Review the setup every 6 months; adjust as your rizq and the landscape change.
+7. Completion indicator: recurring transfers active for at least 6 consecutive months, logged with niyyah renewals.` },
+        { title: "Multiply impact by raising funds from your household, circle, and workplace", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ
+**Translation:** And cooperate in righteousness and piety.
+
+**II. Hadith**
+
+### Sahih Muslim 1893
+The Prophet (peace be upon him) said: "Whoever guides someone to good will have a reward similar to the one who does it."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) taught that the one who points the way to good shares its reward. Your personal allocation is a seed; your ability to move your spouse, children, extended family, colleagues, and masjid to give is a multiplier. Many people want to give but lack a trusted conduit — offering yourself as that conduit can shift an entire circle's practice without compromising sincerity, as long as the framing is du'a not display.
+
+
+**How?**
+
+1. Speak with your spouse first — agree a household allocation that both contribute to.
+2. Teach your children by involving them: a small fixed weekly amount from allowance, chosen by them from the shortlist.
+3. Invite your extended family into a shared family fund for a specific ummah cause each year.
+4. Organise a modest periodic appeal at your masjid, workplace, or study circle with clear target, transparent reporting, and vetted channels.
+5. Report back on outcomes — what was raised, where it went, what was accomplished — so trust compounds.
+6. Guard sincerity: aim for the audience that multiplies, not the audience that admires.
+7. Completion indicator: a second ongoing giving stream operating beyond your personal allocation (household, family, or circle), with at least 6 months of sustained activity.` },
+      ],
+    },
+    {
+      title: "Refuse material participation in clear oppression of the ummah",
+      priority: 'high', tags: ['boycott', 'wara', 'witness', 'consumption'],
+      description: "Every purchase is a vote and a sadaqah of its opposite. When companies and industries directly fund weapons, settlements, or regimes visibly oppressing Muslims, continuing to hand them money is not a neutral economic act — it is material participation in wrongdoing. This task establishes a disciplined, sustained refusal to finance clear oppression of the ummah through one's consumption.",
+      subtasks: [
+        { title: "Identify companies and products directly funding clear oppression of Muslims", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ ۚ وَاتَّقُوا اللَّهَ
+**Translation:** And do not cooperate in sin and aggression. And fear Allah.
+
+### Quran (4:140)
+**Arabic:** فَلَا تَقْعُدُوا مَعَهُمْ حَتَّىٰ يَخُوضُوا فِي حَدِيثٍ غَيْرِهِ ۚ إِنَّكُمْ إِذًا مِّثْلُهُمْ
+**Translation:** Do not sit with them until they engage in another conversation. Indeed, you would then be like them.
+
+**II. Hadith**
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever of you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith."
+*(Grade: Sahih)*
+
+### Sahih Bukhari 601
+Recorded in Sahih al-Bukhari 601: 'one of you should pronounce the Adhan for the prayer when its time is due.' Also in Sahih Muslim 1423.
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+Allah forbids cooperation in sin and aggression (5:2). When a corporation's profits demonstrably fund occupation, weapons used against Muslim civilians, or regime machinery persecuting believers, the consumer who continues to buy becomes a downstream contributor to that aggression. Vague feelings of disapproval are not enough; the believer needs a specific, named, sourced list to act on.
+
+
+**How?**
+
+1. Identify credible research organisations tracking corporate complicity (e.g., BDS movement vetted lists, AFSC, reputable investigative journalism).
+2. Build a written list of companies with documented, direct complicity — not vague associations but concrete evidence of material support to oppression.
+3. Categorise: (a) primary boycott targets (direct weapons, settlements, regime services), (b) secondary (substantial funders of primary actors), (c) contested (disputed evidence).
+4. Document the source for each entry so the list is defensible when challenged.
+5. Update the list quarterly as evidence evolves and as targeted campaigns shift.
+6. Err on the side of caution when evidence is disputed; the point is clarity, not maximalism.
+7. Completion indicator: a dated, sourced, categorised list of companies with documented complicity, reviewed at least once.` },
+        { title: "Audit your recurring purchases and subscriptions against the list", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:188)
+**Arabic:** وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ
+**Translation:** And do not consume one another's wealth unjustly.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 614
+The Prophet (peace be upon him) said: "A body nourished by haram will not enter Paradise."
+*(Grade: Hasan)*
+
+### Jami at-Tirmidhi 2518
+The Prophet (peace be upon him) said: "Leave that which makes you doubt for that which does not make you doubt."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Most people have no clear picture of where their money actually flows. Household spending is opaque, subscription creep is real, and boycott intentions that never touch the actual budget are theatre. A concrete audit — credit card statements, recurring charges, grocery lists — converts abstract disapproval into discoverable, addressable line items. Without this, the boycott is a slogan.
+
+
+**How?**
+
+1. Pull the last 90 days of bank and credit card statements.
+2. Highlight every transaction corresponding to a company on your list — direct purchases, subsidiaries, platform fees, streaming, SaaS, retail.
+3. Identify recurring subscriptions you forgot about.
+4. Calculate the monthly total flowing to boycott-target companies.
+5. Categorise each into: easy switch, moderate friction, difficult (e.g., tools with no viable alternative).
+6. Rank by monetary impact — start where your money flow is largest.
+7. Completion indicator: a written audit with every flagged transaction, total monthly outflow, and priority switching list.` },
+        { title: "Commit to halal and ethical alternatives for each substitutable item", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:168)
+**Arabic:** يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا
+**Translation:** O mankind, eat from whatever is on the earth that is lawful and good.
+
+**II. Hadith**
+
+### Sahih Muslim 1599
+The Prophet (peace be upon him) said: "Allah is good and accepts only that which is good."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Boycott without substitution is attrition that eventually fails. Human beings adapt; deprivation without a positive alternative collapses under convenience. The believer's boycott is best sustained when it is paired with the pleasure of discovering halal, ethical, often Muslim-owned alternatives — supporting the producers who are building an independent economic base rather than simply punishing the old one.
+
+
+**How?**
+
+1. For each priority item from the audit, research 2-3 replacement options — prefer Muslim-owned, locally sourced, or at minimum non-complicit alternatives.
+2. Trial each alternative personally; adjust based on quality, availability, and price.
+3. Switch the recurring purchase or subscription once the alternative is confirmed acceptable.
+4. Cancel the original subscription explicitly, stating the reason in writing when a channel exists — companies track cancellations.
+5. Stock the household with alternatives so convenience does not push you back.
+6. Share discovered alternatives with your household and circle; this lowers their switching cost.
+7. Completion indicator: every item on your priority switching list has a documented alternative in active use for at least 60 days.` },
+        { title: "Teach your household why — not just what — you are boycotting", done: false,
+          sources: `**I. Quran**
+
+### Quran (66:6)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا
+**Translation:** O you who have believed, protect yourselves and your families from a Fire.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock. The man is a shepherd over his family and responsible for them."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A boycott imposed without explanation becomes a rule the household tolerates and quietly violates. A boycott rooted in understood principle — "we do not feed our wealth to those who fund the killing of Muslims" — becomes part of identity. Children raised with explained principle carry the discipline forward; children raised with unexplained rules rebel against them. The Qur'anic command to protect one's household applies to their consciences as much as their bodies.
+
+
+**How?**
+
+1. Hold a short, age-appropriate household conversation explaining the principle: Allah forbids cooperating in oppression, we express that through where our money goes.
+2. Show, with simple examples, the link between specific products and specific harms — without traumatising details for young children.
+3. Invite questions; do not speak beyond what you have verified.
+4. Co-design the household replacement list with your spouse and children — ownership increases compliance.
+5. Revisit the conversation periodically as new information emerges.
+6. Model the principle in your own behaviour consistently; children detect inconsistency immediately.
+7. Completion indicator: documented household conversations and a co-owned replacement list that all household members understand and reference.` },
+        { title: "Hold the boycott long-term — measure by years, not weeks", done: false,
+          sources: `**I. Quran**
+
+### Quran (11:115)
+**Arabic:** وَاصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ
+**Translation:** And be patient, for indeed, Allah does not allow to be lost the reward of those who do good.
+
+### Quran (3:200)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا
+**Translation:** O you who have believed, persevere and endure and remain stationed.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1469
+The Prophet (peace be upon him) said: "Whoever remains patient, Allah will grant him patience, and no one is given anything better and more generous than patience."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Boycotts that collapse after a news cycle embolden the targets and teach the market that Muslim consumer conscience is performative. Historical boycotts that produced real shifts — whether anti-apartheid or anti-colonial — measured their duration in decades. Sabr over years is itself ibadah; Allah explicitly praises the ribat (remaining stationed) of the believers. Treat the boycott as a lifelong spiritual discipline, not a seasonal campaign.
+
+
+**How?**
+
+1. Reframe the boycott in your mind as a permanent dietary-style discipline until the oppression verifiably ends — not a campaign with a quit date.
+2. Assume slippage; build systems (written list, household agreement, phone notes) that catch relapses rather than relying on memory.
+3. Track duration openly: how many months or years since you last financed a flagged company.
+4. Re-evaluate only when the underlying evidence changes — not when it becomes inconvenient.
+5. Protect against normalisation: periodically remind yourself why you started.
+6. Share milestones with your circle to reinforce collective memory.
+7. Completion indicator: 12 consecutive months of sustained boycott with documented tracking, audit refreshed at least once, and one successful recovery from a slippage incident.` },
+      ],
+    },
+    {
+      title: "Bear public witness when the ummah is attacked",
+      priority: 'high', tags: ['witness', 'amr-bil-maruf', 'tongue', 'haqq'],
+      description: "Silence before clear oppression is a spiritual failure with a cost on the Day of Judgement. The Prophet (peace be upon him) ranked speaking the truth against a tyrant among the greatest jihads. This task establishes the habit of public witness — in speech, in writing, in presence — when Muslims are attacked, without descending into reckless speech or empty performance.",
+      subtasks: [
+        { title: "Speak the truth on your platform when major attacks on the ummah occur", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:135)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ وَلَوْ عَلَىٰ أَنفُسِكُمْ
+**Translation:** O you who have believed, be persistently standing firm in justice, witnesses for Allah, even if it be against yourselves.
+
+### Quran (33:70-71)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ
+**Translation:** O you who have believed, fear Allah and speak words of appropriate justice. He will amend for you your deeds.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 4344
+The Prophet (peace be upon him) said: "The greatest jihad is a word of truth before a tyrannical ruler."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Every believer has a platform — a family group chat, a personal social media account, a classroom, a workplace. Refusing to use that platform in the face of clear oppression of the ummah is a form of the "heart-level" faith the Prophet (peace be upon him) called the weakest. Speaking publicly, truthfully, and responsibly is not optional for those with voice — it is the minimum witness that Islam requires when the body suffers.
+
+
+**How?**
+
+1. Identify your honest platform: where you already speak and are heard (family groups, LinkedIn, X, friends circle, students).
+2. Commit to not letting a major ummah attack pass without at least one clear, truthful public statement from you within 48 hours.
+3. Anchor every statement in verified facts — named sources, documented numbers, specific events.
+4. Speak with adab: firm on truth, disciplined in tone; avoid slogans, hyperbole, and language that will date badly.
+5. Centre the victims, not yourself — your platform is a lens, not a stage.
+6. Accept pushback; do not retreat into silence at the first social cost.
+7. Completion indicator: across any 3-month period containing a major ummah event, at least one documented public statement from you per event, anchored in sources.` },
+        { title: "Attend in-person protests and solidarity gatherings for afflicted Muslims", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:8)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ لِلَّهِ شُهَدَاءَ بِالْقِسْطِ
+**Translation:** O you who have believed, be persistently standing firm for Allah, witnesses in justice.
+
+**II. Hadith**
+
+### Sahih Muslim 2580
+The Prophet (peace be upon him) said: "A Muslim is the brother of a Muslim; he does not oppress him, nor does he hand him over to his enemy."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Physical presence at a protest is public witness that cannot be edited, algorithmically suppressed, or easily dismissed. It also compounds: large visible crowds shift the political calculation of decision-makers in a way that online discourse alone rarely achieves. The Prophet (peace be upon him) forbade handing a Muslim brother over to his enemy — physical presence in solidarity is one way of refusing to hand them over in the court of public opinion.
+
+
+**How?**
+
+1. Identify the reputable organisers of solidarity events in your city — vet them for integrity and focus (some gatherings are captured by agendas misaligned with the believers' intent).
+2. Commit to attending at least one major gathering per quarter when such events are occurring, more during acute crises.
+3. Bring household members with appropriate adab — this is worship, not recreation.
+4. Conduct yourself lawfully and with dignity; reckless behaviour hurts the cause and discredits the witness.
+5. Take visible but restrained records (photos, attendance numbers) for your own accountability, not for display.
+6. Debrief with those you attended with; extract lessons for future gatherings.
+7. Completion indicator: documented attendance at gatherings for at least 4 distinct ummah events or anniversaries, with post-event reflection.` },
+        { title: "Write to elected representatives citing documented injustices", done: false,
+          sources: `**I. Quran**
+
+### Quran (20:44)
+**Arabic:** فَقُولَا لَهُ قَوْلًا لَّيِّنًا لَّعَلَّهُ يَتَذَكَّرُ أَوْ يَخْشَىٰ
+**Translation:** And speak to him with gentle speech that perhaps he may be reminded or fear [Allah].
+
+**II. Hadith**
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever sees an evil, let him change it with his hand; if he cannot, then with his tongue."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Many Muslims underestimate the weight of direct constituent communication. Elected representatives track the volume and substance of mail from their districts; a handful of detailed, factual, courteous letters on a specific injustice registers in a way that generic petitions do not. Even in systems that feel compromised, the record of Muslim constituents raising their voice is itself historical witness — future generations will see who spoke and who stayed silent.
+
+
+**How?**
+
+1. Identify your elected representatives at every level — local, regional, national — and their contact channels.
+2. For each major ummah event, draft a specific, evidence-anchored letter: what happened, which international norms were violated, what you are asking the representative to do.
+3. Adapt tone to the reader — firm, factual, citing verifiable sources, not inflammatory.
+4. Send via the channel that requires personal handling (paper letter or constituent portal) rather than mass-email tools that get filtered.
+5. Follow up if a response is inadequate or absent.
+6. Log every letter sent and response received; a record of engagement builds influence over time.
+7. Completion indicator: at least 4 substantive letters sent to representatives in a 12-month period, each anchored in evidence and followed up on.` },
+        { title: "Correct false narratives in your immediate circle — family, coworkers, neighbours", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:110)
+**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ
+**Translation:** You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 4338
+The Prophet (peace be upon him) said: "The best of jihad is a word of truth spoken to a tyrannical ruler — or to an unjust leader."
+*(Grade: Sahih)*
+
+### Sahih Muslim 6
+The 'Hadith of Jibril' in Sahih Muslim (Book 1, Number 6) details the definitions of Islam, Iman, and Ihsan.
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+Public posting is one form of witness; the harder — and often more transformative — form is correcting the false narrative circulating among the people you actually know. A coworker parroting propaganda, a relative repeating a distortion, a neighbour quoting a headline as fact: these are the real loci where narratives are built or dismantled. A polite, sourced correction at the lunch table changes more minds than any viral thread.
+
+
+**How?**
+
+1. Prepare yourself: know the top 5 propaganda lines currently circulating about a given conflict and have the verified counter-evidence at hand.
+2. When a false narrative is repeated in your presence, decline to let it pass — gently, factually, in real time.
+3. Cite sources the other person will find credible, not only Muslim sources; meet people where they are.
+4. Acknowledge any valid concern within the opposing narrative before correcting the falsehood — do not reflexively reject everything.
+5. Accept that some will remain unconvinced; your obligation is to convey, not to convert.
+6. Keep the tone one of brotherhood or neighbourliness, not ideological combat; the goal is adjustment of view, not domination of exchange.
+7. Completion indicator: sustained practice over 3 months with at least 12 documented correction conversations and reflection on which approaches changed minds.` },
+        { title: "Never normalise silence — renew the niyyah that silence before oppression is a sin", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:78-79)
+**Arabic:** لُعِنَ الَّذِينَ كَفَرُوا مِن بَنِي إِسْرَائِيلَ عَلَىٰ لِسَانِ دَاوُودَ وَعِيسَى ابْنِ مَرْيَمَ ۚ ذَٰلِكَ بِمَا عَصَوا وَّكَانُوا يَعْتَدُونَ ۝ كَانُوا لَا يَتَنَاهَوْنَ عَن مُّنكَرٍ فَعَلُوهُ
+**Translation:** Cursed were those who disbelieved among the Children of Israel by the tongue of David and of Jesus, the son of Mary. That was because they disobeyed and were transgressing — they used to not prevent one another from wrongdoing that they did.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2169
+The Prophet (peace be upon him) said: "By the One in Whose hand is my soul, you must enjoin good and forbid evil, or Allah will soon send upon you a punishment from Him, then you will supplicate to Him and He will not answer you."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+Allah cursed earlier communities not only for their oppression but for their silence — "they did not prevent one another from wrongdoing that they did." The default human response to sustained atrocity is fatigue and normalisation; the news shifts and the heart follows. The believer must actively resist that pull. Silence before clear oppression of the ummah is not neutrality — it is recorded as complicity in Allah's sight. Renewing the niyyah regularly is the believer's defence against creeping numbness.
+
+
+**How?**
+
+1. Set a recurring calendar reminder (weekly or monthly) titled "renew witness niyyah" with a short reflection text.
+2. When triggered, sit briefly and renew: "O Allah, I refuse to be silent before the oppression of my brothers and sisters. Make me a witness for You, whatever the cost."
+3. Audit the prior period honestly: was there an attack I let pass in silence? If so, what was the reason — fear, fatigue, distraction? Correct it.
+4. Seek accountability from a trusted believer — a spouse, friend, or study partner — who can flag when you are drifting into quiet.
+5. Read biographies of witnesses who paid the cost (sahaba, scholars under tyranny, contemporary witnesses) to recalibrate your sense of what is required.
+6. Make du'a for steadfastness — the tongue that speaks truth under pressure is a gift from Allah, not an achievement of the self.
+7. Completion indicator: 6 consecutive months of documented niyyah-renewal rhythm with honest audits and no period exceeding 30 days of passive silence before a major ummah event.` },
+      ],
+    },
+  
+  ],
+
+  // ── GROWTH: Building Capacity ──
+  ummah_collective_growth: [
+    {
+      title: "Develop strategic literacy on the major fronts affecting the global ummah",
+      priority: 'high', tags: ['literacy', 'strategy', 'global-ummah'],
+      description: "Responding to the ummah's afflictions at a foundational level means reading the news honestly. Responding at a growth level means understanding the history, actors, economics, and geopolitics that shape each front. This task builds the strategic literacy required to move from reactive compassion to durable, informed engagement across decades.",
+      subtasks: [
+        { title: "Read a foundational history for each major front affecting the ummah", done: false,
+          sources: `**I. Quran**
+
+### Quran (12:111)
+**Arabic:** لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ
+**Translation:** There was certainly in their stories a lesson for those of understanding.
+
+### Quran (3:137)
+**Arabic:** قَدْ خَلَتْ مِن قَبْلِكُمْ سُنَنٌ فَسِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ كَانَ عَاقِبَةُ الْمُكَذِّبِينَ
+**Translation:** Similar precedents have passed on before you; travel through the earth and observe how was the end of those who denied.
+
+**II. Hadith**
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Headlines give present tense; history gives causation. Without an understanding of the origins — the Nakba, the Soviet and Chinese campaigns against Muslim populations, post-colonial partitions, oil-economy interventions — the believer is vulnerable to every fresh propaganda wave and incapable of distinguishing genuine shifts from recycled tactics. The Quran repeatedly commands the believers to travel the earth and study outcomes. Reading serious history is the sedentary equivalent of that command.
+
+
+**How?**
+
+1. Identify the top 5-7 fronts currently affecting the ummah and, for each, a single respected book-length history written by a credible author (Muslim or non-Muslim, but well-sourced).
+2. Set a reading pace: one book per 6-8 weeks — do not rush, take notes, look up every unfamiliar term.
+3. Read each book fully; refuse summaries and video abridgments for foundational works.
+4. Write a 1-page distillation per book: timeline, key actors, turning points, current relevance.
+5. Discuss each reading with at least one other believer committed to the same literacy.
+6. Revisit the distillations quarterly; evolving events will recast earlier details.
+7. Completion indicator: 5 foundational histories read and distilled in a 12-month cycle, with written summaries archived.` },
+        { title: "Learn the key actors, institutions, and financial flows behind each front", done: false,
+          sources: `**I. Quran**
+
+### Quran (8:60)
+**Arabic:** وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ
+**Translation:** And prepare against them whatever you are able of power.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 5027
+The Prophet (peace be upon him) said: "The best among you are those who learn the Quran and teach it" — a principle extended by the scholars to every branch of knowledge needed to defend the ummah.
+*(Grade: Sahih)*
+
+### Sunan Ibn Majah 224
+The Prophet (peace be upon him) said: "Seeking knowledge is an obligation upon every Muslim."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Oppression has names, balance sheets, and supply chains. "Someone is hurting the ummah" is an emotional frame that delivers nothing; "this specific arms firm sells this specific system to this specific regime funded by this specific financial vehicle, monitored by this specific agency" is an actionable frame. Believers tasked with meaningful response need the second frame. Allah commands preparation of whatever power (8:60) — in this age, literacy is a form of that preparation.
+
+
+**How?**
+
+1. For each front from your history reading, research the top 5-8 relevant actors: state institutions, military contractors, corporations, think tanks, lobby groups.
+2. For each actor, document: primary role, ownership and funding, public positions, historical track record.
+3. Trace major financial flows — who pays whom, through which intermediaries, and how that movement is disclosed or hidden.
+4. Compile the result into a living reference document you can consult when new events arise.
+5. Cross-reference at least three independent sources per entry; do not trust a single outlet.
+6. Update the document at least twice per year; actor landscapes shift with leadership changes and restructurings.
+7. Completion indicator: a sourced, dated, updated actors-and-flows reference covering all fronts in your scope, with at least one update cycle completed.` },
+        { title: "Study the scholarly discourse on jihad, witness, and solidarity in your madhab", done: false,
+          sources: `**I. Quran**
+
+### Quran (22:39)
+**Arabic:** أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا ۚ وَإِنَّ اللَّهَ عَلَىٰ نَصْرِهِمْ لَقَدِيرٌ
+**Translation:** Permission to fight has been given to those who are being fought, because they were wronged. And indeed, Allah is competent to give them victory.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 2504
+The Prophet (peace be upon him) said: "Strive against the polytheists with your wealth, your lives, and your tongues."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Islamic tradition has centuries of scholarship on when solidarity is fard, when armed resistance by the afflicted is legitimate, what the obligations of distant Muslims are, and what the limits of witness and advocacy are. Many believers form strong opinions without ever reading a single serious treatment of these questions. The result is confusion — some dismissing every response as extremism, others endorsing positions no classical scholar would defend. Scholarly literacy stabilises the believer.
+
+
+**How?**
+
+1. Identify 2-3 reliable contemporary scholars in your tradition who have written or spoken systematically on these questions.
+2. Read or study at least one substantial treatment each, with the classical texts they reference at hand.
+3. Note points of ijma (consensus), points of legitimate ikhtilaf (difference), and the evidence structure behind each.
+4. Identify the edges: where does scholarship say "do," where "may," where "must not"?
+5. Use this literacy to judge contemporary statements — both from Muslims and about Muslims — rather than absorbing opinions uncritically.
+6. Return to the sources periodically; your own evolution should track re-readings.
+7. Completion indicator: documented study of at least 2 substantial scholarly works on these themes with a personal summary of consensus, difference, and edges.` },
+        { title: "Build a working mental map of the ummah's demographic and economic landscape", done: false,
+          sources: `**I. Quran**
+
+### Quran (30:22)
+**Arabic:** وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّلْعَالِمِينَ
+**Translation:** And of His signs is the creation of the heavens and the earth and the diversity of your languages and your colours. Indeed in that are signs for those of knowledge.
+
+**II. Hadith**
+
+### Sahih Muslim 2564
+The Prophet (peace be upon him) said: "A Muslim is the brother of a Muslim; he does not oppress him, nor does he forsake him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Two billion Muslims across every continent do not share a single political condition; the ummah contains absolute monarchies, electoral democracies, besieged minorities, demographic majorities, rich states, famine-struck regions, and diaspora populations embedded in non-Muslim societies. Coherent engagement requires a working map: where Muslims are, in what numbers, under what conditions, with what resources. Without it, solidarity is a slogan addressed to no one in particular.
+
+
+**How?**
+
+1. Compile basic data for the 25 largest Muslim populations by country: population, economic conditions, political system, key afflictions, diaspora footprint.
+2. For your own region, deepen the map: local Muslim demographics, mosques, schools, businesses, institutions.
+3. Identify 10-12 minority communities globally under pressure; their numbers and conditions often go unreported.
+4. Visualise the result — a simple table, a world map, or a document — so it can be referenced quickly.
+5. Update annually from credible sources (census data, specialist organisations, ethnographies).
+6. Share the map with your study circle; many will benefit from the scaffold.
+7. Completion indicator: a compiled, dated demographic and economic map covering 25 major populations and 10-12 pressured minorities, updated at least once.` },
+        { title: "Translate literacy into at least one briefing that educates others", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:187)
+**Arabic:** وَإِذْ أَخَذَ اللَّهُ مِيثَاقَ الَّذِينَ أُوتُوا الْكِتَابَ لَتُبَيِّنُنَّهُ لِلنَّاسِ وَلَا تَكْتُمُونَهُ
+**Translation:** And remember when Allah took a covenant from those who were given the Scripture to make it clear to the people and not conceal it.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 3461
+The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Knowledge hoarded dies with its holder. The covenant Allah took from the people of knowledge is to clarify, not conceal. The believer who has invested in deep literacy becomes, by that investment, a reference point for a household, a circle, or a community — and is responsible for transmitting what they have learned with adab and accuracy.
+
+
+**How?**
+
+1. Identify the audience most likely to benefit from your literacy — your household, a local study circle, a youth group, a professional network.
+2. Design a structured briefing: 45-60 minutes covering one front in depth, using maps, dates, actors, and primary sources.
+3. Invite them — small groups beat large audiences for retention and engagement.
+4. Deliver the briefing with honesty about what you know well and what you are still learning.
+5. Repeat the briefing every 2-3 months, updating content and refining the delivery.
+6. Encourage attendees to build their own literacy and teach others; multiplication is the aim.
+7. Completion indicator: at least 3 briefings delivered to different audiences with documented attendance and written feedback.` },
+      ],
+    },
+    {
+      title: "Build or join a sustained advocacy collective focused on the global ummah",
+      priority: 'high', tags: ['advocacy', 'collective', 'sustained-action'],
+      description: "Individual action hits a ceiling quickly. Institutions — even small, informal ones — outlast the individuals inside them and compound effort across years. This task moves the believer from solo solidarity into a sustained advocacy collective: a standing group that organises, speaks, gives, and holds one another accountable around the ummah's major fronts.",
+      subtasks: [
+        { title: "Identify existing credible collectives you can join rather than duplicating effort", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ
+**Translation:** And cooperate in righteousness and piety.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 2442
+The Prophet (peace be upon him) said: "The believer to the believer is like a building; one part strengthens the other."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Most cities already have credible groups organising around specific ummah fronts — student associations, local chapters of national advocacy groups, grassroots solidarity committees. Starting a new group from scratch without first checking whether one exists fragments the believer community's effort and signals ego. Join first; found only when there is a genuine gap.
+
+
+**How?**
+
+1. Research groups in your city or online space doing serious work on the fronts you care about.
+2. Vet them with the same criteria as charitable organisations: track record, transparency, integrity of leadership, alignment with Islamic values.
+3. Attend meetings and events for 2-3 months before committing; observe culture and practice.
+4. If you find a credible home, join and commit; if not, document the gap that justifies starting something new.
+5. Report back to your household or circle on what you found — surface credible groups for others to join.
+6. Refuse groups that are captured by factions misaligned with the ummah's interests, however well-branded.
+7. Completion indicator: a documented shortlist of credible collectives with vetting notes, and active participation in at least one for 3 months.` },
+        { title: "Commit to a defined role inside the collective, not ambient presence", done: false,
+          sources: `**I. Quran**
+
+### Quran (9:105)
+**Arabic:** وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ
+**Translation:** And say: Work, for Allah will see your deed, and His Messenger, and the believers.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6011
+The Prophet (peace be upon him) said: "The believers in their mutual love and mercy are like one body; when one part suffers, the whole body responds."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Organisations sink under the weight of members who show up occasionally, have opinions, and leave. They are carried by members with defined roles and consistent delivery. Moving from "attendee" to "role-holder" is the single biggest jump in impact a believer can make inside a collective.
+
+
+**How?**
+
+1. After your observation period, ask the leadership what capacity they most need.
+2. Volunteer for a specific role: research lead, communications, logistics, treasurer, educator, legal liaison — whatever matches your skills and the need.
+3. Formalise the commitment: role description, hours per week, deliverables.
+4. Show up even when tired; roles are covenants, not interests.
+5. Report on your work transparently; an individual's reliability compounds into organisational credibility.
+6. Do not accept a role beyond your actual capacity; sustained delivery beats heroic overcommitment.
+7. Completion indicator: a defined, documented role inside a credible collective sustained with agreed deliverables for at least 6 months.` },
+        { title: "Establish the collective's relationship with on-the-ground actors in afflicted regions", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:13)
+**Arabic:** وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا
+**Translation:** And We made you peoples and tribes that you may know one another.
+
+**II. Hadith**
+
+### Sahih Muslim 2586
+The Prophet (peace be upon him) said: "A Muslim does not oppress a Muslim nor forsake him, nor does he hand him over to his enemy."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Advocacy collectives disconnected from the people they claim to advocate for drift into self-reference: their meetings, their statements, their internal dynamics. A direct, respectful, accountable relationship with voices from the afflicted regions keeps the collective anchored to the actual needs and wishes of those it exists to serve.
+
+
+**How?**
+
+1. Identify trustworthy voices from the affected regions — journalists, scholars, community leaders, frontline workers.
+2. Invite them into regular (monthly or quarterly) briefings with your collective — via video call or written updates.
+3. Listen more than you speak; let their analysis shape the collective's priorities.
+4. Ask them directly: what is most useful for people in our position to do? Honour the answer.
+5. Acknowledge their contribution and protect them from exposure risks where safety is an issue.
+6. Refuse to speak over them in your own advocacy; translate, transmit, amplify.
+7. Completion indicator: at least 2 sustained relationships with on-the-ground voices, with documented regular contact over 6 months and visible influence on the collective's agenda.` },
+        { title: "Produce an evidence-anchored campaign on one specific issue", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:42)
+**Arabic:** وَلَا تَلْبِسُوا الْحَقَّ بِالْبَاطِلِ وَتَكْتُمُوا الْحَقَّ وَأَنتُمْ تَعْلَمُونَ
+**Translation:** And do not mix the truth with falsehood or conceal the truth while you know it.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 4344
+The Prophet (peace be upon him) said: "The greatest jihad is a word of truth before a tyrannical ruler."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Diffuse advocacy across many issues rarely moves anything. Disciplined campaigns — one clear issue, one clear ask, sustained pressure, anchored in evidence — occasionally produce real shifts. The collective's credibility grows with every campaign that is well-researched, truthful, and disciplined, and evaporates with every campaign that is loose or sensationalist.
+
+
+**How?**
+
+1. With the collective, select a single specific issue that is tractable and under-advocated in your context.
+2. Commission a research document: the facts, the actors, the existing advocacy landscape, the specific asks.
+3. Define the campaign: target audience, key messages, channels (media, representatives, institutions), timeline.
+4. Produce materials to the highest standard you can afford — credibility is earned through quality.
+5. Execute the campaign with discipline; refuse off-message improvisation.
+6. Evaluate honestly: what shifted, what did not, why.
+7. Completion indicator: one campaign executed end-to-end with documented evidence base, delivery, and post-mortem.` },
+        { title: "Institutionalise the collective's memory, finances, and succession", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:282)
+**Arabic:** وَلَا تَسْأَمُوا أَن تَكْتُبُوهُ صَغِيرًا أَوْ كَبِيرًا إِلَىٰ أَجَلِهِ
+**Translation:** And do not be weary of writing it down, whether small or large, with its term.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6416
+The Prophet (peace be upon him) said: "Take benefit of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your occupation, and your life before your death."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Most Muslim advocacy collectives die when their founders burn out, move cities, or lose heart. Institutionalisation — written records, governance, financial transparency, explicit succession — is what lets the collective outlast its first generation. This is the difference between a moment and a movement.
+
+
+**How?**
+
+1. Draft a simple constitution: purpose, decision-making, membership, treasury, succession.
+2. Maintain written minutes of all meetings and a searchable archive of campaigns and research.
+3. Open a proper account with dual-signatory controls; publish quarterly financial statements to members.
+4. Name explicit succession pathways: deputies for every key role, trained and ready to step up.
+5. Mentor younger members intentionally; the collective's 10-year survival depends on them.
+6. Conduct an annual review of the collective's health and pivot where needed.
+7. Completion indicator: a ratified constitution, archived minutes, transparent finances, and named successors for every key role.` },
+      ],
+    },
+    {
+      title: "Fund capacity-building projects in afflicted Muslim regions beyond emergency relief",
+      priority: 'high', tags: ['capacity-building', 'development', 'long-term'],
+      description: "Emergency relief saves lives today; capacity-building preserves dignity and independence tomorrow. A believer's giving matures when it extends past the immediate crisis to the institutions that let afflicted communities stand on their own — schools, clinics, skills centres, livelihoods, legal aid. This task establishes a deliberate capacity-building portfolio alongside relief.",
+      subtasks: [
+        { title: "Map the capacity gaps in the regions you already support with relief", done: false,
+          sources: `**I. Quran**
+
+### Quran (59:7)
+**Arabic:** كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ
+**Translation:** So that it will not be a perpetual distribution among the rich from among you.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1470
+The Prophet (peace be upon him) said about giving: "The upper hand is better than the lower hand." He also said, as reported elsewhere: "Verily, it is better for one of you to take a rope and bring a bundle of firewood on his back and sell it, than to beg from people."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Dignified self-reliance is a core Quranic principle — Allah's prescription of zakat explicitly aims to prevent wealth from becoming a perpetual handout. Communities that receive only emergency aid remain in a state of dependency that eventually corrodes both giver and receiver. Mapping capacity gaps — education, healthcare, livelihoods, legal — lets you give in ways that build toward dignity rather than perpetuate need.
+
+
+**How?**
+
+1. For each afflicted region in your active support portfolio, consult local organisations, scholars, or community leaders about structural gaps.
+2. Document: what institutions are missing or struggling (schools, clinics, professional training, legal aid, media, youth programmes)?
+3. Prioritise gaps by: severity, tractability, and alignment with Islamic values.
+4. Cross-check with larger studies or development reports where credible.
+5. Update the map as situations evolve — wartime and post-conflict capacity gaps differ.
+6. Share the map with co-donors and your collective so aggregated giving can target real gaps.
+7. Completion indicator: a dated, sourced capacity-gap map for at least 3 supported regions with prioritisation and cross-checks.` },
+        { title: "Allocate a portion of your giving specifically to education and tarbiyah projects", done: false,
+          sources: `**I. Quran**
+
+### Quran (58:11)
+**Arabic:** يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+**Translation:** Allah will raise those who have believed among you and those who were given knowledge, by degrees.
+
+**II. Hadith**
+
+### Sahih Muslim 1631
+The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), knowledge benefited from, or a righteous child who prays for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Education is the most replicated form of sadaqah jariyah — a school that teaches 200 children for 50 years is a legacy of intergenerational scale. For afflicted communities, education is also protection: trained minds rebuild destroyed cities. Allocating a deliberate portion of your giving to education and tarbiyah converts short-horizon relief into multi-generational impact.
+
+
+**How?**
+
+1. Within your annual giving budget, designate a specific percentage (suggest 20-40%) for education and tarbiyah projects in afflicted regions.
+2. Identify vetted partners running schools, scholarship funds, teacher training, Quranic memorisation programmes, or professional education in those regions.
+3. Prefer partners that involve the local community in governance; imported curricula and externally-run institutions rarely outlast the donors.
+4. Commit multi-year where possible; education is disrupted by erratic funding.
+5. Track outcomes with the partner: enrolment, completion, progression.
+6. Protect the allocation from being drained into emergency relief when crises hit; create a separate emergency line.
+7. Completion indicator: a multi-year education allocation active for at least 12 months with documented outcomes from at least 2 partners.` },
+        { title: "Support livelihood and economic resilience projects for afflicted families", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:273)
+**Arabic:** لِلْفُقَرَاءِ الَّذِينَ أُحْصِرُوا فِي سَبِيلِ اللَّهِ لَا يَسْتَطِيعُونَ ضَرْبًا فِي الْأَرْضِ
+**Translation:** For the poor who are restricted in the way of Allah, unable to travel in the land for work.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1471
+A man came to the Prophet (peace be upon him) asking for charity. The Prophet sold the man's tools instead and told him to gather firewood and sell it — turning a handout into a livelihood.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) responded to a poor man's request by equipping him to earn, not by giving him a handout. Livelihood support — tools, capital for small businesses, vocational training, cooperative models — honours this Prophetic pattern. For families in afflicted regions, the ability to earn is the difference between displacement and rootedness.
+
+
+**How?**
+
+1. Identify partners running vocational training, microenterprise support, tool distribution, or cooperative agriculture in afflicted regions.
+2. Allocate a specific portion of your giving to these programmes.
+3. Prefer models with local ownership and proven graduation rates over programmes that perpetually subsidise.
+4. Avoid interest-based microfinance; the Islamic alternatives (qard hasan, profit-sharing) exist and are growing.
+5. Track a cohort with the partner — what percentage of participants are self-sufficient 12 and 24 months later?
+6. Celebrate graduation; the goal is for a family to no longer need your support.
+7. Completion indicator: a sustained livelihood allocation active for 12 months with at least one cohort reaching 12-month independence.` },
+        { title: "Fund legal aid and documentation for persecuted Muslim populations", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:135)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ
+**Translation:** O you who have believed, be persistently standing firm in justice, witnesses for Allah.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 4884
+The Prophet (peace be upon him) said: "Whoever covers the shortcomings of his brother in this world, Allah will cover his shortcomings on the Day of Judgement." The scholars applied this principle to protecting the persecuted from unjust systems.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+In occupation, genocide, and mass persecution, legal aid and documentation — identity papers, family reunifications, court representation, war crime records — is lifesaving infrastructure. Many believers overlook this front because it is slower and less viscerally urgent than food parcels, but it is often the difference between a recognised people and an erased one. Funding it is a high-leverage act of witness.
+
+
+**How?**
+
+1. Research legal-aid and documentation organisations with credible records in the regions you support.
+2. Allocate a specific portion of your giving to this category — even 10% goes a long way as these programmes are chronically underfunded.
+3. Prefer organisations that combine direct representation with long-term archival work.
+4. Support their training of local lawyers and paralegals so capacity grows in-region rather than depending on external experts.
+5. Where safe, amplify their case work in your own advocacy; attention protects them.
+6. Commit multi-year; the caseloads outlast any single news cycle.
+7. Completion indicator: a legal-aid allocation active for 12 months to at least one credible partner with documented case outcomes.` },
+        { title: "Report capacity-building outcomes to your donors and co-funders", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due, and when you judge between people, to judge with justice.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 33
+The Prophet (peace be upon him) said that a sign of hypocrisy is to betray a trust that one is entrusted with.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+When you channel funds from family, circle, or masjid into capacity-building, the amanah extends to reporting back. Donors who see credible outcomes become multi-year supporters; donors left in the dark drift away. Reporting is not PR — it is the fulfilment of the amanah between you, the ummah, and Allah.
+
+
+**How?**
+
+1. After each annual cycle, produce a simple, honest report: what was given, where, what was achieved, what failed.
+2. Include partner-level outcomes — enrolment, cases, cohort independence — not just inputs.
+3. Be honest about failures; every serious programme has them, and transparency builds far more trust than manicured reports.
+4. Share the report with all contributors and keep an archive.
+5. Invite direct questions; some donors will want deeper engagement and become partners in the work.
+6. Use the reporting cycle to refine next year's allocations.
+7. Completion indicator: an annual report produced, distributed to all contributors, and archived for continuity.` },
+      ],
+    },
+    {
+      title: "Cultivate direct relationships with Muslims in afflicted regions",
+      priority: 'medium', tags: ['relationships', 'sisterhood-brotherhood', 'direct'],
+      description: "Giving from a distance is a duty; knowing those you give to is a completion. The Prophet (peace be upon him) pursued and maintained personal relationships across tribe and geography. This task moves the believer from anonymous donor to known brother or sister of Muslims in afflicted regions — through correspondence, video calls, twinned relationships, and where safe and halal, travel.",
+      subtasks: [
+        { title: "Establish written correspondence with Muslim families or institutions you support", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:10)
+**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ
+**Translation:** The believers are but brothers.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2008
+The Prophet (peace be upon him) said: "A believer to another believer is like a building; each part strengthens the other." He demonstrated this by his personal letters to rulers and companions alike.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A handwritten letter from a stranger in another country telling a displaced mother that her son's education is being funded in her name, and asking for nothing in return, carries more dignity-restoring weight than any faceless transfer. The Prophet (peace be upon him) wrote personal letters across the known world. Restoring this practice reconnects far-flung members of the ummah as people, not categories.
+
+
+**How?**
+
+1. Through vetted partners, arrange written correspondence with a family, student, or small institution in an afflicted region.
+2. Observe security protocols — do not expose anyone's identity where risk exists.
+3. Write in a language they can read, translated if needed; keep the content warm and respectful, not patronising.
+4. Commit to at least quarterly correspondence; consistency matters more than frequency.
+5. Share what they write back with your household — it shapes your children's sense of the ummah.
+6. Send small accompanying gifts when possible (books, children's materials, practical items) via reliable channels.
+7. Completion indicator: at least one sustained correspondence relationship active for 12 months with documented exchanges.` },
+        { title: "Hold regular video calls with imams, teachers, or organisers from afflicted regions", done: false,
+          sources: `**I. Quran**
+
+### Quran (33:21)
+**Arabic:** لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ
+**Translation:** There has certainly been for you in the Messenger of Allah an excellent example.
+
+**II. Hadith**
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Video calls collapse distance in a way older technologies could not. Seeing a teacher in Gaza or an imam in Xinjiang speak about their students and congregation transforms them from names on a report into remembered faces the heart cannot abandon. Regular contact also provides the caller with on-the-ground analysis no news outlet delivers.
+
+
+**How?**
+
+1. Through your vetted organisational partners, arrange quarterly video calls with a small number of trusted teachers, imams, or organisers in supported regions.
+2. Coordinate with your local collective or study circle so one call serves many.
+3. Listen more than you speak; ask open questions about their realities, needs, and strategies.
+4. Pay their time — even a small honorarium — where they will accept it; their expertise is not free.
+5. Keep notes; their insights should shape future giving and advocacy.
+6. Thank them and follow through on specific asks they raise.
+7. Completion indicator: at least 4 documented video calls over 12 months with recorded insights influencing subsequent decisions.` },
+        { title: "Twin your household or local community with a specific community abroad", done: false,
+          sources: `**I. Quran**
+
+### Quran (8:72)
+**Arabic:** إِنَّ الَّذِينَ آمَنُوا وَهَاجَرُوا وَجَاهَدُوا بِأَمْوَالِهِمْ وَأَنفُسِهِمْ فِي سَبِيلِ اللَّهِ وَالَّذِينَ آوَوا وَّنَصَرُوا أُولَٰئِكَ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ
+**Translation:** Indeed, those who have believed and emigrated and fought with their wealth and lives in the cause of Allah and those who gave shelter and aided — they are allies of one another.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 3937
+The Prophet (peace be upon him) paired each Muhajir with an Ansari — a formal brotherhood-bonding that shared homes, wealth, and responsibility.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophetic muwakhat (brotherhood pairing) between Muhajirun and Ansar was a formal, structural pairing — not a feeling. Modern equivalents — sister-city relationships, twinned mosques, twinned families — restore that structural bond across continents. Twinning converts fluctuating solidarity into a long-term commitment to a specific people whose names and stories you know.
+
+
+**How?**
+
+1. With your household, local study circle, or masjid, propose a twinning relationship with a specific community in an afflicted region.
+2. Work through vetted partners to identify a willing counterpart community and agree protocols.
+3. Define the commitment: financial support, correspondence, prayer, advocacy amplification, and — when safe — mutual visits.
+4. Meet periodically (yours and theirs) to review the relationship and adjust.
+5. Involve children on both sides; the relationship should be generational.
+6. Honour the relationship even when attention drifts to newer crises elsewhere; commitment is the point.
+7. Completion indicator: a formal twinning relationship established with written commitments on both sides, sustained for 12 months.` },
+        { title: "Host a visiting brother or sister from an afflicted community when possible", done: false,
+          sources: `**I. Quran**
+
+### Quran (51:24-27)
+**Arabic:** هَلْ أَتَاكَ حَدِيثُ ضَيْفِ إِبْرَاهِيمَ الْمُكْرَمِينَ ۝ إِذْ دَخَلُوا عَلَيْهِ فَقَالُوا سَلَامًا ۖ قَالَ سَلَامٌ قَوْمٌ مُّنكَرُونَ
+**Translation:** Has there reached you the story of the honoured guests of Abraham? When they entered upon him and said: Peace. He answered: Peace, a people unknown.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6135
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him honour his guest."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Ibrahim (peace be upon him) honoured strangers as guests, and the Prophet (peace be upon him) made hospitality a marker of faith. Hosting a visitor from an afflicted community — a scholar on tour, a student on scholarship, a displaced family member — is the deepest form of physical solidarity possible in your own home. It also shapes your children's understanding of the ummah more than any book.
+
+
+**How?**
+
+1. When scholars, students, or displaced individuals from supported communities travel to your region, offer hospitality through vetted organisers.
+2. Prepare your home: a clean private space, halal food in their preference, respect for their needs and privacy.
+3. Include them in your household's daily rhythm where welcome; do not treat them as a project.
+4. Ask about their needs in your city (scholar visas, medical appointments, professional connections) and help where you can.
+5. Keep contact after their visit; a single welcome can grow into a long relationship.
+6. Share the experience with your extended circle; normalise hosting as a communal practice.
+7. Completion indicator: at least one full hosting relationship completed with post-visit follow-up sustained for 6+ months.` },
+        { title: "Where safe and halal, travel to a supported community to meet in person", done: false,
+          sources: `**I. Quran**
+
+### Quran (29:20)
+**Arabic:** قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ
+**Translation:** Say: Travel through the earth and observe how He began creation.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2392
+The Prophet (peace be upon him) said: "Allah has obligated you to visit your brothers for His sake alone, to seek His pleasure."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+Not every afflicted region is safely travelable, and the believer must not romanticise frontlines. But many supported communities — refugee camps, displaced populations in neighbouring countries, minority communities in accessible regions — can be visited halal and responsibly. A visit, even a short one, rewires the relationship permanently and connects the heart to specific faces.
+
+
+**How?**
+
+1. Identify which supported communities are safely accessible to you given visa, security, and family constraints.
+2. Coordinate with trusted partners before booking anything — they will advise on timing, etiquette, and logistics.
+3. Travel with purpose: scheduled visits, meetings, and contributions, not tourism or self-discovery.
+4. Observe the adab of a guest: modesty in behaviour and resources, deference to local wisdom, no self-aggrandising documentation.
+5. Deliver tangible value while there — teach a class, support a project, bring specific supplies.
+6. Return and transmit what you witnessed honestly to your community.
+7. Completion indicator: at least one documented halal, organised visit to a supported community with clear post-visit transmission to your local circle.` },
+      ],
+    },
+    {
+      title: "Train in a skill that directly serves the global ummah",
+      priority: 'medium', tags: ['skill', 'service', 'specialisation'],
+      description: "The ummah needs specialists, not only generalists with good intentions. Doctors for triage, lawyers for documentation, translators for testimony, journalists for witness, engineers for rebuilding. This task commits the believer to developing a specific, transferable skill that — when crisis or opportunity arises — makes them a multiplier of response rather than another voice at the back.",
+      subtasks: [
+        { title: "Identify the skill gap in the ummah's response capacity that fits your capacity", done: false,
+          sources: `**I. Quran**
+
+### Quran (17:84)
+**Arabic:** قُلْ كُلٌّ يَعْمَلُ عَلَىٰ شَاكِلَتِهِ
+**Translation:** Say: Everyone works according to his own disposition.
+
+**II. Hadith**
+
+### Sunan Ibn Majah 224
+The Prophet (peace be upon him) said: "Seeking knowledge is an obligation upon every Muslim."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Not every believer can or should train in every field. The Quran notes that each person works according to their disposition. The question is not "what does the ummah need?" (everything) but "what does it need that I can credibly provide over a decade?" Matching gap to capacity produces specialists; ignoring it produces mediocre generalists who crowd every field.
+
+
+**How?**
+
+1. List the skill gaps in the ummah's response capacity across the fronts you engage with: medical, legal, linguistic, media, technical, logistical, educational, financial.
+2. Self-audit honestly: current skills, transferable capacities, time available, life stage, family obligations.
+3. Identify 2-3 plausible matches — where a credible gap aligns with capacity you can build over 3-10 years.
+4. Consult mentors or people already in the field about realism and trade-offs.
+5. Select one primary focus; specialisation beats parallel dabbling.
+6. Write a long-form commitment: why this skill, for the sake of Allah, in service of which populations.
+7. Completion indicator: a written, dated commitment to a specific skill focus, grounded in a self-audit and mentor consultation.` },
+        { title: "Build a multi-year training plan with measurable milestones", done: false,
+          sources: `**I. Quran**
+
+### Quran (29:69)
+**Arabic:** وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا
+**Translation:** And those who strive for Us — We will surely guide them to Our ways.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6464
+The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those that are most regular, even if they are few."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Skills are not acquired by intention; they are acquired by repeated, structured, measured practice over years. Without a plan, commitment decays into vague wishful thinking. With a plan, each month produces measurable progress toward a capability that will — bi'idhnillah — matter to people you may not even meet for a decade.
+
+
+**How?**
+
+1. Research the formal and informal pathways into your chosen skill area — degrees, certifications, apprenticeships, self-study with mentor.
+2. Choose a pathway that fits your life stage, family duties, and financial situation.
+3. Break the pathway into annual milestones and weekly practice rhythms.
+4. Identify one mentor who will review your progress every few months.
+5. Build the practice into your existing routine — carve out the time honestly, removing other commitments if needed.
+6. Measure progress against the milestones; adjust the pathway as you learn.
+7. Completion indicator: a multi-year plan with annual milestones and weekly rhythms, with year-one milestones achieved on schedule.` },
+        { title: "Contribute your developing skill to real ummah work, not hypothetical future work", done: false,
+          sources: `**I. Quran**
+
+### Quran (61:2-3)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لِمَ تَقُولُونَ مَا لَا تَفْعَلُونَ ۝ كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ
+**Translation:** O you who have believed, why do you say what you do not do? Greatly hateful in the sight of Allah is that you say what you do not do.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6502
+The Prophet (peace be upon him) said, in a hadith qudsi: "My servant continues to draw near to Me through voluntary acts until I love him..."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Training without application stays theoretical and decays. Contributing your skill even while you are still learning — pro bono hours, volunteer shifts, research contributions to organisations — sharpens the skill and serves the ummah simultaneously. It also guards against the trap of postponing contribution indefinitely in the name of "getting ready."
+
+
+**How?**
+
+1. As soon as your skill is minimally functional, find organisations working on ummah fronts that can use it.
+2. Offer regular, bounded pro bono hours (e.g., 5 hours per week) with clear commitments.
+3. Keep the work disciplined: do not over-promise; deliver what you commit.
+4. Document what you learn from real application; it is often different from training.
+5. Use the contribution to deepen your skill — every real case forces growth.
+6. Balance with paid work; burnout serves no one.
+7. Completion indicator: at least 6 months of sustained, bounded pro bono contribution with documented deliverables.` },
+        { title: "Train younger Muslims in the skill so capacity multiplies beyond you", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:151)
+**Arabic:** كَمَا أَرْسَلْنَا فِيكُمْ رَسُولًا مِّنكُمْ يَتْلُو عَلَيْكُمْ آيَاتِنَا وَيُزَكِّيكُمْ وَيُعَلِّمُكُمُ الْكِتَابَ
+**Translation:** Just as We have sent among you a messenger from yourselves reciting to you Our verses and purifying you and teaching you the Book.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 3641
+The Prophet (peace be upon him) said: "Allah, His angels, the inhabitants of the heavens and the earth, even the ant in its hole and the fish in the sea, ask forgiveness for the one who teaches people goodness."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) was both learner and teacher; every Companion who received knowledge immediately transmitted it. A skill held by one believer is a finite resource; the same skill transmitted to ten is a movement. Training younger Muslims in your field is how the ummah's capacity grows beyond any single generation.
+
+
+**How?**
+
+1. Identify 2-3 younger Muslims with potential, interest, and time for your field.
+2. Offer structured mentorship: regular meetings, assigned readings, case exposure, feedback on work.
+3. Bring them into your pro bono contributions where appropriate; real cases accelerate learning.
+4. Let them surpass you in due course; success is not keeping them junior.
+5. Help them build their own networks within the field.
+6. Celebrate their milestones and support their transition to independent practice.
+7. Completion indicator: at least one mentee trained over 2-3 years to a level of independent contribution.` },
+        { title: "Refuse to monetise your skill at the expense of ummah service", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:267)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ
+**Translation:** O you who have believed, spend from the good things you have earned.
+
+**II. Hadith**
+
+### Sahih Muslim 223
+The Prophet (peace be upon him) said: "Cleanliness is half of faith... and the prayer is a light, and sadaqah is a proof."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Marketable skills invite pressure to monetise every hour — consultancies, premium fees, brand building. A believer with an ummah-service skill must consciously protect a permanent portion of that skill from market logic. This is not about rejecting earning; it is about refusing to let the market be the sole allocator of a capacity Allah entrusted to you partly for the sake of His servants.
+
+
+**How?**
+
+1. Determine your income needs honestly and the earning pathway that meets them.
+2. Ring-fence a fixed weekly or monthly portion of your professional capacity for ummah work at zero or below-market cost.
+3. Communicate this ring-fencing clearly to employers, colleagues, and clients; most will respect it.
+4. Do not let commercial work creep into the ring-fenced hours — even when lucrative.
+5. Write the niyyah for the ring-fenced work: service, not accumulation.
+6. Review the arrangement annually; adjust proportions as circumstances change but never collapse the ring-fence entirely.
+7. Completion indicator: a sustained ring-fenced portion of your professional capacity for ummah work, active for at least 12 months.` },
+      ],
+    },
+  
+  ],
+
+  // ── EXCELLENCE: Aspirational Impact ──
+  ummah_collective_excellence: [
+    {
+      title: "Establish or endow a waqf serving a specific front of the global ummah",
+      priority: 'medium', tags: ['waqf', 'sadaqah-jariyah', 'institution'],
+      description: "The waqf is the Islamic civilisation's engine for intergenerational good — a perpetual endowment whose principal is preserved and whose yield serves a defined purpose forever. This task moves the believer from episodic giving to institution-building: establishing or contributing substantively to a waqf whose yield permanently serves a specific front of the ummah.",
+      subtasks: [
+        { title: "Study the fiqh of waqf and the historical record of ummah-serving endowments", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:261)
+**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ
+**Translation:** The example of those who spend their wealth in the way of Allah is like a seed which grows seven spikes; in each spike is a hundred grains.
+
+**II. Hadith**
+
+### Sahih Muslim 1631
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, knowledge benefited from, or a righteous child who prays for him."
+*(Grade: Sahih)*
+
+### Sahih al-Bukhari 2737
+'Umar ibn al-Khattab acquired land at Khaybar and asked the Prophet (peace be upon him) about it. The Prophet instructed him to endow it as waqf — its principal untouchable, its yield for the fuqara, kin, emancipation of slaves, the wayfarer, and guests.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+'Umar's waqf at Khaybar is the proof text for the entire institution. The fiqh of waqf — its conditions, permissible structures, permissible beneficiaries — is well-developed across all four Sunni madhahib and has hundreds of years of practical jurisprudence behind it. Without studying the fiqh and the historical record, believers either fail to establish a waqf at all or construct structures that the classical tradition would reject.
+
+
+**How?**
+
+1. Read a serious fiqh treatment of waqf in your madhab — look for texts that cover conditions of the waqif, the mawquf, the beneficiaries, and administration.
+2. Study the historical record: Ottoman waqfs, Ayyubid madrasas, the endowments of al-Azhar, Zaytuna, and the Haramayn — what structures enabled them to last centuries?
+3. Research contemporary waqf revivals in your context (if any) and why some succeed while others stagnate.
+4. Consult a qualified scholar and a qualified lawyer in your jurisdiction — waqf in modern legal systems often requires trust or foundation structures that preserve the fiqhi intent.
+5. Document your findings; this becomes the basis for your own waqf design.
+6. Revisit the studies periodically as your plans evolve.
+7. Completion indicator: a documented study of waqf fiqh and history with references, reviewed by a qualified scholar.` },
+        { title: "Define the specific ummah front and purpose your waqf will serve in perpetuity", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:177)
+**Arabic:** وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ
+**Translation:** And gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveller, those who ask, and for freeing slaves.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 2756
+The Prophet (peace be upon him) said of 'Umar's waqf: "Do not sell the land, but spend its fruits." The specificity of the purpose — not generic good — is what defined the waqf.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A vaguely-purposed waqf dissipates over generations into whatever its trustees happen to care about — which is often nothing. A waqf with a precisely-defined purpose ("maintenance of the Quran school in X neighbourhood of Y city for orphaned children," "permanent medical scholarships for students from Gaza," "legal aid for persecuted Muslims in Z region") carries an intention across centuries. Precision is a form of iman.
+
+
+**How?**
+
+1. Revisit the ummah capacity-gap map you built earlier; identify fronts that genuinely need permanent funding.
+2. Choose one specific front — resist the urge to broaden. A waqf for "the ummah" is a waqf for nobody.
+3. Define the beneficiary class precisely: geography, life condition, type of service, duration of support.
+4. Draft a purpose statement that a trustee 200 years from now could read and execute faithfully.
+5. Consult with scholars and on-the-ground partners about the appropriateness and sustainability of the purpose.
+6. Write a fallback clause for the case where the primary purpose becomes impossible (war, political change) — classical fuqaha addressed this carefully.
+7. Completion indicator: a precise, scholar-reviewed purpose statement with a fallback clause.` },
+        { title: "Endow the principal — from your own wealth or by raising it with co-founders", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:92)
+**Arabic:** لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ
+**Translation:** You will never attain righteousness until you spend from that which you love.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1461
+Abu Talhah — the wealthiest of the Ansar in Madinah in terms of date palms — gave his most beloved orchard, Bayruha', as sadaqah after the verse (3:92) was revealed. The Prophet (peace be upon him) directed it to his relatives.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A waqf requires real capital — an income-producing asset whose yield supports the purpose in perpetuity. Until the asset is endowed, there is no waqf. This is the step where intention becomes reality. Endowing from one's own wealth or co-founding with others of sincere intention is the traditional pathway; inheritance via wasiyyah is the other. What matters is that the principal is locked and the yield begins to flow.
+
+
+**How?**
+
+1. Consult with your spouse and financial advisors about what portion of your wealth you can irrevocably endow.
+2. Consider whether inheritance law in your jurisdiction allows an immediate lifetime waqf (most do, within limits) or requires wasiyyah mechanics — many Muslims opt for a hybrid.
+3. If the capital required exceeds what you can personally provide, co-found with 3-5 others of sincere intention; waqf permits joint endowment.
+4. Structure the asset for stable, halal yield — income-producing real estate, halal-compliant investment portfolios, or operating businesses.
+5. Execute the endowment legally — deed of waqf, foundation documents, trust agreements as required by your jurisdiction.
+6. Sign the niyyah: "O Allah, accept this from me and make it permanent sadaqah jariyah for the sake of Your servants."
+7. Completion indicator: a legally-endowed, income-producing waqf with documented principal and initial yield distributions.` },
+        { title: "Establish transparent, succession-proof governance for the waqf", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 33
+The Prophet (peace be upon him) identified betrayal of trust as a sign of hypocrisy. The soundness of a waqf depends entirely on the trustworthiness of its administrators.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Countless waqfs across Islamic history were destroyed by incompetent or corrupt mutawallis — trustees who siphoned yield, misdirected purpose, or let the asset decay. Governance is what keeps a waqf alive for centuries. Transparent accounts, diversified trustees, clear succession rules, and external auditors convert personal intention into institutional durability.
+
+
+**How?**
+
+1. Draft a governance document covering: trustee appointment, decision-making, yield distribution, asset management, audit requirements, beneficiary oversight, amendment rules, and succession mechanics.
+2. Appoint a founding board that is diverse in expertise (law, finance, the beneficiary field) and known for taqwa.
+3. Ensure no single person — including yourself — can unilaterally redirect the waqf.
+4. Engage an independent external auditor; publish audited accounts annually to contributors and beneficiaries.
+5. Train successor trustees before they take over; institutional knowledge must transmit.
+6. Build protections against hostile legal or political environments — geographic diversification if relevant, strong charter clauses.
+7. Completion indicator: a ratified governance charter, a trained founding board, and the first annual audit completed and published.` },
+        { title: "Document the waqf's story and open it for others to contribute to or replicate", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:110)
+**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ
+**Translation:** You are the best nation produced for mankind.
+
+**II. Hadith**
+
+### Sahih Muslim 1017
+The Prophet (peace be upon him) said: "Whoever introduces a good practice in Islam will receive its reward and the reward of all who act on it after him, without any diminution of their reward."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A waqf documented and open to contribution grows in principal faster than it could from a single founder. Its governance model, lessons, and charter also become replicable — other believers can establish similar waqfs for other fronts rather than reinventing every structure. Documenting the story is itself sadaqah jariyah: knowledge the ummah benefits from forever.
+
+
+**How?**
+
+1. Write the waqf's story — founding purpose, legal structure, governance, early outcomes — as a clear, public document.
+2. Publish the charter, governance model, and key templates so others can adapt them.
+3. Open a contribution channel for those who wish to add to the principal or establish sub-purposes within the waqf's umbrella.
+4. Report annually to contributors with audited accounts and beneficiary outcomes.
+5. Help other believers replicate the model for different ummah fronts — share failures honestly so they avoid your mistakes.
+6. Protect the founders' sincerity by centring the beneficiaries in all public communication.
+7. Completion indicator: a published charter and story, at least one additional contributor onboarded, and at least one replication supported.` },
+      ],
+    },
+    {
+      title: "Travel to serve in person in an afflicted Muslim region when halal and viable",
+      priority: 'medium', tags: ['travel', 'frontline-service', 'bodily-presence'],
+      description: "Some service can only be rendered in person. A qualified doctor in a field clinic, a lawyer in a tribunal, a teacher in a displacement camp, a journalist at a site of witness — these roles cannot be videoconferenced. This task, where family, safety, and halal pathways permit, commits the believer to sustained physical presence serving in an afflicted region at a level of skill that meaningfully contributes.",
+      subtasks: [
+        { title: "Determine rigorously whether travel is halal, safe, and serves a real need", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:195)
+**Arabic:** وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ
+**Translation:** And do not throw yourselves into destruction.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 2829
+The Prophet (peace be upon him) said: "A believer is not stung from the same hole twice." The principle: prudence and due diligence are part of faith, not opposed to it.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran forbids self-destruction. Romantic visions of "going to help" cause believers to insert themselves into situations where they become another mouth to feed, another body for guards to protect, or a liability for their hosts. Rigorous pre-assessment — of halal pathways, security, family rights, and real need — is a prerequisite. Only when the honest answer to "am I genuinely useful here, safely and halal-ly?" is yes does travel proceed.
+
+
+**How?**
+
+1. Consult on-the-ground partners about whether external personnel of your specific skill profile are useful, and in what role and duration.
+2. Assess halal pathways — visas, routing, working arrangements; refuse routes that implicate you in haram cooperation.
+3. Assess safety honestly: insurance, evacuation, local stability, medical access, communication.
+4. Confirm family rights — spouse's and parents' consent is a fiqhi weight, not a formality; dependants cannot be abandoned.
+5. Consult a scholar if any aspect is uncertain.
+6. Make an honest "no-go" option: if the assessment fails, redirect your capacity to remote service rather than forcing the trip.
+7. Completion indicator: a written pre-travel assessment addressing usefulness, halal-ness, safety, and family rights, with a clear go/no-go decision.` },
+        { title: "Secure the skills and certifications your host context requires before going", done: false,
+          sources: `**I. Quran**
+
+### Quran (8:60)
+**Arabic:** وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ
+**Translation:** And prepare against them whatever you are able of power.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6763
+The Prophet (peace be upon him) said: "When you give any matter to someone who is not qualified for it, expect the Hour." Competence in service is itself an Islamic obligation.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Good intentions without competence produce harm — missed diagnoses, botched cases, wasted resources. Afflicted communities are past the point where they can absorb under-prepared volunteers. The Prophet (peace be upon him) warned that entrusting matters to the unqualified is a sign of civilisational collapse; the believer about to travel to serve must not replicate that pattern.
+
+
+**How?**
+
+1. Ask your host partners what qualifications, certifications, or experience their context requires from someone in your role.
+2. Identify gaps in your current profile — clinical experience, language, cross-cultural training, trauma-informed practice.
+3. Close the gaps before travelling — formal certification, mentored practice, or supervised placements.
+4. Specifically train in the local language even to a survival level; bodies of interpreters are a drag on serious work.
+5. Prepare trauma-informed practice if your work involves survivors.
+6. Rehearse your role in simulation or shadowing before deployment.
+7. Completion indicator: a documented qualifications file confirmed by your host partner as sufficient for the role.` },
+        { title: "Serve under local leadership, not as an outside saviour", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:13)
+**Arabic:** إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ
+**Translation:** Indeed, the most noble of you in the sight of Allah is the most righteous of you.
+
+**II. Hadith**
+
+### Sahih Muslim 1828
+The Prophet (peace be upon him) said: "Each of you is a shepherd, and each of you is responsible for his flock." The principle of local leadership over its own context applies in the aid field as in governance.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Afflicted communities are not empty of leadership; they have imams, teachers, organisers, doctors, and elders who know their context intimately. The visiting believer who imposes their own judgment — because of their foreign credentials or wealth — disrespects that leadership and disrupts local authority structures. True service is rendered under local leadership, not over it.
+
+
+**How?**
+
+1. Before arriving, confirm who in the host structure you will report to and how decisions are made.
+2. On arrival, spend the first days listening, observing, and learning local norms before contributing.
+3. Defer to local judgment on priorities, methods, and sensitivities — your expertise informs, it does not dictate.
+4. Respect hierarchies even when they differ from your home context.
+5. Ask before initiating, especially on culturally sensitive matters.
+6. If you disagree with a decision, raise it privately through the proper channel; never undermine local leadership publicly.
+7. Completion indicator: documented service under local leadership with positive feedback from local leaders on your deference and collaborative conduct.` },
+        { title: "Prepare a re-entry plan so returning home strengthens rather than breaks you", done: false,
+          sources: `**I. Quran**
+
+### Quran (13:28)
+**Arabic:** الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
+**Translation:** Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 3111
+The Prophet (peace be upon him) sought refuge from grief and distress and taught his companions to do the same. Returning from frontline service exposes believers to profound emotional and spiritual challenges that require structured attention.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Believers return from service in afflicted regions carrying images, grief, moral weight, and sometimes trauma. Without a re-entry plan, many drift into depression, withdrawal from community, or loss of daily ibadah momentum. A structured return — spiritual, psychological, communal — preserves the believer so they can continue serving over decades instead of burning out.
+
+
+**How?**
+
+1. Before travelling, name one trusted scholar, one close believer, and one qualified counsellor who will accompany your return.
+2. On return, take at least 2 weeks of protected time before resuming normal life; do not jump back into full responsibilities.
+3. Debrief systematically with each named companion — not to summarise, but to process.
+4. Return to structured ibadah rhythm — tahajjud, Quran, dhikr — from the first day home; this stabilises more than anything else.
+5. Transmit what you witnessed to your community through a careful briefing, not trauma-dumping.
+6. Monitor for signs of unresolved trauma over the following 6 months; seek further help without shame if needed.
+7. Completion indicator: a structured re-entry plan executed after return with documented debriefs and a 6-month stability check-in.` },
+        { title: "Commit to a sustained cycle — return, rest, re-deploy — rather than one-off service", done: false,
+          sources: `**I. Quran**
+
+### Quran (94:7)
+**Arabic:** فَإِذَا فَرَغْتَ فَانصَبْ
+**Translation:** So when you have finished, then stand up.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1152
+The Prophet (peace be upon him) disapproved of those who pray all night and fast every day without rest, saying "your body has a right over you." Sustainability is sunnah.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A single dramatic trip followed by normal life is a form of spiritual tourism. A sustained cycle of deployment, recovery, and re-deployment — over years — produces expertise, relationships, and real change in afflicted regions. Sustainability is Prophetic; the body and family have rights that one-off heroics violate.
+
+
+**How?**
+
+1. With your host partner and family, design a sustainable rhythm — perhaps a one-to-three month deployment every 12-18 months, depending on context and skill.
+2. Plan the rhythm years ahead, so professional, financial, and family arrangements can hold it.
+3. Build continuity between deployments — remote contributions, mentorship of local counterparts, fundraising support.
+4. Train a deputy who can cover your responsibilities at home during deployments.
+5. Refuse to collapse the cycle into a single burnout event.
+6. Adjust the rhythm as life circumstances change (children's ages, parents' health, career stage); never abandon it altogether.
+7. Completion indicator: at least two completed deployment cycles separated by proper rest periods, with continuity between them.` },
+      ],
+    },
+    {
+      title: "Shape public discourse on the ummah through sustained scholarly, journalistic, or media work",
+      priority: 'medium', tags: ['discourse', 'media', 'witness-at-scale'],
+      description: "The narrative about the ummah is being written constantly, whether by believers or by others. The believer with the capacity to produce substantial long-form work — scholarship, journalism, film, serious media — carries a responsibility to contribute honest, rigorous, compelling discourse to that record. This task commits the believer to sustained production, not occasional commentary.",
+      subtasks: [
+        { title: "Choose one narrow topic within the ummah's discourse where you can add real value", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:42)
+**Arabic:** وَلَا تَلْبِسُوا الْحَقَّ بِالْبَاطِلِ وَتَكْتُمُوا الْحَقَّ وَأَنتُمْ تَعْلَمُونَ
+**Translation:** And do not mix the truth with falsehood or conceal the truth while you know it.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 71
+The Prophet (peace be upon him) said: "When Allah wills good for someone, He grants him understanding of the religion." Depth over breadth is the scholarly sunnah.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Broad commentary on "the ummah" produces shallow, generic content that no one remembers. Narrow expertise — Somali refugee education policy, the legal history of Palestinian property law under three regimes, the medical literature on siege nutrition — becomes a reference that journalists cite, scholars build on, and the ummah benefits from for decades. Choose narrow; go deep.
+
+
+**How?**
+
+1. List 8-10 topics within your literacy where you have access, language, or expertise most others lack.
+2. Test each: is there a genuine gap in existing coverage? Do you have the capacity to produce original, well-sourced work? Is this a topic you can sustain for 5-10 years?
+3. Consult 3-5 established writers or scholars about the realism of your choice.
+4. Narrow to one topic; specialisation is the point.
+5. Write a commitment statement: topic, scope, rationale, expected output over 5 years.
+6. Revisit the commitment only when evidence suggests a better match, not when you tire of it.
+7. Completion indicator: a written, scholar-consulted commitment to a single narrow topic with a 5-year output projection.` },
+        { title: "Build a serious research and documentation practice, not a social media habit", done: false,
+          sources: `**I. Quran**
+
+### Quran (17:36)
+**Arabic:** وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا
+**Translation:** And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight, and the heart — about all those one will be questioned.
+
+**II. Hadith**
+
+### Sahih Muslim 5
+The Prophet (peace be upon him) said: "It is enough lying for a man to narrate everything he hears."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Social media rewards volume and speed; scholarship and serious journalism reward depth and accuracy. A believer serving the ummah's discourse needs the second discipline, not the first. A documented research practice — archives, citations, interviews, primary sources — produces work that holds up under hostile scrutiny; a social-media practice produces threads that disappear in a week and often embarrass later.
+
+
+**How?**
+
+1. Build a research system: citation manager, archive of primary sources, interview logs, note-taking method.
+2. For every claim you will publish, verify against at least two independent primary sources.
+3. Learn the languages you need to access primary sources in your topic; refuse reliance on translations alone.
+4. Protect daily research time in your calendar; not optional, not last-to-fit.
+5. Refuse to post anything you have not verified, regardless of how viral the opportunity.
+6. Build relationships with 3-5 credible outlets or platforms that publish serious work.
+7. Completion indicator: an operational research system and first substantial piece of work published in a credible outlet.` },
+        { title: "Publish sustained, long-form work through credible outlets", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:187)
+**Arabic:** لَتُبَيِّنُنَّهُ لِلنَّاسِ وَلَا تَكْتُمُونَهُ
+**Translation:** To make it clear to the people and not conceal it.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 7352
+The Prophet (peace be upon him) said: "When a judge makes ijtihad and is correct, he has two rewards; when he makes ijtihad and errs, he has one reward." Serious, sincere work is rewarded even when it falls short of perfect accuracy.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The reward of the scholar, journalist, or serious media producer compounds through published output read or watched by others. Ephemeral content reaches many briefly; long-form published work reaches fewer but deeper, shapes institutional thinking, and influences decision-makers. The believer's discourse work should aim at both, but prioritise the durable.
+
+
+**How?**
+
+1. Set a publication cadence you can honestly maintain — one significant piece every 1-3 months beats ten rushed ones.
+2. Pitch credible outlets within your topic: established Muslim publications, serious generalist outlets that cover your field, scholarly journals where appropriate.
+3. Accept editorial discipline; it improves work, not suppresses it.
+4. Build a personal archive of everything you publish — your own site or repository, not only on third-party platforms that can vanish.
+5. Collect feedback from specialists, not just from laypeople; they catch errors early.
+6. Compound output into longer forms over time — articles into reports into books.
+7. Completion indicator: a sustained publication cadence maintained for 24 months with at least one piece in each year reaching an influential audience.` },
+        { title: "Guard sincerity — your audience is Allah before your audience is the public", done: false,
+          sources: `**I. Quran**
+
+### Quran (18:110)
+**Arabic:** فَمَن كَانَ يَرْجُو لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلًا صَالِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ أَحَدًا
+**Translation:** So whoever would hope for the meeting with his Lord, let him do righteous work and not associate anyone in the worship of his Lord.
+
+**II. Hadith**
+
+### Sahih Muslim 1905
+The Prophet (peace be upon him) said that three of the first to be judged on the Day of Judgement — a scholar, a mujahid, and a generous donor — would be cast into the Fire because their deeds were done for recognition, not for Allah.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Public intellectual work is riba'-rich for the nafs: recognition, fame, brand, platform. The hadith of the three — scholar, mujahid, donor — all known for their outward work but judged by their inward intention is a direct warning. Discourse work without sincerity guard becomes another route to riya' and sum'ah, nullifying reward and sometimes worse.
+
+
+**How?**
+
+1. Establish a daily niyyah routine: before writing, producing, or publishing — renew intention, "O Allah, I do this for Your sake."
+2. Refuse platforms that require ideological compromises or require you to soften haqq for reach.
+3. Limit engagement with your own metrics; set a weekly cap on how much you monitor audience data.
+4. Seek honest criticism from a few believers who will tell you when your work has drifted into performance.
+5. Do sadaqah specifically tied to your work; the Companions used to give charity after public deeds as a hedge against riya'.
+6. When recognition comes, deflect it to Allah verbally and internally; when criticism comes, sit with it before responding.
+7. Completion indicator: sustained practice of intention-renewal, platform discipline, and riya' hedging for 12 months.` },
+        { title: "Mentor and cite younger voices so the discourse field expands", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:9)
+**Arabic:** وَلْيَخْشَ الَّذِينَ لَوْ تَرَكُوا مِنْ خَلْفِهِمْ ذُرِّيَّةً ضِعَافًا خَافُوا عَلَيْهِمْ
+**Translation:** And let those fear Allah who, if they had left behind weak offspring, would be concerned for them.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 3641
+The Prophet (peace be upon him) said: "Scholars are heirs of the prophets." Heirs transmit inheritance — and in discourse work, transmission is citation, mentorship, and platform sharing.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A discourse field dominated by a few established voices becomes brittle. Citations that always loop back to the same handful of names signal an ossifying conversation. Mentoring and citing younger voices — women, Muslims from underrepresented regions, early-career scholars — strengthens the field, expands the ummah's discourse capacity, and earns the mentor the reward of every piece of work downstream.
+
+
+**How?**
+
+1. Identify 3-5 younger voices with talent and sincerity in your topic.
+2. Offer substantive mentorship — review drafts, introduce to editors, co-author where appropriate, share research leads.
+3. Cite them meaningfully in your own work when they contribute; do not hoard credit.
+4. Amplify their published work through your platform.
+5. Connect them with institutions, fellowships, and opportunities.
+6. Celebrate when they surpass you in reach or depth.
+7. Completion indicator: at least 2 younger voices actively mentored over 2-3 years, with documented citations and opportunities brokered.` },
+      ],
+    },
+    {
+      title: "Raise a generation trained and committed to global ummah service",
+      priority: 'medium', tags: ['tarbiyah', 'intergenerational', 'legacy'],
+      description: "No single believer's lifespan is adequate to the ummah's afflictions; the work is longer than any life. The believer's greatest contribution may be a next generation — biological, adopted, taught, mentored — that carries the ummah-service covenant forward more capably than the generation before. This task is the deliberate work of shaping such a generation.",
+      subtasks: [
+        { title: "Teach children the ummah as a lived relationship, not an abstract concept", done: false,
+          sources: `**I. Quran**
+
+### Quran (31:13)
+**Arabic:** وَإِذْ قَالَ لُقْمَانُ لِابْنِهِ وَهُوَ يَعِظُهُ يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ
+**Translation:** And when Luqman said to his son while he was instructing him: O my son, do not associate anything with Allah.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 495
+The Prophet (peace be upon him) said: "Teach your children to pray at the age of seven."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+Children raised hearing about "Muslims in Gaza" as a vague category grow up with a correspondingly vague commitment; children raised with the names, faces, letters, and du'as of specific families in specific cities grow up with the ummah wired into their affective lives. Luqman's instruction to his son is the Quranic pattern — direct, personal, serious — applied by every believing parent to the ummah context.
+
+
+**How?**
+
+1. Build ummah presence into daily family life: weekly du'a for named regions, letters to correspondents, photos and stories shared at meals.
+2. Let children ask questions; answer at their level, not below it — children register seriousness.
+3. Take them along to appropriate community gatherings, solidarity events, and hosting opportunities.
+4. Involve them in giving decisions — let them choose one cause from the family allocation.
+5. Do not shield them from the existence of oppression, but protect them from unnecessary trauma.
+6. Model the practice — they absorb behaviour far more than instruction.
+7. Completion indicator: sustained family practices for 12 months with children able to name specific regions, causes, and families the household supports.` },
+        { title: "Invest in their Arabic, Quranic literacy, and foundational Islamic sciences", done: false,
+          sources: `**I. Quran**
+
+### Quran (12:2)
+**Arabic:** إِنَّا أَنزَلْنَاهُ قُرْآنًا عَرَبِيًّا لَّعَلَّكُمْ تَعْقِلُونَ
+**Translation:** Indeed, We have sent it down as an Arabic Quran that you might understand.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2676
+The Prophet (peace be upon him) said: "The best of you is the one who learns the Quran and teaches it."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Generations fluent in Arabic and grounded in the Islamic sciences are the ummah's long-term insurance against ideological capture and distortion of discourse. A generation disconnected from primary sources can be swayed by any well-packaged argument; a generation that reads the Quran, hadith, and fiqh directly has an immune system against manipulation. This foundation is built in childhood, not in adulthood.
+
+
+**How?**
+
+1. Prioritise Arabic and Quran from early childhood — daily, consistent, age-appropriate learning.
+2. Choose teachers carefully: sanad, pedagogy, compatibility with your family's orientation.
+3. Supplement with serious sirah, aqidah, and fiqh studies as they mature.
+4. Make the learning part of life, not an extra-curricular — protect it from being crowded out by school or screens.
+5. Read primary sources together as a family at age-appropriate levels.
+6. Travel to learning environments when possible — halaqat, teacher intensives, time in scholarly communities.
+7. Completion indicator: children at measurable proficiency milestones in Arabic, Quran, and foundational sciences appropriate to their age, with sustained daily rhythm for 12 months.` },
+        { title: "Expose them to the diversity of the ummah — geography, culture, language, madhab", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:13)
+**Arabic:** وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا
+**Translation:** And We made you peoples and tribes that you may know one another.
+
+**II. Hadith**
+
+### Sahih Muslim 2564
+The Prophet (peace be upon him) said: "Do not envy one another, do not inflate prices, do not hate one another, do not turn your backs on one another. Be, O servants of Allah, brothers."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A generation raised only within its own ethnic, linguistic, or madhab silo grows up with a distorted sense of the ummah — often taking its own sub-community for the whole and judging the rest by its own standards. Deliberate exposure to the ummah's diversity — from African to Balkan to Southeast Asian Muslims, across madhahib, across cultures — produces children with the expansive sense of brotherhood the Quran describes.
+
+
+**How?**
+
+1. Seek out multi-ethnic, multi-madhab community contexts where available; when not, visit and travel to diversify exposure.
+2. Read family stories, literature, and biographies from across the ummah.
+3. Watch documentaries and listen to recordings from different regional traditions — not as curiosities but as equally valid expressions of Islam.
+4. Study side-by-side fiqh differences respectfully, showing how each is grounded.
+5. Invite guests from different backgrounds into your home; travel to their cities when possible.
+6. Correct any parochialism actively; children absorb it quickly and it calcifies.
+7. Completion indicator: children who can name, describe, and express respect for at least 5 Muslim regional traditions and the major madhahib, with documented family exposures.` },
+        { title: "Build their service practice early — chores, charity, mentorship, visible witness", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:110)
+**Arabic:** وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ ۚ وَمَا تُقَدِّمُوا لِأَنفُسِكُم مِّنْ خَيْرٍ تَجِدُوهُ عِندَ اللَّهِ
+**Translation:** And establish prayer and give zakat, and whatever good you put forward for yourselves — you will find it with Allah.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 893
+The Prophet (peace be upon him) said: "Each of you is a shepherd, responsible for his flock."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Service is a habit, and habits are built by repetition from childhood. A child who gives small sadaqah each week, helps prepare a care package, writes a letter to a correspondent, or attends a solidarity event grows into an adult for whom service is simply part of life — not a heroic extra. Waiting until adulthood to introduce service produces adults who admire it abstractly but rarely practise it.
+
+
+**How?**
+
+1. Assign age-appropriate service chores — preparing food for a neighbour, folding clothes for donation, writing a letter to a correspondent.
+2. Let them give from their own allowance, however small, to causes they choose from your shortlist.
+3. Take them to community service events regularly with adab.
+4. Encourage them to mentor younger children within the family or community as they mature.
+5. Reward not outcomes but consistency — Allah praises the regular, even if small.
+6. Frame the service explicitly as ibadah, so it does not become secular philanthropy.
+7. Completion indicator: children with sustained weekly service practices for at least 12 months, spanning physical, financial, and social forms of service.` },
+        { title: "Prepare them to exceed you and succeed in contexts you cannot anticipate", done: false,
+          sources: `**I. Quran**
+
+### Quran (46:15)
+**Arabic:** رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَصْلِحْ لِي فِي ذُرِّيَّتِي
+**Translation:** My Lord, enable me to be grateful for Your favour which You have bestowed upon me and upon my parents, and to do righteousness of which You approve, and make righteous for me my offspring.
+
+**II. Hadith**
+
+### Sunan Ibn Majah 3660
+The Prophet (peace be upon him) said: "No father can give his child anything better than good manners."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+The ummah of their adulthood will face challenges you cannot foresee. Your task is not to replicate yourself but to equip them with iman, adab, skill, and judgment strong enough for contexts you do not know. Fathers' and mothers' work is measured by who their children become in the decades after the parents are gone — not by how closely they mirror the parents' own path.
+
+
+**How?**
+
+1. Build their judgment as deliberately as you build their knowledge — give them real decisions with graduated stakes from childhood.
+2. Expose them to wise mentors beyond yourself; do not monopolise their formation.
+3. Help them find their own specific calling within ummah service; do not impose yours.
+4. Teach them to recognise and resist the distortions specific to their likely future context (cultural pressures, technological manipulation, political capture).
+5. Honour their differences from you; Allah did not make them copies.
+6. Pray the du'a of Ibrahim and the Quranic parents for righteous offspring — consistently and earnestly.
+7. Completion indicator: children maturing with evident iman, adab, independent judgment, and early signs of their own specific ummah-service path.` },
+      ],
+    },
+  
+  ],
+
+  // ── GROWTH: Proactive Kindness, Sharing, Visiting, Forbearance ──
+  ummah_neighbors_growth: [
+    {
+      title: "Share food with your neighbors regularly — especially on Eid, Jumu'ah, and occasions of joy",
+      priority: 'urgent', tags: ['haqq-al-jar', 'food-sharing', 'sunnah'],
+      description: " Food sharing is the most repeatedly emphasised act of neighborliness in the Prophetic tradition. This task establishes it as a regular, joyful practice rather than an occasional gesture.",
+      subtasks: [
+        { title: "Begin the habit of sharing food from your regular cooking — increase portions and send a plate next door", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6017
+The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." Sharing food from regular cooking, however humble, fulfills the right of the neighbor.
+*(Grade: Sahih)*
+
+
+### Sunan al-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor."
+*(Grade: Hasan Sahih)*`,
+          description: `**Why?**
+
+The hadith "increase the water in your broth and share with your neighbors" (Muslim 2625) is a direct prophetic command — not a suggestion. It normalises food sharing as part of routine cooking, not an occasional grand gesture. When you cook, you are already spending time and resources; adding a little extra and sending a plate next door costs almost nothing but communicates profound care. It says: "I thought of you while feeding my own family." This is the daily, consistent ihsan that builds genuine neighborly bonds.
+
+
+**How?**
+
+1. Choose one or two meals per week as your "neighbor plate" meals — days when you intentionally cook extra.
+2. When preparing the meal, simply increase the recipe by one or two portions.
+3. Plate the food attractively on a reusable plate or container — presentation communicates respect.
+4. Deliver it while warm with a genuine smile: "We made extra today and wanted to share with you."
+5. Do not worry about reciprocation — some neighbors will return the gesture, others will not. Your action is for Allah.
+6. Rotate among your neighbors so that everyone receives food periodically, not just one household.
+7. Completion indicator: you have shared food from your regular cooking with neighbors at least four times in one month.` },
+        { title: "Prepare special dishes for neighbors on Eid al-Fitr and Eid al-Adha — include non-Muslim neighbors", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6017
+The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." On Eid, generosity should extend to all neighbors, including non-Muslims.
+*(Grade: Sahih)*
+
+
+### Quran (60:8)
+**Arabic:** لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ  
+**Translation:** "Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes — from being righteous toward them."`,
+          description: `**Why?**
+
+Eid is a time of communal joy, and the Prophet (peace be upon him) emphasised that no one should be left out of this joy. Sharing Eid food with neighbors — Muslim and non-Muslim alike — is one of the most beautiful expressions of Islamic neighborliness. For Muslim neighbors, it strengthens the bond of ummah celebration. For non-Muslim neighbors, it opens a window into Islamic culture through the universal language of food and generosity. The Quran commands ihsan toward "the neighbor who is near and the neighbor who is far" (4:36) without restricting it to Muslim neighbors.
+
+
+**How?**
+
+1. Before each Eid, plan which dishes you will prepare for sharing — choose items that travel well and are broadly appealing.
+2. Consider dietary restrictions: avoid common allergens where possible, and for non-Muslim neighbors, label dishes clearly if they contain unfamiliar ingredients.
+3. Prepare enough portions for all adjacent neighbors — not just one or two households.
+4. Package the food nicely: use a clean container with a small card saying "Eid Mubarak — wishing you and your family joy and blessings."
+5. Deliver personally, explain briefly: "Today is Eid, our celebration — we wanted to share our joy with you."
+6. For non-Muslim neighbors who may be unfamiliar, a brief, warm explanation of what Eid celebrates adds meaning to the gift.
+7. Completion indicator: you have shared Eid food with every adjacent neighbor — Muslim and non-Muslim — on both Eid al-Fitr and Eid al-Adha.` },
+        { title: "Share food when your household has any occasion of joy — a new baby, a graduation, a promotion, or good news", done: false,
+          sources: `**I. Quran**
+
+### Quran (76:8-9)
+**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا ۝ إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا  
+**Translation:** And they give food in spite of love for it to the needy, the orphan, and the captive, saying, "We feed you only for the sake of Allah. We wish not from you reward or gratitude."
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6017
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+In Arab and Islamic tradition, good news is shared with neighbors through food — it is called "walimah" in some contexts and is rooted in the Prophetic practice of celebrating blessings communally. When you share the joy of a new baby, a graduation, a job promotion, or any good news with your neighbors through food, you include them in your happiness. This transforms neighbors from strangers who happen to live nearby into a community that shares in each other's milestones — which is exactly what the Prophetic neighborhood model looks like.
+
+
+**How?**
+
+1. Adopt the principle: when something good happens in our home, our neighbors should know through a shared plate.
+2. The food does not need to be elaborate — a tray of sweets, a batch of cookies, a box of dates, or a simple dessert.
+3. When delivering, share the good news warmly: "We just had some wonderful news — a new baby / a graduation / a promotion — and we wanted to share our happiness with you."
+4. Accept their congratulations graciously and invite their du'a.
+5. If a neighbor shares their good news with you, reciprocate with a congratulatory visit or gift even if they did not bring food.
+6. This practice teaches your children that joy is meant to be shared, not hoarded.
+7. Completion indicator: you have shared food with neighbors on at least two occasions of household joy.` },
+        { title: "Accept food from neighbors graciously — never refuse, never criticise, always express gratitude", done: false,
+          sources: `**I. Quran**
+
+### Quran (76:8)
+**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا  
+**Translation:** And they give food in spite of love for it to the needy, the orphan, and the captive.
+
+**II. Hadith**
+
+### Sahih Muslim 2625
+The Prophet (peace be upon him) said: "He who relieves a hardship of this world for a believer, Allah will relieve a hardship of the Day of Resurrection for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ When a neighbor brings food, they are offering you a gift that carries emotional weight — they chose to think of you, cook for you, and come to your door. Refusing, criticising, or being unenthusiastic crushes that impulse of generosity and may prevent them from ever sharing again. Gracious acceptance is itself an act of neighborliness: it honours their effort and encourages the culture of sharing that the Prophetic model establishes.
+
+**How?**
+
+1. When a neighbor brings food, receive it with a genuine smile and warm thanks — regardless of what the food is.
+2. Never say "you should not have" in a way that discourages future sharing — instead say "this is so kind, jazakAllahu khayran" or "thank you, this means a lot."
+3. Never criticise the food — not to the neighbor, not to your family afterward, not even in your own mind. They gave from what they had.
+4. Taste the food and, when you next see the neighbor, mention specifically what you enjoyed: "That biryani was wonderful" or "The children loved those cookies."
+5. Return the container clean, and if possible, with something in it — even a few dates or biscuits.
+6. If you have dietary restrictions that prevent you from eating the food, accept it graciously and find someone in your household or circle who can enjoy it.
+7. Completion indicator: you have graciously accepted every food offering from neighbors for at least three consecutive months without refusal or negative comment.` },
+        { title: "Learn your neighbors' dietary preferences and restrictions so your sharing is thoughtful and inclusive", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6017
+The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." Learning neighbors' dietary preferences ensures your gifts are thoughtful and truly beneficial.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Thoughtful giving is the difference between a gesture and genuine care. If your neighbor is diabetic and you bring sweets, or vegetarian and you bring a meat dish, the gift misses its mark. The Prophet (peace be upon him) gave gifts according to what people valued and needed, not according to his own preferences. Learning what your neighbors can and enjoy eating elevates your food sharing from routine to deeply personal — it says "I do not just share food; I share food that I chose specifically for you."
+
+
+**How?**
+
+1. During natural conversations, learn about your neighbors' food preferences: "Do you have any food allergies or things you do not eat?"
+2. Note cultural and religious dietary practices: halal, kosher, vegetarian, vegan, gluten-free, dairy-free.
+3. Note health-related restrictions: diabetes (low sugar), hypertension (low salt), allergies (nuts, shellfish).
+4. Record these alongside your neighbor contact information so you remember when cooking.
+5. When preparing food to share, choose recipes that respect their restrictions — or prepare different dishes for different neighbors.
+6. When sharing, mention it: "I made this without nuts because I know your daughter is allergic" — this communicates that the food is safe and that you cared enough to remember.
+7. Completion indicator: you know the dietary preferences or restrictions of at least three neighboring households and have tailored your food sharing accordingly.` },
+      ],
+    },
+    {
+      title: "Visit sick neighbors and support them through illness with practical care",
+      priority: 'urgent', tags: ['haqq-al-jar', 'visiting-sick', 'sunnah'],
+      description: " Visiting the sick is a fundamental right — and when the sick person is your neighbor, the obligation is doubled by proximity.",
+      subtasks: [
+        { title: "When you learn a neighbor is unwell, visit or check on them within 24 hours", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And the near neighbor, the neighbor farther away.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 5649
+The Prophet (peace be upon him) said: "The rights of a Muslim over another Muslim are five: responding to the greeting of salam, visiting the sick, following the funeral, accepting an invitation, and responding to one who sneezes."
+*(Grade: Sahih)*
+
+### Sahih Muslim 2568
+The Prophet (peace be upon him) said: "Do not belittle any act of kindness, even meeting your brother with a cheerful face."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Visiting the sick is not a social nicety in Islam — it is a right of every Muslim and a profound act of worship. When the sick person is your neighbor, the urgency is amplified: they are steps away from your door, and you have no excuse of distance. The first 24 hours of illness are often the most disorienting, and a neighbor's presence communicates that they are not alone in their vulnerability.
+
+**How?**
+
+1. When you hear a neighbor is unwell — through direct communication, other neighbors, or observation (they have not been seen for days) — act within 24 hours.
+2. Knock gently at a considerate time. If they answer, keep the visit brief: "I heard you are not well. I wanted to check on you. Is there anything you need?"
+3. If they do not answer, leave a note or send a message: "We heard you are unwell. Please let us know if we can help with anything — groceries, medicine, or just a hot meal."
+4. If they have a contagious illness, respect boundaries but still offer practical help that does not require close contact (leaving food at the door, picking up prescriptions).
+5. Make du'a for their recovery during the visit and afterward.
+6. Follow up the next day — one visit is not enough; consistent checking shows genuine care.
+7. Completion indicator: you have visited or checked on a sick neighbor within 24 hours of learning about their illness at least once.` },
+        { title: "Provide practical support during a neighbor's illness — meals, errands, or childcare", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 2568
+The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection." Providing practical support during a neighbor's illness is direct relief of hardship.
+*(Grade: Sahih)*
+
+
+### Sahih Muslim 2569
+The Prophet (peace be upon him) said: "Visit the sick, feed the hungry, and free the captives." Practical care during illness fulfills this Prophetic command.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A visit without practical support is warmth without substance. When a neighbor is bedridden, their household still needs to eat, prescriptions still need collecting, children still need supervision, and errands still need running. The Prophet (peace be upon him) modelled holistic care — he did not merely visit the sick; he ensured they were fed, comforted, and prayed for. Providing tangible help transforms your visit from a social obligation into genuine, life-easing support that the sick neighbor and their family will remember as a mercy from Allah delivered through your hands.
+
+
+**How?**
+
+1. When visiting a sick neighbor, ask specifically: "What practical thing can I do for you right now?"
+2. Offer to cook and deliver meals for their household — a recovering person cannot cook, and their family is often overwhelmed.
+3. Offer to pick up prescriptions from the pharmacy.
+4. If they have children, offer to supervise them for a few hours so the sick parent can rest.
+5. Offer to handle errands: grocery shopping, posting mail, walking their pet if they have one.
+6. If the illness is prolonged, coordinate with other neighbors to share the support rather than bearing it alone.
+7. Completion indicator: you have provided at least two specific acts of practical support during one neighbor's illness.` },
+        { title: "Make du'a for sick neighbors — at their bedside and in your own prayers", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (33:60)
+**Arabic:** 
+**Translation:** If the hypocrites do not desist, as well as those with sickness in their hearts and the rumormongers in the City(of Madinah) , We will surely incite yousg against them; then they will not neighbor you in it except for a short while.
+
+### Quran (73:20)
+**Arabic:** 
+**Translation:** [Prophet], your Lord is well aware that you sometimes spend nearly two-thirds of the night at prayer––sometimes half, sometimes a third––as do some of your followers. God determines the division of night and day. He knows that you will not be able to keep a measure of it and He has relented towards all of you, so recite as much of the Quran as is easy for you. He knows that some of you will be sick, some of you travelling through the land seeking God’s bounty, some of you fighting in God’s way: recite as much as is easy for you, keep up the prayer, pay the prescribed alms, and make God a good loan. Whatever good you store up for yourselves will be improved and increased for you. Ask God for His forgiveness, He is most forgiving, most merciful.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 90
+Narrated Abu Mas\`ud Al-Ansari:Once a man said to Allah's Messenger (ﷺ) "O Allah's Messenger (ﷺ)! I may not attend the (compulsory congregational) prayer because so and so (the Imam) prolongs the prayer when he leads us for it. The narrator added: "I never saw the Prophet (ﷺ) more furious in giving advice than he was on that day. The Prophet said, "O people! Some of you make others dislike good deeds (the prayers). So whoever leads the people in prayer should shorten it because among them there are the sick the weak and the needy (having some jobs to do)
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ He instructed repeating it seven times and promised that Allah would cure the person if their appointed time had not yet come. Du'a is not a symbolic gesture in Islam — it is a direct appeal to the One who controls all healing. Making du'a for your neighbor at their bedside and in your own salah combines spiritual care with practical presence.
+
+**How?**
+
+1. Learn the Prophetic du'a for visiting the sick: "As'alullaha al-Adheem, Rabb al-arsh al-adheem, an yashfiyak" — repeat it seven times.
+2. When visiting a sick neighbor, ask their permission to make du'a for them — almost no one refuses.
+3. Place your right hand gently on the area of pain (if appropriate and the person is the same gender) and recite the du'a.
+4. Also make general du'a: "May Allah grant you complete healing, remove your pain, and reward you for your patience."
+5. In your own salah — during sujud or in the final tashahhud before salam — include your sick neighbor by name in your du'a.
+6. If the neighbor is non-Muslim, you can still pray for their wellbeing and recovery in your own words.
+7. Completion indicator: you have made du'a at the bedside of a sick neighbor and included them by name in your personal salah at least three times during their illness.` },
+        { title: "Continue checking on a neighbor after they recover — the relationship should outlast the illness", done: false,
+          sources: `**I. Hadith**
+
+
+### Sunan al-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor." Continuing to check on a neighbor after recovery demonstrates sustained, excellent neighborliness.
+*(Grade: Hasan Sahih)*`,
+          description: `**Why?**
+
+A common pattern is to show concern during illness and then disappear once the crisis passes. But the prophetic model of neighborliness is continuous, not crisis-driven. If you only appear when someone is sick, the relationship feels transactional — a duty discharged rather than a bond maintained. Continuing to check in after recovery communicates that your care was genuine, not obligatory. It transforms a sick visit into a lasting connection and fulfils the deeper intent of Haqq al-Jar: sustained, meaningful human relationship.
+
+
+**How?**
+
+1. After a neighbor has recovered, visit again within a week to see how they are feeling.
+2. Bring something positive: a fruit basket, a home-cooked meal, or simply your genuine company.
+3. Ask about their recovery: "Are you back to full strength? Is there anything lingering that I can help with?"
+4. If they were hospitalized, check whether they need help with post-hospital logistics: follow-up appointments, medication schedules, or physical limitations.
+5. Continue your normal greeting and interaction patterns — do not let the illness create an awkward distance.
+6. At least once a month for the next few months, actively check in: a knock, a call, or a brief conversation when you see them.
+7. Completion indicator: you have maintained contact with a previously sick neighbor for at least one month after their recovery, checking in at least twice.` },
+        { title: "Attend neighbors' funerals and console their bereaved families — fulfil the right of the deceased and the living", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:185)
+**Arabic:** كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ  
+**Translation:** Every soul will taste death.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1240
+The Prophet (peace be upon him) said: "The rights of a Muslim over another Muslim are five: returning the greeting, visiting the sick, following funeral processions, accepting invitations, and responding to one who sneezes."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) listed following the funeral (ittiba' al-janazah) among the five fundamental rights of a Muslim (Bukhari 1240). When a neighbor's family member passes away, the household enters a period of profound grief and practical chaos — funeral arrangements, receiving condolences, managing affairs. Your presence at the funeral and your support to the family afterward fulfil both the right of the deceased (being accompanied to their final rest) and the right of the living neighbor (not being abandoned in their darkest hour).
+
+
+**How?**
+
+1. When you learn of a death in a neighbor's family, offer condolences immediately — in person if possible, by phone if not.
+2. Attend the funeral or janazah prayer if you are able — your physical presence matters more than any words.
+3. In the days following the funeral, provide practical support: cook and deliver meals (the bereaved family should not have to worry about feeding visitors), help with household tasks, or offer to run errands.
+4. Be present during the mourning period without being intrusive — sit with the family, listen, and offer comfort.
+5. Avoid cliches; instead say: "Inna lillahi wa inna ilayhi raji'un. May Allah grant them mercy and grant you patience."
+6. Check on the bereaved family in the weeks and months after — grief is longest after the crowds disperse.
+7. Completion indicator: you have attended at least one neighbor's funeral or supported a bereaved neighbor family with practical care and sustained presence.` },
+      ],
+    },
+    {
+      title: "Speak well of your neighbors in their absence — defend their honour and never gossip",
+      priority: 'high', tags: ['haqq-al-jar', 'ghiba', 'honour'],
+      description: "The Quran explicitly forbids ghiba (backbiting): 'Do not backbite one another. Would one of you like to eat the flesh of his dead brother?' (49:12). Ghiba about neighbors is particularly corrosive because you share daily space. This task ensures your tongue is a source of protection, not harm, for those who live beside you.",
+      subtasks: [
+        { title: "Make a conscious commitment to never discuss your neighbors' faults, habits, or private affairs with anyone", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:12)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ ۖ وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا  
+**Translation:** O you who have believed, avoid much suspicion; indeed, some suspicion is sin. And do not spy or backbite each other.
+
+### Quran (104:1)
+**Arabic:** وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ  
+**Translation:** Woe to every scorner and mocker.
+
+**II. Hadith**
+
+### Sahih Muslim 2589
+The Prophet (peace be upon him) said: "Do you know what backbiting is?" They said, "Allah and His Messenger know best." He said, "It is to mention your brother in a way that he would dislike."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) defined ghiba as "mentioning about your brother what he would dislike" (Muslim 2589). Neighbors are especially vulnerable to ghiba because proximity gives you more information about them than you would have about distant acquaintances. You hear their arguments, see their visitors, notice their habits. Every piece of private information you share — even framed as "concern" — is a violation of the trust that proximity imposes. A Muslim's tongue should be the safest place for their neighbor's reputation, not the most dangerous.
+
+
+**How?**
+
+1. Make a firm internal commitment: "I will not mention anything about my neighbors that they would dislike, to anyone, for any reason."
+2. Identify your most common ghiba triggers: do you gossip with family? With other neighbors? On the phone with friends?
+3. When conversation turns to discussing a neighbor — their noise, their habits, their visitors, their lifestyle — change the subject or remain silent.
+4. If someone directly asks you about a neighbor's private affairs, respond: "I would rather not discuss that — it is their private matter."
+5. Monitor your own speech for a full week, noting every time you almost mentioned something negative about a neighbor.
+6. Remember the severity: the Quran compares ghiba to eating the flesh of your dead brother (49:12).
+7. Completion indicator: you have gone at least one full month without discussing any neighbor's private affairs or faults with anyone.` },
+        { title: "Defend your neighbor's honour when others speak ill of them in their absence", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:11)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ  
+**Translation:** O you who have believed, let not a people ridicule another people.
+
+**II. Hadith**
+
+### Sahih Muslim 2564
+The Prophet (peace be upon him) said: "Do not envy one another, do not inflate prices, do not hate one another, do not turn your backs on one another, and do not undercut one another in trade. Be, O servants of Allah, brothers."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Not gossiping is the baseline; defending your neighbor when others gossip is the higher standard. When colleagues, family, or other neighbors speak ill of your neighbor and you remain silent, your silence is interpreted as agreement. Active defense — redirecting the conversation, speaking a positive word, or gently challenging the criticism — fulfils your duty as a guardian of your neighbor's honour and earns one of the most powerful protections promised in the Sunnah.
+
+**How?**
+
+1. When someone speaks negatively about your neighbor in their absence, do not remain silent.
+2. If the criticism is unfair, say so clearly: "I do not think that is accurate — they have always been considerate in my experience."
+3. If the criticism has some basis, redirect: "I think they are going through a difficult time. Let us give them the benefit of the doubt."
+4. If the conversation persists, state your principle: "I would not want someone discussing me like this when I am not here."
+5. If you are unable to redirect the conversation, leave it — disengaging is better than passive listening.
+6. Speak positively about your neighbors proactively — mention their kindnesses, their good qualities, their helpful actions.
+7. Completion indicator: you have actively defended a neighbor's honour in at least one conversation where they were being discussed negatively.` },
+        { title: "Speak positively about your neighbors to others — mention their good qualities and kind actions", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (4:8)
+**Arabic:** وَإِذَا حَضَرَ الْقِسْمَةَ أُولُو الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينُ فَارْزُقُوهُم مِّنْهُ وَقُولُوا لَهُمْ قَوْلًا مَّعْرُوفًا
+**Translation:** "If other relatives, orphans, or needy people are present at the distribution, give them something too, and speak kindly to them."
+*(Contextual: the command to "speak kindly" (qawlan ma'rufan) to those present extends to our speech about them in their absence — to mention only their good.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6136
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day should say something good, or keep silent."
+*(Grade: Sahih)*
+*(Contextual: speaking positively about neighbors is the active application of this principle — choosing to say the good thing rather than defaulting to silence or critique.)*`,
+          description: `**Why?**
+
+ When you mention your neighbor's positive qualities to others — their generosity, their friendliness, their helpfulness — you build social capital for them in the community. This is the opposite of ghiba: it is called dhikr al-khayr (mentioning the good), and it strengthens the fabric of neighborhood relationships. A person who is known for speaking well of others becomes a trusted anchor in the community, and their positive words create a culture of appreciation rather than criticism.
+
+**How?**
+
+1. Make a habit of noticing and remembering kind things your neighbors do — the food they share, the door they hold, the greeting they give.
+2. When speaking about your neighborhood to friends, family, or colleagues, lead with the positive: "We have wonderful neighbors — they are always so considerate."
+3. If someone asks about your building or street, highlight neighborly acts: "My neighbor brought us food during Ramadan" or "The family downstairs always greets my children warmly."
+4. In community settings — at the masjid, school gatherings, or social events — mention neighbors by name with positive associations.
+5. Be genuine, not performative — speak about real qualities you have observed.
+6. This practice will reshape your own perception: when you habitually notice the good, the minor annoyances shrink in your mind.
+7. Completion indicator: you have spoken positively about your neighbors to others at least five times over one month, mentioning specific good qualities or actions.` },
+        { title: "Practise husn al-dhann (good assumption) — interpret your neighbor's ambiguous actions charitably", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (49:12)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ  
+**Translation:** "O you who have believed, avoid much [negative] assumption. Indeed, some assumption is sin."
+
+
+### Sahih Bukhari 6066
+The Prophet (peace be upon him) said: "Beware of suspicion, for suspicion is the worst of false tales." Husn al-dhann (good assumption) toward neighbors is a Prophetic command.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran commands: "O you who believe, avoid much suspicion — indeed some suspicion is sin" (49:12). When your neighbor slams a door, it might be the wind. When they do not return your greeting, they might be distracted by grief. When their children are noisy, they might be struggling to cope. Su' al-dhann (negative assumption) poisons relationships before a single word is exchanged. Husn al-dhann (positive assumption) preserves bonds and protects your own heart from the corrosion of suspicion. It is not naivety; it is a deliberate spiritual discipline that the Quran mandates.
+
+
+**How?**
+
+1. When a neighbor does something that annoys or offends you, immediately generate three charitable explanations before reacting.
+2. Example: your neighbor did not greet you. Possible reasons: they did not hear you, they are preoccupied with a problem, they are feeling unwell.
+3. Choose the most charitable explanation as your working assumption unless you have concrete evidence otherwise.
+4. Do not share your suspicions with others: "Did you notice that our neighbor ignored me?" — this is where ghiba begins.
+5. If a pattern persists and genuinely concerns you, address it directly and privately with the neighbor rather than building a case of suspicion in your mind.
+6. Regularly review your assumptions about neighbors: have any become unfairly negative? Correct them.
+7. Completion indicator: you have practised husn al-dhann in at least five ambiguous situations with neighbors, choosing charitable interpretation over suspicion.` },
+        { title: "Never use social media, building group chats, or community forums to complain about neighbors", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (49:12)
+**Arabic:** وَلَا يَغْتَب بَّعْضُكُم بَعْضًا أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا فَكَرِهْتُمُوهُ  
+**Translation:** "And do not backbite each other. Would one of you like to eat the flesh of his brother when dead? You would detest it."
+
+
+### Sahih Muslim 2589
+The Prophet (peace be upon him) said: "Do you know what backbiting is? It is mentioning your brother in a way he would dislike." Using group chats or social media to complain about neighbors is a modern form of ghiba.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Modern technology has created new avenues for ghiba that did not exist in the Prophet's time. A complaint about a neighbor in a building WhatsApp group, a passive-aggressive post on a community Facebook page, or a neighbourhood app rant about parking — these are the digital equivalents of eating your brother's flesh, amplified by the permanence and reach of the internet. What was once a conversation between two people is now a broadcast to dozens or hundreds. The neighbor's reputation is damaged publicly, often without their knowledge or ability to respond. This violates Haqq al-Jar in a way that is nearly impossible to undo.
+
+
+**How?**
+
+1. Adopt a strict policy: never post, type, or share anything negative about a neighbor on any digital platform.
+2. This includes: building management group chats, neighbourhood apps (Nextdoor, WhatsApp groups), social media, and community forums.
+3. If you have a legitimate issue, address it directly with the neighbor or through proper building management channels — not public forums.
+4. If others post complaints about neighbors in group chats, do not engage, agree, or add fuel — silence or a gentle redirect is best.
+5. Before posting anything about your neighborhood, apply the test: "Would my neighbor be hurt if they saw this?" If yes, do not post.
+6. If you catch yourself typing a complaint, delete it and address the issue properly instead.
+7. Completion indicator: you have maintained a completely clean record on digital platforms — zero complaints about neighbors — for at least three months.` },
+      ],
+    },
+    {
+      title: "Build trust and reliability — become the neighbor others count on without hesitation",
+      priority: 'high', tags: ['haqq-al-jar', 'trust', 'reliability'],
+      description: "Trust is built through consistent, small acts of reliability over time — not through grand gestures. This task focuses on becoming the neighbor whose word is their bond, whose help can be counted on, and whose presence is a source of security.",
+      subtasks: [
+        { title: "Follow through on every promise and offer you make to a neighbor — without exception", done: false,
+          sources: `**I. Quran**
+
+### Quran (23:8)
+**Arabic:** وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ  
+**Translation:** And they who are to their trusts and their promises attentive.
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 33
+The Prophet (peace be upon him) said: "The signs of the hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is entrusted he betrays."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) described the hypocrite as one who, when they promise, they break it (Bukhari 33). Every unfulfilled promise to a neighbor — "I will bring you that dish," "I will help you move that furniture," "I will look into that for you" — erodes trust and teaches your neighbor that your words are unreliable. Conversely, consistent follow-through on even small commitments builds a reputation of trustworthiness (amanah) that becomes the foundation of genuine neighborly relationship.
+
+
+**How?**
+
+1. Before offering anything to a neighbor, pause and ask yourself: "Can I realistically deliver on this?"
+2. Do not offer what you cannot fulfil — a sincere "I wish I could help but I cannot right now" is better than a broken promise.
+3. When you make an offer, set a specific time: "I will bring the food by 6pm tomorrow" — not "I will bring it sometime."
+4. Write down commitments if you tend to forget — a note on your phone or a reminder.
+5. Deliver on time or early. If something prevents you, inform the neighbor before the deadline, not after.
+6. After fulfilling a commitment, do not expect or seek praise — let the act speak for itself.
+7. Completion indicator: you have fulfilled every single commitment made to neighbors for three consecutive months with zero broken promises.` },
+        { title: "Be available and responsive when neighbors reach out — answer calls, respond to messages promptly", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:86)
+**Arabic:** وَإِذَا حُيِّيتُم بِتَحِيَّةٍ فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا  
+**Translation:** And when you are greeted with a greeting, greet with one better than it or return it in kind.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6017
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Availability is the currency of trust. If a neighbor calls and you never answer, messages you and you respond days later, or knocks and you pretend to be out — you communicate that they are not a priority. The Prophet (peace be upon him) was famously accessible; anyone could approach him at any time with any need. You are not the Prophet, but within the scope of your neighborly relationship, being responsive when someone reaches out is a fundamental expression of the care you claim to have. Responsiveness is not about being always available — it is about being reliably reachable.
+
+
+**How?**
+
+1. When a neighbor calls, answer if possible. If you cannot, return the call within a few hours.
+2. When a neighbor sends a message, respond within the day — even if just to say "I will get back to you on this."
+3. When a neighbor knocks, answer the door with a welcoming expression.
+4. If you are genuinely busy, be honest: "I am in the middle of something right now — can I come by in an hour?"
+5. Never leave a neighbor's request hanging with no response — even a "no" is better than silence.
+6. If a pattern of requests becomes excessive, set kind boundaries: "I am happy to help when I can. This week is particularly busy for me, but next week should be better."
+7. Completion indicator: you have responded to every neighbor communication within 24 hours for at least two consecutive months.` },
+        { title: "Offer help proactively — do not wait to be asked when you see a need", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:195)
+**Arabic:** وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ  
+**Translation:** And do good; indeed, Allah loves the doers of good.
+
+**II. Hadith**
+
+### Sahih Muslim 2625
+The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship of the Day of Resurrection."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Waiting to be asked places the burden of vulnerability on the person in need — many people are too proud, too shy, or too overwhelmed to ask. Proactive help anticipates the need and removes the awkwardness of asking. It is a higher level of ihsan: you see the need and act before the request is made, demonstrating that your awareness of your neighbor extends beyond polite greetings to genuine attentiveness.
+
+**How?**
+
+1. Train your eyes to notice: a neighbor struggling with groceries, an elderly person shovelling snow, a parent juggling children and bags, a moving truck with no helpers.
+2. Do not wait for eye contact or a request — walk over and offer: "Can I give you a hand with those bags?"
+3. After storms, check if elderly or vulnerable neighbors need anything cleared, repaired, or reported.
+4. When you are heading to the shops, knock on an elderly or homebound neighbor's door: "I am going to the supermarket — do you need anything?"
+5. If you have a skill (plumbing, electrical, gardening, technology), offer it when you see a neighbor struggling with a related problem.
+6. Keep your offers specific and immediate — "I can help you right now" is more useful than "Let me know if you need anything."
+7. Completion indicator: you have proactively offered help to neighbors at least five times in two months without being asked.` },
+        { title: "Be consistent in your neighborly conduct — maintain the same warmth regardless of your mood or circumstances", done: false,
+          sources: `**I. Hadith**
+
+
+### Sunan al-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor." Consistency in neighborly conduct, regardless of mood, is the mark of the best neighbor.
+*(Grade: Hasan Sahih)*
+
+
+### Quran (41:34)
+**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
+**Translation:** "Repel [evil] by that which is better; and thereupon the one between whom and you there was enmity [will become] as though he was a devoted friend."`,
+          description: `**Why?**
+
+ A neighbor who is warm one day and cold the next creates confusion and anxiety. People cannot trust what is unpredictable. If your greeting depends on your mood, your helpfulness depends on your schedule, and your kindness depends on whether the neighbor was kind to you last — then your conduct is not principled, it is reactive. Consistency is the hallmark of a character built on iman, not on circumstances.
+
+**How?**
+
+1. Recognize that your internal state (stress, fatigue, frustration) is not your neighbor's concern — they deserve consistent warmth.
+2. Greet with the same enthusiasm on your worst day as on your best — make salam a habit, not an expression of mood.
+3. If you are going through a difficult time, maintain at minimum your baseline: greetings, basic courtesy, and responsiveness.
+4. Do not punish neighbors with coldness because of an unrelated bad day.
+5. If you cannot be fully present (genuine crisis, illness), briefly explain: "I am going through something difficult right now but please know I still care about being a good neighbor."
+6. Review your conduct monthly: has it been consistent, or do your neighbors experience you as unpredictable?
+7. Completion indicator: you can honestly say your neighbors experience consistent warmth from you regardless of your personal circumstances, sustained over at least two months.` },
+        { title: "Keep your neighbors' entrusted items and keys safe — never betray a practical trust", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 33
+The Prophet (peace be upon him) said: "The signs of the hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is entrusted he betrays."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ When a neighbor gives you a spare key, asks you to hold a package, entrusts you with a child for an hour, or shares confidential information — these are amanat (trusts) that carry the same weight as any other contractual obligation in Islam. Mishandling a neighbor's entrusted item — losing a key, opening a package, sharing a confidence — destroys the trust that took months to build and violates a principle that Islam places among the highest moral obligations.
+
+**How?**
+
+1. When a neighbor entrusts you with a key, store it in a designated, secure location — not tossed in a junk drawer.
+2. When holding a package, keep it safe and return it promptly when they are available.
+3. Never open, inspect, or discuss the contents of anything entrusted to you.
+4. If you are caring for a neighbor's child, give them the same attention and safety standards you give your own children.
+5. If a neighbor shares private information in confidence ("We are having financial difficulties," "My spouse is ill"), guard it absolutely — mention it to no one.
+6. If you lose or damage an entrusted item, inform the neighbor immediately and take responsibility.
+7. Completion indicator: you have reliably safeguarded every item, key, and piece of information entrusted to you by a neighbor with zero breaches.` },
+      ],
+    },
+    {
+      title: "Exercise patient forbearance (hilm) with difficult neighbors — transforming hardship into reward",
+      priority: 'medium', tags: ['haqq-al-jar', 'hilm', 'sabr'],
+      description: "Not every neighbor is easy to live beside. This task builds the muscle of hilm (forbearance) as a spiritual practice.",
+      subtasks: [
+        { title: "Identify the neighbor relationship that is most challenging for you and commit to treating it as a test from Allah", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (4:36)
+**Arabic:** 
+**Translation:** Worship Allah, and do not associate with Him anything, and be good to parents and to kinsmen and orphans and the needy and the close neighbor and the distant neighbor and the companion at your side and the wayfarer and to those (slaves who are) owned by you. Surely, Allah does not like those who are arrogant, proud,
+
+### Quran (49:13)
+**Arabic:** 
+**Translation:** O mankind, We have created you from a male and a female, and made you into races and tribes, so that you may identify one another. Surely the noblest of you, in Allah’s sight, is the one who is most pious of you. Surely Allah is All-Knowing, All-Aware.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 4477
+Narrated \`Abdullah:I asked the Prophet, "What is the greatest sin in the Sight of Allah?" He said, "That you set up a rival unto Allah though He Alone created you." I said, "That is indeed a great sin." Then asked, "What is next?" He said, "To kill your son lest he should share your food with you." I asked, "What is next?" He said, "To commit illegal sexual intercourse with the wife of your neighbor
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran says, "We have made some of you a trial for others — will you have patience?" (25:20). A difficult neighbor is not a random inconvenience; it is a divinely placed opportunity to develop the quality of sabr that distinguishes the people of Jannah. Framing the challenge as a test transforms your experience from frustration to intentional spiritual growth.
+
+**How?**
+
+1. Honestly identify which neighbor relationship is most difficult for you — the loud one, the rude one, the inconsiderate one.
+2. Write down specifically what makes it difficult: the behavior, how often it occurs, and how it affects you.
+3. Now reframe it: "Allah has placed this person beside me as a test of my character. How I respond defines me, not what they do."
+4. Set a clear intention: "I will treat this as an opportunity for sabr, not as a curse on my living situation."
+5. Memorise a relevant du'a or ayah to recite when the difficulty flares up — "Rabbi zidni sabra" (My Lord, increase me in patience).
+6. Keep a brief journal noting each time you chose patience over frustration — track your spiritual progress.
+7. Completion indicator: you have identified your most challenging neighbor relationship, reframed it as a test, and consciously chosen patience in at least five difficult moments.` },
+        { title: "Continue fulfilling the rights of difficult neighbors — do not withdraw kindness because they are unkind", done: false,
+          sources: `**I. Quran**
+
+### Quran (41:34)
+**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
+**Translation:** Repel evil by that which is better; and thereupon the one between you and him is enmity will become as though he was a devoted friend.
+
+### Quran (23:96)
+**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ السَّيِّئَةَ  
+**Translation:** Repel evil by that which is best.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 5152
+The Prophet (peace be upon him) said: "The best of neighbors in the sight of Allah is the one who is best to his neighbor."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+ Instead, accustom yourselves to do good if people do good, and not to do wrong if they do evil" (Tirmidhi 2007). This hadith is the clearest statement that your standard of neighborly conduct is independent of how you are treated. A difficult neighbor still has the right to your greeting, your non-harm, your protection of their privacy, and your du'a. Withdrawing these rights because they are unpleasant is punishing them for their character while degrading your own.
+
+**How?**
+
+1. Continue greeting the difficult neighbor every time you see them — salam or a warm hello — regardless of whether they reciprocate.
+2. Continue protecting their privacy and property as you would any neighbor's.
+3. Continue sharing food with them on Eid and occasions, even if they have never reciprocated.
+4. If they need help, help them — the help is for Allah's sake, not for their appreciation.
+5. Do not vent about them to other neighbors — this creates factions and poisons the community.
+6. Remind yourself: "My good conduct toward them is recorded by Allah even if they never acknowledge it."
+7. Completion indicator: you have maintained all baseline neighborly rights toward your most difficult neighbor for at least two consecutive months without withdrawal of kindness.` },
+        { title: "Respond to unkindness with deliberate kindness — the Quranic principle of repelling evil with good", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (41:34)
+**Arabic:** وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ
+**Translation:** "Good and evil cannot be equal. [Prophet], repel evil with what is better and your enemy will become as close as an old and valued friend."
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6030
+The Prophet (peace be upon him) said: "Connect with those who cut you off, give to those who withhold from you, and pardon those who wrong you."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran states: "Repel evil with that which is better, and thereupon the one between whom and you was enmity will become as though he was a devoted friend. But none is granted it except those who are patient, and none is granted it except the owner of great fortune" (41:34-35). This is not naive optimism — it is a divine promise with a condition: patience. Responding to a rude neighbor with a gift, to a cold neighbor with warmth, to an inconsiderate neighbor with consideration — this deliberate inversion of expected behavior has the power to transform relationships. It is also described as a quality granted only to those of great spiritual fortune.
+
+
+**How?**
+
+1. When a difficult neighbor is rude to you, respond with extra warmth — a bigger smile, a more enthusiastic greeting.
+2. When they inconvenience you, respond with a favor — bring them food or offer help with something.
+3. When they ignore you, continue acknowledging them as though nothing happened.
+4. Keep the Quranic promise in mind: "thereupon the one between whom and you was enmity will become as though a devoted friend" — this may not happen overnight, but it is Allah's word.
+5. Do not perform these acts with the expectation of changing them — do it because it is the Quranic command regardless of outcome.
+6. Document the instances where you responded to negative with positive — this record strengthens your resolve over time.
+7. Completion indicator: you have responded to at least three instances of unkindness from a difficult neighbor with deliberate acts of kindness.` },
+        { title: "Make specific du'a for difficult neighbors — pray for their guidance and for ease between you", done: false,
+          sources: `**I. Quran**
+
+### Quran (25:63)
+**Arabic:** وَعِبَادُ الرَّحْمَٰنِ الَّذِينَ يَمْشُونَ عَلَى الْأَرْضِ هَوْنًا وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَامًا  
+**Translation:** And the servants of the Most Merciful are those who walk upon the earth with humility, and when the ignorant address them, they say words of peace.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) used to pray for people who were hostile to him — the famous du'a for the people of Ta'if is an example of making du'a for those who harmed him rather than against them. When you pray for a difficult neighbor — for their guidance, their ease, their wellbeing — you are performing the highest act of neighborly love. It softens your own heart first, removing the bitterness that difficult relationships cultivate. It also invokes the power of the One who can change hearts, making it both a spiritual practice for you and a genuine hope for transformation in the relationship.
+
+
+**How?**
+
+1. In your sujud or after your obligatory prayers, include your difficult neighbor by name in your du'a.
+2. Pray for their guidance: "O Allah, guide [name] and make them a source of good in our community."
+3. Pray for ease between you: "O Allah, place love and mercy between me and my neighbor [name]."
+4. Pray for their wellbeing: "O Allah, bless [name] in their health, family, and provision."
+5. If bitterness makes this difficult, start with: "O Allah, help me to sincerely pray for [name]" — ask for the ability to pray for them.
+6. Continue this for at least 30 consecutive days.
+7. Completion indicator: you have made specific du'a for your most difficult neighbor by name for at least 30 days, and you have noticed a softening in your own heart toward them.` },
+        { title: "Seek reward in endurance — remind yourself that patience with a difficult neighbor is among the highest forms of sabr", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (2:45)
+**Arabic:** وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى الْخَاشِعِينَ
+**Translation:** "Seek help with steadfastness and prayer — though this is hard indeed for anyone but the humble."
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 5641
+The Prophet (peace be upon him) said: "No fatigue, nor disease, nor anxiety, nor sadness, nor hurt, nor distress befalls a Muslim, even if it were the prick he receives from a thorn, but that Allah expiates some of his sins for that."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Enduring a difficult neighbor with patience is a sustained form of this principle — every moment of sabr is an expiation. Abu Hurayrah narrated that a man said, "O Messenger of Allah, I have a neighbor who harms me," and the Prophet instructed patience and strategic action, not abandonment. Seeking the reward of sabr transforms the daily irritation into daily spiritual income.
+
+**How?**
+
+1. Study the hadith on the reward of sabr and write down the ones that speak most powerfully to your situation.
+2. When a moment of frustration with a neighbor occurs, consciously say: "This is an expiation for my sins. Alhamdulillah."
+3. Keep a "sabr account" — a simple tally of moments you chose patience over anger. Each mark represents recorded reward with Allah.
+4. Share the concept with your spouse or household so they can support the same mindset rather than amplifying frustration.
+5. Periodically recalculate: "I have been patient through X incidents this month — this is X moments of reward with Allah."
+6. If the situation ever becomes genuinely harmful (not merely annoying), seek proper resolution — sabr does not mean accepting abuse.
+7. Completion indicator: you have consciously reframed at least ten frustrating neighbor moments as opportunities for divine reward over a two-month period.` },
+      ],
+    },
+  ],
+
+  // ── EXCELLENCE: Best Neighbor, Community Transformation, Da'wah Through Conduct ──
+  ummah_neighbors_excellence: [
+    {
+      title: "Become 'the best neighbor in the sight of Allah' — embody Tirmidhi 1944 as a life goal",
+      priority: 'urgent', tags: ['haqq-al-jar', 'ihsan', 'excellence'],
+      description: " This is not a casual compliment but a rank — a station before Allah determined by how you treat the people who live beside you. This task focuses on attaining that rank through comprehensive, excellent conduct.",
+      subtasks: [
+        { title: "Set an explicit personal goal: to be the best neighbor your neighbors have ever had", done: false,
+          sources: `**I. Hadith**
+
+
+### Sunan al-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor." Setting this as an explicit personal goal aligns your life with this Prophetic standard.
+*(Grade: Hasan Sahih)*`,
+          description: `**Why?**
+
+The hadith in Tirmidhi 1944 establishes "best neighbor in the sight of Allah" as an attainable rank — not a metaphor but a genuine station of closeness to Allah. Most people drift through neighborly life without intention: they are polite when it is convenient, helpful when the cost is low, and patient when they feel like it. Setting an explicit, ambitious goal transforms neighborliness from passive decency into an active pursuit of ihsan (excellence). The difference between a good neighbor and the best neighbor is intentionality, consistency, and going beyond what is expected.
+
+
+**How?**
+
+1. Write down the goal in your personal journal or du'a list: "I intend to become the best neighbor my neighbors have ever had, seeking the rank of 'best neighbor in the sight of Allah' (Tirmidhi 1944)."
+2. Define what "best neighbor ever" looks like in practical terms: someone who greets warmly, shares generously, helps proactively, endures patiently, speaks well, and is always reliable.
+3. Assess honestly where you currently fall short of this standard — which areas need the most growth?
+4. Create a simple personal development plan: one area to focus on each month.
+5. Ask Allah for tawfiq (success) in this goal in your daily du'a.
+6. Review your progress quarterly: are your neighbors experiencing the impact of your intentionality?
+7. Completion indicator: you have formally set this goal, defined its practical meaning, and begun a structured plan to achieve it.` },
+        { title: "Exceed expectations consistently — anticipate needs, give without being asked, and surprise with generosity", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (76:8-9)
+**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا  
+**Translation:** "And they give food in spite of love for it to the needy, the orphan, and the captive, [saying]: We feed you only for the countenance of Allah. We wish not from you reward or gratitude."`,
+          description: `**Why?**
+
+Ihsan, as the Prophet (peace be upon him) defined it, is "to worship Allah as though you see Him" (Muslim 8). Applied to neighborliness, ihsan means treating your neighbor as though Allah is watching every interaction — because He is. This awareness transforms transactional politeness into extraordinary generosity. The "best neighbor" is not the one who does what is expected; it is the one who consistently exceeds expectation — who brings food without an occasion, who helps without being asked, who notices what others overlook and acts on it.
+
+
+**How?**
+
+1. Train yourself to anticipate: when you see a neighbor's car is being repaired, offer them a ride before they ask.
+2. When seasonal changes come (winter, Ramadan, summer heat), think about what your neighbors might need and provide it proactively.
+3. Send food on random days — not only Eid or occasions — with a note: "We were cooking and thought of you."
+4. Notice small things: a neighbor's child achieved something at school? Congratulate them. A neighbor looks tired? Ask if they are alright.
+5. Give your best, not your leftovers — the food you share, the help you offer, the time you spend should reflect ihsan, not convenience.
+6. Keep a running list of small acts of excellence you can perform — and execute one per week.
+7. Completion indicator: you have performed at least ten acts of exceeding-expectation neighborliness in two months, none of which were requested.` },
+        { title: "Know your neighbors deeply — their joys, struggles, schedules, children's names, and what matters to them", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best of companions in the sight of Allah is the best of them to his companion, and the best of neighbors in the sight of Allah is the best of them to his neighbor."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+The best neighbor is not the one who interacts the most but the one who knows their neighbors as complete human beings. When you know that your neighbor's mother is ill overseas, that their child is struggling at school, that they recently lost their job, that they are passionate about gardening, or that they celebrate a specific holiday — your interactions become personal, your help becomes targeted, and your presence becomes meaningful. This depth of knowing is what the Prophet (peace be upon him) modelled with his companions: he knew their concerns, remembered their circumstances, and acted accordingly.
+
+
+**How?**
+
+1. Over the course of regular interactions, learn and remember: their children's names and ages, their work situation, their family overseas, their hobbies, their concerns.
+2. Write these details down — memory is unreliable, and the act of recording demonstrates that you value what they share.
+3. Reference what you know in conversations: "How is your mother doing?" "Did your son start his new school?"
+4. Remember dates that matter to them: birthdays, cultural celebrations, anniversaries of arrivals.
+5. When you notice a change — a new car, a renovation, a worried expression — acknowledge it with genuine interest.
+6. This is not surveillance; it is attentiveness. The difference is intention: you learn about them to serve them better, not to gossip or judge.
+7. Completion indicator: you can describe at least three personal details about each of your immediate neighbors — details they shared with you through relationship, not observation.` },
+        { title: "Create traditions of neighborly connection — regular tea visits, seasonal gatherings, or shared meals", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6017
+The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." Regular tea visits and shared meals elevate these small gifts into enduring traditions of connection.
+*(Grade: Sahih)*
+
+
+### Sunan al-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best neighbor in the sight of Allah is the best to his neighbor."
+*(Grade: Hasan Sahih)*`,
+          description: `**Why?**
+
+Individual acts of kindness are powerful, but traditions create sustained community fabric. The Prophet (peace be upon him) established communal traditions — the walimah, the Eid gathering, the Friday congregation — because single events fade while traditions endure. A monthly tea with your neighbor, a seasonal street gathering, a Ramadan iftar open door, or a shared Eid morning visit — these become the rhythm of communal life that transforms a collection of individual households into a neighborhood in the truest sense.
+
+
+**How?**
+
+1. Start small: invite one neighbor for tea or coffee at your home, at a regular time — "Would you like to come for tea on Saturday mornings?"
+2. If they accept and it goes well, make it recurring — same day, same time, building a tradition.
+3. Expand gradually: invite another neighbor, then another, until it becomes a known neighborhood gathering.
+4. Create seasonal traditions: an Eid morning open house, a Ramadan iftar invitation (even a simple one), a summer barbecue in the shared garden.
+5. Be consistent — the power of tradition is in repetition. If you start a monthly gathering, maintain it for at least six months.
+6. Let traditions grow organically: others may start hosting, contributing food, or suggesting activities.
+7. Completion indicator: you have established at least one recurring neighborly tradition that has occurred at least four times and involves two or more neighbor households.` },
+        { title: "Mentor a younger or newer neighbor in the practice of Haqq al-Jar — pass on the tradition", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 494
+Narrated Ibn \`Umar:Whenever Allah's Messenger (ﷺ) came out on \`Id day, he used to order that a Harba [??] (a short spear) to be planted in front of him (as a Sutra for his prayer) and then he used to pray facing it with the people behind him and used to do the same while on a journey. After the Prophet (ﷺ) , this practice was adopted by the Muslim rulers (who followed his traditions)
+*(Grade: Sahih)*
+
+### Sahih Bukhari 387
+Narrated Ibrahim:Hammam bin Al-Harith said, "I saw Jarir bin \`Abdullah urinating. Then he performed ablution and passed his (wet) hands over his Khuffs (socks made from thick fabric or leather), stood up and prayed. He was asked about it. He replied that he had seen the Prophet (ﷺ) doing the same." They approved of this narration as Jarir was one of those who embraced Islam very late
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ The practice of excellent neighborliness must be taught and transmitted, not merely modelled. A young person who has never been taught about Haqq al-Jar, or a new resident who comes from a culture of isolation, will not discover these practices by accident. By actively mentoring someone in the art and ethics of Islamic neighborliness, you multiply your impact: the person you teach will become a better neighbor to their own neighbors, creating a ripple effect that extends far beyond your own street.
+
+**How?**
+
+1. Identify a younger neighbor, a new Muslim, a newly married couple, or a recent arrival who could benefit from guidance on neighborly practice.
+2. Model the behavior explicitly: "I always share food with the family next door on Eid — it is from the Sunnah."
+4. Invite them to participate in your neighborly acts: "I am bringing food to our sick neighbor — would you like to come with me?"
+5. Share practical tips: how to introduce yourself, how to handle conflict, how to share food across dietary differences.
+6. Check in on their progress: "Have you had a chance to meet the new family in 3B?"
+7. Completion indicator: you have actively mentored at least one person in the practice of Haqq al-Jar, and they have independently performed at least two neighborly acts as a result.` },
+      ],
+    },
+    {
+      title: "Transform your street or building into a genuine community through intentional neighborly leadership",
+      priority: 'high', tags: ['haqq-al-jar', 'community', 'leadership'],
+      description: "The Prophet (peace be upon him) transformed the individual tribes of Madinah into a unified community through deliberate acts of bonding, shared responsibility, and mutual care. Your street or building can undergo a similar transformation at a micro-scale. This task is about becoming the catalyst who turns isolated households into an interconnected, mutually supportive neighborhood.",
+      subtasks: [
+        { title: "Organise a neighborhood gathering — a simple shared meal, a tea, or a communal cleanup", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 2625
+The Prophet (peace be upon him) said: "The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight." Organising a shared neighborhood meal embodies this spirit of communal generosity.
+*(Grade: Sahih)*
+
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** "And cooperate in righteousness and piety."`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) paired the Muhajirun and Ansar through the institution of mu'akhah (brotherhood), which began with a gathering. Communities do not form spontaneously — someone must take the initiative to bring people together. In most modern neighborhoods, people have never been in the same room despite living meters apart. A single gathering — a shared meal, a tea in the common area, a communal garden cleanup — breaks the ice for dozens of future interactions. You are not organising an event; you are planting the seed of community.
+
+
+**How?**
+
+1. Choose a simple, low-barrier format: a morning tea in the shared courtyard, a potluck dinner in the common room, or a Saturday cleanup of the shared garden.
+2. Invite every adjacent neighbor personally — a knock on the door is more effective than a flyer.
+3. Keep the event simple: you provide tea and biscuits or a simple main dish; encourage others to bring something if they wish.
+4. Set a specific date, time, and location — vagueness kills gatherings.
+5. On the day, be the welcomer: greet everyone, introduce neighbors who have not met, and keep the atmosphere warm.
+6. At the end, gauge interest: "Would people like to do this regularly?" If yes, set the next date before everyone leaves.
+7. Completion indicator: you have organised at least one neighborhood gathering attended by at least three separate neighbor households.` },
+        { title: "Create a simple neighborhood communication channel — a group chat, a shared noticeboard, or a regular check-in", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ  
+**Translation:** "And cooperate in righteousness and piety, but do not cooperate in sin and aggression."
+
+
+### Sahih Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance." A shared communication channel keeps neighborly bonds strong.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Community requires infrastructure, and the simplest infrastructure is communication. When neighbors can easily share information — a water shutoff notice, a found set of keys, a recommendation for a plumber, or a heads-up about suspicious activity — the neighborhood becomes a network rather than a collection of strangers. The Prophet (peace be upon him) established Madinah with systems of communication: the adhan, the minbar, the marketplace. Your street needs its own version — a simple, accessible channel that connects people.
+
+
+**How?**
+
+1. Assess what would work best for your neighbors: a WhatsApp group, a physical noticeboard in the entrance, or a regular monthly knock-and-check.
+2. If digital: create a group with a clear name ("Block 5 Neighbors") and invite every household. Set ground rules: practical information only, no gossip, no politics.
+3. If physical: put up a simple noticeboard in the common area with a pen and cards for messages.
+4. Seed the channel with useful content: "Welcome to our neighbor group. Use this for helpful information, requests, and community updates."
+5. Use it yourself first: "Water will be shut off on Tuesday 10am-2pm" or "I found a set of keys in the parking area — anyone missing theirs?"
+6. Moderate gently if the digital group veers into complaints or gossip — redirect to direct communication.
+7. Completion indicator: a neighborhood communication channel is active with at least five participating households and at least three useful messages per month.` },
+        { title: "Initiate a neighborhood mutual aid practice — a shared tool library, a meal rotation, or a babysitting swap", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6017
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Ansar of Madinah did not just welcome the Muhajirun with words — they shared their homes, their wealth, and their resources. Mutual aid is the practical manifestation of community: when neighbors share tools instead of each buying their own, rotate meals during busy periods, or swap childcare duties — they reduce individual burden while strengthening collective bonds. This is the Islamic economic principle of ta'awun (cooperation) applied at the most local level, turning neighbors into a support system that rivals extended family.
+
+
+**How?**
+
+1. Choose one mutual aid format that would genuinely benefit your neighbors: a shared tool library (everyone contributes tools to borrow), a meal rotation (each household cooks for the group one night per month), or a babysitting swap (parents take turns watching each other's children).
+2. Propose it informally to two or three neighbors: "What if we shared a set of tools instead of each buying our own?"
+3. Start with a pilot: three to four households trying it for one month.
+4. Keep it simple: for tools, a simple list of what each household has and a borrow-and-return system. For meals, a calendar with each household assigned a date.
+5. Let it grow organically — others will join when they see it working.
+6. If a format does not work, try another — the goal is mutual aid, not a specific method.
+7. Completion indicator: a mutual aid practice is operational with at least three participating households and has been sustained for at least two months.` },
+        { title: "Address a shared neighborhood problem collectively — parking, cleanliness, safety, or facilities", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** "And cooperate in righteousness and piety."
+
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Removing something harmful from the road is charity." Collectively addressing neighborhood problems like parking, cleanliness, and safety is communal charity.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ When a neighborhood faces a shared problem — poor lighting, parking disputes, a dirty communal area, a safety concern — the Islamic response is collective action, not individual complaint. Organising your neighbors to address a common issue demonstrates the power of community and builds bonds that outlast the specific problem.
+
+**How?**
+
+1. Identify a shared problem that affects multiple households: a recurring parking conflict, inadequate lighting, overflowing bins, or a safety concern.
+2. Discuss it with a few neighbors to confirm the problem is shared and there is willingness to act together.
+3. Organise a brief, focused meeting (15-20 minutes, not a lengthy discussion): define the problem, propose solutions, and assign responsibilities.
+4. If the solution requires building management or local council action, draft a collective request signed by multiple households — collective voices carry more weight.
+5. If the solution is within residents' control (cleaning schedules, parking agreements, noise norms), agree on the solution and commit to it together.
+6. Follow through and follow up: ensure the agreed solution is implemented and working.
+7. Completion indicator: one shared neighborhood problem has been addressed through collective action involving at least three households.` },
+        { title: "Cultivate a culture of appreciation — publicly acknowledge neighbors' contributions and kindnesses", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother." Publicly acknowledging neighbors' contributions strengthens the culture of mutual aid.
+*(Grade: Sahih)*
+
+
+### Quran (55:60)
+**Arabic:** هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ  
+**Translation:** "Is the reward for good [anything] but good?"`,
+          description: `**Why?**
+
+ Most neighborhoods operate on invisible kindness — someone sweeps the hallway, someone holds the door, someone checks on the elderly — and none of it is acknowledged. When you publicly appreciate these acts — in the group chat, at a gathering, or simply in front of other neighbors — you reinforce the behavior and inspire others to contribute. A culture of appreciation is the soil in which community excellence grows, because people repeat what is noticed and valued.
+
+**How?**
+
+1. Pay attention to the quiet kindnesses in your neighborhood: who sweeps the common area, who holds doors, who checks on the elderly, who waters the shared plants?
+2. Acknowledge them directly: "I noticed you swept the hallway — jazakAllahu khayran, it makes such a difference."
+3. In the neighborhood group chat, post appreciation: "Shoutout to the family in 4A who shared food with all of us on Eid. May Allah bless you."
+4. At gatherings, mention contributions: "I want to thank [name] for organising the parking solution — it has made everyone's life easier."
+5. Encourage children to thank neighbors too — teach them to say "thank you" when the neighbor holds the elevator or shares food.
+6. Make appreciation a habit, not a one-time event — consistent acknowledgment creates a self-reinforcing culture.
+7. Completion indicator: you have publicly or directly acknowledged at least one neighbor's kindness per week for one month, and others have begun doing the same.` },
+      ],
+    },
+    {
+      title: "Practice da'wah through conduct — let your neighborliness be the most powerful testimony of Islam",
+      priority: 'high', tags: ['haqq-al-jar', 'dawah', 'conduct'],
+      description: " Your non-Muslim neighbors form their understanding of Islam primarily through you — not through books, scholars, or media. This task ensures that your conduct is the most compelling da'wah they will ever encounter.",
+      subtasks: [
+        { title: "Treat every non-Muslim neighbor with the same — or greater — kindness and generosity as Muslim neighbors", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (60:8)
+**Arabic:** لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ
+**Translation:** "God does not forbid you to deal kindly and justly with anyone who has not fought you for your faith or driven you out of your homes: God loves the just."
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 5978
+Asma' bint Abu Bakr said: "My mother came to me during the lifetime of the Prophet, hoping for some favour from me. I asked the Prophet: 'May I treat her kindly?' He said, 'Yes.'" Ibn 'Uyainah added: "Then Allah revealed: 'God does not forbid you from those who have not fought you on account of religion...'"
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran states: "Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes — from being righteous toward them and acting justly toward them. Indeed, Allah loves those who act justly" (60:8). The rights of the neighbor in Islam are not restricted to Muslim neighbors. The Prophet (peace be upon him) had Jewish neighbors whom he treated with excellence. When you treat non-Muslim neighbors with equal or greater kindness, you demolish prejudice through lived experience. Every plate of food, every warm greeting, every act of help is more eloquent than any lecture about Islam.
+
+
+**How?**
+
+1. Review your current interactions: do you greet non-Muslim neighbors with the same warmth as Muslim ones? Do you share food with them equally? Do you offer help as readily?
+2. If you notice any disparity, correct it immediately — equal treatment is the minimum; excellence is the goal.
+3. Share food from your culture — many non-Muslim neighbors will taste biryani, baklava, or dates for the first time through you.
+4. Include them in your celebrations: "It is our Eid today — we wanted to share our joy with you."
+5. Show interest in their lives, celebrations, and wellbeing with the same genuineness you extend to Muslim neighbors.
+6. Never condition your kindness on their response to Islam — your conduct is for Allah's pleasure regardless of their reaction.
+7. Completion indicator: you can honestly say your non-Muslim neighbors receive equal or greater kindness than your Muslim neighbors, sustained over at least three months.` },
+        { title: "When neighbors ask about your practices — fasting, praying, hijab, dietary laws — explain warmly and simply", done: false,
+          sources: `**I. Quran**
+
+### Quran (16:125)
+**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
+**Translation:** Invite to the way of your Lord with wisdom and good instruction.
+
+### Quran (29:46)
+**Arabic:** وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ  
+**Translation:** And do not argue with the People of the Scripture except in a way that is best.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 3461
+The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Your neighbors will inevitably notice your Islamic practices — why you fast in Ramadan, why you pray at certain times, why you do not eat pork, why some family members wear hijab. These questions are organic openings for gentle da'wah. Most non-Muslim neighbors are genuinely curious, not hostile. A warm, simple, non-preachy explanation transforms a moment of curiosity into a moment of understanding. Over time, these small explanations build a comprehensive, positive picture of Islam that no media narrative can override.
+
+**How?**
+
+1. Prepare simple, warm explanations for the most commonly asked-about practices: fasting, prayer, hijab, halal food, Eid.
+2. When a neighbor asks, respond with openness and a smile — never defensively.
+3. Keep explanations brief and relatable: "Ramadan is our month of fasting — we do not eat or drink from sunrise to sunset. It is about gratitude and self-discipline."
+4. Use shared values: "We fast to remember those who are hungry and to build self-control."
+5. Invite participation where appropriate: "You are welcome to join us for iftar dinner one evening if you would like."
+6. Never preach, lecture, or make them feel obligated to listen — share naturally and let the truth speak through your character.
+7. Completion indicator: you have warmly and simply explained at least three Islamic practices to curious neighbors, and they left the conversation with a positive impression.` },
+        { title: "Invite neighbors to experience Islamic occasions — iftar, Eid, Mawlid, or Friday dinner", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (3:104)
+**Arabic:** 
+**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 600
+Narrated Qurra bin Khalid:Once he waited for Al-Hasan and he did not show up till it was about the usual time for him to start his speech; then he came and apologized saying, "Our neighbors invited us." Then he added, "Narrated Anas, 'Once we waited for the Prophet (ﷺ) till it was midnight or about midnight. He came and led the prayer, and after finishing it, he addressed us and said, 'All the people prayed and then slept and you had been in prayer as long as you were waiting for it." Al-Hasan said, "The people are regarded as performing good deeds as long as they are waiting for doing good deeds." Al-Hasan's statement is a portion of Anas's [??] Hadith from the Prophet (ﷺ)
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Experience is the most powerful form of understanding. When a non-Muslim neighbor sits at your iftar table, hears the adhan at sunset, watches your family break fast with dates and du'a, and eats the meal together — they experience the beauty of Islam in a way no book or documentary can convey. The Prophet (peace be upon him) hosted people of all backgrounds at his table. An invitation to share a sacred occasion is an act of generosity that bridges cultures and opens hearts to the beauty of Islamic practice and community.
+
+
+**How?**
+
+1. During Ramadan, invite at least one non-Muslim neighbor household to iftar: "We break our fast at sunset — would you like to join us for dinner one evening?"
+2. On Eid, invite neighbors to your celebration: "It is our holiday — come share food and celebration with us."
+3. Before the event, briefly explain what to expect: "We will pray Maghrib first, then eat together. You are welcome to observe or simply enjoy the meal."
+4. Make them comfortable: no pressure to participate in religious elements, warm introduction to other guests, food that is accessible and delicious.
+5. After the occasion, follow up: "We were so glad you could join us. How did you find the experience?"
+6. Let them ask questions naturally — the experience itself will prompt curiosity.
+7. Completion indicator: you have invited and hosted at least two non-Muslim neighbor households at Islamic occasions, and they had a positive experience.` },
+        { title: "Be the neighbor who dismantles stereotypes — let your conduct contradict every negative narrative about Muslims", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (16:125)
+**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ
+**Translation:** "Call people to the way of your Lord with wisdom and good teaching."
+*(Contextual: the most powerful da'wah to those who hold negative narratives about Muslims is exemplary conduct — this is wisdom and good teaching in action.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6094
+The Prophet (peace be upon him) said: "Truthfulness leads to righteousness and righteousness leads to Paradise, and a person keeps telling the truth until he is recorded with Allah as a truthful person."
+*(Grade: Sahih)*
+*(Contextual: embodying truthful, righteous character in full view of neighbors is the lived demolition of false stereotypes — the righteous Muslim becomes the undeniable counter-evidence.)*`,
+          description: `**Why?**
+
+Media narratives, political rhetoric, and cultural prejudice create stereotypes about Muslims that your neighbors may unconsciously hold. You are the living counter-narrative. When a neighbor who has been told that Muslims are hostile experiences your warmth; when one who has been told Muslims are insular experiences your openness; when one who has been told Muslims are intolerant experiences your respect for their beliefs — the stereotype collapses under the weight of lived reality. The Prophet (peace be upon him) changed hearts not through argument but through character. Your daily conduct is the most powerful form of da'wah in your neighborhood.
+
+
+**How?**
+
+1. Be aware of common stereotypes: Muslims are unfriendly, insular, intolerant, or only kind to other Muslims.
+2. Consciously contradict each one through your conduct: be the warmest greeter on the street, the most helpful neighbor in the building, the most generous sharer of food, and the most patient in conflict.
+3. Be visibly engaged in communal life: attend neighborhood meetings, participate in shared activities, contribute to communal initiatives.
+4. When neighbors from different backgrounds have celebrations, acknowledge them warmly: "Happy Diwali," "Merry Christmas," or whatever is appropriate — participation in their joy is not compromise of your faith, it is fulfillment of neighborly ihsan.
+5. Share your own traditions openly: display "Eid Mubarak" signage, explain your practices when asked, and make your faith visible in a positive, approachable way.
+6. Remember: you may be the only Muslim your neighbor knows personally — your conduct defines their understanding of 1.8 billion people.
+7. Completion indicator: at least one non-Muslim neighbor has expressed a positive shift in their understanding of Muslims or Islam based on their experience with you.` },
+        { title: "Build lasting interfaith or intercultural friendships with neighbors — move beyond politeness to genuine companionship", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:13)
+**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
+**Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.
+
+### Quran (60:8)
+**Arabic:** لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ  
+**Translation:** Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes — from being righteous toward them and acting justly toward them.`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) maintained deep, genuine relationships with people of other faiths — including business partnerships, neighborly bonds, and social interactions that went far beyond surface politeness. The Quran's command in 60:8 is to show "birr" (righteousness, the same word used for righteousness toward parents) to non-hostile non-Muslims. Birr is not polite distance — it is deep, genuine care. Building real friendships with non-Muslim neighbors — sharing meals, exchanging visits, knowing each other's families — creates the kind of human bond that transforms neighborhoods and testifies to Islam's vision of human connection across difference.
+
+
+**How?**
+
+1. Identify one or two non-Muslim neighbors with whom you have a natural rapport and invest in deepening the relationship.
+2. Move beyond hallway greetings to intentional time together: invite them for a meal, suggest a walk, ask about their family.
+3. Show genuine interest in their culture, traditions, and background — ask questions, listen, and learn.
+4. Share your own culture and faith naturally through the friendship — cook together, celebrate each other's occasions, exchange stories.
+5. Be vulnerable: share your struggles, ask for their advice, and allow the relationship to have the depth of real friendship.
+6. Navigate differences with grace — you do not need to agree on theology to share a deep human bond built on mutual respect and genuine care.
+7. Completion indicator: you have at least one genuine, deep friendship with a non-Muslim neighbor that includes regular interaction, mutual care, and reciprocal trust.` },
+      ],
+    },
+    {
+      title: "Establish a neighborhood mutual aid network — formalise the culture of reciprocal support",
+      priority: 'medium', tags: ['haqq-al-jar', 'mutual-aid', 'network'],
+      description: " At the excellence level, individual acts of kindness evolve into structured, sustainable mutual aid. This task is about creating a network that ensures no neighbor in your vicinity faces hardship alone — a modern micro-implementation of the Ansar model.",
+      subtasks: [
+        { title: "Map the skills, resources, and needs of your neighborhood — create a community asset inventory", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** "And cooperate in righteousness and piety."
+
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother." Mapping neighborhood skills and resources is the foundation of structured mutual aid.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Ansar of Madinah did not offer random help — they matched resources to needs. One was a farmer, another a trader, another skilled in construction. The mu'akhah system worked because the Prophet (peace be upon him) paired people with complementary capabilities. Your neighborhood similarly contains untapped resources: a retired electrician, a nurse, someone with a van, a skilled cook, a tech-savvy teenager. Mapping these assets means that when a need arises, you do not scramble to find help — you already know who has the skill and who has the need.
+
+
+**How?**
+
+1. Create a simple survey — paper or digital — asking neighbors to share: "What skills can you offer?" and "What help do you sometimes need?"
+2. Distribute it personally to every neighbor with an explanation: "I am trying to build a way for us to help each other more easily."
+3. Compile the results into a simple directory: "Ahmed (Flat 3A) — electrician, can help with wiring issues. Maria (4C) — nurse, can advise on health questions. David (2B) — has a van, can help with large deliveries."
+4. Also note needs: elderly residents who need grocery help, families with young children who need occasional childcare, people who travel frequently and need someone to collect mail.
+5. Share the directory with participating households (with everyone's consent).
+6. Update it as new neighbors move in or circumstances change.
+7. Completion indicator: a community asset directory exists covering at least five households, with both skills offered and needs identified.` },
+        { title: "Create a simple mutual aid protocol — how neighbors request and offer help within the network", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+**II. Hadith**
+
+### Sahih Muslim 2625
+The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Good intentions without structure lead to inconsistency. Some people will help enthusiastically for a month and then burn out. Others will need help but feel too embarrassed to ask. A simple protocol — even as informal as a shared agreement — removes the friction from both giving and receiving. It normalises asking for help ("It is not a burden; it is what we agreed to do") and prevents helper fatigue by distributing requests across the network. The Prophet (peace be upon him) established social contracts (the Constitution of Madinah) because he understood that goodwill alone is not sufficient — it needs structure.
+
+
+**How?**
+
+1. Draft a simple set of norms (not formal rules) for the network, such as: "Anyone can request help for a genuine need. Requests are made in the group chat or by direct contact. No one is obligated — only help if you are able. Recipients are not expected to reciprocate immediately."
+2. Share the norms with participants and invite feedback.
+3. Designate a simple method for requests: a message in the group chat ("Does anyone have a drill I can borrow today?") or a knock on a specific neighbor's door based on the directory.
+4. Agree on response norms: if you can help, respond promptly. If you cannot, no guilt.
+5. For recurring needs (weekly grocery runs for an elderly neighbor), create a rotation so the responsibility is shared.
+6. Review the protocol after two months and adjust based on what is working and what is not.
+7. Completion indicator: a mutual aid protocol is documented, agreed upon by at least four households, and has been used successfully for at least five requests.` },
+        { title: "Establish a neighborhood emergency response plan — who to call, where to gather, how to account for everyone", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+### Quran (4:36)
+**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And the near neighbor, the neighbor farther away.
+
+**II. Hadith**
+
+### Sahih Muslim 2586
+The Prophet (peace be upon him) said: "The believers in their mutual kindness and compassion are like one body. When one limb suffers, the whole body responds with sleeplessness and fever."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Preparation is a form of tawakkul, not a contradiction of it. In an emergency — fire, flood, earthquake, power outage, severe weather — the first responders are your neighbors, not emergency services. Knowing who checks on whom, where to gather, and how to account for vulnerable residents can save lives. A neighborhood that has discussed emergency response — even briefly — will react with coordination instead of chaos.
+
+**How?**
+
+1. Propose a brief discussion at a neighborhood gathering or in the group chat: "Have we ever talked about what we would do in an emergency?"
+2. Identify key elements: where is the nearest assembly point? Who checks on elderly and vulnerable residents? Who has first aid training? Where are the main shutoff valves for water and gas?
+3. Assign voluntary responsibilities: "Ahmed and I will check on the elderly residents on our floor. Maria will bring her first aid kit. David will check the parking area."
+4. Create a simple contact card with emergency numbers: building management, fire, police, hospital, and the contact numbers of key neighbors.
+5. Distribute the card to every household.
+6. Conduct a simple walkthrough once: "If we hear the fire alarm, we go to [assembly point]. Check that your immediate neighbors are accounted for."
+7. Completion indicator: a basic emergency response plan exists, at least four households are aware of it, and key responsibilities are assigned.` },
+        { title: "Create a neighborhood fund or collection for supporting neighbors in crisis", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ  
+**Translation:** "And they give preference over themselves, even though they are in privation."
+
+
+### Sahih Muslim 2568
+The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection." A neighborhood fund for crisis support is organized relief of hardship.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) described the believers as one body (Bukhari 6011) — when one part suffers, the whole responds. Financial crisis, sudden medical bills, job loss, or bereavement can devastate a family. A small neighborhood fund — even informal — means that when crisis strikes, the response is immediate and collective. This is the micro-level implementation of the Bayt al-Mal concept: communal resources available to those in need. It transforms neighbors from sympathetic observers into active supporters during the hardest moments.
+
+
+**How?**
+
+1. Propose the idea to trusted neighbors: "What if we each set aside a small amount monthly so that if any of us faces a crisis, we have something to offer immediately?"
+2. Keep it simple and voluntary: a small fixed amount (whatever is comfortable for the lowest-income household) collected monthly.
+3. Designate a trusted person to hold the fund — or use a shared digital wallet or simple cash envelope system.
+4. Agree on criteria: the fund is for genuine emergencies — medical, job loss, bereavement, urgent home repairs.
+5. When a crisis occurs, the fund is offered immediately and privately — preserving the recipient's dignity.
+6. Review the fund quarterly: how much is available, has it been used, and should contributions be adjusted?
+7. Completion indicator: a neighborhood mutual aid fund exists with at least three contributing households and has been available for at least three months.` },
+        { title: "Sustain and grow the network — onboard new neighbors, celebrate milestones, and keep the culture alive", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 2674
+The Prophet (peace be upon him) said: "Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him." Onboarding new neighbors and celebrating milestones sustains the good practice across time.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Networks and communities decay without intentional maintenance. Neighbors move, enthusiasm fades, and the initial energy dissipates. The Prophet (peace be upon him) sustained the Madinah community through consistent reinforcement: weekly congregations, recurring celebrations, and ongoing relationship-building. Your neighborhood mutual aid network needs the same: onboarding new residents so the culture does not depend on original members, celebrating what the community has achieved to reinforce its value, and adapting as the neighborhood changes. Sustainability is the difference between a temporary initiative and a lasting community transformation.
+
+
+**How?**
+
+1. When new neighbors move in, introduce them to the network: welcome them, explain what the community does, and invite them to participate.
+2. Every six months, hold a simple review gathering: what has the network accomplished? What needs improvement? Are there new needs?
+3. Celebrate milestones: "Our neighborhood has shared 50 meals this year" or "We supported three families during difficult times."
+4. Rotate leadership: do not let the network depend entirely on you — empower others to organise, communicate, and lead.
+5. Document the network's principles and practices simply so they can be passed on to new residents or new leaders.
+6. Stay adaptive: if the neighborhood's demographics or needs change, the network should evolve accordingly.
+7. Completion indicator: the mutual aid network has successfully onboarded at least two new households and has been sustained with active participation for at least six months.` },
+      ],
+    },
+    {
+      title: "Build intergenerational neighbor bonds — connect children, adults, and elders across households",
+      priority: 'medium', tags: ['haqq-al-jar', 'intergenerational', 'bonds'],
+      description: "The Prophet's community in Madinah was not age-segregated — children learned from elders, elders were cared for by youth, and adults modelled responsibility to both. Modern neighborhoods often silo generations: children play only with children, adults interact only with adults, and elderly residents become invisible. This task restores the intergenerational fabric that makes a neighborhood a true community.",
+      subtasks: [
+        { title: "Teach your children the rights of neighbors — make Haqq al-Jar a household value they practice from young", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
+
+### Quran (31:17)
+**Arabic:** يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ  
+**Translation:** O my son, establish prayer, enjoin what is right, forbid what is wrong, and be patient over what befalls you.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Your children are your flock, and teaching them Haqq al-Jar ensures the tradition survives into the next generation. A child who grows up greeting neighbors, sharing food, and helping the elderly will carry these habits into their own adult life and teach their own children. Conversely, a child who sees their parents ignoring neighbors, complaining about them, or treating them as strangers learns that community does not matter. The teaching must be both verbal (explaining the hadith) and practical (involving children in neighborly acts).
+
+**How?**
+
+1. Teach your children the key hadith: "Jibril kept urging me about the neighbor..." and explain it in age-appropriate language.
+2. Involve them in food preparation for neighbors: let them help cook, plate, and deliver the food.
+3. Teach them to greet every neighbor by name: "That is Uncle Ahmed, say salam to him."
+4. When visiting a sick or elderly neighbor, bring your children along so they see the practice modelled.
+5. Praise neighborly behavior: "I was so proud when you held the door for our neighbor."
+6. Discuss scenarios: "What would you do if you saw our neighbor carrying heavy bags?"
+7. Completion indicator: your children independently greet neighbors by name, participate in food sharing, and can explain at least one hadith about neighbor rights.` },
+        { title: "Connect your children with elderly neighbors — regular visits, small acts of service, and respectful companionship", done: false,
+          sources: `**I. Quran**
+
+### Quran (17:23)
+**Arabic:** وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا ۚ إِمَّا يَبْلُغَنَّ عِندَكَ الْكِبَرَ أَحَدُهُمَا أَوْ كِلَاهُمَا فَلَا تَقُل لَّهُمَا أُفٍّ  
+**Translation:** And your Lord has decreed that you not worship except Him, and to parents, good treatment. Whether one or both of them reach old age while with you, say not to them so much as "uff."
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Elderly neighbors often experience profound loneliness — their children have moved away, their spouses may have passed, and days can pass without meaningful human interaction. A child's visit — with their energy, their curiosity, their unfiltered warmth — is a gift that many elderly people treasure above almost anything else. For the child, the relationship teaches respect, empathy, and the understanding that community spans all ages.
+
+**How?**
+
+1. Identify elderly neighbors in your vicinity, especially those living alone.
+2. Introduce your children: "This is Auntie Fatimah from downstairs. We are going to visit her sometimes."
+3. Start with brief, regular visits — 15 to 20 minutes, weekly if possible.
+4. Bring something: a drawing the child made, a plate of food, or fresh flowers from the garden.
+5. Teach children simple acts of service: "Ask Auntie if she needs anything from the shop" or "Help carry her rubbish bag."
+6. Let the relationship develop naturally — many elderly people love teaching children skills (cooking, crafts, stories from their youth).
+7. Completion indicator: your children have a regular visiting relationship with at least one elderly neighbor, sustained for at least two months.` },
+        { title: "Facilitate knowledge and skill exchange between older and younger neighbors", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:13)
+**Arabic:** وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
+**Translation:** And made you peoples and tribes that you may know one another.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 1944
+The Prophet (peace be upon him) said: "The best of neighbors in the sight of Allah is the best of them to his neighbor."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+Every generation holds knowledge the other needs. An elderly neighbor may know how to garden, sew, cook traditional dishes, or navigate bureaucracy. A younger neighbor may understand technology, social media, online banking, or modern health resources. The Prophet (peace be upon him) paired people of different strengths through the mu'akhah system. When neighbors exchange skills across generations — an elder teaches a young family to preserve food while a teenager helps them set up video calling with their grandchildren — both sides gain and the relationship deepens beyond surface pleasantries into genuine interdependence.
+
+
+**How?**
+
+1. Using your community asset map, identify cross-generational skill matches: elderly neighbors with traditional skills, younger neighbors with technical skills.
+2. Propose specific exchanges: "Mrs. Chen is an amazing cook — would she be open to teaching your daughter? In return, could your daughter help her set up WhatsApp to call her son overseas?"
+3. Organise informal "skill share" sessions: a cooking afternoon, a technology help hour, a gardening morning.
+4. Frame exchanges as mutual: neither party is doing charity — both are contributing and receiving.
+5. Let relationships form naturally around shared activities — forced interactions feel awkward, but shared projects create genuine bonds.
+6. Celebrate what is learned: "Look at the dress Mrs. Khan taught me to sew!" — public appreciation reinforces the culture.
+7. Completion indicator: at least two cross-generational skill exchanges have occurred in your neighborhood, and the participants are continuing the relationship independently.` },
+        { title: "Ensure elderly neighbors are included in neighborhood gatherings and not left isolated", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنبِ  
+**Translation:** And the near neighbor, the neighbor farther away, and the companion at your side.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6017
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) noticed when regular community members were absent and sought them out. Elderly neighbors are often excluded from gatherings unintentionally — the event is too noisy, the timing is inconvenient, mobility is limited, or simply no one thought to invite them. Active inclusion means not just inviting but facilitating: offering to walk them to the gathering, ensuring seating is comfortable, adjusting the environment so they can participate. A community that isolates its elders has failed at the most basic level of Haqq al-Jar toward its most vulnerable members.
+
+
+**How?**
+
+1. When organising any neighborhood gathering, specifically invite elderly residents in person — a personal invitation matters far more than a general announcement.
+2. Ask if they need help getting there: "Can I walk with you, or would you like me to bring you a plate if it is too far?"
+3. Ensure the gathering space has comfortable seating, is not too loud, and is accessible (ground floor or elevator access).
+4. During the gathering, include them in conversation — do not let them sit alone while everyone else socialises in their own age groups.
+5. Ask for their input and stories: "You have lived here the longest — what was this street like twenty years ago?"
+6. If they cannot attend, bring the gathering to them: a plate of food and a brief visit afterward.
+7. Completion indicator: every neighborhood gathering you organise includes at least one elderly resident who participates meaningfully and feels welcomed.` },
+        { title: "Create a legacy project that bonds generations — a neighborhood garden, a shared history project, or a communal celebration", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 2320
+The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift for him." A neighborhood garden is a living sadaqah that bonds generations.
+*(Grade: Sahih)*
+
+
+### Quran (13:4)
+**Arabic:** وَفِي الْأَرْضِ قِطَعٌ مُّتَجَاوِرَاتٌ  
+**Translation:** "And within the land are neighboring plots."`,
+          description: `**Why?**
+
+ A legacy project is the palm seedling of community building — something that outlasts the individuals who created it and serves future generations. A neighborhood garden tended by elders and children together, a shared history project recording the stories of long-term residents, or an annual communal celebration — these create institutional memory and intergenerational bonds that make a neighborhood feel like a home, not just an address.
+
+**How?**
+
+1. Choose a project that naturally involves multiple generations: a communal garden (elders advise on plants, children help dig, adults do heavy work), a street history project (elders share memories, teens record and compile), or an annual celebration (everyone contributes).
+2. Propose it at a neighborhood gathering: "What if we planted a shared garden in the courtyard?"
+3. Assign roles by strength: elderly neighbors advise and supervise, adults do physical work, children assist and learn, teenagers document.
+4. Make the project visible: a sign in the garden, a printed booklet of neighborhood history, photos of the celebration displayed in the common area.
+5. Ensure continuity: who maintains the garden? Who organises next year's celebration? Pass these roles to different households each year.
+6. As new neighbors arrive, involve them: the project becomes the neighborhood's identity and welcoming tradition.
+7. Completion indicator: a legacy project has been initiated with participation from at least three generations (children, adults, elders) and has produced a tangible, visible result.` },
+      ],
+    },
+  ],
+
+  // ── COMMUNITY ──
+
+  // ── CORE — Fulfil basic community obligations ──
+  ummah_community_core: [
+    {
       title: "Establish regular congregational prayer in your locality",
       priority: 'urgent', tags: ['jamaah', 'salah', 'foundation'],
       description: "Congregational prayer is the visible heartbeat of the Muslim community. Without a functioning jamaah, the collective identity of Muslims in a locality dissolves into isolated individuals. This task establishes or strengthens the weekly and daily congregational prayer presence where you live.",
@@ -27,7 +3437,12 @@ export const UMMAH_SEED_TASKS = {
 
 ### Sahih al-Bukhari 647
 The Prophet (peace be upon him) said: "The prayer of a man in congregation is twenty-five times more meritorious than his prayer in his house or market."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 589
+Recorded in Volume 1, Book 11, Number 589: 'If the people knew the reward for pronouncing the Adhan and for standing in the first row... they would draw lots.' Also found in Muslim 877.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "The prayer of a man in congregation is twenty-seven times superior to his prayer alone" (Bukhari & Muslim). Congregational prayer is the minimum viable expression of Muslim community — it gathers believers, synchronises their hearts, and declares the presence of Islam in a locality. Without knowing what already exists, you risk duplicating efforts or neglecting underserved areas.
@@ -87,7 +3502,12 @@ Allah commands in Surah al-Jumu'ah (62:9): "O you who believe, when the call to 
 
 ### Sunan Abu Dawud 547
 The Prophet (peace be upon him) said: "If there are three men in a village or in the desert and prayer is not offered in congregation, Satan has got the mastery over them. Therefore, be congregational, for the wolf eats only the stray sheep."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 56
+Recorded in Volume 2, Book 13, Number 56: 'When the Imam is delivering the Khutba, and you ask your companion to keep quiet and listen, then no doubt you have done an evil act.' Also in Muslim 1846.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "No three people in a village or desert fail to establish prayer in congregation except that Shaytan gains mastery over them" (Abu Dawud). Where no jamaah exists, Muslims are spiritually exposed. Establishing even a small prayer group of three fulfils a communal obligation and plants the seed from which a full community can grow. You do not need a building — you need intention and consistency.
@@ -147,7 +3567,12 @@ The Prophet (peace be upon him) said: "Straighten your rows, for straightening t
 
 ### Sahih Muslim 2586
 The Prophet (peace be upon him) said: "The parable of the believers in their affection, mercy, and compassion for each other is that of a body. When any limb of it aches, the whole body reacts with sleeplessness and fever."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 1379
+Found in Sahih Muslim 1379: 'He who observed the 'Isya' prayer in congregation, it was as if he prayed up to the midnight, and he who prayed the morning prayer in congregation, it was as if he prayed the whole night.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) described the believers as "one body — if one part suffers, the whole body responds with sleeplessness and fever" (Bukhari & Muslim). This hadith demands a mechanism for actually knowing when a part of the body is suffering. Without regular check-ins, needs go unspoken, families suffer in silence, and the community fails its most basic covenant of mutual care. A weekly touchpoint prevents this.
@@ -519,7 +3944,12 @@ The masjid of the Prophet (peace be upon him) in Madinah was the centre of the c
 
 ### Sahih al-Bukhari 3461
 The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 410
+Recorded in Volume 2, Book 23, Number 410: 'whoever accompanies it till burial, will get a reward equal to two Qirats... Like two huge mountains.' Also found in Muslim 2067.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Jibril kept advising me to be good to my neighbour until I thought he would make him an heir" (Bukhari & Muslim). Neighbours have rights in Islam regardless of their faith. Many misconceptions about Muslims persist simply because non-Muslim neighbours have never met the Muslims next door. A personal introduction breaks barriers, builds trust, and fulfils the Prophetic command of good neighbourliness that is the foundation of peaceful coexistence.
@@ -606,7 +4036,12 @@ The Prophet (peace be upon him) participated in the Hilf al-Fudul (Pact of the V
 
 ### Sahih Muslim 2564
 The Prophet (peace be upon him) said: "Do not envy one another, do not inflate prices, do not hate one another, do not turn your backs on one another, and do not undercut one another in trade. Be, O servants of Allah, brothers."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 485
+Recorded in Volume 2, Book 24, Number 485: camels and sheep will tread on owners who did not pay Zakat. Sahih Muslim 2161 describes treasure being heated in Fire to cauterize the owner.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) established the Constitution of Madinah (Sahifat al-Madinah) — a written covenant that defined the rights, obligations, and shared commitments of the community. Without a written agreement on fundamentals, every disagreement becomes existential because there is no baseline to return to. A covenant provides that baseline: these are the things we all agree on, and this is how we will handle the things we disagree on.
@@ -636,7 +4071,12 @@ The Prophet (peace be upon him) established the Constitution of Madinah (Sahifat
 
 ### Sahih al-Bukhari 7084
 The Prophet (peace be upon him) said: "You must follow the congregation of Muslims and their leader."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 478
+Recorded in Volume 2, Book 23, Number 478. The Prophet instructed to teach that Zakat is 'to be taken from the wealthy among them and given to the poor.' Also in Muslim 28.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "My ummah will not agree upon error" (Ibn Majah). Focusing on areas of agreement is not a compromise — it is a Prophetic strategy. When communities are consumed by their differences, they forget how much they share. Explicitly naming and celebrating the common ground — tawhid, the five pillars, the Quranic ethic of justice and mercy — reminds every member that what unites them is infinitely greater than what divides them.
@@ -666,7 +4106,12 @@ The Prophet (peace be upon him) said: "My ummah will not agree upon error" (Ibn 
 ### Sahih al-Bukhari 7352
 The Prophet (peace be upon him) said: "When a judge gives a decision, having tried his best to decide correctly, and is right, there are two rewards for him; and if he gave a judgment after having tried his best (to arrive at a correct decision) but erred, there is one reward for him."
 *(Grade: Sahih)*
-*(Contextual: even erring scholars exercising sincere ijtihad earn reward — establishing that legitimate scholarly disagreement is a mercy, not a defect.)*`,
+*(Contextual: even erring scholars exercising sincere ijtihad earn reward — establishing that legitimate scholarly disagreement is a mercy, not a defect.)*
+
+### Sahih Bukhari 629
+Recorded in Volume 1, Book 11, Number 629 as one of the seven shaded: 'a man who gives charitable gifts so secretly that his left hand does not know what his right hand has given.' Also in Muslim 2248.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Companions of the Prophet (peace be upon him) disagreed on numerous fiqhi matters — yet they prayed behind one another, married into each other's families, and maintained brotherhood. The problem is not disagreement but how disagreement is handled. Without ground rules, minor fiqhi differences (e.g., hand placement in prayer, moon-sighting methodology) become community-splitting conflicts. Ground rules preserve unity by making disagreement normal and manageable.
@@ -745,3556 +4190,6 @@ Allah commands: "If two groups of believers fight, make peace between them" (Qur
 7. Completion indicator: a completed mediation process with a signed agreement and a 90-day follow-up confirming adherence.` },
       ],
     },
-  ],
-
-  // ── GROWTH: Building Capacity ──
-  ummah_collective_growth: [
-    {
-      title: "Establish a community education institution (halaqa or weekend school)",
-      priority: 'high', tags: ['education', 'tarbiyah', 'institution'],
-      description: "The Prophet (peace be upon him) said: 'Seeking knowledge is an obligation upon every Muslim' (Ibn Majah). This task creates a structured, ongoing educational institution that serves all ages — from children learning the basics of their faith to adults deepening their understanding. Education is the engine of community growth.",
-      subtasks: [
-        { title: "Assess the educational needs of your community across all age groups", done: false,
-          sources: `**I. Quran**
-
-### Quran (96:1-5)
-**Arabic:** اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ۝ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ ۝ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ ۝ الَّذِي عَلَّمَ بِالْقَلَمِ ۝ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ  
-**Translation:** Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the most Generous. Who taught by the pen. Taught man that which he knew not.
-
-### Quran (20:114)
-**Arabic:** وَقُل رَّبِّ زِدْنِي عِلْمًا  
-**Translation:** And say, "My Lord, increase me in knowledge."
-
-**II. Hadith**
-
-### Sunan Ibn Majah 224
-The Prophet (peace be upon him) said: "Seeking knowledge is an obligation upon every Muslim."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) tailored his teaching to his audience — he spoke differently to the Bedouin, the scholar, and the child. An education programme built without understanding the community's actual needs will attract no one. Some communities need basic Arabic literacy; others need advanced fiqh; many need youth-specific programming. A needs assessment ensures you build what is actually needed, not what you assume is needed.
-
-
-**How?**
-
-1. Design a simple survey covering: age, current Islamic knowledge level (self-assessed), topics of greatest interest, preferred learning format (lecture, discussion, online, in-person), and scheduling constraints.
-2. Distribute to at least 50 community members across all demographics — parents, singles, youth, elders, converts.
-3. Supplement surveys with 5-10 in-depth conversations with community leaders, teachers, and parents.
-4. Compile results into a needs matrix: rows = age groups, columns = topic areas, cells = demand level (high/medium/low).
-5. Identify the top 3 unmet needs that affect the largest number of people.
-6. Present findings to the shura council with a recommendation for programme priorities.
-7. Completion indicator: a documented needs assessment with at least 50 survey responses and a prioritised list of 3 educational needs, endorsed by the shura council.` },
-        { title: "Recruit and vet qualified teachers for core subjects", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (9:122)
-**Arabic:** فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ  
-**Translation:** "From every group, a party should go forth to obtain understanding in the religion."
-
-
-### Sunan Abu Dawud 3641
-The Prophet (peace be upon him) said: "The scholars are the heirs of the Prophets." Recruiting qualified teachers is essential to preserving and transmitting sacred knowledge.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) warned: "Allah does not take away knowledge by snatching it from people, but by taking away the scholars" (Bukhari & Muslim). Who teaches matters as much as what is taught. Unqualified teachers can transmit distorted beliefs, poor methodology, or harmful attitudes that take years to undo. Vetting ensures that the community's educational foundation is built on sound knowledge, good character, and pedagogical competence.
-
-
-**How?**
-
-1. Define the core subjects your programme will cover (e.g., Quran recitation, basic aqidah, fiqh of worship, seerah, Arabic).
-2. For each subject, list the minimum qualifications: formal ijaza or degree, teaching experience, and character references.
-3. Reach out to local imams, Islamic university graduates, and experienced teachers — start within the community, then expand to neighbouring communities.
-4. Conduct interviews focusing on: knowledge level, teaching methodology, ability to handle difficult questions, and alignment with the community's values.
-5. Request a trial lesson observed by 2-3 evaluators.
-6. Check references and conduct background checks, especially for those teaching children.
-7. Completion indicator: at least one vetted, qualified teacher recruited for each core subject, with documented qualifications and trial lesson feedback.` },
-        { title: "Design a structured curriculum with clear learning outcomes", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (96:1-5)
-**Arabic:** اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ  
-**Translation:** "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the Most Generous. Who taught by the pen. Taught man that which he knew not."
-
-
-### Quran (20:114)
-**Arabic:** وَقُل رَّبِّ زِدْنِي عِلْمًا  
-**Translation:** "And say: My Lord, increase me in knowledge."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) taught in stages — he built the foundations of tawhid in Makkah before the detailed laws came in Madinah. A curriculum without structure produces students with scattered, incomplete knowledge. Clear learning outcomes ensure that after completing the programme, students can demonstrably recite, understand, and apply what they have learned. Structure also allows teachers to coordinate, prevents repetition, and shows the community that this is a serious institution, not a casual gathering.
-
-
-**How?**
-
-1. For each subject and age group, define 3-5 learning outcomes: what should a student know and be able to do after completing this course?
-2. Break each course into weekly sessions with specific topics, readings, and activities.
-3. Include assessment points: not formal exams, but recitation checks, written reflections, or practical demonstrations.
-4. Align the curriculum with the community's identified needs from the assessment phase.
-5. Have the curriculum reviewed by at least one qualified scholar for accuracy and by one experienced educator for pedagogy.
-6. Pilot the curriculum for one term and collect feedback from students and teachers.
-7. Completion indicator: a written curriculum document covering at least 3 subjects with weekly session plans, learning outcomes, and assessment methods, reviewed and approved by a scholar and an educator.` },
-        { title: "Secure a dedicated space and regular schedule for classes", done: false,
-          sources: `**I. Quran**
-
-### Quran (9:122)
-**Arabic:** فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنذِرُوا قَوْمَهُمْ إِذَا رَجَعُوا إِلَيْهِمْ  
-**Translation:** And it is not for the believers to go forth all at once. For there should separate from every division of them a group to obtain understanding in the religion and warn their people when they return to them.
-
-**II. Hadith**
-
-### Jami at-Tirmidhi 2682
-The Prophet (peace be upon him) said: "May Allah brighten the face of a person who hears a hadith from us, memorises it, and conveys it to others."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) had the Suffah — a dedicated space in the masjid for learning. Education cannot thrive in borrowed, inconsistent spaces with unpredictable schedules. A dedicated space signals permanence and seriousness; a regular schedule builds habit and attendance. Without these, even the best curriculum will fail because people cannot plan around uncertainty.
-
-
-**How?**
-
-1. Assess available spaces: rooms in the masjid, community centre, school, or a rented facility.
-2. Determine the minimum requirements: seating capacity, whiteboard or projector, ventilation, accessibility, and separate spaces for children and adults if needed.
-3. Negotiate a consistent booking: same day, same time, same room every week — this is non-negotiable for building attendance.
-4. If no suitable space exists, explore partnerships with local schools, libraries, or churches that rent community rooms.
-5. Budget for the space: rent, utilities, teaching materials, and a small contingency.
-6. Announce the schedule widely and stick to it — cancellations erode trust faster than anything.
-7. Completion indicator: a confirmed, dedicated space booked for at least one academic term with a published schedule distributed to the community.` },
-        { title: "Launch the first term and establish feedback and improvement cycles", done: false,
-          sources: `**I. Quran**
-
-### Quran (3:110)
-**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ  
-**Translation:** You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.
-
-**II. Hadith**
-
-### Sahih Muslim 2674
-The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) constantly refined his approach based on the needs of his community. A programme that launches and never improves will stagnate and lose relevance. Formal feedback cycles — from students, teachers, and parents — ensure the programme adapts, grows, and continues to serve the community well. The first term is the proof of concept that builds the credibility needed for long-term sustainability.
-
-
-**How?**
-
-1. Launch with a public event: introduce the teachers, explain the curriculum, and register students.
-2. Run the first term (8-12 weeks) with consistent delivery of the planned curriculum.
-3. Collect mid-term feedback: a brief survey asking students what is working, what is not, and what they want more of.
-4. Collect end-of-term feedback from students, parents, and teachers with a more detailed survey.
-5. Hold a teachers' meeting to review feedback, discuss challenges, and plan adjustments for the next term.
-6. Publish a brief report to the community: how many students enrolled, what was taught, and what improvements are planned.
-7. Completion indicator: a completed first term with at least 15 enrolled students, documented feedback, and a published improvement plan for term two.` },
-      ],
-    },
-    {
-      title: "Build a community dispute resolution (sulh) mechanism",
-      priority: 'high', tags: ['sulh', 'justice', 'conflict-resolution'],
-      description: "Allah commands: 'If two groups of believers fight, make peace between them' (Quran 49:9). This task creates a formal, trusted mechanism for resolving disputes within the community — from personal conflicts to business disagreements — before they escalate into fitna that tears the community apart.",
-      subtasks: [
-        { title: "Identify and train community mediators in Islamic dispute resolution", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (29:46)
-**Arabic:** 
-**Translation:** And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, "We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam)."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) personally mediated disputes and appointed mediators like Abu Ubayda ibn al-Jarrah, known as the "trustworthy one of this ummah." Effective mediation requires specific skills: impartiality, deep listening, knowledge of Islamic rulings on justice, and the ability to help parties find common ground. Untrained mediators often make conflicts worse by taking sides or imposing solutions. Training ensures the community has people who can heal rather than inflame.
-
-
-**How?**
-
-1. Identify 3-5 community members who possess the following qualities: respected by all groups, known for fairness, able to maintain confidentiality, and willing to commit time to mediation.
-2. Provide training in the basics of Islamic dispute resolution: the Quranic principles of sulh (reconciliation), the Prophetic examples, and the fiqh of arbitration (tahkim).
-3. Supplement with practical mediation skills: active listening, reframing, managing emotions, and drafting agreements.
-4. If formal training courses are available (e.g., through Islamic arbitration councils or community mediation programmes), enrol the candidates.
-5. Conduct practice mediations using realistic scenarios before handling real cases.
-6. Establish a code of conduct for mediators: impartiality, confidentiality, and no personal benefit from cases.
-7. Completion indicator: at least 3 trained mediators who have completed training and conducted at least one supervised practice mediation each.` },
-        { title: "Define the scope and process of the dispute resolution service", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:9)
-**Arabic:** وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا  
-**Translation:** And if two factions among the believers should fight, then make settlement between the two.
-
-### Quran (4:35)
-**Arabic:** وَإِنْ خِفْتُمْ شِقَاقَ بَيْنِهِمَا فَابْعَثُوا حَكَمًا مِّنْ أَهْلِهِ وَحَكَمًا مِّنْ أَهْلِهَا  
-**Translation:** And if you fear dissension between the two, send an arbitrator from his people and an arbitrator from her people.
-
-**II. Hadith**
-
-### Sunan Abu Dawud 4919
-The Prophet (peace be upon him) said: "Shall I not inform you of something more excellent in degree than fasting, prayer, and charity? It is reconciling people."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Without a clear scope and process, the mediation service will either be overwhelmed by every minor disagreement or ignored because no one knows it exists. The Prophet (peace be upon him) established clear processes for adjudication — different approaches for family disputes, financial disputes, and interpersonal conflicts. A defined scope and process builds trust by setting expectations: what kinds of disputes are handled, how long it takes, and what the outcomes can be.
-
-
-**How?**
-
-1. Define the types of disputes the service will handle: interpersonal conflicts, family disputes (non-legal), business disagreements between community members, and community governance disputes.
-2. Define what is out of scope: criminal matters (refer to authorities), cases requiring legal expertise (refer to Islamic arbitration councils or lawyers), and disputes where one party refuses to participate.
-3. Write a step-by-step process: (a) intake and initial assessment, (b) contacting both parties, (c) scheduling mediation, (d) conducting the session, (e) drafting an agreement, (f) follow-up.
-4. Set timelines: intake within 72 hours, first session within 2 weeks, resolution target within 30 days.
-5. Create intake forms and agreement templates.
-6. Publish the service details through the masjid, newsletter, and community website.
-7. Completion indicator: a documented process with forms and templates, published and accessible to all community members.` },
-        { title: "Handle the first 3 cases and document lessons learned", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:58)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ  
-**Translation:** Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 7188
-The Prophet (peace be upon him) said: "When a judge makes a ruling, striving to reach the right decision, and is correct, he will have two rewards. If he is mistaken, he will still have one reward."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Theory without practice is incomplete. The first real cases will reveal gaps in the process, skill deficiencies in the mediators, and community attitudes that need to be addressed. The Prophet (peace be upon him) learned and adjusted through experience — the approach at Badr was different from Uhud, which was different from Khandaq. Documenting lessons from real cases ensures the service improves rapidly and builds credibility through demonstrated competence.
-
-
-**How?**
-
-1. Accept the first 3 cases through the published intake process — do not cherry-pick easy cases; take what comes.
-2. Assign each case to a mediator, with a senior mentor observing or available for consultation.
-3. Follow the documented process for each case, noting any deviations and why they were necessary.
-4. After each case (whether resolved or not), conduct a debrief: what worked, what did not, and what should change.
-5. Compile lessons learned into a brief report without identifying parties.
-6. Update the process document and training materials based on the lessons.
-7. Completion indicator: 3 cases processed through the system with documented outcomes and a lessons-learned report that has been used to update the process.` },
-        { title: "Build community trust in the mediation service through transparency", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:10)
-**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ ۚ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُرْحَمُونَ  
-**Translation:** The believers are but brothers, so make settlement between your brothers. And fear Allah that you may receive mercy.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 2692
-The Prophet (peace be upon him) said: "Making peace between people is a form of charity."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-People will not use a dispute resolution service they do not trust. The Prophet (peace be upon him) was known as al-Amin (the trustworthy) before prophethood — trust must be earned, not assumed. Transparency about the process, the mediators' qualifications, and the service's track record (without breaching confidentiality) builds the credibility needed for community members to bring their real disputes forward rather than letting them fester.
-
-
-**How?**
-
-1. Publish a quarterly report: number of cases handled, resolution rate, average time to resolution, and types of disputes (without identifying details).
-2. Share anonymised testimonials from parties who found the process helpful (with their permission).
-3. Invite the community to meet the mediators at a community gathering — brief introductions and Q&A about the process.
-4. Address concerns and misconceptions openly: "Yes, everything is confidential. No, the mediator cannot force a decision on you."
-5. Seek endorsement from the imam and shura council — their public support lends institutional credibility.
-6. Ask resolved parties to refer others — word of mouth is the strongest trust signal.
-7. Completion indicator: at least one published quarterly report, one public introduction event, and at least 2 new cases received through referrals from previous users.` },
-        { title: "Establish a referral network for cases beyond the community's capacity", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-### Quran (4:135)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ  
-**Translation:** O you who have believed, be persistently standing firm in justice, witnesses for Allah.`,
-          description: `**Why?**
-
-Not every dispute can or should be resolved internally. Some cases involve legal complexity (e.g., divorce, inheritance, business partnerships with external parties) that require professional Islamic arbitration, legal counsel, or even court intervention. The Prophet (peace be upon him) sent delegations to specialists when needed. A referral network ensures the community does not overextend itself and that parties receive the right level of support for their situation.
-
-
-**How?**
-
-1. Research and compile a list of: Islamic arbitration councils, Muslim family lawyers, Muslim business mediators, and counselling services in your area or region.
-2. Contact each to confirm: services offered, fees, geographic coverage, and willingness to accept referrals from your community.
-3. Establish a simple referral protocol: when a case is assessed as beyond scope, the intake team provides the party with relevant referral options and contact details.
-4. Maintain the referral list as a living document, updated annually.
-5. Follow up on referred cases (with consent) to assess whether the external service was helpful.
-6. Share the referral directory with the community so individuals can also access it directly.
-7. Completion indicator: a published referral directory with at least 5 vetted external services, and at least 2 successful referrals made.` },
-      ],
-    },
-    {
-      title: "Develop a structured dawah and outreach programme",
-      priority: 'medium', tags: ['dawah', 'outreach', 'interfaith'],
-      description: "Allah commands: 'Invite to the way of your Lord with wisdom and beautiful preaching' (Quran 16:125). This task builds a structured, sustainable outreach programme that represents Islam accurately and beautifully to non-Muslims, engages in interfaith dialogue, and fulfils the community's obligation to share the message.",
-      subtasks: [
-        { title: "Assess the current state of community outreach and identify gaps", done: false,
-          sources: `**I. Quran**
-
-### Quran (16:125)
-**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
-**Translation:** Invite to the way of your Lord with wisdom and good instruction.
-
-### Quran (12:108)
-**Arabic:** قُلْ هَٰذِهِ سَبِيلِي أَدْعُو إِلَى اللَّهِ ۚ عَلَىٰ بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي  
-**Translation:** Say, "This is my way; I invite to Allah with insight — I and those who follow me."`,
-          description: `**Why?**
-
-Many Muslim communities either do no outreach at all or conduct it in an ad-hoc, reactive manner — responding to media crises rather than proactively building relationships. The Prophet (peace be upon him) sent letters and envoys to rulers and communities systematically, not randomly. Understanding what outreach (if any) currently exists and where the gaps are prevents duplication and ensures the new programme addresses real deficiencies.
-
-
-**How?**
-
-1. Interview community leaders and active members: what outreach activities have been done in the past 2 years?
-2. List all current touchpoints with non-Muslims: open days, interfaith events, social media, neighbour relations, civic participation.
-3. Assess quality and consistency: are these activities regular or sporadic? Well-organised or improvised?
-4. Identify gaps: is there any outreach to schools? Workplaces? Local government? Media?
-5. Survey non-Muslim neighbours and local organisations: how do they perceive the Muslim community? What would they want to know?
-6. Compile findings into a gap analysis with recommendations.
-7. Completion indicator: a documented gap analysis with at least 3 identified outreach deficiencies and recommendations, based on both internal and external perspectives.` },
-        { title: "Train a team of community ambassadors in effective, respectful dawah", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (16:125)
-**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
-**Translation:** "Invite to the way of your Lord with wisdom and good instruction."
-
-
-### Sahih Muslim 1893
-The Prophet (peace be upon him) said: "Whoever guides someone to goodness will have a reward like the one who did it." Training dawah ambassadors multiplies the community's capacity for good.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "Convey from me, even if it is one ayah" (Bukhari). But conveying requires skill. A well-intentioned but poorly trained ambassador can misrepresent Islam, offend potential allies, or create legal and social problems. Training ensures ambassadors can answer common questions accurately, handle hostile questions gracefully, and represent the community with the dignity and intelligence that the message of Islam deserves.
-
-
-**How?**
-
-1. Recruit 5-10 community members who are articulate, approachable, knowledgeable, and emotionally intelligent — not just the most religious, but the most relatable.
-2. Design a training programme covering: the basics of Islam (for explaining to non-Muslims), common misconceptions and how to address them, active listening and respectful dialogue, cultural sensitivity, and legal boundaries (know your rights in public spaces).
-3. Include role-play scenarios: "A colleague asks you about women in Islam," "A neighbour expresses concern about terrorism," "A stranger is curious about your prayer."
-4. Practise concise, jargon-free explanations — most non-Muslims do not know what "tawhid" or "sunnah" means.
-5. Provide each ambassador with a resource kit: business cards with masjid contact, a recommended reading list for interested non-Muslims, and a FAQ card.
-6. Conduct a final assessment through observed role-play before deploying ambassadors.
-7. Completion indicator: at least 5 trained ambassadors who have passed a role-play assessment and received their resource kits.` },
-        { title: "Launch a regular interfaith dialogue initiative", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (29:46)
-**Arabic:** وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ  
-**Translation:** "And do not argue with the People of the Scripture except in a way that is best."
-
-
-### Quran (49:13)
-**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
-**Translation:** "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another."`,
-          description: `**Why?**
-
-The Quran says: "O humanity, We have created you from male and female and made you into nations and tribes that you may know one another" (49:13). Interfaith dialogue is not about compromising beliefs — it is about building understanding, finding common ground on shared values (justice, charity, family), and removing the ignorance that breeds hostility. The Prophet (peace be upon him) maintained respectful relationships with Jewish and Christian communities in Madinah and engaged in theological dialogue with visiting delegations.
-
-
-**How?**
-
-1. Identify local religious leaders and institutions willing to engage: churches, synagogues, temples, and secular community organisations.
-2. Start with a personal meeting between your imam or community leader and their counterpart — build the relationship before the programme.
-3. Design an initial event: a shared meal with brief presentations from each faith on a common theme (e.g., "What does our faith say about serving the poor?").
-4. Establish ground rules: mutual respect, no proselytising during the dialogue, focus on understanding not debating, and equal speaking time.
-5. Plan a series of 3-4 events per year, alternating hosts between communities.
-6. Collect feedback after each event and adjust the format based on what participants find most valuable.
-7. Completion indicator: at least 2 interfaith events held with documented attendance from multiple faith communities and positive feedback from participants.` },
-        { title: "Create accessible dawah materials tailored to your local audience", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (16:125)
-**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
-**Translation:** "Invite to the way of your Lord with wisdom and good instruction."
-
-
-### Quran (41:33)
-**Arabic:** وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا  
-**Translation:** "And who is better in speech than one who invites to Allah and does righteousness."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) communicated differently with different audiences — he used poetry with the Arabs, logic with the Quraysh, and practical demonstration with the Bedouin. Generic dawah materials often fail because they do not speak to the specific questions, concerns, and cultural context of the local audience. Materials tailored to your community's neighbours — their language, their common misconceptions, their values — are exponentially more effective than one-size-fits-all pamphlets.
-
-
-**How?**
-
-1. Based on the outreach assessment and interfaith interactions, identify the top 5 questions non-Muslims in your area have about Islam.
-2. Draft clear, concise answers to each question — no more than one page per answer, written in accessible language without Arabic jargon.
-3. Have the materials reviewed by: a qualified scholar (for accuracy), a non-Muslim friend or neighbour (for clarity and tone), and a professional communicator (for presentation).
-4. Produce the materials in both digital and print formats: a simple website or social media page, and printed brochures for the masjid and community events.
-5. Include your community's contact information and an invitation to visit.
-6. Test the materials at the next open day or interfaith event and collect feedback.
-7. Completion indicator: a set of at least 5 dawah materials (print and digital) reviewed by a scholar and a non-Muslim reader, distributed at one event with documented feedback.` },
-        { title: "Establish a regular community service project visible to the wider public", done: false,
-          sources: `**I. Quran**
-
-### Quran (41:33)
-**Arabic:** وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا  
-**Translation:** And who is better in speech than one who invites to Allah and does righteousness.
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-**II. Hadith**
-
-### Sahih Muslim 2699
-The Prophet (peace be upon him) said: "Whoever follows a path in pursuit of knowledge, Allah will make a path to Paradise easy for him."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "The best of people are those most beneficial to others" (al-Tabarani). Actions speak louder than words. A Muslim community that serves its broader neighbourhood — feeding the homeless, cleaning public spaces, supporting local schools — demonstrates Islamic values more powerfully than any lecture. Regular, visible service builds goodwill, breaks stereotypes, and creates natural opportunities for dawah through relationship.
-
-
-**How?**
-
-1. Identify a local need that aligns with Islamic values and is visible to the public: a food bank, a homeless outreach, a park clean-up, or a school supply drive.
-2. Partner with an existing organisation if possible — this multiplies impact and builds inter-community relationships.
-3. Commit to a regular schedule: monthly at minimum, with the same core team to build consistency and relationships.
-4. Identify the project clearly as a Muslim community initiative — use signage, branded clothing, or verbal introductions.
-5. Invite the wider community to join — service should unite, not segregate.
-6. Document the project through photos, stories, and impact metrics (meals served, bags collected, families supported).
-7. Completion indicator: a regular service project running for at least 6 months with documented impact and at least one public recognition or media mention.` },
-      ],
-    },
-    {
-      title: "Develop a comprehensive youth programme rooted in Islamic identity",
-      priority: 'high', tags: ['youth', 'tarbiyah', 'identity'],
-      description: "The Prophet (peace be upon him) invested deeply in the youth of the ummah — appointing young leaders, mentoring them personally, and building their Islamic identity alongside their skills. This task creates a structured youth programme that addresses the unique challenges facing young Muslims: identity confusion, peer pressure, cultural tension, and the need for belonging.",
-      subtasks: [
-        { title: "Survey youth to understand their actual needs, struggles, and aspirations", done: false,
-          sources: `**I. Quran**
-
-### Quran (66:6)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا  
-**Translation:** O you who have believed, protect yourselves and your families from a Fire.
-
-### Quran (18:13)
-**Arabic:** إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ وَزِدْنَاهُمْ هُدًى  
-**Translation:** Indeed, they were youths who believed in their Lord, and We increased them in guidance.
-
-**II. Hadith**
-
-### Jami at-Tirmidhi 2516
-The Prophet (peace be upon him) said: "Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) understood the specific concerns of each age group — he gave different advice to the young man struggling with desire than to the elder concerned with legacy. Adults often design youth programmes based on what they think youth need, which frequently misses the mark. A direct survey gives young Muslims a voice, builds their trust in the process, and ensures the programme addresses real challenges — not imagined ones.
-
-
-**How?**
-
-1. Design an anonymous survey covering: What are the biggest challenges you face as a young Muslim? Where do you feel the community supports you? Where does it fail you? What topics would you want a youth programme to cover? What format do you prefer (lectures, discussions, sports, social, mentorship)?
-2. Distribute to youth aged 13-25 through social media, school contacts, and direct outreach — aim for at least 25 responses.
-3. Supplement with 5-8 one-on-one conversations with youth who are willing to share more openly.
-4. Analyse results for common themes and surprising findings.
-5. Present findings to the shura council and potential youth programme leaders.
-6. Involve 2-3 youth in the analysis and programme design process — they are stakeholders, not just beneficiaries.
-7. Completion indicator: a documented needs assessment based on at least 25 survey responses and 5 conversations, with a summary of top 5 youth needs presented to community leadership.` },
-        { title: "Recruit and train youth mentors from within the community", done: false,
-          sources: `**I. Hadith**
-
-
-### Sunan Abu Dawud 4943
-The Prophet (peace be upon him) said: "No one of you is a true believer until he loves for his brother what he loves for himself." Mentoring youth is an act of loving for the next generation what we value for ourselves.
-*(Grade: Sahih)*
-
-
-### Quran (66:6)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا  
-**Translation:** "O you who have believed, protect yourselves and your families from a Fire."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) personally mentored young Companions — Ali ibn Abi Talib, Anas ibn Malik, and others grew under his direct guidance. Youth respond to relationships, not programmes. A brilliant curriculum without caring, relatable mentors will fail. Mentors provide the personal connection, the role modelling, and the safe space for questions that no lecture can replicate. They bridge the gap between Islamic knowledge and the lived reality of being young.
-
-
-**How?**
-
-1. Identify potential mentors: young adults (early 20s-30s) who are practicing, relatable, emotionally mature, and genuinely care about youth.
-2. Screen candidates: character references, background checks (mandatory for working with minors), and an interview assessing their motivation and ability to maintain appropriate boundaries.
-3. Provide training covering: basics of adolescent development, how to build trust without overstepping, how to handle disclosures (depression, bullying, family issues), when and how to escalate concerns, and the Islamic framework for mentorship.
-4. Pair mentors with small groups of 3-5 youth based on age, gender, and interests.
-5. Establish check-in protocols: mentors meet their group at least twice monthly and report to the programme coordinator monthly.
-6. Support mentors with regular debriefs and access to professional advice for complex situations.
-7. Completion indicator: at least 4 trained, vetted mentors actively meeting with their assigned youth groups for at least 2 months.` },
-        { title: "Launch a biweekly youth halaqa addressing real-life challenges", done: false,
-          sources: `**I. Quran**
-
-### Quran (103:1-3)
-**Arabic:** وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ  
-**Translation:** By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6008
-The Prophet (peace be upon him) said: "He is not one of us who does not show mercy to our young ones and respect to our elders."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) held gatherings where Companions could ask questions freely — the famous hadith of Jibril occurred in such a setting. Young Muslims face questions that traditional halaqas rarely address: social media, identity confusion, mental health, relationships, career anxiety, and doubt. A youth-specific halaqa that tackles these topics honestly, within an Islamic framework, gives young people a space where their real lives meet their faith — instead of the two existing in separate compartments.
-
-
-**How?**
-
-1. Schedule a biweekly halaqa at a time youth can attend — Friday or Saturday evening works for most.
-2. Choose a format that encourages participation: brief input (15 minutes) followed by guided discussion (30-45 minutes), not a one-hour lecture.
-3. Select topics from the needs survey: identity, peer pressure, social media, mental health, relationships, doubt, career purpose, and how Islam addresses each.
-4. Rotate facilitators between the imam, guest speakers, and trained mentors to keep it fresh.
-5. Create a "question box" (physical or digital) where youth can submit anonymous questions that are addressed in future sessions.
-6. Track attendance and engagement — if numbers drop, ask why and adjust.
-7. Completion indicator: a biweekly halaqa running for at least 3 months with an average attendance of 10+ youth and documented topics covered.` },
-        { title: "Integrate sports, social activities, and creative outlets into the youth programme", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6026
-The Prophet (peace be upon him) said: "Allah is kind and loves kindness in all affairs." Integrating sports and creative outlets reflects the Prophetic balance of nurturing body, mind, and soul.
-*(Grade: Sahih)*
-
-
-### Sunan Abu Dawud 4998
-The Prophet (peace be upon him) said: "Teach your children swimming, archery, and horse-riding." Physical activities and creative pursuits are a Sunnah-grounded part of youth development.
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) encouraged physical fitness: "Teach your children swimming, archery, and horse riding" (attributed, widely cited in tarbiyah literature). Islam does not separate the spiritual from the physical and social. Youth who only associate the masjid with lectures will stop coming. A programme that includes sports, social outings, creative expression (art, writing, media), and fun builds the positive association with the community that keeps youth engaged long enough for the deeper tarbiyah to take root.
-
-
-**How?**
-
-1. Survey youth for their preferred activities: football, basketball, hiking, gaming, art, photography, cooking, or volunteering.
-2. Schedule at least one social or physical activity per month alongside the biweekly halaqa — this is not a distraction from tarbiyah; it is tarbiyah through bonding.
-3. Use activities to teach Islamic values naturally: teamwork (jamaah), fair play (adl), perseverance (sabr), and gratitude (shukr).
-4. Rotate activity types to appeal to different interests and draw in youth who would not attend a halaqa.
-5. Budget for activities: many are low-cost (park sports, community kitchen cooking) but some may need funding (venue hire, equipment).
-6. Document activities with photos and stories (with parental consent) to build programme visibility and attract more participants.
-7. Completion indicator: at least 6 social/physical activities held over 6 months with documented attendance and at least 3 new youth who joined through activities rather than the halaqa.` },
-        { title: "Create a youth leadership pipeline — identify, develop, and deploy young leaders", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (3:110)
-**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ  
-**Translation:** "You are the best nation produced [as an example] for mankind."
-
-
-### Sahih Muslim 1920
-The Prophet (peace be upon him) said: "A group of my Ummah will remain victorious upon the truth." Developing young leaders ensures that the community continues to uphold and champion the truth.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) appointed Usama ibn Zayd to lead an army at age 18 — he did not wait for youth to "grow up" before giving them responsibility. Yet many communities exclude youth from meaningful leadership roles, then wonder why they disengage. A leadership pipeline identifies youth with potential, develops their skills through real responsibility (not token roles), and prepares them to lead the community in the next generation.
-
-
-**How?**
-
-1. Identify youth who show initiative, reliability, and care for the community — look beyond academic achievers to those who organise informally, help without being asked, and influence their peers positively.
-2. Create a tiered leadership track: (a) volunteer roles (event setup, social media), (b) project leads (organising a youth event or service project), (c) committee roles (youth representative on the shura council or programme committee).
-3. Pair each emerging leader with a senior community leader as a mentor.
-4. Give real responsibility with real consequences — not make-work tasks, but decisions that affect the youth programme and, eventually, the broader community.
-5. Provide training in: public speaking, project management, Islamic leadership principles, and conflict resolution.
-6. Review the pipeline annually: who has progressed? Who needs more support? Who is ready for the next level?
-7. Completion indicator: at least 3 youth placed in meaningful leadership roles with documented mentorship and at least one youth-led project successfully completed.` },
-      ],
-    },
-    {
-      title: "Establish a community treasury (bayt al-mal) for collective financial strength",
-      priority: 'medium', tags: ['bayt-al-mal', 'finance', 'waqf'],
-      description: "The Prophet (peace be upon him) established a bayt al-mal in Madinah — a collective treasury that funded community needs, supported the poor, and provided for public services. This task creates a transparent, accountable community fund that goes beyond emergency aid to build long-term collective financial capacity.",
-      subtasks: [
-        { title: "Audit current community finances — income, expenses, and gaps", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (2:282)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ  
-**Translation:** "O you who have believed, when you contract a debt for a specified term, write it down."
-
-
-### Sahih Muslim 1015
-The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him." Sound financial auditing protects community endowments.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Quran commands: "O you who believe, when you contract a debt for a specified term, write it down" (2:282). Financial transparency is a Quranic obligation, not a nice-to-have. Many Muslim communities operate with opaque finances — donations go into a general fund, expenses are unclear, and no one knows the community's true financial position. An audit establishes the baseline from which a community treasury can be built responsibly.
-
-
-**How?**
-
-1. Gather all financial records for the past 12 months: donation records, bank statements, expense receipts, and any outstanding debts or commitments.
-2. Categorise income by source: regular donations, Jumu'ah collections, Ramadan campaigns, event fees, and grants.
-3. Categorise expenses by type: rent/mortgage, utilities, salaries, programmes, maintenance, and miscellaneous.
-4. Calculate the net position: total income minus total expenses, and current cash reserves.
-5. Identify gaps: are there months where expenses exceed income? Are reserves sufficient for 3 months of operations? Are there unfunded community needs?
-6. Present the audit to the shura council with a clear summary and visual charts.
-7. Completion indicator: a complete 12-month financial audit presented to the shura council with categorised income, expenses, net position, and identified gaps.` },
-        { title: "Establish separate funds for operations, emergency aid, and development", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (59:7)
-**Arabic:** كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ  
-**Translation:** "So that it will not be a perpetual distribution among the rich from among you."
-
-
-### Sahih Muslim 2699
-The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother." Establishing separate funds for operations, emergency aid, and development ensures structured mutual support.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) distinguished between different types of community funds — zakat had specific eligible recipients (Quran 9:60), war booty had different rules, and voluntary sadaqah was distributed based on need. Mixing all community money into one pot creates confusion, misallocation, and donor distrust. Separate funds with clear purposes ensure that operational costs do not consume charitable donations, and that development projects have dedicated, protected funding.
-
-
-**How?**
-
-1. Define at least 3 fund categories: (a) Operations (rent, utilities, salaries, maintenance), (b) Emergency Aid (the mutual aid fund from the Core tier), (c) Development (education programmes, building projects, dawah initiatives).
-2. Open separate bank accounts or clearly designated sub-accounts for each fund.
-3. Establish allocation rules: what percentage of general donations goes to each fund? How are designated donations handled?
-4. Define spending authority: who can authorise expenditures from each fund, and up to what amount without shura council approval?
-5. Implement dual-signatory controls on all accounts.
-6. Communicate the fund structure to the community so donors understand where their money goes.
-7. Completion indicator: separate funds established with documented allocation rules, spending authority, and at least one quarterly report published to the community.` },
-        { title: "Implement transparent financial reporting to the community", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (4:58)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
-**Translation:** "Indeed, Allah commands you to render trusts to whom they are due."
-
-
-### Sahih Bukhari 2409
-The Prophet (peace be upon him) said: "Pay the deposit to the one who entrusted it to you." Transparent financial reporting is the practical fulfillment of amanah in communal wealth.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Umar ibn al-Khattab (may Allah be pleased with him) established the principle that public funds require public accountability — he would account for every dirham of the bayt al-mal. When community members cannot see how their donations are spent, trust erodes, generosity decreases, and suspicion breeds fitna. Transparent reporting is not just good governance — it is an act of worship, fulfilling the amanah of handling other people's money.
-
-
-**How?**
-
-1. Produce a quarterly financial report covering: total income by source, total expenses by category, fund balances, and significant transactions.
-2. Keep the report simple and visual — use charts, not just tables of numbers.
-3. Distribute the report through: a printed copy at the masjid, email to regular donors, and posting on the community website or notice board.
-4. Hold a brief (10-minute) financial update at a community gathering at least twice per year.
-5. Invite questions and feedback — transparency means welcoming scrutiny, not just publishing numbers.
-6. Have the annual accounts reviewed by a qualified community member (ideally an accountant) and publish the review.
-7. Completion indicator: at least 2 quarterly reports published to the community with a year-end review by a qualified reviewer.` },
-        { title: "Launch a regular giving programme to build sustainable income", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (2:261)
-**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ  
-**Translation:** "The example of those who spend their wealth in the way of Allah is like a seed of grain which grows seven ears; in each ear is a hundred grains."
-
-
-### Sahih Muslim 1006
-The Prophet (peace be upon him) said: "Charity does not decrease wealth." A regular giving programme builds sustainable income while increasing barakah.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those done consistently, even if small" (Bukhari & Muslim). Most community finances depend on Ramadan surges and sporadic large donations, creating feast-or-famine cycles. A regular giving programme — monthly standing orders from committed members — provides predictable income that allows planning, reduces financial anxiety, and embeds the habit of sadaqah jariyah (ongoing charity) in the community's culture.
-
-
-**How?**
-
-1. Set a target: how much monthly recurring income does the community need to cover basic operations? Start with this as the campaign goal.
-2. Create a simple sign-up process: a standing order form (bank) and an online recurring donation option (e.g., LaunchGood, GoFundMe Charity, or direct bank transfer).
-3. Launch the programme with a compelling appeal: explain exactly what the money covers and why regular giving is more valuable than one-off donations.
-4. Offer suggested tiers (e.g., $25, $50, $100/month) while making it clear that any amount is valuable.
-5. Acknowledge donors regularly: a quarterly thank-you message (not individual amounts) reinforcing their impact.
-6. Track sign-ups, retention, and total monthly income — report progress to the community quarterly.
-7. Completion indicator: at least 20 regular givers enrolled with combined monthly income covering at least 50% of basic operational costs, sustained for 3 months.` },
-        { title: "Explore establishing a community waqf (endowment) for long-term sustainability", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:261)
-**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ  
-**Translation:** The example of those who spend their wealth in the way of Allah is like a seed which grows seven ears; in each ear is a hundred grains.
-
-### Quran (3:92)
-**Arabic:** لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ  
-**Translation:** Never will you attain the good until you spend from that which you love.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 1410
-The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three things: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "When a person dies, their deeds end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, and a righteous child who prays for them" (Muslim). Waqf is the Islamic institution of endowment — an asset whose principal is preserved and whose returns fund community needs in perpetuity. The greatest Islamic institutions in history — Al-Azhar, the hospitals of Damascus, the libraries of Cordoba — were sustained by waqf. A community without waqf is perpetually dependent on donations; a community with waqf has intergenerational financial security.
-
-
-**How?**
-
-1. Study the concept of waqf: its fiqhi requirements, historical examples, and modern implementations (consult a scholar and a lawyer familiar with Islamic endowments).
-2. Assess whether your community has the capacity to establish a waqf — this requires assets (property, investment capital) and a governance structure to manage them.
-3. Explore entry-level waqf models: a community property fund, a pooled investment managed by a waqf board, or participation in a national Muslim endowment programme.
-4. Draft a waqf charter: the purpose, the governance structure, how returns are distributed, and how the principal is protected.
-5. Present the concept to the community and gauge interest and capacity to contribute.
-6. If feasible, launch with a modest target and grow over time — waqf is a marathon, not a sprint.
-7. Completion indicator: a feasibility study completed with legal and scholarly input, a draft waqf charter, and a community presentation with documented interest from at least 10 potential contributors.` },
-      ],
-    },
-  ],
-
-  // ── EXCELLENCE: Aspirational Impact ──
-  ummah_collective_excellence: [
-    {
-      title: "Build a model community replicable by other Muslim communities",
-      priority: 'medium', tags: ['model', 'replication', 'ihsan'],
-      description: "The Prophet (peace be upon him) built a community in Madinah that became the template for every Muslim society thereafter. This task aspires to develop your community into a documented, replicable model — not because it is perfect, but because its systems, processes, and culture can be studied and adapted by other communities seeking to strengthen themselves.",
-      subtasks: [
-        { title: "Document all community systems, processes, and governance structures", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:143)
-**Arabic:** وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا شُهَدَاءَ عَلَى النَّاسِ  
-**Translation:** And thus we have made you a just community that you will be witnesses over the people.
-
-### Quran (3:110)
-**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ  
-**Translation:** You are the best nation produced for mankind.
-
-**II. Hadith**
-
-### Sahih Muslim 2674
-The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-A model cannot be replicated if it is not documented. Most community operations exist only in the heads of a few key people — when they leave, the institutional knowledge leaves with them. The Quran itself is a documented, preserved system. Documentation transforms tacit knowledge into transferable assets: governance charters, programme curricula, financial processes, volunteer handbooks, and event playbooks that any community could adapt.
-
-
-**How?**
-
-1. List every system currently operating in your community: governance, education, finances, mutual aid, youth programme, outreach, dispute resolution, and facilities management.
-2. For each system, document: purpose, key processes, roles and responsibilities, tools used, and lessons learned.
-3. Use a consistent format: a one-page overview per system, with links to detailed process documents.
-4. Store documentation in an accessible, version-controlled location (shared drive, wiki, or printed manual).
-5. Have each system owner review their documentation for accuracy.
-6. Identify undocumented systems and prioritise them for documentation.
-7. Completion indicator: at least 8 community systems documented in a consistent format, reviewed by system owners, and stored in an accessible location.` },
-        { title: "Identify what makes your community distinctive and worth replicating", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (3:110)
-**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ  
-**Translation:** "You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong."
-
-
-### Sahih Muslim 2674
-The Prophet (peace be upon him) said: "Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him." Building a replicable model is a form of sadaqah jariyah.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Not everything a community does is worth replicating — some things are contextual, some are mediocre, and some are genuinely excellent. The Prophet (peace be upon him) said: "Allah loves that when one of you does a task, they do it with ihsan (excellence)" (al-Bayhaqi). Identifying your distinctive strengths — the things you do better or differently than most communities — focuses the replication effort on what actually adds value, rather than producing a generic community manual that inspires no one.
-
-
-**How?**
-
-1. Conduct an honest self-assessment: what do visitors and new members most often praise about your community?
-2. Survey long-time members: what keeps them here? What would they miss most if they moved?
-3. Compare (humbly) with other communities you have visited or partnered with: where do you genuinely excel?
-4. Ask external observers — interfaith partners, civic leaders, or Muslim visitors — what stood out about your community.
-5. Distil findings into 3-5 "signature strengths" that are both distinctive and transferable.
-6. For each strength, document: what it is, how it developed, what sustains it, and what conditions make it possible.
-7. Completion indicator: a documented list of 3-5 signature strengths with supporting evidence and analysis, validated by both internal members and external observers.` },
-        { title: "Create a community playbook that other communities can adapt", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (7:181)
-**Arabic:** وَمِمَّنْ خَلَقْنَا أُمَّةٌ يَهْدُونَ بِالْحَقِّ وَبِهِ يَعْدِلُونَ
-**Translation:** "Among those We created are a group of people who guide with truth and act justly according to it."
-
-**II. Hadith**
-
-
-### Sahih Muslim 1017a
-The Prophet (peace be upon him) said: "Whoever introduces a good practice in Islam that is followed after him will have the reward of it and the reward of those who follow it, without that detracting from their rewards in the slightest."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) did not just build one community — he sent teachers, governors, and models to new communities so they could replicate the Madinah standard. A playbook is the modern equivalent: a practical guide that another community can pick up and adapt to their context. Without a playbook, your community's success remains local; with one, it becomes a contribution to the broader ummah.
-
-
-**How?**
-
-1. Compile the system documentation and signature strengths into a structured playbook format.
-2. Organise by community lifecycle: getting started, core obligations, growth programmes, excellence initiatives.
-3. For each section, include: the principle behind it, the practical steps, common pitfalls, and adaptation notes for different contexts (small vs. large community, urban vs. rural, etc.).
-4. Write in accessible, jargon-free language that a community leader with no prior exposure to your model can follow.
-5. Have the playbook reviewed by leaders from 2-3 other communities for clarity and usefulness.
-6. Publish in both digital (PDF, website) and print formats.
-7. Completion indicator: a completed playbook of at least 30 pages, reviewed by external community leaders, and published in at least one format.` },
-        { title: "Host a community leadership retreat for leaders from other communities", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-### Quran (3:104)
-**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ  
-**Translation:** And let there be arising from you a nation inviting to good, enjoining what is right and forbidding what is wrong.`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) hosted delegations from across Arabia, teaching them by example and sending them back equipped to build their own communities. A leadership retreat invites other community leaders to experience your model firsthand — to observe, ask questions, and receive practical guidance. This is higher-impact than simply distributing a playbook because it builds relationships and allows hands-on learning that documents alone cannot provide.
-
-
-**How?**
-
-1. Identify 3-5 communities in your region or beyond that have expressed interest in strengthening their own structures.
-2. Design a 2-day retreat: day one focused on observing your community's systems in action (attend a halaqa, observe a shura meeting, tour the facilities), day two focused on workshops and Q&A.
-3. Prepare presenters from your community who can explain their systems clearly and honestly, including failures and lessons learned.
-4. Provide each attendee with a copy of the community playbook and a template toolkit they can customise.
-5. Facilitate a peer exchange: attendees share their own best practices and challenges.
-6. Follow up at 30, 60, and 90 days to support implementation in their communities.
-7. Completion indicator: a leadership retreat attended by leaders from at least 3 external communities, with documented feedback and at least one community reporting that they implemented a practice learned at the retreat.` },
-        { title: "Establish a mentorship programme pairing your community with a developing community", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:13)
-**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
-**Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.
-
-**II. Hadith**
-
-### Sahih Muslim 2586
-The Prophet (peace be upon him) said: "The parable of the believers in their affection, mercy, and compassion for each other is that of a body. When any limb aches, the whole body reacts with sleeplessness and fever."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) paired experienced Companions with newer Muslims — Mu'adh ibn Jabal was sent to Yemen not just to teach but to mentor the community's development. A community-to-community mentorship is the most sustainable form of replication: an ongoing relationship where your community shares its experience and the partner community adapts it to their context, with regular check-ins, problem-solving, and mutual learning.
-
-
-**How?**
-
-1. Identify a developing Muslim community that has expressed a desire for guidance — through your regional network or direct outreach.
-2. Establish a formal mentorship agreement: duration (at least 12 months), goals, communication frequency, and mutual expectations.
-3. Pair key leaders: your imam with theirs, your youth director with theirs, your treasurer with theirs.
-4. Schedule monthly check-ins (virtual or in-person) focused on a specific area each month (governance, finance, education, etc.).
-5. Share relevant documentation and templates, adapted to their context.
-6. Visit each other's communities at least once during the mentorship period.
-7. Completion indicator: a 12-month mentorship with at least one partner community, with monthly check-ins documented and at least 3 systems or practices successfully adapted by the partner community.` },
-      ],
-    },
-    {
-      title: "Contribute to global ummah solidarity and mutual support",
-      priority: 'medium', tags: ['global-ummah', 'solidarity', 'aid'],
-      description: "The Prophet (peace be upon him) said: 'The believers in their mutual kindness, compassion, and sympathy are like one body — when one limb suffers, the whole body responds with sleeplessness and fever' (Bukhari & Muslim). This task extends the community's concern beyond local boundaries to active solidarity with the global ummah — supporting Muslims in crisis, amplifying suppressed voices, and contributing to the collective strength of the worldwide Muslim community.",
-      subtasks: [
-        { title: "Establish a global ummah awareness programme in your community", done: false,
-          sources: `**I. Quran**
-
-### Quran (21:92)
-**Arabic:** إِنَّ هَٰذِهِ أُمَّتُكُمْ أُمَّةً وَاحِدَةً وَأَنَا رَبُّكُمْ فَاعْبُدُونِ  
-**Translation:** Indeed this, your community, is one community, and I am your Lord, so worship Me.
-
-### Quran (49:10)
-**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ  
-**Translation:** The believers are but brothers.
-
-**II. Hadith**
-
-### Sahih Muslim 2586
-The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Many Muslim communities are so absorbed in local concerns that they become disconnected from the suffering and triumphs of the global ummah. The Prophet (peace be upon him) wept when he heard of injustice against any believer, regardless of where they lived. An awareness programme ensures your community knows what is happening to their brothers and sisters around the world — because knowledge precedes action, and ignorance enables indifference.
-
-
-**How?**
-
-1. Designate a "global ummah liaison" responsible for tracking major issues affecting Muslims worldwide.
-2. Include a 2-minute "global ummah update" in weekly Jumu'ah announcements covering one current issue.
-3. Create a monthly bulletin (email or printed) with brief summaries of 3-5 global ummah issues: conflicts, humanitarian crises, positive developments, and opportunities to help.
-4. Post a world map at the masjid highlighting areas where Muslims are in crisis — update it regularly.
-5. Organise a quarterly "ummah awareness evening" with a deeper dive into one issue, including a guest speaker or documentary.
-6. Always pair awareness with action: every update should include one thing community members can do (dua, donation, letter-writing, volunteering).
-7. Completion indicator: a functioning awareness programme with weekly announcements and monthly bulletins running for at least 3 months.` },
-        { title: "Partner with established Muslim aid organisations for targeted relief", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-### Quran (59:9)
-**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ  
-**Translation:** And they give preference [to others] over themselves, even though they are in privation.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6011
-The Prophet (peace be upon him) said: "None of you truly believes until he loves for his brother what he loves for himself."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Individual goodwill without institutional channels is inefficient and often ineffective. The Prophet (peace be upon him) organised community resources through the bayt al-mal and dispatched them through trusted agents. Established Muslim aid organisations (e.g., Islamic Relief, Muslim Aid, UNHCR Muslim partnerships) have the logistics, expertise, and access to deliver help where it is needed most. Partnering with them multiplies your community's impact far beyond what isolated donations could achieve.
-
-
-**How?**
-
-1. Research reputable Muslim aid organisations: check their track record, financial transparency, and alignment with Islamic principles (no riba in operations, proper zakat distribution).
-2. Select 2-3 organisations that focus on different areas: emergency relief, long-term development, and advocacy.
-3. Establish a formal partnership: designate your community as a local fundraising partner or volunteer hub.
-4. Organise at least 2 fundraising campaigns per year for specific crises or programmes — people give more generously to specific, tangible causes.
-5. Invite representatives from partner organisations to speak at your community to build connection and trust.
-6. Track total contributions and share impact reports with the community.
-7. Completion indicator: formal partnerships with at least 2 aid organisations, with at least 2 campaigns completed and total contributions documented.` },
-        { title: "Advocate for the rights of oppressed Muslims through civic channels", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (8:73)
-**Arabic:** 
-**Translation:** And those who disbelieve are allies of one another, (and) if you (Muslims of the whole world collectively) do not do so [i.e. become allies, as one united block under one Khalifah (a chief Muslim ruler for the whole Muslim world) to make victorious Allâh’s religion of Islâmic Monotheism], there will be Fitnah (wars, battles, polytheism) and oppression on the earth, and a great mischief and corruption (appearance of polytheism).
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1240
-Narrated Abu Huraira:I heard Allah's Messenger (ﷺ) saying, "The rights of a Muslim on the Muslims are five: to respond to the salaam, visiting the sick, to follow the funeral processions, to accept an invitation, and to reply to those who sneeze. (see Hadith)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 393
-Narrated Maimun bin Siyah that he asked Anas bin Malik, "O Abu Hamza! What makes the life and property of a person sacred?" He replied, "Whoever says, 'None has the right to be worshipped but Allah', faces our Qibla during the prayers, prays like us and eats our slaughtered animal, then he is a Muslim, and has got the same rights and obligations as other Muslims have
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "Help your brother whether he is an oppressor or oppressed" (Bukhari) — helping the oppressor means stopping their oppression, and helping the oppressed means defending their rights. Advocacy through civic channels — contacting elected officials, participating in public consultations, supporting human rights organisations — is the modern application of this principle. Silence in the face of oppression makes the ummah complicit; strategic advocacy makes it a force for justice.
-
-
-**How?**
-
-1. Identify 1-2 global ummah issues where civic advocacy in your country can have impact (e.g., foreign policy, sanctions, refugee resettlement, trade relations with oppressive regimes).
-2. Research the civic channels available: contacting elected representatives, submitting public comments, joining advocacy coalitions, and engaging with human rights bodies.
-3. Educate community members on how to write effective letters, make phone calls, and attend public meetings — provide templates and talking points.
-4. Organise a community advocacy day: a coordinated effort where multiple members contact their representatives on the same issue on the same day.
-5. Build alliances with non-Muslim human rights organisations that share the same advocacy goals — coalition voices are louder than isolated ones.
-6. Track and report outcomes: how many letters were sent, what responses were received, and any policy changes influenced.
-7. Completion indicator: at least one coordinated advocacy campaign with documented participation from at least 20 community members and a record of responses received.` },
-        { title: "Support Muslim refugees and immigrants in your area as a community obligation", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (49:10)
-**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ  
-**Translation:** "The believers are but brothers."
-
-
-### Sahih Bukhari 6011
-The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever." Supporting refugees fulfills this communal obligation.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The entire framework of the Madinah community was built on the hijrah — the migration of the Muhajirun and the embrace of the Ansar. Supporting refugees and immigrants is not charity; it is the Prophetic DNA of the ummah. The Ansar shared their homes, their wealth, and their social capital with the newcomers. If Muslim refugees arrive in your area and your community does not mobilise to receive them, you have failed one of the most fundamental tests of ummah solidarity.
-
-
-**How?**
-
-1. Connect with local resettlement agencies to learn when and where Muslim refugees and immigrants are being settled in your area.
-2. Form a welcoming committee of 5-8 community members with specific roles: housing support, employment assistance, school enrolment, language tutoring, and social integration.
-3. Prepare a "welcome package" for new arrivals: essential household items, local orientation guide, community contacts, and an invitation to the masjid.
-4. Pair each new family with a host family from the community for the first 6 months — the Prophetic model of personal pairing.
-5. Advocate for refugee rights and services through the civic channels identified in the advocacy task.
-6. Track outcomes: families supported, employment secured, children enrolled in school, and integration milestones.
-7. Completion indicator: a functioning welcoming programme that has supported at least 3 refugee or immigrant families over 6 months with documented outcomes.` },
-        { title: "Establish a regular qunut and dua programme for the global ummah", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:286)
-**Arabic:** رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا  
-**Translation:** Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us.
-
-**II. Hadith**
-
-### Sunan Abu Dawud 1427
-The Prophet (peace be upon him) said: "The qunut (supplication) is to be recited in witr prayer." He would supplicate for the Muslim ummah in his qunut.
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) made qunut al-nazilah (supplication during calamity) for specific communities and individuals by name — he did not offer generic prayers. Du'a is not a passive last resort; it is the believer's most powerful weapon and the expression of a heart that genuinely feels the pain of the ummah. A regular, specific dua programme keeps the global ummah in the hearts of your community, trains children in empathy, and fulfils the minimum obligation of the "weakest of faith" — feeling with the heart.
-
-
-**How?**
-
-1. Include a specific dua for the global ummah in every congregational prayer — after the fard prayer or during qunut in witr/fajr.
-2. Name specific communities and causes: "O Allah, relieve the suffering of our brothers and sisters in [specific location]" — specificity creates connection.
-3. Update the dua list monthly based on the global ummah awareness programme.
-4. Teach the community the Prophetic duas for the oppressed and for relief from calamity.
-5. Involve youth: ask young members to research one global ummah issue each month and present it briefly before the dua is made.
-6. Display the current dua list at the masjid entrance so those praying individually can include these causes.
-7. Completion indicator: a regular dua programme maintained for at least 3 months with monthly updates, specific naming of causes, and visible community engagement.` },
-      ],
-    },
-    {
-      title: "Establish institutional sadaqah jariyah for intergenerational benefit",
-      priority: 'medium', tags: ['waqf', 'sadaqah-jariyah', 'legacy'],
-      description: "The Prophet (peace be upon him) said: 'When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, and a righteous child who prays for them' (Muslim). This task builds institutional forms of sadaqah jariyah — endowments, educational trusts, and infrastructure — that serve the community not just today but for generations to come.",
-      subtasks: [
-        { title: "Identify and acquire a permanent community property (masjid or centre)", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1015
-The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him." Acquiring a permanent community property is among the greatest forms of ongoing charity.
-*(Grade: Sahih)*
-
-
-### Quran (3:92)
-**Arabic:** لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ  
-**Translation:** "Never will you attain the good [reward] until you spend [in the way of Allah] from that which you love."`,
-          description: `**Why?**
-
-The first act of the Prophet (peace be upon him) upon arriving in Madinah was to build the masjid. A rented space is inherently unstable — leases end, landlords change terms, and the community lives in perpetual uncertainty. A permanently owned property is the single most impactful sadaqah jariyah a community can establish: it provides a guaranteed home for worship, education, and gathering for every generation that follows, and it anchors the Muslim presence in the locality permanently.
-
-
-**How?**
-
-1. Assess the community's current property situation: are you renting? How long is the lease? What are the risks of displacement?
-2. Form a property acquisition committee with members experienced in real estate, law, and finance.
-3. Define the requirements: location (accessible to the community), size (current and projected needs), zoning (must allow religious use), and budget.
-4. Research funding models: community fundraising, Islamic finance (murabaha or musharakah for property purchase), grants from national Muslim organisations, and waqf contributions.
-5. Develop a phased fundraising plan: a deposit, then mortgage-free ownership as the goal — avoid riba-based financing.
-6. Secure the property and register it as a community waqf so it cannot be sold or diverted from its purpose.
-7. Completion indicator: a property identified, a fundraising plan in progress with at least 30% of the target raised, and legal advice obtained on waqf registration.` },
-        { title: "Establish an Islamic scholarship fund for community youth", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:261)
-**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ  
-**Translation:** The example of those who spend their wealth in the way of Allah is like a seed which grows seven ears; in each ear is a hundred grains.
-
-### Quran (58:11)
-**Arabic:** يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ  
-**Translation:** Allah will raise those who have believed among you and those who were given knowledge, by degrees.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 1410
-The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "The best of you are those who learn the Quran and teach it" (Bukhari). Education is the most leveraged investment a community can make — one scholarship can transform a life, a family, and eventually the community itself. Many young Muslims cannot afford higher education, Islamic studies, or vocational training. A scholarship fund removes financial barriers and signals that the community invests in its future, not just its present.
-
-
-**How?**
-
-1. Define the fund's scope: academic scholarships, Islamic studies sponsorships, vocational training grants, or a combination.
-2. Set initial criteria: financial need, academic merit, community involvement, and commitment to serve the community upon completion.
-3. Establish the fund as a separate, protected account within the community treasury.
-4. Launch a dedicated fundraising campaign targeting community members who value education — frame it as sadaqah jariyah because the knowledge will benefit others for generations.
-5. Award the first scholarships through a transparent application and selection process with a diverse committee.
-6. Require scholarship recipients to give back: a presentation to the community, mentorship of younger students, or a year of volunteer service.
-7. Completion indicator: a funded scholarship account with clear criteria, at least 2 scholarships awarded, and a feedback mechanism from recipients.` },
-        { title: "Plant a community orchard or garden as a living sadaqah jariyah", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (50:9)
-**Arabic:** وَنَزَّلْنَا مِنَ السَّمَاءِ مَاءً مُّبَارَكًا فَأَنبَتْنَا بِهِ جَنَّاتٍ وَحَبَّ الْحَصِيدِ
-**Translation:** "and how We send blessed water down from the sky and grow with it gardens, the harvest grain."
-
-**II. Hadith**
-
-
-### Sahih Bukhari 2348
-Narrated Abu Huraira:Once the Prophet (ﷺ) was narrating (a story), while a bedouin was sitting with him. "One of the inhabitants of Paradise will ask Allah to allow him to cultivate the land. Allah will ask him, 'Are you not living in the pleasures you like?' He will say, 'Yes, but I like to cultivate the land.' " The Prophet (ﷺ) added, "When the man (will be permitted he) will sow the seeds and the plants will grow up and get ripe, ready for reaping and so on till it will be as huge as mountains within a wink. Allah will then say to him, 'O son of Adam! Take here you are, gather (the yield); nothing satisfies you.' " On that, the bedouin said, "The man must be either from Quraish (i.e. an emigrant) or an Ansari, for they are farmers, whereas we are not farmers." The Prophet (ﷺ) smiled (at this)
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "If a Muslim plants a tree or cultivates a crop, and a bird, human, or animal eats from it, it is counted as charity for them" (Bukhari & Muslim). A community garden or orchard is a beautiful, tangible form of ongoing charity: it feeds people, teaches children, connects the community to the earth, and generates reward every time a creature benefits from it. It is also a powerful symbol of the community's commitment to stewardship (khalifah) and long-term thinking.
-
-
-**How?**
-
-1. Identify available land: the masjid grounds, a community-owned plot, or a partnership with a local garden programme.
-2. Assess growing conditions: climate, soil, water access, and sunlight.
-3. Choose plantings that are productive and sustainable: fruit trees (apple, fig, olive, pomegranate — all mentioned in the Quran), vegetable beds, and herbs.
-4. Organise a community planting day as an event — involve families, children, and elders.
-5. Establish a maintenance rota: watering, weeding, harvesting, and composting.
-6. Distribute the harvest: first to community members in need, then to the broader community, then to neighbours and food banks.
-7. Completion indicator: a planted and maintained garden or orchard producing its first harvest, with documented distribution to at least 3 beneficiary groups.` },
-        { title: "Create a community library and resource centre", done: false,
-          sources: `**I. Hadith**
-
-
-### Sunan Abu Dawud 3641
-The Prophet (peace be upon him) said: "The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge. Whoever acquires it has acquired an abundant share." A community library preserves and spreads this inherited knowledge.
-*(Grade: Sahih)*
-
-
-### Quran (20:114)
-**Arabic:** وَقُل رَّبِّ زِدْنِي عِلْمًا  
-**Translation:** "And say: My Lord, increase me in knowledge."`,
-          description: `**Why?**
-
-The first word revealed to the Prophet (peace be upon him) was "Iqra" — Read. The great Islamic civilisation was built on libraries: the House of Wisdom in Baghdad, the libraries of Timbuktu, and the collections of Al-Andalus. A community library preserves and transmits knowledge across generations. It provides access to Islamic texts, educational materials, and resources that many families cannot afford individually. It is sadaqah jariyah in its purest form — beneficial knowledge made accessible to all.
-
-
-**How?**
-
-1. Designate a space within the masjid or community centre for the library — even a single room or a set of shelves is a start.
-2. Curate an initial collection: essential tafsir, hadith collections, fiqh manuals, seerah books, children's Islamic books, and contemporary Islamic thought.
-3. Solicit book donations from community members and purchase key texts from the community fund.
-4. Implement a simple lending system: a sign-out sheet or a free library management app.
-5. Include digital resources: a shared subscription to an Islamic education platform, access to online Quran resources, and a computer terminal for research.
-6. Staff the library with volunteers during peak hours and promote it actively.
-7. Completion indicator: a functioning library with at least 100 books across 5+ categories, a lending system, and documented usage by at least 15 community members in the first 3 months.` },
-        { title: "Document the community's history for future generations", done: false,
-          sources: `**I. Quran**
-
-### Quran (59:18)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ  
-**Translation:** O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 3461
-The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The preservation of the seerah (Prophetic biography) and the history of the Companions is one of the unique strengths of the Muslim ummah — we know our origins because scholars documented them. Your community's history — its founding, its struggles, its milestones, its leaders — is equally worthy of preservation. Future generations need to know how the community was built, what sacrifices were made, and what principles guided its founders. Without documentation, this history is lost within a single generation.
-
-
-**How?**
-
-1. Interview founding members and long-time elders: record their stories of how the community began, the early challenges, and the key turning points.
-2. Collect documents and photographs: founding charters, early fundraising letters, construction photos, event programmes, and newspaper clippings.
-3. Create a timeline of major milestones: establishment, first Jumu'ah, property acquisition, key programmes launched, crises navigated, and leadership transitions.
-4. Write a narrative history: a document of at least 10 pages that tells the community's story in an engaging, accessible way.
-5. Supplement with audio or video recordings of elder interviews — these are irreplaceable once the individuals pass away.
-6. Display key elements at the masjid: a timeline wall, a founders' plaque, or a history booklet available to visitors.
-7. Completion indicator: a documented community history with at least 5 elder interviews, a written narrative, and a visible display at the community space.` },
-      ],
-    },
-    {
-      title: "Build intergenerational continuity — ensure the community outlasts its founders",
-      priority: 'medium', tags: ['succession', 'continuity', 'legacy'],
-      description: "The Prophet (peace be upon him) prepared his Companions to lead after him — Abu Bakr, Umar, Uthman, and Ali (may Allah be pleased with them all) were ready because he invested in their development throughout his life. This task ensures that your community's leadership, institutions, and culture can be sustained across generations, independent of any single individual.",
-      subtasks: [
-        { title: "Identify and begin developing the next generation of community leaders", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (17:71)
-**Arabic:** يَوْمَ نَدْعُو كُلَّ أُنَاسٍ بِإِمَامِهِمْ
-**Translation:** "On the Day when We summon each community, along with its leader."
-*(Contextual: every community will be called with its imam — the leader bears responsibility for those he leads, making intentional succession and leader development an obligation.)*
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 7138
-The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock. The imam is a shepherd and is responsible for his flock."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for their flock" (Bukhari & Muslim). Every leader will eventually step down, age, or pass away. If no one is being prepared to take their place, the community will experience a leadership vacuum that can take years to recover from. Proactive succession planning is not a lack of trust in current leadership — it is the ultimate act of responsibility toward the community's future.
-
-
-**How?**
-
-1. Map current leadership roles: imam, board chair, committee heads, programme directors, and key volunteers.
-2. For each role, identify: who currently fills it, how long they have been serving, and whether a successor has been discussed.
-3. Identify 2-3 potential successors for each critical role based on capability, character, and willingness.
-4. Begin informal development: invite potential successors to shadow current leaders, attend leadership meetings, and take on incremental responsibilities.
-5. Have honest conversations with current leaders about succession — frame it positively as legacy-building, not replacement.
-6. Create a documented succession plan reviewed annually by the shura council.
-7. Completion indicator: a documented succession plan covering at least 5 critical roles with named potential successors and an active development process for each.` },
-        { title: "Institutionalise key community roles so they are not dependent on individuals", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (4:58)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
-**Translation:** "Indeed, Allah commands you to render trusts to whom they are due."
-
-
-### Sahih Bukhari 59
-The Prophet (peace be upon him) said: "When the trust is lost, then wait for the Hour." When someone asked how trust would be lost, he said: "When authority is given to those who do not deserve it." Institutionalising roles prevents trust from being lost.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Umar ibn al-Khattab (may Allah be pleased with him) built institutions — the diwans, the judiciary, the provincial governance system — that outlasted him by centuries. Many Muslim communities today collapse or stagnate when a single key person leaves because the role existed only in that person's head. Institutionalisation means that the role is documented, the processes are written, and a new person can step in without starting from zero. This is the difference between a community built on personalities and one built on systems.
-
-
-**How?**
-
-1. List all key roles in the community and assess: if this person left tomorrow, could someone else pick up their responsibilities within two weeks?
-2. For any role where the answer is "no," initiate a documentation project: the role holder writes down their responsibilities, processes, contacts, and decision-making criteria.
-3. Create role descriptions for all key positions: purpose, responsibilities, authority, time commitment, and qualifications.
-4. Store documentation centrally so it is accessible to the shura council and potential successors.
-5. Cross-train at least one person for each critical role — not just as a backup, but as a genuine understudy.
-6. Test the institutionalisation: when a leader goes on holiday or sabbatical, the role should function smoothly in their absence.
-7. Completion indicator: role descriptions and process documentation for at least 5 critical community roles, with at least one successful handoff test.` },
-        { title: "Create a community constitution that governs beyond any individual leader", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (42:38)
-**Arabic:** وَأَمْرُهُمْ شُورَىٰ بَيْنَهُمْ
-**Translation:** "And whose affair is [determined by] consultation among themselves."
-
-
-### Quran (4:59)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنكُمْ
-**Translation:** "O you who have believed, obey Allah and obey the Messenger and those in authority among you."
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 7138
-The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock. The ruler is a shepherd and is responsible for his subjects."
-*(Grade: Sahih)*
-*(Contextual: institutionalising leadership through a constitution ensures accountability continues regardless of who holds the shepherd's role.)*`,
-          description: `**Why?**
-
-The Sahifat al-Madinah (Constitution of Madinah) established governance principles that applied regardless of who was in charge. A community constitution — more comprehensive than the covenant created in the Core tier — defines the community's purpose, governance structure, decision-making processes, leadership selection, financial management, and conflict resolution. It ensures that the community operates by principles, not personalities, and that no single leader can unilaterally change its direction.
-
-
-**How?**
-
-1. Form a constitution committee with diverse representation: current leaders, future leaders, men, women, youth, elders, and founding members.
-2. Draft articles covering: mission and values, membership, governance structure (shura council composition, selection, and terms), leadership roles and limits, financial management, dispute resolution, amendment process, and dissolution procedures.
-3. Study constitutions of established Muslim organisations and adapt best practices.
-4. Have the draft reviewed by a lawyer familiar with non-profit governance in your jurisdiction.
-5. Present the draft to the community for feedback over a 30-day comment period.
-6. Ratify through a community vote and register legally if your jurisdiction requires it.
-7. Completion indicator: a ratified community constitution with legal review, community endorsement, and official adoption by the shura council.` },
-        { title: "Establish a mentorship culture where every experienced member invests in someone younger", done: false,
-          sources: `**I. Quran**
-
-### Quran (103:1-3)
-**Arabic:** وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ  
-**Translation:** By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.
-
-**II. Hadith**
-
-### Jami at-Tirmidhi 2516
-The Prophet (peace be upon him) said: "Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) did not mentor only the elite — Anas ibn Malik was a young boy serving in his household who grew into a great scholar and transmitter of hadith. A mentorship culture means that knowledge, wisdom, and institutional memory flow continuously from one generation to the next, not through formal programmes alone but through the daily fabric of community life. When every experienced member sees it as their responsibility to invest in someone younger, the community becomes self-renewing.
-
-
-**How?**
-
-1. Promote the concept through khutbahs and community talks: mentorship is not a programme — it is a Prophetic sunnah that every Muslim can practise.
-2. Create a simple matching system: experienced members register as mentors, younger members register as mentees, and a coordinator facilitates pairings based on interests, goals, and compatibility.
-3. Provide light guidelines: meet at least once per month, set a goal for the relationship, maintain confidentiality, and evaluate annually.
-4. Celebrate mentorship visibly: share anonymised stories of mentorship impact in community communications.
-5. Track participation and outcomes: how many pairs are active? What skills or knowledge are being transferred?
-6. Embed mentorship into existing structures: every committee should have a junior member learning from a senior one.
-7. Completion indicator: at least 10 active mentorship pairs sustained for at least 6 months, with documented outcomes and at least 3 mentee-to-mentor transitions.` },
-        { title: "Conduct a 10-year community vision exercise and publish a strategic plan", done: false,
-          sources: `**I. Quran**
-
-### Quran (59:18)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ  
-**Translation:** O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.
-
-### Quran (2:143)
-**Arabic:** وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا شُهَدَاءَ عَلَى النَّاسِ  
-**Translation:** And thus we have made you a just community that you will be witnesses over the people.`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) spoke of a future he would not live to see — the opening of Constantinople, the spread of Islam to every household — and his Companions worked toward that vision for generations after his passing. A community without a long-term vision operates reactively, solving today's problems without building toward tomorrow's potential. A 10-year vision gives the community a shared destination that transcends any individual leader's tenure and inspires sustained, purposeful effort.
-
-
-**How?**
-
-1. Convene a visioning retreat with 15-25 community members representing all demographics and perspectives.
-2. Begin with reflection: where has the community come from? What have been the greatest achievements and the greatest failures?
-3. Facilitate a vision exercise: "If this community were operating at its best 10 years from now, what would it look like?" Capture aspirations across all dimensions: worship, education, social services, outreach, financial health, and physical infrastructure.
-4. Distil the vision into a clear, compelling statement (2-3 sentences) that any community member can understand and rally behind.
-5. Develop a strategic plan with 3-year milestones: what must be true in year 3, year 6, and year 10 for the vision to be realised?
-6. Publish the vision and strategic plan to the entire community and review progress annually.
-7. Completion indicator: a published 10-year vision and strategic plan developed through participatory process, endorsed by the shura council, and presented to the community with at least one annual progress review conducted.` },
-      ],
-    },
-    {
-      title: "Aspire to the Prophetic community standard — a living model of Madinah values",
-      priority: 'low', tags: ['ihsan', 'prophetic-model', 'excellence'],
-      description: "The community of Madinah under the Prophet (peace be upon him) was characterised by justice, mercy, brotherhood, knowledge, worship, service, and joy. This task is the aspirational north star — not a checklist to complete but a standard to continuously approach. It challenges the community to measure itself against the Prophetic model and to never settle for mediocrity in any dimension of collective life.",
-      subtasks: [
-        { title: "Study the Madinah community model in depth as a community", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 3455
-The Prophet (peace be upon him) said: "I have been sent to perfect good character." The Madinah community was the living demonstration of perfected character in collective life.
-*(Grade: Sahih)*
-
-
-### Quran (33:21)
-**Arabic:** لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ  
-**Translation:** "There has certainly been for you in the Messenger of Allah an excellent pattern."`,
-          description: `**Why?**
-
-You cannot aspire to what you do not understand. Most Muslims know the Prophet (peace be upon him) as an individual but have never studied the community he built as a system: its governance, its economics, its social welfare, its education, its diplomacy, and its worship culture. Studying the Madinah model as a community — not just as individuals — creates a shared vocabulary and a shared aspiration that aligns everyone's efforts toward the same prophetic standard.
-
-
-**How?**
-
-1. Select a comprehensive seerah text that covers the social and institutional dimensions of Madinah (e.g., "The Sealed Nectar," supplemented with works on Islamic governance and social history).
-2. Design a 12-session community study circle: one session per month, each covering a dimension of the Madinah community (governance, mutual aid, education, worship, economy, justice, dawah, defence, interfaith relations, family, youth, and legacy).
-3. For each session, compare the Madinah model to your community's current state: where are you aligned? Where are you falling short?
-4. Invite guest scholars or use recorded lectures to supplement the study material.
-5. Document insights and commitments from each session.
-6. At the end of the 12 months, produce a "Madinah Alignment Report" that honestly assesses the community against the Prophetic model.
-7. Completion indicator: a 12-session study circle completed with at least 12 regular participants and a published Madinah Alignment Report.` },
-        { title: "Implement a quarterly community self-assessment against Prophetic standards", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (16:89)
-**Arabic:** وَيَوْمَ نَبْعَثُ فِي كُلِّ أُمَّةٍ شَهِيدًا عَلَيْهِم مِّنْ أَنفُسِهِمْ ۖ وَجِئْنَا بِكَ شَهِيدًا عَلَىٰ هَٰؤُلَاءِ ۚ وَنَزَّلْنَا عَلَيْكَ الْكِتَابَ تِبْيَانًا لِّكُلِّ شَيْءٍ
-**Translation:** "The day will come when We raise up in each community a witness against them, and We shall bring you [Prophet] as a witness against these people, for We have sent the Scripture down to you explaining everything, and as guidance and mercy and good news to those who devote themselves to God."
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 6464
-The Prophet (peace be upon him) said: "Do good deeds properly, sincerely and moderately, and know that the most beloved of deeds to Allah are those that are most consistent, even if they are small."
-*(Grade: Sahih)*
-*(Contextual: regular self-assessment is the mechanism by which consistent, improving deeds are maintained — it is the institutional expression of muhasabah.)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "Take account of yourselves before you are taken to account" (attributed to Umar ibn al-Khattab). Individual muhasabah (self-accounting) is a well-known Islamic practice, but communities rarely apply it collectively. A quarterly self-assessment prevents drift — the slow, imperceptible lowering of standards that occurs when no one is measuring. It transforms aspiration into accountability and ensures the community is always moving toward the Prophetic standard, not away from it.
-
-
-**How?**
-
-1. Develop a simple scorecard with 10-15 indicators drawn from the Madinah model study: quality of congregational worship, shura functionality, mutual aid responsiveness, educational programme quality, outreach effectiveness, financial transparency, youth engagement, conflict resolution, neighbour relations, and internal unity.
-2. For each indicator, define: what "excellent" looks like, what "adequate" looks like, and what "failing" looks like.
-3. Conduct the assessment quarterly: a 2-hour session with the shura council and key stakeholders, scoring each indicator with evidence.
-4. Identify the 2-3 areas most in need of improvement and assign specific action plans.
-5. Track scores over time to visualise progress and regressions.
-6. Share a summary (not the detailed scores) with the community to maintain transparency and invite input.
-7. Completion indicator: at least 2 quarterly assessments completed with documented scores, action plans, and visible trend tracking.` },
-        { title: "Cultivate a community culture of ihsan (excellence) in every activity", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:195)
-**Arabic:** وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ  
-**Translation:** And do good; indeed, Allah loves the doers of good.
-
-### Quran (55:60)
-**Arabic:** هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ  
-**Translation:** Is the reward for good anything but good?
-
-**II. Hadith**
-
-### Sahih Muslim 1955
-The Prophet (peace be upon him) said: "Indeed Allah has prescribed ihsan (excellence) in all things."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "Allah has prescribed ihsan (excellence) in all things" (Muslim). Ihsan is not limited to worship — it applies to how the masjid is cleaned, how events are organised, how food is served, how newcomers are greeted, and how conflicts are resolved. A culture of ihsan means the community refuses to accept mediocrity in any dimension of its collective life. This is the intangible quality that distinguishes a merely functional community from a model community.
-
-
-**How?**
-
-1. Define what ihsan looks like in each area of community life: worship (khushu and punctuality), facilities (cleanliness and maintenance), events (organisation and hospitality), communication (clarity and kindness), and governance (transparency and responsiveness).
-2. Communicate these standards through a "Community Ihsan Charter" — a brief, inspiring document that articulates the aspiration.
-3. Lead by example: community leaders must embody ihsan visibly before expecting it from others.
-4. Celebrate ihsan when you see it: public recognition of excellence encourages more of it.
-5. Address mediocrity with kindness but firmness: "This is not up to our standard. How can we do better?"
-6. Review the ihsan culture annually: what has improved? Where has complacency crept in?
-7. Completion indicator: a published Ihsan Charter, visible improvements in at least 3 areas of community life, and at least one annual review conducted.` },
-        { title: "Establish the community as a force for justice in the broader society", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (7:159)
-**Arabic:** وَمِن قَوْمِ مُوسَىٰ أُمَّةٌ يَهْدُونَ بِالْحَقِّ وَبِهِ يَعْدِلُونَ
-**Translation:** "There is a group among the people of Moses who guide with truth, and who act justly according to it."
-
-**II. Hadith**
-
-
-### Sahih Muslim 49
-The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Allah commands: "O you who believe, be persistently standing firm in justice, witnesses for Allah, even if it be against yourselves, your parents, or your relatives" (Quran 4:135). The Madinah community was not an isolationist enclave — it was a force for justice in the broader society. A community that aspires to the Prophetic standard must extend its concern beyond its own members to the welfare of all people: standing against injustice wherever it occurs, regardless of the victim's faith, ethnicity, or status.
-
-
-**How?**
-
-1. Identify justice issues in your broader community that affect all people, not just Muslims: poverty, housing, education inequality, criminal justice, environmental degradation, or discrimination.
-2. Select one issue where your community can make a meaningful, sustained contribution.
-3. Build a coalition: partner with other faith communities, civic organisations, and advocacy groups working on the same issue.
-4. Commit community resources: volunteer hours, financial support, venue space, and public advocacy.
-5. Frame the work in Islamic terms to the community ("This is our obligation as khulafa on this earth") and in universal terms to external partners ("We believe in justice for all people").
-6. Track impact and report to the community: what changed because of your involvement?
-7. Completion indicator: sustained engagement in one justice issue for at least 12 months, in coalition with non-Muslim partners, with documented impact.` },
-        { title: "Make dua and renew intention for the community to be a light for the ummah and for humanity", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (11:118)
-**Arabic:** وَلَوْ شَاءَ رَبُّكَ لَجَعَلَ النَّاسَ أُمَّةً وَاحِدَةً ۖ وَلَا يَزَالُونَ مُخْتَلِفِينَ
-**Translation:** "If your Lord had pleased, He would have made all people a single community, but they continue to have their differences."
-*(Contextual: diversity is by Allah's design; making dua for the community to be a light is the highest response to this reality — not imposing uniformity but embodying guidance.)*
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 1
-The Prophet (peace be upon him) said: "Actions are but by intention, and every person shall have but that which he intended."
-*(Grade: Sahih)*
-*(Contextual: renewing communal intention is the act this hadith makes central — all the community's works rise or fall by the sincerity of this renewal.)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said: "Actions are judged by intentions" (Bukhari & Muslim). All of the systems, programmes, and structures built through these tasks are means, not ends. The end is the pleasure of Allah and the service of His creation. Without regularly renewing the communal intention, the best institutions become bureaucracies and the noblest missions become ego projects. This final task is a reminder that the community's ultimate aspiration is not organisational excellence but nearness to Allah through service to His ummah and to all of humanity.
-
-
-**How?**
-
-1. Institute an annual "community renewal" gathering — a dedicated evening of collective reflection, gratitude, and recommitment.
-2. Open with Quran recitation and a reflection on the community's founding purpose.
-3. Review the year: what was accomplished? What fell short? What are we most grateful for?
-4. Renew the communal intention: "We do this work not for recognition, not for legacy, not for power — but for the sake of Allah alone."
-5. Make dua together: for the community, for the global ummah, for all of humanity, and for forgiveness for wherever we fell short.
-6. Close with a shared meal and an atmosphere of hope, gratitude, and determination.
-7. Completion indicator: an annual renewal gathering held with broad community participation and a documented reflection that feeds into the next year's strategic planning.` },
-      ],
-    },
-  ],
-
-  // ── NEIGHBORS ──
-
-  // ── CORE: Not Harming, Greeting, Basic Care ──
-  ummah_neighbors_core: [
-    {
-      title: "Learn every immediate neighbor's name, household composition, and basic needs",
-      priority: 'urgent', tags: ['haqq-al-jar', 'awareness'],
-      description: "You cannot fulfil the rights of someone you do not know. The Prophet (peace be upon him) said Jibril kept urging him about the neighbor until he thought neighbors would be given a share of inheritance (Bukhari 6014). This task establishes the foundational awareness required to honour those rights — begin by learning who lives beside you.",
-      subtasks: [
-        { title: "Identify every household within your immediate adjacency (apartments on your floor, houses on either side and across)", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance." Knowing your neighbors by name is the first step in fulfilling this weighty right.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The rights of the neighbor in Islam begin with awareness. The Quran commands ihsan (excellence) toward "the neighbor who is near and the neighbor who is far" (4:36). You cannot show ihsan to someone whose existence you have not even acknowledged. Mapping your immediate adjacency is the absolute baseline of Haqq al-Jar — it moves neighbors from anonymous strangers to known individuals for whom you bear responsibility before Allah.
-
-
-**How?**
-
-1. Draw a simple map of your building floor or street, marking each dwelling unit adjacent to yours.
-2. For apartments: include units on either side, directly above, directly below, and across the hallway.
-3. For houses: include the homes on either side and the three homes directly across the street.
-4. Note any units you already know something about (names, family size, elderly residents, children).
-5. Mark any units where you have never interacted with the occupants at all.
-6. This map becomes your working reference for all subsequent neighbor tasks.
-7. Completion indicator: a written or drawn map with every adjacent dwelling identified and labelled with whatever you currently know.` },
-        { title: "Introduce yourself to any neighbor you have not yet spoken to", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا ۖ وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** Worship Allah and associate nothing with Him, and to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "He is not a believer whose neighbor sleeps hungry while he has food" (Bayhaqi). But you will never know whether your neighbor is hungry if you have never exchanged a word. The first introduction breaks the barrier of anonymity and plants the seed of relationship. In many modern buildings people live side by side for years without a single greeting — this contradicts the entire ethic of Haqq al-Jar that Islam establishes.
-
-
-**How?**
-
-1. Identify from your adjacency map which neighbors you have never spoken with.
-2. Prepare a simple, warm introduction: your name, which unit or house you live in, and a genuine offer such as "Please let me know if you ever need anything."
-3. Choose a natural moment — when you see them at the mailbox, in the hallway, or arriving home.
-4. If you prefer a more structured approach, bring a small plate of dates, biscuits, or fruit as an icebreaker.
-5. Keep the interaction brief and warm — the goal is connection, not a lengthy conversation.
-6. Record each neighbor's name and any basic information they share (family members, how long they have lived there).
-7. Completion indicator: you have introduced yourself to every previously unknown adjacent neighbor and recorded their names.` },
-        { title: "Establish a consistent daily greeting habit — say salam or a warm hello to every neighbor you encounter", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (56:26)
-**Arabic:** إِلَّا قِيلًا سَلَامًا سَلَامًا
-**Translation:** "only clean and wholesome speech."
-*(Contextual: the speech of the people of Paradise is salam — habituating ourselves to it now is preparation for that station.)*
-
-### Quran (11:69)
-**Arabic:** وَلَقَدْ جَاءَتْ رُسُلُنَا إِبْرَاهِيمَ بِالْبُشْرَىٰ قَالُوا سَلَامًا ۖ قَالَ سَلَامٌ
-**Translation:** "To Abraham Our messengers brought good news. They said, 'Peace.' He answered, 'Peace.'"
-*(Contextual: even the angels greeted Ibrahim with salam, establishing it as the universal greeting of those close to Allah.)*
-
-**II. Hadith**
-
-
-### Sahih Muslim 54
-The Prophet (peace be upon him) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you of something which, if you do it, you will love one another? Spread salam (greetings of peace) among yourselves."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you something which, if you do it, you will love one another? Spread salam among yourselves" (Muslim 54). The daily greeting is the simplest, most consistent act of neighborly connection. It costs nothing, takes seconds, and over time transforms cold hallways and silent streets into spaces of recognition and warmth — the most basic expression of husn al-jiwar.
-
-
-**How?**
-
-1. Make a conscious intention (niyyah) each morning to greet every neighbor you encounter that day.
-2. When passing a neighbor — whether Muslim or not — offer a warm, audible greeting: "As-salamu alaykum" for Muslim neighbors, "Good morning" or the appropriate local greeting for others.
-3. Make eye contact, smile, and use their name if you know it.
-4. Do not rush past or pretend to be busy with your phone — presence and acknowledgment are the substance of the greeting.
-5. If a neighbor does not reciprocate warmly at first, remain consistent — habit and sincerity break barriers over time.
-6. Extend this to shared spaces: the elevator, stairwell, parking lot, and rubbish area.
-7. Completion indicator: greeting neighbors has become an automatic, daily habit requiring no conscious effort — you have not passed a neighbor without acknowledgment for at least two consecutive weeks.` },
-        { title: "Audit your home for anything that could harm neighbors — noise, smells, waste, obstructions", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6015
-The Prophet (peace be upon him) said: "By Allah, he does not believe! By Allah, he does not believe! By Allah, he does not believe!" It was said, "Who, O Messenger of Allah?" He said, "The one whose neighbor does not feel safe from his harm."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "By Allah, he does not believe — the one whose neighbor is not safe from his harm" (Bukhari 6016). This hadith places neighbor safety as a condition of iman itself. Harm is not limited to deliberate hostility — it includes noise at inconsiderate hours, cooking smells that seep through shared walls, rubbish left in common areas, and vehicles parked in a way that obstructs access. An honest audit of your own impact is essential before you can claim to fulfil this most basic right.
-
-
-**How?**
-
-1. Walk through your home at different times of day and honestly assess noise levels: music, television, children playing, appliances running early morning or late at night.
-2. Check shared walls and floors — can your neighbors hear your conversations, your washing machine, or your vacuum at odd hours?
-3. Assess cooking smells: do you leave your door open while frying, or does your kitchen ventilation push strong odors into the hallway?
-4. Inspect the area immediately outside your door: shoes, prams, delivery boxes, or anything encroaching on shared space.
-5. Check your parking: are you ever blocking a neighbor's access, using their spot, or leaving your vehicle in a way that makes their movement difficult?
-6. Ask a trusted household member for their honest observation — we often become blind to our own noise and clutter.
-7. Completion indicator: a written list of every potential source of harm to neighbors, with a fix or mitigation noted for each item.` },
-        { title: "Resolve every identified harm item — eliminate noise disturbances, clear shared spaces, fix obstructions", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 46
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him not harm his neighbor." Eliminating noise disturbances and clearing shared spaces is the practical application of this command.
-*(Grade: Sahih)*
-
-
-### Sunan Abu Dawud 5154
-The Prophet (peace be upon him) said: "By Allah, he does not believe. By Allah, he does not believe. By Allah, he does not believe." They asked: "Who, O Messenger of Allah?" He said: "The one whose neighbor does not feel safe from his evil."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Identifying harm without acting on it is worse than ignorance, because it adds the sin of neglect to the sin of harm. The hadith in Bukhari 6016 is unequivocal — your faith is questioned if your neighbor is not safe from your nuisance. Every unresolved item on your audit list is an active violation of Haqq al-Jar. Resolving them is not optional goodness; it is a debt owed to those who share your walls, your hallway, and your street.
-
-
-**How?**
-
-1. Take your audit list and address each item in order of severity.
-2. For noise: establish household quiet hours aligned with reasonable community norms (e.g., no loud activity before 8am or after 10pm), place rubber pads under washing machines, use headphones for late-night media.
-3. For smells: use your kitchen exhaust fan, keep doors closed during cooking, and consider an air purifier near the entrance.
-4. For shared space clutter: remove all personal items from hallways, stairwells, and shared storage areas — keep only what building rules explicitly permit.
-5. For parking: ensure your vehicle is squarely in your designated space and never obstructing another's access.
-6. For any item you cannot fully resolve alone (e.g., building maintenance issues), report it to your landlord or building management in writing.
-7. Completion indicator: every item on the harm audit list has been resolved or formally escalated, and you can honestly say your neighbor is safe from your nuisance.` },
-      ],
-    },
-    {
-      title: "Protect your neighbors' property and privacy as you would your own",
-      priority: 'urgent', tags: ['haqq-al-jar', 'amanah'],
-      description: "The right of the neighbor includes safeguarding their property when they are absent and never violating their privacy. The Prophet (peace be upon him) listed the rights of the neighbor to include protecting their home in their absence and lowering your gaze from their private spaces. This task ensures you actively honour these trust-based obligations.",
-      subtasks: [
-        { title: "Ensure your windows, balconies, and doorways do not overlook your neighbors' private spaces without screening", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance."
-*(Grade: Sahih)*
-
-
-### Quran (24:27)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا وَتُسَلِّمُوا عَلَىٰ أَهْلِهَا  
-**Translation:** "O you who have believed, do not enter houses other than your own houses until you ascertain welcome and greet their inhabitants."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Whoever looks into the house of a people without their permission, it is permissible for them to put out his eye" (Bukhari 6902). This dramatic language underscores how seriously Islam takes domestic privacy. Your home's layout may inadvertently give you a line of sight into a neighbor's bedroom, bathroom, or private garden. Screening these sightlines is not just courtesy — it is a protection of their God-given right to privacy (satr) within their own home.
-
-
-**How?**
-
-1. Stand at each window, balcony, and doorway in your home and look outward — can you see into any neighbor's private space?
-2. Pay special attention to windows that face each other across narrow gaps, balconies that overlook gardens, and upper-floor windows that look down into courtyards.
-3. For any sightline issue, install appropriate screening: frosted window film, curtains, blinds, or a balcony privacy screen.
-4. If you have an outdoor seating area, orient furniture so that your natural line of sight does not fall into a neighbor's home.
-5. In shared hallways, do not linger near peepholes or position cameras that capture your neighbor's doorway activity.
-6. If your building has shared laundry lines or drying areas, be conscious of visibility into windows when hanging clothes.
-7. Completion indicator: you have checked every outward-facing opening in your home and installed screening wherever a neighbor's private space is visible.` },
-        { title: "Keep a watchful eye on neighbors' homes when they are away — collect packages, note unusual activity", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:58)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
-**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Among the explicitly listed rights of the neighbor is that you safeguard their home when they are absent. In a hadith recorded by Abu Dawud, the Prophet (peace be upon him) described the neighbor's right to include watching over their property. Uncollected packages signal an empty home to thieves; untended bins or overflowing letterboxes advertise absence. By quietly watching over their home, you fulfil a trust (amanah) and provide real security that no technology fully replaces.
-
-
-**How?**
-
-1. When a neighbor mentions they will be away — or you notice signs of absence (no lights, uncollected post) — take note.
-2. Collect any packages or mail left at their door and hold them safely until their return.
-3. If bins are left out past collection day, bring them in to avoid signalling an empty home.
-4. Note any unusual activity around their property — unfamiliar people trying doors, strange vehicles lingering.
-5. If something genuinely concerning occurs, contact the neighbor first (if you have their number) or the appropriate local authority.
-6. When the neighbor returns, mention casually what you observed and hand over any collected items.
-7. Completion indicator: you have established a consistent habit of monitoring adjacent homes during noticed absences, and neighbors trust you to watch over their property.` },
-        { title: "Never discuss or expose what you observe of your neighbors' private affairs", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:12)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ ۖ وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا  
-**Translation:** O you who have believed, avoid much suspicion; indeed, some suspicion is sin. And do not spy or backbite each other.
-
-### Quran (24:27)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا وَتُسَلِّمُوا عَلَىٰ أَهْلِهَا  
-**Translation:** O you who have believed, do not enter houses other than your own houses until you ascertain welcome and greet their inhabitants.`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Whoever conceals the faults of a Muslim, Allah will conceal his faults on the Day of Judgment" (Muslim 2699). Living in close proximity means you will inevitably hear arguments, see visitors, notice habits, and learn things about your neighbors' lives that they have not chosen to share publicly. Disclosing these observations — whether to other neighbors, friends, or on social media — is a betrayal of the implicit trust that comes with proximity. Ghiba (backbiting) about a neighbor is among the most harmful forms because it poisons the very community you share daily space with.
-
-
-**How?**
-
-1. Make a firm internal commitment: what you see and hear of your neighbor's private life stays with you.
-2. If you overhear an argument, witness a family difficulty, or notice something embarrassing, act as though you did not.
-3. When other neighbors or friends ask about the people next door, share only what is publicly known and positive.
-4. If someone gossips to you about a neighbor, gently redirect: "I would rather not discuss their private affairs."
-5. Do not post anything on social media — even vaguely — that could identify or embarrass a neighbor.
-6. If a neighbor's private situation genuinely requires intervention (abuse, danger), seek professional or community help rather than spreading the information socially.
-7. Completion indicator: you can honestly say you have not disclosed any private observation about a neighbor to anyone for at least three consecutive months.` },
-        { title: "Exchange emergency contact information with your closest neighbors", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنبِ  
-**Translation:** And the near neighbor, the neighbor farther away, and the companion at your side.
-
-**II. Hadith**
-
-### Sahih Muslim 2625
-The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship in this world, Allah will relieve him of a hardship on the Day of Resurrection."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The neighborly relationship must have practical infrastructure, not just goodwill. In an emergency — a water leak, a medical incident, a fire, or a security concern — seconds matter, and having your neighbor's phone number is the difference between swift mutual aid and helpless waiting. The Prophet (peace be upon him) encouraged checking on neighbors' wellbeing; you cannot check on someone you cannot reach. This simple exchange formalises the relationship of mutual care that Haqq al-Jar demands.
-
-
-**How?**
-
-1. Identify your two or three closest neighbors — those who share a wall, a landing, or are directly adjacent.
-2. During a natural interaction (not forced), mention that you would like to exchange numbers in case of emergencies.
-3. Frame it practically: "If there is ever a water leak, a power outage, or anything urgent, I would like to be able to reach you and vice versa."
-4. Save their contact with a clear label (e.g., "Ahmed — Flat 4B") so you can find it quickly in an emergency.
-5. Share your own number willingly and let them know they can contact you if they ever need help.
-6. If a neighbor is reluctant, respect their boundary without pressure — not everyone is comfortable, and that is their right.
-7. Completion indicator: you have emergency contact numbers for at least two adjacent neighbors, and they have yours.` },
-        { title: "Respond immediately when a neighbor asks for help with a genuine need", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-**II. Hadith**
-
-### Sahih Muslim 2580
-The Prophet (peace be upon him) said: "Allah will say on the Day of Resurrection: 'O son of Adam, I was sick and you did not visit Me... I asked you for food and you did not feed Me... I asked you for water and you did not give Me drink.'" — referring to the needs of His servants.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "The best companion in the sight of Allah is the one who is best to his companion, and the best neighbor in the sight of Allah is the one who is best to his neighbor" (Tirmidhi 1944). Genuine need means a locked-out neighbor needing to use your phone, someone carrying heavy groceries who needs a hand, or a family experiencing a plumbing emergency. These moments are not interruptions — they are opportunities to earn the rank of "best neighbor in Allah's sight." Hesitation or avoidance in the face of genuine need is a failure of the most basic neighborly obligation.
-
-
-**How?**
-
-1. Cultivate a mindset of readiness: when a neighbor knocks, approach the door with the assumption that they need something reasonable.
-2. If a neighbor is locked out, offer your phone, a glass of water, and a place to wait without making them feel like a burden.
-3. If you see a neighbor struggling with groceries, heavy items, or a pram on the stairs, offer help immediately — do not wait to be asked.
-4. For small household emergencies (a burst pipe, a power issue), offer whatever practical help you can: a bucket, a torch, a call to your plumber.
-5. If you cannot help directly, assist them in finding someone who can — never leave them without a next step.
-6. After helping, do not expect reciprocation or even thanks — your intention is for Allah's pleasure alone.
-7. Completion indicator: you have responded to at least three genuine neighbor requests without hesitation, and your neighbors know they can turn to you in need.` },
-      ],
-    },
-    {
-      title: "Remove harm from shared spaces — keep communal areas clean, safe, and unobstructed",
-      priority: 'high', tags: ['haqq-al-jar', 'shared-spaces'],
-      description: "The Prophet (peace be upon him) said removing harm from the path is a branch of faith (Muslim 35). Shared hallways, stairwells, driveways, and communal gardens are the 'paths' of your neighborhood. This task applies the prophetic principle directly to communal spaces where your neighbors walk daily.",
-      subtasks: [
-        { title: "Walk through every shared space adjacent to your home and note cleanliness, safety, and obstruction issues", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 49
-The Prophet (peace be upon him) said: "Faith has over seventy branches, the highest of which is the declaration that there is no god but Allah, and the lowest of which is removing something harmful from the road." Auditing shared spaces for hazards fulfills this branch of faith.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The hadith "removing harm from the road is a branch of iman" (Muslim 35) applies directly to the spaces your neighbors traverse daily. A dirty stairwell, a broken light in the hallway, a bicycle chained across a shared entrance — these are the "harm on the road" of modern communal living. You cannot address problems you have not surveyed. This walkthrough gives you a clear picture of the current state and your opportunities to act.
-
-
-**How?**
-
-1. Walk from your front door through every shared space: hallway, stairwell, elevator lobby, parking area, bin storage, communal garden, and entrance paths.
-2. Note cleanliness issues: litter, stains, overflowing bins, cobwebs in corners, dirty windows.
-3. Note safety issues: broken lights, cracked steps, loose handrails, slippery surfaces, blocked fire exits.
-4. Note obstructions: personal items left in shared areas (shoes, prams, boxes), vehicles parked outside designated spots, overgrown hedges encroaching on paths.
-5. Distinguish between issues you can fix yourself and those requiring building management or council intervention.
-6. Take photos if helpful for reporting to management.
-7. Completion indicator: a written inventory of every cleanliness, safety, and obstruction issue in your shared spaces, categorised by who can resolve them.` },
-        { title: "Fix or report every issue you identified — personally clean, tidy, or escalate to management", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:195)
-**Arabic:** وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ  
-**Translation:** And do good; indeed, Allah loves the doers of good.
-
-**II. Hadith**
-
-### Sahih Muslim 35
-The Prophet (peace be upon him) said: "Faith has over seventy branches, the highest of which is the testimony that there is no god but Allah, and the least of which is removing something harmful from the road."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Identifying problems without acting is observation without ihsan. The Prophet (peace be upon him) did not say "notice harm on the road" — he said "remove it." If the stairwell light is out, you either replace the bulb or ensure management does. If litter is on the ground, you pick it up. The willingness to personally act — rather than assume someone else will — is what distinguishes a neighbor who fulfils Haqq al-Jar from one who merely lives nearby.
-
-
-**How?**
-
-1. Take your inventory and address every item you can personally fix.
-2. For litter and cleanliness: bring a bag and clean the area yourself — do not wait for a cleaner.
-3. For minor obstructions: politely move items to appropriate locations or ask the owner to do so.
-4. For safety hazards you can fix (e.g., replacing a light bulb in a shared fixture): do it promptly.
-5. For issues requiring management: write a clear, specific report with the location, nature of the issue, and photo if applicable, and submit it through the proper channel.
-6. Follow up on reported issues — if management has not acted within a reasonable time, send a polite reminder.
-7. Completion indicator: every item on your shared-space inventory has been either personally resolved or formally reported and tracked until resolution.` },
-        { title: "Never leave personal items in shared spaces — shoes, deliveries, rubbish bags, or equipment", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 46
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him not harm his neighbor." Leaving personal items in shared spaces is a form of harm that violates this Prophetic command.
-*(Grade: Sahih)*
-
-
-### Sahih Muslim 49
-The Prophet (peace be upon him) said: "Removing something harmful from the road is charity." Keeping shared spaces clear of personal items is an act of ongoing sadaqah.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Shared space is a collective trust. When one resident leaves shoes outside their door, others follow, and soon the hallway becomes an obstacle course. The Prophet (peace be upon him) said your neighbor has the right to not be harmed — and clutter in shared spaces is a form of harm: it is unsightly, can be a tripping hazard, and communicates a lack of care for the communal environment. Your restraint sets a standard others may follow.
-
-
-**How?**
-
-1. Conduct an honest audit: do you currently have any personal items outside your front door or in shared areas?
-2. Bring everything inside: shoes, doormats (if not permitted), delivery boxes, bikes, prams, cleaning supplies.
-3. Find indoor storage solutions: a shoe rack inside the door, a hook for bags, a designated spot for deliveries to be brought in immediately.
-4. For rubbish: never leave bags in the hallway even temporarily — take them directly to the bin area.
-5. If you receive a delivery while out, ask the delivery service to leave it in a designated safe spot, not the shared hallway.
-6. Set a household rule: nothing of ours lives outside our front door.
-7. Completion indicator: the area outside your home and in all shared spaces contains zero personal items belonging to your household, consistently maintained for at least one month.` },
-        { title: "Contribute to shared space maintenance beyond the minimum — sweep, wipe, or tidy communal areas regularly", done: false,
-          sources: `**I. Quran**
-
-### Quran (7:56)
-**Arabic:** وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا  
-**Translation:** And cause not corruption upon the earth after its reformation.
-
-**II. Hadith**
-
-### Sahih Muslim 35
-The Prophet (peace be upon him) said: "Removing something harmful from the road is a branch of faith."
-*(Grade: Sahih)*
-
-### Jami at-Tirmidhi 1956
-The Prophet (peace be upon him) said: "The best of companions in the sight of Allah is the one who is best to his companion, and the best of neighbors in the sight of Allah is the one who is best to his neighbor."
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-Islam teaches that the best actions are those done consistently, even if small. Sweeping the shared hallway once a week, wiping a dirty handrail, or picking up a stray wrapper is the ongoing, quiet practice of removing harm from the path. It is also a form of sadaqah — the Prophet (peace be upon him) said that every act of kindness is charity. When you go beyond the minimum, you establish a culture of care that elevates the entire community's standard of communal living.
-
-
-**How?**
-
-1. Choose a small, consistent act of shared-space maintenance to perform weekly — sweeping the hallway, wiping the elevator buttons, tidying the mailbox area.
-2. Do not announce it or seek recognition — the goal is quiet, sustained stewardship.
-3. If you see litter while passing through a shared area, pick it up in the moment rather than walking past.
-4. Keep a small broom or dustpan near your door for quick hallway sweeps.
-5. If your building has a garden, occasionally pull visible weeds, pick up rubbish, or water dry plants.
-6. If other residents begin doing the same, the culture has shifted — this is the goal.
-7. Completion indicator: you have performed at least one voluntary shared-space maintenance act per week for four consecutive weeks.` },
-        { title: "Ensure your home's exterior and entrance are well-maintained — contributing positively to the shared visual environment", done: false,
-          sources: `**I. Quran**
-
-### Quran (33:58)
-**Arabic:** وَالَّذِينَ يُؤْذُونَ الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ بِغَيْرِ مَا اكْتَسَبُوا فَقَدِ احْتَمَلُوا بُهْتَانًا وَإِثْمًا مُّبِينًا  
-**Translation:** And those who harm believing men and believing women for what they have not earned have certainly borne the burden of slander and manifest sin.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6015
-The Prophet (peace be upon him) said: "By Allah, he does not believe — the one whose neighbor does not feel safe from his harm."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Allah is beautiful and loves beauty" (Muslim 91). Your front door, balcony, garden fence, or building entrance is part of the visual environment your neighbors experience daily. A peeling door, a cluttered balcony, or an unkempt front garden subtly degrades the shared aesthetic and can signal neglect that spreads. Maintaining your exterior is a form of ihsan toward your neighbors' daily experience and an expression of the beauty Allah loves.
-
-
-**How?**
-
-1. Stand outside your front door (or at the street) and look at your home's exterior as a neighbor would see it.
-2. Check: is the door clean and in good condition? Is the doorbell working? Are house numbers visible?
-3. If you have a balcony: is it tidy, free of stored junk, and visually pleasant?
-4. If you have a front garden or yard: is the lawn maintained, are hedges trimmed, and is the path clear?
-5. Address any item that looks neglected: repaint a peeling door, clean dirty windows, remove clutter from visible areas.
-6. Add something positive if possible: a clean doormat, a simple potted plant, or adequate exterior lighting.
-7. Completion indicator: your home's exterior presents a clean, well-maintained appearance that contributes positively to the shared neighborhood environment.` },
-      ],
-    },
-    {
-      title: "Handle neighbor conflicts with patience, direct communication, and sabr",
-      priority: 'medium', tags: ['haqq-al-jar', 'conflict', 'sabr'],
-      description: "Disagreements with neighbors are inevitable — noise disputes, parking issues, boundary questions. Islam provides a clear framework: address issues directly and kindly, exercise patience, and never respond to harm with harm. The Prophet (peace be upon him) said the strong person is not the one who wrestles well but the one who controls himself in anger (Bukhari 6114).",
-      subtasks: [
-        { title: "Adopt the prophetic principle: never respond to a neighbor's harm with harm", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (52:42)
-**Arabic:** 
-**Translation:** Or do they intend to plan to do harm (to the prophet)? Then the disbelievers themselves shall be harmed by the plan.
-
-### Quran (10:12)
-**Arabic:** 
-**Translation:** And when harm touches man, he invokes Us, lying on his side, or sitting or standing. But when We have removed his harm from him, he passes on as if he had never invoked Us for a harm that touched him! Thus it is made fair-seeming to the Musrifûn that which they used to do.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 141
-Narrated Ibn \`Abbas:The Prophet (ﷺ) said, "If anyone of you on having sexual relations with his wife said (and he must say it before starting) 'In the name of Allah. O Allah! Protect us from Satan and also protect what you bestow upon us (i.e. the coming offspring) from Satan,' and if it is destined that they should have a child then, Satan will never be able to harm that offspring
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Do not be people without minds of your own, saying that if others treat you well you will treat them well, and if they do wrong you will do wrong. Instead, accustom yourselves to do good if people do good and not to do wrong if they do evil" (Tirmidhi 2007). When a neighbor plays loud music, parks in your spot, or makes an offensive remark, the nafs demands retaliation. But the Prophetic model is clear: you do not mirror harm. Your standard of conduct comes from revelation, not from your neighbor's behavior.
-
-
-**How?**
-
-1. Memorise and internalise the hadith above — write it somewhere visible as a reminder.
-2. When a neighbor does something that annoys or harms you, pause before reacting. Make istighfar and take a breath.
-3. Remind yourself that your response defines your character before Allah, regardless of what the neighbor did.
-4. Never retaliate with matching harm: if they are noisy, do not become noisy; if they are rude, do not become rude.
-5. Choose one of three responses: address it directly with kindness, endure it with sabr, or involve a neutral mediator if the issue persists.
-6. If you catch yourself retaliating — even passively (cold silence, deliberate ignoring) — recognise it and correct course.
-7. Completion indicator: you have faced at least one genuinely annoying neighbor situation and responded without any form of retaliation, choosing patience or kind direct communication instead.` },
-        { title: "When an issue arises, speak to the neighbor privately and directly before involving anyone else", done: false,
-          sources: `**I. Quran**
-
-### Quran (41:34)
-**Arabic:** وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
-**Translation:** And not equal are the good deed and the bad. Repel evil by that which is better; and thereupon the one whom between you and him is enmity will become as though he was a devoted friend.
-
-### Quran (49:11)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ عَسَىٰ أَن يَكُونُوا خَيْرًا مِّنْهُمْ  
-**Translation:** O you who have believed, let not a people ridicule another people; perhaps they may be better than them.`,
-          description: `**Why?**
-
-The Quran says, "Repel evil with that which is better, and thereupon the one between whom and you was enmity will become as though he was a devoted friend" (41:34). Direct, private communication preserves dignity and gives the neighbor the benefit of the doubt — perhaps they are unaware of the impact. Complaining to building management, posting in group chats, or venting to other neighbors before speaking to the person directly is a violation of their right and usually escalates the conflict unnecessarily.
-
-
-**How?**
-
-1. When an issue arises (noise, parking, waste), wait until you are calm before addressing it.
-2. Go to the neighbor's door at a reasonable time — not in the heat of the moment.
-3. Begin with salam and a positive statement: "I hope you are well. I wanted to mention something I have noticed..."
-4. Describe the impact on you without accusing: "I have been hearing music late at night and it has been affecting my sleep" — not "You are too loud."
-5. Assume positive intent: "I am sure you did not realise it was carrying through the walls."
-6. Propose a solution collaboratively: "Would it be possible to lower the volume after 10pm?"
-7. Completion indicator: you have addressed at least one neighbor issue through direct, private, kind conversation rather than through complaints to third parties.` },
-        { title: "Practise sabr with recurring annoyances — endure minor irritations without complaint", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (41:34)
-**Arabic:** وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ  
-**Translation:** "Not equal are the good deed and the bad. Repel [evil] by that [deed] which is better."
-
-
-### Sahih Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance." Enduring minor annoyances with sabr honors this trust.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Not every annoyance requires a conversation. A child crying at night, cooking smells during Ramadan, occasional footsteps above — these are the realities of shared living. The Prophet (peace be upon him) said, "Whoever believes in Allah and the Last Day, let him bear his neighbor's annoyance with patience" (Bukhari 6018). Sabr in the face of minor irritation is not weakness; it is the strength of iman that the hadith explicitly links to belief in Allah and the Last Day. It preserves relationships over trivial matters.
-
-
-**How?**
-
-1. Distinguish between genuine harm (persistent loud parties, property damage) and normal living sounds and smells.
-2. For normal living realities — children, cooking, occasional guests, furniture movement — choose sabr as your default response.
-3. When irritation rises, say "la hawla wa la quwwata illa billah" and remind yourself of the hadith on enduring neighbor annoyance.
-4. Reflect: if you were doing the same thing, would it be reasonable? If yes, the issue is your tolerance, not their behavior.
-5. Use practical coping: earplugs for light sleepers, closing windows during cooking hours, background sound for noise sensitivity.
-6. Reserve direct conversation for genuine, persistent harm — not every momentary annoyance.
-7. Completion indicator: you have consciously chosen sabr over complaint for at least five minor neighbor irritations over a one-month period.` },
-        { title: "If a dispute persists, involve a mutually trusted mediator rather than escalating to authorities", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (49:9)
-**Arabic:** وَإِن طَائِفَتَانِ مِنَ الْمُإْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا  
-**Translation:** "And if two factions among the believers should fight, then make settlement between the two."
-
-
-### Sahih Bukhari 2693
-The Prophet (peace be upon him) said: "Shall I not inform you of something more excellent than fasting, prayer, and charity?" They said: "Yes." He said: "Reconciliation between people, for corruption of relationships is the shaver."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Quran instructs: "If two parties among the believers fall into a dispute, make peace between them" (49:9). Involving a trusted third party — a respected community elder, a mutual friend, or the building manager — before resorting to formal complaints or legal action preserves the relationship and follows the Islamic model of community-level dispute resolution. Escalation to authorities should be a last resort, not a first reaction, because it permanently damages the neighborly bond that Allah has placed as a trust upon you.
-
-
-**How?**
-
-1. If direct conversation has not resolved the issue after two genuine attempts, identify a neutral third party both of you respect.
-2. This could be: a building manager, a community elder, a mutual friend, or a local imam.
-3. Approach the mediator privately, describe the situation factually without emotional language, and ask if they would be willing to facilitate a conversation.
-4. Propose mediation to your neighbor: "I would like us to resolve this together — would you be open to sitting down with [mediator's name] to find a solution?"
-5. During mediation, listen as much as you speak, be willing to compromise, and focus on outcomes rather than blame.
-6. Accept the mediator's suggested resolution in good faith.
-7. Completion indicator: you have identified a potential mediator for any future disputes and committed to the principle of mediation before escalation.` },
-        { title: "After resolving a conflict, restore the relationship — visit, bring a gift, or express genuine goodwill", done: false,
-          sources: `**I. Quran**
-
-### Quran (41:34)
-**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
-**Translation:** Repel evil by that which is better; and thereupon the one between you and him is enmity will become as though he was a devoted friend.
-
-**II. Hadith**
-
-### Sunan Abu Dawud 5152
-The Prophet (peace be upon him) said: "The best of companions in the sight of Allah is the one who is best to his companion, and the best of neighbors is the one who is best to his neighbor."
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Give gifts to one another, for gifts remove grudges from the heart" (Tirmidhi 2130). A resolved dispute is not the same as a restored relationship. The lingering awkwardness, the avoidance in the hallway, the stiff nod instead of a warm greeting — these indicate that the conflict ended but the bond did not heal. Islam demands not just resolution but restoration, because you will continue living beside this person and the quality of that proximity matters to your daily life and your akhirah.
-
-
-**How?**
-
-1. After a conflict is resolved — whether through direct conversation or mediation — take the initiative to restore warmth.
-2. Within a few days, bring a small gift: a plate of food, a box of sweets, or fresh fruit.
-3. When you deliver it, be genuinely warm: "I am glad we resolved that. I value having you as my neighbor."
-4. Resume your normal greeting pattern immediately — do not allow awkward avoidance to take root.
-5. If the neighbor seems reserved, give them time but maintain your own warmth consistently.
-6. Over the following weeks, look for opportunities to help them or include them — a shared coffee, an offer of assistance.
-7. Completion indicator: after a resolved conflict, the relationship has returned to warmth and normal interaction within one month.` },
-      ],
-    },
-    {
-      title: "Fulfil the basic needs of vulnerable neighbors — elderly, sick, alone, or in hardship",
-      priority: 'high', tags: ['haqq-al-jar', 'vulnerable', 'care'],
-      description: "The Prophet (peace be upon him) said, 'He is not a believer whose neighbor sleeps hungry while he has food' (Bayhaqi). Vulnerable neighbors — the elderly, the sick, those living alone, recent arrivals, or families facing hardship — have an amplified right to your attention. This task ensures you identify and actively care for those in your vicinity who need it most.",
-      subtasks: [
-        { title: "Identify which of your neighbors are elderly, living alone, recently moved in, or facing visible hardship", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6011
-The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body. When one limb suffers, the whole body responds with wakefulness and fever." Identifying vulnerable neighbors is the first step toward fulfilling this communal body's duty.
-*(Grade: Sahih)*
-
-
-### Quran (107:1-3)
-**Arabic:** أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ  
-**Translation:** "Have you seen the one who denies the Recompense? For that is the one who drives away the orphan and does not encourage the feeding of the poor."`,
-          description: `**Why?**
-
-The Quran's command to show ihsan to "the neighbor who is near" (4:36) applies with special weight to those who are vulnerable. An elderly person living alone may not have anyone to call in an emergency. A new arrival may not speak the language or know how to access services. A family facing hardship may be too proud to ask for help. You cannot fulfil enhanced duty of care toward vulnerable neighbors if you have not identified who they are. This awareness transforms generic goodwill into targeted, meaningful support.
-
-
-**How?**
-
-1. Review your neighbor map and note any households where you know or suspect vulnerability: elderly residents, people living alone, recent immigrants, single-parent families, or anyone you have seen struggling.
-2. Pay attention to indirect signs: an elderly person who struggles with shopping bags, a unit where you never see visitors, a family that recently moved in and seems unfamiliar with the area.
-3. Speak with longer-term neighbors who may know the community better — they can help you identify who might need support.
-4. Be sensitive and not intrusive: you are building awareness, not conducting an investigation.
-5. Note any immediate needs you can already see: someone who has difficulty with stairs, a neighbor who never seems to leave the house, a family with very young children and no visible support.
-6. Record what you learn on your neighbor map, marking vulnerable households.
-7. Completion indicator: you have identified at least two or three neighbors who fall into a vulnerable category and noted their likely needs.` },
-        { title: "Check on elderly or alone neighbors regularly — a knock, a call, a brief visit", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And the near neighbor, the neighbor farther away.
-
-### Quran (107:1-3)
-**Arabic:** أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ ۝ فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ ۝ وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ  
-**Translation:** Have you seen the one who denies the Recompense? For that is the one who drives away the orphan and does not encourage the feeding of the poor.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) visited the sick, checked on the absent, and noticed when regular community members were missing. Elderly and alone neighbors can experience health emergencies, falls, or severe loneliness without anyone noticing for days. A regular check — even a brief knock and "How are you today?" — can be literally lifesaving and is always soul-nourishing. In many communities, the neighbor is the first line of human contact for isolated people, making this act of checking one of the most impactful expressions of Haqq al-Jar.
-
-
-**How?**
-
-1. Choose a consistent frequency for checking: daily for a very elderly or frail neighbor, two to three times per week for others living alone.
-2. A check can be as simple as knocking on the door and saying, "I just wanted to see if you need anything today."
-3. If you have their phone number, a brief call works too: "Assalamu alaykum, just checking in — is everything alright?"
-4. Be observant during checks: does the neighbor look well? Is mail piling up? Do they seem confused or distressed?
-5. If a neighbor does not answer and you have reason for concern, escalate appropriately — contact a family member, building management, or in genuine emergencies, the authorities.
-6. Bring something small occasionally: a cup of tea, a piece of fruit, or a brief conversation if they seem lonely.
-7. Completion indicator: you have established a consistent check-in routine with at least one vulnerable neighbor, maintained for at least three weeks.` },
-        { title: "Offer practical help to neighbors in hardship — groceries, errands, childcare assistance, or a ride", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:177)
-**Arabic:** وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ  
-**Translation:** And gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler.
-
-**II. Hadith**
-
-### Sahih Muslim 2625
-The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship in this world, Allah will relieve him of a hardship on the Day of Resurrection."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "He is not a believer whose neighbor sleeps hungry while he has food" (Bayhaqi). This hadith extends beyond food to any unmet need within your capacity. A neighbor who lost their job may need groceries. A single parent may need someone to watch their child for an hour. An elderly person may need a ride to a medical appointment. These are not extraordinary acts of charity — they are the baseline of what Islam expects when you have the capacity and your neighbor has the need. Fulfilling them is a condition of complete iman.
-
-
-**How?**
-
-1. When you learn that a neighbor is facing hardship, think practically: what do they likely need, and what can I provide?
-2. Offer specifically rather than vaguely: "I am going to the supermarket — can I pick up anything for you?" is better than "Let me know if you need anything."
-3. For groceries: bring a bag of staples without being asked — rice, bread, milk, eggs, fruit.
-4. For errands: offer to post a letter, collect a prescription, or drop off a document.
-5. For childcare: offer to watch children for an hour so the parent can attend to urgent matters.
-6. For transport: offer a ride to a medical appointment, a government office, or the masjid.
-7. Completion indicator: you have provided at least three specific acts of practical help to a neighbor in need over a two-month period.` },
-        { title: "Welcome new neighbors — introduce yourself, provide local information, and offer to help them settle in", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
-
-**II. Hadith**
-
-### Sahih Muslim 54
-The Prophet (peace be upon him) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you something which, if you do it, you will love one another? Spread the salam among yourselves."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Moving to a new home is one of life's most disorienting experiences, especially for families who have relocated to a new city or country. The first person who shows kindness in a new place is remembered for years. The Prophet (peace be upon him) was the ultimate exemplar of welcoming strangers and making them feel at home. Your welcome to a new neighbor can determine whether they feel isolated in their new environment or immediately connected to a caring community — a direct manifestation of the Quranic command to show ihsan to the neighbor.
-
-
-**How?**
-
-1. When you notice new occupants in an adjacent home, introduce yourself within the first week — do not wait for a "convenient" moment that never comes.
-2. Bring a small welcome gift: a plate of homemade food, a box of dates, or a selection of fruit.
-3. Provide practical local information: nearest supermarket, pharmacy, post office, school, masjid, doctor, and any useful community groups.
-4. If they have children, let them know about nearby parks, playgrounds, and any local children's activities.
-5. Offer specific help: "If you need anything while you are settling in — borrowing a tool, figuring out rubbish collection days, or just directions — please do not hesitate to knock."
-6. If they are from a different cultural background, be especially warm and patient — they may be navigating language barriers and unfamiliar systems.
-7. Completion indicator: you have personally welcomed at least one new neighbor family with a visit, a gift, and practical local information.` },
-        { title: "Keep a small emergency supply you can share with a neighbor in sudden need — torch, first aid, bottled water, non-perishable food", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (107:7)
-**Arabic:** وَيَمْنَعُونَ الْمَاعُونَ
-**Translation:** "and forbid common kindnesses."
-*(Contextual: the Quran rebukes those who withhold simple aid — keeping emergency supplies ready to share is the positive fulfilment of what this verse prohibits neglecting.)*
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 6018
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day should not harm his neighbor."
-*(Grade: Sahih)*
-*(Contextual: being prepared to help a neighbor in sudden need is the practical expression of "not harming" — unpreparedness can mean abandoning a neighbor when help is most needed.)*`,
-          description: `**Why?**
-
-Emergencies do not announce themselves. A power outage, a water main break, a family crisis, or a sudden illness can leave a neighbor in immediate need. Having basic supplies ready to share is part of the practical preparedness that Islam encourages. The Prophet (peace be upon him) tied his camel before trusting in Allah — preparation and tawakkul go together. A torch lent during a blackout, a bottle of water during a pipe burst, or a basic first aid kit when a child is hurt — these small acts of preparedness can transform you from a bystander into the neighbor who was there when it mattered.
-
-
-**How?**
-
-1. Assemble a small, clearly labelled emergency kit that you designate for neighbor sharing.
-2. Include: a working torch with spare batteries, a basic first aid kit, two to three litres of bottled water, a few packets of non-perishable food (biscuits, dates, nuts, tinned goods), and a phone charger.
-3. Store it in an accessible location near your front door — you need to be able to grab it quickly.
-4. Check the kit every three months: replace expired items, test the torch, and refresh the water.
-5. Let your closest neighbors know: "If you ever have an emergency and need a torch, water, or first aid, please knock — I keep supplies ready."
-6. When an emergency actually occurs, offer what you have without being asked.
-7. Completion indicator: a neighbour-sharing emergency kit is assembled, stored accessibly, and at least two neighbors know it exists.` },
-      ],
-    },
-  ],
-
-  // ── GROWTH: Proactive Kindness, Sharing, Visiting, Forbearance ──
-  ummah_neighbors_growth: [
-    {
-      title: "Share food with your neighbors regularly — especially on Eid, Jumu'ah, and occasions of joy",
-      priority: 'urgent', tags: ['haqq-al-jar', 'food-sharing', 'sunnah'],
-      description: "The Prophet (peace be upon him) said, 'O Abu Dharr, when you cook broth, increase the water and share with your neighbors' (Muslim 2625). Food sharing is the most repeatedly emphasised act of neighborliness in the Prophetic tradition. This task establishes it as a regular, joyful practice rather than an occasional gesture.",
-      subtasks: [
-        { title: "Begin the habit of sharing food from your regular cooking — increase portions and send a plate next door", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6017
-The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." Sharing food from regular cooking, however humble, fulfills the right of the neighbor.
-*(Grade: Sahih)*
-
-
-### Sunan al-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor."
-*(Grade: Hasan Sahih)*`,
-          description: `**Why?**
-
-The hadith "increase the water in your broth and share with your neighbors" (Muslim 2625) is a direct prophetic command — not a suggestion. It normalises food sharing as part of routine cooking, not an occasional grand gesture. When you cook, you are already spending time and resources; adding a little extra and sending a plate next door costs almost nothing but communicates profound care. It says: "I thought of you while feeding my own family." This is the daily, consistent ihsan that builds genuine neighborly bonds.
-
-
-**How?**
-
-1. Choose one or two meals per week as your "neighbor plate" meals — days when you intentionally cook extra.
-2. When preparing the meal, simply increase the recipe by one or two portions.
-3. Plate the food attractively on a reusable plate or container — presentation communicates respect.
-4. Deliver it while warm with a genuine smile: "We made extra today and wanted to share with you."
-5. Do not worry about reciprocation — some neighbors will return the gesture, others will not. Your action is for Allah.
-6. Rotate among your neighbors so that everyone receives food periodically, not just one household.
-7. Completion indicator: you have shared food from your regular cooking with neighbors at least four times in one month.` },
-        { title: "Prepare special dishes for neighbors on Eid al-Fitr and Eid al-Adha — include non-Muslim neighbors", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6017
-The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." On Eid, generosity should extend to all neighbors, including non-Muslims.
-*(Grade: Sahih)*
-
-
-### Quran (60:8)
-**Arabic:** لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ  
-**Translation:** "Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes — from being righteous toward them."`,
-          description: `**Why?**
-
-Eid is a time of communal joy, and the Prophet (peace be upon him) emphasised that no one should be left out of this joy. Sharing Eid food with neighbors — Muslim and non-Muslim alike — is one of the most beautiful expressions of Islamic neighborliness. For Muslim neighbors, it strengthens the bond of ummah celebration. For non-Muslim neighbors, it opens a window into Islamic culture through the universal language of food and generosity. The Quran commands ihsan toward "the neighbor who is near and the neighbor who is far" (4:36) without restricting it to Muslim neighbors.
-
-
-**How?**
-
-1. Before each Eid, plan which dishes you will prepare for sharing — choose items that travel well and are broadly appealing.
-2. Consider dietary restrictions: avoid common allergens where possible, and for non-Muslim neighbors, label dishes clearly if they contain unfamiliar ingredients.
-3. Prepare enough portions for all adjacent neighbors — not just one or two households.
-4. Package the food nicely: use a clean container with a small card saying "Eid Mubarak — wishing you and your family joy and blessings."
-5. Deliver personally, explain briefly: "Today is Eid, our celebration — we wanted to share our joy with you."
-6. For non-Muslim neighbors who may be unfamiliar, a brief, warm explanation of what Eid celebrates adds meaning to the gift.
-7. Completion indicator: you have shared Eid food with every adjacent neighbor — Muslim and non-Muslim — on both Eid al-Fitr and Eid al-Adha.` },
-        { title: "Share food when your household has any occasion of joy — a new baby, a graduation, a promotion, or good news", done: false,
-          sources: `**I. Quran**
-
-### Quran (76:8-9)
-**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا ۝ إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا  
-**Translation:** And they give food in spite of love for it to the needy, the orphan, and the captive, saying, "We feed you only for the sake of Allah. We wish not from you reward or gratitude."
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6017
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-In Arab and Islamic tradition, good news is shared with neighbors through food — it is called "walimah" in some contexts and is rooted in the Prophetic practice of celebrating blessings communally. When you share the joy of a new baby, a graduation, a job promotion, or any good news with your neighbors through food, you include them in your happiness. This transforms neighbors from strangers who happen to live nearby into a community that shares in each other's milestones — which is exactly what the Prophetic neighborhood model looks like.
-
-
-**How?**
-
-1. Adopt the principle: when something good happens in our home, our neighbors should know through a shared plate.
-2. The food does not need to be elaborate — a tray of sweets, a batch of cookies, a box of dates, or a simple dessert.
-3. When delivering, share the good news warmly: "We just had some wonderful news — a new baby / a graduation / a promotion — and we wanted to share our happiness with you."
-4. Accept their congratulations graciously and invite their du'a.
-5. If a neighbor shares their good news with you, reciprocate with a congratulatory visit or gift even if they did not bring food.
-6. This practice teaches your children that joy is meant to be shared, not hoarded.
-7. Completion indicator: you have shared food with neighbors on at least two occasions of household joy.` },
-        { title: "Accept food from neighbors graciously — never refuse, never criticise, always express gratitude", done: false,
-          sources: `**I. Quran**
-
-### Quran (76:8)
-**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا  
-**Translation:** And they give food in spite of love for it to the needy, the orphan, and the captive.
-
-**II. Hadith**
-
-### Sahih Muslim 2625
-The Prophet (peace be upon him) said: "He who relieves a hardship of this world for a believer, Allah will relieve a hardship of the Day of Resurrection for him."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Do not belittle any good deed, even if it is meeting your brother with a cheerful face" (Muslim 2626). When a neighbor brings food, they are offering you a gift that carries emotional weight — they chose to think of you, cook for you, and come to your door. Refusing, criticising, or being unenthusiastic crushes that impulse of generosity and may prevent them from ever sharing again. Gracious acceptance is itself an act of neighborliness: it honours their effort and encourages the culture of sharing that the Prophetic model establishes.
-
-
-**How?**
-
-1. When a neighbor brings food, receive it with a genuine smile and warm thanks — regardless of what the food is.
-2. Never say "you should not have" in a way that discourages future sharing — instead say "this is so kind, jazakAllahu khayran" or "thank you, this means a lot."
-3. Never criticise the food — not to the neighbor, not to your family afterward, not even in your own mind. They gave from what they had.
-4. Taste the food and, when you next see the neighbor, mention specifically what you enjoyed: "That biryani was wonderful" or "The children loved those cookies."
-5. Return the container clean, and if possible, with something in it — even a few dates or biscuits.
-6. If you have dietary restrictions that prevent you from eating the food, accept it graciously and find someone in your household or circle who can enjoy it.
-7. Completion indicator: you have graciously accepted every food offering from neighbors for at least three consecutive months without refusal or negative comment.` },
-        { title: "Learn your neighbors' dietary preferences and restrictions so your sharing is thoughtful and inclusive", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6017
-The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." Learning neighbors' dietary preferences ensures your gifts are thoughtful and truly beneficial.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Thoughtful giving is the difference between a gesture and genuine care. If your neighbor is diabetic and you bring sweets, or vegetarian and you bring a meat dish, the gift misses its mark. The Prophet (peace be upon him) gave gifts according to what people valued and needed, not according to his own preferences. Learning what your neighbors can and enjoy eating elevates your food sharing from routine to deeply personal — it says "I do not just share food; I share food that I chose specifically for you."
-
-
-**How?**
-
-1. During natural conversations, learn about your neighbors' food preferences: "Do you have any food allergies or things you do not eat?"
-2. Note cultural and religious dietary practices: halal, kosher, vegetarian, vegan, gluten-free, dairy-free.
-3. Note health-related restrictions: diabetes (low sugar), hypertension (low salt), allergies (nuts, shellfish).
-4. Record these alongside your neighbor contact information so you remember when cooking.
-5. When preparing food to share, choose recipes that respect their restrictions — or prepare different dishes for different neighbors.
-6. When sharing, mention it: "I made this without nuts because I know your daughter is allergic" — this communicates that the food is safe and that you cared enough to remember.
-7. Completion indicator: you know the dietary preferences or restrictions of at least three neighboring households and have tailored your food sharing accordingly.` },
-      ],
-    },
-    {
-      title: "Visit sick neighbors and support them through illness with practical care",
-      priority: 'urgent', tags: ['haqq-al-jar', 'visiting-sick', 'sunnah'],
-      description: "The Prophet (peace be upon him) said, 'The rights of a Muslim upon another Muslim are five: returning the greeting, visiting the sick, following the funeral, accepting the invitation, and saying yarhamukAllah when one sneezes' (Bukhari 1240). Visiting the sick is a fundamental right — and when the sick person is your neighbor, the obligation is doubled by proximity.",
-      subtasks: [
-        { title: "When you learn a neighbor is unwell, visit or check on them within 24 hours", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And the near neighbor, the neighbor farther away.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 5649
-The Prophet (peace be upon him) said: "The rights of a Muslim over another Muslim are five: responding to the greeting of salam, visiting the sick, following the funeral, accepting an invitation, and responding to one who sneezes."
-*(Grade: Sahih)*
-
-### Sahih Muslim 2568
-The Prophet (peace be upon him) said: "Do not belittle any act of kindness, even meeting your brother with a cheerful face."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "When a Muslim visits a sick Muslim in the morning, seventy thousand angels pray for him until the evening" (Tirmidhi 969). Visiting the sick is not a social nicety in Islam — it is a right of every Muslim and a profound act of worship. When the sick person is your neighbor, the urgency is amplified: they are steps away from your door, and you have no excuse of distance. The first 24 hours of illness are often the most disorienting, and a neighbor's presence communicates that they are not alone in their vulnerability.
-
-
-**How?**
-
-1. When you hear a neighbor is unwell — through direct communication, other neighbors, or observation (they have not been seen for days) — act within 24 hours.
-2. Knock gently at a considerate time. If they answer, keep the visit brief: "I heard you are not well. I wanted to check on you. Is there anything you need?"
-3. If they do not answer, leave a note or send a message: "We heard you are unwell. Please let us know if we can help with anything — groceries, medicine, or just a hot meal."
-4. If they have a contagious illness, respect boundaries but still offer practical help that does not require close contact (leaving food at the door, picking up prescriptions).
-5. Make du'a for their recovery during the visit and afterward.
-6. Follow up the next day — one visit is not enough; consistent checking shows genuine care.
-7. Completion indicator: you have visited or checked on a sick neighbor within 24 hours of learning about their illness at least once.` },
-        { title: "Provide practical support during a neighbor's illness — meals, errands, or childcare", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 2568
-The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection." Providing practical support during a neighbor's illness is direct relief of hardship.
-*(Grade: Sahih)*
-
-
-### Sahih Muslim 2569
-The Prophet (peace be upon him) said: "Visit the sick, feed the hungry, and free the captives." Practical care during illness fulfills this Prophetic command.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-A visit without practical support is warmth without substance. When a neighbor is bedridden, their household still needs to eat, prescriptions still need collecting, children still need supervision, and errands still need running. The Prophet (peace be upon him) modelled holistic care — he did not merely visit the sick; he ensured they were fed, comforted, and prayed for. Providing tangible help transforms your visit from a social obligation into genuine, life-easing support that the sick neighbor and their family will remember as a mercy from Allah delivered through your hands.
-
-
-**How?**
-
-1. When visiting a sick neighbor, ask specifically: "What practical thing can I do for you right now?"
-2. Offer to cook and deliver meals for their household — a recovering person cannot cook, and their family is often overwhelmed.
-3. Offer to pick up prescriptions from the pharmacy.
-4. If they have children, offer to supervise them for a few hours so the sick parent can rest.
-5. Offer to handle errands: grocery shopping, posting mail, walking their pet if they have one.
-6. If the illness is prolonged, coordinate with other neighbors to share the support rather than bearing it alone.
-7. Completion indicator: you have provided at least two specific acts of practical support during one neighbor's illness.` },
-        { title: "Make du'a for sick neighbors — at their bedside and in your own prayers", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (33:60)
-**Arabic:** 
-**Translation:** If the hypocrites do not desist, as well as those with sickness in their hearts and the rumormongers in the City(of Madinah) , We will surely incite yousg against them; then they will not neighbor you in it except for a short while.
-
-### Quran (73:20)
-**Arabic:** 
-**Translation:** [Prophet], your Lord is well aware that you sometimes spend nearly two-thirds of the night at prayer––sometimes half, sometimes a third––as do some of your followers. God determines the division of night and day. He knows that you will not be able to keep a measure of it and He has relented towards all of you, so recite as much of the Quran as is easy for you. He knows that some of you will be sick, some of you travelling through the land seeking God’s bounty, some of you fighting in God’s way: recite as much as is easy for you, keep up the prayer, pay the prescribed alms, and make God a good loan. Whatever good you store up for yourselves will be improved and increased for you. Ask God for His forgiveness, He is most forgiving, most merciful.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 90
-Narrated Abu Mas\`ud Al-Ansari:Once a man said to Allah's Messenger (ﷺ) "O Allah's Messenger (ﷺ)! I may not attend the (compulsory congregational) prayer because so and so (the Imam) prolongs the prayer when he leads us for it. The narrator added: "I never saw the Prophet (ﷺ) more furious in giving advice than he was on that day. The Prophet said, "O people! Some of you make others dislike good deeds (the prayers). So whoever leads the people in prayer should shorten it because among them there are the sick the weak and the needy (having some jobs to do)
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) taught specific du'a for visiting the sick, including: "As'alullaha al-Adheem, Rabb al-arsh al-adheem, an yashfiyak" — "I ask Allah, the Magnificent, Lord of the Magnificent Throne, to cure you" (Abu Dawud 3106). He instructed repeating it seven times and promised that Allah would cure the person if their appointed time had not yet come. Du'a is not a symbolic gesture in Islam — it is a direct appeal to the One who controls all healing. Making du'a for your neighbor at their bedside and in your own salah combines spiritual care with practical presence.
-
-
-**How?**
-
-1. Learn the Prophetic du'a for visiting the sick: "As'alullaha al-Adheem, Rabb al-arsh al-adheem, an yashfiyak" — repeat it seven times.
-2. When visiting a sick neighbor, ask their permission to make du'a for them — almost no one refuses.
-3. Place your right hand gently on the area of pain (if appropriate and the person is the same gender) and recite the du'a.
-4. Also make general du'a: "May Allah grant you complete healing, remove your pain, and reward you for your patience."
-5. In your own salah — during sujud or in the final tashahhud before salam — include your sick neighbor by name in your du'a.
-6. If the neighbor is non-Muslim, you can still pray for their wellbeing and recovery in your own words.
-7. Completion indicator: you have made du'a at the bedside of a sick neighbor and included them by name in your personal salah at least three times during their illness.` },
-        { title: "Continue checking on a neighbor after they recover — the relationship should outlast the illness", done: false,
-          sources: `**I. Hadith**
-
-
-### Sunan al-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor." Continuing to check on a neighbor after recovery demonstrates sustained, excellent neighborliness.
-*(Grade: Hasan Sahih)*`,
-          description: `**Why?**
-
-A common pattern is to show concern during illness and then disappear once the crisis passes. But the prophetic model of neighborliness is continuous, not crisis-driven. If you only appear when someone is sick, the relationship feels transactional — a duty discharged rather than a bond maintained. Continuing to check in after recovery communicates that your care was genuine, not obligatory. It transforms a sick visit into a lasting connection and fulfils the deeper intent of Haqq al-Jar: sustained, meaningful human relationship.
-
-
-**How?**
-
-1. After a neighbor has recovered, visit again within a week to see how they are feeling.
-2. Bring something positive: a fruit basket, a home-cooked meal, or simply your genuine company.
-3. Ask about their recovery: "Are you back to full strength? Is there anything lingering that I can help with?"
-4. If they were hospitalized, check whether they need help with post-hospital logistics: follow-up appointments, medication schedules, or physical limitations.
-5. Continue your normal greeting and interaction patterns — do not let the illness create an awkward distance.
-6. At least once a month for the next few months, actively check in: a knock, a call, or a brief conversation when you see them.
-7. Completion indicator: you have maintained contact with a previously sick neighbor for at least one month after their recovery, checking in at least twice.` },
-        { title: "Attend neighbors' funerals and console their bereaved families — fulfil the right of the deceased and the living", done: false,
-          sources: `**I. Quran**
-
-### Quran (3:185)
-**Arabic:** كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ  
-**Translation:** Every soul will taste death.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 1240
-The Prophet (peace be upon him) said: "The rights of a Muslim over another Muslim are five: returning the greeting, visiting the sick, following funeral processions, accepting invitations, and responding to one who sneezes."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) listed following the funeral (ittiba' al-janazah) among the five fundamental rights of a Muslim (Bukhari 1240). When a neighbor's family member passes away, the household enters a period of profound grief and practical chaos — funeral arrangements, receiving condolences, managing affairs. Your presence at the funeral and your support to the family afterward fulfil both the right of the deceased (being accompanied to their final rest) and the right of the living neighbor (not being abandoned in their darkest hour).
-
-
-**How?**
-
-1. When you learn of a death in a neighbor's family, offer condolences immediately — in person if possible, by phone if not.
-2. Attend the funeral or janazah prayer if you are able — your physical presence matters more than any words.
-3. In the days following the funeral, provide practical support: cook and deliver meals (the bereaved family should not have to worry about feeding visitors), help with household tasks, or offer to run errands.
-4. Be present during the mourning period without being intrusive — sit with the family, listen, and offer comfort.
-5. Avoid cliches; instead say: "Inna lillahi wa inna ilayhi raji'un. May Allah grant them mercy and grant you patience."
-6. Check on the bereaved family in the weeks and months after — grief is longest after the crowds disperse.
-7. Completion indicator: you have attended at least one neighbor's funeral or supported a bereaved neighbor family with practical care and sustained presence.` },
-      ],
-    },
-    {
-      title: "Speak well of your neighbors in their absence — defend their honour and never gossip",
-      priority: 'high', tags: ['haqq-al-jar', 'ghiba', 'honour'],
-      description: "The Quran explicitly forbids ghiba (backbiting): 'Do not backbite one another. Would one of you like to eat the flesh of his dead brother?' (49:12). Ghiba about neighbors is particularly corrosive because you share daily space. This task ensures your tongue is a source of protection, not harm, for those who live beside you.",
-      subtasks: [
-        { title: "Make a conscious commitment to never discuss your neighbors' faults, habits, or private affairs with anyone", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:12)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ ۖ وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا  
-**Translation:** O you who have believed, avoid much suspicion; indeed, some suspicion is sin. And do not spy or backbite each other.
-
-### Quran (104:1)
-**Arabic:** وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ  
-**Translation:** Woe to every scorner and mocker.
-
-**II. Hadith**
-
-### Sahih Muslim 2589
-The Prophet (peace be upon him) said: "Do you know what backbiting is?" They said, "Allah and His Messenger know best." He said, "It is to mention your brother in a way that he would dislike."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) defined ghiba as "mentioning about your brother what he would dislike" (Muslim 2589). Neighbors are especially vulnerable to ghiba because proximity gives you more information about them than you would have about distant acquaintances. You hear their arguments, see their visitors, notice their habits. Every piece of private information you share — even framed as "concern" — is a violation of the trust that proximity imposes. A Muslim's tongue should be the safest place for their neighbor's reputation, not the most dangerous.
-
-
-**How?**
-
-1. Make a firm internal commitment: "I will not mention anything about my neighbors that they would dislike, to anyone, for any reason."
-2. Identify your most common ghiba triggers: do you gossip with family? With other neighbors? On the phone with friends?
-3. When conversation turns to discussing a neighbor — their noise, their habits, their visitors, their lifestyle — change the subject or remain silent.
-4. If someone directly asks you about a neighbor's private affairs, respond: "I would rather not discuss that — it is their private matter."
-5. Monitor your own speech for a full week, noting every time you almost mentioned something negative about a neighbor.
-6. Remember the severity: the Quran compares ghiba to eating the flesh of your dead brother (49:12).
-7. Completion indicator: you have gone at least one full month without discussing any neighbor's private affairs or faults with anyone.` },
-        { title: "Defend your neighbor's honour when others speak ill of them in their absence", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:11)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ  
-**Translation:** O you who have believed, let not a people ridicule another people.
-
-**II. Hadith**
-
-### Sahih Muslim 2564
-The Prophet (peace be upon him) said: "Do not envy one another, do not inflate prices, do not hate one another, do not turn your backs on one another, and do not undercut one another in trade. Be, O servants of Allah, brothers."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Whoever defends the honour of his brother, Allah will shield his face from the Fire on the Day of Judgment" (Tirmidhi 1931). Not gossiping is the baseline; defending your neighbor when others gossip is the higher standard. When colleagues, family, or other neighbors speak ill of your neighbor and you remain silent, your silence is interpreted as agreement. Active defense — redirecting the conversation, speaking a positive word, or gently challenging the criticism — fulfils your duty as a guardian of your neighbor's honour and earns one of the most powerful protections promised in the Sunnah.
-
-
-**How?**
-
-1. When someone speaks negatively about your neighbor in their absence, do not remain silent.
-2. If the criticism is unfair, say so clearly: "I do not think that is accurate — they have always been considerate in my experience."
-3. If the criticism has some basis, redirect: "I think they are going through a difficult time. Let us give them the benefit of the doubt."
-4. If the conversation persists, state your principle: "I would not want someone discussing me like this when I am not here."
-5. If you are unable to redirect the conversation, leave it — disengaging is better than passive listening.
-6. Speak positively about your neighbors proactively — mention their kindnesses, their good qualities, their helpful actions.
-7. Completion indicator: you have actively defended a neighbor's honour in at least one conversation where they were being discussed negatively.` },
-        { title: "Speak positively about your neighbors to others — mention their good qualities and kind actions", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (4:8)
-**Arabic:** وَإِذَا حَضَرَ الْقِسْمَةَ أُولُو الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينُ فَارْزُقُوهُم مِّنْهُ وَقُولُوا لَهُمْ قَوْلًا مَّعْرُوفًا
-**Translation:** "If other relatives, orphans, or needy people are present at the distribution, give them something too, and speak kindly to them."
-*(Contextual: the command to "speak kindly" (qawlan ma'rufan) to those present extends to our speech about them in their absence — to mention only their good.)*
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 6136
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day should say something good, or keep silent."
-*(Grade: Sahih)*
-*(Contextual: speaking positively about neighbors is the active application of this principle — choosing to say the good thing rather than defaulting to silence or critique.)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Do not belittle any good deed" (Muslim 2626). When you mention your neighbor's positive qualities to others — their generosity, their friendliness, their helpfulness — you build social capital for them in the community. This is the opposite of ghiba: it is called dhikr al-khayr (mentioning the good), and it strengthens the fabric of neighborhood relationships. A person who is known for speaking well of others becomes a trusted anchor in the community, and their positive words create a culture of appreciation rather than criticism.
-
-
-**How?**
-
-1. Make a habit of noticing and remembering kind things your neighbors do — the food they share, the door they hold, the greeting they give.
-2. When speaking about your neighborhood to friends, family, or colleagues, lead with the positive: "We have wonderful neighbors — they are always so considerate."
-3. If someone asks about your building or street, highlight neighborly acts: "My neighbor brought us food during Ramadan" or "The family downstairs always greets my children warmly."
-4. In community settings — at the masjid, school gatherings, or social events — mention neighbors by name with positive associations.
-5. Be genuine, not performative — speak about real qualities you have observed.
-6. This practice will reshape your own perception: when you habitually notice the good, the minor annoyances shrink in your mind.
-7. Completion indicator: you have spoken positively about your neighbors to others at least five times over one month, mentioning specific good qualities or actions.` },
-        { title: "Practise husn al-dhann (good assumption) — interpret your neighbor's ambiguous actions charitably", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (49:12)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ  
-**Translation:** "O you who have believed, avoid much [negative] assumption. Indeed, some assumption is sin."
-
-
-### Sahih Bukhari 6066
-The Prophet (peace be upon him) said: "Beware of suspicion, for suspicion is the worst of false tales." Husn al-dhann (good assumption) toward neighbors is a Prophetic command.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Quran commands: "O you who believe, avoid much suspicion — indeed some suspicion is sin" (49:12). When your neighbor slams a door, it might be the wind. When they do not return your greeting, they might be distracted by grief. When their children are noisy, they might be struggling to cope. Su' al-dhann (negative assumption) poisons relationships before a single word is exchanged. Husn al-dhann (positive assumption) preserves bonds and protects your own heart from the corrosion of suspicion. It is not naivety; it is a deliberate spiritual discipline that the Quran mandates.
-
-
-**How?**
-
-1. When a neighbor does something that annoys or offends you, immediately generate three charitable explanations before reacting.
-2. Example: your neighbor did not greet you. Possible reasons: they did not hear you, they are preoccupied with a problem, they are feeling unwell.
-3. Choose the most charitable explanation as your working assumption unless you have concrete evidence otherwise.
-4. Do not share your suspicions with others: "Did you notice that our neighbor ignored me?" — this is where ghiba begins.
-5. If a pattern persists and genuinely concerns you, address it directly and privately with the neighbor rather than building a case of suspicion in your mind.
-6. Regularly review your assumptions about neighbors: have any become unfairly negative? Correct them.
-7. Completion indicator: you have practised husn al-dhann in at least five ambiguous situations with neighbors, choosing charitable interpretation over suspicion.` },
-        { title: "Never use social media, building group chats, or community forums to complain about neighbors", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (49:12)
-**Arabic:** وَلَا يَغْتَب بَّعْضُكُم بَعْضًا أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا فَكَرِهْتُمُوهُ  
-**Translation:** "And do not backbite each other. Would one of you like to eat the flesh of his brother when dead? You would detest it."
-
-
-### Sahih Muslim 2589
-The Prophet (peace be upon him) said: "Do you know what backbiting is? It is mentioning your brother in a way he would dislike." Using group chats or social media to complain about neighbors is a modern form of ghiba.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Modern technology has created new avenues for ghiba that did not exist in the Prophet's time. A complaint about a neighbor in a building WhatsApp group, a passive-aggressive post on a community Facebook page, or a neighbourhood app rant about parking — these are the digital equivalents of eating your brother's flesh, amplified by the permanence and reach of the internet. What was once a conversation between two people is now a broadcast to dozens or hundreds. The neighbor's reputation is damaged publicly, often without their knowledge or ability to respond. This violates Haqq al-Jar in a way that is nearly impossible to undo.
-
-
-**How?**
-
-1. Adopt a strict policy: never post, type, or share anything negative about a neighbor on any digital platform.
-2. This includes: building management group chats, neighbourhood apps (Nextdoor, WhatsApp groups), social media, and community forums.
-3. If you have a legitimate issue, address it directly with the neighbor or through proper building management channels — not public forums.
-4. If others post complaints about neighbors in group chats, do not engage, agree, or add fuel — silence or a gentle redirect is best.
-5. Before posting anything about your neighborhood, apply the test: "Would my neighbor be hurt if they saw this?" If yes, do not post.
-6. If you catch yourself typing a complaint, delete it and address the issue properly instead.
-7. Completion indicator: you have maintained a completely clean record on digital platforms — zero complaints about neighbors — for at least three months.` },
-      ],
-    },
-    {
-      title: "Build trust and reliability — become the neighbor others count on without hesitation",
-      priority: 'high', tags: ['haqq-al-jar', 'trust', 'reliability'],
-      description: "Trust is built through consistent, small acts of reliability over time — not through grand gestures. The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small (Bukhari 6464). This task focuses on becoming the neighbor whose word is their bond, whose help can be counted on, and whose presence is a source of security.",
-      subtasks: [
-        { title: "Follow through on every promise and offer you make to a neighbor — without exception", done: false,
-          sources: `**I. Quran**
-
-### Quran (23:8)
-**Arabic:** وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ  
-**Translation:** And they who are to their trusts and their promises attentive.
-
-### Quran (4:58)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
-**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 33
-The Prophet (peace be upon him) said: "The signs of the hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is entrusted he betrays."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) described the hypocrite as one who, when they promise, they break it (Bukhari 33). Every unfulfilled promise to a neighbor — "I will bring you that dish," "I will help you move that furniture," "I will look into that for you" — erodes trust and teaches your neighbor that your words are unreliable. Conversely, consistent follow-through on even small commitments builds a reputation of trustworthiness (amanah) that becomes the foundation of genuine neighborly relationship.
-
-
-**How?**
-
-1. Before offering anything to a neighbor, pause and ask yourself: "Can I realistically deliver on this?"
-2. Do not offer what you cannot fulfil — a sincere "I wish I could help but I cannot right now" is better than a broken promise.
-3. When you make an offer, set a specific time: "I will bring the food by 6pm tomorrow" — not "I will bring it sometime."
-4. Write down commitments if you tend to forget — a note on your phone or a reminder.
-5. Deliver on time or early. If something prevents you, inform the neighbor before the deadline, not after.
-6. After fulfilling a commitment, do not expect or seek praise — let the act speak for itself.
-7. Completion indicator: you have fulfilled every single commitment made to neighbors for three consecutive months with zero broken promises.` },
-        { title: "Be available and responsive when neighbors reach out — answer calls, respond to messages promptly", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:86)
-**Arabic:** وَإِذَا حُيِّيتُم بِتَحِيَّةٍ فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا  
-**Translation:** And when you are greeted with a greeting, greet with one better than it or return it in kind.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6017
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Availability is the currency of trust. If a neighbor calls and you never answer, messages you and you respond days later, or knocks and you pretend to be out — you communicate that they are not a priority. The Prophet (peace be upon him) was famously accessible; anyone could approach him at any time with any need. You are not the Prophet, but within the scope of your neighborly relationship, being responsive when someone reaches out is a fundamental expression of the care you claim to have. Responsiveness is not about being always available — it is about being reliably reachable.
-
-
-**How?**
-
-1. When a neighbor calls, answer if possible. If you cannot, return the call within a few hours.
-2. When a neighbor sends a message, respond within the day — even if just to say "I will get back to you on this."
-3. When a neighbor knocks, answer the door with a welcoming expression.
-4. If you are genuinely busy, be honest: "I am in the middle of something right now — can I come by in an hour?"
-5. Never leave a neighbor's request hanging with no response — even a "no" is better than silence.
-6. If a pattern of requests becomes excessive, set kind boundaries: "I am happy to help when I can. This week is particularly busy for me, but next week should be better."
-7. Completion indicator: you have responded to every neighbor communication within 24 hours for at least two consecutive months.` },
-        { title: "Offer help proactively — do not wait to be asked when you see a need", done: false,
-          sources: `**I. Quran**
-
-### Quran (2:195)
-**Arabic:** وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ  
-**Translation:** And do good; indeed, Allah loves the doers of good.
-
-**II. Hadith**
-
-### Sahih Muslim 2625
-The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship of the Day of Resurrection."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Whoever relieves a believer of a hardship in this world, Allah will relieve them of a hardship on the Day of Judgment" (Muslim 2699). Waiting to be asked places the burden of vulnerability on the person in need — many people are too proud, too shy, or too overwhelmed to ask. Proactive help anticipates the need and removes the awkwardness of asking. It is a higher level of ihsan: you see the need and act before the request is made, demonstrating that your awareness of your neighbor extends beyond polite greetings to genuine attentiveness.
-
-
-**How?**
-
-1. Train your eyes to notice: a neighbor struggling with groceries, an elderly person shovelling snow, a parent juggling children and bags, a moving truck with no helpers.
-2. Do not wait for eye contact or a request — walk over and offer: "Can I give you a hand with those bags?"
-3. After storms, check if elderly or vulnerable neighbors need anything cleared, repaired, or reported.
-4. When you are heading to the shops, knock on an elderly or homebound neighbor's door: "I am going to the supermarket — do you need anything?"
-5. If you have a skill (plumbing, electrical, gardening, technology), offer it when you see a neighbor struggling with a related problem.
-6. Keep your offers specific and immediate — "I can help you right now" is more useful than "Let me know if you need anything."
-7. Completion indicator: you have proactively offered help to neighbors at least five times in two months without being asked.` },
-        { title: "Be consistent in your neighborly conduct — maintain the same warmth regardless of your mood or circumstances", done: false,
-          sources: `**I. Hadith**
-
-
-### Sunan al-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor." Consistency in neighborly conduct, regardless of mood, is the mark of the best neighbor.
-*(Grade: Hasan Sahih)*
-
-
-### Quran (41:34)
-**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
-**Translation:** "Repel [evil] by that which is better; and thereupon the one between whom and you there was enmity [will become] as though he was a devoted friend."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent (Bukhari 6464). A neighbor who is warm one day and cold the next creates confusion and anxiety. People cannot trust what is unpredictable. If your greeting depends on your mood, your helpfulness depends on your schedule, and your kindness depends on whether the neighbor was kind to you last — then your conduct is not principled, it is reactive. Consistency is the hallmark of a character built on iman, not on circumstances.
-
-
-**How?**
-
-1. Recognize that your internal state (stress, fatigue, frustration) is not your neighbor's concern — they deserve consistent warmth.
-2. Greet with the same enthusiasm on your worst day as on your best — make salam a habit, not an expression of mood.
-3. If you are going through a difficult time, maintain at minimum your baseline: greetings, basic courtesy, and responsiveness.
-4. Do not punish neighbors with coldness because of an unrelated bad day.
-5. If you cannot be fully present (genuine crisis, illness), briefly explain: "I am going through something difficult right now but please know I still care about being a good neighbor."
-6. Review your conduct monthly: has it been consistent, or do your neighbors experience you as unpredictable?
-7. Completion indicator: you can honestly say your neighbors experience consistent warmth from you regardless of your personal circumstances, sustained over at least two months.` },
-        { title: "Keep your neighbors' entrusted items and keys safe — never betray a practical trust", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:58)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
-**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 33
-The Prophet (peace be upon him) said: "The signs of the hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is entrusted he betrays."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Return the trust to the one who entrusted you, and do not betray the one who betrayed you" (Abu Dawud 3535). When a neighbor gives you a spare key, asks you to hold a package, entrusts you with a child for an hour, or shares confidential information — these are amanat (trusts) that carry the same weight as any other contractual obligation in Islam. Mishandling a neighbor's entrusted item — losing a key, opening a package, sharing a confidence — destroys the trust that took months to build and violates a principle that Islam places among the highest moral obligations.
-
-
-**How?**
-
-1. When a neighbor entrusts you with a key, store it in a designated, secure location — not tossed in a junk drawer.
-2. When holding a package, keep it safe and return it promptly when they are available.
-3. Never open, inspect, or discuss the contents of anything entrusted to you.
-4. If you are caring for a neighbor's child, give them the same attention and safety standards you give your own children.
-5. If a neighbor shares private information in confidence ("We are having financial difficulties," "My spouse is ill"), guard it absolutely — mention it to no one.
-6. If you lose or damage an entrusted item, inform the neighbor immediately and take responsibility.
-7. Completion indicator: you have reliably safeguarded every item, key, and piece of information entrusted to you by a neighbor with zero breaches.` },
-      ],
-    },
-    {
-      title: "Exercise patient forbearance (hilm) with difficult neighbors — transforming hardship into reward",
-      priority: 'medium', tags: ['haqq-al-jar', 'hilm', 'sabr'],
-      description: "Not every neighbor is easy to live beside. The Prophet (peace be upon him) specifically addressed endurance with difficult neighbors, and a famous hadith describes a man who complained about his neighbor and was told to put his furniture on the road — when people asked what happened, they cursed the bad neighbor until the neighbor reformed (Abu Dawud 5153). This task builds the muscle of hilm (forbearance) as a spiritual practice.",
-      subtasks: [
-        { title: "Identify the neighbor relationship that is most challenging for you and commit to treating it as a test from Allah", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (4:36)
-**Arabic:** 
-**Translation:** Worship Allah, and do not associate with Him anything, and be good to parents and to kinsmen and orphans and the needy and the close neighbor and the distant neighbor and the companion at your side and the wayfarer and to those (slaves who are) owned by you. Surely, Allah does not like those who are arrogant, proud,
-
-### Quran (49:13)
-**Arabic:** 
-**Translation:** O mankind, We have created you from a male and a female, and made you into races and tribes, so that you may identify one another. Surely the noblest of you, in Allah’s sight, is the one who is most pious of you. Surely Allah is All-Knowing, All-Aware.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 4477
-Narrated \`Abdullah:I asked the Prophet, "What is the greatest sin in the Sight of Allah?" He said, "That you set up a rival unto Allah though He Alone created you." I said, "That is indeed a great sin." Then asked, "What is next?" He said, "To kill your son lest he should share your food with you." I asked, "What is next?" He said, "To commit illegal sexual intercourse with the wife of your neighbor
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Quran says, "We have made some of you a trial for others — will you have patience?" (25:20). A difficult neighbor is not a random inconvenience; it is a divinely placed opportunity to develop the quality of sabr that distinguishes the people of Jannah. The Prophet (peace be upon him) was asked, "Who is the best of people?" and he replied, "The one with the longest life and the best deeds" — and enduring a difficult neighbor with grace is among the best deeds possible. Framing the challenge as a test transforms your experience from frustration to intentional spiritual growth.
-
-
-**How?**
-
-1. Honestly identify which neighbor relationship is most difficult for you — the loud one, the rude one, the inconsiderate one.
-2. Write down specifically what makes it difficult: the behavior, how often it occurs, and how it affects you.
-3. Now reframe it: "Allah has placed this person beside me as a test of my character. How I respond defines me, not what they do."
-4. Set a clear intention: "I will treat this as an opportunity for sabr, not as a curse on my living situation."
-5. Memorise a relevant du'a or ayah to recite when the difficulty flares up — "Rabbi zidni sabra" (My Lord, increase me in patience).
-6. Keep a brief journal noting each time you chose patience over frustration — track your spiritual progress.
-7. Completion indicator: you have identified your most challenging neighbor relationship, reframed it as a test, and consciously chosen patience in at least five difficult moments.` },
-        { title: "Continue fulfilling the rights of difficult neighbors — do not withdraw kindness because they are unkind", done: false,
-          sources: `**I. Quran**
-
-### Quran (41:34)
-**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
-**Translation:** Repel evil by that which is better; and thereupon the one between you and him is enmity will become as though he was a devoted friend.
-
-### Quran (23:96)
-**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ السَّيِّئَةَ  
-**Translation:** Repel evil by that which is best.
-
-**II. Hadith**
-
-### Sunan Abu Dawud 5152
-The Prophet (peace be upon him) said: "The best of neighbors in the sight of Allah is the one who is best to his neighbor."
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Do not be people without minds of your own — if others treat you well you treat them well, and if they do wrong you do wrong. Instead, accustom yourselves to do good if people do good, and not to do wrong if they do evil" (Tirmidhi 2007). This hadith is the clearest statement that your standard of neighborly conduct is independent of how you are treated. A difficult neighbor still has the right to your greeting, your non-harm, your protection of their privacy, and your du'a. Withdrawing these rights because they are unpleasant is punishing them for their character while degrading your own.
-
-
-**How?**
-
-1. Continue greeting the difficult neighbor every time you see them — salam or a warm hello — regardless of whether they reciprocate.
-2. Continue protecting their privacy and property as you would any neighbor's.
-3. Continue sharing food with them on Eid and occasions, even if they have never reciprocated.
-4. If they need help, help them — the help is for Allah's sake, not for their appreciation.
-5. Do not vent about them to other neighbors — this creates factions and poisons the community.
-6. Remind yourself: "My good conduct toward them is recorded by Allah even if they never acknowledge it."
-7. Completion indicator: you have maintained all baseline neighborly rights toward your most difficult neighbor for at least two consecutive months without withdrawal of kindness.` },
-        { title: "Respond to unkindness with deliberate kindness — the Quranic principle of repelling evil with good", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (41:34)
-**Arabic:** وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ
-**Translation:** "Good and evil cannot be equal. [Prophet], repel evil with what is better and your enemy will become as close as an old and valued friend."
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 6030
-The Prophet (peace be upon him) said: "Connect with those who cut you off, give to those who withhold from you, and pardon those who wrong you."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Quran states: "Repel evil with that which is better, and thereupon the one between whom and you was enmity will become as though he was a devoted friend. But none is granted it except those who are patient, and none is granted it except the owner of great fortune" (41:34-35). This is not naive optimism — it is a divine promise with a condition: patience. Responding to a rude neighbor with a gift, to a cold neighbor with warmth, to an inconsiderate neighbor with consideration — this deliberate inversion of expected behavior has the power to transform relationships. It is also described as a quality granted only to those of great spiritual fortune.
-
-
-**How?**
-
-1. When a difficult neighbor is rude to you, respond with extra warmth — a bigger smile, a more enthusiastic greeting.
-2. When they inconvenience you, respond with a favor — bring them food or offer help with something.
-3. When they ignore you, continue acknowledging them as though nothing happened.
-4. Keep the Quranic promise in mind: "thereupon the one between whom and you was enmity will become as though a devoted friend" — this may not happen overnight, but it is Allah's word.
-5. Do not perform these acts with the expectation of changing them — do it because it is the Quranic command regardless of outcome.
-6. Document the instances where you responded to negative with positive — this record strengthens your resolve over time.
-7. Completion indicator: you have responded to at least three instances of unkindness from a difficult neighbor with deliberate acts of kindness.` },
-        { title: "Make specific du'a for difficult neighbors — pray for their guidance and for ease between you", done: false,
-          sources: `**I. Quran**
-
-### Quran (25:63)
-**Arabic:** وَعِبَادُ الرَّحْمَٰنِ الَّذِينَ يَمْشُونَ عَلَى الْأَرْضِ هَوْنًا وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَامًا  
-**Translation:** And the servants of the Most Merciful are those who walk upon the earth with humility, and when the ignorant address them, they say words of peace.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) used to pray for people who were hostile to him — the famous du'a for the people of Ta'if is an example of making du'a for those who harmed him rather than against them. When you pray for a difficult neighbor — for their guidance, their ease, their wellbeing — you are performing the highest act of neighborly love. It softens your own heart first, removing the bitterness that difficult relationships cultivate. It also invokes the power of the One who can change hearts, making it both a spiritual practice for you and a genuine hope for transformation in the relationship.
-
-
-**How?**
-
-1. In your sujud or after your obligatory prayers, include your difficult neighbor by name in your du'a.
-2. Pray for their guidance: "O Allah, guide [name] and make them a source of good in our community."
-3. Pray for ease between you: "O Allah, place love and mercy between me and my neighbor [name]."
-4. Pray for their wellbeing: "O Allah, bless [name] in their health, family, and provision."
-5. If bitterness makes this difficult, start with: "O Allah, help me to sincerely pray for [name]" — ask for the ability to pray for them.
-6. Continue this for at least 30 consecutive days.
-7. Completion indicator: you have made specific du'a for your most difficult neighbor by name for at least 30 days, and you have noticed a softening in your own heart toward them.` },
-        { title: "Seek reward in endurance — remind yourself that patience with a difficult neighbor is among the highest forms of sabr", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (2:45)
-**Arabic:** وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى الْخَاشِعِينَ
-**Translation:** "Seek help with steadfastness and prayer — though this is hard indeed for anyone but the humble."
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 5641
-The Prophet (peace be upon him) said: "No fatigue, nor disease, nor anxiety, nor sadness, nor hurt, nor distress befalls a Muslim, even if it were the prick he receives from a thorn, but that Allah expiates some of his sins for that."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "No fatigue, nor disease, nor anxiety, nor sadness, nor hurt, nor distress befalls a Muslim, even if it were the prick of a thorn, but that Allah expiates some of his sins for that" (Bukhari 5641). Enduring a difficult neighbor with patience is a sustained form of this principle — every moment of sabr is an expiation. Abu Hurayrah narrated that a man said, "O Messenger of Allah, I have a neighbor who harms me," and the Prophet instructed patience and strategic action, not abandonment. Seeking the reward of sabr transforms the daily irritation into daily spiritual income.
-
-
-**How?**
-
-1. Study the hadith on the reward of sabr and write down the ones that speak most powerfully to your situation.
-2. When a moment of frustration with a neighbor occurs, consciously say: "This is an expiation for my sins. Alhamdulillah."
-3. Keep a "sabr account" — a simple tally of moments you chose patience over anger. Each mark represents recorded reward with Allah.
-4. Share the concept with your spouse or household so they can support the same mindset rather than amplifying frustration.
-5. Periodically recalculate: "I have been patient through X incidents this month — this is X moments of reward with Allah."
-6. If the situation ever becomes genuinely harmful (not merely annoying), seek proper resolution — sabr does not mean accepting abuse.
-7. Completion indicator: you have consciously reframed at least ten frustrating neighbor moments as opportunities for divine reward over a two-month period.` },
-      ],
-    },
-  ],
-
-  // ── EXCELLENCE: Best Neighbor, Community Transformation, Da'wah Through Conduct ──
-  ummah_neighbors_excellence: [
-    {
-      title: "Become 'the best neighbor in the sight of Allah' — embody Tirmidhi 1944 as a life goal",
-      priority: 'urgent', tags: ['haqq-al-jar', 'ihsan', 'excellence'],
-      description: "The Prophet (peace be upon him) said, 'The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor' (Tirmidhi 1944). This is not a casual compliment but a rank — a station before Allah determined by how you treat the people who live beside you. This task focuses on attaining that rank through comprehensive, excellent conduct.",
-      subtasks: [
-        { title: "Set an explicit personal goal: to be the best neighbor your neighbors have ever had", done: false,
-          sources: `**I. Hadith**
-
-
-### Sunan al-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor." Setting this as an explicit personal goal aligns your life with this Prophetic standard.
-*(Grade: Hasan Sahih)*`,
-          description: `**Why?**
-
-The hadith in Tirmidhi 1944 establishes "best neighbor in the sight of Allah" as an attainable rank — not a metaphor but a genuine station of closeness to Allah. Most people drift through neighborly life without intention: they are polite when it is convenient, helpful when the cost is low, and patient when they feel like it. Setting an explicit, ambitious goal transforms neighborliness from passive decency into an active pursuit of ihsan (excellence). The difference between a good neighbor and the best neighbor is intentionality, consistency, and going beyond what is expected.
-
-
-**How?**
-
-1. Write down the goal in your personal journal or du'a list: "I intend to become the best neighbor my neighbors have ever had, seeking the rank of 'best neighbor in the sight of Allah' (Tirmidhi 1944)."
-2. Define what "best neighbor ever" looks like in practical terms: someone who greets warmly, shares generously, helps proactively, endures patiently, speaks well, and is always reliable.
-3. Assess honestly where you currently fall short of this standard — which areas need the most growth?
-4. Create a simple personal development plan: one area to focus on each month.
-5. Ask Allah for tawfiq (success) in this goal in your daily du'a.
-6. Review your progress quarterly: are your neighbors experiencing the impact of your intentionality?
-7. Completion indicator: you have formally set this goal, defined its practical meaning, and begun a structured plan to achieve it.` },
-        { title: "Exceed expectations consistently — anticipate needs, give without being asked, and surprise with generosity", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (76:8-9)
-**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا  
-**Translation:** "And they give food in spite of love for it to the needy, the orphan, and the captive, [saying]: We feed you only for the countenance of Allah. We wish not from you reward or gratitude."`,
-          description: `**Why?**
-
-Ihsan, as the Prophet (peace be upon him) defined it, is "to worship Allah as though you see Him" (Muslim 8). Applied to neighborliness, ihsan means treating your neighbor as though Allah is watching every interaction — because He is. This awareness transforms transactional politeness into extraordinary generosity. The "best neighbor" is not the one who does what is expected; it is the one who consistently exceeds expectation — who brings food without an occasion, who helps without being asked, who notices what others overlook and acts on it.
-
-
-**How?**
-
-1. Train yourself to anticipate: when you see a neighbor's car is being repaired, offer them a ride before they ask.
-2. When seasonal changes come (winter, Ramadan, summer heat), think about what your neighbors might need and provide it proactively.
-3. Send food on random days — not only Eid or occasions — with a note: "We were cooking and thought of you."
-4. Notice small things: a neighbor's child achieved something at school? Congratulate them. A neighbor looks tired? Ask if they are alright.
-5. Give your best, not your leftovers — the food you share, the help you offer, the time you spend should reflect ihsan, not convenience.
-6. Keep a running list of small acts of excellence you can perform — and execute one per week.
-7. Completion indicator: you have performed at least ten acts of exceeding-expectation neighborliness in two months, none of which were requested.` },
-        { title: "Know your neighbors deeply — their joys, struggles, schedules, children's names, and what matters to them", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
-
-**II. Hadith**
-
-### Jami at-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best of companions in the sight of Allah is the best of them to his companion, and the best of neighbors in the sight of Allah is the best of them to his neighbor."
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-The best neighbor is not the one who interacts the most but the one who knows their neighbors as complete human beings. When you know that your neighbor's mother is ill overseas, that their child is struggling at school, that they recently lost their job, that they are passionate about gardening, or that they celebrate a specific holiday — your interactions become personal, your help becomes targeted, and your presence becomes meaningful. This depth of knowing is what the Prophet (peace be upon him) modelled with his companions: he knew their concerns, remembered their circumstances, and acted accordingly.
-
-
-**How?**
-
-1. Over the course of regular interactions, learn and remember: their children's names and ages, their work situation, their family overseas, their hobbies, their concerns.
-2. Write these details down — memory is unreliable, and the act of recording demonstrates that you value what they share.
-3. Reference what you know in conversations: "How is your mother doing?" "Did your son start his new school?"
-4. Remember dates that matter to them: birthdays, cultural celebrations, anniversaries of arrivals.
-5. When you notice a change — a new car, a renovation, a worried expression — acknowledge it with genuine interest.
-6. This is not surveillance; it is attentiveness. The difference is intention: you learn about them to serve them better, not to gossip or judge.
-7. Completion indicator: you can describe at least three personal details about each of your immediate neighbors — details they shared with you through relationship, not observation.` },
-        { title: "Create traditions of neighborly connection — regular tea visits, seasonal gatherings, or shared meals", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6017
-The Prophet (peace be upon him) said: "O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep." Regular tea visits and shared meals elevate these small gifts into enduring traditions of connection.
-*(Grade: Sahih)*
-
-
-### Sunan al-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best neighbor in the sight of Allah is the best to his neighbor."
-*(Grade: Hasan Sahih)*`,
-          description: `**Why?**
-
-Individual acts of kindness are powerful, but traditions create sustained community fabric. The Prophet (peace be upon him) established communal traditions — the walimah, the Eid gathering, the Friday congregation — because single events fade while traditions endure. A monthly tea with your neighbor, a seasonal street gathering, a Ramadan iftar open door, or a shared Eid morning visit — these become the rhythm of communal life that transforms a collection of individual households into a neighborhood in the truest sense.
-
-
-**How?**
-
-1. Start small: invite one neighbor for tea or coffee at your home, at a regular time — "Would you like to come for tea on Saturday mornings?"
-2. If they accept and it goes well, make it recurring — same day, same time, building a tradition.
-3. Expand gradually: invite another neighbor, then another, until it becomes a known neighborhood gathering.
-4. Create seasonal traditions: an Eid morning open house, a Ramadan iftar invitation (even a simple one), a summer barbecue in the shared garden.
-5. Be consistent — the power of tradition is in repetition. If you start a monthly gathering, maintain it for at least six months.
-6. Let traditions grow organically: others may start hosting, contributing food, or suggesting activities.
-7. Completion indicator: you have established at least one recurring neighborly tradition that has occurred at least four times and involves two or more neighbor households.` },
-        { title: "Mentor a younger or newer neighbor in the practice of Haqq al-Jar — pass on the tradition", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 494
-Narrated Ibn \`Umar:Whenever Allah's Messenger (ﷺ) came out on \`Id day, he used to order that a Harba [??] (a short spear) to be planted in front of him (as a Sutra for his prayer) and then he used to pray facing it with the people behind him and used to do the same while on a journey. After the Prophet (ﷺ) , this practice was adopted by the Muslim rulers (who followed his traditions)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 387
-Narrated Ibrahim:Hammam bin Al-Harith said, "I saw Jarir bin \`Abdullah urinating. Then he performed ablution and passed his (wet) hands over his Khuffs (socks made from thick fabric or leather), stood up and prayed. He was asked about it. He replied that he had seen the Prophet (ﷺ) doing the same." They approved of this narration as Jarir was one of those who embraced Islam very late
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Convey from me, even if it is one verse" (Bukhari 3461). The practice of excellent neighborliness must be taught and transmitted, not merely modelled. A young person who has never been taught about Haqq al-Jar, or a new resident who comes from a culture of isolation, will not discover these practices by accident. By actively mentoring someone in the art and ethics of Islamic neighborliness, you multiply your impact: the person you teach will become a better neighbor to their own neighbors, creating a ripple effect that extends far beyond your own street.
-
-
-**How?**
-
-1. Identify a younger neighbor, a new Muslim, a newly married couple, or a recent arrival who could benefit from guidance on neighborly practice.
-2. Share the relevant hadith and Quranic verses naturally — not as a lecture but as part of conversation: "Did you know the Prophet said Jibril urged him about neighbors so much that he thought they would inherit?"
-3. Model the behavior explicitly: "I always share food with the family next door on Eid — it is from the Sunnah."
-4. Invite them to participate in your neighborly acts: "I am bringing food to our sick neighbor — would you like to come with me?"
-5. Share practical tips: how to introduce yourself, how to handle conflict, how to share food across dietary differences.
-6. Check in on their progress: "Have you had a chance to meet the new family in 3B?"
-7. Completion indicator: you have actively mentored at least one person in the practice of Haqq al-Jar, and they have independently performed at least two neighborly acts as a result.` },
-      ],
-    },
-    {
-      title: "Transform your street or building into a genuine community through intentional neighborly leadership",
-      priority: 'high', tags: ['haqq-al-jar', 'community', 'leadership'],
-      description: "The Prophet (peace be upon him) transformed the individual tribes of Madinah into a unified community through deliberate acts of bonding, shared responsibility, and mutual care. Your street or building can undergo a similar transformation at a micro-scale. This task is about becoming the catalyst who turns isolated households into an interconnected, mutually supportive neighborhood.",
-      subtasks: [
-        { title: "Organise a neighborhood gathering — a simple shared meal, a tea, or a communal cleanup", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 2625
-The Prophet (peace be upon him) said: "The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight." Organising a shared neighborhood meal embodies this spirit of communal generosity.
-*(Grade: Sahih)*
-
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** "And cooperate in righteousness and piety."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) paired the Muhajirun and Ansar through the institution of mu'akhah (brotherhood), which began with a gathering. Communities do not form spontaneously — someone must take the initiative to bring people together. In most modern neighborhoods, people have never been in the same room despite living meters apart. A single gathering — a shared meal, a tea in the common area, a communal garden cleanup — breaks the ice for dozens of future interactions. You are not organising an event; you are planting the seed of community.
-
-
-**How?**
-
-1. Choose a simple, low-barrier format: a morning tea in the shared courtyard, a potluck dinner in the common room, or a Saturday cleanup of the shared garden.
-2. Invite every adjacent neighbor personally — a knock on the door is more effective than a flyer.
-3. Keep the event simple: you provide tea and biscuits or a simple main dish; encourage others to bring something if they wish.
-4. Set a specific date, time, and location — vagueness kills gatherings.
-5. On the day, be the welcomer: greet everyone, introduce neighbors who have not met, and keep the atmosphere warm.
-6. At the end, gauge interest: "Would people like to do this regularly?" If yes, set the next date before everyone leaves.
-7. Completion indicator: you have organised at least one neighborhood gathering attended by at least three separate neighbor households.` },
-        { title: "Create a simple neighborhood communication channel — a group chat, a shared noticeboard, or a regular check-in", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ  
-**Translation:** "And cooperate in righteousness and piety, but do not cooperate in sin and aggression."
-
-
-### Sahih Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance." A shared communication channel keeps neighborly bonds strong.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Community requires infrastructure, and the simplest infrastructure is communication. When neighbors can easily share information — a water shutoff notice, a found set of keys, a recommendation for a plumber, or a heads-up about suspicious activity — the neighborhood becomes a network rather than a collection of strangers. The Prophet (peace be upon him) established Madinah with systems of communication: the adhan, the minbar, the marketplace. Your street needs its own version — a simple, accessible channel that connects people.
-
-
-**How?**
-
-1. Assess what would work best for your neighbors: a WhatsApp group, a physical noticeboard in the entrance, or a regular monthly knock-and-check.
-2. If digital: create a group with a clear name ("Block 5 Neighbors") and invite every household. Set ground rules: practical information only, no gossip, no politics.
-3. If physical: put up a simple noticeboard in the common area with a pen and cards for messages.
-4. Seed the channel with useful content: "Welcome to our neighbor group. Use this for helpful information, requests, and community updates."
-5. Use it yourself first: "Water will be shut off on Tuesday 10am-2pm" or "I found a set of keys in the parking area — anyone missing theirs?"
-6. Moderate gently if the digital group veers into complaints or gossip — redirect to direct communication.
-7. Completion indicator: a neighborhood communication channel is active with at least five participating households and at least three useful messages per month.` },
-        { title: "Initiate a neighborhood mutual aid practice — a shared tool library, a meal rotation, or a babysitting swap", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6017
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Ansar of Madinah did not just welcome the Muhajirun with words — they shared their homes, their wealth, and their resources. Mutual aid is the practical manifestation of community: when neighbors share tools instead of each buying their own, rotate meals during busy periods, or swap childcare duties — they reduce individual burden while strengthening collective bonds. This is the Islamic economic principle of ta'awun (cooperation) applied at the most local level, turning neighbors into a support system that rivals extended family.
-
-
-**How?**
-
-1. Choose one mutual aid format that would genuinely benefit your neighbors: a shared tool library (everyone contributes tools to borrow), a meal rotation (each household cooks for the group one night per month), or a babysitting swap (parents take turns watching each other's children).
-2. Propose it informally to two or three neighbors: "What if we shared a set of tools instead of each buying our own?"
-3. Start with a pilot: three to four households trying it for one month.
-4. Keep it simple: for tools, a simple list of what each household has and a borrow-and-return system. For meals, a calendar with each household assigned a date.
-5. Let it grow organically — others will join when they see it working.
-6. If a format does not work, try another — the goal is mutual aid, not a specific method.
-7. Completion indicator: a mutual aid practice is operational with at least three participating households and has been sustained for at least two months.` },
-        { title: "Address a shared neighborhood problem collectively — parking, cleanliness, safety, or facilities", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** "And cooperate in righteousness and piety."
-
-
-### Sahih Muslim 49
-The Prophet (peace be upon him) said: "Removing something harmful from the road is charity." Collectively addressing neighborhood problems like parking, cleanliness, and safety is communal charity.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "The believers in their mutual kindness, compassion, and sympathy are like one body — if one limb suffers, the whole body responds with sleeplessness and fever" (Bukhari 6011). When a neighborhood faces a shared problem — poor lighting, parking disputes, a dirty communal area, a safety concern — the Islamic response is collective action, not individual complaint. Organising your neighbors to address a common issue demonstrates the power of community and builds bonds that outlast the specific problem.
-
-
-**How?**
-
-1. Identify a shared problem that affects multiple households: a recurring parking conflict, inadequate lighting, overflowing bins, or a safety concern.
-2. Discuss it with a few neighbors to confirm the problem is shared and there is willingness to act together.
-3. Organise a brief, focused meeting (15-20 minutes, not a lengthy discussion): define the problem, propose solutions, and assign responsibilities.
-4. If the solution requires building management or local council action, draft a collective request signed by multiple households — collective voices carry more weight.
-5. If the solution is within residents' control (cleaning schedules, parking agreements, noise norms), agree on the solution and commit to it together.
-6. Follow through and follow up: ensure the agreed solution is implemented and working.
-7. Completion indicator: one shared neighborhood problem has been addressed through collective action involving at least three households.` },
-        { title: "Cultivate a culture of appreciation — publicly acknowledge neighbors' contributions and kindnesses", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 2699
-The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother." Publicly acknowledging neighbors' contributions strengthens the culture of mutual aid.
-*(Grade: Sahih)*
-
-
-### Quran (55:60)
-**Arabic:** هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ  
-**Translation:** "Is the reward for good [anything] but good?"`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "He who does not thank people has not thanked Allah" (Abu Dawud 4811). Most neighborhoods operate on invisible kindness — someone sweeps the hallway, someone holds the door, someone checks on the elderly — and none of it is acknowledged. When you publicly appreciate these acts — in the group chat, at a gathering, or simply in front of other neighbors — you reinforce the behavior and inspire others to contribute. A culture of appreciation is the soil in which community excellence grows, because people repeat what is noticed and valued.
-
-
-**How?**
-
-1. Pay attention to the quiet kindnesses in your neighborhood: who sweeps the common area, who holds doors, who checks on the elderly, who waters the shared plants?
-2. Acknowledge them directly: "I noticed you swept the hallway — jazakAllahu khayran, it makes such a difference."
-3. In the neighborhood group chat, post appreciation: "Shoutout to the family in 4A who shared food with all of us on Eid. May Allah bless you."
-4. At gatherings, mention contributions: "I want to thank [name] for organising the parking solution — it has made everyone's life easier."
-5. Encourage children to thank neighbors too — teach them to say "thank you" when the neighbor holds the elevator or shares food.
-6. Make appreciation a habit, not a one-time event — consistent acknowledgment creates a self-reinforcing culture.
-7. Completion indicator: you have publicly or directly acknowledged at least one neighbor's kindness per week for one month, and others have begun doing the same.` },
-      ],
-    },
-    {
-      title: "Practice da'wah through conduct — let your neighborliness be the most powerful testimony of Islam",
-      priority: 'high', tags: ['haqq-al-jar', 'dawah', 'conduct'],
-      description: "The Prophet (peace be upon him) said, 'A man is upon the religion of his close friend, so let one of you look at whom he befriends' (Abu Dawud 4833). Your non-Muslim neighbors form their understanding of Islam primarily through you — not through books, scholars, or media. This task ensures that your conduct is the most compelling da'wah they will ever encounter.",
-      subtasks: [
-        { title: "Treat every non-Muslim neighbor with the same — or greater — kindness and generosity as Muslim neighbors", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (60:8)
-**Arabic:** لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ
-**Translation:** "God does not forbid you to deal kindly and justly with anyone who has not fought you for your faith or driven you out of your homes: God loves the just."
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 5978
-Asma' bint Abu Bakr said: "My mother came to me during the lifetime of the Prophet, hoping for some favour from me. I asked the Prophet: 'May I treat her kindly?' He said, 'Yes.'" Ibn 'Uyainah added: "Then Allah revealed: 'God does not forbid you from those who have not fought you on account of religion...'"
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Quran states: "Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes — from being righteous toward them and acting justly toward them. Indeed, Allah loves those who act justly" (60:8). The rights of the neighbor in Islam are not restricted to Muslim neighbors. The Prophet (peace be upon him) had Jewish neighbors whom he treated with excellence. When you treat non-Muslim neighbors with equal or greater kindness, you demolish prejudice through lived experience. Every plate of food, every warm greeting, every act of help is more eloquent than any lecture about Islam.
-
-
-**How?**
-
-1. Review your current interactions: do you greet non-Muslim neighbors with the same warmth as Muslim ones? Do you share food with them equally? Do you offer help as readily?
-2. If you notice any disparity, correct it immediately — equal treatment is the minimum; excellence is the goal.
-3. Share food from your culture — many non-Muslim neighbors will taste biryani, baklava, or dates for the first time through you.
-4. Include them in your celebrations: "It is our Eid today — we wanted to share our joy with you."
-5. Show interest in their lives, celebrations, and wellbeing with the same genuineness you extend to Muslim neighbors.
-6. Never condition your kindness on their response to Islam — your conduct is for Allah's pleasure regardless of their reaction.
-7. Completion indicator: you can honestly say your non-Muslim neighbors receive equal or greater kindness than your Muslim neighbors, sustained over at least three months.` },
-        { title: "When neighbors ask about your practices — fasting, praying, hijab, dietary laws — explain warmly and simply", done: false,
-          sources: `**I. Quran**
-
-### Quran (16:125)
-**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
-**Translation:** Invite to the way of your Lord with wisdom and good instruction.
-
-### Quran (29:46)
-**Arabic:** وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ  
-**Translation:** And do not argue with the People of the Scripture except in a way that is best.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 3461
-The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Convey from me, even if it is one verse" (Bukhari 3461). Your neighbors will inevitably notice your Islamic practices — why you fast in Ramadan, why you pray at certain times, why you do not eat pork, why some family members wear hijab. These questions are organic openings for gentle da'wah. Most non-Muslim neighbors are genuinely curious, not hostile. A warm, simple, non-preachy explanation transforms a moment of curiosity into a moment of understanding. Over time, these small explanations build a comprehensive, positive picture of Islam that no media narrative can override.
-
-
-**How?**
-
-1. Prepare simple, warm explanations for the most commonly asked-about practices: fasting, prayer, hijab, halal food, Eid.
-2. When a neighbor asks, respond with openness and a smile — never defensively.
-3. Keep explanations brief and relatable: "Ramadan is our month of fasting — we do not eat or drink from sunrise to sunset. It is about gratitude and self-discipline."
-4. Use shared values: "We fast to remember those who are hungry and to build self-control."
-5. Invite participation where appropriate: "You are welcome to join us for iftar dinner one evening if you would like."
-6. Never preach, lecture, or make them feel obligated to listen — share naturally and let the truth speak through your character.
-7. Completion indicator: you have warmly and simply explained at least three Islamic practices to curious neighbors, and they left the conversation with a positive impression.` },
-        { title: "Invite neighbors to experience Islamic occasions — iftar, Eid, Mawlid, or Friday dinner", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (3:104)
-**Arabic:** 
-**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 600
-Narrated Qurra bin Khalid:Once he waited for Al-Hasan and he did not show up till it was about the usual time for him to start his speech; then he came and apologized saying, "Our neighbors invited us." Then he added, "Narrated Anas, 'Once we waited for the Prophet (ﷺ) till it was midnight or about midnight. He came and led the prayer, and after finishing it, he addressed us and said, 'All the people prayed and then slept and you had been in prayer as long as you were waiting for it." Al-Hasan said, "The people are regarded as performing good deeds as long as they are waiting for doing good deeds." Al-Hasan's statement is a portion of Anas's [??] Hadith from the Prophet (ﷺ)
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Experience is the most powerful form of understanding. When a non-Muslim neighbor sits at your iftar table, hears the adhan at sunset, watches your family break fast with dates and du'a, and eats the meal together — they experience the beauty of Islam in a way no book or documentary can convey. The Prophet (peace be upon him) hosted people of all backgrounds at his table. An invitation to share a sacred occasion is an act of generosity that bridges cultures and opens hearts to the beauty of Islamic practice and community.
-
-
-**How?**
-
-1. During Ramadan, invite at least one non-Muslim neighbor household to iftar: "We break our fast at sunset — would you like to join us for dinner one evening?"
-2. On Eid, invite neighbors to your celebration: "It is our holiday — come share food and celebration with us."
-3. Before the event, briefly explain what to expect: "We will pray Maghrib first, then eat together. You are welcome to observe or simply enjoy the meal."
-4. Make them comfortable: no pressure to participate in religious elements, warm introduction to other guests, food that is accessible and delicious.
-5. After the occasion, follow up: "We were so glad you could join us. How did you find the experience?"
-6. Let them ask questions naturally — the experience itself will prompt curiosity.
-7. Completion indicator: you have invited and hosted at least two non-Muslim neighbor households at Islamic occasions, and they had a positive experience.` },
-        { title: "Be the neighbor who dismantles stereotypes — let your conduct contradict every negative narrative about Muslims", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (16:125)
-**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ
-**Translation:** "Call people to the way of your Lord with wisdom and good teaching."
-*(Contextual: the most powerful da'wah to those who hold negative narratives about Muslims is exemplary conduct — this is wisdom and good teaching in action.)*
-
-**II. Hadith**
-
-
-### Sahih al-Bukhari 6094
-The Prophet (peace be upon him) said: "Truthfulness leads to righteousness and righteousness leads to Paradise, and a person keeps telling the truth until he is recorded with Allah as a truthful person."
-*(Grade: Sahih)*
-*(Contextual: embodying truthful, righteous character in full view of neighbors is the lived demolition of false stereotypes — the righteous Muslim becomes the undeniable counter-evidence.)*`,
-          description: `**Why?**
-
-Media narratives, political rhetoric, and cultural prejudice create stereotypes about Muslims that your neighbors may unconsciously hold. You are the living counter-narrative. When a neighbor who has been told that Muslims are hostile experiences your warmth; when one who has been told Muslims are insular experiences your openness; when one who has been told Muslims are intolerant experiences your respect for their beliefs — the stereotype collapses under the weight of lived reality. The Prophet (peace be upon him) changed hearts not through argument but through character. Your daily conduct is the most powerful form of da'wah in your neighborhood.
-
-
-**How?**
-
-1. Be aware of common stereotypes: Muslims are unfriendly, insular, intolerant, or only kind to other Muslims.
-2. Consciously contradict each one through your conduct: be the warmest greeter on the street, the most helpful neighbor in the building, the most generous sharer of food, and the most patient in conflict.
-3. Be visibly engaged in communal life: attend neighborhood meetings, participate in shared activities, contribute to communal initiatives.
-4. When neighbors from different backgrounds have celebrations, acknowledge them warmly: "Happy Diwali," "Merry Christmas," or whatever is appropriate — participation in their joy is not compromise of your faith, it is fulfillment of neighborly ihsan.
-5. Share your own traditions openly: display "Eid Mubarak" signage, explain your practices when asked, and make your faith visible in a positive, approachable way.
-6. Remember: you may be the only Muslim your neighbor knows personally — your conduct defines their understanding of 1.8 billion people.
-7. Completion indicator: at least one non-Muslim neighbor has expressed a positive shift in their understanding of Muslims or Islam based on their experience with you.` },
-        { title: "Build lasting interfaith or intercultural friendships with neighbors — move beyond politeness to genuine companionship", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:13)
-**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
-**Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.
-
-### Quran (60:8)
-**Arabic:** لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ  
-**Translation:** Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes — from being righteous toward them and acting justly toward them.`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) maintained deep, genuine relationships with people of other faiths — including business partnerships, neighborly bonds, and social interactions that went far beyond surface politeness. The Quran's command in 60:8 is to show "birr" (righteousness, the same word used for righteousness toward parents) to non-hostile non-Muslims. Birr is not polite distance — it is deep, genuine care. Building real friendships with non-Muslim neighbors — sharing meals, exchanging visits, knowing each other's families — creates the kind of human bond that transforms neighborhoods and testifies to Islam's vision of human connection across difference.
-
-
-**How?**
-
-1. Identify one or two non-Muslim neighbors with whom you have a natural rapport and invest in deepening the relationship.
-2. Move beyond hallway greetings to intentional time together: invite them for a meal, suggest a walk, ask about their family.
-3. Show genuine interest in their culture, traditions, and background — ask questions, listen, and learn.
-4. Share your own culture and faith naturally through the friendship — cook together, celebrate each other's occasions, exchange stories.
-5. Be vulnerable: share your struggles, ask for their advice, and allow the relationship to have the depth of real friendship.
-6. Navigate differences with grace — you do not need to agree on theology to share a deep human bond built on mutual respect and genuine care.
-7. Completion indicator: you have at least one genuine, deep friendship with a non-Muslim neighbor that includes regular interaction, mutual care, and reciprocal trust.` },
-      ],
-    },
-    {
-      title: "Establish a neighborhood mutual aid network — formalise the culture of reciprocal support",
-      priority: 'medium', tags: ['haqq-al-jar', 'mutual-aid', 'network'],
-      description: "The Prophet (peace be upon him) said, 'None of you truly believes until he loves for his brother what he loves for himself' (Bukhari 13). At the excellence level, individual acts of kindness evolve into structured, sustainable mutual aid. This task is about creating a network that ensures no neighbor in your vicinity faces hardship alone — a modern micro-implementation of the Ansar model.",
-      subtasks: [
-        { title: "Map the skills, resources, and needs of your neighborhood — create a community asset inventory", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** "And cooperate in righteousness and piety."
-
-
-### Sahih Muslim 2699
-The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother." Mapping neighborhood skills and resources is the foundation of structured mutual aid.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Ansar of Madinah did not offer random help — they matched resources to needs. One was a farmer, another a trader, another skilled in construction. The mu'akhah system worked because the Prophet (peace be upon him) paired people with complementary capabilities. Your neighborhood similarly contains untapped resources: a retired electrician, a nurse, someone with a van, a skilled cook, a tech-savvy teenager. Mapping these assets means that when a need arises, you do not scramble to find help — you already know who has the skill and who has the need.
-
-
-**How?**
-
-1. Create a simple survey — paper or digital — asking neighbors to share: "What skills can you offer?" and "What help do you sometimes need?"
-2. Distribute it personally to every neighbor with an explanation: "I am trying to build a way for us to help each other more easily."
-3. Compile the results into a simple directory: "Ahmed (Flat 3A) — electrician, can help with wiring issues. Maria (4C) — nurse, can advise on health questions. David (2B) — has a van, can help with large deliveries."
-4. Also note needs: elderly residents who need grocery help, families with young children who need occasional childcare, people who travel frequently and need someone to collect mail.
-5. Share the directory with participating households (with everyone's consent).
-6. Update it as new neighbors move in or circumstances change.
-7. Completion indicator: a community asset directory exists covering at least five households, with both skills offered and needs identified.` },
-        { title: "Create a simple mutual aid protocol — how neighbors request and offer help within the network", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-**II. Hadith**
-
-### Sahih Muslim 2625
-The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Good intentions without structure lead to inconsistency. Some people will help enthusiastically for a month and then burn out. Others will need help but feel too embarrassed to ask. A simple protocol — even as informal as a shared agreement — removes the friction from both giving and receiving. It normalises asking for help ("It is not a burden; it is what we agreed to do") and prevents helper fatigue by distributing requests across the network. The Prophet (peace be upon him) established social contracts (the Constitution of Madinah) because he understood that goodwill alone is not sufficient — it needs structure.
-
-
-**How?**
-
-1. Draft a simple set of norms (not formal rules) for the network, such as: "Anyone can request help for a genuine need. Requests are made in the group chat or by direct contact. No one is obligated — only help if you are able. Recipients are not expected to reciprocate immediately."
-2. Share the norms with participants and invite feedback.
-3. Designate a simple method for requests: a message in the group chat ("Does anyone have a drill I can borrow today?") or a knock on a specific neighbor's door based on the directory.
-4. Agree on response norms: if you can help, respond promptly. If you cannot, no guilt.
-5. For recurring needs (weekly grocery runs for an elderly neighbor), create a rotation so the responsibility is shared.
-6. Review the protocol after two months and adjust based on what is working and what is not.
-7. Completion indicator: a mutual aid protocol is documented, agreed upon by at least four households, and has been used successfully for at least five requests.` },
-        { title: "Establish a neighborhood emergency response plan — who to call, where to gather, how to account for everyone", done: false,
-          sources: `**I. Quran**
-
-### Quran (5:2)
-**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
-**Translation:** And cooperate in righteousness and piety.
-
-### Quran (4:36)
-**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And the near neighbor, the neighbor farther away.
-
-**II. Hadith**
-
-### Sahih Muslim 2586
-The Prophet (peace be upon him) said: "The believers in their mutual kindness and compassion are like one body. When one limb suffers, the whole body responds with sleeplessness and fever."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Tie your camel, then put your trust in Allah" (Tirmidhi 2517). Preparation is a form of tawakkul, not a contradiction of it. In an emergency — fire, flood, earthquake, power outage, severe weather — the first responders are your neighbors, not emergency services. Knowing who checks on whom, where to gather, and how to account for vulnerable residents can save lives. A neighborhood that has discussed emergency response — even briefly — will react with coordination instead of chaos.
-
-
-**How?**
-
-1. Propose a brief discussion at a neighborhood gathering or in the group chat: "Have we ever talked about what we would do in an emergency?"
-2. Identify key elements: where is the nearest assembly point? Who checks on elderly and vulnerable residents? Who has first aid training? Where are the main shutoff valves for water and gas?
-3. Assign voluntary responsibilities: "Ahmed and I will check on the elderly residents on our floor. Maria will bring her first aid kit. David will check the parking area."
-4. Create a simple contact card with emergency numbers: building management, fire, police, hospital, and the contact numbers of key neighbors.
-5. Distribute the card to every household.
-6. Conduct a simple walkthrough once: "If we hear the fire alarm, we go to [assembly point]. Check that your immediate neighbors are accounted for."
-7. Completion indicator: a basic emergency response plan exists, at least four households are aware of it, and key responsibilities are assigned.` },
-        { title: "Create a neighborhood fund or collection for supporting neighbors in crisis", done: false,
-          sources: `**I. Quran**
-
-
-### Quran (59:9)
-**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ  
-**Translation:** "And they give preference over themselves, even though they are in privation."
-
-
-### Sahih Muslim 2568
-The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection." A neighborhood fund for crisis support is organized relief of hardship.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) described the believers as one body (Bukhari 6011) — when one part suffers, the whole responds. Financial crisis, sudden medical bills, job loss, or bereavement can devastate a family. A small neighborhood fund — even informal — means that when crisis strikes, the response is immediate and collective. This is the micro-level implementation of the Bayt al-Mal concept: communal resources available to those in need. It transforms neighbors from sympathetic observers into active supporters during the hardest moments.
-
-
-**How?**
-
-1. Propose the idea to trusted neighbors: "What if we each set aside a small amount monthly so that if any of us faces a crisis, we have something to offer immediately?"
-2. Keep it simple and voluntary: a small fixed amount (whatever is comfortable for the lowest-income household) collected monthly.
-3. Designate a trusted person to hold the fund — or use a shared digital wallet or simple cash envelope system.
-4. Agree on criteria: the fund is for genuine emergencies — medical, job loss, bereavement, urgent home repairs.
-5. When a crisis occurs, the fund is offered immediately and privately — preserving the recipient's dignity.
-6. Review the fund quarterly: how much is available, has it been used, and should contributions be adjusted?
-7. Completion indicator: a neighborhood mutual aid fund exists with at least three contributing households and has been available for at least three months.` },
-        { title: "Sustain and grow the network — onboard new neighbors, celebrate milestones, and keep the culture alive", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 2674
-The Prophet (peace be upon him) said: "Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him." Onboarding new neighbors and celebrating milestones sustains the good practice across time.
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-Networks and communities decay without intentional maintenance. Neighbors move, enthusiasm fades, and the initial energy dissipates. The Prophet (peace be upon him) sustained the Madinah community through consistent reinforcement: weekly congregations, recurring celebrations, and ongoing relationship-building. Your neighborhood mutual aid network needs the same: onboarding new residents so the culture does not depend on original members, celebrating what the community has achieved to reinforce its value, and adapting as the neighborhood changes. Sustainability is the difference between a temporary initiative and a lasting community transformation.
-
-
-**How?**
-
-1. When new neighbors move in, introduce them to the network: welcome them, explain what the community does, and invite them to participate.
-2. Every six months, hold a simple review gathering: what has the network accomplished? What needs improvement? Are there new needs?
-3. Celebrate milestones: "Our neighborhood has shared 50 meals this year" or "We supported three families during difficult times."
-4. Rotate leadership: do not let the network depend entirely on you — empower others to organise, communicate, and lead.
-5. Document the network's principles and practices simply so they can be passed on to new residents or new leaders.
-6. Stay adaptive: if the neighborhood's demographics or needs change, the network should evolve accordingly.
-7. Completion indicator: the mutual aid network has successfully onboarded at least two new households and has been sustained with active participation for at least six months.` },
-      ],
-    },
-    {
-      title: "Build intergenerational neighbor bonds — connect children, adults, and elders across households",
-      priority: 'medium', tags: ['haqq-al-jar', 'intergenerational', 'bonds'],
-      description: "The Prophet's community in Madinah was not age-segregated — children learned from elders, elders were cared for by youth, and adults modelled responsibility to both. Modern neighborhoods often silo generations: children play only with children, adults interact only with adults, and elderly residents become invisible. This task restores the intergenerational fabric that makes a neighborhood a true community.",
-      subtasks: [
-        { title: "Teach your children the rights of neighbors — make Haqq al-Jar a household value they practice from young", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
-**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
-
-### Quran (31:17)
-**Arabic:** يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ  
-**Translation:** O my son, establish prayer, enjoin what is right, forbid what is wrong, and be patient over what befalls you.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "Each of you is a shepherd and each of you is responsible for his flock" (Bukhari 7138). Your children are your flock, and teaching them Haqq al-Jar ensures the tradition survives into the next generation. A child who grows up greeting neighbors, sharing food, and helping the elderly will carry these habits into their own adult life and teach their own children. Conversely, a child who sees their parents ignoring neighbors, complaining about them, or treating them as strangers learns that community does not matter. The teaching must be both verbal (explaining the hadith) and practical (involving children in neighborly acts).
-
-
-**How?**
-
-1. Teach your children the key hadith: "Jibril kept urging me about the neighbor..." and explain it in age-appropriate language.
-2. Involve them in food preparation for neighbors: let them help cook, plate, and deliver the food.
-3. Teach them to greet every neighbor by name: "That is Uncle Ahmed, say salam to him."
-4. When visiting a sick or elderly neighbor, bring your children along so they see the practice modelled.
-5. Praise neighborly behavior: "I was so proud when you held the door for our neighbor."
-6. Discuss scenarios: "What would you do if you saw our neighbor carrying heavy bags?"
-7. Completion indicator: your children independently greet neighbors by name, participate in food sharing, and can explain at least one hadith about neighbor rights.` },
-        { title: "Connect your children with elderly neighbors — regular visits, small acts of service, and respectful companionship", done: false,
-          sources: `**I. Quran**
-
-### Quran (17:23)
-**Arabic:** وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا ۚ إِمَّا يَبْلُغَنَّ عِندَكَ الْكِبَرَ أَحَدُهُمَا أَوْ كِلَاهُمَا فَلَا تَقُل لَّهُمَا أُفٍّ  
-**Translation:** And your Lord has decreed that you not worship except Him, and to parents, good treatment. Whether one or both of them reach old age while with you, say not to them so much as "uff."
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6014
-The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "He is not one of us who does not show mercy to our young ones and respect to our elders" (Tirmidhi 1919). Elderly neighbors often experience profound loneliness — their children have moved away, their spouses may have passed, and days can pass without meaningful human interaction. A child's visit — with their energy, their curiosity, their unfiltered warmth — is a gift that many elderly people treasure above almost anything else. For the child, the relationship teaches respect, empathy, and the understanding that community spans all ages.
-
-
-**How?**
-
-1. Identify elderly neighbors in your vicinity, especially those living alone.
-2. Introduce your children: "This is Auntie Fatimah from downstairs. We are going to visit her sometimes."
-3. Start with brief, regular visits — 15 to 20 minutes, weekly if possible.
-4. Bring something: a drawing the child made, a plate of food, or fresh flowers from the garden.
-5. Teach children simple acts of service: "Ask Auntie if she needs anything from the shop" or "Help carry her rubbish bag."
-6. Let the relationship develop naturally — many elderly people love teaching children skills (cooking, crafts, stories from their youth).
-7. Completion indicator: your children have a regular visiting relationship with at least one elderly neighbor, sustained for at least two months.` },
-        { title: "Facilitate knowledge and skill exchange between older and younger neighbors", done: false,
-          sources: `**I. Quran**
-
-### Quran (49:13)
-**Arabic:** وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
-**Translation:** And made you peoples and tribes that you may know one another.
-
-**II. Hadith**
-
-### Jami at-Tirmidhi 1944
-The Prophet (peace be upon him) said: "The best of neighbors in the sight of Allah is the best of them to his neighbor."
-*(Grade: Hasan)*`,
-          description: `**Why?**
-
-Every generation holds knowledge the other needs. An elderly neighbor may know how to garden, sew, cook traditional dishes, or navigate bureaucracy. A younger neighbor may understand technology, social media, online banking, or modern health resources. The Prophet (peace be upon him) paired people of different strengths through the mu'akhah system. When neighbors exchange skills across generations — an elder teaches a young family to preserve food while a teenager helps them set up video calling with their grandchildren — both sides gain and the relationship deepens beyond surface pleasantries into genuine interdependence.
-
-
-**How?**
-
-1. Using your community asset map, identify cross-generational skill matches: elderly neighbors with traditional skills, younger neighbors with technical skills.
-2. Propose specific exchanges: "Mrs. Chen is an amazing cook — would she be open to teaching your daughter? In return, could your daughter help her set up WhatsApp to call her son overseas?"
-3. Organise informal "skill share" sessions: a cooking afternoon, a technology help hour, a gardening morning.
-4. Frame exchanges as mutual: neither party is doing charity — both are contributing and receiving.
-5. Let relationships form naturally around shared activities — forced interactions feel awkward, but shared projects create genuine bonds.
-6. Celebrate what is learned: "Look at the dress Mrs. Khan taught me to sew!" — public appreciation reinforces the culture.
-7. Completion indicator: at least two cross-generational skill exchanges have occurred in your neighborhood, and the participants are continuing the relationship independently.` },
-        { title: "Ensure elderly neighbors are included in neighborhood gatherings and not left isolated", done: false,
-          sources: `**I. Quran**
-
-### Quran (4:36)
-**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنبِ  
-**Translation:** And the near neighbor, the neighbor farther away, and the companion at your side.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 6017
-The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him be generous to his neighbor."
-*(Grade: Sahih)*`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) noticed when regular community members were absent and sought them out. Elderly neighbors are often excluded from gatherings unintentionally — the event is too noisy, the timing is inconvenient, mobility is limited, or simply no one thought to invite them. Active inclusion means not just inviting but facilitating: offering to walk them to the gathering, ensuring seating is comfortable, adjusting the environment so they can participate. A community that isolates its elders has failed at the most basic level of Haqq al-Jar toward its most vulnerable members.
-
-
-**How?**
-
-1. When organising any neighborhood gathering, specifically invite elderly residents in person — a personal invitation matters far more than a general announcement.
-2. Ask if they need help getting there: "Can I walk with you, or would you like me to bring you a plate if it is too far?"
-3. Ensure the gathering space has comfortable seating, is not too loud, and is accessible (ground floor or elevator access).
-4. During the gathering, include them in conversation — do not let them sit alone while everyone else socialises in their own age groups.
-5. Ask for their input and stories: "You have lived here the longest — what was this street like twenty years ago?"
-6. If they cannot attend, bring the gathering to them: a plate of food and a brief visit afterward.
-7. Completion indicator: every neighborhood gathering you organise includes at least one elderly resident who participates meaningfully and feels welcomed.` },
-        { title: "Create a legacy project that bonds generations — a neighborhood garden, a shared history project, or a communal celebration", done: false,
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 2320
-The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift for him." A neighborhood garden is a living sadaqah that bonds generations.
-*(Grade: Sahih)*
-
-
-### Quran (13:4)
-**Arabic:** وَفِي الْأَرْضِ قِطَعٌ مُّتَجَاوِرَاتٌ  
-**Translation:** "And within the land are neighboring plots."`,
-          description: `**Why?**
-
-The Prophet (peace be upon him) said, "If the Hour is about to be established and one of you has a palm seedling in his hand, let him plant it" (Ahmad 12981). A legacy project is the palm seedling of community building — something that outlasts the individuals who created it and serves future generations. A neighborhood garden tended by elders and children together, a shared history project recording the stories of long-term residents, or an annual communal celebration — these create institutional memory and intergenerational bonds that make a neighborhood feel like a home, not just an address.
-
-
-**How?**
-
-1. Choose a project that naturally involves multiple generations: a communal garden (elders advise on plants, children help dig, adults do heavy work), a street history project (elders share memories, teens record and compile), or an annual celebration (everyone contributes).
-2. Propose it at a neighborhood gathering: "What if we planted a shared garden in the courtyard?"
-3. Assign roles by strength: elderly neighbors advise and supervise, adults do physical work, children assist and learn, teenagers document.
-4. Make the project visible: a sign in the garden, a printed booklet of neighborhood history, photos of the celebration displayed in the common area.
-5. Ensure continuity: who maintains the garden? Who organises next year's celebration? Pass these roles to different households each year.
-6. As new neighbors arrive, involve them: the project becomes the neighborhood's identity and welcoming tradition.
-7. Completion indicator: a legacy project has been initiated with participation from at least three generations (children, adults, elders) and has produced a tangible, visible result.` },
-      ],
-    },
-  ],
-
-  // ── COMMUNITY ──
-
-  // ── CORE — Fulfil basic community obligations ──
-  ummah_community_core: [
     {
       title: 'Attend congregational prayers consistently — prioritise Fajr, Isha, and Jumu\'ah',
       priority: 'urgent', tags: ['salah', 'jama\'ah'],
@@ -5059,6 +4954,724 @@ The Prophet (peace be upon him) said, "The believers in their mutual kindness, c
   // ── GROWTH — Build community institutions ──
   ummah_community_growth: [
     {
+      title: "Establish a community education institution (halaqa or weekend school)",
+      priority: 'high', tags: ['education', 'tarbiyah', 'institution'],
+      description: " This task creates a structured, ongoing educational institution that serves all ages — from children learning the basics of their faith to adults deepening their understanding. Education is the engine of community growth.",
+      subtasks: [
+        { title: "Assess the educational needs of your community across all age groups", done: false,
+          sources: `**I. Quran**
+
+### Quran (96:1-5)
+**Arabic:** اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ۝ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ ۝ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ ۝ الَّذِي عَلَّمَ بِالْقَلَمِ ۝ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ  
+**Translation:** Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the most Generous. Who taught by the pen. Taught man that which he knew not.
+
+### Quran (20:114)
+**Arabic:** وَقُل رَّبِّ زِدْنِي عِلْمًا  
+**Translation:** And say, "My Lord, increase me in knowledge."
+
+**II. Hadith**
+
+### Sunan Ibn Majah 224
+The Prophet (peace be upon him) said: "Seeking knowledge is an obligation upon every Muslim."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ An education programme built without understanding the community's actual needs will attract no one. Some communities need basic Arabic literacy; others need advanced fiqh; many need youth-specific programming. A needs assessment ensures you build what is actually needed, not what you assume is needed.
+
+**How?**
+
+1. Design a simple survey covering: age, current Islamic knowledge level (self-assessed), topics of greatest interest, preferred learning format (lecture, discussion, online, in-person), and scheduling constraints.
+2. Distribute to at least 50 community members across all demographics — parents, singles, youth, elders, converts.
+3. Supplement surveys with 5-10 in-depth conversations with community leaders, teachers, and parents.
+4. Compile results into a needs matrix: rows = age groups, columns = topic areas, cells = demand level (high/medium/low).
+5. Identify the top 3 unmet needs that affect the largest number of people.
+6. Present findings to the shura council with a recommendation for programme priorities.
+7. Completion indicator: a documented needs assessment with at least 50 survey responses and a prioritised list of 3 educational needs, endorsed by the shura council.` },
+        { title: "Recruit and vet qualified teachers for core subjects", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (9:122)
+**Arabic:** فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ  
+**Translation:** "From every group, a party should go forth to obtain understanding in the religion."
+
+
+### Sunan Abu Dawud 3641
+The Prophet (peace be upon him) said: "The scholars are the heirs of the Prophets." Recruiting qualified teachers is essential to preserving and transmitting sacred knowledge.
+*(Grade: Sahih)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 100
+Recorded in Sahih al-Bukhari 100: 'Allah does not take away the knowledge... but takes it away by the death of the religious learned men...'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) warned: "Allah does not take away knowledge by snatching it from people, but by taking away the scholars" (Bukhari & Muslim). Who teaches matters as much as what is taught. Unqualified teachers can transmit distorted beliefs, poor methodology, or harmful attitudes that take years to undo. Vetting ensures that the community's educational foundation is built on sound knowledge, good character, and pedagogical competence.
+
+
+**How?**
+
+1. Define the core subjects your programme will cover (e.g., Quran recitation, basic aqidah, fiqh of worship, seerah, Arabic).
+2. For each subject, list the minimum qualifications: formal ijaza or degree, teaching experience, and character references.
+3. Reach out to local imams, Islamic university graduates, and experienced teachers — start within the community, then expand to neighbouring communities.
+4. Conduct interviews focusing on: knowledge level, teaching methodology, ability to handle difficult questions, and alignment with the community's values.
+5. Request a trial lesson observed by 2-3 evaluators.
+6. Check references and conduct background checks, especially for those teaching children.
+7. Completion indicator: at least one vetted, qualified teacher recruited for each core subject, with documented qualifications and trial lesson feedback.` },
+        { title: "Design a structured curriculum with clear learning outcomes", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (96:1-5)
+**Arabic:** اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ  
+**Translation:** "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the Most Generous. Who taught by the pen. Taught man that which he knew not."
+
+
+### Quran (20:114)
+**Arabic:** وَقُل رَّبِّ زِدْنِي عِلْمًا  
+**Translation:** "And say: My Lord, increase me in knowledge."`,
+          description: `**Why?**
+
+ A curriculum without structure produces students with scattered, incomplete knowledge. Clear learning outcomes ensure that after completing the programme, students can demonstrably recite, understand, and apply what they have learned. Structure also allows teachers to coordinate, prevents repetition, and shows the community that this is a serious institution, not a casual gathering.
+
+**How?**
+
+1. For each subject and age group, define 3-5 learning outcomes: what should a student know and be able to do after completing this course?
+2. Break each course into weekly sessions with specific topics, readings, and activities.
+3. Include assessment points: not formal exams, but recitation checks, written reflections, or practical demonstrations.
+4. Align the curriculum with the community's identified needs from the assessment phase.
+5. Have the curriculum reviewed by at least one qualified scholar for accuracy and by one experienced educator for pedagogy.
+6. Pilot the curriculum for one term and collect feedback from students and teachers.
+7. Completion indicator: a written curriculum document covering at least 3 subjects with weekly session plans, learning outcomes, and assessment methods, reviewed and approved by a scholar and an educator.` },
+        { title: "Secure a dedicated space and regular schedule for classes", done: false,
+          sources: `**I. Quran**
+
+### Quran (9:122)
+**Arabic:** فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنذِرُوا قَوْمَهُمْ إِذَا رَجَعُوا إِلَيْهِمْ  
+**Translation:** And it is not for the believers to go forth all at once. For there should separate from every division of them a group to obtain understanding in the religion and warn their people when they return to them.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2682
+The Prophet (peace be upon him) said: "May Allah brighten the face of a person who hears a hadith from us, memorises it, and conveys it to others."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) had the Suffah — a dedicated space in the masjid for learning. Education cannot thrive in borrowed, inconsistent spaces with unpredictable schedules. A dedicated space signals permanence and seriousness; a regular schedule builds habit and attendance. Without these, even the best curriculum will fail because people cannot plan around uncertainty.
+
+
+**How?**
+
+1. Assess available spaces: rooms in the masjid, community centre, school, or a rented facility.
+2. Determine the minimum requirements: seating capacity, whiteboard or projector, ventilation, accessibility, and separate spaces for children and adults if needed.
+3. Negotiate a consistent booking: same day, same time, same room every week — this is non-negotiable for building attendance.
+4. If no suitable space exists, explore partnerships with local schools, libraries, or churches that rent community rooms.
+5. Budget for the space: rent, utilities, teaching materials, and a small contingency.
+6. Announce the schedule widely and stick to it — cancellations erode trust faster than anything.
+7. Completion indicator: a confirmed, dedicated space booked for at least one academic term with a published schedule distributed to the community.` },
+        { title: "Launch the first term and establish feedback and improvement cycles", done: false,
+          sources: `**I. Quran**
+
+### Quran (3:110)
+**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ  
+**Translation:** You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.
+
+**II. Hadith**
+
+### Sahih Muslim 2674
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) constantly refined his approach based on the needs of his community. A programme that launches and never improves will stagnate and lose relevance. Formal feedback cycles — from students, teachers, and parents — ensure the programme adapts, grows, and continues to serve the community well. The first term is the proof of concept that builds the credibility needed for long-term sustainability.
+
+
+**How?**
+
+1. Launch with a public event: introduce the teachers, explain the curriculum, and register students.
+2. Run the first term (8-12 weeks) with consistent delivery of the planned curriculum.
+3. Collect mid-term feedback: a brief survey asking students what is working, what is not, and what they want more of.
+4. Collect end-of-term feedback from students, parents, and teachers with a more detailed survey.
+5. Hold a teachers' meeting to review feedback, discuss challenges, and plan adjustments for the next term.
+6. Publish a brief report to the community: how many students enrolled, what was taught, and what improvements are planned.
+7. Completion indicator: a completed first term with at least 15 enrolled students, documented feedback, and a published improvement plan for term two.` },
+      ],
+    },
+    {
+      title: "Build a community dispute resolution (sulh) mechanism",
+      priority: 'high', tags: ['sulh', 'justice', 'conflict-resolution'],
+      description: "Allah commands: 'If two groups of believers fight, make peace between them' (Quran 49:9). This task creates a formal, trusted mechanism for resolving disputes within the community — from personal conflicts to business disagreements — before they escalate into fitna that tears the community apart.",
+      subtasks: [
+        { title: "Identify and train community mediators in Islamic dispute resolution", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (29:46)
+**Arabic:** 
+**Translation:** And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, "We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam)."`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) personally mediated disputes and appointed mediators like Abu Ubayda ibn al-Jarrah, known as the "trustworthy one of this ummah." Effective mediation requires specific skills: impartiality, deep listening, knowledge of Islamic rulings on justice, and the ability to help parties find common ground. Untrained mediators often make conflicts worse by taking sides or imposing solutions. Training ensures the community has people who can heal rather than inflame.
+
+
+**How?**
+
+1. Identify 3-5 community members who possess the following qualities: respected by all groups, known for fairness, able to maintain confidentiality, and willing to commit time to mediation.
+2. Provide training in the basics of Islamic dispute resolution: the Quranic principles of sulh (reconciliation), the Prophetic examples, and the fiqh of arbitration (tahkim).
+3. Supplement with practical mediation skills: active listening, reframing, managing emotions, and drafting agreements.
+4. If formal training courses are available (e.g., through Islamic arbitration councils or community mediation programmes), enrol the candidates.
+5. Conduct practice mediations using realistic scenarios before handling real cases.
+6. Establish a code of conduct for mediators: impartiality, confidentiality, and no personal benefit from cases.
+7. Completion indicator: at least 3 trained mediators who have completed training and conducted at least one supervised practice mediation each.` },
+        { title: "Define the scope and process of the dispute resolution service", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:9)
+**Arabic:** وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا  
+**Translation:** And if two factions among the believers should fight, then make settlement between the two.
+
+### Quran (4:35)
+**Arabic:** وَإِنْ خِفْتُمْ شِقَاقَ بَيْنِهِمَا فَابْعَثُوا حَكَمًا مِّنْ أَهْلِهِ وَحَكَمًا مِّنْ أَهْلِهَا  
+**Translation:** And if you fear dissension between the two, send an arbitrator from his people and an arbitrator from her people.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 4919
+The Prophet (peace be upon him) said: "Shall I not inform you of something more excellent in degree than fasting, prayer, and charity? It is reconciling people."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Without a clear scope and process, the mediation service will either be overwhelmed by every minor disagreement or ignored because no one knows it exists. The Prophet (peace be upon him) established clear processes for adjudication — different approaches for family disputes, financial disputes, and interpersonal conflicts. A defined scope and process builds trust by setting expectations: what kinds of disputes are handled, how long it takes, and what the outcomes can be.
+
+
+**How?**
+
+1. Define the types of disputes the service will handle: interpersonal conflicts, family disputes (non-legal), business disagreements between community members, and community governance disputes.
+2. Define what is out of scope: criminal matters (refer to authorities), cases requiring legal expertise (refer to Islamic arbitration councils or lawyers), and disputes where one party refuses to participate.
+3. Write a step-by-step process: (a) intake and initial assessment, (b) contacting both parties, (c) scheduling mediation, (d) conducting the session, (e) drafting an agreement, (f) follow-up.
+4. Set timelines: intake within 72 hours, first session within 2 weeks, resolution target within 30 days.
+5. Create intake forms and agreement templates.
+6. Publish the service details through the masjid, newsletter, and community website.
+7. Completion indicator: a documented process with forms and templates, published and accessible to all community members.` },
+        { title: "Handle the first 3 cases and document lessons learned", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ  
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 7188
+The Prophet (peace be upon him) said: "When a judge makes a ruling, striving to reach the right decision, and is correct, he will have two rewards. If he is mistaken, he will still have one reward."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Theory without practice is incomplete. The first real cases will reveal gaps in the process, skill deficiencies in the mediators, and community attitudes that need to be addressed. The Prophet (peace be upon him) learned and adjusted through experience — the approach at Badr was different from Uhud, which was different from Khandaq. Documenting lessons from real cases ensures the service improves rapidly and builds credibility through demonstrated competence.
+
+
+**How?**
+
+1. Accept the first 3 cases through the published intake process — do not cherry-pick easy cases; take what comes.
+2. Assign each case to a mediator, with a senior mentor observing or available for consultation.
+3. Follow the documented process for each case, noting any deviations and why they were necessary.
+4. After each case (whether resolved or not), conduct a debrief: what worked, what did not, and what should change.
+5. Compile lessons learned into a brief report without identifying parties.
+6. Update the process document and training materials based on the lessons.
+7. Completion indicator: 3 cases processed through the system with documented outcomes and a lessons-learned report that has been used to update the process.` },
+        { title: "Build community trust in the mediation service through transparency", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:10)
+**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ ۚ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُرْحَمُونَ  
+**Translation:** The believers are but brothers, so make settlement between your brothers. And fear Allah that you may receive mercy.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 2692
+The Prophet (peace be upon him) said: "Making peace between people is a form of charity."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+People will not use a dispute resolution service they do not trust. The Prophet (peace be upon him) was known as al-Amin (the trustworthy) before prophethood — trust must be earned, not assumed. Transparency about the process, the mediators' qualifications, and the service's track record (without breaching confidentiality) builds the credibility needed for community members to bring their real disputes forward rather than letting them fester.
+
+
+**How?**
+
+1. Publish a quarterly report: number of cases handled, resolution rate, average time to resolution, and types of disputes (without identifying details).
+2. Share anonymised testimonials from parties who found the process helpful (with their permission).
+3. Invite the community to meet the mediators at a community gathering — brief introductions and Q&A about the process.
+4. Address concerns and misconceptions openly: "Yes, everything is confidential. No, the mediator cannot force a decision on you."
+5. Seek endorsement from the imam and shura council — their public support lends institutional credibility.
+6. Ask resolved parties to refer others — word of mouth is the strongest trust signal.
+7. Completion indicator: at least one published quarterly report, one public introduction event, and at least 2 new cases received through referrals from previous users.` },
+        { title: "Establish a referral network for cases beyond the community's capacity", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+### Quran (4:135)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ  
+**Translation:** O you who have believed, be persistently standing firm in justice, witnesses for Allah.`,
+          description: `**Why?**
+
+Not every dispute can or should be resolved internally. Some cases involve legal complexity (e.g., divorce, inheritance, business partnerships with external parties) that require professional Islamic arbitration, legal counsel, or even court intervention. The Prophet (peace be upon him) sent delegations to specialists when needed. A referral network ensures the community does not overextend itself and that parties receive the right level of support for their situation.
+
+
+**How?**
+
+1. Research and compile a list of: Islamic arbitration councils, Muslim family lawyers, Muslim business mediators, and counselling services in your area or region.
+2. Contact each to confirm: services offered, fees, geographic coverage, and willingness to accept referrals from your community.
+3. Establish a simple referral protocol: when a case is assessed as beyond scope, the intake team provides the party with relevant referral options and contact details.
+4. Maintain the referral list as a living document, updated annually.
+5. Follow up on referred cases (with consent) to assess whether the external service was helpful.
+6. Share the referral directory with the community so individuals can also access it directly.
+7. Completion indicator: a published referral directory with at least 5 vetted external services, and at least 2 successful referrals made.` },
+      ],
+    },
+    {
+      title: "Develop a structured dawah and outreach programme",
+      priority: 'medium', tags: ['dawah', 'outreach', 'interfaith'],
+      description: "Allah commands: 'Invite to the way of your Lord with wisdom and beautiful preaching' (Quran 16:125). This task builds a structured, sustainable outreach programme that represents Islam accurately and beautifully to non-Muslims, engages in interfaith dialogue, and fulfils the community's obligation to share the message.",
+      subtasks: [
+        { title: "Assess the current state of community outreach and identify gaps", done: false,
+          sources: `**I. Quran**
+
+### Quran (16:125)
+**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
+**Translation:** Invite to the way of your Lord with wisdom and good instruction.
+
+### Quran (12:108)
+**Arabic:** قُلْ هَٰذِهِ سَبِيلِي أَدْعُو إِلَى اللَّهِ ۚ عَلَىٰ بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي  
+**Translation:** Say, "This is my way; I invite to Allah with insight — I and those who follow me."`,
+          description: `**Why?**
+
+Many Muslim communities either do no outreach at all or conduct it in an ad-hoc, reactive manner — responding to media crises rather than proactively building relationships. The Prophet (peace be upon him) sent letters and envoys to rulers and communities systematically, not randomly. Understanding what outreach (if any) currently exists and where the gaps are prevents duplication and ensures the new programme addresses real deficiencies.
+
+
+**How?**
+
+1. Interview community leaders and active members: what outreach activities have been done in the past 2 years?
+2. List all current touchpoints with non-Muslims: open days, interfaith events, social media, neighbour relations, civic participation.
+3. Assess quality and consistency: are these activities regular or sporadic? Well-organised or improvised?
+4. Identify gaps: is there any outreach to schools? Workplaces? Local government? Media?
+5. Survey non-Muslim neighbours and local organisations: how do they perceive the Muslim community? What would they want to know?
+6. Compile findings into a gap analysis with recommendations.
+7. Completion indicator: a documented gap analysis with at least 3 identified outreach deficiencies and recommendations, based on both internal and external perspectives.` },
+        { title: "Train a team of community ambassadors in effective, respectful dawah", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (16:125)
+**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
+**Translation:** "Invite to the way of your Lord with wisdom and good instruction."
+
+
+### Sahih Muslim 1893
+The Prophet (peace be upon him) said: "Whoever guides someone to goodness will have a reward like the one who did it." Training dawah ambassadors multiplies the community's capacity for good.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ But conveying requires skill. A well-intentioned but poorly trained ambassador can misrepresent Islam, offend potential allies, or create legal and social problems. Training ensures ambassadors can answer common questions accurately, handle hostile questions gracefully, and represent the community with the dignity and intelligence that the message of Islam deserves.
+
+**How?**
+
+1. Recruit 5-10 community members who are articulate, approachable, knowledgeable, and emotionally intelligent — not just the most religious, but the most relatable.
+2. Design a training programme covering: the basics of Islam (for explaining to non-Muslims), common misconceptions and how to address them, active listening and respectful dialogue, cultural sensitivity, and legal boundaries (know your rights in public spaces).
+3. Include role-play scenarios: "A colleague asks you about women in Islam," "A neighbour expresses concern about terrorism," "A stranger is curious about your prayer."
+4. Practise concise, jargon-free explanations — most non-Muslims do not know what "tawhid" or "sunnah" means.
+5. Provide each ambassador with a resource kit: business cards with masjid contact, a recommended reading list for interested non-Muslims, and a FAQ card.
+6. Conduct a final assessment through observed role-play before deploying ambassadors.
+7. Completion indicator: at least 5 trained ambassadors who have passed a role-play assessment and received their resource kits.` },
+        { title: "Launch a regular interfaith dialogue initiative", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (29:46)
+**Arabic:** وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ  
+**Translation:** "And do not argue with the People of the Scripture except in a way that is best."
+
+
+### Quran (49:13)
+**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
+**Translation:** "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another."`,
+          description: `**Why?**
+
+The Quran says: "O humanity, We have created you from male and female and made you into nations and tribes that you may know one another" (49:13). Interfaith dialogue is not about compromising beliefs — it is about building understanding, finding common ground on shared values (justice, charity, family), and removing the ignorance that breeds hostility. The Prophet (peace be upon him) maintained respectful relationships with Jewish and Christian communities in Madinah and engaged in theological dialogue with visiting delegations.
+
+
+**How?**
+
+1. Identify local religious leaders and institutions willing to engage: churches, synagogues, temples, and secular community organisations.
+2. Start with a personal meeting between your imam or community leader and their counterpart — build the relationship before the programme.
+3. Design an initial event: a shared meal with brief presentations from each faith on a common theme (e.g., "What does our faith say about serving the poor?").
+4. Establish ground rules: mutual respect, no proselytising during the dialogue, focus on understanding not debating, and equal speaking time.
+5. Plan a series of 3-4 events per year, alternating hosts between communities.
+6. Collect feedback after each event and adjust the format based on what participants find most valuable.
+7. Completion indicator: at least 2 interfaith events held with documented attendance from multiple faith communities and positive feedback from participants.` },
+        { title: "Create accessible dawah materials tailored to your local audience", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (16:125)
+**Arabic:** ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ  
+**Translation:** "Invite to the way of your Lord with wisdom and good instruction."
+
+
+### Quran (41:33)
+**Arabic:** وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا  
+**Translation:** "And who is better in speech than one who invites to Allah and does righteousness."`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) communicated differently with different audiences — he used poetry with the Arabs, logic with the Quraysh, and practical demonstration with the Bedouin. Generic dawah materials often fail because they do not speak to the specific questions, concerns, and cultural context of the local audience. Materials tailored to your community's neighbours — their language, their common misconceptions, their values — are exponentially more effective than one-size-fits-all pamphlets.
+
+
+**How?**
+
+1. Based on the outreach assessment and interfaith interactions, identify the top 5 questions non-Muslims in your area have about Islam.
+2. Draft clear, concise answers to each question — no more than one page per answer, written in accessible language without Arabic jargon.
+3. Have the materials reviewed by: a qualified scholar (for accuracy), a non-Muslim friend or neighbour (for clarity and tone), and a professional communicator (for presentation).
+4. Produce the materials in both digital and print formats: a simple website or social media page, and printed brochures for the masjid and community events.
+5. Include your community's contact information and an invitation to visit.
+6. Test the materials at the next open day or interfaith event and collect feedback.
+7. Completion indicator: a set of at least 5 dawah materials (print and digital) reviewed by a scholar and a non-Muslim reader, distributed at one event with documented feedback.` },
+        { title: "Establish a regular community service project visible to the wider public", done: false,
+          sources: `**I. Quran**
+
+### Quran (41:33)
+**Arabic:** وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا  
+**Translation:** And who is better in speech than one who invites to Allah and does righteousness.
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+**II. Hadith**
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Whoever follows a path in pursuit of knowledge, Allah will make a path to Paradise easy for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Actions speak louder than words. A Muslim community that serves its broader neighbourhood — feeding the homeless, cleaning public spaces, supporting local schools — demonstrates Islamic values more powerfully than any lecture. Regular, visible service builds goodwill, breaks stereotypes, and creates natural opportunities for dawah through relationship.
+
+**How?**
+
+1. Identify a local need that aligns with Islamic values and is visible to the public: a food bank, a homeless outreach, a park clean-up, or a school supply drive.
+2. Partner with an existing organisation if possible — this multiplies impact and builds inter-community relationships.
+3. Commit to a regular schedule: monthly at minimum, with the same core team to build consistency and relationships.
+4. Identify the project clearly as a Muslim community initiative — use signage, branded clothing, or verbal introductions.
+5. Invite the wider community to join — service should unite, not segregate.
+6. Document the project through photos, stories, and impact metrics (meals served, bags collected, families supported).
+7. Completion indicator: a regular service project running for at least 6 months with documented impact and at least one public recognition or media mention.` },
+      ],
+    },
+    {
+      title: "Develop a comprehensive youth programme rooted in Islamic identity",
+      priority: 'high', tags: ['youth', 'tarbiyah', 'identity'],
+      description: "The Prophet (peace be upon him) invested deeply in the youth of the ummah — appointing young leaders, mentoring them personally, and building their Islamic identity alongside their skills. This task creates a structured youth programme that addresses the unique challenges facing young Muslims: identity confusion, peer pressure, cultural tension, and the need for belonging.",
+      subtasks: [
+        { title: "Survey youth to understand their actual needs, struggles, and aspirations", done: false,
+          sources: `**I. Quran**
+
+### Quran (66:6)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا  
+**Translation:** O you who have believed, protect yourselves and your families from a Fire.
+
+### Quran (18:13)
+**Arabic:** إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ وَزِدْنَاهُمْ هُدًى  
+**Translation:** Indeed, they were youths who believed in their Lord, and We increased them in guidance.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2516
+The Prophet (peace be upon him) said: "Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) understood the specific concerns of each age group — he gave different advice to the young man struggling with desire than to the elder concerned with legacy. Adults often design youth programmes based on what they think youth need, which frequently misses the mark. A direct survey gives young Muslims a voice, builds their trust in the process, and ensures the programme addresses real challenges — not imagined ones.
+
+
+**How?**
+
+1. Design an anonymous survey covering: What are the biggest challenges you face as a young Muslim? Where do you feel the community supports you? Where does it fail you? What topics would you want a youth programme to cover? What format do you prefer (lectures, discussions, sports, social, mentorship)?
+2. Distribute to youth aged 13-25 through social media, school contacts, and direct outreach — aim for at least 25 responses.
+3. Supplement with 5-8 one-on-one conversations with youth who are willing to share more openly.
+4. Analyse results for common themes and surprising findings.
+5. Present findings to the shura council and potential youth programme leaders.
+6. Involve 2-3 youth in the analysis and programme design process — they are stakeholders, not just beneficiaries.
+7. Completion indicator: a documented needs assessment based on at least 25 survey responses and 5 conversations, with a summary of top 5 youth needs presented to community leadership.` },
+        { title: "Recruit and train youth mentors from within the community", done: false,
+          sources: `**I. Hadith**
+
+
+### Sunan Abu Dawud 4943
+The Prophet (peace be upon him) said: "No one of you is a true believer until he loves for his brother what he loves for himself." Mentoring youth is an act of loving for the next generation what we value for ourselves.
+*(Grade: Sahih)*
+
+
+### Quran (66:6)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا  
+**Translation:** "O you who have believed, protect yourselves and your families from a Fire."`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) personally mentored young Companions — Ali ibn Abi Talib, Anas ibn Malik, and others grew under his direct guidance. Youth respond to relationships, not programmes. A brilliant curriculum without caring, relatable mentors will fail. Mentors provide the personal connection, the role modelling, and the safe space for questions that no lecture can replicate. They bridge the gap between Islamic knowledge and the lived reality of being young.
+
+
+**How?**
+
+1. Identify potential mentors: young adults (early 20s-30s) who are practicing, relatable, emotionally mature, and genuinely care about youth.
+2. Screen candidates: character references, background checks (mandatory for working with minors), and an interview assessing their motivation and ability to maintain appropriate boundaries.
+3. Provide training covering: basics of adolescent development, how to build trust without overstepping, how to handle disclosures (depression, bullying, family issues), when and how to escalate concerns, and the Islamic framework for mentorship.
+4. Pair mentors with small groups of 3-5 youth based on age, gender, and interests.
+5. Establish check-in protocols: mentors meet their group at least twice monthly and report to the programme coordinator monthly.
+6. Support mentors with regular debriefs and access to professional advice for complex situations.
+7. Completion indicator: at least 4 trained, vetted mentors actively meeting with their assigned youth groups for at least 2 months.` },
+        { title: "Launch a biweekly youth halaqa addressing real-life challenges", done: false,
+          sources: `**I. Quran**
+
+### Quran (103:1-3)
+**Arabic:** وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ  
+**Translation:** By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6008
+The Prophet (peace be upon him) said: "He is not one of us who does not show mercy to our young ones and respect to our elders."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) held gatherings where Companions could ask questions freely — the famous hadith of Jibril occurred in such a setting. Young Muslims face questions that traditional halaqas rarely address: social media, identity confusion, mental health, relationships, career anxiety, and doubt. A youth-specific halaqa that tackles these topics honestly, within an Islamic framework, gives young people a space where their real lives meet their faith — instead of the two existing in separate compartments.
+
+
+**How?**
+
+1. Schedule a biweekly halaqa at a time youth can attend — Friday or Saturday evening works for most.
+2. Choose a format that encourages participation: brief input (15 minutes) followed by guided discussion (30-45 minutes), not a one-hour lecture.
+3. Select topics from the needs survey: identity, peer pressure, social media, mental health, relationships, doubt, career purpose, and how Islam addresses each.
+4. Rotate facilitators between the imam, guest speakers, and trained mentors to keep it fresh.
+5. Create a "question box" (physical or digital) where youth can submit anonymous questions that are addressed in future sessions.
+6. Track attendance and engagement — if numbers drop, ask why and adjust.
+7. Completion indicator: a biweekly halaqa running for at least 3 months with an average attendance of 10+ youth and documented topics covered.` },
+        { title: "Integrate sports, social activities, and creative outlets into the youth programme", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6026
+The Prophet (peace be upon him) said: "Allah is kind and loves kindness in all affairs." Integrating sports and creative outlets reflects the Prophetic balance of nurturing body, mind, and soul.
+*(Grade: Sahih)*
+
+
+### Sunan Abu Dawud 4998
+The Prophet (peace be upon him) said: "Teach your children swimming, archery, and horse-riding." Physical activities and creative pursuits are a Sunnah-grounded part of youth development.
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+ Islam does not separate the spiritual from the physical and social. Youth who only associate the masjid with lectures will stop coming. A programme that includes sports, social outings, creative expression (art, writing, media), and fun builds the positive association with the community that keeps youth engaged long enough for the deeper tarbiyah to take root.
+
+**How?**
+
+1. Survey youth for their preferred activities: football, basketball, hiking, gaming, art, photography, cooking, or volunteering.
+2. Schedule at least one social or physical activity per month alongside the biweekly halaqa — this is not a distraction from tarbiyah; it is tarbiyah through bonding.
+3. Use activities to teach Islamic values naturally: teamwork (jamaah), fair play (adl), perseverance (sabr), and gratitude (shukr).
+4. Rotate activity types to appeal to different interests and draw in youth who would not attend a halaqa.
+5. Budget for activities: many are low-cost (park sports, community kitchen cooking) but some may need funding (venue hire, equipment).
+6. Document activities with photos and stories (with parental consent) to build programme visibility and attract more participants.
+7. Completion indicator: at least 6 social/physical activities held over 6 months with documented attendance and at least 3 new youth who joined through activities rather than the halaqa.` },
+        { title: "Create a youth leadership pipeline — identify, develop, and deploy young leaders", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (3:110)
+**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ  
+**Translation:** "You are the best nation produced [as an example] for mankind."
+
+
+### Sahih Muslim 1920
+The Prophet (peace be upon him) said: "A group of my Ummah will remain victorious upon the truth." Developing young leaders ensures that the community continues to uphold and champion the truth.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) appointed Usama ibn Zayd to lead an army at age 18 — he did not wait for youth to "grow up" before giving them responsibility. Yet many communities exclude youth from meaningful leadership roles, then wonder why they disengage. A leadership pipeline identifies youth with potential, develops their skills through real responsibility (not token roles), and prepares them to lead the community in the next generation.
+
+
+**How?**
+
+1. Identify youth who show initiative, reliability, and care for the community — look beyond academic achievers to those who organise informally, help without being asked, and influence their peers positively.
+2. Create a tiered leadership track: (a) volunteer roles (event setup, social media), (b) project leads (organising a youth event or service project), (c) committee roles (youth representative on the shura council or programme committee).
+3. Pair each emerging leader with a senior community leader as a mentor.
+4. Give real responsibility with real consequences — not make-work tasks, but decisions that affect the youth programme and, eventually, the broader community.
+5. Provide training in: public speaking, project management, Islamic leadership principles, and conflict resolution.
+6. Review the pipeline annually: who has progressed? Who needs more support? Who is ready for the next level?
+7. Completion indicator: at least 3 youth placed in meaningful leadership roles with documented mentorship and at least one youth-led project successfully completed.` },
+      ],
+    },
+    {
+      title: "Establish a community treasury (bayt al-mal) for collective financial strength",
+      priority: 'medium', tags: ['bayt-al-mal', 'finance', 'waqf'],
+      description: "The Prophet (peace be upon him) established a bayt al-mal in Madinah — a collective treasury that funded community needs, supported the poor, and provided for public services. This task creates a transparent, accountable community fund that goes beyond emergency aid to build long-term collective financial capacity.",
+      subtasks: [
+        { title: "Audit current community finances — income, expenses, and gaps", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (2:282)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ  
+**Translation:** "O you who have believed, when you contract a debt for a specified term, write it down."
+
+
+### Sahih Muslim 1015
+The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him." Sound financial auditing protects community endowments.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran commands: "O you who believe, when you contract a debt for a specified term, write it down" (2:282). Financial transparency is a Quranic obligation, not a nice-to-have. Many Muslim communities operate with opaque finances — donations go into a general fund, expenses are unclear, and no one knows the community's true financial position. An audit establishes the baseline from which a community treasury can be built responsibly.
+
+
+**How?**
+
+1. Gather all financial records for the past 12 months: donation records, bank statements, expense receipts, and any outstanding debts or commitments.
+2. Categorise income by source: regular donations, Jumu'ah collections, Ramadan campaigns, event fees, and grants.
+3. Categorise expenses by type: rent/mortgage, utilities, salaries, programmes, maintenance, and miscellaneous.
+4. Calculate the net position: total income minus total expenses, and current cash reserves.
+5. Identify gaps: are there months where expenses exceed income? Are reserves sufficient for 3 months of operations? Are there unfunded community needs?
+6. Present the audit to the shura council with a clear summary and visual charts.
+7. Completion indicator: a complete 12-month financial audit presented to the shura council with categorised income, expenses, net position, and identified gaps.` },
+        { title: "Establish separate funds for operations, emergency aid, and development", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (59:7)
+**Arabic:** كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ  
+**Translation:** "So that it will not be a perpetual distribution among the rich from among you."
+
+
+### Sahih Muslim 2699
+The Prophet (peace be upon him) said: "Allah is in the aid of a servant so long as the servant is in the aid of his brother." Establishing separate funds for operations, emergency aid, and development ensures structured mutual support.
+*(Grade: Sahih)*
+
+
+### Quran (9:60)
+**Arabic:** ۞ إِنَّمَا ٱلصَّدَقَـٰتُ لِلْفُقَرَآءِ وَٱلْمَسَـٰكِينِ وَٱلْعَـٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَـٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ  
+**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God’s cause, and for travellers in need. This is ordained by God; God is all knowing and wise.
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) distinguished between different types of community funds — zakat had specific eligible recipients (Quran 9:60), war booty had different rules, and voluntary sadaqah was distributed based on need. Mixing all community money into one pot creates confusion, misallocation, and donor distrust. Separate funds with clear purposes ensure that operational costs do not consume charitable donations, and that development projects have dedicated, protected funding.
+
+
+**How?**
+
+1. Define at least 3 fund categories: (a) Operations (rent, utilities, salaries, maintenance), (b) Emergency Aid (the mutual aid fund from the Core tier), (c) Development (education programmes, building projects, dawah initiatives).
+2. Open separate bank accounts or clearly designated sub-accounts for each fund.
+3. Establish allocation rules: what percentage of general donations goes to each fund? How are designated donations handled?
+4. Define spending authority: who can authorise expenditures from each fund, and up to what amount without shura council approval?
+5. Implement dual-signatory controls on all accounts.
+6. Communicate the fund structure to the community so donors understand where their money goes.
+7. Completion indicator: separate funds established with documented allocation rules, spending authority, and at least one quarterly report published to the community.` },
+        { title: "Implement transparent financial reporting to the community", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
+**Translation:** "Indeed, Allah commands you to render trusts to whom they are due."
+
+
+### Sahih Bukhari 2409
+The Prophet (peace be upon him) said: "Pay the deposit to the one who entrusted it to you." Transparent financial reporting is the practical fulfillment of amanah in communal wealth.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Umar ibn al-Khattab (may Allah be pleased with him) established the principle that public funds require public accountability — he would account for every dirham of the bayt al-mal. When community members cannot see how their donations are spent, trust erodes, generosity decreases, and suspicion breeds fitna. Transparent reporting is not just good governance — it is an act of worship, fulfilling the amanah of handling other people's money.
+
+
+**How?**
+
+1. Produce a quarterly financial report covering: total income by source, total expenses by category, fund balances, and significant transactions.
+2. Keep the report simple and visual — use charts, not just tables of numbers.
+3. Distribute the report through: a printed copy at the masjid, email to regular donors, and posting on the community website or notice board.
+4. Hold a brief (10-minute) financial update at a community gathering at least twice per year.
+5. Invite questions and feedback — transparency means welcoming scrutiny, not just publishing numbers.
+6. Have the annual accounts reviewed by a qualified community member (ideally an accountant) and publish the review.
+7. Completion indicator: at least 2 quarterly reports published to the community with a year-end review by a qualified reviewer.` },
+        { title: "Launch a regular giving programme to build sustainable income", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (2:261)
+**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ  
+**Translation:** "The example of those who spend their wealth in the way of Allah is like a seed of grain which grows seven ears; in each ear is a hundred grains."
+
+
+### Sahih Muslim 1006
+The Prophet (peace be upon him) said: "Charity does not decrease wealth." A regular giving programme builds sustainable income while increasing barakah.
+*(Grade: Sahih)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 41
+Recorded in Sahih al-Bukhari 41 (Volume 1) as 'the best deed... is that which is done regularly.' The parallel narration in Sahih Muslim 1710 includes the phrase 'even if they are small.'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those done consistently, even if small" (Bukhari & Muslim). Most community finances depend on Ramadan surges and sporadic large donations, creating feast-or-famine cycles. A regular giving programme — monthly standing orders from committed members — provides predictable income that allows planning, reduces financial anxiety, and embeds the habit of sadaqah jariyah (ongoing charity) in the community's culture.
+
+
+**How?**
+
+1. Set a target: how much monthly recurring income does the community need to cover basic operations? Start with this as the campaign goal.
+2. Create a simple sign-up process: a standing order form (bank) and an online recurring donation option (e.g., LaunchGood, GoFundMe Charity, or direct bank transfer).
+3. Launch the programme with a compelling appeal: explain exactly what the money covers and why regular giving is more valuable than one-off donations.
+4. Offer suggested tiers (e.g., $25, $50, $100/month) while making it clear that any amount is valuable.
+5. Acknowledge donors regularly: a quarterly thank-you message (not individual amounts) reinforcing their impact.
+6. Track sign-ups, retention, and total monthly income — report progress to the community quarterly.
+7. Completion indicator: at least 20 regular givers enrolled with combined monthly income covering at least 50% of basic operational costs, sustained for 3 months.` },
+        { title: "Explore establishing a community waqf (endowment) for long-term sustainability", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:261)
+**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ  
+**Translation:** The example of those who spend their wealth in the way of Allah is like a seed which grows seven ears; in each ear is a hundred grains.
+
+### Quran (3:92)
+**Arabic:** لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ  
+**Translation:** Never will you attain the good until you spend from that which you love.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1410
+The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three things: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him."
+*(Grade: Sahih)*
+
+### Sahih Muslim 4005
+Found in Sahih Muslim 4005 (Book 13), which lists the three ongoing deeds as 'recurring charity, or knowledge (by which people) benefit, or a pious son, who prays for him.'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "When a person dies, their deeds end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, and a righteous child who prays for them" (Muslim). Waqf is the Islamic institution of endowment — an asset whose principal is preserved and whose returns fund community needs in perpetuity. The greatest Islamic institutions in history — Al-Azhar, the hospitals of Damascus, the libraries of Cordoba — were sustained by waqf. A community without waqf is perpetually dependent on donations; a community with waqf has intergenerational financial security.
+
+
+**How?**
+
+1. Study the concept of waqf: its fiqhi requirements, historical examples, and modern implementations (consult a scholar and a lawyer familiar with Islamic endowments).
+2. Assess whether your community has the capacity to establish a waqf — this requires assets (property, investment capital) and a governance structure to manage them.
+3. Explore entry-level waqf models: a community property fund, a pooled investment managed by a waqf board, or participation in a national Muslim endowment programme.
+4. Draft a waqf charter: the purpose, the governance structure, how returns are distributed, and how the principal is protected.
+5. Present the concept to the community and gauge interest and capacity to contribute.
+6. If feasible, launch with a modest target and grow over time — waqf is a marathon, not a sprint.
+7. Completion indicator: a feasibility study completed with legal and scholarly input, a draft waqf charter, and a community presentation with documented interest from at least 10 potential contributors.` },
+      ],
+    },
+    {
       title: 'Establish community education — launch a regular halaqa or weekend Islamic school programme',
       priority: 'high', tags: ['education', 'halaqa', 'ilm'],
       description: 'The Prophet (peace be upon him) said, "When a person dies, their deeds cease except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim). Community education is the vehicle for beneficial knowledge — it raises the baseline understanding of Islam, connects families, and ensures the next generation inherits more than cultural habits.',
@@ -5077,8 +5690,7 @@ The Prophet (peace be upon him) said, "The believers in their mutual kindness, c
 **Translation:** "Allah will raise those who have believed among you and those who were given knowledge, by degrees."`,
           description: `**Why?**
 
-Effective education addresses real needs, not assumed ones. Many community programmes fail because they teach what the organiser thinks is important rather than what the community actually needs. A survey respects the intelligence and agency of your community members while revealing gaps you may not have anticipated. The Prophet (peace be upon him) taught people at their level — meeting people where they are is sunnah, not compromise.
-
+Effective education addresses real needs, not assumed ones. Many community programmes fail because they teach what the organiser thinks is important rather than what the community actually needs. A survey respects the intelligence and agency of your community members while revealing gaps you may not have anticipated.
 
 **How?**
 
@@ -5095,7 +5707,12 @@ Effective education addresses real needs, not assumed ones. Many community progr
 
 ### Sunan Abu Dawud 3641
 The Prophet (peace be upon him) said: "The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge." Recruiting qualified teachers ensures this prophetic inheritance is transmitted.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 100
+Recorded in Sahih al-Bukhari 100: 'Allah does not take away the knowledge... but takes it away by the death of the religious learned men...'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Knowledge in Islam has a chain (isnad) — it is transmitted from teacher to student, not merely read from books. A qualified teacher ensures accuracy, provides context that texts alone cannot convey, and models the adab (etiquette) of learning. The Prophet (peace be upon him) said, "Allah does not take away knowledge by snatching it from people, but He takes it away by taking away the scholars" (Bukhari). Investing in a qualified teacher is investing in the preservation of authentic knowledge in your community.
@@ -5147,7 +5764,15 @@ Consistency is what transforms a one-off event into an institution. The Prophet'
 
 ### Sahih Bukhari 79
 The Prophet (peace be upon him) said: "If Allah wants to do good to a person, He makes him comprehend the religion." Launching a structured learning environment opens the door to this divine favour.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 69
+Recorded in Volume 1, Book 3, Number 69: 'Facilitate things to people (concerning religious matters), and do not make it hard for them and give them good tidings...'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 First impressions determine whether people return. A disorganised, unwelcoming, or overly rigid first session can kill a programme before it starts. The Prophet (peace be upon him) said, "Make things easy, do not make them difficult; give glad tidings, do not drive people away" (Bukhari). The first session must balance structure (so people feel their time is respected) with warmth (so people feel they belong). This is where the programme either gains momentum or loses it.
@@ -5210,7 +5835,15 @@ No programme survives contact with reality unchanged. What looked good on paper 
 
 ### Sahih Bukhari 7138
 The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock." Identifying youth who need mentorship is the first act of shepherding the next generation.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+**II. Hadith**
+
+
+### Sahih Bukhari 629
+Recorded in Volume 1, Book 11, Number 629 as one of the seven shaded: 'a youth who has been brought up in the worship of Allah.' Also in Muslim 2248.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Youth who are not actively engaged by the community will be actively engaged by everything outside it — social media, peer pressure, ideological confusion, and environments that erode their faith. The Prophet (peace be upon him) said, "Seven will be shaded by Allah... a young person who grew up in the worship of Allah" (Bukhari). Identifying specific youth who need mentorship is the first step to providing the structured support that helps them become that young person. Vague concern for "the youth" accomplishes nothing — named, known individuals can be genuinely helped.
@@ -5397,6 +6030,10 @@ A process without documentation is just a good idea. A written sulh process give
 **Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ  
 **Translation:** The believers are but brothers, so make settlement between your brothers.
 
+### Quran (49:9-10)
+**Arabic:** وَإِن طَآئِفَتَانِ مِنَ ٱلْمُؤْمِنِينَ ٱقْتَتَلُوا۟ فَأَصْلِحُوا۟ بَيْنَهُمَا ۖ فَإِنۢ بَغَتْ إِحْدَىٰهُمَا عَلَى ٱلْأُخْرَىٰ فَقَـٰتِلُوا۟ ٱلَّتِى تَبْغِى حَتَّىٰ تَفِىٓءَ إِلَىٰٓ أَمْرِ ٱللَّهِ ۚ فَإِن فَآءَتْ فَأَصْلِحُوا۟ بَيْنَهُمَا بِٱلْعَدْلِ وَأَقْسِطُوٓا۟ ۖ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُقْسِطِينَ إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌۭ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ  
+**Translation:** If two groups of the believers fight, you [believers] should try to reconcile them; if one of them is [clearly] oppressing the other, fight the oppressors until they submit to God’s command, then make a just and even-handed reconciliation between the two of them: God loves those who are even-handed. The believers are brothers, so make peace between your two brothers and be mindful of God, so that you may be given mercy.
+
 **II. Hadith**
 
 ### Sunan Abu Dawud 4919
@@ -5493,8 +6130,7 @@ The Prophet (peace be upon him) said: "Women are the twin halves of men."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Women's needs in community life are often assumed rather than asked about — and the assumptions are frequently wrong. Some women want educational programming; others want social connection; others want leadership roles; others want practical support like childcare during events. The only way to know is to ask. The Prophet (peace be upon him) responded to the women of Madinah when they came to him and said, "The men have taken all your time — give us a day" — he listened and responded.
-
+Women's needs in community life are often assumed rather than asked about — and the assumptions are frequently wrong. Some women want educational programming; others want social connection; others want leadership roles; others want practical support like childcare during events. The only way to know is to ask.
 
 **How?**
 
@@ -5760,6 +6396,1453 @@ The first investment and distribution transforms the waqf from a concept into a 
   // ── EXCELLENCE — Model community for the world ──
   ummah_community_excellence: [
     {
+      title: "Build a model community replicable by other Muslim communities",
+      priority: 'medium', tags: ['model', 'replication', 'ihsan'],
+      description: "The Prophet (peace be upon him) built a community in Madinah that became the template for every Muslim society thereafter. This task aspires to develop your community into a documented, replicable model — not because it is perfect, but because its systems, processes, and culture can be studied and adapted by other communities seeking to strengthen themselves.",
+      subtasks: [
+        { title: "Document all community systems, processes, and governance structures", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:143)
+**Arabic:** وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا شُهَدَاءَ عَلَى النَّاسِ  
+**Translation:** And thus we have made you a just community that you will be witnesses over the people.
+
+### Quran (3:110)
+**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ  
+**Translation:** You are the best nation produced for mankind.
+
+**II. Hadith**
+
+### Sahih Muslim 2674
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+A model cannot be replicated if it is not documented. Most community operations exist only in the heads of a few key people — when they leave, the institutional knowledge leaves with them. The Quran itself is a documented, preserved system. Documentation transforms tacit knowledge into transferable assets: governance charters, programme curricula, financial processes, volunteer handbooks, and event playbooks that any community could adapt.
+
+
+**How?**
+
+1. List every system currently operating in your community: governance, education, finances, mutual aid, youth programme, outreach, dispute resolution, and facilities management.
+2. For each system, document: purpose, key processes, roles and responsibilities, tools used, and lessons learned.
+3. Use a consistent format: a one-page overview per system, with links to detailed process documents.
+4. Store documentation in an accessible, version-controlled location (shared drive, wiki, or printed manual).
+5. Have each system owner review their documentation for accuracy.
+6. Identify undocumented systems and prioritise them for documentation.
+7. Completion indicator: at least 8 community systems documented in a consistent format, reviewed by system owners, and stored in an accessible location.` },
+        { title: "Identify what makes your community distinctive and worth replicating", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (3:110)
+**Arabic:** كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ  
+**Translation:** "You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong."
+
+
+### Sahih Muslim 2674
+The Prophet (peace be upon him) said: "Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him." Building a replicable model is a form of sadaqah jariyah.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Not everything a community does is worth replicating — some things are contextual, some are mediocre, and some are genuinely excellent. Identifying your distinctive strengths — the things you do better or differently than most communities — focuses the replication effort on what actually adds value, rather than producing a generic community manual that inspires no one.
+
+**How?**
+
+1. Conduct an honest self-assessment: what do visitors and new members most often praise about your community?
+2. Survey long-time members: what keeps them here? What would they miss most if they moved?
+3. Compare (humbly) with other communities you have visited or partnered with: where do you genuinely excel?
+4. Ask external observers — interfaith partners, civic leaders, or Muslim visitors — what stood out about your community.
+5. Distil findings into 3-5 "signature strengths" that are both distinctive and transferable.
+6. For each strength, document: what it is, how it developed, what sustains it, and what conditions make it possible.
+7. Completion indicator: a documented list of 3-5 signature strengths with supporting evidence and analysis, validated by both internal members and external observers.` },
+        { title: "Create a community playbook that other communities can adapt", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (7:181)
+**Arabic:** وَمِمَّنْ خَلَقْنَا أُمَّةٌ يَهْدُونَ بِالْحَقِّ وَبِهِ يَعْدِلُونَ
+**Translation:** "Among those We created are a group of people who guide with truth and act justly according to it."
+
+**II. Hadith**
+
+
+### Sahih Muslim 1017a
+The Prophet (peace be upon him) said: "Whoever introduces a good practice in Islam that is followed after him will have the reward of it and the reward of those who follow it, without that detracting from their rewards in the slightest."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) did not just build one community — he sent teachers, governors, and models to new communities so they could replicate the Madinah standard. A playbook is the modern equivalent: a practical guide that another community can pick up and adapt to their context. Without a playbook, your community's success remains local; with one, it becomes a contribution to the broader ummah.
+
+
+**How?**
+
+1. Compile the system documentation and signature strengths into a structured playbook format.
+2. Organise by community lifecycle: getting started, core obligations, growth programmes, excellence initiatives.
+3. For each section, include: the principle behind it, the practical steps, common pitfalls, and adaptation notes for different contexts (small vs. large community, urban vs. rural, etc.).
+4. Write in accessible, jargon-free language that a community leader with no prior exposure to your model can follow.
+5. Have the playbook reviewed by leaders from 2-3 other communities for clarity and usefulness.
+6. Publish in both digital (PDF, website) and print formats.
+7. Completion indicator: a completed playbook of at least 30 pages, reviewed by external community leaders, and published in at least one format.` },
+        { title: "Host a community leadership retreat for leaders from other communities", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+### Quran (3:104)
+**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ  
+**Translation:** And let there be arising from you a nation inviting to good, enjoining what is right and forbidding what is wrong.`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) hosted delegations from across Arabia, teaching them by example and sending them back equipped to build their own communities. A leadership retreat invites other community leaders to experience your model firsthand — to observe, ask questions, and receive practical guidance. This is higher-impact than simply distributing a playbook because it builds relationships and allows hands-on learning that documents alone cannot provide.
+
+
+**How?**
+
+1. Identify 3-5 communities in your region or beyond that have expressed interest in strengthening their own structures.
+2. Design a 2-day retreat: day one focused on observing your community's systems in action (attend a halaqa, observe a shura meeting, tour the facilities), day two focused on workshops and Q&A.
+3. Prepare presenters from your community who can explain their systems clearly and honestly, including failures and lessons learned.
+4. Provide each attendee with a copy of the community playbook and a template toolkit they can customise.
+5. Facilitate a peer exchange: attendees share their own best practices and challenges.
+6. Follow up at 30, 60, and 90 days to support implementation in their communities.
+7. Completion indicator: a leadership retreat attended by leaders from at least 3 external communities, with documented feedback and at least one community reporting that they implemented a practice learned at the retreat.` },
+        { title: "Establish a mentorship programme pairing your community with a developing community", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:13)
+**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
+**Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.
+
+**II. Hadith**
+
+### Sahih Muslim 2586
+The Prophet (peace be upon him) said: "The parable of the believers in their affection, mercy, and compassion for each other is that of a body. When any limb aches, the whole body reacts with sleeplessness and fever."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) paired experienced Companions with newer Muslims — Mu'adh ibn Jabal was sent to Yemen not just to teach but to mentor the community's development. A community-to-community mentorship is the most sustainable form of replication: an ongoing relationship where your community shares its experience and the partner community adapts it to their context, with regular check-ins, problem-solving, and mutual learning.
+
+
+**How?**
+
+1. Identify a developing Muslim community that has expressed a desire for guidance — through your regional network or direct outreach.
+2. Establish a formal mentorship agreement: duration (at least 12 months), goals, communication frequency, and mutual expectations.
+3. Pair key leaders: your imam with theirs, your youth director with theirs, your treasurer with theirs.
+4. Schedule monthly check-ins (virtual or in-person) focused on a specific area each month (governance, finance, education, etc.).
+5. Share relevant documentation and templates, adapted to their context.
+6. Visit each other's communities at least once during the mentorship period.
+7. Completion indicator: a 12-month mentorship with at least one partner community, with monthly check-ins documented and at least 3 systems or practices successfully adapted by the partner community.` },
+      ],
+    },
+    {
+      title: "Contribute to global ummah solidarity and mutual support",
+      priority: 'medium', tags: ['global-ummah', 'solidarity', 'aid'],
+      description: " This task extends the community's concern beyond local boundaries to active solidarity with the global ummah — supporting Muslims in crisis, amplifying suppressed voices, and contributing to the collective strength of the worldwide Muslim community.",
+      subtasks: [
+        { title: "Establish a global ummah awareness programme in your community", done: false,
+          sources: `**I. Quran**
+
+### Quran (21:92)
+**Arabic:** إِنَّ هَٰذِهِ أُمَّتُكُمْ أُمَّةً وَاحِدَةً وَأَنَا رَبُّكُمْ فَاعْبُدُونِ  
+**Translation:** Indeed this, your community, is one community, and I am your Lord, so worship Me.
+
+### Quran (49:10)
+**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ  
+**Translation:** The believers are but brothers.
+
+**II. Hadith**
+
+### Sahih Muslim 2586
+The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Many Muslim communities are so absorbed in local concerns that they become disconnected from the suffering and triumphs of the global ummah. The Prophet (peace be upon him) wept when he heard of injustice against any believer, regardless of where they lived. An awareness programme ensures your community knows what is happening to their brothers and sisters around the world — because knowledge precedes action, and ignorance enables indifference.
+
+
+**How?**
+
+1. Designate a "global ummah liaison" responsible for tracking major issues affecting Muslims worldwide.
+2. Include a 2-minute "global ummah update" in weekly Jumu'ah announcements covering one current issue.
+3. Create a monthly bulletin (email or printed) with brief summaries of 3-5 global ummah issues: conflicts, humanitarian crises, positive developments, and opportunities to help.
+4. Post a world map at the masjid highlighting areas where Muslims are in crisis — update it regularly.
+5. Organise a quarterly "ummah awareness evening" with a deeper dive into one issue, including a guest speaker or documentary.
+6. Always pair awareness with action: every update should include one thing community members can do (dua, donation, letter-writing, volunteering).
+7. Completion indicator: a functioning awareness programme with weekly announcements and monthly bulletins running for at least 3 months.` },
+        { title: "Partner with established Muslim aid organisations for targeted relief", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+### Quran (59:9)
+**Arabic:** وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ  
+**Translation:** And they give preference [to others] over themselves, even though they are in privation.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6011
+The Prophet (peace be upon him) said: "None of you truly believes until he loves for his brother what he loves for himself."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Individual goodwill without institutional channels is inefficient and often ineffective. The Prophet (peace be upon him) organised community resources through the bayt al-mal and dispatched them through trusted agents. Established Muslim aid organisations (e.g., Islamic Relief, Muslim Aid, UNHCR Muslim partnerships) have the logistics, expertise, and access to deliver help where it is needed most. Partnering with them multiplies your community's impact far beyond what isolated donations could achieve.
+
+
+**How?**
+
+1. Research reputable Muslim aid organisations: check their track record, financial transparency, and alignment with Islamic principles (no riba in operations, proper zakat distribution).
+2. Select 2-3 organisations that focus on different areas: emergency relief, long-term development, and advocacy.
+3. Establish a formal partnership: designate your community as a local fundraising partner or volunteer hub.
+4. Organise at least 2 fundraising campaigns per year for specific crises or programmes — people give more generously to specific, tangible causes.
+5. Invite representatives from partner organisations to speak at your community to build connection and trust.
+6. Track total contributions and share impact reports with the community.
+7. Completion indicator: formal partnerships with at least 2 aid organisations, with at least 2 campaigns completed and total contributions documented.` },
+        { title: "Advocate for the rights of oppressed Muslims through civic channels", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (8:73)
+**Arabic:** 
+**Translation:** And those who disbelieve are allies of one another, (and) if you (Muslims of the whole world collectively) do not do so [i.e. become allies, as one united block under one Khalifah (a chief Muslim ruler for the whole Muslim world) to make victorious Allâh’s religion of Islâmic Monotheism], there will be Fitnah (wars, battles, polytheism) and oppression on the earth, and a great mischief and corruption (appearance of polytheism).
+
+**II. Hadith**
+
+
+### Sahih Bukhari 1240
+Narrated Abu Huraira:I heard Allah's Messenger (ﷺ) saying, "The rights of a Muslim on the Muslims are five: to respond to the salaam, visiting the sick, to follow the funeral processions, to accept an invitation, and to reply to those who sneeze. (see Hadith)
+*(Grade: Sahih)*
+
+### Sahih Bukhari 393
+Narrated Maimun bin Siyah that he asked Anas bin Malik, "O Abu Hamza! What makes the life and property of a person sacred?" He replied, "Whoever says, 'None has the right to be worshipped but Allah', faces our Qibla during the prayers, prays like us and eats our slaughtered animal, then he is a Muslim, and has got the same rights and obligations as other Muslims have
+*(Grade: Sahih)*
+
+### Sahih Bukhari 624
+Recorded in Sahih al-Bukhari 624 (Volume 3), where the Prophet explains that helping an oppressor means 'preventing him from oppressing others.'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "Help your brother whether he is an oppressor or oppressed" (Bukhari) — helping the oppressor means stopping their oppression, and helping the oppressed means defending their rights. Advocacy through civic channels — contacting elected officials, participating in public consultations, supporting human rights organisations — is the modern application of this principle. Silence in the face of oppression makes the ummah complicit; strategic advocacy makes it a force for justice.
+
+
+**How?**
+
+1. Identify 1-2 global ummah issues where civic advocacy in your country can have impact (e.g., foreign policy, sanctions, refugee resettlement, trade relations with oppressive regimes).
+2. Research the civic channels available: contacting elected representatives, submitting public comments, joining advocacy coalitions, and engaging with human rights bodies.
+3. Educate community members on how to write effective letters, make phone calls, and attend public meetings — provide templates and talking points.
+4. Organise a community advocacy day: a coordinated effort where multiple members contact their representatives on the same issue on the same day.
+5. Build alliances with non-Muslim human rights organisations that share the same advocacy goals — coalition voices are louder than isolated ones.
+6. Track and report outcomes: how many letters were sent, what responses were received, and any policy changes influenced.
+7. Completion indicator: at least one coordinated advocacy campaign with documented participation from at least 20 community members and a record of responses received.` },
+        { title: "Support Muslim refugees and immigrants in your area as a community obligation", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (49:10)
+**Arabic:** إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ  
+**Translation:** "The believers are but brothers."
+
+
+### Sahih Bukhari 6011
+The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever." Supporting refugees fulfills this communal obligation.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The entire framework of the Madinah community was built on the hijrah — the migration of the Muhajirun and the embrace of the Ansar. Supporting refugees and immigrants is not charity; it is the Prophetic DNA of the ummah. The Ansar shared their homes, their wealth, and their social capital with the newcomers. If Muslim refugees arrive in your area and your community does not mobilise to receive them, you have failed one of the most fundamental tests of ummah solidarity.
+
+
+**How?**
+
+1. Connect with local resettlement agencies to learn when and where Muslim refugees and immigrants are being settled in your area.
+2. Form a welcoming committee of 5-8 community members with specific roles: housing support, employment assistance, school enrolment, language tutoring, and social integration.
+3. Prepare a "welcome package" for new arrivals: essential household items, local orientation guide, community contacts, and an invitation to the masjid.
+4. Pair each new family with a host family from the community for the first 6 months — the Prophetic model of personal pairing.
+5. Advocate for refugee rights and services through the civic channels identified in the advocacy task.
+6. Track outcomes: families supported, employment secured, children enrolled in school, and integration milestones.
+7. Completion indicator: a functioning welcoming programme that has supported at least 3 refugee or immigrant families over 6 months with documented outcomes.` },
+        { title: "Establish a regular qunut and dua programme for the global ummah", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:286)
+**Arabic:** رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا  
+**Translation:** Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 1427
+The Prophet (peace be upon him) said: "The qunut (supplication) is to be recited in witr prayer." He would supplicate for the Muslim ummah in his qunut.
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) made qunut al-nazilah (supplication during calamity) for specific communities and individuals by name — he did not offer generic prayers. Du'a is not a passive last resort; it is the believer's most powerful weapon and the expression of a heart that genuinely feels the pain of the ummah. A regular, specific dua programme keeps the global ummah in the hearts of your community, trains children in empathy, and fulfils the minimum obligation of the "weakest of faith" — feeling with the heart.
+
+
+**How?**
+
+1. Include a specific dua for the global ummah in every congregational prayer — after the fard prayer or during qunut in witr/fajr.
+2. Name specific communities and causes: "O Allah, relieve the suffering of our brothers and sisters in [specific location]" — specificity creates connection.
+3. Update the dua list monthly based on the global ummah awareness programme.
+4. Teach the community the Prophetic duas for the oppressed and for relief from calamity.
+5. Involve youth: ask young members to research one global ummah issue each month and present it briefly before the dua is made.
+6. Display the current dua list at the masjid entrance so those praying individually can include these causes.
+7. Completion indicator: a regular dua programme maintained for at least 3 months with monthly updates, specific naming of causes, and visible community engagement.` },
+      ],
+    },
+    {
+      title: "Establish institutional sadaqah jariyah for intergenerational benefit",
+      priority: 'medium', tags: ['waqf', 'sadaqah-jariyah', 'legacy'],
+      description: "The Prophet (peace be upon him) said: 'When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, and a righteous child who prays for them' (Muslim). This task builds institutional forms of sadaqah jariyah — endowments, educational trusts, and infrastructure — that serve the community not just today but for generations to come.",
+      subtasks: [
+        { title: "Identify and acquire a permanent community property (masjid or centre)", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 1015
+The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him." Acquiring a permanent community property is among the greatest forms of ongoing charity.
+*(Grade: Sahih)*
+
+
+### Quran (3:92)
+**Arabic:** لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ  
+**Translation:** "Never will you attain the good [reward] until you spend [in the way of Allah] from that which you love."`,
+          description: `**Why?**
+
+The first act of the Prophet (peace be upon him) upon arriving in Madinah was to build the masjid. A rented space is inherently unstable — leases end, landlords change terms, and the community lives in perpetual uncertainty. A permanently owned property is the single most impactful sadaqah jariyah a community can establish: it provides a guaranteed home for worship, education, and gathering for every generation that follows, and it anchors the Muslim presence in the locality permanently.
+
+
+**How?**
+
+1. Assess the community's current property situation: are you renting? How long is the lease? What are the risks of displacement?
+2. Form a property acquisition committee with members experienced in real estate, law, and finance.
+3. Define the requirements: location (accessible to the community), size (current and projected needs), zoning (must allow religious use), and budget.
+4. Research funding models: community fundraising, Islamic finance (murabaha or musharakah for property purchase), grants from national Muslim organisations, and waqf contributions.
+5. Develop a phased fundraising plan: a deposit, then mortgage-free ownership as the goal — avoid riba-based financing.
+6. Secure the property and register it as a community waqf so it cannot be sold or diverted from its purpose.
+7. Completion indicator: a property identified, a fundraising plan in progress with at least 30% of the target raised, and legal advice obtained on waqf registration.` },
+        { title: "Establish an Islamic scholarship fund for community youth", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:261)
+**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ  
+**Translation:** The example of those who spend their wealth in the way of Allah is like a seed which grows seven ears; in each ear is a hundred grains.
+
+### Quran (58:11)
+**Arabic:** يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ  
+**Translation:** Allah will raise those who have believed among you and those who were given knowledge, by degrees.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 1410
+The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Education is the most leveraged investment a community can make — one scholarship can transform a life, a family, and eventually the community itself. Many young Muslims cannot afford higher education, Islamic studies, or vocational training. A scholarship fund removes financial barriers and signals that the community invests in its future, not just its present.
+
+**How?**
+
+1. Define the fund's scope: academic scholarships, Islamic studies sponsorships, vocational training grants, or a combination.
+2. Set initial criteria: financial need, academic merit, community involvement, and commitment to serve the community upon completion.
+3. Establish the fund as a separate, protected account within the community treasury.
+4. Launch a dedicated fundraising campaign targeting community members who value education — frame it as sadaqah jariyah because the knowledge will benefit others for generations.
+5. Award the first scholarships through a transparent application and selection process with a diverse committee.
+6. Require scholarship recipients to give back: a presentation to the community, mentorship of younger students, or a year of volunteer service.
+7. Completion indicator: a funded scholarship account with clear criteria, at least 2 scholarships awarded, and a feedback mechanism from recipients.` },
+        { title: "Plant a community orchard or garden as a living sadaqah jariyah", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (50:9)
+**Arabic:** وَنَزَّلْنَا مِنَ السَّمَاءِ مَاءً مُّبَارَكًا فَأَنبَتْنَا بِهِ جَنَّاتٍ وَحَبَّ الْحَصِيدِ
+**Translation:** "and how We send blessed water down from the sky and grow with it gardens, the harvest grain."
+
+**II. Hadith**
+
+
+### Sahih Bukhari 2348
+Narrated Abu Huraira:Once the Prophet (ﷺ) was narrating (a story), while a bedouin was sitting with him. "One of the inhabitants of Paradise will ask Allah to allow him to cultivate the land. Allah will ask him, 'Are you not living in the pleasures you like?' He will say, 'Yes, but I like to cultivate the land.' " The Prophet (ﷺ) added, "When the man (will be permitted he) will sow the seeds and the plants will grow up and get ripe, ready for reaping and so on till it will be as huge as mountains within a wink. Allah will then say to him, 'O son of Adam! Take here you are, gather (the yield); nothing satisfies you.' " On that, the bedouin said, "The man must be either from Quraish (i.e. an emigrant) or an Ansari, for they are farmers, whereas we are not farmers." The Prophet (ﷺ) smiled (at this)
+*(Grade: Sahih)*
+
+### Sahih Bukhari 513
+Recorded in Sahih al-Bukhari 513 (Volume 3) and Sahih Muslim 3764, which state that a Muslim's planting from which others eat is regarded as a 'charitable gift' or 'charity.'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "If a Muslim plants a tree or cultivates a crop, and a bird, human, or animal eats from it, it is counted as charity for them" (Bukhari & Muslim). A community garden or orchard is a beautiful, tangible form of ongoing charity: it feeds people, teaches children, connects the community to the earth, and generates reward every time a creature benefits from it. It is also a powerful symbol of the community's commitment to stewardship (khalifah) and long-term thinking.
+
+
+**How?**
+
+1. Identify available land: the masjid grounds, a community-owned plot, or a partnership with a local garden programme.
+2. Assess growing conditions: climate, soil, water access, and sunlight.
+3. Choose plantings that are productive and sustainable: fruit trees (apple, fig, olive, pomegranate — all mentioned in the Quran), vegetable beds, and herbs.
+4. Organise a community planting day as an event — involve families, children, and elders.
+5. Establish a maintenance rota: watering, weeding, harvesting, and composting.
+6. Distribute the harvest: first to community members in need, then to the broader community, then to neighbours and food banks.
+7. Completion indicator: a planted and maintained garden or orchard producing its first harvest, with documented distribution to at least 3 beneficiary groups.` },
+        { title: "Create a community library and resource centre", done: false,
+          sources: `**I. Hadith**
+
+
+### Sunan Abu Dawud 3641
+The Prophet (peace be upon him) said: "The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge. Whoever acquires it has acquired an abundant share." A community library preserves and spreads this inherited knowledge.
+*(Grade: Sahih)*
+
+
+### Quran (20:114)
+**Arabic:** وَقُل رَّبِّ زِدْنِي عِلْمًا  
+**Translation:** "And say: My Lord, increase me in knowledge."`,
+          description: `**Why?**
+
+The first word revealed to the Prophet (peace be upon him) was "Iqra" — Read. The great Islamic civilisation was built on libraries: the House of Wisdom in Baghdad, the libraries of Timbuktu, and the collections of Al-Andalus. A community library preserves and transmits knowledge across generations. It provides access to Islamic texts, educational materials, and resources that many families cannot afford individually. It is sadaqah jariyah in its purest form — beneficial knowledge made accessible to all.
+
+
+**How?**
+
+1. Designate a space within the masjid or community centre for the library — even a single room or a set of shelves is a start.
+2. Curate an initial collection: essential tafsir, hadith collections, fiqh manuals, seerah books, children's Islamic books, and contemporary Islamic thought.
+3. Solicit book donations from community members and purchase key texts from the community fund.
+4. Implement a simple lending system: a sign-out sheet or a free library management app.
+5. Include digital resources: a shared subscription to an Islamic education platform, access to online Quran resources, and a computer terminal for research.
+6. Staff the library with volunteers during peak hours and promote it actively.
+7. Completion indicator: a functioning library with at least 100 books across 5+ categories, a lending system, and documented usage by at least 15 community members in the first 3 months.` },
+        { title: "Document the community's history for future generations", done: false,
+          sources: `**I. Quran**
+
+### Quran (59:18)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ  
+**Translation:** O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 3461
+The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The preservation of the seerah (Prophetic biography) and the history of the Companions is one of the unique strengths of the Muslim ummah — we know our origins because scholars documented them. Your community's history — its founding, its struggles, its milestones, its leaders — is equally worthy of preservation. Future generations need to know how the community was built, what sacrifices were made, and what principles guided its founders. Without documentation, this history is lost within a single generation.
+
+
+**How?**
+
+1. Interview founding members and long-time elders: record their stories of how the community began, the early challenges, and the key turning points.
+2. Collect documents and photographs: founding charters, early fundraising letters, construction photos, event programmes, and newspaper clippings.
+3. Create a timeline of major milestones: establishment, first Jumu'ah, property acquisition, key programmes launched, crises navigated, and leadership transitions.
+4. Write a narrative history: a document of at least 10 pages that tells the community's story in an engaging, accessible way.
+5. Supplement with audio or video recordings of elder interviews — these are irreplaceable once the individuals pass away.
+6. Display key elements at the masjid: a timeline wall, a founders' plaque, or a history booklet available to visitors.
+7. Completion indicator: a documented community history with at least 5 elder interviews, a written narrative, and a visible display at the community space.` },
+      ],
+    },
+    {
+      title: "Build intergenerational continuity — ensure the community outlasts its founders",
+      priority: 'medium', tags: ['succession', 'continuity', 'legacy'],
+      description: "The Prophet (peace be upon him) prepared his Companions to lead after him — Abu Bakr, Umar, Uthman, and Ali (may Allah be pleased with them all) were ready because he invested in their development throughout his life. This task ensures that your community's leadership, institutions, and culture can be sustained across generations, independent of any single individual.",
+      subtasks: [
+        { title: "Identify and begin developing the next generation of community leaders", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (17:71)
+**Arabic:** يَوْمَ نَدْعُو كُلَّ أُنَاسٍ بِإِمَامِهِمْ
+**Translation:** "On the Day when We summon each community, along with its leader."
+*(Contextual: every community will be called with its imam — the leader bears responsibility for those he leads, making intentional succession and leader development an obligation.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 7138
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock. The imam is a shepherd and is responsible for his flock."
+*(Grade: Sahih)*
+
+### Sahih Bukhari 592
+Found in Sahih al-Bukhari 592 (Volume 3) and also referenced in hadith 18 (Volume 1), stating 'Everyone of you is a guardian [shepherd], and responsible for what is in his custody [flock].'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for their flock" (Bukhari & Muslim). Every leader will eventually step down, age, or pass away. If no one is being prepared to take their place, the community will experience a leadership vacuum that can take years to recover from. Proactive succession planning is not a lack of trust in current leadership — it is the ultimate act of responsibility toward the community's future.
+
+
+**How?**
+
+1. Map current leadership roles: imam, board chair, committee heads, programme directors, and key volunteers.
+2. For each role, identify: who currently fills it, how long they have been serving, and whether a successor has been discussed.
+3. Identify 2-3 potential successors for each critical role based on capability, character, and willingness.
+4. Begin informal development: invite potential successors to shadow current leaders, attend leadership meetings, and take on incremental responsibilities.
+5. Have honest conversations with current leaders about succession — frame it positively as legacy-building, not replacement.
+6. Create a documented succession plan reviewed annually by the shura council.
+7. Completion indicator: a documented succession plan covering at least 5 critical roles with named potential successors and an active development process for each.` },
+        { title: "Institutionalise key community roles so they are not dependent on individuals", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
+**Translation:** "Indeed, Allah commands you to render trusts to whom they are due."
+
+
+### Sahih Bukhari 59
+The Prophet (peace be upon him) said: "When the trust is lost, then wait for the Hour." When someone asked how trust would be lost, he said: "When authority is given to those who do not deserve it." Institutionalising roles prevents trust from being lost.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Umar ibn al-Khattab (may Allah be pleased with him) built institutions — the diwans, the judiciary, the provincial governance system — that outlasted him by centuries. Many Muslim communities today collapse or stagnate when a single key person leaves because the role existed only in that person's head. Institutionalisation means that the role is documented, the processes are written, and a new person can step in without starting from zero. This is the difference between a community built on personalities and one built on systems.
+
+
+**How?**
+
+1. List all key roles in the community and assess: if this person left tomorrow, could someone else pick up their responsibilities within two weeks?
+2. For any role where the answer is "no," initiate a documentation project: the role holder writes down their responsibilities, processes, contacts, and decision-making criteria.
+3. Create role descriptions for all key positions: purpose, responsibilities, authority, time commitment, and qualifications.
+4. Store documentation centrally so it is accessible to the shura council and potential successors.
+5. Cross-train at least one person for each critical role — not just as a backup, but as a genuine understudy.
+6. Test the institutionalisation: when a leader goes on holiday or sabbatical, the role should function smoothly in their absence.
+7. Completion indicator: role descriptions and process documentation for at least 5 critical community roles, with at least one successful handoff test.` },
+        { title: "Create a community constitution that governs beyond any individual leader", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (42:38)
+**Arabic:** وَأَمْرُهُمْ شُورَىٰ بَيْنَهُمْ
+**Translation:** "And whose affair is [determined by] consultation among themselves."
+
+
+### Quran (4:59)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنكُمْ
+**Translation:** "O you who have believed, obey Allah and obey the Messenger and those in authority among you."
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 7138
+The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you is responsible for his flock. The ruler is a shepherd and is responsible for his subjects."
+*(Grade: Sahih)*
+*(Contextual: institutionalising leadership through a constitution ensures accountability continues regardless of who holds the shepherd's role.)*`,
+          description: `**Why?**
+
+The Sahifat al-Madinah (Constitution of Madinah) established governance principles that applied regardless of who was in charge. A community constitution — more comprehensive than the covenant created in the Core tier — defines the community's purpose, governance structure, decision-making processes, leadership selection, financial management, and conflict resolution. It ensures that the community operates by principles, not personalities, and that no single leader can unilaterally change its direction.
+
+
+**How?**
+
+1. Form a constitution committee with diverse representation: current leaders, future leaders, men, women, youth, elders, and founding members.
+2. Draft articles covering: mission and values, membership, governance structure (shura council composition, selection, and terms), leadership roles and limits, financial management, dispute resolution, amendment process, and dissolution procedures.
+3. Study constitutions of established Muslim organisations and adapt best practices.
+4. Have the draft reviewed by a lawyer familiar with non-profit governance in your jurisdiction.
+5. Present the draft to the community for feedback over a 30-day comment period.
+6. Ratify through a community vote and register legally if your jurisdiction requires it.
+7. Completion indicator: a ratified community constitution with legal review, community endorsement, and official adoption by the shura council.` },
+        { title: "Establish a mentorship culture where every experienced member invests in someone younger", done: false,
+          sources: `**I. Quran**
+
+### Quran (103:1-3)
+**Arabic:** وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ  
+**Translation:** By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.
+
+**II. Hadith**
+
+### Jami at-Tirmidhi 2516
+The Prophet (peace be upon him) said: "Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) did not mentor only the elite — Anas ibn Malik was a young boy serving in his household who grew into a great scholar and transmitter of hadith. A mentorship culture means that knowledge, wisdom, and institutional memory flow continuously from one generation to the next, not through formal programmes alone but through the daily fabric of community life. When every experienced member sees it as their responsibility to invest in someone younger, the community becomes self-renewing.
+
+
+**How?**
+
+1. Promote the concept through khutbahs and community talks: mentorship is not a programme — it is a Prophetic sunnah that every Muslim can practise.
+2. Create a simple matching system: experienced members register as mentors, younger members register as mentees, and a coordinator facilitates pairings based on interests, goals, and compatibility.
+3. Provide light guidelines: meet at least once per month, set a goal for the relationship, maintain confidentiality, and evaluate annually.
+4. Celebrate mentorship visibly: share anonymised stories of mentorship impact in community communications.
+5. Track participation and outcomes: how many pairs are active? What skills or knowledge are being transferred?
+6. Embed mentorship into existing structures: every committee should have a junior member learning from a senior one.
+7. Completion indicator: at least 10 active mentorship pairs sustained for at least 6 months, with documented outcomes and at least 3 mentee-to-mentor transitions.` },
+        { title: "Conduct a 10-year community vision exercise and publish a strategic plan", done: false,
+          sources: `**I. Quran**
+
+### Quran (59:18)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ  
+**Translation:** O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.
+
+### Quran (2:143)
+**Arabic:** وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا شُهَدَاءَ عَلَى النَّاسِ  
+**Translation:** And thus we have made you a just community that you will be witnesses over the people.`,
+          description: `**Why?**
+
+ A community without a long-term vision operates reactively, solving today's problems without building toward tomorrow's potential. A 10-year vision gives the community a shared destination that transcends any individual leader's tenure and inspires sustained, purposeful effort.
+
+**How?**
+
+1. Convene a visioning retreat with 15-25 community members representing all demographics and perspectives.
+2. Begin with reflection: where has the community come from? What have been the greatest achievements and the greatest failures?
+3. Facilitate a vision exercise: "If this community were operating at its best 10 years from now, what would it look like?" Capture aspirations across all dimensions: worship, education, social services, outreach, financial health, and physical infrastructure.
+4. Distil the vision into a clear, compelling statement (2-3 sentences) that any community member can understand and rally behind.
+5. Develop a strategic plan with 3-year milestones: what must be true in year 3, year 6, and year 10 for the vision to be realised?
+6. Publish the vision and strategic plan to the entire community and review progress annually.
+7. Completion indicator: a published 10-year vision and strategic plan developed through participatory process, endorsed by the shura council, and presented to the community with at least one annual progress review conducted.` },
+      ],
+    },
+    {
+      title: "Aspire to the Prophetic community standard — a living model of Madinah values",
+      priority: 'low', tags: ['ihsan', 'prophetic-model', 'excellence'],
+      description: "The community of Madinah under the Prophet (peace be upon him) was characterised by justice, mercy, brotherhood, knowledge, worship, service, and joy. This task is the aspirational north star — not a checklist to complete but a standard to continuously approach. It challenges the community to measure itself against the Prophetic model and to never settle for mediocrity in any dimension of collective life.",
+      subtasks: [
+        { title: "Study the Madinah community model in depth as a community", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 3455
+The Prophet (peace be upon him) said: "I have been sent to perfect good character." The Madinah community was the living demonstration of perfected character in collective life.
+*(Grade: Sahih)*
+
+
+### Quran (33:21)
+**Arabic:** لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ  
+**Translation:** "There has certainly been for you in the Messenger of Allah an excellent pattern."`,
+          description: `**Why?**
+
+You cannot aspire to what you do not understand. Most Muslims know the Prophet (peace be upon him) as an individual but have never studied the community he built as a system: its governance, its economics, its social welfare, its education, its diplomacy, and its worship culture. Studying the Madinah model as a community — not just as individuals — creates a shared vocabulary and a shared aspiration that aligns everyone's efforts toward the same prophetic standard.
+
+
+**How?**
+
+1. Select a comprehensive seerah text that covers the social and institutional dimensions of Madinah (e.g., "The Sealed Nectar," supplemented with works on Islamic governance and social history).
+2. Design a 12-session community study circle: one session per month, each covering a dimension of the Madinah community (governance, mutual aid, education, worship, economy, justice, dawah, defence, interfaith relations, family, youth, and legacy).
+3. For each session, compare the Madinah model to your community's current state: where are you aligned? Where are you falling short?
+4. Invite guest scholars or use recorded lectures to supplement the study material.
+5. Document insights and commitments from each session.
+6. At the end of the 12 months, produce a "Madinah Alignment Report" that honestly assesses the community against the Prophetic model.
+7. Completion indicator: a 12-session study circle completed with at least 12 regular participants and a published Madinah Alignment Report.` },
+        { title: "Implement a quarterly community self-assessment against Prophetic standards", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (16:89)
+**Arabic:** وَيَوْمَ نَبْعَثُ فِي كُلِّ أُمَّةٍ شَهِيدًا عَلَيْهِم مِّنْ أَنفُسِهِمْ ۖ وَجِئْنَا بِكَ شَهِيدًا عَلَىٰ هَٰؤُلَاءِ ۚ وَنَزَّلْنَا عَلَيْكَ الْكِتَابَ تِبْيَانًا لِّكُلِّ شَيْءٍ
+**Translation:** "The day will come when We raise up in each community a witness against them, and We shall bring you [Prophet] as a witness against these people, for We have sent the Scripture down to you explaining everything, and as guidance and mercy and good news to those who devote themselves to God."
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6464
+The Prophet (peace be upon him) said: "Do good deeds properly, sincerely and moderately, and know that the most beloved of deeds to Allah are those that are most consistent, even if they are small."
+*(Grade: Sahih)*
+*(Contextual: regular self-assessment is the mechanism by which consistent, improving deeds are maintained — it is the institutional expression of muhasabah.)*`,
+          description: `**Why?**
+
+ Individual muhasabah (self-accounting) is a well-known Islamic practice, but communities rarely apply it collectively. A quarterly self-assessment prevents drift — the slow, imperceptible lowering of standards that occurs when no one is measuring. It transforms aspiration into accountability and ensures the community is always moving toward the Prophetic standard, not away from it.
+
+**How?**
+
+1. Develop a simple scorecard with 10-15 indicators drawn from the Madinah model study: quality of congregational worship, shura functionality, mutual aid responsiveness, educational programme quality, outreach effectiveness, financial transparency, youth engagement, conflict resolution, neighbour relations, and internal unity.
+2. For each indicator, define: what "excellent" looks like, what "adequate" looks like, and what "failing" looks like.
+3. Conduct the assessment quarterly: a 2-hour session with the shura council and key stakeholders, scoring each indicator with evidence.
+4. Identify the 2-3 areas most in need of improvement and assign specific action plans.
+5. Track scores over time to visualise progress and regressions.
+6. Share a summary (not the detailed scores) with the community to maintain transparency and invite input.
+7. Completion indicator: at least 2 quarterly assessments completed with documented scores, action plans, and visible trend tracking.` },
+        { title: "Cultivate a community culture of ihsan (excellence) in every activity", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:195)
+**Arabic:** وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ  
+**Translation:** And do good; indeed, Allah loves the doers of good.
+
+### Quran (55:60)
+**Arabic:** هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ  
+**Translation:** Is the reward for good anything but good?
+
+**II. Hadith**
+
+### Sahih Muslim 1955
+The Prophet (peace be upon him) said: "Indeed Allah has prescribed ihsan (excellence) in all things."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Ihsan is not limited to worship — it applies to how the masjid is cleaned, how events are organised, how food is served, how newcomers are greeted, and how conflicts are resolved. A culture of ihsan means the community refuses to accept mediocrity in any dimension of its collective life. This is the intangible quality that distinguishes a merely functional community from a model community.
+
+**How?**
+
+1. Define what ihsan looks like in each area of community life: worship (khushu and punctuality), facilities (cleanliness and maintenance), events (organisation and hospitality), communication (clarity and kindness), and governance (transparency and responsiveness).
+2. Communicate these standards through a "Community Ihsan Charter" — a brief, inspiring document that articulates the aspiration.
+3. Lead by example: community leaders must embody ihsan visibly before expecting it from others.
+4. Celebrate ihsan when you see it: public recognition of excellence encourages more of it.
+5. Address mediocrity with kindness but firmness: "This is not up to our standard. How can we do better?"
+6. Review the ihsan culture annually: what has improved? Where has complacency crept in?
+7. Completion indicator: a published Ihsan Charter, visible improvements in at least 3 areas of community life, and at least one annual review conducted.` },
+        { title: "Establish the community as a force for justice in the broader society", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (7:159)
+**Arabic:** وَمِن قَوْمِ مُوسَىٰ أُمَّةٌ يَهْدُونَ بِالْحَقِّ وَبِهِ يَعْدِلُونَ
+**Translation:** "There is a group among the people of Moses who guide with truth, and who act justly according to it."
+
+### Quran (4:135)
+**Arabic:** ۞ يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُونُوا۟ قَوَّٰمِينَ بِٱلْقِسْطِ شُهَدَآءَ لِلَّهِ وَلَوْ عَلَىٰٓ أَنفُسِكُمْ أَوِ ٱلْوَٰلِدَيْنِ وَٱلْأَقْرَبِينَ ۚ إِن يَكُنْ غَنِيًّا أَوْ فَقِيرًۭا فَٱللَّهُ أَوْلَىٰ بِهِمَا ۖ فَلَا تَتَّبِعُوا۟ ٱلْهَوَىٰٓ أَن تَعْدِلُوا۟ ۚ وَإِن تَلْوُۥٓا۟ أَوْ تُعْرِضُوا۟ فَإِنَّ ٱللَّهَ كَانَ بِمَا تَعْمَلُونَ خَبِيرًۭا  
+**Translation:** You who believe, uphold justice and bear witness to God, even if it is against yourselves, your parents, or your close relatives. Whether the person is rich or poor, God can best take care of both. Refrain from following your own desire, so that you can act justly- if you distort or neglect justice, God is fully aware of what you do.
+
+**II. Hadith**
+
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Allah commands: "O you who believe, be persistently standing firm in justice, witnesses for Allah, even if it be against yourselves, your parents, or your relatives" (Quran 4:135). The Madinah community was not an isolationist enclave — it was a force for justice in the broader society. A community that aspires to the Prophetic standard must extend its concern beyond its own members to the welfare of all people: standing against injustice wherever it occurs, regardless of the victim's faith, ethnicity, or status.
+
+
+**How?**
+
+1. Identify justice issues in your broader community that affect all people, not just Muslims: poverty, housing, education inequality, criminal justice, environmental degradation, or discrimination.
+2. Select one issue where your community can make a meaningful, sustained contribution.
+3. Build a coalition: partner with other faith communities, civic organisations, and advocacy groups working on the same issue.
+4. Commit community resources: volunteer hours, financial support, venue space, and public advocacy.
+5. Frame the work in Islamic terms to the community ("This is our obligation as khulafa on this earth") and in universal terms to external partners ("We believe in justice for all people").
+6. Track impact and report to the community: what changed because of your involvement?
+7. Completion indicator: sustained engagement in one justice issue for at least 12 months, in coalition with non-Muslim partners, with documented impact.` },
+        { title: "Make dua and renew intention for the community to be a light for the ummah and for humanity", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (11:118)
+**Arabic:** وَلَوْ شَاءَ رَبُّكَ لَجَعَلَ النَّاسَ أُمَّةً وَاحِدَةً ۖ وَلَا يَزَالُونَ مُخْتَلِفِينَ
+**Translation:** "If your Lord had pleased, He would have made all people a single community, but they continue to have their differences."
+*(Contextual: diversity is by Allah's design; making dua for the community to be a light is the highest response to this reality — not imposing uniformity but embodying guidance.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 1
+The Prophet (peace be upon him) said: "Actions are but by intention, and every person shall have but that which he intended."
+*(Grade: Sahih)*
+*(Contextual: renewing communal intention is the act this hadith makes central — all the community's works rise or fall by the sincerity of this renewal.)*
+
+### Sahih Bukhari 1
+The opening hadith of Sahih al-Bukhari (Number 1) states: 'The reward of deeds depends upon the intentions.'
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said: "Actions are judged by intentions" (Bukhari & Muslim). All of the systems, programmes, and structures built through these tasks are means, not ends. The end is the pleasure of Allah and the service of His creation. Without regularly renewing the communal intention, the best institutions become bureaucracies and the noblest missions become ego projects. This final task is a reminder that the community's ultimate aspiration is not organisational excellence but nearness to Allah through service to His ummah and to all of humanity.
+
+
+**How?**
+
+1. Institute an annual "community renewal" gathering — a dedicated evening of collective reflection, gratitude, and recommitment.
+2. Open with Quran recitation and a reflection on the community's founding purpose.
+3. Review the year: what was accomplished? What fell short? What are we most grateful for?
+4. Renew the communal intention: "We do this work not for recognition, not for legacy, not for power — but for the sake of Allah alone."
+5. Make dua together: for the community, for the global ummah, for all of humanity, and for forgiveness for wherever we fell short.
+6. Close with a shared meal and an atmosphere of hope, gratitude, and determination.
+7. Completion indicator: an annual renewal gathering held with broad community participation and a documented reflection that feeds into the next year's strategic planning.` },
+      ],
+    },
+  ],
+
+  // ── NEIGHBORS ──
+
+  // ── CORE: Not Harming, Greeting, Basic Care ──
+  ummah_neighbors_core: [
+    {
+      title: "Learn every immediate neighbor's name, household composition, and basic needs",
+      priority: 'urgent', tags: ['haqq-al-jar', 'awareness'],
+      description: "You cannot fulfil the rights of someone you do not know. This task establishes the foundational awareness required to honour those rights — begin by learning who lives beside you.",
+      subtasks: [
+        { title: "Identify every household within your immediate adjacency (apartments on your floor, houses on either side and across)", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance." Knowing your neighbors by name is the first step in fulfilling this weighty right.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The rights of the neighbor in Islam begin with awareness. The Quran commands ihsan (excellence) toward "the neighbor who is near and the neighbor who is far" (4:36). You cannot show ihsan to someone whose existence you have not even acknowledged. Mapping your immediate adjacency is the absolute baseline of Haqq al-Jar — it moves neighbors from anonymous strangers to known individuals for whom you bear responsibility before Allah.
+
+
+**How?**
+
+1. Draw a simple map of your building floor or street, marking each dwelling unit adjacent to yours.
+2. For apartments: include units on either side, directly above, directly below, and across the hallway.
+3. For houses: include the homes on either side and the three homes directly across the street.
+4. Note any units you already know something about (names, family size, elderly residents, children).
+5. Mark any units where you have never interacted with the occupants at all.
+6. This map becomes your working reference for all subsequent neighbor tasks.
+7. Completion indicator: a written or drawn map with every adjacent dwelling identified and labelled with whatever you currently know.` },
+        { title: "Introduce yourself to any neighbor you have not yet spoken to", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا ۖ وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** Worship Allah and associate nothing with Him, and to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ But you will never know whether your neighbor is hungry if you have never exchanged a word. The first introduction breaks the barrier of anonymity and plants the seed of relationship. In many modern buildings people live side by side for years without a single greeting — this contradicts the entire ethic of Haqq al-Jar that Islam establishes.
+
+**How?**
+
+1. Identify from your adjacency map which neighbors you have never spoken with.
+2. Prepare a simple, warm introduction: your name, which unit or house you live in, and a genuine offer such as "Please let me know if you ever need anything."
+3. Choose a natural moment — when you see them at the mailbox, in the hallway, or arriving home.
+4. If you prefer a more structured approach, bring a small plate of dates, biscuits, or fruit as an icebreaker.
+5. Keep the interaction brief and warm — the goal is connection, not a lengthy conversation.
+6. Record each neighbor's name and any basic information they share (family members, how long they have lived there).
+7. Completion indicator: you have introduced yourself to every previously unknown adjacent neighbor and recorded their names.` },
+        { title: "Establish a consistent daily greeting habit — say salam or a warm hello to every neighbor you encounter", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (56:26)
+**Arabic:** إِلَّا قِيلًا سَلَامًا سَلَامًا
+**Translation:** "only clean and wholesome speech."
+*(Contextual: the speech of the people of Paradise is salam — habituating ourselves to it now is preparation for that station.)*
+
+### Quran (11:69)
+**Arabic:** وَلَقَدْ جَاءَتْ رُسُلُنَا إِبْرَاهِيمَ بِالْبُشْرَىٰ قَالُوا سَلَامًا ۖ قَالَ سَلَامٌ
+**Translation:** "To Abraham Our messengers brought good news. They said, 'Peace.' He answered, 'Peace.'"
+*(Contextual: even the angels greeted Ibrahim with salam, establishing it as the universal greeting of those close to Allah.)*
+
+**II. Hadith**
+
+
+### Sahih Muslim 54
+The Prophet (peace be upon him) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you of something which, if you do it, you will love one another? Spread salam (greetings of peace) among yourselves."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Shall I not tell you something which, if you do it, you will love one another? Spread salam among yourselves" (Muslim 54). The daily greeting is the simplest, most consistent act of neighborly connection. It costs nothing, takes seconds, and over time transforms cold hallways and silent streets into spaces of recognition and warmth — the most basic expression of husn al-jiwar.
+
+**How?**
+
+1. Make a conscious intention (niyyah) each morning to greet every neighbor you encounter that day.
+2. When passing a neighbor — whether Muslim or not — offer a warm, audible greeting: "As-salamu alaykum" for Muslim neighbors, "Good morning" or the appropriate local greeting for others.
+3. Make eye contact, smile, and use their name if you know it.
+4. Do not rush past or pretend to be busy with your phone — presence and acknowledgment are the substance of the greeting.
+5. If a neighbor does not reciprocate warmly at first, remain consistent — habit and sincerity break barriers over time.
+6. Extend this to shared spaces: the elevator, stairwell, parking lot, and rubbish area.
+7. Completion indicator: greeting neighbors has become an automatic, daily habit requiring no conscious effort — you have not passed a neighbor without acknowledgment for at least two consecutive weeks.` },
+        { title: "Audit your home for anything that could harm neighbors — noise, smells, waste, obstructions", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6015
+The Prophet (peace be upon him) said: "By Allah, he does not believe! By Allah, he does not believe! By Allah, he does not believe!" It was said, "Who, O Messenger of Allah?" He said, "The one whose neighbor does not feel safe from his harm."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ This hadith places neighbor safety as a condition of iman itself. Harm is not limited to deliberate hostility — it includes noise at inconsiderate hours, cooking smells that seep through shared walls, rubbish left in common areas, and vehicles parked in a way that obstructs access. An honest audit of your own impact is essential before you can claim to fulfil this most basic right.
+
+**How?**
+
+1. Walk through your home at different times of day and honestly assess noise levels: music, television, children playing, appliances running early morning or late at night.
+2. Check shared walls and floors — can your neighbors hear your conversations, your washing machine, or your vacuum at odd hours?
+3. Assess cooking smells: do you leave your door open while frying, or does your kitchen ventilation push strong odors into the hallway?
+4. Inspect the area immediately outside your door: shoes, prams, delivery boxes, or anything encroaching on shared space.
+5. Check your parking: are you ever blocking a neighbor's access, using their spot, or leaving your vehicle in a way that makes their movement difficult?
+6. Ask a trusted household member for their honest observation — we often become blind to our own noise and clutter.
+7. Completion indicator: a written list of every potential source of harm to neighbors, with a fix or mitigation noted for each item.` },
+        { title: "Resolve every identified harm item — eliminate noise disturbances, clear shared spaces, fix obstructions", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 46
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him not harm his neighbor." Eliminating noise disturbances and clearing shared spaces is the practical application of this command.
+*(Grade: Sahih)*
+
+
+### Sunan Abu Dawud 5154
+The Prophet (peace be upon him) said: "By Allah, he does not believe. By Allah, he does not believe. By Allah, he does not believe." They asked: "Who, O Messenger of Allah?" He said: "The one whose neighbor does not feel safe from his evil."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Identifying harm without acting on it is worse than ignorance, because it adds the sin of neglect to the sin of harm. The hadith in Bukhari 6016 is unequivocal — your faith is questioned if your neighbor is not safe from your nuisance. Every unresolved item on your audit list is an active violation of Haqq al-Jar. Resolving them is not optional goodness; it is a debt owed to those who share your walls, your hallway, and your street.
+
+
+**How?**
+
+1. Take your audit list and address each item in order of severity.
+2. For noise: establish household quiet hours aligned with reasonable community norms (e.g., no loud activity before 8am or after 10pm), place rubber pads under washing machines, use headphones for late-night media.
+3. For smells: use your kitchen exhaust fan, keep doors closed during cooking, and consider an air purifier near the entrance.
+4. For shared space clutter: remove all personal items from hallways, stairwells, and shared storage areas — keep only what building rules explicitly permit.
+5. For parking: ensure your vehicle is squarely in your designated space and never obstructing another's access.
+6. For any item you cannot fully resolve alone (e.g., building maintenance issues), report it to your landlord or building management in writing.
+7. Completion indicator: every item on the harm audit list has been resolved or formally escalated, and you can honestly say your neighbor is safe from your nuisance.` },
+      ],
+    },
+    {
+      title: "Protect your neighbors' property and privacy as you would your own",
+      priority: 'urgent', tags: ['haqq-al-jar', 'amanah'],
+      description: "The right of the neighbor includes safeguarding their property when they are absent and never violating their privacy. The Prophet (peace be upon him) listed the rights of the neighbor to include protecting their home in their absence and lowering your gaze from their private spaces. This task ensures you actively honour these trust-based obligations.",
+      subtasks: [
+        { title: "Ensure your windows, balconies, and doorways do not overlook your neighbors' private spaces without screening", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance."
+*(Grade: Sahih)*
+
+
+### Quran (24:27)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا وَتُسَلِّمُوا عَلَىٰ أَهْلِهَا  
+**Translation:** "O you who have believed, do not enter houses other than your own houses until you ascertain welcome and greet their inhabitants."`,
+          description: `**Why?**
+
+ This dramatic language underscores how seriously Islam takes domestic privacy. Your home's layout may inadvertently give you a line of sight into a neighbor's bedroom, bathroom, or private garden. Screening these sightlines is not just courtesy — it is a protection of their God-given right to privacy (satr) within their own home.
+
+**How?**
+
+1. Stand at each window, balcony, and doorway in your home and look outward — can you see into any neighbor's private space?
+2. Pay special attention to windows that face each other across narrow gaps, balconies that overlook gardens, and upper-floor windows that look down into courtyards.
+3. For any sightline issue, install appropriate screening: frosted window film, curtains, blinds, or a balcony privacy screen.
+4. If you have an outdoor seating area, orient furniture so that your natural line of sight does not fall into a neighbor's home.
+5. In shared hallways, do not linger near peepholes or position cameras that capture your neighbor's doorway activity.
+6. If your building has shared laundry lines or drying areas, be conscious of visibility into windows when hanging clothes.
+7. Completion indicator: you have checked every outward-facing opening in your home and installed screening wherever a neighbor's private space is visible.` },
+        { title: "Keep a watchful eye on neighbors' homes when they are away — collect packages, note unusual activity", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:58)
+**Arabic:** إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا  
+**Translation:** Indeed, Allah commands you to render trusts to whom they are due.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Among the explicitly listed rights of the neighbor is that you safeguard their home when they are absent. In a hadith recorded by Abu Dawud, the Prophet (peace be upon him) described the neighbor's right to include watching over their property. Uncollected packages signal an empty home to thieves; untended bins or overflowing letterboxes advertise absence. By quietly watching over their home, you fulfil a trust (amanah) and provide real security that no technology fully replaces.
+
+
+**How?**
+
+1. When a neighbor mentions they will be away — or you notice signs of absence (no lights, uncollected post) — take note.
+2. Collect any packages or mail left at their door and hold them safely until their return.
+3. If bins are left out past collection day, bring them in to avoid signalling an empty home.
+4. Note any unusual activity around their property — unfamiliar people trying doors, strange vehicles lingering.
+5. If something genuinely concerning occurs, contact the neighbor first (if you have their number) or the appropriate local authority.
+6. When the neighbor returns, mention casually what you observed and hand over any collected items.
+7. Completion indicator: you have established a consistent habit of monitoring adjacent homes during noticed absences, and neighbors trust you to watch over their property.` },
+        { title: "Never discuss or expose what you observe of your neighbors' private affairs", done: false,
+          sources: `**I. Quran**
+
+### Quran (49:12)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ ۖ وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا  
+**Translation:** O you who have believed, avoid much suspicion; indeed, some suspicion is sin. And do not spy or backbite each other.
+
+### Quran (24:27)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا وَتُسَلِّمُوا عَلَىٰ أَهْلِهَا  
+**Translation:** O you who have believed, do not enter houses other than your own houses until you ascertain welcome and greet their inhabitants.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 622
+The sources contain this exact text in Sahih al-Bukhari 622 (Volume 3): 'whoever screened a Muslim, Allah will screen him on the Day of Resurrection.' The prompt attributes it to Muslim 2699.
+*(Grade: Sahih)*
+`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) said, "Whoever conceals the faults of a Muslim, Allah will conceal his faults on the Day of Judgment" (Muslim 2699). Living in close proximity means you will inevitably hear arguments, see visitors, notice habits, and learn things about your neighbors' lives that they have not chosen to share publicly. Disclosing these observations — whether to other neighbors, friends, or on social media — is a betrayal of the implicit trust that comes with proximity. Ghiba (backbiting) about a neighbor is among the most harmful forms because it poisons the very community you share daily space with.
+
+
+**How?**
+
+1. Make a firm internal commitment: what you see and hear of your neighbor's private life stays with you.
+2. If you overhear an argument, witness a family difficulty, or notice something embarrassing, act as though you did not.
+3. When other neighbors or friends ask about the people next door, share only what is publicly known and positive.
+4. If someone gossips to you about a neighbor, gently redirect: "I would rather not discuss their private affairs."
+5. Do not post anything on social media — even vaguely — that could identify or embarrass a neighbor.
+6. If a neighbor's private situation genuinely requires intervention (abuse, danger), seek professional or community help rather than spreading the information socially.
+7. Completion indicator: you can honestly say you have not disclosed any private observation about a neighbor to anyone for at least three consecutive months.` },
+        { title: "Exchange emergency contact information with your closest neighbors", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنبِ  
+**Translation:** And the near neighbor, the neighbor farther away, and the companion at your side.
+
+**II. Hadith**
+
+### Sahih Muslim 2625
+The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship in this world, Allah will relieve him of a hardship on the Day of Resurrection."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The neighborly relationship must have practical infrastructure, not just goodwill. In an emergency — a water leak, a medical incident, a fire, or a security concern — seconds matter, and having your neighbor's phone number is the difference between swift mutual aid and helpless waiting. This simple exchange formalises the relationship of mutual care that Haqq al-Jar demands.
+
+**How?**
+
+1. Identify your two or three closest neighbors — those who share a wall, a landing, or are directly adjacent.
+2. During a natural interaction (not forced), mention that you would like to exchange numbers in case of emergencies.
+3. Frame it practically: "If there is ever a water leak, a power outage, or anything urgent, I would like to be able to reach you and vice versa."
+4. Save their contact with a clear label (e.g., "Ahmed — Flat 4B") so you can find it quickly in an emergency.
+5. Share your own number willingly and let them know they can contact you if they ever need help.
+6. If a neighbor is reluctant, respect their boundary without pressure — not everyone is comfortable, and that is their right.
+7. Completion indicator: you have emergency contact numbers for at least two adjacent neighbors, and they have yours.` },
+        { title: "Respond immediately when a neighbor asks for help with a genuine need", done: false,
+          sources: `**I. Quran**
+
+### Quran (5:2)
+**Arabic:** وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ  
+**Translation:** And cooperate in righteousness and piety.
+
+**II. Hadith**
+
+### Sahih Muslim 2580
+The Prophet (peace be upon him) said: "Allah will say on the Day of Resurrection: 'O son of Adam, I was sick and you did not visit Me... I asked you for food and you did not feed Me... I asked you for water and you did not give Me drink.'" — referring to the needs of His servants.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Genuine need means a locked-out neighbor needing to use your phone, someone carrying heavy groceries who needs a hand, or a family experiencing a plumbing emergency. These moments are not interruptions — they are opportunities to earn the rank of "best neighbor in Allah's sight." Hesitation or avoidance in the face of genuine need is a failure of the most basic neighborly obligation.
+
+**How?**
+
+1. Cultivate a mindset of readiness: when a neighbor knocks, approach the door with the assumption that they need something reasonable.
+2. If a neighbor is locked out, offer your phone, a glass of water, and a place to wait without making them feel like a burden.
+3. If you see a neighbor struggling with groceries, heavy items, or a pram on the stairs, offer help immediately — do not wait to be asked.
+4. For small household emergencies (a burst pipe, a power issue), offer whatever practical help you can: a bucket, a torch, a call to your plumber.
+5. If you cannot help directly, assist them in finding someone who can — never leave them without a next step.
+6. After helping, do not expect reciprocation or even thanks — your intention is for Allah's pleasure alone.
+7. Completion indicator: you have responded to at least three genuine neighbor requests without hesitation, and your neighbors know they can turn to you in need.` },
+      ],
+    },
+    {
+      title: "Remove harm from shared spaces — keep communal areas clean, safe, and unobstructed",
+      priority: 'high', tags: ['haqq-al-jar', 'shared-spaces'],
+      description: " Shared hallways, stairwells, driveways, and communal gardens are the 'paths' of your neighborhood. This task applies the prophetic principle directly to communal spaces where your neighbors walk daily.",
+      subtasks: [
+        { title: "Walk through every shared space adjacent to your home and note cleanliness, safety, and obstruction issues", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Faith has over seventy branches, the highest of which is the declaration that there is no god but Allah, and the lowest of which is removing something harmful from the road." Auditing shared spaces for hazards fulfills this branch of faith.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The hadith "removing harm from the road is a branch of iman" (Muslim 35) applies directly to the spaces your neighbors traverse daily. A dirty stairwell, a broken light in the hallway, a bicycle chained across a shared entrance — these are the "harm on the road" of modern communal living. You cannot address problems you have not surveyed. This walkthrough gives you a clear picture of the current state and your opportunities to act.
+
+
+**How?**
+
+1. Walk from your front door through every shared space: hallway, stairwell, elevator lobby, parking area, bin storage, communal garden, and entrance paths.
+2. Note cleanliness issues: litter, stains, overflowing bins, cobwebs in corners, dirty windows.
+3. Note safety issues: broken lights, cracked steps, loose handrails, slippery surfaces, blocked fire exits.
+4. Note obstructions: personal items left in shared areas (shoes, prams, boxes), vehicles parked outside designated spots, overgrown hedges encroaching on paths.
+5. Distinguish between issues you can fix yourself and those requiring building management or council intervention.
+6. Take photos if helpful for reporting to management.
+7. Completion indicator: a written inventory of every cleanliness, safety, and obstruction issue in your shared spaces, categorised by who can resolve them.` },
+        { title: "Fix or report every issue you identified — personally clean, tidy, or escalate to management", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:195)
+**Arabic:** وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ  
+**Translation:** And do good; indeed, Allah loves the doers of good.
+
+**II. Hadith**
+
+### Sahih Muslim 35
+The Prophet (peace be upon him) said: "Faith has over seventy branches, the highest of which is the testimony that there is no god but Allah, and the least of which is removing something harmful from the road."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Identifying problems without acting is observation without ihsan. If litter is on the ground, you pick it up. The willingness to personally act — rather than assume someone else will — is what distinguishes a neighbor who fulfils Haqq al-Jar from one who merely lives nearby.
+
+**How?**
+
+1. Take your inventory and address every item you can personally fix.
+2. For litter and cleanliness: bring a bag and clean the area yourself — do not wait for a cleaner.
+3. For minor obstructions: politely move items to appropriate locations or ask the owner to do so.
+4. For safety hazards you can fix (e.g., replacing a light bulb in a shared fixture): do it promptly.
+5. For issues requiring management: write a clear, specific report with the location, nature of the issue, and photo if applicable, and submit it through the proper channel.
+6. Follow up on reported issues — if management has not acted within a reasonable time, send a polite reminder.
+7. Completion indicator: every item on your shared-space inventory has been either personally resolved or formally reported and tracked until resolution.` },
+        { title: "Never leave personal items in shared spaces — shoes, deliveries, rubbish bags, or equipment", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Muslim 46
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him not harm his neighbor." Leaving personal items in shared spaces is a form of harm that violates this Prophetic command.
+*(Grade: Sahih)*
+
+
+### Sahih Muslim 49
+The Prophet (peace be upon him) said: "Removing something harmful from the road is charity." Keeping shared spaces clear of personal items is an act of ongoing sadaqah.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Shared space is a collective trust. When one resident leaves shoes outside their door, others follow, and soon the hallway becomes an obstacle course. Your restraint sets a standard others may follow.
+
+**How?**
+
+1. Conduct an honest audit: do you currently have any personal items outside your front door or in shared areas?
+2. Bring everything inside: shoes, doormats (if not permitted), delivery boxes, bikes, prams, cleaning supplies.
+3. Find indoor storage solutions: a shoe rack inside the door, a hook for bags, a designated spot for deliveries to be brought in immediately.
+4. For rubbish: never leave bags in the hallway even temporarily — take them directly to the bin area.
+5. If you receive a delivery while out, ask the delivery service to leave it in a designated safe spot, not the shared hallway.
+6. Set a household rule: nothing of ours lives outside our front door.
+7. Completion indicator: the area outside your home and in all shared spaces contains zero personal items belonging to your household, consistently maintained for at least one month.` },
+        { title: "Contribute to shared space maintenance beyond the minimum — sweep, wipe, or tidy communal areas regularly", done: false,
+          sources: `**I. Quran**
+
+### Quran (7:56)
+**Arabic:** وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا  
+**Translation:** And cause not corruption upon the earth after its reformation.
+
+**II. Hadith**
+
+### Sahih Muslim 35
+The Prophet (peace be upon him) said: "Removing something harmful from the road is a branch of faith."
+*(Grade: Sahih)*
+
+### Jami at-Tirmidhi 1956
+The Prophet (peace be upon him) said: "The best of companions in the sight of Allah is the one who is best to his companion, and the best of neighbors in the sight of Allah is the one who is best to his neighbor."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+Islam teaches that the best actions are those done consistently, even if small. Sweeping the shared hallway once a week, wiping a dirty handrail, or picking up a stray wrapper is the ongoing, quiet practice of removing harm from the path. When you go beyond the minimum, you establish a culture of care that elevates the entire community's standard of communal living.
+
+**How?**
+
+1. Choose a small, consistent act of shared-space maintenance to perform weekly — sweeping the hallway, wiping the elevator buttons, tidying the mailbox area.
+2. Do not announce it or seek recognition — the goal is quiet, sustained stewardship.
+3. If you see litter while passing through a shared area, pick it up in the moment rather than walking past.
+4. Keep a small broom or dustpan near your door for quick hallway sweeps.
+5. If your building has a garden, occasionally pull visible weeds, pick up rubbish, or water dry plants.
+6. If other residents begin doing the same, the culture has shifted — this is the goal.
+7. Completion indicator: you have performed at least one voluntary shared-space maintenance act per week for four consecutive weeks.` },
+        { title: "Ensure your home's exterior and entrance are well-maintained — contributing positively to the shared visual environment", done: false,
+          sources: `**I. Quran**
+
+### Quran (33:58)
+**Arabic:** وَالَّذِينَ يُؤْذُونَ الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ بِغَيْرِ مَا اكْتَسَبُوا فَقَدِ احْتَمَلُوا بُهْتَانًا وَإِثْمًا مُّبِينًا  
+**Translation:** And those who harm believing men and believing women for what they have not earned have certainly borne the burden of slander and manifest sin.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6015
+The Prophet (peace be upon him) said: "By Allah, he does not believe — the one whose neighbor does not feel safe from his harm."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Your front door, balcony, garden fence, or building entrance is part of the visual environment your neighbors experience daily. A peeling door, a cluttered balcony, or an unkempt front garden subtly degrades the shared aesthetic and can signal neglect that spreads. Maintaining your exterior is a form of ihsan toward your neighbors' daily experience and an expression of the beauty Allah loves.
+
+**How?**
+
+1. Stand outside your front door (or at the street) and look at your home's exterior as a neighbor would see it.
+2. Check: is the door clean and in good condition? Is the doorbell working? Are house numbers visible?
+3. If you have a balcony: is it tidy, free of stored junk, and visually pleasant?
+4. If you have a front garden or yard: is the lawn maintained, are hedges trimmed, and is the path clear?
+5. Address any item that looks neglected: repaint a peeling door, clean dirty windows, remove clutter from visible areas.
+6. Add something positive if possible: a clean doormat, a simple potted plant, or adequate exterior lighting.
+7. Completion indicator: your home's exterior presents a clean, well-maintained appearance that contributes positively to the shared neighborhood environment.` },
+      ],
+    },
+    {
+      title: "Handle neighbor conflicts with patience, direct communication, and sabr",
+      priority: 'medium', tags: ['haqq-al-jar', 'conflict', 'sabr'],
+      description: "Disagreements with neighbors are inevitable — noise disputes, parking issues, boundary questions. Islam provides a clear framework: address issues directly and kindly, exercise patience, and never respond to harm with harm.",
+      subtasks: [
+        { title: "Adopt the prophetic principle: never respond to a neighbor's harm with harm", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (52:42)
+**Arabic:** 
+**Translation:** Or do they intend to plan to do harm (to the prophet)? Then the disbelievers themselves shall be harmed by the plan.
+
+### Quran (10:12)
+**Arabic:** 
+**Translation:** And when harm touches man, he invokes Us, lying on his side, or sitting or standing. But when We have removed his harm from him, he passes on as if he had never invoked Us for a harm that touched him! Thus it is made fair-seeming to the Musrifûn that which they used to do.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 141
+Narrated Ibn \`Abbas:The Prophet (ﷺ) said, "If anyone of you on having sexual relations with his wife said (and he must say it before starting) 'In the name of Allah. O Allah! Protect us from Satan and also protect what you bestow upon us (i.e. the coming offspring) from Satan,' and if it is destined that they should have a child then, Satan will never be able to harm that offspring
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ Instead, accustom yourselves to do good if people do good and not to do wrong if they do evil" (Tirmidhi 2007). When a neighbor plays loud music, parks in your spot, or makes an offensive remark, the nafs demands retaliation. But the Prophetic model is clear: you do not mirror harm. Your standard of conduct comes from revelation, not from your neighbor's behavior.
+
+**How?**
+
+1. Memorise and internalise the hadith above — write it somewhere visible as a reminder.
+2. When a neighbor does something that annoys or harms you, pause before reacting. Make istighfar and take a breath.
+3. Remind yourself that your response defines your character before Allah, regardless of what the neighbor did.
+4. Never retaliate with matching harm: if they are noisy, do not become noisy; if they are rude, do not become rude.
+5. Choose one of three responses: address it directly with kindness, endure it with sabr, or involve a neutral mediator if the issue persists.
+6. If you catch yourself retaliating — even passively (cold silence, deliberate ignoring) — recognise it and correct course.
+7. Completion indicator: you have faced at least one genuinely annoying neighbor situation and responded without any form of retaliation, choosing patience or kind direct communication instead.` },
+        { title: "When an issue arises, speak to the neighbor privately and directly before involving anyone else", done: false,
+          sources: `**I. Quran**
+
+### Quran (41:34)
+**Arabic:** وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
+**Translation:** And not equal are the good deed and the bad. Repel evil by that which is better; and thereupon the one whom between you and him is enmity will become as though he was a devoted friend.
+
+### Quran (49:11)
+**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ عَسَىٰ أَن يَكُونُوا خَيْرًا مِّنْهُمْ  
+**Translation:** O you who have believed, let not a people ridicule another people; perhaps they may be better than them.`,
+          description: `**Why?**
+
+The Quran says, "Repel evil with that which is better, and thereupon the one between whom and you was enmity will become as though he was a devoted friend" (41:34). Direct, private communication preserves dignity and gives the neighbor the benefit of the doubt — perhaps they are unaware of the impact. Complaining to building management, posting in group chats, or venting to other neighbors before speaking to the person directly is a violation of their right and usually escalates the conflict unnecessarily.
+
+
+**How?**
+
+1. When an issue arises (noise, parking, waste), wait until you are calm before addressing it.
+2. Go to the neighbor's door at a reasonable time — not in the heat of the moment.
+3. Begin with salam and a positive statement: "I hope you are well. I wanted to mention something I have noticed..."
+4. Describe the impact on you without accusing: "I have been hearing music late at night and it has been affecting my sleep" — not "You are too loud."
+5. Assume positive intent: "I am sure you did not realise it was carrying through the walls."
+6. Propose a solution collaboratively: "Would it be possible to lower the volume after 10pm?"
+7. Completion indicator: you have addressed at least one neighbor issue through direct, private, kind conversation rather than through complaints to third parties.` },
+        { title: "Practise sabr with recurring annoyances — endure minor irritations without complaint", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (41:34)
+**Arabic:** وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ  
+**Translation:** "Not equal are the good deed and the bad. Repel [evil] by that [deed] which is better."
+
+
+### Sahih Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance." Enduring minor annoyances with sabr honors this trust.
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Not every annoyance requires a conversation. A child crying at night, cooking smells during Ramadan, occasional footsteps above — these are the realities of shared living. Sabr in the face of minor irritation is not weakness; it is the strength of iman that the hadith explicitly links to belief in Allah and the Last Day. It preserves relationships over trivial matters.
+
+**How?**
+
+1. Distinguish between genuine harm (persistent loud parties, property damage) and normal living sounds and smells.
+2. For normal living realities — children, cooking, occasional guests, furniture movement — choose sabr as your default response.
+3. When irritation rises, say "la hawla wa la quwwata illa billah" and remind yourself of the hadith on enduring neighbor annoyance.
+4. Reflect: if you were doing the same thing, would it be reasonable? If yes, the issue is your tolerance, not their behavior.
+5. Use practical coping: earplugs for light sleepers, closing windows during cooking hours, background sound for noise sensitivity.
+6. Reserve direct conversation for genuine, persistent harm — not every momentary annoyance.
+7. Completion indicator: you have consciously chosen sabr over complaint for at least five minor neighbor irritations over a one-month period.` },
+        { title: "If a dispute persists, involve a mutually trusted mediator rather than escalating to authorities", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (49:9)
+**Arabic:** وَإِن طَائِفَتَانِ مِنَ الْمُإْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا  
+**Translation:** "And if two factions among the believers should fight, then make settlement between the two."
+
+
+### Sahih Bukhari 2693
+The Prophet (peace be upon him) said: "Shall I not inform you of something more excellent than fasting, prayer, and charity?" They said: "Yes." He said: "Reconciliation between people, for corruption of relationships is the shaver."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Quran instructs: "If two parties among the believers fall into a dispute, make peace between them" (49:9). Involving a trusted third party — a respected community elder, a mutual friend, or the building manager — before resorting to formal complaints or legal action preserves the relationship and follows the Islamic model of community-level dispute resolution. Escalation to authorities should be a last resort, not a first reaction, because it permanently damages the neighborly bond that Allah has placed as a trust upon you.
+
+
+**How?**
+
+1. If direct conversation has not resolved the issue after two genuine attempts, identify a neutral third party both of you respect.
+2. This could be: a building manager, a community elder, a mutual friend, or a local imam.
+3. Approach the mediator privately, describe the situation factually without emotional language, and ask if they would be willing to facilitate a conversation.
+4. Propose mediation to your neighbor: "I would like us to resolve this together — would you be open to sitting down with [mediator's name] to find a solution?"
+5. During mediation, listen as much as you speak, be willing to compromise, and focus on outcomes rather than blame.
+6. Accept the mediator's suggested resolution in good faith.
+7. Completion indicator: you have identified a potential mediator for any future disputes and committed to the principle of mediation before escalation.` },
+        { title: "After resolving a conflict, restore the relationship — visit, bring a gift, or express genuine goodwill", done: false,
+          sources: `**I. Quran**
+
+### Quran (41:34)
+**Arabic:** ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ  
+**Translation:** Repel evil by that which is better; and thereupon the one between you and him is enmity will become as though he was a devoted friend.
+
+**II. Hadith**
+
+### Sunan Abu Dawud 5152
+The Prophet (peace be upon him) said: "The best of companions in the sight of Allah is the one who is best to his companion, and the best of neighbors is the one who is best to his neighbor."
+*(Grade: Hasan)*`,
+          description: `**Why?**
+
+ A resolved dispute is not the same as a restored relationship. The lingering awkwardness, the avoidance in the hallway, the stiff nod instead of a warm greeting — these indicate that the conflict ended but the bond did not heal. Islam demands not just resolution but restoration, because you will continue living beside this person and the quality of that proximity matters to your daily life and your akhirah.
+
+**How?**
+
+1. After a conflict is resolved — whether through direct conversation or mediation — take the initiative to restore warmth.
+2. Within a few days, bring a small gift: a plate of food, a box of sweets, or fresh fruit.
+3. When you deliver it, be genuinely warm: "I am glad we resolved that. I value having you as my neighbor."
+4. Resume your normal greeting pattern immediately — do not allow awkward avoidance to take root.
+5. If the neighbor seems reserved, give them time but maintain your own warmth consistently.
+6. Over the following weeks, look for opportunities to help them or include them — a shared coffee, an offer of assistance.
+7. Completion indicator: after a resolved conflict, the relationship has returned to warmth and normal interaction within one month.` },
+      ],
+    },
+    {
+      title: "Fulfil the basic needs of vulnerable neighbors — elderly, sick, alone, or in hardship",
+      priority: 'high', tags: ['haqq-al-jar', 'vulnerable', 'care'],
+      description: " Vulnerable neighbors — the elderly, the sick, those living alone, recent arrivals, or families facing hardship — have an amplified right to your attention. This task ensures you identify and actively care for those in your vicinity who need it most.",
+      subtasks: [
+        { title: "Identify which of your neighbors are elderly, living alone, recently moved in, or facing visible hardship", done: false,
+          sources: `**I. Hadith**
+
+
+### Sahih Bukhari 6011
+The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body. When one limb suffers, the whole body responds with wakefulness and fever." Identifying vulnerable neighbors is the first step toward fulfilling this communal body's duty.
+*(Grade: Sahih)*
+
+
+### Quran (107:1-3)
+**Arabic:** أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ  
+**Translation:** "Have you seen the one who denies the Recompense? For that is the one who drives away the orphan and does not encourage the feeding of the poor."`,
+          description: `**Why?**
+
+The Quran's command to show ihsan to "the neighbor who is near" (4:36) applies with special weight to those who are vulnerable. An elderly person living alone may not have anyone to call in an emergency. A new arrival may not speak the language or know how to access services. A family facing hardship may be too proud to ask for help. You cannot fulfil enhanced duty of care toward vulnerable neighbors if you have not identified who they are. This awareness transforms generic goodwill into targeted, meaningful support.
+
+
+**How?**
+
+1. Review your neighbor map and note any households where you know or suspect vulnerability: elderly residents, people living alone, recent immigrants, single-parent families, or anyone you have seen struggling.
+2. Pay attention to indirect signs: an elderly person who struggles with shopping bags, a unit where you never see visitors, a family that recently moved in and seems unfamiliar with the area.
+3. Speak with longer-term neighbors who may know the community better — they can help you identify who might need support.
+4. Be sensitive and not intrusive: you are building awareness, not conducting an investigation.
+5. Note any immediate needs you can already see: someone who has difficulty with stairs, a neighbor who never seems to leave the house, a family with very young children and no visible support.
+6. Record what you learn on your neighbor map, marking vulnerable households.
+7. Completion indicator: you have identified at least two or three neighbors who fall into a vulnerable category and noted their likely needs.` },
+        { title: "Check on elderly or alone neighbors regularly — a knock, a call, a brief visit", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And the near neighbor, the neighbor farther away.
+
+### Quran (107:1-3)
+**Arabic:** أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ ۝ فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ ۝ وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ  
+**Translation:** Have you seen the one who denies the Recompense? For that is the one who drives away the orphan and does not encourage the feeding of the poor.
+
+**II. Hadith**
+
+### Sahih al-Bukhari 6014
+The Prophet (peace be upon him) said: "Jibril kept advising me about the neighbor until I thought he would make him an heir."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+The Prophet (peace be upon him) visited the sick, checked on the absent, and noticed when regular community members were missing. Elderly and alone neighbors can experience health emergencies, falls, or severe loneliness without anyone noticing for days. A regular check — even a brief knock and "How are you today?" — can be literally lifesaving and is always soul-nourishing. In many communities, the neighbor is the first line of human contact for isolated people, making this act of checking one of the most impactful expressions of Haqq al-Jar.
+
+
+**How?**
+
+1. Choose a consistent frequency for checking: daily for a very elderly or frail neighbor, two to three times per week for others living alone.
+2. A check can be as simple as knocking on the door and saying, "I just wanted to see if you need anything today."
+3. If you have their phone number, a brief call works too: "Assalamu alaykum, just checking in — is everything alright?"
+4. Be observant during checks: does the neighbor look well? Is mail piling up? Do they seem confused or distressed?
+5. If a neighbor does not answer and you have reason for concern, escalate appropriately — contact a family member, building management, or in genuine emergencies, the authorities.
+6. Bring something small occasionally: a cup of tea, a piece of fruit, or a brief conversation if they seem lonely.
+7. Completion indicator: you have established a consistent check-in routine with at least one vulnerable neighbor, maintained for at least three weeks.` },
+        { title: "Offer practical help to neighbors in hardship — groceries, errands, childcare assistance, or a ride", done: false,
+          sources: `**I. Quran**
+
+### Quran (2:177)
+**Arabic:** وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ  
+**Translation:** And gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler.
+
+**II. Hadith**
+
+### Sahih Muslim 2625
+The Prophet (peace be upon him) said: "Whoever relieves a believer of a hardship in this world, Allah will relieve him of a hardship on the Day of Resurrection."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+ This hadith extends beyond food to any unmet need within your capacity. A neighbor who lost their job may need groceries. A single parent may need someone to watch their child for an hour. An elderly person may need a ride to a medical appointment. These are not extraordinary acts of charity — they are the baseline of what Islam expects when you have the capacity and your neighbor has the need. Fulfilling them is a condition of complete iman.
+
+**How?**
+
+1. When you learn that a neighbor is facing hardship, think practically: what do they likely need, and what can I provide?
+2. Offer specifically rather than vaguely: "I am going to the supermarket — can I pick up anything for you?" is better than "Let me know if you need anything."
+3. For groceries: bring a bag of staples without being asked — rice, bread, milk, eggs, fruit.
+4. For errands: offer to post a letter, collect a prescription, or drop off a document.
+5. For childcare: offer to watch children for an hour so the parent can attend to urgent matters.
+6. For transport: offer a ride to a medical appointment, a government office, or the masjid.
+7. Completion indicator: you have provided at least three specific acts of practical help to a neighbor in need over a two-month period.` },
+        { title: "Welcome new neighbors — introduce yourself, provide local information, and offer to help them settle in", done: false,
+          sources: `**I. Quran**
+
+### Quran (4:36)
+**Arabic:** وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ  
+**Translation:** And to parents do good, and to relatives, orphans, the needy, the near neighbor, the neighbor farther away.
+
+**II. Hadith**
+
+### Sahih Muslim 54
+The Prophet (peace be upon him) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you something which, if you do it, you will love one another? Spread the salam among yourselves."
+*(Grade: Sahih)*`,
+          description: `**Why?**
+
+Moving to a new home is one of life's most disorienting experiences, especially for families who have relocated to a new city or country. The first person who shows kindness in a new place is remembered for years. The Prophet (peace be upon him) was the ultimate exemplar of welcoming strangers and making them feel at home. Your welcome to a new neighbor can determine whether they feel isolated in their new environment or immediately connected to a caring community — a direct manifestation of the Quranic command to show ihsan to the neighbor.
+
+
+**How?**
+
+1. When you notice new occupants in an adjacent home, introduce yourself within the first week — do not wait for a "convenient" moment that never comes.
+2. Bring a small welcome gift: a plate of homemade food, a box of dates, or a selection of fruit.
+3. Provide practical local information: nearest supermarket, pharmacy, post office, school, masjid, doctor, and any useful community groups.
+4. If they have children, let them know about nearby parks, playgrounds, and any local children's activities.
+5. Offer specific help: "If you need anything while you are settling in — borrowing a tool, figuring out rubbish collection days, or just directions — please do not hesitate to knock."
+6. If they are from a different cultural background, be especially warm and patient — they may be navigating language barriers and unfamiliar systems.
+7. Completion indicator: you have personally welcomed at least one new neighbor family with a visit, a gift, and practical local information.` },
+        { title: "Keep a small emergency supply you can share with a neighbor in sudden need — torch, first aid, bottled water, non-perishable food", done: false,
+          sources: `**I. Quran**
+
+
+### Quran (107:7)
+**Arabic:** وَيَمْنَعُونَ الْمَاعُونَ
+**Translation:** "and forbid common kindnesses."
+*(Contextual: the Quran rebukes those who withhold simple aid — keeping emergency supplies ready to share is the positive fulfilment of what this verse prohibits neglecting.)*
+
+**II. Hadith**
+
+
+### Sahih al-Bukhari 6018
+The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day should not harm his neighbor."
+*(Grade: Sahih)*
+*(Contextual: being prepared to help a neighbor in sudden need is the practical expression of "not harming" — unpreparedness can mean abandoning a neighbor when help is most needed.)*`,
+          description: `**Why?**
+
+Emergencies do not announce themselves. A power outage, a water main break, a family crisis, or a sudden illness can leave a neighbor in immediate need. Having basic supplies ready to share is part of the practical preparedness that Islam encourages. The Prophet (peace be upon him) tied his camel before trusting in Allah — preparation and tawakkul go together. A torch lent during a blackout, a bottle of water during a pipe burst, or a basic first aid kit when a child is hurt — these small acts of preparedness can transform you from a bystander into the neighbor who was there when it mattered.
+
+
+**How?**
+
+1. Assemble a small, clearly labelled emergency kit that you designate for neighbor sharing.
+2. Include: a working torch with spare batteries, a basic first aid kit, two to three litres of bottled water, a few packets of non-perishable food (biscuits, dates, nuts, tinned goods), and a phone charger.
+3. Store it in an accessible location near your front door — you need to be able to grab it quickly.
+4. Check the kit every three months: replace expired items, test the torch, and refresh the water.
+5. Let your closest neighbors know: "If you ever have an emergency and need a torch, water, or first aid, please knock — I keep supplies ready."
+6. When an emergency actually occurs, offer what you have without being asked.
+7. Completion indicator: a neighbour-sharing emergency kit is assembled, stored accessibly, and at least two neighbors know it exists.` },
+      ],
+    },
+    {
       title: 'Institutionalise amr bil-ma\'ruf wa nahi \'anil-munkar — commanding good and forbidding evil as a community practice',
       priority: 'medium', tags: ['amr-bil-maruf', 'hisbah', 'accountability'],
       description: 'Allah says, "You are the best community singled out for people: you command what is right, forbid what is wrong, and believe in Allah" (Quran 3:110). This is not optional — it is the defining characteristic of the ummah. Institutionalising this practice means moving beyond individual advice-giving to a community-wide culture of mutual accountability, done with wisdom, gentleness, and due process.',
@@ -5775,7 +7858,15 @@ The first investment and distribution transforms the waqf from a concept into a 
 
 ### Sahih Muslim 49
 The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+**II. Hadith**
+
+
+### Sahih Muslim 79
+Recorded in Sahih Muslim 79: 'He who amongst you sees something abominable should modify it with the help of his hand; and if he has not strength... with his tongue... (or) from his heart.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Commanding good and forbidding evil without knowledge of its principles causes more harm than the evil it seeks to address. Imam al-Ghazali dedicated an entire book of the Ihya to this topic, emphasising that the one who commands good must know what is good, must do it with wisdom and gentleness, and must not cause greater harm in the process. The Prophet (peace be upon him) said, "Whoever sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart" (Muslim) — but each level has conditions that must be understood.
@@ -5836,7 +7927,12 @@ You cannot hold people accountable to standards they have not agreed to. A commu
 
 ### Sahih Muslim 55a
 The Prophet (peace be upon him) said: "The religion is nasihah (sincere advice)." We said, "To whom?" He said, "To Allah, to His Book, to His Messenger, and to the leaders of the Muslims and their common folk."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 98
+Recorded in Sahih Muslim 98: 'Al-Din is a name of sincerity and well wishing (Al-Din al-Nasiha).'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said, "The religion is nasihah" (Muslim). But nasihah delivered without wisdom, compassion, and tact does more harm than silence. Most people who give nasihah focus on what they want to say rather than what the recipient needs to hear. Training community leaders — imams, teachers, board members, and respected elders — in the art of effective, compassionate counsel ensures that amr bil-ma'ruf is practised as the Prophet intended: with gentleness that opens hearts rather than harshness that hardens them.
@@ -5895,8 +7991,7 @@ The Prophet (peace be upon him) said: "Whoever among you sees an evil, let him c
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Amr bil-ma'ruf cannot function if people are afraid to speak. Many community members — especially women, youth, and converts — stay silent about problems because they fear backlash, dismissal, or being labelled as troublemakers. A safe, structured system for raising concerns ensures that the community hears what it needs to hear, not just what it wants to hear. The Prophet (peace be upon him) actively sought out concerns and created space for them — the companion who said "I have not prayed" was not punished but taught.
-
+Amr bil-ma'ruf cannot function if people are afraid to speak. Many community members — especially women, youth, and converts — stay silent about problems because they fear backlash, dismissal, or being labelled as troublemakers. A safe, structured system for raising concerns ensures that the community hears what it needs to hear, not just what it wants to hear.
 
 **How?**
 
@@ -6018,8 +8113,7 @@ The Prophet (peace be upon him) said: "None of you truly believes until he loves
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Islam does not command withdrawal from society — it commands engagement. The Prophet (peace be upon him) participated in the Hilf al-Fudul (a pre-Islamic justice pact) and said after Islam that he would still honour it if called upon. Muslim presence in civic life ensures that community interests are represented, counters marginalisation, and demonstrates that Muslims are invested in the well-being of the entire neighbourhood, not just their own enclave.
-
+Islam does not command withdrawal from society — it commands engagement. Muslim presence in civic life ensures that community interests are represented, counters marginalisation, and demonstrates that Muslims are invested in the well-being of the entire neighbourhood, not just their own enclave.
 
 **How?**
 
@@ -6065,7 +8159,7 @@ In the age of social media and 24-hour news, communities that do not tell their 
     {
       title: 'Launch global ummah solidarity projects — connect local effort to worldwide Muslim concerns',
       priority: 'medium', tags: ['global-solidarity', 'ummah', 'international'],
-      description: 'The Prophet (peace be upon him) said, "The parable of the believers in their mutual love, mercy, and compassion is like that of a body: when one limb aches, the whole body reacts with sleeplessness and fever" (Bukhari and Muslim). A community that only looks inward is not living up to the ummah ideal. Global solidarity projects connect your local community to the broader body of believers, channelling resources, prayer, and advocacy to where they are needed most.',
+      description: ' A community that only looks inward is not living up to the ummah ideal. Global solidarity projects connect your local community to the broader body of believers, channelling resources, prayer, and advocacy to where they are needed most.',
       subtasks: [
         { title: 'Research current crises and needs affecting the global ummah — become informed before acting', done: false,
           sources: `**I. Quran**
@@ -6371,7 +8465,7 @@ Sharing directly with a few communities is valuable; publishing or presenting re
     {
       title: 'Build intergenerational knowledge transfer — ensure community wisdom passes to the next generation',
       priority: 'medium', tags: ['intergenerational', 'legacy', 'knowledge-transfer'],
-      description: 'Every generation of Muslims has a responsibility to pass on what it learned to the next. The Prophet (peace be upon him) said, "The best of you are those who learn the Quran and teach it" (Bukhari). Intergenerational knowledge transfer goes beyond Quran — it includes community building wisdom, lived Islamic experience, professional skills, and the stories of struggle and triumph that give a community its identity and resilience.',
+      description: 'Every generation of Muslims has a responsibility to pass on what it learned to the next. Intergenerational knowledge transfer goes beyond Quran — it includes community building wisdom, lived Islamic experience, professional skills, and the stories of struggle and triumph that give a community its identity and resilience.',
       subtasks: [
         { title: 'Record oral histories from elders in your community — their stories of faith, migration, and community building', done: false,
           sources: `**I. Quran**
@@ -6391,8 +8485,7 @@ The Prophet (peace be upon him) said: "He is not one of us who does not show mer
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Every community elder carries irreplaceable knowledge — stories of how the masjid was built, how the community survived crises, how Islam was practised under difficult circumstances, and how faith was maintained across generations and geographies. When an elder passes away without their stories being recorded, that knowledge is lost forever. The Prophet (peace be upon him) said, "The death of a scholar is like the death of a nation" — and every elder is a scholar of their own lived experience.
-
+Every community elder carries irreplaceable knowledge — stories of how the masjid was built, how the community survived crises, how Islam was practised under difficult circumstances, and how faith was maintained across generations and geographies. When an elder passes away without their stories being recorded, that knowledge is lost forever.
 
 **How?**
 
@@ -6474,7 +8567,12 @@ The Prophet (peace be upon him) said: "The scholars are the heirs of the Prophet
 
 ### Quran (9:122)
 **Arabic:** فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنذِرُوا قَوْمَهُمْ  
-**Translation:** "From every group, a party should go forth to obtain understanding in the religion and warn their people when they return to them."`,
+**Translation:** "From every group, a party should go forth to obtain understanding in the religion and warn their people when they return to them."
+
+### Sahih Bukhari 667
+Duplicate of claim 11; recorded in Sahih al-Bukhari 667.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Every community member carries unique knowledge — professional skills, life experience, cultural heritage, and Islamic learning — that would benefit others if shared. A "living library" programme creates structured opportunities for this sharing, breaking down the silos that form when people only interact within their age group, profession, or social circle. The Prophet (peace be upon him) encouraged teaching whatever you know: "Convey from me, even if it is one ayah" (Bukhari).
@@ -6572,6 +8670,10 @@ Different soil zones behave differently — sandy patches drain fast while clay 
 **Arabic:** إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً  
 **Translation:** Indeed, I will make upon the earth a successive authority.
 
+### Quran (7:56)
+**Arabic:** وَلَا تُفْسِدُوا۟ فِى ٱلْأَرْضِ بَعْدَ إِصْلَـٰحِهَا وَٱدْعُوهُ خَوْفًۭا وَطَمَعًا ۚ إِنَّ رَحْمَتَ ٱللَّهِ قَرِيبٌۭ مِّنَ ٱلْمُحْسِنِينَ  
+**Translation:** do not corrupt the earth after it has been set right- call on Him fearing and hoping. The mercy of God is close to those who do good.
+
 **II. Hadith**
 
 ### Sahih al-Bukhari 2320
@@ -6628,6 +8730,10 @@ Land carries the memory of everything done to it. Years of monoculture, herbicid
 ### Quran (26:7)
 **Arabic:** أَوَلَمْ يَرَوْا إِلَى الْأَرْضِ كَمْ أَنبَتْنَا فِيهَا مِن كُلِّ زَوْجٍ كَرِيمٍ  
 **Translation:** Did they not look at the earth — how much We have produced therein from every noble kind?
+
+### Quran (7:56)
+**Arabic:** وَلَا تُفْسِدُوا۟ فِى ٱلْأَرْضِ بَعْدَ إِصْلَـٰحِهَا وَٱدْعُوهُ خَوْفًۭا وَطَمَعًا ۚ إِنَّ رَحْمَتَ ٱللَّهِ قَرِيبٌۭ مِّنَ ٱلْمُحْسِنِينَ  
+**Translation:** do not corrupt the earth after it has been set right- call on Him fearing and hoping. The mercy of God is close to those who do good.
 
 **II. Hadith**
 
@@ -6717,6 +8823,10 @@ You cannot design a water system for land you do not understand hydrologically. 
 **Arabic:** وَهُوَ الَّذِي يُرْسِلُ الرِّيَاحَ بُشْرًا بَيْنَ يَدَيْ رَحْمَتِهِ  
 **Translation:** And it is He who sends the winds as good tidings before His mercy.
 
+### Quran (13:17)
+**Arabic:** أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءًۭ فَسَالَتْ أَوْدِيَةٌۢ بِقَدَرِهَا فَٱحْتَمَلَ ٱلسَّيْلُ زَبَدًۭا رَّابِيًۭا ۚ وَمِمَّا يُوقِدُونَ عَلَيْهِ فِى ٱلنَّارِ ٱبْتِغَآءَ حِلْيَةٍ أَوْ مَتَـٰعٍۢ زَبَدٌۭ مِّثْلُهُۥ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْحَقَّ وَٱلْبَـٰطِلَ ۚ فَأَمَّا ٱلزَّبَدُ فَيَذْهَبُ جُفَآءًۭ ۖ وَأَمَّا مَا يَنفَعُ ٱلنَّاسَ فَيَمْكُثُ فِى ٱلْأَرْضِ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْأَمْثَالَ  
+**Translation:** He sends water from the sky that fills riverbeds to overflowing, each according to its measure. The stream carries on its surface a growing layer of froth, like the froth that appears when people melt metals in the fire to make ornaments and tools: in this way God illustrates truth and falsehood- the froth disappears, but what is of benefit to man stays behind- this is how God makes illustrations.
+
 **II. Hadith**
 
 ### Sunan Abu Dawud 3477
@@ -6746,6 +8856,8 @@ Water flows downhill, and every contour of the land dictates where it gathers, w
 ### Quran (21:30)
 **Arabic:** وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ  
 **Translation:** And We made from water every living thing.
+
+### Quran (55:7-9)
 
 **II. Hadith**
 
@@ -6963,8 +9075,7 @@ Umar ibn al-Khattab said to the Prophet about his land in Khaybar, and the Proph
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A trust held in secret serves no communal purpose. The Prophet (peace be upon him) said that one of the best deeds is a sadaqah jariyah — ongoing charity that continues to benefit. Publicly declaring the land covenant invites the community into the vision, builds accountability, generates support, and inspires others to dedicate land or resources for similar purposes. Transparency is a hallmark of amanah — the community has a right to know what this land is for and how it is governed.
-
+A trust held in secret serves no communal purpose. Publicly declaring the land covenant invites the community into the vision, builds accountability, generates support, and inspires others to dedicate land or resources for similar purposes. Transparency is a hallmark of amanah — the community has a right to know what this land is for and how it is governed.
 
 **How?**
 
@@ -7153,8 +9264,7 @@ Regarding the waqf of Umar: the Prophet said to endow the land and make its prod
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) warned severely against encroaching on a neighbour's land — even by a hand-span. Clear boundary marking prevents disputes, protects relationships with neighbours, and ensures that every improvement you make is within your legal right. Boundary ambiguity has destroyed more community projects than any agricultural challenge. This is a foundational act of justice and good neighbouring that must precede all other infrastructure.
-
+ Clear boundary marking prevents disputes, protects relationships with neighbours, and ensures that every improvement you make is within your legal right. Boundary ambiguity has destroyed more community projects than any agricultural challenge. This is a foundational act of justice and good neighbouring that must precede all other infrastructure.
 
 **How?**
 
@@ -7235,8 +9345,7 @@ The Prophet (peace be upon him) said: "Muslims share in three things: water, pas
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Agricultural work involves sharp tools, heavy lifting, uneven ground, stinging insects, and sun exposure. The Prophet (peace be upon him) said: "Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it" (Abu Dawud). Having first aid immediately accessible is not optional — it is a duty of care to every person who works on or visits the land. Tool storage prevents theft, injury from scattered equipment, and degradation of expensive implements.
-
+Agricultural work involves sharp tools, heavy lifting, uneven ground, stinging insects, and sun exposure. Having first aid immediately accessible is not optional — it is a duty of care to every person who works on or visits the land. Tool storage prevents theft, injury from scattered equipment, and degradation of expensive implements.
 
 **How?**
 
@@ -7265,8 +9374,7 @@ The Prophet (peace be upon him) said: "Muslims share in three things: water, pas
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Community work days, deliveries of amendments and materials, and regular maintenance all require vehicle access. Without a designated parking area, vehicles damage soil, compact planting zones, and create mud ruts that become erosion channels. A gathering area provides a space for shura (consultation), shared meals, and salah (prayer) — reinforcing that this land is not merely a farm but a place of worship and community building. The Prophet (peace be upon him) said the entire earth is a masjid (place of prayer), and designating a clean, sheltered spot honours that teaching.
-
+Community work days, deliveries of amendments and materials, and regular maintenance all require vehicle access. Without a designated parking area, vehicles damage soil, compact planting zones, and create mud ruts that become erosion channels. A gathering area provides a space for shura (consultation), shared meals, and salah (prayer) — reinforcing that this land is not merely a farm but a place of worship and community building.
 
 **How?**
 
@@ -7284,7 +9392,7 @@ Community work days, deliveries of amendments and materials, and regular mainten
     {
       title: 'Establish a composting and soil amendment programme — close the organic waste loop on-site',
       priority: 'high', tags: ['compost', 'islah-al-turbah'],
-      description: 'The Prophet (peace be upon him) instructed that every joint of the body owes a charity, and one form is removing harm from the path. Composting removes organic "waste" from landfill and transforms it into the most valuable input for soil restoration — it is environmental sadaqah in its purest form. This programme closes the nutrient loop so the land feeds itself.',
+      description: ' Composting removes organic "waste" from landfill and transforms it into the most valuable input for soil restoration — it is environmental sadaqah in its purest form. This programme closes the nutrient loop so the land feeds itself.',
       subtasks: [
         { title: 'Build a three-bay composting system sized for the land output and community kitchen waste', done: false,
           sources: `**I. Quran**
@@ -7386,8 +9494,7 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Purchasing seeds every season creates dependency on external suppliers and breaks the natural cycle of plant-soil-seed-plant. Seed saving is one of the oldest agricultural practices and one of the most politically and ecologically powerful — it preserves genetic diversity, builds varieties adapted to your specific land, and ensures food sovereignty. The Prophet (peace be upon him) said "Whoever revives a dead land, it belongs to him" — seed saving is part of that revival, ensuring the land can reproduce its own abundance.
-
+Purchasing seeds every season creates dependency on external suppliers and breaks the natural cycle of plant-soil-seed-plant. Seed saving is one of the oldest agricultural practices and one of the most politically and ecologically powerful — it preserves genetic diversity, builds varieties adapted to your specific land, and ensures food sovereignty.
 
 **How?**
 
@@ -7491,8 +9598,7 @@ The Prophet (peace be upon him) said: "There is none amongst the Muslims who pla
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The canopy and understory trees are the skeleton of the food forest — everything else grows in relation to them. Planting them first with correct spacing ensures adequate light reaches lower layers as the forest matures. The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it." This urgency to plant is matched by the wisdom to plant correctly — a tree planted too close to its neighbour will struggle for life rather than flourish.
-
+The canopy and understory trees are the skeleton of the food forest — everything else grows in relation to them. Planting them first with correct spacing ensures adequate light reaches lower layers as the forest matures.
 
 **How?**
 
@@ -7829,8 +9935,7 @@ The Prophet (peace be upon him) said: "A man was once walking on a road when he 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Water is the most critical limiting factor for wildlife. Even a small pond dramatically increases the diversity and abundance of species on a site — amphibians, dragonflies, birds, hedgehogs, and beneficial insects all depend on accessible water. The Prophet (peace be upon him) said that giving water to a thirsty animal is an act of sadaqah, and creating permanent water features ensures that sadaqah flows continuously without requiring daily human intervention.
-
+Water is the most critical limiting factor for wildlife. Even a small pond dramatically increases the diversity and abundance of species on a site — amphibians, dragonflies, birds, hedgehogs, and beneficial insects all depend on accessible water.
 
 **How?**
 
@@ -7876,7 +9981,7 @@ Zone 5 in permaculture design is land left entirely to nature — no harvesting,
     {
       title: 'Launch community work days — regular gatherings for collective land stewardship and learning',
       priority: 'high', tags: ['community', 'ummah'],
-      description: 'Land stewardship is not a solo endeavour — it is an expression of ummah (community). Regular work days bring people together to labour, learn, eat, and pray on the land, building the social fabric that sustains the project through challenges. The Prophet (peace be upon him) said the believers are like one body — community work days make that metaphor physical.',
+      description: 'Land stewardship is not a solo endeavour — it is an expression of ummah (community). Regular work days bring people together to labour, learn, eat, and pray on the land, building the social fabric that sustains the project through challenges.',
       subtasks: [
         { title: 'Design a monthly work day programme with seasonal tasks, learning sessions, and shared meals', done: false,
           sources: `**I. Quran**
@@ -7896,8 +10001,7 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A work day without structure becomes either a social gathering with no productivity or a forced labour session with no joy. Designing a programme that balances physical work, learning, and fellowship ensures people leave feeling they contributed, grew, and connected. Seasonal tasks align the work with what the land actually needs right now, preventing the frustration of doing the wrong job at the wrong time. Shared meals are sunnah — the Prophet (peace be upon him) said "gather together for your meals and mention the name of Allah, and you will be blessed in them."
-
+A work day without structure becomes either a social gathering with no productivity or a forced labour session with no joy. Designing a programme that balances physical work, learning, and fellowship ensures people leave feeling they contributed, grew, and connected. Seasonal tasks align the work with what the land actually needs right now, preventing the frustration of doing the wrong job at the wrong time.
 
 **How?**
 
@@ -8012,8 +10116,7 @@ The Prophet (peace be upon him) said: "He is not one of us who does not show mer
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Children who grow food, care for soil, and observe wildlife on sacred land carry those experiences for life. A dedicated youth programme ensures the next generation does not merely inherit the land but inherits the knowledge, values, and skills to steward it. The Prophet (peace be upon him) said "teach your children" — and the best teaching happens not in a classroom but with hands in the soil, surrounded by the signs of Allah's creation.
-
+Children who grow food, care for soil, and observe wildlife on sacred land carry those experiences for life. A dedicated youth programme ensures the next generation does not merely inherit the land but inherits the knowledge, values, and skills to steward it.
 
 **How?**
 
@@ -8345,7 +10448,7 @@ An annual impact report transforms scattered data into a compelling story of wha
     {
       title: 'Develop a replicable Islamic land stewardship model — document, teach, and support new projects',
       priority: 'medium', tags: ['replication', 'dawah'],
-      description: 'The greatest impact of this project is not what happens on this one parcel of land but what happens when 10, then 100, then 1000 communities follow the same model. Developing a replicable framework is the scaling mechanism — turning one act of khilafah into a movement. The Prophet (peace be upon him) said whoever guides to good has a reward like the one who does it.',
+      description: 'The greatest impact of this project is not what happens on this one parcel of land but what happens when 10, then 100, then 1000 communities follow the same model. Developing a replicable framework is the scaling mechanism — turning one act of khilafah into a movement.',
       subtasks: [
         { title: 'Distil the project methodology into a step-by-step Islamic Land Stewardship Framework', done: false,
           sources: `**I. Quran**
@@ -8437,8 +10540,7 @@ Umar ibn al-Khattab acquired land at Khaybar and the Prophet (peace be upon him)
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Waqf is the Islamic institution designed precisely for this purpose — permanently dedicating assets so that their benefits flow forever. A waqf endowment for the land project creates a self-sustaining funding source that does not depend on annual donations, government grants, or individual generosity. The endowment's returns fund operations, maintenance, and — crucially — the acquisition and restoration of additional land. The Prophet (peace be upon him) advised Umar (may Allah be pleased with him) to endow his land in Khaybar as waqf, and that endowment benefited the ummah for centuries.
-
+Waqf is the Islamic institution designed precisely for this purpose — permanently dedicating assets so that their benefits flow forever. A waqf endowment for the land project creates a self-sustaining funding source that does not depend on annual donations, government grants, or individual generosity. The endowment's returns fund operations, maintenance, and — crucially — the acquisition and restoration of additional land.
 
 **How?**
 
@@ -8534,8 +10636,7 @@ The Prophet (peace be upon him) said: "Whoever establishes a good practice in Is
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Open-source publication ensures that the model reaches communities who cannot afford consultants, courses, or proprietary frameworks. The Prophet (peace be upon him) said "whoever conceals knowledge will be bridled with a bridle of fire on the Day of Judgement" (Abu Dawud). Making the toolkit freely available is both a spiritual obligation and a strategic choice — the faster the model spreads, the more land comes under regenerative Islamic stewardship, and the greater the collective impact on the earth.
-
+Open-source publication ensures that the model reaches communities who cannot afford consultants, courses, or proprietary frameworks. Making the toolkit freely available is both a spiritual obligation and a strategic choice — the faster the model spreads, the more land comes under regenerative Islamic stewardship, and the greater the collective impact on the earth.
 
 **How?**
 
@@ -8880,8 +10981,7 @@ The Prophet (peace be upon him) said: "The prayer in congregation is twenty-seve
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Salah in congregation is the heartbeat of every MTC season — it is what makes this a Muslim community programme rather than simply a farm. The Prophet (peace be upon him) said congregational prayer is twenty-seven times superior to individual prayer (Bukhari 645). By anchoring every working day around jama'ah times, participants internalise that the land work serves the prayer, not the other way around. This structure also creates natural gathering points for instruction, reflection, and community bonding.
-
+Salah in congregation is the heartbeat of every MTC season — it is what makes this a Muslim community programme rather than simply a farm. By anchoring every working day around jama'ah times, participants internalise that the land work serves the prayer, not the other way around. This structure also creates natural gathering points for instruction, reflection, and community bonding.
 
 **How?**
 
@@ -9009,8 +11109,7 @@ The Prophet (peace be upon him) said: "Do not waste water even if you are perfor
 *(Grade: Hasan)*`,
           description: `**Why?**
 
-Water is the most critical resource in agriculture and in worship. The Prophet (peace be upon him) said: "Muslims share in three things: water, pasture, and fire" (Abu Dawud 3477) — ensuring reliable water access is a communal obligation, not an afterthought. The water system must serve both the crops (irrigation) and the people (wudu, drinking). Installing it before planting means crops are watered from day one and the prayer area has functioning wudu facilities, maintaining the salah-centred daily rhythm.
-
+Water is the most critical resource in agriculture and in worship. The water system must serve both the crops (irrigation) and the people (wudu, drinking). Installing it before planting means crops are watered from day one and the prayer area has functioning wudu facilities, maintaining the salah-centred daily rhythm.
 
 **How?**
 
@@ -9092,8 +11191,7 @@ The Prophet (peace be upon him) said: "The most beloved of deeds to Allah are th
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Crops in summer need daily attention — a single missed watering in peak heat can set plants back weeks, and unchecked pests can destroy a bed overnight. A structured rotation ensures every task is covered every day without burning out any individual. This mirrors the Islamic concept of consistent small deeds: the Prophet (peace be upon him) said "The most beloved of deeds to Allah are those that are most consistent, even if they are small" (Bukhari 6464). The rotation makes consistency systematic rather than dependent on individual heroics.
-
+Crops in summer need daily attention — a single missed watering in peak heat can set plants back weeks, and unchecked pests can destroy a bed overnight. A structured rotation ensures every task is covered every day without burning out any individual. The rotation makes consistency systematic rather than dependent on individual heroics.
 
 **How?**
 
@@ -9165,8 +11263,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said "Whoever believes in Allah and the Last Day, let him be generous to his guest" (Bukhari 6018). Summer is the peak season for visitors — the land is lush, crops are growing, and community energy is high. A structured hospitality rhythm ensures every visitor is welcomed with excellence, experiences the spiritual dimension of the programme, and leaves with a clear understanding of what MTC offers. Unstructured visitor experiences often feel chaotic and fail to convey the programme's depth.
-
+ Summer is the peak season for visitors — the land is lush, crops are growing, and community energy is high. A structured hospitality rhythm ensures every visitor is welcomed with excellence, experiences the spiritual dimension of the programme, and leaves with a clear understanding of what MTC offers. Unstructured visitor experiences often feel chaotic and fail to convey the programme's depth.
 
 **How?**
 
@@ -9186,8 +11283,7 @@ The Prophet (peace be upon him) said: "There is none amongst the Muslims who pla
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Summer heat, pests, and disease pressure test every planting decision made in spring. Without systematic monitoring, problems escalate from minor issues to crop losses. The principle of tawakkul (reliance on Allah) does not mean neglecting practical means — the Prophet (peace be upon him) told the man to tie his camel first, then trust in Allah (Tirmidhi 2517). Monitoring is tying the camel: doing everything within your capacity to protect the crops, while trusting Allah for the outcome. Adjusting care plans based on observed data is itqan (excellence) in action.
-
+Summer heat, pests, and disease pressure test every planting decision made in spring. Without systematic monitoring, problems escalate from minor issues to crop losses. Monitoring is tying the camel: doing everything within your capacity to protect the crops, while trusting Allah for the outcome. Adjusting care plans based on observed data is itqan (excellence) in action.
 
 **How?**
 
@@ -9238,8 +11334,7 @@ The main harvest is the culmination of months of patient work — and it must be
 **Translation:** Then let mankind look at his food — how We poured down water in torrents, then We broke open the earth, splitting it, and caused to grow therein grain, and grapes and fresh vegetation, and olive and palm trees, and gardens of dense shrubbery, and fruit and grass.`,
           description: `**Why?**
 
-Seed-saving closes the agricultural cycle — what was planted in spring returns to the seed bank for next spring, embodying the Quranic sign of dead earth brought back to life (36:33). Open-pollinated varieties saved properly will produce true-to-type plants next year, reducing costs, building self-sufficiency, and preserving biodiversity. The Prophet (peace be upon him) encouraged planting and cultivation as ongoing charity — saving seeds extends that charity across generations without additional expenditure.
-
+Seed-saving closes the agricultural cycle — what was planted in spring returns to the seed bank for next spring, embodying the Quranic sign of dead earth brought back to life (36:33). Open-pollinated varieties saved properly will produce true-to-type plants next year, reducing costs, building self-sufficiency, and preserving biodiversity.
 
 **How?**
 
@@ -9373,8 +11468,7 @@ The Prophet (peace be upon him) said: "Allah loves that when one of you does a j
 *(Grade: Sahih per al-Tabarani, Hasan per al-Albani)*`,
           description: `**Why?**
 
-Infrastructure neglected over winter deteriorates — irrigation lines crack in frost, tools rust, structures weaken, and compost piles lose their heat. By spring, what could have been a simple repair becomes a costly replacement. The Prophet (peace be upon him) said "Allah loves that when any of you does a job, he does it with itqan (excellence)" (Bayhaqi). Winterisation is itqan applied to stewardship: protecting the physical assets that the community invested in all year ensures they are ready when Ghars season arrives.
-
+Infrastructure neglected over winter deteriorates — irrigation lines crack in frost, tools rust, structures weaken, and compost piles lose their heat. By spring, what could have been a simple repair becomes a costly replacement. Winterisation is itqan applied to stewardship: protecting the physical assets that the community invested in all year ensures they are ready when Ghars season arrives.
 
 **How?**
 
@@ -9512,8 +11606,7 @@ A farm-to-iftar programme is only meaningful if the food genuinely comes from th
 **Translation:** And they give food in spite of love for it to the needy, the orphan, and the captive, [saying]: We feed you only for the countenance of Allah. We wish not from you reward or gratitude.`,
           description: `**Why?**
 
-Hospitality without structure leads to either over-crowding or empty seats — both dishonour the intention. A registration system ensures every guest is expected, every meal is sized correctly, and every visitor receives personal attention. The Prophet (peace be upon him) said "The food of one person is sufficient for two, the food of two is sufficient for four" (Muslim 2059) — but this generosity works best when you know roughly how many are coming. Registration also captures guest information for follow-up, turning a one-time visit into an ongoing relationship.
-
+Hospitality without structure leads to either over-crowding or empty seats — both dishonour the intention. A registration system ensures every guest is expected, every meal is sized correctly, and every visitor receives personal attention. Registration also captures guest information for follow-up, turning a one-time visit into an ongoing relationship.
 
 **How?**
 
@@ -9542,8 +11635,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The guest experience is shaped by the people, not just the food. The Prophet (peace be upon him) said "Whoever believes in Allah and the Last Day, let him be generous to his guest" (Bukhari 6018). Generosity means more than a full plate — it means a warm greeting, attentive service, comfortable seating, and a graceful farewell. Training ensures every team member embodies this standard consistently, regardless of which individuals are serving on a given evening. Untrained hospitality often falls into chaos, leaving guests feeling like an imposition rather than an honour.
-
+The guest experience is shaped by the people, not just the food. Generosity means more than a full plate — it means a warm greeting, attentive service, comfortable seating, and a graceful farewell. Training ensures every team member embodies this standard consistently, regardless of which individuals are serving on a given evening. Untrained hospitality often falls into chaos, leaving guests feeling like an imposition rather than an honour.
 
 **How?**
 
@@ -9617,8 +11709,7 @@ The Prophet (peace be upon him) said: "Every child is born upon the fitrah (natu
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Children of different ages learn differently — a 5-year-old engages through sensory exploration and story, a 10-year-old through hands-on projects and responsibility, and a teenager through meaningful contribution and intellectual challenge. A single undifferentiated programme bores older children and overwhelms younger ones. The Prophet (peace be upon him) said "Teach your children prayer at age seven, and discipline them for it at age ten" — this graduated approach to spiritual education applies equally to agricultural tarbiyah. Age-appropriate design ensures every child is challenged and supported at their level.
-
+Children of different ages learn differently — a 5-year-old engages through sensory exploration and story, a 10-year-old through hands-on projects and responsibility, and a teenager through meaningful contribution and intellectual challenge. A single undifferentiated programme bores older children and overwhelms younger ones. Age-appropriate design ensures every child is challenged and supported at their level.
 
 **How?**
 
@@ -9659,8 +11750,7 @@ The Prophet (peace be upon him) said: "Whoever follows a path in pursuit of know
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The children's programme depends on dedicated adults who can facilitate learning, ensure safety, and model Islamic values in real time. Parents are the ideal facilitators because they extend the learning into the home — a parent who teaches composting on Saturday reinforces the lesson at dinner. The Prophet (peace be upon him) said "Each of you is a shepherd and each of you is responsible for his flock" (Bukhari 7138). Parent-facilitators shepherd both their own children and others, multiplying the tarbiyah impact beyond what any hired instructor could achieve.
-
+The children's programme depends on dedicated adults who can facilitate learning, ensure safety, and model Islamic values in real time. Parents are the ideal facilitators because they extend the learning into the home — a parent who teaches composting on Saturday reinforces the lesson at dinner. Parent-facilitators shepherd both their own children and others, multiplying the tarbiyah impact beyond what any hired instructor could achieve.
 
 **How?**
 
@@ -9801,8 +11891,7 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-No single garden can maintain the full diversity of varieties a region needs. A seed swap network distributes the preservation effort across multiple sites, reducing the risk of losing a variety to a single bad season. It also builds relationships between Muslim farming communities, creating an ummah-level network of food sovereignty. The Prophet (peace be upon him) said "The believers in their mutual kindness, compassion, and sympathy are just like one body" (Bukhari 6011) — a seed swap network makes that unity tangible and agricultural.
-
+No single garden can maintain the full diversity of varieties a region needs. A seed swap network distributes the preservation effort across multiple sites, reducing the risk of losing a variety to a single bad season. It also builds relationships between Muslim farming communities, creating an ummah-level network of food sovereignty.
 
 **How?**
 
@@ -9822,8 +11911,7 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A well-documented seed-saving programme becomes a gift to the entire ummah — other communities can replicate it without starting from scratch. Documentation also creates institutional memory that survives volunteer turnover. The Prophet (peace be upon him) said "When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim 1631). A published seed-saving guide is beneficial knowledge that continues giving long after the individuals who wrote it have moved on.
-
+A well-documented seed-saving programme becomes a gift to the entire ummah — other communities can replicate it without starting from scratch. Documentation also creates institutional memory that survives volunteer turnover. A published seed-saving guide is beneficial knowledge that continues giving long after the individuals who wrote it have moved on.
 
 **How?**
 
@@ -9995,8 +12083,7 @@ The Prophet (peace be upon him) said: "Allah, His angels, and the inhabitants of
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Volunteers who arrive without understanding the programme's Islamic vision and practical expectations either disengage quickly or cause friction with established participants. Proper onboarding transforms a stranger into a community member by communicating what MTC is (a faith-rooted seasonal programme), what it expects (consistency, Islamic etiquette, teamwork), and what it offers (skill development, spiritual growth, community belonging). The Prophet (peace be upon him) said "Make things easy and do not make them difficult, give glad tidings and do not drive people away" (Bukhari 69) — onboarding should welcome and inspire, not overwhelm.
-
+Volunteers who arrive without understanding the programme's Islamic vision and practical expectations either disengage quickly or cause friction with established participants. Proper onboarding transforms a stranger into a community member by communicating what MTC is (a faith-rooted seasonal programme), what it expects (consistency, Islamic etiquette, teamwork), and what it offers (skill development, spiritual growth, community belonging).
 
 **How?**
 
@@ -10058,8 +12145,7 @@ The Prophet (peace be upon him) said: "He who does not thank people does not tha
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said "Whoever does not thank people has not thanked Allah" (Abu Dawud 4811). Volunteers who feel unseen and unappreciated eventually stop coming. Recognition does not require expensive gifts — it requires sincere acknowledgment of effort and impact. A structured recognition programme ensures that appreciation is consistent and reaches every volunteer, not just the most visible ones. It also models the Islamic value of shukr (gratitude) at the community level.
-
+ Volunteers who feel unseen and unappreciated eventually stop coming. Recognition does not require expensive gifts — it requires sincere acknowledgment of effort and impact. A structured recognition programme ensures that appreciation is consistent and reaches every volunteer, not just the most visible ones. It also models the Islamic value of shukr (gratitude) at the community level.
 
 **How?**
 
@@ -10141,8 +12227,7 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The framework guide is the primary vehicle for sharing the MTC model. It must be comprehensive enough to enable implementation without hand-holding, yet accessible enough that a community leader with no farming experience can begin. The Prophet (peace be upon him) said "Convey from me, even if it is one ayah" (Bukhari 3461) — the guide conveys the ayat of the earth and the sunnah of stewardship in a form that empowers action. A poorly written guide wastes the community's accumulated wisdom; an excellent one multiplies it.
-
+The framework guide is the primary vehicle for sharing the MTC model. It must be comprehensive enough to enable implementation without hand-holding, yet accessible enough that a community leader with no farming experience can begin. A poorly written guide wastes the community's accumulated wisdom; an excellent one multiplies it.
 
 **How?**
 
@@ -10534,8 +12619,7 @@ The Prophet (peace be upon him) said: "The parable of the believers in their aff
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Local distribution is impactful but limited. Partnering with Islamic food relief organisations — who have established logistics, volunteer networks, and recipient databases — multiplies MTC's reach. These partnerships also connect MTC to the broader Islamic food security movement, creating mutual benefit: relief organisations gain access to locally grown, halal produce, and MTC gains distribution infrastructure and community credibility. The Prophet (peace be upon him) said "None of you truly believes until he loves for his brother what he loves for himself" (Bukhari 13) — partnering ensures the harvest reaches the brother in need.
-
+Local distribution is impactful but limited. Partnering with Islamic food relief organisations — who have established logistics, volunteer networks, and recipient databases — multiplies MTC's reach. These partnerships also connect MTC to the broader Islamic food security movement, creating mutual benefit: relief organisations gain access to locally grown, halal produce, and MTC gains distribution infrastructure and community credibility.
 
 **How?**
 
@@ -10722,8 +12806,7 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Knowledge that is not archived is knowledge at risk. Digital files corrupt, websites go offline, organisations dissolve — but well-archived material survives. Archiving the complete MTC documentation in multiple formats and locations ensures that this work outlasts any individual, organisation, or technology platform. The Prophet (peace be upon him) said "When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim 1631). A permanent archive is the institutional expression of beneficial knowledge that continues giving.
-
+Knowledge that is not archived is knowledge at risk. Digital files corrupt, websites go offline, organisations dissolve — but well-archived material survives. Archiving the complete MTC documentation in multiple formats and locations ensures that this work outlasts any individual, organisation, or technology platform. A permanent archive is the institutional expression of beneficial knowledge that continues giving.
 
 **How?**
 
@@ -10793,6 +12876,10 @@ The Sahifat al-Madinah is the first written constitution in Islamic history, est
 ### Quran (17:34)
 **Arabic:** وَأَوْفُوا بِالْعَهْدِ ۖ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا  
 **Translation:** And fulfill every covenant. Indeed, the covenant is ever questioned about.
+
+### Quran (59:9)
+**Arabic:** وَٱلَّذِينَ تَبَوَّءُو ٱلدَّارَ وَٱلْإِيمَـٰنَ مِن قَبْلِهِمْ يُحِبُّونَ مَنْ هَاجَرَ إِلَيْهِمْ وَلَا يَجِدُونَ فِى صُدُورِهِمْ حَاجَةًۭ مِّمَّآ أُوتُوا۟ وَيُؤْثِرُونَ عَلَىٰٓ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌۭ ۚ وَمَن يُوقَ شُحَّ نَفْسِهِۦ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ  
+**Translation:** Those who were already firmly established in their homes [in Medina], and firmly rooted in faith, show love for those who migrated to them for refuge and harbour no desire in their hearts for what has been given to them. They give them preference over themselves, even if they too are poor: those who are saved from their own souls’ greed are truly successful.
 
 **II. Hadith**
 
@@ -11138,7 +13225,9 @@ The Prophet (peace be upon him) paired every Muhajir with an Ansari upon arrival
 6. Gather feedback from both families at each stage and adjust pairings if the relationship is not functioning well.
 7. Completion indicator: every incoming family paired with an Ansar family, with a documented support plan and check-in schedule in place.` },
         { title: "Formalise the founding cohort — conduct a collective bay'ah (pledge) ceremony", done: false,
-          sources: `**I. Hadith**
+          sources: `### Quran (59:9-10)
+
+**II. Hadith**
 
 
 ### Sahih Muslim 1709
@@ -11176,6 +13265,10 @@ The bay'ah is the moment when individual interest becomes collective commitment.
 **Arabic:** وَفِي الْأَرْضِ قِطَعٌ مُّتَجَاوِرَاتٌ وَجَنَّاتٌ مِّنْ أَعْنَابٍ وَزَرْعٌ وَنَخِيلٌ صِنْوَانٌ وَغَيْرُ صِنْوَانٍ يُسْقَىٰ بِمَاءٍ وَاحِدٍ وَنُفَضِّلُ بَعْضَهَا عَلَىٰ بَعْضٍ فِي الْأُكُلِ ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَعْقِلُونَ
 **Translation:** "There are, in the land, neighbouring plots, gardens of vineyards, cornfields, palm trees in clusters or otherwise, all watered with the same water, yet We make some of them taste better than others: there truly are signs in this for people who reason."
 
+### Quran (67:15)
+**Arabic:** هُوَ ٱلَّذِى جَعَلَ لَكُمُ ٱلْأَرْضَ ذَلُولًۭا فَٱمْشُوا۟ فِى مَنَاكِبِهَا وَكُلُوا۟ مِن رِّزْقِهِۦ ۖ وَإِلَيْهِ ٱلنُّشُورُ  
+**Translation:** It is He who has made the earth manageable for you––travel its regions; eat His provision- and to Him you will be resurrected.
+
 **II. Hadith**
 
 ### Sunan Ibn Majah 2473
@@ -11209,8 +13302,7 @@ The Prophet (peace be upon him) said: "Muslims are partners in three things: wat
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Water is the most non-negotiable infrastructure element. The Prophet (peace be upon him) said, "People are partners in three things: water, pasture, and fire." No family can be asked to relocate to land without a proven, reliable water supply for drinking, cooking, wudu, and basic agriculture. Establishing water access before construction begins ensures that every subsequent infrastructure decision is built on a secure foundation rather than a hope that water will be solved later.
-
+Water is the most non-negotiable infrastructure element. Establishing water access before construction begins ensures that every subsequent infrastructure decision is built on a secure foundation rather than a hope that water will be solved later.
 
 **How?**
 
@@ -11295,8 +13387,7 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Food security is both a practical necessity and a spiritual aspiration. The Prophet (peace be upon him) said, "If the Hour comes while one of you has a seedling in his hand, let him plant it." A community that depends entirely on external food supply is vulnerable to disruption and disconnected from the land it inhabits. Even at the founding stage, establishing some level of food production — however small — builds the skills, rhythms, and self-reliance that the community will need as it grows. It also connects families to the earth in a way that grocery shopping never can.
-
+Food security is both a practical necessity and a spiritual aspiration. Even at the founding stage, establishing some level of food production — however small — builds the skills, rhythms, and self-reliance that the community will need as it grows. It also connects families to the earth in a way that grocery shopping never can.
 
 **How?**
 
@@ -11893,8 +13984,7 @@ Narrated \`Urwa:I asked \`Aisha : "How do you interpret the statement of Allah,.
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said, "The best of you are those who learn the Quran and teach it." In a community grounded in Islamic principles, Quranic literacy and Islamic knowledge are not extracurricular — they are foundational. A structured programme ensures every child (and interested adult) has access to qualified instruction in Quran recitation, memorisation, tafsir, and age-appropriate Islamic studies. Without this programme, families must seek instruction externally, which fragments the community's educational identity and places an unnecessary burden on parents who chose this community precisely because of its Islamic foundation.
-
+ A structured programme ensures every child (and interested adult) has access to qualified instruction in Quran recitation, memorisation, tafsir, and age-appropriate Islamic studies. Without this programme, families must seek instruction externally, which fragments the community's educational identity and places an unnecessary burden on parents who chose this community precisely because of its Islamic foundation.
 
 **How?**
 
@@ -11949,8 +14039,7 @@ The Prophet (peace be upon him) said: "If the Hour is about to be established an
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The community's land is its greatest classroom. Children who grow up farming, building, observing ecosystems, and navigating real terrain develop knowledge, confidence, and resilience that no textbook can provide. The Prophet (peace be upon him) encouraged physical activity, practical skill, and connection to the natural world. Experiential learning also gives community-educated children a distinctive advantage: they graduate not only with academic knowledge but with the practical competence to grow food, manage resources, build structures, and live in conscious relationship with the earth — skills increasingly rare and increasingly valuable.
-
+The community's land is its greatest classroom. Children who grow up farming, building, observing ecosystems, and navigating real terrain develop knowledge, confidence, and resilience that no textbook can provide. Experiential learning also gives community-educated children a distinctive advantage: they graduate not only with academic knowledge but with the practical competence to grow food, manage resources, build structures, and live in conscious relationship with the earth — skills increasingly rare and increasingly valuable.
 
 **How?**
 
@@ -12063,8 +14152,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said, "Eat together and do not eat separately, for the blessing is in the togetherness." A weekly communal meal is the simplest and most powerful tradition a community can establish. It requires no special skill, no budget, and no planning beyond showing up with food and appetite. Yet it produces extraordinary returns: families who eat together weekly develop the familiarity, affection, and tolerance that sustain community life through difficulty. The open table — where guests, visitors, and newcomers are always welcome — also keeps the community outward-facing and hospitable rather than insular.
-
+ It requires no special skill, no budget, and no planning beyond showing up with food and appetite. Yet it produces extraordinary returns: families who eat together weekly develop the familiarity, affection, and tolerance that sustain community life through difficulty. The open table — where guests, visitors, and newcomers are always welcome — also keeps the community outward-facing and hospitable rather than insular.
 
 **How?**
 
@@ -12289,8 +14377,7 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Waqf surplus is the ultimate marker of financial maturity for an Islamic community. When the endowment's annual income exceeds the community's operational costs, the community has freed itself from dependence on member contributions for survival. This is not merely a financial milestone — it is a spiritual one. It means the community has built something that sustains itself, that can weather economic downturns without emergency fundraising, and that has resources to share with the wider ummah. The Prophet (peace be upon him) said, "The upper hand is better than the lower hand" — a community with waqf surplus has the upper hand, giving rather than needing.
-
+Waqf surplus is the ultimate marker of financial maturity for an Islamic community. When the endowment's annual income exceeds the community's operational costs, the community has freed itself from dependence on member contributions for survival. This is not merely a financial milestone — it is a spiritual one. It means the community has built something that sustains itself, that can weather economic downturns without emergency fundraising, and that has resources to share with the wider ummah.
 
 **How?**
 
@@ -12465,8 +14552,7 @@ The Prophet (peace be upon him) said: "When a person dies, his deeds come to an 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Leadership development is a decades-long investment, not a last-minute handoff. The Prophet (peace be upon him) began preparing the next generation of Muslim leaders from their youth — Usama ibn Zayd commanded an army at seventeen because he had been trained for years before that moment. If the community waits until founders are ready to retire before developing successors, it will face a leadership vacuum filled by the most ambitious rather than the most capable. Intentional identification and development of young leaders ensures the community's values and competence transfer seamlessly across generations.
-
+Leadership development is a decades-long investment, not a last-minute handoff. If the community waits until founders are ready to retire before developing successors, it will face a leadership vacuum filled by the most ambitious rather than the most capable. Intentional identification and development of young leaders ensures the community's values and competence transfer seamlessly across generations.
 
 **How?**
 
@@ -12726,8 +14812,7 @@ The replication guide and ambassador programme are proactive tools, but many com
 **Translation:** Have you not considered how Allah presents an example — a good word like a good tree, whose root is firmly fixed and whose branches [high] in the sky? A public media presence lets the good tree of community life be witnessed widely.`,
           description: `**Why?**
 
-A community that does excellent work in obscurity helps only itself. The Prophet (peace be upon him) said the believer who mixes with people and bears their difficulties is better than the one who isolates. A public media presence is not vanity — it is da'wah through demonstration. When a Muslim family in another city sees your community's daily life documented honestly — the morning adhaan over farmland, children learning Quran and then building a garden bed, a shura council deliberating over real decisions — something shifts from "this is a nice idea" to "this is actually happening." That shift is the seed of every future community in your network.
-
+A community that does excellent work in obscurity helps only itself. A public media presence is not vanity — it is da'wah through demonstration. When a Muslim family in another city sees your community's daily life documented honestly — the morning adhaan over farmland, children learning Quran and then building a garden bed, a shura council deliberating over real decisions — something shifts from "this is a nice idea" to "this is actually happening." That shift is the seed of every future community in your network.
 
 **How?**
 

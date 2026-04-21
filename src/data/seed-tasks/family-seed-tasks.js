@@ -53,16 +53,15 @@ The Prophet (peace be upon him) said: "There is no marriage except with a wali (
 **Translation:** So marry them with the permission of their people and give them their due compensation according to what is acceptable.`,
           description: `**Why?**
 
-The wali (guardian) is a pillar of the nikah in the majority of scholarly opinions. The Prophet (peace be upon him) said, "There is no marriage without a wali." If the person who acted as wali was not a legitimate guardian — for example, a friend rather than the bride\'s father or nearest male relative — the contract may be invalid depending on the school of fiqh followed.
-
+The wali (guardian) is a pillar of the nikah in the majority of scholarly opinions.
 
 **How?**
 
-1. Identify who served as the bride\'s wali during the nikah ceremony.
+1. Identify who served as the bride's wali during the nikah ceremony.
 2. Confirm their relationship to the bride — the wali should be her father, grandfather, brother, or nearest male relative in the correct order per your madhab.
 3. If the wali was a community imam acting as "wali al-hakim" (judge-guardian), verify that there was a legitimate reason (e.g., the bride had no accessible male relatives or they refused without valid cause).
 4. Consult the fiqh rulings of your madhab on the order of guardianship priority.
-5. If there is doubt about the wali\'s legitimacy, consult a qualified scholar to determine if the nikah needs to be renewed.`,
+5. If there is doubt about the wali's legitimacy, consult a qualified scholar to determine if the nikah needs to be renewed.`,
         },
         {
           tier: 'T2',
@@ -222,8 +221,7 @@ The Prophet (peace be upon him) said: "The best of you are the best to their fam
 **Translation:** And of His signs is that He created for you from yourselves mates that you may find tranquillity in them, and He placed between you affection and mercy.`,
           description: `**Why?**
 
-Without structure, daily check-ins often devolve into logistics ("Did you pay the bill?") or awkward silence. A simple framework gives both spouses a starting point that naturally surfaces emotions, builds appreciation, and identifies small problems before they become large ones. Gratitude in particular is prophetic — the Prophet (peace be upon him) said, "He who does not thank people does not thank Allah."
-
+Without structure, daily check-ins often devolve into logistics ("Did you pay the bill?") or awkward silence. A simple framework gives both spouses a starting point that naturally surfaces emotions, builds appreciation, and identifies small problems before they become large ones.
 
 **How?**
 
@@ -232,8 +230,8 @@ Without structure, daily check-ins often devolve into logistics ("Did you pay th
    - **Concern:** One thing weighing on your mind (does not have to be about the marriage).
    - **Gratitude:** One thing you appreciate about your spouse today.
 2. The listening spouse practises active listening — no interrupting, no problem-solving unless asked.
-3. Keep each person\'s turn to about 4-5 minutes.
-4. Optionally close with a brief du\'a together.
+3. Keep each person's turn to about 4-5 minutes.
+4. Optionally close with a brief du'a together.
 5. Adapt the framework over time — some couples add "one request" or "one thing I need help with."`,
         },
         {
@@ -248,8 +246,7 @@ The Prophet (peace be upon him) said: "The best of you are the best to their fam
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Research and Islamic wisdom both affirm that consistency is what produces lasting change. The Prophet (peace be upon him) said, "The most beloved deeds to Allah are those that are consistent, even if they are small." Tracking the first 30 days creates accountability, reveals patterns (which days you tend to skip), and builds the momentum needed to make this habit permanent.
-
+Research and Islamic wisdom both affirm that consistency is what produces lasting change.
 
 **How?**
 
@@ -277,6 +274,10 @@ Research and Islamic wisdom both affirm that consistency is what produces lastin
 **Arabic:** وَإِذَا حَضَرَ الْقِسْمَةَ أُولُو الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينُ فَارْزُقُوهُم مِّنْهُ وَقُولُوا لَهُمْ قَوْلًا مَّعْرُوفًا
 **Translation:** "If other relatives, orphans, or needy people are present at the distribution, give them something too, and speak kindly to them."
 *(Contextual: the command to give generously and speak kindly extends to the household — the husband's obligations of nafaqah and kind speech are grounded in this principle of ma'ruf.)*
+
+### Quran (4:34)
+**Arabic:** ٱلرِّجَالُ قَوَّٰمُونَ عَلَى ٱلنِّسَآءِ بِمَا فَضَّلَ ٱللَّهُ بَعْضَهُمْ عَلَىٰ بَعْضٍۢ وَبِمَآ أَنفَقُوا۟ مِنْ أَمْوَٰلِهِمْ ۚ فَٱلصَّـٰلِحَـٰتُ قَـٰنِتَـٰتٌ حَـٰفِظَـٰتٌۭ لِّلْغَيْبِ بِمَا حَفِظَ ٱللَّهُ ۚ وَٱلَّـٰتِى تَخَافُونَ نُشُوزَهُنَّ فَعِظُوهُنَّ وَٱهْجُرُوهُنَّ فِى ٱلْمَضَاجِعِ وَٱضْرِبُوهُنَّ ۖ فَإِنْ أَطَعْنَكُمْ فَلَا تَبْغُوا۟ عَلَيْهِنَّ سَبِيلًا ۗ إِنَّ ٱللَّهَ كَانَ عَلِيًّۭا كَبِيرًۭا  
+**Translation:** Husbands should take good care of their wives, with [the bounties] God has given to some more than others and with what they spend out of their own money. Righteous wives are devout and guard what God would have them guard in their husbands’ absence. If you fear high-handedness from your wives, remind them [of the teachings of God], then ignore them when you go to bed, then hit them.If they obey you, you have no right to act against them: God is most high and great.
 
 **II. Hadith**
 
@@ -335,6 +336,10 @@ Many wives in Muslim households are unaware of the full extent of their God-give
 ### Quran (4:128)
 **Arabic:** وَإِنِ امْرَأَةٌ خَافَتْ مِن بَعْلِهَا نُشُوزًا أَوْ إِعْرَاضًا فَلَا جُنَاحَ عَلَيْهِمَا أَن يُصْلِحَا بَيْنَهُمَا صُلْحًا ۚ وَالصُّلْحُ خَيْرٌ
 **Translation:** "If a wife fears high-handedness or alienation from her husband, neither of them will be blamed if they come to a peaceful settlement, for peace is best. Although human souls are prone to selfishness, if you do good and are mindful of God, He is well aware of all that you do."
+
+### Quran (4:34)
+**Arabic:** ٱلرِّجَالُ قَوَّٰمُونَ عَلَى ٱلنِّسَآءِ بِمَا فَضَّلَ ٱللَّهُ بَعْضَهُمْ عَلَىٰ بَعْضٍۢ وَبِمَآ أَنفَقُوا۟ مِنْ أَمْوَٰلِهِمْ ۚ فَٱلصَّـٰلِحَـٰتُ قَـٰنِتَـٰتٌ حَـٰفِظَـٰتٌۭ لِّلْغَيْبِ بِمَا حَفِظَ ٱللَّهُ ۚ وَٱلَّـٰتِى تَخَافُونَ نُشُوزَهُنَّ فَعِظُوهُنَّ وَٱهْجُرُوهُنَّ فِى ٱلْمَضَاجِعِ وَٱضْرِبُوهُنَّ ۖ فَإِنْ أَطَعْنَكُمْ فَلَا تَبْغُوا۟ عَلَيْهِنَّ سَبِيلًا ۗ إِنَّ ٱللَّهَ كَانَ عَلِيًّۭا كَبِيرًۭا  
+**Translation:** Husbands should take good care of their wives, with [the bounties] God has given to some more than others and with what they spend out of their own money. Righteous wives are devout and guard what God would have them guard in their husbands’ absence. If you fear high-handedness from your wives, remind them [of the teachings of God], then ignore them when you go to bed, then hit them.If they obey you, you have no right to act against them: God is most high and great.
 
 **II. Hadith**
 
@@ -429,7 +434,7 @@ Knowledge without application is a proof against you, not for you. The purpose o
     {
       title: 'Ensure your spouse\'s basic needs — financial, emotional, and physical — are consistently met',
       priority: 'urgent', tags: ['marriage', 'obligation'],
-      description: 'Meeting your spouse\'s fundamental needs is not generosity — it is an obligation (wajib). The Prophet (peace be upon him) said, "The best of you are the best to their families." Neglecting provision, emotional support, or physical companionship erodes the marriage at its foundations and is a form of dhulm (injustice).',
+      description: 'Meeting your spouse\'s fundamental needs is not generosity — it is an obligation (wajib).',
       subtasks: [
         {
           tier: 'T2',
@@ -444,7 +449,13 @@ Knowledge without application is a proof against you, not for you. The purpose o
 
 ### Quran (2:233)
 **Arabic:** وَعَلَى الْمَوْلُودِ لَهُ رِزْقُهُنَّ وَكِسْوَتُهُنَّ بِالْمَعْرُوفِ  
-**Translation:** And upon the father is their provision and their clothing according to what is acceptable.`,
+**Translation:** And upon the father is their provision and their clothing according to what is acceptable.
+
+
+### Quran (65:7)
+**Arabic:** لِيُنفِقْ ذُو سَعَةٍۢ مِّن سَعَتِهِۦ ۖ وَمَن قُدِرَ عَلَيْهِ رِزْقُهُۥ فَلْيُنفِقْ مِمَّآ ءَاتَىٰهُ ٱللَّهُ ۚ لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا مَآ ءَاتَىٰهَا ۚ سَيَجْعَلُ ٱللَّهُ بَعْدَ عُسْرٍۢ يُسْرًۭا  
+**Translation:** and let the wealthy man spend according to his wealth. But let him whose provision is restricted spend according to what God has given him: God does not burden any soul with more than He has given it- after hardship, God will bring ease.
+`,
           description: `**Why?**
 
 Nafaqah is not a favour — it is a legal and spiritual obligation upon the husband. Allah says, "Let the man of means spend according to his means" (Quran 65:7). Financial provision must cover the essentials — housing, food, clothing, and healthcare — at a standard befitting the wife\'s dignity, not at the bare minimum of survival.
@@ -566,13 +577,10 @@ The Prophet (peace be upon him) said: "Do not strike the female servants of Alla
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Verbal and emotional abuse often hides behind cultural normalisation — "I was just angry" or "that\'s how my parents talked." But the Prophet (peace be upon him) said, "The strong man is not the one who can wrestle, but the one who controls himself at the time of anger." Honest self-assessment is the first step to repentance and change.
-
-
 **How?**
 
 1. Set aside time alone for sincere reflection — preferably after salah when the heart is softest.
-2. Review your behaviour over the past month: Have you raised your voice in anger? Used insults or sarcasm? Made threats (even veiled ones like "I\'ll find someone better")?
+2. Review your behaviour over the past month: Have you raised your voice in anger? Used insults or sarcasm? Made threats (even veiled ones like "I'll find someone better")?
 3. Consider patterns, not just isolated incidents — do you belittle your spouse in front of others? Do you use the silent treatment as punishment?
 4. Write down what you find, honestly. This is between you and Allah.
 5. If you identify patterns of harmful behaviour, acknowledge them as sins requiring tawbah — and proceed to the next subtasks for concrete corrective action.`,
@@ -782,15 +790,14 @@ The Prophet (peace be upon him) said: "He who does not thank people, does not th
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Gratitude is the antidote to marital entitlement. When you actively look for what your spouse did well and verbalise it, you train your brain to notice the good rather than fixate on the lacking. The Prophet (peace be upon him) warned against ingratitude toward one\'s spouse, saying it was among the most common sins he saw among the people of the Fire.
-
+Gratitude is the antidote to marital entitlement. When you actively look for what your spouse did well and verbalise it, you train your brain to notice the good rather than fixate on the lacking.
 
 **How?**
 
 1. Throughout the week, mentally note moments when your spouse did something kind, helpful, or thoughtful — even small things.
 2. During the gratitude portion of the meeting, share at least two specific examples (not vague praise like "you were nice" but specific like "you woke up early to make breakfast on Wednesday even though you were tired").
 3. Look your spouse in the eye when expressing appreciation — physical presence amplifies the words.
-4. Receive your spouse\'s appreciation gracefully — do not deflect or minimise ("oh, it was nothing").
+4. Receive your spouse's appreciation gracefully — do not deflect or minimise ("oh, it was nothing").
 5. Over time, expand beyond actions to character: "I appreciate your patience this week" or "Your generosity with the neighbours inspired me."`,
         },
         {
@@ -1027,19 +1034,12 @@ The Prophet (peace be upon him) said: "If one of you becomes angry, let him be s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-In the heat of an argument, you cannot think clearly enough to invent a strategy. A pre-agreed conflict protocol gives both spouses a script to follow when emotions are high — reducing the chance of saying or doing something you will regret. The Prophet (peace be upon him) advised taking wudu and changing your posture when angry — these are built-in de-escalation tools.
-
+In the heat of an argument, you cannot think clearly enough to invent a strategy. A pre-agreed conflict protocol gives both spouses a script to follow when emotions are high — reducing the chance of saying or doing something you will regret.
 
 **How?**
 
 1. Sit together during a calm moment — never draft a conflict protocol during or after a fight.
-2. Agree on a step-by-step protocol. A suggested template:
-   - **Step 1:** Either spouse can call a "pause" — no shame, no resistance.
-   - **Step 2:** Both take wudu (the Prophet advised this for anger).
-   - **Step 3:** Separate for 15-30 minutes — no phones, no venting to others, just quiet reflection.
-   - **Step 4:** Return and each person shares their feeling using "I feel..." statements.
-   - **Step 5:** Work toward resolution or agree to revisit with a mediator if needed.
-3. Write the protocol on a card and keep it accessible.
+2. Agree on a step-by-step protocol. Write the protocol on a card and keep it accessible.
 4. Practise it on a minor disagreement first so the steps feel natural when a major one arises.
 5. Revisit and refine the protocol after using it a few times — what worked? What felt forced?`,
         },
@@ -1287,8 +1287,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A joint spiritual goal creates a shared sense of purpose that transcends the daily routine of bills, chores, and logistics. When both spouses are striving toward the same spiritual milestone, they become partners in \'ibadah — and the Prophet (peace be upon him) said that Allah\'s mercy descends upon a husband who wakes at night to pray and wakes his wife to join him.
-
+A joint spiritual goal creates a shared sense of purpose that transcends the daily routine of bills, chores, and logistics.
 
 **How?**
 
@@ -1299,7 +1298,7 @@ A joint spiritual goal creates a shared sense of purpose that transcends the dai
    - **Service:** Volunteer regularly at a local mosque, food bank, or Islamic school.
 3. Choose a goal that excites both of you — forced spirituality breeds resentment, not barakah.
 4. Ensure the goal is realistic given your current life stage, finances, and time.
-5. Write down the goal together and make du\'a for Allah to grant you tawfiq in completing it.`,
+5. Write down the goal together and make du'a for Allah to grant you tawfiq in completing it.`,
         },
         {
           tier: 'T1',
@@ -1313,8 +1312,7 @@ A joint spiritual goal creates a shared sense of purpose that transcends the dai
 **Translation:** And those who say, Our Lord, grant us from among our wives and offspring comfort to our eyes and make us a leader for the righteous. Setting a realistic timeline with weekly milestones channels this du'a into action.`,
           description: `**Why?**
 
-Grand spiritual goals without structure become abandoned aspirations. Breaking the goal into weekly milestones makes the impossible feel achievable and provides regular checkpoints to maintain momentum. The Prophet (peace be upon him) said, "The most beloved deeds to Allah are those that are consistent, even if they are small."
-
+Grand spiritual goals without structure become abandoned aspirations. Breaking the goal into weekly milestones makes the impossible feel achievable and provides regular checkpoints to maintain momentum.
 
 **How?**
 
@@ -1680,8 +1678,7 @@ The Prophet (peace be upon him) said: "Allah is good and accepts only that which
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet ﷺ said that a body nourished by haram will not enter Paradise. Every dirham that feeds, clothes, or shelters your child either purifies or pollutes their foundation. An honest audit of your income sources is the first act of responsible parenting — it ensures that the barakah in your provision is real, not assumed.
-
+ Every dirham that feeds, clothes, or shelters your child either purifies or pollutes their foundation. An honest audit of your income sources is the first act of responsible parenting — it ensures that the barakah in your provision is real, not assumed.
 
 **How?**
 
@@ -1783,15 +1780,14 @@ The Prophet (peace be upon him) said: "Each of you is a shepherd, and each of yo
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Consistency is the hallmark of trustworthy stewardship. A monthly checklist transforms provision from something reactive — scrambling when a need arises — into something intentional and systematic. The Prophet ﷺ said that the most beloved deeds to Allah are those done consistently, even if small. Applying this principle to your children\'s material needs ensures no child is overlooked and no essential need is forgotten.
-
+Consistency is the hallmark of trustworthy stewardship. A monthly checklist transforms provision from something reactive — scrambling when a need arises — into something intentional and systematic. Applying this principle to your children's material needs ensures no child is overlooked and no essential need is forgotten.
 
 **How?**
 
 1. Create a simple checklist covering the major categories: food supply, clothing condition, medical needs, school supplies, hygiene products, and home maintenance.
-2. Add a section for each child\'s specific needs — medications, upcoming growth-related purchases, seasonal items.
+2. Add a section for each child's specific needs — medications, upcoming growth-related purchases, seasonal items.
 3. Schedule a fixed day each month (e.g., the 1st or 15th) to review the checklist.
-4. Involve your spouse in the review so both parents share awareness of the household\'s state.
+4. Involve your spouse in the review so both parents share awareness of the household's state.
 5. Keep the checklist in a visible or easily accessible place — a shared note, printed sheet on the fridge, or a digital document.`,
         },
       ],
@@ -1902,14 +1898,13 @@ The Prophet (peace be upon him) said: "Each of you is a shepherd, and each of yo
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-When only one parent handles bedtime, children bond with that parent around faith and miss the other\'s perspective entirely. The Prophet ﷺ was engaged with children directly — he carried them in prayer, told them stories, and gave them individual attention. Both parents sharing the bedtime routine ensures children see Islam modelled by both their mother and father, and it prevents burnout on either side.
-
+When only one parent handles bedtime, children bond with that parent around faith and miss the other's perspective entirely. Both parents sharing the bedtime routine ensures children see Islam modelled by both their mother and father, and it prevents burnout on either side.
 
 **How?**
 
 1. Agree with your spouse on a rotation schedule — alternating nights, splitting by child, or week-on/week-off.
-2. Ensure both parents know the du\'as, have access to the story library, and understand the routine flow.
-3. Allow each parent to bring their own style — one might emphasise stories, the other might add extra du\'a or conversation.
+2. Ensure both parents know the du'as, have access to the story library, and understand the routine flow.
+3. Allow each parent to bring their own style — one might emphasise stories, the other might add extra du'a or conversation.
 4. If one parent travels or is unavailable, maintain the routine with the present parent so consistency is not broken.
 5. Periodically do bedtime together as a family for special occasions — the night before Ramadan, Eid eve, or after a difficult day.`,
         },
@@ -1926,13 +1921,12 @@ The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet ﷺ told us that the most beloved deeds to Allah are those performed consistently, even if small. A bedtime routine that happens sporadically teaches children that Islamic practices are optional. Tracking for 30 days leverages the science of habit formation — after a month of consistent practice, the routine shifts from effortful to automatic for both parents and children.
-
+ A bedtime routine that happens sporadically teaches children that Islamic practices are optional. Tracking for 30 days leverages the science of habit formation — after a month of consistent practice, the routine shifts from effortful to automatic for both parents and children.
 
 **How?**
 
 1. Create a simple 30-day tracker — a printed calendar on the fridge, a whiteboard, or a shared digital note.
-2. Each night, mark whether the full routine was completed (du\'a + Ayat al-Kursi + story).
+2. Each night, mark whether the full routine was completed (du'a + Ayat al-Kursi + story).
 3. If a night is missed, note why — travel, illness, or lapse — without guilt, but with awareness.
 4. Aim for 90% consistency (27 out of 30 nights) as the target, not perfection.
 5. At the end of 30 days, review the tracker with your spouse, celebrate the achievement, and continue without the tracker as the habit should now be internalised.`,
@@ -2018,8 +2012,7 @@ Narrated Sa\`id bin Jubair:I said to Ibn \`Abbas, "Nauf-Al-Bakali claims that Mo
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-By age seven, the Prophet ﷺ instructed parents to command children to pray. This is the age of structured learning — children can now understand definitions, remember evidence, and begin practising. Teaching the pillars with their Quranic and Sunnah basis at this stage builds a faith grounded in knowledge rather than cultural habit, preparing them for the questions and challenges that come in adolescence.
-
+ This is the age of structured learning — children can now understand definitions, remember evidence, and begin practising. Teaching the pillars with their Quranic and Sunnah basis at this stage builds a faith grounded in knowledge rather than cultural habit, preparing them for the questions and challenges that come in adolescence.
 
 **How?**
 
@@ -2121,13 +2114,12 @@ The Prophet (peace be upon him) said: "I was sent to perfect good character." Id
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Parenting without clarity on what you are building produces random results. The Prophet ﷺ said he was sent to perfect good character, and he embodied specific, identifiable traits — truthfulness, patience, generosity, humility, and courage. If you cannot name the traits you want your children to carry, you cannot intentionally cultivate them. Clarity of vision is the first step in intentional tarbiyah.
-
+Parenting without clarity on what you are building produces random results. If you cannot name the traits you want your children to carry, you cannot intentionally cultivate them. Clarity of vision is the first step in intentional tarbiyah.
 
 **How?**
 
 1. Sit with your spouse and independently list the 5 character traits you most want your children to embody as adults.
-2. Compare lists and agree on a shared top 5 — e.g., honesty (sidq), patience (sabr), generosity (karam), courage (shuja\'ah), gratitude (shukr).
+2. Compare lists and agree on a shared top 5 — e.g., honesty (sidq), patience (sabr), generosity (karam), courage (shuja'ah), gratitude (shukr).
 3. For each trait, find a Prophetic example or Quranic reference that grounds it.
 4. Write these 5 traits down and keep them visible — they are the "north star" of your parenting decisions.
 5. Revisit annually: as children grow, the emphasis may shift (e.g., courage becomes more critical during adolescence).`,
@@ -2193,14 +2185,13 @@ Trying to overhaul your entire character at once leads to burnout and failure. T
 **Translation:** O my son, establish prayer, enjoin what is right, and forbid what is wrong. Narrating your actions to children -- "I am returning this because honesty matters" -- models Luqman's method of teaching through everyday moments.`,
           description: `**Why?**
 
-Children observe your actions but do not always understand your motives. When you narrate the "why" behind your behaviour, you turn everyday moments into lessons. This is exactly what the Prophet ﷺ did — he did not just act; he explained his actions to his companions so they could internalise the principles. Narration bridges the gap between observation and understanding.
-
+Children observe your actions but do not always understand your motives. When you narrate the "why" behind your behaviour, you turn everyday moments into lessons. Narration bridges the gap between observation and understanding.
 
 **How?**
 
-1. When you make a decision that reflects a value, say it aloud: "I\'m giving this back because it\'s not ours — honesty matters even when no one is watching."
-2. When you show patience, name it: "I\'m frustrated right now, but I\'m choosing to be patient because Allah loves the patient."
-3. When you make a mistake, model accountability: "I shouldn\'t have said that. I\'m going to apologise because taking responsibility is part of our deen."
+1. When you make a decision that reflects a value, say it aloud: "I'm giving this back because it's not ours — honesty matters even when no one is watching."
+2. When you show patience, name it: "I'm frustrated right now, but I'm choosing to be patient because Allah loves the patient."
+3. When you make a mistake, model accountability: "I shouldn't have said that. I'm going to apologise because taking responsibility is part of our deen."
 4. Keep it natural — not every action needs narration. Focus on moments that align with your top 5 traits.
 5. As children get older, shift from narration to dialogue: "What do you think was the right thing to do there?"`,
         },
@@ -2258,14 +2249,12 @@ The Prophet (peace be upon him) said: "Command your children to pray at the age 
 
 A home without clear rules is a home where children are constantly guessing what is acceptable — and that uncertainty breeds anxiety and misbehaviour. The Shariah itself provides clear boundaries (hudud) because human beings flourish within known limits. Defining 5-7 non-negotiable rules gives your family a shared moral framework that everyone can reference and uphold.
 
-
 **How?**
 
 1. Sit with your spouse and list the behaviours that are absolutely non-negotiable in your home.
 2. Keep the list short — 5 to 7 rules maximum. Too many rules dilute enforcement.
 3. Frame rules positively where possible: "We speak with respect" rather than "No disrespectful speech."
-4. Ground each rule in an Islamic principle so children understand the "why": "We don\'t lie because the Prophet ﷺ said truthfulness leads to Paradise."
-5. Write the final list clearly and prepare to present it to the family.`,
+4. Write the final list clearly and prepare to present it to the family.`,
         },
         {
           tier: 'T1',
@@ -2517,8 +2506,7 @@ Narrated 'Uthman: The Prophet (ﷺ) said, "The best among you (Muslims) are thos
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Progress without recognition leads to discouragement. Children need to see that their effort is noticed and valued. The Prophet ﷺ praised the Sahaba for their accomplishments, and he specifically honoured those who memorised and taught Quran. Celebrating milestones — completing a juz, mastering a tajwid rule, memorising a long surah — reinforces that Quran is a source of joy, not just obligation.
-
+Progress without recognition leads to discouragement. Children need to see that their effort is noticed and valued. Celebrating milestones — completing a juz, mastering a tajwid rule, memorising a long surah — reinforces that Quran is a source of joy, not just obligation.
 
 **How?**
 
@@ -2874,8 +2862,7 @@ Abu Malik al-Ash'ari reported: The Messenger of Allah (ﷺ) said, "Cleanliness i
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-When a life skill is connected to an Islamic value, it transforms from a mundane chore into an act of worship. A child who cleans "because Mum said so" will stop when Mum is not watching. A child who cleans "because Allah loves cleanliness and the Prophet ﷺ said cleanliness is half of faith" carries that motivation internally. This is the essence of tarbiyah — embedding values so deeply that they drive behaviour even in your absence.
-
+When a life skill is connected to an Islamic value, it transforms from a mundane chore into an act of worship. A child who cleans "because Mum said so" will stop when Mum is not watching. This is the essence of tarbiyah — embedding values so deeply that they drive behaviour even in your absence.
 
 **How?**
 
@@ -3210,8 +3197,7 @@ The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A single service experience is a memory. Regular service is a character trait. When service becomes a recurring family activity, children stop seeing it as an event and start seeing it as part of who they are. The Prophet ﷺ said that the most beloved deeds to Allah are those done consistently. Monthly or quarterly service builds the muscle of generosity and community contribution into your family\'s identity.
-
+A single service experience is a memory. Regular service is a character trait. When service becomes a recurring family activity, children stop seeing it as an event and start seeing it as part of who they are. Monthly or quarterly service builds the muscle of generosity and community contribution into your family's identity.
 
 **How?**
 
@@ -3261,16 +3247,15 @@ In an age of instant messaging and digital noise, a handwritten letter carries w
 **Translation:** My Lord, make me an establisher of prayer, and from my descendants. Our Lord, and accept my supplication. Including specific du'as you make for each child by name echoes Ibrahim's heartfelt supplication for his offspring.`,
           description: `**Why?**
 
-Knowing that your parent makes du\'a for you by name is one of the most emotionally powerful gifts a child can receive. The Prophet ﷺ told us that the du\'a of a parent for their child is among those that are never rejected. When you write these du\'as in a letter, you give your child a tangible record of your spiritual investment in them — something they can read during moments of doubt, hardship, or grief.
-
+Knowing that your parent makes du'a for you by name is one of the most emotionally powerful gifts a child can receive. When you write these du'as in a letter, you give your child a tangible record of your spiritual investment in them — something they can read during moments of doubt, hardship, or grief.
 
 **How?**
 
-1. Before writing, spend a few minutes in actual du\'a for the child — let your heart speak to Allah about this specific child.
-2. Write the du\'as you make most frequently: "I ask Allah to make you among the salihin" or "I pray that Allah grants you a spouse who brings you closer to Him."
-3. Include du\'as specific to their personality and challenges: "I pray Allah gives you patience, because I know how much you struggle with waiting."
-4. Use the child\'s name throughout — "Ya Ahmad, I make du\'a for you every single day."
-5. Include at least one du\'a from the Quran or Sunnah that you pray specifically for them — e.g., "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a\'yun" (25:74).`,
+1. Before writing, spend a few minutes in actual du'a for the child — let your heart speak to Allah about this specific child.
+2. Write the du'as you make most frequently: "I ask Allah to make you among the salihin" or "I pray that Allah grants you a spouse who brings you closer to Him."
+3. Include du'as specific to their personality and challenges: "I pray Allah gives you patience, because I know how much you struggle with waiting."
+4. Use the child's name throughout — "Ya Ahmad, I make du'a for you every single day."
+5. Include at least one du'a from the Quran or Sunnah that you pray specifically for them — e.g., "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yun" (25:74).`,
         },
         {
           title: 'Share lessons from your own life — mistakes, turning points, moments of gratitude',
@@ -3429,8 +3414,7 @@ The Prophet (peace be upon him) said: "The one who maintains ties of kinship is 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Silat al-rahim extends beyond parents to siblings, grandparents, uncles, aunts, and cousins. If you only ever contact the same two or three people, other relatives quietly drift away. The Prophet (peace be upon him) warned that the one who merely reciprocates contact is not truly maintaining ties — the true maintainer is the one who reaches out even when others do not.
-
+Silat al-rahim extends beyond parents to siblings, grandparents, uncles, aunts, and cousins. If you only ever contact the same two or three people, other relatives quietly drift away.
 
 **How?**
 
@@ -3584,15 +3568,14 @@ The Prophet (peace be upon him) said: "Shall I not inform you of something bette
 **Translation:** The believers are but brothers, so make reconciliation between your brothers.`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "The one who maintains family ties is not the one who reciprocates — the true maintainer is the one who keeps ties even when others sever them." This is one of the hardest teachings to practise because it asks you to swallow your pride. But the reward is immense: Allah promises to maintain connection with the one who maintains family ties, and to sever connection with the one who severs them.
-
+ But the reward is immense: Allah promises to maintain connection with the one who maintains family ties, and to sever connection with the one who severs them.
 
 **How?**
 
 1. Choose the action you identified in the previous subtask and execute it today or within this week.
-2. If you are the wronged party, remind yourself: you are not conceding that you were wrong — you are choosing the higher path for Allah\'s sake.
+2. If you are the wronged party, remind yourself: you are not conceding that you were wrong — you are choosing the higher path for Allah's sake.
 3. Keep your initial contact simple and sincere — do not rehash the conflict in the first interaction.
-4. If the other person does not respond or responds coldly, you have still fulfilled your obligation. Make du\'a for them and try again after some time.
+4. If the other person does not respond or responds coldly, you have still fulfilled your obligation. Make du'a for them and try again after some time.
 5. Record the date and outcome — even a small step counts as progress.`,
         },
         {
@@ -3706,8 +3689,7 @@ Narrated Abu Huraira:I said to Allah's Messenger (ﷺ) "I hear many narrations (
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The hadith literature contains some of the most urgent warnings in all of Islam about severing family ties. The Prophet (peace be upon him) said that the one who severs ties will not enter Paradise. He also said that maintaining ties increases one\'s lifespan and provision. These are not metaphorical statements — they are prophetic guarantees that should motivate every Muslim to take kinship seriously.
-
+The hadith literature contains some of the most urgent warnings in all of Islam about severing family ties. He also said that maintaining ties increases one's lifespan and provision. These are not metaphorical statements — they are prophetic guarantees that should motivate every Muslim to take kinship seriously.
 
 **How?**
 
@@ -3763,7 +3745,12 @@ Not all relatives have equal rights upon you. Islam establishes a clear hierarch
 ### Sahih Bukhari 2620
 Narrated Asma bint Abi Bakr: My mother came to me, and she was a polytheist at the time of the peace treaty with Quraysh. I said to the Prophet (ﷺ), "My mother has come to me and she desires a gift from me, so should I maintain ties with her?" He said, "Yes, maintain ties with your mother."
 *(Grade: Sahih)*
-*(Contextual: the Prophet explicitly commanded maintaining ties with a non-Muslim parent — this is the foundational ruling for all non-Muslim family relationships where no active hostility exists.)*`,
+*(Contextual: the Prophet explicitly commanded maintaining ties with a non-Muslim parent — this is the foundational ruling for all non-Muslim family relationships where no active hostility exists.)*
+
+### Sahih Bukhari 789
+Recorded in Sahih al-Bukhari 789 (Volume 3) and 407 (Volume 4); also found in Sahih Muslim 2194 and 2195.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Many Muslims have non-Muslim relatives — whether through conversion, interfaith marriage, or mixed heritage. There is a common misconception that Islam requires severing ties with non-Muslim family members. In fact, the opposite is true: Allah explicitly commands good treatment of non-Muslim relatives who do not fight you on account of your faith (Quran 60:8). Understanding this ruling is essential for converts and for anyone in a religiously diverse family.
@@ -3887,12 +3874,11 @@ This du\'a — "My Lord, have mercy upon them as they raised me when I was small
 **Translation:** And perform properly (i.e. all the ceremonies according to the ways of Prophet Muhammad صلى الله عليه وسلم), the Hajj and ‘Umrah (i.e. the pilgrimage to Makkah) for Allâh. But if you are prevented (from completing them), sacrifice a Hady (animal, i.e. a sheep, a cow, or a camel) such as you can afford, and do not shave your heads until the Hady reaches the place of sacrifice. And whosoever of you is ill or has an ailment in his scalp (necessitating shaving), he must pay a Fidyah (ransom) of either observing Saum (fasts) (three days) or giving Sadaqah (charity - feeding six poor persons) or offering sacrifice (one sheep). Then if you are in safety and whosoever performs the ‘Umrah in the months of Hajj before (performing) the Hajj, (i.e. Hajj-at-Tamattu‘ and Al-Qirân), he must slaughter a Hady such as he can afford, but if he cannot afford it, he should observe Saum (fasts) three days during the Hajj and seven days after his return (to his home), making ten days in all. This is for him whose family is not present at Al-Masjid-Al-Harâm (i.e. non-resident of Makkah). And fear Allâh much and know that Allâh is Severe in punishment.`,
           description: `**Why?**
 
-The Prophet (peace be upon him) taught that when a person dies, their deeds cease except for three: ongoing charity, beneficial knowledge, and a righteous child who prays for them. If your parents have passed, you are their lifeline to ongoing reward. Every du\'a, every sadaqah, every good deed you dedicate to them reaches them in their grave. This is one of the most profound acts of love in Islam — caring for someone who can no longer care for themselves.
-
+ If your parents have passed, you are their lifeline to ongoing reward. Every du'a, every sadaqah, every good deed you dedicate to them reaches them in their grave. This is one of the most profound acts of love in Islam — caring for someone who can no longer care for themselves.
 
 **How?**
 
-1. Make du\'a for your parents\' forgiveness and mercy after every obligatory prayer — even a brief supplication counts.
+1. Make du'a for your parents' forgiveness and mercy after every obligatory prayer — even a brief supplication counts.
 2. Set up a recurring sadaqah in their name — even a small monthly donation to a cause they valued.
 3. If you have the means, perform Hajj or Umrah on their behalf, or sponsor someone to do so.
 4. Fast voluntary fasts and dedicate the reward to them.
@@ -4006,15 +3992,14 @@ The Prophet (peace be upon him) said: "The rights of a Muslim over another Musli
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Visiting the sick is one of the five rights of a Muslim over another Muslim, as stated by the Prophet (peace be upon him). When a relative is ill, your visit is not just a social courtesy — it is an act of worship that carries immense reward. The Prophet said that when you visit the sick, you are surrounded by angels making du\'a for you. Beyond the spiritual dimension, a practical visit — bringing food, offering to drive to appointments, or sitting with them — provides real relief.
-
+ When a relative is ill, your visit is not just a social courtesy — it is an act of worship that carries immense reward. The Prophet said that when you visit the sick, you are surrounded by angels making du'a for you. Beyond the spiritual dimension, a practical visit — bringing food, offering to drive to appointments, or sitting with them — provides real relief.
 
 **How?**
 
 1. When you learn a relative is ill, visit within 48 hours if possible — do not wait for the "right time."
-2. Before visiting, ask what they need: a meal, help with errands, company, or simply du\'a.
+2. Before visiting, ask what they need: a meal, help with errands, company, or simply du'a.
 3. Keep the visit appropriate in length — long enough to show care, short enough not to exhaust the patient.
-4. Make du\'a for their recovery in their presence — the Prophet (peace be upon him) would place his hand near the pain and supplicate.
+4. Make du'a for their recovery in their presence — the Prophet (peace be upon him) would place his hand near the pain and supplicate.
 5. Follow up after the visit: check in by phone the next day and continue checking until they recover.`,
         },
         {
@@ -4112,8 +4097,7 @@ Good intentions without structure produce nothing. The reason most family gather
 **Translation:** And whose affair is determined by consultation among themselves. Rotating hosting duties so no single household bears the full burden is an application of shura and shared responsibility within the family.`,
           description: `**Why?**
 
-When one household always hosts, resentment quietly builds — the host feels burdened, and guests feel like visitors rather than co-owners of the family bond. Rotating hosting distributes the effort and gives each household the dignity of contributing. It also exposes family members to each other\'s homes and lives, deepening the sense of closeness. The Prophet (peace be upon him) encouraged reciprocity in hospitality.
-
+When one household always hosts, resentment quietly builds — the host feels burdened, and guests feel like visitors rather than co-owners of the family bond. Rotating hosting distributes the effort and gives each household the dignity of contributing. It also exposes family members to each other's homes and lives, deepening the sense of closeness.
 
 **How?**
 
@@ -4200,13 +4184,12 @@ Between gatherings, silence erodes momentum. A family group chat or shared calen
 **Translation:** And gives wealth, in spite of love for it, to relatives, orphans, and the needy.`,
           description: `**Why?**
 
-Many relatives suffer in silence because they are too proud to ask for help. The Prophet (peace be upon him) said that the best charity is that given to a relative who harbours enmity or need. Identifying those in hardship requires discretion — publicly naming someone\'s financial struggles strips them of dignity, which is the opposite of what Islam intends. Your goal is to help without humiliating.
-
+Many relatives suffer in silence because they are too proud to ask for help. Identifying those in hardship requires discretion — publicly naming someone's financial struggles strips them of dignity, which is the opposite of what Islam intends. Your goal is to help without humiliating.
 
 **How?**
 
 1. Pay attention to indirect signals during family conversations: mentions of job loss, medical bills, debt, or stress about money.
-2. Ask trusted family elders privately: "Is anyone in the family going through a difficult time financially? I\'d like to help if I can."
+2. Ask trusted family elders privately: "Is anyone in the family going through a difficult time financially? I'd like to help if I can."
 3. Do not ask the struggling person directly unless you have a close, trusting relationship — instead, offer help through a third party if possible.
 4. Consider that hardship is not only about money — it may be about access to healthcare, childcare, legal help, or emotional support.
 5. Keep a private, confidential note of who may need support — this is for your eyes only, not for family gossip.`,
@@ -4290,7 +4273,7 @@ Not every family is ready for a formal fund — and that is perfectly fine. An i
     {
       title: 'Learn the history of your lineage — document names, stories, and origins at least 3 generations back',
       priority: 'low', tags: ['family', 'heritage'],
-      description: 'The Prophet said, "Learn your lineage to maintain your family ties."',
+      description: '',
       subtasks: [
         {
           title: 'Interview the oldest living relatives — record their stories on audio or video',
@@ -4303,8 +4286,7 @@ Not every family is ready for a formal fund — and that is perfectly fine. An i
 **Translation:** O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another. Interviewing the oldest living relatives and recording their stories honours the divine wisdom in lineage and heritage.`,
           description: `**Why?**
 
-Every elderly relative who passes away takes irreplaceable knowledge with them — names, stories, migration routes, struggles, and moments of divine aid that will never be recovered once they are gone. Recording these stories is an act of preservation that honours your ancestors and provides your descendants with a sense of rootedness. The Prophet (peace be upon him) encouraged learning one\'s lineage precisely because it strengthens the sense of connection across generations.
-
+Every elderly relative who passes away takes irreplaceable knowledge with them — names, stories, migration routes, struggles, and moments of divine aid that will never be recovered once they are gone. Recording these stories is an act of preservation that honours your ancestors and provides your descendants with a sense of rootedness.
 
 **How?**
 
@@ -4468,13 +4450,12 @@ Abu Huraira (may Allah be pleased with him) reported: The Prophet (peace be upon
 *(Reported by Bukhari in Al-Adab Al-Mufrad)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Exchange gifts, for gifts remove grudges from the heart." This hadith is especially relevant with in-laws, where underlying tensions can simmer beneath a polite surface. A thoughtful, unprompted gift — especially one that shows you know their tastes — communicates warmth and effort. It transforms the in-law relationship from a duty into a bond.
-
+ A thoughtful, unprompted gift — especially one that shows you know their tastes — communicates warmth and effort. It transforms the in-law relationship from a duty into a bond.
 
 **How?**
 
-1. Keep a note of your in-laws\' preferences: favourite foods, colours, hobbies, or items they have mentioned wanting.
-2. Give gifts on natural occasions: Eid, birthdays, Mother\'s/Father\'s Day, or the anniversary of a significant event in their lives.
+1. Keep a note of your in-laws' preferences: favourite foods, colours, hobbies, or items they have mentioned wanting.
+2. Give gifts on natural occasions: Eid, birthdays, Mother's/Father's Day, or the anniversary of a significant event in their lives.
 3. Occasionally give gifts for no occasion at all — "I saw this and thought of you" carries more weight than obligatory holiday gifts.
 4. The gift does not need to be expensive — a homemade dish, a book they would enjoy, or a framed family photo can be more meaningful than something costly.
 5. Involve your children in gift-giving to grandparents — a handmade card from a grandchild is priceless.`,
@@ -4733,8 +4714,7 @@ The Prophet (peace be upon him) said: "When a human being dies, his deeds come t
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A waqf does not need to start with a large sum — it needs to start. The Prophet (peace be upon him) said that the most beloved deeds to Allah are the most consistent, even if small. An initial contribution, however modest, establishes the endowment and creates momentum. Inviting family members to co-invest transforms the waqf from an individual act of charity into a collective legacy — everyone who contributes shares in the reward for as long as the waqf produces benefit.
-
+A waqf does not need to start with a large sum — it needs to start. An initial contribution, however modest, establishes the endowment and creates momentum. Inviting family members to co-invest transforms the waqf from an individual act of charity into a collective legacy — everyone who contributes shares in the reward for as long as the waqf produces benefit.
 
 **How?**
 
@@ -4957,7 +4937,7 @@ A family coordinator who does not train a successor is building on sand. You wil
     {
       title: 'Establish the home as a place of prayer — designate a clean prayer space with qibla direction',
       priority: 'urgent', tags: ['home', 'salah'],
-      description: 'The Prophet (peace be upon him) encouraged praying voluntary prayers at home.',
+      description: '',
       subtasks: [
         { title: 'Identify the qibla direction in your home using a reliable compass or app', done: false,
           sources: `**I. Hadith**
@@ -4984,7 +4964,12 @@ Facing the qibla is a condition for the validity of salah — praying in the wro
 
 ### Sahih Bukhari 731
 The Prophet (peace be upon him) said: "Prayer in the mosque is twenty-seven times greater in reward than prayer at home, except for the voluntary prayers for which the house is better." Designating a clean, quiet corner or room as the household prayer area for voluntary prayers follows the Sunnah.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 424
+Found in Sahih al-Bukhari 424 (Volume 1) and 280 (Volume 2), as well as Sahih Muslim 1703 and 1704.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Make some of your prayers in your houses and do not turn them into graves" (Bukhari and Muslim). A designated prayer space transforms an ordinary home into a place of worship. When a specific area is set aside, it lowers the psychological barrier to praying — you do not need to search for space, clear clutter, or find a mat each time. The space itself becomes an invitation.
@@ -5087,8 +5072,7 @@ Abu Malik al-Ash'ari (may Allah be pleased with him) reported: The Prophet (peac
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Cleanliness is half of faith." A prayer space that accumulates dust, clutter, or is used as overflow storage sends an unspoken message that salah is secondary to other activities. Maintaining the space communicates reverence — to yourself, your family, and your children — and ensures the area remains a place your soul is drawn toward, not away from.
-
+ Maintaining the space communicates reverence — to yourself, your family, and your children — and ensures the area remains a place your soul is drawn toward, not away from.
 
 **How?**
 
@@ -5113,8 +5097,7 @@ The Prophet (peace be upon him) said: "Cleanliness is half of faith." A prayer s
 **Translation:** O you who have believed, indeed intoxicants, gambling, stone altars, and divining arrows are but defilement from the work of Satan, so avoid them. Walking through every room to identify haram or doubtful items is a comprehensive audit of the home.`,
           description: `**Why?**
 
-You cannot purify what you have not identified. A systematic audit of your home is the necessary first step — many haram or doubtful items accumulate gradually and become invisible through familiarity. The Prophet (peace be upon him) said: "That which is lawful is clear, and that which is unlawful is clear, and between them are doubtful matters." This walk-through forces honest reckoning with what you have allowed into your space.
-
+You cannot purify what you have not identified. A systematic audit of your home is the necessary first step — many haram or doubtful items accumulate gradually and become invisible through familiarity.
 
 **How?**
 
@@ -5132,7 +5115,12 @@ You cannot purify what you have not identified. A systematic audit of your home 
 
 ### Sahih Muslim 2108
 The Prophet (peace be upon him) said: "The angels do not enter a house in which there is an image." Removing wall art depicting animate beings and replacing with calligraphy or nature imagery welcomes angelic presence.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 318
+Recorded in Sahih al-Bukhari 318 (Volume 3), stating that angels do not enter a house containing pictures; also mentioned in hadiths 447, 539, and 338.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) instructed that images of animate beings (humans and animals with distinct features) not be hung on walls, as the angels do not enter a house containing such images (Bukhari). This is not about aesthetics alone — it is about ensuring your home remains a place where angels are present and barakah descends. Replacing such art with Quranic calligraphy or nature imagery transforms the walls from spiritually neutral (or harmful) to actively beneficial.
@@ -5173,8 +5161,7 @@ The Prophet (peace be upon him) said: "The angels do not enter a house in which 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The eyes and ears are gates to the heart. What enters through screens shapes your family\'s desires, fears, and moral compass far more than occasional lectures. The Prophet (peace be upon him) said: "Part of a person\'s good observance of Islam is to leave that which does not concern him." A media audit is not about paranoia — it is about taking active guardianship (wilayah) over what is allowed to influence your household\'s inner world.
-
+The eyes and ears are gates to the heart. What enters through screens shapes your family's desires, fears, and moral compass far more than occasional lectures.
 
 **How?**
 
@@ -5182,8 +5169,8 @@ The eyes and ears are gates to the heart. What enters through screens shapes you
 2. **Evaluate each one honestly:**
    - Does it contain content that normalises zina, alcohol, or disbelief?
    - Can it be filtered or restricted to remove problematic content?
-   - Is it a net positive or negative for your family\'s iman?
-3. **Cancel what cannot be reformed** — if a platform\'s primary content is haram and filtering is insufficient, cancel it entirely.
+   - Is it a net positive or negative for your family's iman?
+3. **Cancel what cannot be reformed** — if a platform's primary content is haram and filtering is insufficient, cancel it entirely.
 4. **Set up parental controls** — on remaining services, enable the strictest content filters available.
 5. **Replace, do not just remove** — subscribe to Islamic content platforms, halal entertainment, or educational services so the family does not feel a void.` },
         { title: 'Replace removed items with halal alternatives so the home feels enriched, not emptied', done: false,
@@ -5225,8 +5212,7 @@ The Prophet (peace be upon him) said: "Cleanliness is half of faith (iman)." Est
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Cleanliness is half of faith." A daily cleaning routine prevents the gradual accumulation of disorder that drains energy and creates stress. Fifteen minutes of consistent daily effort is more effective than sporadic deep cleaning — it maintains the home in a state of dignity and readiness for worship, guests, or unexpected circumstances. A clean home is also a form of shukr (gratitude) for the blessing of shelter.
-
+ Fifteen minutes of consistent daily effort is more effective than sporadic deep cleaning — it maintains the home in a state of dignity and readiness for worship, guests, or unexpected circumstances. A clean home is also a form of shukr (gratitude) for the blessing of shelter.
 
 **How?**
 
@@ -5441,8 +5427,7 @@ The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Research on habit formation consistently shows that tracking accelerates consistency. The number 40 has significance in the Islamic tradition — the Prophet (peace be upon him) mentioned 40 days in relation to spiritual transformation. Tracking your adhkar for 40 consecutive days builds the neural pathways and family routines needed to make it automatic. After 40 days, the practice should feel natural enough to sustain without external tracking.
-
+Research on habit formation consistently shows that tracking accelerates consistency. Tracking your adhkar for 40 consecutive days builds the neural pathways and family routines needed to make it automatic. After 40 days, the practice should feel natural enough to sustain without external tracking.
 
 **How?**
 
@@ -5489,8 +5474,7 @@ Rules imposed without consultation breed resentment; rules co-created build owne
 **Translation:** O you who have believed, protect yourselves and your families from a Fire. Setting specific screen time limits by age and enforcing them with device controls is a modern means of protecting children from harm.`,
           description: `**Why?**
 
-Unrestricted screen time is linked to attention problems, sleep disruption, behavioural issues, and — most critically for a Muslim home — exposure to haram content. The Prophet (peace be upon him) said: "Each of you is a shepherd, and each is responsible for their flock." As parents, you are the guardians of your children\'s eyes, ears, and minds. Setting and enforcing screen time limits is not overprotection — it is fulfilling your amanah (trust).
-
+Unrestricted screen time is linked to attention problems, sleep disruption, behavioural issues, and — most critically for a Muslim home — exposure to haram content. Setting and enforcing screen time limits is not overprotection — it is fulfilling your amanah (trust).
 
 **How?**
 
@@ -5516,8 +5500,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Hospitality is a distinguishing quality of the believers. The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Day, let him honour his guest." Teaching your family a consistent standard of guest etiquette — from greeting to farewell — transforms hospitality from an ad hoc scramble into a dignified, prophetic practice. Children who grow up in a hospitable home learn generosity, social confidence, and the beauty of serving others for the sake of Allah.
-
+Hospitality is a distinguishing quality of the believers. Children who grow up in a hospitable home learn generosity, social confidence, and the beauty of serving others for the sake of Allah.
 
 **How?**
 
@@ -5527,8 +5510,8 @@ Hospitality is a distinguishing quality of the believers. The Prophet (peace be 
    - Prepare the guest area in advance — clean, comfortable seating, pleasant scent
    - If a meal is involved, serve generously and eat with your guests
 3. **Assign roles** — older children can help serve food, younger ones can take coats or offer sweets. Everyone has a part.
-4. **Teach farewell etiquette** — walk guests to the door, thank them for coming, and make du\'a for them: "May Allah bless your family."
-5. **Discuss boundaries** — some guests may stay too long or visit at inconvenient times. Teach the family how to be gracious while also maintaining the household\'s routine.` },
+4. **Teach farewell etiquette** — walk guests to the door, thank them for coming, and make du'a for them: "May Allah bless your family."
+5. **Discuss boundaries** — some guests may stay too long or visit at inconvenient times. Teach the family how to be gracious while also maintaining the household's routine.` },
         { title: 'Assign shared responsibilities — a visible chore chart that rotates weekly', done: false,
           sources: `**I. Hadith**
 
@@ -5609,7 +5592,13 @@ Your environment shapes your inner state more than you realise. Cluttered, chaot
 
 ### Quran (59:22-24)
 **Arabic:** هُوَ اللَّهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْأَسْمَاءُ الْحُسْنَىٰ  
-**Translation:** He is Allah, the Creator, the Originator, the Fashioner; to Him belong the most beautiful names. Adorning the home with calligraphy of Allah's names and ayat is a reminder of His presence.`,
+**Translation:** He is Allah, the Creator, the Originator, the Fashioner; to Him belong the most beautiful names. Adorning the home with calligraphy of Allah's names and ayat is a reminder of His presence.
+
+
+### Quran (31:17)
+**Arabic:** يَـٰبُنَىَّ أَقِمِ ٱلصَّلَوٰةَ وَأْمُرْ بِٱلْمَعْرُوفِ وَٱنْهَ عَنِ ٱلْمُنكَرِ وَٱصْبِرْ عَلَىٰ مَآ أَصَابَكَ ۖ إِنَّ ذَٰلِكَ مِنْ عَزْمِ ٱلْأُمُورِ  
+**Translation:** Keep up the prayer, my son; command what is right; forbid what is wrong; bear anything that happens to you steadfastly: these are things to be aspired to.
+`,
           description: `**Why?**
 
 Islamic calligraphy does more than decorate — it places the words of Allah in your line of sight, creating a constant, subconscious connection to the Quran. When you walk past Ayat al-Kursi in your hallway or see "Rabbi zidni \'ilma" (My Lord, increase me in knowledge) above a study desk, the ayah imprints itself on your heart. This is environmental tarbiyah — letting your walls teach, remind, and inspire without a single word spoken.
@@ -5722,8 +5711,7 @@ You cannot manage what you have not mapped. Many households have devices that pa
 **Translation:** O you who have believed, protect yourselves and your families from a Fire. Installing parental controls is a modern expression of protecting children from harm.`,
           description: `**Why?**
 
-Children lack the maturity to self-regulate their media consumption and the knowledge to evaluate whether content is halal or harmful. Parental controls are not a sign of distrust — they are a form of protection that even adults benefit from. The Prophet (peace be upon him) said: "Each of you is a shepherd, and each is responsible for their flock." In the digital age, shepherding your family means installing the fences before the wolves arrive, not after.
-
+Children lack the maturity to self-regulate their media consumption and the knowledge to evaluate whether content is halal or harmful. Parental controls are not a sign of distrust — they are a form of protection that even adults benefit from.
 
 **How?**
 
@@ -5787,8 +5775,7 @@ Restricting without providing alternatives creates a vacuum that breeds resentme
 **Translation:** Why do you say what you do not do? Modelling the media policy yourself is essential -- children will not respect rules parents do not follow.`,
           description: `**Why?**
 
-Hypocrisy is the fastest way to destroy credibility with your children. If you enforce a device curfew but scroll your phone in bed, restrict social media but spend hours on Instagram yourself, or ban haram content but watch it when the children are asleep — they will notice, and they will conclude that the rules are about control, not conviction. The Prophet (peace be upon him) was the living embodiment of everything he taught. Your media policy must start with you.
-
+Hypocrisy is the fastest way to destroy credibility with your children. If you enforce a device curfew but scroll your phone in bed, restrict social media but spend hours on Instagram yourself, or ban haram content but watch it when the children are asleep — they will notice, and they will conclude that the rules are about control, not conviction. Your media policy must start with you.
 
 **How?**
 
@@ -5973,8 +5960,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 **Translation:** Then he went to his family and came with a fat roasted calf and placed it before them. Ibrahim's hospitality to his guests is the Quranic model for generosity.`,
           description: `**Why?**
 
-The Prophet (peace be upon him) emphasised the rights of the neighbour — so much so that he said he thought the neighbour would be given a share of inheritance. Hospitality that only serves your existing friend circle misses the broader Sunnah of building community, welcoming newcomers, and strengthening the bonds between Muslims who might otherwise remain strangers. A diverse guest list also exposes your family to different perspectives, cultures, and life experiences.
-
+ Hospitality that only serves your existing friend circle misses the broader Sunnah of building community, welcoming newcomers, and strengthening the bonds between Muslims who might otherwise remain strangers. A diverse guest list also exposes your family to different perspectives, cultures, and life experiences.
 
 **How?**
 
@@ -5992,8 +5978,7 @@ The Prophet (peace be upon him) said: "The food of one person is sufficient for 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "The food of one is enough for two, the food of two is enough for four, and the food of four is enough for eight." Islamic hospitality is characterised by generosity, not precision. Calculating exact portions for your guests communicates scarcity and reluctance; cooking extra communicates abundance and welcome. Leftovers can be shared with neighbours, given as sadaqah, or eaten the next day — food prepared with the intention of generosity is never wasted.
-
+ Calculating exact portions for your guests communicates scarcity and reluctance; cooking extra communicates abundance and welcome. Leftovers can be shared with neighbours, given as sadaqah, or eaten the next day — food prepared with the intention of generosity is never wasted.
 
 **How?**
 

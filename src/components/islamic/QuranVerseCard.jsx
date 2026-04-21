@@ -1,9 +1,17 @@
 import { quranWBW } from '@data/quran-wbw';
 import './QuranVerseCard.css';
 
-export default function QuranVerseCard({ verseKey }) {
+function SingleVerseCard({ verseKey }) {
   const data = quranWBW[verseKey];
-  if (!data) return null;
+  if (!data) {
+    return (
+      <div className="qvc qvc--stub">
+        <div className="qvc__header">
+          <span className="qvc__ref">Quran [{verseKey}]</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="qvc">
@@ -22,4 +30,23 @@ export default function QuranVerseCard({ verseKey }) {
       <div className="qvc__translation">{data.translation}</div>
     </div>
   );
+}
+
+export default function QuranVerseCard({ verseKey }) {
+  const rangeMatch = verseKey.match(/^(\d+):(\d+)-(\d+)$/);
+  if (rangeMatch) {
+    const surah = rangeMatch[1];
+    const from = parseInt(rangeMatch[2], 10);
+    const to = parseInt(rangeMatch[3], 10);
+    if (to >= from) {
+      const keys = [];
+      for (let v = from; v <= to; v++) keys.push(`${surah}:${v}`);
+      return (
+        <>
+          {keys.map(k => <SingleVerseCard key={k} verseKey={k} />)}
+        </>
+      );
+    }
+  }
+  return <SingleVerseCard verseKey={verseKey} />;
 }

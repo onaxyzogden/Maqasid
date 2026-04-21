@@ -527,9 +527,12 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                       },
                       h3: ({ children }) => {
                         const text = [children].flat().map(c => typeof c === 'string' ? c : '').join('');
-                        const quran = text.match(/^Quran \((\d+):(\d+)\)$/);
+                        const quran = text.match(/^Quran \((\d+):(\d+)(?:-(\d+))?\)$/);
                         if (quran) {
-                          return <QuranEmbed verseKey={`${quran[1]}:${quran[2]}`} />;
+                          const verseKey = quran[3]
+                            ? `${quran[1]}:${quran[2]}-${quran[3]}`
+                            : `${quran[1]}:${quran[2]}`;
+                          return <QuranEmbed verseKey={verseKey} />;
                         }
                         const hadith = matchHadithHeading(text);
                         if (hadith) {

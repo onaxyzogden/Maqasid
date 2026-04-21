@@ -8,7 +8,7 @@ export const ENVIRONMENT_SEED_TASKS = {
     {
       title: 'Audit household water usage — identify and fix all leaks, dripping taps, and wasteful habits',
       priority: 'urgent', tags: ['water', 'israf'],
-      description: 'Conduct a thorough walk-through of every water outlet in your home to find leaks, dripping taps, and inefficient fixtures. The Prophet (peace be upon him) forbade wasting water even when performing wudu at a flowing river — this audit is the first step to honouring that principle in your daily life.',
+      description: 'Conduct a thorough walk-through of every water outlet in your home to find leaks, dripping taps, and inefficient fixtures.',
       subtasks: [
         { title: 'Inspect all taps, toilets, and hose connections for leaks or drips', done: false,
           sources: `**I. Hadith**
@@ -19,8 +19,7 @@ The Prophet (peace be upon him) passed by Sa‘d while he was performing wudu an
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A single dripping tap can waste over 20,000 litres of water per year. The Prophet (peace be upon him) warned against israf even at a flowing river, making it clear that waste is a spiritual failing regardless of abundance. Inspecting every water outlet in your home is the foundational step of khalifah responsibility over this essential resource — you cannot fix what you have not identified.
-
+A single dripping tap can waste over 20,000 litres of water per year. Inspecting every water outlet in your home is the foundational step of khalifah responsibility over this essential resource — you cannot fix what you have not identified.
 
 **How?**
 
@@ -321,8 +320,7 @@ The Prophet (peace be upon him) said: "Take advantage of five before five: your 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The hours between sleep and Fajr represent a significant portion of daily energy consumption if devices are left running. Establishing a nightly shutdown routine mirrors the sunnah practice of preparing for sleep with intention — just as the Prophet (peace be upon him) taught specific adhkar and actions before sleeping, adding an energy shutdown step integrates environmental stewardship into your nightly ibadah routine, turning a mundane task into a conscious act of amanah.
-
+The hours between sleep and Fajr represent a significant portion of daily energy consumption if devices are left running.
 
 **How?**
 
@@ -402,6 +400,14 @@ Heating and cooling represent the largest share of household energy consumption 
 ### Quran (9:17)
 **Arabic:**
 **Translation:** [9:17] It does not become those who associate others with Allah in His Divinity to visit and tend Allah's mosques while they bear witness of unbelief against themselves. All their works have gone to waste. They shall abide in the Fire.
+
+### Quran (17:26-27)
+**Arabic:** وَءَاتِ ذَا ٱلْقُرْبَىٰ حَقَّهُۥ وَٱلْمِسْكِينَ وَٱبْنَ ٱلسَّبِيلِ وَلَا تُبَذِّرْ تَبْذِيرًا إِنَّ ٱلْمُبَذِّرِينَ كَانُوٓا۟ إِخْوَٰنَ ٱلشَّيَـٰطِينِ ۖ وَكَانَ ٱلشَّيْطَـٰنُ لِرَبِّهِۦ كَفُورًۭا  
+**Translation:** Give relatives their due, and the needy, and travellers- do not squander your wealth wastefully: those who squander are the brothers of Satan, and Satan is most ungrateful to his Lord-
+
+### Quran (25:67)
+**Arabic:** وَٱلَّذِينَ إِذَآ أَنفَقُوا۟ لَمْ يُسْرِفُوا۟ وَلَمْ يَقْتُرُوا۟ وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًۭا  
+**Translation:** They are those who are neither wasteful nor niggardly when they spend, but keep to a just balance;
 
 **II. Hadith**
 
@@ -1395,8 +1401,7 @@ Even the most diligent household will have some residual emissions that cannot b
 **Translation:** And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate.`,
           description: `**Why?**
 
-Your journey from wasteful baseline to net-zero is a case study of immense value — to your own future reference, to other Muslim households considering the same path, and to the broader community. Documenting the process with honesty — including the costs, the difficulties, the mistakes, and the unexpected benefits — creates a replicable model. The Prophet (peace be upon him) taught by example, and a well-documented journey becomes your way of teaching others what is practically possible in Islamic environmental stewardship.
-
+Your journey from wasteful baseline to net-zero is a case study of immense value — to your own future reference, to other Muslim households considering the same path, and to the broader community. Documenting the process with honesty — including the costs, the difficulties, the mistakes, and the unexpected benefits — creates a replicable model.
 
 **How?**
 
@@ -1425,8 +1430,7 @@ The Prophet (peace be upon him) said: "The world is sweet and green, and Allah h
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Knowledge that remains private benefits only the knower. Sharing your net-zero journey with the ummah multiplies its impact exponentially — one household's documented experience can inspire and guide dozens of others. The Prophet (peace be upon him) said that the one who guides to good has the reward of the one who does it. Publishing your case study is an act of sadaqah jariyah (ongoing charity) — every household that follows your example adds to the reward, and the benefit compounds across generations.
-
+Knowledge that remains private benefits only the knower. Sharing your net-zero journey with the ummah multiplies its impact exponentially — one household's documented experience can inspire and guide dozens of others. Publishing your case study is an act of sadaqah jariyah (ongoing charity) — every household that follows your example adds to the reward, and the benefit compounds across generations.
 
 **How?**
 
@@ -1559,8 +1563,7 @@ The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A recycling system only works if every person in the household participates correctly. One uninformed family member can contaminate an entire recycling bin with a single wrong item. In Islam, the head of a household bears responsibility for guiding those under their care — the Prophet (peace be upon him) said "each of you is a shepherd and each is responsible for their flock." Briefing your household is an act of ra\'iyyah (responsible stewardship) over both your family and the environment.
-
+A recycling system only works if every person in the household participates correctly. One uninformed family member can contaminate an entire recycling bin with a single wrong item.
 
 **How?**
 
@@ -1665,8 +1668,7 @@ The Prophet (peace be upon him) said: "Cleanliness is half of faith."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Hazardous waste is not a one-time problem — batteries die, electronics become obsolete, and medications expire on an ongoing basis. Without a dedicated collection point, these items drift back into general waste bins out of convenience. Setting up a permanent collection container builds an ongoing system rather than relying on periodic clean-outs. This reflects the Islamic emphasis on istiqamah (consistency) — the Prophet (peace be upon him) said the most beloved deeds to Allah are those done consistently, even if small.
-
+Hazardous waste is not a one-time problem — batteries die, electronics become obsolete, and medications expire on an ongoing basis. Without a dedicated collection point, these items drift back into general waste bins out of convenience. Setting up a permanent collection container builds an ongoing system rather than relying on periodic clean-outs.
 
 **How?**
 
@@ -1682,7 +1684,7 @@ Hazardous waste is not a one-time problem — batteries die, electronics become 
     {
       title: 'Stop littering and remove harmful waste from public spaces — "removing harm is sadaqah"',
       priority: 'high', tags: ['sadaqah', 'cleanliness'],
-      description: 'The Prophet (peace be upon him) said that removing a harmful object from the road is a branch of faith and an act of charity. This task extends that hadith into a regular practice of picking up litter and keeping shared spaces clean as an act of worship.',
+      description: ' This task extends that hadith into a regular practice of picking up litter and keeping shared spaces clean as an act of worship.',
       subtasks: [
         { title: 'Carry a small bag when walking to collect litter you encounter', done: false,
           sources: `**I. Quran**
@@ -1698,8 +1700,7 @@ The Prophet (peace be upon him) said: "Removing a harmful thing from the road is
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) taught that removing a harmful object from the road is an act of charity (sadaqah). Carrying a bag transforms every walk — to the masjid, the shops, or around the neighbourhood — into an opportunity for ongoing reward. It shifts your mindset from passive observer to active caretaker. This simple preparation ensures you are always ready to act when you see litter, rather than walking past it with good intentions but no means to help.
-
+ Carrying a bag transforms every walk — to the masjid, the shops, or around the neighbourhood — into an opportunity for ongoing reward. It shifts your mindset from passive observer to active caretaker. This simple preparation ensures you are always ready to act when you see litter, rather than walking past it with good intentions but no means to help.
 
 **How?**
 
@@ -1761,8 +1762,7 @@ The Prophet (peace be upon him) said: "Cleanliness is half of faith."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A clean environment around your home and masjid reflects the Islamic value of taharah (purity) extending beyond personal hygiene to communal spaces. The Prophet (peace be upon him) prohibited urinating in water sources and shade areas — places shared by the community. Regular weekly clean-ups prevent litter from accumulating into larger problems, protect local wildlife from ingesting waste, and visibly demonstrate that someone in this neighbourhood cares. It also beautifies the space, which benefits everyone who passes through.
-
+A clean environment around your home and masjid reflects the Islamic value of taharah (purity) extending beyond personal hygiene to communal spaces. Regular weekly clean-ups prevent litter from accumulating into larger problems, protect local wildlife from ingesting waste, and visibly demonstrate that someone in this neighbourhood cares. It also beautifies the space, which benefits everyone who passes through.
 
 **How?**
 
@@ -1794,11 +1794,9 @@ The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you
 
 Children who learn environmental stewardship through Islamic teachings — not just secular environmentalism — develop a spiritual motivation that outlasts trends. Teaching them the hadith about removing harm from the road as sadaqah connects environmental action to their relationship with Allah. Involving them physically in clean-ups makes the lesson experiential rather than abstract, embedding the value in muscle memory and lived experience. These children become the next generation of khalifah (stewards) on earth.
 
-
 **How?**
 
-1. Teach the hadith in age-appropriate language: "The Prophet (peace be upon him) said that removing something harmful from the road is charity." Explain that every piece of litter they pick up is recorded as a good deed.
-2. Share the hadith about the branch of faith: "Faith has over seventy branches, the highest is La ilaha illallah, and the lowest is removing harm from the path."
+1. Share the hadith about the branch of faith: "Faith has over seventy branches, the highest is La ilaha illallah, and the lowest is removing harm from the path."
 3. Make the first clean-up an exciting family outing — bring snacks, use colourful gloves, and let children choose the location.
 4. Give children their own small gloves and a bag — ownership of equipment increases engagement.
 5. Make it a counting game: "How many pieces can we collect in 20 minutes?" Celebrate the total together.
@@ -1878,18 +1876,15 @@ The Prophet (peace be upon him) said: "Cleanliness is half of faith."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) specifically prohibited urinating in still water, defecating under shade trees, and contaminating shared pathways — these are among the earliest recorded environmental protection directives in human history. These ahadith demonstrate that Islam addressed pollution of shared resources fourteen centuries before modern environmentalism. Understanding these prohibitions reveals a comprehensive prophetic environmental ethic that protects commons — shared resources that belong to everyone and therefore require everyone's protection.
-
+ These ahadith demonstrate that Islam addressed pollution of shared resources fourteen centuries before modern environmentalism. Understanding these prohibitions reveals a comprehensive prophetic environmental ethic that protects commons — shared resources that belong to everyone and therefore require everyone's protection.
 
 **How?**
 
 1. Study the hadith prohibiting urination in still water (Sahih Muslim) and scholarly explanations of why this constitutes harm to a shared resource.
 2. Read the hadith about the three cursed acts: defecating in water sources, in shade where people rest, and on pathways (Sunan Abu Dawud) — note that these protect communal spaces.
-3. Research the hadith in which the Prophet (peace be upon him) said: "Beware of the three acts that subject one to curses: relieving oneself in shared water sources, on roads, and in places of shade."
-4. Explore how scholars extrapolated from these specific prohibitions to general principles about protecting shared environmental resources.
+3. Explore how scholars extrapolated from these specific prohibitions to general principles about protecting shared environmental resources.
 5. Read about the Islamic legal concept of hima (protected zones) and harim (inviolable buffer zones around water sources) — early Islamic environmental zoning.
-6. Connect these teachings to modern environmental challenges: water pollution, air pollution, and contamination of shared spaces are contemporary expressions of the same harms the Prophet prohibited.
-7. Write brief notes summarising the key prohibitions and their modern equivalents for your personal reference.` },
+6. Write brief notes summarising the key prohibitions and their modern equivalents for your personal reference.` },
         { title: 'Research contemporary Islamic scholarship on environmental taharah', done: false,
           sources: `**I. Quran**
 
@@ -2470,8 +2465,7 @@ Most households contain a significant volume of items that are in perfectly good
 **Translation:** Spend from the good things which you have earned and from that which We have produced for you from the earth.`,
           description: `**Why?**
 
-Not all donation recipients accept all items, and some have specific needs or limitations. Researching where to donate ensures your items actually reach people who need them rather than being dumped by overwhelmed charities. Some organisations specialise in clothing, others in furniture, electronics, or household goods. Matching your donations to the right recipient maximises their impact and respects the charity's capacity. This is part of ihsan (excellence) in giving — the Prophet (peace be upon him) said "Allah loves that when one of you does something, they do it with excellence."
-
+Not all donation recipients accept all items, and some have specific needs or limitations. Researching where to donate ensures your items actually reach people who need them rather than being dumped by overwhelmed charities. Some organisations specialise in clothing, others in furniture, electronics, or household goods. Matching your donations to the right recipient maximises their impact and respects the charity's capacity.
 
 **How?**
 
@@ -2917,7 +2911,7 @@ Documentation transforms a single event into a lasting resource. Photos and a wr
     {
       title: 'Stop all unnecessary destruction of plants, trees, and local wildlife in your surroundings',
       priority: 'urgent', tags: ['biodiversity', 'khilafah'],
-      description: 'The Prophet (peace be upon him) prohibited the unnecessary cutting of trees even in warfare. As khalifah (vicegerents) on earth, Muslims have a duty to protect plant and animal life from needless destruction — this is a baseline obligation, not an optional virtue.',
+      description: ' As khalifah (vicegerents) on earth, Muslims have a duty to protect plant and animal life from needless destruction — this is a baseline obligation, not an optional virtue.',
       subtasks: [
         { title: 'Assess your property for any ongoing harm to trees, plants, or animal habitats', done: false,
           sources: `**I. Quran**
@@ -2953,8 +2947,7 @@ Before you can stop harm, you must first see it. Many forms of environmental des
 **Translation:** And when he turns away, he strives throughout the land to cause corruption therein and destroy crops and animals. And Allah does not like corruption.`,
           description: `**Why?**
 
-Chemical herbicides and pesticides do not distinguish between harmful and beneficial organisms. They kill the bees that pollinate your food, the earthworms that build healthy soil, and the ladybirds that control aphids naturally. The Prophet (peace be upon him) forbade killing bees and ants (Abu Dawud), recognising that these creatures serve essential roles in Allah's creation. Using broad-spectrum chemicals in your garden is a form of unnecessary destruction — fasad — that violates the trust of environmental stewardship.
-
+Chemical herbicides and pesticides do not distinguish between harmful and beneficial organisms. They kill the bees that pollinate your food, the earthworms that build healthy soil, and the ladybirds that control aphids naturally. Using broad-spectrum chemicals in your garden is a form of unnecessary destruction — fasad — that violates the trust of environmental stewardship.
 
 **How?**
 
@@ -2981,7 +2974,12 @@ Chemical herbicides and pesticides do not distinguish between harmful and benefi
 
 ### Sahih al-Bukhari 3318
 The Prophet (peace be upon him) forbade the killing of four creatures: ants, bees, hoopoes, and shrikes.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 174
+The story of the man and the dog is recorded in Sahih al-Bukhari 174, 551, and 646. The additional story about chicks and a nest attributed to Abu Dawud is not found in the provided sources.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) told of a man who earned Allah's forgiveness for giving water to a thirsty dog (Bukhari and Muslim), and he rebuked a companion who had taken chicks from a nest, commanding him to return them (Abu Dawud). These narrations establish that actively protecting wildlife — not merely avoiding harm — is a praiseworthy act of mercy (rahma) that draws one closer to Allah. Your property, however small, can serve as a refuge for creatures that are losing habitat to urbanisation.
@@ -3029,7 +3027,7 @@ Children learn their relationship with nature primarily from their parents and h
     {
       title: 'Eliminate cruelty to animals — learn Islamic rules on the rights of animals (huquq al-hayawan)',
       priority: 'urgent', tags: ['animals', 'fiqh'],
-      description: 'Islam grants animals explicit rights — to be fed, not overburdened, not harmed for sport, and slaughtered mercifully. The Prophet cursed those who brand animals on the face and told of a woman who entered Hell for starving a cat. Animal welfare is a serious obligation.',
+      description: 'Islam grants animals explicit rights — to be fed, not overburdened, not harmed for sport, and slaughtered mercifully. Animal welfare is a serious obligation.',
       subtasks: [
         { title: 'Study the hadith collections on animal rights (Bukhari, Muslim, Abu Dawud)', done: false,
           sources: `**I. Quran**
@@ -3088,7 +3086,12 @@ The Prophet (peace be upon him) said: "A woman was punished because of a cat whi
 
 ### Sahih Muslim 1955
 The Prophet (peace be upon him) said: "If someone kills a sparrow for nothing, it will cry out to Allah on the Day of Judgement saying: 'O Lord, so-and-so killed me in vain and did not kill me for any useful purpose.'"
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 553
+The sources describe a woman being punished in Hell for locking up a cat and failing to feed or water it (Sahih al-Bukhari 552, 553, 535; Sahih Muslim 1375).
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Whoever keeps a pet and does not feed it or water it, Allah will hold him accountable on the Day of Judgement" (Muslim). Keeping an animal in your care creates a binding obligation — you have taken on a trust (amanah) for a creature that cannot advocate for itself. Neglecting this trust is not merely a moral failing but a sin with consequences in the Hereafter.
@@ -3147,7 +3150,12 @@ The Prophet (peace be upon him) said: "If someone kills a sparrow for nothing, i
 
 ### Sahih al-Bukhari 2363
 The Prophet (peace be upon him) told of a woman who was punished because she imprisoned a cat until it died, giving it neither food nor water.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 79
+Recorded in Sahih Muslim 79: 'He who amongst you sees something abominable should modify it with the help of his hand; and if he has not strength enough... with his tongue; ... (or) from his heart, and that is the least of faith.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith" (Muslim). Witnessing animal cruelty and remaining silent is a failure of this obligation. Reporting is a form of changing wrong "with your tongue" — using the systems available to you to protect creatures that cannot speak for themselves.
@@ -3188,7 +3196,12 @@ The Prophet (peace be upon him) said: "A woman was punished because of a cat whi
 
 ### Sahih Muslim 2319
 The Prophet (peace be upon him) said: "Allah will show mercy to those who show mercy. Show mercy to those on earth and the One in heaven will show mercy to you."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 373
+While the specific wording attributed to Abu Dawud is missing, Sahih al-Bukhari 373 states: 'Allah is merciful only to those of His slaves who are merciful (to others).'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "Allah shows mercy to those who show mercy to His creation" (Abu Dawud). Teaching children rahma toward animals is not simply about being kind — it is about forming the foundational character trait that Islam demands of believers. A child who learns to be gentle with a cat or careful with an ant is developing the same quality of mercy that should later extend to all human relationships. Cruelty toward animals in childhood is a well-documented predictor of broader behavioural problems.
@@ -3209,7 +3222,7 @@ The Prophet (peace be upon him) said: "Allah shows mercy to those who show mercy
     {
       title: 'Plant at least one tree or native plant — follow the hadith "even if the Hour is near, plant it"',
       priority: 'high', tags: ['planting', 'sunnah'],
-      description: 'The Prophet (peace be upon him) said: "If the Hour comes and one of you has a seedling in his hand, let him plant it." This hadith establishes planting as an act of faith and hope, regardless of whether you will personally benefit from the harvest.',
+      description: '',
       subtasks: [
         { title: 'Research native trees and plants suited to your local climate and soil', done: false,
           sources: `**I. Quran**
@@ -3280,7 +3293,12 @@ The Prophet (peace be upon him) said: "If the Hour is about to be established an
 
 ### Sahih al-Bukhari 2320
 The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed and then a bird, or a person, or an animal eats from it, except that it is regarded as sadaqah for him."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 513
+Recorded in Sahih al-Bukhari 513 and Sahih Muslim 3764: 'There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or sows a seed, and then a bird, or a person, or an animal eats from it, except that it is regarded as a charitable gift (sadaqah) for him" (Bukhari and Muslim). The act of physically putting a plant into the ground is the moment where intention becomes reality. Every creature that benefits from this planting — for years, decades, or centuries to come — adds to your scale of good deeds.
@@ -3338,8 +3356,7 @@ Narrated Abu Huraira:The people said, "O Allah's Messenger (ﷺ)! Shall we see o
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Every act of the Muslim begins and ends with Allah. Planting a tree is a physical act, but its ultimate benefit — the shade it provides, the fruit it bears, the creatures it shelters, the carbon it absorbs — depends on Allah's barakah (blessing). Making du'a transforms a gardening task into an act of worship, connecting your physical effort to your spiritual intention. The Prophet (peace be upon him) taught us to ask Allah's blessing in everything we do, from eating to travelling to planting.
-
+Every act of the Muslim begins and ends with Allah. Planting a tree is a physical act, but its ultimate benefit — the shade it provides, the fruit it bears, the creatures it shelters, the carbon it absorbs — depends on Allah's barakah (blessing). Making du'a transforms a gardening task into an act of worship, connecting your physical effort to your spiritual intention.
 
 **How?**
 
@@ -3365,6 +3382,16 @@ Every act of the Muslim begins and ends with Allah. Planting a tree is a physica
 ### Quran (59:21)
 **Arabic:**
 **Translation:** If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.
+
+### Quran (2:30)
+**Arabic:** وَإِذْ قَالَ رَبُّكَ لِلْمَلَـٰٓئِكَةِ إِنِّى جَاعِلٌۭ فِى ٱلْأَرْضِ خَلِيفَةًۭ ۖ قَالُوٓا۟ أَتَجْعَلُ فِيهَا مَن يُفْسِدُ فِيهَا وَيَسْفِكُ ٱلدِّمَآءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ ۖ قَالَ إِنِّىٓ أَعْلَمُ مَا لَا تَعْلَمُونَ  
+**Translation:** [Prophet], when your Lord told the angels, ‘I am putting a successor on earth,’ they said, ‘How can You put someone there who will cause damage and bloodshed, when we celebrate Your praise and proclaim Your holiness?’ but He said, ‘I know things you do not.
+
+### Quran (6:165)
+
+### Quran (33:72)
+**Arabic:** إِنَّا عَرَضْنَا ٱلْأَمَانَةَ عَلَى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ وَٱلْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا وَأَشْفَقْنَ مِنْهَا وَحَمَلَهَا ٱلْإِنسَـٰنُ ۖ إِنَّهُۥ كَانَ ظَلُومًۭا جَهُولًۭا  
+**Translation:** We offered the Trust to the heavens, the earth, and the mountains, yet they refused to undertake it and were afraid of it; mankind undertook it- they have always been inept and foolish.
 
 **II. Hadith**
 
@@ -3890,7 +3917,12 @@ Organised restoration projects operate at scales that individual effort cannot m
 
 ### Musnad Ahmad 12902
 The Prophet (peace be upon him) said: "If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 41
+Recorded in Sahih al-Bukhari 41 as 'the best deed... is that which is done regularly.' The parallel narration in Sahih Muslim 1710 includes the phrase 'even if they are small.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Knowledge without action is incomplete. The gap between intending to participate and actually registering is where most good intentions die. Registration creates a commitment — once you have signed up, told others, and blocked the time in your calendar, attendance becomes far more likely. The Prophet (peace be upon him) said that the most beloved deeds to Allah are those done consistently, even if small (Bukhari). Attending one event this season is the small, consistent step that builds the habit of active environmental stewardship.
@@ -3970,7 +4002,12 @@ Planting a tree is a beginning, not an end. Following up on the trees you plante
 
 ### Sahih Muslim 1017
 The Prophet (peace be upon him) said: "Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him." Regular volunteering for restoration sets a lasting precedent of environmental stewardship.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 41
+Duplicate of claim 7; Bukhari 41 notes the best deeds are those done regularly.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 One-off participation is valuable, but regular commitment transforms you from a visitor into a steward. Organisations that restore ecosystems need reliable, returning volunteers who build skills over time — someone who knows the site, understands the species, and can train newcomers. The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small (Bukhari). Committing to a regular schedule — even monthly — creates the consistency that produces lasting ecological impact and lasting personal reward.
@@ -4133,6 +4170,10 @@ Not all reforestation and land rehabilitation projects are equal. Some are monoc
 **Arabic:** وَإِذَا تَوَلَّىٰ سَعَىٰ فِي الْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ الْحَرْثَ وَالنَّسْلَ ۗ وَاللَّهُ لَا يُحِبُّ الْفَسَادَ  
 **Translation:** When he leaves, he sets out to spread corruption in the land, destroying crops and livestock -- God does not like corruption.
 
+### Quran (49:6)
+**Arabic:** يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِن جَآءَكُمْ فَاسِقٌۢ بِنَبَإٍۢ فَتَبَيَّنُوٓا۟ أَن تُصِيبُوا۟ قَوْمًۢا بِجَهَـٰلَةٍۢ فَتُصْبِحُوا۟ عَلَىٰ مَا فَعَلْتُمْ نَـٰدِمِينَ  
+**Translation:** Believers, if a troublemaker brings you news, check it first, in case you wrong others unwittingly and later regret what you have done,
+
 **II. Hadith**
 
 ### Sunan Abi Dawud 5239
@@ -4160,7 +4201,12 @@ As a Muslim, your contribution is not merely a financial transaction — it is a
 
 ### Sahih Muslim 1631
 The Prophet (peace be upon him) said: "When a person dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him." Recurring contributions to land rehabilitation are sadaqah jariyah.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 41
+Duplicate of claim 7; Bukhari 41 notes the best deeds are those done regularly.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Land rehabilitation is a long-term endeavour — ecosystems recover over years and decades, not weeks. One-off contributions help, but recurring commitment provides the sustained funding and labour that restoration projects depend on. The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small (Bukhari). A modest monthly contribution sustained over years produces far more impact than a large one-off donation, and a regular volunteer schedule builds the skills and relationships that make your contribution increasingly valuable.
@@ -4210,8 +4256,7 @@ Seeing a restored ecosystem in person transforms abstract data into lived experi
 **Translation:** And let there be among you a community inviting to good. Sharing restoration projects with your network invites others to participate in good.`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Whoever guides someone to goodness will have a reward like the one who does it" (Muslim). Sharing a verified, impactful restoration project with your network multiplies the benefit exponentially — every person who contributes because of your recommendation generates additional reward for you. This is the principle of sadaqah jariyah extended through social influence. A single share that inspires ten people to contribute accomplishes more than increasing your own contribution tenfold.
-
+ Sharing a verified, impactful restoration project with your network multiplies the benefit exponentially — every person who contributes because of your recommendation generates additional reward for you. This is the principle of sadaqah jariyah extended through social influence. A single share that inspires ten people to contribute accomplishes more than increasing your own contribution tenfold.
 
 **How?**
 
@@ -4229,7 +4274,7 @@ The Prophet (peace be upon him) said: "Whoever guides someone to goodness will h
     {
       title: 'Establish a community food garden or urban farm on underused land',
       priority: 'low', tags: ['food-security', 'community'],
-      description: 'Community food gardens transform neglected urban land into productive, biodiverse spaces that provide fresh food, build community, and reconnect people with the earth. The Prophet (peace be upon him) said whoever revives dead land, it belongs to them — this is ihya al-mawat in practice.',
+      description: 'Community food gardens transform neglected urban land into productive, biodiverse spaces that provide fresh food, build community, and reconnect people with the earth.',
       subtasks: [
         { title: 'Identify underused land — vacant lots, council land, masjid grounds, or school yards', done: false,
           sources: `**I. Quran**
@@ -4249,8 +4294,7 @@ The Prophet (peace be upon him) said: "There is no Muslim who plants a tree or s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Every community has land that is underperforming — vacant lots collecting litter, council-owned patches of mown grass that serve no one, masjid car parks that sit empty six days a week, school grounds that are locked after hours. The Prophet (peace be upon him) said: "Whoever revives dead land, it belongs to them" (Abu Dawud) — this is the principle of ihya al-mawat (reviving dead land), and it applies powerfully to neglected urban spaces. Identifying these sites is the essential first step toward transformation.
-
+Every community has land that is underperforming — vacant lots collecting litter, council-owned patches of mown grass that serve no one, masjid car parks that sit empty six days a week, school grounds that are locked after hours. Identifying these sites is the essential first step toward transformation.
 
 **How?**
 
@@ -4335,8 +4379,7 @@ The Prophet (peace be upon him) said: "There is none amongst the Muslims who pla
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A community garden without a community is just a private allotment. Recruiting diverse volunteers creates the social ecosystem that sustains the physical one. The Prophet (peace be upon him) said: "The believers in their mutual kindness, compassion, and sympathy are just like one body" (Muslim). A well-recruited group brings together different skills, ages, cultures, and abilities — each person contributing what they can. Allocating clear responsibilities prevents the common failure mode where enthusiasm is high at the start but no one takes ownership of ongoing tasks.
-
+A community garden without a community is just a private allotment. Recruiting diverse volunteers creates the social ecosystem that sustains the physical one. A well-recruited group brings together different skills, ages, cultures, and abilities — each person contributing what they can. Allocating clear responsibilities prevents the common failure mode where enthusiasm is high at the start but no one takes ownership of ongoing tasks.
 
 **How?**
 
@@ -4477,8 +4520,7 @@ The Prophet (peace be upon him) said: "There is none amongst the Muslims who pla
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Islam does not separate knowledge from action — 'ilm (knowledge) without 'amal (action) is incomplete. A programme that teaches the hadith on tree-planting but never plants a tree has missed half its purpose. Practical components transform participants from passive learners into active stewards. They also produce visible, tangible results that inspire others and demonstrate that Islamic environmental ethics produce real-world outcomes. The Prophet (peace be upon him) was not a theorist — he acted on every principle he taught, and your programme should model the same integration.
-
+Islam does not separate knowledge from action — 'ilm (knowledge) without 'amal (action) is incomplete. A programme that teaches the hadith on tree-planting but never plants a tree has missed half its purpose. Practical components transform participants from passive learners into active stewards. They also produce visible, tangible results that inspire others and demonstrate that Islamic environmental ethics produce real-world outcomes.
 
 **How?**
 
@@ -4572,7 +4614,15 @@ A programme that runs once and disappears creates a moment of inspiration but no
 
 ### Quran (16:90)
 **Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ  
-**Translation:** Indeed, Allah orders justice and good conduct.`,
+**Translation:** Indeed, Allah orders justice and good conduct.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 592
+Recorded in Sahih al-Bukhari 592: 'Everyone of you is a guardian [shepherd], and responsible for what is in his custody [flock].'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 You cannot reform what you have not measured. Most people vastly underestimate how many products they consume regularly, and each of those products carries a supply chain with real human and environmental consequences. The Prophet (peace be upon him) said, "Each of you is a shepherd, and each of you is responsible for his flock" (Bukhari & Muslim). Your purchasing list is your flock of economic choices — cataloguing it is the first step toward responsible stewardship.
@@ -4698,8 +4748,7 @@ Benchmark: A written, accessible "do not buy" list with at least 3-5 brands, sha
 **Translation:** O mankind, eat from whatever is on earth that is lawful and wholesome (halal and tayyib).`,
           description: `**Why?**
 
-A halal certification on packaging tells you the animal was slaughtered according to Islamic law, but it tells you nothing about how the animal lived — whether it was caged in inhumane conditions, pumped with antibiotics, or fed unnatural diets. The concept of tayyib demands that the entire lifecycle be wholesome, not just the final moment. The Prophet (peace be upon him) said, "Allah has prescribed ihsan (excellence) in all things. So when you slaughter, slaughter well" (Muslim). Ihsan begins long before the blade — it starts with how the animal is raised.
-
+A halal certification on packaging tells you the animal was slaughtered according to Islamic law, but it tells you nothing about how the animal lived — whether it was caged in inhumane conditions, pumped with antibiotics, or fed unnatural diets. The concept of tayyib demands that the entire lifecycle be wholesome, not just the final moment. So when you slaughter, slaughter well" (Muslim). Ihsan begins long before the blade — it starts with how the animal is raised.
 
 **How?**
 
@@ -4728,8 +4777,7 @@ Benchmark: You should be able to describe, in basic terms, how the animals behin
 **Translation:** And eat of what Allah has provided for you [which is] lawful and good.`,
           description: `**Why?**
 
-Animals raised in factory farming conditions endure extreme confinement, unnatural diets, and routine antibiotic use that contaminates the meat you consume. Free-range and pasture-raised animals live more natural lives, produce healthier meat, and align with the Islamic ethic of animal welfare. The Prophet (peace be upon him) warned against confining and mistreating animals, and scholars have long held that the wellbeing of animals in one's care is a religious obligation. Choosing better-raised meat is not a luxury — it is pursuing the tayyib standard that the Quran commands.
-
+Animals raised in factory farming conditions endure extreme confinement, unnatural diets, and routine antibiotic use that contaminates the meat you consume. Free-range and pasture-raised animals live more natural lives, produce healthier meat, and align with the Islamic ethic of animal welfare. Choosing better-raised meat is not a luxury — it is pursuing the tayyib standard that the Quran commands.
 
 **How?**
 
@@ -4826,8 +4874,7 @@ Benchmark: Complete at least one farm or supplier visit, and use your observatio
 **Translation:** O children of Adam, We have bestowed upon you clothing to conceal your private parts and as adornment. But the clothing of righteousness — that is best.`,
           description: `**Why?**
 
-Most people wear only 20-30% of their wardrobe regularly, while the rest sits unused — representing wasted resources, wasted money, and clutter that weighs on you mentally. Auditing your wardrobe reveals the gap between what you own and what you actually need, and donating unused items puts them back into circulation where they can benefit others. The Prophet (peace be upon him) said, "The son of Adam has no better right than that he would have a house wherein he may live, a piece of cloth whereby he may hide his nakedness, and a piece of bread and some water" (Tirmidhi). Simplicity in dress is a Prophetic virtue.
-
+Most people wear only 20-30% of their wardrobe regularly, while the rest sits unused — representing wasted resources, wasted money, and clutter that weighs on you mentally. Auditing your wardrobe reveals the gap between what you own and what you actually need, and donating unused items puts them back into circulation where they can benefit others. Simplicity in dress is a Prophetic virtue.
 
 **How?**
 
@@ -4934,6 +4981,18 @@ Benchmark: Be able to independently sew a button, hem a garment, and patch a sma
 **Arabic:**
 **Translation:** "And verily, this (i.e. Allâh’s Commandments mentioned in the above two Verses 151 and 152) is My Straight Path, so follow it, and follow not (other) paths, for they will separate you away from His Path. This He has ordained for you that you may become Al-Muttaqûn (the pious - see V.2:2)."
 
+### Quran (2:168)
+**Arabic:** يَـٰٓأَيُّهَا ٱلنَّاسُ كُلُوا۟ مِمَّا فِى ٱلْأَرْضِ حَلَـٰلًۭا طَيِّبًۭا وَلَا تَتَّبِعُوا۟ خُطُوَٰتِ ٱلشَّيْطَـٰنِ ۚ إِنَّهُۥ لَكُمْ عَدُوٌّۭ مُّبِينٌ  
+**Translation:** People, eat what is good and lawful from the earth, and do not follow Satan’s footsteps, for he is your sworn enemy.
+
+### Quran (5:88)
+**Arabic:** وَكُلُوا۟ مِمَّا رَزَقَكُمُ ٱللَّهُ حَلَـٰلًۭا طَيِّبًۭا ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِىٓ أَنتُم بِهِۦ مُؤْمِنُونَ  
+**Translation:** but eat the lawful and good things that God provides for you. Be mindful of God, in whom you believe.
+
+### Quran (16:114)
+**Arabic:** فَكُلُوا۟ مِمَّا رَزَقَكُمُ ٱللَّهُ حَلَـٰلًۭا طَيِّبًۭا وَٱشْكُرُوا۟ نِعْمَتَ ٱللَّهِ إِن كُنتُمْ إِيَّاهُ تَعْبُدُونَ  
+**Translation:** So eat of the good and lawful things God has provided for you and be thankful for His blessings, if it is Him that you worship.
+
 **II. Hadith**
 
 
@@ -5013,7 +5072,12 @@ The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those
 
 ### Sahih Muslim 1015
 The Prophet (peace be upon him) said: "O people, Allah is pure and He accepts only that which is pure."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 41
+Recorded in Sahih al-Bukhari 41 and 191 as deeds done 'within your capacity' and 'regularly' or 'little.' The parallel narration in Sahih Muslim (1710 and 1711) includes the phrasing 'even if they are small.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Knowledge without application is like rain that falls on barren rock — it flows away without producing anything. After studying the tayyib principle, the next step is identifying where in your actual life you can apply it more rigorously. Choosing three specific categories creates a manageable scope for change rather than an overwhelming mandate to transform everything at once. The Prophet (peace be upon him) said, "Take on only as much as you can do of good deeds, for the best of deeds is that which is done consistently, even if it is small" (Ibn Majah).
@@ -5132,8 +5196,7 @@ Benchmark: At least one vetted ethical alternative identified for each of your t
 **Translation:** Indeed, Allah orders justice and good conduct.`,
           description: `**Why?**
 
-Intention without action is wishful thinking. Making the actual switch — and tracking the results — transforms your ethical research into lived practice. A one-month trial period gives you enough data to evaluate whether the alternative meets your quality expectations and fits your budget, without requiring a permanent commitment upfront. The Prophet (peace be upon him) said, "Tie your camel, then trust in Allah" (Tirmidhi) — do the practical work of testing, then trust the outcome.
-
+Intention without action is wishful thinking. Making the actual switch — and tracking the results — transforms your ethical research into lived practice. A one-month trial period gives you enough data to evaluate whether the alternative meets your quality expectations and fits your budget, without requiring a permanent commitment upfront.
 
 **How?**
 
@@ -5183,8 +5246,7 @@ The Prophet (peace be upon him) said: "He is not a believer whose stomach is fil
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Individual purchasing power is limited, but collective switching transforms markets. When you share your research and successful swaps with others, you multiply the impact exponentially — each person you convince represents another stream of revenue redirected from exploitative businesses to ethical ones. The Prophet (peace be upon him) said, "Whoever guides someone to goodness will have a reward like the one who did it" (Muslim). Sharing your ethical sourcing journey is a form of da'wah through action, not just words.
-
+Individual purchasing power is limited, but collective switching transforms markets. When you share your research and successful swaps with others, you multiply the impact exponentially — each person you convince represents another stream of revenue redirected from exploitative businesses to ethical ones. Sharing your ethical sourcing journey is a form of da'wah through action, not just words.
 
 **How?**
 
@@ -5241,8 +5303,7 @@ Benchmark: A documented list of at least 2-3 local food sourcing options (market
 **Translation:** Eat of its fruit when it yields and give its due on the day of its harvest.`,
           description: `**Why?**
 
-Not all local food sources are equal. Visiting multiple options lets you compare quality, variety, pricing, and the overall experience before committing your regular grocery spending. A visit also gives you the chance to meet the farmers, ask questions about their practices, and assess whether the source aligns with your tayyib standards. The Prophet (peace be upon him) encouraged inspecting goods before purchase — informed buying is a Sunnah principle that protects against both poor quality and deception.
-
+Not all local food sources are equal. Visiting multiple options lets you compare quality, variety, pricing, and the overall experience before committing your regular grocery spending. A visit also gives you the chance to meet the farmers, ask questions about their practices, and assess whether the source aligns with your tayyib standards.
 
 **How?**
 
@@ -5284,7 +5345,12 @@ Benchmark: Consistently purchasing at least 50% of fresh produce from local sour
 
 ### Sahih Bukhari 2320
 The Prophet (peace be upon him) said: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him." Building relationships with farmers connects you to the chain of provision Allah established.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 321
+Recorded in Sahih al-Bukhari 321 (and 296) as: 'The buyer and the seller have the option of cancelling or confirming the deal unless they separate.' Also found in Sahih Muslim 3656.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 In Islamic commerce, the relationship between buyer and seller is sacred. The Prophet (peace be upon him) said, "The buyer and the seller have the option of cancelling or confirming the deal as long as they have not parted" (Bukhari) — commerce was conducted face-to-face, with trust built through repeated honest interaction. Knowing your farmer by name, understanding their methods, and building mutual loyalty transforms grocery shopping from an anonymous transaction into a relationship of trust and mutual benefit. This is how trade was meant to function.
@@ -5339,8 +5405,7 @@ Benchmark: A meal plan that rotates with the seasons, featuring primarily locall
 **Translation:** Those who consume riba (interest) cannot stand except as one whom Satan has driven to madness by his touch. Screening investments for Shariah compliance begins with eliminating riba.`,
           description: `**Why?**
 
-Your investments and superannuation may be funding industries that directly contradict your Islamic values without your knowledge. Default superannuation funds and broad index investments often include fossil fuel companies, weapons manufacturers, gambling corporations, and businesses involved in deforestation or pollution. If your money is growing through harm to people and planet, the returns carry ethical weight. The Prophet (peace be upon him) said, "Every flesh that has been nourished by haram, the Fire is more deserving of it" (Tirmidhi). This extends to wealth grown through harmful channels.
-
+Your investments and superannuation may be funding industries that directly contradict your Islamic values without your knowledge. Default superannuation funds and broad index investments often include fossil fuel companies, weapons manufacturers, gambling corporations, and businesses involved in deforestation or pollution. If your money is growing through harm to people and planet, the returns carry ethical weight. This extends to wealth grown through harmful channels.
 
 **How?**
 
@@ -5509,7 +5574,15 @@ Benchmark: A curated capsule of 25-35 pieces in a cohesive palette, with at leas
 
 ### Quran (2:267)
 **Arabic:** أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ  
-**Translation:** Spend from the good things which you have earned.`,
+**Translation:** Spend from the good things which you have earned.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 12
+Recorded in Sahih al-Bukhari 12: 'None of you will have faith till he wishes for his (Muslim) brother what he likes for himself.' Also in Sahih Muslim 72.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The clothing you remove from your capsule still has value — to someone who needs it, to a textile recycler, or as raw material. Disposing of excess clothing irresponsibly (throwing it in the bin) sends it to landfill where synthetic fabrics take hundreds of years to decompose. Responsible donation and selling ensures your excess benefits others while keeping textiles in circulation. The Prophet (peace be upon him) said, "None of you truly believes until he loves for his brother what he loves for himself" (Bukhari). If the garment is good enough that you once wore it, it is good enough to find a new home.
@@ -5781,7 +5854,15 @@ Benchmark: A clear one-page business concept document with circularity embedded 
 
 ### Quran (11:61)
 **Arabic:** هُوَ أنشَأكم مِنَ الأرضِ واستَعمَركم فيها  
-**Translation:** He produced you from the earth and settled you therein (to develop it). Connecting with circular economy and Islamic finance networks fulfils the mandate of constructive stewardship.`,
+**Translation:** He produced you from the earth and settled you therein (to develop it). Connecting with circular economy and Islamic finance networks fulfils the mandate of constructive stewardship.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 626
+Recorded in Sahih al-Bukhari 626: 'A believer to another believer is like a building whose different parts enforce each other.' Also found in hadith 468.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 No business succeeds in isolation. Connecting with established networks provides mentorship, partnerships, funding pathways, and credibility that a solo founder cannot generate alone. Circular economy incubators can accelerate your learning curve and help you avoid common pitfalls. Islamic finance providers can fund your venture through Shariah-compliant structures (mudarabah, musharakah) that align with your values. The Prophet (peace be upon him) said, "The believer to another believer is like a building whose different parts enforce each other" (Bukhari). Build your support structure before you need it.
@@ -5913,7 +5994,12 @@ Benchmark: Confirmed agreements with 3-5 ethical suppliers across at least 2 pro
 
 ### Sahih Bukhari 2072
 The Prophet (peace be upon him) said: "The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs." Setting up transparent ordering and distribution systems reflects the prophetic standard of trustworthy commerce.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 219
+Recorded in Sahih al-Bukhari 219: 'You have been sent to make things easy and not to make them difficult.' Also in Sahih al-Bukhari 69.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The difference between a successful collective and a chaotic one is logistics. A clear, simple system for collecting orders, managing payments, and distributing products prevents confusion, disputes, and burnout among organisers. Over-engineering the system at this stage is as dangerous as under-engineering it — start simple and iterate based on real experience. The Prophet (peace be upon him) said, "Make things easy and do not make them difficult" (Bukhari). Your ordering system should be easy enough that any member can use it without technical assistance.
@@ -5998,8 +6084,7 @@ Benchmark: Sustained operation for at least 6 months with stable membership, at 
 **Translation:** You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong. Compiling and sharing a sourcing guide is enjoining what is right.`,
           description: `**Why?**
 
-All the research you have done across previous tasks — auditing brands, finding ethical alternatives, visiting farms, testing products — represents hours of effort that should not remain locked in your personal notes. Compiling this knowledge into a structured, shareable format transforms individual research into community benefit. This compilation is the raw material for a guide that saves others from repeating your work from scratch. The Prophet (peace be upon him) said, "The best of people are those most beneficial to people" (al-Mu'jam al-Awsat). Sharing vetted sourcing knowledge is a tangible way to be beneficial.
-
+All the research you have done across previous tasks — auditing brands, finding ethical alternatives, visiting farms, testing products — represents hours of effort that should not remain locked in your personal notes. Compiling this knowledge into a structured, shareable format transforms individual research into community benefit. This compilation is the raw material for a guide that saves others from repeating your work from scratch. Sharing vetted sourcing knowledge is a tangible way to be beneficial.
 
 **How?**
 
@@ -6064,7 +6149,15 @@ Benchmark: A polished, publication-ready guide in at least one format, tested wi
 
 ### Quran (3:104)
 **Arabic:** ولتكُن مِنكم أُمَّةٌ يدعونَ إلى الخيرِ ويأمرونَ بالمعروف  
-**Translation:** And let there be among you a community inviting to good, enjoining what is right. Sharing the guide through masjid and community channels extends the call to good.`,
+**Translation:** And let there be among you a community inviting to good, enjoining what is right. Sharing the guide through masjid and community channels extends the call to good.
+
+**II. Hadith**
+
+
+### Sahih Muslim 4005
+Recorded in Sahih Muslim 4005 (Book 13), which lists the three ongoing deeds as 'recurring charity, or knowledge (by which people) benefit, or a pious son, who prays for him.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 A guide that sits on your hard drive helps nobody. Distribution is where your individual research becomes sadaqah jariyah — ongoing charity that benefits others continuously. Every person who uses your guide to make a more ethical purchasing decision extends the impact of your original work. The Prophet (peace be upon him) said, "When a person dies, their deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim). A sourcing guide that others use and share is beneficial knowledge in its purest practical form.

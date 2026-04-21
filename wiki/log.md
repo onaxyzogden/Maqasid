@@ -3,6 +3,40 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] session | Source/description reconciliation across all 7 pillars
+
+**Completed:**
+- **Phase 1 (detect):** `scripts/audit-source-refs.mjs` walks all 7 seed files, classifies source/description drift into buckets A (Quran refs missing from sources), B (hadith with full citation missing), C1 (uncited hadith claims), C2 (shorthand-cited hadith, lookup-able), D (low-confidence). Output: `artifacts/source-audit/*.jsonl` (555 findings total).
+- **Phase 1.5 (promote):** `scripts/lookup-hadith-refs.mjs` batch-queries NotebookLM's Muslim Scholar notebook (Bukhari + Muslim + Quran PDFs, notebook `1c17b03b-...`) for each shorthand hadith citation. 70/128 C2 findings promoted to canonical `Collection + Number`; 58 unresolved.
+- **Phase 2 (apply):** `scripts/apply-source-refs.mjs` aggregates mutations per subtask, anchors replacements by subtask title (tolerant of `\uXXXX` escapes and `\'` quote escapes), preserves quote-style semantics. Staged diff → `stages/source-audit/2026-04-21-review.md` (3,744 lines, 497 hunks). User-approved. Committed: **368 mutations** (78 Quran blocks inserted, 71 hadith blocks inserted, 299 uncited sentences removed) across all 7 pillars; 65 edge cases skipped (task-level source inserts unsupported by data shape; stale audit pointers in ummah).
+- **Phase 3 (drift prevention):** `npm run audit:sources` script + baseline mode (`--write-baseline`, `--fail-on=increase`). Git pre-commit hook at `.githooks/pre-commit` activated via `git config core.hooksPath .githooks`. Baseline snapshot stored at `artifacts/source-audit/.baseline.json` (138 residual high-conf findings; regressions block future commits).
+
+**Also in this session (earlier turn):** Quran verse-range rendering fix — `TaskDetailPanel.jsx:530` regex widened to accept `X:Y-Z`, `QuranVerseCard.jsx` split into per-verse + range wrapper with stub fallback when `quranWBW` entry missing.
+
+**Deferred:** (1) Manual review of 65 skipped edge cases in stage doc; (2) UI spot-check that new `### Quran/Hadith` headings render via `QuranEmbed`/`HadithCard`; (3) Grinding down the 138 residual high-conf baseline via further NotebookLM passes or manual citation.
+
+**Decisions locked this session:** hybrid apply (auto-add high-conf, manual for ambiguous); uncited hadith sentences **removed** rather than flagged (covenant-grounded "no unattributed Prophet speech" rule).
+
+**Files changed:** `scripts/{audit,lookup,apply}-source-refs.mjs`, `src/data/seed-tasks/*.js` (all 7), `src/components/work/TaskDetailPanel.jsx`, `src/components/islamic/QuranVerseCard.jsx`, `package.json`, `.githooks/pre-commit`, `artifacts/source-audit/**`, `stages/source-audit/2026-04-21-review.md`.
+
+## [2026-04-20] session | Dashboard Wheel Test prototype — Maqasid Comparison Wheel
+
+**Completed:**
+- New standalone prototype module at `/app/dashboard-wheel-test` with sidebar entry (FlaskConical icon). Current Dashboard untouched.
+- `MaqasidComparisonWheel.jsx` — pure custom SVG radial chart: hub + 5 annular-sector progress segments + outer colored label ring with curved `<textPath>` labels (auto-flip for bottom-half readability).
+- `PathToExcellenceCards.jsx` — Foundation / Obligation / Aspiration cards with gold CTA stubs.
+- Iterative visual refinement (~24 user turns) to match the mockup pixel-faithful per CLAUDE.md rule.
+
+**Decisions:** [[2026-04-20-dashboard-wheel-test-prototype]]
+
+**Key technical note:** Gradient fix — switched radialGradient from default `objectBoundingBox` to `gradientUnits="userSpaceOnUse"` + explicit `cx={CX} cy={CY} r={PROGRESS_MAX_R}` so the light source anchors at the wheel center rather than per-segment bounding box. Stops teal `#7fe3d0 → #0a2c30`.
+
+**Deferred:** Store wiring for real pillar scores; other-pillar variants (Life/Intellect/Family/Wealth/Env/Ummah); promotion decision to replace current Dashboard; CTA wiring in Path to Excellence cards.
+
+**Files changed:** `src/pages/prototypes/**`, `src/App.jsx`, `src/components/layout/Sidebar.jsx`
+
+**Commit:** `df3924b` pushed to main.
+
 ## [2026-04-20] fix | Salah Level 1 tasks missing — board re-seed race fixed
 
 **Root cause:** `bbiz_tasks_faith_salah_core` was cleared from localStorage (likely during Siyam rename testing). AppShell preloads all projects on startup via `loadTasks`, caching `[]` for the board in the Zustand store. When the user visited the Salah board, `PillarLevelPage` effect-1 called `ensureFaithProjects → seedTasks` (re-seeding correctly to localStorage) but effect-2 (deps: `[projects]`) did NOT re-fire because the project entry was already in the store — leaving the store stale at `[]` even though localStorage was now seeded.

@@ -215,12 +215,11 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-You cannot close gaps you have not identified. The Prophet (peace be upon him) said, "Allah loves that when one of you does a task, he does it with itqan (excellence)." Excellence requires knowing what competence looks like in your field. Without a concrete inventory of required knowledge areas, your learning will be scattershot — driven by whichever book or course catches your attention rather than by what actually moves the needle.
-
+You cannot close gaps you have not identified. Without a concrete inventory of required knowledge areas, your learning will be scattershot — driven by whichever book or course catches your attention rather than by what actually moves the needle.
 
 **How?**
 
-1. **Research your field\'s competency framework.** Many professions have published frameworks:
+1. **Research your field's competency framework.** Many professions have published frameworks:
    - Software engineering: roadmap.sh, SWEBOK
    - Medicine: specialty-specific milestones
    - Business: MBA core curriculum areas
@@ -367,8 +366,7 @@ Identifying a gap without identifying a remedy leaves you stuck in awareness wit
 **Translation:** And say, "My Lord, increase me in knowledge."`,
           description: `**Why?**
 
-A plan without milestones is just a wish. The 90-day horizon is long enough to achieve meaningful progress on a skill gap but short enough to maintain urgency and motivation. Specific milestones create accountability checkpoints — you will know by day 30, 60, and 90 whether you are on track or need to adjust. The Prophet (peace be upon him) taught that the most beloved deeds to Allah are those done consistently, even if small.
-
+A plan without milestones is just a wish. The 90-day horizon is long enough to achieve meaningful progress on a skill gap but short enough to maintain urgency and motivation. Specific milestones create accountability checkpoints — you will know by day 30, 60, and 90 whether you are on track or need to adjust.
 
 **How?**
 
@@ -429,8 +427,7 @@ The Prophet (peace be upon him) said: "Whoever follows a path in the pursuit of 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Decision fatigue is the enemy of habit formation. If you wake up each day wondering "what should I read?" and "when should I read?", you will default to not reading. Choosing your first book and fixing a daily time eliminates both decisions in advance, making it far more likely that reading actually happens. The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small — consistency requires removing friction.
-
+Decision fatigue is the enemy of habit formation. If you wake up each day wondering "what should I read?" and "when should I read?", you will default to not reading. Choosing your first book and fixing a daily time eliminates both decisions in advance, making it far more likely that reading actually happens.
 
 **How?**
 
@@ -542,29 +539,22 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 
 Reading without reflection is consumption without digestion. The Quran repeatedly commands tafakkur (reflection) and tadabbur (pondering deeply). Writing a brief note after each reading session forces you to process what you have read, identify the key insight, and connect it to your existing knowledge. Over time, these notes become a personal knowledge base that compounds in value.
 
-
 **How?**
 
 1. **Keep it brief — 3-5 sentences maximum.** The goal is reflection, not a book report. If writing feels burdensome, you will skip it. If it is quick, it becomes automatic.
 
 2. **Use a simple template:**
    - **Date and book title**
-   - **Key insight:** The single most important idea from today\'s reading
+   - **Key insight:** The single most important idea from today's reading
    - **Connection:** How this connects to something you already know, believe, or are working on
    - **Question:** One question this reading raised for you
-
-3. **Example entry:**
-   > *15 April — "Thinking, Fast and Slow" by Kahneman*
-   > **Insight:** System 1 (fast, intuitive) thinking often produces confident but wrong answers.
-   > **Connection:** This relates to the Islamic concept of not rushing to judgement — the Prophet (peace be upon him) advised deliberation (ta\'anni).
-   > **Question:** How can I build checkpoints in my decision-making to engage System 2?
 
 4. **Where to write:**
    - A dedicated reading notebook (physical)
    - A digital note per book (Notion, Obsidian, Apple Notes)
    - The margins of the book itself (marginalia is a time-honoured scholarly practice)
 
-5. **Review your notes monthly.** Skim through the month\'s entries to see patterns, recurring themes, and ideas that are maturing. This review is where deep connections often crystallise.` },
+5. **Review your notes monthly.** Skim through the month's entries to see patterns, recurring themes, and ideas that are maturing. This review is where deep connections often crystallise.` },
       ],
     },
     {
@@ -1002,8 +992,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-"One book per month" sounds simple until life gets busy. Without a concrete target broken into weekly progress and a calendar system that prompts you, months will slip by with unfinished books. Structure is what transforms aspiration into behaviour. The Prophet (peace be upon him) taught that consistency in small deeds is better than bursts of intense effort followed by abandonment.
-
+"One book per month" sounds simple until life gets busy. Without a concrete target broken into weekly progress and a calendar system that prompts you, months will slip by with unfinished books. Structure is what transforms aspiration into behaviour.
 
 **How?**
 
@@ -1014,7 +1003,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
    - Set YOUR pace based on your reading speed — track how many pages you read in 30 minutes to calibrate
 
 2. **Set calendar reminders:**
-   - **1st of each month:** "Start this month\'s book: [Title]" — swap in the title from your reading list
+   - **1st of each month:** "Start this month's book: [Title]" — swap in the title from your reading list
    - **15th of each month:** "Mid-month reading check — are you on track?" — if less than halfway through, increase daily reading time
    - **25th of each month:** "Finish current book and write summary by month-end"
    - **Daily:** A recurring reminder at your designated reading time (e.g., "Reading time — 30 minutes")
@@ -1090,8 +1079,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said, "Convey from me, even if it is one ayah." The same principle applies to beneficial knowledge of all kinds — it is meant to be shared, not hoarded. Sharing an insight serves three purposes: it forces you to articulate the idea clearly (deepening your own understanding), it benefits the listener, and it invites dialogue that may refine or challenge your interpretation. Knowledge that is shared multiplies; knowledge that is kept dies with its holder.
-
+ Sharing an insight serves three purposes: it forces you to articulate the idea clearly (deepening your own understanding), it benefits the listener, and it invites dialogue that may refine or challenge your interpretation. Knowledge that is shared multiplies; knowledge that is kept dies with its holder.
 
 **How?**
 
@@ -1325,8 +1313,7 @@ The Prophet (peace be upon him) said: "Whoever Allah wants good for, He gives hi
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Completion is where most people fail — online course completion rates average 5-15%. Finishing what you start is a matter of integrity and discipline, both deeply valued in Islam. The Prophet (peace be upon him) said, "Allah loves that when one of you does a task, he does it with itqan." Documentation ensures the knowledge survives beyond the course — without it, studies show that you will forget 80% of course content within 30 days of completion.
-
+Completion is where most people fail — online course completion rates average 5-15%. Finishing what you start is a matter of integrity and discipline, both deeply valued in Islam.
 
 **How?**
 
@@ -1508,7 +1495,6 @@ The Prophet (peace be upon him) said: "He who goes out in search of knowledge is
 
 You cannot reach intermediate level without speaking. Textbooks and apps build knowledge about a language; conversation builds the ability to use it in real time. A conversation partner provides the pressure and feedback loop that solo study cannot replicate. The scholars of Islam learned through mudhakara (mutual study and discussion), and language learning follows the same principle — it is inherently social.
 
-
 **How?**
 
 1. **Find a conversation partner through these channels:**
@@ -1530,9 +1516,9 @@ You cannot reach intermediate level without speaking. Textbooks and apps build k
 3. **For Arabic learners — maximise your Islamic environment:**
    - Attend Arabic-medium halaqat (study circles) even if you only understand 30% at first
    - Listen to Arabic khutbahs and try to follow along
-   - Make du\'a in Arabic (beyond the memorised ones) — it trains spontaneous construction
+   - Make du'a in Arabic (beyond the memorised ones) — it trains spontaneous construction
 
-4. **Overcome the fear of speaking poorly.** Making mistakes is not embarrassing — it is the mechanism by which your brain learns. The Prophet (peace be upon him) spoke with people at their level and was patient with imperfect communication.
+4. **Overcome the fear of speaking poorly.** Making mistakes is not embarrassing — it is the mechanism by which your brain learns.
 
 5. **Log your conversation sessions** — date, partner, topics covered, new words learned, and mistakes corrected. This log becomes a powerful study resource.` },
         { title: 'Set a 6-month milestone test to measure progress', done: false,
@@ -1990,8 +1976,7 @@ The Prophet (peace be upon him) said: "Whoever introduces a good practice in Isl
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A work that remains unpublished benefits no one but you. The Prophet (peace be upon him) warned against concealing beneficial knowledge. Publishing — whether through a blog, journal, community platform, or traditional publisher — transforms your personal synthesis into a public contribution. This is sadaqah jariyah of the highest intellectual order: if even one person benefits from your work, you receive reward for it long after you have moved on.
-
+A work that remains unpublished benefits no one but you. Publishing — whether through a blog, journal, community platform, or traditional publisher — transforms your personal synthesis into a public contribution. This is sadaqah jariyah of the highest intellectual order: if even one person benefits from your work, you receive reward for it long after you have moved on.
 
 **How?**
 
@@ -2518,8 +2503,7 @@ The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The entire purpose of creating a curriculum is to benefit others at scale. A curriculum that sits in your Google Drive benefits no one. Publishing makes your intellectual stewardship available to the ummah — and if even one person completes your pathway and gains beneficial knowledge, you receive ongoing reward (sadaqah jariyah). The Prophet (peace be upon him) said, "Whoever guides someone to goodness will have a reward like that of the one who does it."
-
+The entire purpose of creating a curriculum is to benefit others at scale. A curriculum that sits in your Google Drive benefits no one. Publishing makes your intellectual stewardship available to the ummah — and if even one person completes your pathway and gains beneficial knowledge, you receive ongoing reward (sadaqah jariyah).
 
 **How?**
 
@@ -2560,7 +2544,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
    - Add new modules or advanced pathways as learners request them
    - Consider training others to teach your curriculum — this scales your impact exponentially
 
-6. **Make du\'a that Allah accepts this work** and makes it a source of benefit for the ummah. Then trust in His promise that beneficial knowledge is among the deeds that do not end with death.` },
+6. **Make du'a that Allah accepts this work** and makes it a source of benefit for the ummah. Then trust in His promise that beneficial knowledge is among the deeds that do not end with death.` },
       ],
     },
   ],
@@ -2591,8 +2575,7 @@ The Prophet (peace be upon him) said: "It is enough of a lie for a person to nar
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "It is enough of a lie for a person to narrate everything he hears" (Muslim). In the age of instant sharing, your default must shift from "share first, verify later" to "verify first, share only if confirmed." This single rule protects your credibility, your community, and your akhirah.
-
+ In the age of instant sharing, your default must shift from "share first, verify later" to "verify first, share only if confirmed." This single rule protects your credibility, your community, and your akhirah.
 
 **How?**
 
@@ -3726,7 +3709,15 @@ Shura (consultation) is a Quranic principle (42:38) and a Prophetic practice. Th
 
 ### Quran (39:22)
 **Arabic:** 
-**Translation:** So I ask about a person whose heart Allah has opened up for Islam, and consequently he proceeds in a light from his Lord. (Can he be equal to the one whose heart is hardened?) So, woe to those whose hearts are too hard to remember Allah. Those are wandering in open error.`,
+**Translation:** So I ask about a person whose heart Allah has opened up for Islam, and consequently he proceeds in a light from his Lord. (Can he be equal to the one whose heart is hardened?) So, woe to those whose hearts are too hard to remember Allah. Those are wandering in open error.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 263
+Recorded in Sahih al-Bukhari (Volume 2, Book 21, Number 263): 'The Prophet (p.b.u.h) used to teach us the way of doing Istikhara... in all matters as he taught us the Suras of the Quran.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Istikharah is the spiritual dimension of decision-making — acknowledging that despite your best analysis and consultation, your knowledge is limited and Allah\'s knowledge is complete. It is not a magical shortcut that replaces rational thought; it is the culmination of a process where you have done your due diligence and now submit the matter to the One who sees what you cannot. The Prophet (peace be upon him) taught his companions istikharah for all their affairs (Bukhari).
@@ -3984,8 +3975,7 @@ Adversarial thinking is most valuable as a habit, not a one-time exercise. Month
 **Translation:** Do you order righteousness of the people and forget yourselves while you recite the Scripture? Then will you not reason?`,
           description: `**Why?**
 
-Daniel Kahneman\'s work on cognitive biases earned a Nobel Prize and fundamentally changed our understanding of human decision-making. His framework of System 1 (fast, intuitive, error-prone) and System 2 (slow, deliberate, effortful) maps remarkably well onto the Islamic concept of the nafs and its tendencies. Understanding these systems is a modern form of self-knowledge — and the Prophet (peace be upon him) said: "The wise person is one who accounts for himself" (Tirmidhi).
-
+Daniel Kahneman's work on cognitive biases earned a Nobel Prize and fundamentally changed our understanding of human decision-making. His framework of System 1 (fast, intuitive, error-prone) and System 2 (slow, deliberate, effortful) maps remarkably well onto the Islamic concept of the nafs and its tendencies.
 
 **How?**
 
@@ -4005,7 +3995,7 @@ Daniel Kahneman\'s work on cognitive biases earned a Nobel Prize and fundamental
    - Take notes on every bias mentioned, with examples
    - After each section, pause and reflect: "Where does this show up in my life?"
 
-3. **Complement with Islamic reading** — pair the cognitive science text with *Purification of the Heart* or relevant sections of Al-Ghazali\'s *Ihya Ulum al-Din*. The overlap between modern bias research and classical Islamic psychology is striking.
+3. **Complement with Islamic reading** — pair the cognitive science text with *Purification of the Heart* or relevant sections of Al-Ghazali's *Ihya Ulum al-Din*. The overlap between modern bias research and classical Islamic psychology is striking.
 
 4. **Do not just read — interact:**
    - Highlight or note passages that surprise you
@@ -4156,8 +4146,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Bias is, by definition, something you cannot fully see in yourself. Having an accountability partner who knows your bias profile creates a mutual correction system. The Prophet (peace be upon him) said: "The believer is a mirror to his brother" (Abu Dawud). Sharing your findings makes the mirror explicit and actionable.
-
+Bias is, by definition, something you cannot fully see in yourself. Having an accountability partner who knows your bias profile creates a mutual correction system. Sharing your findings makes the mirror explicit and actionable.
 
 **How?**
 
@@ -4433,7 +4422,12 @@ Self-review is limited by the same blind spots that produced the original work. 
 
 ### Sahih al-Bukhari 3461
 The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 667
+Recorded in Sahih al-Bukhari (Volume 4, Book 56, Number 667): 'Convey (my teachings) to the people even if it were a single sentence [ayah]...'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Knowledge that remains in your notebook benefits only you. Publishing or presenting your analysis contributes to the collective intellectual life of your community and field. The Prophet (peace be upon him) said: "Convey from me, even if it is one ayah" (Bukhari). Your cross-disciplinary analysis, enriched with Islamic ethics, may offer a perspective that no one else is providing — withholding it is a disservice.
@@ -4485,8 +4479,7 @@ Knowledge that remains in your notebook benefits only you. Publishing or present
 **Translation:** Invite to the way of your Lord with wisdom and good instruction.`,
           description: `**Why?**
 
-The Islamic tradition emphasises speaking with knowledge, not mere opinion. The Prophet (peace be upon him) warned against speaking about Allah without knowledge (7:33). Choosing a topic where you have genuine expertise ensures you contribute value rather than noise. Choosing one that benefits your community ensures the effort has impact beyond your personal development.
-
+The Islamic tradition emphasises speaking with knowledge, not mere opinion. Choosing a topic where you have genuine expertise ensures you contribute value rather than noise. Choosing one that benefits your community ensures the effort has impact beyond your personal development.
 
 **How?**
 
@@ -4723,8 +4716,7 @@ The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him c
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The highest expression of Hifz al-Aql (preservation of intellect) is using your mind to serve others. Persistent problems — ones that have resisted easy solutions — are where your intellectual capabilities can have the greatest impact. The Prophet (peace be upon him) said: "The most beloved of people to Allah are those who are most beneficial to people" (al-Mu\'jam al-Awsat). This task channels your thinking toward that principle.
-
+The highest expression of Hifz al-Aql (preservation of intellect) is using your mind to serve others. Persistent problems — ones that have resisted easy solutions — are where your intellectual capabilities can have the greatest impact. This task channels your thinking toward that principle.
 
 **How?**
 
@@ -4906,8 +4898,7 @@ The Prophet (peace be upon him) said: "Verily Allah has prescribed proficiency (
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Implementation is where intellectual work becomes real-world impact. Many brilliant analyses and proposals remain on paper. The difference between an intellectual and a change-maker is execution. The Prophet (peace be upon him) said: "Allah loves that when one of you does a task, they do it with itqan (excellence and thoroughness)" (al-Bayhaqi). Implementing with measurement ensures you know whether your solution actually works — and provides the evidence base for scaling or adjusting.
-
+Implementation is where intellectual work becomes real-world impact. Many brilliant analyses and proposals remain on paper. The difference between an intellectual and a change-maker is execution. Implementing with measurement ensures you know whether your solution actually works — and provides the evidence base for scaling or adjusting.
 
 **How?**
 
@@ -4942,7 +4933,7 @@ Implementation is where intellectual work becomes real-world impact. Many brilli
    - Propose next steps: scale up, adjust and re-pilot, or pivot to a different approach
    - Document the entire journey — your research, proposal, implementation, and results — as a case study that others can learn from
 
-6. **Reflect spiritually** — make du\'a for acceptance and barakah in the work. Remember that results are from Allah; your role was to strive with excellence. Whether the pilot succeeds or fails, the effort itself is an act of worship when done with sincere intention.`
+6. **Reflect spiritually** — make du'a for acceptance and barakah in the work. Remember that results are from Allah; your role was to strive with excellence. Whether the pilot succeeds or fails, the effort itself is an act of worship when done with sincere intention.`
         },
       ],
     },
@@ -5024,14 +5015,13 @@ The Prophet (peace be upon him) said: "Among the excellence of a person's Islam 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Willpower alone is unreliable — the Prophet (peace be upon him) taught us to avoid situations of temptation rather than relying on our ability to resist them. Removing or restricting access to mind-dulling inputs makes the right choice the easy choice, which is the essence of good environment design.
-
+ Removing or restricting access to mind-dulling inputs makes the right choice the easy choice, which is the essence of good environment design.
 
 **How?**
 
 1. For apps you can live without entirely: **delete them** from your phone and computer.
-2. For sites you need to block: use a website blocker (Cold Turkey, Freedom, or your router\'s parental controls) and set permanent blocks.
-3. For inputs you cannot fully remove (e.g., social media needed for work): set strict daily time limits using your phone\'s built-in screen time controls — 15-30 minutes maximum.
+2. For sites you need to block: use a website blocker (Cold Turkey, Freedom, or your router's parental controls) and set permanent blocks.
+3. For inputs you cannot fully remove (e.g., social media needed for work): set strict daily time limits using your phone's built-in screen time controls — 15-30 minutes maximum.
 4. Remove notifications for all non-essential apps.
 5. Log out of accounts on your browser so re-accessing requires deliberate effort.` },
         { title: 'Replace the freed time with intentional alternatives (reading, dhikr, learning)', done: false,
@@ -5193,8 +5183,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Consistency transforms intention into habit. Tracking your adherence for 21 consecutive days creates accountability, reveals patterns (which days are hardest, what disrupts the routine), and builds the momentum needed for the practice to become automatic. The Prophet (peace be upon him) said the most beloved deeds to Allah are those done consistently, even if small.
-
+Consistency transforms intention into habit. Tracking your adherence for 21 consecutive days creates accountability, reveals patterns (which days are hardest, what disrupts the routine), and builds the momentum needed for the practice to become automatic.
 
 **How?**
 
@@ -5208,7 +5197,7 @@ Consistency transforms intention into habit. Tracking your adherence for 21 cons
     {
       title: 'Practise the Sunnah of silence (samt) — designate daily quiet periods for reflection',
       priority: 'high', tags: ['reflection', 'sunnah'],
-      description: 'The Prophet (peace be upon him) would spend extended periods in contemplative silence, and he advised that those who believe in Allah and the Last Day should speak good or remain silent. Deliberate silence creates space for tafakkur (contemplation) and protects the intellect from the noise of constant stimulation.',
+      description: ' Deliberate silence creates space for tafakkur (contemplation) and protects the intellect from the noise of constant stimulation.',
       subtasks: [
         { title: 'Designate a 30-60 minute daily window of complete silence — no speech, no media', done: false,
           sources: `**I. Hadith**
@@ -5451,8 +5440,7 @@ The Prophet (peace be upon him) said: "A man follows the religion of his close f
 *(Grade: Hasan)*`,
           description: `**Why?**
 
-You are the average of the people you spend the most time with — this is not just a motivational cliche but a social reality confirmed by both Islamic teaching and modern psychology. The Prophet (peace be upon him) said: "A person is upon the religion of his close friend, so let one of you look at whom he befriends." Listing these people is the first step to becoming intentional about your intellectual environment.
-
+You are the average of the people you spend the most time with — this is not just a motivational cliche but a social reality confirmed by both Islamic teaching and modern psychology.
 
 **How?**
 
@@ -5734,8 +5722,7 @@ The Prophet (peace be upon him) said: "The likeness of the one who memorises the
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The period after Fajr is blessed in the Prophetic tradition — the Prophet (peace be upon him) said: "O Allah, bless my ummah in their early morning hours." Neurologically, the mind is at its sharpest after sleep, with minimal interference from the day\'s information. A fixed daily window removes the need for daily decision-making about when to practise.
-
+ A fixed daily window removes the need for daily decision-making about when to practise.
 
 **How?**
 
@@ -6374,8 +6361,7 @@ The Prophet (peace be upon him) said: "Convey from me, even if it is one verse."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Knowledge that remains in your notebook benefits only you. Publishing your framework — whether as an article, a talk, a blog post, or a formal paper — extends its benefit to others and invites further refinement from a wider audience. The Prophet (peace be upon him) said: "Convey from me, even if it is one verse." Your intellectual contribution, however modest, may be the seed of something far greater.
-
+Knowledge that remains in your notebook benefits only you. Publishing your framework — whether as an article, a talk, a blog post, or a formal paper — extends its benefit to others and invites further refinement from a wider audience.
 
 **How?**
 
@@ -6733,8 +6719,7 @@ The Prophet (peace be upon him) said: "Actions are only by intentions, and every
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Every halal profession serves people in some way — directly or indirectly. Identifying precisely how your work benefits others connects your daily effort to a chain of positive impact. The Prophet (peace be upon him) taught that the best people are those most beneficial to others. This step maps your professional output to human benefit.
-
+Every halal profession serves people in some way — directly or indirectly. Identifying precisely how your work benefits others connects your daily effort to a chain of positive impact. This step maps your professional output to human benefit.
 
 **How?**
 
@@ -6833,7 +6818,7 @@ The purpose of displaying your mission statement is not vanity — it is remembr
     {
       title: 'Identify the top 3 skill gaps holding you back in your current role and create a plan to close them',
       priority: 'high', tags: ['skills', 'planning'],
-      description: 'The Prophet (peace be upon him) said Allah loves that when you do something, you do it with itqan (excellence). Identifying the specific skills holding you back from excellence in your role — and systematically closing those gaps — is a direct expression of this principle.',
+      description: ' Identifying the specific skills holding you back from excellence in your role — and systematically closing those gaps — is a direct expression of this principle.',
       subtasks: [
         {
           title: 'Seek honest feedback from your manager, colleagues, or clients on your weaknesses', done: false,
@@ -7715,13 +7700,12 @@ The Prophet (peace be upon him) said: "Whoever guides someone to good will have 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A one-sided advisory relationship becomes a burden. Even if your advisors are more senior or experienced than you, you have unique perspectives, skills, and information that can benefit them. Reciprocating creates a mutually valuable relationship that is sustainable long-term. The Prophet (peace be upon him) taught that the best relationships are those where both parties benefit.
-
+A one-sided advisory relationship becomes a burden. Even if your advisors are more senior or experienced than you, you have unique perspectives, skills, and information that can benefit them. Reciprocating creates a mutually valuable relationship that is sustainable long-term.
 
 **How?**
 
 1. For each advisor, identify what you can uniquely offer: your expertise in a specific area, your knowledge of a different industry, your technical skills, your perspective as someone at a different career stage, or simply your fresh eyes on their challenges.
-2. Proactively offer help: "Is there anything I can help you with? I\'d love to reciprocate the value you bring to me."
+2. Proactively offer help: "Is there anything I can help you with? I'd love to reciprocate the value you bring to me."
 3. Share relevant articles, introductions, or opportunities when you come across them — even outside of scheduled meetings.
 4. Be attentive to their challenges: if an advisor mentions a problem you can help with, follow up with a concrete offer.
 5. Express genuine gratitude regularly — not just at meetings, but when their advice proves valuable. Tell them the specific impact their guidance had.`,
@@ -7896,15 +7880,14 @@ The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Taking on a leadership role you are not ready for harms both you and the people you are meant to serve. The Prophet (peace be upon him) warned against seeking authority one is not equipped to handle. Honest self-assessment of your skills, available time, and support system ensures you step into leadership when you can genuinely serve, not just when you want the title.
-
+Taking on a leadership role you are not ready for harms both you and the people you are meant to serve. Honest self-assessment of your skills, available time, and support system ensures you step into leadership when you can genuinely serve, not just when you want the title.
 
 **How?**
 
 1. Skills assessment: Does the role require skills you have (strategy, governance, people management, financial oversight)? Be specific — "leadership" is too vague.
 2. Time assessment: How many hours per month does the role realistically require? Map this against your current commitments. Will something need to give?
 3. Support assessment: Does your family understand and support this commitment? Does your employer permit it? Will it conflict with other obligations?
-4. Seek external input: ask a trusted advisor, "Do you think I\'m ready for this role? What gaps should I address first?"
+4. Seek external input: ask a trusted advisor, "Do you think I'm ready for this role? What gaps should I address first?"
 5. If you identify readiness gaps, create a short plan to address them before applying. It is better to prepare for 3-6 months and lead well than to jump in unprepared.`,
         },
         {
@@ -7987,7 +7970,7 @@ Islamic leadership is servant leadership: you are there to serve those you lead,
     {
       title: 'Design and deliver a training programme that uplifts others in your profession',
       priority: 'low', tags: ['teaching', 'legacy'],
-      description: 'The Prophet (peace be upon him) said the best of people are those most beneficial to others. Designing a training programme takes your accumulated expertise and makes it accessible to others, multiplying your impact. It is a form of sadaqah jariyah — ongoing charity that continues to benefit people long after you deliver it.',
+      description: ' Designing a training programme takes your accumulated expertise and makes it accessible to others, multiplying your impact. It is a form of sadaqah jariyah — ongoing charity that continues to benefit people long after you deliver it.',
       subtasks: [
         {
           title: 'Identify the most common skill gap or struggle among junior professionals in your field', done: false,

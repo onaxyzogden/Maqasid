@@ -8,7 +8,7 @@ export const LIFE_SEED_TASKS = {
     {
       title: 'Audit your diet — eliminate haram and doubtful (mashbuh) consumables',
       priority: 'urgent', tags: ['diet', 'halal'],
-      description: 'Conduct a thorough review of everything you consume — food, drink, supplements, and medications — to ensure nothing haram or doubtful enters your body. The Prophet (SAW) said that a body nourished by haram will not enter Jannah; this audit is the foundation of physical tayyib living.',
+      description: 'Conduct a thorough review of everything you consume — food, drink, supplements, and medications — to ensure nothing haram or doubtful enters your body.',
       subtasks: [
         { title: 'List all regularly consumed foods, drinks, and supplements', done: false,
           tier: 'T2',
@@ -21,8 +21,7 @@ export const LIFE_SEED_TASKS = {
 **Translation:** O mankind, eat from whatever is on earth that is lawful and good and do not follow the footsteps of Satan.`,
           description: `**Why?**
 
-Taking inventory is the essential first step — you cannot purify what you have not examined. The Prophet (SAW) warned that a body nourished by haram will not enter Jannah, making this audit a matter of spiritual and physical well-being.
-
+Taking inventory is the essential first step — you cannot purify what you have not examined.
 
 **How?**
 
@@ -65,9 +64,6 @@ Go through your inventory list one item at a time. Check packaging for recognise
 The Prophet (SAW) said: "O people, Allah is Good and accepts only that which is good. Allah has commanded the believers as He commanded the Messengers."
 *(Grade: Sahih)*`,
           description: `**Why?**
-
-The Prophet (SAW) said: "Leave that which makes you doubt for that which does not make you doubt." Doubtful items sit in a grey zone that requires deeper investigation — ignoring them risks normalising consumption of what may be haram.
-
 
 **How?**
 
@@ -228,10 +224,9 @@ The Prophet (SAW) said: "If any one of you goes to sleep, he should perform wudu
 
 The Prophet (SAW) had a complete bedtime routine that combines spiritual protection with physical relaxation. Sleeping in wudu, on the right side, and with the prescribed duas turns every night into an act of worship and improves sleep posture.
 
-
 **How?**
 
-Make wudu before getting into bed. Lie on your right side as the Prophet (SAW) instructed. Recite the sleeping duas — blow into your palms and recite the three Quls, then wipe over your body. Recite Ayat al-Kursi and the dua "Bismika Allahumma amutu wa ahya." Keep a small card with these duas by your bed until they are memorised.` },
+Make wudu before getting into bed. Recite the sleeping duas — blow into your palms and recite the three Quls, then wipe over your body. Recite Ayat al-Kursi and the dua "Bismika Allahumma amutu wa ahya." Keep a small card with these duas by your bed until they are memorised.` },
         { title: 'Track your sleep consistency for 14 days and adjust as needed', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources emphasize sleep as a divine rest and highlight the Prophet\'s consistent bedtime routine, they omit specific modern practices like maintaining a 14-day sleep log, making the subtask a practical logical inference to achieve this intended consistency.',
@@ -717,7 +712,7 @@ Every 4-6 weeks, review your training log and ask: Am I still progressing on key
     {
       title: 'Track daily water intake (target 2–3 litres)',
       priority: 'medium', tags: ['hydration', 'health'],
-      description: 'Proper hydration is essential for cognitive function, digestion, joint health, and energy levels. The Prophet (SAW) advised drinking in three sips and not breathing into the vessel. Building a hydration habit supports every other health goal.',
+      description: 'Proper hydration is essential for cognitive function, digestion, joint health, and energy levels. Building a hydration habit supports every other health goal.',
       subtasks: [
         { title: 'Get a reusable water bottle with volume markings', done: false,
           tier: 'T2',
@@ -1646,8 +1641,7 @@ Abdullah b. 'Umar reported Allah's Messenger (ﷺ) as saying:The example of a ma
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Ayat al-Kursi is the greatest ayah in the Quran. The Prophet (SAW) taught that whoever recites it after every obligatory prayer will be under Allah's protection. Memorising it ensures you can recite it anywhere, anytime — in moments of anxiety, before sleep, and after every salah.
-
+Ayat al-Kursi is the greatest ayah in the Quran. Memorising it ensures you can recite it anywhere, anytime — in moments of anxiety, before sleep, and after every salah.
 
 **How?**
 
@@ -1686,8 +1680,7 @@ Narrated Aisha:Whenever Allah's Messenger (ﷺ) became ill, he used to recite th
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) said that whoever recites the last two ayat of Surah Al-Baqarah at night, they will suffice him — meaning they provide protection and spiritual sufficiency. These verses are a powerful nightly shield against anxiety and harm.
-
+ These verses are a powerful nightly shield against anxiety and harm.
 
 **How?**
 
@@ -1889,7 +1882,7 @@ Identify your top 3 idle scrolling triggers (e.g., waiting for food, riding the 
     {
       title: 'Seek Islamic counselling or therapy if experiencing persistent anxiety or depression',
       priority: 'medium', tags: ['mental-health', 'help'],
-      description: 'Seeking help is a sign of strength, not weakness. The Prophet (SAW) said: "Make use of medical treatment, for Allah has not made a disease without a remedy." Islamic counselling integrates psychological science with spiritual healing for holistic care.',
+      description: 'Seeking help is a sign of strength, not weakness.',
       subtasks: [
         { title: 'Honestly assess whether you are experiencing persistent low mood, anxiety, or emotional distress', done: false,
           tier: 'T2',
@@ -2858,7 +2851,7 @@ Define what "stable housing" looks like for your family — location, size, cost
     {
       title: 'Verify that all basic needs (food, clothing, shelter) are covered by halal income',
       priority: 'urgent', tags: ['provision', 'halal'],
-      description: 'The Prophet (SAW) taught that the son of Adam has no right to anything beyond basic food, clothing, and shelter. Ensuring these essentials are covered by halal income is both a spiritual obligation and the foundation of financial peace. Any haram source taints everything built upon it.',
+      description: ' Ensuring these essentials are covered by halal income is both a spiritual obligation and the foundation of financial peace. Any haram source taints everything built upon it.',
       subtasks: [
         { title: 'List all current income sources and verify each is halal', done: false,
           tier: 'T2',
@@ -2953,8 +2946,7 @@ Brainstorm halal income opportunities: freelance skills, a side business, a bett
 **Translation:** O you who have believed, fear Allah and give up what remains of interest, if you should be believers.`,
           description: `**Why?**
 
-Continuing to earn from haram sources while knowing they are haram is a serious spiritual matter. The Prophet (SAW) warned that a body nourished by haram will not enter Paradise. Elimination is not optional once you have identified the problem.
-
+Continuing to earn from haram sources while knowing they are haram is a serious spiritual matter. Elimination is not optional once you have identified the problem.
 
 **How?**
 
@@ -4101,7 +4093,7 @@ Identify 3-5 community members who showed interest during events or training. In
     {
       title: 'Master the Islamic greeting — give salam freely and respond completely',
       priority: 'high', tags: ['adab', 'sunnah'],
-      description: 'The Prophet (SAW) said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
+      description: ' Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
       subtasks: [
         { title: "Make it a habit to initiate salam with every Muslim you encounter", done: false,
           tier: 'T1',
@@ -4273,8 +4265,7 @@ The Prophet (SAW) said: "Visit the sick, feed the hungry, and free the captive."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Visiting the sick is one of the five rights of a Muslim upon another Muslim. The Prophet (SAW) said that when you visit a sick person, you are surrounded by angels making dua for you. It strengthens the bond of community and reminds you of the blessing of health.
-
+Visiting the sick is one of the five rights of a Muslim upon another Muslim. It strengthens the bond of community and reminds you of the blessing of health.
 
 **How?**
 
@@ -4302,8 +4293,7 @@ The Prophet (SAW) said: "Whoever does not accept the invitation to a walimah has
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) said that whoever does not accept an invitation has disobeyed Allah and His Messenger. Accepting invitations strengthens social bonds, honours the host, and keeps you connected to your community rather than isolated.
-
+ Accepting invitations strengthens social bonds, honours the host, and keeps you connected to your community rather than isolated.
 
 **How?**
 
@@ -4458,7 +4448,7 @@ Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to
     {
       title: 'Practise positive body language — eye contact, open posture, and full presence in conversations',
       priority: 'medium', tags: ['adab', 'communication'],
-      description: 'The Prophet (SAW) was described as giving his full attention to whoever spoke to him, turning his entire body toward them. Positive body language — eye contact, leaning in, putting down your phone — communicates respect and builds trust in every interaction.',
+      description: ' Positive body language — eye contact, leaning in, putting down your phone — communicates respect and builds trust in every interaction.',
       subtasks: [
         { title: 'Put your phone away (face down or in pocket) during all face-to-face conversations', done: false,
           tier: 'T2',
@@ -4545,7 +4535,7 @@ After practising the previous subtasks for two weeks, start paying attention to 
     {
       title: 'Respond to wrongdoing with patience (hilm) — implement a 24-hour rule before reacting',
       priority: 'medium', tags: ['character', 'patience'],
-      description: 'The Prophet (SAW) said: "The strong person is not the one who can wrestle, but the one who controls himself when angry." The 24-hour rule creates a buffer between stimulus and response, allowing wisdom and hilm (forbearance) to replace impulsive reactions that you would regret.',
+      description: '',
       subtasks: [
         { title: 'Commit to the rule: when wronged or angered, wait 24 hours before responding', done: false,
           tier: 'T2',
@@ -4595,10 +4585,9 @@ The Prophet (SAW) said: "The strong man is not the one who can wrestle, but the 
 
 The 24-hour window is not just about waiting — it is about redirecting your energy toward Allah. Wudu cools the body, salah centres the heart, and dua opens the door to guidance. The Prophet (SAW) prescribed these exact remedies for anger.
 
-
 **How?**
 
-As soon as you step away from the triggering situation, go make wudu. Then pray two voluntary rakaat and make a sincere dua asking Allah for patience, clarity, and the best response. If you are in a place where you cannot pray, sit down (the Prophet advised changing your position when angry) and make dhikr until the intensity fades.` },
+As soon as you step away from the triggering situation, go make wudu. Then pray two voluntary rakaat and make a sincere dua asking Allah for patience, clarity, and the best response.` },
         { title: 'Write down what happened and how you feel before deciding on a response', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to control their anger, exercise patience, and forgive, they omit specific modern psychological techniques like writing down the incident and one\'s feelings, making the subtask a practical logical inference to systematically achieve emotional regulation and fulfill these divine and prophetic instructions.',
@@ -4791,7 +4780,7 @@ Choose one or two people who know you well in different contexts (work and perso
     {
       title: 'Perform a regular act of service (khidmah) — volunteer, help a neighbour, or assist at the mosque',
       priority: 'medium', tags: ['khidmah', 'community'],
-      description: 'The Prophet (SAW) said: "The most beloved of people to Allah are those who are most beneficial to people." Regular service — whether structured volunteering or spontaneous acts of kindness — builds empathy, strengthens community bonds, and purifies the nafs from selfishness.',
+      description: '',
       subtasks: [
         { title: 'Identify a cause or organisation aligned with your skills and values', done: false,
           tier: 'T2',
@@ -4987,7 +4976,7 @@ Search for a highly-rated book, podcast episode, or video on active listening. G
     {
       title: 'Identify and reconcile at least one broken or strained relationship this month',
       priority: 'high', tags: ['reconciliation', 'sulh'],
-      description: 'The Prophet (SAW) said: "It is not permissible for a Muslim to forsake his brother for more than three days." Broken relationships weigh on the heart, harden it, and block blessings. Reconciliation — even when you were wronged — is one of the highest acts of character in Islam.',
+      description: ' Reconciliation — even when you were wronged — is one of the highest acts of character in Islam.',
       subtasks: [
         { title: 'List relationships that are currently strained, broken, or distant', done: false,
           tier: 'T2',

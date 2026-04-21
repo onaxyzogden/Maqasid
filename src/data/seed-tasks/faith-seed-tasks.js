@@ -130,7 +130,11 @@ La ilaha illAllah is not a passive statement — it is an active negation of eve
 
 ### Sahih Muslim 33
 The Prophet (SAW) said: "Whoever says La ilaha illAllah and disbelieves in whatever is worshipped besides Allah, his property and blood become inviolable, and his reckoning is with Allah."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+
+### Quran (63:1-3)
+`,
           description: `**Why?**
 
 The Shahada is not merely words on the tongue — it must settle in the heart and manifest in action. The munafiqun declared it verbally but lacked inner conviction, and the Quran exposed the emptiness of their claim.
@@ -286,7 +290,11 @@ To successfully complete this subtask, you must move beyond a simple translation
 
 ### Quran (4:36)
 **Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا  
-**Translation:** Worship God; join nothing with Him.`,
+**Translation:** Worship God; join nothing with Him.
+
+
+### Quran (45:23)
+`,
           description: `**Why?**
 
 Worship (*ibadah*) encompasses prayer, du'a, sacrifice, vows, reliance, hope, and fear. None of these may be directed to anything other than Allah. Directing even a single act of worship to another—whether it be a person, an idol, or one's own ego—invalidates the essence of the Shahada and constitutes *Shirk* (associating partners with Allah).
@@ -380,6 +388,8 @@ You must know what you are testifying to. Ignorance of the Shahada's meaning inv
 **Arabic:** كَلَّا لَوْ تَعْلَمُونَ عِلْمَ الْيَقِينِ
 **Translation:** "No indeed! If only you knew for certain."
 
+### Quran (49:15)
+
 **II. Hadith**
 
 
@@ -469,6 +479,8 @@ Knowledge and acceptance must lead to action. Submission (*inqiyad*) is the brid
 **Arabic:** وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ ۙ أُولَٰئِكَ هُمُ الْمُتَّقُونَ  
 **Translation:** And the one who has brought the truth and those who believed in it — those are the righteous.
 
+### Quran (63:1-4)
+
 **II. Hadith**
 
 
@@ -503,6 +515,8 @@ The Shahada must be said truthfully from the heart, not merely with the tongue. 
 ### Quran (39:14)
 **Arabic:** قُلِ اللَّهَ أَعْبُدُ مُخْلِصًا لَّهُ دِينِي
 **Translation:** Say, "Allāh [alone] do I worship, sincere to Him in my religion,
+
+### Quran (98:5)
 
 **II. Hadith**
 
@@ -616,6 +630,10 @@ Belief in Allah is the foundation of all other beliefs. It encompasses four dime
 **Arabic:** هُوَ الَّذِي يُصَلِّي عَلَيْكُمْ وَمَلَائِكَتُهُ لِيُخْرِجَكُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ ۚ وَكَانَ بِالْمُؤْمِنِينَ رَحِيمًا
 **Translation:** He it is Who sends Salât (His blessings) on you, and His angels too (ask Allâh to bless and forgive you), that He may bring you out from darkness (of disbelief and polytheism) into light (of Belief and Islâmic Monotheism). And He is Ever Most Merciful to the believers.
 
+### Quran (2:285)
+**Arabic:** ءَامَنَ ٱلرَّسُولُ بِمَآ أُنزِلَ إِلَيْهِ مِن رَّبِّهِۦ وَٱلْمُؤْمِنُونَ ۚ كُلٌّ ءَامَنَ بِٱللَّهِ وَمَلَـٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ لَا نُفَرِّقُ بَيْنَ أَحَدٍۢ مِّن رُّسُلِهِۦ ۚ وَقَالُوا۟ سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ ٱلْمَصِيرُ  
+**Translation:** The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. ‘We make no distinction between any of His messengers,’ they say, ‘We hear and obey. Grant us Your forgiveness, our Lord. To You we all return!’-
+
 **II. Hadith**
 
 
@@ -649,6 +667,8 @@ Angels are a pillar of the unseen that Muslims must affirm. They are created fro
 ### Quran (42:15)
 **Arabic:** وَقُلْ آمَنتُ بِمَا أَنزَلَ اللَّهُ مِن كِتَابٍ  
 **Translation:** Say, "I believe in whatever Scripture God has sent down."
+
+### Quran (5:48)
 
 **II. Hadith**
 
@@ -858,8 +878,7 @@ Narrated Aisha:Once Allah's Messenger (ﷺ) heard the loud voices of some oppone
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) said: "Whoever swears by other than Allah has committed shirk" (Ahmad, Tirmidhi). Swearing by something elevates it to a position of reverence that belongs to Allah alone. Many people habitually swear by their life, parents, or honour without realising the gravity of this act.
-
+ Swearing by something elevates it to a position of reverence that belongs to Allah alone. Many people habitually swear by their life, parents, or honour without realising the gravity of this act.
 
 **How?**
 
@@ -1191,6 +1210,8 @@ The attributes of Allah are among the most debated topics in Islamic theology. A
 **Arabic:** وَلَقَدْ أَرْسَلْنَا نُوحًا وَإِبْرَاهِيمَ وَجَعَلْنَا فِي ذُرِّيَّتِهِمَا النُّبُوَّةَ وَالْكِتَابَ ۖ فَمِنْهُم مُّهْتَدٍ ۖ وَكَثِيرٌ مِّنْهُمْ فَاسِقُونَ
 **Translation:** "We sent Noah and Abraham, and gave prophethood and scripture to their offspring: among them there were some who were rightly guided, but many were lawbreakers."
 
+### Quran (33:40)
+
 **II. Hadith**
 
 
@@ -1347,7 +1368,12 @@ The Prophet (SAW) said: "Whoever accuses a believer of kufr (disbelief), it is a
 
 ### Sahih Muslim 60
 The Prophet (SAW) said: "If a man says to his brother, O kafir (disbeliever)! Then surely one of them is such."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 116
+The source states: 'When a man calls his brother an unbeliever, it returns (at least) to one of them.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Declaring someone a disbeliever (*takfir*) is one of the most serious acts in Islamic jurisprudence. It requires meeting strict conditions and removing all excuses (ignorance, coercion, misunderstanding). The Prophet (SAW) warned that calling a Muslim a disbeliever unjustly returns the accusation upon the accuser.
@@ -1469,8 +1495,7 @@ The Prophet (SAW) said: "The thing I fear most for you is the minor shirk." They
 *(Grade: Sahih — graded sahih by al-Albani)*`,
           description: `**Why?**
 
-The Prophet (SAW) taught a specific du'a to protect against shirk — both the forms you recognise and the forms you do not. This du'a acknowledges human vulnerability to hidden shirk and turns the remedy itself into an act of worship and humility before Allah.
-
+ This du'a acknowledges human vulnerability to hidden shirk and turns the remedy itself into an act of worship and humility before Allah.
 
 **How?**
 
@@ -1534,6 +1559,10 @@ Tawhid al-Rububiyyah — affirming that Allah alone is the Creator, Sustainer, a
 **Arabic:** وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا فَقَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ وَارْجُوا الْيَوْمَ الْآخِرَ وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ
 **Translation:** And to (the people of) Madyan (Midian), We sent their brother Shu‘aib. He said: "O my people! Worship Allâh (Alone) and hope for (the reward of good deeds by worshipping Allâh Alone, on) the last Day (i.e. the Day of Resurrection), and commit no mischief on the earth as Mufsidûn (those who commit great crimes, oppressors, tyrants, mischief-makers, corrupters). [Tafsir At-Tabari]
 
+### Quran (6:162)
+**Arabic:** قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ  
+**Translation:** Say, ‘My prayers and sacrifice, my life and death, are all for God, Lord of all the Worlds;
+
 **II. Hadith**
 
 
@@ -1570,7 +1599,11 @@ Tawhid al-Uluhiyyah — directing all acts of worship exclusively to Allah — i
 
 ### Sahih Bukhari 2736
 The Prophet (SAW) said: "Allah has ninety-nine Names, one hundred minus one. Whoever enumerates (and acts upon) them will enter Paradise."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+
+### Quran (42:11)
+`,
           description: `**Why?**
 
 Tawhid al-Asma wa al-Sifat requires affirming Allah's names and attributes as described in the Quran and Sunnah — without denial, distortion, or likening them to creation. The guiding principle is Quran 42:11: "There is nothing like unto Him, and He is the All-Hearing, the All-Seeing."
@@ -1594,6 +1627,10 @@ Tawhid al-Asma wa al-Sifat requires affirming Allah's names and attributes as de
 ### Quran (3:18)
 **Arabic:** شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ ۚ لَا إِلَٰهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ  
 **Translation:** God bears witness that there is no god but Him, as do the angels and those who have knowledge. He upholds justice. There is no god but Him, the Almighty, the All Wise.
+
+### Quran (7:180)
+**Arabic:** وَلِلَّهِ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ فَٱدْعُوهُ بِهَا ۖ وَذَرُوا۟ ٱلَّذِينَ يُلْحِدُونَ فِىٓ أَسْمَـٰٓئِهِۦ ۚ سَيُجْزَوْنَ مَا كَانُوا۟ يَعْمَلُونَ  
+**Translation:** The Most Excellent Names belong to God: use them to call on Him, and keep away from those who abuse them- they will be requited for what they do.
 
 **II. Hadith**
 
@@ -1678,8 +1715,7 @@ The Prophet (SAW) said: "Convey from me even if it is one ayah."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The goal of teaching the Shahada's conditions is not to deliver a lecture — it is to connect hearts to the testimony of faith. The Prophet (SAW) taught with sincerity, patience, and engagement. Your approach should mirror his: sincere, inviting, and open to questions.
-
+The goal of teaching the Shahada's conditions is not to deliver a lecture — it is to connect hearts to the testimony of faith. Your approach should mirror his: sincere, inviting, and open to questions.
 
 **How?**
 
@@ -1986,7 +2022,12 @@ List your top three barriers to prayer (e.g., oversleeping for Fajr, work meetin
 
 ### Sahih Bukhari 527
 Narrated Ibn Mas'ud: I asked the Prophet (ﷺ), "Which deed is the best?" He replied, "To offer the prayers at their early stated fixed times." I asked, "What is the next (in goodness)?" He replied, "To be good and dutiful to your parents." I further asked, "What is the next?" He replied, "To participate in Jihad in Allah's Cause."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 505
+The Prophet was asked which deed is 'dearest to Allah' and replied: 'To offer the prayers at their early stated fixed times.' Also recorded in Sahih Muslim 151.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (SAW) was asked which deed is best and said: "Prayer at its proper time" (Bukhari/Muslim). Praying at the earliest time demonstrates eagerness to meet Allah and prevents the prayer from being crowded out by later obligations.
@@ -2082,7 +2123,12 @@ Study the agreed-upon nullifiers: anything exiting the front or back passage, sl
 
 ### Sahih Muslim 245
 The Prophet (SAW) said: "No one performs wudu and does it well, then prays two rak'at with full attention, except that Paradise becomes guaranteed for him."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 451
+States that for whoever performs wudu well and recites the Shahada, 'the eight gates of Paradise would be opened for him.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The du'a after wudu is a sunnah that seals your purification with remembrance of Allah. The Prophet (SAW) said that whoever performs wudu then recites the Shahada, the eight gates of Jannah are opened for them (Muslim).
@@ -2196,8 +2242,7 @@ Narrated Abu Huraira: The Prophet (ﷺ) said, "When any one of you finishes the 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) specifically instructed Muslims to seek refuge from these four trials before the salam. This du'a is so important that some scholars consider it obligatory. It is your last supplication before closing the prayer.
-
+ This du'a is so important that some scholars consider it obligatory. It is your last supplication before closing the prayer.
 
 **How?**
 
@@ -2274,8 +2319,7 @@ The Prophet (peace be upon him) said: "I was about to order the prayer to be est
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Committing to just one prayer in congregation daily builds the habit without overwhelming your schedule. The Prophet (SAW) said that the reward for prayer in congregation is 27 times that of praying alone -- even one daily jama'ah multiplies your reward significantly.
-
+Committing to just one prayer in congregation daily builds the habit without overwhelming your schedule.
 
 **How?**
 
@@ -2291,8 +2335,7 @@ Ibn 'Abbas said that he has been asked regarding Hajj-at-Tamattu' on which he sa
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Jama'ah is not limited to the masjid. The Prophet (SAW) said prayer in congregation is 27 degrees better than praying alone. Even two people constitute a jama'ah, so there is almost always an opportunity to earn this multiplied reward at home.
-
+Jama'ah is not limited to the masjid. Even two people constitute a jama'ah, so there is almost always an opportunity to earn this multiplied reward at home.
 
 **How?**
 
@@ -2401,7 +2444,12 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
 
 ### Sahih Muslim 728
 The Prophet (SAW) said: "Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: two before Fajr, four before Dhuhr, two after Dhuhr, two after Maghrib, and two after Isha."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 1573
+Recorded as: 'The two rak'ahs at dawn are better than this world and what it contains.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (SAW) said the two rak'at before Fajr are "better than the world and everything in it" (Muslim). He never missed them, even while travelling. This is the most emphasised of all Sunnah Rawatib prayers.
@@ -2421,8 +2469,7 @@ The Prophet (SAW) said: "Whoever prays twelve rak'at during the day and night, a
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) was consistent with the Dhuhr Sunnah prayers and said: "Whoever is regular with four rak'at before Dhuhr and four after, the Fire will not touch him" (Tirmidhi). These prayers form the largest block of the daily Rawatib.
-
+ These prayers form the largest block of the daily Rawatib.
 
 **How?**
 
@@ -2460,7 +2507,12 @@ The Prophet (SAW) said: "Whoever prays twelve rak'ahs during the day and night, 
 
 ### Sahih Muslim 882
 The Prophet (SAW) said: "Between every two adhans (adhan and iqamah) there is a prayer. Between every two adhans there is a prayer." Then he said on the third time: "For whoever wills."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 1579
+States: 'A house will be built in Paradise, for anyone who prays in a day and a night twelve rak'ahs.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 These two rak'at after Isha complete the twelve daily Rawatib. The Prophet (SAW) said: "Whoever prays twelve rak'at during the day and night, a house will be built for him in Jannah" (Muslim). Every night, you have the chance to add to your palace in paradise.
@@ -2647,8 +2699,7 @@ Narrated Abu Huraira:A man stood up and asked the Prophet (ﷺ) about praying in
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) said: "The closest a servant is to his Lord is when he is in sujud, so increase your du'a therein" (Muslim). Combining the closeness of sujud with the blessed time of the last third of the night creates the most powerful moment for supplication in the entire day.
-
+ Combining the closeness of sujud with the blessed time of the last third of the night creates the most powerful moment for supplication in the entire day.
 
 **How?**
 
@@ -2826,8 +2877,7 @@ The Prophet (SAW) said: "In the morning, charity is due from every one of your j
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Consistency in voluntary worship is more beloved to Allah than occasional bursts of effort. Aisha (RA) reported that the Prophet's most beloved deeds were those done consistently, even if small. Daily Duha takes only 2-3 minutes but compounds into a lifetime of reward.
-
+Consistency in voluntary worship is more beloved to Allah than occasional bursts of effort. Daily Duha takes only 2-3 minutes but compounds into a lifetime of reward.
 
 **How?**
 
@@ -2963,7 +3013,12 @@ When you recite or hear an ayah of sajdah, prostrate immediately if you are in a
 
 ### Sahih Bukhari 1131
 The Prophet (SAW) said: "The most beloved prayer to Allah is the prayer of Dawud: he used to sleep half the night, pray for a third of it, and sleep for a sixth of it."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 41
+States: 'the best deed (act of Worship) in the sight of Allah is that which is done regularly.' Also found in Sahih Muslim 1710.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The Prophet (SAW) said: "The most beloved deeds to Allah are those done consistently, even if small" (Bukhari). Choosing a realistic time ensures you can sustain your Qiyam routine long-term rather than burning out after a few intense nights.
@@ -3026,8 +3081,7 @@ Narrated Ibn \`Abbas:(One night) I stayed overnight in the house of my aunt Maim
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Witr seals your night worship with an odd-numbered prayer, as the Prophet (SAW) instructed. It includes the Qunut du'a, one of the most comprehensive supplications in the Sunnah. Making Witr your last prayer of the night follows prophetic guidance directly.
-
+ It includes the Qunut du'a, one of the most comprehensive supplications in the Sunnah. Making Witr your last prayer of the night follows prophetic guidance directly.
 
 **How?**
 
@@ -3916,10 +3970,9 @@ The Prophet (SAW) said: "The best charity is that which is given out of richness
 
 Consistency in giving is more beloved to Allah than occasional large donations. Automating sadaqah removes the friction of deciding each month and ensures the habit never lapses.
 
-
 **How?**
 
-Set up an automatic monthly bank transfer to a charity of your choice. Start with an amount you can sustain without hardship -- even a small amount counts. The Prophet (SAW) said the most beloved deeds to Allah are the most consistent, even if small. Review and increase the amount as your income grows.` },
+Set up an automatic monthly bank transfer to a charity of your choice. Start with an amount you can sustain without hardship -- even a small amount counts. Review and increase the amount as your income grows.` },
         { title: 'Identify causes that resonate with you (orphans, education, water)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly highlight the immense reward and virtue of supporting specific causes like orphans and feeding the hungry, they do not explicitly mention modern practices like researching specific organizations or signing up for updates, providing a clear logical inference to identify and dedicate oneself to such impactful causes.',
@@ -4046,8 +4099,7 @@ The Prophet (SAW) said: "When a son of Adam dies, his deeds come to an end excep
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) taught that three deeds continue after death, and sadaqah jariyah is one of them. A waqf contribution, however small, can generate rewards for you long after you have left this world.
-
+ A waqf contribution, however small, can generate rewards for you long after you have left this world.
 
 **How?**
 
@@ -4126,7 +4178,13 @@ Sit down together (in person or virtually) and go through each step: list all za
 
 ### Sahih Bukhari 1458
 The Prophet (SAW) said to Mu'adh: "Inform them that Allah has made zakah obligatory — taken from the rich among them and given to the poor among them." Helping others identify appropriate recipients fulfils this prophetic mission.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+
+### Quran (9:60)
+**Arabic:** ۞ إِنَّمَا ٱلصَّدَقَـٰتُ لِلْفُقَرَآءِ وَٱلْمَسَـٰكِينِ وَٱلْعَـٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَـٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ  
+**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God’s cause, and for travellers in need. This is ordained by God; God is all knowing and wise.
+`,
           description: `**Why?**
 
 Calculation is only half the task -- proper distribution is equally important. Helping someone understand the eight categories ensures their zakah is valid and reaches those who truly deserve it.
@@ -4506,8 +4564,7 @@ The Prophet (SAW) used to fast Mondays and Thursdays. When asked why he fasted o
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) said deeds are shown to Allah on Mondays and Thursdays, and he preferred to be fasting when his deeds were presented. Starting with one day builds the habit gently.
-
+ Starting with one day builds the habit gently.
 
 **How?**
 
@@ -4559,7 +4616,7 @@ Log each voluntary fast in a journal or app. After one month, review: How did fa
     {
       title: 'Fast the three white days (13th, 14th, 15th of each lunar month)',
       priority: 'medium', tags: ['siyam', 'sunnah'],
-      description: 'The Prophet (SAW) encouraged fasting the Ayyam al-Bid (white days). It is like fasting the entire month due to the ten-fold reward.',
+      description: ' It is like fasting the entire month due to the ten-fold reward.',
       subtasks: [
         { title: 'Download a Hijri calendar to track the white days', done: false,
           tier: 'T2',
@@ -4611,7 +4668,12 @@ The Prophet (SAW) said: "Fasting three days of every month is fasting for a life
 
 ### Sahih Bukhari 6464
 The Prophet (SAW) said: "The most beloved deeds to Allah are the most consistent ones, even if they are small."
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 202
+Abu Huraira reported the Prophet advised him 'to fast three days a month.' Also recorded in Sahih Muslim 1558.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Abu Hurayrah (RA) reported that the Prophet (SAW) advised him to fast three days of every month (Bukhari/Muslim). Making this a lifelong habit earns the reward of fasting an entire year, every year.
@@ -4768,8 +4830,7 @@ The Prophet (SAW) said: "Eat suhoor, for in suhoor there is blessing (barakah)."
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (SAW) said his ummah will remain upon goodness as long as they hasten the iftar and delay the suhoor (Ahmad). These timings are markers of adherence to the Sunnah.
-
+ These timings are markers of adherence to the Sunnah.
 
 **How?**
 
@@ -5462,8 +5523,7 @@ Narrated \`Umar:My Ansari neighbor from Bani Umaiya bin Zaid who used to live at
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Standing at Arafah is the essence of Hajj. It is a rehearsal for the Day of Judgement -- millions standing in white garments, equal before Allah, with nothing but their deeds. The Prophet (SAW) said Hajj is Arafah.
-
+Standing at Arafah is the essence of Hajj. It is a rehearsal for the Day of Judgement -- millions standing in white garments, equal before Allah, with nothing but their deeds.
 
 **How?**
 

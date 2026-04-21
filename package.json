@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "audit:sources": "node scripts/audit-source-refs.mjs --fail-on=increase"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

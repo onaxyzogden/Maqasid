@@ -222,8 +222,7 @@ Completion indicator: a prioritised, tiered list of all flagged sources with cle
 **Translation:** O you who have believed, do not consume usury, doubled and multiplied, but fear Allah that you may be successful.`,
           description: `**Why?**
 
-Urgency without planning leads to financial crisis, which can push a person back into haram income out of desperation. The Prophet (peace be upon him) taught us to tie our camel and then trust in Allah — meaning practical preparation is part of tawakkul, not opposed to it. A realistic exit timeline balances the obligation to leave haram income swiftly with the responsibility to maintain nafaqah (provision) for your dependants during the transition.
-
+Urgency without planning leads to financial crisis, which can push a person back into haram income out of desperation. A realistic exit timeline balances the obligation to leave haram income swiftly with the responsibility to maintain nafaqah (provision) for your dependants during the transition.
 
 **How?**
 
@@ -264,7 +263,9 @@ Leaving haram income without a halal replacement is not piety — it is poor pla
 
 Completion indicator: at least one viable halal replacement identified for each haram source being exited, with applications or arrangements in progress.` },
         { title: 'Execute the exit — submit resignations, close accounts, or terminate contracts', done: false,
-          sources: `**I. Hadith**
+          sources: `### Quran (65:2-3)
+
+**II. Hadith**
 
 
 ### Sahih Bukhari 2072
@@ -362,7 +363,12 @@ Completion indicator: ability to explain the prohibition of riba to someone else
 
 ### Sahih Muslim 1513
 The Prophet (peace be upon him) forbade the sale of gharar (uncertainty). He prohibited transactions involving excessive ambiguity where the exact nature, quantity, or delivery of the goods is unknown.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Muslim 3614
+Recorded in Sahih Muslim 3614 (Book 10), which states that the Prophet forbade transactions involving uncertainty (gharar).
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Gharar — excessive uncertainty or ambiguity in contracts — is the second major prohibition in Islamic commercial law after riba. The Prophet (peace be upon him) forbade the sale of gharar (Muslim). Unlike riba, which is relatively easy to identify, gharar exists on a spectrum: minor uncertainty is tolerable and even unavoidable in trade, but excessive gharar invalidates a contract. Understanding where that line falls is essential for evaluating employment contracts, business agreements, and investment opportunities.
@@ -567,7 +573,15 @@ Completion indicator: a documented comparison showing your net income against yo
 
 ### Quran (65:7)
 **Arabic:** لِيُنفِقْ ذُو سَعَةٍ مِّن سَعَتِهِ وَمَن قُدِرَ عَلَيْهِ رِزْقُهُ فَلْيُنفِقْ مِمَّا آتَاهُ اللَّهُ  
-**Translation:** Let a man of wealth spend from his wealth, and he whose provision is restricted — let him spend from what Allah has given him. Allah does not charge a soul except according to what He has given it.`,
+**Translation:** Let a man of wealth spend from his wealth, and he whose provision is restricted — let him spend from what Allah has given him. Allah does not charge a soul except according to what He has given it.
+
+**II. Hadith**
+
+
+### Sahih Muslim 2182
+Recorded in Sahih Muslim 2182 (Book 5): 'This sin is enough for a man that he withholds the subsistence from one whose master he is.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 If a gap exists between your income and your nafaqah obligation, it must be addressed with the same urgency as any other fard (obligatory) duty. The Prophet (peace be upon him) said: "It is sufficient sin for a person to neglect those whom he is responsible to feed" (Abu Dawud). Closing the gap is not optional — it is a religious obligation that may require difficult decisions: cutting discretionary spending, taking on additional halal work, or humbly seeking community support through zakah or qard hasan.
@@ -646,13 +660,11 @@ The Prophet (peace be upon him) said: "The one who repents from sin is like one 
 
 Tawbah (repentance) is the spiritual foundation of wealth purification. Without it, donating haram funds is merely a financial transaction — with it, the act becomes a turning point in your relationship with Allah. The Prophet (peace be upon him) said: "The one who repents from sin is like the one who never sinned" (Ibn Majah). Sincere tawbah has three conditions: genuine regret for the action, immediately ceasing the haram behaviour, and firm resolve not to return to it. If the sin involved the rights of others, a fourth condition applies — restoring their rights. This is not a one-time verbal exercise but a transformation of orientation.
 
-
 **How?**
 
 1. Set aside dedicated time for reflection and prayer — this is not something to rush through between tasks. Choose a quiet moment, ideally during the last third of the night or after a fard prayer.
 2. Acknowledge the specific haram earnings to yourself with honesty — name each source and the reason it was impermissible. Vague regret is weaker than specific acknowledgment.
-3. Feel genuine regret (nadam) — not just fear of consequences, but sorrow that you earned in a way that displeased your Creator. The Prophet (peace be upon him) said: "Regret is repentance" (Ahmad, Ibn Majah).
-4. Confirm that you have ceased all haram earning activities. If any flagged sources remain active, the tawbah cannot be complete until you exit them.
+3. Feel genuine regret (nadam) — not just fear of consequences, but sorrow that you earned in a way that displeased your Creator. Confirm that you have ceased all haram earning activities. If any flagged sources remain active, the tawbah cannot be complete until you exit them.
 5. Make a firm internal resolve (azm) never to return to haram income, even if financial pressure arises. Trust that Allah will provide halal alternatives: "Whoever fears Allah, He will make for him a way out" (Quran 65:2).
 6. Perform two rak'at of salat al-tawbah and make du'a specifically for forgiveness regarding your financial dealings.
 7. If your haram earnings harmed specific people (e.g., overcharging, deceptive sales), seek their forgiveness directly where possible.
@@ -760,7 +772,12 @@ Completion indicator: a complete, securely stored record of the entire wealth pu
 
 ### Sahih Bukhari 2072
 The Prophet (peace be upon him) said: "The upper hand (the giving hand) is better than the lower hand (the receiving hand)." Developing skills to earn abundantly enables a believer to be among those who give.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 444
+Found in Sahih al-Bukhari 444 (Book 23): 'The good deeds are made easy [facilitated] for the blessed, and bad deeds are made easy for the wretched.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Allah has given every person a unique combination of fitrah (natural disposition), talents, and life experience. Identifying these is not a secular self-help exercise — it is an act of recognising the gifts Allah has already placed in you and aligning your earning strategy with them. A person who builds a career on their genuine strengths earns more effectively, sustains effort longer, and experiences their work as meaningful rather than draining. The Prophet (peace be upon him) said: "Everyone is facilitated toward that for which they were created" (Bukhari). Starting with self-assessment prevents the common mistake of chasing trendy skills that do not suit your disposition.
@@ -839,8 +856,7 @@ The Prophet (peace be upon him) said: "Nobody has ever eaten a better meal than 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Scattered learning across multiple skills produces mediocrity in all of them. Excellence — ihsan — requires focused commitment to mastery of one thing at a time. The Prophet (peace be upon him) said: "Allah loves that when one of you does a deed, he does it with ihsan (excellence)" (al-Bayhaqi). Choosing one skill and committing to a structured plan transforms aspiration into action. The plan must include formal learning (to build foundational knowledge), mentorship (to accelerate growth through experienced guidance), and practical application (to convert knowledge into demonstrable competence).
-
+Scattered learning across multiple skills produces mediocrity in all of them. Excellence — ihsan — requires focused commitment to mastery of one thing at a time. Choosing one skill and committing to a structured plan transforms aspiration into action. The plan must include formal learning (to build foundational knowledge), mentorship (to accelerate growth through experienced guidance), and practical application (to convert knowledge into demonstrable competence).
 
 **How?**
 
@@ -891,7 +907,7 @@ Completion indicator: a clearly defined, measurable 90-day milestone written dow
     {
       title: 'Diversify income — build a second halal revenue stream (consulting, rentals, or business)',
       priority: 'high', tags: ['income', 'stability'],
-      description: 'Relying on a single income source creates financial fragility. The Prophet (peace be upon him) encouraged trade and enterprise. Building a second halal revenue stream — whether through consulting, rental property, an online business, or partnership — provides resilience and increases your capacity for generosity.',
+      description: 'Relying on a single income source creates financial fragility. Building a second halal revenue stream — whether through consulting, rental property, an online business, or partnership — provides resilience and increases your capacity for generosity.',
       subtasks: [
         { title: 'Brainstorm 5 potential secondary income ideas aligned with your skills', done: false,
           sources: `**I. Quran**
@@ -957,7 +973,12 @@ Completion indicator: a completed evaluation table with all 5 ideas scored, rank
 
 ### Sunan Ibn Majah 2144
 The Prophet (peace be upon him) said: "The truthful, trustworthy merchant is with the Prophets, the Siddiqin, and the Shuhada."
-*(Grade: Hasan)*`,
+*(Grade: Hasan)*
+
+### Sahih Bukhari 1
+The very first hadith in Sahih al-Bukhari records: 'The reward of deeds depends upon the intentions.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Selection without a plan is just enthusiasm. A simple business plan — even a one-page version — forces you to think through the critical elements: who will pay you, what you will deliver, how you will reach customers, and what it will cost. This is not about creating a formal document for investors; it is about clarity of intention and action. The Prophet (peace be upon him) said: "Actions are judged by intentions" (Bukhari and Muslim). A plan makes your intention specific, actionable, and accountable rather than a vague aspiration to "start something on the side."
@@ -1081,7 +1102,15 @@ Completion indicator: a budgeting system set up and ready for data entry, with h
 
 ### Quran (2:267)
 **Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ  
-**Translation:** O you who have believed, spend from the good things which you have earned.`,
+**Translation:** O you who have believed, spend from the good things which you have earned.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 41
+Recorded in Sahih al-Bukhari 41 (Book 2) as 'the best deed... is that which is done regularly [consistently].' Sahih Muslim 1711 adds 'even if it is small.'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Zakah is not optional charity — it is a right that the poor have upon your wealth, as binding as any bill. Sadaqah, while voluntary, is a pillar of Muslim financial life that brings barakah and purifies wealth. Debt repayment is an obligation the Prophet (peace be upon him) took so seriously that he initially refrained from praying janazah for someone who died in debt until the debt was settled. By creating dedicated, non-negotiable line items for these three categories, you ensure they are funded before discretionary spending erodes the resources available for them.
@@ -1166,7 +1195,13 @@ Completion indicator: a recurring calendar appointment set for monthly budget re
 
 ### Quran (17:26-27)
 **Arabic:** وَآتِ ذَا الْقُرْبَىٰ حَقَّهُ وَالْمِسْكِينَ وَابْنَ السَّبِيلِ وَلَا تُبَذِّرْ تَبْذِيرًا ﴿٢٦﴾ إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ  
-**Translation:** And give the relative his right, and [also] the poor and the traveler, and do not spend wastefully. Indeed, the wasteful are brothers of the devils.`,
+**Translation:** And give the relative his right, and [also] the poor and the traveler, and do not spend wastefully. Indeed, the wasteful are brothers of the devils.
+
+
+### Quran (7:31)
+**Arabic:** ۞ يَـٰبَنِىٓ ءَادَمَ خُذُوا۟ زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍۢ وَكُلُوا۟ وَٱشْرَبُوا۟ وَلَا تُسْرِفُوٓا۟ ۚ إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْرِفِينَ  
+**Translation:** Children of Adam, dress well whenever you are at worship, and eat and drink [as We have permitted] but do not be extravagant: God does not like extravagant people.
+`,
           description: `**Why?**
 
 Every dirham saved from wasteful spending is a dirham that can be directed toward provision, debt freedom, investment, or generosity. Allah says: "Eat and drink, but do not be excessive — indeed, He does not like those who are excessive" (Quran 7:31). Identifying the top 3 reduction areas focuses your effort on the changes with the greatest financial impact rather than trying to cut everything simultaneously, which is unsustainable. Most people find that a small number of categories account for a disproportionate share of unnecessary spending.
@@ -1188,7 +1223,7 @@ Completion indicator: three specific spending categories identified for reductio
     {
       title: 'Negotiate a raise or contract rate increase aligned with your market value',
       priority: 'medium', tags: ['income', 'negotiation'],
-      description: 'Being underpaid relative to your contribution is not humility — it is a missed opportunity to better provide for your family and community. Research your market value and advocate for fair compensation. The Prophet (peace be upon him) said: "Give the worker his wages before his sweat dries."',
+      description: 'Being underpaid relative to your contribution is not humility — it is a missed opportunity to better provide for your family and community. Research your market value and advocate for fair compensation.',
       subtasks: [
         { title: 'Research salary benchmarks for your role, experience level, and location', done: false,
           sources: `**I. Quran**
@@ -1256,8 +1291,7 @@ Completion indicator: a documented list of 5-10 key accomplishments from the pas
 **Translation:** And do not wish for that by which Allah has made some of you exceed others. For men is a share of what they have earned.`,
           description: `**Why?**
 
-Walking into a compensation conversation without a prepared case is like entering a court without evidence. Your case must weave together market data, your accomplishments, and a specific request into a coherent narrative that makes saying "yes" easy for the decision-maker. The request must be specific — "I am requesting a 15% increase to bring my compensation to the market median" is actionable; "I would like more money" is not. Preparation also builds your confidence, which directly affects how your request is received. The Prophet (peace be upon him) taught us to be clear and direct in our dealings.
-
+Walking into a compensation conversation without a prepared case is like entering a court without evidence. Your case must weave together market data, your accomplishments, and a specific request into a coherent narrative that makes saying "yes" easy for the decision-maker. The request must be specific — "I am requesting a 15% increase to bring my compensation to the market median" is actionable; "I would like more money" is not. Preparation also builds your confidence, which directly affects how your request is received.
 
 **How?**
 
@@ -1346,8 +1380,7 @@ The Prophet (peace be upon him) said: "Give the worker his wages before his swea
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Give the worker his wages before his sweat dries" (Ibn Majah). This hadith establishes not only the timing of payment but the principle that wages must be fair — sufficient for the worker to live with dignity. Underpaying an employee because you have bargaining power is a form of zulm (oppression) that the Quran explicitly condemns. At the same time, overpaying beyond your means can threaten the sustainability of the position itself. Fair compensation balances market reality with Islamic justice, ensuring the worker is neither exploited nor the business endangered.
-
+ This hadith establishes not only the timing of payment but the principle that wages must be fair — sufficient for the worker to live with dignity. Underpaying an employee because you have bargaining power is a form of zulm (oppression) that the Quran explicitly condemns. At the same time, overpaying beyond your means can threaten the sustainability of the position itself. Fair compensation balances market reality with Islamic justice, ensuring the worker is neither exploited nor the business endangered.
 
 **How?**
 
@@ -1404,7 +1437,12 @@ Completion indicator: a suitable candidate hired through a fair, structured proc
 
 ### Sahih Bukhari 7152
 The Prophet (peace be upon him) said: "Every one of you is a shepherd and is responsible for his flock." Mentoring employees is part of that shepherding responsibility.
-*(Grade: Sahih)*`,
+*(Grade: Sahih)*
+
+### Sahih Bukhari 592
+Recorded in Sahih al-Bukhari 592 (Book 41): 'Everyone of you is a guardian [shepherd], and responsible for what is in his custody [flock].'
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Hiring someone and then leaving them to figure things out on their own is not leadership — it is neglect. Islamic leadership (ri'ayah) requires active care for those under your authority. The Prophet (peace be upon him) said: "Each of you is a shepherd, and each of you is responsible for his flock" (Bukhari and Muslim). A mentorship cadence ensures your employee grows in skill and confidence, which benefits both their career and your business. It also builds a relationship of trust and mutual respect that reflects the Islamic ideal of an employer-employee bond — one rooted in justice, care, and shared purpose.
@@ -1439,8 +1477,7 @@ The Prophet (peace be upon him) said: "Allah said: I will be the opponent of thr
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Give the worker his wages before his sweat dries" (Ibn Majah). This hadith is not merely about speed — it establishes a principle that withholding earned wages is a form of oppression. Allah says: "There are three people whom I will oppose on the Day of Judgement: a man who gave his word and then betrayed it, a man who sold a free person and consumed his price, and a man who hired a worker, benefited from his work, and then did not pay him his wages" (Bukhari). Prompt payment is a non-negotiable Islamic obligation that reflects your integrity as an employer and your fear of Allah in financial dealings.
-
+ This hadith is not merely about speed — it establishes a principle that withholding earned wages is a form of oppression. Allah says: "There are three people whom I will oppose on the Day of Judgement: a man who gave his word and then betrayed it, a man who sold a free person and consumed his price, and a man who hired a worker, benefited from his work, and then did not pay him his wages" (Bukhari). Prompt payment is a non-negotiable Islamic obligation that reflects your integrity as an employer and your fear of Allah in financial dealings.
 
 **How?**
 
@@ -1528,8 +1565,7 @@ The Prophet (peace be upon him) said: "Allah will aid a servant so long as the s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "The best of people are those who are most beneficial to people" (al-Tabarani). A business that serves only its owner's financial interests, even if entirely halal, misses the higher calling of khilafah. Defining a measurable community benefit forces you to think beyond profit and articulate how your business actively improves the lives of people around it. "Measurable" is the key word — vague claims of community benefit ("we help people") are not accountability; specific, trackable metrics ("we provide free tutoring to 20 students per quarter") create genuine commitment.
-
+ A business that serves only its owner's financial interests, even if entirely halal, misses the higher calling of khilafah. Defining a measurable community benefit forces you to think beyond profit and articulate how your business actively improves the lives of people around it. "Measurable" is the key word — vague claims of community benefit ("we help people") are not accountability; specific, trackable metrics ("we provide free tutoring to 20 students per quarter") create genuine commitment.
 
 **How?**
 
@@ -1699,8 +1735,7 @@ The Prophet (peace be upon him) said: "Whoever sets a good precedent in Islam wi
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The gap between planning to share and actually sharing is where most knowledge dies. Publishing your first piece of content — however imperfect — breaks the barrier of inaction and initiates a feedback loop that no amount of preparation can replicate. You will learn more from one published blog post or one delivered talk than from months of planning. The Prophet (peace be upon him) said: "Convey from me, even if it is a single verse" (Bukhari). You do not need to be a scholar or a polished speaker to share your lived experience — authenticity and sincerity are more impactful than perfection.
-
+The gap between planning to share and actually sharing is where most knowledge dies. Publishing your first piece of content — however imperfect — breaks the barrier of inaction and initiates a feedback loop that no amount of preparation can replicate. You will learn more from one published blog post or one delivered talk than from months of planning. You do not need to be a scholar or a polished speaker to share your lived experience — authenticity and sincerity are more impactful than perfection.
 
 **How?**
 
@@ -1767,8 +1802,7 @@ Completion indicator: an active mentorship relationship with at least one person
 **Translation:** O you who have believed, do not consume usury, doubled and multiplied, but fear Allah that you may be successful.`,
           description: `**Why?**
 
-You cannot eliminate riba from your financial life if you do not know where it exists. Many people hold accounts they have forgotten about — old savings accounts, store credit cards, employer retirement funds with conventional investments. A complete inventory is the essential first step because hidden accounts continue accumulating sin and financial harm even when ignored. The Prophet (peace be upon him) taught that a believer is not bitten from the same hole twice — awareness prevents repeated harm.
-
+You cannot eliminate riba from your financial life if you do not know where it exists. Many people hold accounts they have forgotten about — old savings accounts, store credit cards, employer retirement funds with conventional investments. A complete inventory is the essential first step because hidden accounts continue accumulating sin and financial harm even when ignored.
 
 **How?**
 
@@ -1790,6 +1824,10 @@ You cannot eliminate riba from your financial life if you do not know where it e
 ### Quran (2:276)
 **Arabic:** يَمْحَقُ اللَّهُ الرِّبَا وَيُرْبِي الصَّدَقَاتِ  
 **Translation:** Allah destroys interest and gives increase for charities.
+
+### Quran (2:275)
+**Arabic:** ٱلَّذِينَ يَأْكُلُونَ ٱلرِّبَوٰا۟ لَا يَقُومُونَ إِلَّا كَمَا يَقُومُ ٱلَّذِى يَتَخَبَّطُهُ ٱلشَّيْطَـٰنُ مِنَ ٱلْمَسِّ ۚ ذَٰلِكَ بِأَنَّهُمْ قَالُوٓا۟ إِنَّمَا ٱلْبَيْعُ مِثْلُ ٱلرِّبَوٰا۟ ۗ وَأَحَلَّ ٱللَّهُ ٱلْبَيْعَ وَحَرَّمَ ٱلرِّبَوٰا۟ ۚ فَمَن جَآءَهُۥ مَوْعِظَةٌۭ مِّن رَّبِّهِۦ فَٱنتَهَىٰ فَلَهُۥ مَا سَلَفَ وَأَمْرُهُۥٓ إِلَى ٱللَّهِ ۖ وَمَنْ عَادَ فَأُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَـٰلِدُونَ  
+**Translation:** But those who take usury will rise up on the Day of Resurrection like someone tormented by Satan’s touch. That is because they say, ‘Trade and usury are the same,’ but God has allowed trade and forbidden usury. Whoever, on receiving God’s warning, stops taking usury may keep his past gains- God will be his judge- but whoever goes back to usury will be an inhabitant of the Fire, there to remain.
 
 **II. Hadith**
 
@@ -1878,8 +1916,7 @@ Having the replacement accounts open and operational before closing your riba-ba
 **Translation:** O you who have believed, fear Allah and give up what remains [due to you] of interest, if you should be believers. And if you do not, then be informed of a war [against you] from Allah and His Messenger.`,
           description: `**Why?**
 
-This is the decisive action — the moment you sever your ties with riba. Transferring balances and formally closing accounts ensures no residual interest accrues and no dormant account re-activates without your knowledge. The Prophet (peace be upon him) said that the one who consumes riba, the one who pays it, the one who records it, and the two witnesses are all equally cursed (Sahih Muslim). Closing these accounts removes you from every link in that chain.
-
+This is the decisive action — the moment you sever your ties with riba. Transferring balances and formally closing accounts ensures no residual interest accrues and no dormant account re-activates without your knowledge. Closing these accounts removes you from every link in that chain.
 
 **How?**
 
@@ -2055,8 +2092,7 @@ The Prophet (peace be upon him) used to seek refuge from being in debt, saying: 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A goal without a deadline is just a wish. Setting a specific target date for becoming debt-free transforms your payoff plan from an indefinite burden into a finite mission with a visible finish line. The Prophet (peace be upon him) taught us to tie our camel and then place our trust in Allah — setting a date is tying the camel, while trusting that Allah will help you reach it is tawakkul. This date becomes your north star, guiding every financial decision.
-
+A goal without a deadline is just a wish. Setting a specific target date for becoming debt-free transforms your payoff plan from an indefinite burden into a finite mission with a visible finish line. This date becomes your north star, guiding every financial decision.
 
 **How?**
 
@@ -2089,8 +2125,7 @@ A goal without a deadline is just a wish. Setting a specific target date for bec
 **Translation:** And do not make your hand [as] chained to your neck or extend it completely and [thereby] become blamed and insolvent.`,
           description: `**Why?**
 
-A budget built on inaccurate income figures is doomed to fail. You need to know exactly what comes in each month — after taxes, deductions, and any irregular income is averaged — to create a plan that actually works. This step also forces you to confront whether all your income sources are genuinely halal. The Prophet (peace be upon him) said that every body nourished by haram will be more deserving of the Fire (Sunan al-Tirmidhi) — your budget must start with clean earnings.
-
+A budget built on inaccurate income figures is doomed to fail. You need to know exactly what comes in each month — after taxes, deductions, and any irregular income is averaged — to create a plan that actually works. This step also forces you to confront whether all your income sources are genuinely halal.
 
 **How?**
 
@@ -2145,7 +2180,13 @@ Fixed expenses are your financial commitments — they come due every month rega
 
 ### Quran (9:60)
 **Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ  
-**Translation:** Zakah expenditures are only for the poor and for the needy and for those employed for it and for bringing hearts together [for Islam] and for freeing captives [or slaves] and for those in debt and for the cause of Allah and for the [stranded] traveler - an obligation [imposed] by Allah.`,
+**Translation:** Zakah expenditures are only for the poor and for the needy and for those employed for it and for bringing hearts together [for Islam] and for freeing captives [or slaves] and for those in debt and for the cause of Allah and for the [stranded] traveler - an obligation [imposed] by Allah.
+
+
+### Quran (9:103)
+**Arabic:** خُذْ مِنْ أَمْوَٰلِهِمْ صَدَقَةًۭ تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَوٰتَكَ سَكَنٌۭ لَّهُمْ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ  
+**Translation:** In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them- your prayer will be a comfort to them. God is all hearing, all knowing.
+`,
           description: `**Why?**
 
 Zakah is not optional charity — it is a pillar of Islam, a right that the poor hold over your wealth. By setting aside your zakah obligation monthly rather than scrambling to calculate and pay it once a year, you ensure the funds are always available and the obligation never catches you off guard. This practice also purifies your wealth continuously throughout the year, as the very word "zakah" means purification and growth (Quran 9:103).
@@ -2173,8 +2214,7 @@ The Prophet (peace be upon him) said: "The upper hand is better than the lower h
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Saving is not merely a financial strategy — it is an expression of responsible stewardship (amanah) over the wealth Allah has entrusted to you. Without a defined savings target, spending naturally expands to consume all available income (Parkinson's Law). Setting a minimum of 10% creates a structural discipline that builds your emergency fund, investment capital, and long-term security. The Prophet (peace be upon him) advised moderation and planning, not living at the edge of one's means.
-
+Saving is not merely a financial strategy — it is an expression of responsible stewardship (amanah) over the wealth Allah has entrusted to you. Without a defined savings target, spending naturally expands to consume all available income (Parkinson's Law). Setting a minimum of 10% creates a structural discipline that builds your emergency fund, investment capital, and long-term security.
 
 **How?**
 
@@ -2597,7 +2637,15 @@ A six-month emergency fund is a significant sum that deserves more thoughtful pl
 
 ### Quran (65:7)
 **Arabic:** لِيُنفِقْ ذُو سَعَةٍ مِّن سَعَتِهِ ۖ وَمَن قُدِرَ عَلَيْهِ رِزْقُهُ فَلْيُنفِقْ مِمَّا آتَاهُ اللَّهُ ۚ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا مَا آتَاهَا ۚ سَيَجْعَلُ اللَّهُ بَعْدَ عُسْرٍ يُسْرًا  
-**Translation:** Let a man of wealth spend from his wealth, and he whose provision is restricted - let him spend from what Allah has given him. Allah does not charge a soul except [according to] what He has given it. Allah will bring about, after hardship, ease.`,
+**Translation:** Let a man of wealth spend from his wealth, and he whose provision is restricted - let him spend from what Allah has given him. Allah does not charge a soul except [according to] what He has given it. Allah will bring about, after hardship, ease.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 41
+Duplicate of claim 7; Bukhari 41 notes the best deeds are those done regularly.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Building a six-month fund is a marathon, not a sprint — it may take 12-24 months of consistent saving. Without automation, the monthly transfer competes with every other spending impulse and will eventually be skipped. Automation converts your intention into a system that operates regardless of your mood, busyness, or the temptation of that month's sales. The Prophet (peace be upon him) taught that the most beloved deeds to Allah are those done consistently, even if small (Sahih al-Bukhari). A small automated transfer every month is more powerful than sporadic large deposits.
@@ -2781,7 +2829,15 @@ Different halal investment products serve different purposes — equities offer 
 
 ### Quran (2:261)
 **Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ  
-**Translation:** The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills.`,
+**Translation:** The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 41
+Recorded in Volume 1, Book 2, Number 41: 'the best deed (act of Worship) in the sight of Allah is that which is done regularly.' The exact phrasing 'even if small' appears in the parallel narration in Sahih Muslim 1711.
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 Knowledge without action is incomplete. The gap between "planning to invest" and "actually investing" is where most people stall — indefinitely. Making your first investment, even if it is a modest amount, breaks the psychological barrier and transforms you from someone who studies investing into someone who invests. The actual amount matters far less than the act of beginning. The Prophet (peace be upon him) said the most beloved deeds to Allah are those done consistently, even if small (Sahih al-Bukhari). A small first investment made today is worth more than a large investment perpetually planned for tomorrow.
@@ -2905,8 +2961,7 @@ Five years is the horizon where transformational financial change becomes possib
 **Translation:** O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.`,
           description: `**Why?**
 
-Ten-year goals transcend personal comfort and enter the realm of legacy — what will your wealth accomplish beyond sustaining your household? This is where Hifz al-Mal reaches its highest expression: building something that outlasts you. Whether it is financial independence that frees your time for worship and service, a waqf that benefits the ummah for generations, or generational wealth that protects your descendants from poverty and haram dependency, the ten-year goal connects your daily financial habits to an eternal purpose. The Prophet (peace be upon him) said that when a person dies, their deeds end except for three — and ongoing charity (sadaqah jariyah) is one of them.
-
+Ten-year goals transcend personal comfort and enter the realm of legacy — what will your wealth accomplish beyond sustaining your household? This is where Hifz al-Mal reaches its highest expression: building something that outlasts you. Whether it is financial independence that frees your time for worship and service, a waqf that benefits the ummah for generations, or generational wealth that protects your descendants from poverty and haram dependency, the ten-year goal connects your daily financial habits to an eternal purpose.
 
 **How?**
 
@@ -3689,10 +3744,9 @@ Sa'd ibn Abi Waqqas reported that the Prophet (peace be upon him) said: "One thi
 
 The Prophet (peace be upon him) permitted a bequest of up to one-third of the estate for purposes beyond the fixed Quranic shares — charitable causes, non-heir relatives in need, or community projects. This is one of the few areas where you have discretionary control over your estate distribution. Using it wisely is a final act of sadaqah and strategic generosity that can generate ongoing reward (sadaqah jariyah) after your death.
 
-
 **How?**
 
-1. **Understand the limits.** The bequest (wasiyyah) cannot exceed one-third of the net estate (after debts). The Prophet (peace be upon him) told Sa'd ibn Abi Waqqas: "One-third, and one-third is much."
+1. **Understand the limits.** The bequest (wasiyyah) cannot exceed one-third of the net estate (after debts).
 
 2. **Identify worthy causes.** Consider: supporting a masjid, funding education for orphans, endowing a waqf, assisting non-heir relatives who are in financial need, or supporting Islamic institutions.
 
@@ -3847,8 +3901,7 @@ Assets with ambiguous ownership are a source of potential injustice (zulm). If y
 **Translation:** Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice. Resolving title issues is part of fulfilling the trust (amanah) of ownership.`,
           description: `**Why?**
 
-Identifying unclear ownership is only half the work — the other half is resolving it. Leaving title issues unresolved means you may be benefiting from something that is not fully yours, or that your heirs will face costly legal battles to establish their rights. The Prophet (peace be upon him) warned against consuming the rights of others. Resolving these matters is an act of justice and a protection for your family.
-
+Identifying unclear ownership is only half the work — the other half is resolving it. Leaving title issues unresolved means you may be benefiting from something that is not fully yours, or that your heirs will face costly legal battles to establish their rights. Resolving these matters is an act of justice and a protection for your family.
 
 **How?**
 
@@ -3918,8 +3971,7 @@ The Islamic conception of ownership is fundamentally different from the Western 
 **Translation:** Believe in Allah and His Messenger and spend out of that in which He has made you successive inheritors. Wealth ultimately belongs to Allah; humans are trustees.`,
           description: `**Why?**
 
-Islamic law recognises categories of property that belong to the community and cannot be privately monopolised. The Prophet (peace be upon him) said: "People are partners in three things: water, pasture, and fire" (Abu Dawud). Understanding these categories prevents you from inadvertently claiming private ownership over resources that are communal rights, and helps you advocate for just resource distribution in your community.
-
+Islamic law recognises categories of property that belong to the community and cannot be privately monopolised. Understanding these categories prevents you from inadvertently claiming private ownership over resources that are communal rights, and helps you advocate for just resource distribution in your community.
 
 **How?**
 
@@ -3939,6 +3991,10 @@ Islamic law recognises categories of property that belong to the community and c
 ### Quran (9:35)
 **Arabic:** يَوْمَ يُحْمَىٰ عَلَيْهَا فِي نَارِ جَهَنَّمَ فَتُكْوَىٰ بِهَا جِبَاهُهُمْ وَجُنُوبُهُمْ وَظُهُورُهُمْ ۖ هَٰذَا مَا كَنَزْتُمْ لِأَنفُسِكُمْ فَذُوقُوا مَا كُنتُمْ تَكْنِزُونَ
 **Translation:** "on the Day it is heated up in Hell's Fire and used to brand their foreheads, sides, and backs, they will be told, 'This is what you hoarded up for yourselves! Now feel the pain of what you hoarded!'"
+
+### Quran (9:34-35)
+**Arabic:** ۞ يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِنَّ كَثِيرًۭا مِّنَ ٱلْأَحْبَارِ وَٱلرُّهْبَانِ لَيَأْكُلُونَ أَمْوَٰلَ ٱلنَّاسِ بِٱلْبَـٰطِلِ وَيَصُدُّونَ عَن سَبِيلِ ٱللَّهِ ۗ وَٱلَّذِينَ يَكْنِزُونَ ٱلذَّهَبَ وَٱلْفِضَّةَ وَلَا يُنفِقُونَهَا فِى سَبِيلِ ٱللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍۢ يَوْمَ يُحْمَىٰ عَلَيْهَا فِى نَارِ جَهَنَّمَ فَتُكْوَىٰ بِهَا جِبَاهُهُمْ وَجُنُوبُهُمْ وَظُهُورُهُمْ ۖ هَـٰذَا مَا كَنَزْتُمْ لِأَنفُسِكُمْ فَذُوقُوا۟ مَا كُنتُمْ تَكْنِزُونَ  
+**Translation:** Believers, many rabbis and monks wrongfully consume people’s possessions and turn people away from God’s path. [Prophet], tell those who hoard gold and silver instead of giving in God’s cause that they will have a grievous punishment: on the Day it is heated up in Hell’s Fire and used to brand their foreheads, sides, and backs, they will be told, ‘This is what you hoarded up for yourselves! Now feel the pain of what you hoarded!
 
 **II. Hadith**
 
@@ -4064,8 +4120,7 @@ The legitimacy of your ownership begins at the point of acquisition. In Islamic 
 **Translation:** Indeed, those who devour the property of orphans unjustly are only consuming into their bellies fire. And they will be burned in a Blaze. The severity of this warning extends to all unjustly acquired assets.`,
           description: `**Why?**
 
-Self-honesty is the core of this exercise. Flagging assets with unclear acquisition is not an accusation of wrongdoing — it is an act of taqwa (God-consciousness). The Prophet (peace be upon him) said: "Leave that which makes you doubt for that which does not make you doubt" (Tirmidhi). By explicitly identifying grey areas, you create a clear path to resolution rather than living with lingering uncertainty about whether your wealth is truly halal.
-
+Self-honesty is the core of this exercise. Flagging assets with unclear acquisition is not an accusation of wrongdoing — it is an act of taqwa (God-consciousness). By explicitly identifying grey areas, you create a clear path to resolution rather than living with lingering uncertainty about whether your wealth is truly halal.
 
 **How?**
 
@@ -4118,7 +4173,15 @@ Ownership disputes cannot be resolved in isolation. If another person has a pote
 
 ### Quran (2:283)
 **Arabic:** فَلْيُؤَدِّ الَّذِي اؤْتُمِنَ أَمَانَتَهُ وَلْيَتَّقِ اللَّهَ رَبَّهُ  
-**Translation:** Let him who is entrusted discharge his trust [faithfully] and let him fear Allah, his Lord. Formalising ownership through documentation ensures the amanah is properly discharged.`,
+**Translation:** Let him who is entrusted discharge his trust [faithfully] and let him fear Allah, his Lord. Formalising ownership through documentation ensures the amanah is properly discharged.
+
+**II. Hadith**
+
+
+### Sahih Bukhari 629
+Recorded in Volume 3, Book 43, Number 629. It instructs anyone who has wronged another to 'beg him to forgive him before the Day of Resurrection when there will be no money' (dinar or dirham).
+*(Grade: Sahih)*
+`,
           description: `**Why?**
 
 The resolution determined in the previous step must be acted upon — not merely agreed to in principle. If an asset is rightfully yours, formalise it with proper legal documentation so there is no future ambiguity. If an asset is not rightfully yours, returning it is not a loss — it is an act of justice that purifies your remaining wealth and earns reward from Allah. The Prophet (peace be upon him) said: "Whoever has wronged his brother, let him seek his pardon today before there will be no dinar or dirham" (Bukhari).
@@ -4491,8 +4554,7 @@ An asset class being "generally halal" does not mean every product within it is 
 **Translation:** Allah has permitted trade and has forbidden interest. Any financing method used for asset purchases must be free of riba.`,
           description: `**Why?**
 
-Purchasing an asset without a clear budget and financing plan can lead to overextension, debt stress, or reliance on impermissible financing. Islam encourages measured financial planning — the Prophet (peace be upon him) warned against taking on debt unnecessarily. Whether you fund your purchase from savings, through an Islamic financing arrangement, or via a partnership (musharakah), the method must be halal, sustainable, and proportionate to your overall financial position.
-
+Purchasing an asset without a clear budget and financing plan can lead to overextension, debt stress, or reliance on impermissible financing. Whether you fund your purchase from savings, through an Islamic financing arrangement, or via a partnership (musharakah), the method must be halal, sustainable, and proportionate to your overall financial position.
 
 **How?**
 
@@ -5758,7 +5820,13 @@ If the total outstanding zakah is substantial — which is common when multiple 
 
 ### Quran (63:10)
 **Arabic:** وَأَنفِقُوا مِن مَّا رَزَقْنَاكُم مِّن قَبْلِ أَن يَأْتِيَ أَحَدَكُمُ الْمَوْتُ فَيَقُولَ رَبِّ لَوْلَا أَخَّرْتَنِي إِلَىٰ أَجَلٍ قَرِيبٍ فَأَصَّدَّقَ  
-**Translation:** And spend [in the way of Allah] from what We have provided you before death approaches one of you and he says, "My Lord, if only You would delay me for a brief term so I would give charity and be of the righteous." Begin distributing outstanding zakah immediately.`,
+**Translation:** And spend [in the way of Allah] from what We have provided you before death approaches one of you and he says, "My Lord, if only You would delay me for a brief term so I would give charity and be of the righteous." Begin distributing outstanding zakah immediately.
+
+
+### Quran (9:60)
+**Arabic:** ۞ إِنَّمَا ٱلصَّدَقَـٰتُ لِلْفُقَرَآءِ وَٱلْمَسَـٰكِينِ وَٱلْعَـٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَـٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ  
+**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God’s cause, and for travellers in need. This is ordained by God; God is all knowing and wise.
+`,
           description: `**Why?**
 
 Planning without action is meaningless — the obligation is not fulfilled until the funds actually reach eligible recipients. Starting with the oldest obligation is both a scholarly recommendation and a practical principle: those debts have been outstanding the longest and represent the most urgent moral liability. Every day that passes with known, unpaid zakah is a day the rights of the poor remain unfulfilled. Beginning immediately, even with a partial payment, demonstrates sincerity and sets the repayment process in motion.
@@ -5842,7 +5910,11 @@ Paying the full zakah amount in one lump sum at the hawl date can feel financial
 
 6. **Benchmark:** You have completed this step when an automatic monthly transfer is active and your zakah fund is growing steadily toward the full annual obligation.` },
         { title: 'Label the account clearly so it is never confused with personal savings', done: false,
-          sources: `**I. Hadith**
+          sources: `### Quran (9:60)
+**Arabic:** ۞ إِنَّمَا ٱلصَّدَقَـٰتُ لِلْفُقَرَآءِ وَٱلْمَسَـٰكِينِ وَٱلْعَـٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَـٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ  
+**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God’s cause, and for travellers in need. This is ordained by God; God is all knowing and wise.
+
+**II. Hadith**
 
 
 ### Sahih Muslim 2588
@@ -5934,8 +6006,7 @@ The Prophet (peace be upon him) instructed Mu'adh: "Tell them that Allah has enj
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Zakah is most impactful when it reaches people you can see, know, and follow up with. Local distribution creates direct accountability — you witness whether the funds alleviate hardship, and the recipient benefits from a personal connection rather than an anonymous transfer. The Prophet (peace be upon him) generally instructed that zakah be collected and distributed within the same community before being sent elsewhere. Identifying real people in your area who qualify also deepens your awareness of the struggles around you, which is itself a spiritual benefit.
-
+Zakah is most impactful when it reaches people you can see, know, and follow up with. Local distribution creates direct accountability — you witness whether the funds alleviate hardship, and the recipient benefits from a personal connection rather than an anonymous transfer. Identifying real people in your area who qualify also deepens your awareness of the struggles around you, which is itself a spiritual benefit.
 
 **How?**
 
@@ -6011,8 +6082,7 @@ The Prophet (peace be upon him) emphasised local distribution of zakah: it is ta
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The prophetic principle of zakah distribution emphasises locality — the Prophet (peace be upon him) instructed Mu'adh ibn Jabal to collect zakah from the wealthy of Yemen and distribute it among their poor. Local distribution keeps wealth circulating within your community, strengthens social bonds between givers and recipients, and allows you to witness the tangible impact of your obligation. It also addresses the needs closest to you first, which is a principle of Islamic priority (al-aqrabun awla bil-ma'ruf). While international causes are valid, neglecting local poverty while sending funds abroad can leave your own neighbours in hardship.
-
+ Local distribution keeps wealth circulating within your community, strengthens social bonds between givers and recipients, and allows you to witness the tangible impact of your obligation. It also addresses the needs closest to you first, which is a principle of Islamic priority (al-aqrabun awla bil-ma'ruf). While international causes are valid, neglecting local poverty while sending funds abroad can leave your own neighbours in hardship.
 
 **How?**
 
@@ -6036,7 +6106,7 @@ The prophetic principle of zakah distribution emphasises locality — the Prophe
     {
       title: 'Establish a regular sadaqah habit — automate a monthly charitable contribution, however small',
       priority: 'high', tags: ['sadaqah', 'habit'],
-      description: 'The Prophet (peace be upon him) said the most beloved deeds to Allah are the most consistent, even if small. Automating a monthly sadaqah contribution — even a modest amount — builds the habit of generosity, purifies your wealth, and provides ongoing support to those in need.',
+      description: ' Automating a monthly sadaqah contribution — even a modest amount — builds the habit of generosity, purifies your wealth, and provides ongoing support to those in need.',
       subtasks: [
         { title: 'Choose a trusted charitable organisation or local cause to support regularly', done: false,
           sources: `**I. Quran**
@@ -6267,8 +6337,7 @@ The Prophet (peace be upon him) said: "Allah will aid a servant so long as the s
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-One customer switching to a Muslim-owned business is helpful. Ten customers switching is transformative. The compounding effect of community-wide patronage can turn a struggling halal shop into a thriving enterprise, a part-time tutor into a full Islamic school, or a home-based caterer into a restaurant. By encouraging your family and friends to join you, you multiply the impact of your individual decision many times over — and you model a communal ethic of mutual support that strengthens social bonds alongside economic ones. The Prophet (peace be upon him) said that the one who guides to good receives the reward of the one who acts on it.
-
+One customer switching to a Muslim-owned business is helpful. Ten customers switching is transformative. The compounding effect of community-wide patronage can turn a struggling halal shop into a thriving enterprise, a part-time tutor into a full Islamic school, or a home-based caterer into a restaurant. By encouraging your family and friends to join you, you multiply the impact of your individual decision many times over — and you model a communal ethic of mutual support that strengthens social bonds alongside economic ones.
 
 **How?**
 
@@ -6354,6 +6423,10 @@ Qard hasan is an act of immense virtue, but it must not come at the expense of y
 ### Quran (73:20)
 **Arabic:** وَأَقْرِضُوا اللَّهَ قَرْضًا حَسَنًا ۚ وَمَا تُقَدِّمُوا لِأَنفُسِكُم مِّنْ خَيْرٍ تَجِدُوهُ عِندَ اللَّهِ هُوَ خَيْرًا وَأَعْظَمَ أَجْرًا  
 **Translation:** ...and loan Allah a goodly loan. And whatever good you put forward for yourselves - you will find it with Allah. It is better and greater in reward.
+
+### Quran (2:245)
+**Arabic:** مَّن ذَا ٱلَّذِى يُقْرِضُ ٱللَّهَ قَرْضًا حَسَنًۭا فَيُضَـٰعِفَهُۥ لَهُۥٓ أَضْعَافًۭا كَثِيرَةًۭ ۚ وَٱللَّهُ يَقْبِضُ وَيَبْصُۜطُ وَإِلَيْهِ تُرْجَعُونَ  
+**Translation:** Who will give God a good loan, which He will increase for him many times over? It is God who withholds and God who gives abundantly, and it is to Him that you will return.
 
 **II. Hadith**
 
@@ -6457,7 +6530,6 @@ The Prophet (peace be upon him) said: "Whoever gives respite to one in difficult
 
 The post-disbursement period is where most qard hasan arrangements either strengthen or fracture relationships. Following up on repayment is your right as a lender, but the manner must reflect prophetic character — patient, gentle, and merciful. The Quran commands granting respite to those in genuine hardship (2:280) and praises those who forgive the debt entirely as an act of charity. Being prepared for both outcomes — repayment and forgiveness — protects you from resentment and protects the borrower from undue pressure during difficult times.
 
-
 **How?**
 
 1. **Wait until the agreed date before following up.** Do not ask about repayment before the term is due — this creates unnecessary anxiety for the borrower.
@@ -6468,7 +6540,7 @@ The post-disbursement period is where most qard hasan arrangements either streng
 
 4. **Grant extensions willingly.** If the borrower is struggling, extend the deadline without hesitation or resentment. The Quran's instruction to grant respite is clear and unconditional.
 
-5. **Consider forgiving the debt.** If the borrower's hardship is severe, forgiving the loan is one of the most rewarded acts in Islam. The Prophet (peace be upon him) said that whoever gives respite to one in difficulty or forgives the debt, Allah will shade them on the Day of Judgement.
+5. **Consider forgiving the debt.** If the borrower's hardship is severe, forgiving the loan is one of the most rewarded acts in Islam.
 
 6. **Never publicise the loan or the struggle.** Whether repaid or forgiven, the details remain between you, the borrower, and Allah.
 
@@ -6489,8 +6561,7 @@ The Prophet (peace be upon him) said: "When a man dies, his deeds come to an end
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Sadaqah jariyah — ongoing charity — is unique among good deeds because its reward continues flowing to you even after death. The Prophet (peace be upon him) said: "When a person dies, their deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them." Researching local opportunities ensures your contributions fund projects with lasting, tangible impact rather than one-time consumption. A well that provides water for decades, a school that educates generations, or a masjid that hosts worship for centuries — these are investments in your akhirah.
-
+Sadaqah jariyah — ongoing charity — is unique among good deeds because its reward continues flowing to you even after death. A well that provides water for decades, a school that educates generations, or a masjid that hosts worship for centuries — these are investments in your akhirah.
 
 **How?**
 
@@ -6591,8 +6662,7 @@ The Prophet (peace be upon him) said: "Whoever sets a good precedent in Islam wi
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Prophet (peace be upon him) said: "Whoever guides someone to goodness will have a reward like the one who acts upon it." Sharing a verified sadaqah jariyah opportunity with others does not diminish your reward — it multiplies it. Every person who contributes because of your recommendation generates ongoing reward for them and additional reward for you as the one who guided them. This cascading effect means a single shared recommendation can fund an entire project and generate reward for dozens of people across generations.
-
+ Every person who contributes because of your recommendation generates ongoing reward for them and additional reward for you as the one who guided them. This cascading effect means a single shared recommendation can fund an entire project and generate reward for dozens of people across generations.
 
 **How?**
 
@@ -6912,14 +6982,13 @@ The Prophet (peace be upon him) said: "The one who looks after a widow or a poor
 
 Children who participate in charitable decision-making grow into adults who give naturally. If charity is something parents do silently while children are uninvolved, the next generation inherits wealth without inheriting generosity. By involving children — letting them suggest recipients, count the money, deliver the aid, and see the impact — you are building the foundation of a lifelong sadaqah practice. The Prophet (peace be upon him) trained children in worship from a young age; financial worship deserves the same attention.
 
-
 **How?**
 
 1. **Give children age-appropriate roles.** A five-year-old can drop coins in the jar and help count them. A ten-year-old can research a cause and present it to the family. A teenager can manage the fund's simple accounting.
 
 2. **Let them propose recipients.** When a child says "my classmate's family is having a hard time" or "I want to help the animals at the shelter," take their suggestions seriously. Their empathy is often more instinctive than adults'.
 
-3. **Explain the Islamic framework at their level.** "Allah loves people who share" for young children. "The Prophet said charity does not decrease wealth" for older ones. "Sadaqah extinguishes sin as water extinguishes fire" for teenagers.
+3. **Explain the Islamic framework at their level.** "Allah loves people who share" for young children. "Sadaqah extinguishes sin as water extinguishes fire" for teenagers.
 
 4. **Take them along for distribution when possible.** Delivering food to a family, visiting a local charity, or handing an envelope to someone in need makes the experience real and memorable.
 

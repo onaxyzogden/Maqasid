@@ -1,0 +1,14 @@
+#!/bin/sh
+# Pre-commit: audit seed files for ungrounded Quran/hadith references.
+# Runs only when src/data/seed-tasks/*.js is staged.
+# Enable with: git config core.hooksPath .githooks
+
+if git diff --cached --name-only | grep -qE '^src/data/seed-tasks/.*\.js$'; then
+  echo "[pre-commit] seed-tasks changed — running npm run audit:sources"
+  npm run audit:sources
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] audit failed — commit blocked."
+    echo "[pre-commit] resolve findings or update baseline with: node scripts/audit-source-refs.mjs --write-baseline"
+    exit 1
+  fi
+fi
