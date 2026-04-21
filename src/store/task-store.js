@@ -175,16 +175,58 @@ export const useTaskStore = create((set, get) => ({
   }),
 
   toggleSubtask: (projectId, taskId, subtaskId) => set((s) => {
-    const tasks = (s.tasksByProject[projectId] || []).map((t) => {
+    const now = new Date().toISOString();
+    const project = useProjectStore.getState().projects.find((p) => p.id === projectId);
+    const columns = project?.columns || [];
+    const doneColIdx = columns.findIndex((c) => c.name === 'Done');
+    const doneColId = doneColIdx >= 0 ? columns[doneColIdx].id : null;
+    const revertCol =
+      doneColIdx > 0
+        ? columns[doneColIdx - 1]
+        : columns.find((c) => c.name !== 'Done') || null;
+
+    let tasks = (s.tasksByProject[projectId] || []).map((t) => {
       if (t.id !== taskId) return t;
-      return {
-        ...t,
-        subtasks: t.subtasks.map((st) =>
-          st.id === subtaskId ? { ...st, done: !st.done } : st
-        ),
-        updatedAt: new Date().toISOString(),
-      };
+      const subtasks = t.subtasks.map((st) =>
+        st.id === subtaskId ? { ...st, done: !st.done } : st
+      );
+      const doneCount = subtasks.filter((st) => st.done).length;
+      const total = subtasks.length;
+      const shouldRevert =
+        doneColId &&
+        t.columnId === doneColId &&
+        total > 0 &&
+        doneCount < total &&
+        revertCol;
+      if (shouldRevert) {
+        return {
+          ...t,
+          subtasks,
+          columnId: revertCol.id,
+          completedAt: null,
+          order: 0,
+          updatedAt: now,
+        };
+      }
+      return { ...t, subtasks, updatedAt: now };
     });
+
+    // If a task was reverted into another column, shift that column's existing
+    // tasks to make room at order:0, matching moveTask's reorder pattern.
+    const reverted = tasks.find(
+      (t) => t.id === taskId && t.columnId !== doneColId && t.columnId === revertCol?.id && t.order === 0
+    );
+    if (reverted) {
+      const colTasks = tasks
+        .filter((t) => t.columnId === reverted.columnId && t.id !== taskId)
+        .sort((a, b) => a.order - b.order);
+      colTasks.unshift(reverted);
+      colTasks.forEach((t, i) => {
+        const idx = tasks.findIndex((x) => x.id === t.id);
+        if (idx !== -1) tasks[idx] = { ...tasks[idx], order: i };
+      });
+    }
+
     persistTasks(projectId, tasks);
     return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
   }),

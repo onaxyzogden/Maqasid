@@ -1,0 +1,9 @@
+For each of the 5 hadith quotes below, return the canonical collection and hadith number. If multiple collections record it, return the primary or most-authoritative. If the hadith cannot be identified from the sources, say unknown.
+
+Output ONLY a JSON array (no prose, no markdown fence) with fields: idx, primary_collection, number, confidence, note. Use confidence values high, medium, low, or unknown.
+
+1. Whoever swears by other than Allah has committed shirk (attributed to Ahmad, Tirmidhi)
+2. Prophet warned that calling a Muslim a disbeliever unjustly returns the accusation upon the accuser (attributed to Muslim)
+3. Prophet was asked which deed is best, said Prayer at its proper time (attributed to Bukhari and Muslim)
+4. Prophet said whoever performs wudu then recites the Shahada, the eight gates of Jannah are opened for them (attributed to Muslim)
+5. Prophet said the two rakat before Fajr are better than the world and everything in it (attributed to Muslim)

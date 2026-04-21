@@ -10,6 +10,8 @@ import { useKeyboard } from '../../hooks/useKeyboard';
 import { useInactivity } from '../../hooks/useInactivity';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
 import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
+import { MODULES } from '../../data/modules';
+import { MAQASID_PILLARS } from '../../data/maqasid';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Sidebar from './Sidebar';
 import TopBar from './TopBar';
@@ -70,13 +72,33 @@ export default function AppShell() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
+  // Dismiss stale resume overlay when route changes — the snapshot was captured
+  // for the previous module and should not follow the user to a new page.
+  useEffect(() => {
+    if (resumeModuleId) dismissResume();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
   // Sync activeModule with current URL — covers all navigation paths (back/forward, in-page links, pillar headers)
   // that don't go through the sidebar submodule onClick handler.
   useEffect(() => {
-    const segment = location.pathname.replace(/^\/app\/?/, '').split('/')[0];
-    if (segment && segment !== 'pillar' && segment !== 'settings') {
-      setActiveModule(segment);
+    const parts = location.pathname.replace(/^\/app\/?/, '').split('/');
+    const segment = parts[0];
+    if (!segment || segment === 'settings') return;
+    if (segment === 'pillar') {
+      const pillarId = parts[1];
+      if (!pillarId) return;
+      const coreId = `${pillarId}-core`;
+      if (MODULES.some((m) => m.id === coreId)) {
+        setActiveModule(coreId);
+        return;
+      }
+      const pillar = MAQASID_PILLARS.find((p) => p.id === pillarId);
+      const fallback = pillar?.subModuleIds?.[0];
+      if (fallback) setActiveModule(fallback);
+      return;
     }
+    setActiveModule(segment);
   }, [location.pathname]);
 
   // Preload all project tasks so cross-project search works

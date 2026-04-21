@@ -2,7 +2,7 @@ import { Globe, MapPin, Users } from 'lucide-react';
 import LevelNavigator from '@components/shared/LevelNavigator';
 
 export const UMMAH_PILLARS = [
-  { id: 'collective', label: 'Collective', Icon: Globe,  route: '/app/collective' },
+  { id: 'collective', label: 'Ummah', Icon: Globe,  route: '/app/collective' },
   { id: 'neighbors',  label: 'Neighbors',  Icon: MapPin, route: '/app/neighbors'  },
   { id: 'community',  label: 'Community',  Icon: Users,  route: '/app/community'  },
 ];

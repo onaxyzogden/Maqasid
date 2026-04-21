@@ -478,7 +478,7 @@ export const MODULES = [
   // ── Standalone — MTC ──
   {
     id: 'collective',
-    name: 'Collective',
+    name: 'Ummah',
     description: 'A faith-rooted land destination — experiences, community, and stewardship',
     icon: 'Boxes',
     color: 'var(--mod-collective)',

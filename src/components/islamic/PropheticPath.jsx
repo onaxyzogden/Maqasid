@@ -13,14 +13,44 @@ import {
 import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
-import { MODULES } from '@data/modules';
+import { useThresholdStore } from '@store/threshold-store';
+import { MODULES, PRIORITIES } from '@data/modules';
 import {
   buildTasksForNode,
   inferNodeFromHour,
   LEVEL_LABEL,
   LEVEL_FULL_LABEL,
 } from '@data/prophetic-path-submodules';
+import DashboardTaskCard from '@components/shared/DashboardTaskCard';
+import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import './PropheticPath.css';
+
+// Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
+const LEVEL_COLOR = { 1: '#C8A96E', 2: '#4ab8a8', 3: '#8b5cf6' };
+
+function statusLabel(s) {
+  return s === 'done' ? 'Done' : s === 'in-progress' ? 'In Progress' : 'To Do';
+}
+
+function deriveStatus(task) {
+  const cols = task._project?.columns || [];
+  const doneCol = cols.find((c) => c.id.endsWith('_done'))?.id;
+  const progressCol = cols.find((c) => c.id.endsWith('_progress'))?.id;
+  if (task.columnId === doneCol) return 'done';
+  if (task.columnId === progressCol) return 'in-progress';
+  return 'todo';
+}
+
+function formatDue(dateStr) {
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  const now = new Date();
+  const days = Math.ceil((d - now) / 86400000);
+  if (days < 0) return { text: 'Overdue', colorVar: 'var(--danger)' };
+  if (days === 0) return { text: 'Today', colorVar: 'var(--warning)' };
+  if (days <= 3) return { text: `${days}d`, colorVar: 'var(--warning)' };
+  return { text: d.toLocaleDateString('en', { month: 'short', day: 'numeric' }), colorVar: 'var(--text3)' };
+}
 
 const NODES = [
   {
@@ -132,28 +162,48 @@ const NODES = [
   },
 ];
 
-const PRIORITY_LABEL = { urgent: 'Urgent', high: 'High', medium: 'Med', low: 'Low' };
+function PPTaskCard({ task, index, onSelectTask }) {
+  const priority = PRIORITIES.find((p) => p.id === task.priority);
+  const status = deriveStatus(task);
+  const levelColor = LEVEL_COLOR[task._level] || LEVEL_COLOR[3];
+  const subtaskTotal = task.subtasks?.length || 0;
+  const subtaskDone = subtaskTotal > 0 ? task.subtasks.filter((s) => s.done).length : 0;
 
-function TaskRow({ task }) {
   return (
-    <li className="pp-task-row">
-      <span className="pp-task-level" data-level={task._level} title={LEVEL_FULL_LABEL[task._level]}>
-        {LEVEL_LABEL[task._level]}
-      </span>
-      <span className="pp-task-priority" data-priority={task.priority} aria-hidden="true" />
-      <div className="pp-task-main">
-        <div className="pp-task-title" title={task.title}>{task.title}</div>
-        <div className="pp-task-meta">
-          <span className="pp-task-priority-label">{PRIORITY_LABEL[task.priority] || task.priority}</span>
-          <span className="pp-task-sep">·</span>
-          <span className="pp-task-submodule">{task._submoduleName}</span>
-        </div>
-      </div>
-    </li>
+    <DashboardTaskCard
+      taskId={task.id}
+      index={index}
+      title={task.title}
+      span={12}
+      status={status}
+      accentColor={levelColor}
+      statusTint={status === 'in-progress'
+        ? { background: 'color-mix(in srgb, #F59E0B 12%, var(--surface))' }
+        : undefined}
+      onSelectTask={onSelectTask}
+      chips={[
+        {
+          label: `${LEVEL_LABEL[task._level]} · ${LEVEL_FULL_LABEL[task._level]}`,
+          className: 'dtc__chip',
+          style: { background: `color-mix(in srgb, ${levelColor} 14%, transparent)`, color: levelColor },
+        },
+        { label: statusLabel(status), className: `dtc__chip dtc__chip--status-${status}` },
+        ...(priority ? [{
+          label: priority.label,
+          className: 'dtc__chip dtc__chip--priority',
+          style: { background: priority.bg, color: priority.color },
+        }] : []),
+      ]}
+      subtasks={subtaskTotal > 0
+        ? { done: subtaskDone, total: subtaskTotal, color: levelColor }
+        : undefined}
+      dueDate={formatDue(task.dueDate)}
+      tags={[task._submoduleName, ...(task.tags?.slice(1) || [])]}
+    />
   );
 }
 
-function MirrorCard({ node, tasks, mirrorSide }) {
+function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask }) {
   return (
     <aside className="pp-mirror-card" data-side={mirrorSide}>
       <div className="pp-mirror-header">
@@ -163,9 +213,16 @@ function MirrorCard({ node, tasks, mirrorSide }) {
       {tasks.length === 0 ? (
         <p className="pp-mirror-empty">No tasks queued for this window.</p>
       ) : (
-        <ul className="pp-task-list">
-          {tasks.map((t) => <TaskRow key={t.id} task={t} />)}
-        </ul>
+        <div className="pp-task-list">
+          {tasks.map((t, i) => (
+            <PPTaskCard
+              key={t.id}
+              task={t}
+              index={i}
+              onSelectTask={onSelectTask}
+            />
+          ))}
+        </div>
       )}
       <Link to="/app/work" className="pp-mirror-footer">
         <span>View all in Work</span>
@@ -175,47 +232,79 @@ function MirrorCard({ node, tasks, mirrorSide }) {
   );
 }
 
-function TimelineNode({ node, isExpanded, onToggle, tasks }) {
+function TimelineNode({ node, expandedSlot, onToggle, tasks, selectedTaskId, onSelectTask }) {
   const { Icon, pulse } = node;
   const mirrorSide = node.side === 'left' ? 'right' : 'left';
+  const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
+  const isExpanded = expandedSlot !== null;
+  const mirrorId = `pp-mirror-${node.id}`;
+  const mirror = isExpanded ? (
+    <div id={mirrorId}>
+      <MirrorCard
+        node={node}
+        tasks={tasks}
+        mirrorSide={mirrorSide}
+        selectedTaskId={selectedTaskId}
+        onSelectTask={onSelectTask}
+      />
+    </div>
+  ) : null;
   return (
     <div className="pp-node" data-side={node.side} data-expanded={isExpanded || undefined}>
       <div className="pp-marker" data-tone={node.markerTone}>
         <Icon className="pp-marker-icon" size={12} strokeWidth={2.25} />
       </div>
-      <button
-        type="button"
-        className="pp-card"
-        data-style={node.cardStyle}
-        aria-expanded={isExpanded}
-        aria-controls={`pp-mirror-${node.id}`}
-        onClick={() => onToggle(node.id)}
-      >
-        {node.cardStyle === 'divine' && <div className="pp-card-glow" aria-hidden="true" />}
-        <div className="pp-card-hover" aria-hidden="true" />
-        <div className="pp-card-body">
-          <span className="pp-eyebrow" data-tone={node.eyebrowTone}>
-            {pulse && <span className="pp-pulse-dot" aria-hidden="true" />}
-            {node.eyebrow}
-          </span>
-          <h3 className="pp-title" data-tone={node.titleTone}>
-            {node.title}
-          </h3>
-          <p className="pp-body-text">{node.body}</p>
-          <div className="pp-pillars">
-            {node.pillars.map((p, i) => (
-              <span key={i} className="pp-pillar-chip" data-tone={p.tone}>
-                {p.label}
-              </span>
-            ))}
+      <div className="pp-node-stack">
+        <button
+          type="button"
+          className="pp-satellite"
+          data-slot="before"
+          aria-haspopup="dialog"
+          onClick={() => setOpeningModuleId('faith-salah')}
+        >
+          Before
+        </button>
+        <button
+          type="button"
+          className="pp-card"
+          data-style={node.cardStyle}
+          aria-expanded={expandedSlot === 'main'}
+          aria-controls={mirrorId}
+          onClick={() => onToggle(node.id, 'main')}
+        >
+          {node.cardStyle === 'divine' && <div className="pp-card-glow" aria-hidden="true" />}
+          <div className="pp-card-hover" aria-hidden="true" />
+          <div className="pp-card-body">
+            <span className="pp-eyebrow" data-tone={node.eyebrowTone}>
+              {pulse && <span className="pp-pulse-dot" aria-hidden="true" />}
+              {node.eyebrow}
+            </span>
+            <h3 className="pp-title" data-tone={node.titleTone}>
+              {node.title}
+            </h3>
+            <p className="pp-body-text">{node.body}</p>
+            <div className="pp-pillars">
+              {node.pillars.map((p, i) => (
+                <span key={i} className="pp-pillar-chip" data-tone={p.tone}>
+                  {p.label}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      </button>
-      {isExpanded && (
-        <div id={`pp-mirror-${node.id}`}>
-          <MirrorCard node={node} tasks={tasks} mirrorSide={mirrorSide} />
-        </div>
-      )}
+        </button>
+        {expandedSlot === 'main' && mirror}
+        <button
+          type="button"
+          className="pp-satellite"
+          data-slot="after"
+          aria-expanded={expandedSlot === 'after'}
+          aria-controls={mirrorId}
+          onClick={() => onToggle(node.id, 'after')}
+        >
+          After
+        </button>
+        {expandedSlot === 'after' && mirror}
+      </div>
     </div>
   );
 }
@@ -227,7 +316,9 @@ export default function PropheticPath({ variant }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const loadTasks = useTaskStore((s) => s.loadTasks);
 
-  const [expandedId, setExpandedId] = useState(() => inferNodeFromHour(new Date()));
+  const [expanded, setExpanded] = useState(() => ({ nodeId: inferNodeFromHour(new Date()), slot: 'main' }));
+  // { taskId, project, projectId, levelColor } | null
+  const [selectedTask, setSelectedTask] = useState(null);
 
   // Hydrate tasks for all relevant projects once on mount. The task store
   // lazily loads tasks per project — ensure every project referenced in the
@@ -256,7 +347,33 @@ export default function PropheticPath({ variant }) {
     return out;
   }, [projects, tasksByProject, submoduleNameById]);
 
-  const toggleNode = (id) => setExpandedId((curr) => (curr === id ? null : id));
+  const toggleNode = (id, slot) => {
+    setExpanded((curr) =>
+      curr && curr.nodeId === id && curr.slot === slot ? null : { nodeId: id, slot }
+    );
+  };
+
+  // Build a flat { taskId → task-row } lookup so clicking any card can pass the
+  // right project + level into TaskDetailPanel.
+  const taskById = useMemo(() => {
+    const map = {};
+    for (const rows of Object.values(tasksByNode)) {
+      for (const r of rows) map[r.id] = r;
+    }
+    return map;
+  }, [tasksByNode]);
+
+  const openTask = (taskId) => {
+    if (!taskId) { setSelectedTask(null); return; }
+    const row = taskById[taskId];
+    if (!row) return;
+    setSelectedTask({
+      taskId,
+      project: row._project,
+      projectId: row.projectId,
+      levelColor: LEVEL_COLOR[row._level] || LEVEL_COLOR[3],
+    });
+  };
 
   return (
     <div className="prophetic-path" data-theme={theme}>
@@ -276,15 +393,27 @@ export default function PropheticPath({ variant }) {
                 <TimelineNode
                   key={node.id}
                   node={node}
-                  isExpanded={expandedId === node.id}
+                  expandedSlot={expanded && expanded.nodeId === node.id ? expanded.slot : null}
                   onToggle={toggleNode}
                   tasks={tasksByNode[node.id] || []}
+                  selectedTaskId={selectedTask?.taskId || null}
+                  onSelectTask={openTask}
                 />
               ))}
             </div>
           </div>
         </div>
       </main>
+      {selectedTask?.project && (
+        <TaskDetailPanel
+          project={selectedTask.project}
+          projectId={selectedTask.projectId}
+          taskId={selectedTask.taskId}
+          onClose={() => setSelectedTask(null)}
+          bbosRole={selectedTask.project.bbosRole || 'all'}
+          accentColor={selectedTask.levelColor}
+        />
+      )}
     </div>
   );
 }

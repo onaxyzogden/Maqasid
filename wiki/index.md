@@ -49,6 +49,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-17-ummah-pillar-level-page]] | 2026-04-17 | Ummah pillar adopts shared PillarLevelPage pattern; 6 submodule pages collapsed to wrappers; OVERVIEW + MAQASID relocated to UmmahDashboard Frameworks section |
 | [[2026-04-18-milos-grounding-two-axis]] | 2026-04-18 | Two-axis evidence schema for subtask grounding — provenanceTier (Amanah Gate, unchanged) + relevance (direct/contextual/thematic) |
 | [[2026-04-19-dashboard-sanctuary-mode]] | 2026-04-19 | Dashboard Sanctuary Mode — niyyah-driven Sun & Stars layout, Focus Task List, Context Widgets, Evening Reflection, rollover self-healing, Yesterday's Echo |
+| [[2026-04-20-dashboard-wheel-test-prototype]] | 2026-04-20 | Dashboard Wheel Test prototype — standalone route hosting Maqasid Comparison Wheel (custom SVG, center-origin gradient); promotion pending approval |
 
 ## Sources
 

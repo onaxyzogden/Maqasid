@@ -8,7 +8,7 @@ $TARGETS = @{ life=236; family=233; intellect=236; wealth=236; environment=226; 
 $PILLARS = @("life","family","intellect","wealth","environment","ummah")
 
 function Get-Rows($pillar) {
-    $f = "$ROOT\artifacts\amanah-grading\$pillar.jsonl"
+    $f = "$ROOT\artifacts\amanah-grading\${pillar}.jsonl"
     if (-not (Test-Path $f)) { return 0 }
     (Get-Content $f -Encoding UTF8 | Where-Object { $_.Trim() -ne "" }).Count
 }
@@ -22,7 +22,7 @@ foreach ($pillar in $PILLARS) {
     while ((Get-Rows $pillar) -lt $target) {
         $rows = Get-Rows $pillar
         Add-Content $RLOG "[$([datetime]::Now)] ${pillar}: $rows of $target — launching node"
-        $plog = "$ROOT\artifacts\amanah-grading\$pillar.log"
+        $plog = "$ROOT\artifacts\amanah-grading\${pillar}.log"
         $proc = Start-Process -FilePath "node" `
             -ArgumentList "`"$ROOT\scripts\grade-amanah-tiers.mjs`" $pillar" `
             -WorkingDirectory $ROOT `

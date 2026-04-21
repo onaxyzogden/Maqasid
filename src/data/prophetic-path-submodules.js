@@ -230,9 +230,13 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
         title: t.title,
         priority: t.priority || 'medium',
         dueDate: t.dueDate || null,
+        columnId: t.columnId,
+        subtasks: t.subtasks || [],
+        tags: t.tags || [],
         _level: levelFromProjectId(project.id),
         _submoduleId: canonical,
         _submoduleName: submoduleNameById[canonical] || canonical,
+        _project: project,
       });
     }
   }

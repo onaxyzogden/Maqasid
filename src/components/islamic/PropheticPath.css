@@ -182,10 +182,50 @@
   }
 }
 
+/* ---------- Node stack (Before / main / After) ---------- */
+.prophetic-path .pp-node-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.prophetic-path .pp-satellite {
+  align-self: center;
+  padding: 6px 16px;
+  margin: 4px 0;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid var(--pp-surface-variant);
+  color: var(--pp-on-surface-variant);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 120ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.prophetic-path .pp-satellite:hover {
+  background: color-mix(in srgb, var(--pp-primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--pp-primary) 40%, transparent);
+}
+
+.prophetic-path .pp-satellite:active {
+  transform: scale(0.97);
+}
+
+.prophetic-path .pp-satellite[aria-expanded='true'] {
+  background: color-mix(in srgb, var(--pp-primary) 16%, transparent);
+  border-color: var(--pp-primary);
+  color: var(--pp-primary);
+}
+
 /* ---------- Marker ---------- */
 .prophetic-path .pp-marker {
   position: absolute;
-  top: 1rem;
+  top: calc(1rem + 40px + 8px);
   left: -36px;
   width: 1.5rem;
   height: 1.5rem;
@@ -526,6 +566,7 @@
 /* Mobile default: stacks inline beneath the tapped TOD card */
 .prophetic-path .pp-mirror-card {
   position: relative;
+  z-index: 2;
   margin-top: 0.75rem;
   padding: 1rem 1.15rem 1.1rem;
   border-radius: 0.9rem;
@@ -615,11 +656,15 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  max-height: 24rem;
+  gap: 0.6rem;
+  max-height: 22rem;
   overflow-y: auto;
   scrollbar-width: thin;
 }
+/* Ensure shared DashboardTaskCard styling renders cleanly inside the mirror
+   panel even though PropheticPath.css does not import DashboardTaskCard.css
+   directly — the card component imports its own stylesheet. */
+.prophetic-path .pp-task-list .dtc__card { width: 100%; }
 .prophetic-path .pp-task-row {
   display: flex;
   align-items: flex-start;
@@ -719,7 +764,7 @@
    reserve vertical space in the spine's flex layout. */
 @media (min-width: 768px) {
   .prophetic-path .pp-node[data-expanded='true'] {
-    min-height: 30rem;
+    min-height: 32rem;
   }
 }
 

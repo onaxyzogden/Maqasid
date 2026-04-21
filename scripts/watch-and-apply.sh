@@ -8,7 +8,7 @@ declare -A TARGETS=(
   [life]=236 [family]=233 [intellect]=236
   [wealth]=236 [environment]=226 [ummah]=450
 )
-PILLARS=(life family intellect wealth environment ummah)
+PILLARS=(family intellect wealth environment ummah)
 
 get_rows() {
   local f="$ROOT/artifacts/amanah-grading/$1.jsonl"
@@ -43,7 +43,7 @@ ${pillar} subtasks. Distribution: ${dist}
 
 Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 
-  git push origin grounding/faith
+  git push origin main
   echo "[watch] committed and pushed $pillar"
 }
 

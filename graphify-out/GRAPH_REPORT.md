@@ -1,34 +1,35 @@
-# Graph Report - src/  (2026-04-16)
+# Graph Report - src/  (2026-04-19)
 
 ## Corpus Check
-- Large corpus: 331 files � ~1,828,315 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder, or use --no-semantic to run AST-only.
+- 358 files · ~1,800,137 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 921 nodes � 853 edges � 209 communities detected
-- Extraction: 100% EXTRACTED � 0% INFERRED � 0% AMBIGUOUS
-- Token cost: 0 input � 0 output
+- 1239 nodes · 1219 edges · 229 communities detected
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 12 edges (avg confidence: 0.74)
+- Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Community 0|Community 0]]
-- [[_COMMUNITY_Community 1|Community 1]]
-- [[_COMMUNITY_Community 2|Community 2]]
-- [[_COMMUNITY_Community 3|Community 3]]
-- [[_COMMUNITY_Community 4|Community 4]]
-- [[_COMMUNITY_Community 5|Community 5]]
-- [[_COMMUNITY_Community 6|Community 6]]
-- [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
-- [[_COMMUNITY_Community 9|Community 9]]
-- [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Community 12|Community 12]]
-- [[_COMMUNITY_Community 13|Community 13]]
-- [[_COMMUNITY_Community 14|Community 14]]
-- [[_COMMUNITY_Community 15|Community 15]]
-- [[_COMMUNITY_Community 16|Community 16]]
-- [[_COMMUNITY_Community 17|Community 17]]
-- [[_COMMUNITY_Community 18|Community 18]]
-- [[_COMMUNITY_Community 19|Community 19]]
+- [[_COMMUNITY_BBOS Dashboard Surface|BBOS Dashboard Surface]]
+- [[_COMMUNITY_HR People & Attendance|HR: People & Attendance]]
+- [[_COMMUNITY_BBOS Role & Task System|BBOS Role & Task System]]
+- [[_COMMUNITY_Pages Pillar CONTEXT Docs|Pages: Pillar CONTEXT Docs]]
+- [[_COMMUNITY_ID Generators|ID Generators]]
+- [[_COMMUNITY_Stores & Config Docs|Stores & Config Docs]]
+- [[_COMMUNITY_Ummah & Family Pages|Ummah & Family Pages]]
+- [[_COMMUNITY_Islamic Module Attributes|Islamic Module Attributes]]
+- [[_COMMUNITY_CRM Contacts & Accounts|CRM: Contacts & Accounts]]
+- [[_COMMUNITY_Islamic Foundations Docs|Islamic Foundations Docs]]
+- [[_COMMUNITY_Readiness Ayat Lookup|Readiness Ayat Lookup]]
+- [[_COMMUNITY_BBOS Grid Renderers|BBOS Grid Renderers]]
+- [[_COMMUNITY_Departments & Employees|Departments & Employees]]
+- [[_COMMUNITY_App Shell & Routing|App Shell & Routing]]
+- [[_COMMUNITY_Dashboard + Ceremony Guards|Dashboard + Ceremony Guards]]
+- [[_COMMUNITY_Person Detail Tabs|Person Detail Tabs]]
+- [[_COMMUNITY_Shared Utils & Panels|Shared Utils & Panels]]
+- [[_COMMUNITY_BBOS ImportExport|BBOS Import/Export]]
+- [[_COMMUNITY_Storage Service|Storage Service]]
+- [[_COMMUNITY_Money Budgets & Invoices|Money: Budgets & Invoices]]
 - [[_COMMUNITY_Community 20|Community 20]]
 - [[_COMMUNITY_Community 21|Community 21]]
 - [[_COMMUNITY_Community 22|Community 22]]
@@ -218,243 +219,280 @@
 - [[_COMMUNITY_Community 206|Community 206]]
 - [[_COMMUNITY_Community 207|Community 207]]
 - [[_COMMUNITY_Community 208|Community 208]]
+- [[_COMMUNITY_Community 209|Community 209]]
+- [[_COMMUNITY_Community 210|Community 210]]
+- [[_COMMUNITY_Community 211|Community 211]]
+- [[_COMMUNITY_Community 212|Community 212]]
+- [[_COMMUNITY_Community 213|Community 213]]
+- [[_COMMUNITY_Community 214|Community 214]]
+- [[_COMMUNITY_Community 215|Community 215]]
+- [[_COMMUNITY_Community 216|Community 216]]
+- [[_COMMUNITY_Community 217|Community 217]]
+- [[_COMMUNITY_Community 218|Community 218]]
+- [[_COMMUNITY_Community 219|Community 219]]
+- [[_COMMUNITY_Community 220|Community 220]]
+- [[_COMMUNITY_Community 221|Community 221]]
+- [[_COMMUNITY_Community 222|Community 222]]
+- [[_COMMUNITY_Community 223|Community 223]]
+- [[_COMMUNITY_Community 224|Community 224]]
+- [[_COMMUNITY_Community 225|Community 225]]
+- [[_COMMUNITY_Community 226|Community 226]]
+- [[_COMMUNITY_Community 227|Community 227]]
+- [[_COMMUNITY_Community 228|Community 228]]
 
 ## Keystone Nodes (most connected - your core abstractions)
-1. `buildPrompt()` - 11 edges
-2. `truncate()` - 7 edges
-3. `runMigrations()` - 6 edges
-4. `splitLines()` - 5 edges
-5. `ThresholdModal()` - 5 edges
-6. `ErrorBoundary` - 5 edges
-7. `extractJSON()` - 4 edges
-8. `ProofAuditRenderer()` - 3 edges
-9. `BbosTaskCard()` - 3 edges
-10. `TopBar()` - 3 edges
+1. `Pages CONTEXT` - 18 edges
+2. `src/components Router` - 15 edges
+3. `Zustand Stores CONTEXT` - 15 edges
+4. `Islamic UI Components` - 12 edges
+5. `Ummah Pages CONTEXT` - 12 edges
+6. `buildPrompt()` - 11 edges
+7. `src/ Building Room` - 10 edges
+8. `bbos-role-access` - 10 edges
+9. `Faith Pages CONTEXT` - 10 edges
+10. `bbos-task-definitions` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- None detected - all connections are within the same source files.
+- `React logo` --branding_for--> `Pages CONTEXT`  [INFERRED]
+  src/assets/react.svg → src/pages/CONTEXT.md
+- `Vite logo` --branding_for--> `Pages CONTEXT`  [INFERRED]
+  src/assets/vite.svg → src/pages/CONTEXT.md
+- `Slide-in Panel Pattern` --semantically_similar_to--> `createPortal pattern`  [INFERRED] [semantically similar]
+  src/components/money/CONTEXT.md → src/components/CONTEXT.md
+- `KanbanBoard` --semantically_similar_to--> `DealPipeline`  [INFERRED] [semantically similar]
+  src/components/work/CONTEXT.md → src/components/crm/CONTEXT.md
+- `Dual Contact Systems (gotcha)` --semantically_similar_to--> `Dual Store Merge (people+contacts)`  [INFERRED] [semantically similar]
+  src/components/crm/CONTEXT.md → src/components/people/CONTEXT.md
+
+## Hyperedges (group relationships)
+- **CeremonyGate three-mode wiring pattern** — islamic_ceremony_gate, islamic_ceremony_guard, islamic_ceremony_guard_dynamic, islamic_inbody_gate_rationale [EXTRACTED 1.00]
+- **3-part Prayer Awareness System** — islamic_prayer_time, islamic_prayer_warning, islamic_prayer_overlay, layout_appshell [EXTRACTED 1.00]
+- **BBOS Two-Factory Stage Flow** — bbos_two_factory, bbos_assembly_gate, bbos_stage_scorecard, bbos_full_dashboard [EXTRACTED 1.00]
+- **All 7 pillar dashboards share CeremonyGate+stores+data pattern** — ctx:pages/faith, ctx:pages/life, ctx:pages/family, ctx:pages/intellect, ctx:pages/wealth, ctx:pages/environment, ctx:pages/ummah [EXTRACTED 1.00]
+- **Amanah Gate T1/T2/T3 grading pipeline** — concept:AmanahGateProtocol, file:grade-amanah-tiers.mjs, file:apply-amanah-tiers.mjs, file:seed-hydrator.js [EXTRACTED 1.00]
+- **Storage service unifies all Zustand stores (no persist middleware)** — service:storage.js, decision:ManualPersistence, ctx:store [EXTRACTED 1.00]
 
 ## Communities
 
-### Community 0 - "Community 0"
+### Community 0 - "BBOS Dashboard Surface"
+Cohesion: 0.03
+Nodes (76): Assembly Gate, BBOS Pipeline Components, BbosFullDashboard, BbosRoleBadge, StageScoreCard, BbosTaskPanel, Two-Factory Model, createPortal pattern (+68 more)
+
+### Community 1 - "HR: People & Attendance"
 Cohesion: 0.04
 Nodes (10): AvatarInitials(), getAvatarColor(), getDisplayName(), getInitials(), ContactsPage(), ContactsTable(), Field(), HRTab() (+2 more)
 
-### Community 1 - "Community 1"
+### Community 2 - "BBOS Role & Task System"
+Cohesion: 0.04
+Nodes (14): bbos-role-access, bbos-task-definitions, BbosTaskPanelInner(), formatDateTime(), gatherByStage(), gatherImmediate(), gatherUpstreamContext(), summarize() (+6 more)
+
+### Community 3 - "Pages: Pillar CONTEXT Docs"
+Cohesion: 0.04
+Nodes (56): React logo, Vite logo, Pillar 8 Moontrance (Hifz al-Ard), Pages CONTEXT, Environment Pages CONTEXT, Family Pages CONTEXT, Intellect Pages CONTEXT, Life Pages CONTEXT (+48 more)
+
+### Community 4 - "ID Generators"
 Cohesion: 0.04
 Nodes (0): 
 
-### Community 2 - "Community 2"
-Cohesion: 0.05
-Nodes (2): BbosTaskPanelInner(), formatDateTime()
+### Community 5 - "Stores & Config Docs"
+Cohesion: 0.06
+Nodes (42): Data: Config CONTEXT, Hooks & Services CONTEXT, Modules Pages CONTEXT, Zustand Stores CONTEXT, No Zustand persist middleware â€” manual storage, Aladhan Prayer API, Nominatim Reverse Geocoding, nanoid (+34 more)
 
-### Community 3 - "Community 3"
+### Community 6 - "Ummah & Family Pages"
 Cohesion: 0.07
 Nodes (4): IntegrationsTab(), MaqasidTable(), PillarHeader(), ViewToggle()
 
-### Community 4 - "Community 4"
+### Community 7 - "Islamic Module Attributes"
+Cohesion: 0.07
+Nodes (14): AttributeCard(), getBbosStageIslamic(), PrayerWarning(), allFilled(), allYes(), buildReadinessKey(), getPauseLabel(), ThresholdModal() (+6 more)
+
+### Community 8 - "CRM: Contacts & Accounts"
+Cohesion: 0.06
+Nodes (0): 
+
+### Community 9 - "Islamic Foundations Docs"
+Cohesion: 0.06
+Nodes (34): Barakah Business Operating System, Five Pillars of Islam, Seven Maqasid, Data: BBOS CONTEXT, Data: Islamic CONTEXT, Faith Pages CONTEXT, Islamic Pages CONTEXT, Styles & Tokens CONTEXT (+26 more)
+
+### Community 10 - "Readiness Ayat Lookup"
 Cohesion: 0.08
 Nodes (10): lookupCommunityReadinessAyah(), lookupReadinessAyah(), lookupReadinessAyah(), lookupReadinessAyah(), lookupReadinessAyah(), lookupReadinessAyah(), lookupReadinessAyahByKey(), lookupSpiritualityReadinessAyah() (+2 more)
 
-### Community 5 - "Community 5"
+### Community 11 - "BBOS Grid Renderers"
 Cohesion: 0.08
 Nodes (12): BbosTaskCard(), CandidateTableRenderer(), CategoryGridRenderer(), countFilledFields(), DualColumnRenderer(), ProofAuditRenderer(), ScopeMapRenderer(), SegmentListRenderer() (+4 more)
 
-### Community 6 - "Community 6"
+### Community 12 - "Departments & Employees"
 Cohesion: 0.09
 Nodes (8): AttendanceView(), initDepartments(), p(), countDays(), LeaveManager(), initDepartments(), persistDepartments(), TeamInsights()
 
-### Community 7 - "Community 7"
+### Community 13 - "App Shell & Routing"
 Cohesion: 0.1
 Nodes (8): App(), useGlobalTextareaAutoResize(), AssetPanel(), AssetsTab(), ExpenseList(), getRows(), PillarDashboard(), ProposalTab()
 
-### Community 8 - "Community 8"
-Cohesion: 0.11
-Nodes (7): PrayerWarning(), getBreadcrumb(), getProjectBase(), TopBar(), useInactivity(), useKeyboard(), useMobile()
+### Community 14 - "Dashboard + Ceremony Guards"
+Cohesion: 0.13
+Nodes (21): Dashboard Components, ManifestoBanner, PillarCard, readiness-ayat-router, CeremonyGate, CeremonyGuard, CeremonyGuardDynamic, Islamic UI Components (+13 more)
 
-### Community 9 - "Community 9"
-Cohesion: 0.18
-Nodes (7): AttributeCard(), getBbosStageIslamic(), allFilled(), allYes(), buildReadinessKey(), getPauseLabel(), ThresholdModal()
-
-### Community 10 - "Community 10"
+### Community 15 - "Person Detail Tabs"
 Cohesion: 0.16
 Nodes (4): CollapsibleSection(), CompanyInfoTab(), EditableField(), PersonalTab()
 
-### Community 11 - "Community 11"
+### Community 16 - "Shared Utils & Panels"
 Cohesion: 0.18
 Nodes (5): detectPillarLevel(), formatDue(), PillarLevelDashboard(), PillarTaskCard(), statusLabel()
 
-### Community 12 - "Community 12"
+### Community 17 - "BBOS Import/Export"
 Cohesion: 0.19
 Nodes (7): downloadJson(), exportBbosProject(), importBbosData(), downloadStageBundleTemplate(), downloadTaskTemplate(), generateStageBundleTemplate(), generateTaskTemplate()
 
-### Community 13 - "Community 13"
+### Community 18 - "Storage Service"
 Cohesion: 0.21
 Nodes (6): clearAll(), createBackup(), exportAll(), importAll(), restoreBackup(), safeSet()
 
-### Community 14 - "Community 14"
+### Community 19 - "Money: Budgets & Invoices"
 Cohesion: 0.17
 Nodes (2): initCategories(), persistCategories()
 
-### Community 15 - "Community 15"
+### Community 20 - "Community 20"
 Cohesion: 0.32
 Nodes (11): buildFieldList(), buildOutputFormat(), buildOverlays(), buildPatternInstructions(), buildPreamble(), buildPrompt(), buildScopeIntegrity(), buildTaskContext() (+3 more)
 
-### Community 16 - "Community 16"
-Cohesion: 0.2
-Nodes (0): 
+### Community 21 - "Community 21"
+Cohesion: 0.18
+Nodes (11): Amanah Gate Protocol (T1/T2/T3), Data: Seed Tasks CONTEXT, apply-amanah-tiers.mjs, environment-seed-tasks.js, faith-seed-tasks.js, family-seed-tasks.js, grade-amanah-tiers.mjs, intellect-seed-tasks.js (+3 more)
 
-### Community 17 - "Community 17"
+### Community 22 - "Community 22"
 Cohesion: 0.44
 Nodes (5): avatarColor(), nanoidLite(), read(), runMigrations(), write()
 
-### Community 18 - "Community 18"
-Cohesion: 0.29
-Nodes (2): GanttView(), toDay()
-
-### Community 19 - "Community 19"
-Cohesion: 0.25
-Nodes (1): generatePostingLink()
-
-### Community 20 - "Community 20"
+### Community 23 - "Community 23"
 Cohesion: 0.36
 Nodes (5): isDoneColumn(), isTaskDone(), isTaskStarted(), isTodoColumn(), taskWeight()
 
-### Community 21 - "Community 21"
+### Community 24 - "Community 24"
 Cohesion: 0.29
 Nodes (2): initChannels(), persistChannels()
 
-### Community 22 - "Community 22"
+### Community 25 - "Community 25"
+Cohesion: 0.25
+Nodes (1): generatePostingLink()
+
+### Community 26 - "Community 26"
+Cohesion: 0.36
+Nodes (4): getSeedSubtask(), getTaskMap(), hydrateTask(), stripSeedFields()
+
+### Community 27 - "Community 27"
 Cohesion: 0.43
 Nodes (4): BarChart(), fmt(), MoneyDashboard(), niceMax()
 
-### Community 23 - "Community 23"
+### Community 28 - "Community 28"
 Cohesion: 0.29
 Nodes (1): getGLabel()
 
-### Community 24 - "Community 24"
-Cohesion: 0.29
-Nodes (0): 
-
-### Community 25 - "Community 25"
-Cohesion: 0.33
-Nodes (2): initPipeline(), persistPipeline()
-
-### Community 26 - "Community 26"
-Cohesion: 0.29
-Nodes (0): 
-
-### Community 27 - "Community 27"
-Cohesion: 0.33
-Nodes (0): 
-
-### Community 28 - "Community 28"
-Cohesion: 0.33
-Nodes (1): ErrorBoundary
-
 ### Community 29 - "Community 29"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (0): 
 
 ### Community 30 - "Community 30"
-Cohesion: 0.33
-Nodes (1): AiClientError
+Cohesion: 0.29
+Nodes (0): 
 
 ### Community 31 - "Community 31"
-Cohesion: 0.6
-Nodes (5): escapeNewlinesInStrings(), extractJSON(), parseAiResponse(), regexExtract(), safeParse()
+Cohesion: 0.33
+Nodes (2): initPipeline(), persistPipeline()
 
 ### Community 32 - "Community 32"
-Cohesion: 0.4
+Cohesion: 0.29
 Nodes (0): 
 
 ### Community 33 - "Community 33"
-Cohesion: 0.4
+Cohesion: 0.33
 Nodes (0): 
 
 ### Community 34 - "Community 34"
-Cohesion: 0.5
-Nodes (2): BudgetTab(), fmt()
+Cohesion: 0.33
+Nodes (1): ErrorBoundary
 
 ### Community 35 - "Community 35"
-Cohesion: 0.6
-Nodes (3): formatFileSize(), getFileIcon(), PillarResourcesTab()
+Cohesion: 0.33
+Nodes (0): 
 
 ### Community 36 - "Community 36"
-Cohesion: 0.4
-Nodes (0): 
+Cohesion: 0.33
+Nodes (1): AiClientError
 
 ### Community 37 - "Community 37"
-Cohesion: 0.4
-Nodes (0): 
+Cohesion: 0.6
+Nodes (5): escapeNewlinesInStrings(), extractJSON(), parseAiResponse(), regexExtract(), safeParse()
 
 ### Community 38 - "Community 38"
 Cohesion: 0.4
-Nodes (1): getGlossaryEntry()
+Nodes (0): 
 
 ### Community 39 - "Community 39"
+Cohesion: 0.4
+Nodes (0): 
+
+### Community 40 - "Community 40"
+Cohesion: 0.5
+Nodes (2): BudgetTab(), fmt()
+
+### Community 41 - "Community 41"
+Cohesion: 0.4
+Nodes (1): getGlossaryEntry()
+
+### Community 42 - "Community 42"
+Cohesion: 0.6
+Nodes (3): formatFileSize(), getFileIcon(), PillarResourcesTab()
+
+### Community 43 - "Community 43"
+Cohesion: 0.4
+Nodes (0): 
+
+### Community 44 - "Community 44"
 Cohesion: 0.6
 Nodes (3): getActivePrayer(), getNextPrayer(), parseTimeToDate()
 
-### Community 40 - "Community 40"
-Cohesion: 0.7
-Nodes (4): gatherByStage(), gatherImmediate(), gatherUpstreamContext(), summarize()
-
-### Community 41 - "Community 41"
-Cohesion: 0.5
-Nodes (0): 
-
-### Community 42 - "Community 42"
-Cohesion: 0.5
-Nodes (0): 
-
-### Community 43 - "Community 43"
-Cohesion: 0.67
-Nodes (2): getMonday(), TimeTracker()
-
-### Community 44 - "Community 44"
-Cohesion: 0.67
-Nodes (2): ClockInsTab(), formatDuration()
-
 ### Community 45 - "Community 45"
 Cohesion: 0.5
-Nodes (0): 
+Nodes (2): getPillarFromPath(), PillarFirstEntry()
 
 ### Community 46 - "Community 46"
 Cohesion: 0.5
 Nodes (0): 
 
 ### Community 47 - "Community 47"
-Cohesion: 0.5
-Nodes (0): 
+Cohesion: 0.67
+Nodes (2): getMonday(), TimeTracker()
 
 ### Community 48 - "Community 48"
-Cohesion: 0.5
-Nodes (0): 
+Cohesion: 0.67
+Nodes (2): ClockInsTab(), formatDuration()
 
 ### Community 49 - "Community 49"
-Cohesion: 0.67
+Cohesion: 0.5
 Nodes (0): 
 
 ### Community 50 - "Community 50"
-Cohesion: 0.67
+Cohesion: 0.5
 Nodes (0): 
 
 ### Community 51 - "Community 51"
-Cohesion: 0.67
-Nodes (1): HealthPulse()
+Cohesion: 0.5
+Nodes (0): 
 
 ### Community 52 - "Community 52"
-Cohesion: 0.67
-Nodes (1): ModuleHealthCard()
+Cohesion: 0.5
+Nodes (0): 
 
 ### Community 53 - "Community 53"
-Cohesion: 1.0
-Nodes (2): getDua(), NiyyahAct()
+Cohesion: 0.5
+Nodes (0): 
 
 ### Community 54 - "Community 54"
 Cohesion: 0.67
-Nodes (0): 
+Nodes (2): format(), PomodoroWidget()
 
 ### Community 55 - "Community 55"
 Cohesion: 0.67
@@ -466,15 +504,15 @@ Nodes (0):
 
 ### Community 57 - "Community 57"
 Cohesion: 0.67
-Nodes (0): 
+Nodes (1): HealthPulse()
 
 ### Community 58 - "Community 58"
-Cohesion: 1.0
-Nodes (2): formatDate(), KanbanCard()
+Cohesion: 0.67
+Nodes (1): ModuleHealthCard()
 
 ### Community 59 - "Community 59"
 Cohesion: 1.0
-Nodes (2): detectLevelColor(), ProjectBoard()
+Nodes (2): getDua(), NiyyahAct()
 
 ### Community 60 - "Community 60"
 Cohesion: 0.67
@@ -521,59 +559,59 @@ Cohesion: 0.67
 Nodes (0): 
 
 ### Community 71 - "Community 71"
-Cohesion: 1.0
-Nodes (2): getAiConfig(), hasAiConfig()
+Cohesion: 0.67
+Nodes (0): 
 
 ### Community 72 - "Community 72"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 73 - "Community 73"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 74 - "Community 74"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (2): getAiConfig(), hasAiConfig()
 
 ### Community 75 - "Community 75"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 76 - "Community 76"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 77 - "Community 77"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 78 - "Community 78"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 79 - "Community 79"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 80 - "Community 80"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (2): parsePrayerTime(), PrayerCountdownWidget()
 
 ### Community 81 - "Community 81"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (2): completionPct(), PriorityProjectWidget()
 
 ### Community 82 - "Community 82"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 83 - "Community 83"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (2): getFeeling(), getFeelingLabel()
 
 ### Community 84 - "Community 84"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 85 - "Community 85"
@@ -1072,296 +1110,392 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 209 - "Community 209"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 210 - "Community 210"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 211 - "Community 211"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 212 - "Community 212"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 213 - "Community 213"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 214 - "Community 214"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 215 - "Community 215"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 216 - "Community 216"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 217 - "Community 217"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 218 - "Community 218"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 219 - "Community 219"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 220 - "Community 220"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 221 - "Community 221"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 222 - "Community 222"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 223 - "Community 223"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 224 - "Community 224"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 225 - "Community 225"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 226 - "Community 226"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 227 - "Community 227"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 228 - "Community 228"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **Thin community `Community 72`** (2 nodes): `BbosRoleBadge()`, `BbosRoleBadge.jsx`
+- **126 isolated node(s):** `React 19 SPA`, `React Router 7`, `Lucide React Icons`, `date-fns`, `Vite Path Aliases` (+121 more)
+  These have ≤1 connection - possible missing edges or undocumented components.
+- **Thin community `Community 85`** (2 nodes): `ActivityLog()`, `ActivityLog.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (2 nodes): `BbosRolePicker()`, `BbosRolePicker.jsx`
+- **Thin community `Community 86`** (2 nodes): `NotesView()`, `NotesView.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (2 nodes): `ActivityLog()`, `ActivityLog.jsx`
+- **Thin community `Community 87`** (2 nodes): `ActivityChart()`, `ActivityChart.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (2 nodes): `NotesView()`, `NotesView.jsx`
+- **Thin community `Community 88`** (2 nodes): `PillarCard()`, `PillarCard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (2 nodes): `ActivityChart()`, `ActivityChart.jsx`
+- **Thin community `Community 89`** (2 nodes): `CeremonyGate()`, `CeremonyGate.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (2 nodes): `PillarCard()`, `PillarCard.jsx`
+- **Thin community `Community 90`** (2 nodes): `CeremonyGuard()`, `CeremonyGuard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (2 nodes): `CeremonyGate()`, `CeremonyGate.jsx`
+- **Thin community `Community 91`** (2 nodes): `CeremonyGuardDynamic()`, `CeremonyGuardDynamic.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (2 nodes): `CeremonyGuard()`, `CeremonyGuard.jsx`
+- **Thin community `Community 92`** (2 nodes): `DuaSection()`, `DuaSection.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (2 nodes): `CeremonyGuardDynamic()`, `CeremonyGuardDynamic.jsx`
+- **Thin community `Community 93`** (2 nodes): `PrayerOverlay()`, `PrayerOverlay.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (2 nodes): `DuaSection()`, `DuaSection.jsx`
+- **Thin community `Community 94`** (2 nodes): `PrayerTime()`, `PrayerTime.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (2 nodes): `PrayerOverlay()`, `PrayerOverlay.jsx`
+- **Thin community `Community 95`** (2 nodes): `ReferenceList()`, `ReferenceList.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (2 nodes): `PrayerTime()`, `PrayerTime.jsx`
+- **Thin community `Community 96`** (2 nodes): `ResumeOverlay()`, `ResumeOverlay.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (2 nodes): `ReferenceList()`, `ReferenceList.jsx`
+- **Thin community `Community 97`** (2 nodes): `ProjectJournal()`, `ProjectJournal.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (2 nodes): `ResumeOverlay()`, `ResumeOverlay.jsx`
+- **Thin community `Community 98`** (2 nodes): `MobileNav()`, `MobileNav.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 86`** (2 nodes): `ProjectJournal()`, `ProjectJournal.jsx`
+- **Thin community `Community 99`** (2 nodes): `CategoryPanel()`, `CategoryPanel.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (2 nodes): `MobileNav()`, `MobileNav.jsx`
+- **Thin community `Community 100`** (2 nodes): `ExpensePanel()`, `ExpensePanel.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (2 nodes): `CategoryPanel()`, `CategoryPanel.jsx`
+- **Thin community `Community 101`** (2 nodes): `CalendarView()`, `CalendarView.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (2 nodes): `ExpensePanel()`, `ExpensePanel.jsx`
+- **Thin community `Community 102`** (2 nodes): `DocumentManager()`, `DocumentManager.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 90`** (2 nodes): `CalendarView()`, `CalendarView.jsx`
+- **Thin community `Community 103`** (2 nodes): `ContactsToolbar()`, `ContactsToolbar.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 91`** (2 nodes): `DocumentManager()`, `DocumentManager.jsx`
+- **Thin community `Community 104`** (2 nodes): `FloatingFAB()`, `FloatingFAB.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 92`** (2 nodes): `ContactsToolbar()`, `ContactsToolbar.jsx`
+- **Thin community `Community 105`** (2 nodes): `EmployeeList()`, `EmployeeList.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 93`** (2 nodes): `FloatingFAB()`, `FloatingFAB.jsx`
+- **Thin community `Community 106`** (2 nodes): `CompanyNotesTab()`, `CompanyNotesTab.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 94`** (2 nodes): `EmployeeList()`, `EmployeeList.jsx`
+- **Thin community `Community 107`** (2 nodes): `SkillsTab()`, `SkillsTab.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (2 nodes): `CompanyNotesTab()`, `CompanyNotesTab.jsx`
+- **Thin community `Community 108`** (2 nodes): `WorkTab.jsx`, `WorkTab()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (2 nodes): `SkillsTab()`, `SkillsTab.jsx`
+- **Thin community `Community 109`** (2 nodes): `ChartTooltip()`, `ChartTooltip.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (2 nodes): `WorkTab.jsx`, `WorkTab()`
+- **Thin community `Community 110`** (2 nodes): `EmptyState()`, `EmptyState.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (2 nodes): `ChartTooltip()`, `ChartTooltip.jsx`
+- **Thin community `Community 111`** (2 nodes): `SearchPalette()`, `SearchPalette.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (2 nodes): `EmptyState()`, `EmptyState.jsx`
+- **Thin community `Community 112`** (2 nodes): `DarkWebTab()`, `DarkWebTab.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 100`** (2 nodes): `ScopeGate()`, `ScopeGate.jsx`
+- **Thin community `Community 113`** (2 nodes): `EmailCampaignsTab()`, `EmailCampaignsTab.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 101`** (2 nodes): `SearchPalette()`, `SearchPalette.jsx`
+- **Thin community `Community 114`** (2 nodes): `TechOverview.jsx`, `TechOverview()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 102`** (2 nodes): `DarkWebTab()`, `DarkWebTab.jsx`
+- **Thin community `Community 115`** (2 nodes): `DashboardView()`, `DashboardView.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 103`** (2 nodes): `EmailCampaignsTab()`, `EmailCampaignsTab.jsx`
+- **Thin community `Community 116`** (2 nodes): `FilterBar()`, `FilterBar.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 104`** (2 nodes): `TechOverview.jsx`, `TechOverview()`
+- **Thin community `Community 117`** (2 nodes): `InlineTaskDetail()`, `InlineTaskDetail.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 105`** (2 nodes): `DashboardView()`, `DashboardView.jsx`
+- **Thin community `Community 118`** (2 nodes): `KanbanColumn()`, `KanbanColumn.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 106`** (2 nodes): `FilterBar()`, `FilterBar.jsx`
+- **Thin community `Community 119`** (2 nodes): `StageSidebar.jsx`, `StageSidebar()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 107`** (2 nodes): `InlineTaskDetail()`, `InlineTaskDetail.jsx`
+- **Thin community `Community 120`** (2 nodes): `useAyahBanner.js`, `useAyahBanner()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 108`** (2 nodes): `KanbanBoard()`, `KanbanBoard.jsx`
+- **Thin community `Community 121`** (2 nodes): `useCitations.js`, `useCitations()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 109`** (2 nodes): `KanbanColumn()`, `KanbanColumn.jsx`
+- **Thin community `Community 122`** (2 nodes): `useFocusTrap.js`, `useFocusTrap()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 110`** (2 nodes): `ListView()`, `ListView.jsx`
+- **Thin community `Community 123`** (2 nodes): `TodayFocusSection.jsx`, `TodayFocusSection()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 111`** (2 nodes): `StageSidebar.jsx`, `StageSidebar()`
+- **Thin community `Community 124`** (2 nodes): `EnvironmentDashboard()`, `EnvironmentDashboard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 112`** (2 nodes): `useAyahBanner.js`, `useAyahBanner()`
+- **Thin community `Community 125`** (2 nodes): `EnvironmentEcosystemPage()`, `EnvironmentEcosystemPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 113`** (2 nodes): `useCitations.js`, `useCitations()`
+- **Thin community `Community 126`** (2 nodes): `EnvironmentExcellencePage()`, `EnvironmentExcellencePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 114`** (2 nodes): `useFocusTrap.js`, `useFocusTrap()`
+- **Thin community `Community 127`** (2 nodes): `EnvironmentGrowthPage()`, `EnvironmentGrowthPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 115`** (2 nodes): `TodayFocusSection.jsx`, `TodayFocusSection()`
+- **Thin community `Community 128`** (2 nodes): `EnvironmentResourcePage()`, `EnvironmentResourcePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 116`** (2 nodes): `EnvironmentDashboard()`, `EnvironmentDashboard.jsx`
+- **Thin community `Community 129`** (2 nodes): `EnvironmentSourcingPage()`, `EnvironmentSourcingPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 117`** (2 nodes): `EnvironmentEcosystemPage()`, `EnvironmentEcosystemPage.jsx`
+- **Thin community `Community 130`** (2 nodes): `EnvironmentWastePage()`, `EnvironmentWastePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 118`** (2 nodes): `EnvironmentExcellencePage()`, `EnvironmentExcellencePage.jsx`
+- **Thin community `Community 131`** (2 nodes): `FaithCorePage()`, `FaithCorePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 119`** (2 nodes): `EnvironmentGrowthPage()`, `EnvironmentGrowthPage.jsx`
+- **Thin community `Community 132`** (2 nodes): `FaithDashboard()`, `FaithDashboard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 120`** (2 nodes): `EnvironmentResourcePage()`, `EnvironmentResourcePage.jsx`
+- **Thin community `Community 133`** (2 nodes): `FaithExcellencePage()`, `FaithExcellencePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 121`** (2 nodes): `EnvironmentSourcingPage()`, `EnvironmentSourcingPage.jsx`
+- **Thin community `Community 134`** (2 nodes): `FaithGrowthPage()`, `FaithGrowthPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 122`** (2 nodes): `EnvironmentWastePage()`, `EnvironmentWastePage.jsx`
+- **Thin community `Community 135`** (2 nodes): `FaithHajjPage()`, `FaithHajjPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 123`** (2 nodes): `FaithCorePage()`, `FaithCorePage.jsx`
+- **Thin community `Community 136`** (2 nodes): `FaithLevelOverview()`, `FaithLevelOverview.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 124`** (2 nodes): `FaithDashboard()`, `FaithDashboard.jsx`
+- **Thin community `Community 137`** (2 nodes): `FaithPillarPage()`, `FaithPillarPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 125`** (2 nodes): `FaithExcellencePage()`, `FaithExcellencePage.jsx`
+- **Thin community `Community 138`** (2 nodes): `FaithSalahPage()`, `FaithSalahPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 126`** (2 nodes): `FaithGrowthPage()`, `FaithGrowthPage.jsx`
+- **Thin community `Community 139`** (2 nodes): `FaithSawmPage()`, `FaithSawmPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 127`** (2 nodes): `FaithHajjPage()`, `FaithHajjPage.jsx`
+- **Thin community `Community 140`** (2 nodes): `FaithShahadaPage()`, `FaithShahadaPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 128`** (2 nodes): `FaithLevelOverview()`, `FaithLevelOverview.jsx`
+- **Thin community `Community 141`** (2 nodes): `FaithZakahPage()`, `FaithZakahPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 129`** (2 nodes): `FaithPillarPage()`, `FaithPillarPage.jsx`
+- **Thin community `Community 142`** (2 nodes): `FamilyDashboard()`, `FamilyDashboard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 130`** (2 nodes): `FaithSalahPage()`, `FaithSalahPage.jsx`
+- **Thin community `Community 143`** (2 nodes): `FamilyExcellencePage()`, `FamilyExcellencePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 131`** (2 nodes): `FaithSawmPage()`, `FaithSawmPage.jsx`
+- **Thin community `Community 144`** (2 nodes): `FamilyGrowthPage()`, `FamilyGrowthPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 132`** (2 nodes): `FaithShahadaPage()`, `FaithShahadaPage.jsx`
+- **Thin community `Community 145`** (2 nodes): `FamilyHomePage()`, `FamilyHomePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 133`** (2 nodes): `FaithZakahPage()`, `FaithZakahPage.jsx`
+- **Thin community `Community 146`** (2 nodes): `FamilyKinshipPage()`, `FamilyKinshipPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 134`** (2 nodes): `FamilyDashboard()`, `FamilyDashboard.jsx`
+- **Thin community `Community 147`** (2 nodes): `FamilyMarriagePage()`, `FamilyMarriagePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 135`** (2 nodes): `FamilyExcellencePage()`, `FamilyExcellencePage.jsx`
+- **Thin community `Community 148`** (2 nodes): `FamilyParentingPage()`, `FamilyParentingPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 136`** (2 nodes): `FamilyGrowthPage()`, `FamilyGrowthPage.jsx`
+- **Thin community `Community 149`** (2 nodes): `IntellectCognitivePage()`, `IntellectCognitivePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 137`** (2 nodes): `FamilyHomePage()`, `FamilyHomePage.jsx`
+- **Thin community `Community 150`** (2 nodes): `IntellectDashboard()`, `IntellectDashboard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 138`** (2 nodes): `FamilyKinshipPage()`, `FamilyKinshipPage.jsx`
+- **Thin community `Community 151`** (2 nodes): `IntellectExcellencePage()`, `IntellectExcellencePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 139`** (2 nodes): `FamilyMarriagePage()`, `FamilyMarriagePage.jsx`
+- **Thin community `Community 152`** (2 nodes): `IntellectGrowthPage()`, `IntellectGrowthPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 140`** (2 nodes): `FamilyParentingPage()`, `FamilyParentingPage.jsx`
+- **Thin community `Community 153`** (2 nodes): `IntellectLearningPage()`, `IntellectLearningPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 141`** (2 nodes): `IntellectCognitivePage()`, `IntellectCognitivePage.jsx`
+- **Thin community `Community 154`** (2 nodes): `IntellectProfessionalPage()`, `IntellectProfessionalPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 142`** (2 nodes): `IntellectDashboard()`, `IntellectDashboard.jsx`
+- **Thin community `Community 155`** (2 nodes): `IntellectThinkingPage()`, `IntellectThinkingPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 143`** (2 nodes): `IntellectExcellencePage()`, `IntellectExcellencePage.jsx`
+- **Thin community `Community 156`** (2 nodes): `HadithPage()`, `HadithPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 144`** (2 nodes): `IntellectGrowthPage()`, `IntellectGrowthPage.jsx`
+- **Thin community `Community 157`** (2 nodes): `IslamicKnowledgePage()`, `IslamicKnowledgePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 145`** (2 nodes): `IntellectLearningPage()`, `IntellectLearningPage.jsx`
+- **Thin community `Community 158`** (2 nodes): `QuranPage()`, `QuranPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 146`** (2 nodes): `IntellectProfessionalPage()`, `IntellectProfessionalPage.jsx`
+- **Thin community `Community 159`** (2 nodes): `SourcesPage()`, `SourcesPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 147`** (2 nodes): `IntellectThinkingPage()`, `IntellectThinkingPage.jsx`
+- **Thin community `Community 160`** (2 nodes): `LifeDashboard()`, `LifeDashboard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 148`** (2 nodes): `HadithPage()`, `HadithPage.jsx`
+- **Thin community `Community 161`** (2 nodes): `LifeExcellencePage()`, `LifeExcellencePage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 149`** (2 nodes): `IslamicKnowledgePage()`, `IslamicKnowledgePage.jsx`
+- **Thin community `Community 162`** (2 nodes): `LifeGrowthPage()`, `LifeGrowthPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 150`** (2 nodes): `QuranPage()`, `QuranPage.jsx`
+- **Thin community `Community 163`** (2 nodes): `LifeMentalPage()`, `LifeMentalPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 151`** (2 nodes): `SourcesPage()`, `SourcesPage.jsx`
+- **Thin community `Community 164`** (2 nodes): `LifePhysicalPage()`, `LifePhysicalPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 152`** (2 nodes): `LifeDashboard()`, `LifeDashboard.jsx`
+- **Thin community `Community 165`** (2 nodes): `LifeSafetyPage()`, `LifeSafetyPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 153`** (2 nodes): `LifeExcellencePage()`, `LifeExcellencePage.jsx`
+- **Thin community `Community 166`** (2 nodes): `LifeSocialPage()`, `LifeSocialPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 154`** (2 nodes): `LifeGrowthPage()`, `LifeGrowthPage.jsx`
+- **Thin community `Community 167`** (2 nodes): `Project()`, `Project.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 155`** (2 nodes): `LifeMentalPage()`, `LifeMentalPage.jsx`
+- **Thin community `Community 168`** (2 nodes): `PillarLevelPage()`, `PillarLevelPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 156`** (2 nodes): `LifePhysicalPage()`, `LifePhysicalPage.jsx`
+- **Thin community `Community 169`** (2 nodes): `MoontraceLandPage()`, `MoontraceLandPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 157`** (2 nodes): `LifeSafetyPage()`, `LifeSafetyPage.jsx`
+- **Thin community `Community 170`** (2 nodes): `MoontranceResidencyPage()`, `MoontranceResidencyPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 158`** (2 nodes): `LifeSocialPage()`, `LifeSocialPage.jsx`
+- **Thin community `Community 171`** (2 nodes): `MoontranceSeasonalPage()`, `MoontranceSeasonalPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 159`** (2 nodes): `Project()`, `Project.jsx`
+- **Thin community `Community 172`** (2 nodes): `UmmahPillarPage.jsx`, `UmmahPillarPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 160`** (2 nodes): `PillarLevelPage()`, `PillarLevelPage.jsx`
+- **Thin community `Community 173`** (2 nodes): `WealthCirculationPage.jsx`, `WealthCirculationPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 161`** (2 nodes): `MoontraceLandPage()`, `MoontraceLandPage.jsx`
+- **Thin community `Community 174`** (2 nodes): `WealthDashboard.jsx`, `WealthDashboard()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 162`** (2 nodes): `MoontranceResidencyPage()`, `MoontranceResidencyPage.jsx`
+- **Thin community `Community 175`** (2 nodes): `WealthEarningPage.jsx`, `WealthEarningPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 163`** (2 nodes): `MoontranceSeasonalPage()`, `MoontranceSeasonalPage.jsx`
+- **Thin community `Community 176`** (2 nodes): `WealthExcellencePage.jsx`, `WealthExcellencePage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 164`** (2 nodes): `UmmahPillarPage.jsx`, `UmmahPillarPage()`
+- **Thin community `Community 177`** (2 nodes): `WealthFinancialPage.jsx`, `WealthFinancialPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 165`** (2 nodes): `WealthCirculationPage.jsx`, `WealthCirculationPage()`
+- **Thin community `Community 178`** (2 nodes): `WealthGrowthPage.jsx`, `WealthGrowthPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 166`** (2 nodes): `WealthDashboard.jsx`, `WealthDashboard()`
+- **Thin community `Community 179`** (2 nodes): `WealthOwnershipPage.jsx`, `WealthOwnershipPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 167`** (2 nodes): `WealthEarningPage.jsx`, `WealthEarningPage()`
+- **Thin community `Community 180`** (2 nodes): `getRegistryEntry()`, `prompt-registry.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 168`** (2 nodes): `WealthExcellencePage.jsx`, `WealthExcellencePage()`
+- **Thin community `Community 181`** (2 nodes): `safeGetJSON()`, `app-store.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 169`** (2 nodes): `WealthFinancialPage.jsx`, `WealthFinancialPage()`
+- **Thin community `Community 182`** (2 nodes): `EveningReflectButton()`, `EveningReflectButton.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 170`** (2 nodes): `WealthGrowthPage.jsx`, `WealthGrowthPage()`
+- **Thin community `Community 183`** (2 nodes): `EveningReflectModal()`, `EveningReflectModal.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 171`** (2 nodes): `WealthOwnershipPage.jsx`, `WealthOwnershipPage()`
+- **Thin community `Community 184`** (2 nodes): `ManifestoBanner()`, `ManifestoBanner.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 172`** (2 nodes): `getRegistryEntry()`, `prompt-registry.js`
+- **Thin community `Community 185`** (2 nodes): `RippleRing()`, `RippleRing.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 173`** (2 nodes): `safeGetJSON()`, `app-store.js`
+- **Thin community `Community 186`** (2 nodes): `HadithCard()`, `HadithCard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 174`** (2 nodes): `task-store.js`, `persistTasks()`
+- **Thin community `Community 187`** (2 nodes): `QuranVerseCard()`, `QuranVerseCard.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 175`** (1 nodes): `modules.js`
+- **Thin community `Community 188`** (2 nodes): `OnboardingChecklist()`, `OnboardingChecklist.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 176`** (1 nodes): `family-readiness-ayat.js`
+- **Thin community `Community 189`** (2 nodes): `SpotlightTour()`, `SpotlightTour.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 177`** (1 nodes): `learning-readiness-ayat.js`
+- **Thin community `Community 190`** (2 nodes): `AmanahTierBadge()`, `AmanahTierBadge.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 178`** (1 nodes): `rest-readiness-ayat.js`
+- **Thin community `Community 191`** (2 nodes): `InlineBlankPicker()`, `InlineBlankPicker.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 179`** (1 nodes): `money-categories.js`
+- **Thin community `Community 192`** (2 nodes): `getAmanahTier()`, `amanah-tiers.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 180`** (1 nodes): `people-departments.js`
+- **Thin community `Community 193`** (2 nodes): `FaithSiyamPage()`, `FaithSiyamPage.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 181`** (1 nodes): `ayah-banner-data.js`
+- **Thin community `Community 194`** (1 nodes): `modules.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 182`** (1 nodes): `five-pillars-content.js`
+- **Thin community `Community 195`** (1 nodes): `family-readiness-ayat.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 183`** (1 nodes): `pillar-content.js`
+- **Thin community `Community 196`** (1 nodes): `learning-readiness-ayat.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 184`** (1 nodes): `pillar-dashboard-data.js`
+- **Thin community `Community 197`** (1 nodes): `rest-readiness-ayat.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 185`** (1 nodes): `collective-overview.js`
+- **Thin community `Community 198`** (1 nodes): `money-categories.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 186`** (1 nodes): `community-overview.js`
+- **Thin community `Community 199`** (1 nodes): `people-departments.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 187`** (1 nodes): `family-overview.js`
+- **Thin community `Community 200`** (1 nodes): `ayah-banner-data.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 188`** (1 nodes): `hadith-overview.js`
+- **Thin community `Community 201`** (1 nodes): `five-pillars-content.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 189`** (1 nodes): `moontrance-land-overview.js`
+- **Thin community `Community 202`** (1 nodes): `pillar-content.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 190`** (1 nodes): `moontrance-residency-overview.js`
+- **Thin community `Community 203`** (1 nodes): `pillar-dashboard-data.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 191`** (1 nodes): `moontrance-seasonal-overview.js`
+- **Thin community `Community 204`** (1 nodes): `collective-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 192`** (1 nodes): `neighbors-overview.js`
+- **Thin community `Community 205`** (1 nodes): `community-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 193`** (1 nodes): `quran-overview.js`
+- **Thin community `Community 206`** (1 nodes): `family-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 194`** (1 nodes): `environment-seed-tasks.js`
+- **Thin community `Community 207`** (1 nodes): `hadith-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 195`** (1 nodes): `faith-seed-tasks.js`
+- **Thin community `Community 208`** (1 nodes): `moontrance-land-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 196`** (1 nodes): `family-seed-tasks.js`
+- **Thin community `Community 209`** (1 nodes): `moontrance-residency-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 197`** (1 nodes): `intellect-seed-tasks.js`
+- **Thin community `Community 210`** (1 nodes): `moontrance-seasonal-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 198`** (1 nodes): `life-seed-tasks.js`
+- **Thin community `Community 211`** (1 nodes): `neighbors-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 199`** (1 nodes): `ummah-seed-tasks.js`
+- **Thin community `Community 212`** (1 nodes): `quran-overview.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 200`** (1 nodes): `wealth-seed-tasks.js`
+- **Thin community `Community 213`** (1 nodes): `environment-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 201`** (1 nodes): `auth-store.js`
+- **Thin community `Community 214`** (1 nodes): `faith-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 202`** (1 nodes): `recruitment-store.js`
+- **Thin community `Community 215`** (1 nodes): `family-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 203`** (1 nodes): `settings-store.js`
+- **Thin community `Community 216`** (1 nodes): `intellect-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 204`** (1 nodes): `threshold-store.js`
+- **Thin community `Community 217`** (1 nodes): `life-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 205`** (1 nodes): `toast-store.js`
+- **Thin community `Community 218`** (1 nodes): `ummah-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 206`** (1 nodes): `five-pillars-content.js`
+- **Thin community `Community 219`** (1 nodes): `wealth-seed-tasks.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 207`** (1 nodes): `pillar-dashboard-data.js`
+- **Thin community `Community 220`** (1 nodes): `auth-store.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 208`** (1 nodes): `hadith-overview.js`
+- **Thin community `Community 221`** (1 nodes): `recruitment-store.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 222`** (1 nodes): `settings-store.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 223`** (1 nodes): `toast-store.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 224`** (1 nodes): `pillar-dashboard-data.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 225`** (1 nodes): `hadith-overview.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 226`** (1 nodes): `hadith.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 227`** (1 nodes): `quran-wbw.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 228`** (1 nodes): `onboarding-store.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Should `Community 0` be split into smaller, more focused modules?**
+- **Why does `bbos-task-definitions` connect `BBOS Role & Task System` to `BBOS Dashboard Surface`, `BBOS Grid Renderers`?**
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+- **Why does `BbosTaskPanel` connect `BBOS Dashboard Surface` to `BBOS Role & Task System`?**
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `Pages CONTEXT` (e.g. with `React logo` and `Vite logo`) actually correct?**
+  _`Pages CONTEXT` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `React 19 SPA`, `React Router 7`, `Lucide React Icons` to the rest of the system?**
+  _126 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `BBOS Dashboard Surface` be split into smaller, more focused modules?**
+  _Cohesion score 0.03 - nodes in this community are weakly interconnected._
+- **Should `HR: People & Attendance` be split into smaller, more focused modules?**
   _Cohesion score 0.04 - nodes in this community are weakly interconnected._
-- **Should `Community 1` be split into smaller, more focused modules?**
+- **Should `BBOS Role & Task System` be split into smaller, more focused modules?**
   _Cohesion score 0.04 - nodes in this community are weakly interconnected._
-- **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
-- **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
-- **Should `Community 5` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
-- **Should `Community 6` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._

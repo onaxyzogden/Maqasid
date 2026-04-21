@@ -110,7 +110,7 @@ export const MAQASID_PILLARS = [
   {
     id: 'ummah',
     order: 7,
-    sidebarLabel: 'Ummah',
+    sidebarLabel: 'Community',
     universalLabel: 'Collective',
     stewardshipLabel: 'Collective Stewardship',
     universalStewardship: 'Community Impact',
