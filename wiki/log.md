@@ -1504,3 +1504,29 @@ Continuation of the Ad-lib Niyyah work. The authored sentence (feeling → pilla
 - HMR fragmentation bug made preview_eval-based verification noisy — `location.reload()` within the iframe didn't always re-evaluate dynamically-imported modules. Workaround: force in-memory store state + localStorage state jointly, then invoke actions directly.
 - `services/storage.js` uses a `bbiz_` prefix on every key — tests seeding localStorage raw (without prefix) will diverge from what the store reads. Always seed through `safeSet` or use the prefix explicitly.
 - ADR filed: `wiki/decisions/2026-04-19-dashboard-sanctuary-mode.md`.
+
+## 2026-04-21 — Threshold reframe: orient, don't excuse
+
+### Context
+The Opening Threshold ceremony had been behaving like a gate: "Am I ready?" with a "Defer to Later" off-ramp on the Pause screen, plus a Confirm checkbox gating the final Begin. This contradicted the operating principle that the work gets done regardless of feeling — the threshold's job is to orient, not to excuse. Two-phase reframe this session.
+
+### Done
+- **Phase A — Defer removal (universal) + readiness reframe (faith-salah):** dropped `DEFER_CONTENT`/`DEFER_UNIVERSAL` imports, `deferOpening` store selector, `showingDeferScreen` state, `closeDeferScreen`/`defer` functions, defer-screen ternary branch, and the Defer footer button from `ThresholdModal.jsx`. Pause content branch now data-driven on `data?.pauseWarning && data?.pauseRiseNow` instead of the `noDefer` flag. Reframed `faith-salah.readiness` in `islamic-data.js`: frame shifted from *"Am I ready to begin?"* to *"What am I bringing into this prayer?"*; row labels shifted from *"I can…"* / *"I am still…"* to *"I am bringing…"* / *"I am carrying…"*; `noDefer` flag removed; Maryam 19:59 `pauseWarning` and Ali 'Imran 3:133 `pauseRiseNow` retained.
+- **Phase B — Confirm removal + Bismillah finalize:** dropped the Confirm step entirely from the `baseSteps` array, along with `confirmed` state, the Confirm render block, and `returnToReadiness`. Footer finalize now uses an IIFE that renders a single `thr-btn-bismillah` button — `<span class="thr-btn-label">Bismillah</span><span class="thr-btn-arabic arabic" dir="rtl">بِسْمِ اللَّهِ</span>` (opening) or the Alhamdulillah pair (closing) — on three trigger conditions: Readiness all-yes, Pause, and Closing Dua. Previous button preserved on Pause so users can back out without escaping.
+
+### Verification
+- `npm run dev` / Vite HMR compiled clean after both waves of edits (earlier parse-error log entries resolved before commit).
+- Preview walkthrough on `/app/prophetic-path-test` via Before pill → steps strip shows Dua → Allah ﷻ → Ready? with no Confirm step.
+- All-yes on 4 readiness rows: footer rendered Bismillah button with English label at x=704 and Arabic span at x=773 (English-left / Arabic-right confirmed); clicking it closed the modal and completed the ceremony.
+- At-least-one nyt: pause button appeared; clicking it advanced to Pause step showing Maryam 19:59 + Ali 'Imran 3:133 + "This prayer has not yet left its time. Rise." + Bismillah finalize + Previous — no Defer button.
+
+### Deferred
+- Reframe readiness copy for the other six pillars (Life, Intellect, Family, Wealth, Environment, Ummah) and their sub-modules using the `faith-salah` shape as template.
+- Remove orphan `.thr-defer-*` CSS rules and `DEFER_CONTENT` / `DEFER_UNIVERSAL` constants from `islamic-data.js`.
+- Remove `deferOpening` / `deferred` / `isDeferred` from `threshold-store.js` after auditing callers (left intact as dead-but-harmless API this pass).
+- `.thr-btn-bismillah` uses `justify-content: center` with `gap: 8px` — consider `space-between` + `min-width` for more deliberate anchoring of the English/Arabic pair.
+
+### Notes
+- `pauseWarning && pauseRiseNow` is now the branch condition for the "rise now" Pause layout — cleaner than a boolean flag, since the data's presence implies the ceremony carries the covenant weight needed to warrant that specific rendering.
+- Commits: `8cc1e4a` (scoped feat on the two files), `c4e39e7` (working-tree snapshot of graphify cache + wiki + seeds + tooling).
+- ADR filed: `wiki/decisions/2026-04-21-threshold-orient-not-excuse.md`.
