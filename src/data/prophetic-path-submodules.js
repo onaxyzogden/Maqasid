@@ -373,6 +373,44 @@ export function getModuleGroups(nodeId) {
   return resolveEntry(nodeId).moduleGroups;
 }
 
+// Auto-seeded pillar/submodule/level boards (created by ensure*Projects in
+// project-store.js) are flagged with one of these keys. They are not shown
+// in the prophetic-path Action list — only real user projects appear there.
+const SEEDED_PILLAR_FLAGS = [
+  '_faithModule', '_lifeModule', '_intellectModule', '_familyModule',
+  '_wealthModule', '_environmentModule', '_ummahModule',
+];
+function isSeededPillarBoard(p) {
+  return SEEDED_PILLAR_FLAGS.some((k) => p[k] === true);
+}
+
+// User-created projects (seeded pillar boards filtered out) whose moduleId
+// resolves to one of the given submoduleIds. Used by the Action tab to show
+// only projects that belong to the currently active moduleGroup (Wealth/
+// Community/etc.). Weekly planning will later narrow further.
+const PILLAR_TO_SUBMODULES = {
+  faith:       ['faith-shahada', 'faith-salah', 'faith-zakah', 'faith-siyam', 'faith-hajj'],
+  life:        ['life-physical', 'life-mental', 'life-safety', 'life-social'],
+  intellect:   ['intellect-learning', 'intellect-thinking', 'intellect-cognitive', 'intellect-professional'],
+  family:      ['family-marriage', 'family-parenting', 'family-kinship', 'family-home'],
+  wealth:      ['wealth-earning', 'wealth-financial', 'wealth-ownership', 'wealth-circulation'],
+  environment: ['env-resource', 'env-waste', 'env-ecosystem', 'env-sourcing'],
+  ummah:       ['collective', 'neighbors', 'community'],
+};
+
+export function buildUserProjectsForScope(projects, submoduleIds) {
+  if (!submoduleIds || submoduleIds.length === 0) return [];
+  const scope = new Set(submoduleIds);
+  return (projects || []).filter((p) => {
+    if (p.archived || isSeededPillarBoard(p)) return false;
+    if (!p.moduleId) return false;
+    const pillarSubs = PILLAR_TO_SUBMODULES[p.moduleId];
+    if (pillarSubs && pillarSubs.some((id) => scope.has(id))) return true;
+    const canonical = MODULE_ID_TO_SUBMODULE_ID[p.moduleId] || p.moduleId;
+    return scope.has(canonical);
+  });
+}
+
 // Return the list of (non-archived) projects that fall within a node's scope,
 // optionally narrowed to a single module group. Used by the midday-labor node's
 // Action mode, which renders a project list instead of a task list.
@@ -391,10 +429,24 @@ export function buildProjectsForNode(nodeId, projects, options = {}) {
   const targetSet = new Set(scopeSubmodules);
 
   return (projects || []).filter((p) => {
-    if (p.archived) return false;
+    if (p.archived || isSeededPillarBoard(p)) return false;
     const canonical = MODULE_ID_TO_SUBMODULE_ID[p.moduleId] || p.moduleId;
     return canonical && targetSet.has(canonical);
   });
+}
+
+// List of submodule ids in a node's active module group (or the full node
+// scope if no group matches). Used by the Education tab to render one card
+// per submodule dashboard.
+export function submodulesForNode(nodeId, moduleId = null) {
+  const { submodules: targetSubmodules, moduleGroups } = resolveEntry(nodeId);
+  if (moduleId && moduleGroups.length > 0) {
+    const group = moduleGroups.find((g) => g.id === moduleId);
+    if (group && Array.isArray(group.submodules) && group.submodules.length > 0) {
+      return group.submodules;
+    }
+  }
+  return targetSubmodules;
 }
 
 function titleMatches(title, matchers) {

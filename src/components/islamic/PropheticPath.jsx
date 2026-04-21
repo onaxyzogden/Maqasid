@@ -19,16 +19,22 @@ import { useTaskStore } from '@store/task-store';
 import { MODULES, PRIORITIES } from '@data/modules';
 import {
   buildTasksForNode,
-  buildProjectsForNode,
+  buildUserProjectsForScope,
   getModuleGroups,
   inferNodeFromHour,
+  submodulesForNode,
   LEVEL_LABEL,
   LEVEL_FULL_LABEL,
 } from '@data/prophetic-path-submodules';
+import {
+  getSubmoduleDisplayLabel,
+  getSubmodulePillarColor,
+  getPillarSubmoduleIds,
+} from '@data/submodule-registry';
 import DashboardTaskCard from '@components/shared/DashboardTaskCard';
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
-import SubtaskSources from '@components/work/SubtaskSources';
 import ProjectSlideUp from '@components/work/ProjectSlideUp';
+import SubmoduleSlideUp from './SubmoduleSlideUp';
 import './PropheticPath.css';
 
 // Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
@@ -235,26 +241,37 @@ function ProjectRow({ project, onClick }) {
   );
 }
 
-function EducationList({ tasks }) {
-  const withSources = (tasks || []).flatMap((t) =>
-    (t.subtasks || [])
-      .filter((s) => s && s.sources)
-      .map((s) => ({ taskTitle: t.title, subtask: s, key: `${t.id}:${s.id || s.title}` })),
-  );
-  if (withSources.length === 0) {
-    return <p className="pp-mirror-empty">No source material yet for this window.</p>;
+function EducationList({ nodeId, moduleId, onSelectSubmodule }) {
+  // Prefer the pillar's canonical submodule list (e.g., Wealth → all 4) when
+  // moduleId is a registered pillar. Fall back to the node's moduleGroup scope
+  // for non-pillar groups like 'community'.
+  const pillarSubs = getPillarSubmoduleIds(moduleId);
+  const submoduleIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(nodeId, moduleId);
+  if (!submoduleIds || submoduleIds.length === 0) {
+    return <p className="pp-mirror-empty">No submodules for this window.</p>;
   }
   return (
-    <div className="pp-education-list">
-      {withSources.map((row) => (
-        <article key={row.key} className="pp-education-card">
-          <header className="pp-education-card__header">
-            <span className="pp-education-card__eyebrow">{row.taskTitle}</span>
-            <h5 className="pp-education-card__title">{row.subtask.title}</h5>
-          </header>
-          <SubtaskSources subtask={row.subtask} />
-        </article>
-      ))}
+    <div className="pp-project-list">
+      {submoduleIds.map((id) => {
+        const label = getSubmoduleDisplayLabel(id, id);
+        const color = getSubmodulePillarColor(id);
+        return (
+          <button
+            key={id}
+            type="button"
+            className="pp-project-row"
+            onClick={() => onSelectSubmodule?.(id, label)}
+          >
+            <span
+              className="pp-project-row__swatch"
+              aria-hidden="true"
+              style={{ background: color }}
+            />
+            <span className="pp-project-row__name">{label}</span>
+            <ArrowRight size={14} strokeWidth={2} className="pp-project-row__chev" aria-hidden="true" />
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -266,6 +283,7 @@ function MirrorCard({
   mirrorSide,
   onSelectTask,
   onSelectProject,
+  onSelectSubmodule,
   phaseLabel = 'Now',
   viewMode,
   moduleGroups,
@@ -324,7 +342,7 @@ function MirrorCard({
         </div>
       </div>
       {viewMode === 'education' ? (
-        <EducationList tasks={tasks} />
+        <EducationList nodeId={node.id} moduleId={moduleId} onSelectSubmodule={onSelectSubmodule} />
       ) : showProjects ? (
         (projects || []).length === 0 ? (
           <p className="pp-mirror-empty">No projects in this scope yet.</p>
@@ -366,6 +384,7 @@ function TimelineNode({
   submoduleNameById,
   onSelectTask,
   onSelectProject,
+  onSelectSubmodule,
 }) {
   const { Icon, pulse } = node;
   const mirrorSide = node.side === 'left' ? 'right' : 'left';
@@ -387,9 +406,12 @@ function TimelineNode({
   }, [isExpanded, node.id, projects, tasksByProject, submoduleNameById, expandedSlot, moduleId]);
 
   const showProjects = node.id === 'midday-labor' && expandedSlot === 'main' && viewMode === 'action';
-  const scopeProjects = useMemo(() => (
-    showProjects ? buildProjectsForNode(node.id, projects, { moduleId }) : []
-  ), [showProjects, node.id, projects, moduleId]);
+  const scopeProjects = useMemo(() => {
+    if (!showProjects) return [];
+    const pillarSubs = getPillarSubmoduleIds(moduleId);
+    const scopeIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(node.id, moduleId);
+    return buildUserProjectsForScope(projects, scopeIds);
+  }, [showProjects, projects, node.id, moduleId]);
 
   const handleSelectTask = (taskId) => {
     const row = phaseTasks.find((r) => r.id === taskId);
@@ -405,6 +427,7 @@ function TimelineNode({
         mirrorSide={mirrorSide}
         onSelectTask={handleSelectTask}
         onSelectProject={onSelectProject}
+        onSelectSubmodule={onSelectSubmodule}
         phaseLabel={slotLabel(expandedSlot)}
         viewMode={viewMode}
         moduleGroups={moduleGroups}
@@ -495,6 +518,8 @@ export default function PropheticPath({ variant }) {
   const [selectedTask, setSelectedTask] = useState(null);
   // projectId for the slide-up overlay (null = closed)
   const [slideUpProjectId, setSlideUpProjectId] = useState(null);
+  // { id, label } for the submodule slide-up overlay (null = closed)
+  const [slideUpSubmodule, setSlideUpSubmodule] = useState(null);
 
   // Hydrate tasks for all relevant projects once on mount. The task store
   // lazily loads tasks per project — ensure every project referenced in the
@@ -553,6 +578,7 @@ export default function PropheticPath({ variant }) {
                   submoduleNameById={submoduleNameById}
                   onSelectTask={openTask}
                   onSelectProject={setSlideUpProjectId}
+                  onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
                 />
               ))}
             </div>
@@ -573,6 +599,13 @@ export default function PropheticPath({ variant }) {
         <ProjectSlideUp
           projectId={slideUpProjectId}
           onClose={() => setSlideUpProjectId(null)}
+        />
+      )}
+      {slideUpSubmodule?.id && (
+        <SubmoduleSlideUp
+          submoduleId={slideUpSubmodule.id}
+          fallbackLabel={slideUpSubmodule.label}
+          onClose={() => setSlideUpSubmodule(null)}
         />
       )}
     </div>

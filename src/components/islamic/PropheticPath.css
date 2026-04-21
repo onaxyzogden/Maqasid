@@ -879,42 +879,14 @@
   flex-shrink: 0;
 }
 
-/* ---------- Education list ---------- */
-.prophetic-path .pp-education-list {
+.pp-slideup__empty {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 4px 0;
-}
-
-.prophetic-path .pp-education-card {
-  padding: 12px;
-  background: var(--pp-surface-container, rgba(255, 255, 255, 0.04));
-  border: 1px solid var(--pp-outline-variant-15, rgba(255, 255, 255, 0.06));
-  border-radius: 10px;
-}
-
-.prophetic-path .pp-education-card__header {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--pp-outline-variant-10, rgba(255, 255, 255, 0.05));
-}
-
-.prophetic-path .pp-education-card__eyebrow {
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--pp-on-surface-variant, #8a938f);
-}
-
-.prophetic-path .pp-education-card__title {
-  margin: 0;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--pp-on-surface, #e5e2e1);
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  color: var(--text2, #8a938f);
+  font-size: 0.95rem;
+  text-align: center;
 }
 

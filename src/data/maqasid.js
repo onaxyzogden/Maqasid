@@ -168,7 +168,7 @@ export function getPillarStewardship(pillar, valuesLayer) {
 // PillarFirstEntry.jsx. Prefer MODULES[].name where available.
 const SUBMODULE_LABEL_OVERRIDES = {
   sources: "Sources (Qur'an & Hadith)",
-  collective: 'Collective',
+  collective: 'Ummah',
 };
 
 // Bare faith ids (shahada, salah, ...) — pulled from FIVE_PILLARS.name

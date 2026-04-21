@@ -3,6 +3,18 @@ import { Plus, Folder, Archive, MoreHorizontal, Trash2, Workflow } from 'lucide-
 import { useState } from 'react';
 import { useProjectStore } from '@store/project-store';
 import PillarHeader from '@components/shared/PillarHeader';
+import { getPillarSubmoduleIds, getSubmoduleDisplayLabel } from '@data/submodule-registry';
+
+const PILLAR_OPTIONS = [
+  { id: '',            label: 'Unassigned' },
+  { id: 'faith',       label: 'Faith' },
+  { id: 'life',        label: 'Life' },
+  { id: 'intellect',   label: 'Intellect' },
+  { id: 'family',      label: 'Family' },
+  { id: 'wealth',      label: 'Wealth' },
+  { id: 'environment', label: 'Environment' },
+  { id: 'ummah',       label: 'Ummah' },
+];
 
 export default function Work() {
   const navigate = useNavigate();
@@ -15,26 +27,34 @@ export default function Work() {
   const [showNewDialog, setShowNewDialog] = useState(false);
   const [newProjectName, setNewProjectName] = useState('');
   const [newProjectType, setNewProjectType] = useState('standard');
+  const [newProjectPillar, setNewProjectPillar] = useState('');
+  const [newProjectSubmodule, setNewProjectSubmodule] = useState('');
 
-  const active = projects.filter((p) => !p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule);
-  const archived = projects.filter((p) => p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule);
+  const active = projects.filter((p) => !p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule && !p._ummahModule);
+  const archived = projects.filter((p) => p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule && !p._ummahModule);
   const displayed = showArchived ? archived : active;
 
   const handleNew = () => {
     setNewProjectName('');
     setNewProjectType('standard');
+    setNewProjectPillar('');
+    setNewProjectSubmodule('');
     setShowNewDialog(true);
   };
 
   const handleCreateProject = () => {
     const name = newProjectName.trim() || 'New Project';
+    const moduleId = newProjectSubmodule || newProjectPillar || null;
     const project = createProject({
       name,
       bbosEnabled: newProjectType === 'bbos',
+      moduleId,
     });
     setShowNewDialog(false);
     navigate(`/app/work/${project.id}`);
   };
+
+  const submoduleOptions = newProjectPillar ? getPillarSubmoduleIds(newProjectPillar) : [];
 
   return (
     <div style={{ maxWidth: 900 }}>
@@ -209,6 +229,45 @@ export default function Work() {
                 marginBottom: 'var(--space-4)',
               }}
             />
+            <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
+              Pillar
+            </p>
+            <select
+              value={newProjectPillar}
+              onChange={(e) => { setNewProjectPillar(e.target.value); setNewProjectSubmodule(''); }}
+              style={{
+                width: '100%', padding: 'var(--space-2) var(--space-3)',
+                borderRadius: 'var(--radius)', border: '1px solid var(--border)',
+                background: 'var(--bg)', color: 'var(--text)', fontSize: '0.9rem',
+                marginBottom: 'var(--space-3)',
+              }}
+            >
+              {PILLAR_OPTIONS.map((opt) => (
+                <option key={opt.id} value={opt.id}>{opt.label}</option>
+              ))}
+            </select>
+            {submoduleOptions.length > 0 && (
+              <>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
+                  Submodule
+                </p>
+                <select
+                  value={newProjectSubmodule}
+                  onChange={(e) => setNewProjectSubmodule(e.target.value)}
+                  style={{
+                    width: '100%', padding: 'var(--space-2) var(--space-3)',
+                    borderRadius: 'var(--radius)', border: '1px solid var(--border)',
+                    background: 'var(--bg)', color: 'var(--text)', fontSize: '0.9rem',
+                    marginBottom: 'var(--space-3)',
+                  }}
+                >
+                  <option value="">Any submodule</option>
+                  {submoduleOptions.map((id) => (
+                    <option key={id} value={id}>{getSubmoduleDisplayLabel(id, id)}</option>
+                  ))}
+                </select>
+              </>
+            )}
             <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
               Project Type
             </p>
