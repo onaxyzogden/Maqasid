@@ -35,10 +35,16 @@ import DashboardTaskCard from '@components/shared/DashboardTaskCard';
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import ProjectSlideUp from '@components/work/ProjectSlideUp';
 import SubmoduleSlideUp from './SubmoduleSlideUp';
+import PrayerSlideUp from './PrayerSlideUp';
 import './PropheticPath.css';
 
 // Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
 const LEVEL_COLOR = { 1: '#C8A96E', 2: '#4ab8a8', 3: '#8b5cf6' };
+
+// Nodes that open the PrayerSlideUp (Before/During/After tabs) instead of
+// toggling inline satellite expansion. Tahajjud is included per the
+// "all prayer-like nodes" decision, even though it lacks a standard window.
+const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tahajjud']);
 
 function statusLabel(s) {
   return s === 'done' ? 'Done' : s === 'in-progress' ? 'In Progress' : 'To Do';
@@ -385,10 +391,12 @@ function TimelineNode({
   onSelectTask,
   onSelectProject,
   onSelectSubmodule,
+  onOpenPrayer,
 }) {
   const { Icon, pulse } = node;
   const mirrorSide = node.side === 'left' ? 'right' : 'left';
-  const isExpanded = expandedSlot !== null;
+  const isPrayerNode = PRAYER_NODE_IDS.has(node.id);
+  const isExpanded = !isPrayerNode && expandedSlot !== null;
   const mirrorId = `pp-mirror-${node.id}`;
 
   const moduleGroups = useMemo(() => getModuleGroups(node.id), [node.id]);
@@ -444,24 +452,28 @@ function TimelineNode({
         <Icon className="pp-marker-icon" size={12} strokeWidth={2.25} />
       </div>
       <div className="pp-node-stack">
-        <button
-          type="button"
-          className="pp-satellite"
-          data-slot="before"
-          aria-expanded={expandedSlot === 'before'}
-          aria-controls={mirrorId}
-          onClick={() => onToggle(node.id, 'before')}
-        >
-          Before
-        </button>
-        {expandedSlot === 'before' && mirror}
+        {!isPrayerNode && (
+          <>
+            <button
+              type="button"
+              className="pp-satellite"
+              data-slot="before"
+              aria-expanded={expandedSlot === 'before'}
+              aria-controls={mirrorId}
+              onClick={() => onToggle(node.id, 'before')}
+            >
+              Before
+            </button>
+            {expandedSlot === 'before' && mirror}
+          </>
+        )}
         <button
           type="button"
           className="pp-card"
           data-style={node.cardStyle}
-          aria-expanded={expandedSlot === 'main'}
-          aria-controls={mirrorId}
-          onClick={() => onToggle(node.id, 'main')}
+          aria-expanded={isPrayerNode ? undefined : expandedSlot === 'main'}
+          aria-controls={isPrayerNode ? undefined : mirrorId}
+          onClick={() => (isPrayerNode ? onOpenPrayer(node.id) : onToggle(node.id, 'main'))}
         >
           {node.cardStyle === 'divine' && <div className="pp-card-glow" aria-hidden="true" />}
           <div className="pp-card-hover" aria-hidden="true" />
@@ -483,18 +495,22 @@ function TimelineNode({
             </div>
           </div>
         </button>
-        {expandedSlot === 'main' && mirror}
-        <button
-          type="button"
-          className="pp-satellite"
-          data-slot="after"
-          aria-expanded={expandedSlot === 'after'}
-          aria-controls={mirrorId}
-          onClick={() => onToggle(node.id, 'after')}
-        >
-          After
-        </button>
-        {expandedSlot === 'after' && mirror}
+        {!isPrayerNode && expandedSlot === 'main' && mirror}
+        {!isPrayerNode && (
+          <>
+            <button
+              type="button"
+              className="pp-satellite"
+              data-slot="after"
+              aria-expanded={expandedSlot === 'after'}
+              aria-controls={mirrorId}
+              onClick={() => onToggle(node.id, 'after')}
+            >
+              After
+            </button>
+            {expandedSlot === 'after' && mirror}
+          </>
+        )}
       </div>
     </div>
   );
@@ -520,6 +536,8 @@ export default function PropheticPath({ variant }) {
   const [slideUpProjectId, setSlideUpProjectId] = useState(null);
   // { id, label } for the submodule slide-up overlay (null = closed)
   const [slideUpSubmodule, setSlideUpSubmodule] = useState(null);
+  // nodeId for the prayer slide-up overlay (null = closed)
+  const [slideUpPrayerNodeId, setSlideUpPrayerNodeId] = useState(null);
 
   // Hydrate tasks for all relevant projects once on mount. The task store
   // lazily loads tasks per project — ensure every project referenced in the
@@ -579,6 +597,7 @@ export default function PropheticPath({ variant }) {
                   onSelectTask={openTask}
                   onSelectProject={setSlideUpProjectId}
                   onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
+                  onOpenPrayer={setSlideUpPrayerNodeId}
                 />
               ))}
             </div>
@@ -606,6 +625,14 @@ export default function PropheticPath({ variant }) {
           submoduleId={slideUpSubmodule.id}
           fallbackLabel={slideUpSubmodule.label}
           onClose={() => setSlideUpSubmodule(null)}
+        />
+      )}
+      {slideUpPrayerNodeId && (
+        <PrayerSlideUp
+          nodeId={slideUpPrayerNodeId}
+          onClose={() => setSlideUpPrayerNodeId(null)}
+          onSelectTask={openTask}
+          onNavigate={setSlideUpPrayerNodeId}
         />
       )}
     </div>

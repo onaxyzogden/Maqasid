@@ -88,7 +88,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
   if (project.bbosEnabled && bbosFilter) {
     return <BbosFullDashboard project={project} bbosFilter={bbosFilter} onSelectTask={onSelectTask} onStageAdvance={onStageAdvance} onStageSelect={onStageSelect} />;
   }
-  if (/_(core|growth|excellence)$/.test(project.id)) {
+  if (/_(core|growth|excellence|before|during|after)$/.test(project.id)) {
     return <PillarLevelDashboard project={project} onSelectTask={onSelectTask} selectedTaskId={selectedTaskId} />;
   }
 

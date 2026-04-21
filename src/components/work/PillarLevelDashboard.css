@@ -114,6 +114,17 @@
   flex-direction: column;
   gap: var(--space-3);
   min-width: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+}
+.pld__col--todo {
+  background: var(--bg3);
+}
+.pld__col--in-progress {
+  background: color-mix(in srgb, #F59E0B 10%, var(--surface));
+}
+.pld__col--done {
+  background: color-mix(in srgb, var(--col-done) 9%, var(--surface));
 }
 .pld__col-head {
   display: flex;
@@ -138,15 +149,6 @@
 }
 .pld__col-chevron--collapsed {
   transform: rotate(-90deg);
-}
-.pld__col--todo .pld__col-head {
-  background: var(--bg3);
-}
-.pld__col--in-progress .pld__col-head {
-  background: color-mix(in srgb, #F59E0B 14%, var(--surface));
-}
-.pld__col--done .pld__col-head {
-  background: color-mix(in srgb, var(--col-done) 12%, var(--surface));
 }
 .pld__col-head-label {
   font-size: var(--text-xs);

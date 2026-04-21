@@ -1,0 +1,19 @@
+/* Prayer slide-up — reuses .pp-slideup__* chrome from ProjectSlideUp.css.
+   Adds a scroll container so the embedded PrayerLevelPage (FLN navigator +
+   kanban or hero) fills the remaining height of the slide-up panel. */
+
+.pp-prayer-panel__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.pp-prayer-panel__body > .fpb-page-wrapper {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+

@@ -9,6 +9,8 @@ import { FAMILY_SEED_TASKS } from '@data/seed-tasks/family-seed-tasks';
 import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
 import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
 import { UMMAH_SEED_TASKS } from '@data/seed-tasks/ummah-seed-tasks';
+import { PRAYER_SEED_TASKS } from '@data/seed-tasks/prayer-seed-tasks';
+import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
 
 function persistProjects(projects) {
@@ -89,6 +91,7 @@ function backfillAndStripSeeds() {
     ...WEALTH_SEED_TASKS,
     ...ENVIRONMENT_SEED_TASKS,
     ...UMMAH_SEED_TASKS,
+    ...PRAYER_SEED_TASKS,
   };
   const firstRun = safeGetJSON(SEED_STRIP_FLAG_KEY, null) === null;
   let totalBefore = 0;
@@ -647,6 +650,45 @@ export const useProjectStore = create((set, get) => ({
       return { projects };
     });
 
+  },
+
+  ensurePrayerProjects: () => {
+    const existing = get().projects;
+    const missing = PRAYER_BOARDS.filter(
+      (pb) => !existing.some((p) => p.id === pb.id)
+    );
+
+    // Seed tasks for any empty prayer boards (idempotent).
+    for (const pb of PRAYER_BOARDS) {
+      seedTasks(pb.id, PRAYER_SEED_TASKS);
+    }
+
+    if (missing.length === 0) return;
+
+    const newProjects = missing.map((pb) => ({
+      id: pb.id,
+      name: pb.name,
+      description: pb.description,
+      color: pb.color,
+      icon: pb.icon,
+      moduleId: pb.moduleId || null,
+      columns: DEFAULT_COLUMNS.map((col) => ({
+        id: `col_${pb.id}_${col.name.toLowerCase().replace(/\s+/g, '_')}`,
+        name: col.name,
+        color: col.color,
+      })),
+      defaultView: 'dashboard',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      archived: false,
+      _prayerModule: true,
+    }));
+
+    set((s) => {
+      const projects = [...s.projects, ...newProjects];
+      persistProjects(projects);
+      return { projects };
+    });
   },
 
   ensureLifeProjects: () => {

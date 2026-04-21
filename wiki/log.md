@@ -3,6 +3,75 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] session | During hero → kanban migration (prayer slide-up)
+
+**Completed:**
+- **`src/data/seed-tasks/prayer-seed-tasks.js`** — inlined `PRAYER_GUIDE` (6 prayers × {structure rows, key reminders}) from the deleted `PrayerHeroDuring.jsx`; extended `buildPrayerSeedTasks()` with a during-populating pass: each structure row → `{title: "{kind} · {count} rakʿah(s)", subtasks:[{title: note}], priority: 'high', tags: ['salah','prayer-phase:during',\`prayer:${pillar}\`]}`; each `keys[]` string → `{title: key, priority: 'medium', tags: [...base, 'reminder']}`. Net seed counts per during board: fajr 4, dhuhr 5, asr 5, maghrib 5, isha 7, tahajjud 5.
+- **`src/pages/shared/PrayerLevelPage.jsx`** — removed the `isDuring` branch + `PrayerHeroDuring` import; all three levels now render through the same `ProjectBoard` cross-fade layer.
+- **`src/components/islamic/PrayerSlideUp.css`** — stripped `.pp-prayer-hero*` rule block (hero, window, guide, structure, struct-row/kind/count/note, keys, key, bismillah, name, subtitle, clock, colon, 560px media query). Kept `.pp-prayer-panel__body` + `> .fpb-page-wrapper` (still used by the panel layout).
+- **Deleted:** `src/components/islamic/PrayerHeroDuring.jsx`.
+
+**Decision:** seed tasks stay in TO DO only — IN PROGRESS/DONE remain empty by design, matching the Before/After convention and the `seedTasks()` invariant at `src/store/project-store.js:56`.
+
+**Verified:**
+- `npm run build` clean (1.58s, 2690 modules).
+- Preview: Maghrib slide-up → switch to During → kanban renders with 5 TO DO cards ("Farḍ · 3 rakʿahs", "Sunnah after · 2 rakʿahs", "Pray promptly — Maghrib's window is the shortest of the day.", "No four-rakʿah farḍ here; its witr-count is the 3.", "If time allows before iqāmah, pray 2 light rakʿahs…"). IN PROGRESS/DONE empty as expected.
+- `bbiz_tasks_prayer_*_during` keys written on first prayer-slide-up open via `ensurePrayerProjects` → `seedTasks` (idempotent).
+
+**Deferred:** none.
+
+**Files changed:** `src/data/seed-tasks/prayer-seed-tasks.js`, `src/pages/shared/PrayerLevelPage.jsx`, `src/components/islamic/PrayerSlideUp.css`, `src/components/islamic/PrayerHeroDuring.jsx` (deleted).
+
+---
+
+## [2026-04-21] session | Prayer slide-up → FLN carousel + 18 real prayer boards
+
+**Completed:**
+- **New FLN-based prayer dashboard** replacing the earlier tabs/list slide-up. Mockup source: `Prayer Dashboard Concept - Before.html`. Before/During/After are now *levels* (not tabs); 6 prayer pillars are segments within each level.
+- **`src/data/prayer-pillars.js`** — new registry: `PRAYER_PILLARS` (fajr/dhuhr/asr/maghrib/isha/tahajjud), `PRAYER_LEVELS`, `PRAYER_PHASE_KEYS`, `PRAYER_LEVEL_COLORS`, `PRAYER_BOARD_PREFIX`, `PRAYER_BOARDS` (18 boards = 6 pillars × 3 phases, id pattern `prayer_{pillar}_{phase}`).
+- **`src/data/seed-tasks/prayer-seed-tasks.js`** — Option-A duplication strategy: generic `prayer-phase:before|after` sunan from `faith_salah_{core,growth,excellence}` are duplicated across all 5 daily prayers' matching phase boards; prayer-specific (`prayer:X`) and transition-tagged (`transition:tahajjud-waking`, `transition:morning-adhkar`, etc.) tasks land only in their inferred home. Main-phase and untagged tasks stay in `faith_salah_*` untouched — non-destructive.
+- **`src/store/project-store.js`** — added `ensurePrayerProjects` action (mirrors `ensureFaithProjects`), imports `PRAYER_SEED_TASKS`/`PRAYER_BOARDS`, registers `PRAYER_SEED_TASKS` in `ALL_SEEDS` for `backfillAndStripSeeds`.
+- **`src/components/islamic/PrayerLevelNavigator.jsx`** — thin wrapper around shared `LevelNavigator` passing `PRAYER_PILLARS` + `PRAYER_LEVELS` + `PRAYER_STORAGE_KEY = 'prayer_active_phase'` + `PRAYER_ENSURE_PROJECTS` selector.
+- **`src/pages/shared/PrayerLevelPage.jsx`** — clone of `PillarLevelPage` with controlled-mode `pillarKey`/`onPillarKeyChange`. Default level uses `pickDefaultLevel(pillarKey, timings, activePrayer)` via `usePrayerTimes` (before when prayer time not yet reached, during when active, after otherwise; tahajjud falls back to before). Renders `<PrayerHeroDuring>` when activeLevel==='during', else `<ProjectBoard>` with cross-fade.
+- **`src/components/islamic/PrayerSlideUp.jsx`** (rewritten) — portal-based slide-up hosting `PrayerLevelPage`; keeps `pillarKey` in sync with `nodeId` prop and bubbles navigation via `onNavigate`.
+- **`src/components/islamic/PrayerSlideUp.css`** — absorbed the `.pp-prayer-hero*` styles from the deleted old file (bismillah gold, tabular-nums clock); reuses `.pp-slideup__*` chrome from `ProjectSlideUp.css`.
+- **Deleted:** old `PrayerSlideUp.{jsx,css}`, `PhaseTabs.jsx`, `PrayerStrip.jsx` — `PrayerHeroDuring.jsx` retained.
+
+**Verified:**
+- 18 `prayer_*` projects persist to `bbiz_projects`; 12 task boards seeded in `bbiz_tasks_prayer_*` (during boards empty by design).
+- FLN renders 6 segments × 3 levels with task-colored subseg pills (10 pills visible at Before-Dhuhr).
+- During hero: bismillah + "Dhuhr" + "It is time for prayer." + live `HH:MM` clock.
+- Before/After: `ProjectBoard` dashboard renders with correct task counts per pillar×phase.
+- `npm run build` clean (1.46s, 2691 modules); no new lint errors in prayer files.
+
+**Deferred:**
+- Real adhan-aware copy + rakah counter in the During hero (placeholder still reads "It is time for prayer.").
+
+**Decisions filed:** `wiki/decisions/2026-04-21-prayer-slide-up-fln.md`
+
+---
+
+## [2026-04-21] session | MirrorCard Education → pillar submodules + Work project pillar tagging
+
+**Completed:**
+- **MirrorCard Education tab** (`src/components/islamic/PropheticPath.jsx`) — EducationList rewritten to enumerate pillar-canonical submodules via `getPillarSubmoduleIds(pillarId)` from the submodule registry; cards reuse `.pp-project-row` styling. Dead `.pp-education-card*` CSS rules removed.
+- **New `SubmoduleSlideUp` component** (`src/components/islamic/SubmoduleSlideUp.jsx`) — portal-rendered slide-up that hosts the canonical `PillarLevelPage` (Wealth/Life/Intellect/Family/Environment/Faith/Ummah) so the MirrorCard mirrors the standalone `/app/<submodule>` route pixel-for-pixel, including task click → TaskDetailPanel popup.
+- **submodule-registry** (`src/data/submodule-registry.js`) — added Ummah pillar config + `community → ummah` alias via new `PILLAR_ALIASES` map; `getPillarSubmoduleIds` now resolves through the alias.
+- **`buildUserProjectsForScope`** (`src/data/prophetic-path-submodules.js`) — replaced fragile `id.split('-')[0]` prefix heuristic with explicit `PILLAR_TO_SUBMODULES` table (correctly handles Ummah bare ids). User boards are matched whether tagged with a submodule `moduleId` or a pillar-only `moduleId`. Seeded pillar boards filtered out via `_<pillar>Module` flag.
+- **`/app/work` New Project dialog** (`src/pages/modules/Work.jsx`) — Pillar + Submodule pickers added; selected submodule (or pillar if no submodule) persisted as `project.moduleId` via `createProject`. Listing filter extended to exclude `_ummahModule` seeded boards.
+- **maqasid label fix** (`src/data/maqasid.js`) — `SUBMODULE_LABEL_OVERRIDES.collective` changed "Collective" → "Ummah" to match sidebar `UMMAH_PILLARS[0].label`.
+- **TaskDetailPanel z-index** (`src/components/work/TaskDetailPanel.css`) — `.tdp-overlay` raised 99 → 1100 so task detail popup renders above slide-up overlay (z-index 1000). Verified: COLLECTIVE-CORE task detail panel renders correctly above the Ummah slide-up.
+
+**Decisions:** [[2026-04-21-project-pillar-tagging-submodule-slideup]]
+
+**Deferred:** Edit-project flow for tagging legacy untagged projects — natural follow-up so pre-existing boards can join MirrorCard Action lists without manual recreation.
+
+**Files changed:** `src/components/islamic/PropheticPath.jsx`, `src/components/islamic/PropheticPath.css`, `src/components/islamic/SubmoduleSlideUp.jsx` (new), `src/components/work/TaskDetailPanel.css`, `src/data/maqasid.js`, `src/data/prophetic-path-submodules.js`, `src/data/submodule-registry.js` (new), `src/pages/modules/Work.jsx`, `wiki/decisions/2026-04-21-project-pillar-tagging-submodule-slideup.md`, `wiki/entities/milos.md`, `wiki/index.md`, `wiki/log.md`.
+
+**Commit:** `5fb95b7` pushed to origin/main.
+
+---
+
 ## [2026-04-21] feat | PropheticPath — Morning & Isha-rest transition-sunnah phase buckets
 
 **Completed:**
