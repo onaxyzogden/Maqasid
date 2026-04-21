@@ -1530,3 +1530,20 @@ The Opening Threshold ceremony had been behaving like a gate: "Am I ready?" with
 - `pauseWarning && pauseRiseNow` is now the branch condition for the "rise now" Pause layout — cleaner than a boolean flag, since the data's presence implies the ceremony carries the covenant weight needed to warrant that specific rendering.
 - Commits: `8cc1e4a` (scoped feat on the two files), `c4e39e7` (working-tree snapshot of graphify cache + wiki + seeds + tooling).
 - ADR filed: `wiki/decisions/2026-04-21-threshold-orient-not-excuse.md`.
+
+## 2026-04-21 — Threshold defer-orphan cleanup (partial)
+
+### Context
+Follow-up sweep from the threshold reframe earlier today. Prior session-close recommended "ripple naming-style readiness across 6 pillars + retire orphan defer artifacts in one sweep." Entered this session to execute that. Scope collapsed on discovery.
+
+### Done
+- **Ripple = no-op.** Spot-checked every `readiness:` block in `src/data/islamic/islamic-data.js` (60+ blocks across MODULE_ATTRS + UNIVERSAL_EQUIV). Every block already uses naming-style copy with domain-specific framing — e.g. `work` frames as *"Al-Muhsin asks: am I bringing ihsan to this work, or just getting it done?"* with `yesLabel: 'I am bringing ihsan when'`. Only `faith-salah` had been generic gate-style, and that was fixed yesterday (commit `8cc1e4a`). My 2026-04-21 session-close recommendation was based on an un-verified assumption from the explore agent.
+- **Retire (partial).** Deleted `DEFER_CONTENT` and `DEFER_UNIVERSAL` constants from `islamic-data.js` (0 import sites), and the six `.thr-defer-*` CSS rules from `ThresholdModal.css` (0 selectors in use). 64 lines of dead code removed. Commit `4e6a720`.
+
+### Deferred
+- **Store-level retire.** `deferOpening` / `deferred` / `isDeferred` in `src/store/threshold-store.js` left in place because callers exist beyond `ThresholdModal`: `CeremonyGate.jsx` (isDeferred → "Return to Opening" UI branch + distinct copy), `Dashboard.jsx:229` (selector), `PillarCard.jsx:32,60` (prop threading + per-module read), `ModuleHealthCard.jsx:6,18,21` (isDeferred prop + yellow status badge via `.mhc-status-deferred`), and `HealthPulse.jsx:9` (cosmetic string). The paths are semantically dead (nothing can ever set `deferred[moduleId]=true` after the defer exit was removed) but removing them changes visible UI and warrants a caller-aware diff pass.
+- **CONTEXT.md refresh.** `src/components/islamic/CONTEXT.md` still documents the Defer system; update when the store sweep lands.
+
+### Notes
+- Lesson: session-close debriefs must cite *verified* state, not speculative "what's left." The "ripple 6 pillars" recommendation should have been validated against the data file before being written — it would have taken 30 seconds to disprove.
+- Commit: `4e6a720` chore(threshold): delete orphan defer constants + CSS (0 callers).
