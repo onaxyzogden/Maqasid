@@ -276,53 +276,6 @@
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-/* ── Compassionate Defer Screen ── */
-.thr-defer-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-2) 0;
-}
-
-.thr-defer-ack {
-  font-size: var(--text-md);
-  font-style: italic;
-  color: var(--text2);
-  line-height: 1.7;
-}
-
-.thr-defer-guidance-label {
-  font-size: var(--text-2xs);
-  font-weight: 600;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: var(--space-2);
-}
-
-.thr-defer-guidance {
-  font-size: var(--text-base);
-  color: var(--text);
-  line-height: 1.7;
-  padding: var(--space-4);
-  border-left: 3px solid var(--border2);
-  background: var(--bg);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.thr-defer-holding {
-  font-size: var(--text-base);
-  color: var(--text3);
-  line-height: 1.6;
-  text-align: center;
-  padding-top: var(--space-3);
-  font-style: italic;
-}
-
-.thr-defer-footer {
-  justify-content: center;
-}
-
 /* ── Condition-specific Ayah (Pause Protocol) ── */
 .thr-pause-ayah {
   margin: 0;

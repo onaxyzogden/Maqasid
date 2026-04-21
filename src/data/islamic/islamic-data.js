@@ -6207,23 +6207,6 @@ export function getPauseQuestionUniversal(moduleId) {
   return q.work;
 }
 
-// ── Compassionate Defer ──
-// The defer is an act of integrity, not failure.
-// The system values the person, not just their output.
-
-export const DEFER_CONTENT = {
-  acknowledgment: 'Recognizing you are not yet ready is itself an act of integrity. This is not failure \u2014 it is mu\u1E25\u0101sabah.',
-  holdingMessage: 'This module will hold. You can return whenever you are ready.',
-  getGuidanceQuestion: (moduleId) => getPauseQuestion(moduleId),
-};
-
-export const DEFER_UNIVERSAL = {
-  acknowledgment: 'Recognizing you are not yet ready is an honest act of self-awareness. This is not failure.',
-  holdingMessage: 'This module will hold. You can return whenever you are ready.',
-  reflection: 'Trust the timing. What needs your attention will still be here \u2014 and so will this work, when you are ready for it.',
-  getGuidanceQuestion: (moduleId) => getPauseQuestionUniversal(moduleId),
-};
-
 // ── Presence Awareness Config ──
 export const PRESENCE_CONFIG = {
   INACTIVITY_TIMEOUT_MS: 20 * 60 * 1000,  // 20 minutes
