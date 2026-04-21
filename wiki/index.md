@@ -51,6 +51,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-19-dashboard-sanctuary-mode]] | 2026-04-19 | Dashboard Sanctuary Mode — niyyah-driven Sun & Stars layout, Focus Task List, Context Widgets, Evening Reflection, rollover self-healing, Yesterday's Echo |
 | [[2026-04-20-dashboard-wheel-test-prototype]] | 2026-04-20 | Dashboard Wheel Test prototype — standalone route hosting Maqasid Comparison Wheel (custom SVG, center-origin gradient); promotion pending approval |
 | [[2026-04-21-threshold-orient-not-excuse]] | 2026-04-21 | Opening Threshold reframed: no Defer exits, no Confirm gate, readiness is a naming moment, finalize is bilingual Bismillah / Alhamdulillah |
+| [[2026-04-21-prophetic-prayer-phase-tasks]] | 2026-04-21 | PropheticPath phase schema: `prayer-phase:*` tags + per-node `phaseMatchers`; Before button rewired from Threshold modal to phase-filtered task list |
 
 ## Sources
 

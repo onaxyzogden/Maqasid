@@ -2422,6 +2422,78 @@ Everyone makes mistakes in prayer. Sujud al-sahw is Allah's mercy -- a built-in 
 Learn the three scenarios that require sujud al-sahw: addition (e.g., praying five rak'at instead of four), omission (e.g., skipping the first Tashahhud), and doubt (e.g., unsure if you prayed three or four rak'at). Study whether your madhab performs it before or after the salam. Practice by reviewing common scenarios.` },
       ],
     },
+    {
+      title: "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
+      priority: "high",
+      tags: ["salah", "sunnah", "prayer-phase:before"],
+      description: "The Prophet (SAW) prepared for every salah with specific ritual acts: cleaning the mouth with the siwak, a thorough wudu, and repeating the words of the adhan. These acts transform ordinary approach into worshipful arrival.",
+      subtasks: [
+        {
+          title: "Use the siwak before wudu and before prayer",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Direct prophetic sunnah with sahih attestation.",
+          sources: "### Sahih Bukhari 246\nThe Prophet (SAW) would clean his mouth with the siwak upon waking for prayer. *(Grade: Sahih)*\n\n### Sahih Muslim 487\nThe Prophet (SAW) used the siwak before performing wudu for prayer. *(Grade: Sahih)*",
+          description: "**Why?** Siwak is a confirmed sunnah tied directly to prayer \u2014 used by the Prophet (SAW) upon waking and before wudu (see sources).\n\n**How?** Keep a siwak by your wudu area; use it before rinsing the mouth in wudu, and again just before the iqama."
+        },
+        {
+          title: "Perform wudu thoroughly \u2014 wet every part, especially the heels",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Quranic command and sahih hadith warning against dry heels.",
+          sources: "### Quran (5:6)\n\"O you who have believed, when you rise to [perform] prayer, wash your faces and your forearms to the elbows, and wipe over your heads and wash your feet to the ankles.\"\n\n### Sahih Bukhari 164\nThe Prophet (SAW) warned: 'Woe to the heels from the Fire!' \u2014 upon seeing men whose heels remained dry. *(Grade: Sahih)*",
+          description: "**Why?** A defective wudu invalidates the prayer. The heels are the most commonly missed area \u2014 hence the explicit warning preserved in the sources.\n\n**How?** Ensure water reaches between the toes and all around the heel. Do not rush \u2014 perfecting wudu in difficult conditions is attested as a sin-erasing act (see sources)."
+        },
+        {
+          title: "Repeat after the mu'adhdhin and make du'a after the adhan",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Direct prophetic instruction with two sahih sources.",
+          sources: "### Sahih Muslim 746\nThe Prophet (SAW) said: 'When you hear the call to prayer, repeat what the mu'adhdhin says.' *(Grade: Sahih)*\n\n### Sahih Bukhari 614\nWhoever says after the adhan: 'O Allah, Lord of this complete call and of the prayer to be established, grant Muhammad al-Wasila and al-Fadila and raise him to the praiseworthy station You have promised him' \u2014 intercession on the Day of Judgement is granted to him. *(Grade: Sahih)*",
+          description: "**Why?** Responding to the adhan is an easy sunnah with an enormous reward: intercession on the Day of Judgement.\n\n**How?** When you hear the adhan, pause and repeat each phrase after the mu'adhdhin (except 'Hayya \u02bbala as-salah' / 'Hayya \u02bbala al-falah' \u2014 respond with 'La hawla wa la quwwata illa billah'). After the adhan finishes, send salawat on the Prophet (SAW), then recite the adhan du\u02bba."
+        },
+        {
+          title: "Use a sutrah (barrier) when praying in an open space",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Established sunnah; the Prophet (SAW) planted an \u2018anza in front of him in open ground.",
+          sources: "### Sahih Bukhari 478\nThe Prophet (SAW) used to plant a spearheaded stick (\u2018anza) in front of him and pray towards it when praying in open spaces. *(Grade: Sahih)*",
+          description: "**Why?** A sutrah protects the sanctity of prayer \u2014 people should not walk between the worshipper and the sutrah. It also helps focus.\n\n**How?** Any object roughly the height of a saddle back (about a forearm) suffices: a chair, bag, wall, or a line drawn. Stand close enough that a sheep could pass in front of the sutrah."
+        },
+      ],
+    },
+    {
+      title: "Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)",
+      priority: "high",
+      tags: ["salah", "sunnah", "prayer-phase:after"],
+      description: "The Prophet (SAW) never rose from the musalla without the sunnah adhkar: three istighfars, the 'Allahumma anta as-salam' du\u02bba, the tasbih of 33/33/34, Ayat al-Kursi, and prayer-specific supplications. These are a complete prophetic post-prayer protocol.",
+      subtasks: [
+        {
+          title: "Say Astaghfirullah three times immediately after the salam",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Direct sahih narration from Muslim.",
+          sources: "### Sahih Muslim 1226\nWhen the Prophet (SAW) finished his prayer, he would seek Allah's forgiveness three times and say: 'Allahumma anta as-salam, wa minka as-salam, tabarakta ya dhal-jalali wal-ikram.' *(Grade: Sahih)*",
+          description: "**Why?** Even the Prophet (SAW) sought forgiveness after every prayer \u2014 acknowledging that no salah is free of shortcoming.\n\n**How?** Immediately after salam, before rising or speaking, say 'Astaghfirullah' three times, then the Allahumma anta as-salam du\u02bba."
+        },
+        {
+          title: "Recite the tasbih of 33/33/34 (Subhan Allah, Alhamdulillah, Allahu Akbar)",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih attestation in Muslim 1241 and 1243.",
+          sources: "### Sahih Muslim 1241\nThe Prophet (SAW) said: 'Whoever glorifies Allah after every prayer thirty-three times, praises Him thirty-three times, and exalts Him thirty-three times \u2014 that is ninety-nine \u2014 and says to complete a hundred: La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, wa huwa \u02bbala kulli shay\u02bbin qadir \u2014 his sins will be forgiven even if they were like the foam of the sea.' *(Grade: Sahih)*",
+          description: "**Why?** This dhikr, done after every fard, erases sins like the foam of the sea \u2014 a promise of enormous mercy tied to two minutes of practice.\n\n**How?** Sit in your prayer place; count on your fingers or use the knuckles of your right hand (prophetic method). Complete the hundredth with La ilaha illallah wahdahu la sharika lah..."
+        },
+        {
+          title: "Recite Ayat al-Kursi after every fard prayer",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih narration: whoever recites it after prayer, only death separates him from Paradise.",
+          sources: "### al-Nasa'i al-Kubra 9848 (authenticated by al-Albani)\nThe Prophet (SAW) said: 'Whoever recites Ayat al-Kursi after every obligatory prayer, nothing stands between him and entering Paradise except death.' *(Grade: Sahih)*\n\n### Quran (2:255)\nAyat al-Kursi \u2014 the greatest verse in the Quran.",
+          description: "**Why?** One verse \u2014 one minute \u2014 and the door to Paradise opens. No other single sunnah carries such a direct reward.\n\n**How?** After your 33/33/34 tasbih, recite Ayat al-Kursi slowly and with meaning. Pair it with Surah al-Ikhlas, al-Falaq, and an-Nas after Fajr and Maghrib (another sunnah, Abu Dawud 1523)."
+        },
+      ],
+    },
   ],
   faith_salah_growth: [
     {
@@ -2801,6 +2873,22 @@ Khushu' is a skill that can be developed through deliberate practice. The schola
 Choose one technique to practice this week: pray in a clean, quiet space away from distractions; look at the place of sujud throughout; pause for two seconds between each movement; vary the surahs you recite to stay engaged; or reflect on the meaning of one specific recitation per prayer. Assess at the end of the week whether your focus improved.` },
       ],
     },
+    {
+      title: "Sit in remembrance after Fajr until sunrise (Ishraq reward)",
+      priority: "medium",
+      tags: ["salah", "sunnah", "prayer-phase:after", "prayer:fajr"],
+      description: "The Prophet (SAW) remained in his place of worship after Fajr doing dhikr until the sun rose, then prayed two rak'ahs. This carries the reward of a complete, accepted Hajj and Umrah \u2014 every single day.",
+      subtasks: [
+        {
+          title: "Stay seated in your prayer place after Fajr until sunrise",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Direct sahih narration describing the Prophet's (SAW) own habit.",
+          sources: "### Sahih Muslim 1413\nThe Prophet (SAW) would not leave his place of worship after Fajr until the sun had risen. *(Grade: Sahih)*\n\n### Jami\u02bb at-Tirmidhi 586 (hasan)\n'Whoever prays Fajr in congregation, then sits remembering Allah until sunrise, then prays two rak\u02bbahs, will have the reward of a complete Hajj and Umrah \u2014 complete, complete, complete.' *(Grade: Hasan)*",
+          description: "**Why?** 20 minutes of dhikr after Fajr earns the reward of Hajj and Umrah \u2014 daily. This is the highest-yield sunnah of the day.\n\n**How?** After the post-Fajr adhkar, stay seated. Read Quran, make dhikr, or make du\u02bba. Wait until the sun has risen a spear's length (about 15\u201320 minutes after sunrise), then pray two rak\u02bbahs (Ishraq / Duha)."
+        },
+      ],
+    },
   ],
   faith_salah_excellence: [
     {
@@ -3114,6 +3202,38 @@ Research and prophetic practice both confirm that consistency builds lasting cha
 **How?**
 
 Track your Qiyam streak for 30 consecutive days using a simple checklist or app. If you miss a night, do not abandon the effort -- resume the next night and restart the count. The goal is to reach 30 consecutive nights, at which point the habit will feel natural. Record which nights were hardest and plan around those obstacles.` },
+      ],
+    },
+    {
+      title: "Memorise the prophetic supplications specific to each prayer",
+      priority: "medium",
+      tags: ["salah", "sunnah", "dua", "prayer-phase:after"],
+      description: "Each salah has distinct post-prayer du\u02bbas preserved in the sahih tradition: seeking refuge from the grave after Asr, the completeness of dominion after Maghrib, and the Witr-night light du\u02bba. Learning them anchors each salah in its own prophetic colour.",
+      subtasks: [
+        {
+          title: "After Asr: seek refuge from the punishment of the grave",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih Muslim narration of a specific prayer-timed du\u02bba.",
+          sources: "### Sahih Muslim 1217\nThe Prophet (SAW) would say: 'O Allah, I seek refuge with You from the punishment of the grave, from the trial of the Dajjal, from the trials of life and death...' *(Grade: Sahih)*",
+          description: "**Why?** Asr is the hinge of the day \u2014 the middle prayer specifically praised in the Quran. Sealing it with refuge from the grave roots the afternoon in eschatological awareness.\n\n**How?** After the 33/33/34 tasbih, recite this du\u02bba in Arabic and reflect on its meaning. Repeat daily until memorised."
+        },
+        {
+          title: "After Maghrib: recite 'La ilaha illallah wahdahu la sharika lah' ten times",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Sahih hadith in Muslim 1235 and Tirmidhi 3474.",
+          sources: "### Sahih Muslim 1235\nThe Prophet (SAW) said whoever says after Maghrib and Fajr, 'La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, yuhyi wa yumit, wa huwa \u02bbala kulli shay\u02bbin qadir' ten times, a reward equivalent to freeing ten slaves is recorded for him, and he is protected from Shaytan that day. *(Grade: Sahih)*",
+          description: "**Why?** This single du\u02bba carries tremendous protective and rewarding weight \u2014 tied specifically to the hinge prayers of the day.\n\n**How?** After Maghrib and after Fajr, recite this formula ten times before leaving the musalla. Count on your fingers to stay accurate."
+        },
+        {
+          title: "After Witr: the Prophetic 'Light Du\u02bba'",
+          done: false,
+          tier: "T3",
+          amanahRationale: "Direct narration from Sahih Muslim on the Prophet's night-prayer supplications.",
+          sources: "### Sahih Muslim 1671\nThe Prophet (SAW) would supplicate: 'O Allah, place light in my heart, light in my hearing, light in my sight, light on my right, light on my left, light above me, light below me, light before me, light behind me, and grant me light.' *(Grade: Sahih)*",
+          description: "**Why?** The final du\u02bba before sleep, after Witr, frames the night in Nur \u2014 light from every direction. It is a prophetic cosmology of illumination.\n\n**How?** Memorise the Arabic over one week, one direction per day. After Witr, sit and recite it slowly, visualising each source of light."
+        },
       ],
     },
   ],

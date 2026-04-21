@@ -3,6 +3,33 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] feat | PropheticPath — Prophetic sunnah tasks, phase-filtered Before/Main/After
+
+**Completed:**
+- **Source gathering:** NotebookLM Muslim Scholar (`1c17b03b-...`) queried for Prophet Muhammad's ﷺ practice before/during/after each of Fajr, Dhuhr, Asr, Maghrib, Isha, Tahajjud. Answer persisted at `tasks/notebook-prophet-prayers-answer.md` (6,917 chars, ~30 sahih citations — Bukhari 164/183/246/478/528/541/726/732/733/805/891/1130/1160/1916/2311/4723, Muslim 482/487/746/908/909/953/1198/1217/1226/1235/1241/1243/1428/1562/1575/1584/1632/1641/1671/1672/1689/1694/1697/1815/1820/4723; Quran 2:238, 5:6, 11:114, 17:78).
+- **Seed tasks authored** in `src/data/seed-tasks/faith-seed-tasks.js` with full Amanah-Gate `sources`/`amanahRationale`/`tier` subtask blocks:
+  - `faith_salah_core`: "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)" — 4 subtasks tagged `prayer-phase:before`.
+  - `faith_salah_core`: "Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)" — 3 subtasks tagged `prayer-phase:after`.
+  - `faith_salah_growth`: "Sit in remembrance after Fajr until sunrise (Ishraq reward)" — tagged `prayer-phase:after`, `prayer:fajr`.
+  - `faith_salah_excellence`: "Memorise the prophetic supplications specific to each prayer" — 3 subtasks (Asr refuge-from-grave, Maghrib tahlil ×10, Witr Light Du'a).
+- **Phase filter** added to `src/data/prophetic-path-submodules.js`: each prayer node now has `phaseMatchers: { before, after }`. `buildTasksForNode(nodeId, projects, tbp, { phase: 'before'|'main'|'after' })` filters rows by tag (`prayer-phase:before/after`) or keyword (siwak, wudu, adhan, rawatib, sutrah, tasbih, istighfar, Ayat al-Kursi, Ishraq, prophetic supplications, etc.). `main` returns the remainder (tasks that match neither before nor after).
+- **UI rewire** in `src/components/islamic/PropheticPath.jsx`: Before button no longer opens Threshold modal (`setOpeningModuleId('faith-salah')` removed) — now calls `onToggle(node.id, 'before')` matching the After pattern. `tasksByNode` memo now returns `{ before, main, after }` per node via 3 `buildTasksForNode` calls. MirrorCard accepts a `phaseLabel` prop (BEFORE / NOW / AFTER) so the eyebrow reads "BEFORE · DAWN" etc.
+- **Seed backfill migration** in `src/store/project-store.js`: `backfillAndStripSeeds()` extended to append new seed tasks (by title diff) to existing user boards so existing installs pick up the 4 new prophetic tasks without wiping state.
+- **Regex fix:** `supplication` → `supplications?` across 7 matcher sites so plural form in the excellence task title matches.
+
+**Verification (dev preview on port 5173):**
+- All 18 prayer-node × phase buckets (Fajr/Dhuhr/Asr/Maghrib/Isha/Tahajjud × before/main/after) return ≥1 task via direct `buildTasksForNode` invocation against the hydrated store.
+- Live UI snapshots confirmed for Fajr: BEFORE→"Learn the correct method of wudu", NOW→"Identify and eliminate any practices that contradict Tawhid", AFTER→"Complete the post-prayer adhkar" (with `prayer-phase:after` tag visible on the card).
+- Screenshot tool unresponsive; relying on accessibility-tree snapshots. Production build not re-run this session.
+
+**Decisions:** [[2026-04-21-prophetic-prayer-phase-tasks]]
+
+**Deferred:** Morning/Isha-rest transition nodes (no phaseMatchers — main-only); production `npm run build` re-run; source-card visual verification for the new Amanah-Gate blocks.
+
+**Files changed:** `src/data/seed-tasks/faith-seed-tasks.js`, `src/data/prophetic-path-submodules.js`, `src/components/islamic/PropheticPath.jsx`, `src/store/project-store.js`, `tasks/notebook-prophet-prayers-answer.md`, `wiki/decisions/2026-04-21-prophetic-prayer-phase-tasks.md`, `wiki/entities/milos.md`, `wiki/log.md`.
+
+---
+
 ## [2026-04-21] session | Source/description reconciliation across all 7 pillars
 
 **Completed:**

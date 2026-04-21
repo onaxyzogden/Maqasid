@@ -33,7 +33,22 @@ export const TOD_SUBMODULES = {
       /\b(?:third|last\s+third)\s+of\s+the\s+night\b/i,
       /\b(?:wind\s*down|rest|stillness|surrender)\b/i,
       /\b(?:evening\s+adhkar|adhkar.*(?:night|sleep|evening))\b/i,
+      /\b(?:pre-?prayer|post-?prayer|rawatib|sunnah\s+prayer|siwak|sutrah|adhan|tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?)\b/i,
     ],
+    phaseMatchers: {
+      before: [
+        /\bprayer-phase:before\b/i,
+        /\bpre-?prayer\b/i,
+        /\b(?:before\s+(?:salah|prayer|the\s+fard|isha))\b/i,
+        /\b(?:siwak|sutrah|adhan|wudu|ablution|rawatib)\b/i,
+      ],
+      after: [
+        /\bprayer-phase:after\b/i,
+        /\bpost-?prayer\b/i,
+        /\b(?:after\s+(?:salah|prayer|fard|isha|witr))\b/i,
+        /\b(?:tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?|dhikr|adhkar|surah\s+al-?mulk|surah\s+al-?kafirun)\b/i,
+      ],
+    },
   },
   tahajjud: {
     submodules: ['faith-salah', 'intellect-thinking'],
@@ -45,7 +60,21 @@ export const TOD_SUBMODULES = {
       /\b(?:reflect|contemplat|tafakkur|meditat)/i,
       /\b(?:guidance|istikhara|decision)\b/i,
       /\bkhushu['ʿ]?\b/i,
+      /\b(?:witr|light\s+du|prophetic\s+supplications?|siwak|rawatib)\b/i,
     ],
+    phaseMatchers: {
+      before: [
+        /\bprayer-phase:before\b/i,
+        /\bpre-?prayer\b/i,
+        /\b(?:siwak|wudu|ablution)\b/i,
+        /\b(?:wake|waking|rub.*sleep|rise.*night)/i,
+      ],
+      after: [
+        /\bprayer-phase:after\b/i,
+        /\bpost-?prayer\b/i,
+        /\b(?:after\s+witr|light\s+du|witr\s+du)\b/i,
+      ],
+    },
   },
   fajr: {
     submodules: ['faith-shahada', 'faith-salah', 'life-physical'],
@@ -58,7 +87,22 @@ export const TOD_SUBMODULES = {
       /\b(?:begin|start).*\bday\b/i,
       /\btawhid\b/i,
       /\bshahada\b/i,
+      /\b(?:pre-?prayer|post-?prayer|rawatib|sunnah\s+prayer|siwak|sutrah|adhan|tasbih|istighfar|ayat\s+al-?kursi|ishraq|prophetic\s+supplications?)\b/i,
     ],
+    phaseMatchers: {
+      before: [
+        /\bprayer-phase:before\b/i,
+        /\bpre-?prayer\b/i,
+        /\b(?:before\s+(?:salah|prayer|the\s+fard|fajr))\b/i,
+        /\b(?:siwak|sutrah|adhan|wudu|ablution|rawatib)\b/i,
+      ],
+      after: [
+        /\bprayer-phase:after\b/i,
+        /\bpost-?prayer\b/i,
+        /\b(?:after\s+(?:salah|prayer|fard|fajr))\b/i,
+        /\b(?:ishraq|until\s+sunrise|remain\s+in.*musalla|tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?)\b/i,
+      ],
+    },
   },
   morning: {
     submodules: ['intellect-professional', 'wealth-earning', 'work', 'intellect-learning'],
@@ -82,7 +126,22 @@ export const TOD_SUBMODULES = {
       /\b(?:prayer\s+on\s+time|five\s+daily\s+prayers|salah)\b/i,
       /\b(?:colleague|team|coworker|social|character|akhlaq)/i,
       /\b(?:honest|truthful|trust|amanah)/i,
+      /\b(?:pre-?prayer|post-?prayer|rawatib|sunnah\s+prayer|siwak|sutrah|adhan|tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?)\b/i,
     ],
+    phaseMatchers: {
+      before: [
+        /\bprayer-phase:before\b/i,
+        /\bpre-?prayer\b/i,
+        /\b(?:before\s+(?:salah|prayer|the\s+fard|dhuhr))\b/i,
+        /\b(?:siwak|sutrah|adhan|wudu|ablution|rawatib)\b/i,
+      ],
+      after: [
+        /\bprayer-phase:after\b/i,
+        /\bpost-?prayer\b/i,
+        /\b(?:after\s+(?:salah|prayer|fard|dhuhr))\b/i,
+        /\b(?:tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?)\b/i,
+      ],
+    },
   },
   asr: {
     submodules: ['faith-salah', 'wealth-earning', 'wealth-financial', 'intellect-cognitive'],
@@ -94,7 +153,22 @@ export const TOD_SUBMODULES = {
       /\b(?:halal|haram)\b/i,
       /\b(?:income|earning|wealth)/i,
       /\b(?:discipline|habit|consistency)/i,
+      /\b(?:middle\s+prayer|pre-?prayer|post-?prayer|rawatib|siwak|sutrah|adhan|tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?|grave)\b/i,
     ],
+    phaseMatchers: {
+      before: [
+        /\bprayer-phase:before\b/i,
+        /\bpre-?prayer\b/i,
+        /\b(?:before\s+(?:salah|prayer|the\s+fard|asr))\b/i,
+        /\b(?:siwak|sutrah|adhan|wudu|ablution|rawatib|middle\s+prayer)\b/i,
+      ],
+      after: [
+        /\bprayer-phase:after\b/i,
+        /\bpost-?prayer\b/i,
+        /\b(?:after\s+(?:salah|prayer|fard|asr))\b/i,
+        /\b(?:tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?|refuge.*grave|grave)\b/i,
+      ],
+    },
   },
   maghrib: {
     submodules: ['faith-salah', 'family-marriage', 'family-parenting', 'family-kinship', 'family-home'],
@@ -105,7 +179,22 @@ export const TOD_SUBMODULES = {
       /\b(?:home|household|household\s+adhkar)\b/i,
       /\b(?:transition|end.*day|close.*day)\b/i,
       /\b(?:marriage|parenting|tarbiyah)/i,
+      /\b(?:pre-?prayer|post-?prayer|rawatib|sunnah\s+prayer|siwak|sutrah|adhan|tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?)\b/i,
     ],
+    phaseMatchers: {
+      before: [
+        /\bprayer-phase:before\b/i,
+        /\bpre-?prayer\b/i,
+        /\b(?:before\s+(?:salah|prayer|the\s+fard|maghrib))\b/i,
+        /\b(?:siwak|sutrah|adhan|wudu|ablution|rawatib|break.*fast|iftar)\b/i,
+      ],
+      after: [
+        /\bprayer-phase:after\b/i,
+        /\bpost-?prayer\b/i,
+        /\b(?:after\s+(?:salah|prayer|fard|maghrib))\b/i,
+        /\b(?:tasbih|istighfar|ayat\s+al-?kursi|prophetic\s+supplications?|la\s+ilaha\s+illallah.*ten)\b/i,
+      ],
+    },
   },
 };
 
@@ -186,14 +275,15 @@ const PRIORITY_RANK = { urgent: 0, high: 1, medium: 2, low: 3 };
 //   tasksByProject — object from useTaskStore().tasksByProject
 //   limit          — optional cap on returned rows (default 8)
 // Returns: [{ id, projectId, title, priority, dueDate, _level, _submoduleId, _submoduleName }]
-// Normalise a TOD entry (array or object) to { submodules, matchers }.
+// Normalise a TOD entry (array or object) to { submodules, matchers, phaseMatchers }.
 function resolveEntry(nodeId) {
   const raw = TOD_SUBMODULES[nodeId];
-  if (!raw) return { submodules: [], matchers: null };
-  if (Array.isArray(raw)) return { submodules: raw, matchers: null };
+  if (!raw) return { submodules: [], matchers: null, phaseMatchers: null };
+  if (Array.isArray(raw)) return { submodules: raw, matchers: null, phaseMatchers: null };
   return {
     submodules: raw.submodules || [],
     matchers: (raw.matchers && raw.matchers.length > 0) ? raw.matchers : null,
+    phaseMatchers: raw.phaseMatchers || null,
   };
 }
 
@@ -206,9 +296,21 @@ function titleMatches(title, matchers) {
   return false;
 }
 
+// A task matches a phase if any of its tags or title matches the phase regexes.
+function taskMatchesPhase(task, phaseRegexes) {
+  if (!phaseRegexes || phaseRegexes.length === 0) return false;
+  const haystacks = [task.title || '', ...(task.tags || [])];
+  for (const re of phaseRegexes) {
+    for (const h of haystacks) {
+      if (re.test(h)) return true;
+    }
+  }
+  return false;
+}
+
 export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}) {
-  const { limit = 8, submoduleNameById = {} } = options;
-  const { submodules: targetSubmodules, matchers } = resolveEntry(nodeId);
+  const { limit = 8, submoduleNameById = {}, phase = null } = options;
+  const { submodules: targetSubmodules, matchers, phaseMatchers } = resolveEntry(nodeId);
   if (targetSubmodules.length === 0) return [];
   const targetSet = new Set(targetSubmodules);
 
@@ -247,6 +349,23 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
   if (matchers) {
     const matched = scopePool.filter((r) => titleMatches(r.title, matchers));
     rows = matched.length > 0 ? matched : scopePool;
+  }
+
+  // Phase filter: before/after narrow the pool via phaseMatchers (title+tags);
+  // main returns the remainder (tasks that are NOT before and NOT after).
+  // Nodes without phaseMatchers ignore `phase` entirely.
+  if (phase && phaseMatchers) {
+    const beforeRE = phaseMatchers.before || [];
+    const afterRE = phaseMatchers.after || [];
+    if (phase === 'before') {
+      rows = rows.filter((r) => taskMatchesPhase(r, beforeRE));
+    } else if (phase === 'after') {
+      rows = rows.filter((r) => taskMatchesPhase(r, afterRE));
+    } else if (phase === 'main') {
+      rows = rows.filter(
+        (r) => !taskMatchesPhase(r, beforeRE) && !taskMatchesPhase(r, afterRE),
+      );
+    }
   }
 
   rows.sort((a, b) => (

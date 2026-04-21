@@ -104,6 +104,34 @@ function backfillAndStripSeeds() {
     let changed = false;
     const beforeSize = firstRun ? JSON.stringify(tasks).length : 0;
 
+    // Append any new seed tasks introduced since the board was first seeded
+    // (matched by title). Keeps existing user tasks untouched.
+    const existingTitles = new Set(tasks.map((t) => t.title));
+    const newSeedTasks = [];
+    const todoColId = `col_${boardId}_to_do`;
+    const nowIso = new Date().toISOString();
+    const maxOrder = tasks.reduce((m, t) => Math.max(m, t.order || 0), -1);
+    seeds.forEach((s, i) => {
+      if (existingTitles.has(s.title)) return;
+      newSeedTasks.push({
+        id: genTaskId(),
+        projectId: boardId,
+        columnId: todoColId,
+        title: s.title,
+        priority: s.priority || 'medium',
+        dueDate: s.dueDate || null,
+        tags: s.tags || [],
+        subtasks: (s.subtasks || []).map((st) => ({ id: genSubtaskId(), title: st.title, done: st.done ?? false })),
+        checklist: [],
+        order: maxOrder + 1 + newSeedTasks.length,
+        seedOrder: i,
+        createdAt: nowIso,
+        updatedAt: nowIso,
+        completedAt: null,
+      });
+    });
+    if (newSeedTasks.length > 0) changed = true;
+
     const updated = tasks.map((t) => {
       const seed = seedMap[t.title];
       if (!seed) return t;
@@ -155,10 +183,11 @@ function backfillAndStripSeeds() {
     });
 
     if (changed) {
-      safeSet(storageKey, updated);
+      const finalList = newSeedTasks.length > 0 ? [...updated, ...newSeedTasks] : updated;
+      safeSet(storageKey, finalList);
       if (firstRun) {
         totalBefore += beforeSize;
-        totalAfter += JSON.stringify(updated).length;
+        totalAfter += JSON.stringify(finalList).length;
       }
     }
   });

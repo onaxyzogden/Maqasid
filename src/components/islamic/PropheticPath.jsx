@@ -13,7 +13,6 @@ import {
 import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
-import { useThresholdStore } from '@store/threshold-store';
 import { MODULES, PRIORITIES } from '@data/modules';
 import {
   buildTasksForNode,
@@ -203,11 +202,11 @@ function PPTaskCard({ task, index, onSelectTask }) {
   );
 }
 
-function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask }) {
+function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask, phaseLabel = 'Now' }) {
   return (
     <aside className="pp-mirror-card" data-side={mirrorSide}>
       <div className="pp-mirror-header">
-        <span className="pp-mirror-eyebrow">Now · {node.eyebrow}</span>
+        <span className="pp-mirror-eyebrow">{phaseLabel} · {node.eyebrow}</span>
         <h4 className="pp-mirror-title">{node.title}</h4>
       </div>
       {tasks.length === 0 ? (
@@ -235,17 +234,18 @@ function MirrorCard({ node, tasks, mirrorSide, selectedTaskId, onSelectTask }) {
 function TimelineNode({ node, expandedSlot, onToggle, tasks, selectedTaskId, onSelectTask }) {
   const { Icon, pulse } = node;
   const mirrorSide = node.side === 'left' ? 'right' : 'left';
-  const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
   const isExpanded = expandedSlot !== null;
   const mirrorId = `pp-mirror-${node.id}`;
+  const phaseTasks = tasks?.[expandedSlot] || [];
   const mirror = isExpanded ? (
     <div id={mirrorId}>
       <MirrorCard
         node={node}
-        tasks={tasks}
+        tasks={phaseTasks}
         mirrorSide={mirrorSide}
         selectedTaskId={selectedTaskId}
         onSelectTask={onSelectTask}
+        phaseLabel={slotLabel(expandedSlot)}
       />
     </div>
   ) : null;
@@ -259,11 +259,13 @@ function TimelineNode({ node, expandedSlot, onToggle, tasks, selectedTaskId, onS
           type="button"
           className="pp-satellite"
           data-slot="before"
-          aria-haspopup="dialog"
-          onClick={() => setOpeningModuleId('faith-salah')}
+          aria-expanded={expandedSlot === 'before'}
+          aria-controls={mirrorId}
+          onClick={() => onToggle(node.id, 'before')}
         >
           Before
         </button>
+        {expandedSlot === 'before' && mirror}
         <button
           type="button"
           className="pp-card"
@@ -309,6 +311,12 @@ function TimelineNode({ node, expandedSlot, onToggle, tasks, selectedTaskId, onS
   );
 }
 
+function slotLabel(slot) {
+  if (slot === 'before') return 'Before';
+  if (slot === 'after') return 'After';
+  return 'Now';
+}
+
 export default function PropheticPath({ variant }) {
   const appTheme = useSettingsStore((s) => s.theme);
   const theme = variant ?? appTheme ?? 'light';
@@ -339,10 +347,23 @@ export default function PropheticPath({ variant }) {
   const tasksByNode = useMemo(() => {
     const out = {};
     for (const node of NODES) {
-      out[node.id] = buildTasksForNode(node.id, projects, tasksByProject, {
-        limit: 8,
-        submoduleNameById,
-      });
+      out[node.id] = {
+        before: buildTasksForNode(node.id, projects, tasksByProject, {
+          limit: 8,
+          submoduleNameById,
+          phase: 'before',
+        }),
+        main: buildTasksForNode(node.id, projects, tasksByProject, {
+          limit: 8,
+          submoduleNameById,
+          phase: 'main',
+        }),
+        after: buildTasksForNode(node.id, projects, tasksByProject, {
+          limit: 8,
+          submoduleNameById,
+          phase: 'after',
+        }),
+      };
     }
     return out;
   }, [projects, tasksByProject, submoduleNameById]);
@@ -357,8 +378,10 @@ export default function PropheticPath({ variant }) {
   // right project + level into TaskDetailPanel.
   const taskById = useMemo(() => {
     const map = {};
-    for (const rows of Object.values(tasksByNode)) {
-      for (const r of rows) map[r.id] = r;
+    for (const phases of Object.values(tasksByNode)) {
+      for (const rows of Object.values(phases)) {
+        for (const r of rows) map[r.id] = r;
+      }
     }
     return map;
   }, [tasksByNode]);
