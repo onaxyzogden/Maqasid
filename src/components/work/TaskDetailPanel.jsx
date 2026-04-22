@@ -3,21 +3,13 @@ import { createPortal } from 'react-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import {
   X, Check, FileText, LayoutGrid, ArrowLeft,
-  Shield, TrendingUp, Star, CheckCircle2, HeartHandshake,
-  HandHeart, Moon, Landmark, Activity, BrainCircuit,
-  Sparkles, Library, Lightbulb, Wrench, Heart,
-  Baby, Handshake, Home, Building2, Wallet,
-  PiggyBank, ChessKnight, Scale, CircleFadingArrowUp, GitPullRequestCreateArrow,
-  Droplets, Recycle, TreeDeciduous, ShoppingBag,
-  Globe, MapPin, Users, Shapes, HouseHeart,
-  MapPinned, Leaf, HousePlus,
-  PencilRuler, SquareTerminal,
   Calendar, Tag, User, Flag, Columns3, ChevronRight,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { PRIORITIES } from '../../data/modules';
+import { ICON_REGISTRY } from '../../data/icon-registry';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
@@ -35,18 +27,11 @@ function isSubtaskGrounded(sub) {
   return ok;
 }
 
-/* Lucide icon name → component map for project/module icons */
-const ICON_MAP = {
-  Shield, TrendingUp, Star, CheckCircle2, HeartHandshake,
-  HandHeart, Moon, Landmark, Activity, BrainCircuit,
-  Sparkles, Library, Lightbulb, Wrench, Heart,
-  Baby, Handshake, Home, Building2, Wallet,
-  PiggyBank, ChessKnight, Scale, CircleFadingArrowUp, GitPullRequestCreateArrow,
-  Droplets, Recycle, TreeDeciduous, ShoppingBag,
-  Globe, MapPin, Users, Shapes, HouseHeart, LayoutGrid,
-  MapPinned, Leaf, HousePlus,
-  PencilRuler, SquareTerminal,
-};
+/* Lucide icon name → component map for project/module icons.
+   Resolved via the shared registry (src/data/icon-registry.js).
+   `LayoutGrid` is added locally because it's used as a fallback
+   but isn't one of the data-layer icon names. */
+const ICON_MAP = { ...ICON_REGISTRY, LayoutGrid };
 
 export default function TaskDetailPanel({ project, projectId, taskId, onClose, bbosRole, accentColor }) {
   const task = useTaskStore((s) => s.getTask(projectId, taskId));

@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes, Kanban } from 'lucide-react';
+import { Kanban } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import { useAppStore } from '../store/app-store';
 import { useSettingsStore } from '../store/settings-store';
 import { MAQASID_PILLARS } from '../data/maqasid';
+import { ICON_REGISTRY } from '../data/icon-registry';
 import RippleRing from '../components/dashboard/RippleRing';
 import './TodayFocusSection.css';
 
-const PILLAR_ICONS = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes };
+const PILLAR_ICONS = ICON_REGISTRY;
 
 // pillarSummary: Array<{ pillar: object, openCount: number, overdueCount: number }>
 export default function TodayFocusSection({ pillarSummary = [], primaryPillarId = null, focusProgress = null }) {

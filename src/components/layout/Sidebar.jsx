@@ -1,40 +1,21 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
-  Kanban, PencilRuler, Wallet, GitPullRequestCreateArrow, Users, Building2, Shield, SquareTerminal, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Compass, HeartPulse, Brain, Coins, ChessRook, TreePine, Moon, TrendingUp, Star, CheckCircle2,
-  Activity, BrainCircuit, Sparkles, HeartHandshake,
-  Library, Wrench, Lightbulb, Share2,
-  Baby, CalendarHeart, Handshake,
-  GraduationCap, HandHeart, Scale,
-  PiggyBank, ChessKnight, Store, CircleFadingArrowUp, BarChart3,
-  Leaf, TreeDeciduous, ShoppingBag, Hammer,
-  Droplets, Recycle,
-  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, MapPin, Boxes, HouseHeart, Globe,
-  Search, FlaskConical,
+  ChevronDown, Bell, Moon, Search, FlaskConical,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useMobile } from '../../hooks/useMobile';
 import { MODULES } from '../../data/modules';
 import { MAQASID_PILLARS, getPillarLabel } from '../../data/maqasid';
+import { ICON_REGISTRY } from '../../data/icon-registry';
 import NotificationsPanel from './NotificationsPanel';
 import './Sidebar.css';
 
-const ICON_MAP = {
-  Kanban, PencilRuler, Wallet, GitPullRequestCreateArrow, Users, Building2, Shield, SquareTerminal, Heart, Home, UsersRound, Landmark, BookOpen, ScrollText,
-  Activity, BrainCircuit, Sparkles, HeartHandshake,
-  Library, Wrench, Lightbulb, Share2,
-  Baby, CalendarHeart, Handshake,
-  GraduationCap, HandHeart, Scale,
-  PiggyBank, ChessKnight, Store, CircleFadingArrowUp, BarChart3,
-  Leaf, TreeDeciduous, ShoppingBag, Hammer,
-  Droplets, Recycle,
-  TrendingUp, Star, CheckCircle2, Moon, TreePine,
-  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, MapPin, Boxes, HouseHeart, Globe,
-};
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes, Moon };
+// Submodule + parent-pillar icons resolved via the shared registry.
+const ICON_MAP = ICON_REGISTRY;
+const PILLAR_ICON_MAP = ICON_REGISTRY;
 
 const MODULE_ROUTES = {
   work: '/app/work',

@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Icon registry consolidation — single source of truth for name→component mapping
+
+Eliminated the drop-on-unused-import bug class that caused blank Ummah sidebar glyphs earlier in the session. Decision record: [[2026-04-22-icon-registry-consolidation]].
+
+### Done
+- New file `src/data/icon-registry.js` — single `ICON_REGISTRY` object covering every icon name referenced by `maqasid.js` (parent pillars) + `modules.js` (submodules) + legacy names. Exports `getIcon(name, fallback)` helper.
+- Refactored 10 consumers to import from the registry and delete their local maps:
+  - `Sidebar.jsx` — collapses `ICON_MAP` + `PILLAR_ICON_MAP` into one registry reference; import block shrank from ~50 icons to 10 (only direct-JSX chrome icons remain imported from lucide).
+  - `MobileNav.jsx`, `Landing.jsx`, `Onboarding.jsx`, `TodayFocusSection.jsx`, `PillarCard.jsx`, `PillarFirstEntry.jsx` — all lost their `PILLAR_ICON_MAP`/`PILLAR_ICONS`/`ICON_MAP` blocks and pillar-icon imports.
+  - `TaskDetailPanel.jsx`, `CeremonyGate.jsx`, `ModulePlaceholder.jsx` — same treatment; `TaskDetailPanel` keeps a local `LayoutGrid` extension via `{ ...ICON_REGISTRY, LayoutGrid }` because it's a fallback icon, not a data-layer name.
+
+### Outcome
+Adding a new icon name to `modules.js` now only requires editing `icon-registry.js`. All 10 consumers pick it up automatically. The two earlier-session bugs (Ummah blank glyphs, three consumers missing Family/Wealth icons) are now structurally impossible.
+
+### Notes
+- Build: 2748 → 2749 modules (new registry file), gzipped bundle 2534 → 2533 kB (tiny shrink from dedup'd import statements).
+- Decision [[2026-04-22-icon-registry-consolidation]] records the full rationale.
+
+---
+
 ## [2026-04-22] session | Cross-module icon audit — Family `home` + Ummah swap (Navigator-wins + parent Ummah `Shapes`)
 
 Audited all 8 modules for sidebar/wheel/bento glyph drift. Six matched out of the box (Faith, Life, Intellect, Environment, Wealth, Moontrance). Two had drift:

@@ -1,29 +1,9 @@
 import { useParams } from 'react-router-dom';
-import {
-  Activity, BrainCircuit, Sparkles, HeartHandshake,
-  Library, Wrench, Lightbulb, Share2,
-  Baby, CalendarHeart, Handshake, Heart, HouseHeart, Home, Building2,
-  GraduationCap, HandHeart, Scale, ChessKnight, GitPullRequestCreateArrow,
-  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
-  Leaf, TreeDeciduous, ShoppingBag, Hammer, Droplets, Recycle,
-  Shield, TrendingUp, Star, CheckCircle2, Moon, Landmark,
-  Globe, MapPin, Users, Shapes, MapPinned, HousePlus,
-  PencilRuler, SquareTerminal,
-} from 'lucide-react';
 import { MODULES } from '../data/modules';
+import { ICON_REGISTRY } from '../data/icon-registry';
 import PillarHeader from '../components/shared/PillarHeader';
 
-const ICON_MAP = {
-  Activity, BrainCircuit, Sparkles, HeartHandshake,
-  Library, Wrench, Lightbulb, Share2,
-  Baby, CalendarHeart, Handshake, Heart, HouseHeart, Home, Building2,
-  GraduationCap, HandHeart, Scale, ChessKnight, GitPullRequestCreateArrow,
-  PiggyBank, Store, CircleFadingArrowUp, BarChart3,
-  Leaf, TreeDeciduous, ShoppingBag, Hammer, Droplets, Recycle,
-  Shield, TrendingUp, Star, CheckCircle2, Moon, Landmark,
-  Globe, MapPin, Users, Shapes, MapPinned, HousePlus,
-  PencilRuler, SquareTerminal,
-};
+const ICON_MAP = ICON_REGISTRY;
 
 const modulesById = Object.fromEntries(MODULES.map((m) => [m.id, m]));
 

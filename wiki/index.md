@@ -62,6 +62,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-22-prayerhero-uiux-consult]] | 2026-04-22 | UI/UX Scholar NotebookLM consult on PrayerHeroDuring post-V1 flags (diacritical toggle UX, corner mode-toggle discoverability, halo vs austere bg). Identifies three V2 candidates vs. what we shipped |
 | [[2026-04-22-timeline-islamic-layer-route]] | 2026-04-22 | IslamicPanel becomes route-aware on `/app/prophetic-path-test` — swaps module-centric body for prayer-phase window (header + ayah + dhikr + tasks); seeds reuse vetted AYAH_BANNER_DATA + ONGOING_DUA per Amanah Gate |
 | [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]] | 2026-04-22 | MaqasidComparisonWheel gains per-module `themeColor` (band) decoupled from universal `LEVEL_COLORS` (fill); `.mcw-seg-bg` hover dim inverted (rest=light, peer=dark); Wealth submodule icons canonicalized and Earning↔Circulation swapped |
+| [[2026-04-22-icon-registry-consolidation]] | 2026-04-22 | Consolidated 10 duplicated icon-name → component maps into single `src/data/icon-registry.js`. Eliminates the drop-on-unused-import bug class that caused blank Ummah sidebar glyphs earlier in the session |
 
 ## Sources
 
