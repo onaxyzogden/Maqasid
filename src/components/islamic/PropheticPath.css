@@ -890,3 +890,218 @@
   text-align: center;
 }
 
+/* ---------- Live prayer-time chip ---------- */
+.prophetic-path .pp-time-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 2px 8px;
+  margin-left: 0.5rem;
+  border-radius: 999px;
+  font-family: var(--pp-font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 600;
+  background: color-mix(in srgb, var(--pp-on-surface) 6%, transparent);
+  color: var(--pp-on-surface);
+  white-space: nowrap;
+}
+.prophetic-path .pp-time-chip--anchor {
+  font-style: italic;
+  opacity: 0.75;
+}
+.prophetic-path .pp-time-chip__label {
+  opacity: 0.65;
+  font-weight: 500;
+}
+.prophetic-path .pp-time-chip[data-state='active'] {
+  background: color-mix(in srgb, var(--pp-primary) 22%, transparent);
+  color: var(--pp-primary);
+}
+.prophetic-path .pp-time-chip[data-state='next'] {
+  background: color-mix(in srgb, var(--pp-primary) 10%, transparent);
+  color: var(--pp-primary);
+}
+.prophetic-path .pp-time-chip[data-state='past'] {
+  opacity: 0.55;
+}
+.prophetic-path .pp-time-chip__badge {
+  margin-left: 0.375rem;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--pp-primary);
+  color: var(--pp-on-primary, #fff);
+  animation: pp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.prophetic-path .pp-time-chip__badge--next {
+  background: color-mix(in srgb, var(--pp-primary) 18%, transparent);
+  color: var(--pp-primary);
+  animation: none;
+}
+
+/* ---------- Staggered mount ----------
+   Nodes slide in top-to-bottom, 50ms apart, so the timeline "unfurls"
+   rather than popping in. We animate ONLY transform so the data-state
+   opacity rules below remain authoritative after mount. */
+@keyframes pp-node-rise {
+  from { transform: translateY(12px); }
+  to   { transform: translateY(0); }
+}
+.prophetic-path .pp-node {
+  animation: pp-node-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.prophetic-path .pp-node:nth-child(1) { animation-delay: 0ms; }
+.prophetic-path .pp-node:nth-child(2) { animation-delay: 50ms; }
+.prophetic-path .pp-node:nth-child(3) { animation-delay: 100ms; }
+.prophetic-path .pp-node:nth-child(4) { animation-delay: 150ms; }
+.prophetic-path .pp-node:nth-child(5) { animation-delay: 200ms; }
+.prophetic-path .pp-node:nth-child(6) { animation-delay: 250ms; }
+.prophetic-path .pp-node:nth-child(7) { animation-delay: 300ms; }
+.prophetic-path .pp-node:nth-child(8) { animation-delay: 350ms; }
+.prophetic-path .pp-node:nth-child(9) { animation-delay: 400ms; }
+
+/* ---------- Spotlight / Focused Dimming ----------
+   Only the active prayer node is fully illuminated. Past and upcoming nodes
+   fade toward an ambient "in the dark" state. Next retains slight emphasis
+   as it still carries a "Next" badge. Transitions eased over 400ms so the
+   light appears to MOVE across the day, not snap. */
+
+.prophetic-path .pp-node {
+  transition:
+    opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    filter 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prophetic-path .pp-node[data-prayer-state='past'] {
+  opacity: 0.42;
+  filter: saturate(0.55);
+}
+.prophetic-path .pp-node[data-prayer-state='upcoming'] {
+  opacity: 0.42;
+  filter: saturate(0.7);
+}
+.prophetic-path .pp-node[data-prayer-state='next'] {
+  opacity: 0.78;
+}
+.prophetic-path .pp-node[data-prayer-state='active'] {
+  opacity: 1;
+  filter: none;
+}
+
+/* Active card lifts: primary border + soft primary shadow */
+.prophetic-path .pp-card[data-prayer-state='active'] {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--pp-primary) 55%, transparent),
+    0 12px 32px color-mix(in srgb, var(--pp-primary) 22%, transparent);
+}
+.prophetic-path .pp-card {
+  transition: box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active marker: ringed + radial "Nur" halo breathing softly (6s, not 2s — avoids fatigue) */
+.prophetic-path .pp-marker[data-prayer-state='active'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--pp-primary) 42%, transparent);
+  position: relative;
+  z-index: 2;
+}
+.prophetic-path .pp-marker[data-prayer-state='active']::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--pp-primary) 38%, transparent) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+  pointer-events: none;
+  animation: pp-nur-breathe 6s ease-in-out infinite;
+}
+
+@keyframes pp-nur-breathe {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50%      { opacity: 1;   transform: scale(1.15); }
+}
+
+/* Slow the Now/Next badge pulse from 2s → 4s (meditative, not anxious) */
+.prophetic-path .pp-time-chip__badge {
+  animation: pp-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ---------- Active-node typography polish ----------
+   Tighten the time-chip letter-spacing on the active node and bump the title
+   weight so the "NOW" card reads as slightly more emphatic than its neighbours
+   WITHOUT a hard scale jump. */
+.prophetic-path .pp-card[data-prayer-state='active'] .pp-time-chip {
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--pp-primary) 18%, transparent);
+}
+.prophetic-path .pp-card[data-prayer-state='active'] .pp-title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Dimmed-text legibility safety ----------
+   At opacity 0.42 on a light surface, the standard on-surface-variant eyebrow
+   can fall under 4.5:1. Compensate by pushing dimmed body/eyebrow/title one
+   step darker while the node opacity does the fading. Net effect: readable
+   when you glance at past/future cards without stealing attention from active. */
+.prophetic-path .pp-node[data-prayer-state='past'] .pp-eyebrow,
+.prophetic-path .pp-node[data-prayer-state='upcoming'] .pp-eyebrow {
+  color: var(--pp-on-surface);
+}
+.prophetic-path .pp-node[data-prayer-state='past'] .pp-body-text,
+.prophetic-path .pp-node[data-prayer-state='upcoming'] .pp-body-text {
+  color: var(--pp-on-surface);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .prophetic-path .pp-node,
+  .prophetic-path .pp-card,
+  .prophetic-path .pp-marker[data-prayer-state='active']::before,
+  .prophetic-path .pp-time-chip__badge {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Location CTA / city line */
+.prophetic-path .pp-location-line {
+  font-family: var(--pp-font-body);
+  font-size: 0.8rem;
+  color: var(--pp-on-surface-variant);
+  margin: 0.5rem 0 0;
+}
+.prophetic-path .pp-location-line strong {
+  color: var(--pp-on-surface);
+  font-weight: 600;
+}
+.prophetic-path .pp-location-cta {
+  margin-top: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--pp-primary) 40%, transparent);
+  background: color-mix(in srgb, var(--pp-primary) 8%, transparent);
+  color: var(--pp-primary);
+  font-family: var(--pp-font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.prophetic-path .pp-location-cta:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--pp-primary) 16%, transparent);
+}
+.prophetic-path .pp-location-cta:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+

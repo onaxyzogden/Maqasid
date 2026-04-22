@@ -25,19 +25,41 @@ type: log
 
 ---
 
-## [2026-04-22] session | Live prayer times wired to Prophetic Path timeline
+## [2026-04-22] session | Prophetic Path — live prayer times + spotlight focus mode
 
-**Completed:**
-- Consumed `usePrayerTimes()` inside `PropheticPath` and passed per-node `timing` (time / anchor-label / state) down to `TimelineNode`. Each of the 5 canonical prayer nodes (`fajr`, `dhuhr`, `asr`, `maghrib`, `isha`) now renders a 12-hour-formatted chip next to the eyebrow. Transition nodes use Aladhan's extended keys: `morning` → `Sunrise`, `tahajjud` → `Lastthird`; `midday-labor` anchors on Dhuhr with a "After Dhuhr" label.
-- Added `Now` / `Next` badges (the former pulses, re-using `@keyframes pp-pulse`) keyed off `activePrayer.name` and `nextPrayer.name`. `data-prayer-state` on `.pp-node` / `.pp-card` / `.pp-marker` drives active glow, next tint, past opacity ≈0.55.
-- Empty-state handled: when `timings === null` the intro shows a "Set location for live prayer times" button that calls `requestLocation()`; when populated it shows "Prayer times for {cityName}".
-- CSS in `PropheticPath.css` additions: `.pp-time-chip`, `.pp-time-chip__badge`, `.pp-location-line`, `.pp-location-cta` — all use existing `--pp-primary` / `--pp-on-surface` tokens.
+Four-phase session on `src/components/islamic/PropheticPath.{jsx,css}`.
 
-**Decisions:** none new (implementation detail within existing design language).
+### Phase 1 — Live prayer times wired to timeline
+- Consumed `usePrayerTimes()` inside `PropheticPath`; passed per-node `timing` (time / anchor-label / state) down to `TimelineNode`. 5 canonical prayer nodes render 12-hour chips; transition nodes use Aladhan extended keys (`morning` → `Sunrise`, `tahajjud` → `Lastthird`, `midday-labor` anchors on Dhuhr with "After Dhuhr" label).
+- `Now` / `Next` badges keyed off `activePrayer.name` + computed `nextNodeId`. `data-prayer-state` on `.pp-node` / `.pp-card` / `.pp-marker` drives all downstream styling.
+- Empty state: "Set location for live prayer times" CTA calls `requestLocation()`; populated shows "Prayer times for {cityName}".
 
-**Verification:** `npm run build` clean (2.16s, 2706 modules). Preview at `/app/prophetic-path-test` with seeded Aladhan-shaped timings confirmed: 8 chips render (5 prayers + 3 anchors), `NEXT` badge on the upcoming prayer, `past`/`upcoming` opacity delta visible, marker glow on active. No console errors. Test seed cleared after verification.
+### Phase 2 — Spotlight / focused-dimming (P0 + P1)
+- Consulted UI/UX Design scholar notebook (`995a59d1`) for the illuminated-active / dim-others pattern. Implemented per scholar guidance:
+  - Past: `opacity 0.42`, `saturate(0.55)` · Upcoming: `opacity 0.42`, `saturate(0.7)` · Next: `opacity 0.78` · Active: `opacity 1`, no filter.
+  - 400ms cubic-bezier transitions on opacity + filter.
+  - Active card ring + soft elevation via `color-mix(in srgb, var(--pp-primary) …)`.
+  - Nur halo on active marker: `radial-gradient` + `pp-nur-breathe` 6s ease-in-out.
+  - Next badge pulse stretched to 4s (avoids fatigue).
 
-**Deferred:** Chip wrap on ultra-narrow cards (observed in the constrained right panel of the test page) — low priority, does not affect the `/app/faith` overview where PropheticPath would be hosted. Next-session recommendation: add a live-times strip to the Dashboard sanctuary widget.
+### Phase 3 — P2 polish (no glassmorph)
+- Staggered mount `pp-node-rise` — transform-only (12px → 0) with `nth-child(1..9)` delays 0–400ms so dim states retain opacity authority.
+- Active-node typography: chip weight 700 + letter-spacing -0.01em; title weight 600.
+- Dimmed-text legibility: past/upcoming eyebrow + body promoted to `--pp-on-surface` so content remains readable beneath the dim veil (WCAG-safe).
+- `prefers-reduced-motion` guard disables rise, pulse, breathe.
+
+### Phase 4 — Wrap-around-aware next-node computation
+- **Bug** (user screenshot at 02:35 local): Fajr (04:58) was labelled NEXT instead of Tahajjud (03:00). Root cause: `usePrayerTimes.getNextPrayer()` only iterates the 5 canonical prayers — Tahajjud / Morning / Midday-Labor are invisible.
+- **Fix**: `computeNextNodeId(timings)` walks all 8 `NODE_TIMING` entries with 24h wrap for already-passed anchors; picks smallest positive diff. `deriveNodeTiming` now takes `nextNodeId` directly.
+- **Related bug** (caught during Phase 2): midday-labor stole 'active' from Dhuhr because both share the `Dhuhr` timing key. Guard via `CANONICAL_PRAYER_NODES` set — only canonical prayer nodes can enter 'active'.
+
+**Decisions:** none filed (within existing design language + scholar-validated tokens).
+
+**Verification:** `npm run build` clean across all phases. Preview confirmed: 8 chips render, NEXT/Now badges correct, spotlight gradient visible past→next→active, staggered mount smooth, Tahajjud correctly marked NEXT at 02:37 test case.
+
+**Deferred:** Chip wrap on ultra-narrow cards; live-times strip on Dashboard sanctuary widget.
+
+**Files changed:** `src/components/islamic/PropheticPath.jsx`, `src/components/islamic/PropheticPath.css`.
 
 ---
 

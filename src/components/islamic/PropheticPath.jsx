@@ -74,6 +74,12 @@ const NODE_TIMING = {
 // Canonical ordering used for past/upcoming calculation.
 const PRAYER_ORDER = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 
+// Nodes that can hold the 'active' spotlight — `usePrayerTimes.activePrayer`
+// only tracks the five salawat, so Tahajjud/Morning/Midday-Labor cannot be
+// "active" in the strict prayer-window sense. They CAN be "next" though —
+// that is computed locally below from every node's own anchor time.
+const CANONICAL_PRAYER_NODES = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha']);
+
 function stripTz(str) {
   return typeof str === 'string' ? str.replace(/\s*\(.*\)/, '') : '';
 }
@@ -96,21 +102,45 @@ function timeToMs(raw, today) {
   return d.getTime();
 }
 
+// Compute the nodeId whose anchor time is soonest in the future, wrapping
+// around midnight. Tahajjud at 03:00 beats Fajr at 05:00 when now is 02:35.
+// Returns null if no node has a usable anchor time.
+function computeNextNodeId(timings) {
+  if (!timings) return null;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const ONE_DAY = 24 * 60 * 60 * 1000;
+  let bestId = null;
+  let bestDiff = Infinity;
+  for (const [nodeId, spec] of Object.entries(NODE_TIMING)) {
+    const ms = timeToMs(timings[spec.key], today);
+    if (ms == null) continue;
+    let diff = ms - now.getTime();
+    if (diff <= 0) diff += ONE_DAY; // already passed today → tomorrow's occurrence
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestId = nodeId;
+    }
+  }
+  return bestId;
+}
+
 // For a given node + timings snapshot, return { time, state } where state is
-// 'active' | 'next' | 'past' | 'upcoming' | null. Only the 5 canonical prayer
-// nodes can be 'active' or 'next'; transition nodes use past/upcoming only.
-function deriveNodeTiming(nodeId, timings, activePrayerName, nextPrayerName) {
+// 'active' | 'next' | 'past' | 'upcoming' | null. 'active' is driven by the
+// hook's activePrayer (canonical 5 only). 'next' is computed locally across
+// ALL nodes so Tahajjud / Morning / Midday-Labor can take the next slot.
+function deriveNodeTiming(nodeId, timings, activePrayerName, nextNodeId) {
   const spec = NODE_TIMING[nodeId];
   if (!spec || !timings) return { time: '', label: spec?.label || null, state: null };
   const raw = timings[spec.key];
   const time = formatTime12(raw);
   const today = new Date();
   const prayerMs = timeToMs(raw, today);
-  const isCanonical = PRAYER_ORDER.includes(spec.key);
+  const canActive = CANONICAL_PRAYER_NODES.has(nodeId);
 
   let state = null;
-  if (isCanonical && activePrayerName === spec.key) state = 'active';
-  else if (isCanonical && nextPrayerName === spec.key) state = 'next';
+  if (canActive && activePrayerName === spec.key) state = 'active';
+  else if (nodeId === nextNodeId) state = 'next';
   else if (prayerMs != null) state = prayerMs < Date.now() ? 'past' : 'upcoming';
 
   return { time, label: spec.label, state };
@@ -634,11 +664,11 @@ export default function PropheticPath({ variant }) {
   const {
     timings,
     activePrayer,
-    nextPrayer,
     cityName,
     loading: prayerLoading,
     requestLocation,
   } = usePrayerTimes();
+  const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
 
   // Weekly boards back the midday-labor + morning Before/After satellites
   // (which now trigger the Threshold modal). Ensure they exist so the
@@ -729,7 +759,7 @@ export default function PropheticPath({ variant }) {
                   onSelectProject={setSlideUpProjectId}
                   onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
                   onOpenPrayer={setSlideUpPrayerNodeId}
-                  timing={deriveNodeTiming(node.id, timings, activePrayer?.name, nextPrayer?.name)}
+                  timing={deriveNodeTiming(node.id, timings, activePrayer?.name, nextNodeId)}
                 />
               ))}
             </div>
