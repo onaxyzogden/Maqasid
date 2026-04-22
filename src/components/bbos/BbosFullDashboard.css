@@ -3,6 +3,7 @@
 .bfd {
   padding: var(--space-4) var(--space-2);
   padding-bottom: 100px;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -30,6 +31,9 @@
   color: var(--text3);
   line-height: 1.55;
   max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .bfd__stage-progress {
   display: flex;

@@ -3,6 +3,33 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | BBOS dashboard layout normalization
+
+Three small, reviewer-visible fixes to BBOS ProjectBoard / Dashboard surfaces.
+
+### 1. Subsegment visibility in dark mode
+- `.fln__subseg` for todo-state tasks was returning `var(--bg3)` (#22262e) — same tone as the surrounding card surface in dark mode, making progress bars read as a blank strip. Changed fallback color to `var(--border2)` (#353b45) in both the default `taskColor` helper ([LevelNavigator.jsx:46](src/components/shared/LevelNavigator.jsx:46)) and the BBOS override `bbosTaskColorFn` ([ProjectBoard.jsx:169](src/components/work/ProjectBoard.jsx:169)). Light mode (#ced3d9) still reads fine.
+
+### 2. Strategic Tasks width + position consistent across all BBOS stages
+- **Symptom:** `.bfd` (Strategic Tasks outer container) rendered at different widths across stages — e.g. FND=799px vs OFR=745px (54px spread, ~27px rightward shift of cards).
+- **Root cause:** `.bfd` is a `display:block` child of a flex-column parent with `max-width:1200px; margin:0 auto;` but no explicit `width`. Flex-column block children with `flex: 0 1 auto` shrink to their intrinsic min-content. Stages where `hasBoth === true` ([BbosFullDashboard.jsx:1809](src/components/bbos/BbosFullDashboard.jsx:1809)) nest the factory inside `.bfd__factory-content > .bfd__factory-content__layer`, and that nested grid reports a smaller min-content than FND's flat factory — shrinking `.bfd` and centering it via auto margins.
+- **Fix:** `.bfd { width: 100% }` ([BbosFullDashboard.css:6](src/components/bbos/BbosFullDashboard.css:6)) — stretches to parent up to the 1200px cap.
+- Complementary: `scrollbar-gutter: stable` on the ProjectBoard dashboard scroll container ([ProjectBoard.jsx:446](src/components/work/ProjectBoard.jsx:446)) prevents vertical-scrollbar shift from re-introducing ~6px drift.
+- **Result:** factory width = 470px / cardX = 37 across all 8 BBOS stages (FND/TRU/STR/OFR + OUT/SAL/DLR/RET). Spread = 0px (target was ≤1px).
+
+### 3. Stage description centered
+- `.bfd__desc` got `text-align: center` + `margin: auto` ([BbosFullDashboard.css:28-36](src/components/bbos/BbosFullDashboard.css:28)). The 640px max-width now centers inside the stage header with the title above.
+
+**Decisions:** none filed (cosmetic bug fixes).
+
+**Verification:** `preview_eval` measurement harness confirms identical width across all 8 stages. Visual screenshot at OFR/SAL matches FND/IDENTITY layout.
+
+**Deferred:** none.
+
+**Files changed:** `src/components/bbos/BbosFullDashboard.css`, `src/components/shared/LevelNavigator.jsx`, `src/components/work/ProjectBoard.jsx`, `src/components/work/DashboardView.css`.
+
+---
+
 ## [2026-04-22] session | Wheel becomes nav surface; iOS Safari icon fix; Mithaq paused
 
 **Context:** Round 5 (earlier today) shipped Mithaq + Nur Aura. Live iPhone testing + hover-contrast review surfaced four follow-ups.

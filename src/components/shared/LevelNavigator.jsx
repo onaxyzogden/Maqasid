@@ -43,7 +43,7 @@ const NOOP = () => {};
 function taskColor(task) {
   if (task.completedAt || task.columnId?.endsWith('_done')) return '#22c55e';
   if (!task.columnId?.endsWith('_to_do') && !task.columnId?.endsWith('_todo')) return '#F59E0B';
-  return 'var(--bg3)';
+  return 'var(--border2)';
 }
 
 /**

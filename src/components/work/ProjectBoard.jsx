@@ -166,7 +166,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       ([k, v]) => !k.startsWith('_') && v !== undefined && v !== null && String(v).trim() !== ''
     );
     if (hasProgress) return '#F59E0B';
-    return 'var(--bg3)';
+    return 'var(--border2)';
   }, [doneCol, todoCol]);
 
   if (!project) return null;
@@ -443,6 +443,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column',
         ...(view === 'dashboard' ? {
           overflowY: 'auto',
+          scrollbarGutter: 'stable',
           marginRight: 'calc(-1 * var(--space-6))',
           paddingRight: 'var(--space-6)',
         } : {}),
