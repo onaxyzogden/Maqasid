@@ -109,3 +109,20 @@ an explicit fallback.
   `CircleFadingArrowUp` / `ChessKnight` / `Scale` / `GitPullRequestCreateArrow`.
 - Future-proof: adding a new icon name to `modules.js` without touching
   any consumer now renders it correctly on every surface.
+
+## Post-merge hotfix (commit b2fdefd)
+
+Runtime `ReferenceError: Compass is not defined` blanked the entire app
+after the consolidation merged. Root cause: `src/pages/Landing.jsx` had a
+`HOW_IT_WORKS` data array at line 324 referencing `Compass` as a bare
+identifier (`icon: Compass`), not as JSX. When the consolidation removed
+`Compass` from Landing's lucide import, this bare reference threw at
+module-load — before React could mount. Build stayed clean because
+Vite/Rolldown don't eval module-scope refs until runtime.
+
+Fix: rewrote to `icon: ICON_REGISTRY.Compass`. Confirms the consolidation
+discipline — **no bare lucide identifiers for data-layer icon names;
+route everything through the registry**.
+
+Lesson: verification greps for removed icons must cover value-position
+references (`icon: Name`, `{ Name,`, `= Name;`), not just JSX (`<Name`).

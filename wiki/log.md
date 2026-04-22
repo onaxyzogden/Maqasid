@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] hotfix | Landing.jsx Compass bare-identifier blanked the site post-consolidation
+
+After commit 691a5cd removed `Compass` from Landing.jsx's lucide import (since the old `PILLAR_ICON_MAP` moved to `ICON_REGISTRY`), the `HOW_IT_WORKS` data array at line 324 still referenced the bare identifier `icon: Compass`. `ReferenceError: Compass is not defined` fired at module load — blanked the whole app before React could mount. Build stayed clean because Vite/Rolldown don't evaluate module-scope refs until runtime.
+
+### Done
+- Rewrote the data-array entry: `icon: Compass` → `icon: ICON_REGISTRY.Compass`. Preserves the consolidation intent (no more bare lucide identifiers in consumer files for data-layer names).
+
+### Outcome
+Preview renders again ("MAQASID / Pillars / How It Works / FAQ ..."). Commit `b2fdefd`.
+
+### Notes
+- Lesson: the "drop-on-unused-import" bug class the consolidation was meant to kill also applies to **bare-identifier references in data arrays**, not just JSX. Earlier verification greps (`<IconName`) only caught JSX usage — missed value-position references. Going forward, when removing an icon from a consumer's lucide imports, grep for the bare name *and* `<Name`.
+
+---
+
 ## [2026-04-22] session | Icon registry consolidation — single source of truth for name→component mapping
 
 Eliminated the drop-on-unused-import bug class that caused blank Ummah sidebar glyphs earlier in the session. Decision record: [[2026-04-22-icon-registry-consolidation]].
