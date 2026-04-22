@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] session | Threshold-trigger Before/After + interactive closing reflection
+
+**Completed:**
+- **`src/data/seed-tasks/weekly-seed-tasks.js`** (new) — `WEEKLY_SEED_TASKS` + `WEEKLY_BOARDS` for three new boards (`weekly_work` 4 tasks, `weekly_wealth` 5 tasks, `weekly_community` 4 tasks). Each item is a weekly-cadence planning task (mission-statement review, shutdown review, revenue review, silat al-rahim check-in, etc.) tagged `cadence:weekly`.
+- **`src/store/project-store.js`** — imported weekly seeds + boards; added `ensureWeeklyProjects()` action mirroring `ensurePrayerProjects` (idempotent seed + project creation, `_weeklyModule: true` flag); included `WEEKLY_SEED_TASKS` in `backfillAndStripSeeds`' `ALL_SEEDS`.
+- **`src/components/islamic/PropheticPath.jsx`** — imported `useThresholdStore`; added `THRESHOLD_TRIGGER_NODES = new Set(['midday-labor','morning'])` + `DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' }`. In `TimelineNode`, Before satellite → `setOpeningModuleId(thresholdModuleId)`, After → `setClosingModuleId(thresholdModuleId)` for the two scoped nodes. Module id resolves from the active pill (wealth/community for midday-labor) or falls back to `work`. Non-threshold nodes retain MirrorCard expansion. Added `ensureWeeklyProjects()` effect on mount.
+- **`src/components/islamic/ReadinessCheck.jsx`** — `RCInteractive` now auto-advances with a 320 ms crossfade after a card selection (ref-backed timeout, cleared on unmount; deselect/final-row do not advance). Removed the inner Next button (auto-advance handles forward motion); Previous renamed to **Back** and only renders from row 2 onward. New `frame` prop rendered above the card content (closes a pre-existing gap where `community` / `moontrance-*` reflection frames were silently dropped). Top-level `ReadinessCheck` forwards `readiness.frame` through the interactive branch.
+- **`src/components/islamic/ReadinessCheck.css`** — new `.rc-card-content--fade` modifier + `@keyframes rcCrossfadeIn` (opacity 0→1, 4px lift) for auto-advance transition; new `.rc-card-wizard__frame` (mirrors `.rc-frame` display-mode styling).
+- **`src/components/islamic/ThresholdModal.jsx`** — added `synthesizeReflectionRows()` helper that pairs legacy `reflection.governing[i]` ↔ `notYet[i]` into row objects inheriting top-level `yesLabel`/`notYetLabel`, so every module with a flat reflection block gets `hasInteractiveReflection = true`. Render site passes `{ ...data.reflection, rows: reflectionRows }` so `ReadinessCheck`'s interactive guard fires. Changed `showClosingDuaStep` to `!isOpening && hasInteractiveReflection` (Closing Duʿāʾ always appears on closing, whether aligned or not); removed the `reflectionAllYes` finalize shortcut; simplified `handleNext` on Reflection to a plain `next()`.
+
+**Decisions:**
+- **Weekly tasks not deleted from source seeds** — the "weekly" items surfaced on midday-labor/morning Before/After are pulled dynamically by `buildTasksForNode` from `intellect-professional` / `wealth-earning` seed boards (e.g. "Define your professional mission statement" at `intellect-seed-tasks.js:6669`, rich Islamic educational content). Since Before/After no longer opens MirrorCard for these nodes, those tasks no longer double-surface — and they remain accessible in their original boards where their depth belongs. Deleting would have stripped substantive seed content.
+- **Reflection rows synthesized, not authored** — rather than hand-authoring `reflection.rows` for 10+ modules, `synthesizeReflectionRows` derives rows from the legacy flat shape at the one read site. Modules that already have `reflection.rows` (community, moontrance-land, moontrance-seasonal) pass through untouched. Display-only `RCSection` fallback kept as a safety net even though it's effectively dead.
+- **Closing Duʿāʾ is always shown** — framed as "how we mark the return," not a remedial step for misalignment. This required removing the Reflection-step finalize shortcut; the Reflection → Closing Duʿāʾ → Alhamdulillah path is now unconditional on closing threshold.
+
+**Verified:**
+- `npm run build` clean (1.34s, 2691 modules). Multiple intermediate builds during the session — all clean.
+
+**Deferred:**
+- Surfacing the Weekly boards in navigation (no UI entry point yet; reachable only via direct project routes).
+- Per-row `attr` / `attr_ar` / `attrTitle` / `attrFrame` metadata on synthesized reflection rows — conditional render already handles absent `_attr` gracefully.
+
+**Files changed:** `src/data/seed-tasks/weekly-seed-tasks.js` (new), `src/store/project-store.js`, `src/components/islamic/PropheticPath.jsx`, `src/components/islamic/ReadinessCheck.jsx`, `src/components/islamic/ReadinessCheck.css`, `src/components/islamic/ThresholdModal.jsx`.
+
+---
+
 ## [2026-04-21] session | During hero → kanban migration (prayer slide-up)
 
 **Completed:**

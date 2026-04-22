@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import './ReadinessCheck.css';
 
@@ -73,9 +73,13 @@ function RCCardPair({ row, yesLabel, nytLabel, selections, onSelect }) {
 }
 
 // ── Interactive readiness — card wizard (one row per page) ──
-function RCInteractive({ rows, selections, onSelect }) {
+function RCInteractive({ rows, selections, onSelect, frame }) {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [dir, setDir] = useState('next'); // 'next' | 'prev' — drives slide animation direction
+  const [dir, setDir] = useState('next'); // 'next' | 'prev' | 'fade' — drives animation direction
+  const advanceTimerRef = useRef(null);
+
+  // Clear any pending auto-advance on unmount so we don't flip state after teardown.
+  useEffect(() => () => clearTimeout(advanceTimerRef.current), []);
 
   // Build label lookup — each row inherits labels from the most recent row that defined them
   const labelledRows = [];
@@ -97,14 +101,6 @@ function RCInteractive({ rows, selections, onSelect }) {
 
   const total = labelledRows.length;
   const current = labelledRows[currentIdx];
-  const currentAnswered = selections[current.id] != null;
-
-  const handleNext = () => {
-    if (currentIdx < total - 1) {
-      setDir('next');
-      setCurrentIdx(currentIdx + 1);
-    }
-  };
 
   const handlePrev = () => {
     if (currentIdx > 0) {
@@ -113,11 +109,26 @@ function RCInteractive({ rows, selections, onSelect }) {
     }
   };
 
+  // Wrap onSelect so that picking a card briefly flashes the checkmark, then
+  // crossfades to the next row. Deselecting (same card tapped twice) or
+  // selecting on the final row does not auto-advance.
+  const handleSelect = (rowId, value) => {
+    onSelect(rowId, value);
+    clearTimeout(advanceTimerRef.current);
+    if (value == null) return; // deselect — stay put
+    if (currentIdx >= total - 1) return; // final row — let parent render submit
+    advanceTimerRef.current = setTimeout(() => {
+      setDir('fade');
+      setCurrentIdx((idx) => Math.min(idx + 1, total - 1));
+    }, 320);
+  };
+
   return (
     <div className="rc-card-wizard">
       <p className="rc-card-wizard__instructions">
         Select the card that reflects where you are right now.
       </p>
+      {frame && <p className="rc-card-wizard__frame">{frame}</p>}
 
       {/* Animated wrapper — key forces remount on row change; dir class drives slide direction */}
       <div key={currentIdx} className={`rc-card-content rc-card-content--${dir}`}>
@@ -138,7 +149,7 @@ function RCInteractive({ rows, selections, onSelect }) {
           yesLabel={current._yesLabel}
           nytLabel={current._nytLabel}
           selections={selections}
-          onSelect={onSelect}
+          onSelect={handleSelect}
         />
       </div>
 
@@ -146,28 +157,20 @@ function RCInteractive({ rows, selections, onSelect }) {
         {currentIdx + 1} / {total}
       </p>
 
-      <div className="rc-card-nav">
-        {currentIdx > 0 && (
+      {/* Auto-advance on selection handles forward motion — only Previous is
+          surfaced here. The modal's step footer carries the submit action. */}
+      {currentIdx > 0 && (
+        <div className="rc-card-nav">
           <button
             type="button"
             className="rc-card-nav__btn rc-card-nav__btn--prev"
             onClick={handlePrev}
           >
-            Previous
+            Back
           </button>
-        )}
-        <div className="rc-card-nav__spacer" />
-        {currentIdx < total - 1 ? (
-          <button
-            type="button"
-            className="rc-card-nav__btn rc-card-nav__btn--next"
-            onClick={handleNext}
-            disabled={!currentAnswered}
-          >
-            Next
-          </button>
-        ) : null}
-      </div>
+          <div className="rc-card-nav__spacer" />
+        </div>
+      )}
     </div>
   );
 }
@@ -175,7 +178,14 @@ function RCInteractive({ rows, selections, onSelect }) {
 export default function ReadinessCheck({ readiness, reflection, color, interactive, selections, onSelect }) {
   // Interactive mode — used when rows structure exists and interactive is requested
   if (interactive && readiness?.rows && selections && onSelect) {
-    return <RCInteractive rows={readiness.rows} selections={selections} onSelect={onSelect} />;
+    return (
+      <RCInteractive
+        rows={readiness.rows}
+        selections={selections}
+        onSelect={onSelect}
+        frame={readiness.frame}
+      />
+    );
   }
 
   // Display-only mode (original behavior)

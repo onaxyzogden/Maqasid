@@ -10,6 +10,7 @@ import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
 import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
 import { UMMAH_SEED_TASKS } from '@data/seed-tasks/ummah-seed-tasks';
 import { PRAYER_SEED_TASKS } from '@data/seed-tasks/prayer-seed-tasks';
+import { WEEKLY_SEED_TASKS, WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
 
@@ -92,6 +93,7 @@ function backfillAndStripSeeds() {
     ...ENVIRONMENT_SEED_TASKS,
     ...UMMAH_SEED_TASKS,
     ...PRAYER_SEED_TASKS,
+    ...WEEKLY_SEED_TASKS,
   };
   const firstRun = safeGetJSON(SEED_STRIP_FLAG_KEY, null) === null;
   let totalBefore = 0;
@@ -682,6 +684,45 @@ export const useProjectStore = create((set, get) => ({
       updatedAt: new Date().toISOString(),
       archived: false,
       _prayerModule: true,
+    }));
+
+    set((s) => {
+      const projects = [...s.projects, ...newProjects];
+      persistProjects(projects);
+      return { projects };
+    });
+  },
+
+  ensureWeeklyProjects: () => {
+    const existing = get().projects;
+    const missing = WEEKLY_BOARDS.filter(
+      (wb) => !existing.some((p) => p.id === wb.id)
+    );
+
+    // Seed tasks for any empty weekly boards (idempotent).
+    for (const wb of WEEKLY_BOARDS) {
+      seedTasks(wb.id, WEEKLY_SEED_TASKS);
+    }
+
+    if (missing.length === 0) return;
+
+    const newProjects = missing.map((wb) => ({
+      id: wb.id,
+      name: wb.name,
+      description: wb.description,
+      color: wb.color,
+      icon: wb.icon,
+      moduleId: wb.moduleId || null,
+      columns: DEFAULT_COLUMNS.map((col) => ({
+        id: `col_${wb.id}_${col.name.toLowerCase().replace(/\s+/g, '_')}`,
+        name: col.name,
+        color: col.color,
+      })),
+      defaultView: 'dashboard',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      archived: false,
+      _weeklyModule: true,
     }));
 
     set((s) => {

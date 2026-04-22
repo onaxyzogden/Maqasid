@@ -78,6 +78,15 @@
   margin: 0;
 }
 
+/* Top-level reflection frame (mirrors .rc-frame from display mode). */
+.rc-card-wizard__frame {
+  font-size: var(--text-sm-plus);
+  font-style: italic;
+  color: var(--text3);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* Animated content wrapper — slides in from correct direction on row change */
 .rc-card-content {
   display: contents; /* transparent to flex layout; gap from parent still applies */
@@ -89,6 +98,16 @@
 
 .rc-card-content--prev {
   animation: slideInFromLeft var(--duration-lg) var(--ease);
+}
+
+/* Crossfade — used when a card selection auto-advances to the next row. */
+.rc-card-content--fade {
+  animation: rcCrossfadeIn var(--duration-lg) var(--ease);
+}
+
+@keyframes rcCrossfadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Group header (attribute name, arabic, title, frame) */

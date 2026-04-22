@@ -35,6 +35,26 @@ function allYes(rows, selections) {
   return rows.every((r) => selections[r.id] === true);
 }
 
+// Build row objects from the legacy flat reflection shape so the closing
+// threshold can reuse the same interactive card-pair wizard as opening.
+// Modules that already author `reflection.rows` explicitly pass through
+// untouched.
+function synthesizeReflectionRows(reflection) {
+  if (!reflection) return [];
+  if (Array.isArray(reflection.rows) && reflection.rows.length > 0) return reflection.rows;
+  const gov = reflection.governing || [];
+  const nyt = reflection.notYet || [];
+  const n = Math.max(gov.length, nyt.length);
+  if (n === 0) return [];
+  return Array.from({ length: n }, (_, i) => ({
+    id: `R${i}`,
+    governing: gov[i] || '',
+    notYet: nyt[i] || '',
+    yesLabel: reflection.yesLabel,
+    notYetLabel: reflection.notYetLabel,
+  }));
+}
+
 // ── Pause label — derived from unique attribute names in the NOT YET rows ────
 
 function getPauseLabel(rows, selections) {
@@ -93,7 +113,11 @@ export default function ThresholdModal({ type }) {
   const hasInteractiveReadiness = isOpening && readinessRows.length > 0;
 
   // ── Reflection (closing) interactive state ──────────────────────────────────
-  const reflectionRows = data?.reflection?.rows ?? [];
+  // Most modules author `reflection` in the legacy flat shape
+  // ({ frame, yesLabel, notYetLabel, governing: [...], notYet: [...] }) without
+  // a `.rows` array. Synthesize rows from those parallel arrays so the
+  // closing threshold renders the same interactive card-pair wizard as opening.
+  const reflectionRows = synthesizeReflectionRows(data?.reflection);
   const hasInteractiveReflection = !isOpening && reflectionRows.length > 0;
   const reflectionFilled = hasInteractiveReflection && allFilled(reflectionRows, reflectionSelections);
   const reflectionAllYes = hasInteractiveReflection && allYes(reflectionRows, reflectionSelections);
@@ -146,7 +170,10 @@ export default function ThresholdModal({ type }) {
     ? ['Dua', 'Attributes', 'Readiness']
     : ['Dua', 'Attributes', 'Reflection'];
 
-  const showClosingDuaStep = hasInteractiveReflection && reflectionFilled && !reflectionAllYes;
+  // Closing Dua always appears on the closing threshold (whether the user
+  // was fully aligned or not) — the duʿāʾ is how we mark the return, not a
+  // remedial step for misalignment alone.
+  const showClosingDuaStep = !isOpening && hasInteractiveReflection;
   const steps = paused
     ? [...baseSteps, 'Pause']
     : showClosingDuaStep
@@ -184,10 +211,7 @@ export default function ThresholdModal({ type }) {
       triggerPause();
       return;
     }
-    if (currentStepName === 'Reflection' && hasInteractiveReflection && reflectionFilled && !reflectionAllYes) {
-      next(); // advances to 'Closing Dua'
-      return;
-    }
+    // Reflection always advances to 'Closing Dua' (aligned or not).
     next();
   };
 
@@ -286,7 +310,7 @@ export default function ThresholdModal({ type }) {
                     <ReadinessCheck readiness={data?.readiness} color={accentColor} />
                   ) : hasInteractiveReflection ? (
                     <ReadinessCheck
-                      readiness={data?.reflection}
+                      readiness={{ ...(data?.reflection || {}), rows: reflectionRows }}
                       color={accentColor}
                       interactive={true}
                       selections={reflectionSelections}
@@ -445,7 +469,6 @@ export default function ThresholdModal({ type }) {
                   {(() => {
                     const isFinalize =
                       (currentStepName === 'Readiness' && hasInteractiveReadiness && readinessAllYes) ||
-                      (currentStepName === 'Reflection' && hasInteractiveReflection && reflectionAllYes) ||
                       currentStepName === 'Closing Dua';
                     if (isFinalize) {
                       return (

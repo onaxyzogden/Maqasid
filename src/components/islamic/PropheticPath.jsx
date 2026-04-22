@@ -16,6 +16,7 @@ import {
 import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
+import { useThresholdStore } from '@store/threshold-store';
 import { MODULES, PRIORITIES } from '@data/modules';
 import {
   buildTasksForNode,
@@ -45,6 +46,14 @@ const LEVEL_COLOR = { 1: '#C8A96E', 2: '#4ab8a8', 3: '#8b5cf6' };
 // toggling inline satellite expansion. Tahajjud is included per the
 // "all prayer-like nodes" decision, even though it lacks a standard window.
 const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tahajjud']);
+
+// Nodes whose Before/After satellites trigger the opening/closing Threshold
+// modal instead of expanding the inline MirrorCard. The weekly-cadence tasks
+// that used to surface here live in the new `weekly_{moduleId}` boards
+// (see ensureWeeklyProjects in project-store.js).
+const THRESHOLD_TRIGGER_NODES = new Set(['midday-labor', 'morning']);
+// Morning has no moduleGroups; default to the `work` ceremony module.
+const DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' };
 
 function statusLabel(s) {
   return s === 'done' ? 'Done' : s === 'in-progress' ? 'In Progress' : 'To Do';
@@ -403,6 +412,20 @@ function TimelineNode({
   const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
   const [viewMode, setViewMode] = useState('action');
 
+  const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
+  const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
+  const isThresholdNode = THRESHOLD_TRIGGER_NODES.has(node.id);
+  const thresholdModuleId = moduleId || DEFAULT_THRESHOLD_MODULE_BY_NODE[node.id] || 'work';
+
+  const handleBeforeClick = () => {
+    if (isThresholdNode) setOpeningModuleId(thresholdModuleId);
+    else onToggle(node.id, 'before');
+  };
+  const handleAfterClick = () => {
+    if (isThresholdNode) setClosingModuleId(thresholdModuleId);
+    else onToggle(node.id, 'after');
+  };
+
   const phaseTasks = useMemo(() => {
     if (!isExpanded) return [];
     return buildTasksForNode(node.id, projects, tasksByProject, {
@@ -458,13 +481,13 @@ function TimelineNode({
               type="button"
               className="pp-satellite"
               data-slot="before"
-              aria-expanded={expandedSlot === 'before'}
-              aria-controls={mirrorId}
-              onClick={() => onToggle(node.id, 'before')}
+              aria-expanded={!isThresholdNode && expandedSlot === 'before'}
+              aria-controls={isThresholdNode ? undefined : mirrorId}
+              onClick={handleBeforeClick}
             >
               Before
             </button>
-            {expandedSlot === 'before' && mirror}
+            {!isThresholdNode && expandedSlot === 'before' && mirror}
           </>
         )}
         <button
@@ -502,13 +525,13 @@ function TimelineNode({
               type="button"
               className="pp-satellite"
               data-slot="after"
-              aria-expanded={expandedSlot === 'after'}
-              aria-controls={mirrorId}
-              onClick={() => onToggle(node.id, 'after')}
+              aria-expanded={!isThresholdNode && expandedSlot === 'after'}
+              aria-controls={isThresholdNode ? undefined : mirrorId}
+              onClick={handleAfterClick}
             >
               After
             </button>
-            {expandedSlot === 'after' && mirror}
+            {!isThresholdNode && expandedSlot === 'after' && mirror}
           </>
         )}
       </div>
@@ -526,8 +549,16 @@ export default function PropheticPath({ variant }) {
   const appTheme = useSettingsStore((s) => s.theme);
   const theme = variant ?? appTheme ?? 'light';
   const projects = useProjectStore((s) => s.projects);
+  const ensureWeeklyProjects = useProjectStore((s) => s.ensureWeeklyProjects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const loadTasks = useTaskStore((s) => s.loadTasks);
+
+  // Weekly boards back the midday-labor + morning Before/After satellites
+  // (which now trigger the Threshold modal). Ensure they exist so the
+  // weekly-cadence tasks are reachable via direct project routes.
+  useEffect(() => {
+    ensureWeeklyProjects();
+  }, [ensureWeeklyProjects]);
 
   const [expanded, setExpanded] = useState(() => ({ nodeId: inferNodeFromHour(new Date()), slot: 'main' }));
   // { taskId, project, projectId, levelColor } | null
