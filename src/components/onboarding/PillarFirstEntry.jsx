@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe } from 'lucide-react';
+import { Compass, HeartPulse, Brain, Users, Coins, TreePine, Shapes } from 'lucide-react';
 import { MAQASID_PILLARS } from '../../data/maqasid';
 import { useOnboardingStore } from '../../store/onboarding-store';
 
 // ── Icon map ──
-const ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Globe };
+const ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, TreePine, Shapes };
 
 // ── Pillar descriptions ──
 const PILLAR_DESCRIPTIONS = {

@@ -3,6 +3,38 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Cross-module icon audit — Family `home` + Ummah swap (Navigator-wins + parent Ummah `Shapes`)
+
+Audited all 8 modules for sidebar/wheel/bento glyph drift. Six matched out of the box (Faith, Life, Intellect, Environment, Wealth, Moontrance). Two had drift:
+
+- **Family `home`:** sidebar had `HouseHeart`, Navigator had `Home`. Fixed by updating Navigator → `HouseHeart` (sidebar-wins, matching the Wealth precedent).
+- **Ummah (all 3 submodules):** sidebar had `Boxes/Home/Shapes`, Navigator had `Globe/MapPin/Users`. Per Yousef's call, **Navigator wins here** — the `Globe/MapPin/Users` set is more semantically legible for ummah/neighbors/community than the sidebar-canonical glyphs. Updated `modules.js` submodules accordingly.
+- **Parent Ummah pillar icon:** changed from `Globe` to `Shapes` in `maqasid.js` (the pillar-level glyph). Propagated through all 7 `PILLAR_ICON_MAP` consumers: `Sidebar.jsx`, `MobileNav.jsx`, `Landing.jsx`, `Onboarding.jsx`, `TodayFocusSection.jsx`, `PillarCard.jsx`, `PillarFirstEntry.jsx`.
+
+### Done
+- `src/pages/family/FamilyLevelNavigator.jsx` — `Home` → `HouseHeart` for `family-home`.
+- `src/data/maqasid.js` — parent Ummah `Globe` → `Shapes`.
+- `src/data/modules.js` — `collective` (`Boxes`→`Globe`), `neighbors` (`Home`→`MapPin`), `community` (`Shapes`→`Users`).
+- `src/pages/ummah/UmmahLevelNavigator.jsx` — reverted to `Globe/MapPin/Users` (kept consistent with new `modules.js`).
+- 7 `PILLAR_ICON_MAP` consumers updated to import `Shapes` and drop `Globe` from the pillar map (Globe still imported where used for other purposes — Tech module, TaskDetailPanel).
+
+### Outcome
+Final canonical icon matrix — all 8 modules now agree across sidebar / wheel / bento:
+- Faith: CheckCircle2 / HeartHandshake / HandHeart / Moon / Landmark (parent `Compass`)
+- Life: Activity / BrainCircuit / Shield / Sparkles (parent `HeartPulse`)
+- Intellect: Library / Lightbulb / BrainCircuit / Wrench (parent `Brain`)
+- Family: Heart / Baby / Handshake / HouseHeart (parent `Users`)
+- Wealth: CircleFadingArrowUp / ChessKnight / Scale / GitPullRequestCreateArrow (parent `ChessRook`)
+- Environment: Droplets / Recycle / TreeDeciduous / ShoppingBag (parent `TreePine`)
+- Ummah: Globe / MapPin / Users (parent `Shapes`)
+- Moontrance: MapPinned / Leaf / HousePlus (parent `Moon`)
+
+### Notes
+- Decision record [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]] established "sidebar-wins" as the default; this session records the Ummah exception where the Navigator set was chosen as more semantically legible.
+- Build clean (2748 modules).
+
+---
+
 ## [2026-04-22] session | Wheel two-axis color model + Wealth icon canon
 
 Decoupled the Maqasid Comparison Wheel's module-identity ring from the level-progress fill, inverted the `.mcw-seg-bg` hover dimming, and canonicalized Wealth submodule icons across sidebar, wheel, and bento. Decision record: [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]].

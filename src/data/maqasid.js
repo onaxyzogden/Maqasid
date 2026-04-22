@@ -118,7 +118,7 @@ export const MAQASID_PILLARS = [
     arabicRootAr: 'حفظ الأمة',
     rootAction: 'Unifying',
     accentColor: '#AD8E6E',
-    icon: 'Globe',
+    icon: 'Shapes',
     subModuleIds: ['collective', 'neighbors', 'community'],
     status: 'active',
     relationship: 'self-contained',

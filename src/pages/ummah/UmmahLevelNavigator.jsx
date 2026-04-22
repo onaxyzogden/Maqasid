@@ -1,10 +1,13 @@
 import { Globe, MapPin, Users } from 'lucide-react';
 import LevelNavigator from '@components/shared/LevelNavigator';
 
+// Canonical Ummah submodule icons — match the sidebar's global defaults
+// (src/data/modules.js). Kept in sync so wheel sectors, bento cards, and
+// sidebar items render identical glyphs.
 export const UMMAH_PILLARS = [
-  { id: 'collective', label: 'Ummah', Icon: Globe,  route: '/app/collective' },
-  { id: 'neighbors',  label: 'Neighbors',  Icon: MapPin, route: '/app/neighbors'  },
-  { id: 'community',  label: 'Community',  Icon: Users,  route: '/app/community'  },
+  { id: 'collective', label: 'Ummah',     Icon: Globe,  route: '/app/collective' },
+  { id: 'neighbors',  label: 'Neighbors', Icon: MapPin, route: '/app/neighbors'  },
+  { id: 'community',  label: 'Community', Icon: Users,  route: '/app/community'  },
 ];
 
 export const UMMAH_LEVEL_ROUTES = {

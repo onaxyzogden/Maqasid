@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
+import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
 import '../styles/landing.css';
 
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes };
 
 const PILLAR_FEATURES = {
   faith: {

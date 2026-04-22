@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight, ArrowLeft,
-  Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe,
+  Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes,
   Moon, Sun, Briefcase,
 } from 'lucide-react';
 import { useAuthStore } from '../store/auth-store';
@@ -13,7 +13,7 @@ import { MAQASID_PILLARS } from '../data/maqasid';
 import { MODULES } from '../data/modules';
 import '../styles/landing.css';
 
-const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Globe };
+const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes };
 
 // Steps: 0=Welcome, 1=Profile+Intent, 2=Pillar Focus, 3=Values Framing, 4=First Action
 const STEPS = ['Welcome', 'Profile', 'Pillars', 'Values', 'Begin'];
