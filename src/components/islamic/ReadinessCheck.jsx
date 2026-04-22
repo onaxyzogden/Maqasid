@@ -76,6 +76,7 @@ function RCCardPair({ row, yesLabel, nytLabel, selections, onSelect }) {
 function RCInteractive({ rows, selections, onSelect, frame }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [dir, setDir] = useState('next'); // 'next' | 'prev' | 'fade' — drives animation direction
+  const [exiting, setExiting] = useState(false);
   const advanceTimerRef = useRef(null);
 
   // Clear any pending auto-advance on unmount so we don't flip state after teardown.
@@ -117,8 +118,10 @@ function RCInteractive({ rows, selections, onSelect, frame }) {
     clearTimeout(advanceTimerRef.current);
     if (value == null) return; // deselect — stay put
     if (currentIdx >= total - 1) return; // final row — let parent render submit
+    setExiting(true);
     advanceTimerRef.current = setTimeout(() => {
       setDir('fade');
+      setExiting(false);
       setCurrentIdx((idx) => Math.min(idx + 1, total - 1));
     }, 320);
   };
@@ -131,7 +134,7 @@ function RCInteractive({ rows, selections, onSelect, frame }) {
       {frame && <p className="rc-card-wizard__frame">{frame}</p>}
 
       {/* Animated wrapper — key forces remount on row change; dir class drives slide direction */}
-      <div key={currentIdx} className={`rc-card-content rc-card-content--${dir}`}>
+      <div key={currentIdx} className={`rc-card-content rc-card-content--${dir}${exiting ? ' rc-card-content--exiting' : ''}`}>
         {/* Attribute header — show when this row starts or continues a named attribute */}
         {current._attr && (
           <>

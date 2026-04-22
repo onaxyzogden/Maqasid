@@ -132,6 +132,22 @@
   to { transform: translateX(0); }
 }
 
+/* Closing animations — slide panel out and fade backdrop before unmount. */
+.il-mobile-backdrop--closing {
+  animation: il-fade-out var(--duration-md, 200ms) ease forwards;
+}
+.il-mobile-panel--closing {
+  animation: il-slide-out var(--duration-md, 200ms) ease forwards;
+}
+@keyframes il-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes il-slide-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
 /* Dark theme: boost edge line contrast (--border is too subtle against --surface) */
 [data-theme="dark"] .col-edge__line {
   background: var(--border2);

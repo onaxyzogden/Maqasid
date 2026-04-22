@@ -104,8 +104,10 @@ function GroundingSourceCard({ entry }) {
             style={{
               display: 'inline-flex', alignItems: 'center', padding: '1px 6px',
               fontSize: '0.65rem', fontWeight: 600, fontFamily: 'var(--font-mono)',
-              color: '#64748b', background: '#64748b18',
-              border: '1px solid #64748b30', borderRadius: '4px',
+              color: 'var(--text3)',
+              background: 'color-mix(in oklab, var(--text3) 12%, transparent)',
+              border: '1px solid color-mix(in oklab, var(--text3) 25%, transparent)',
+              borderRadius: '4px',
               letterSpacing: '0.03em', lineHeight: 1.4,
             }}
           >
@@ -121,7 +123,7 @@ function GroundingSourceCard({ entry }) {
           {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{entry.arabic}</p>}
           {entry.translation && <p style={{ fontStyle: 'italic' }}>{entry.translation}</p>}
           {sunnahUrl && (
-            <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: 6 }}>
+            <p style={{ fontSize: '0.8rem', marginTop: 6 }}>
               <a href={sunnahUrl} target="_blank" rel="noopener noreferrer">View on sunnah.com</a>
             </p>
           )}
@@ -136,7 +138,7 @@ function GroundingSourceCard({ entry }) {
       )}
 
       {entry.rationale && (
-        <p className="tdp-grounding-source__rationale" style={{ fontSize: '0.85rem', color: '#475569', margin: '8px 0 0' }}>
+        <p className="tdp-grounding-source__rationale" style={{ fontSize: '0.85rem', color: 'var(--text2)', margin: '8px 0 0' }}>
           {entry.rationale}
         </p>
       )}

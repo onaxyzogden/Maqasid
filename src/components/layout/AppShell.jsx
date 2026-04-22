@@ -66,6 +66,24 @@ export default function AppShell() {
   // Wire Cmd+I to toggle Islamic panel
   useKeyboard('mod+i', () => toggleIslamicPanel(), [toggleIslamicPanel]);
 
+  // Mobile Islamic panel close animation — keep mounted briefly after close
+  // so the slide-out keyframe can play before unmount.
+  const [mobileIlRender, setMobileIlRender] = useState(false);
+  const [mobileIlClosing, setMobileIlClosing] = useState(false);
+  useEffect(() => {
+    if (islamicPanelOpen) {
+      setMobileIlRender(true);
+      setMobileIlClosing(false);
+    } else if (mobileIlRender) {
+      setMobileIlClosing(true);
+      const t = setTimeout(() => {
+        setMobileIlRender(false);
+        setMobileIlClosing(false);
+      }, 220);
+      return () => clearTimeout(t);
+    }
+  }, [islamicPanelOpen, mobileIlRender]);
+
   // Clear niyyahOverrideOpen on route change to prevent modal re-trigger
   useEffect(() => {
     if (niyyahOverrideOpen) closeNiyyahOverride();
@@ -314,10 +332,13 @@ export default function AppShell() {
             <IslamicPanel />
           </div>
         )}
-        {mobile && islamicPanelOpen && (
+        {mobile && mobileIlRender && (
           <>
-            <div className="il-mobile-backdrop" onClick={toggleIslamicPanel} />
-            <div className="il-mobile-panel">
+            <div
+              className={`il-mobile-backdrop${mobileIlClosing ? ' il-mobile-backdrop--closing' : ''}`}
+              onClick={toggleIslamicPanel}
+            />
+            <div className={`il-mobile-panel${mobileIlClosing ? ' il-mobile-panel--closing' : ''}`}>
               <IslamicPanel />
             </div>
           </>

@@ -1878,3 +1878,23 @@ Continuation of the iterative UI/UX upgrade sprint on the Maqasid Comparison Whe
 - Ignition animation is event-driven (fires from `onActivate` callback), not state-driven (watching `isLit`). This had the bonus of cleanly avoiding the setState-in-effect lint rule AND matching the ritual semantics (the animation is *the moment of the act*, not a reaction to stored state).
 - The shimmer ring's `strokeDashoffset` is inline-driven by the hook's RAF tween — no CSS transition on that property. Keeps drain-from-early-release and fresh-press-over-draining unambiguous: one source of truth for ring fill.
 - ADR filed: `wiki/decisions/2026-04-22-mithaq-activation-nur-aura.md`.
+
+## 2026-04-22 — UI polish: wizard crossfade, mobile panel slide-out, source-card dark mode
+
+### Context
+Three targeted UI polish items surfaced via live preview inspection — no architectural change, just replacing abrupt/broken transitions and a legibility bug.
+
+### Done
+- **ReadinessCheck wizard crossfade.** `RCInteractive` previously advanced instantly on card-select and only faded the incoming row in. Added `exiting` state during the 320ms auto-advance window; applied `rcCrossfadeOut` keyframe (opacity 1→0 + 4px lift) to the `.rc-card-content--exiting` wrapper's children (group-header, frame, card-row). Pairs with the existing `rcCrossfadeIn` so both rows now participate in a true crossfade. Wrapper uses `display: contents`, so animations are declared per-child rather than on the wrapper itself. Files: `src/components/islamic/ReadinessCheck.{jsx,css}`.
+- **Mobile Islamic panel slide-out.** `AppShell.jsx` only had a mount-time `il-slide-in` animation — closing unmounted instantly. Added `mobileIlRender` + `mobileIlClosing` state: when `islamicPanelOpen` flips false, render stays true for 220ms and `--closing` modifier classes go onto `.il-mobile-backdrop` / `.il-mobile-panel`. New `il-fade-out` + `il-slide-out` keyframes (200ms ease, `forwards`) play before unmount. Verified via `getAnimations()` + `getBoundingClientRect().x`: panel animates from `translateX(0)` → `translateX(100%)` across the 200ms window. Files: `src/components/layout/AppShell.{jsx,css}`.
+- **Subtask source cards dark mode.** `.tdp-grounding-source` was using `color-mix(in oklab, var(--bg-muted, #f8fafc) 60%, transparent)` but `--bg-muted` is undefined in both theme scopes of `tokens.css`, so the fallback hex `#f8fafc` always won — washed pale card on dark bg, killing text contrast. Also three inline-style hardcoded slate hexes in `SubtaskSources.jsx` (grade chip `#64748b`, sunnah.com link `#64748b`, rationale `#475569`) bypassed the theme entirely. Swapped card bg to `var(--bg3)` at 70% (dark: `#22262e`, light: `#f1f3f5`); swapped grade chip to `var(--text3)` + `color-mix(... var(--text3) 12%/25%, transparent)`; dropped inline color on link wrapper (lets `<a>` inherit default link color); swapped rationale to `var(--text2)`. Computed-style verification in dark mode: card bg resolves to near-black oklab, rationale resolves to `#9e9690`, contrast on card ~4.8:1 (AA). Files: `src/components/work/SubtaskSources.jsx`, `src/components/work/TaskDetailPanel.css`.
+
+### Deferred
+- **Light-mode visual regression check** of source cards — computed tokens suggest no change, but screenshot tool went unresponsive during verification. Worth a 30-second theme-toggle eyeball when next in that view.
+- **ThresholdModal crossfade is local to the wizard rows only** — if the whole modal step (header + progress + nav) ever needs a true crossfade between steps, the `.thr-step-anim` wrapper would need the same exiting treatment as `.rc-card-content`.
+
+### Notes
+- `--bg-muted` token referenced by `.tdp-grounding-source` is a phantom: not in `:root` or `[data-theme="dark"]`. Grep for it returned zero definitions. Treat any future `var(--bg-muted, ...)` sightings as candidates for the same bug — fallback always wins.
+- For the mobile panel close animation, the CSS cascade alone isn't enough — the element must stay mounted long enough for the keyframes to play. The render/closing double-state is the minimal pattern and should be reused for any other fade/slide-out on an unmount.
+- The ReadinessCheck wrapper uses `display: contents` so that its children participate in the parent flex gap. That design choice prevents animating opacity/transform on the wrapper itself — hence the animation-on-each-child approach.
+- No ADR — all three are pattern-level polish, not architectural decisions.

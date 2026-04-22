@@ -110,6 +110,21 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Fade out current content while auto-advance timer is pending — pairs with
+   the fade-in above for a smooth crossfade between rows. Because the wrapper
+   uses display:contents, we animate each child element directly. */
+.rc-card-content--exiting > .rc-card-group-header,
+.rc-card-content--exiting > .rc-card-frame,
+.rc-card-content--exiting > .rc-card-row {
+  animation: rcCrossfadeOut 320ms var(--ease) forwards;
+  pointer-events: none;
+}
+
+@keyframes rcCrossfadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-4px); }
+}
+
 /* Group header (attribute name, arabic, title, frame) */
 .rc-card-group-header {
   display: flex;
