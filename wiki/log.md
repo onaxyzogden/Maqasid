@@ -26,7 +26,7 @@ Redrew [Tashahhud.jsx](src/components/islamic/postures/Tashahhud.jsx) from a fro
 
 ### 3. PrayerOverlay — removed app-wide lockout; Bismillah button
 - **De-locked:** fullscreen `position: fixed; inset: 0` with 88% black backdrop + focus trap + `aria-modal="true"` → bottom-right card with `pointer-events: none` on the wrapper (only `.prayer-content` is interactive). Rest of the app remains visible and operable while prayer overlay is showing. `role="dialog"` → `role="status"`, `aria-live="polite"`. `useFocusTrap` import removed.
-- **Button:** "Return to work" → `بسم الله · Bismillah` (Arabic + English side-by-side, gap-2). Arabic routed through `fmt()` so it honors the diacritical toggle; new `.prayer-dismiss-ar` / `.prayer-dismiss-en` selectors.
+- **Button:** "Return to work" → `الحمد لله · Alhamdu'lil'llah` (Arabic + English side-by-side, gap-2). Arabic routed through `fmt()` so it honors the diacritical toggle; new `.prayer-dismiss-ar` / `.prayer-dismiss-en` selectors. (Initially "Bismillah" — revised to Alhamdulillah since the dismiss action closes a completed prayer window, not opens one.)
 - **Card sizing:** scaled down type scale (5xl/6xl → 2xl) to match corner-card footprint instead of viewport-center scale.
 
 ---

@@ -73,8 +73,8 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
         <div className="prayer-countdown">{timeStr}</div>
 
         <button className="prayer-dismiss" onClick={handleDismiss}>
-          <span className="prayer-dismiss-ar arabic">{fmt('بِسْمِ اللَّهِ')}</span>
-          <span className="prayer-dismiss-en">Bismillah</span>
+          <span className="prayer-dismiss-ar arabic">{fmt('الْحَمْدُ لِلَّهِ')}</span>
+          <span className="prayer-dismiss-en">Alhamdu&rsquo;lil&rsquo;llah</span>
         </button>
       </div>
     </div>
