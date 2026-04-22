@@ -21,6 +21,7 @@ const PILLARS = [
   { id: 'wealth',      file: 'wealth-seed-tasks.js',      exportName: 'WEALTH_SEED_TASKS' },
   { id: 'environment', file: 'environment-seed-tasks.js', exportName: 'ENVIRONMENT_SEED_TASKS' },
   { id: 'ummah',       file: 'ummah-seed-tasks.js',       exportName: 'UMMAH_SEED_TASKS' },
+  { id: 'prayer',      file: 'prayer-seed-tasks.js',      exportName: 'PRAYER_SEED_TASKS' },
 ];
 
 const VALID_TIERS = new Set(['Bayyinah', 'Qarina', 'Niyyah']);

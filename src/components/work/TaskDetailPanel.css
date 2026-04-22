@@ -875,3 +875,42 @@
 .tdp-sources-trust strong {
   font-weight: 600;
 }
+
+/* ── Subtask Why/How sections (structured shape) ────────────── */
+.tdp-subtask-section {
+  margin: 0 0 16px;
+}
+.tdp-subtask-section__label {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #64748b);
+}
+.tdp-subtask-section__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* ── Grounding source cards (structured sources[]) ─────────── */
+.tdp-grounding-source {
+  margin: 0 0 18px;
+  padding: 12px;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--bg-muted, #f8fafc) 60%, transparent);
+}
+.tdp-grounding-source__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px;
+}
+.tdp-grounding-source__fallback h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+}

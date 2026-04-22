@@ -22,6 +22,16 @@ import AmanahTierBadge from '../shared/AmanahTierBadge';
 import SubtaskSources from './SubtaskSources';
 import './TaskDetailPanel.css';
 
+function isSubtaskGrounded(sub) {
+  if (!sub || !Array.isArray(sub.sources) || sub.sources.length === 0) return null;
+  const ok = sub.sources.some(
+    (e) =>
+      (e?.provenanceTier === 'Bayyinah' || e?.provenanceTier === 'Qarina') &&
+      (e?.relevance === 'direct' || e?.relevance === 'contextual'),
+  );
+  return ok;
+}
+
 /* Lucide icon name → component map for project/module icons */
 const ICON_MAP = {
   Shield, TrendingUp, Star, CheckCircle2, HeartHandshake,
@@ -498,10 +508,47 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
               {activeSubtask.title}
             </h2>
             {activeSubtask.tier && <AmanahTierBadge tier={activeSubtask.tier} size="md" />}
+            {(() => {
+              const grounded = isSubtaskGrounded(activeSubtask);
+              if (grounded === null) return null;
+              return (
+                <span
+                  title={grounded
+                    ? 'At least one source meets the grounding bar (Bayyinah/Qarina × direct/contextual).'
+                    : 'No source meets the grounding bar yet.'}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', padding: '2px 8px',
+                    fontSize: '0.7rem', fontWeight: 600, fontFamily: 'var(--font-mono)',
+                    color: grounded ? '#15803d' : '#b45309',
+                    background: grounded ? '#22c55e18' : '#f59e0b18',
+                    border: `1px solid ${grounded ? '#22c55e' : '#f59e0b'}30`,
+                    borderRadius: '999px', letterSpacing: '0.03em', lineHeight: 1.4,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {grounded ? 'Grounded' : 'Ungrounded'}
+                </span>
+              );
+            })()}
           </div>
 
           <div className="tdp-subtask-detail__body">
-            {activeSubtask.description ? (
+            {(activeSubtask.why || activeSubtask.how) ? (
+              <div className="tdp-subtask-detail__content">
+                {activeSubtask.why && (
+                  <section className="tdp-subtask-section">
+                    <h3 className="tdp-subtask-section__label">Why?</h3>
+                    <p className="tdp-subtask-section__text">{activeSubtask.why}</p>
+                  </section>
+                )}
+                {activeSubtask.how && (
+                  <section className="tdp-subtask-section">
+                    <h3 className="tdp-subtask-section__label">How?</h3>
+                    <p className="tdp-subtask-section__text">{activeSubtask.how}</p>
+                  </section>
+                )}
+              </div>
+            ) : activeSubtask.description ? (
               <div className="tdp-subtask-detail__content">
                 <Markdown remarkPlugins={[remarkGfm]}>{activeSubtask.description}</Markdown>
               </div>

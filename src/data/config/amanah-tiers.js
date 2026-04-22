@@ -22,7 +22,7 @@ export const AMANAH_TIERS = [
   },
   {
     id: 'T3',
-    label: 'Aspiration',
+    label: 'Niyyah',
     arabic: 'نِيَّة',
     description: 'Declared intention — aspiration, stated but not yet evidenced. The gate holds.',
     color: '#8b5cf6',

@@ -17,6 +17,7 @@ import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
+import { usePrayerTimes } from '@hooks/usePrayerTimes';
 import { MODULES, PRIORITIES } from '@data/modules';
 import {
   buildTasksForNode,
@@ -54,6 +55,66 @@ const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tah
 const THRESHOLD_TRIGGER_NODES = new Set(['midday-labor', 'morning']);
 // Morning has no moduleGroups; default to the `work` ceremony module.
 const DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' };
+
+// Map each timeline node to the Aladhan `timings` key it anchors on.
+// Aladhan returns Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha, Imsak,
+// Midnight, Firstthird, Lastthird — we consume the five salawat plus
+// Sunrise / Lastthird for the transition nodes.
+const NODE_TIMING = {
+  isha:           { key: 'Isha',      label: null },
+  tahajjud:       { key: 'Lastthird', label: 'Last Third' },
+  fajr:           { key: 'Fajr',      label: null },
+  morning:        { key: 'Sunrise',   label: 'Sunrise' },
+  dhuhr:          { key: 'Dhuhr',     label: null },
+  'midday-labor': { key: 'Dhuhr',     label: 'After Dhuhr' },
+  asr:            { key: 'Asr',       label: null },
+  maghrib:        { key: 'Maghrib',   label: null },
+};
+
+// Canonical ordering used for past/upcoming calculation.
+const PRAYER_ORDER = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+
+function stripTz(str) {
+  return typeof str === 'string' ? str.replace(/\s*\(.*\)/, '') : '';
+}
+
+function formatTime12(raw) {
+  const clean = stripTz(raw);
+  if (!/^\d{1,2}:\d{2}/.test(clean)) return '';
+  const [hh, mm] = clean.split(':').map(Number);
+  const period = hh >= 12 ? 'PM' : 'AM';
+  const h12 = ((hh + 11) % 12) + 1;
+  return `${h12}:${String(mm).padStart(2, '0')} ${period}`;
+}
+
+function timeToMs(raw, today) {
+  const clean = stripTz(raw);
+  if (!/^\d{1,2}:\d{2}/.test(clean)) return null;
+  const [h, m] = clean.split(':').map(Number);
+  const d = new Date(today);
+  d.setHours(h, m, 0, 0);
+  return d.getTime();
+}
+
+// For a given node + timings snapshot, return { time, state } where state is
+// 'active' | 'next' | 'past' | 'upcoming' | null. Only the 5 canonical prayer
+// nodes can be 'active' or 'next'; transition nodes use past/upcoming only.
+function deriveNodeTiming(nodeId, timings, activePrayerName, nextPrayerName) {
+  const spec = NODE_TIMING[nodeId];
+  if (!spec || !timings) return { time: '', label: spec?.label || null, state: null };
+  const raw = timings[spec.key];
+  const time = formatTime12(raw);
+  const today = new Date();
+  const prayerMs = timeToMs(raw, today);
+  const isCanonical = PRAYER_ORDER.includes(spec.key);
+
+  let state = null;
+  if (isCanonical && activePrayerName === spec.key) state = 'active';
+  else if (isCanonical && nextPrayerName === spec.key) state = 'next';
+  else if (prayerMs != null) state = prayerMs < Date.now() ? 'past' : 'upcoming';
+
+  return { time, label: spec.label, state };
+}
 
 function statusLabel(s) {
   return s === 'done' ? 'Done' : s === 'in-progress' ? 'In Progress' : 'To Do';
@@ -401,6 +462,7 @@ function TimelineNode({
   onSelectProject,
   onSelectSubmodule,
   onOpenPrayer,
+  timing,
 }) {
   const { Icon, pulse } = node;
   const mirrorSide = node.side === 'left' ? 'right' : 'left';
@@ -470,8 +532,13 @@ function TimelineNode({
     </div>
   ) : null;
   return (
-    <div className="pp-node" data-side={node.side} data-expanded={isExpanded || undefined}>
-      <div className="pp-marker" data-tone={node.markerTone}>
+    <div
+      className="pp-node"
+      data-side={node.side}
+      data-expanded={isExpanded || undefined}
+      data-prayer-state={timing?.state || undefined}
+    >
+      <div className="pp-marker" data-tone={node.markerTone} data-prayer-state={timing?.state || undefined}>
         <Icon className="pp-marker-icon" size={12} strokeWidth={2.25} />
       </div>
       <div className="pp-node-stack">
@@ -494,6 +561,7 @@ function TimelineNode({
           type="button"
           className="pp-card"
           data-style={node.cardStyle}
+          data-prayer-state={timing?.state || undefined}
           aria-expanded={isPrayerNode ? undefined : expandedSlot === 'main'}
           aria-controls={isPrayerNode ? undefined : mirrorId}
           onClick={() => (isPrayerNode ? onOpenPrayer(node.id) : onToggle(node.id, 'main'))}
@@ -504,6 +572,17 @@ function TimelineNode({
             <span className="pp-eyebrow" data-tone={node.eyebrowTone}>
               {pulse && <span className="pp-pulse-dot" aria-hidden="true" />}
               {node.eyebrow}
+              {timing?.time && (
+                <span className="pp-time-chip" data-state={timing.state || undefined}>
+                  {timing.time}
+                  {timing.label && <span className="pp-time-chip__label">{` · ${timing.label}`}</span>}
+                </span>
+              )}
+              {!timing?.time && timing?.label && (
+                <span className="pp-time-chip pp-time-chip--anchor">{timing.label}</span>
+              )}
+              {timing?.state === 'active' && <span className="pp-time-chip__badge">Now</span>}
+              {timing?.state === 'next' && <span className="pp-time-chip__badge pp-time-chip__badge--next">Next</span>}
             </span>
             <h3 className="pp-title" data-tone={node.titleTone}>
               {node.title}
@@ -552,6 +631,14 @@ export default function PropheticPath({ variant }) {
   const ensureWeeklyProjects = useProjectStore((s) => s.ensureWeeklyProjects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const loadTasks = useTaskStore((s) => s.loadTasks);
+  const {
+    timings,
+    activePrayer,
+    nextPrayer,
+    cityName,
+    loading: prayerLoading,
+    requestLocation,
+  } = usePrayerTimes();
 
   // Weekly boards back the midday-labor + morning Before/After satellites
   // (which now trigger the Threshold modal). Ensure they exist so the
@@ -613,6 +700,19 @@ export default function PropheticPath({ variant }) {
             <div className="pp-intro">
               <h2 className="pp-heading">The Prophetic Path</h2>
               <p className="pp-subheading">A daily rhythm anchored in sacred intention.</p>
+              {timings && cityName && (
+                <p className="pp-location-line">Prayer times for <strong>{cityName}</strong></p>
+              )}
+              {!timings && (
+                <button
+                  type="button"
+                  className="pp-location-cta"
+                  onClick={requestLocation}
+                  disabled={prayerLoading}
+                >
+                  {prayerLoading ? 'Locating…' : 'Set location for live prayer times'}
+                </button>
+              )}
             </div>
 
             <div className="pp-spine">
@@ -629,6 +729,7 @@ export default function PropheticPath({ variant }) {
                   onSelectProject={setSlideUpProjectId}
                   onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
                   onOpenPrayer={setSlideUpPrayerNodeId}
+                  timing={deriveNodeTiming(node.id, timings, activePrayer?.name, nextPrayer?.name)}
                 />
               ))}
             </div>

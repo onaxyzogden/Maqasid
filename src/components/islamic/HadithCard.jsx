@@ -1,4 +1,5 @@
 import { hadithData } from '@data/hadith';
+import { hadithOverrides } from '@data/hadith-overrides';
 import './HadithCard.css';
 
 const SUNNAH_SLUG = {
@@ -12,8 +13,9 @@ const SUNNAH_SLUG = {
 };
 
 export default function HadithCard({ hadithKey }) {
-  const data = hadithData[hadithKey];
-  if (!data) return null;
+  const base = hadithData[hadithKey];
+  if (!base) return null;
+  const data = { ...base, ...(hadithOverrides[hadithKey] || {}) };
 
   const empty = !data.ar && !data.en;
   const slug = SUNNAH_SLUG[data.collection];

@@ -46,7 +46,17 @@ DISPLAY_MAP = {
 }
 
 # Pattern: ### <collection name> <number>
-HADITH_HEADING_RE = re.compile(r"^### ([A-Za-z][A-Za-z' -]+?)\s+(\d+)\s*$", re.MULTILINE)
+# Matches real line-starts AND `\n### ...` escape sequences inside double-quoted
+# JS string literals (where \n is a 2-char sequence, not a real newline).
+HADITH_HEADING_RE = re.compile(
+    r"### ([A-Za-z][A-Za-z' -]+?)\s+(\d+)(?=\s*(?:\\n|\"|$))",
+    re.MULTILINE,
+)
+
+# Pattern: ref: "Sahih Bukhari 887" inside structured GroundingSource arrays.
+HADITH_REF_FIELD_RE = re.compile(
+    r"""ref\s*:\s*["']([A-Za-z][A-Za-z' -]+?)\s+(\d+)["']""",
+)
 
 
 def collect_refs():
@@ -58,6 +68,13 @@ def collect_refs():
         with open(os.path.join(SEED_DIR, fname), encoding="utf-8") as f:
             text = f.read()
         for m in HADITH_HEADING_RE.finditer(text):
+            name, num = m.group(1).strip(), int(m.group(2))
+            slug = COLLECTION_MAP.get(name)
+            if slug:
+                refs.add((slug, num))
+            else:
+                skipped.add(name)
+        for m in HADITH_REF_FIELD_RE.finditer(text):
             name, num = m.group(1).strip(), int(m.group(2))
             slug = COLLECTION_MAP.get(name)
             if slug:

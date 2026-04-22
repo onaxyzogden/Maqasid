@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] session | Prayer slide-up subtasks — two-axis grounding migration
+
+**Completed:**
+- Pilot rollout of the structured `GroundingSource[]` schema ([[2026-04-18-milos-grounding-two-axis]]) to the 18 prayer-slide-up boards. All 87 subtasks across `prayer_{fajr|dhuhr|asr|maghrib|isha|tahajjud}_{before|during|after}` now carry `why` / `how` / `sources[]` with per-source `provenanceTier` (Bayyinah/Qarina/Niyyah) and `relevance` (direct/contextual/thematic). Verified: `total: 87, grounded: 87, legacy: 0`.
+- Extended `PRAYER_GUIDE` structure in `src/data/seed-tasks/prayer-seed-tasks.js` for Dhuhr/Asr/Maghrib/Isha/Tahajjud — 9 new grounded structure rows anchored on Sahih Muslim 728a (twelve muʾakkadah rawātib), Bukhari 759 (silent Dhuhr), Tirmidhi 430 (four before Asr), Bukhari 765 (Tur at Maghrib), Ibn Majah 1166 (Kafirun+Ikhlas after Maghrib), Bukhari 657 (heaviest-on-hypocrites Isha), Muslim 752 & Abu Dawud 1422 (Witr), Bukhari 990 & Muslim 767b (Qiyām two-by-two), Bukhari 1147 (Aishah's eleven-rakʿat ceiling).
+- Migrated 7 parent tasks / 20 distinct subtasks in `faith-seed-tasks.js` from free-form Markdown `sources` strings to structured arrays (tasks 2850, 2882, 2930, 2946, 2986, 3397, 3728). Arabic + translation populated directly on every entry so cards bypass the fawazahmed0 bundle.
+- T3 display label renamed "Aspiration" → "Niyyah" in `amanah-tiers.js` to match canonical [[amanah-gate-protocol]].
+- Added `RelevanceChip` component + `relevance-chips.js` config. `TaskDetailPanel` + `SubtaskSources` branch on `Array.isArray(sources)` with legacy Markdown fallback preserved for unrelated pillars.
+- Documented the `hadith-overrides.js` standard procedure (shallow-merge over auto-generated `hadith.js`) and the transliteration+translation parentheses rule.
+
+**Decisions:** [[2026-04-21-prayer-subtask-grounding]]
+
+**Verification:** `npm run build` clean (1.68s, 2703 modules). `node -e import('./src/data/seed-tasks/prayer-seed-tasks.js')` confirms 18 boards / 87 grounded / 0 legacy. `npm run lint` — 625 pre-existing unrelated errors, none introduced this session.
+
+**Deferred:** Live-preview screenshot sweep of all 18 boards; structured-source migration for the remaining pillars (Faith non-prayer, Life, Intellect, Family, Wealth, Environment, Ummah — ~1,849 legacy strings remain codebase-wide).
+
+**Files changed:** `src/data/seed-tasks/{prayer-seed-tasks,faith-seed-tasks}.js`, `src/data/config/{amanah-tiers,relevance-chips}.js`, `src/components/shared/RelevanceChip.jsx`, `src/components/work/{TaskDetailPanel,SubtaskSources}.jsx`, `src/data/hadith-overrides.js`; new: `wiki/decisions/2026-04-21-prayer-subtask-grounding.md`.
+
 ## [2026-04-21] session | Faith dashboard wheel promotion + level-color theming
 
 **Completed:**

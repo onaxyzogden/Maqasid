@@ -11,6 +11,7 @@ import { FAMILY_SEED_TASKS } from '@data/seed-tasks/family-seed-tasks';
 import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
 import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
 import { UMMAH_SEED_TASKS } from '@data/seed-tasks/ummah-seed-tasks';
+import { PRAYER_SEED_TASKS } from '@data/seed-tasks/prayer-seed-tasks';
 
 const ALL_SEEDS = {
   ...FAITH_SEED_TASKS,
@@ -20,6 +21,7 @@ const ALL_SEEDS = {
   ...WEALTH_SEED_TASKS,
   ...ENVIRONMENT_SEED_TASKS,
   ...UMMAH_SEED_TASKS,
+  ...PRAYER_SEED_TASKS,
 };
 
 const BOARD_TASK_MAPS = new Map(); // boardId -> Map<title, seedTask>
@@ -59,6 +61,8 @@ export function hydrateTask(task, boardId) {
       if (!st.sources && seedSub.sources) patch.sources = seedSub.sources;
       if (!st.tier && seedSub.tier) patch.tier = seedSub.tier;
       if (!st.amanahRationale && seedSub.amanahRationale) patch.amanahRationale = seedSub.amanahRationale;
+      if (!st.why && seedSub.why) patch.why = seedSub.why;
+      if (!st.how && seedSub.how) patch.how = seedSub.how;
       return Object.keys(patch).length > 0 ? { ...st, ...patch } : st;
     });
   }
@@ -98,11 +102,13 @@ export function stripSeedFields(task, boardId) {
     const subs = task.subtasks.map((st) => {
       const seedSub = seedSubMap.get(st.title);
       if (!seedSub) return st;
-      if (st.description === undefined && st.sources === undefined && st.tier === undefined) return st;
+      if (st.description === undefined && st.sources === undefined && st.tier === undefined && st.why === undefined && st.how === undefined) return st;
       const nst = { ...st };
       if (seedSub.description !== undefined && nst.description !== undefined) delete nst.description;
       if (seedSub.sources !== undefined && nst.sources !== undefined) delete nst.sources;
       if (seedSub.tier !== undefined && nst.tier !== undefined) delete nst.tier;
+      if (seedSub.why !== undefined && nst.why !== undefined) delete nst.why;
+      if (seedSub.how !== undefined && nst.how !== undefined) delete nst.how;
       subsChanged = true;
       return nst;
     });

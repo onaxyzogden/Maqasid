@@ -3,6 +3,10 @@ import remarkGfm from 'remark-gfm';
 import QuranEmbed from '../islamic/QuranEmbed';
 import HadithCard from '../islamic/HadithCard';
 import AmanahTierBadge from '../shared/AmanahTierBadge';
+import RelevanceChip from '../shared/RelevanceChip';
+import { hadithData } from '@data/hadith';
+
+void HadithCard; void hadithData;
 
 const HADITH_COLLECTION_SLUGS = {
   'sahih bukhari': 'bukhari',
@@ -27,6 +31,18 @@ function matchHadithHeading(text) {
   return slug ? `${slug}:${m[2]}` : null;
 }
 
+const PROVENANCE_LABEL_TO_TIER = { Bayyinah: 'T1', Qarina: 'T2', Niyyah: 'T3' };
+
+function parseQuranRef(ref) {
+  const m = /^Quran\s*\(?(\d+):(\d+)(?:-(\d+))?\)?$/.exec((ref || '').trim());
+  if (!m) return null;
+  return m[3] ? `${m[1]}:${m[2]}-${m[3]}` : `${m[1]}:${m[2]}`;
+}
+
+function parseHadithRef(ref) {
+  return matchHadithHeading((ref || '').trim());
+}
+
 const MARKDOWN_COMPONENTS = {
   a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>,
   p: ({ children }) => {
@@ -45,7 +61,21 @@ const MARKDOWN_COMPONENTS = {
       return <QuranEmbed verseKey={verseKey} />;
     }
     const hadith = matchHadithHeading(text);
-    if (hadith) return <HadithCard hadithKey={hadith} />;
+    if (hadith) {
+      if (hadithData[hadith]) return <HadithCard hadithKey={hadith} />;
+      const sunnahUrl = `https://sunnah.com/${hadith}`;
+      return (
+        <div className="hc">
+          <div className="hc__header">
+            <span className="hc__ref">{text}</span>
+          </div>
+          <div className="hc__english">
+            Text unavailable in offline cache.{' '}
+            <a href={sunnahUrl} target="_blank" rel="noopener noreferrer">View on sunnah.com</a>
+          </div>
+        </div>
+      );
+    }
     return <h3>{children}</h3>;
   },
 };
@@ -57,9 +87,68 @@ function cleanSources(raw) {
     .replace(/\n*### __END__ 0\s*$/, '');
 }
 
+function GroundingSourceCard({ entry }) {
+  const tier = PROVENANCE_LABEL_TO_TIER[entry.provenanceTier] || null;
+  const quranKey = entry.kind === 'quran' ? parseQuranRef(entry.ref) : null;
+  const hadithKey = entry.kind === 'hadith' ? parseHadithRef(entry.ref) : null;
+  const sunnahUrl = hadithKey ? `https://sunnah.com/${hadithKey}` : null;
+
+  return (
+    <div className="tdp-grounding-source">
+      <div className="tdp-grounding-source__badges">
+        {tier && <AmanahTierBadge tier={tier} size="sm" />}
+        <RelevanceChip value={entry.relevance} size="sm" />
+        {entry.kind === 'hadith' && entry.hadithGrade && (
+          <span
+            className="tdp-grounding-source__grade"
+            style={{
+              display: 'inline-flex', alignItems: 'center', padding: '1px 6px',
+              fontSize: '0.65rem', fontWeight: 600, fontFamily: 'var(--font-mono)',
+              color: '#64748b', background: '#64748b18',
+              border: '1px solid #64748b30', borderRadius: '4px',
+              letterSpacing: '0.03em', lineHeight: 1.4,
+            }}
+          >
+            {entry.hadithGrade}
+          </span>
+        )}
+      </div>
+
+      {quranKey && <QuranEmbed verseKey={quranKey} />}
+      {entry.kind === 'hadith' && (
+        <div className="tdp-grounding-source__fallback">
+          <h4>{entry.ref}</h4>
+          {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{entry.arabic}</p>}
+          {entry.translation && <p style={{ fontStyle: 'italic' }}>{entry.translation}</p>}
+          {sunnahUrl && (
+            <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: 6 }}>
+              <a href={sunnahUrl} target="_blank" rel="noopener noreferrer">View on sunnah.com</a>
+            </p>
+          )}
+        </div>
+      )}
+      {entry.kind !== 'hadith' && !quranKey && (
+        <div className="tdp-grounding-source__fallback">
+          <h4>{entry.ref}</h4>
+          {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{entry.arabic}</p>}
+          {entry.translation && <p style={{ fontStyle: 'italic' }}>{entry.translation}</p>}
+        </div>
+      )}
+
+      {entry.rationale && (
+        <p className="tdp-grounding-source__rationale" style={{ fontSize: '0.85rem', color: '#475569', margin: '8px 0 0' }}>
+          {entry.rationale}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function SubtaskSources({ subtask }) {
   if (!subtask) return null;
-  const hasSources = Boolean(subtask.sources);
+  const isArray = Array.isArray(subtask.sources);
+  const hasSources = isArray ? subtask.sources.length > 0 : Boolean(subtask.sources);
+
   return (
     <div className="tdp-subtask-detail__body">
       {subtask.tier && subtask.amanahRationale && (
@@ -68,7 +157,16 @@ export default function SubtaskSources({ subtask }) {
           <p className="tdp-amanah-rationale__text">{subtask.amanahRationale}</p>
         </div>
       )}
-      {hasSources ? (
+
+      {hasSources && isArray && (
+        <div className="tdp-subtask-detail__content">
+          {subtask.sources.map((entry, i) => (
+            <GroundingSourceCard key={i} entry={entry} />
+          ))}
+        </div>
+      )}
+
+      {hasSources && !isArray && (
         <>
           <div className={`tdp-sources-trust tdp-sources-trust--${subtask.sourcesTrust === 'scholar-reviewed' ? 'reviewed' : 'suggestive'}`}>
             {subtask.sourcesTrust === 'scholar-reviewed' ? (
@@ -88,7 +186,9 @@ export default function SubtaskSources({ subtask }) {
             </Markdown>
           </div>
         </>
-      ) : (
+      )}
+
+      {!hasSources && (
         <p className="tdp-subtask-detail__text tdp-subtask-detail__empty-text">
           No sources available for this subtask yet.
         </p>
