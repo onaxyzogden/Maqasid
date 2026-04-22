@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Unified module dashboard template — Faith shape applied to all 8 modules
+
+Rolled Faith's route-driven dashboard template across every remaining Maqasid module. Decision record: [wiki/decisions/2026-04-22-unified-module-dashboard-template.md](wiki/decisions/2026-04-22-unified-module-dashboard-template.md).
+
+### Done
+- **Life / Intellect / Family / Wealth / Environment** — each module now has `{Module}LevelNavigator.jsx` (constants + compact nav), `{Module}LevelOverview.jsx` (thin wrapper over `LevelOverviewPage` with wheel + bento + PathToExcellence slots), and `{Module}PathToExcellenceCards.jsx`. The three per-level pages (`*CorePage.jsx` / `*GrowthPage.jsx` / `*ExcellencePage.jsx`) reduced to one-line `<...LevelOverview level="…" levelColor={MODULE_PALETTE.X.Y} />` renders. `*CorePage.jsx` re-exports the `<MODULE>_*` constants so submodule pages and `submodule-registry.js` keep resolving named imports.
+- **Ummah / Moontrance** — same template applied; their legacy sections (Frameworks for both; Milestones + OLOS Bridge for Moontrance) moved below the unified template into a `.ummah-dash--appendix` container. `<MODULE>_LEVEL_ROUTES` all map to the single dashboard path for now so LevelNavigator pills render but are visual-only — additive upgrade path once level boards exist.
+- **Cross-fade on navigation** — removed `key={location.key}` from `<main>` in [AppShell.jsx](src/components/layout/AppShell.jsx) (was force-remounting the entire subtree). All level-switch and pillar-drill `navigate()` calls in [LevelOverviewPage.jsx](src/pages/shared/LevelOverviewPage.jsx) and [MaqasidComparisonWheel.jsx](src/components/faith/MaqasidComparisonWheel.jsx) now pass `{ viewTransition: true }`. CSS in [LevelOverviewPage.css](src/pages/shared/LevelOverviewPage.css) drives a 260ms opacity crossfade via `::view-transition-old/new(root)` with `prefers-reduced-motion` fallback.
+- **Single sources of truth** — `MODULE_PALETTE` gained `moontrance`; `PILLAR_WISDOM` + `PILLAR_NEXT_ACTIONS` gained stub entries for Life/Intellect/Family/Wealth/Environment/Ummah/Moontrance.
+- `MaqasidComparisonWheel` generalized: `pillarWisdom` and `nextActions` are now null-safe props supplied by each module's overview wrapper.
+
+### Deferred
+- Delete `src/components/shared/ModuleWheelSection.jsx` — no remaining consumers, safe removal next session.
+- Per-module content sprint for real pillar wisdom (ayat) and next-action strings — stubs ship as "Reflection coming soon".
+- Ummah / Moontrance real per-level core/growth/excellence boards — seed tasks already prefixed (`ummah_moontrance-land_core` etc.) for an additive build-out.
+
+### Notes
+- Build: 2728 modules clean, no lint regressions.
+- Yousef's directive guided the rollout: *"every single module main page uniform."*
+
+---
+
 ## [2026-04-22] session | fmt() secondary surfaces + Tashahhud side view + PrayerOverlay de-lock
 
 Follow-up pass on the same day as the diacritical-toggle ship.
