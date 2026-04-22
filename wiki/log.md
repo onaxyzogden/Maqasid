@@ -33,6 +33,9 @@ Final canonical icon matrix — all 8 modules now agree across sidebar / wheel /
 - Decision record [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]] established "sidebar-wins" as the default; this session records the Ummah exception where the Navigator set was chosen as more semantically legible.
 - Build clean (2748 modules).
 
+### Follow-up fix
+Ummah and Neighbors submodule glyphs were missing from the sidebar after the icon-name swap in `modules.js`. Root cause: `Sidebar.jsx` keeps two separate maps — `PILLAR_ICON_MAP` for parent-pillar glyphs and `ICON_MAP` for submodule glyphs. When the parent Ummah icon was changed from `Globe` to `Shapes`, the `Globe` import was dropped because it was no longer needed by `PILLAR_ICON_MAP` — but it was simultaneously needed by `ICON_MAP` for the new `collective` submodule glyph. `MapPin` was never registered at all. Fixed by importing both `Globe` and `MapPin` and adding them to `ICON_MAP`. Lesson: when updating `modules.js` submodule icon strings, always cross-check every consumer that maintains an icon-name → component map (Sidebar, MobileNav, TaskDetailPanel, CeremonyGate, ModulePlaceholder).
+
 ---
 
 ## [2026-04-22] session | Wheel two-axis color model + Wealth icon canon
