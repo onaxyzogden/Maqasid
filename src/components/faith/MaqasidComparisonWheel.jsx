@@ -1,3 +1,12 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { FAITH_PILLAR_WISDOM } from '@data/faith-pillar-wisdom';
+import useMilestoneWatcher from '@hooks/useMilestoneWatcher';
+import useMithaqHold from '@hooks/useMithaqHold';
+import { useWheelHoverStore } from '@store/wheelHoverStore';
+import { useMithaqStore } from '@store/mithaqStore';
+import { deriveWheelPalette } from './wheelColor';
+import WheelWisdomTooltip from './WheelWisdomTooltip';
+import MaqasidNextActionCard from './MaqasidNextActionCard';
 import './MaqasidComparisonWheel.css';
 
 const CX = 200;
@@ -6,7 +15,17 @@ const HUB_R = 56;
 const LABEL_INNER_R = 142;
 const PROGRESS_MAX_R = LABEL_INNER_R;
 const LABEL_OUTER_R = 184;
-const LABEL_ARC_R = (LABEL_INNER_R + LABEL_OUTER_R) / 2;
+const ICON_R = (LABEL_INNER_R + LABEL_OUTER_R) / 2;
+const WISDOM_HOVER_DELAY = 1000; // ms
+
+// Pathfinding label ("Next: …") per pillar per level — short enough to fit under the hub %.
+const NEXT_ACTION = {
+  shahada: { core: 'Renew the Shahada', growth: 'Deepen tawḥīd study', excellence: 'Teach the creed' },
+  salat:   { core: 'Establish Fajr on time', growth: 'Pray with khushūʿ', excellence: 'Night prayer rhythm' },
+  zakat:   { core: 'Calculate Zakat', growth: 'Regular Sadaqah habit', excellence: 'Endow a Waqf' },
+  siyam:   { core: 'Ramadan preparation', growth: 'Weekly Sunnah fasts', excellence: 'Dawood-style fasting' },
+  hajj:    { core: 'Save for Hajj', growth: 'Umrah readiness', excellence: 'Serve pilgrims' },
+};
 
 function polar(r, angleDeg) {
   const a = (angleDeg * Math.PI) / 180;
@@ -29,53 +48,232 @@ function annularSector(rInner, rOuter, startDeg, endDeg) {
   ].join(' ');
 }
 
-// Label arc path — flips direction for bottom-half segments so text reads upright
-function labelArcPath(startDeg, endDeg) {
-  const midDeg = (startDeg + endDeg) / 2;
-  const normalized = ((midDeg % 360) + 360) % 360;
-  const flip = normalized > 0 && normalized < 180;
-  if (flip) {
-    const [x1, y1] = polar(LABEL_ARC_R, endDeg);
-    const [x2, y2] = polar(LABEL_ARC_R, startDeg);
-    return `M ${x1} ${y1} A ${LABEL_ARC_R} ${LABEL_ARC_R} 0 0 0 ${x2} ${y2}`;
-  }
-  const [x1, y1] = polar(LABEL_ARC_R, startDeg);
-  const [x2, y2] = polar(LABEL_ARC_R, endDeg);
-  return `M ${x1} ${y1} A ${LABEL_ARC_R} ${LABEL_ARC_R} 0 0 1 ${x2} ${y2}`;
+function outerArc(r, startDeg, endDeg) {
+  const [x1, y1] = polar(r, startDeg);
+  const [x2, y2] = polar(r, endDeg);
+  const largeArc = endDeg - startDeg > 180 ? 1 : 0;
+  return `M ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}`;
 }
 
 export default function MaqasidComparisonWheel({
   centerLabel = 'FAITH',
   levelColor = '#4ab8a8',
+  levelPattern = 'dots',
+  level = 'core',
   segments = [],
+  onReach100,
+  mithaqDomain = null,
 }) {
+  const [hovered, setHovered] = useState(null);
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const [wisdomFor, setWisdomFor] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+  const hoverTimerRef = useRef(null);
+  const [lastAngle, setLastAngle] = useState(0);
+
+  // Cross-component hover sync (wheel ↔ LevelNavigator)
+  const setHoveredPillar = useWheelHoverStore((s) => s.setHoveredPillar);
+  const externalHover = useWheelHoverStore((s) => s.hoveredPillar);
+  useEffect(() => () => setHoveredPillar(null), [setHoveredPillar]);
+
+  // Mithaq (covenant) activation — when mithaqDomain is set, the wheel begins
+  // the day dormant and requires a 1.5s press-and-hold on the Qalb hub to ignite.
+  // When mithaqDomain is null, wheel is always "lit" (pre-Mithaq behavior).
+  const mithaqActivations = useMithaqStore((s) => s.activations);
+  const activateMithaq = useMithaqStore((s) => s.activate);
+  const isLit = useMemo(() => {
+    if (!mithaqDomain) return true;
+    const entry = mithaqActivations[mithaqDomain];
+    if (!entry?.activatedAt) return false;
+    const activated = new Date(entry.activatedAt);
+    if (Number.isNaN(activated.getTime())) return false;
+    const expiry = new Date(activated);
+    expiry.setHours(5, 0, 0, 0);
+    if (activated.getHours() >= 5) expiry.setDate(expiry.getDate() + 1);
+    return new Date() < expiry;
+  }, [mithaqDomain, mithaqActivations]);
+  const isDormant = mithaqDomain && !isLit;
+
+  // Ignition is driven by the user's press-and-hold completion (an event), not
+  // by watching isLit — this keeps us out of setState-in-effect territory and
+  // also means re-entering the page while already activated does NOT replay
+  // the animation (which would be visually noisy).
+  const [isIgniting, setIsIgniting] = useState(false);
+  useEffect(() => {
+    if (!isIgniting) return undefined;
+    const duration = 80 + 5 * 50 + 520; // beat + stagger window + tail
+    const t = setTimeout(() => setIsIgniting(false), duration);
+    return () => clearTimeout(t);
+  }, [isIgniting]);
+
+  const { progress: mithaqProgress, isHolding: mithaqHolding, bind: mithaqBind } = useMithaqHold({
+    disabled: !mithaqDomain || isLit,
+    onActivate: () => {
+      if (!mithaqDomain) return;
+      activateMithaq(mithaqDomain);
+      setIsIgniting(true);
+    },
+  });
+
+  // Trigger staggered entry animation once on mount
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setIsMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Milestone watcher — fires once when a segment crosses 0..99 → 100
+  useMilestoneWatcher(segments, onReach100);
+
+  const palette = useMemo(() => deriveWheelPalette(levelColor), [levelColor]);
+
   const n = segments.length || 1;
   const arcSize = 360 / n;
   const startOffset = -90 - arcSize / 2;
+
+  // Effective hover reflects either the user's cursor on the wheel OR the
+  // synced hover from the LevelNavigator above it — the two act as one UI.
+  const effectiveHover = hovered || externalHover;
+  const hoveredIndex = effectiveHover ? segments.findIndex((s) => s.id === effectiveHover) : -1;
+  const hoveredSeg = hoveredIndex >= 0 ? segments[hoveredIndex] : null;
+
+  // Needle angle — midangle of hovered sector, rotated so 0° points up.
+  // `lastAngle` is a "last known" fallback so the needle fades in place
+  // instead of snapping back to 0° when hover ends. It's updated in the
+  // hover handler (handleEnter) rather than an effect.
+  const computedAngle =
+    hoveredIndex >= 0
+      ? startOffset + hoveredIndex * arcSize + arcSize / 2 + 90
+      : null;
+  // External (nav) hover can target a sector without a local mouse event —
+  // derive its angle inline so the needle still points at it.
+  const externalAngle = useMemo(() => {
+    if (!externalHover) return null;
+    const idx = segments.findIndex((s) => s.id === externalHover);
+    if (idx < 0) return null;
+    return startOffset + idx * arcSize + arcSize / 2 + 90;
+  }, [externalHover, segments, startOffset, arcSize]);
+  const needleAngle = computedAngle ?? externalAngle ?? lastAngle;
+
+  const avgPct = segments.length
+    ? Math.round(segments.reduce((sum, s) => sum + (s.current || 0), 0) / segments.length)
+    : 0;
+
+  // Qalb balance — stdDev of segment percentages, inverted to [0..1].
+  // 1 = pillars aligned (tawhid) → bright, calm, full-amplitude breathing.
+  // 0 = pillars scattered → dim, softly blurred, near-flat breathing.
+  const qalbBalance = useMemo(() => {
+    if (segments.length < 2) return 1;
+    const mean =
+      segments.reduce((s, x) => s + (x.current || 0), 0) / segments.length;
+    const variance =
+      segments.reduce((s, x) => s + ((x.current || 0) - mean) ** 2, 0) /
+      segments.length;
+    const stdDev = Math.sqrt(variance);
+    return Math.max(0, Math.min(1, 1 - stdDev / 40));
+  }, [segments]);
+
+  // Progressive disclosure: the hovered pillar's next action shown in a
+  // sector-adjacent pop-out card (not in the hub at rest).
+  const nextCardText = hoveredSeg
+    ? (hoveredSeg.current >= 100
+        ? 'Flourishing'
+        : (NEXT_ACTION[hoveredSeg.id]?.[level] || hoveredSeg.label))
+    : null;
+
+  // Anchor the card at the hovered sector's outer midangle; flip leftward
+  // for left-half sectors so it opens away from the wheel.
+  const cardPos = useMemo(() => {
+    if (hoveredIndex < 0) return null;
+    const midDeg = startOffset + hoveredIndex * arcSize + arcSize / 2;
+    const r = LABEL_OUTER_R + 14;
+    const [px, py] = polar(r, midDeg);
+    const normalized = ((midDeg % 360) + 360) % 360;
+    const flip = normalized > 90 && normalized < 270;
+    return { x: px, y: py, flip };
+  }, [hoveredIndex, startOffset, arcSize]);
+
+  const hubTopLabel = hoveredSeg ? hoveredSeg.label.toUpperCase() : centerLabel;
+  const hubBottomLabel = hoveredSeg ? `${Math.round(hoveredSeg.current)}%` : `${avgPct}%`;
+  const patternId = `mcw-pat-${levelPattern}`;
+
+  // Wisdom tooltip timing
+  const scheduleWisdom = (id) => {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = setTimeout(() => {
+      setWisdomFor(id);
+    }, WISDOM_HOVER_DELAY);
+  };
+  const cancelWisdom = () => {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = null;
+    setWisdomFor(null);
+  };
+
+  useEffect(() => () => {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setWisdomFor(null); };
+    const onScroll = () => setWisdomFor(null);
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('scroll', onScroll, true);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('scroll', onScroll, true);
+    };
+  }, []);
+
+  const handleEnter = (seg, evt) => {
+    setHovered(seg.id);
+    setHoveredPillar(seg.id);
+    setCursor({ x: evt.clientX, y: evt.clientY });
+    const idx = segments.findIndex((s) => s.id === seg.id);
+    if (idx >= 0) {
+      setLastAngle(startOffset + idx * arcSize + arcSize / 2 + 90);
+    }
+    scheduleWisdom(seg.id);
+  };
+  const handleLeave = () => {
+    setHovered(null);
+    setHoveredPillar(null);
+    cancelWisdom();
+  };
+  const handleMove = (seg, evt) => {
+    setCursor({ x: evt.clientX, y: evt.clientY });
+    if (wisdomFor && wisdomFor !== seg.id) setWisdomFor(null);
+  };
+
+  const wisdomPayload = wisdomFor ? FAITH_PILLAR_WISDOM[wisdomFor] : null;
 
   return (
     <div className="mcw-wrap">
       <svg
         viewBox="0 0 400 400"
-        className="mcw-svg"
+        className={`mcw-svg${isDormant ? ' mcw-svg--dormant' : ''}${isLit ? ' mcw-svg--lit' : ''}${isIgniting ? ' mcw-svg--igniting' : ''}`}
         role="img"
         aria-label={`${centerLabel} comparison wheel`}
-        style={{ '--mcw-level-color': levelColor }}
+        style={{
+          '--mcw-level-color': palette.base,
+          '--mcw-level-stroke': palette.stroke,
+          '--mcw-level-shimmer': palette.shimmer,
+          '--mcw-level-hub-tint': palette.hubTint,
+          '--mcw-level-aura': palette.brightAura,
+          '--mcw-qalb-balance': qalbBalance.toFixed(3),
+        }}
       >
         <defs>
-          {/* Shared progress gradient — tinted by the active level, center-origin */}
           <radialGradient
             id="mcw-progress-grad"
             gradientUnits="userSpaceOnUse"
             cx={CX} cy={CY} r={PROGRESS_MAX_R}
             fx={CX} fy={CY}
           >
-            <stop offset="0%"   stopColor={levelColor} stopOpacity="1" />
-            <stop offset="35%"  stopColor={levelColor} stopOpacity="0.85" />
-            <stop offset="75%"  stopColor={levelColor} stopOpacity="0.55" />
-            <stop offset="100%" stopColor={levelColor} stopOpacity="0.25" />
+            <stop offset="0%"   stopColor={palette.base} stopOpacity="0.25" />
+            <stop offset="35%"  stopColor={palette.base} stopOpacity="0.55" />
+            <stop offset="75%"  stopColor={palette.base} stopOpacity="0.85" />
+            <stop offset="100%" stopColor={palette.base} stopOpacity="1" />
           </radialGradient>
-          {/* Dim backdrop for unfilled portions */}
           <radialGradient
             id="mcw-progress-grad-dim"
             gradientUnits="userSpaceOnUse"
@@ -84,54 +282,91 @@ export default function MaqasidComparisonWheel({
             <stop offset="0%" stopColor="#1a4a4e" />
             <stop offset="100%" stopColor="#0a2326" />
           </radialGradient>
-          {/* Outer label band — single level-tinted linear gradient */}
           <linearGradient id="mcw-band-level" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor={levelColor} stopOpacity="0.95" />
-            <stop offset="100%" stopColor={levelColor} stopOpacity="0.65" />
+            <stop offset="0%"   stopColor={palette.base} stopOpacity="0.95" />
+            <stop offset="100%" stopColor={palette.base} stopOpacity="0.65" />
           </linearGradient>
-          {segments.map((seg, i) => {
-            const s = startOffset + i * arcSize;
-            const e = s + arcSize;
-            return <path key={`labelarc-${seg.id}`} id={`mcw-label-${seg.id}`} d={labelArcPath(s, e)} fill="none" />;
-          })}
-          <marker id="mcw-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#c9a05a" />
-          </marker>
+          <radialGradient id="mcw-aura-grad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stopColor={palette.brightAura} stopOpacity="0.95" />
+            <stop offset="55%"  stopColor={palette.brightAura} stopOpacity="0.35" />
+            <stop offset="100%" stopColor={palette.brightAura} stopOpacity="0" />
+          </radialGradient>
+          <pattern id="mcw-pat-dots" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.1" fill="rgba(255,255,255,0.55)" />
+          </pattern>
+          <pattern id="mcw-pat-stripes" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect x="0" y="0" width="2" height="8" fill="rgba(255,255,255,0.45)" />
+          </pattern>
+          <pattern id="mcw-pat-crosshatch" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
+          </pattern>
         </defs>
 
-        {/* ───── Inner progress layer ───── */}
+        {/* Inner progress layer */}
         {segments.map((seg, i) => {
           const startDeg = startOffset + i * arcSize;
           const endDeg = startOffset + (i + 1) * arcSize;
           const pct = Math.max(0, Math.min(100, seg.current));
           const currentR = HUB_R + (PROGRESS_MAX_R - HUB_R) * (pct / 100);
-          const labelDeg = startDeg + arcSize / 2;
-          const [lx, ly] = polar(HUB_R + (currentR - HUB_R) * 0.55, labelDeg);
+          const isHovered = effectiveHover === seg.id;
+          const isEmpty = pct === 0;
+          const isComplete = pct >= 100;
+          const bucket = Math.round(pct / 5);
+
+          const hov = isHovered ? ' is-hovered' : '';
           return (
-            <g key={`inner-${seg.id}`}>
-              {/* Dim backdrop for unfilled portion */}
+            <g
+              key={`inner-${seg.id}`}
+              role="img"
+              aria-label={`${seg.label}: ${Math.round(seg.current)}%`}
+              className={`mcw-sector${isMounted ? ' is-mounted' : ''}${hov}`}
+              style={{ cursor: 'pointer', animationDelay: `${i * 90}ms` }}
+              onMouseEnter={(e) => handleEnter(seg, e)}
+              onMouseLeave={handleLeave}
+              onMouseMove={(e) => handleMove(seg, e)}
+            >
               <path
                 d={annularSector(HUB_R, PROGRESS_MAX_R, startDeg, endDeg)}
                 fill="url(#mcw-progress-grad-dim)"
-                className="mcw-seg-bg"
+                className={`mcw-seg-bg${hov}`}
               />
-              {/* Actual current progress fill (level-tinted gradient) */}
-              {pct > 0 && (
+              {isEmpty && (
                 <path
-                  d={annularSector(HUB_R, currentR, startDeg, endDeg)}
-                  fill="url(#mcw-progress-grad)"
-                  className="mcw-seg-current"
+                  d={annularSector(HUB_R + 4, PROGRESS_MAX_R - 4, startDeg, endDeg)}
+                  className={`mcw-seg-empty${hov}`}
                 />
               )}
-              {/* Percent */}
-              <text x={lx} y={ly} className="mcw-percent" textAnchor="middle" dominantBaseline="middle">
-                {Math.round(seg.current)}%
-              </text>
+              {pct > 0 && (
+                <>
+                  <path
+                    key={`fill-${seg.id}-${bucket}`}
+                    d={annularSector(HUB_R, currentR, startDeg, endDeg)}
+                    fill="url(#mcw-progress-grad)"
+                    className={`mcw-seg-current${hov}`}
+                    style={{ animationDelay: `${i * 80}ms` }}
+                  />
+                  <path
+                    d={annularSector(HUB_R, currentR, startDeg, endDeg)}
+                    fill={`url(#${patternId})`}
+                    className={`mcw-seg-pattern${hov}`}
+                    pointerEvents="none"
+                  />
+                </>
+              )}
+              {isComplete && (
+                <path
+                  key={`complete-${seg.id}`}
+                  d={outerArc(PROGRESS_MAX_R - 2, startDeg + 1, endDeg - 1)}
+                  pathLength="1"
+                  className={`mcw-seg-complete${hov}`}
+                  pointerEvents="none"
+                />
+              )}
             </g>
           );
         })}
 
-        {/* ───── Outer level-colored label ring ───── */}
+        {/* Outer level-colored label ring */}
         {segments.map((seg, i) => {
           const startDeg = startOffset + i * arcSize;
           const endDeg = startDeg + arcSize;
@@ -142,30 +377,161 @@ export default function MaqasidComparisonWheel({
               fill="url(#mcw-band-level)"
               stroke="rgba(10, 20, 24, 0.85)"
               strokeWidth="1.5"
+              pointerEvents="none"
             />
           );
         })}
 
-        {/* Outer ring outline */}
         <circle cx={CX} cy={CY} r={LABEL_OUTER_R} className="mcw-outer-stroke" />
         <circle cx={CX} cy={CY} r={LABEL_INNER_R} className="mcw-outer-stroke" />
 
-        {/* Curved submodule labels inside the colored band */}
-        {segments.map((seg) => (
-          <text key={`lbl-${seg.id}`} className="mcw-segment-label">
-            <textPath href={`#mcw-label-${seg.id}`} startOffset="50%" textAnchor="middle">
-              {seg.label}
-            </textPath>
-          </text>
-        ))}
+        {segments.map((seg, i) => {
+          const Icon = seg.Icon;
+          if (!Icon) return null;
+          const midDeg = startOffset + i * arcSize + arcSize / 2;
+          const [ix, iy] = polar(ICON_R, midDeg);
+          const isHov = effectiveHover === seg.id;
+          const isComplete = (seg.current || 0) >= 100;
+          const hov = isHov ? ' is-hovered' : '';
+          const vesselLit = (isLit || isComplete) ? ' is-lit' : '';
+          const vesselComplete = isComplete ? ' is-complete' : '';
+          return (
+            <g
+              key={`vessel-${seg.id}`}
+              className={`mcw-pillar-vessel${hov}${vesselLit}${vesselComplete}`}
+              style={{
+                '--mcw-aura-cx': `${ix}px`,
+                '--mcw-aura-cy': `${iy}px`,
+                '--mcw-ignite-delay': `${80 + i * 50}ms`,
+              }}
+              pointerEvents="none"
+            >
+              <circle
+                className="mcw-aura"
+                cx={ix}
+                cy={iy}
+                r={16}
+                fill="url(#mcw-aura-grad)"
+              />
+              <foreignObject
+                x={ix - 9}
+                y={iy - 9}
+                width="18"
+                height="18"
+                pointerEvents="none"
+              >
+                <div className="mcw-icon-wrap">
+                  <Icon size={18} strokeWidth={1.8} />
+                </div>
+              </foreignObject>
+            </g>
+          );
+        })}
 
-        {/* Hub */}
-        <circle cx={CX} cy={CY} r={HUB_R} className="mcw-hub" />
-        <circle cx={CX} cy={CY} r={HUB_R - 4} className="mcw-hub-inner" />
-        <text x={CX} y={CY + 5} className="mcw-hub-label" textAnchor="middle" dominantBaseline="middle">
-          {centerLabel}
-        </text>
+        {/* Compass needle — rotates to hovered segment's midangle */}
+        <g
+          className={`mcw-needle${effectiveHover && !isDormant ? ' is-active' : ''}`}
+          style={{
+            transform: `rotate(${needleAngle}deg)`,
+            transformOrigin: `${CX}px ${CY}px`,
+          }}
+          pointerEvents="none"
+        >
+          <path
+            d={`M ${CX} ${CY - HUB_R + 1} L ${CX - 4} ${CY - HUB_R - 7} L ${CX + 4} ${CY - HUB_R - 7} Z`}
+          />
+        </g>
+
+        {/* Hub — acts as Mithaq press target when mithaqDomain is set */}
+        <g
+          className={`mcw-hub-group${mithaqHolding ? ' is-holding' : ''}${isDormant ? ' is-dormant' : ''}`}
+          {...(mithaqDomain && !isLit
+            ? {
+                ...mithaqBind,
+                role: 'button',
+                tabIndex: 0,
+                'aria-label': `Press and hold to renew the ${centerLabel.toLowerCase()} covenant`,
+              }
+            : { pointerEvents: 'none' })}
+        >
+          <circle
+            cx={CX} cy={CY} r={HUB_R}
+            className={`mcw-hub${effectiveHover && !isDormant ? ' is-active' : ''}`}
+          />
+          <circle cx={CX} cy={CY} r={HUB_R - 4} className="mcw-hub-inner" />
+          {mithaqDomain && !isLit && (
+            <circle
+              className="mcw-mithaq-ring"
+              cx={CX}
+              cy={CY}
+              r={HUB_R + 4}
+              fill="none"
+              stroke={palette.brightAura}
+              strokeWidth={2}
+              strokeLinecap="round"
+              pathLength="1"
+              strokeDasharray="1"
+              strokeDashoffset={1 - mithaqProgress}
+              transform={`rotate(-90 ${CX} ${CY})`}
+              pointerEvents="none"
+            />
+          )}
+          <text
+            x={CX} y={isDormant ? CY - 6 : CY - 10}
+            className={`mcw-hub-label${effectiveHover && !isDormant ? ' is-active' : ''}`}
+            textAnchor="middle" dominantBaseline="middle"
+            pointerEvents="none"
+          >
+            {hubTopLabel}
+          </text>
+          {!isDormant && (
+            <text
+              x={CX} y={CY + 10}
+              className="mcw-hub-readout"
+              textAnchor="middle" dominantBaseline="middle"
+              pointerEvents="none"
+            >
+              {hubBottomLabel}
+            </text>
+          )}
+          {isDormant && (
+            <text
+              x={CX} y={CY + 12}
+              className="mcw-hub-hint"
+              textAnchor="middle" dominantBaseline="middle"
+              pointerEvents="none"
+            >
+              Press &amp; hold to renew
+            </text>
+          )}
+        </g>
+        {/* Sector-adjacent pop-out: "Next" action for the hovered pillar */}
+        {cardPos && nextCardText && !isDormant && (
+          <MaqasidNextActionCard
+            x={cardPos.x}
+            y={cardPos.y}
+            flip={cardPos.flip}
+            levelColor={palette.base}
+            text={nextCardText}
+          />
+        )}
       </svg>
+
+      {wisdomPayload && !isDormant && (
+        <WheelWisdomTooltip
+          wisdom={wisdomPayload}
+          x={cursor.x}
+          y={cursor.y}
+          levelColor={palette.base}
+        />
+      )}
+      <div
+        className="mcw-aria-live"
+        role="status"
+        aria-live="polite"
+      >
+        {isIgniting ? `${centerLabel} covenant renewed.` : ''}
+      </div>
     </div>
   );
 }

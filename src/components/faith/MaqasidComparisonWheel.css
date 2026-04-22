@@ -10,7 +10,46 @@
   max-width: 540px;
   height: auto;
   display: block;
+  overflow: visible;
 }
+
+/* ─────── Sector entry choreography (mount only) ─────── */
+
+.mcw-sector {
+  opacity: 0;
+  transform: scale(0.85);
+  transform-origin: 200px 200px;
+  transform-box: fill-box;
+}
+
+.mcw-sector.is-mounted {
+  animation: mcw-sector-in 520ms cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+}
+
+@keyframes mcw-sector-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─────── Focused dimming (anti-pattern fix) ─────── */
+/* When any segment is hovered, dim non-hovered peers and outer decorations
+ * so the active pillar + hub readout are the only loud elements.           */
+
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-bg,
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-empty,
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-current,
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-pattern,
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-complete,
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-icon-wrap:not(.is-hovered) {
+  opacity: 0.3;
+  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mcw-icon-wrap {
+  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ─────── Inner progress layer ─────── */
 
 .mcw-seg-bg {
   fill-opacity: 0.55;
@@ -18,21 +57,65 @@
 
 .mcw-seg-current {
   fill-opacity: 0.95;
-  stroke: var(--mcw-level-color, #3fb0a3);
+  stroke: var(--mcw-level-stroke, var(--mcw-level-color, #3fb0a3));
   stroke-width: 1.2;
   stroke-opacity: 0.85;
+  transform-origin: 200px 200px;
+  transform-box: fill-box;
+  animation: mcw-sweep 550ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition:
+    filter 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.mcw-divider {
-  stroke: rgba(63, 176, 163, 0.85);
-  stroke-width: 1.2;
+.mcw-seg-current.is-hovered {
+  filter: drop-shadow(0 0 10px var(--mcw-level-color, #3fb0a3));
+  transform: scale(1.02);
+  transform-origin: 200px 200px;
 }
 
-.mcw-progress-outline {
+@keyframes mcw-sweep {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.mcw-seg-pattern {
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Empty (0%) — shimmer skeleton using OKLCH-coherent shimmer color */
+.mcw-seg-empty {
   fill: none;
-  stroke: rgba(201, 160, 90, 0.25);
+  stroke: var(--mcw-level-shimmer, var(--mcw-level-color, #3fb0a3));
   stroke-width: 1;
+  stroke-dasharray: 4 5;
+  stroke-opacity: 0.35;
+  animation: mcw-shimmer 2.8s ease-in-out infinite;
 }
+
+@keyframes mcw-shimmer {
+  0%, 100% { stroke-opacity: 0.25; }
+  50%      { stroke-opacity: 0.6; }
+}
+
+/* Complete (100%) — single-pass inked stroke along the outer edge */
+.mcw-seg-complete {
+  fill: none;
+  stroke: var(--mcw-level-color, #3fb0a3);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 8px var(--mcw-level-color, #3fb0a3));
+  animation: mcw-ink 900ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes mcw-ink {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ─────── Outer band & labels ─────── */
 
 .mcw-outer-stroke {
   fill: none;
@@ -40,35 +123,133 @@
   stroke-width: 1;
 }
 
-.mcw-dotted {
-  fill: none;
-  stroke: #c9a05a;
-  stroke-width: 1.5;
-  stroke-dasharray: 3 4;
+.mcw-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: #f3efe4;
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+  transition:
+    transform 320ms cubic-bezier(0.2, 1.2, 0.3, 1),
+    filter 320ms ease,
+    opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* ─────── Nur aura + icon bloom ─────── */
+/* Each outer sector becomes a vessel: dormant = empty, hovered/lit = filled with light. */
+
+.mcw-pillar-vessel .mcw-aura {
+  opacity: 0;
+  transform: scale(1);
+  transform-origin: var(--mcw-aura-cx, 50%) var(--mcw-aura-cy, 50%);
+  transform-box: view-box;
+  filter: blur(6px);
+  transition:
+    opacity 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Steady-state lit (100% complete) — gentle persistent glow */
+.mcw-pillar-vessel.is-lit .mcw-aura {
+  opacity: 0.55;
+  transform: scale(1.15);
+}
+
+.mcw-pillar-vessel.is-lit .mcw-icon-wrap {
+  filter: drop-shadow(0 0 3px var(--mcw-level-aura, #e9d9a0))
+          drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+}
+
+/* Hover bloom — brighter, larger, icon scales up */
+.mcw-pillar-vessel.is-hovered .mcw-aura {
+  opacity: 0.75;
+  transform: scale(1.6);
+}
+
+.mcw-pillar-vessel.is-hovered .mcw-icon-wrap {
+  transform: scale(1.22);
+  filter: drop-shadow(0 0 4px var(--mcw-level-aura, #e9d9a0))
+          drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+  opacity: 1;
+}
+
+/* Focused-dimming parity — when another vessel is hovered, dim this one */
+.mcw-svg:has(.mcw-pillar-vessel.is-hovered) .mcw-pillar-vessel:not(.is-hovered) .mcw-icon-wrap {
+  opacity: 0.3;
+}
+.mcw-svg:has(.mcw-pillar-vessel.is-hovered) .mcw-pillar-vessel:not(.is-hovered).is-lit .mcw-aura {
+  opacity: 0.2;
+}
+
+/* ─────── Compass needle ─────── */
+
+.mcw-needle path {
+  fill: var(--mcw-level-stroke, var(--mcw-level-color, #c9a05a));
+  stroke: rgba(10, 20, 24, 0.6);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+
+.mcw-needle {
+  opacity: 0;
+  transition:
+    transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 240ms ease;
+}
+
+.mcw-needle.is-active {
   opacity: 0.95;
+  filter: drop-shadow(0 0 4px var(--mcw-level-color, #c9a05a));
 }
 
-.mcw-percent {
-  fill: #f3efe4;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  pointer-events: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
-}
-
-.mcw-segment-label {
-  fill: #f3efe4;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
-}
+/* ─────── Hub ─────── */
 
 .mcw-hub {
-  fill: #0a2327;
-  stroke: #c9a05a;
+  fill: var(--mcw-level-hub-tint, #0c1a20);
+  stroke: var(--mcw-level-stroke, var(--mcw-level-color, #c9a05a));
+  stroke-opacity: 0.85;
   stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mcw-breathe 5.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  /* Qalb: balance-responsive glow + softness. Balanced (1) → bright, crisp.
+   * Scattered (0) → dim, gently blurred at the edge. */
+  filter:
+    drop-shadow(
+      0 0 calc(4px + var(--mcw-qalb-balance, 0.7) * 14px)
+      var(--mcw-level-color, #c9a05a)
+    )
+    blur(calc((1 - var(--mcw-qalb-balance, 0.7)) * 0.9px));
+  opacity: calc(0.82 + var(--mcw-qalb-balance, 0.7) * 0.18);
+  transition:
+    stroke 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    fill 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 640ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 640ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-opacity 240ms;
+}
+
+@keyframes mcw-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(calc(1 + var(--mcw-qalb-balance, 0.7) * 0.03)); }
+}
+
+/* Pause breathing during hover and normalize the Qalb glow so the focus card
+ * reveal gets an undivided, steady backdrop. */
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-hub {
+  animation-play-state: paused;
+  filter: drop-shadow(0 0 14px var(--mcw-level-color, #c9a05a));
+  opacity: 1;
+}
+
+.mcw-hub.is-active {
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 6px var(--mcw-level-color, #c9a05a));
 }
 
 .mcw-hub-inner {
@@ -82,17 +263,168 @@
   font-family: 'Cinzel', 'Times New Roman', serif;
   font-size: 18px;
   font-weight: 400;
+  letter-spacing: 0.14em;
+  transition: fill 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mcw-hub-label.is-active {
+  fill: var(--mcw-level-color, #c9a05a);
+}
+
+.mcw-hub-readout {
+  fill: #f3efe4;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+/* ─────── Mithaq (covenant) dormant + ignition ─────── */
+/* When mithaqDomain is set and the user hasn't renewed today, the wheel is
+ * dormant: sectors desaturated, progress arcs dimmed, hub shows a ritual hint.
+ * Pressing and holding the hub for 1.5s "ignites" the wheel — auras bloom in
+ * a staggered sequence (~50ms/index) as the climax. */
+
+.mcw-svg--dormant .mcw-seg-bg,
+.mcw-svg--dormant .mcw-seg-current,
+.mcw-svg--dormant .mcw-seg-pattern {
+  opacity: 0.4;
+  filter: saturate(0.5);
+  transition: opacity 420ms ease, filter 420ms ease;
+}
+
+.mcw-svg--dormant .mcw-seg-empty {
+  stroke-opacity: 0.18;
+}
+
+/* Hub group (Mithaq press target) */
+.mcw-hub-group {
+  cursor: pointer;
+  outline: none;
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: 200px 200px;
+  transform-box: view-box;
+}
+
+.mcw-hub-group.is-dormant .mcw-hub {
+  fill: rgba(8, 16, 20, 0.95);
+  stroke-opacity: 0.35;
+  filter: drop-shadow(0 0 3px rgba(243, 239, 228, 0.15));
+  opacity: 0.78;
+}
+
+.mcw-hub-group.is-dormant .mcw-hub-label {
+  fill: #8a8478;
+  font-size: 14px;
   letter-spacing: 0.18em;
 }
 
-.mcw-gap-line {
-  stroke: #c9a05a;
-  stroke-width: 1.5;
+/* Pressed-state: small scale down for tactile feedback */
+.mcw-hub-group.is-holding {
+  transform: scale(0.975);
+}
+.mcw-hub-group.is-holding .mcw-hub-label {
+  fill: #f3efe4;
 }
 
-.mcw-gap-label {
+/* Keyboard focus ring — only when focus-visible on the group */
+.mcw-hub-group:focus-visible .mcw-hub {
+  stroke: var(--mcw-level-aura, #e9d9a0);
+  stroke-width: 2;
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 6px var(--mcw-level-aura, #e9d9a0));
+}
+
+/* Dormant hint text under the hub label */
+.mcw-hub-hint {
   fill: #c9a05a;
-  font-size: 10px;
+  font-family: 'Amiri', 'Times New Roman', serif;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
   font-style: italic;
-  letter-spacing: 0.04em;
+  animation: mcw-hint-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes mcw-hint-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.75; }
+}
+
+/* Mithaq shimmer ring — draws clockwise around the hub as the user presses */
+.mcw-mithaq-ring {
+  opacity: 0.92;
+  filter: drop-shadow(0 0 4px var(--mcw-level-aura, #e9d9a0));
+  /* stroke-dashoffset is set inline via mithaqProgress; no CSS transition so
+   * release-drain is driven by the hook's RAF tween, not a CSS animation race. */
+}
+
+/* Ignition: auras stagger-fade-in after the hub fully charges */
+.mcw-svg--igniting .mcw-pillar-vessel .mcw-aura {
+  animation: mcw-ignite-aura 620ms cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  animation-delay: var(--mcw-ignite-delay, 0ms);
+}
+
+.mcw-svg--igniting .mcw-pillar-vessel .mcw-icon-wrap {
+  animation: mcw-ignite-icon 620ms cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  animation-delay: var(--mcw-ignite-delay, 0ms);
+}
+
+@keyframes mcw-ignite-aura {
+  0%   { opacity: 0;   transform: scale(0.6); }
+  55%  { opacity: 0.9; transform: scale(1.35); }
+  100% { opacity: 0.55; transform: scale(1.15); }
+}
+
+@keyframes mcw-ignite-icon {
+  0%   { transform: scale(0.85); filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45)); }
+  55%  { transform: scale(1.3);  filter: drop-shadow(0 0 5px var(--mcw-level-aura, #e9d9a0)); }
+  100% { transform: scale(1);    filter: drop-shadow(0 0 3px var(--mcw-level-aura, #e9d9a0))
+                                         drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45)); }
+}
+
+/* Offscreen aria-live region for activation announcement */
+.mcw-aria-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─────── Reduced-motion fallback ─────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .mcw-seg-current,
+  .mcw-seg-empty,
+  .mcw-seg-complete,
+  .mcw-hub,
+  .mcw-hub-label,
+  .mcw-needle,
+  .mcw-sector,
+  .mcw-sector.is-mounted,
+  .mcw-icon-wrap,
+  .mcw-pillar-vessel .mcw-aura,
+  .mcw-pillar-vessel.is-hovered .mcw-icon-wrap,
+  .mcw-hub-hint,
+  .mcw-hub-group,
+  .mcw-svg--igniting .mcw-pillar-vessel .mcw-aura,
+  .mcw-svg--igniting .mcw-pillar-vessel .mcw-icon-wrap {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .mcw-sector,
+  .mcw-sector.is-mounted {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .mcw-seg-complete {
+    stroke-dashoffset: 0;
+  }
 }

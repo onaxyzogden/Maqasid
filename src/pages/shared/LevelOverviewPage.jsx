@@ -5,6 +5,7 @@ import { useTaskStore } from '@store/task-store';
 import { useModulesProgress } from '@hooks/useModuleProgress';
 import IslamicTerm from '@components/shared/IslamicTerm';
 import LevelNavigator from '@components/shared/LevelNavigator';
+import IstiqamahToast from '@components/shared/IstiqamahToast';
 import { useAyahBanner } from '@hooks/useAyahBanner';
 import './LevelOverviewPage.css';
 
@@ -61,6 +62,7 @@ export default function LevelOverviewPage({
   levelDescriptions,
   showComparisonWheel = false,
   wheelCenterLabel,
+  wheelExtraProps,
   ComparisonWheelComponent,
   ExcellenceCardsComponent,
 }) {
@@ -110,8 +112,10 @@ export default function LevelOverviewPage({
             segments={pillars.map((p) => ({
               id: p.id,
               label: p.label,
+              Icon: p.Icon,
               current: progressMap[p.id]?.pct ?? 0,
             }))}
+            {...(wheelExtraProps || {})}
           />
         </div>
       )}
@@ -154,6 +158,9 @@ export default function LevelOverviewPage({
           <ExcellenceCardsComponent />
         </div>
       )}
+
+      {/* Milestone toast host — singleton, reads from useToastStore */}
+      <IstiqamahToast />
     </div>
   );
 }

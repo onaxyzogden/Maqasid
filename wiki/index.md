@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-21b
+updated: 2026-04-22
 ---
 
 # Wiki Index
@@ -57,6 +57,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-21-project-pillar-tagging-submodule-slideup]] | 2026-04-21 | MirrorCard Education tab enumerates pillar submodules via registry; SubmoduleSlideUp opens canonical PillarLevelPage; `/app/work` New Project dialog tags projects with pillar/submodule `moduleId` |
 | [[2026-04-21-prayer-slide-up-fln]] | 2026-04-21 | Prayer slide-up rebuilt as FLN carousel with 18 real `prayer_{pillar}_{phase}` boards; Option-A generic sunan duplication across 5 daily prayers; During renders hero, Before/After render kanban |
 | [[2026-04-21-graphify-extraction-gaps]] | 2026-04-21 | graphify under-emits `imports` edges for `src/data/**` consumers, producing false-positive bridge nodes; targeted re-extraction is the accepted remedy |
+| [[2026-04-22-mithaq-activation-nur-aura]] | 2026-04-22 | Round 5 wheel upgrade: daily Mithaq press-and-hold ritual on Qalb hub (1.5s) + Nur Aura icon bloom in OKLCH `brightAura`; wheel begins dormant until covenant renewed |
 
 ## Sources
 

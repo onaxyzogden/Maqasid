@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Live prayer times wired to Prophetic Path timeline
+
+**Completed:**
+- Consumed `usePrayerTimes()` inside `PropheticPath` and passed per-node `timing` (time / anchor-label / state) down to `TimelineNode`. Each of the 5 canonical prayer nodes (`fajr`, `dhuhr`, `asr`, `maghrib`, `isha`) now renders a 12-hour-formatted chip next to the eyebrow. Transition nodes use Aladhan's extended keys: `morning` → `Sunrise`, `tahajjud` → `Lastthird`; `midday-labor` anchors on Dhuhr with a "After Dhuhr" label.
+- Added `Now` / `Next` badges (the former pulses, re-using `@keyframes pp-pulse`) keyed off `activePrayer.name` and `nextPrayer.name`. `data-prayer-state` on `.pp-node` / `.pp-card` / `.pp-marker` drives active glow, next tint, past opacity ≈0.55.
+- Empty-state handled: when `timings === null` the intro shows a "Set location for live prayer times" button that calls `requestLocation()`; when populated it shows "Prayer times for {cityName}".
+- CSS in `PropheticPath.css` additions: `.pp-time-chip`, `.pp-time-chip__badge`, `.pp-location-line`, `.pp-location-cta` — all use existing `--pp-primary` / `--pp-on-surface` tokens.
+
+**Decisions:** none new (implementation detail within existing design language).
+
+**Verification:** `npm run build` clean (2.16s, 2706 modules). Preview at `/app/prophetic-path-test` with seeded Aladhan-shaped timings confirmed: 8 chips render (5 prayers + 3 anchors), `NEXT` badge on the upcoming prayer, `past`/`upcoming` opacity delta visible, marker glow on active. No console errors. Test seed cleared after verification.
+
+**Deferred:** Chip wrap on ultra-narrow cards (observed in the constrained right panel of the test page) — low priority, does not affect the `/app/faith` overview where PropheticPath would be hosted. Next-session recommendation: add a live-times strip to the Dashboard sanctuary widget.
+
+---
+
 ## [2026-04-21] session | Prayer slide-up subtasks — two-axis grounding migration
 
 **Completed:**
@@ -1762,3 +1778,32 @@ Follow-up sweep from the threshold reframe earlier today. Prior session-close re
 ### Notes
 - Lesson: session-close debriefs must cite *verified* state, not speculative "what's left." The "ripple 6 pillars" recommendation should have been validated against the data file before being written — it would have taken 30 seconds to disprove.
 - Commit: `4e6a720` chore(threshold): delete orphan defer constants + CSS (0 callers).
+
+## 2026-04-22 — Maqasid Comparison Wheel Round 5 (Nur Aura + Mithaq Activation)
+
+### Context
+Continuation of the iterative UI/UX upgrade sprint on the Maqasid Comparison Wheel. Rounds 1–4 addressed information clarity (OKLCH palette, compass needle, wisdom tooltip, pathfinding card, inked-stroke milestones, cross-component hover sync with LevelNavigator, courageous label pruning, icon parity). Scholar consultation `2b89f729` (notebook `995a59d1`) diagnosed two remaining gaps: "Floating Icon Syndrome" (empty outer band after label prune) and the passive-display problem (no ceremony to engage the wheel).
+
+### Done
+- **Nur Aura + Icon Bloom.** `wheelColor.js` gained `brightAura` field (OKLCH L=0.78 — gold/teal/purple at equal perceived lightness). Each pillar icon wrapped in `.mcw-pillar-vessel` `<g>` containing a radial-gradient `<circle>` + foreignObject icon. Hover → aura opacity 0→0.75 + scale 1.6× + icon scale 1.22× with drop-shadow glow. 100% complete → persistent lit state (replaces Round 2 halo-pulse).
+- **Mithaq Activation Ritual.** New `src/store/mithaqStore.js` (Zustand + `zustand/middleware` persist) with per-domain activation expiring at next 5am local (Fajr proxy). New `src/hooks/useMithaqHold.js` — RAF state machine: idle → holding (1500ms) → activated | draining (280ms ease-in). Ref-based tick functions avoid self-referencing-useCallback lint.
+- **Wheel integration.** `mithaqDomain` prop gates dormancy. Dormant state: sectors desaturated (opacity 0.4 + saturate 0.5), empty-dashes dimmed, needle/next-action-card/wisdom-tooltip all suppressed via `!isDormant` gate, hub shows muted "FAITH" + `Press & hold to renew` Amiri italic hint. Hub group is the press target (`role="button"`, `tabIndex={0}`, aria-label). Shimmer ring at `r=HUB_R+4` with `pathLength=1`, `strokeDashoffset={1 - mithaqProgress}`, `transform={rotate(-90)}` — draws clockwise as user presses. Pressed-state tactile `scale(0.975)`.
+- **Ignition choreography.** Driven by `onActivate` event handler (not `useEffect` watching `isLit`) — avoids setState-in-effect and also means page reload while already activated does NOT replay the animation. 80ms silence → `.mcw-svg--igniting` triggers keyframes per vessel with `animation-delay: 80ms + i*50ms`. Aura: opacity 0→0.9→0.55, scale 0.6→1.35→1.15. Icon: scale 0.85→1.3→1 with drop-shadow bloom. `<div role="status" aria-live="polite">` announces "FAITH covenant renewed."
+- **Accessibility.** Keyboard Space/Enter press-and-hold, Escape aborts, `:focus-visible` ring on hub group. `prefers-reduced-motion` extended to disable every aura/bloom/ignite/hint-pulse animation.
+- **Wired** `mithaqDomain: 'faith'` into `FaithLevelOverview.jsx`'s `wheelExtraProps`. Faith pages dormant-until-renewed; other pillars inherit aura-on-hover with no dormancy.
+- Build 2703 → **2706 modules** (+store + hook + persist middleware), lint clean.
+
+### Deferred
+- **Muraqabah Commitment Pips** (Round 6) — small radial dots on inner band edge for daily sub-units (e.g., 5 pips for Salah's 5 prayers).
+- **Sacred Pattern Masking** (Round 6) — Girih / 8-point-star SVG pattern fading in on hover.
+- **Status-based icon morphing** — Moon crescent → full for Siyam, dual-crescent for Hajj. Per-pillar craft.
+- **Fajr prayer-time integration** — replace the 5am proxy with the user's actual local Fajr.
+- **Covenant streak ring** — consecutive-day activation ring; blocked on historical persistence (same block as the Round 2 momentum ghost arc).
+- **Sound on activation** — glass-tap / ney-flute note; audio-design sprint.
+
+### Notes
+- Chose single domain key (`'faith'`) over per-level keys (`'faith-core'/growth/excellence'`) — activating once covers the whole Maqasid hemisphere for the day; more generous, better reflects *tajdīd al-ʿahd* being holistic.
+- Chose `brightAura` as the fifth `wheelColor.js` output rather than computing it inline — future features (commitment pips, ghost arc, pattern masking) get perceptual coherence for free when they consume it.
+- Ignition animation is event-driven (fires from `onActivate` callback), not state-driven (watching `isLit`). This had the bonus of cleanly avoiding the setState-in-effect lint rule AND matching the ritual semantics (the animation is *the moment of the act*, not a reaction to stored state).
+- The shimmer ring's `strokeDashoffset` is inline-driven by the hook's RAF tween — no CSS transition on that property. Keeps drain-from-early-release and fresh-press-over-draining unambiguous: one source of truth for ring fill.
+- ADR filed: `wiki/decisions/2026-04-22-mithaq-activation-nur-aura.md`.

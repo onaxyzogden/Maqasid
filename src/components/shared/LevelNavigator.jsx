@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
+import { useWheelHoverStore } from '@store/wheelHoverStore';
 import { safeSet } from '@services/storage';
 import './LevelNavigator.css';
 
@@ -191,6 +192,10 @@ export default function LevelNavigator({
   const finalPillarTasks = externalPillarTasks || internalPillarTasks;
   const resolveTaskColor = taskColorFn || taskColor;
 
+  // Cross-component hover sync (nav ↔ Maqasid Comparison Wheel).
+  const syncHovered = useWheelHoverStore((s) => s.hoveredPillar);
+  const setHoveredPillar = useWheelHoverStore((s) => s.setHoveredPillar);
+
   return (
     <div ref={flnRef} className={`fln${compact ? ' fln--compact' : ''}${stacked ? ' fln--stacked' : ''}`}>
 
@@ -237,12 +242,18 @@ export default function LevelNavigator({
               else { if (storageKey) safeSet(storageKey, active.key); navigate(route); }
             };
             const gate = gateIndicators?.find((g) => g.afterSegmentId === id);
+            const isSyncHovered = syncHovered === id;
             return (
               <Fragment key={id}>
                 <div
-                  className={`fln__segment-col${isCurrent ? ' fln__segment-col--current' : ''}`}
-                  style={isCurrent ? { '--seg-color': active.color } : undefined}
+                  className={`fln__segment-col${isCurrent ? ' fln__segment-col--current' : ''}${isSyncHovered ? ' fln__segment-col--hover-sync' : ''}`}
+                  style={{ '--seg-color': active.color }}
+                  data-pillar-id={id}
                   onClick={handleSegClick}
+                  onMouseEnter={() => setHoveredPillar(id)}
+                  onMouseLeave={() => setHoveredPillar(null)}
+                  onFocus={() => setHoveredPillar(id)}
+                  onBlur={() => setHoveredPillar(null)}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => e.key === 'Enter' && handleSegClick()}

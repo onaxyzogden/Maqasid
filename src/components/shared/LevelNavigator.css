@@ -147,6 +147,38 @@
   border-radius: 10px;
   padding: 8px 6px 6px;
   cursor: pointer;
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+/* Cross-component hover sync — lights up when its matching wheel sector is
+ * hovered (or the column itself is hovered / keyboard-focused). */
+.fln__segment-col--hover-sync:not(.fln__segment-col--current) {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--seg-color, var(--primary)) 70%, var(--border));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--seg-color, var(--primary)) 55%, transparent),
+    0 4px 14px -6px color-mix(in srgb, var(--seg-color, var(--primary)) 55%, transparent);
+}
+.fln__segment-col--hover-sync.fln__segment-col--current {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px var(--seg-color, var(--primary)),
+    0 6px 18px -6px color-mix(in srgb, var(--seg-color, var(--primary)) 65%, transparent);
+}
+.fln__segment-col--hover-sync .fln__segment-nav {
+  color: var(--seg-color, var(--primary));
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fln__segment-col,
+  .fln__segment-col--hover-sync {
+    transition: none;
+    transform: none;
+  }
 }
 
 /* Active column: tinted background + accent border outline */
