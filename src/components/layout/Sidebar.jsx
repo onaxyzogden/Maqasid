@@ -11,7 +11,7 @@ import {
   PiggyBank, ChessKnight, Store, CircleFadingArrowUp, BarChart3,
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
-  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, Boxes, HouseHeart,
+  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, MapPin, Boxes, HouseHeart, Globe,
   Search, FlaskConical,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
@@ -32,7 +32,7 @@ const ICON_MAP = {
   Leaf, TreeDeciduous, ShoppingBag, Hammer,
   Droplets, Recycle,
   TrendingUp, Star, CheckCircle2, Moon, TreePine,
-  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, Boxes, HouseHeart,
+  Mountain, Building, CirclePile, HousePlus, Shapes, MapPinned, MapPin, Boxes, HouseHeart, Globe,
 };
 const PILLAR_ICON_MAP = { Compass, HeartPulse, Brain, Users, Coins, ChessRook, TreePine, Shapes, Moon };
 
