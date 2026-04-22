@@ -113,6 +113,7 @@ export default function LevelOverviewPage({
               id: p.id,
               label: p.label,
               Icon: p.Icon,
+              route: p.route,
               current: progressMap[p.id]?.pct ?? 0,
             }))}
             {...(wheelExtraProps || {})}

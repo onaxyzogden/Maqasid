@@ -35,18 +35,44 @@
 /* When any segment is hovered, dim non-hovered peers and outer decorations
  * so the active pillar + hub readout are the only loud elements.           */
 
+/* Base opacity transitions — MUST live on the element itself, not inside the
+ * :has() rule. A transition declared only in a conditional rule applies only
+ * WHILE the rule matches, so leaving the match-set (hover end, or sector→
+ * sector handoff where this element flips between the hovered and peer side)
+ * snaps instead of tweening. Put the transition on the base selector so it
+ * animates in BOTH directions. */
+.mcw-seg-bg,
+.mcw-seg-empty,
+.mcw-seg-pattern,
+.mcw-seg-complete,
+.mcw-icon-wrap,
+.mcw-band {
+  transition: opacity 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+              filter 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-bg,
 .mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-empty,
 .mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-current,
 .mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-pattern,
 .mcw-svg:has(.mcw-sector.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-complete,
-.mcw-svg:has(.mcw-sector.is-hovered) .mcw-icon-wrap:not(.is-hovered) {
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-icon-wrap:not(.is-hovered),
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-bg,
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-empty,
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-current,
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-pattern,
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-sector:not(.is-hovered) .mcw-seg-complete,
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-icon-wrap:not(.is-hovered) {
   opacity: 0.3;
-  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.mcw-icon-wrap {
-  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+/* Outer band hover brightening */
+.mcw-band.is-hovered {
+  filter: brightness(1.1) drop-shadow(0 0 6px var(--mcw-level-color, #c9a05a));
+}
+.mcw-svg:has(.mcw-band.is-hovered) .mcw-band:not(.is-hovered),
+.mcw-svg:has(.mcw-sector.is-hovered) .mcw-band:not(.is-hovered) {
+  opacity: 0.5;
 }
 
 /* ─────── Inner progress layer ─────── */
@@ -64,8 +90,9 @@
   transform-box: fill-box;
   animation: mcw-sweep 550ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   transition:
-    filter 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .mcw-seg-current.is-hovered {
@@ -123,21 +150,20 @@
   stroke-width: 1;
 }
 
+/* .mcw-icon-wrap is now an SVG <g>, not an HTML div. Lucide icons inherit
+ * `color` via currentColor, so recoloring on hover still works. Scale is
+ * applied via CSS transform with transform-box/origin set for SVG geometry. */
 .mcw-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
   color: #f3efe4;
   opacity: 0.9;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+  transform-origin: 9px 9px;
+  transform-box: fill-box;
   transition:
     transform 320ms cubic-bezier(0.2, 1.2, 0.3, 1),
     filter 320ms ease,
+    color 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
     opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  transform-origin: center;
-  transform-box: fill-box;
 }
 
 /* ─────── Nur aura + icon bloom ─────── */
@@ -165,16 +191,21 @@
           drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
 }
 
-/* Hover bloom — brighter, larger, icon scales up */
+/* Hover bloom — aura expands behind the icon, but stays translucent so the
+ * near-white icon isn't swallowed by a near-white glow. The icon gets a dark
+ * halo (not a bright one) so it reads crisply against the bloom. */
 .mcw-pillar-vessel.is-hovered .mcw-aura {
-  opacity: 0.75;
-  transform: scale(1.6);
+  opacity: 0.5;
+  transform: scale(1.55);
 }
 
 .mcw-pillar-vessel.is-hovered .mcw-icon-wrap {
-  transform: scale(1.22);
-  filter: drop-shadow(0 0 4px var(--mcw-level-aura, #e9d9a0))
-          drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+  transform: scale(1.28);
+  /* Invert tone: dark icon on the bright-gold bloom gives high contrast.
+   * Single filter layer avoids Chrome's foreignObject rasterization artifact
+   * (stacked drop-shadows render the fO bounding box as a visible square). */
+  color: #0c1a20;
+  filter: none;
   opacity: 1;
 }
 

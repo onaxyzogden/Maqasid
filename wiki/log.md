@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Wheel becomes nav surface; iOS Safari icon fix; Mithaq paused
+
+**Context:** Round 5 (earlier today) shipped Mithaq + Nur Aura. Live iPhone testing + hover-contrast review surfaced four follow-ups.
+
+**Completed:**
+- **Mithaq paused** on Faith overview (`mithaqDomain` prop removed); store/hook/dormant-state infrastructure retained for future re-enable.
+- **Hover contrast inversion** — aura opacity 0.75→0.5; icon flips to dark `#0c1a20` on hover (Lucide `currentColor`) instead of carrying a bright drop-shadow. Eliminates the Chrome `foreignObject` bounding-box square.
+- **Wheel becomes nav surface** — outer band + inner sector now carry click + Enter/Space handlers, `role="button"`, `tabIndex`, `useNavigate(seg.route)`. `LevelOverviewPage` passes `p.route` through to segments.
+- **Cursor-handoff crossfade** — 90ms leave-debounce keeps hover continuous across sectors; transitions moved from inside `:has()` blocks to base selectors so opacity tweens both in AND out of the dim set. Duration bumped 240→360ms.
+- **iOS Safari icon positioning fixed** — replaced `<foreignObject><div><Icon/></div></foreignObject>` with nested SVG: `<g transform="translate(ix-9 iy-9)"><g class="mcw-icon-wrap"><Icon/></g></g>`. WebKit's foreignObject mispositioning with CSS custom properties + fractional x/y is sidestepped entirely.
+- ADR: [[2026-04-22-wheel-clickable-submodules-ios-fix]]
+
+**Deferred:**
+- Mithaq re-enablement pending ritual-UX re-validation (Round 6 candidate).
+- Touch-device hover/tap pattern still mouse-oriented.
+
+**Notes:**
+- CSS lesson worth remembering: a `transition` declared inside a conditional `:has()` / `:not()` rule only fires while that rule matches — one-way animation. For bidirectional tweens, transitions MUST live on the base selector.
+- iOS Safari `<foreignObject>` quirk reproduces when the parent `<g>` has CSS custom properties AND x/y are floats. Nested SVG is the cleanest workaround and unlocks future filter/animation portability.
+
+---
+
 ## [2026-04-22] session | Live prayer times wired to Prophetic Path timeline
 
 **Completed:**

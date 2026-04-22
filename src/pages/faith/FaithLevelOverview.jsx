@@ -51,7 +51,6 @@ export default function FaithLevelOverview({ level, levelColor }) {
         levelPattern: LEVEL_PATTERN[level] || 'dots',
         level,
         onReach100,
-        mithaqDomain: 'faith',
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={PathToExcellenceCards}

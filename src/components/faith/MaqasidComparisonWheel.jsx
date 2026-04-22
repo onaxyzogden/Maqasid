@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FAITH_PILLAR_WISDOM } from '@data/faith-pillar-wisdom';
 import useMilestoneWatcher from '@hooks/useMilestoneWatcher';
 import useMithaqHold from '@hooks/useMithaqHold';
@@ -64,6 +65,10 @@ export default function MaqasidComparisonWheel({
   onReach100,
   mithaqDomain = null,
 }) {
+  const navigate = useNavigate();
+  const handleActivate = (seg) => {
+    if (seg?.route) navigate(seg.route);
+  };
   const [hovered, setHovered] = useState(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [wisdomFor, setWisdomFor] = useState(null);
@@ -224,7 +229,22 @@ export default function MaqasidComparisonWheel({
     };
   }, []);
 
+  // Cursor-handoff smoothing: mouseleave on the old sector fires before
+  // mouseenter on the new one, which would briefly clear hover → collapsing
+  // the needle/card/dimming mid-swipe. Defer the clear by ~90ms; if a new
+  // enter arrives in that window, cancel the clear so the transition is
+  // continuous (one sector fades out AS the next fades in).
+  const leaveTimerRef = useRef(null);
+  const clearLeaveTimer = () => {
+    if (leaveTimerRef.current) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+  };
+  useEffect(() => () => clearLeaveTimer(), []);
+
   const handleEnter = (seg, evt) => {
+    clearLeaveTimer();
     setHovered(seg.id);
     setHoveredPillar(seg.id);
     setCursor({ x: evt.clientX, y: evt.clientY });
@@ -235,9 +255,13 @@ export default function MaqasidComparisonWheel({
     scheduleWisdom(seg.id);
   };
   const handleLeave = () => {
-    setHovered(null);
-    setHoveredPillar(null);
-    cancelWisdom();
+    clearLeaveTimer();
+    leaveTimerRef.current = setTimeout(() => {
+      setHovered(null);
+      setHoveredPillar(null);
+      cancelWisdom();
+      leaveTimerRef.current = null;
+    }, 90);
   };
   const handleMove = (seg, evt) => {
     setCursor({ x: evt.clientX, y: evt.clientY });
@@ -317,13 +341,21 @@ export default function MaqasidComparisonWheel({
           return (
             <g
               key={`inner-${seg.id}`}
-              role="img"
-              aria-label={`${seg.label}: ${Math.round(seg.current)}%`}
+              role={seg.route ? 'button' : 'img'}
+              tabIndex={seg.route ? 0 : undefined}
+              aria-label={`${seg.label}: ${Math.round(seg.current)}%${seg.route ? ' — open submodule' : ''}`}
               className={`mcw-sector${isMounted ? ' is-mounted' : ''}${hov}`}
-              style={{ cursor: 'pointer', animationDelay: `${i * 90}ms` }}
+              style={{ cursor: seg.route ? 'pointer' : 'default', animationDelay: `${i * 90}ms` }}
               onMouseEnter={(e) => handleEnter(seg, e)}
               onMouseLeave={handleLeave}
               onMouseMove={(e) => handleMove(seg, e)}
+              onClick={() => handleActivate(seg)}
+              onKeyDown={(e) => {
+                if (seg.route && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  handleActivate(seg);
+                }
+              }}
             >
               <path
                 d={annularSector(HUB_R, PROGRESS_MAX_R, startDeg, endDeg)}
@@ -366,10 +398,14 @@ export default function MaqasidComparisonWheel({
           );
         })}
 
-        {/* Outer level-colored label ring */}
+        {/* Outer level-colored label ring — interactive: hovering the band
+         * where the pillar icons sit drives the same hover state as the
+         * inner progress sector. */}
         {segments.map((seg, i) => {
           const startDeg = startOffset + i * arcSize;
           const endDeg = startDeg + arcSize;
+          const isHovered = effectiveHover === seg.id;
+          const hov = isHovered ? ' is-hovered' : '';
           return (
             <path
               key={`band-${seg.id}`}
@@ -377,7 +413,21 @@ export default function MaqasidComparisonWheel({
               fill="url(#mcw-band-level)"
               stroke="rgba(10, 20, 24, 0.85)"
               strokeWidth="1.5"
-              pointerEvents="none"
+              className={`mcw-band${hov}`}
+              style={{ cursor: seg.route ? 'pointer' : 'default' }}
+              role={seg.route ? 'button' : 'img'}
+              tabIndex={seg.route ? 0 : undefined}
+              aria-label={`${seg.label}${seg.route ? ' — open submodule' : ''}`}
+              onMouseEnter={(e) => handleEnter(seg, e)}
+              onMouseLeave={handleLeave}
+              onMouseMove={(e) => handleMove(seg, e)}
+              onClick={() => handleActivate(seg)}
+              onKeyDown={(e) => {
+                if (seg.route && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  handleActivate(seg);
+                }
+              }}
             />
           );
         })}
@@ -413,17 +463,18 @@ export default function MaqasidComparisonWheel({
                 r={16}
                 fill="url(#mcw-aura-grad)"
               />
-              <foreignObject
-                x={ix - 9}
-                y={iy - 9}
-                width="18"
-                height="18"
+              {/* Icon rendered as nested SVG (no foreignObject) — iOS Safari
+               * mispositions foreignObject when the parent <g> carries CSS
+               * custom properties and the x/y are floats from polar(). The
+               * nested <g transform="translate"> is cross-browser reliable. */}
+              <g
+                transform={`translate(${ix - 9} ${iy - 9})`}
                 pointerEvents="none"
               >
-                <div className="mcw-icon-wrap">
+                <g className="mcw-icon-wrap">
                   <Icon size={18} strokeWidth={1.8} />
-                </div>
-              </foreignObject>
+                </g>
+              </g>
             </g>
           );
         })}
