@@ -310,6 +310,34 @@
 }
 .il-citations-btn:hover .il-citations-label,
 .il-citations-btn.active .il-citations-label { color: var(--accent); }
+
+.il-diacritics-btn {
+  width: 28px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  font-family: "Amiri", "Noto Serif", serif;
+  transition: all var(--duration) var(--ease);
+}
+.il-diacritics-btn:hover { border-color: var(--accent-border); }
+.il-diacritics-btn.active {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+.il-diacritics-label {
+  font-size: var(--text-base);
+  line-height: 1;
+  color: var(--text3);
+  transition: color var(--duration) var(--ease);
+}
+.il-diacritics-btn:hover .il-diacritics-label,
+.il-diacritics-btn.active .il-diacritics-label { color: var(--accent); }
+
 .il-citations-badge {
   width: 16px;
   height: 16px;

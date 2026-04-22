@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | fmt() secondary surfaces + Tashahhud side view + PrayerOverlay de-lock
+
+Follow-up pass on the same day as the diacritical-toggle ship.
+
+### 1. fmt() applied to secondary Arabic surfaces
+Wired the `useArabic` hook into 9 more render sites so the global tashkīl toggle now reaches data-driven Arabic beyond the primary prayer surfaces:
+- [HadithCard.jsx](src/components/islamic/HadithCard.jsx) — `data.ar`
+- [QuranVerseCard.jsx](src/components/islamic/QuranVerseCard.jsx) — `word.ar` (word-by-word)
+- [WheelWisdomTooltip.jsx](src/components/faith/WheelWisdomTooltip.jsx) — `wisdom.arabic`
+- [TopBar.jsx](src/components/layout/TopBar.jsx) — `ayahBannerData.arabic`
+- [EveningReflectModal.jsx](src/components/dashboard/EveningReflectModal.jsx) — `f.arabic`
+- [OverviewCards.jsx](src/components/shared/OverviewCards.jsx) — `item.arabic` + `item.ayahArabic`
+- [IslamicTerm.jsx](src/components/shared/IslamicTerm.jsx) — glossary tooltip `entry.arabic`
+- [SubtaskSources.jsx](src/components/work/SubtaskSources.jsx) — grounding fallbacks (both hadith + non-Quran branches)
+- [ReadinessCheck.jsx](src/components/islamic/ReadinessCheck.jsx) — `current._attr.ar` header
+
+Skipped: the markdown-children branch of `SubtaskSources.jsx` (line 52) — children-tree transformation is invasive and the two direct entry renders cover the common path.
+
+### 2. Tashahhud posture — side view
+Redrew [Tashahhud.jsx](src/components/islamic/postures/Tashahhud.jsx) from a front-facing SVG to a profile view facing right: torso upright, right thigh horizontal forward, shin folded back under, left foot tucked beneath the seat (iftirash), visible arm draped with the index finger extending forward past the knee. Same viewBox + stroke style so it reads cohesively with the other posture icons.
+
+### 3. PrayerOverlay — removed app-wide lockout; Bismillah button
+- **De-locked:** fullscreen `position: fixed; inset: 0` with 88% black backdrop + focus trap + `aria-modal="true"` → bottom-right card with `pointer-events: none` on the wrapper (only `.prayer-content` is interactive). Rest of the app remains visible and operable while prayer overlay is showing. `role="dialog"` → `role="status"`, `aria-live="polite"`. `useFocusTrap` import removed.
+- **Button:** "Return to work" → `بسم الله · Bismillah` (Arabic + English side-by-side, gap-2). Arabic routed through `fmt()` so it honors the diacritical toggle; new `.prayer-dismiss-ar` / `.prayer-dismiss-en` selectors.
+- **Card sizing:** scaled down type scale (5xl/6xl → 2xl) to match corner-card footprint instead of viewport-center scale.
+
+---
+
+## [2026-04-22] session | Arabic diacritical toggle + UI/UX Scholar consult
+
+Shipped the two deferred items from the Isha/Fajr "During" pilot.
+
+### 1. Arabic diacritical (tashkīl) toggle — global
+- **New util:** [src/utils/arabic.js](src/utils/arabic.js) — `stripDiacritics(s)` removes U+064B–U+0652 + U+0670. Deliberately preserves U+0671 (Alef Wasla, a letter form) and U+06D6–U+06ED (Qur'anic recitation marks).
+- **Store:** `showDiacritics` + `setShowDiacritics` in [src/store/settings-store.js](src/store/settings-store.js), default ON, persisted under `show_diacritics` localStorage key.
+- **Hook:** [src/hooks/useArabic.js](src/hooks/useArabic.js) returns `fmt(arabic)` formatter; source data is never mutated.
+- **Wired at render sites:** `PrayerHeroDuring.jsx` (Reference + Pray-Along + RecitationPanel), `DuaSection.jsx` (shared across NiyyahAct, IslamicPanel, elsewhere), `NiyyahAct.jsx` (inline bismillah), `PrayerOverlay.jsx` (inline bismillah), `ThresholdModal.jsx` (4 pause/istirja ayah render sites).
+- **UI:** New button in [IslamicPanel.jsx](src/components/islamic/IslamicPanel.jsx) header next to Islamic/Universal toggle and Cite button. Gated on Islamic mode. Glyph: `ً` (tanwin fathatan — self-encoding). CSS: `.il-diacritics-btn` mirrors `.il-citations-btn`.
+- **Out of scope (deferred):** readiness ayat, hadith, seed tasks, module overviews — follow-up pass once primary surfaces validate.
+
+### 2. UI/UX Scholar NotebookLM consult
+- `notebooklm-py` installed; invocation via `python -m notebooklm` (no CLI shim on PATH — known, working).
+- Consulted notebook `995a59d1` (Modern UI/UX Design Scholar) on the three post-V1 flags: diacritical toggle UX, corner mode-toggle discoverability, halo-vs-austere-bg tradeoffs.
+- Synthesis + implementation gaps recorded in [wiki/decisions/2026-04-22-prayerhero-uiux-consult.md](wiki/decisions/2026-04-22-prayerhero-uiux-consult.md).
+- Guardrail honored: UI/UX notebook is informational, not cross-referenced with Muslim Scholar; no fiqh-adjacent claims sourced from it.
+
 ## [2026-04-22] session | PropheticPath time-window "Current" + TaskDetailPanel slide-up
 
 Two unrelated UX fixes.

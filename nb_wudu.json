@@ -1,0 +1,992 @@
+{
+  "answer": "### 1. Quran 5:6 (Ablution Command)\n**Arabic:** \u064a\u064e\u0627 \u0623\u064e\u064a\u0651\u064f\u0647\u064e\u0627 \u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u0622\u0645\u064e\u0646\u064f\u0648\u0627 \u0625\u0650\u0630\u064e\u0627 \u0642\u064f\u0645\u0652\u062a\u064f\u0645\u0652 \u0625\u0650\u0644\u064e\u0649 \u0627\u0644\u0635\u0651\u064e\u0644\u064e\u0627\u0629\u0650 \u0641\u064e\u0627\u063a\u0652\u0633\u0650\u0644\u064f\u0648\u0627 \u0648\u064f\u062c\u064f\u0648\u0647\u064e\u0643\u064f\u0645\u0652 \u0648\u064e\u0623\u064e\u064a\u0652\u062f\u0650\u064a\u064e\u0643\u064f\u0645\u0652 \u0625\u0650\u0644\u064e\u0649 \u0627\u0644\u0652\u0645\u064e\u0631\u064e\u0627\u0641\u0650\u0642\u0650 \u0648\u064e\u0627\u0645\u0652\u0633\u064e\u062d\u064f\u0648\u0627 \u0628\u0650\u0631\u064f\u0621\u064f\u0648\u0633\u0650\u0643\u064f\u0645\u0652 \u0648\u064e\u0623\u064e\u0631\u0652\u062c\u064f\u0644\u064e\u0643\u064f\u0645\u0652 \u0625\u0650\u0644\u064e\u0649 \u0627\u0644\u0652\u0643\u064e\u0639\u0652\u0628\u064e\u064a\u0652\u0646\u0650 [1-3].\n**English (Sahih International):** \"O you who have believed, when you rise to [perform] prayer, wash your faces and your forearms to the elbows and wipe over your heads and wash your feet to the ankles\" [1].\n\n---\n\n### 2. Heel-Warning Hadith\n**Collection + Number:** **Sahih al-Bukhari 165** (identified as Volume 1, Book 4, Number 164 in the sources) [4].\n**Arabic:** **\u0648\u064e\u064a\u0652\u0644\u064c \u0644\u0650\u0644\u0623\u064e\u0639\u0652\u0642\u064e\u0627\u0628\u0650 \u0645\u0650\u0646\u064e \u0627\u0644\u0646\u0651\u064e\u0627\u0631\u0650** [4-6].\n**English:** Narrated 'Abdullah bin 'Amr: The Prophet addressed us in a loud voice and said twice or thrice: \"**Save your heels from the fire**\" [4, 5].\n**Grade:** **Sahih** [4].\n\n---\n\n### 3. 'No Prayer Without Wudu' Hadith\n**Collection + Number:** **Sahih al-Bukhari 135** (identified as Volume 1, Book 4, Number 137 in the sources) [7].\n**Arabic:** **\u0644\u0627\u064e \u062a\u064f\u0642\u0652\u0628\u064e\u0644\u064f \u0635\u064e\u0644\u0627\u064e\u0629\u064f \u0645\u064e\u0646\u0652 \u0623\u064e\u062d\u0652\u062f\u064e\u062b\u064e \u062d\u064e\u062a\u064e\u0651\u0649 \u064a\u064e\u062a\u064e\u0648\u064e\u0636\u064e\u0651\u0623\u064e** [7-9].\n**English:** Narrated Abu Huraira: Allah's Apostle said, \"**The prayer of a person who does Hadath (passes urine, stool or wind) is not accepted till he performs (repeats) the ablution**\" [7, 8].\n**Grade:** **Sahih** [7].",
+  "conversation_id": "4e9a83fa-ba87-4615-8a07-66cfa0840ddc",
+  "turn_number": 1,
+  "is_follow_up": true,
+  "references": [
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 1,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "dead2030-86e1-442b-83da-edb788b4bb46"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 2,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "c41384a2-e220-4c5f-abdb-51c983062ace"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 3,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "9459f495-d769-41f8-8de6-ba003d5f6f31"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 4,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "54075f30-e2b3-4f87-b02e-a4d7093f352e"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 5,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "842f8d3f-81bc-4cf6-b30e-efe336f788b2"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 6,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "53208a9d-761e-4264-8960-f076ac658d3d"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 7,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "d8288955-62d5-4ca9-b0fa-209161c1669a"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 8,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "9ea3797e-c643-4cd7-bc61-f9dd47c0ad6e"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 9,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "e5e51781-c36f-44ba-b57b-15d643ef4826"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 10,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "cdb55bbe-6689-47bf-b40b-7f8c7adb5de2"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 11,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "7d40dc58-1a61-411a-89a3-af44a3cb48f5"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 12,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "a7e01de6-5b29-4c92-a593-291285ec80d9"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 13,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "c03cbeb1-0aa2-4d68-9e55-97e6f8ed6b73"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 14,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "b02ae40e-496a-4986-8286-0b602797e226"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 15,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "a4145629-c63c-4596-96d6-d5daca6de85f"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 16,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "0a11661c-d268-40fa-a1f0-d687c48bc571"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 17,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "342f9540-a8b3-49c0-8393-44f971b596b2"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 18,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "b23b28ac-0c4f-487a-b6f8-36458af2f001"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 19,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "725c79ff-39e5-4e91-9825-c978c1dbe2b1"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 20,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "daba0b5b-bb2e-49a7-8f02-242c8d63c9d7"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 21,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "da6d5420-f308-49e1-9149-54674dd07492"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 22,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "a114aa48-c3ef-4337-b10e-120b41e4b013"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 23,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "9f4dc112-4752-4760-a753-d1dda975e0a9"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 24,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "5e18c8c1-6b07-4403-8021-40e194f65c1f"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 25,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "21aa5c6f-dcd2-4fc9-9638-3dd37cf08427"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 26,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "e49b142b-40b6-4d31-bee1-328cb0f10664"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 27,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "f7701930-fb6a-47dc-bc34-417839bff4c5"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 28,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "12ff1b7e-0042-4474-a74b-118a558ab630"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 29,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "05630252-6add-473b-98a6-66005e4ce655"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 30,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "2431f029-a525-4be6-9410-08220bf8e02c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 31,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "2bf16772-5b89-400a-b5dc-e97bb3da94cb"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 32,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "31a40b63-f040-48a1-9832-24a7386c1397"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 33,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "3a10d417-6ea3-446a-a692-52a04d025542"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 34,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "6238dfde-328f-4dd4-b92d-2caea1fd4de0"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 35,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "9e0a64bb-d708-43b5-ab53-84976b185e3c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 36,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "305b7670-b317-4f2b-a3a1-7e930c4d70b6"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 37,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "a28a0b3f-0002-47ff-b65e-a68e719af723"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 38,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "415a5d0d-6ba2-4d45-bdb9-88d34858436d"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 39,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "a4ad0550-fdb7-4c11-80b7-9be53d0687c6"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 40,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "3cf8af42-0a1c-4635-b051-2734f9320180"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 41,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "399357f0-6954-4495-8db2-e9fb6d2e438c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 42,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "fc215519-8f9e-44d4-8ced-8c73de3d2715"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 43,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "95a016ac-1d9b-4907-9b58-1dbb4c976504"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 44,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "b03420b3-b5ae-41f2-9f0e-7b93b17f8721"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 45,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "1310eb4a-1b34-4f39-8443-c52a3de7bf94"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 46,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "32138901-5118-4864-81c3-55e73b8c2800"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 47,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "a7b089f8-e366-437b-8fa6-200e1fec49b1"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 48,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "ed24eada-aa77-4587-a8b0-2aae603e0768"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 49,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "43406d30-d780-44b9-9263-1f802aa49822"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 50,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "12919266-1e90-49e0-a1a0-da2bf1e43a6a"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 51,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "9fddafcd-6f0e-4910-80a0-3462503f68d1"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 52,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "aacc7f86-8ea8-43a1-ae1e-8b3da6d5f97f"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 53,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "14c29de6-4f66-4044-8526-1e7d62a2a9ef"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 54,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "fb8ddbb0-02b7-428d-bfc7-56ec6204cbd7"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 55,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "c8b37953-b303-494d-b87d-8b9d38705ea0"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 56,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "3184f14e-32f2-43bc-ae63-81dd6deb83b7"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 57,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "41ca5648-579d-43f0-bdf6-84a5feca6ebf"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 58,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "316815c3-c528-47e3-be03-7290b20994bc"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 59,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "68dfed10-89ab-4609-a4ad-71c548116950"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 60,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "bd779c11-a58b-4cf8-b058-a9fb726a54fb"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 61,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "183f4716-d87e-4f5c-a097-9be7eb5bfcaa"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 62,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "39d050f5-ae58-4960-b9be-5a5c0a501878"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 63,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "4e100ab1-79b8-44bc-9697-ae4dc5f22f52"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 64,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "6bcacad1-fafa-4c41-aa4b-7cf9fb0edfec"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 65,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "4f1070c8-c64c-404b-b0ec-b94bd90a3d2e"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 66,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "8f99dfa7-88d8-4e70-b08e-e2cdac2ab5f7"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 67,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "704182d4-6569-4c4d-9965-98278262572a"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 68,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "3adf4836-3caa-42d1-bd52-eb54b1a8e4b8"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 69,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "e820d0b6-bee0-4284-8b27-8b5adc0f7e1a"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 70,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "8e98a79b-06fc-4240-8540-2ee48f49be0b"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 71,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "aff86ff2-a1e6-4f9a-b29d-223099913608"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 72,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "5b71520b-fcbb-4ae7-bdb4-129ca388eeed"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 73,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "a6e32730-514c-45aa-9d57-e2f22bba6551"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 74,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "5adda3cf-4af9-4709-8299-eae017b84677"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 75,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "2798e981-7a77-49c6-9d5c-8a179d72ecf6"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 76,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "9ffe43de-e150-45f7-9953-0143850fe986"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 77,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "cb05e705-68ff-437c-bcdf-a57b3c6bb9a6"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 78,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "7cfd2f49-2b8a-41f7-83a9-e702028d57f1"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 79,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "1a1f614a-7c4d-4a68-8b59-898d490a5651"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 80,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "346a294a-157b-41e3-8cb1-28f3c9160ec8"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 81,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "3aa867cc-7c2a-4e15-88d8-21020e3edad8"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 82,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "681d9c4a-1939-4fc8-b142-6bda3ba90a3b"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 83,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "bdb31d31-80dc-4507-b20a-660863340714"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 84,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "38f201e4-b8dd-4145-8088-81529387bcc9"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 85,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "1a978dda-f931-499c-930e-5ea9d63d6b24"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 86,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "60039370-c9b8-448c-9cd4-00a3f53aca8c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 87,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "fe80f3c4-20d7-4349-ad5f-f5b2937a4cbf"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 88,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "101d0080-f806-4674-9d82-da3834bf21c8"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 89,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "e3ea31ac-f330-4897-9bab-40d06658fad1"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 90,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "c9f62fa3-7e17-445a-b6d3-0f030029554f"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 91,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "eceed42d-2944-40e7-a8ab-4430ae1286f9"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 92,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "c0757161-7ce1-4adf-a402-3ed7a355ba13"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 93,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "9581e134-9566-44de-90a0-d2095dca1487"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 94,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "66304b4e-4ca2-472f-b4eb-5e9834d15cbe"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 95,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "0bad8461-b43f-4a79-b059-dd62f2aeef5f"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 96,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "358191a2-7577-416a-8207-42dc2485188c"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 97,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "3ac225f1-78e9-4771-a772-15da736ac10c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 98,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "c174081a-b004-4337-995f-44901f87863e"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 99,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "336184fb-8760-4210-9b3a-e18c72103546"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 100,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "9b675799-f286-41a9-b21f-bf1f6128fd77"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 101,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "deb20110-91bc-4ccb-b130-cca42798a021"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 102,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "220f9569-f0c1-4f91-aa11-a325ee438243"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 103,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "d00ba502-0530-4587-a13f-60e5b815eaca"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 104,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "87fb6872-ddfe-4742-8a5b-d93add8ce20a"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 105,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "3e836790-80a1-42f2-b3c6-96c4da40cdae"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 106,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "3ac225f1-78e9-4771-a772-15da736ac10c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 107,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "c174081a-b004-4337-995f-44901f87863e"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 108,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "336184fb-8760-4210-9b3a-e18c72103546"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 109,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "9b675799-f286-41a9-b21f-bf1f6128fd77"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 110,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "deb20110-91bc-4ccb-b130-cca42798a021"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 111,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "220f9569-f0c1-4f91-aa11-a325ee438243"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 112,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "d00ba502-0530-4587-a13f-60e5b815eaca"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 113,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "87fb6872-ddfe-4742-8a5b-d93add8ce20a"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 114,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "3e836790-80a1-42f2-b3c6-96c4da40cdae"
+    },
+    {
+      "source_id": "2b6b4149-bee3-455f-a455-e28b980d950e",
+      "citation_number": 115,
+      "cited_text": "6. O you who have believed, when you",
+      "start_char": 286089,
+      "end_char": 286127,
+      "chunk_id": "3ac225f1-78e9-4771-a772-15da736ac10c"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 116,
+      "cited_text": "Quran (5:6)",
+      "start_char": 152974,
+      "end_char": 152985,
+      "chunk_id": "c174081a-b004-4337-995f-44901f87863e"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 117,
+      "cited_text": "Quran (5:6)",
+      "start_char": 156409,
+      "end_char": 156420,
+      "chunk_id": "336184fb-8760-4210-9b3a-e18c72103546"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 118,
+      "cited_text": "Volume 1, Book 4, Number 164: Narrated 'Abdullah bin 'Amr:",
+      "start_char": 118669,
+      "end_char": 118728,
+      "chunk_id": "9b675799-f286-41a9-b21f-bf1f6128fd77"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 119,
+      "cited_text": "on her authority a hadith like this from the Holy Prophet (way peace be upon him).",
+      "start_char": 552880,
+      "end_char": 552963,
+      "chunk_id": "deb20110-91bc-4ccb-b130-cca42798a021"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 120,
+      "cited_text": "heel and he remarked: Woe to the heels because of hell-fire.",
+      "start_char": 554041,
+      "end_char": 554102,
+      "chunk_id": "220f9569-f0c1-4f91-aa11-a325ee438243"
+    },
+    {
+      "source_id": "44ca6b8b-a79c-4079-b498-cb6f237b2743",
+      "citation_number": 121,
+      "cited_text": "Book 4: Ablutions (Wudu')",
+      "start_char": 107309,
+      "end_char": 107335,
+      "chunk_id": "d00ba502-0530-4587-a13f-60e5b815eaca"
+    },
+    {
+      "source_id": "4f722378-1646-4d73-a7cc-24ffe6bb93f4",
+      "citation_number": 122,
+      "cited_text": "transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.",
+      "start_char": 537527,
+      "end_char": 537607,
+      "chunk_id": "87fb6872-ddfe-4742-8a5b-d93add8ce20a"
+    },
+    {
+      "source_id": "3b603e14-03c7-41fb-99d9-bc893648f873",
+      "citation_number": 123,
+      "cited_text": "II. Hadith",
+      "start_char": 155584,
+      "end_char": 155594,
+      "chunk_id": "3e836790-80a1-42f2-b3c6-96c4da40cdae"
+    }
+  ]
+}

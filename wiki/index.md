@@ -59,6 +59,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-21-graphify-extraction-gaps]] | 2026-04-21 | graphify under-emits `imports` edges for `src/data/**` consumers, producing false-positive bridge nodes; targeted re-extraction is the accepted remedy |
 | [[2026-04-22-mithaq-activation-nur-aura]] | 2026-04-22 | Round 5 wheel upgrade: daily Mithaq press-and-hold ritual on Qalb hub (1.5s) + Nur Aura icon bloom in OKLCH `brightAura`; wheel begins dormant until covenant renewed |
 | [[2026-04-22-wheel-clickable-submodules-ios-fix]] | 2026-04-22 | Round 5.5: wheel segments + outer band become submodule nav buttons; hover contrast inversion; cursor-handoff crossfade via base-selector transitions; iOS Safari icon fix replaces `foreignObject` with nested SVG; Mithaq paused on Faith |
+| [[2026-04-22-prayerhero-uiux-consult]] | 2026-04-22 | UI/UX Scholar NotebookLM consult on PrayerHeroDuring post-V1 flags (diacritical toggle UX, corner mode-toggle discoverability, halo vs austere bg). Identifies three V2 candidates vs. what we shipped |
 
 ## Sources
 

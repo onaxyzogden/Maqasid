@@ -1,6 +1,8 @@
+import { useArabic } from '../../hooks/useArabic';
 import './DuaSection.css';
 
 export default function DuaSection({ dua, color, isUniversal, citationIndex, showCitations }) {
+  const fmt = useArabic();
   if (!dua) return null;
 
   const accentColor = color || 'var(--accent)';
@@ -12,7 +14,7 @@ export default function DuaSection({ dua, color, isUniversal, citationIndex, sho
       </div>
 
       {!isUniversal && dua.arabic && (
-        <p className="dua-arabic arabic">{dua.arabic}</p>
+        <p className="dua-arabic arabic">{fmt(dua.arabic)}</p>
       )}
 
       {!isUniversal && dua.trans && (

@@ -40,6 +40,12 @@ export const useSettingsStore = create((set) => ({
     set({ disableL23ThresholdGate: val });
   },
 
+  showDiacritics: safeGet('show_diacritics', 'true') === 'true',
+  setShowDiacritics: (val) => {
+    safeSet('show_diacritics', String(val));
+    set({ showDiacritics: val });
+  },
+
   // ── AI Provider Settings ──
   aiProvider: safeGet('ai_provider', 'openrouter'),
   aiApiKey: safeGet('ai_api_key', ''),

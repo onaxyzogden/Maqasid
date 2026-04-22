@@ -300,7 +300,13 @@ export default function AppShell() {
             </button>
           </div>
         )}
-        <main id="main-content" key={location.key} className="app-main">
+        {/* No `key={location.key}` — it forces a full DOM teardown on every
+            navigation, which defeats the View Transitions API set up in
+            LevelOverviewPage.css (the browser can't snapshot-crossfade a tree
+            React has already destroyed). React naturally remounts the subtree
+            when the route element type changes, so the effects that previously
+            relied on the key still re-run where it matters. */}
+        <main id="main-content" className="app-main">
           <Outlet />
         </main>
         {!mobile && (

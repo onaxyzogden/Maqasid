@@ -3,6 +3,7 @@ import { Sun, ArrowUp } from 'lucide-react';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useTaskStore } from '../../store/task-store';
 import { useSettingsStore } from '../../store/settings-store';
+import { useArabic } from '../../hooks/useArabic';
 import { useCitations } from '../../hooks/useCitations';
 import {
   MAQASID_PILLARS,
@@ -50,6 +51,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
   const getPillarLevelProgress = useTaskStore((s) => s.getPillarLevelProgress);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
+  const fmt = useArabic();
   const dua = getDua();
   const { citations, citationMap, citationsVisible } = useCitations(
     isIslamic && initialStep === 'dua' ? [dua.source] : []
@@ -225,7 +227,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
             isIslamic ? (
               <>
                 <div className="niyyah-bismillah">
-                  <p className="niyyah-bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                  <p className="niyyah-bismillah-ar">{fmt('بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ')}</p>
                   <p className="niyyah-bismillah-en">In the name of Allah, the Most Gracious, the Most Merciful</p>
                 </div>
                 <DuaSection

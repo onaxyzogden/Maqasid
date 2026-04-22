@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useSettingsStore } from '../../store/settings-store';
+import { useArabic } from '../../hooks/useArabic';
 import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import './PrayerOverlay.css';
 
 export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
+  const fmt = useArabic();
 
-  const trapRef = useFocusTrap(true, onDismiss);
   const [leaving, setLeaving] = useState(false);
 
   // Real-time clock — ticks every second
@@ -53,11 +53,11 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const timeStr = `${mins}:${String(secs).padStart(2, '0')}`;
 
   return (
-    <div className={`prayer-overlay${leaving ? ' prayer-overlay--leaving' : ''}`}>
-      <div className="prayer-content" ref={trapRef} role="dialog" aria-modal="true" aria-labelledby="prayer-overlay-title">
+    <div className={`prayer-overlay${leaving ? ' prayer-overlay--leaving' : ''}`} role="status" aria-live="polite">
+      <div className="prayer-content" aria-labelledby="prayer-overlay-title">
         {isIslamic ? (
           <>
-            <p className="prayer-basmala arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+            <p className="prayer-basmala arabic">{fmt('بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ')}</p>
             <h1 className="prayer-name" id="prayer-overlay-title">{prayerName}</h1>
             <p className="prayer-prompt">
               {beforePrayer ? 'Prayer time is approaching.' : 'It is time for prayer.'}
@@ -73,7 +73,8 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
         <div className="prayer-countdown">{timeStr}</div>
 
         <button className="prayer-dismiss" onClick={handleDismiss}>
-          Return to work
+          <span className="prayer-dismiss-ar arabic">{fmt('بِسْمِ اللَّهِ')}</span>
+          <span className="prayer-dismiss-en">Bismillah</span>
         </button>
       </div>
     </div>

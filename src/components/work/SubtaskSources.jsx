@@ -5,6 +5,7 @@ import HadithCard from '../islamic/HadithCard';
 import AmanahTierBadge from '../shared/AmanahTierBadge';
 import RelevanceChip from '../shared/RelevanceChip';
 import { hadithData } from '@data/hadith';
+import { useArabic } from '../../hooks/useArabic';
 
 void HadithCard; void hadithData;
 
@@ -88,6 +89,7 @@ function cleanSources(raw) {
 }
 
 function GroundingSourceCard({ entry }) {
+  const fmt = useArabic();
   const tier = PROVENANCE_LABEL_TO_TIER[entry.provenanceTier] || null;
   const quranKey = entry.kind === 'quran' ? parseQuranRef(entry.ref) : null;
   const hadithKey = entry.kind === 'hadith' ? parseHadithRef(entry.ref) : null;
@@ -120,7 +122,7 @@ function GroundingSourceCard({ entry }) {
       {entry.kind === 'hadith' && (
         <div className="tdp-grounding-source__fallback">
           <h4>{entry.ref}</h4>
-          {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{entry.arabic}</p>}
+          {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{fmt(entry.arabic)}</p>}
           {entry.translation && <p style={{ fontStyle: 'italic' }}>{entry.translation}</p>}
           {sunnahUrl && (
             <p style={{ fontSize: '0.8rem', marginTop: 6 }}>
@@ -132,7 +134,7 @@ function GroundingSourceCard({ entry }) {
       {entry.kind !== 'hadith' && !quranKey && (
         <div className="tdp-grounding-source__fallback">
           <h4>{entry.ref}</h4>
-          {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{entry.arabic}</p>}
+          {entry.arabic && <p dir="rtl" style={{ fontFamily: 'var(--font-arabic)', fontSize: '1.35em', lineHeight: 2, textAlign: 'center' }}>{fmt(entry.arabic)}</p>}
           {entry.translation && <p style={{ fontStyle: 'italic' }}>{entry.translation}</p>}
         </div>
       )}

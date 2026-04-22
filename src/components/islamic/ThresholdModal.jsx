@@ -13,6 +13,7 @@ import { getPillarForModule } from '../../data/maqasid';
 import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { getStageLayer } from '../../data/bbos/bbos-pipeline';
 import { useSettingsStore } from '../../store/settings-store';
+import { useArabic } from '../../hooks/useArabic';
 import { useCitations } from '../../hooks/useCitations';
 import AttributeCard from './AttributeCard';
 import DuaSection from './DuaSection';
@@ -74,6 +75,7 @@ export default function ThresholdModal({ type }) {
   const completeOpening = useThresholdStore((s) => s.completeOpening);
   const completeClosing = useThresholdStore((s) => s.completeClosing);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
+  const fmt = useArabic();
 
   const [step, setStep] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -341,7 +343,7 @@ export default function ThresholdModal({ type }) {
                       {data.pauseWarning && (
                         <div className="thr-pause-ayah">
                           <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
-                            <p className="dua-arabic arabic">{data.pauseWarning.arabic}</p>
+                            <p className="dua-arabic arabic">{fmt(data.pauseWarning.arabic)}</p>
                             <p className="dua-trans">{data.pauseWarning.trans}</p>
                             <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{data.pauseWarning.meaning}</p>
                             <p className="dua-source">{data.pauseWarning.source}</p>
@@ -351,7 +353,7 @@ export default function ThresholdModal({ type }) {
                       {data.pauseRiseNow && (
                         <div className="thr-pause-istirja">
                           <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
-                            <p className="dua-arabic arabic">{data.pauseRiseNow.arabic}</p>
+                            <p className="dua-arabic arabic">{fmt(data.pauseRiseNow.arabic)}</p>
                             <p className="dua-trans">{data.pauseRiseNow.trans}</p>
                             <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{data.pauseRiseNow.meaning}</p>
                             <p className="dua-source">{data.pauseRiseNow.source}</p>
@@ -370,7 +372,7 @@ export default function ThresholdModal({ type }) {
                         <div className="thr-pause-ayah">
                           <p className="thr-pause-ayah-framing">{pauseAyah.framing}</p>
                           <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
-                            <p className="dua-arabic arabic">{pauseAyah.arabic}</p>
+                            <p className="dua-arabic arabic">{fmt(pauseAyah.arabic)}</p>
                             <p className="dua-trans">{pauseAyah.transliteration}</p>
                             <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>
                               {pauseAyah.translation}
@@ -388,7 +390,7 @@ export default function ThresholdModal({ type }) {
                       {isIslamic ? (
                         <div className="thr-pause-istirja">
                           <div className="dua" style={{ borderColor: 'var(--border2)', background: 'var(--bg)' }}>
-                            <p className="dua-arabic arabic">{ISTIRJA.arabic}</p>
+                            <p className="dua-arabic arabic">{fmt(ISTIRJA.arabic)}</p>
                             <p className="dua-trans">{ISTIRJA.trans}</p>
                             <p className="dua-meaning" style={{ borderLeftColor: 'var(--border2)' }}>{ISTIRJA.meaning}</p>
                             <p className="dua-source">

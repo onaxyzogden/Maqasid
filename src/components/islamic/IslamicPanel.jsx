@@ -43,6 +43,8 @@ export default function IslamicPanel() {
   const toggleIslamicPanel = useAppStore((s) => s.toggleIslamicPanel);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const setValuesLayer = useSettingsStore((s) => s.setValuesLayer);
+  const showDiacritics = useSettingsStore((s) => s.showDiacritics);
+  const setShowDiacritics = useSettingsStore((s) => s.setShowDiacritics);
   const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
   const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
   const completedOpening = useThresholdStore((s) => s.completedOpening);
@@ -95,6 +97,16 @@ export default function IslamicPanel() {
           >
             {isIslamic ? 'Islamic' : 'Universal'}
           </button>
+          {isIslamic && (
+            <button
+              className={`il-diacritics-btn ${showDiacritics ? 'active' : ''}`}
+              onClick={() => setShowDiacritics(!showDiacritics)}
+              title={showDiacritics ? 'Hide Arabic diacritics (tashkīl)' : 'Show Arabic diacritics (tashkīl)'}
+              aria-pressed={showDiacritics}
+            >
+              <span className="il-diacritics-label" aria-hidden="true">ً</span>
+            </button>
+          )}
           {hasCitations && (
             <button
               className={`il-citations-btn ${citationsVisible ? 'active' : ''}`}

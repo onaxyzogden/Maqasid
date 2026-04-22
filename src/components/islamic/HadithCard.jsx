@@ -1,5 +1,6 @@
 import { hadithData } from '@data/hadith';
 import { hadithOverrides } from '@data/hadith-overrides';
+import { useArabic } from '../../hooks/useArabic';
 import './HadithCard.css';
 
 const SUNNAH_SLUG = {
@@ -13,6 +14,7 @@ const SUNNAH_SLUG = {
 };
 
 export default function HadithCard({ hadithKey }) {
+  const fmt = useArabic();
   const base = hadithData[hadithKey];
   if (!base) return null;
   const data = { ...base, ...(hadithOverrides[hadithKey] || {}) };
@@ -37,7 +39,7 @@ export default function HadithCard({ hadithKey }) {
         </div>
       ) : (
         <>
-          {data.ar && <div className="hc__arabic" dir="rtl">{data.ar}</div>}
+          {data.ar && <div className="hc__arabic" dir="rtl">{fmt(data.ar)}</div>}
           {data.en && <div className="hc__english">{data.en}</div>}
         </>
       )}

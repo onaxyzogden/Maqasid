@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { getGlossaryEntry } from '@data/islamic/islamic-glossary';
 import { useSettingsStore } from '../../store/settings-store';
+import { useArabic } from '../../hooks/useArabic';
 import './IslamicTerm.css';
 
 const TOOLTIP_W = 252;
@@ -14,6 +15,7 @@ const MIN_ABOVE = 180;
  */
 export default function IslamicTerm({ id, children }) {
   const tooltipsEnabled = useSettingsStore((s) => s.tooltipsEnabled);
+  const fmt = useArabic();
   const [visible, setVisible] = useState(false);
   const [pos, setPos] = useState({ top: undefined, bottom: undefined, left: 0, flipped: false });
   const triggerRef = useRef(null);
@@ -61,7 +63,7 @@ export default function IslamicTerm({ id, children }) {
           <span className="islamic-term__header">
             <span className="islamic-term__name">{entry.term}</span>
             {entry.arabic && (
-              <span className="islamic-term__arabic">{entry.arabic}</span>
+              <span className="islamic-term__arabic">{fmt(entry.arabic)}</span>
             )}
           </span>
 

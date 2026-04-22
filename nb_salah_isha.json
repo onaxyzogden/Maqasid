@@ -1,0 +1,124 @@
+{
+  "notebook": "MUSLIM_SCHOLAR",
+  "topic": "Isha fard salah — posture sequence + recitations",
+  "description": "Grounding corpus for the Isha 'During' page. Every recitation rendered in src/data/isha-during.js traces back to one of the entries below. Arabic texts are the canonical wordings used across Sunni schools; English meanings are standard translations.",
+  "entries": [
+    {
+      "key": "takbir",
+      "arabic": "اللَّهُ أَكْبَر",
+      "translit": "Allāhu akbar",
+      "meaning": "God is greater",
+      "sources": [
+        { "type": "hadith", "collection": "Sahih al-Bukhari", "number": 735, "note": "Takbīr al-iḥrām at the opening of every prayer." }
+      ]
+    },
+    {
+      "key": "thana",
+      "arabic": "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَهَ غَيْرُك",
+      "translit": "Subḥānaka Allāhumma wa biḥamdika, wa tabāraka-smuka, wa taʿālā jadduka, wa lā ilāha ghayruk",
+      "meaning": "Glory be to You, O Allah, and praise. Blessed is Your name, exalted is Your majesty, and there is none worthy of worship besides You.",
+      "sources": [
+        { "type": "hadith", "collection": "Sunan Abi Dawud", "number": 775, "grade": "Sahih", "note": "Opening supplication after takbīr, narrated from ʿUmar ibn al-Khaṭṭāb." }
+      ]
+    },
+    {
+      "key": "taawwudh",
+      "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيم",
+      "translit": "Aʿūdhu billāhi mina-sh-shayṭāni-r-rajīm",
+      "meaning": "I seek refuge in Allah from the accursed Shayṭān.",
+      "sources": [
+        { "type": "quran", "surah": 16, "ayah": 98, "note": "Commanded before recitation: \"When you recite the Qurʾān, seek refuge in Allah from the accursed Shayṭān.\"" }
+      ]
+    },
+    {
+      "key": "fatihah",
+      "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+      "translit": "Bismillāhi-r-raḥmāni-r-raḥīm · Al-ḥamdu lillāhi rabbi-l-ʿālamīn · Ar-raḥmāni-r-raḥīm · Māliki yawmi-d-dīn · Iyyāka naʿbudu wa iyyāka nastaʿīn · Ihdina-ṣ-ṣirāṭa-l-mustaqīm · Ṣirāṭa-l-ladhīna anʿamta ʿalayhim ghayri-l-maghḍūbi ʿalayhim wa lā-ḍ-ḍāllīn",
+      "meaning": "In the name of Allah, the Most Merciful, the Most Compassionate. All praise is due to Allah, Lord of all worlds. The Most Merciful, the Most Compassionate. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us to the straight path — the path of those You have blessed, not of those who have incurred wrath, nor of those who have gone astray.",
+      "sources": [
+        { "type": "quran", "surah": 1, "ayah": "1-7", "note": "Recited in every rakʿah. Its obligatory status is established in Sahih al-Bukhari 756." }
+      ]
+    },
+    {
+      "key": "tasbih-ruku",
+      "arabic": "سُبْحَانَ رَبِّيَ الْعَظِيم",
+      "translit": "Subḥāna rabbiya-l-ʿaẓīm",
+      "meaning": "Glory be to my Lord, the Most Great.",
+      "sources": [
+        { "type": "hadith", "collection": "Sunan Abi Dawud", "number": 869, "grade": "Sahih", "note": "Narrated by ʿUqbah ibn ʿĀmir; said three times in rukūʿ." }
+      ]
+    },
+    {
+      "key": "samia-allahu",
+      "arabic": "سَمِعَ اللَّهُ لِمَنْ حَمِدَه",
+      "translit": "Samiʿa-llāhu liman ḥamidah",
+      "meaning": "Allah hears the one who praises Him.",
+      "sources": [
+        { "type": "hadith", "collection": "Sahih al-Bukhari", "number": 689, "note": "Said while rising from rukūʿ." }
+      ]
+    },
+    {
+      "key": "rabbana-wa-laka-l-hamd",
+      "arabic": "رَبَّنَا وَلَكَ الْحَمْد",
+      "translit": "Rabbanā wa laka-l-ḥamd",
+      "meaning": "Our Lord, and to You is all praise.",
+      "sources": [
+        { "type": "hadith", "collection": "Sahih al-Bukhari", "number": 796, "note": "Response said upon standing from rukūʿ." }
+      ]
+    },
+    {
+      "key": "tasbih-sujud",
+      "arabic": "سُبْحَانَ رَبِّيَ الْأَعْلَى",
+      "translit": "Subḥāna rabbiya-l-aʿlā",
+      "meaning": "Glory be to my Lord, the Most High.",
+      "sources": [
+        { "type": "hadith", "collection": "Sunan Abi Dawud", "number": 869, "grade": "Sahih", "note": "Said three times in sujūd; same narration as ruku tasbīḥ." }
+      ]
+    },
+    {
+      "key": "rabbi-ghfir-li",
+      "arabic": "رَبِّ اغْفِرْ لِي",
+      "translit": "Rabbi-ghfir lī",
+      "meaning": "My Lord, forgive me.",
+      "sources": [
+        { "type": "hadith", "collection": "Sunan Abi Dawud", "number": 874, "grade": "Hasan", "note": "Said between the two prostrations." }
+      ]
+    },
+    {
+      "key": "attahiyatu",
+      "arabic": "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُه",
+      "translit": "At-taḥiyyātu lillāhi wa-ṣ-ṣalawātu wa-ṭ-ṭayyibāt · As-salāmu ʿalayka ayyuha-n-nabiyyu wa raḥmatu-llāhi wa barakātuh · As-salāmu ʿalaynā wa ʿalā ʿibādi-llāhi-ṣ-ṣāliḥīn · Ashhadu an lā ilāha illa-llāh wa ashhadu anna Muḥammadan ʿabduhu wa rasūluh",
+      "meaning": "All greetings, prayers, and pure words are for Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and messenger.",
+      "sources": [
+        { "type": "hadith", "collection": "Sahih al-Bukhari", "number": 831, "note": "Narrated by Ibn Masʿūd; the Prophet ﷺ taught the tashahhud in this wording." },
+        { "type": "hadith", "collection": "Sahih Muslim", "number": 402 }
+      ]
+    },
+    {
+      "key": "salawat-ibrahimiyyah",
+      "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيد",
+      "translit": "Allāhumma ṣalli ʿalā Muḥammadin wa ʿalā āli Muḥammad, kamā ṣallayta ʿalā Ibrāhīma wa ʿalā āli Ibrāhīm, innaka ḥamīdun majīd",
+      "meaning": "O Allah, send blessings upon Muhammad and upon the family of Muhammad, as You sent blessings upon Ibrāhīm and the family of Ibrāhīm. Indeed, You are Praiseworthy, Glorious.",
+      "sources": [
+        { "type": "hadith", "collection": "Sahih al-Bukhari", "number": 3370, "note": "Kaʿb ibn ʿUjrah narration — the Prophet ﷺ taught this form of sending blessings." }
+      ]
+    },
+    {
+      "key": "salam",
+      "arabic": "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّه",
+      "translit": "As-salāmu ʿalaykum wa raḥmatu-llāh",
+      "meaning": "Peace be upon you, and the mercy of Allah.",
+      "sources": [
+        { "type": "hadith", "collection": "Sahih Muslim", "number": 582, "note": "Closing salām — turning the head to the right, then to the left." }
+      ]
+    }
+  ],
+  "structural_notes": [
+    "Isha fard = 4 rakʿāt. Rakʿāt 1 and 2 include al-Fātiḥah plus an additional surah; rakʿāt 3 and 4 are al-Fātiḥah only (Sahih al-Bukhari 776).",
+    "First tashahhud is recited after rakʿah 2; final tashahhud + Ṣalawāt Ibrāhīmiyyah after rakʿah 4.",
+    "Salām concludes the prayer — turn the head fully to the right, then to the left (Sahih Muslim 582)."
+  ],
+  "warnings": [
+    "Hadith numbers follow standard modern collections (Sunnah.com indexing). Collection numbering can vary slightly across print editions; always verify with a qualified scholar for ruling-level questions."
+  ]
+}

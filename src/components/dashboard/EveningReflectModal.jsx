@@ -5,9 +5,11 @@ import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { NIYYAH_FEELINGS, getFeelingLabel } from '../../data/niyyah-feelings';
 import { MAQASID_PILLARS, getPillarLabel } from '../../data/maqasid';
+import { useArabic } from '../../hooks/useArabic';
 import './EveningReflectModal.css';
 
 export default function EveningReflectModal({ onClose }) {
+  const fmt = useArabic();
   const morningFeelingId = useThresholdStore((s) => s.niyyahFeeling);
   const focus = useThresholdStore((s) => s.niyyahFocus);
   const saveReflection = useThresholdStore((s) => s.saveReflection);
@@ -58,7 +60,7 @@ export default function EveningReflectModal({ onClose }) {
                 <span className="erm-pill-label">
                   {isIslamic ? f.englishIslamic : f.universal}
                 </span>
-                {isIslamic && <span className="erm-pill-arabic">{f.arabic}</span>}
+                {isIslamic && <span className="erm-pill-arabic">{fmt(f.arabic)}</span>}
               </button>
             );
           })}

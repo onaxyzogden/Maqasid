@@ -6,6 +6,7 @@ import { useSettingsStore } from '../../store/settings-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useProjectStore } from '../../store/project-store';
 import { useMobile } from '../../hooks/useMobile';
+import { useArabic } from '../../hooks/useArabic';
 import ClockInModal from '../people/hr/ClockInModal';
 import '../islamic/AyahBanner.css';
 import '../islamic/DuaSection.css';
@@ -63,6 +64,7 @@ function getProjectBase(pathname) {
 export default function TopBar() {
   const location = useLocation();
   const mobile = useMobile();
+  const fmt = useArabic();
   const toggleSidebar = useAppStore((s) => s.toggleSidebar);
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
   const islamicPanelWidthPx = useAppStore((s) => s.islamicPanelWidthPx);
@@ -230,7 +232,7 @@ export default function TopBar() {
             </button>
             {!ayahBannerCollapsed && (
               <div className="ayah-banner__body">
-                <p className="ayah-banner__arabic">{ayahBannerData.arabic}</p>
+                <p className="ayah-banner__arabic">{fmt(ayahBannerData.arabic)}</p>
                 <p className="ayah-banner__translation">
                   {ayahBannerData.translation}
                 </p>

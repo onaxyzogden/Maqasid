@@ -1,7 +1,9 @@
 import { quranWBW } from '@data/quran-wbw';
+import { useArabic } from '../../hooks/useArabic';
 import './QuranVerseCard.css';
 
 function SingleVerseCard({ verseKey }) {
+  const fmt = useArabic();
   const data = quranWBW[verseKey];
   if (!data) {
     return (
@@ -22,7 +24,7 @@ function SingleVerseCard({ verseKey }) {
       <div className="qvc__words">
         {data.words.map((word, i) => (
           <div key={i} className="qvc__word">
-            <span className="qvc__word-ar">{word.ar}</span>
+            <span className="qvc__word-ar">{fmt(word.ar)}</span>
             <span className="qvc__word-en">{word.en}</span>
           </div>
         ))}

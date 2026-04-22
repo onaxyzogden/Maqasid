@@ -1,17 +1,6 @@
-import LevelOverviewPage from '@pages/shared/LevelOverviewPage';
-import { ENVIRONMENT_PILLARS, ENVIRONMENT_LEVEL_ROUTES, ENVIRONMENT_STORAGE_KEY, ENVIRONMENT_ENSURE_PROJECTS, ENVIRONMENT_LEVEL_DESCRIPTIONS } from './EnvironmentCorePage';
+import EnvironmentLevelOverview from './EnvironmentLevelOverview';
+import { MODULE_PALETTE } from '@data/module-palette';
 
 export default function EnvironmentGrowthPage() {
-  return (
-    <LevelOverviewPage
-      level="growth"
-      levelColor="#4ab8a8"
-      pillars={ENVIRONMENT_PILLARS}
-      storageKey={ENVIRONMENT_STORAGE_KEY}
-      ensureProjects={ENVIRONMENT_ENSURE_PROJECTS}
-      levelRoutes={ENVIRONMENT_LEVEL_ROUTES}
-      boardPrefix="environment"
-      levelDescriptions={ENVIRONMENT_LEVEL_DESCRIPTIONS}
-    />
-  );
+  return <EnvironmentLevelOverview level="growth" levelColor={MODULE_PALETTE.environment.growth} />;
 }

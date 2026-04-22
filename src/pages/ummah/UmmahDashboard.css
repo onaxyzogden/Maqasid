@@ -3,6 +3,13 @@
   max-width: 900px;
 }
 
+/* Appendix block: Frameworks section rendered below LevelOverviewPage in the
+   unified module template. Matches the .flo padding so it flows as one page. */
+.ummah-dash--appendix {
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-8);
+}
+
 .ummah-hero {
   background: var(--surface);
   border: 1px solid var(--border);

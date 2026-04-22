@@ -3,6 +3,8 @@ import LevelOverviewPage from '@pages/shared/LevelOverviewPage';
 import MaqasidComparisonWheel from '@components/faith/MaqasidComparisonWheel';
 import PathToExcellenceCards from '@components/faith/PathToExcellenceCards';
 import { useToastStore } from '@store/toastStore';
+import { FAITH_PILLAR_WISDOM } from '@data/faith-pillar-wisdom';
+import { FAITH_NEXT_ACTIONS } from '@data/faith-next-actions';
 import {
   FAITH_PILLARS,
   FAITH_LEVEL_ROUTES,
@@ -51,6 +53,8 @@ export default function FaithLevelOverview({ level, levelColor }) {
         levelPattern: LEVEL_PATTERN[level] || 'dots',
         level,
         onReach100,
+        pillarWisdom: FAITH_PILLAR_WISDOM,
+        nextActions: FAITH_NEXT_ACTIONS,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={PathToExcellenceCards}

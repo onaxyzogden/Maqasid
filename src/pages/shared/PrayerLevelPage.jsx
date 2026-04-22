@@ -5,6 +5,7 @@ import ProjectBoard from '@components/work/ProjectBoard';
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import { SkeletonCard } from '@components/shared/Skeleton';
 import PrayerLevelNavigator, { PRAYER_ENSURE_PROJECTS } from '@components/islamic/PrayerLevelNavigator';
+import PrayerHeroDuring from '@components/islamic/PrayerHeroDuring';
 import {
   PRAYER_PILLARS,
   PRAYER_PHASE_KEYS,
@@ -167,20 +168,28 @@ export default function PrayerLevelPage({
       )}
       <div className="fpb-layout">
         <div className="fpb-content">
-          {prevProject && prevProject.id !== displayProjectId && (
-            <div key={prevProject.id} className="fpb-content__layer fpb-content__layer--out">
-              <ProjectBoard projectId={prevProject.id} project={prevProject} hideFilter hideViewSwitcher />
-            </div>
-          )}
-          {displayProject ? (
-            <div key={displayProjectId} className="fpb-content__layer fpb-content__layer--in">
-              <ProjectBoard projectId={displayProjectId} project={displayProject} hideFilter hideViewSwitcher />
+          {activeLevel === 'during' ? (
+            <div key={`during-${pillarKey}`} className="fpb-content__layer fpb-content__layer--in">
+              <PrayerHeroDuring pillarKey={pillarKey} />
             </div>
           ) : (
-            <div className="fpb-content__layer" style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-              <SkeletonCard />
-              <SkeletonCard />
-            </div>
+            <>
+              {prevProject && prevProject.id !== displayProjectId && (
+                <div key={prevProject.id} className="fpb-content__layer fpb-content__layer--out">
+                  <ProjectBoard projectId={prevProject.id} project={prevProject} hideFilter hideViewSwitcher />
+                </div>
+              )}
+              {displayProject ? (
+                <div key={displayProjectId} className="fpb-content__layer fpb-content__layer--in">
+                  <ProjectBoard projectId={displayProjectId} project={displayProject} hideFilter hideViewSwitcher />
+                </div>
+              ) : (
+                <div className="fpb-content__layer" style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+                  <SkeletonCard />
+                  <SkeletonCard />
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

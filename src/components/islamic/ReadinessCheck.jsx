@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Check } from 'lucide-react';
+import { useArabic } from '../../hooks/useArabic';
 import './ReadinessCheck.css';
 
 // ── Display-only paired rows ──
@@ -74,6 +75,7 @@ function RCCardPair({ row, yesLabel, nytLabel, selections, onSelect }) {
 
 // ── Interactive readiness — card wizard (one row per page) ──
 function RCInteractive({ rows, selections, onSelect, frame }) {
+  const fmt = useArabic();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [dir, setDir] = useState('next'); // 'next' | 'prev' | 'fade' — drives animation direction
   const [exiting, setExiting] = useState(false);
@@ -140,7 +142,7 @@ function RCInteractive({ rows, selections, onSelect, frame }) {
           <>
             <div className="rc-card-group-header">
               <span className="rc-card-attr">{current._attr.name}</span>
-              {current._attr.ar && <span className="rc-card-attr-ar">{current._attr.ar}</span>}
+              {current._attr.ar && <span className="rc-card-attr-ar">{fmt(current._attr.ar)}</span>}
               {current._attr.title && <span className="rc-card-attr-title">{current._attr.title}</span>}
             </div>
             {current._attr.frame && <p className="rc-card-frame">{current._attr.frame}</p>}

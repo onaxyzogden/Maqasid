@@ -95,7 +95,7 @@ export default function LevelOverviewPage({
       <LevelNavigator
         compact
         controlledLevel={level}
-        onLevelChange={(key) => navigate(levelRoutes[key])}
+        onLevelChange={(key) => navigate(levelRoutes[key], { viewTransition: true })}
         pillars={pillars}
         storageKey={storageKey}
         ensureProjects={ensureProjects}
@@ -129,10 +129,10 @@ export default function LevelOverviewPage({
             <div
               key={id}
               className="flo__card"
-              onClick={() => navigate(route)}
+              onClick={() => navigate(route, { viewTransition: true })}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && navigate(route)}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(route, { viewTransition: true })}
               data-index={i}
             >
               <div

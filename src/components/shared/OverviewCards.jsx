@@ -1,4 +1,5 @@
 import { CheckCircle2, Circle } from 'lucide-react';
+import { useArabic } from '../../hooks/useArabic';
 import '@pages/islamic/FivePillars.css';
 
 /**
@@ -11,6 +12,7 @@ import '@pages/islamic/FivePillars.css';
  *   grounding   — optional footnote string citing the quran.ai source
  */
 function OverviewCard({ item, moduleColor }) {
+  const fmt = useArabic();
   return (
     <div className="fp-card">
       {/* Header */}
@@ -23,14 +25,14 @@ function OverviewCard({ item, moduleColor }) {
           <div className="fp-card__meaning">{item.meaning}</div>
         </div>
         <span className="fp-card__arabic-name" style={{ color: moduleColor }}>
-          {item.arabic}
+          {fmt(item.arabic)}
         </span>
       </div>
 
       {/* Quranic Ayah */}
       {item.ayahKey && (
         <div className="fp-card__ayah">
-          <div className="fp-card__ayah-arabic">{item.ayahArabic}</div>
+          <div className="fp-card__ayah-arabic">{fmt(item.ayahArabic)}</div>
           <div className="fp-card__ayah-translation">{item.ayahTranslation}</div>
           <div className="fp-card__ayah-ref">
             &mdash; Surah {item.ayahKey} (Abdel Haleem)

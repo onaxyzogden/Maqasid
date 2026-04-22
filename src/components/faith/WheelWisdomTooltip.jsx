@@ -1,10 +1,12 @@
 import { createPortal } from 'react-dom';
+import { useArabic } from '../../hooks/useArabic';
 import './WheelWisdomTooltip.css';
 
 const TOOLTIP_W = 260;
 const TOOLTIP_OFFSET = 14;
 
 export default function WheelWisdomTooltip({ wisdom, x, y, levelColor }) {
+  const fmt = useArabic();
   if (!wisdom || typeof document === 'undefined') return null;
 
   const vw = typeof window !== 'undefined' ? window.innerWidth : 1024;
@@ -22,7 +24,7 @@ export default function WheelWisdomTooltip({ wisdom, x, y, levelColor }) {
       }}
       role="tooltip"
     >
-      <div className="wwt-arabic">{wisdom.arabic}</div>
+      <div className="wwt-arabic">{fmt(wisdom.arabic)}</div>
       <div className="wwt-english">{wisdom.english}</div>
       <div className="wwt-citation" style={{ color: levelColor }}>
         {wisdom.citation}

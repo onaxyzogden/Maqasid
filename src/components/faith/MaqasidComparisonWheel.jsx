@@ -1,6 +1,9 @@
+// MaqasidComparisonWheel — shared-by-convention. Lives in src/components/faith/
+// for historical reasons (Faith was the first consumer); now consumed by all
+// seven Maqasid module dashboards. Wisdom + next-action maps arrive as props
+// so every module can plug in its own curated corpus (or stubs, or null).
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FAITH_PILLAR_WISDOM } from '@data/faith-pillar-wisdom';
 import useMilestoneWatcher from '@hooks/useMilestoneWatcher';
 import useMithaqHold from '@hooks/useMithaqHold';
 import { useWheelHoverStore } from '@store/wheelHoverStore';
@@ -18,15 +21,6 @@ const PROGRESS_MAX_R = LABEL_INNER_R;
 const LABEL_OUTER_R = 184;
 const ICON_R = (LABEL_INNER_R + LABEL_OUTER_R) / 2;
 const WISDOM_HOVER_DELAY = 1000; // ms
-
-// Pathfinding label ("Next: …") per pillar per level — short enough to fit under the hub %.
-const NEXT_ACTION = {
-  shahada: { core: 'Renew the Shahada', growth: 'Deepen tawḥīd study', excellence: 'Teach the creed' },
-  salat:   { core: 'Establish Fajr on time', growth: 'Pray with khushūʿ', excellence: 'Night prayer rhythm' },
-  zakat:   { core: 'Calculate Zakat', growth: 'Regular Sadaqah habit', excellence: 'Endow a Waqf' },
-  siyam:   { core: 'Ramadan preparation', growth: 'Weekly Sunnah fasts', excellence: 'Dawood-style fasting' },
-  hajj:    { core: 'Save for Hajj', growth: 'Umrah readiness', excellence: 'Serve pilgrims' },
-};
 
 function polar(r, angleDeg) {
   const a = (angleDeg * Math.PI) / 180;
@@ -64,10 +58,12 @@ export default function MaqasidComparisonWheel({
   segments = [],
   onReach100,
   mithaqDomain = null,
+  pillarWisdom = null,
+  nextActions = null,
 }) {
   const navigate = useNavigate();
   const handleActivate = (seg) => {
-    if (seg?.route) navigate(seg.route);
+    if (seg?.route) navigate(seg.route, { viewTransition: true });
   };
   const [hovered, setHovered] = useState(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
@@ -182,7 +178,7 @@ export default function MaqasidComparisonWheel({
   const nextCardText = hoveredSeg
     ? (hoveredSeg.current >= 100
         ? 'Flourishing'
-        : (NEXT_ACTION[hoveredSeg.id]?.[level] || hoveredSeg.label))
+        : (nextActions?.[hoveredSeg.id]?.[level] || hoveredSeg.label))
     : null;
 
   // Anchor the card at the hovered sector's outer midangle; flip leftward
@@ -268,7 +264,7 @@ export default function MaqasidComparisonWheel({
     if (wisdomFor && wisdomFor !== seg.id) setWisdomFor(null);
   };
 
-  const wisdomPayload = wisdomFor ? FAITH_PILLAR_WISDOM[wisdomFor] : null;
+  const wisdomPayload = wisdomFor && pillarWisdom ? pillarWisdom[wisdomFor] : null;
 
   return (
     <div className="mcw-wrap">
