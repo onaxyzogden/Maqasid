@@ -314,6 +314,49 @@ export const MODULE_ID_TO_SUBMODULE_ID = {
   tech: 'tech',
 };
 
+// Aladhan timings key per node (mirrors NODE_TIMING in PropheticPath.jsx).
+// Co-located here so non-component callers can derive node anchor times
+// without importing the timeline component.
+export const NODE_TIMING_KEY = {
+  isha:           'Isha',
+  tahajjud:       'Lastthird',
+  fajr:           'Fajr',
+  morning:        'Sunrise',
+  dhuhr:          'Dhuhr',
+  'midday-labor': 'Dhuhr',
+  asr:            'Asr',
+  maghrib:        'Maghrib',
+};
+
+// Phase-window minutes around a node anchor.
+// before: [-BEFORE_MIN, anchor)   during: [anchor, anchor+DURING_MIN)   after: rest
+const PHASE_BEFORE_MIN = 25;
+const PHASE_DURING_MIN = 15;
+
+function timingsToMs(raw, today) {
+  if (typeof raw !== 'string') return null;
+  const clean = raw.replace(/\s*\(.*\)/, '');
+  if (!/^\d{1,2}:\d{2}/.test(clean)) return null;
+  const [h, m] = clean.split(':').map(Number);
+  const d = new Date(today);
+  d.setHours(h, m, 0, 0);
+  return d.getTime();
+}
+
+// Given a node id, current Date, and Aladhan timings, return 'before' | 'during' | 'after'.
+// Falls back to 'during' when no timings are available.
+export function inferPhaseForNode(nodeId, now = new Date(), timings = null) {
+  const key = NODE_TIMING_KEY[nodeId];
+  if (!key || !timings) return 'during';
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const anchorMs = timingsToMs(timings[key], today);
+  if (anchorMs == null) return 'during';
+  const diff = now.getTime() - anchorMs; // negative = before anchor
+  if (diff < 0 && diff >= -PHASE_BEFORE_MIN * 60_000) return 'before';
+  if (diff >= 0 && diff < PHASE_DURING_MIN * 60_000) return 'during';
+  return diff < 0 ? 'before' : 'after';
+}
+
 // Hour-range fallback for when no active prayer window is returned by
 // usePrayerTimes. Returns the PropheticPath node id.
 export function inferNodeFromHour(date = new Date()) {

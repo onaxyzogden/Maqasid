@@ -1,0 +1,134 @@
+.til {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.til-window {
+  border-left: 3px solid var(--accent);
+  padding: var(--space-2) var(--space-3);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+}
+.til-window-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.til-window-node {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.til-window-ar {
+  margin-left: auto;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+.til-window-phase {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+  margin-top: 2px;
+}
+.til-window-next {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.72rem;
+  color: var(--text2);
+  margin-top: var(--space-1);
+}
+.til-window-remaining {
+  margin-left: auto;
+  color: var(--text3);
+  font-style: italic;
+}
+
+.til-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.til-section-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  font-weight: 600;
+}
+.til-section-label--row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.til-task-count {
+  margin-left: auto;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.til-intent {
+  border-left: 2px solid var(--accent);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border-radius: 0 6px 6px 0;
+}
+.til-intent-title {
+  font-weight: 600;
+  font-size: 0.78rem;
+  margin-bottom: 2px;
+}
+.til-intent-meaning {
+  font-size: 0.78rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.til-empty {
+  font-size: 0.75rem;
+  color: var(--text3);
+  font-style: italic;
+  margin: 0;
+}
+.til-task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.til-task-row {
+  margin: 0;
+}
+.til-task-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px 6px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--text1);
+  font-size: 0.78rem;
+  transition: background 120ms ease;
+}
+.til-task-link:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.til-task-dot {
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.til-task-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Time-based Islamic Layer on the timeline route
+
+Made `IslamicPanel` route-aware so `/app/prophetic-path-test` swaps the module-centric body for prayer-phase content. Decision record: [[2026-04-22-timeline-islamic-layer-route]].
+
+### Done
+- New helper `inferPhaseForNode(nodeId, now, timings)` + `NODE_TIMING_KEY` map in [src/data/prophetic-path-submodules.js](src/data/prophetic-path-submodules.js) (25-min before / 15-min during windows around each node anchor).
+- New seed [src/data/islamic/time-based-content.js](src/data/islamic/time-based-content.js) — keyed by node × phase, reuses `AYAH_BANNER_DATA.faith_salah` (Quran 29:45) for the prayer "during" slot and `ONGOING_DUA` (Quran 9:129) for ongoing dhikr; `before`/`after` render English-only intent text per [[amanah-gate]].
+- New component [src/components/islamic/TimelineIslamicContent.jsx](src/components/islamic/TimelineIslamicContent.jsx) + companion CSS — renders window header (node + Arabic + phase + countdown), ayah card, dhikr card, intent block, and tasks-for-window list with deep links to `#node-{id}`. Minute-tick `setInterval` keeps node/phase live.
+- [src/components/islamic/IslamicPanel.jsx](src/components/islamic/IslamicPanel.jsx) now imports `useLocation`, branches `.il-content` on `pathname.startsWith('/app/prophetic-path-test')`, hides the Pillar Context + Module badges on the timeline route, and switches `ceremonyKey` to `'timeline'` so Begin/Close ceremony state stays scoped.
+- Verified in dev preview at `/app/prophetic-path-test`: header reads "Tahajjud · تهجد · AFTER · LINGERING", "Next: Dhuhr 13:17 · in 7h 51m"; tasks count badge populated; non-regression on `/app/faith` (existing Opening Dua intact); Universal mode on timeline gracefully falls back to "No content for this module" by design.
+
+### Deferred
+- Editorial backlog: fill `before`/`after` slots and node-specific hadith from vetted Muslim Scholar NotebookLM corpora (Bukhari, Muslim, Quran) so non-prayer windows surface authentic Arabic instead of intent text.
+- `/app/faith` Module Badge absence is pre-existing (Faith pillar isn't in `MODULES`); unrelated to this change but worth flagging in a future polish pass.
+
+### Notes
+- Build: 2748 modules clean, no console errors.
+- Pre-existing 670 lint errors unchanged (vendor + project-wide). My new files contributed zero net errors after dropping a `useMemo` that the React Compiler flagged.
+- Pattern is reusable: any future route-anchored sidebar surface can branch on `useLocation` the same way.
+
+---
+
 ## [2026-04-22] session | Unified module dashboard template — Faith shape applied to all 8 modules
 
 Rolled Faith's route-driven dashboard template across every remaining Maqasid module. Decision record: [wiki/decisions/2026-04-22-unified-module-dashboard-template.md](wiki/decisions/2026-04-22-unified-module-dashboard-template.md).

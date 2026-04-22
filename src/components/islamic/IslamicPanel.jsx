@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { X, ChevronDown, BookOpen, Play, Square } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
@@ -15,6 +16,7 @@ import DuaSection from './DuaSection';
 import ReadinessCheck from './ReadinessCheck';
 import ReferenceList from './ReferenceList';
 import PrayerTime from './PrayerTime';
+import TimelineIslamicContent from './TimelineIslamicContent';
 import './IslamicPanel.css';
 
 // Collapsible section block — ported from bbos-v4 IslamicLayer
@@ -51,6 +53,8 @@ export default function IslamicPanel() {
   const completedClosing = useThresholdStore((s) => s.completedClosing);
   const toggleCitations = useAppStore((s) => s.toggleCitations);
   const mobile = useMobile();
+  const { pathname } = useLocation();
+  const isTimelineRoute = pathname.startsWith('/app/prophetic-path-test');
 
   const mod = MODULES.find((m) => m.id === activeModule);
   const data = getModuleData(activeModule, valuesLayer);
@@ -68,7 +72,9 @@ export default function IslamicPanel() {
   const bbosData = bbosStage ? getBbosStageIslamic(activeBbosStage) : null;
   const stageModeColor = bbosLayer?.color || null;
   const effectiveData = bbosData || resolvedData;
-  const ceremonyKey = bbosStage ? `bbos:${bbosStage.id}` : activeModule;
+  const ceremonyKey = isTimelineRoute
+    ? 'timeline'
+    : (bbosStage ? `bbos:${bbosStage.id}` : activeModule);
 
   // Citation collection — only in Islamic mode, only for modules with dua sources
   const { citations, citationMap, citationsVisible } = useCitations(
@@ -127,7 +133,7 @@ export default function IslamicPanel() {
       {isIslamic && <PrayerTime />}
 
       {/* Pillar context */}
-      {(() => {
+      {!isTimelineRoute && (() => {
         const pillar = getPillarForModule(activeModule);
         if (!pillar) return null;
         return (
@@ -141,8 +147,8 @@ export default function IslamicPanel() {
         );
       })()}
 
-      {/* Module / Stage context badge */}
-      {bbosStage ? (
+      {/* Module / Stage context badge — hidden on timeline route (replaced by window header) */}
+      {!isTimelineRoute && (bbosStage ? (
         <div
           className="il-module-badge"
           style={{ borderLeft: `3px solid ${stageModeColor}`, paddingLeft: 'var(--space-3)' }}
@@ -190,7 +196,7 @@ export default function IslamicPanel() {
             )}
           </div>
         )
-      )}
+      ))}
 
       {/* Threshold ceremony buttons */}
       <div className="il-threshold-btns">
@@ -214,7 +220,8 @@ export default function IslamicPanel() {
 
       {/* Content sections */}
       <div className="il-content">
-        {effectiveData && (
+        {isTimelineRoute && isIslamic && <TimelineIslamicContent />}
+        {!(isTimelineRoute && isIslamic) && effectiveData && (
           <>
             {/* Opening Dua / Mindfulness */}
             <ILSection
@@ -298,7 +305,7 @@ export default function IslamicPanel() {
           </>
         )}
 
-        {!effectiveData && (
+        {!(isTimelineRoute && isIslamic) && !effectiveData && (
           <div className="il-empty">
             <p>No content available for this module.</p>
           </div>
