@@ -321,7 +321,7 @@ function DemoCarousel() {
 }
 
 const HOW_IT_WORKS = [
-  { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences.', icon: Compass },
+  { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences.', icon: ICON_REGISTRY.Compass },
   { step: '02', title: 'Explore Your Pillars', desc: 'Each of the Seven Maqasid has its own dashboard with sub-modules, Kanban boards, and readiness checks.', icon: BookOpen },
   { step: '03', title: 'Track Your Growth', desc: 'Work through three tiers \u2014 Necessities, Needs, and Excellence \u2014 across every dimension of your life.', icon: Sparkles },
 ];
