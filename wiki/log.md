@@ -3,6 +3,34 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | PropheticPath time-window "Current" + TaskDetailPanel slide-up
+
+Two unrelated UX fixes.
+
+### 1. PropheticPath: time-window active detection + 10-min next-soon unfade
+- **Symptom:** At 3:23 AM, Tahajjud (3:00 AM · Last Third) rendered faded with no badge while Fajr (4:58 AM) got the "NEXT" badge. Expected Tahajjud to read "Current".
+- **Root cause:** `deriveNodeTiming` only set `'active'` when the node matched the Aladhan hook's `activePrayer` — which only tracks the five canonical salawat. Tahajjud / Morning / Midday-Labor could never reach `'active'` and fell through to `'upcoming'`.
+- **Fix:** New helper `computeActiveNodeId(timings)` ([PropheticPath.jsx](src/components/islamic/PropheticPath.jsx)) — finds the node whose anchor is the most-recent past anchor (`now - anchor` smallest non-negative, with 24h wrap). Applies to all 8 nodes. `deriveNodeTiming` now checks `nodeId === activeNodeId` instead of the canonical-prayer guard; `CANONICAL_PRAYER_NODES` and the `activePrayer` dep are gone.
+- **10-minute lead:** When the next node's anchor is ≤10min away, state is promoted from `'next'` to `'next-soon'` — new CSS rule `[data-prayer-state='next-soon']` sets opacity to 1 (full unfade) while keeping the "Next" badge. Chip selector extended to match both.
+- **Badge text:** "Now" → "Current" per user wording.
+- **Verification:** `preview_eval` with `Date` stubbed: at 3:01 AM Tahajjud=`active`, Fajr=`next`; at 4:50 AM (8 min before Fajr) Fajr=`next-soon` opacity 1; at 4:47 AM (11 min before) Fajr=`next` opacity 0.78.
+
+### 2. TaskDetailPanel: slide-up instead of scale-fade popup
+- Replaced `tdpScaleIn/Out` (scale 0.4→1 with dynamic `transformOrigin` from clicked card rect) with `tdpSlideIn/Out` (translateY 100%→0) in [TaskDetailPanel.css](src/components/work/TaskDetailPanel.css).
+- Overlay `align-items: center` → `flex-end` so the panel docks at the bottom of the viewport.
+- Panel border-radius changed from uniform 24px to `24px 24px 0 0` (bottom-sheet shape); `max-height` 85vh → 90vh.
+- Removed now-dead `computeTransformOrigin`, `transformOrigin` state, and its `useLayoutEffect` from [TaskDetailPanel.jsx](src/components/work/TaskDetailPanel.jsx).
+- **Blast radius:** four callers inherit automatically — ProjectBoard, PrayerLevelPage, PillarLevelPage, PropheticPath.
+- **Verification:** synthesized panel in preview confirms `animationName: tdpSlideIn`, `overlayAlign: flex-end`, `borderRadius: 24px 24px 0px 0px`. Live task-click not reachable in current seed (only BBOS empty-cell cards available on the one seeded project).
+
+**Decisions:** none filed.
+
+**Deferred:** Visual confirmation of live slide-up interaction once a seed project with real kanban tasks is available.
+
+**Files changed:** `src/components/islamic/PropheticPath.jsx`, `src/components/islamic/PropheticPath.css`, `src/components/work/TaskDetailPanel.jsx`, `src/components/work/TaskDetailPanel.css`.
+
+---
+
 ## [2026-04-22] session | BBOS dashboard layout normalization
 
 Three small, reviewer-visible fixes to BBOS ProjectBoard / Dashboard surfaces.

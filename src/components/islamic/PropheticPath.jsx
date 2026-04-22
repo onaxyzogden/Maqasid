@@ -74,12 +74,6 @@ const NODE_TIMING = {
 // Canonical ordering used for past/upcoming calculation.
 const PRAYER_ORDER = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 
-// Nodes that can hold the 'active' spotlight — `usePrayerTimes.activePrayer`
-// only tracks the five salawat, so Tahajjud/Morning/Midday-Labor cannot be
-// "active" in the strict prayer-window sense. They CAN be "next" though —
-// that is computed locally below from every node's own anchor time.
-const CANONICAL_PRAYER_NODES = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha']);
-
 function stripTz(str) {
   return typeof str === 'string' ? str.replace(/\s*\(.*\)/, '') : '';
 }
@@ -105,6 +99,29 @@ function timeToMs(raw, today) {
 // Compute the nodeId whose anchor time is soonest in the future, wrapping
 // around midnight. Tahajjud at 03:00 beats Fajr at 05:00 when now is 02:35.
 // Returns null if no node has a usable anchor time.
+// Compute the node whose anchor is the most-recent past anchor — i.e. now
+// sits inside [thisNodeAnchor, nextNodeAnchor). Applies to all 8 nodes so
+// Tahajjud / Morning / Midday-Labor can be 'active' during their window.
+function computeActiveNodeId(timings) {
+  if (!timings) return null;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const ONE_DAY = 24 * 60 * 60 * 1000;
+  let bestId = null;
+  let bestDiff = Infinity;
+  for (const [nodeId, spec] of Object.entries(NODE_TIMING)) {
+    const ms = timeToMs(timings[spec.key], today);
+    if (ms == null) continue;
+    let diff = now.getTime() - ms;
+    if (diff < 0) diff += ONE_DAY; // anchor later today → count as yesterday's occurrence
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestId = nodeId;
+    }
+  }
+  return bestId;
+}
+
 function computeNextNodeId(timings) {
   if (!timings) return null;
   const now = new Date();
@@ -129,19 +146,23 @@ function computeNextNodeId(timings) {
 // 'active' | 'next' | 'past' | 'upcoming' | null. 'active' is driven by the
 // hook's activePrayer (canonical 5 only). 'next' is computed locally across
 // ALL nodes so Tahajjud / Morning / Midday-Labor can take the next slot.
-function deriveNodeTiming(nodeId, timings, activePrayerName, nextNodeId) {
+function deriveNodeTiming(nodeId, timings, activeNodeId, nextNodeId) {
   const spec = NODE_TIMING[nodeId];
   if (!spec || !timings) return { time: '', label: spec?.label || null, state: null };
   const raw = timings[spec.key];
   const time = formatTime12(raw);
   const today = new Date();
   const prayerMs = timeToMs(raw, today);
-  const canActive = CANONICAL_PRAYER_NODES.has(nodeId);
 
   let state = null;
-  if (canActive && activePrayerName === spec.key) state = 'active';
-  else if (nodeId === nextNodeId) state = 'next';
-  else if (prayerMs != null) state = prayerMs < Date.now() ? 'past' : 'upcoming';
+  if (nodeId === activeNodeId) {
+    state = 'active';
+  } else if (nodeId === nextNodeId) {
+    const leadMs = prayerMs != null ? prayerMs - Date.now() : Infinity;
+    state = leadMs > 0 && leadMs <= 10 * 60 * 1000 ? 'next-soon' : 'next';
+  } else if (prayerMs != null) {
+    state = prayerMs < Date.now() ? 'past' : 'upcoming';
+  }
 
   return { time, label: spec.label, state };
 }
@@ -611,8 +632,8 @@ function TimelineNode({
               {!timing?.time && timing?.label && (
                 <span className="pp-time-chip pp-time-chip--anchor">{timing.label}</span>
               )}
-              {timing?.state === 'active' && <span className="pp-time-chip__badge">Now</span>}
-              {timing?.state === 'next' && <span className="pp-time-chip__badge pp-time-chip__badge--next">Next</span>}
+              {timing?.state === 'active' && <span className="pp-time-chip__badge">Current</span>}
+              {(timing?.state === 'next' || timing?.state === 'next-soon') && <span className="pp-time-chip__badge pp-time-chip__badge--next">Next</span>}
             </span>
             <h3 className="pp-title" data-tone={node.titleTone}>
               {node.title}
@@ -663,12 +684,12 @@ export default function PropheticPath({ variant }) {
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const {
     timings,
-    activePrayer,
     cityName,
     loading: prayerLoading,
     requestLocation,
   } = usePrayerTimes();
   const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
+  const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
 
   // Weekly boards back the midday-labor + morning Before/After satellites
   // (which now trigger the Threshold modal). Ensure they exist so the
@@ -759,7 +780,7 @@ export default function PropheticPath({ variant }) {
                   onSelectProject={setSlideUpProjectId}
                   onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
                   onOpenPrayer={setSlideUpPrayerNodeId}
-                  timing={deriveNodeTiming(node.id, timings, activePrayer?.name, nextNodeId)}
+                  timing={deriveNodeTiming(node.id, timings, activeNodeId, nextNodeId)}
                 />
               ))}
             </div>

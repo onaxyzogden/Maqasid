@@ -42,20 +42,6 @@ const ICON_MAP = {
   TreeDeciduous, ShoppingBag, Globe, Users, LayoutGrid,
 };
 
-function computeTransformOrigin(cardRect, panelW) {
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  const w = Math.min(panelW ?? 672, vw * 0.92);
-  const panelH = vh * 0.85;
-  const panelLeft = (vw - w) / 2;
-  const panelTop = (vh - panelH) / 2;
-  const cardCX = cardRect.left + cardRect.width / 2;
-  const cardCY = cardRect.top + cardRect.height / 2;
-  const ox = Math.max(0, Math.min(w, cardCX - panelLeft));
-  const oy = Math.max(0, Math.min(panelH, cardCY - panelTop));
-  return `${Math.round(ox)}px ${Math.round(oy)}px`;
-}
-
 export default function TaskDetailPanel({ project, projectId, taskId, onClose, bbosRole, accentColor }) {
   const task = useTaskStore((s) => s.getTask(projectId, taskId));
   const updateTask = useTaskStore((s) => s.updateTask);
@@ -66,7 +52,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const trapRef = useFocusTrap(!!taskId, onClose);
   const [title, setTitle] = useState('');
   const [notes, setNotes] = useState('');
-  const [transformOrigin, setTransformOrigin] = useState(null);
   const [closing, setClosing] = useState(false);
   const [docOpen, setDocOpen] = useState(false);
   const [activeSubtask, setActiveSubtask] = useState(null); // subtask object or null
@@ -87,16 +72,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       setTimeout(() => onClose(), 200);
     };
   }, [onClose]);
-
-  useLayoutEffect(() => {
-    const card = document.querySelector(`[data-task-id="${taskId}"]`);
-    if (card) {
-      const rect = card.getBoundingClientRect();
-      setTransformOrigin(computeTransformOrigin(rect, 672));
-    } else {
-      setTransformOrigin(null);
-    }
-  }, [taskId]);
 
   // ── Auto in-progress tracking ──
   const originalToDoColIdRef = useRef(null);
@@ -597,10 +572,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       aria-modal="true"
       aria-labelledby="task-detail-title"
       className={`task-detail-panel${closing ? ' tdp-scale-out' : ' tdp-scale-in'}`}
-      style={{
-        ...(transformOrigin ? { transformOrigin } : {}),
-        ...(accentColor ? { '--tdp-accent': accentColor } : {}),
-      }}
+      style={accentColor ? { '--tdp-accent': accentColor } : undefined}
       onClick={(e) => e.stopPropagation()}
     >
       {/* ── Header ── */}

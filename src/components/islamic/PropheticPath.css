@@ -919,7 +919,8 @@
   background: color-mix(in srgb, var(--pp-primary) 22%, transparent);
   color: var(--pp-primary);
 }
-.prophetic-path .pp-time-chip[data-state='next'] {
+.prophetic-path .pp-time-chip[data-state='next'],
+.prophetic-path .pp-time-chip[data-state='next-soon'] {
   background: color-mix(in srgb, var(--pp-primary) 10%, transparent);
   color: var(--pp-primary);
 }
@@ -987,6 +988,10 @@
 }
 .prophetic-path .pp-node[data-prayer-state='next'] {
   opacity: 0.78;
+}
+.prophetic-path .pp-node[data-prayer-state='next-soon'] {
+  opacity: 1;
+  filter: none;
 }
 .prophetic-path .pp-node[data-prayer-state='active'] {
   opacity: 1;
