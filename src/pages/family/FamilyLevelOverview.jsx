@@ -5,6 +5,7 @@ import FamilyPathToExcellenceCards from '@components/family/FamilyPathToExcellen
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
+import { MODULE_PALETTE } from '@data/module-palette';
 import {
   FAMILY_PILLARS,
   FAMILY_LEVEL_ROUTES,
@@ -49,6 +50,7 @@ export default function FamilyLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: PILLAR_WISDOM.family,
         nextActions: PILLAR_NEXT_ACTIONS.family,
+        themeColor: MODULE_PALETTE.family.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={FamilyPathToExcellenceCards}

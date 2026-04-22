@@ -53,6 +53,7 @@ function outerArc(r, startDeg, endDeg) {
 export default function MaqasidComparisonWheel({
   centerLabel = 'FAITH',
   levelColor = '#4ab8a8',
+  themeColor = null,
   levelPattern = 'dots',
   level = 'core',
   segments = [],
@@ -126,6 +127,13 @@ export default function MaqasidComparisonWheel({
   useMilestoneWatcher(segments, onReach100);
 
   const palette = useMemo(() => deriveWheelPalette(levelColor), [levelColor]);
+  // Module theme palette — drives the outer `.mcw-band` ring so each module
+  // keeps its signature color independent of the active level. Falls back to
+  // the level palette when no themeColor is supplied (legacy single-axis mode).
+  const themePalette = useMemo(
+    () => deriveWheelPalette(themeColor || levelColor),
+    [themeColor, levelColor],
+  );
 
   const n = segments.length || 1;
   const arcSize = 360 / n;
@@ -279,6 +287,8 @@ export default function MaqasidComparisonWheel({
           '--mcw-level-shimmer': palette.shimmer,
           '--mcw-level-hub-tint': palette.hubTint,
           '--mcw-level-aura': palette.brightAura,
+          '--mcw-theme-color': themePalette.base,
+          '--mcw-theme-stroke': themePalette.stroke,
           '--mcw-qalb-balance': qalbBalance.toFixed(3),
         }}
       >
@@ -303,8 +313,8 @@ export default function MaqasidComparisonWheel({
             <stop offset="100%" stopColor="#0a2326" />
           </radialGradient>
           <linearGradient id="mcw-band-level" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor={palette.base} stopOpacity="0.95" />
-            <stop offset="100%" stopColor={palette.base} stopOpacity="0.65" />
+            <stop offset="0%"   stopColor={themePalette.base} stopOpacity="0.95" />
+            <stop offset="100%" stopColor={themePalette.base} stopOpacity="0.65" />
           </linearGradient>
           <radialGradient id="mcw-aura-grad" cx="50%" cy="50%" r="50%">
             <stop offset="0%"   stopColor={palette.brightAura} stopOpacity="0.95" />

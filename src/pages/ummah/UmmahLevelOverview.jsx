@@ -8,6 +8,7 @@ import MaqasidTable from '@components/shared/MaqasidTable';
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
+import { MODULE_PALETTE } from '@data/module-palette';
 import {
   OVERVIEW as COLLECTIVE_OVERVIEW,
   MAQASID as COLLECTIVE_MAQASID,
@@ -102,6 +103,7 @@ export default function UmmahLevelOverview({ level, levelColor }) {
           onReach100,
           pillarWisdom: PILLAR_WISDOM.ummah,
           nextActions: PILLAR_NEXT_ACTIONS.ummah,
+          themeColor: MODULE_PALETTE.ummah.theme,
         }}
         ComparisonWheelComponent={MaqasidComparisonWheel}
         ExcellenceCardsComponent={UmmahPathToExcellenceCards}

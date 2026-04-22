@@ -5,6 +5,7 @@ import IntellectPathToExcellenceCards from '@components/intellect/IntellectPathT
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
+import { MODULE_PALETTE } from '@data/module-palette';
 import {
   INTELLECT_PILLARS,
   INTELLECT_LEVEL_ROUTES,
@@ -49,6 +50,7 @@ export default function IntellectLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: PILLAR_WISDOM.intellect,
         nextActions: PILLAR_NEXT_ACTIONS.intellect,
+        themeColor: MODULE_PALETTE.intellect.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={IntellectPathToExcellenceCards}

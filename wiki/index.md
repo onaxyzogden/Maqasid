@@ -61,6 +61,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-22-wheel-clickable-submodules-ios-fix]] | 2026-04-22 | Round 5.5: wheel segments + outer band become submodule nav buttons; hover contrast inversion; cursor-handoff crossfade via base-selector transitions; iOS Safari icon fix replaces `foreignObject` with nested SVG; Mithaq paused on Faith |
 | [[2026-04-22-prayerhero-uiux-consult]] | 2026-04-22 | UI/UX Scholar NotebookLM consult on PrayerHeroDuring post-V1 flags (diacritical toggle UX, corner mode-toggle discoverability, halo vs austere bg). Identifies three V2 candidates vs. what we shipped |
 | [[2026-04-22-timeline-islamic-layer-route]] | 2026-04-22 | IslamicPanel becomes route-aware on `/app/prophetic-path-test` — swaps module-centric body for prayer-phase window (header + ayah + dhikr + tasks); seeds reuse vetted AYAH_BANNER_DATA + ONGOING_DUA per Amanah Gate |
+| [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]] | 2026-04-22 | MaqasidComparisonWheel gains per-module `themeColor` (band) decoupled from universal `LEVEL_COLORS` (fill); `.mcw-seg-bg` hover dim inverted (rest=light, peer=dark); Wealth submodule icons canonicalized and Earning↔Circulation swapped |
 
 ## Sources
 

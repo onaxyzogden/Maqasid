@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Wheel two-axis color model + Wealth icon canon
+
+Decoupled the Maqasid Comparison Wheel's module-identity ring from the level-progress fill, inverted the `.mcw-seg-bg` hover dimming, and canonicalized Wealth submodule icons across sidebar, wheel, and bento. Decision record: [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]].
+
+### Done
+- **Two-axis color model** — `src/data/module-palette.js` rewritten: universal `LEVEL_COLORS` (gold/green/purple) + per-module `theme` hex. `MaqasidComparisonWheel` gained a `themeColor` prop (falls back to `levelColor`); band gradient now uses `themePalette.base` so each module keeps its identity ring across all three levels. All 8 `<Module>LevelOverview.jsx` files pass `themeColor: MODULE_PALETTE.<module>.theme` via `wheelExtraProps`. Faith theme currently white (`#FFFFFF`) per Yousef's call.
+- **`.mcw-seg-bg` inversion** — base `fill-opacity` 0.55 → 0.25 (lighter at rest); new `:has(.is-hovered)` rule raises non-hovered peers to 0.9 (darker on neighbour hover). Removed `.mcw-seg-bg` from the shared peer-dim rule to prevent opacity collision.
+- **Wealth icon canon** — swapped Earning and Circulation glyphs per final directive. Canon is now: Earning=`CircleFadingArrowUp`, Financial=`ChessKnight`, Ownership=`Scale`, Circulation=`GitPullRequestCreateArrow`. Propagated to `src/data/modules.js` (sidebar `ICON_MAP` reads from here), `src/pages/wealth/WealthLevelNavigator.jsx` (`WEALTH_PILLARS` feeds wheel + bento), and legacy `src/pages/wealth/WealthDashboard.jsx`.
+- **Dev-only 50% progress simulation** — `VITE_SIMULATE_PROGRESS` env var read once in `src/hooks/useModuleProgress.js`; short-circuits both hooks to return `{ total: 10, completed, started: 10, pct }` per pillar when set. `.env.local` gitignored. No Zustand pollution.
+
+### Deferred
+- Audit other modules (Faith / Life / Intellect / Family / Environment / Ummah / Moontrance) for submodule-icon divergence — only Wealth was flagged this session.
+- `project-store.js` `wealth_circulation_*` boards still use `CircleFadingArrowUp` (board-identity icon, not submodule icon). Intentional, but worth re-evaluating if board icons should track submodule canon.
+
+### Notes
+- Build clean (2748 modules) at each step.
+- Sidebar `ICON_MAP` already imported both glyphs — swap was a pure string rename in `modules.js`, no import changes.
+- Project-board icons live in a separate axis (`moduleId`-keyed) and were left untouched by design.
+
+---
+
 ## [2026-04-22] session | Time-based Islamic Layer on the timeline route
 
 Made `IslamicPanel` route-aware so `/app/prophetic-path-test` swaps the module-centric body for prayer-phase content. Decision record: [[2026-04-22-timeline-islamic-layer-route]].

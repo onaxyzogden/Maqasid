@@ -5,6 +5,7 @@ import LifePathToExcellenceCards from '@components/life/LifePathToExcellenceCard
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
+import { MODULE_PALETTE } from '@data/module-palette';
 import {
   LIFE_PILLARS,
   LIFE_LEVEL_ROUTES,
@@ -49,6 +50,7 @@ export default function LifeLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: PILLAR_WISDOM.life,
         nextActions: PILLAR_NEXT_ACTIONS.life,
+        themeColor: MODULE_PALETTE.life.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={LifePathToExcellenceCards}

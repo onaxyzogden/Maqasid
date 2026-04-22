@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Wallet,
-  PiggyBank,
+  GitPullRequestCreateArrow,
+  ChessKnight,
   Scale,
   CircleFadingArrowUp,
   ArrowRight,
@@ -27,10 +27,10 @@ const SUBMODULE_ROUTES = {
 };
 
 const PILLARS = [
-  { id: 'earning', label: 'Halal Earning', Icon: Wallet },
-  { id: 'financial', label: 'Financial Management', Icon: PiggyBank },
+  { id: 'earning', label: 'Halal Earning', Icon: CircleFadingArrowUp },
+  { id: 'financial', label: 'Financial Management', Icon: ChessKnight },
   { id: 'ownership', label: 'Ownership & Rights', Icon: Scale },
-  { id: 'circulation', label: 'Wealth Circulation', Icon: CircleFadingArrowUp },
+  { id: 'circulation', label: 'Wealth Circulation', Icon: GitPullRequestCreateArrow },
 ];
 
 export default function WealthDashboard() {

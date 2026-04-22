@@ -2,6 +2,19 @@ import { useMemo } from 'react';
 import { useProjectStore } from '../store/project-store';
 import { useTaskStore } from '../store/task-store';
 
+/**
+ * Dev-only simulation override. When `VITE_SIMULATE_PROGRESS` is set to a
+ * number 0–100 in `.env.local`, both hooks below short-circuit and report
+ * that value for every pillar — useful for eyeballing dashboards with
+ * non-zero progress without seeding fake tasks. Inert when unset.
+ */
+const SIMULATED_PCT = (() => {
+  const raw = import.meta.env.VITE_SIMULATE_PROGRESS;
+  if (raw == null || raw === '') return null;
+  const n = Number(raw);
+  return Number.isFinite(n) ? Math.max(0, Math.min(100, Math.round(n))) : null;
+})();
+
 function isDoneColumn(columnId) {
   return columnId?.endsWith('_done');
 }
@@ -40,6 +53,13 @@ export function useModuleProgress(moduleId) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
 
   return useMemo(() => {
+    if (SIMULATED_PCT != null) {
+      return {
+        total: 10,
+        completed: Math.round(SIMULATED_PCT / 10),
+        pct: SIMULATED_PCT,
+      };
+    }
     const moduleProjects = projects.filter((p) => p.moduleId === moduleId);
     let total = 0;
     let completed = 0;
@@ -71,6 +91,15 @@ export function useModulesProgress(moduleIds, level) {
 
   return useMemo(() => {
     const progressMap = {};
+
+    if (SIMULATED_PCT != null) {
+      const completed = Math.round(SIMULATED_PCT / 10);
+      for (const moduleId of moduleIds) {
+        progressMap[moduleId] = { total: 10, completed, started: 10, pct: SIMULATED_PCT };
+      }
+      return { progressMap, overallPct: SIMULATED_PCT };
+    }
+
     let grandTotal = 0;
     let grandCompleted = 0;
 
