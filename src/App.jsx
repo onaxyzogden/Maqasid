@@ -71,7 +71,6 @@ import UmmahDashboard from '@pages/ummah/UmmahDashboard';
 import MoontraceDashboard from '@pages/moontrance/MoontraceDashboard';
 import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
-import DashboardWheelTestPage from '@pages/prototypes/DashboardWheelTestPage';
 import PropheticPathTestPage from '@pages/prototypes/PropheticPathTestPage';
 import CeremonyGuard from '@components/islamic/CeremonyGuard';
 import CeremonyGuardDynamic from '@components/islamic/CeremonyGuardDynamic';
@@ -212,7 +211,6 @@ export default function App() {
         <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />
         <Route path="settings" element={<Settings />} />
-        <Route path="dashboard-wheel-test" element={<DashboardWheelTestPage />} />
         <Route path="prophetic-path-test" element={<PropheticPathTestPage />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
       </Route>

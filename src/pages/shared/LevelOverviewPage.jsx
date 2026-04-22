@@ -59,6 +59,10 @@ export default function LevelOverviewPage({
   levelRoutes = {},
   boardPrefix,
   levelDescriptions,
+  showComparisonWheel = false,
+  wheelCenterLabel,
+  ComparisonWheelComponent,
+  ExcellenceCardsComponent,
 }) {
   const navigate = useNavigate();
   const ensureProjectsFn = useProjectStore(ensureProjects);
@@ -97,6 +101,21 @@ export default function LevelOverviewPage({
         levelDescriptions={levelDescriptions}
       />
 
+      {/* Optional: comparison wheel (per-pillar opt-in) */}
+      {showComparisonWheel && ComparisonWheelComponent && (
+        <div className="flo__wheel">
+          <ComparisonWheelComponent
+            centerLabel={wheelCenterLabel}
+            levelColor={levelColor}
+            segments={pillars.map((p) => ({
+              id: p.id,
+              label: p.label,
+              current: progressMap[p.id]?.pct ?? 0,
+            }))}
+          />
+        </div>
+      )}
+
       {/* Bento grid */}
       <div className="flo__grid">
         {pillars.map(({ id, label, glossaryId, Icon, route }, i) => {
@@ -128,6 +147,13 @@ export default function LevelOverviewPage({
           );
         })}
       </div>
+
+      {/* Optional: path-to-excellence cards (per-pillar opt-in) */}
+      {ExcellenceCardsComponent && (
+        <div className="flo__excellence">
+          <ExcellenceCardsComponent />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import LevelOverviewPage from '@pages/shared/LevelOverviewPage';
+import MaqasidComparisonWheel from '@components/faith/MaqasidComparisonWheel';
+import PathToExcellenceCards from '@components/faith/PathToExcellenceCards';
 import {
   FAITH_PILLARS,
   FAITH_LEVEL_ROUTES,
@@ -22,6 +24,10 @@ export default function FaithLevelOverview({ level, levelColor }) {
       ensureProjects={FAITH_ENSURE_PROJECTS}
       levelRoutes={FAITH_LEVEL_ROUTES}
       boardPrefix="faith"
+      showComparisonWheel
+      wheelCenterLabel="FAITH"
+      ComparisonWheelComponent={MaqasidComparisonWheel}
+      ExcellenceCardsComponent={PathToExcellenceCards}
     />
   );
 }

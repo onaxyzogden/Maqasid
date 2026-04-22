@@ -18,7 +18,7 @@
 
 .mcw-seg-current {
   fill-opacity: 0.95;
-  stroke: #3fb0a3;
+  stroke: var(--mcw-level-color, #3fb0a3);
   stroke-width: 1.2;
   stroke-opacity: 0.85;
 }

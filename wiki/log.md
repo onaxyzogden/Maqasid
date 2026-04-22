@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] session | Faith dashboard wheel promotion + level-color theming
+
+**Completed:**
+- Promoted `MaqasidComparisonWheel` + `PathToExcellenceCards` from the `/app/dashboard-wheel-test` prototype route onto the real Faith overview page (all three levels) via opt-in props on the shared `LevelOverviewPage`: `showComparisonWheel`, `ComparisonWheelComponent`, `wheelCenterLabel`, `ExcellenceCardsComponent`.
+- Wheel now binds to live task-store progress via the existing `useModulesProgress` hook — identical source to the bento `MasteryRing`, so the two are in sync by construction (no new selector).
+- Level-color theming: added `levelColor` prop on the wheel. Progress radial gradient stops and outer label-band linear gradient now derive from `levelColor` via opacity falloff; segment stroke wired via `--mcw-level-color` CSS custom property. Removed per-segment `color` field (wheel now expresses one level's palette, not five pillar identities). Verified recolor at core `#C8A96E` (gold) / growth `#4ab8a8` (teal) / excellence `#8b5cf6` (purple) via `preview_eval`.
+- Moved both components out of `src/pages/prototypes/components/` into `src/components/faith/`. Deleted the prototype page, route (`src/App.jsx`), and sidebar nav entry. `FlaskConical` import preserved in Sidebar for the remaining Prophetic Path prototype.
+
+**Decisions:** [[2026-04-21-faith-dashboard-wheel-promotion]] (supersedes [[2026-04-20-dashboard-wheel-test-prototype]])
+
+**Verification:** Preview screenshots at `/app/faith-core` (gold) and `/app/faith-excellence` (purple) captured. `/app/life-core` regression-checked — no wheel, no excellence cards. `npm run build` clean (2691 modules). No new lint errors.
+
+**Deferred:** Real data binding for Path to Excellence CTAs; extending wheel to other pillars; promoting wheel layout onto the main `/app` Sanctuary dashboard.
+
+**Files changed:** `src/pages/shared/LevelOverviewPage.{jsx,css}`, `src/pages/faith/FaithLevelOverview.jsx`, `src/App.jsx`, `src/components/layout/Sidebar.jsx`; moves: `src/pages/prototypes/components/{MaqasidComparisonWheel,PathToExcellenceCards}.{jsx,css}` → `src/components/faith/`; deletes: `src/pages/prototypes/DashboardWheelTestPage.{jsx,css}`.
+
 ## [2026-04-21] session | graphify --update full Maqasid/Milos run + bridge trace
 
 **Completed:**

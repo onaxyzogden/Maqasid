@@ -50,6 +50,18 @@
   max-width: 560px;
 }
 
+/* ── Optional comparison wheel (opt-in per pillar) ── */
+.flo__wheel {
+  max-width: 560px;
+  margin: var(--space-6) auto var(--space-6);
+}
+
+/* ── Optional Path-to-Excellence card row (opt-in per pillar) ── */
+.flo__excellence {
+  max-width: 900px;
+  margin: var(--space-6) auto 0;
+}
+
 /* ── Bento grid ── */
 .flo__grid {
   display: grid;

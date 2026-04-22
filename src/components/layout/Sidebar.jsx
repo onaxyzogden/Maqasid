@@ -233,16 +233,6 @@ export default function Sidebar() {
         <div className="sidebar-divider" />
 
         <Link
-          to="/app/dashboard-wheel-test"
-          className={`sidebar-item ${location.pathname === '/app/dashboard-wheel-test' ? 'active' : ''}`}
-          onClick={handleNavClick}
-          title="Dashboard Wheel Test (prototype)"
-        >
-          <FlaskConical size={18} />
-          {!collapsed && <span>Dashboard Wheel Test</span>}
-        </Link>
-
-        <Link
           to="/app/prophetic-path-test"
           className={`sidebar-item ${location.pathname === '/app/prophetic-path-test' ? 'active' : ''}`}
           onClick={handleNavClick}

@@ -2,7 +2,8 @@
 title: "Dashboard Wheel Test Prototype"
 type: decision
 date: 2026-04-20
-status: accepted
+status: superseded
+superseded_by: 2026-04-21-faith-dashboard-wheel-promotion
 tags: [dashboard, prototype, svg, ui, maqasid-comparison-wheel]
 ---
 
