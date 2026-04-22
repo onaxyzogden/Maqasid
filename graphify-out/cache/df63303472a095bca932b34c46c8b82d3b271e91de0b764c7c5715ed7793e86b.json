@@ -1,0 +1,1 @@
+{"nodes": [{"id": "style_guide", "label": "Style Guide", "file_type": "document", "source_file": "references/style-guide.md"}], "edges": [{"source": "style_guide", "target": "component_library", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": "references/style-guide.md", "weight": 1.0}], "hyperedges": []}

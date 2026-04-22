@@ -1,0 +1,1 @@
+{"nodes": [{"id": "review_life", "label": "Review - Life Maqsid", "file_type": "document", "source_file": "stages/_review-life.txt"}], "edges": [{"source": "review_life", "target": "concept_seven_maqasid", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "stages/_review-life.txt", "weight": 1.0}], "hyperedges": []}

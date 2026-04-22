@@ -32,6 +32,7 @@ notes/
 # graphify temp files
 .graphify_*.json
 .graphify_*.txt
+.graphify_*.py
 .graphify_python
 
 # Local audit working docs

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "docs_contextmd", "label": "Docs CONTEXT.md", "file_type": "document", "source_file": "docs\\CONTEXT.md"}], "edges": [{"source": "docs_contextmd", "target": "docs_principles", "relation": "references", "confidence": "INFERRED", "confidence_score": 0.8, "source_file": "docs\\CONTEXT.md", "weight": 1.0}], "hyperedges": []}

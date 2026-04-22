@@ -1,0 +1,1 @@
+{"nodes": [{"id": "decision_hadith_reranker", "label": "Hadith Semantic Reranker", "file_type": "document", "source_file": "wiki/decisions/2026-04-16-hadith-semantic-reranker.md"}], "edges": [], "hyperedges": []}

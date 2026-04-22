@@ -1,0 +1,1 @@
+{"nodes": [{"id": "qa_sample_v3_30", "label": "QA Sample v3-30", "file_type": "document", "source_file": "stages/_qa-sample-v3-30.md"}], "edges": [{"source": "qa_sample_v3_30", "target": "qa_sample_v2_40", "relation": "references", "confidence": "INFERRED", "confidence_score": 0.75, "source_file": "stages/_qa-sample-v3-30.md", "weight": 1.0}], "hyperedges": []}

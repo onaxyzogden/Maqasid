@@ -3,6 +3,34 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-21] session | graphify --update full Maqasid/Milos run + bridge trace
+
+**Completed:**
+- Ran `/graphify --update` on the full Maqasid/Milos corpus. Scope: everything except `atlas/` submodule (859 files) and `graphify-out/` outputs (923 files) → 191 actionable files from 1,973 detected changes.
+- AST extraction on 74 code files → 334 nodes / 824 edges.
+- 7 parallel semantic subagents on 117 uncached files (5 doc chunks of 23 + 2 image singletons) → 134 nodes / 108 edges / 15 hyperedges.
+- Merged into existing graph via `G_existing.update(G_new)` → **1,535 nodes, 1,532 edges, 286 communities**.
+- Hand-labeled top 27 communities (e.g. c0 "People & HR Module", c1 "App Modules & Shell", c3 "BBOS Task & Work Boards", c10 "BBOS Dashboard Views", c13 "Islamic Attribute Rendering", c14 "Hadith Enrichment Pipeline").
+- Regenerated `graphify-out/GRAPH_REPORT.md`, `graph.html`, `graph.json`, `manifest.json`, `cost.json`. Benchmark: 3,985× token reduction vs full-corpus reads.
+- **Bridge trace** of top-betweenness node `src_data_bbos_bbos_task_definitions_js` (score 0.031). Three successive queries (`.graphify_query{,2,3}.py`) revealed a structural contradiction: node had only 3 `contains` edges to its own exported functions, zero inbound edges, 4-node 3-hop neighborhood. Filesystem grep found 9 real consumers importing from it.
+- **Targeted re-extraction**: single subagent on the 9 consumer files (`BbosFullDashboard.jsx`, `ProjectBoard.jsx`, `BbosTaskPanel.jsx`, `Dashboard.jsx`, `project-store.js`, `JournalPanel.jsx`, `ScopeGate.jsx`, `context-gatherer.js`, + the data file) emitted `.graphify_bridge_patch.json` with 12 nodes, 21 edges (8 imports + 8 calls + 5 shares_data_with), 1 hyperedge. Merged via `.graphify_merge_patch.py` → edges total 1,553. Bridge dissolved; target's betweenness dropped 0.031 → 0.0027; all 11 neighbors collapsed into community 1.
+
+**Decisions:**
+- **graphify extraction gap on `src/data/**` consumers is real and accepted as a known limitation** — see [[2026-04-21-graphify-extraction-gaps]]. High-betweenness + low-degree is now treated as an audit signal (likely extraction artifact), not a finding. Targeted patches are the remedy; bulk `--mode deep` re-run on `src/data/**` consumers deferred to next full graphify pass.
+
+**Verified:**
+- Final graph state confirmed via direct NetworkX queries: `bbos-task-definitions.js` degree = 11, betweenness = 0.0027, all neighbors in community 1.
+- Report regen after patch hit a `detection_result['total_files']` schema mismatch (cosmetic); `graph.json` persisted cleanly.
+
+**Deferred:**
+- Full `--mode deep` re-run on `src/data/**` to surface latent consumer→data edges across `readiness-ayahs.js`, `bbos-stages.js`, `islamic-data.js`, seed-tasks files.
+- Bulk re-cluster of `graph.json` with the patched edges (community 3 + community 10 labels now stale).
+- Upstream issue to `graphifyy` re: data-file import resolution in AST layer.
+
+**Files changed:** `graphify-out/graph.json`, `graphify-out/graph.html`, `graphify-out/GRAPH_REPORT.md`, `graphify-out/manifest.json`, `graphify-out/cost.json`, `graphify-out/cache/*` (117 new), `wiki/entities/graphify.md`, `wiki/decisions/2026-04-21-graphify-extraction-gaps.md` (new), `wiki/log.md`, `wiki/index.md`, `.gitignore` (added `.graphify_*.py`).
+
+---
+
 ## [2026-04-21] session | Threshold-trigger Before/After + interactive closing reflection
 
 **Completed:**

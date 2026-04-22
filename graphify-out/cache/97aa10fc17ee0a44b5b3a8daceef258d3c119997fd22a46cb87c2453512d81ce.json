@@ -1,0 +1,1 @@
+{"nodes": [{"id": "review_family", "label": "Review - Family Maqsid", "file_type": "document", "source_file": "stages/_review-family.txt"}], "edges": [{"source": "review_family", "target": "concept_seven_maqasid", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "stages/_review-family.txt", "weight": 1.0}], "hyperedges": []}

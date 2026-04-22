@@ -1,0 +1,1 @@
+{"nodes": [{"id": "tasks_lessons", "label": "Tasks Lessons Learned", "file_type": "document", "source_file": "tasks/lessons.md"}], "edges": [{"source": "tasks_lessons", "target": "tasks_context", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.7, "source_file": "tasks/lessons.md", "weight": 1.0}], "hyperedges": []}

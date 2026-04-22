@@ -1,0 +1,1 @@
+{"nodes": [{"id": "review_wealth", "label": "Review - Wealth Maqsid", "file_type": "document", "source_file": "stages/_review-wealth.txt"}], "edges": [{"source": "review_wealth", "target": "concept_seven_maqasid", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "stages/_review-wealth.txt", "weight": 1.0}], "hyperedges": []}
