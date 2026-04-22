@@ -7,8 +7,11 @@ import {
   HandHeart, Moon, Landmark, Activity, BrainCircuit,
   Sparkles, Library, Lightbulb, Wrench, Heart,
   Baby, Handshake, Home, Building2, Wallet,
-  PiggyBank, Scale, CircleFadingArrowUp, Droplets, Recycle,
-  TreeDeciduous, ShoppingBag, Globe, Users,
+  PiggyBank, ChessKnight, Scale, CircleFadingArrowUp, GitPullRequestCreateArrow,
+  Droplets, Recycle, TreeDeciduous, ShoppingBag,
+  Globe, MapPin, Users, Shapes, HouseHeart,
+  MapPinned, Leaf, HousePlus,
+  PencilRuler, SquareTerminal,
   Calendar, Tag, User, Flag, Columns3, ChevronRight,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
@@ -38,8 +41,11 @@ const ICON_MAP = {
   HandHeart, Moon, Landmark, Activity, BrainCircuit,
   Sparkles, Library, Lightbulb, Wrench, Heart,
   Baby, Handshake, Home, Building2, Wallet,
-  PiggyBank, Scale, CircleFadingArrowUp, Droplets, Recycle,
-  TreeDeciduous, ShoppingBag, Globe, Users, LayoutGrid,
+  PiggyBank, ChessKnight, Scale, CircleFadingArrowUp, GitPullRequestCreateArrow,
+  Droplets, Recycle, TreeDeciduous, ShoppingBag,
+  Globe, MapPin, Users, Shapes, HouseHeart, LayoutGrid,
+  MapPinned, Leaf, HousePlus,
+  PencilRuler, SquareTerminal,
 };
 
 export default function TaskDetailPanel({ project, projectId, taskId, onClose, bbosRole, accentColor }) {

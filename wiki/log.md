@@ -36,6 +36,15 @@ Final canonical icon matrix — all 8 modules now agree across sidebar / wheel /
 ### Follow-up fix
 Ummah and Neighbors submodule glyphs were missing from the sidebar after the icon-name swap in `modules.js`. Root cause: `Sidebar.jsx` keeps two separate maps — `PILLAR_ICON_MAP` for parent-pillar glyphs and `ICON_MAP` for submodule glyphs. When the parent Ummah icon was changed from `Globe` to `Shapes`, the `Globe` import was dropped because it was no longer needed by `PILLAR_ICON_MAP` — but it was simultaneously needed by `ICON_MAP` for the new `collective` submodule glyph. `MapPin` was never registered at all. Fixed by importing both `Globe` and `MapPin` and adding them to `ICON_MAP`. Lesson: when updating `modules.js` submodule icon strings, always cross-check every consumer that maintains an icon-name → component map (Sidebar, MobileNav, TaskDetailPanel, CeremonyGate, ModulePlaceholder).
 
+### Icon-map sweep (preventative)
+Expanded `ICON_MAP` coverage in the three remaining consumers to cover the full 8-module submodule canon, so any future icon-string edit in `modules.js` renders correctly without per-file follow-ups:
+
+- **`src/components/work/TaskDetailPanel.jsx`** — added `ChessKnight`, `GitPullRequestCreateArrow`, `HouseHeart`, `MapPin`, `Shapes`, `MapPinned`, `Leaf`, `HousePlus`, `PencilRuler`, `SquareTerminal`.
+- **`src/components/islamic/CeremonyGate.jsx`** — added `PencilRuler`, `SquareTerminal`, `TrendingUp`, `Star`, `CheckCircle2`, `HeartHandshake`, `HouseHeart`, `HandHeart`, `Landmark`, `ChessKnight`, `GitPullRequestCreateArrow`, `Globe`, `MapPin`, `Shapes`, `MapPinned`, `Leaf`, `HousePlus`.
+- **`src/pages/ModulePlaceholder.jsx`** — added `Heart`, `HouseHeart`, `Home`, `Building2`, `ChessKnight`, `GitPullRequestCreateArrow`, `Droplets`, `Recycle`, `Shield`, `TrendingUp`, `Star`, `CheckCircle2`, `Moon`, `Landmark`, `Globe`, `MapPin`, `Users`, `Shapes`, `MapPinned`, `HousePlus`, `PencilRuler`, `SquareTerminal`.
+
+Legacy glyphs (`Wallet`, `PiggyBank`, `Kanban`, `Store`, `Share2`, etc.) retained for backward compat with any stored project data still referencing them.
+
 ---
 
 ## [2026-04-22] session | Wheel two-axis color model + Wealth icon canon
