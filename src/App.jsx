@@ -1,11 +1,15 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from '@store/auth-store';
 import Landing from '@pages/Landing';
 import Onboarding from '@pages/Onboarding';
 import AppShell from '@components/layout/AppShell';
 import Dashboard from '@pages/Dashboard';
-import Work from '@pages/modules/Work';
-import Project from '@pages/modules/Project';
+import RouteSpinner from '@components/shared/RouteSpinner';
+// Phase 3 — Work module subtree is lazy: pulls in @dnd-kit + react-markdown
+// + remark-gfm only when a user opens a Work/Project route.
+const Work = lazy(() => import('@pages/modules/Work'));
+const Project = lazy(() => import('@pages/modules/Project'));
 import Money from '@pages/modules/Money';
 import People from '@pages/modules/People';
 import Office from '@pages/modules/Office';
@@ -13,7 +17,9 @@ import Tech from '@pages/modules/Tech';
 import FamilyPage from '@pages/ummah/FamilyPage';
 import Neighbors from '@pages/ummah/Neighbors';
 import Community from '@pages/ummah/Community';
-import SourcesPage from '@pages/islamic/SourcesPage';
+// Phase 2 — /app/sources route is lazy; reuses the SubtaskSources chunk from
+// Phase 1 so hadith.js + quran-wbw.js stay out of the main bundle.
+const SourcesPage = lazy(() => import('@pages/islamic/SourcesPage'));
 import FaithCorePage from '@pages/faith/FaithCorePage';
 import FaithGrowthPage from '@pages/faith/FaithGrowthPage';
 import FaithExcellencePage from '@pages/faith/FaithExcellencePage';
@@ -120,6 +126,7 @@ function useGlobalTextareaAutoResize() {
 export default function App() {
   useGlobalTextareaAutoResize();
   return (
+    <Suspense fallback={<RouteSpinner />}>
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/get-started" element={<Onboarding />} />
@@ -215,5 +222,6 @@ export default function App() {
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
       </Route>
     </Routes>
+    </Suspense>
   );
 }

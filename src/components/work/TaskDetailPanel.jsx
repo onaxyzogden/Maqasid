@@ -10,8 +10,10 @@ import { useProjectStore } from '../../store/project-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { PRIORITIES } from '../../data/modules';
 import { ICON_REGISTRY } from '../../data/icon-registry';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+// react-markdown + remark-gfm (~80 KB gz combined) lazy-loaded via LazyMarkdown
+// — only the handful of subtasks that actually render a markdown description
+// trigger the fetch.
+const LazyMarkdown = lazy(() => import('../shared/LazyMarkdown'));
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import AmanahTierBadge from '../shared/AmanahTierBadge';
 // SubtaskSources pulls in hadith.js (1.3 MB) + quran-wbw.js (536 KB) via HadithCard/QuranVerseCard.
@@ -537,7 +539,9 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
               </div>
             ) : activeSubtask.description ? (
               <div className="tdp-subtask-detail__content">
-                <Markdown remarkPlugins={[remarkGfm]}>{activeSubtask.description}</Markdown>
+                <Suspense fallback={<p className="tdp-subtask-detail__text">{activeSubtask.description}</p>}>
+                  <LazyMarkdown>{activeSubtask.description}</LazyMarkdown>
+                </Suspense>
               </div>
             ) : (
               <p className="tdp-subtask-detail__text tdp-subtask-detail__empty-text">
