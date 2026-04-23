@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Bundle code-split — three phases, main chunk gzip 2,533 → 541 kB
+
+Addressed the post-threshold bundle after [[2026-04-11-bundle-size-2mb]]'s 3 MB raw revisit trigger. Decision: [[2026-04-22-bundle-code-split-three-phase]].
+
+### Done
+- **Phase 1** (`609fecf`) — `TaskDetailPanel` now `React.lazy`-imports `SubtaskSources`, severing the transitive chain that pulled `hadith.js` (1.3 MB) + `quran-wbw.js` (536 KB) into every route. Main gz 2,533 → 2,077 kB.
+- **Phase 2 + 3** (`0798946`) — `/app/sources`, `Work`, and `Project` routes converted to `lazy`; wrapped `<Routes>` in a top-level `<Suspense>` with a new `RouteSpinner`. Added `LazyMarkdown` wrapper so `react-markdown` + `remark-gfm` (~80 KB gz) load only when a subtask has a description to render.
+- New: `src/components/shared/RouteSpinner.jsx`, `src/components/shared/LazyMarkdown.jsx`.
+- Bonus: Vite auto-extracted a 1,459 kB gz `LevelNavigator` chunk from the pillar pages when `Project` became lazy — pillar navigators now load on-demand too.
+
+### Outcome
+| Metric | Baseline | Final |
+|---|---|---|
+| Main chunk raw | 8,812 kB | 1,990 kB |
+| Main chunk gzip | 2,533 kB | 541 kB |
+| Initial JS gz (index + lib + modules + runtime) | ~2,533 kB | **~614 kB** |
+| # chunks emitted | 1 | 12 |
+
+~76% reduction in initial-load JS. Smoke-tested `/`, `/app`, `/app/work`, `/app/sources` in dev preview — all render via Suspense without console errors.
+
+### Notes
+- `vite.config.js` untouched — no `manualChunks` needed; Vite's automatic graph from dynamic `import()` produced a cleaner split than a hand-tuned vendor config would have.
+- Markdown Suspense fallback renders raw description text, so subtasks are always readable even during the chunk fetch.
+
+---
+
 ## [2026-04-22] hotfix | Landing.jsx Compass bare-identifier blanked the site post-consolidation
 
 After commit 691a5cd removed `Compass` from Landing.jsx's lucide import (since the old `PILLAR_ICON_MAP` moved to `ICON_REGISTRY`), the `HOW_IT_WORKS` data array at line 324 still referenced the bare identifier `icon: Compass`. `ReferenceError: Compass is not defined` fired at module load — blanked the whole app before React could mount. Build stayed clean because Vite/Rolldown don't evaluate module-scope refs until runtime.
