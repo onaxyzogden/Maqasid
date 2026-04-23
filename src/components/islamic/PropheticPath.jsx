@@ -709,24 +709,10 @@ export default function PropheticPath({ variant }) {
         .filter(Boolean),
     [niyyahFocus]
   );
-  const {
-    timings,
-    cityName,
-    loading: prayerLoading,
-    requestLocation,
-  } = usePrayerTimes();
+  const { timings } = usePrayerTimes();
   const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
   const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
 
-  // Living Anchor — Fajr / Maghrib bookends only. Countdown line removed
-  // per user direction; the day's arc reads from the ribbon below.
-  const livingAnchor = useMemo(() => {
-    if (!timings) return null;
-    const fajr = formatTime12(timings.Fajr);
-    const maghrib = formatTime12(timings.Maghrib);
-    if (!fajr || !maghrib) return null;
-    return { fajr, maghrib };
-  }, [timings]);
 
   // Weekly boards back the midday-labor + morning Before/After satellites
   // (which now trigger the Threshold modal). Ensure they exist so the
@@ -785,8 +771,8 @@ export default function PropheticPath({ variant }) {
 
         <div className="pp-content">
           <div className="pp-timeline-col">
-            <div className="pp-intro">
-              {niyyahPillars.length > 0 && (
+            {niyyahPillars.length > 0 && (
+              <div className="pp-intro">
                 <div className="pp-niyyah-echo" role="status" aria-label="Today's intention">
                   <span className="pp-niyyah-echo__label">
                     <span className="pp-niyyah-echo__label-en">Today you carry</span>
@@ -808,28 +794,8 @@ export default function PropheticPath({ variant }) {
                     ))}
                   </span>
                 </div>
-              )}
-              {livingAnchor && (
-                <>
-                  {cityName && (
-                    <p className="pp-intro__eyebrow">{cityName}</p>
-                  )}
-                  <p className="pp-intro__bookends">
-                    Fajr {livingAnchor.fajr} · Maghrib {livingAnchor.maghrib}
-                  </p>
-                </>
-              )}
-              {!timings && (
-                <button
-                  type="button"
-                  className="pp-location-cta"
-                  onClick={requestLocation}
-                  disabled={prayerLoading}
-                >
-                  {prayerLoading ? 'Locating…' : 'Set location for live prayer times'}
-                </button>
-              )}
-            </div>
+              </div>
+            )}
 
             <div className="pp-spine">
               {NODES.map((node) => (

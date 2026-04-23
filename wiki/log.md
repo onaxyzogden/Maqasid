@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | Prophetic Path — pp-intro removed entirely
+
+Decision: [[2026-04-23-prophetic-path-intro-removed]] (supersedes the Living Anchor decision, which remains on record as an intermediate solution).
+
+### Done
+- Deleted `.pp-intro__eyebrow`, `.pp-intro__bookends`, `.pp-location-cta`, and the `livingAnchor` useMemo. Trimmed `usePrayerTimes()` destructure to `{ timings }`.
+- `.pp-intro` wrapper now conditional on `niyyahPillars.length > 0` — when no niyyah is carried, the Compressed Ribbon opens directly under the TopBar.
+- CSS pruned accordingly; `.pp-intro` margin-bottom retained for when niyyah-echo is present.
+
+### Files
+- `src/components/islamic/PropheticPath.jsx`
+- `src/components/islamic/PropheticPath.css`
+
+### Build
+✅ `npm run build` clean in 1.07s.
+
+---
+
 ## [2026-04-23] session | Prophetic Path — pp-intro becomes two-line Living Anchor
 
 Decision: [[2026-04-23-prophetic-path-living-anchor]].

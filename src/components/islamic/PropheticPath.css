@@ -70,34 +70,6 @@
   margin-bottom: 4rem; /* ≥64px — Scholar: let the sacred arc breathe */
 }
 
-/* ── Living Anchor (Scholar 2026-04-23) ──
-   Replaces the old H2 + subheading + "Prayer times for X" block. Three
-   compact lines that tell the user WHERE they are and WHAT is next — no
-   page-title-for-a-title's-sake. Let the Compressed Ribbon be the hero. */
-.prophetic-path .pp-intro__eyebrow {
-  font-family: var(--pp-font-body);
-  font-size: 0.75rem;
-  color: color-mix(in srgb, var(--pp-on-surface-variant) 75%, transparent);
-  letter-spacing: 0.05em;
-  text-transform: none;
-  margin: 0 0 0.5rem;
-  font-weight: 500;
-}
-
-.prophetic-path .pp-intro__bookends {
-  font-family: var(--pp-font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--pp-primary) 80%, var(--pp-on-surface));
-  margin: 0;
-}
-
-.prophetic-path[data-theme='light'] .pp-intro__bookends {
-  color: color-mix(in srgb, var(--pp-tertiary) 85%, var(--pp-on-surface));
-}
-
 /* ── Niyyah echo — mirrors today's intention set on Dashboard ── */
 .prophetic-path .pp-niyyah-echo {
   display: flex;
@@ -1269,25 +1241,4 @@
   }
 }
 
-/* Location CTA — shown only when timings haven't loaded (no Living Anchor) */
-.prophetic-path .pp-location-cta {
-  margin-top: 0.75rem;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--pp-primary) 40%, transparent);
-  background: color-mix(in srgb, var(--pp-primary) 8%, transparent);
-  color: var(--pp-primary);
-  font-family: var(--pp-font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.prophetic-path .pp-location-cta:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--pp-primary) 16%, transparent);
-}
-.prophetic-path .pp-location-cta:disabled {
-  opacity: 0.6;
-  cursor: progress;
-}
 
