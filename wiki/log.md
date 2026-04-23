@@ -3,6 +3,31 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | FLO Redesign promoted to shared LevelOverviewPage
+
+Decision: [[2026-04-23-flo-redesign-promotion]]. Supersedes the prototype decision.
+
+### Done
+- **JSX:** `LevelOverviewPage.jsx` now resolves pillar accent via `MAQASID_PILLARS.find(p => p.id === boardPrefix)?.accentColor`, sets `--pillar-accent` + `--level-color` inline on the `.flo` root, threads `data-progress` on cards, and passes `muted={pct === 0}` to `MasteryRing` (which now accepts the prop).
+- **CSS:** `.flo::before` 2px pillar top rule + full Scholar-led phase set (editorial serif Navigator + peer titles, 60% calm-peer opacity, level halo, container-less wheel with pillar-tinted aura, bento Active Neutrality, level-tinted hover halo, 56px icon chip) appended to `LevelOverviewPage.css`. All 7 pillars inherit uniformly — zero caller changes.
+- **Prototype retired:** `FloRedesignTestPage.{jsx,css}` deleted, `App.jsx` route + sidebar link removed (mirrors the 2026-04-21 wheel-promotion retirement pattern).
+- **Accent source chosen:** `MAQASID_PILLARS[].accentColor`, not `MODULE_PALETTE[x].theme` — Faith's theme is `#FFFFFF` and would render an invisible top rule.
+
+### Files
+- `src/pages/shared/LevelOverviewPage.jsx` — MAQASID_PILLARS import, inline CSS vars, data-progress, muted MasteryRing
+- `src/pages/shared/LevelOverviewPage.css` — `::before` rule + promoted phase block
+- `src/App.jsx` — route removal
+- `src/components/layout/Sidebar.jsx` — nav link removal
+
+### Build
+✅ `npm run build` clean in 1.37s.
+
+### Next (if desired)
+- Mobile viewport audit across Faith / Life / Intellect / Family / Wealth / Environment / Ummah.
+- Visual pass on each pillar to confirm accentColor legibility on light + dark.
+
+---
+
 ## [2026-04-23] session | FLO Redesign prototype — LevelOverviewPage at /app/flo-redesign-test
 
 Shared `LevelOverviewPage` (all 7 pillars) redesigned behind a scoped prototype route. Decision: [[2026-04-23-flo-redesign-prototype]].

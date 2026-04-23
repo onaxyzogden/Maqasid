@@ -131,16 +131,6 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          to="/app/flo-redesign-test"
-          className={`sidebar-item ${location.pathname === '/app/flo-redesign-test' ? 'active' : ''}`}
-          onClick={handleNavClick}
-          title="FLO Redesign (prototype)"
-        >
-          <SquareChevronRight size={18} />
-          {!collapsed && <span>FLO Redesign</span>}
-        </Link>
-
-        <Link
           to="/app"
           className={`sidebar-item ${location.pathname === '/app' ? 'active' : ''}`}
           onClick={handleNavClick}

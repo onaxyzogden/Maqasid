@@ -7,21 +7,23 @@ import IslamicTerm from '@components/shared/IslamicTerm';
 import LevelNavigator from '@components/shared/LevelNavigator';
 import IstiqamahToast from '@components/shared/IstiqamahToast';
 import { useAyahBanner } from '@hooks/useAyahBanner';
+import { MAQASID_PILLARS } from '@data/maqasid';
 import './LevelOverviewPage.css';
 
-function MasteryRing({ percent, color, id }) {
+function MasteryRing({ percent, color, id, muted }) {
   const r = 42;
   const stroke = 8;
   const circ = 2 * Math.PI * r;
   const offset = circ - (percent / 100) * circ;
   const gradId = `floRing_${id}`;
+  const ringColor = muted ? 'var(--border2)' : color;
 
   return (
     <svg width="110" height="110" viewBox="0 0 110 110" className="flo__ring">
       <defs>
         <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={color} stopOpacity="0.5" />
-          <stop offset="100%" stopColor={color} />
+          <stop offset="0%" stopColor={ringColor} stopOpacity="0.5" />
+          <stop offset="100%" stopColor={ringColor} />
         </linearGradient>
       </defs>
       <circle cx="55" cy="55" r={r} fill="none" stroke="var(--border)" strokeWidth={stroke} />
@@ -89,8 +91,18 @@ export default function LevelOverviewPage({
   const { progressMap } = useModulesProgress(moduleIds, level);
   useAyahBanner(`${boardPrefix}_${level}`);
 
+  // Pillar identity — 2px top rule + wheel aura source of truth
+  const pillarAccent =
+    MAQASID_PILLARS.find((p) => p.id === boardPrefix)?.accentColor ?? 'transparent';
+
   return (
-    <div className="flo">
+    <div
+      className="flo"
+      style={{
+        '--pillar-accent': pillarAccent,
+        '--level-color': levelColor,
+      }}
+    >
       {/* Level selector */}
       <LevelNavigator
         compact
@@ -125,6 +137,7 @@ export default function LevelOverviewPage({
       <div className="flo__grid">
         {pillars.map(({ id, label, glossaryId, Icon, route }, i) => {
           const pct = progressMap[id]?.pct ?? 0;
+          const state = pct > 0 ? 'started' : '0';
           return (
             <div
               key={id}
@@ -134,6 +147,7 @@ export default function LevelOverviewPage({
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && navigate(route, { viewTransition: true })}
               data-index={i}
+              data-progress={state}
             >
               <div
                 className="flo__card-icon"
@@ -147,7 +161,7 @@ export default function LevelOverviewPage({
                   : label
                 }
               </h3>
-              <MasteryRing percent={pct} color={levelColor} id={id} />
+              <MasteryRing percent={pct} color={levelColor} id={id} muted={pct === 0} />
             </div>
           );
         })}

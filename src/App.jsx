@@ -78,7 +78,6 @@ import MoontraceDashboard from '@pages/moontrance/MoontraceDashboard';
 import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
 import PropheticPathTestPage from '@pages/prototypes/PropheticPathTestPage';
-import FloRedesignTestPage from '@pages/prototypes/FloRedesignTestPage';
 import CeremonyGuard from '@components/islamic/CeremonyGuard';
 import CeremonyGuardDynamic from '@components/islamic/CeremonyGuardDynamic';
 import ProjectBoard from '@components/work/ProjectBoard';
@@ -220,7 +219,6 @@ export default function App() {
         <Route path="pillar/:pillarId" element={<PillarDashboard />} />
         <Route path="settings" element={<Settings />} />
         <Route path="prophetic-path-test" element={<PropheticPathTestPage />} />
-        <Route path="flo-redesign-test" element={<FloRedesignTestPage />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
       </Route>
     </Routes>
