@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | Prophetic Path — pp-intro becomes two-line Living Anchor
+
+Decision: [[2026-04-23-prophetic-path-living-anchor]].
+
+### Done
+- **Scholar consult** (turn 9) diagnosed `.pp-intro` as "corporate AI mush" competing with the ribbon's center of gravity. Prescription: Semantic Reduction → three-line Living Anchor (eyebrow / countdown / bookends).
+- **Built the three-line form** first with a live countdown driven by a 60s `setInterval` minute tick, re-using `computeNextNodeId` + `NODE_TIMING` + `NODES.find()` to resolve next-node title.
+- **User trimmed the countdown** on visual review — it duplicated information the ribbon's `next` chip already carries. Final shipped form is **two lines**: city eyebrow + Fajr·Maghrib bookends. Minute tick + countdown logic removed.
+- **Cleaned:** `.pp-heading`, `.pp-subheading`, `.pp-location-line` CSS rules deleted; `.pp-intro { margin-bottom }` 3rem → 4rem for Scholar's ≥64px spine gap.
+
+### Files
+- `src/components/islamic/PropheticPath.jsx` — new `livingAnchor` useMemo (Fajr/Maghrib only), JSX swap
+- `src/components/islamic/PropheticPath.css` — old heading rules out, new `.pp-intro__eyebrow` + `.pp-intro__bookends` in
+
+### Build
+✅ `npm run build` clean.
+
+### Next (if desired)
+- Consider applying Semantic Reduction to other ceremonial page headers (Faith overview, prayer slide-ups).
+
+---
+
 ## [2026-04-23] session | FLO Redesign promoted to shared LevelOverviewPage
 
 Decision: [[2026-04-23-flo-redesign-promotion]]. Supersedes the prototype decision.

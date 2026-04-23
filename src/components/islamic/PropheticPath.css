@@ -67,7 +67,35 @@
 }
 
 .prophetic-path .pp-intro {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem; /* ≥64px — Scholar: let the sacred arc breathe */
+}
+
+/* ── Living Anchor (Scholar 2026-04-23) ──
+   Replaces the old H2 + subheading + "Prayer times for X" block. Three
+   compact lines that tell the user WHERE they are and WHAT is next — no
+   page-title-for-a-title's-sake. Let the Compressed Ribbon be the hero. */
+.prophetic-path .pp-intro__eyebrow {
+  font-family: var(--pp-font-body);
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--pp-on-surface-variant) 75%, transparent);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.prophetic-path .pp-intro__bookends {
+  font-family: var(--pp-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--pp-primary) 80%, var(--pp-on-surface));
+  margin: 0;
+}
+
+.prophetic-path[data-theme='light'] .pp-intro__bookends {
+  color: color-mix(in srgb, var(--pp-tertiary) 85%, var(--pp-on-surface));
 }
 
 /* ── Niyyah echo — mirrors today's intention set on Dashboard ── */
@@ -126,36 +154,6 @@
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-}
-
-.prophetic-path .pp-heading {
-  font-family: var(--pp-font-headline);
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 700;
-  color: var(--pp-on-surface);
-  margin: 0 0 1rem 0;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.prophetic-path .pp-subheading {
-  overflow-wrap: break-word;
-}
-
-@media (min-width: 768px) {
-  .prophetic-path .pp-heading {
-    font-size: 3rem;
-    line-height: 1;
-  }
-}
-
-.prophetic-path .pp-subheading {
-  font-family: var(--pp-font-body);
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  color: var(--pp-on-surface-variant);
-  margin: 0;
 }
 
 /* ---------- Ambient background blobs ---------- */
@@ -1271,17 +1269,7 @@
   }
 }
 
-/* Location CTA / city line */
-.prophetic-path .pp-location-line {
-  font-family: var(--pp-font-body);
-  font-size: 0.8rem;
-  color: var(--pp-on-surface-variant);
-  margin: 0.5rem 0 0;
-}
-.prophetic-path .pp-location-line strong {
-  color: var(--pp-on-surface);
-  font-weight: 600;
-}
+/* Location CTA — shown only when timings haven't loaded (no Living Anchor) */
 .prophetic-path .pp-location-cta {
   margin-top: 0.75rem;
   padding: 6px 14px;

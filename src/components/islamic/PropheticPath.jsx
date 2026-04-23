@@ -19,6 +19,7 @@ import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
 import { usePrayerTimes } from '@hooks/usePrayerTimes';
 import { MODULES, PRIORITIES } from '@data/modules';
+import { MAQASID_PILLARS } from '@data/maqasid';
 import {
   buildTasksForNode,
   buildUserProjectsForScope,
@@ -42,6 +43,27 @@ import './PropheticPath.css';
 
 // Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
 const LEVEL_COLOR = { 1: '#C8A96E', 2: '#4ab8a8', 3: '#8b5cf6' };
+
+// Resolve a pillar-chip label to its canonical Maqasid accent color.
+// NODES uses a mix of `sidebarLabel` (Faith/Life/…), `id` (e.g. 'ummah'), and
+// editorial labels (e.g. 'Soul'). We try each lookup and return null for
+// unmatched labels so the chip falls back to its `data-tone` styling.
+const _PILLAR_ACCENT_BY_KEY = (() => {
+  const out = {};
+  for (const p of MAQASID_PILLARS) {
+    out[p.id.toLowerCase()] = p.accentColor;
+    if (p.sidebarLabel) out[p.sidebarLabel.toLowerCase()] = p.accentColor;
+    if (p.universalLabel) out[p.universalLabel.toLowerCase()] = p.accentColor;
+  }
+  // "Ummah" is used in NODES even though the canonical sidebarLabel is
+  // "Community". Alias it here for parity with the rest of the codebase.
+  out['ummah'] = out['community'] || null;
+  return out;
+})();
+function resolvePillarAccent(label) {
+  if (!label) return null;
+  return _PILLAR_ACCENT_BY_KEY[label.toLowerCase()] || null;
+}
 
 // Nodes that open the PrayerSlideUp (Before/During/After tabs) instead of
 // toggling inline satellite expansion. Tahajjud is included per the
@@ -194,7 +216,6 @@ function formatDue(dateStr) {
 const NODES = [
   {
     id: 'isha',
-    side: 'right',
     cardStyle: 'muted',
     eyebrow: 'Late Night',
     eyebrowTone: 'variant',
@@ -207,7 +228,6 @@ const NODES = [
   },
   {
     id: 'tahajjud',
-    side: 'left',
     cardStyle: 'divine',
     eyebrow: 'Divine Moment',
     eyebrowTone: 'tertiary',
@@ -224,7 +244,6 @@ const NODES = [
   },
   {
     id: 'fajr',
-    side: 'right',
     cardStyle: 'primary',
     eyebrow: 'Dawn',
     eyebrowTone: 'primary',
@@ -240,7 +259,6 @@ const NODES = [
   },
   {
     id: 'morning',
-    side: 'left',
     cardStyle: 'subtle',
     eyebrow: 'Morning',
     eyebrowTone: 'secondary',
@@ -256,7 +274,6 @@ const NODES = [
   },
   {
     id: 'dhuhr',
-    side: 'right',
     cardStyle: 'primary',
     eyebrow: 'Mid-day',
     eyebrowTone: 'primary',
@@ -269,7 +286,6 @@ const NODES = [
   },
   {
     id: 'midday-labor',
-    side: 'left',
     cardStyle: 'subtle',
     eyebrow: 'Midday Labor',
     eyebrowTone: 'secondary',
@@ -285,7 +301,6 @@ const NODES = [
   },
   {
     id: 'asr',
-    side: 'left',
     cardStyle: 'primary-flat',
     eyebrow: 'Afternoon',
     eyebrowTone: 'primary',
@@ -301,7 +316,6 @@ const NODES = [
   },
   {
     id: 'maghrib',
-    side: 'right',
     cardStyle: 'primary',
     eyebrow: 'Sunset',
     eyebrowTone: 'primary',
@@ -407,7 +421,6 @@ function MirrorCard({
   node,
   tasks,
   projects,
-  mirrorSide,
   onSelectTask,
   onSelectProject,
   onSelectSubmodule,
@@ -420,7 +433,7 @@ function MirrorCard({
   showProjects,
 }) {
   return (
-    <aside className="pp-mirror-card" data-side={mirrorSide}>
+    <aside className="pp-mirror-card">
       <div className="pp-mirror-header">
         <span className="pp-mirror-eyebrow">{phaseLabel} · {node.eyebrow}</span>
         <h4 className="pp-mirror-title">{node.title}</h4>
@@ -516,7 +529,6 @@ function TimelineNode({
   timing,
 }) {
   const { Icon, pulse } = node;
-  const mirrorSide = node.side === 'left' ? 'right' : 'left';
   const isPrayerNode = PRAYER_NODE_IDS.has(node.id);
   const isExpanded = !isPrayerNode && expandedSlot !== null;
   const mirrorId = `pp-mirror-${node.id}`;
@@ -568,7 +580,6 @@ function TimelineNode({
         node={node}
         tasks={phaseTasks}
         projects={scopeProjects}
-        mirrorSide={mirrorSide}
         onSelectTask={handleSelectTask}
         onSelectProject={onSelectProject}
         onSelectSubmodule={onSelectSubmodule}
@@ -585,7 +596,6 @@ function TimelineNode({
   return (
     <div
       className="pp-node"
-      data-side={node.side}
       data-expanded={isExpanded || undefined}
       data-prayer-state={timing?.state || undefined}
     >
@@ -640,11 +650,19 @@ function TimelineNode({
             </h3>
             <p className="pp-body-text">{node.body}</p>
             <div className="pp-pillars">
-              {node.pillars.map((p, i) => (
-                <span key={i} className="pp-pillar-chip" data-tone={p.tone}>
-                  {p.label}
-                </span>
-              ))}
+              {node.pillars.map((p, i) => {
+                const accent = resolvePillarAccent(p.label);
+                return (
+                  <span
+                    key={i}
+                    className="pp-pillar-chip"
+                    data-tone={p.tone}
+                    style={accent ? { '--chip-accent': accent } : undefined}
+                  >
+                    {p.label}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </button>
@@ -682,6 +700,15 @@ export default function PropheticPath({ variant }) {
   const ensureWeeklyProjects = useProjectStore((s) => s.ensureWeeklyProjects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const loadTasks = useTaskStore((s) => s.loadTasks);
+  const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
+  const niyyahPillars = useMemo(
+    () =>
+      (niyyahFocus || [])
+        .filter((id) => id !== '_skipped')
+        .map((id) => MAQASID_PILLARS.find((p) => p.id === id))
+        .filter(Boolean),
+    [niyyahFocus]
+  );
   const {
     timings,
     cityName,
@@ -690,6 +717,16 @@ export default function PropheticPath({ variant }) {
   } = usePrayerTimes();
   const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
   const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
+
+  // Living Anchor — Fajr / Maghrib bookends only. Countdown line removed
+  // per user direction; the day's arc reads from the ribbon below.
+  const livingAnchor = useMemo(() => {
+    if (!timings) return null;
+    const fajr = formatTime12(timings.Fajr);
+    const maghrib = formatTime12(timings.Maghrib);
+    if (!fajr || !maghrib) return null;
+    return { fajr, maghrib };
+  }, [timings]);
 
   // Weekly boards back the midday-labor + morning Before/After satellites
   // (which now trigger the Threshold modal). Ensure they exist so the
@@ -749,10 +786,38 @@ export default function PropheticPath({ variant }) {
         <div className="pp-content">
           <div className="pp-timeline-col">
             <div className="pp-intro">
-              <h2 className="pp-heading">The Prophetic Path</h2>
-              <p className="pp-subheading">A daily rhythm anchored in sacred intention.</p>
-              {timings && cityName && (
-                <p className="pp-location-line">Prayer times for <strong>{cityName}</strong></p>
+              {niyyahPillars.length > 0 && (
+                <div className="pp-niyyah-echo" role="status" aria-label="Today's intention">
+                  <span className="pp-niyyah-echo__label">
+                    <span className="pp-niyyah-echo__label-en">Today you carry</span>
+                    <span className="pp-niyyah-echo__label-ar">نية اليوم</span>
+                  </span>
+                  <span className="pp-niyyah-echo__chips">
+                    {niyyahPillars.map((p) => (
+                      <span
+                        key={p.id}
+                        className="pp-niyyah-echo__chip"
+                        style={{
+                          borderColor: p.accentColor,
+                          color: p.accentColor,
+                          background: p.accentColor + '14',
+                        }}
+                      >
+                        {p.sidebarLabel}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              )}
+              {livingAnchor && (
+                <>
+                  {cityName && (
+                    <p className="pp-intro__eyebrow">{cityName}</p>
+                  )}
+                  <p className="pp-intro__bookends">
+                    Fajr {livingAnchor.fajr} · Maghrib {livingAnchor.maghrib}
+                  </p>
+                </>
               )}
               {!timings && (
                 <button
