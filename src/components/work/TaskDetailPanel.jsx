@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import {
@@ -14,8 +14,27 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import AmanahTierBadge from '../shared/AmanahTierBadge';
-import SubtaskSources from './SubtaskSources';
+// SubtaskSources pulls in hadith.js (1.3 MB) + quran-wbw.js (536 KB) via HadithCard/QuranVerseCard.
+// Lazy-load so those 1.8 MB only ship when a user opens the Sources tab on a subtask.
+const SubtaskSources = lazy(() => import('./SubtaskSources'));
 import './TaskDetailPanel.css';
+
+function SourcesSkeleton() {
+  const row = {
+    height: 14,
+    borderRadius: 4,
+    background: 'var(--surface-2, #eee)',
+    marginBottom: 10,
+    opacity: 0.6,
+  };
+  return (
+    <div aria-busy="true" aria-label="Loading sources" style={{ padding: '12px 0' }}>
+      <div style={{ ...row, width: '55%' }} />
+      <div style={{ ...row, width: '92%' }} />
+      <div style={{ ...row, width: '78%' }} />
+    </div>
+  );
+}
 
 function isSubtaskGrounded(sub) {
   if (!sub || !Array.isArray(sub.sources) || sub.sources.length === 0) return null;
@@ -445,7 +464,9 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           <div className="tdp-subtask-detail__header">
             <h2 className="tdp-subtask-detail__title">Source</h2>
           </div>
-          <SubtaskSources subtask={activeSubtask} />
+          <Suspense fallback={<SourcesSkeleton />}>
+            <SubtaskSources subtask={activeSubtask} />
+          </Suspense>
         </div>
       </div>
       <div className="tdp-footer tdp-footer--subtask">
