@@ -422,6 +422,7 @@ export function getModuleGroups(nodeId) {
 const SEEDED_PILLAR_FLAGS = [
   '_faithModule', '_lifeModule', '_intellectModule', '_familyModule',
   '_wealthModule', '_environmentModule', '_ummahModule',
+  '_weeklyModule', '_prayerModule',
 ];
 function isSeededPillarBoard(p) {
   return SEEDED_PILLAR_FLAGS.some((k) => p[k] === true);

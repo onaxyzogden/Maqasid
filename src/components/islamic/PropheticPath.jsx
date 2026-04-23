@@ -215,16 +215,19 @@ function formatDue(dateStr) {
 
 const NODES = [
   {
-    id: 'isha',
-    cardStyle: 'muted',
-    eyebrow: 'Late Night',
-    eyebrowTone: 'variant',
-    title: 'Isha & Rest',
+    id: 'maghrib',
+    cardStyle: 'primary',
+    eyebrow: 'Sunset',
+    eyebrowTone: 'primary',
+    title: 'Maghrib Prayers',
     titleTone: 'on-surface',
-    body: 'Preparation for the final third of the night. A time of stillness and surrender.',
-    pillars: [{ label: 'Faith', tone: 'secondary' }],
-    Icon: Moon,
-    markerTone: 'muted',
+    body: 'Transitioning from work to family. The close of the active day.',
+    pillars: [
+      { label: 'Faith', tone: 'primary' },
+      { label: 'Family', tone: 'secondary' },
+    ],
+    Icon: Sunset,
+    markerTone: 'primary',
   },
   {
     id: 'tahajjud',
@@ -315,19 +318,16 @@ const NODES = [
     markerTone: 'primary',
   },
   {
-    id: 'maghrib',
-    cardStyle: 'primary',
-    eyebrow: 'Sunset',
-    eyebrowTone: 'primary',
-    title: 'Maghrib Prayers',
+    id: 'isha',
+    cardStyle: 'muted',
+    eyebrow: 'Late Night',
+    eyebrowTone: 'variant',
+    title: 'Isha & Rest',
     titleTone: 'on-surface',
-    body: 'Transitioning from work to family. The close of the active day.',
-    pillars: [
-      { label: 'Faith', tone: 'primary' },
-      { label: 'Family', tone: 'secondary' },
-    ],
-    Icon: Sunset,
-    markerTone: 'primary',
+    body: 'Preparation for the final third of the night. A time of stillness and surrender.',
+    pillars: [{ label: 'Faith', tone: 'secondary' }],
+    Icon: Moon,
+    markerTone: 'muted',
   },
 ];
 

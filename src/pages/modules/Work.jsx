@@ -30,14 +30,21 @@ export default function Work() {
   const [newProjectPillar, setNewProjectPillar] = useState('');
   const [newProjectSubmodule, setNewProjectSubmodule] = useState('');
 
-  const active = projects.filter((p) => !p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule && !p._ummahModule);
-  const archived = projects.filter((p) => p.archived && !p._faithModule && !p._lifeModule && !p._intellectModule && !p._familyModule && !p._wealthModule && !p._environmentModule && !p._ummahModule);
+  // Work is a shared module that currently only appears under the Wealth pillar
+  // in the sidebar (see MAQASID_PILLARS in src/data/maqasid.js). Scope the list
+  // to wealth-tagged projects so it matches the "Wealth / Projects" context.
+  const PILLAR_CONTEXT = 'wealth';
+  const wealthSubs = new Set(getPillarSubmoduleIds(PILLAR_CONTEXT));
+  const isSeedBoard = (p) => p._faithModule || p._lifeModule || p._intellectModule || p._familyModule || p._wealthModule || p._environmentModule || p._ummahModule || p._prayerModule || p._weeklyModule;
+  const inPillarScope = (p) => p.moduleId === PILLAR_CONTEXT || wealthSubs.has(p.moduleId);
+  const active = projects.filter((p) => !p.archived && !isSeedBoard(p) && inPillarScope(p));
+  const archived = projects.filter((p) => p.archived && !isSeedBoard(p) && inPillarScope(p));
   const displayed = showArchived ? archived : active;
 
   const handleNew = () => {
     setNewProjectName('');
     setNewProjectType('standard');
-    setNewProjectPillar('');
+    setNewProjectPillar(PILLAR_CONTEXT);
     setNewProjectSubmodule('');
     setShowNewDialog(true);
   };

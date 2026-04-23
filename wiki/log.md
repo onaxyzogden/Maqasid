@@ -3,6 +3,37 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | Work page pillar scope + spine reorder
+
+Two small UX fixes surfaced while testing the Prophetic Path MirrorCard Wealth+Action projects list.
+
+### Done
+- **Seed boards hidden from Work page.** `Work.jsx` filter only excluded the seven `_<pillar>Module` flags — `_weeklyModule` (from `ensureWeeklyProjects`) and `_prayerModule` (from `ensurePrayerProjects`) slipped through, so "Weekly · Wealth" / "FAJR — BEFORE" / "DHUHR — BEFORE" / "TAHAJJUD — BEFORE" etc. all appeared as user projects. Added both flags to the exclusion set.
+- **Seed boards hidden from MirrorCard.** Mirrored the same fix in `prophetic-path-submodules.js` → `SEEDED_PILLAR_FLAGS`, which `buildUserProjectsForScope` consults.
+- **Work page scoped to Wealth.** The `work` module only appears under the Wealth pillar in the sidebar (`MAQASID_PILLARS` in `data/maqasid.js`), so the Work page now filters to projects where `moduleId === 'wealth'` or resolves to one of the 4 Wealth submodules. Unassigned projects no longer leak in.
+- **New Project dialog defaults pillar = Wealth** instead of "Unassigned" so the scope invariant holds for future creates.
+- **Backfilled 3 existing unassigned projects** ("New Project", "another project", "OONGA BOONGA") with `moduleId: 'wealth'` via a one-time localStorage patch so they re-appear on the Work page and in the MirrorCard.
+- **Spine reorder.** `NODES` order changed from `isha → tahajjud → … → maghrib` to `maghrib → tahajjud → fajr → morning → dhuhr → midday-labor → asr → isha`. Matches the traditional Islamic-day convention (sunset = start of new day), and leaves Isha as the final "rest" node.
+
+### Files
+- `src/pages/modules/Work.jsx` — seed filter extended, `PILLAR_CONTEXT='wealth'` scope filter, `handleNew` seeds pillar = wealth.
+- `src/data/prophetic-path-submodules.js` — `SEEDED_PILLAR_FLAGS` extended with `_weeklyModule`, `_prayerModule`.
+- `src/components/islamic/PropheticPath.jsx` — `NODES` array reordered.
+
+### Build
+✅ `npm run build` clean in 1.18s.
+
+### Verified in preview
+- `/app/work`: lists only the 3 backfilled Wealth projects; seeded weekly/prayer boards gone.
+- New Project dialog: Pillar dropdown defaults to `wealth`.
+- Prophetic Path spine order: Maghrib → Tahajjud → Fajr → Morning → Dhuhr → Midday Labor → Asr → Isha.
+
+### Notes / Deferred
+- The `work` module's scope is hard-coded to Wealth. If `work` ever re-appears under another pillar's `subModuleIds`, the `PILLAR_CONTEXT` constant will need to become route/context-driven (e.g. query param or per-pillar wrapper).
+- 3 backfilled projects were previously `moduleId: null`; if other users/devices hold copies in their localStorage they will still need to reassign manually.
+
+---
+
 ## [2026-04-23] session | Prophetic Path — pp-intro removed entirely
 
 Decision: [[2026-04-23-prophetic-path-intro-removed]] (supersedes the Living Anchor decision, which remains on record as an intermediate solution).
