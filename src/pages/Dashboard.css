@@ -10,6 +10,84 @@
   overflow-x: hidden;
 }
 
+/* ═══ Three-tier IA · Qalb / Amal / Barakah ═══ */
+.dash-tier {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: relative;
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  margin-inline: calc(-1 * var(--space-4));
+  border-radius: var(--radius-xl, 16px);
+  isolation: isolate;
+}
+.dash-tier::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.dash-tier--qalb::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 8%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 2%, transparent) 60%,
+    transparent 100%
+  );
+}
+.dash-tier--amal::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg3) 45%, transparent) 0%,
+    transparent 100%
+  );
+}
+.dash-tier--barakah::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--success) 7%, transparent) 0%,
+    color-mix(in srgb, var(--success) 2%, transparent) 60%,
+    transparent 100%
+  );
+}
+
+.dash-tier__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: calc(-1 * var(--space-3));
+}
+.dash-tier--qalb .dash-tier__eyebrow { color: var(--accent); }
+.dash-tier--barakah .dash-tier__eyebrow { color: var(--success); }
+.dash-tier__eyebrow-sep {
+  opacity: 0.5;
+  font-weight: 400;
+}
+.dash-tier__eyebrow-ar {
+  font-family: var(--font-arabic, inherit);
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .dash-tier {
+    padding: var(--space-3) var(--space-3) var(--space-4);
+    margin-inline: calc(-1 * var(--space-3));
+  }
+  .dash-tier__eyebrow {
+    letter-spacing: 0.14em;
+  }
+}
+
 /* ── Maqasid Pillars grid ── */
 .insight-pillars {
   display: grid;
@@ -107,52 +185,157 @@
 }
 .insight-action-btn:hover { opacity: 0.85; }
 
-/* ── BBOS Pipeline on Dashboard ── */
-.insight-bbos-pipeline {
+/* ── BBOS Pipeline · Now + Next (progressive disclosure) ── */
+.pipeline-now {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
   margin-bottom: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
-.insight-bbos-pipeline__title {
+
+.pipeline-now__title {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: var(--text-sm-plus);
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text);
   text-decoration: none;
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  align-self: flex-start;
 }
-.insight-bbos-pipeline__title:hover {
-  color: var(--primary);
-}
-.insight-bbos-pipeline__dot {
+.pipeline-now__title:hover { color: var(--primary); }
+
+.pipeline-now__dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.insight-bbos-pipeline__arrow {
+
+.pipeline-now__arrow {
   opacity: 0.4;
-  transition: opacity var(--duration-sm);
+  transition: opacity var(--duration-sm), transform var(--duration-sm);
 }
-.insight-bbos-pipeline__title:hover .insight-bbos-pipeline__arrow {
+.pipeline-now__title:hover .pipeline-now__arrow {
   opacity: 1;
+  transform: translateX(2px);
 }
 
-/* ── Main grid: left + right ── */
-.insight-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: var(--space-4);
-  min-height: 0;
+.pipeline-now__layer {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-top: 2px;
 }
-.insight-left {
+
+.pipeline-now__stage {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px 0 4px;
+  border-radius: 8px;
+  transition: background var(--duration-sm);
+}
+.pipeline-now__stage:hover {
+  background: var(--bg3);
+  padding-inline: 10px;
+}
+
+.pipeline-now__stage-head {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  min-width: 0;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
 }
-.insight-right {
+
+.pipeline-now__stage-num {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+
+.pipeline-now__stage-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.pipeline-now__stage-pct {
+  margin-left: auto;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text2);
+}
+
+.pipeline-now__bar {
+  height: 6px;
+  background: var(--bg3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.pipeline-now__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s var(--ease, ease);
+}
+
+.pipeline-now__next {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--text-sm);
+  margin-top: 2px;
+}
+
+.pipeline-now__next-label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text3);
+}
+
+.pipeline-now__next-crumbs {
+  color: var(--text3);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.pipeline-now__next-sep {
+  color: var(--text3);
+  opacity: 0.5;
+}
+
+.pipeline-now__expand {
+  align-self: flex-start;
+  font-size: var(--text-xs);
+  color: var(--text3);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color var(--duration-sm), transform var(--duration-sm);
+  margin-top: 2px;
+}
+.pipeline-now__expand:hover {
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
+/* ── Amal side rail (post-Phase 6 — single column, was 2-col grid) ── */
+.insight-side {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -213,14 +396,34 @@
   height: auto;
 }
 .bcg-chart__empty {
+  position: relative;
+  padding: var(--space-4) 0 var(--space-2);
+  min-height: 180px;
+}
+.bcg-chart__svg--ghost {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.bcg-chart__empty-body {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-8);
   gap: var(--space-2);
   color: var(--text3);
-  font-size: var(--text-sm-plus);
+  font-size: var(--text-sm);
+  text-align: center;
+  pointer-events: none;
+  padding: var(--space-4);
+}
+.bcg-chart__empty-body > * { pointer-events: auto; }
+.bcg-chart__empty-body p {
+  margin: 0;
+  max-width: 32ch;
+  line-height: 1.4;
 }
 .bcg-chart__legend {
   display: flex;
@@ -241,120 +444,221 @@
   border-radius: 50%;
 }
 
-/* ── EPH + Stat Cards ── */
-.insight-eph-section {
-  display: flex;
-  gap: var(--space-3);
-  align-items: stretch;
-}
-.insight-eph {
+/* ── Daily Snapshot — unified 3-metric card (Today / In Progress / Overdue) ── */
+.daily-snapshot {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
+  padding: var(--space-4) var(--space-2);
+  box-shadow: var(--shadow-xs);
+}
+.daily-snapshot__metric {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 100px;
+  gap: 4px;
+  padding: var(--space-2) var(--space-3);
+  text-align: center;
+  min-width: 0;
 }
-.insight-eph__label {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--text2);
-  display: flex;
+.daily-snapshot__metric--divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 1px;
+  background: var(--border);
+}
+.daily-snapshot__label {
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: 4px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 0.04em;
 }
-.insight-eph__value {
-  font-size: var(--text-6xl);
+.daily-snapshot__value {
+  font-size: var(--text-4xl);
   font-weight: 800;
   line-height: 1;
   color: var(--text);
-  margin: var(--space-1) 0;
+  font-variant-numeric: tabular-nums;
 }
-.insight-eph__desc {
+.daily-snapshot__metric--hero .daily-snapshot__value {
+  font-size: var(--text-5xl);
+  color: var(--accent);
+}
+.daily-snapshot__metric--danger .daily-snapshot__value {
+  color: var(--danger);
+}
+.daily-snapshot__hint {
   font-size: var(--text-xs);
   color: var(--text3);
+  line-height: 1.3;
+  max-width: 18ch;
 }
 
-.insight-stat-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-2);
-  flex: 1;
-}
-.insight-stat-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.insight-stat-card__value {
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1;
-}
-.insight-stat-card__label {
-  font-size: var(--text-xs);
+/* Zero-state scent — muted value + italic hint */
+.daily-snapshot__metric--zero .daily-snapshot__value {
   color: var(--text3);
-  margin-top: 2px;
+  opacity: 0.5;
+}
+.daily-snapshot__metric--zero .daily-snapshot__hint {
+  font-style: italic;
+  opacity: 0.85;
 }
 
-/* ── Workflow Pressure ── */
-.wf-pressure {
+@media (max-width: 640px) {
+  .daily-snapshot {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: var(--space-3) 0;
+  }
+  .daily-snapshot__metric {
+    padding: var(--space-1) var(--space-2);
+  }
+  .daily-snapshot__value {
+    font-size: var(--text-3xl);
+  }
+  .daily-snapshot__metric--hero .daily-snapshot__value {
+    font-size: var(--text-4xl);
+  }
+  .daily-snapshot__hint {
+    font-size: 10px;
+  }
+}
+
+/* ── Sakinah (Tranquility) Meter ──
+ * Inverts old "Workflow Pressure". Fewer signals = more filled dots (calm).
+ * Three levels: settled (teal), stirring (soft amber), restless (muted rose).
+ * Never uses var(--danger) — the point is to invite, not alarm.
+ */
+.sakinah {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
+  position: relative;
+  overflow: hidden;
+  /* --sakinah-color is set per level below */
+  --sakinah-color: var(--primary);
 }
-.wf-pressure__header {
+.sakinah--settled  { --sakinah-color: var(--primary); }
+.sakinah--stirring { --sakinah-color: var(--accent); }
+.sakinah--restless { --sakinah-color: color-mix(in srgb, var(--accent) 55%, var(--text3)); }
+
+/* Gentle tier wash — never aggressive */
+.sakinah::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--sakinah-color) 6%, transparent) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.sakinah > * { position: relative; z-index: 1; }
+
+.sakinah__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-3);
 }
-.wf-pressure__title {
+.sakinah__title-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.sakinah__title {
   font-size: var(--text-sm-plus);
   font-weight: 600;
   color: var(--text);
 }
-.wf-pressure__level {
+.sakinah__title-ar {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text3);
+  font-family: var(--font-arabic, inherit);
+}
+.sakinah__level {
   font-size: var(--text-sm);
   font-weight: 700;
+  color: var(--sakinah-color);
+  letter-spacing: 0.03em;
 }
-.wf-pressure__bars {
+
+.sakinah__dots {
   display: flex;
-  gap: 3px;
-  margin-bottom: var(--space-2);
+  gap: 6px;
+  margin-bottom: var(--space-3);
 }
-.wf-bar {
+.sakinah__dot {
   flex: 1;
-  height: 14px;
+  height: 6px;
   background: var(--bg3);
-  border-radius: 2px;
-  transition: background var(--duration) var(--ease);
+  border-radius: 999px;
+  transition: background 240ms var(--ease, ease), opacity 240ms var(--ease, ease);
 }
-.wf-bar.filled {
-  background: var(--text3);
+.sakinah__dot--filled {
+  background: var(--sakinah-color);
+  opacity: 0.9;
 }
-.wf-pressure__labels {
-  display: flex;
-  justify-content: space-between;
+
+.sakinah__hint {
   font-size: var(--text-xs);
-  color: var(--text3);
+  color: var(--text2);
+  line-height: 1.5;
+  margin: 0 0 var(--space-3);
+  font-style: italic;
 }
-.wf-pressure__desc {
+
+/* Ritual of Retreat — appears only when stirring or restless */
+.sakinah__retreat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sakinah-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sakinah-color) 35%, transparent);
+  color: var(--sakinah-color);
   font-size: var(--text-xs);
-  color: var(--text3);
-  margin-top: var(--space-2);
-  line-height: 1.4;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease, gap 160ms ease;
+}
+.sakinah__retreat:hover,
+.sakinah__retreat:focus-visible {
+  background: color-mix(in srgb, var(--sakinah-color) 18%, transparent);
+  gap: 8px;
+  outline: none;
+}
+.sakinah__retreat-arrow {
+  transition: transform 160ms ease;
+}
+.sakinah__retreat:hover .sakinah__retreat-arrow {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sakinah__dot,
+  .sakinah__retreat,
+  .sakinah__retreat-arrow {
+    transition: none;
+  }
+  .sakinah__retreat:hover .sakinah__retreat-arrow {
+    transform: none;
+  }
 }
 
 /* ── Upcoming ── */
@@ -835,75 +1139,152 @@
 }
 
 /* ── Pillar Progress Strip ── */
-.pps {
-  display: flex;
-  gap: 6px;
-  padding: var(--space-4) var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow-x: auto;
+/* ── Maqasid Bento — per-pillar card grid with 7-day sparkline ── */
+.mbento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
 }
-.pps::-webkit-scrollbar { display: none; }
 
-.pps__col {
-  flex: 1;
-  min-width: 60px;
+@media (max-width: 1024px) {
+  .mbento { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .mbento { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+}
+
+.mbento__card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding: 14px 14px 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
   text-decoration: none;
-  cursor: pointer;
-  transition: opacity var(--duration-sm);
-}
-.pps__col:hover { opacity: 0.75; }
-
-/* Sun & Stars — demote non-focus pillars; elevate focused ones */
-.pps__col--muted { opacity: 0.4; }
-.pps__col--muted:hover { opacity: 0.6; }
-.pps__col--focus { opacity: 1; }
-
-.pps__bar {
-  width: 100%;
-  height: 14px;
-  display: flex;
-  gap: 2px;
-  border-radius: 3px;
+  color: inherit;
   overflow: hidden;
-  border-top: 2px solid var(--pps-color);
+  transition:
+    transform 0.18s var(--ease, ease),
+    box-shadow 0.18s var(--ease, ease),
+    border-color 0.18s,
+    opacity 0.18s;
 }
 
-.pps__seg {
-  flex: 1;
-  height: 100%;
-  transition: filter var(--duration-sm);
+.mbento__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--mbento-color);
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--mbento-color) 60%, transparent);
 }
-.pps__seg--done     { background: var(--col-done); }
-.pps__seg--progress { background: var(--col-review); }
-.pps__seg--todo     { background: var(--bg3); }
-.pps__col:hover .pps__seg { filter: brightness(0.88); }
 
-.pps__label {
+/* Sun & Stars — demote non-focus pillars */
+.mbento__card--muted  { opacity: 0.45; }
+.mbento__card--muted:hover { opacity: 0.7; }
+.mbento__card--focus {
+  border-color: var(--mbento-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--mbento-color) 40%, transparent);
+}
+
+.mbento__stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--mbento-color);
+  opacity: 0.9;
+}
+
+.mbento__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.mbento__label {
   font-family: var(--font-heading);
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text3);
-  text-align: center;
+  color: var(--text2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
 }
 
-.pps__arabic {
+.mbento__ar {
   font-family: var(--font-arabic);
-  font-size: var(--text-2xs);
-  color: var(--text3);
+  font-size: var(--text-xs);
+  color: var(--mbento-color);
   direction: rtl;
-  text-align: center;
+  white-space: nowrap;
+}
+
+.mbento__stats {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mbento__pct {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.mbento__spark {
+  flex-shrink: 0;
+  color: var(--mbento-color);
+}
+
+.mbento__spark--empty {
+  color: var(--text3);
+}
+
+.mbento__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.mbento__meta-empty {
+  color: var(--text3);
+  font-style: italic;
+}
+
+.mbento__meta-chip {
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.mbento__meta-chip--done {
+  background: var(--success-bg, rgba(16, 185, 129, 0.12));
+  color: var(--success, #059669);
+}
+
+.mbento__meta-chip--progress {
+  background: var(--warning-bg, rgba(245, 158, 11, 0.12));
+  color: var(--warning, #b45309);
+}
+
+@media (max-width: 640px) {
+  .mbento__card { padding: 12px 12px 10px; }
+  .mbento__pct { font-size: 19px; }
+  .mbento__meta { font-size: 9px; }
+  .mbento__meta-chip { padding: 2px 5px; }
 }
 
 /* ── Maqasid Focus Panel ── */
@@ -1025,12 +1406,13 @@
 .pps-focus__row:nth-child(4) { animation-delay: 170ms; }
 .pps-focus__row:nth-child(5) { animation-delay: 220ms; }
 
-/* Stat cards */
-.insight-stat-card {
+/* Daily Snapshot metrics */
+.daily-snapshot__metric {
   animation: stagger-in var(--duration-lg) var(--ease) backwards;
 }
-.insight-stat-card:nth-child(1) { animation-delay: 60ms; }
-.insight-stat-card:nth-child(2) { animation-delay: 120ms; }
+.daily-snapshot__metric:nth-child(1) { animation-delay:  40ms; }
+.daily-snapshot__metric:nth-child(2) { animation-delay:  90ms; }
+.daily-snapshot__metric:nth-child(3) { animation-delay: 140ms; }
 
 /* Upcoming events */
 .insight-upcoming-item {
@@ -1047,7 +1429,7 @@
   .insight-task-row,
   .insight-activity-item,
   .pps-focus__row,
-  .insight-stat-card,
+  .daily-snapshot__metric,
   .insight-upcoming-item {
     animation: none;
   }

@@ -3,6 +3,42 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | Dashboard three-tier redesign landed (Qalb / Amal / Barakah)
+
+Decision: [[2026-04-23-dashboard-three-tier-redesign]].
+
+### Done
+- Shipped the Qalb → Amal → Barakah tier backbone on `/app/dashboard`. Three `<section className="dash-tier dash-tier--{qalb|amal|barakah}">` wrappers with bilingual eyebrows (Arabic layer gated on `valuesLayer === 'islamic'`).
+- **New components:** `DailyMithaq.{jsx,css}` (morphing covenant widget — Niyyah → Muhasaba → Fulfilled, Maghrib pivot via `usePrayerTimes()` with 6pm fallback; null-gates cleanly when no niyyah is set), `MaqasidBalanceRadar.{jsx,css}` (7-axis SVG polygon, shape-only, no numeric scores — no-riya framing).
+- **Dashboard.jsx lint debt cleaned** in the process: removed 6 dead vars (`completedOpening`, `deferred`, `nextPrayer`, `initials`, `greeting`, `motivation`) + their now-unused imports (`usePrayerTimes`, `getGreeting`, `getMotivation`). Scoped lint on the 3 files: zero errors.
+- Orphan `ManifestoBanner.jsx` / `EveningReflectButton.jsx` verified unused (only self-referenced + a docstring in `DailyMithaq`). Left in place per user call — deferred to a future cleanup sweep.
+
+### Verified in preview
+- 3 tiers render in order with correct bilingual eyebrows.
+- BCG chart, Daily Snapshot (3-metric grid), Sakinah Meter, Maqasid Balance Radar SVG all present on first paint.
+- `DailyMithaq` correctly returns `null` when no niyyah is set (Qalb tier falls back to the TodayFocusSection Niyyah hero).
+- Zero console errors on `/app`.
+
+### Files
+- `src/pages/Dashboard.jsx` — three `<section>` tier wrappers, dead-var cleanup.
+- `src/pages/Dashboard.css` — `.dash-tier*`, `.daily-snapshot*`, `.sakinah*` added; `.insight-eph*`, `.insight-stat-card*`, `.wf-pressure*`, `.barakah-radar-stub*` removed.
+- `src/components/dashboard/DailyMithaq.{jsx,css}` — new.
+- `src/components/dashboard/MaqasidBalanceRadar.{jsx,css}` — new.
+- `wiki/decisions/2026-04-23-dashboard-three-tier-redesign.md` — decision doc.
+
+### Build
+✅ `npm run build` clean in 2.08s.
+
+### Worktree discipline
+Executed the whole plan in the isolated worktree at `.claude/worktrees/dashboard-three-tier` (branch `worktree-dashboard-three-tier`). Other in-progress working-tree files on `main` (TopBar, MobileNav, TodayFocusSection, PillarProgressStrip, etc.) left untouched — they belong to separate sessions.
+
+### Notes / Deferred
+- `PillarProgressStrip.jsx` working-tree edits left out of this commit per session brief — revisit when its companion session surfaces.
+- Orphan `ManifestoBanner.jsx` / `EveningReflectButton.jsx` deletion deferred.
+- Whole-repo lint has 631 errors (pre-existing debt across BBOS, Pillar dashboards, etc.) — out of scope here, tracked implicitly.
+
+---
+
 ## [2026-04-23] session | Work page pillar scope + spine reorder
 
 Two small UX fixes surfaced while testing the Prophetic Path MirrorCard Wealth+Action projects list.

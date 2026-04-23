@@ -1,0 +1,151 @@
+/* ═══ Maqasid Balance Radar ═══
+ *
+ * 7-axis reflection of effort distribution over the last 30 days.
+ * Barakah-tier widget — invites reflection, not a scoreboard.
+ */
+
+.mbr {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm, var(--shadow));
+}
+
+.mbr__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.mbr__title-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.mbr__title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.mbr__title-ar {
+  font-size: 0.9em;
+  color: var(--text3);
+  font-weight: 500;
+}
+
+.mbr__window {
+  font-size: var(--text-xs);
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mbr__chart-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mbr__svg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+}
+
+/* Legend chip row */
+.mbr__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.mbr__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-2, var(--bg2));
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: var(--text-xs);
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.mbr__chip:hover,
+.mbr__chip:focus-visible {
+  background: color-mix(in srgb, var(--mbr-accent, var(--primary)) 10%, var(--surface-2, var(--bg2)));
+  border-color: color-mix(in srgb, var(--mbr-accent, var(--primary)) 40%, var(--border));
+  color: var(--text);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.mbr__chip--neglected {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.mbr__chip-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mbr-accent, var(--primary));
+  flex-shrink: 0;
+}
+
+.mbr__chip-label {
+  font-weight: 500;
+}
+
+.mbr__chip-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--text3);
+  font-weight: 600;
+}
+
+.mbr__chip:hover .mbr__chip-count {
+  color: var(--text2);
+}
+
+.mbr__empty-hint {
+  margin: 0;
+  padding: 0 var(--space-3);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text3);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .mbr {
+    padding: var(--space-3);
+  }
+  .mbr__svg {
+    max-width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mbr__chip {
+    transition: none;
+  }
+  .mbr__chip:hover {
+    transform: none;
+  }
+}

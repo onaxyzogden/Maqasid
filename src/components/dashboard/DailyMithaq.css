@@ -1,0 +1,192 @@
+/* ═══ Daily Mithaq — the covenant widget ═══
+ *
+ * Morning (niyyah) → Evening (muhasaba CTA) → Fulfilled (reflection saved)
+ * Morphs based on Maghrib pivot OR deepWorkPct >= 50%.
+ */
+
+.mithaq {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm, var(--shadow));
+  color: var(--text);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 220ms ease;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Evening accent — subtle cool wash, signals the day winding down */
+.mithaq--evening {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--mithaq-accent, var(--accent)) 4%, var(--surface)) 0%,
+    var(--surface) 60%
+  );
+}
+
+/* Fulfilled — softly celebratory, leans into the accent */
+.mithaq--fulfilled {
+  border-color: color-mix(in srgb, var(--mithaq-accent, var(--accent)) 35%, var(--border));
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--mithaq-accent, var(--accent)) 8%, var(--surface)) 0%,
+    var(--surface) 70%
+  );
+}
+
+.mithaq__rail {
+  flex: 0 0 4px;
+  align-self: stretch;
+  background: var(--mithaq-accent, var(--accent));
+  border-radius: 2px;
+}
+
+.mithaq__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.mithaq__body--btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.mithaq__body--btn:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--mithaq-accent, var(--accent)) 60%, transparent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.mithaq__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.mithaq__eyebrow--fulfilled {
+  color: color-mix(in srgb, var(--mithaq-accent, var(--accent)) 80%, var(--text3));
+}
+.mithaq--evening .mithaq__eyebrow {
+  color: color-mix(in srgb, var(--mithaq-accent, var(--accent)) 70%, var(--text3));
+}
+
+.mithaq__sentence {
+  font-size: var(--text-lg, 1.15rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.mithaq__accent {
+  color: var(--mithaq-accent, var(--accent));
+  font-style: normal;
+  font-weight: 600;
+}
+
+.mithaq__translit {
+  font-size: 0.85em;
+  color: var(--text3);
+  font-style: italic;
+}
+
+.mithaq__note {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  font-style: italic;
+  line-height: 1.4;
+  padding-top: 2px;
+  border-top: 1px dashed var(--border);
+  margin-top: 4px;
+}
+
+/* Edit pencil (morning / fulfilled states) */
+.mithaq__edit {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  background: transparent;
+  border: none;
+  color: var(--text3);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.mithaq__edit:hover,
+.mithaq__edit:focus-visible {
+  opacity: 1;
+  color: var(--mithaq-accent, var(--accent));
+  outline: none;
+  transform: scale(1.08);
+}
+
+/* Reflect CTA (evening state) — small pill, Moon icon */
+.mithaq__reflect-cta {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mithaq-accent, var(--accent)) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--mithaq-accent, var(--accent)) 45%, transparent);
+  color: var(--mithaq-accent, var(--accent));
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.mithaq__reflect-cta:hover,
+.mithaq__reflect-cta:focus-visible {
+  background: color-mix(in srgb, var(--mithaq-accent, var(--accent)) 22%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--mithaq-accent, var(--accent)) 25%, transparent);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .mithaq {
+    flex-wrap: wrap;
+    padding: var(--space-2) var(--space-3);
+  }
+  .mithaq__sentence {
+    font-size: var(--text-sm-plus);
+  }
+  .mithaq__reflect-cta {
+    margin-left: calc(4px + var(--space-3));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mithaq,
+  .mithaq__edit,
+  .mithaq__reflect-cta {
+    transition: none;
+  }
+  .mithaq__edit:hover,
+  .mithaq__reflect-cta:hover {
+    transform: none;
+  }
+}

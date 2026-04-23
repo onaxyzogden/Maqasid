@@ -1,8 +1,8 @@
 import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Kanban, AlertTriangle, CalendarDays,
-  Activity, Zap, ChevronRight, Clock,
+  Kanban, AlertTriangle,
+  Activity, ChevronRight, Clock, Moon,
 } from 'lucide-react';
 import { useProjectStore } from '../store/project-store';
 import { useAuthStore } from '../store/auth-store';
@@ -10,16 +10,15 @@ import { useTaskStore } from '../store/task-store';
 import { useSettingsStore } from '../store/settings-store';
 import { useThresholdStore } from '../store/threshold-store';
 import { useOfficeStore } from '../store/office-store';
-import { usePrayerTimes } from '../hooks/usePrayerTimes';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
-import ManifestoBanner from '../components/dashboard/ManifestoBanner';
+import DailyMithaq from '../components/dashboard/DailyMithaq';
 import FocusTaskList from '../components/dashboard/FocusTaskList';
 import ContextWidgetSlot from '../components/dashboard/ContextWidgetSlot';
-import EveningReflectButton from '../components/dashboard/EveningReflectButton';
+import MaqasidBalanceRadar from '../components/dashboard/MaqasidBalanceRadar';
 import { useToastStore } from '../store/toast-store';
 import TodayFocusSection from './TodayFocusSection';
-import { getGreeting, getMotivation, BCG_RANGES } from '../hooks/useDashboard';
+import { BCG_RANGES } from '../hooks/useDashboard';
 import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
 import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import ChartTooltip from '../components/shared/ChartTooltip';
@@ -87,9 +86,50 @@ function BCGChart({ data }) {
       </div>
       {!hasData ? (
         <div className="bcg-chart__empty">
-          <Activity size={28} style={{ color: 'var(--text3)' }} />
-          <p>Your Barakah Consistency Graph appears once you start completing tasks.</p>
-          <Link to="/app/work" className="insight-section-empty__cta">Go to tasks</Link>
+          {/* Ghost preview — information scent for the shape of the chart */}
+          <svg
+            viewBox={`0 0 ${W} ${H}`}
+            className="bcg-chart__svg bcg-chart__svg--ghost"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden="true"
+          >
+            {yLabels.map((yl, i) => (
+              <text key={i} x={PAD.left - 8} y={yl.y + 3} textAnchor="end"
+                fill="var(--text3)" fontSize="9" fontFamily="var(--font-mono)" opacity="0.4">
+                {i === yLabels.length - 1 ? '—' : ''}
+              </text>
+            ))}
+            {gridLines.map((y, i) => (
+              <line key={i} x1={PAD.left} y1={y} x2={W - PAD.right} y2={y}
+                stroke="var(--border)" strokeWidth="0.5" strokeDasharray="3 3" opacity="0.6" />
+            ))}
+            <line x1={PAD.left} y1={PAD.top + PLOT_H} x2={W - PAD.right} y2={PAD.top + PLOT_H}
+              stroke="var(--border)" strokeWidth="0.5" />
+            {/* Gentle ghost sine to telegraph "this is a trendline" */}
+            <path
+              d={(() => {
+                const pts = [];
+                const N = 14;
+                for (let i = 0; i < N; i++) {
+                  const x = PAD.left + (i / (N - 1)) * PLOT_W;
+                  const y = PAD.top + PLOT_H * (0.55 + 0.25 * Math.sin(i * 0.9));
+                  pts.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`);
+                }
+                return pts.join(' ');
+              })()}
+              fill="none"
+              stroke="var(--text3)"
+              strokeWidth="1.25"
+              strokeDasharray="4 4"
+              opacity="0.45"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div className="bcg-chart__empty-body">
+            <Activity size={20} style={{ color: 'var(--text3)' }} />
+            <p>Your rhythm appears here — one completed task seeds the curve.</p>
+            <Link to="/app/work" className="insight-section-empty__cta">Go to tasks</Link>
+          </div>
         </div>
       ) : (
         <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} className="bcg-chart__svg" preserveAspectRatio="xMidYMid meet"
@@ -172,48 +212,68 @@ function BCGChart({ data }) {
   );
 }
 
-/* ── Workflow Pressure Gauge ── */
-function WorkflowPressure({ level, inProgressCount = 0 }) {
-  const bars = 10;
-  const filled = level === 'low' ? 2 : level === 'medium' ? 5 : 8;
-  const color = level === 'low' ? 'var(--success)' : level === 'medium' ? 'var(--warning)' : 'var(--danger)';
-  const [tip, setTip] = useState(null);
+/* ── Sakinah (Tranquility) Meter ──
+ * Inverts the old "Workflow Pressure" gauge. Fewer overdue/in-progress =
+ * more sakinah (more filled dots, calm teal). More signals = fewer filled
+ * dots + a gentle "Ritual of Retreat" invitation. Never screams red.
+ */
+function SakinahMeter({ overdueCount = 0, inProgressCount = 0, isIslamic = false }) {
+  // Semantic flip from WorkflowPressure — these are *tranquility* levels.
+  let level;
+  if (overdueCount >= 5 || inProgressCount > 15) level = 'restless';
+  else if (overdueCount >= 2 || inProgressCount > 8) level = 'stirring';
+  else level = 'settled';
+
+  const dots = 10;
+  const filled = level === 'settled' ? 8 : level === 'stirring' ? 5 : 2;
+
+  const labelMap = isIslamic
+    ? { settled: 'Settled', stirring: 'Stirring', restless: 'Restless' }
+    : { settled: 'High', stirring: 'Moderate', restless: 'Low' };
+
+  const hintMap = {
+    settled: isIslamic
+      ? 'Your heart has room. This is a good time to deepen, not add.'
+      : 'Plenty of headroom. Consider a stretch goal, not more load.',
+    stirring: isIslamic
+      ? 'The current is picking up — tend to what matters, defer the rest.'
+      : 'Workload rising — protect the essential, defer the rest.',
+    restless: isIslamic
+      ? 'A quiet pause may serve you more than another push.'
+      : 'A reset may serve you more than another push.',
+  };
 
   return (
-    <div className="wf-pressure">
-      <div className="wf-pressure__header">
-        <span className="wf-pressure__title">Workflow Pressure</span>
-        <span className="wf-pressure__level" style={{ color }}>{level.toUpperCase()}</span>
+    <div className={`sakinah sakinah--${level}`} role="group" aria-label="Sakinah meter">
+      <div className="sakinah__header">
+        <div className="sakinah__title-group">
+          <span className="sakinah__title">
+            {isIslamic ? 'Sakinah' : 'Tranquility'}
+          </span>
+          {isIslamic && <span className="sakinah__title-ar">سكينة</span>}
+        </div>
+        <span className="sakinah__level">{labelMap[level]}</span>
       </div>
-      <div className="wf-pressure__bars" role="img" aria-label="Workflow pressure gauge"
-        onMouseEnter={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          setTip({ x: rect.left + rect.width / 2, y: rect.top });
-        }}
-        onMouseLeave={() => setTip(null)}
-        onClick={(e) => {
-          if (!('ontouchstart' in window)) return;
-          const rect = e.currentTarget.getBoundingClientRect();
-          setTip((prev) => prev ? null : { x: rect.left + rect.width / 2, y: rect.top });
-        }}
-      >
-        {Array.from({ length: bars }).map((_, i) => (
-          <div key={i} className={`wf-bar ${i < filled ? 'filled' : ''}`}
-            style={i < filled ? { background: color } : undefined} />
+      <div className="sakinah__dots" aria-hidden="true">
+        {Array.from({ length: dots }).map((_, i) => (
+          <span
+            key={i}
+            className={`sakinah__dot${i < filled ? ' sakinah__dot--filled' : ''}`}
+          />
         ))}
       </div>
-      <ChartTooltip visible={!!tip} x={tip?.x ?? 0} y={tip?.y ?? 0} anchor="above" onDismiss={() => setTip(null)}>
-        <div className="chart-tooltip__value" style={{ color }}>
-          {level.charAt(0).toUpperCase() + level.slice(1)} pressure
-        </div>
-        <div className="chart-tooltip__label">
-          {filled} of 10 &middot; {inProgressCount} task{inProgressCount !== 1 ? 's' : ''} in progress
-        </div>
-      </ChartTooltip>
-      <div className="wf-pressure__labels">
-        <span>Low</span><span>Medium</span><span>High</span>
-      </div>
-      <p className="wf-pressure__desc">Workflow pressure is measured by number, priority and due dates of tasks.</p>
+      <p className="sakinah__hint">{hintMap[level]}</p>
+      {level !== 'settled' && (
+        <Link
+          to="/app/pillar/faith"
+          className="sakinah__retreat"
+          aria-label="Ritual of Retreat"
+        >
+          <Moon size={13} />
+          <span>{isIslamic ? 'A ritual of retreat' : 'Take a breath'}</span>
+          <span className="sakinah__retreat-arrow" aria-hidden="true">→</span>
+        </Link>
+      )}
     </div>
   );
 }
@@ -225,11 +285,8 @@ export default function Dashboard() {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const events = useOfficeStore((s) => s.events);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
-  const completedOpening = useThresholdStore((s) => s.completedOpening);
-  const deferred = useThresholdStore((s) => s.deferred);
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
   const niyyahSubmodule = useThresholdStore((s) => s.niyyahSubmodule);
-  const { nextPrayer } = usePrayerTimes();
   const isIslamic = valuesLayer === 'islamic';
 
   // Sun & Stars — primary pillar from today's niyyah becomes the accent anchor
@@ -311,9 +368,6 @@ export default function Dashboard() {
     useThresholdStore.getState().rolloverIfStale();
   }, []);
 
-  const [projectFilter, setProjectFilter] = useState('all');
-  const [activityTab, setActivityTab] = useState('all');
-
   const projects = useMemo(() => allProjects.filter((p) => !p.archived), [allProjects]);
 
   // BBOS projects with per-stage progress
@@ -340,10 +394,6 @@ export default function Dashboard() {
       });
   }, [projects, tasksByProject]);
   const allTasks = useMemo(() => Object.values(tasksByProject).flat(), [tasksByProject]);
-
-  const initials = user?.name
-    ? user.name.split(' ').map((w) => w[0]).join('').toUpperCase().slice(0, 2)
-    : 'U';
 
   // Stats
   const stats = useMemo(() => {
@@ -376,13 +426,6 @@ export default function Dashboard() {
     return allTasks.filter((t) => t.completedAt && t.completedAt.slice(0, 10) === todayStr).length;
   }, [allTasks]);
 
-  // Workflow pressure
-  const pressureLevel = useMemo(() => {
-    if (stats.overdue >= 5 || stats.inProgress > 15) return 'high';
-    if (stats.overdue >= 2 || stats.inProgress > 8) return 'medium';
-    return 'low';
-  }, [stats]);
-
   // 30-point BCG data (last 30 days completions — chart filters by range)
   const bcgData = useMemo(() => {
     const days = [];
@@ -414,91 +457,6 @@ export default function Dashboard() {
       .slice(0, 5);
   }, [events]);
 
-  // Open tasks sorted by priority
-  const priorityOrder = { urgent: 0, high: 1, medium: 2, low: 3 };
-  const openTasksAll = useMemo(() => {
-    let tasks = allTasks.filter((t) => !t.completedAt);
-    if (projectFilter !== 'all') {
-      tasks = tasks.filter((t) => t.projectId === projectFilter);
-    }
-    return tasks
-      .sort((a, b) => (priorityOrder[a.priority] ?? 9) - (priorityOrder[b.priority] ?? 9));
-  }, [allTasks, projectFilter]);
-  const openTasks = openTasksAll.slice(0, 10);
-  const hiddenTaskCount = openTasksAll.length - openTasks.length;
-
-  // Activity timeline
-  const activityItems = useMemo(() => {
-    const items = [];
-    allTasks
-      .filter((t) => t.completedAt)
-      .sort((a, b) => b.completedAt.localeCompare(a.completedAt))
-      .slice(0, 8)
-      .forEach((t) => {
-        const proj = projects.find((p) => (tasksByProject[p.id] || []).some((tt) => tt.id === t.id));
-        items.push({
-          id: t.id,
-          type: 'task_complete',
-          text: t.title,
-          project: proj?.name || 'General',
-          time: t.completedAt,
-        });
-      });
-    allTasks
-      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
-      .slice(0, 5)
-      .forEach((t) => {
-        const proj = projects.find((p) => (tasksByProject[p.id] || []).some((tt) => tt.id === t.id));
-        items.push({
-          id: 'c_' + t.id,
-          type: 'task_create',
-          text: t.title,
-          project: proj?.name || 'General',
-          time: t.createdAt,
-        });
-      });
-    events.slice(-3).forEach((e) => {
-      items.push({
-        id: e.id,
-        type: 'event',
-        text: e.title,
-        project: 'General',
-        time: e.createdAt,
-      });
-    });
-    return items
-      .sort((a, b) => b.time.localeCompare(a.time))
-      .slice(0, 10);
-  }, [allTasks, events, projects, tasksByProject]);
-
-  // Pillar focus: pillars with the most open task work
-  const pillarSummary = useMemo(() => {
-    const now = new Date();
-    return MAQASID_PILLARS.map((pillar) => {
-      const pillarProjects = projects.filter(
-        (p) => !p.archived && (
-          (p.moduleId
-            ? pillar.subModuleIds.includes(p.moduleId)
-            : p.id.startsWith(pillar.id + '_'))
-        )
-      );
-      const pillarTasks = pillarProjects.flatMap((p) => tasksByProject[p.id] || []);
-      const openCount = pillarTasks.filter((t) => !t.completedAt).length;
-      const overdueCount = pillarTasks.filter(
-        (t) => t.dueDate && new Date(t.dueDate) < now && !t.completedAt
-      ).length;
-      return { pillar, openCount, overdueCount };
-    })
-      .filter((p) => p.openCount > 0)
-      .sort((a, b) => {
-        const aN = (niyyahFocus || []).includes(a.pillar.id);
-        const bN = (niyyahFocus || []).includes(b.pillar.id);
-        if (aN !== bN) return aN ? -1 : 1;
-        return b.overdueCount - a.overdueCount || b.openCount - a.openCount;
-      })
-      .slice(0, 5);
-  }, [projects, tasksByProject, niyyahFocus]);
-
   const focusSummary = useMemo(() => {
     const now = new Date();
     return (niyyahFocus || [])
@@ -522,34 +480,32 @@ export default function Dashboard() {
       .filter(Boolean);
   }, [niyyahFocus, projects, tasksByProject]);
 
-  const renderNow = useRef(Date.now());
-  function relativeTime(iso) {
-    if (!iso) return '';
-    const diff = renderNow.current - new Date(iso).getTime();
-    const mins = Math.floor(diff / 60000);
-    if (mins < 1) return 'just now';
-    if (mins < 60) return `${mins}m ago`;
-    const hrs = Math.floor(mins / 60);
-    if (hrs < 24) return `${hrs}h ago`;
-    const days = Math.floor(hrs / 24);
-    if (days === 1) return 'a day ago';
-    return `${days} days ago`;
-  }
-
-  const priorityColor = (p) => {
-    if (p === 'urgent') return 'var(--pri-urgent)';
-    if (p === 'high') return 'var(--pri-high)';
-    if (p === 'medium') return 'var(--pri-medium)';
-    return 'var(--pri-low)';
-  };
-
-  const greeting = getGreeting();
-  const motivation = getMotivation();
   const firstName = user?.name ? user.name.split(' ')[0] : 'there';
 
-  const STAT_CARDS = [
-    { key: 'inProgress', label: 'In Progress', icon: Kanban,        value: stats.inProgress },
-    { key: 'overdue',    label: 'Overdue',     icon: AlertTriangle,  value: stats.overdue, danger: stats.overdue > 0 },
+  const SNAPSHOT_METRICS = [
+    {
+      key: 'today',
+      label: 'Today',
+      icon: Activity,
+      value: todayCompleted,
+      hint: todayCompleted === 0 ? 'First completion lands here' : 'tasks completed',
+      isHero: true,
+    },
+    {
+      key: 'inProgress',
+      label: 'In Progress',
+      icon: Kanban,
+      value: stats.inProgress,
+      hint: stats.inProgress === 0 ? 'Nothing moving yet' : 'tasks in motion',
+    },
+    {
+      key: 'overdue',
+      label: 'Overdue',
+      icon: AlertTriangle,
+      value: stats.overdue,
+      hint: stats.overdue === 0 ? 'Nothing past due' : 'past due date',
+      danger: stats.overdue > 0,
+    },
   ];
 
   return (
@@ -562,29 +518,42 @@ export default function Dashboard() {
       {!tourCompleted && firstLoginAt !== null && (
         <SpotlightTour steps={TOUR_STEPS} onComplete={handleTourComplete} />
       )}
-      {/* ── Daily Manifesto (Ad-lib banner) + Evening Reflect chip ── */}
-      <div className="insight-manifesto-row">
-        <ManifestoBanner />
-        <EveningReflectButton
+      {/* ═══ QALB · Intent — the day begins here ═══ */}
+      <section className="dash-tier dash-tier--qalb" aria-labelledby="tier-qalb">
+        {isIslamic && (
+          <div className="dash-tier__eyebrow" id="tier-qalb">
+            <span className="dash-tier__eyebrow-en">Intent</span>
+            <span className="dash-tier__eyebrow-sep" aria-hidden="true">·</span>
+            <span className="dash-tier__eyebrow-ar">نية</span>
+          </div>
+        )}
+
+        <TodayFocusSection
+          pillarSummary={focusSummary}
+          primaryPillarId={primaryPillar?.id ?? null}
+          focusProgress={focusProgress}
+        />
+
+        <DailyMithaq
           deepWorkPct={focusProgress.total > 0 ? (focusProgress.completed / focusProgress.total) * 100 : 0}
         />
-      </div>
+      </section>
 
+      {/* ═══ AMAL · Action — the day unfolds ═══ */}
+      <section className="dash-tier dash-tier--amal" aria-labelledby="tier-amal">
+        {isIslamic && (
+          <div className="dash-tier__eyebrow" id="tier-amal">
+            <span className="dash-tier__eyebrow-en">Action</span>
+            <span className="dash-tier__eyebrow-sep" aria-hidden="true">·</span>
+            <span className="dash-tier__eyebrow-ar">عمل</span>
+          </div>
+        )}
 
-      {/* ── Onboarding Checklist ── */}
-      <div data-tour="onboarding-checklist">
-        <OnboardingChecklist />
-      </div>
+        <div data-tour="onboarding-checklist">
+          <OnboardingChecklist />
+        </div>
 
-      {/* ── Today's Focus ── */}
-      <TodayFocusSection
-        pillarSummary={focusSummary}
-        primaryPillarId={primaryPillar?.id ?? null}
-        focusProgress={focusProgress}
-      />
-
-      {/* ── Guided Task List — Today's Deep Work ── */}
-      <FocusTaskList />
+        <FocusTaskList />
 
       {/* ── Empty state for new users ── */}
       {projects.length === 0 && allTasks.length === 0 && (
@@ -614,164 +583,115 @@ export default function Dashboard() {
       <div className="insight-section-label">Maqasid al-Shari&apos;ah</div>
       <PillarProgressStrip valuesLayer={valuesLayer} focusPillarIds={niyyahFocus} />
 
-      {/* ── BBOS Pipeline Overviews ── */}
-      {bbosProjects.length > 0 && bbosProjects.map(({ project: bp, progress, activeStage }) => (
-        <div key={bp.id} className="insight-bbos-pipeline">
-          <Link to={`/app/work/${bp.id}`} className="insight-bbos-pipeline__title">
-            {bp.color && <span className="insight-bbos-pipeline__dot" style={{ background: bp.color }} />}
-            {bp.name}
-            <ChevronRight size={14} className="insight-bbos-pipeline__arrow" />
-          </Link>
-          <div className="bfd__pipeline">
-            {BBOS_LAYERS.map((layer) => (
-              <div key={layer.id} className="bfd__pipeline-layer">
-                <div className="bfd__pipeline-layer-label" style={{ color: layer.color }}>
-                  {layer.label}
-                </div>
-                <div className="bfd__pipeline-stages">
-                  {layer.stages.map((stageId) => {
-                    const stage = BBOS_STAGES.find((s) => s.id === stageId);
-                    if (!stage) return null;
-                    const pct = progress[stageId] ?? 0;
-                    const isActive = stageId === activeStage;
-                    return (
-                      <Link
-                        key={stageId}
-                        className={`bfd__pipeline-stage${isActive ? ' bfd__pipeline-stage--active' : ''}`}
-                        to={`/app/work/${bp.id}`}
-                        state={{ stage: stageId }}
-                        title={stage.description}
-                      >
-                        <span className="bfd__pipeline-stage-num">
-                          {String(stage.order + 1).padStart(2, '0')}
-                        </span>
-                        <span className="bfd__pipeline-stage-label">{stage.label}</span>
-                        <div className="bfd__pipeline-stage-bar">
-                          <div
-                            className="bfd__pipeline-stage-fill"
-                            style={{ width: `${pct}%`, background: stage.color }}
-                          />
-                        </div>
-                        <span className="bfd__pipeline-stage-pct">{pct}%</span>
-                      </Link>
-                    );
-                  })}
-                </div>
+      {/* ── BBOS Pipeline · Now + Next ── */}
+      {bbosProjects.length > 0 && bbosProjects.map(({ project: bp, progress, activeStage }) => {
+        const currentId = activeStage || BBOS_STAGES[0].id;
+        const currentStage = BBOS_STAGES.find((s) => s.id === currentId) || BBOS_STAGES[0];
+        const currentLayer = BBOS_LAYERS.find((l) => l.id === currentStage.layer);
+        const currentPct = progress[currentStage.id] ?? 0;
+        const upcoming = BBOS_STAGES
+          .filter((s) => s.order > currentStage.order)
+          .slice(0, 2);
+
+        return (
+          <div key={bp.id} className="pipeline-now">
+            <Link to={`/app/work/${bp.id}`} className="pipeline-now__title">
+              {bp.color && <span className="pipeline-now__dot" style={{ background: bp.color }} />}
+              <span>{bp.name}</span>
+              <ChevronRight size={14} className="pipeline-now__arrow" />
+            </Link>
+
+            <div className="pipeline-now__layer" style={{ color: currentLayer?.color }}>
+              {currentLayer?.label}
+            </div>
+
+            <Link
+              to={`/app/work/${bp.id}`}
+              state={{ stage: currentStage.id }}
+              className="pipeline-now__stage"
+              title={currentStage.description}
+            >
+              <div className="pipeline-now__stage-head">
+                <span className="pipeline-now__stage-num">
+                  {String(currentStage.order + 1).padStart(2, '0')}
+                </span>
+                <span className="pipeline-now__stage-label">{currentStage.label}</span>
+                {currentPct > 0 && (
+                  <span className="pipeline-now__stage-pct">{currentPct}%</span>
+                )}
               </div>
-            ))}
+              <div className="pipeline-now__bar">
+                <div
+                  className="pipeline-now__bar-fill"
+                  style={{
+                    width: `${currentPct}%`,
+                    background: currentStage.color,
+                  }}
+                />
+              </div>
+            </Link>
+
+            {upcoming.length > 0 && (
+              <div className="pipeline-now__next">
+                <span className="pipeline-now__next-label">Next</span>
+                <span className="pipeline-now__next-crumbs">
+                  {upcoming.map((s, i) => (
+                    <span key={s.id} className="pipeline-now__next-crumb">
+                      {String(s.order + 1).padStart(2, '0')} {s.label}
+                      {i < upcoming.length - 1 && <span className="pipeline-now__next-sep"> · </span>}
+                    </span>
+                  ))}
+                </span>
+              </div>
+            )}
+
+            <Link to={`/app/work/${bp.id}`} className="pipeline-now__expand">
+              View full pipeline →
+            </Link>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
-      {/* ── Main grid ── */}
-      <div className="insight-grid">
-        {/* LEFT COLUMN */}
-        <div className="insight-left">
-          {/* BCG Chart */}
-          <BCGChart data={bcgData} />
-
-          {/* Open Tasks */}
-          <div className="insight-open-tasks">
-            <div className="insight-open-tasks__header">
-              <div className="insight-open-tasks__tabs">
-                <button
-                  className={`insight-proj-tab ${projectFilter === 'all' ? 'active' : ''}`}
-                  onClick={() => setProjectFilter('all')}
+      {/* ── Amal side rail: day signals ── */}
+      <div className="insight-side">
+          {/* Daily Snapshot — Today / In Progress / Overdue in one card */}
+          <div className="daily-snapshot" role="group" aria-label="Daily snapshot">
+            {SNAPSHOT_METRICS.map((m, i) => {
+              const Icon = m.icon;
+              const isZero = m.value === 0;
+              return (
+                <div
+                  key={m.key}
+                  className={[
+                    'daily-snapshot__metric',
+                    m.isHero ? 'daily-snapshot__metric--hero' : '',
+                    isZero ? 'daily-snapshot__metric--zero' : '',
+                    m.danger && !isZero ? 'daily-snapshot__metric--danger' : '',
+                    i > 0 ? 'daily-snapshot__metric--divider' : '',
+                  ].filter(Boolean).join(' ')}
                 >
-                  All
-                </button>
-                {projects.map((p) => (
-                  <button
-                    key={p.id}
-                    className={`insight-proj-tab ${projectFilter === p.id ? 'active' : ''}`}
-                    onClick={() => setProjectFilter(p.id)}
-                  >
-                    <span className="insight-proj-dot" style={{ background: p.color }} />
-                    {p.name.length > 12 ? p.name.slice(0, 10) + '...' : p.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="insight-open-tasks__title-row">
-              <span>Open Tasks by Priority:</span>
-              <span className="insight-open-tasks__count">{openTasks.length}</span>
-            </div>
-            <div className="insight-open-tasks__list">
-              {openTasks.length === 0 && (
-                <div className="insight-section-empty">
-                  <Kanban size={24} style={{ color: 'var(--text3)' }} />
-                  <p>All clear — create a task to get started.</p>
-                  <Link to="/app/work" className="insight-section-empty__cta">+ Create Task</Link>
+                  <div className="daily-snapshot__label">
+                    <Icon size={13} aria-hidden="true" />
+                    <span>{m.label}</span>
+                  </div>
+                  <div className="daily-snapshot__value">
+                    {isZero ? '—' : m.value}
+                  </div>
+                  <div className="daily-snapshot__hint">{m.hint}</div>
                 </div>
-              )}
-              {openTasks.map((t) => {
-                const proj = projects.find((p) => (tasksByProject[p.id] || []).some((tt) => tt.id === t.id));
-                const projInitials = proj ? proj.name.split(' ').map((w) => w[0]).join('').toUpperCase().slice(0, 2) : 'GP';
-                const dueDateLabel = t.dueDate
-                  ? new Date(t.dueDate + 'T00:00:00').toLocaleDateString('en', { month: 'short', day: 'numeric' })
-                  : null;
-                const isOverdue = t.dueDate && new Date(t.dueDate) < new Date() && !t.completedAt;
-                return (
-                  <div key={t.id} className="insight-task-row">
-                    <div className="insight-task-priority" style={{ background: priorityColor(t.priority) }} />
-                    <span className="insight-task-title">{t.title}</span>
-                    {dueDateLabel && (
-                      <span className="insight-task-due" style={isOverdue ? { color: 'var(--danger)' } : undefined}>
-                        {dueDateLabel}
-                      </span>
-                    )}
-                    <span className="insight-task-proj">{projInitials}</span>
-                    <Link to={proj ? `/app/work/${proj.id}` : '/app/work'} className="insight-task-view">
-                      View
-                    </Link>
-                  </div>
-                );
-              })}
-              {hiddenTaskCount > 0 && (
-                <Link to="/app/work" className="insight-open-tasks__view-all">
-                  View all {openTasksAll.length} tasks
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT COLUMN */}
-        <div className="insight-right">
-          {/* Today + Stats row */}
-          <div className="insight-eph-section">
-            <div className="insight-eph">
-              <div className="insight-eph__label">
-                <span>Today</span>
-              </div>
-              <div className="insight-eph__value">{todayCompleted}</div>
-              <div className="insight-eph__desc">tasks completed</div>
-            </div>
-            <div className="insight-stat-cards">
-              {STAT_CARDS.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div key={s.key} className="insight-stat-card">
-                    <div
-                      className="insight-stat-card__value"
-                      style={s.danger ? { color: 'var(--danger)' } : undefined}
-                    >
-                      {s.value}
-                    </div>
-                    <div className="insight-stat-card__label">
-                      <Icon size={14} style={{ marginRight: 3 }} />{s.label}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+              );
+            })}
           </div>
 
           {/* Context Widget (submodule-aware) */}
           <ContextWidgetSlot />
 
-          {/* Workflow Pressure */}
-          <WorkflowPressure level={pressureLevel} inProgressCount={stats.inProgress} />
+          {/* Sakinah Meter (replaces Workflow Pressure) */}
+          <SakinahMeter
+            overdueCount={stats.overdue}
+            inProgressCount={stats.inProgress}
+            isIslamic={isIslamic}
+          />
 
           {/* Upcoming tasks & events */}
           <div className="insight-upcoming">
@@ -800,106 +720,30 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* ── Bottom row: Maqasid Focus + Activity ── */}
-      <div className="insight-section-label">Overview</div>
-      <div className="insight-bottom-row">
-        {/* Maqasid Focus Panel */}
-        <div className="insight-recommendations">
-          <div className="insight-section-tabs">
-            <span className="insight-section-tab active">Maqasid Focus</span>
-          </div>
-          <div className="pps-focus">
-            {pillarSummary.length === 0 ? (
-              <div className="insight-empty-line" style={{ textAlign: 'left', padding: 'var(--space-2) 0' }}>
-                No open work across pillars yet —{' '}
-                <Link to="/app/pillar/faith" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>
-                  start with Faith
-                </Link>
-              </div>
-            ) : (
-              <>
-                {pillarSummary.map(({ pillar, openCount, overdueCount }) => {
-                  const isNiyyah = Array.isArray(niyyahFocus) && niyyahFocus.includes(pillar.id);
-                  const label = isIslamic ? pillar.sidebarLabel : pillar.universalLabel;
-                  return (
-                    <div key={pillar.id} className="pps-focus__row">
-                      <div className="pps-focus__accent" style={{ background: pillar.accentColor }} />
-                      <div className="pps-focus__info">
-                        <span className="pps-focus__name">
-                          {isNiyyah && <Zap size={14} style={{ color: 'var(--accent)', marginRight: 3, flexShrink: 0 }} />}
-                          {label}
-                        </span>
-                        {isIslamic && (
-                          <span className="pps-focus__arabic">{pillar.arabicRootAr}</span>
-                        )}
-                      </div>
-                      <span
-                        className="pps-focus__count"
-                        style={overdueCount > 0 ? { color: 'var(--danger)' } : undefined}
-                      >
-                        {openCount} open{overdueCount > 0 ? `, ${overdueCount} overdue` : ''}
-                      </span>
-                      <Link to={`/app/pillar/${pillar.id}`} className="pps-focus__link">
-                        <ChevronRight size={14} />
-                      </Link>
-                    </div>
-                  );
-                })}
-                <p className="pps-focus__hint">Based on open tasks across pillar projects</p>
-              </>
-            )}
-          </div>
-        </div>
+      </section>
 
-        {/* Activity Feed */}
-        <div className="insight-activity">
-          <div className="insight-section-tabs">
-            <span className="insight-section-tab active">Activity</span>
-            <div className="insight-activity-filter">
-              <button
-                className={`insight-act-tab ${activityTab === 'all' ? 'active' : ''}`}
-                onClick={() => setActivityTab('all')}
-              >All</button>
-              <button
-                className={`insight-act-tab ${activityTab === 'mine' ? 'active' : ''}`}
-                onClick={() => setActivityTab('mine')}
-              >Mine</button>
-            </div>
+      {/* ═══ BARAKAH · Impact — the day bears fruit ═══ */}
+      <section className="dash-tier dash-tier--barakah" aria-labelledby="tier-barakah">
+        {isIslamic && (
+          <div className="dash-tier__eyebrow" id="tier-barakah">
+            <span className="dash-tier__eyebrow-en">Impact</span>
+            <span className="dash-tier__eyebrow-sep" aria-hidden="true">·</span>
+            <span className="dash-tier__eyebrow-ar">بركة</span>
           </div>
-          <div className="insight-activity__list">
-            {activityItems.length === 0 && (
-              <div className="insight-section-empty">
-                <Activity size={24} style={{ color: 'var(--text3)' }} />
-                <p>Complete a task and your activity will appear here.</p>
-              </div>
-            )}
-            {activityItems.map((item) => (
-              <div key={item.id} className="insight-activity-item">
-                <div className="insight-activity-item__dot" />
-                <div className="insight-activity-item__body">
-                  <span className="insight-activity-item__time">{relativeTime(item.time)}</span>
-                  <span className="insight-activity-item__text">
-                    {item.type === 'task_complete' && (
-                      <><strong>{firstName}</strong> completed: <strong>{item.text}</strong></>
-                    )}
-                    {item.type === 'task_create' && (
-                      <><strong>{firstName}</strong> created: <strong>{item.text}</strong></>
-                    )}
-                    {item.type === 'event' && (
-                      <>New event: <strong>{item.text}</strong></>
-                    )}
-                  </span>
-                  <span className="insight-activity-item__project">
-                    in <strong>{item.project}</strong>
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+        )}
+
+        {/* Istiqamah — steadfastness across 30 days */}
+        <BCGChart data={bcgData} />
+
+        {/* Maqasid Balance Radar — 7-axis reflection over last 30 days */}
+        <MaqasidBalanceRadar
+          projects={projects}
+          tasksByProject={tasksByProject}
+          valuesLayer={valuesLayer}
+        />
+
+      </section>
     </div>
   );
 }
