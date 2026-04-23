@@ -418,29 +418,96 @@ export default function Landing() {
 
       {/* Hero */}
       <section className="hero-section">
+        {/* Break-the-box Faith ring */}
+        <div className="hero-ring" aria-hidden="true">
+          <svg viewBox="0 0 360 360">
+            <defs>
+              <linearGradient id="hrShimmerGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#C8A96E" stopOpacity="0" />
+                <stop offset="50%" stopColor="#C8A96E" stopOpacity="1" />
+                <stop offset="100%" stopColor="#C8A96E" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <circle className="hr-track" cx="180" cy="180" r="160" fill="none" strokeWidth="2" />
+            <circle
+              className="hr-shimmer"
+              cx="180" cy="180" r="160" fill="none" strokeWidth="3"
+              strokeDasharray="250 1005"
+              transform="rotate(-90 180 180)"
+            />
+          </svg>
+          <div className="hero-ring-label">
+            {(() => {
+              const Compass = PILLAR_ICON_MAP.Compass;
+              return Compass ? <Compass size={40} strokeWidth={1.25} /> : null;
+            })()}
+            <span className="hero-ring-label-name">Faith</span>
+            <span className="hero-ring-label-ar">حفظ الدين</span>
+          </div>
+        </div>
         <div className="hero-badge">
           <Star size={14} /> Islamic Life Operating System
         </div>
         <h1 className="hero-title">
-          Organize your life around <span className="highlight">what truly matters</span>
+          Align your daily rhythm with <span className="highlight">what truly matters</span>
         </h1>
         <p className="hero-subtitle">
           One system for <span className="tag">faith</span>, <span className="tag">health</span>, <span className="tag">intellect</span>, <span className="tag">family</span>, <span className="tag">wealth</span>, <span className="tag">environment</span>, and <span className="tag">community</span> — grounded in the higher objectives of the Shari'ah.
         </p>
         <div className="hero-cta">
           <Link to="/get-started" className="btn btn-primary btn-lg">
-            Get Started Free <ArrowRight size={18} />
+            Begin Your Path <ArrowRight size={18} />
           </Link>
           <a href="#pillars" className="btn btn-secondary btn-lg">Explore the Pillars</a>
         </div>
-        <div className="hero-modules">
+        <div className="hero-marquee" aria-hidden="true">
+          <div className="hero-marquee-track">
+            {[...Array(2)].map((_, dup) => (
+              <div key={dup} style={{ display: 'flex', gap: 'var(--space-10)' }}>
+                <span className="hero-marquee-item">Grounded in the Maqasid al-Shari'ah</span>
+                <span className="hero-marquee-item">Local-first · your data stays with you</span>
+                <span className="hero-marquee-item">Zero tracking · zero ads</span>
+                <span className="hero-marquee-item">Seven pillars · one rhythm</span>
+                <span className="hero-marquee-item">Free forever</span>
+                <span className="hero-marquee-item">Built with tawakkul</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="hero-bento">
           {MAQASID_PILLARS.map((pillar) => {
             const Icon = PILLAR_ICON_MAP[pillar.icon];
+            const desc = PILLAR_FEATURES[pillar.id]?.description;
+            const circ = 2 * Math.PI * 12;
             return (
-              <div key={pillar.id} className="hero-module-chip" style={{ borderColor: pillar.accentColor + '40' }}>
-                {Icon && <Icon size={16} style={{ color: pillar.accentColor }} />}
-                {pillar.sidebarLabel}
-                <span style={{ fontSize: '0.75rem', color: pillar.accentColor, fontWeight: 600, fontStyle: 'italic' }}>{pillar.arabicRootAr}</span>
+              <div
+                key={pillar.id}
+                className="hero-bento-card"
+                style={{ '--card-accent': pillar.accentColor }}
+                tabIndex={0}
+              >
+                <div className="hero-bento-head">
+                  <span className="hero-bento-icon">
+                    {Icon && <Icon size={18} />}
+                  </span>
+                  <div>
+                    <div className="hero-bento-name">{pillar.sidebarLabel}</div>
+                    <div className="hero-bento-ar">{pillar.arabicRootAr}</div>
+                  </div>
+                  <span className="hero-bento-ring" aria-label="0% mastery">
+                    <svg viewBox="0 0 28 28">
+                      <circle className="hero-bento-ring-track" cx="14" cy="14" r="12" fill="none" strokeWidth="2" />
+                      <circle
+                        className="hero-bento-ring-fill"
+                        cx="14" cy="14" r="12" fill="none" strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeDasharray={circ}
+                        strokeDashoffset={circ}
+                      />
+                    </svg>
+                  </span>
+                </div>
+                {desc && <div className="hero-bento-desc">{desc}</div>}
               </div>
             );
           })}

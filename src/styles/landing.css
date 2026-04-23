@@ -43,12 +43,61 @@
 
 /* Hero */
 .hero-section {
+  position: relative;
   min-height: 100vh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center;
   padding: calc(var(--nav-h) + var(--space-16)) var(--space-6) var(--space-16);
   background: linear-gradient(180deg, rgba(74,184,168,0.04) 0%, transparent 60%);
+  overflow: hidden;
 }
+
+/* Break-the-box Faith ring — breaks the section's right edge */
+.hero-ring {
+  position: absolute;
+  top: calc(var(--nav-h) + var(--space-8));
+  right: -120px;
+  width: 360px; height: 360px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+.hero-ring svg { width: 100%; height: 100%; display: block; }
+.hero-ring .hr-track { stroke: rgba(200,169,110,0.18); }
+.hero-ring .hr-shimmer {
+  stroke: url(#hrShimmerGrad);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(200,169,110,0.35));
+  animation: maqasidPulse 4s linear infinite;
+}
+.hero-ring-label {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #C8A96E;
+  gap: 6px;
+}
+.hero-ring-label-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem; font-weight: 500; letter-spacing: 0.04em;
+}
+.hero-ring-label-ar {
+  font-size: 0.85rem; font-style: italic; opacity: 0.75;
+}
+@keyframes maqasidPulse {
+  0%   { stroke-dashoffset: 1005; }
+  100% { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring .hr-shimmer { animation: none; }
+}
+@media (max-width: 1024px) { .hero-ring { display: none; } }
+
+.hero-section > .hero-badge,
+.hero-section > .hero-title,
+.hero-section > .hero-subtitle,
+.hero-section > .hero-cta,
+.hero-section > .hero-marquee,
+.hero-section > .hero-bento { position: relative; z-index: 1; }
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: var(--space-2);
@@ -62,9 +111,11 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700; line-height: 1.1;
-  max-width: 800px; margin-bottom: var(--space-6);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.75rem, 6.5vw, 4.25rem);
+  font-weight: 300; line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 860px; margin-bottom: var(--space-6);
 }
 
 .hero-title .highlight {
@@ -87,23 +138,123 @@
   display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;
   justify-content: center;
 }
+.hero-cta .btn:active { transform: scale(0.97); transition: transform 80ms var(--ease); }
 
-.hero-modules {
-  display: flex; gap: var(--space-3); flex-wrap: wrap;
-  justify-content: center; margin-top: var(--space-12);
+/* Ummah signal marquee */
+.hero-marquee {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: var(--space-10);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.hero-marquee-track {
+  display: flex;
+  gap: var(--space-10);
+  width: max-content;
+  animation: hero-marquee 40s linear infinite;
+}
+.hero-marquee-item {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: var(--text-sm-plus);
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.hero-marquee-item::before {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--primary); opacity: 0.6;
+}
+@keyframes hero-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-track { animation: none; }
 }
 
-.hero-module-chip {
-  display: flex; align-items: center; gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  font-size: var(--text-base); font-weight: 500; color: var(--text2);
-  transition: all var(--duration) var(--ease);
+/* Bento pillar grid with Mastery Rings + progressive disclosure */
+.hero-bento {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: var(--space-10);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
 }
-.hero-module-chip:hover {
-  border-color: var(--primary-border); color: var(--primary);
-  box-shadow: var(--shadow-teal);
+@media (max-width: 768px) {
+  .hero-bento { grid-template-columns: repeat(2, 1fr); }
+}
+
+.hero-bento-card {
+  --card-accent: var(--primary);
+  position: relative;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+  cursor: default;
+  overflow: hidden;
+}
+.hero-bento-card:hover,
+.hero-bento-card:focus-within {
+  border-color: color-mix(in srgb, var(--card-accent) 40%, transparent);
+  box-shadow: 0 10px 30px -20px color-mix(in srgb, var(--card-accent) 60%, transparent);
+  transform: translateY(-2px);
+}
+
+.hero-bento-head {
+  display: flex; align-items: center; gap: var(--space-3);
+  width: 100%;
+}
+.hero-bento-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex-shrink: 0;
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 12%, transparent);
+  border-radius: var(--radius);
+}
+.hero-bento-name {
+  font-size: 0.95rem; font-weight: 600; color: var(--text);
+  line-height: 1.1;
+}
+.hero-bento-ar {
+  font-size: 0.72rem; font-style: italic; color: var(--card-accent);
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+/* Mastery Ring (0% by default — marketing surface) */
+.hero-bento-ring {
+  margin-left: auto;
+  width: 28px; height: 28px;
+  flex-shrink: 0;
+}
+.hero-bento-ring svg { width: 100%; height: 100%; display: block; transform: rotate(-90deg); }
+.hero-bento-ring-track { stroke: var(--border); }
+.hero-bento-ring-fill  { stroke: var(--card-accent); transition: stroke-dashoffset 600ms var(--ease); }
+
+/* Progressive disclosure description */
+.hero-bento-desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text2);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 300ms var(--ease), opacity 200ms var(--ease), margin-top 300ms var(--ease);
+  margin-top: 0;
+}
+.hero-bento-card:hover .hero-bento-desc,
+.hero-bento-card:focus-within .hero-bento-desc {
+  max-height: 140px;
+  opacity: 1;
+  margin-top: var(--space-2);
 }
 
 /* Features */

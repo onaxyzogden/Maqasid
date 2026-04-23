@@ -70,6 +70,8 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-23-flo-redesign-promotion]] | 2026-04-23 | FLO Redesign promoted onto shared `LevelOverviewPage` — all 7 pillars inherit 2px pillar top rule (from MAQASID_PILLARS accentColor), editorial serif titles, calm-peer 60%, container-less wheel with pillar aura, bento Active Neutrality; prototype retired |
 | [[2026-04-23-flo-redesign-prototype]] | 2026-04-23 | FLO Redesign — scoped `.flo-rx` prototype at `/app/flo-redesign-test` rehouses shared LevelOverviewPage with calm-peer tiers, container-less wheel, Active Neutrality bento, and 2px pillar top rule; shared page untouched |
 | [[2026-04-23-prophetic-path-compressed-ribbon]] | 2026-04-23 | Prophetic Path Phase 1+2+3 — Scholar's Pattern A compressed ribbon; state-driven sizing; editorial serif + ghost-text + purposeful aura; canonical MAQASID_PILLARS accent resolver on chips with 4s Maqasid pulse shimmer on active; `data-side` prop fully purged |
+| [[2026-04-23-landing-hero-scholar-polish]] | 2026-04-23 | Landing hero phase 1 — UI/UX Scholar consult applied: Cormorant Garamond H1 (300wt, -0.02em), soul-language copy rewrite, hero-scoped CTA press state, edge-blurred Ummah-signal marquee; items 4–5 (breaking-the-box, Bento grid) deferred |
+| [[2026-04-23-landing-hero-scholar-polish-phase-2]] | 2026-04-23 | Landing hero phase 2 — break-the-box Faith ring (absolute-positioned, right: -120px) with 4s Maqasid Pulse traveling shimmer via `strokeDasharray 250/1005` gradient head; `.hero-modules` chip row replaced with `.hero-bento` 8-card grid (4×2 desktop / 2×4 mobile) with per-pillar accent, 28px 0% Mastery Rings, and progressive-disclosure descriptions on `:hover` / `:focus-within` |
 
 ## Sources
 

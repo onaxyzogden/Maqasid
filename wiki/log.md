@@ -2408,3 +2408,60 @@ Three targeted UI polish items surfaced via live preview inspection — no archi
 - For the mobile panel close animation, the CSS cascade alone isn't enough — the element must stay mounted long enough for the keyframes to play. The render/closing double-state is the minimal pattern and should be reused for any other fade/slide-out on an unmount.
 - The ReadinessCheck wrapper uses `display: contents` so that its children participate in the parent flex gap. That design choice prevents animating opacity/transform on the wrapper itself — hence the animation-on-each-child approach.
 - No ADR — all three are pattern-level polish, not architectural decisions.
+
+---
+
+## 2026-04-23 — Landing hero scholar-led polish phase 1
+
+### Context
+User surfaced the MILOS landing hero via preview. Consulted UI/UX Design Scholar NotebookLM (`995a59d1-...`) for a "awesome modern landing page" brief tailored to a values-driven product. Scholar returned a six-part blueprint (typography, CTA, social proof, visual interest, value-prop grid, common mistakes). This session executes items 1–3; items 4–5 tee up next.
+
+### Done
+- **Sacred Serif H1.** `.hero-title` switched from inherited sans (700wt) to `'Cormorant Garamond', 'EB Garamond', Georgia, ...` at weight 300, letter-spacing -0.02em, line-height 1.15, size `clamp(2.75rem, 6.5vw, 4.25rem)`. Kept the `.highlight` teal→sand gradient on the tail fragment. Verified via `getComputedStyle`: resolved font-family chain, weight 300, letter-spacing -0.88px. File: `src/styles/landing.css`.
+- **Soul-language copy.** H1: *"Organize your life around what truly matters"* → *"Align your daily rhythm with what truly matters"*. Primary CTA: *"Get Started Free"* → *"Begin Your Path"*. Scholar proposed *"Align your daily rhythm with the Divine"*; softened to preserve universal-ethics onboarding path. File: `src/pages/Landing.jsx`.
+- **Qalb-intent CTA press state.** Scoped `.hero-cta .btn:active { transform: scale(0.97); transition: transform 80ms var(--ease); }` — deliberately local to the hero so global `.btn-primary` stays untouched across the rest of the app. File: `src/styles/landing.css`.
+- **Ummah-signal marquee.** New `.hero-marquee` block inserted between `.hero-cta` and `.hero-modules`. Six trust-signal items (*Grounded in the Maqasid al-Shari'ah · Local-first · Zero tracking · Seven pillars · Free forever · Built with tawakkul*) duplicated 2× for seamless wrap; 40s linear `translateX(0 → -50%)`; `mask-image` gradient fades both edges 0–12% / 88–100% (scholar's "progressive blur"); `aria-hidden="true"`; respects `prefers-reduced-motion`. Files: `src/pages/Landing.jsx`, `src/styles/landing.css`.
+- **ADR filed** — `wiki/decisions/2026-04-23-landing-hero-scholar-polish.md`.
+
+### Deferred
+- **Cormorant Garamond webfont load** — currently relies on system fallback (Georgia) where Cormorant is absent; deliberate zero-dep phase-1 posture. Add `@import` or `<link>` in phase 2.
+- **Item 4 "Breaking the box"** — 3D Faith gold ring overlapping hero edge + Maqasid Pulse 4s shimmer along a circular stroke. Queued for next phase.
+- **Item 5 Bento pillar grid** — replace current `.hero-modules` chip row with 7 bento cards, each carrying a 0% Mastery Ring and progressive-disclosure hover description. Queued for next phase.
+- **Item 6 warm dark background** (`#1a1611`) — theme-level change, not hero-scoped; out of scope for this session.
+
+### Notes
+- Scholar answer IDed this kind of generic-sans hero as "corporate AI mush" aesthetic; three single-file edits materially shift the first-paint feel without any new dependency or font-loading risk.
+- Scoping CTA press state via `.hero-cta .btn:active` instead of touching `global.css > .btn-primary:active` avoids a blast-radius problem across the app's several hundred primary-button uses.
+- Marquee uses a two-child duplication pattern inside a single `.hero-marquee-track` translating `-50%` — standard seamless-loop shape. Keeps item count reasoning simple (12 = 6 × 2).
+- Screenshot timed out twice before succeeding; `preview_eval` style introspection was the faster verification path for typography + animation.
+
+---
+
+## 2026-04-23 — Landing hero scholar-led polish phase 2
+
+### Context
+Continued the UI/UX Scholar consult from earlier today. Phase 1 delivered typography + copy + CTA + marquee; phase 2 addresses the two items with the biggest remaining perceived-quality delta: scholar item 4 ("breaking the box" visual anchor + Maqasid Pulse) and item 5 (Bento pillar grid with Mastery Rings + progressive disclosure).
+
+### Plan adjustment
+Scholar suggested a two-column hero split. I kept the hero single-column (the editorial serif H1 wants the centered full width) and anchored the Faith ring as an **absolute-positioned** decorative element clipping past the section's right edge. Scholar's "breaking the box" intent preserved without sacrificing the headline's presence.
+
+### Done
+- **Break-the-box Faith ring.** New `.hero-ring` element at `position: absolute; top: calc(var(--nav-h) + var(--space-8)); right: -120px; width/height: 360px`. Inline SVG with two concentric circles (r=160): a low-opacity gold `.hr-track` and a `.hr-shimmer` stroked with a 3-stop transparent→gold→transparent `<linearGradient>`, `drop-shadow` for ambient glow, and a Compass Lucide icon + "Faith / حفظ الدين" bilingual label centered inside. `.hero-section { overflow: hidden; position: relative; }` prevents horizontal scroll; `@media (max-width: 1024px) { .hero-ring { display: none; } }` hides it on tablet/mobile. All existing hero children lifted to `position: relative; z-index: 1` to stack above the `z-index: 0` ring. Files: `src/pages/Landing.jsx`, `src/styles/landing.css`.
+- **Maqasid Pulse (4s shimmer along circular stroke).** `@keyframes maqasidPulse { 0% { stroke-dashoffset: 1005; } 100% { stroke-dashoffset: 0; } }` — 4s linear infinite. Shimmer circle has `strokeDasharray="250 1005"` so a 250-unit gradient-painted dash travels the full ~1005-unit circumference per cycle. `transform: rotate(-90 180 180)` anchors the dash start at 12 o'clock. Respects `prefers-reduced-motion`. Verified: `animationName: maqasidPulse`, `animationDuration: 4s`.
+- **Bento pillar grid replacing `.hero-modules`.** `.hero-bento` CSS grid (`repeat(4, 1fr)` desktop / `repeat(2, 1fr)` ≤768px). All 8 `MAQASID_PILLARS` rendered via map. Per-card: Lucide icon in a tinted square tile (`color-mix(... accent 12%)`), name in 0.95rem/600, Arabic root italic, **Mastery Ring** on the far right. Each card sets `--card-accent` inline from `pillar.accentColor` so hover border, box-shadow, and ring fill all derive from one canonical source. Files: `src/pages/Landing.jsx`, `src/styles/landing.css`.
+- **Mastery Ring SVG (0% default).** 28px SVG, two r=12 circles. Track stroked in `var(--border)`; fill stroked in `var(--card-accent)` with `strokeDasharray={circ}` / `strokeDashoffset={circ}` where `circ = 2 * Math.PI * 12`. Dashoffset equals circumference → 0% progress. SVG root rotated `-90deg` so future non-zero progress fills from 12 o'clock. Transitions `stroke-dashoffset` over 600ms for forward-compatibility with real user data.
+- **Progressive disclosure.** `.hero-bento-desc` default: `max-height: 0; opacity: 0; overflow: hidden; margin-top: 0;`. On `.hero-bento-card:hover` **or `:focus-within`**: `max-height: 140px; opacity: 1; margin-top: var(--space-2);`. Transitions 300ms (max-height, margin-top) and 200ms (opacity). `tabIndex={0}` on each card so keyboard users trigger `:focus-within` and get the same reveal — accessibility fix on top of scholar's hover-only prescription. Description text pulls from the existing `PILLAR_FEATURES[pillar.id].description` literal so no data duplication.
+- **ADR filed** — `wiki/decisions/2026-04-23-landing-hero-scholar-polish-phase-2.md`.
+
+### Deferred
+- **Real Mastery Ring progress** — rings stay at 0%; this is the marketing surface, not an app view. When wired, set `strokeDashoffset` to `circ * (1 - progress)`.
+- **Cormorant Garamond webfont load** — still relying on the system serif fallback.
+- **Warm dark background token** (`#1a1611`) — theme-level change, not hero-scoped.
+- **Touch-device description reveal** — `:focus-within` covers keyboard + tap-focus, but pure-touch flows without focus won't see descriptions. Acceptable for now; add a `tap-to-expand` toggle if surfaced.
+- **Scholar audit of sections below the hero** — features, carousel, pricing, FAQ haven't been reviewed.
+
+### Notes
+- The `250 / 1005` dasharray pair is intentional: total ≈ circumference of r=160 (2π·160 ≈ 1005), so the dash "circles through" as `dashoffset` sweeps one full period. Changing the 250 to a bigger number makes the shimmer head longer.
+- Stacking audit matters: without the explicit `position: relative; z-index: 1` on every hero child, the `z-index: 0` ring would still paint *above* the hero content in some Safari versions (absolute children without explicit z-index default to `auto`, which can render above `static`-flow siblings when both have non-trivial paint layers). The explicit lift is cheap insurance.
+- The bento `--card-accent` pattern is the same one already used across the pillar pages post-FLO-promotion ([[2026-04-23-flo-redesign-promotion]]) — consistent canonical-accent wiring from `MAQASID_PILLARS` everywhere landing content meets pillar content.
+- `preview_screenshot` succeeded this time; `preview_eval` remained the faster inspection path for animation + layout metrics.
