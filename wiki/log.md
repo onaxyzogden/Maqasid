@@ -3,6 +3,140 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | FLO Redesign prototype — LevelOverviewPage at /app/flo-redesign-test
+
+Shared `LevelOverviewPage` (all 7 pillars) redesigned behind a scoped prototype route. Decision: [[2026-04-23-flo-redesign-prototype]].
+
+### Done
+- **Prophetic Path blue smudge fix:** replaced Phase 2 `::after` ellipse aura (border-radius 50% created top-bulge on tall cards) with two-layer `box-shadow` on the card itself — inherits card radius, no ghost ellipse. Removed now-unused `overflow: visible`.
+- **Scholar consult** (NotebookLM `995a59d1`, conversation `2b89f729`) → three pushbacks baked in: Calm Peers (60% opacity, not ghost-text) · Container-less Anchor (no `.flo__section` card around wheel) · Active Neutrality (ghost stroke on 0% cards, not ghost text). Scholar added: **Layered Theming** — 2px pillar top rule in `accentColor` so tier colors stay functional while pillar identity carries ambient signal.
+- **Prototype scaffolding:** `FloRedesignTestPage.{jsx,css}` + route in `App.jsx` + sidebar link in `Sidebar.jsx`. All CSS scoped under `.flo-rx`. Shared production page untouched.
+- **Mock progress** forces a mix of 0% and ≥1% cards (Shahada 42 / Siyam 18 / Salah·Zakah·Hajj 0) to make Active Neutrality visible.
+- **Late-session trim:** user removed three `.flo-rx__section-title` H2s and one eyebrow from JSX — CSS rules retained for future reintroduction.
+
+### Files
+- `src/components/islamic/PropheticPath.css` — smudge fix (box-shadow halo replaces pseudo)
+- `src/pages/prototypes/FloRedesignTestPage.jsx` + `.css` — new prototype
+- `src/App.jsx` — route registration
+- `src/components/layout/Sidebar.jsx` — nav link
+
+### Build
+✅ `npm run build` clean.
+
+### Next (if desired)
+- Promote scoped `.flo-rx` rules onto shared `LevelOverviewPage` once user signs off on prototype.
+- Thread `accentColor` so the 2px top rule works on all 7 pillars, not just Faith.
+
+---
+
+## [2026-04-23] session | Prophetic Path Phase 3 — Chip alignment + shimmer + cleanup
+
+Final phase of the Scholar-led Prophetic Path redesign. Same decision doc extended: [[2026-04-23-prophetic-path-compressed-ribbon]] (now "Phase 1+2+3").
+
+### Done
+- **Canonical pillar accent resolver:** `resolvePillarAccent(label)` in PropheticPath.jsx — matches label against `MAQASID_PILLARS[].{id, sidebarLabel, universalLabel}` (lowercase), with `'ummah' → Community accentColor` alias. Unmapped labels ("Soul") fall back to `data-tone`.
+- **Chips carry `--chip-accent` inline;** CSS targets via `[style*='--chip-accent']` attribute selector so fallbacks aren't clobbered.
+- **State-driven chip intensity:** active = border 55% + bg tint 12% + 4s shimmer; next* = border 30%, muted text; past/upcoming hidden (unchanged).
+- **Maqasid pulse shimmer:** `::before` gradient band translates across the chip over 4s `cubic-bezier(0.4, 0, 0.6, 1)`. `prefers-reduced-motion` opt-out sets `display: none` + `animation: none`.
+- **`data-side` cleanup:** deleted `side:` from all 8 NODES entries, removed `data-side` attr from `.pp-node`, removed `mirrorSide` variable + prop threading (mirror now flows inline — no opposite-side positioning). Grep-verified zero residuals.
+
+### Files
+- `src/components/islamic/PropheticPath.jsx` — resolver, chip style binding, NODES cleanup, prop-chain trim
+- `src/components/islamic/PropheticPath.css` — Phase 3 chip block
+
+### Build
+✅ `npm run build` — 1.12s, zero errors. Two interim rebuilds also passed.
+
+### Next (if desired)
+- Mobile viewport audit for Phases 1+2+3
+- Moontrance 8th-pillar node on the timeline (pillar exists in MAQASID_PILLARS but no NODE tags it yet)
+
+---
+
+## [2026-04-23] session | Prophetic Path Phase 2 — Calm prominence
+
+Applied Scholar Q2 techniques on top of Phase 1's Compressed Ribbon. Same decision doc extended: [[2026-04-23-prophetic-path-compressed-ribbon]].
+
+### Done
+- **Editorial serif on active:** `.pp-card[data-prayer-state='active'] .pp-title` → 2.25rem / line-height 2.5rem / weight 400 / letter-spacing -0.01em. Noto Serif confirmed as `--pp-font-headline`.
+- **Ghost-text receding:** past/upcoming title color `color-mix(--pp-on-surface, transparent, 45%)`; eyebrow `--pp-on-surface-variant, transparent, 30%`; hover tint killed (was 4% primary bg) — hover now only lifts opacity and restores title color.
+- **Purposeful aura behind active:** new `::after` pseudo with `inset: -56px`, radial-gradient 22%→8%→0 on `--pp-primary`, `blur(60px)`, `z-index: -1`. Tahajjud (`data-style='divine'`) overrides to `--pp-tertiary` gold aura.
+- **Accidental corner washes muted:** `.pp-ambient--teal` opacity halved; `.pp-ambient--gold` removed in both dark+light. The meaningful glow now lives only behind the active card.
+
+### Files
+- `src/components/islamic/PropheticPath.css` — Phase 2 block added after Phase 1 state-sizing block; corner-wash opacity reduced; no JSX changes.
+
+### Build
+✅ `npm run build` — 1.37s, zero errors.
+
+### Deferred (Phase 3)
+- Maqasid pulse shimmer on active pillar chips (4s looping gradient stroke)
+- Pillar chip color alignment with app's `pillar.accentColor` canonical system
+- Delete dead `data-side` prop from NODES data + JSX
+
+---
+
+## [2026-04-23] session | Prophetic Path Phase 1 — Compressed Ribbon layout
+
+Second UI/UX Scholar consult of the day (same NotebookLM conversation `2b89f729-…`, notebook `Modern UI/UX Design Scholar` `995a59d1-…`). Target: the Prophetic Path timeline page. Diagnosis: alternating spine + identical card sizing → no hierarchy, 3–4 scroll-heights to see the full day, CURRENT vs NEXT visually indistinguishable.
+
+Adopted **Pattern A — Compressed Ribbon**. Decision: [[2026-04-23-prophetic-path-compressed-ribbon]].
+
+### Done (Phase 1)
+- Spine moved to far left (`left: 1.75rem`), single-column node layout — alternating left/right killed.
+- Gap between nodes `8rem` → `0.75rem`; active card creates its own breathing via padding.
+- State-driven card sizing via existing `data-prayer-state`:
+  - `active` → full (unchanged)
+  - `next`/`next-soon` → semi-expanded (title + pillars, body hidden)
+  - `past`/`upcoming` → summary row (icon + eyebrow + shrunk title; body and pillars hidden; transparent bg, opacity 0.55/0.8)
+- Satellites hidden on non-active nodes.
+- Mirror expansion flows inline below card (dropped absolute-position opposite-side desktop rule).
+
+### Files
+- `src/components/islamic/PropheticPath.css` — spine/marker/node/body rules rewritten; `[data-side]` rules deleted; new state-sizing block added; mirror floating block removed.
+- JSX unchanged; `data-side` prop still emitted on `.pp-node` but no CSS reads it (deferred cleanup).
+
+### Build
+✅ `npm run build` — 2752 modules, 1.35s, zero errors. Main chunk unchanged at 542 kB gz.
+
+### Deferred (Phase 2/3)
+- Phase 2: editorial serif scale-up on Current title; container-less receding; 100px+ blurred teal/gold aura behind active; replace corner `.pp-ambient` accidents with purposeful aura.
+- Phase 3: Maqasid pulse shimmer on Current pillar chips; align pillar chip colors to app's `pillar.accentColor` system instead of generic `--pp-primary/secondary/tertiary`.
+
+---
+
+## [2026-04-23] session | Dashboard three-tier redesign — Qalb / Amal / Barakah (Phases 4–10)
+
+Completed the ten-phase main dashboard redesign anchored by a two-round UI/UX Scholar NotebookLM consult (conversation `2b89f729-…`). Decision: [[2026-04-23-dashboard-three-tier-redesign]].
+
+### Done
+- **Phase 4** — Zero-state information scent: BCG ghost sine-wave SVG placeholder, informative copy on empty stat cards.
+- **Phase 5** — Three-tier IA wrappers: `<section className="dash-tier dash-tier--{qalb|amal|barakah}">` with bilingual Arabic/English eyebrows; `color-mix` tinted `::before` gradients per tier (accent/bg3/success).
+- **Phase 6** — Kill list: removed Open Tasks panel, standalone Maqasid Focus, Activity Feed; relocated BCG Chart from Amal to Barakah; flattened `.insight-grid` two-column into single `.insight-side`; deleted dead state (`projectFilter`, `activityTab`, `openTasksAll`, `activityItems`, `pillarSummary`, `priorityColor`, `priorityOrder`, `relativeTime`).
+- **Phase 7** — Daily Snapshot consolidation: 4 stat cards + Today box → 3-metric grid (Today hero / In Progress / Overdue) with vertical dividers; `STAT_CARDS` → `SNAPSHOT_METRICS` with `isHero`/`danger`/`hint` flags.
+- **Phase 8** — **Daily Mithaq** widget (new): merges Manifesto + Evening Reflect into one morphing covenant widget. States: Niyyah (Sunrise icon, morning) → Muhasaba (Moon icon + Reflect CTA, after Maghrib OR deepWork ≥ 50%) → Fulfilled (CheckCircle2, reflection summary). Maghrib pivot via `usePrayerTimes()`, 6pm fallback.
+- **Phase 9** — **Sakinah Meter** (reframe): replaces red `WorkflowPressure`. Three levels (settled/stirring/restless) with inverted semantics — fewer bars = less tranquil. Never uses `--danger`. Includes gentle "Ritual of Retreat" link.
+- **Phase 10** — **Maqasid Balance Radar** (new): 7-axis SVG polygon normalized against max pillar; grid rings at 0.25/0.5/0.75/1.0, axis spokes, colored vertex dots, quadrant-anchored external labels, legend chips linking to `/app/pillar/{id}`. Ghost heptagon empty state. No numeric scores — shape, not score.
+- **OnboardingChecklist** — already self-dismisses via 4-second celebration `useEffect`; Scholar recommendation already satisfied, no edit.
+
+### New files
+- `src/components/dashboard/DailyMithaq.{jsx,css}`
+- `src/components/dashboard/MaqasidBalanceRadar.{jsx,css}`
+
+### Build
+✅ `npm run build` — 2752 modules, 1.17s, no errors. Main chunk stable at ~542 kB gz (consistent with [[2026-04-22-bundle-code-split-three-phase]] baseline).
+
+### Orphan candidates (deferred delete)
+- `src/components/dashboard/ManifestoBanner.jsx`
+- `src/components/dashboard/EveningReflectButton.jsx`
+  — both superseded by DailyMithaq; grep-pass before deletion.
+
+### Notes
+- `ManifestoBanner` and `EveningReflectButton` CSS classes still referenced? Needs a follow-up audit.
+- Wiki: `CONTEXT.md` at `src/components/dashboard/` was rewritten mid-session to document the three-tier pattern, legacy-vs-active flags, and tier wrapper structural-not-stylistic convention.
+
+---
+
 ## [2026-04-22] session | Bundle code-split — three phases, main chunk gzip 2,533 → 541 kB
 
 Addressed the post-threshold bundle after [[2026-04-11-bundle-size-2mb]]'s 3 MB raw revisit trigger. Decision: [[2026-04-22-bundle-code-split-three-phase]].

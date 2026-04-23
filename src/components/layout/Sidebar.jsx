@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Moon, Search, FlaskConical,
+  ChevronDown, Bell, Moon, Search, SquareChevronRight,
 } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
@@ -121,6 +121,26 @@ export default function Sidebar() {
       {/* Main Nav */}
       <nav className="sidebar-nav" aria-label="Main navigation" data-tour="sidebar-nav">
         <Link
+          to="/app/prophetic-path-test"
+          className={`sidebar-item ${location.pathname === '/app/prophetic-path-test' ? 'active' : ''}`}
+          onClick={handleNavClick}
+          title="Prophetic Path (prototype)"
+        >
+          <SquareChevronRight size={18} />
+          {!collapsed && <span>Prophetic Path</span>}
+        </Link>
+
+        <Link
+          to="/app/flo-redesign-test"
+          className={`sidebar-item ${location.pathname === '/app/flo-redesign-test' ? 'active' : ''}`}
+          onClick={handleNavClick}
+          title="FLO Redesign (prototype)"
+        >
+          <SquareChevronRight size={18} />
+          {!collapsed && <span>FLO Redesign</span>}
+        </Link>
+
+        <Link
           to="/app"
           className={`sidebar-item ${location.pathname === '/app' ? 'active' : ''}`}
           onClick={handleNavClick}
@@ -210,18 +230,6 @@ export default function Sidebar() {
             </div>
           );
         })}
-
-        <div className="sidebar-divider" />
-
-        <Link
-          to="/app/prophetic-path-test"
-          className={`sidebar-item ${location.pathname === '/app/prophetic-path-test' ? 'active' : ''}`}
-          onClick={handleNavClick}
-          title="Prophetic Path (prototype)"
-        >
-          <FlaskConical size={18} />
-          {!collapsed && <span>Prophetic Path</span>}
-        </Link>
       </nav>
 
       {/* Projects list removed from sidebar — accessible via Work module page */}

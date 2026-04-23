@@ -21,7 +21,7 @@
   --pp-font-headline: "Noto Serif", serif;
   --pp-font-body: "Manrope", sans-serif;
 
-  background: var(--pp-bg);
+  background: transparent;
   color: var(--pp-on-surface);
   font-family: var(--pp-font-body);
   min-height: 100vh;
@@ -43,7 +43,7 @@
 
 .prophetic-path .pp-content {
   flex: 1;
-  padding: 1.5rem;
+  padding: 1rem 0.75rem;
   display: flex;
   gap: 3rem;
   z-index: 10;
@@ -52,6 +52,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
@@ -62,10 +63,69 @@
 
 .prophetic-path .pp-timeline-col {
   flex: 1 1 0%;
+  min-width: 0;
 }
 
 .prophetic-path .pp-intro {
   margin-bottom: 3rem;
+}
+
+/* ── Niyyah echo — mirrors today's intention set on Dashboard ── */
+.prophetic-path .pp-niyyah-echo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.75rem;
+  background: rgba(112, 216, 200, 0.06);
+  border: 1px solid rgba(112, 216, 200, 0.18);
+}
+
+.prophetic-path[data-theme='light'] .pp-niyyah-echo {
+  background: rgba(201, 160, 90, 0.08);
+  border-color: rgba(201, 160, 90, 0.22);
+}
+
+.prophetic-path .pp-niyyah-echo__label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pp-on-surface-variant);
+}
+
+.prophetic-path .pp-niyyah-echo__label-ar {
+  font-family: var(--font-arabic, 'Noto Naskh Arabic', serif);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+  color: var(--pp-primary);
+}
+
+.prophetic-path[data-theme='light'] .pp-niyyah-echo__label-ar {
+  color: var(--pp-tertiary);
+}
+
+.prophetic-path .pp-niyyah-echo__chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.prophetic-path .pp-niyyah-echo__chip {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .prophetic-path .pp-heading {
@@ -75,6 +135,12 @@
   font-weight: 700;
   color: var(--pp-on-surface);
   margin: 0 0 1rem 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.prophetic-path .pp-subheading {
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 768px) {
@@ -100,37 +166,29 @@
   border-radius: 9999px;
   filter: blur(100px);
 }
+/* Phase 2 — accidental corner washes muted almost to zero. The meaningful
+ * glow now lives behind the active card (see `.pp-card[data-prayer-state='active']::after`). */
 .prophetic-path .pp-ambient--teal {
   top: -10%;
   right: -10%;
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle at top right, rgba(112, 216, 200, 0.05), transparent 70%);
+  background: radial-gradient(circle at top right, rgba(112, 216, 200, 0.025), transparent 70%);
 }
 .prophetic-path .pp-ambient--gold {
-  bottom: 10%;
-  left: -20%;
-  width: 50vw;
-  height: 50vw;
-  filter: blur(120px);
-  background: radial-gradient(circle at bottom left, rgba(233, 195, 73, 0.05), transparent 70%);
+  display: none;
 }
 
-/* ---------- Timeline spine ---------- */
+/* ---------- Timeline spine (Phase 1 — Compressed Ribbon, spine-left) ---------- */
 .prophetic-path .pp-spine {
   position: relative;
-  padding-left: 3rem;
+  padding-left: 3.5rem;  /* leaves room for spine + marker on left rail */
   padding-top: 2rem;
   padding-bottom: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 8rem;
-}
-
-@media (min-width: 768px) {
-  .prophetic-path .pp-spine {
-    padding-left: 50%;
-  }
+  gap: 0.75rem;  /* tight default — active card creates its own breathing via padding */
+  min-width: 0;
 }
 
 .prophetic-path .pp-spine::before {
@@ -149,37 +207,15 @@
   );
   box-shadow: 0 0 15px rgba(112, 216, 200, 0.4);
   z-index: 0;
-  left: 24px;
+  left: 1.75rem;  /* 28px — aligned to marker center */
   transform: translateX(-50%);
 }
 
-@media (min-width: 768px) {
-  .prophetic-path .pp-spine::before {
-    left: 50%;
-  }
-}
-
-/* ---------- Nodes ---------- */
+/* ---------- Nodes (single-column, left rail — no alternating) ---------- */
 .prophetic-path .pp-node {
   position: relative;
   width: 100%;
   text-align: left;
-}
-
-@media (min-width: 768px) {
-  .prophetic-path .pp-node {
-    width: 90%;
-  }
-  .prophetic-path .pp-node[data-side='right'] {
-    margin-left: -90%;
-    padding-right: 3rem;
-    text-align: right;
-  }
-  .prophetic-path .pp-node[data-side='left'] {
-    margin-left: 0;
-    padding-left: 3rem;
-    text-align: left;
-  }
 }
 
 /* ---------- Node stack (Before / main / After) ---------- */
@@ -222,11 +258,12 @@
   color: var(--pp-primary);
 }
 
-/* ---------- Marker ---------- */
+/* ---------- Marker (always on left rail) ---------- */
 .prophetic-path .pp-marker {
   position: absolute;
-  top: calc(1rem + 40px + 8px);
-  left: -36px;
+  top: 1rem;  /* aligned to top of card content */
+  left: -1.75rem;  /* centered on spine */
+  transform: translateX(-50%);
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 9999px;
@@ -237,16 +274,6 @@
   justify-content: center;
   z-index: 10;
   box-shadow: 0 0 15px rgba(180, 180, 180, 0.1);
-}
-
-@media (min-width: 768px) {
-  .prophetic-path .pp-node[data-side='right'] .pp-marker {
-    left: auto;
-    right: -12px;
-  }
-  .prophetic-path .pp-node[data-side='left'] .pp-marker {
-    left: -12px;
-  }
 }
 
 .prophetic-path .pp-marker[data-tone='primary'] {
@@ -351,12 +378,6 @@
   align-items: flex-start;
 }
 
-@media (min-width: 768px) {
-  .prophetic-path .pp-node[data-side='right'] .pp-card-body {
-    align-items: flex-end;
-  }
-}
-
 /* ---------- Eyebrow ---------- */
 .prophetic-path .pp-eyebrow {
   font-family: var(--pp-font-body);
@@ -369,6 +390,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 .prophetic-path .pp-eyebrow[data-tone='primary'] {
   color: var(--pp-primary);
@@ -415,10 +438,211 @@
   text-align: left;
 }
 
-@media (min-width: 768px) {
-  .prophetic-path .pp-node[data-side='right'] .pp-body-text {
-    text-align: right;
+/* ==========================================================================
+   Phase 1 — Compressed Ribbon: state-driven card sizing
+   Current (active)  = full card
+   Next / Next-soon  = semi-expanded (title + pillars, body hidden)
+   Past / Upcoming   = summary row (icon + time + title only)
+   ========================================================================== */
+
+/* Past + Upcoming: collapse to thin summary rows */
+.prophetic-path .pp-card[data-prayer-state='past'],
+.prophetic-path .pp-card[data-prayer-state='upcoming'] {
+  padding: 0.5rem 0.875rem;
+  box-shadow: none;
+  border-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.prophetic-path .pp-card[data-prayer-state='past'] {
+  opacity: 0.55;
+}
+.prophetic-path .pp-card[data-prayer-state='upcoming'] {
+  opacity: 0.8;
+}
+.prophetic-path .pp-card[data-prayer-state='past']:hover,
+.prophetic-path .pp-card[data-prayer-state='upcoming']:hover {
+  /* Phase 2 — container-less: lift opacity only, no background tint */
+  opacity: 0.95;
+  transform: translateY(0);
+  background: transparent;
+}
+
+/* Summary row: collapse body text + pillars, tighten title to inline-eyebrow */
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-body-text,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-body-text,
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-pillars,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-pillars {
+  display: none;
+}
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-title,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-title {
+  font-size: 1rem;
+  line-height: 1.375rem;
+  margin: 0;
+  font-weight: 500;
+}
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-eyebrow,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-eyebrow {
+  margin-bottom: 0.125rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+}
+/* On summary rows, kill the divine-card corner glow */
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-card-glow,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-card-glow {
+  display: none;
+}
+
+/* Next + Next-soon: semi-expanded — title + pillars shown, body hidden */
+.prophetic-path .pp-card[data-prayer-state='next'],
+.prophetic-path .pp-card[data-prayer-state='next-soon'] {
+  padding: 1rem 1.25rem;
+}
+.prophetic-path .pp-card[data-prayer-state='next'] .pp-body-text,
+.prophetic-path .pp-card[data-prayer-state='next-soon'] .pp-body-text {
+  display: none;
+}
+.prophetic-path .pp-card[data-prayer-state='next'] .pp-title,
+.prophetic-path .pp-card[data-prayer-state='next-soon'] .pp-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Hide Before/After satellites on any non-active node — only the current
+ * moment exposes its ritual triggers inline; other nodes open via click. */
+.prophetic-path .pp-node:not([data-prayer-state='active']) .pp-satellite {
+  display: none;
+}
+
+/* ==========================================================================
+   Phase 2 — Calm prominence
+   - Editorial serif scale-up on active title
+   - Ghost-text receding on past/upcoming rows
+   - Purposeful aura behind active card (replaces accidental corner washes)
+   ========================================================================== */
+
+/* 2A — Editorial serif title on the active node.
+ * Larger + thinner, NOT bolder — weight carries importance via size and air,
+ * not via saturated badges or heavy fills. */
+.prophetic-path .pp-card[data-prayer-state='active'] .pp-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.625rem;
+}
+
+/* 2B — Ghost-text receding on past/upcoming summary rows.
+ * Title and eyebrow both shift toward the page background so inactive nodes
+ * whisper rather than announce. */
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-title,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-title {
+  color: color-mix(in srgb, var(--pp-on-surface) 55%, transparent);
+}
+.prophetic-path .pp-card[data-prayer-state='past'] .pp-eyebrow,
+.prophetic-path .pp-card[data-prayer-state='upcoming'] .pp-eyebrow {
+  color: color-mix(in srgb, var(--pp-on-surface-variant) 70%, transparent);
+}
+.prophetic-path .pp-card[data-prayer-state='past']:hover .pp-title,
+.prophetic-path .pp-card[data-prayer-state='upcoming']:hover .pp-title {
+  color: var(--pp-on-surface);
+}
+
+/* 2C — Purposeful aura behind the active card.
+ * A soft blurred glow tonally matched to the node's markerTone. The card
+ * feels like it's emitting light, not highlighted. The aura sits behind
+ * the card via z-index; overflow:hidden on .pp-card is overridden only
+ * for this pseudo-element by rendering it at inset negative values. */
+.prophetic-path .pp-card[data-prayer-state='active'] {
+  /* Halo via box-shadow so it hugs the card's rounded-rectangle geometry
+   * and cannot produce a detached ellipse cap above the card.
+   * Two layers: a tight inner tint + a soft wide bloom. */
+  box-shadow:
+    0 0 24px 4px color-mix(in srgb, var(--pp-primary) 18%, transparent),
+    0 0 80px 16px color-mix(in srgb, var(--pp-primary) 10%, transparent);
+}
+
+/* Tahajjud (divine moment): halo takes on the gold tone to match the
+ * tertiary accent and the sparkles marker. */
+.prophetic-path .pp-card[data-prayer-state='active'][data-style='divine'] {
+  box-shadow:
+    0 0 24px 4px color-mix(in srgb, var(--pp-tertiary) 22%, transparent),
+    0 0 80px 16px color-mix(in srgb, var(--pp-tertiary) 12%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Aura is static, but the fade-in from render should not animate. No-op here
+   * since we don't animate the aura; block kept for discipline. */
+}
+
+/* ==========================================================================
+   Phase 3 — Pillar chip system alignment + Maqasid pulse shimmer
+   Chips carry a `--chip-accent` CSS var set inline from the canonical
+   MAQASID_PILLARS[i].accentColor. States modulate intensity:
+     active  → strong border + tinted bg + 4s shimmer sweep
+     next*   → accent border only, muted text
+     past/upcoming → chips hidden (Phase 1 — no-op here)
+   Fallback: unmapped labels (e.g. "Soul") inherit the `data-tone` styling.
+   ========================================================================== */
+
+/* When a --chip-accent is present, it takes precedence over data-tone colors. */
+.prophetic-path .pp-pillar-chip[style*='--chip-accent'] {
+  color: var(--chip-accent);
+  border-color: color-mix(in srgb, var(--chip-accent) 38%, transparent);
+  background: color-mix(in srgb, var(--chip-accent) 6%, transparent);
+}
+
+/* Active-card chips: stronger presence + shimmer sweep. */
+.prophetic-path .pp-card[data-prayer-state='active'] .pp-pillar-chip[style*='--chip-accent'] {
+  border-color: color-mix(in srgb, var(--chip-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--chip-accent) 12%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Maqasid pulse shimmer — a slow 4s gradient sweep across the chip.
+ * Implemented as a ::before pseudo that slides a faint highlight band
+ * left-to-right. Cheap (only animates `transform`). */
+.prophetic-path .pp-card[data-prayer-state='active'] .pp-pillar-chip[style*='--chip-accent']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 35%,
+    color-mix(in srgb, var(--chip-accent) 28%, transparent) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: pp-chip-shimmer 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pp-chip-shimmer {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prophetic-path .pp-card[data-prayer-state='active'] .pp-pillar-chip::before {
+    animation: none;
+    display: none;
   }
+}
+
+/* Next-card chips: accent on border, text muted — less weight than active. */
+.prophetic-path .pp-card[data-prayer-state='next'] .pp-pillar-chip[style*='--chip-accent'],
+.prophetic-path .pp-card[data-prayer-state='next-soon'] .pp-pillar-chip[style*='--chip-accent'] {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--chip-accent) 30%, transparent);
+  color: color-mix(in srgb, var(--chip-accent) 75%, var(--pp-on-surface-variant));
 }
 
 /* ---------- Pillars ---------- */
@@ -475,9 +699,10 @@
   --pp-surface-variant: #d7dadd;
 }
 
-/* Ambient blobs — keep the teal, drop the gold on light (it muddies parchment) */
+/* Phase 2 — ambient washes reduced to near-zero; the intentional aura lives
+ * behind the active card, not in the page corners. */
 .prophetic-path[data-theme='light'] .pp-ambient--teal {
-  background: radial-gradient(circle at top right, rgba(45, 138, 126, 0.12), transparent 70%);
+  background: radial-gradient(circle at top right, rgba(45, 138, 126, 0.05), transparent 70%);
 }
 .prophetic-path[data-theme='light'] .pp-ambient--gold {
   display: none;
@@ -585,40 +810,8 @@
   to   { opacity: 1; transform: none; }
 }
 
-/* Desktop: absolutely positioned opposite the card, connected via a dashed line */
-@media (min-width: 768px) {
-  .prophetic-path .pp-mirror-card {
-    position: absolute;
-    top: 0;
-    margin-top: 0;
-    width: calc(100% - 1rem);
-  }
-  /* node[data-side='left'] card is on the right half — mirror sits on the left */
-  .prophetic-path .pp-node[data-side='left'] .pp-mirror-card {
-    right: calc(100% + 1.5rem);
-  }
-  /* node[data-side='right'] card is on the left half — mirror sits on the right */
-  .prophetic-path .pp-node[data-side='right'] .pp-mirror-card {
-    left: calc(100% + 1.5rem);
-  }
-
-  /* Connector line from the spine marker to the mirror card */
-  .prophetic-path .pp-mirror-card::before {
-    content: '';
-    position: absolute;
-    top: 1.5rem;
-    width: 1.5rem;
-    height: 1px;
-    background: var(--pp-primary);
-    opacity: 0.5;
-  }
-  .prophetic-path .pp-node[data-side='left'] .pp-mirror-card::before {
-    right: -1.5rem;
-  }
-  .prophetic-path .pp-node[data-side='right'] .pp-mirror-card::before {
-    left: -1.5rem;
-  }
-}
+/* Phase 1 — Mirror card flows inline below the active card; no longer floats
+ * to an opposite side, since the Compressed Ribbon has a single left spine. */
 
 .prophetic-path .pp-mirror-header {
   display: flex;

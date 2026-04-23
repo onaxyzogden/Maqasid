@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-22
+updated: 2026-04-23
 ---
 
 # Wiki Index
@@ -64,6 +64,9 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-22-wheel-two-axis-color-and-wealth-icon-canon]] | 2026-04-22 | MaqasidComparisonWheel gains per-module `themeColor` (band) decoupled from universal `LEVEL_COLORS` (fill); `.mcw-seg-bg` hover dim inverted (rest=light, peer=dark); Wealth submodule icons canonicalized and Earning↔Circulation swapped |
 | [[2026-04-22-icon-registry-consolidation]] | 2026-04-22 | Consolidated 10 duplicated icon-name → component maps into single `src/data/icon-registry.js`. Eliminates the drop-on-unused-import bug class that caused blank Ummah sidebar glyphs earlier in the session |
 | [[2026-04-22-bundle-code-split-three-phase]] | 2026-04-22 | Three-phase code-split: lazy SubtaskSources, `/app/sources` route, Work subtree + react-markdown. Main chunk gzip 2,533 → 541 kB (-76%); initial JS ~614 kB gz |
+| [[2026-04-23-dashboard-three-tier-redesign]] | 2026-04-23 | Main dashboard reorganized into Qalb/Amal/Barakah tiers; killed Open Tasks/Activity Feed/Maqasid Focus; merged Manifesto+Reflect→DailyMithaq (Maghrib pivot); reframed WorkflowPressure→SakinahMeter; new 7-axis MaqasidBalanceRadar |
+| [[2026-04-23-flo-redesign-prototype]] | 2026-04-23 | FLO Redesign — scoped `.flo-rx` prototype at `/app/flo-redesign-test` rehouses shared LevelOverviewPage with calm-peer tiers, container-less wheel, Active Neutrality bento, and 2px pillar top rule; shared page untouched |
+| [[2026-04-23-prophetic-path-compressed-ribbon]] | 2026-04-23 | Prophetic Path Phase 1+2+3 — Scholar's Pattern A compressed ribbon; state-driven sizing; editorial serif + ghost-text + purposeful aura; canonical MAQASID_PILLARS accent resolver on chips with 4s Maqasid pulse shimmer on active; `data-side` prop fully purged |
 
 ## Sources
 
