@@ -2483,3 +2483,46 @@ Scholar suggested a two-column hero split. I kept the hero single-column (the ed
 - Stacking audit matters: without the explicit `position: relative; z-index: 1` on every hero child, the `z-index: 0` ring would still paint *above* the hero content in some Safari versions (absolute children without explicit z-index default to `auto`, which can render above `static`-flow siblings when both have non-trivial paint layers). The explicit lift is cheap insurance.
 - The bento `--card-accent` pattern is the same one already used across the pillar pages post-FLO-promotion ([[2026-04-23-flo-redesign-promotion]]) — consistent canonical-accent wiring from `MAQASID_PILLARS` everywhere landing content meets pillar content.
 - `preview_screenshot` succeeded this time; `preview_eval` remained the faster inspection path for animation + layout metrics.
+
+---
+
+## 2026-04-23 — Atlas Site Intelligence panel UX refit
+
+### Context
+Consulted the "Modern UI/UX Design Scholar" NotebookLM (conv `2b89f729`, note saved `1d4f6a25`) on the Atlas right-rail `SiteIntelligencePanel`. Scholar diagnosed "drawer-dump syndrome" — similar visual weight for every row, confidence vs. interpretive badges sharing the traffic-light palette, four always-"Waiting" Derived Analyses rows consuming ~120 px of dead vertical space with zero insight, and an Overall Suitability score whose provenance was unclear. Goal: a site-evaluator must answer *"is this land good?"* in under 5 seconds. Plan filed at `atlas/tasks/site-intelligence-ux-refit-plan.md`.
+
+### Done
+- **Phase 1 — Hierarchy reorder.** Moved `Derived Analyses` out of the top Bento's right column so scroll order is now **Score → Critical Alert → LIVE US/ON Data → Derived Analyses**. Raw evidence (measured layers) now precedes computed insights. File: `atlas/apps/web/src/components/panels/sections/ScoresAndFlagsSection.tsx`.
+- **Phase 3 — Derived collapsed to disclosure when fully blocked.** Extracted a new `DerivedAnalysesCard` subcomponent. When every Tier-3 row is `status: 'waiting'`, the card collapses to a single header row reading *"N analyses awaiting Tier-1 data ▾"*; click expands the full dependency list. When any row is `computing` / `complete`, the card opens by default. New CSS classes `.tier3Header` / `.tier3HeaderTitle` / `.tier3Body` + `.tier3Card { overflow: hidden }` for the disclosure animation; removes the old per-card `padding` so the header owns its own 10×14 padding.
+- **Phase 2 — Badge semantics split.** Added `variant?: 'neutral' | 'semantic'` prop to `ConfBadge` (`_shared.tsx`), defaulting to `'neutral'`. Confidence pills now render with new `.badgeNeutralHigh/Medium/Low` classes (monochrome grey, 1 px panel-text border, decreasing opacity) so meta-data doesn't compete with interpretive chips like *Arid*, *Hardiness 6a*, *Estimated*. The `semantic` variant preserves the old traffic-light green/gold/red for any future *interpretive* badge use. Default flip is source-wide: all ~20 `ConfBadge` call sites across `GroundwaterSection`, `CommunitySection`, `EnvironmentalRiskSection`, etc. inherit the neutral styling for free.
+- **Phase 4b — Hero score liveness pulse.** New `.scoreCirclePulse::before` pseudo-element applies a 2 s single-shot gold `box-shadow` spread (0 → 10 px → 0) on mount, scoped to hero-size rings (`size > 50`) via `ScoreCircle` internal conditional class. Runs on component mount and re-mount — the key changes when score changes via its parent React tree. `prefers-reduced-motion: reduce` disables.
+- **Phases 4a / 4c / 4d — no-ops (already present).** Sticky mini-score overlap is already prevented by the existing `IntersectionObserver` in `StickyMiniScore.tsx` (`rootMargin: 0px` means the sticky only reveals when the hero card is fully out of view); idle empty-state is already rendered at `SiteIntelligencePanel.tsx:632-642` ("Draw a property boundary to fetch site data"); the suitability card already lifts above its peers via `color-mix(in oklch, var(--color-panel-card) 88%, #ffffff 12%)` + inset gold shadow.
+
+### Verified
+- `npx tsc --noEmit` in `apps/web` — exit 0, no diagnostics touching the edited files.
+- Vite HMR updated `ScoresAndFlagsSection.tsx`, `_shared.tsx`, `StickyMiniScore.tsx`, `panel.module.css`, `SiteIntelligencePanel.module.css` with no console errors. Unrelated 401s from AI enrichment endpoints pre-existed this session.
+- `preview_screenshot` timed out (screenshot tool unresponsive at 5200); did not substitute assumed-pass verification. Structure correctness rests on tsc + HMR. Flagged as deferred.
+
+### Deferred
+- **Actionable alert CTAs wired to real endpoints.** Blocking-flag `action.href`-based stub handler is unchanged from prior session; no new wiring this pass (scholar's Phase 1b is still TODO beyond the stub).
+- **Bento side-by-side top band.** Scholar option (d) retained as `.topBento { flex-direction: column }` — the 360–400 px rail is too narrow for a 2-col bento. Revisit via container-query when panel width changes.
+- **Rhythm breaks / micro-charts between deep sections.** Scholar Phase 5 unchanged — separate design sprint.
+- **Pulse-on-score-change.** Current animation fires on mount / React remount. If score recomputes in place (same `key`) the `::before` does not restart. If needed, add a `key={score}` on the `ScoreCircle` wrapper at the hero call site.
+- **Preview screenshot verification.** Screenshot tool was unresponsive; deferred visual confirmation to next session when data pipeline returns past the "Fetching environmental data" loading state.
+
+### Files touched
+- `apps/web/src/components/panels/sections/ScoresAndFlagsSection.tsx` — JSX reorder + new `DerivedAnalysesCard` subcomponent + `useState` import.
+- `apps/web/src/components/panels/sections/_shared.tsx` — `ConfBadge` variant prop + neutral-class mapping; `ScoreCircle` applies `.scoreCirclePulse` at hero size.
+- `apps/web/src/styles/panel.module.css` — `.badgeNeutralHigh/Medium/Low` definitions.
+- `apps/web/src/components/panels/SiteIntelligencePanel.module.css` — `.tier3Card` overflow + new `.tier3Header/HeaderTitle/Body`; new `.scoreCirclePulse::before` keyframes + reduced-motion guard.
+- `tasks/site-intelligence-ux-refit-plan.md` — new planning artifact.
+
+### Notes
+- Defaulting `ConfBadge` to `'neutral'` globally (not opt-in) is deliberate: every existing call site renders confidence as a meta-attribute of underlying data, which the scholar argued should *never* share the semantic palette. If a truly interpretive rating surface appears later, the `variant='semantic'` opt-in is ready.
+- `DerivedAnalysesCard`'s auto-open when any row is non-waiting means the user is only ever presented the collapsed summary when the card has nothing to say — the failure mode of "scrolling past a collapsed card that contained a freshly-complete analysis" can't happen.
+- Scholar conversation continues in `Modern UI/UX Design Scholar` notebook (`995a59d1-be39-...`) — future refinements can resume the same conversation to preserve the multi-turn context about this specific panel.
+
+### Session Debrief
+- **Completed:** Scholar consult + 4-phase implementation plan + Phases 1, 2, 3, 4b shipped; Phases 4a/c/d confirmed already in place.
+- **Deferred:** Actionable alert CTAs; rhythm breaks; preview screenshot verification.
+- **Recommended Next Session:** Wire blocking-flag `action` to real authority-contact / survey-upload endpoints, and complete preview verification once the site-data pipeline resolves past loading state.
