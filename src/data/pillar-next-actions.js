@@ -54,8 +54,8 @@ export const PILLAR_NEXT_ACTIONS = {
   },
   ogden: {
     bbos:    stub('BBOS'),
-    maqasid: stub('Maqasid (MILOS)'),
-    atlas:   stub('Atlas (OLOS)'),
+    maqasid: stub('MILOS'),
+    atlas:   stub('Atlas'),
   },
 };
 

@@ -61,8 +61,8 @@ export const PILLAR_WISDOM = {
   },
   ogden: {
     bbos:    stub('BBOS'),
-    maqasid: stub('Maqasid (MILOS)'),
-    atlas:   stub('Atlas (OLOS)'),
+    maqasid: stub('MILOS'),
+    atlas:   stub('Atlas'),
   },
 };
 

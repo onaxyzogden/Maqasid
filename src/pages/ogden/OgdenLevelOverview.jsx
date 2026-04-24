@@ -18,11 +18,11 @@ const LEVEL_PATTERN = {
   excellence: 'crosshatch',
 };
 
-export default function OgdenLevelOverview({ level }) {
+export default function OgdenLevelOverview({ level, levelColor }) {
   return (
     <LevelOverviewPage
       level={level}
-      levelColor={OGDEN_ACCENT}
+      levelColor={levelColor || OGDEN_ACCENT}
       pillarAccent={OGDEN_ACCENT}
       pillars={OGDEN_SUB_PILLARS}
       storageKey={OGDEN_STORAGE_KEY}
