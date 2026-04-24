@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §7 P2 close — intervention & agroforestry overlays
+
+Objective: close the remaining two §7 P2 ecology items — `mulching-compost-covercrop-zones` and `silvopasture-foodforest-regen-zones` — both `planned` coming in.
+
+### Orientation finding
+`SoilRegenerationProcessor` already emits each feature with `properties.primaryIntervention` ∈ {mulching_priority, compost_application, cover_crop_candidate, silvopasture_candidate, food_forest_candidate}. No new server processor needed — both manifest items reduce to client-side filter + paint overlays against the existing `soil_regeneration` layer.
+
+### Done
+- **MulchCompostCovercropOverlay** — filters `soil_regeneration` FeatureCollection to the three surface-intervention classes and paints classed circles (mulching=#b59a6e straw, compost=#6b4f3a humus, cover_crop=#7fb98a young-legume green). Lucide `Leaf` spine icon. Store key: `mulchCovercropVisible`.
+- **AgroforestryOverlay** — filters to silvopasture + food_forest classes (silvopasture=#4a8f4e, food_forest=#2e7a4a). Lucide `TreePine` spine icon. Store key: `agroforestryVisible`.
+- **Store**: added paired state/setters to `mapStore.ts` next to `restorationPriorityVisible`.
+- **LeftToolSpine**: new `mulchCovercropSlot` + `agroforestrySlot` props rendered below `restorationSlot` in the analysis group.
+- **MapView**: lazy-imported both overlays + both toggles, wired the two new slots and the two new overlay mounts.
+- **Manifest**: both items flipped `planned` → `done`.
+- **CONTEXT.md**: §7 `soil-ecology/CONTEXT.md` captures the two new overlays and an honest caveat — manifest label names "forest regeneration" as a distinct class but the processor folds it into food-forest; do not fake a separate legend entry.
+
+### Verified
+- `tsc --noEmit` in `apps/web` clean (`NODE_OPTIONS=--max-old-space-size=6144`).
+- Vite HMR accepted `MapView.tsx` cleanly across every edit.
+
+### Deferred
+- Live browser click-through on the spine buttons — preview lands on the marketing home page; the buttons live in the authenticated MapView.
+- Distinct `forest_regeneration` intervention type in `SoilRegenerationProcessor` — would let `AgroforestryOverlay` paint a third class per the manifest label. Tracked as a future server-side enhancement.
+
+---
+
 ## [2026-04-24] session | Atlas §7 P2 close — restoration priority map overlay
 
 Objective: flip `soil-restoration-opportunity-map` from `partial` → `done` by painting `SoilRegenerationProcessor` zones on the main Mapbox map (shape mirrors this week's §6 `MicroclimateOverlay`).
