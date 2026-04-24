@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §7 — pollinator planting opportunity map overlay
+
+Objective: close the map-overlay gap in `native-pollinator-biodiversity` (§7) without inflating scope. Leave status at `partial` — corridor connectivity + region-specific plant lists remain genuine gaps.
+
+### Done
+- `apps/web/src/features/map/PollinatorHabitatOverlay.tsx` — classed-circle overlay over the `soil_regeneration` FeatureCollection. Derives a `pollinatorBand` from `primaryIntervention` (silvopasture/food-forest → high, cover-crop → moderate, mulch/compost → low) and paints cells keyed on that discriminator. Mirrors the canonical `RestorationPriorityOverlay` (fetch-on-visible + style.load re-sync + overlayOpacity respect). Lucide Flower-2 signifier on the compact spine toggle; "Pollinator" label on the non-compact variant.
+- `apps/web/src/store/mapStore.ts` — new `pollinatorOpportunityVisible` / `setPollinatorOpportunityVisible` keys; default `false`.
+- `apps/web/src/features/map/LeftToolSpine.tsx` — new `pollinatorOpportunitySlot` rendered immediately after `agroforestrySlot`.
+- `apps/web/src/features/map/MapView.tsx` — lazy-imports `PollinatorHabitatOverlay` + `PollinatorHabitatToggle`, wires the spine slot, and mounts the overlay alongside the sibling §7 overlays.
+- `apps/web/src/features/soil-ecology/CONTEXT.md` — `native-pollinator-biodiversity` entry rewritten as two-wave (dashboard synthesis + map overlay), with the *opportunity vs. current habitat* distinction called out explicitly so future contributors don't overclaim.
+
+### Scope discipline
+- **No new server work.** The overlay is a pure client-side filter/transform on `soil_regeneration`, same pattern as `MulchCompostCovercropOverlay` / `AgroforestryOverlay`.
+- **Manifest stays `partial`.** The overlay closes one of three gaps; corridor connectivity (needs least-cost-path on habitat-friction raster) and region-specific plant lists (needs USDA PLANTS + ecoregion adapter) still prevent `done`. A current-state habitat-quality raster (needs polygonized NLCD) is a fourth latent gap.
+- **Parity untouched.** `verify-scoring-parity.ts` is unchanged; `computeScores.ts` is unchanged; determinism check passes.
+- **Framing.** Toggle label + tooltip deliberately say "Pollinator planting *opportunity*" — the overlay paints where the land *wants* pollinator plantings (per the intervention classifier), not where they currently exist.
+
+### Deferred (next ticket)
+- Popup / click-through on circles (no sibling overlay has one yet).
+- Cross-site corridor connectivity (needs substrate).
+- Region-specific plant adapter.
+
+---
+
 ## [2026-04-24] session | Atlas §7 — regeneration_events substrate (migration 015 + shared schema)
 
 Objective: design and ship the `regeneration_events` table + Zod schema that §7's intervention-log / stage-tagging / before-after-compare items are blocked on. This session lays substrate only — API routes + UI are deferred.
@@ -2732,3 +2756,93 @@ Decision: [[2026-04-24-atlas-ca-tier3-verification-crs-and-race-fixes]]
 - **Completed:** CA-1/CA-2/CA-3/CA-4 diagnosed + fixed; Milton end-to-end Tier-3 green; writer/scorer parity exact.
 - **Deferred:** Original PR-ready web-side changes on this branch (apps/web/* + packages/shared/*) are still uncommitted — out of scope for this session.
 - **Recommended Next Session:** Repeat the verification on a second CA site (different province / more extreme terrain) to confirm the EPSG:3979 + proj4 path generalises, then merge `feat/shared-scoring` to main.
+
+---
+
+## 2026-04-24 — Atlas §7 regeneration events: API + timeline UI
+**Session type:** atlas · feature
+**Branch:** `feat/shared-scoring`
+**Manifest item:** `regen-stage-intervention-log` · `planned → done`
+
+Closed the remaining two layers on top of migration 015 + the shared `RegenerationEvent` Zod schema. Substrate existed; nobody could read or write. This session wired the API and UI.
+
+- **API** — `apps/api/src/routes/regeneration-events/index.ts` ships full CRUD + filtered list at `/api/v1/projects/:id/regeneration-events`. GET accepts `eventType`, `interventionType`, `phase`, `since`, `until`, `parentId`; guards stack mirrors `routes/comments`. PostGIS round-trip via `ST_SetSRID(ST_GeomFromGeoJSON(...), 4326)` on write and `ST_AsGeoJSON(location)::jsonb` on read. PATCH handles three-way `location` semantics (undefined=keep, null=clear, value=insert). Activity log entries emitted for create/update/delete.
+- **Frontend** — Zustand store `regenerationEventStore` mirrors `siteDataStore` shape (`eventsByProject[projectId] = { events, status, error }`); mutations refetch on success. `useRegenerationEventsForProject` hook is the fetch-on-mount convenience. `RegenerationTimelineCard` mounted on `EcologicalDashboard` between the interventions list and Carbon Estimate; inline `LogEventForm` uses `RegenerationEventInput.safeParse()` for client-side validation and submits via the store.
+- **Convention introduced:** inline disclosure form as the dashboard-side input pattern for continuous-logging surfaces (as opposed to the wizard's one-shot intake). Documented in `apps/web/src/features/soil-ecology/CONTEXT.md` and intended for reuse before any other dashboard-level input surface is added.
+- **Deferred:** media upload (`media_urls` API-populated only); polygon-`location` drawing (Point via boundary-centroid helper or NULL site-wide for now); before/after side-by-side photo compare; edit/delete from the timeline UI.
+
+**Verification:** `tsc -b packages/shared`, `tsc -b apps/api`, and `apps/web tsc --noEmit` all clean. No API smoke test run in-session (backend behind auth + project-membership guards).
+
+### Session Debrief
+- **Completed:** API routes, store, hook, timeline card, inline log form, dashboard mount, CONTEXT.md update, manifest flip.
+- **Deferred:** API smoke test against dev DB; media upload; polygon drawing; before/after compare pane; edit/delete UI; commit + push.
+- **Recommended Next Session:** Ship the next planned P2 §7 item — `native-pollinator-biodiversity` has no server surface yet and benefits from the regeneration-events substrate already in place (succession observations can reuse `event_type='observation'`).
+
+---
+
+## 2026-04-24 — Atlas §7 pollinator habitat synthesis (dashboard-only)
+**Session type:** atlas · feature
+**Branch:** `feat/shared-scoring`
+**Manifest item:** `native-pollinator-biodiversity` · `planned → partial`
+
+Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only already-available substrate. Scoped honestly — map overlay deferred, corridor connectivity flagged as out of reach without least-cost-path math.
+
+- **Shared heuristic** — `packages/shared/src/ecology/pollinatorHabitat.ts` ships a pure function over `LandCoverSummary` + `WetlandsFloodSummary` returning `{ suitabilityScore, suitabilityBand, supportiveCoverPct, limitingCoverPct, canopyBand, wetlandEdgeBonus, nativePlantCategories, caveats }`. Weight tables attributed to Xerces Society / USDA NRCS CP-42 scoping for supportive classes; limiting classes penalize intensive crop + impervious with a softened multiplier (edge effects persist). Canopy 10-60% hits the edge-habitat sweet spot; wetland/riparian adds up to 25 bonus points.
+- **Dashboard section** — `EcologicalDashboard` now renders "NATIVE PLANTING & POLLINATOR HABITAT" between WETLAND & RIPARIAN and ECOLOGICAL INTERVENTIONS: score + band chip, 4-cell metric grid, habitat-class-keyed plant-category list, honest caveat list. CSS reuses the sage/gold palette already established for the card pattern.
+- **Scoring parity intentionally untouched** — the heuristic is NOT registered as a scoring component. `computeScores.ts` is not modified; `verify-scoring-parity.ts` delta stays 0.000.
+- **Manifest discipline** — flipped to `partial`, not `done`. Three real gaps prevent `done`: (1) no corridor connectivity (needs least-cost-path on habitat-friction raster); (2) no region-specific native-plant lists (needs USDA PLANTS / ecoregion adapter); (3) no map overlay (needs polygonized land cover or a new pollinator-candidate-zone processor). All three documented in `apps/web/src/features/soil-ecology/CONTEXT.md`.
+
+**Verification:** `tsc -b packages/shared` clean; `apps/web tsc --noEmit` clean (exit 0); no modifications to `apps/api` or `computeScores.ts`.
+
+### Session Debrief
+- **Completed:** Shared heuristic + dashboard section + CSS + manifest flip + CONTEXT.md documentation.
+- **Deferred:** Corridor connectivity, region-specific plant lists, map overlay, GBIF adapter merge (worktree-only), commit + push.
+- **Recommended Next Session:** Either (a) unblock manifest `partial → done` by picking ONE deferred item — polygonized land-cover GeoJSON would be highest-value since it unlocks both the map overlay AND better cover synthesis, OR (b) pick up `invasive-succession-mapping` since it can genuinely reuse the regeneration-events substrate via `event_type='observation'` + structured `observations` jsonb.
+
+---
+
+## 2026-04-24 — Atlas map UI: chrome palette / perimeter layout / split switcher
+
+**Project:** OLOS (Atlas submodule)
+**Objective:** Close three UI issues in the map view: biophilic palette bleeding into chrome, left-edge tool column obstructing map canvas, split-pane controls colliding with primary chrome.
+
+### What shipped
+
+**Chrome/palette separation (`tokens.css` + `dark-mode.css`):**
+- New neutral earth-tinted chrome scale: `--color-chrome-bg (#1f1d1a)`, `--color-chrome-bg-translucent`, `--color-chrome-bg-overlay (0.72 α for map overlays)`, `--color-elevation-highlight`.
+- Gold split for WCAG AA compliance on dark chrome: `--color-gold-brand (#c4a265)` for logomark only vs `--color-gold-active (#e0b56d)` for active UI controls.
+- `--color-info-500 (#5b8eaf)` decoupled from water tokens so map-water semantics stay map-water.
+- Dark-mode elevation lift: `--color-surface: #2a2420`, `--color-surface-raised: #342d26`.
+- 28 inline `rgba(26, 22, 17, X)` strings across 17 files swept to `var(--color-chrome-bg-translucent)`. Zero visual change at call sites; one source of truth.
+- Regression caught: `MapLoadingOverlay` lost its 0.72 page-dimming under the translucent token → routed to dedicated `--color-chrome-bg-overlay` instead.
+
+**Perimeter tool layout (`MapView.tsx`, `LeftToolSpine.tsx`, `DataLayersPopover.tsx`):**
+- 7-item left column → 40 px icon spine (Cross-section / Viewshed / Measure / "Layers" popover folding Historical+OSM / microclimate / windbreak / restoration / etc.).
+- Top-right cluster (`ViewModeSwitcher`, `SplitScreenToggle`, `MapStyleSwitcher`) for set-and-forget view-context controls, `top:56 right:60`.
+- Left-edge footprint: ~80 × 320 px → ~40 × 200 px (~60 % less obstruction).
+- When split active, primary cluster's ViewMode + MapStyleSwitcher are conditionally suppressed (`!splitScreenActive && …`), leaving only Split·on toggle as an exit affordance — stops the cluster from overlapping the split pane or project title.
+
+**Split-pane basemap switcher (`SplitScreenCompare.tsx`):**
+- 5 labeled pills (~310 px wide, overflowing 276 px pane at 50 % split) → 5 Lucide icons (`Satellite` / `Mountain` / `MountainSnow` / `Map` / `Layers`) at 28 × 28 with `DelayedTooltip` (800 ms, bottom) + `aria-label`.
+- `maxWidth: calc(100% - 24px)` + `flex-wrap: wrap` → graceful multi-row degradation at narrow pane widths (verified 15 %–85 % drag range: zero overflow at any ratio).
+- Active state uses `rgba(224,181,109,0.22)` bg + `#e0b56d` border matching `.spine-btn[data-active="true"]` — shared signifier vocabulary with the left spine.
+- **Relocated from `top:12 right:12` → `top:12 left:12` of the split pane** after the user noticed it overlapping with Redraw Boundary + stats. Root cause: `.floatingControls` lives at z-index 5 vs split pane's z-index 3, and both target the map-area's top-right corner. Anchoring to the divider side gives the switcher unambiguous ownership by the split pane; 103 px clearance from `.floatingControls` at default 50 % split.
+
+**Divider drag selection (`SplitScreenCompare.tsx`):**
+- `onMouseDown` now calls `e.preventDefault()` and sets `document.body.style.userSelect = 'none'` (plus `-webkit-` prefix). `onUp` restores both. Previously, dragging the divider highlighted sidebar labels / panel titles / legend text as the pointer crossed them.
+
+### Verification
+- `tsc --noEmit` from `apps/web`: exit 0 (ran 3× across the session — after icon conversion, after flex-wrap, after user-select fix).
+- DOM-measured switcher placement across 15 %–85 % split range: always inside pane, never overlapping `.floatingControls` or `Split·on`.
+- Simulated drag: `userSelect` transitions `""` → `"none"` → `""` cleanly; no selection created mid-drag.
+- Scholar consult archived at `design-system/ogden-atlas/ui-ux-scholar-audit.md` (NotebookLM `995a59d1-…`).
+
+### Session Debrief
+- **Completed:** Chrome/biophilic token separation, perimeter tool layout, split-pane icon switcher, drag selection fix. Decision record filed at `wiki/decisions/2026-04-24-atlas-palette-perimeter-split-switcher.md`.
+- **Deferred:**
+  - OKLCH rework of 13 zone-identity polygon hues for equal perceived lightness.
+  - Lifting `splitPct` from `SplitScreenCompare` local state into `mapStore` (would enable finer primary-cluster repositioning).
+  - `ActiveToolChip` (center-top live-metric chip during measurement) — mentioned in perimeter plan, not implemented.
+  - Map-label halo sweep for sage/water labels over satellite imagery.
+- **Recommended Next Session:** Either (a) pick up ActiveToolChip since the spine perimeter plan cited it as the UX payoff of hiding tools mid-measurement, or (b) the zone-polygon OKLCH pass since the 13-color perceptual parity is the last place the biophilic palette still reads unbalanced.
+
