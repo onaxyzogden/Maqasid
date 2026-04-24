@@ -1,43 +1,23 @@
 import { Link, useLocation } from 'react-router-dom';
-import {
-  LayoutDashboard, Kanban, Settings,
-} from 'lucide-react';
-import { useThresholdStore } from '@store/threshold-store';
-import { MAQASID_PILLARS } from '@data/maqasid';
-import { ICON_REGISTRY } from '@data/icon-registry';
+import { LayoutDashboard, Settings, SquareChevronRight } from 'lucide-react';
 import './MobileNav.css';
 
-const PILLAR_ICONS = ICON_REGISTRY;
+// Mobile nav is now a fixed three-tile bar: Home / Prophetic Path / Settings.
+// Focus pillars used to occupy the middle slots when set via niyyah, but
+// the current design reserves the mobile bar for stable navigation — focus
+// pillars surface on the Home dashboard instead.
+const ITEMS = [
+  { to: '/app', icon: LayoutDashboard, label: 'Home', exact: true },
+  { to: '/app/prophetic-path-test', icon: SquareChevronRight, label: 'Prophetic Path' },
+  { to: '/app/settings', icon: Settings, label: 'Settings' },
+];
 
 export default function MobileNav() {
   const location = useLocation();
-  const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
-
-  // Resolve all valid focus pillars (exclude '_skipped' sentinel), max 3
-  const focusPillars = (niyyahFocus || [])
-    .filter((id) => id !== '_skipped')
-    .map((id) => MAQASID_PILLARS.find((p) => p.id === id))
-    .filter(Boolean)
-    .slice(0, 3);
-
-  const pillarItems = focusPillars.length > 0
-    ? focusPillars.map((p) => ({
-        to: `/app/pillar/${p.id}`,
-        icon: PILLAR_ICONS[p.icon] ?? Kanban,
-        label: p.sidebarLabel,
-      }))
-    : [{ to: '/app/work', icon: Kanban, label: 'Work' }];
-
-  // Show Settings only when fewer than 3 pillars are focused
-  const items = [
-    { to: '/app', icon: LayoutDashboard, label: 'Home', exact: true },
-    ...pillarItems,
-    ...(focusPillars.length < 3 ? [{ to: '/app/settings', icon: Settings, label: 'Settings' }] : []),
-  ];
 
   return (
     <nav className="mobile-nav" aria-label="Mobile navigation">
-      {items.map((item) => {
+      {ITEMS.map((item) => {
         const Icon = item.icon;
         const active = item.exact
           ? location.pathname === item.to

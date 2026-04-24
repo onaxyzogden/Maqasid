@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Kanban } from 'lucide-react';
+import { Kanban, Sparkles, SquareChevronRight } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import { useAppStore } from '../store/app-store';
 import { useSettingsStore } from '../store/settings-store';
@@ -27,12 +27,26 @@ export default function TodayFocusSection({ pillarSummary = [], primaryPillarId 
 
   if (focusedIds.length === 0) {
     return (
-      <button className="tfs-cta" type="button" onClick={openNiyyahOverride}>
-        <div className="tfs-cta__icon">⚡</div>
-        <div className="tfs-cta__body">
-          <div className="tfs-cta__title">Set your focus for today</div>
-          <div className="tfs-cta__sub">Choose which pillar(s) to direct your energy toward.</div>
+      <button className="tfs-hero" type="button" onClick={openNiyyahOverride}>
+        <span className="tfs-hero__shimmer" aria-hidden="true" />
+        <div className="tfs-hero__icon">
+          <Sparkles size={22} />
         </div>
+        <div className="tfs-hero__body">
+          {isIslamic && (
+            <div className="tfs-hero__eyebrow">
+              <span>NIYYAH</span>
+              <span className="tfs-hero__eyebrow-ar">نية</span>
+            </div>
+          )}
+          <div className="tfs-hero__title">Begin today with intention</div>
+          <div className="tfs-hero__sub">
+            {isIslamic
+              ? 'Choose the pillar(s) you will direct your energy toward — then the day ignites.'
+              : 'Choose the pillar(s) you will direct your energy toward today.'}
+          </div>
+        </div>
+        <div className="tfs-hero__cta-chip" aria-hidden="true">Set focus →</div>
       </button>
     );
   }
@@ -90,9 +104,15 @@ export default function TodayFocusSection({ pillarSummary = [], primaryPillarId 
           );
         })}
       </div>
-      <button className="tfs-change" type="button" onClick={openNiyyahOverride}>
-        Change focus
-      </button>
+      <div className="tfs-handoff-row">
+        <Link to="/app/prophetic-path-test" className="tfs-handoff">
+          <SquareChevronRight size={16} />
+          <span>Begin the day&apos;s rhythm</span>
+        </Link>
+        <button className="tfs-change" type="button" onClick={openNiyyahOverride}>
+          Change focus
+        </button>
+      </div>
     </>
   );
 }

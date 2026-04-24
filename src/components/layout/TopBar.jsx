@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, NavLink, Link } from 'react-router-dom';
-import { Moon, Sun, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare, ChevronDown, ChevronUp } from 'lucide-react';
+import { SunMoon, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useAuthStore } from '../../store/auth-store';
@@ -190,7 +190,7 @@ export default function TopBar() {
             title={tip('Toggle theme')}
             aria-label="Toggle dark mode"
           >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            <SunMoon size={18} />
           </button>
           {!mobile && (
             <button

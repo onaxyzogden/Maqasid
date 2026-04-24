@@ -122,6 +122,44 @@
   color: #4a5068;
 }
 
+/* ── Handoff row: "Begin the day's rhythm" → Prophetic Path bridge + Change focus ── */
+.tfs-handoff-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tfs-handoff {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent2);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+
+.tfs-handoff:hover {
+  background: rgba(201, 160, 90, 0.18);
+  border-color: var(--accent);
+  transform: translateX(2px);
+}
+
+.tfs-handoff svg {
+  flex-shrink: 0;
+}
+
 /* ── Change focus trigger ── */
 .tfs-change {
   all: unset;
@@ -129,71 +167,177 @@
   font-size: var(--text-sm);
   color: var(--text3);
   cursor: pointer;
-  margin-bottom: 12px;
-  display: block;
+  display: inline-block;
   transition: color var(--duration) var(--ease);
 }
 .tfs-change:hover {
   color: var(--text2);
 }
 
-/* ── CTA prompt (niyyah not set / skipped) ── */
-.tfs-cta {
+/* ── Niyyah Hero (niyyah not set / skipped) ── Qalb-tier intention hub ── */
+.tfs-hero {
   all: unset;
   box-sizing: border-box;
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  background: var(--bg3);
-  border: 1px dashed var(--border2);
-  margin-bottom: 12px;
+  gap: 20px;
+  padding: 22px 26px;
+  border-radius: 16px;
+  margin-bottom: 20px;
   cursor: pointer;
-  transition: background 0.15s;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 200% at 0% 0%, rgba(201, 160, 90, 0.18), transparent 55%),
+    linear-gradient(135deg, var(--accent-bg), rgba(201, 160, 90, 0.04));
+  border: 1px solid var(--accent-border);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 8px 24px -16px rgba(201, 160, 90, 0.55),
+    0 2px 6px -4px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s var(--ease, ease), box-shadow 0.2s var(--ease, ease), border-color 0.2s;
 }
 
-.tfs-cta:hover {
-  background: var(--bg4);
+.tfs-hero:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 14px 32px -16px rgba(201, 160, 90, 0.75),
+    0 4px 10px -4px rgba(15, 23, 42, 0.12);
 }
 
-.tfs-cta__icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--bg4);
+.tfs-hero:active {
+  transform: translateY(0);
+}
+
+/* Nur shimmer — soft animated gold glow that sweeps diagonally */
+.tfs-hero__shimmer {
+  position: absolute;
+  inset: -40%;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 236, 190, 0.28) 50%,
+    transparent 60%
+  );
+  transform: translateX(-30%);
+  animation: tfs-hero-shimmer 6.5s ease-in-out infinite;
+}
+
+@keyframes tfs-hero-shimmer {
+  0%,
+  100% {
+    transform: translateX(-30%);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(30%);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tfs-hero__shimmer {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+.tfs-hero__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   flex-shrink: 0;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  box-shadow:
+    0 0 0 3px rgba(201, 160, 90, 0.12),
+    0 4px 10px -2px rgba(201, 160, 90, 0.45);
+  position: relative;
+  z-index: 1;
 }
 
-.tfs-cta__body {
+.tfs-hero__body {
   flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.tfs-cta__title {
+.tfs-hero__eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-bottom: 4px;
+}
+
+.tfs-hero__eyebrow-ar {
+  font-family: var(--font-arabic);
   font-size: 13px;
+  letter-spacing: 0;
   font-weight: 600;
+  color: var(--accent);
+}
+
+.tfs-hero__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.tfs-hero__sub {
+  font-size: 13px;
   color: var(--text2);
+  margin-top: 4px;
+  line-height: 1.4;
+  max-width: 52ch;
 }
 
-.tfs-cta__sub {
-  font-size: 11px;
-  color: var(--text3);
-  margin-top: 2px;
-}
-
-.tfs-cta__btn {
-  padding: 7px 16px;
-  border-radius: 8px;
+.tfs-hero__cta-chip {
+  flex-shrink: 0;
+  padding: 9px 16px;
+  border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
-  background: var(--bg4);
-  color: var(--text2);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  box-shadow: 0 2px 6px -2px rgba(201, 160, 90, 0.6);
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .tfs-hero {
+    padding: 18px 18px;
+    gap: 14px;
+    border-radius: 14px;
+  }
+  .tfs-hero__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  .tfs-hero__title {
+    font-size: 17px;
+  }
+  .tfs-hero__sub {
+    font-size: 12px;
+  }
+  .tfs-hero__cta-chip {
+    display: none;
+  }
 }
