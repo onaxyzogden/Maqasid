@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §6 Phase 4 — microclimate, comfort map, windbreak main-map overlays
+
+Objective: finish the three deferred §6 Climate Analysis items (microclimate opportunity map overlay, comfort map overlay, windbreak lines on main Mapbox map) so the section can flip from `partial` → `done` on the feature manifest.
+
+### Done
+- **Microclimate opportunity overlay** (~320 LOC): new `apps/web/src/features/map/MicroclimateOverlay.tsx` mirrors the `ViewshedOverlay` pattern — fetches the `microclimate` project layer via `api.layers.get(projectId, 'microclimate')`, paints a classed Mapbox fill keyed on `properties.class` with a 13-branch match expression (sun_trap → amber, wind_sheltered → forest green, moisture bands blue→sand, frost-risk green→red gradient, comfort green→grey). `MicroclimateToggle` added to the left tool spine via a new `microclimateSlot` prop on `LeftToolSpine`. Added `microclimateVisible` + setter to `mapStore`.
+- **Comfort map overlay** (~450 LOC, full vertical slice):
+  - Shared math: `packages/shared/src/climate/comfortGrid.ts` with `computeCellComfort`, `buildComfortBaseClimate`, `COMFORT_BAND_CODES`. Applies -6.5 °C / 1000 m adiabatic lapse vs parcel centroid + ±2 °C solar-exposure bias, classifies cells using the same `classifyMonthComfort` thresholds as the monthly calendar strip for visual parity.
+  - API: `apps/api/src/services/terrain/ComfortExposureService.ts` reads DEM + per-cell slope/aspect/exposure, pulls `_monthly_normals` from the `climate` project layer, classifies cells, returns classified GeoJSON + band-area summary. Route `POST /api/v1/climate-analysis/:projectId/comfort-grid/compute` in `apps/api/src/routes/climate-analysis/index.ts`. Proper `NO_BOUNDARY` / `NO_CLIMATE_NORMALS` error codes.
+  - Web: `apiClient.climateAnalysis.computeComfortGrid` + `ComfortGridResponse` type. New COMFORT EXPOSURE MAP section on `SolarClimateDashboard.tsx` with pre-flight guards (requires boundary AND normals), 8 metrics (dominant band, reference elev/mean-max/mean-min, per-band pct), and `ComfortMiniMap` SVG using a freezing→hot colour ramp.
+- **Windbreak main-map overlay** (~200 LOC): new `apps/web/src/features/map/WindbreakOverlay.tsx` — client-side only (no API). Subscribes to `useSiteData` for `climate.prevailing_wind`, computes lines via shared `buildWindbreakLines` on the parcel bbox, paints as a dashed Mapbox line layer + `line-center` symbol labels ("Windbreak 1/2/3"). Added `windbreakVisible` to `mapStore`, `windbreakSlot` to `LeftToolSpine`.
+- **Manifest + CONTEXT**: flipped `seasonal-comfort-outdoor-seasonality` and `microclimate-adaptation-recommendations` from `partial` → `done`. `windbreak-ventilation-corridors` stays `partial` (cold-wind-exposure + ventilation corridors still depend on §9 obstacle model). Updated `apps/web/src/features/climate-analysis/CONTEXT.md` with honest scope.
+
+### Verified
+- `npx tsc --noEmit` / `tsc -b` across `packages/shared`, `apps/api`, `apps/web` — clean (only pre-existing `LandingPage.tsx` missing-import errors remain, untouched by this session).
+
+### Deferred
+- **Browser verification** — Atlas dev server was not running; MAQASID dev server was the only active preview. New overlays were not clicked through in a browser. Typecheck + pattern-parity with `ViewshedOverlay` (production) are the only verification gates this session.
+- **Comfort map on main Mapbox map** — shipped as an inline SVG minimap on the dashboard only; a Mapbox overlay variant for the comfort grid was not wired.
+- **Horizon shading / wind channelling / structure shadows** in comfort + microclimate models — intentionally out of scope until §9 Structures provides an obstacle model.
+
+### Files touched
+- `packages/shared/src/climate/comfortGrid.ts` — NEW
+- `packages/shared/src/index.ts` — re-export comfortGrid
+- `packages/shared/src/featureManifest.ts` — two items `partial` → `done`
+- `apps/api/src/services/terrain/ComfortExposureService.ts` — NEW
+- `apps/api/src/routes/climate-analysis/index.ts` — added `POST /comfort-grid/compute`
+- `apps/web/src/lib/apiClient.ts` — `computeComfortGrid` + `ComfortGridResponse`
+- `apps/web/src/features/climate/SolarClimateDashboard.tsx` — COMFORT EXPOSURE MAP section + `ComfortMiniMap` sub-component
+- `apps/web/src/features/map/MicroclimateOverlay.tsx` — NEW
+- `apps/web/src/features/map/WindbreakOverlay.tsx` — NEW
+- `apps/web/src/features/map/MapView.tsx` — mount 3 new lazy overlays + slot props
+- `apps/web/src/features/map/LeftToolSpine.tsx` — 2 new slot props
+- `apps/web/src/store/mapStore.ts` — `microclimateVisible` + `windbreakVisible` state
+- `apps/web/src/features/climate-analysis/CONTEXT.md` — shipped state + scope notes
+
+### Notes
+- All three overlays mirror the canonical `ViewshedOverlay` pattern: two `useEffect`s (fetch-on-visible, sync-on-data-or-visibility-change with `style.load` re-sync), `spine-btn` compact toggle, lazy-loaded in `MapView`. Copy-paste discipline keeps behaviour predictable.
+- The microclimate overlay's 13-branch match expression is the only one that had to reverse-engineer backend output — verified against `MicroclimateProcessor.ts:154-163` (frost bands, comfort bands, sun trap, wind shelter all discriminate on `properties.class`).
+- Comfort model is deliberately planning-grade: lapse + sun bias, no radiation balance or PMV. Documented in-file so future refinements don't accidentally load it with more precision than the inputs justify.
+
+### Session Debrief
+- **Completed:** All three deferred §6 items shipped with manifest + CONTEXT updates; typecheck clean.
+- **Deferred:** Browser verification (no Atlas preview running); comfort-grid Mapbox variant; obstacle-model-dependent features gated on §9.
+- **Recommended Next Session:** Either (a) Atlas browser-verify the three overlays with a live project + climate-fetched site, or (b) §9 Structures obstacle-model scaffolding so the blocked parts of windbreak-ventilation-corridors can be unblocked.
+
 ## [2026-04-23] session | Prophetic Path — Isha reorder + current-node rotation
 
 Decision: [[2026-04-23-prophetic-path-isha-order-and-rotation]].
