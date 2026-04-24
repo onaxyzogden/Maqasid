@@ -2,7 +2,7 @@
 title: "OLOS"
 type: entity
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-22
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
 ---
@@ -26,6 +26,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 ## Current Status
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
+
+**2026-04-22:** First real end-to-end Tier-3 verification against Rodale Institute, PA passed. Two production-blocking bugs fixed: SSURGO SDA parse (`format=JSON` returned no header row) and jsonb double-serialization across 5 writers. DB↔scorer parity PASS (delta = 0.000). Rodale overall score 78.0, Agricultural Suitability 100, Regenerative Potential 82. See [[2026-04-22-atlas-jsonb-serialization-and-ssurgo-parse]].
 
 ## Connections
 

@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-22] session | Atlas Tier-3 verification — SSURGO + jsonb fixes landed
+
+Decision: [[2026-04-22-atlas-jsonb-serialization-and-ssurgo-parse]].
+
+### Done
+- **Issue #1 — SSURGO horizon aggregation:** `SsurgoAdapter.postToSda` used `format=JSON` (no header row from SDA) while `parseSdaRows` assumed `table[0]` was column names. Every horizon field nulled out. Switched to `format=JSON+COLUMNNAME`. Rodale now returns Clarksburg silt loam (pH 6.37, OM 2.64%, 31 horizons, Fragipan @ 69cm).
+- **Issue #2 — jsonb double-serialization:** 5 writers stringified objects before interpolating into postgres.js template literals, so jsonb columns stored string primitives. Replaced `${JSON.stringify(x)}` with `${this.db.json(x as never) as unknown as string}` in `DataPipelineOrchestrator.ts`, `WatershedRefinementProcessor.ts`, `SoilRegenerationProcessor.ts`, `MicroclimateProcessor.ts`, `TerrainAnalysisProcessor.ts` (14 sites in terrain alone).
+- Verification on Rodale project `26b43c47-…`: `jsonb_typeof` = `object` everywhere, overall site score 50 → 78, `verify-scoring-parity.ts` exit 0 with delta 0.000, determinism PASS.
+
+### Deferred
+- `SsurgoAdapter.test.ts` fixtures include a header row and so hid the production bug. Tests don't assert real SDA wire format — add a fixture without the header row (or an integration test hitting SDA) in a future session.
+- Rodale OM 2.64% is below the user's ≥3% expectation. This reflects SSURGO survey averages for the Clarksburg series, not a pipeline bug — flag for product conversation about whether to surface "long-term regenerative management" as an explicit override.
+
+### Next session
+- Hit Tier-3 in a second bioregion (Canadian project → `OmafraCanSisAdapter` + `NrcanHrdemAdapter` paths) to confirm the jsonb pattern holds through the CA fork.
+
+---
+
 ## [2026-04-23] session | Dashboard three-tier redesign landed (Qalb / Amal / Barakah)
 
 Decision: [[2026-04-23-dashboard-three-tier-redesign]].
