@@ -3,6 +3,48 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §7 P1 close — soil observations round-trip
+
+Objective: lift the two §7 P1 items (`soil-type-drainage-ssurgo`, `ph-organic-compaction-notes`) from `partial` → `done` on the feature manifest.
+
+### Orientation findings (substrate was far more built than §7 CONTEXT.md claimed)
+- `apps/web/src/features/map/SoilOverlay.tsx` already ships a SoilGrids v2.0 raster overlay (MapLibre canvas source, property picker, colour-ramp legend, hover tooltip) — mounted in `MapView`.
+- `apps/web/src/features/dashboard/pages/EcologicalDashboard.tsx` already ships a comprehensive soil health card (pH, OM, drainage, texture, bedrock, canopy, extended physical/chemical/particle properties, fertility index, salinization risk, soil flags) plus wetlands, land cover, interventions, carbon sequestration, opportunities. Mounted in `DashboardRouter`.
+- Real gap: no dedicated structured capture for user-entered pH/OM/compaction/biology observations in the intake wizard — everything was routed through a generic `fieldObservations` free-text field.
+
+### Done
+- **Shared schema**: new `SoilNotes` Zod object in `packages/shared/src/schemas/project.schema.ts` (ph, organicMatter, compaction, biologicalActivity — all optional, free-text). Added to `ProjectMetadata` as `soilNotes?: SoilNotes`.
+- **Wizard capture**: `StepNotes.tsx` now has a dedicated SOIL OBSERVATIONS form group (pH + OM as short inputs, compaction + biological activity as 2-line textareas). Values packed into `projects.metadata.soilNotes` via `buildMetadata()`.
+- **Client persistence**: `LocalProject` extended with `metadata?: ProjectMetadata`; `createProject` now carries `input.metadata` into the local store so the dashboard can read it without waiting for a server round-trip.
+- **Dashboard surface**: `EcologicalDashboard.tsx` SOIL HEALTH section now renders a FIELD OBSERVATIONS subsection reading `project.metadata?.soilNotes`, rendered alongside the SSURGO/SoilGrids-derived values. Clearly labelled as user-entered so designers don't confuse it with adapter output.
+- **Manifest**: flipped `soil-type-drainage-ssurgo` and `ph-organic-compaction-notes` from `partial` → `done`. Restoration-priority map (P2) stays `partial` — intervention cards ship but a dedicated map overlay for restoration zones is not yet wired. All other §7 ecology items stay `planned`.
+- **CONTEXT.md**: rewrote `apps/web/src/features/soil-ecology/CONTEXT.md` to name the real UI homes (EcologicalDashboard + SoilOverlay + wizard StepNotes) instead of implying the scaffolded folder is the canonical surface. Updated gotcha for `soilNotes` jsonb shape.
+
+### Verified
+- `tsc -b packages/shared` clean.
+- `tsc --noEmit` in `apps/web` clean (needed `NODE_OPTIONS=--max-old-space-size=6144` to avoid OOM on the Windows box; not a code issue).
+
+### Deferred
+- **Browser verification** — Atlas dev server not running; no UI click-through this session. Shape parity with `StepNotes` / `EcologicalDashboard` sibling sections is the only verification gate.
+- **Restoration-priority map overlay** — `SoilRegenerationProcessor` output surfaces as intervention cards on the dashboard but does not yet paint zones on the main map. Kept P2 `soil-restoration-opportunity-map` as `partial`.
+- **Soil notes round-trip to server** — client-side soilNotes flow is complete; server-side `projects.metadata` jsonb column already accepts the shape (migration 012), no new migration needed. Confirm end-to-end with a real wizard run before claiming full round-trip.
+
+### Files touched
+- `packages/shared/src/schemas/project.schema.ts` — add `SoilNotes`, extend `ProjectMetadata`
+- `packages/shared/src/featureManifest.ts` — two items `partial` → `done`
+- `apps/web/src/features/project/wizard/StepNotes.tsx` — SOIL OBSERVATIONS form + `buildMetadata()` pack
+- `apps/web/src/pages/NewProjectPage.tsx` — WizardData + INITIAL_DATA for the four new fields
+- `apps/web/src/store/projectStore.ts` — `metadata?: ProjectMetadata` on `LocalProject`, carried through `createProject`
+- `apps/web/src/features/dashboard/pages/EcologicalDashboard.tsx` — FIELD OBSERVATIONS subsection
+- `apps/web/src/features/soil-ecology/CONTEXT.md` — honest UI map, updated gotcha
+
+### Session Debrief
+Completed: §7 P1 closeout — two manifest items `done`, user soil observations captured and displayed, CONTEXT re-grounded to reality.
+Deferred: restoration-priority map overlay (P2 still `partial`); browser verification.
+Recommended Next Session: one of — (a) §7 P2 restoration-priority map overlay to close `soil-restoration-opportunity-map`; (b) §8 Zoning & Functional Allocation P1 closeout; (c) §9 Structures obstacle model (unblocks deferred §6 windbreak-ventilation + §7 ecology items).
+
+---
+
 ## [2026-04-24] session | Atlas §6 Phase 4 — microclimate, comfort map, windbreak main-map overlays
 
 Objective: finish the three deferred §6 Climate Analysis items (microclimate opportunity map overlay, comfort map overlay, windbreak lines on main Mapbox map) so the section can flip from `partial` → `done` on the feature manifest.

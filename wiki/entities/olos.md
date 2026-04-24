@@ -33,6 +33,8 @@ Phase 1 (Site Intelligence) in active development. Submodule linked into the [[m
 
 **2026-04-24:** §6 Solar/Wind/Climate Analysis Phase 4 shipped — three map overlays (microclimate opportunity, comfort grid, windbreak candidates on main Mapbox map) plus a new planning-grade comfort-grid compute endpoint. Feature manifest flipped `seasonal-comfort-outdoor-seasonality` and `microclimate-adaptation-recommendations` from `partial` → `done`. Remaining §6 item `windbreak-ventilation-corridors` stays `partial` pending §9 Structures obstacle model. All overlays mirror the canonical `ViewshedOverlay` pattern (fetch-on-visible + style.load re-sync + spine-btn compact toggle).
 
+**2026-04-24 (later):** §7 Soil/Ecology/Regeneration P1 closed. Substrate audit found the `EcologicalDashboard` + `SoilOverlay` (SoilGrids raster with picker + legend) were already production. Real gap was structured user capture for pH/OM/compaction/biology — added `SoilNotes` Zod shape to `ProjectMetadata`, wired wizard SOIL OBSERVATIONS form in `StepNotes`, surfaced user notes in `EcologicalDashboard` under a FIELD OBSERVATIONS subsection alongside SSURGO-derived values. Manifest: `soil-type-drainage-ssurgo` + `ph-organic-compaction-notes` flipped `partial` → `done`. `soil-restoration-opportunity-map` stays `partial` (intervention cards ship; dedicated restoration-zone map overlay not yet wired). §7 CONTEXT.md rewritten to name the real UI surfaces (EcologicalDashboard + SoilOverlay + StepNotes), not the empty scaffolded folder.
+
 ## Connections
 
 - [[milos]] — Parent monorepo; atlas linked as git submodule at `atlas/`
