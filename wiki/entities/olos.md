@@ -27,6 +27,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
 
+**2026-04-24:** First real end-to-end Tier-3 verification against a Canadian site (Milton, ON) passed. Four latent CA-path defects surfaced and fixed: CA-1 NRCan HRDEM STAC queryable (`datetime` not `properties.datetime`), CA-2 ECCC `data_period` label breaking Postgres date binding, CA-3 HRDEM CRS mismatch (COGs are EPSG:3979 — pixel-window math treated lon/lat as projected metres → `validCount=0` → spurious "numeric field overflow"), CA-4 writer-vs-layers race where `site_assessments` was written before `project_layers.microclimate` was visible. Milton overall score 73.0, parity delta 0.000. See [[2026-04-24-atlas-ca-tier3-verification-crs-and-race-fixes]].
+
 **2026-04-22:** First real end-to-end Tier-3 verification against Rodale Institute, PA passed. Two production-blocking bugs fixed: SSURGO SDA parse (`format=JSON` returned no header row) and jsonb double-serialization across 5 writers. DB↔scorer parity PASS (delta = 0.000). Rodale overall score 78.0, Agricultural Suitability 100, Regenerative Potential 82. See [[2026-04-22-atlas-jsonb-serialization-and-ssurgo-parse]].
 
 **2026-04-24:** §6 Solar/Wind/Climate Analysis Phase 4 shipped — three map overlays (microclimate opportunity, comfort grid, windbreak candidates on main Mapbox map) plus a new planning-grade comfort-grid compute endpoint. Feature manifest flipped `seasonal-comfort-outdoor-seasonality` and `microclimate-adaptation-recommendations` from `partial` → `done`. Remaining §6 item `windbreak-ventilation-corridors` stays `partial` pending §9 Structures obstacle model. All overlays mirror the canonical `ViewshedOverlay` pattern (fetch-on-visible + style.load re-sync + spine-btn compact toggle).
@@ -49,4 +51,5 @@ Phase 1 (Site Intelligence) in active development. Submodule linked into the [[m
 
 | Date | Event |
 |---|---|
+| 2026-04-24 | End-to-end Tier-3 verification on Milton, ON (CA). CA-1/CA-2/CA-3/CA-4 fixed. Parity PASS (delta 0.000). |
 | 2026-04-09 | Wiki entity page bootstrapped. OLOS linked as git submodule in maqasid-os monorepo. Phase 1 (Site Intelligence) in progress. Deployed to atlas.ogden.ag. |

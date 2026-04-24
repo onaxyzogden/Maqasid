@@ -74,6 +74,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-23-landing-hero-scholar-polish]] | 2026-04-23 | Landing hero phase 1 — UI/UX Scholar consult applied: Cormorant Garamond H1 (300wt, -0.02em), soul-language copy rewrite, hero-scoped CTA press state, edge-blurred Ummah-signal marquee; items 4–5 (breaking-the-box, Bento grid) deferred |
 | [[2026-04-23-prophetic-path-isha-order-and-rotation]] | 2026-04-23 | Prophetic Path — `isha` moved to sit after `maghrib` (canonical cycle corrected); spine rotates so the currently-active node is always at the top while preserving cycle order |
 | [[2026-04-23-landing-hero-scholar-polish-phase-2]] | 2026-04-23 | Landing hero phase 2 — break-the-box Faith ring (absolute-positioned, right: -120px) with 4s Maqasid Pulse traveling shimmer via `strokeDasharray 250/1005` gradient head; `.hero-modules` chip row replaced with `.hero-bento` 8-card grid (4×2 desktop / 2×4 mobile) with per-pillar accent, 28px 0% Mastery Rings, and progressive-disclosure descriptions on `:hover` / `:focus-within` |
+| [[2026-04-24-atlas-ca-tier3-verification-crs-and-race-fixes]] | 2026-04-24 | Atlas Tier-3 end-to-end verification on Milton, ON surfaced + fixed four CA-path defects: CA-1 NRCan STAC queryable, CA-2 ECCC `data_period` date coercion, CA-3 HRDEM COGs are EPSG:3979 (proj4 reprojection added to `ElevationGridReader`), CA-4 writer-vs-layers race (writer now gates on Tier-3 derived `project_layers` presence). Milton overall 73.0, parity delta 0.000 |
 
 ## Sources
 

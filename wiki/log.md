@@ -2584,3 +2584,26 @@ Consulted the "Modern UI/UX Design Scholar" NotebookLM (conv `2b89f729`, note sa
 - **Completed:** Scholar consult + 4-phase implementation plan + Phases 1, 2, 3, 4b shipped; Phases 4a/c/d confirmed already in place.
 - **Deferred:** Actionable alert CTAs; rhythm breaks; preview screenshot verification.
 - **Recommended Next Session:** Wire blocking-flag `action` to real authority-contact / survey-upload endpoints, and complete preview verification once the site-data pipeline resolves past loading state.
+
+---
+
+## 2026-04-24 — Atlas CA Tier-3 verification (Milton, ON)
+**Session type:** atlas · bugfix + verification
+**Branch:** `feat/shared-scoring`
+**Project:** Milton, ON — `467f8ad4-3c90-459d-881d-7d76ad62c204` (53.24 acres)
+
+First end-to-end Tier-3 run against a Canadian site. Four latent CA-path defects surfaced and fixed:
+
+- **CA-1** NRCan HRDEM STAC queryable: sortby field is `datetime`, not `properties.datetime`. Fix: `ElevationGridReader.ts` body.
+- **CA-2** ECCC `data_period` label ("1981-2010" / "Estimated") crashed Postgres `date` binding. Fix: coerce start year → `${year}-01-01`, else null. `EcccClimateAdapter.ts`.
+- **CA-3** HRDEM COGs are EPSG:3979 (NAD83(CSRS)/Canada Atlas Lambert); pixel-window math treated lon/lat as projected metres → 1-pixel nodata window → `validCount=0` → Infinity reached numeric columns as spurious "numeric field overflow". Fix: proj4 reprojection in `ElevationGridReader.readNrcanHrdem`; fail-fast on empty grid in `TerrainAnalysisProcessor`. Defensive `migrations/014_widen_terrain_numerics.sql` also applied.
+- **CA-4** Writer-vs-layers race: `maybeWriteAssessmentIfTier3Complete` gated only on `data_pipeline_jobs.status='complete'`, so the microclimate job could flip to complete ~1s before the `project_layers.microclimate` row was visible on the writer's pool connection. Fix: writer now also requires the three Tier-3 derived `project_layers` rows (`microclimate`, `watershed_derived`, `soil_regeneration`) to be `fetch_status='complete'` before writing.
+
+**Milton final scores:** overall **73.0**, 14 labels, confidence low. Terrain: elev 193.88–203.42 m (mean 200.04), TWI 4.43, TRI 0.05 m, erosion mean 0.17 / max 11.11 t/ha/yr, `source_api=nrcan_hrdem`, `confidence=high`. `verify-scoring-parity.ts` delta **0.000**, determinism PASS.
+
+Decision: [[2026-04-24-atlas-ca-tier3-verification-crs-and-race-fixes]]
+
+### Session Debrief
+- **Completed:** CA-1/CA-2/CA-3/CA-4 diagnosed + fixed; Milton end-to-end Tier-3 green; writer/scorer parity exact.
+- **Deferred:** Original PR-ready web-side changes on this branch (apps/web/* + packages/shared/*) are still uncommitted — out of scope for this session.
+- **Recommended Next Session:** Repeat the verification on a second CA site (different province / more extreme terrain) to confirm the EPSG:3979 + proj4 path generalises, then merge `feat/shared-scoring` to main.
