@@ -67,6 +67,7 @@ export default function LevelOverviewPage({
   wheelExtraProps,
   ComparisonWheelComponent,
   ExcellenceCardsComponent,
+  pillarAccent: pillarAccentOverride,
 }) {
   const navigate = useNavigate();
   const ensureProjectsFn = useProjectStore(ensureProjects);
@@ -91,9 +92,12 @@ export default function LevelOverviewPage({
   const { progressMap } = useModulesProgress(moduleIds, level);
   useAyahBanner(`${boardPrefix}_${level}`);
 
-  // Pillar identity — 2px top rule + wheel aura source of truth
+  // Pillar identity — 2px top rule + wheel aura source of truth. Modules outside
+  // MAQASID_PILLARS (e.g. OGDEN Ecosystem) pass `pillarAccent` explicitly.
   const pillarAccent =
-    MAQASID_PILLARS.find((p) => p.id === boardPrefix)?.accentColor ?? 'transparent';
+    pillarAccentOverride ??
+    MAQASID_PILLARS.find((p) => p.id === boardPrefix)?.accentColor ??
+    'transparent';
 
   return (
     <div
@@ -115,26 +119,35 @@ export default function LevelOverviewPage({
         levelDescriptions={levelDescriptions}
       />
 
-      {/* Optional: comparison wheel (per-pillar opt-in) */}
+      {/* Optional: comparison wheel (per-pillar opt-in) — framed in a
+          soft-glass section so the wheel has a home without feeling caged. */}
       {showComparisonWheel && ComparisonWheelComponent && (
-        <div className="flo__wheel">
-          <ComparisonWheelComponent
-            centerLabel={wheelCenterLabel}
-            levelColor={levelColor}
-            segments={pillars.map((p) => ({
-              id: p.id,
-              label: p.label,
-              Icon: p.Icon,
-              route: p.route,
-              current: progressMap[p.id]?.pct ?? 0,
-            }))}
-            {...(wheelExtraProps || {})}
-          />
-        </div>
+        <section
+          className="flo__section flo__section--wheel motif-soft-glass motif-shimmer-border"
+          aria-label="Your pattern at this tier"
+        >
+          <h2 className="flo__section-title">Your pattern at this tier</h2>
+          <div className="flo__wheel">
+            <ComparisonWheelComponent
+              centerLabel={wheelCenterLabel}
+              levelColor={levelColor}
+              segments={pillars.map((p) => ({
+                id: p.id,
+                label: p.label,
+                Icon: p.Icon,
+                route: p.route,
+                current: progressMap[p.id]?.pct ?? 0,
+              }))}
+              {...(wheelExtraProps || {})}
+            />
+          </div>
+        </section>
       )}
 
       {/* Bento grid */}
-      <div className="flo__grid">
+      <div
+        className={`flo__grid${pillars.some((p) => (progressMap[p.id]?.pct ?? 0) > 0) ? ' flo__grid--has-progress' : ''}`}
+      >
         {pillars.map(({ id, label, glossaryId, Icon, route }, i) => {
           const pct = progressMap[id]?.pct ?? 0;
           const state = pct > 0 ? 'started' : '0';

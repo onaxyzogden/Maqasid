@@ -59,6 +59,11 @@ export const PILLAR_WISDOM = {
     'moontrance-seasonal':  stub('Moontrance Seasonal'),
     'moontrance-residency': stub('Moontrance Residency'),
   },
+  ogden: {
+    bbos:    stub('BBOS'),
+    maqasid: stub('Maqasid (MILOS)'),
+    atlas:   stub('Atlas (OLOS)'),
+  },
 };
 
 export default PILLAR_WISDOM;
