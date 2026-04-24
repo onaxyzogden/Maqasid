@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §7 P2 close — restoration priority map overlay
+
+Objective: flip `soil-restoration-opportunity-map` from `partial` → `done` by painting `SoilRegenerationProcessor` zones on the main Mapbox map (shape mirrors this week's §6 `MicroclimateOverlay`).
+
+### Done
+- **New overlay** `apps/web/src/features/map/RestorationPriorityOverlay.tsx` — reads `soil_regeneration` project layer via `api.layers.get`, renders Point centroids as classed circles (fill + stroke) keyed on `properties.priorityClass` (critical #c04a3a → high #d68a4e → moderate #d4c564 → low #6ba47a, matching the microclimate risk ramp). Circle radius interpolates by zoom (4px@z10 → 18px@z18). Fetch-on-visible + `style.load` re-sync pattern, same as Microclimate/Viewshed overlays.
+- **Spine toggle** `RestorationPriorityToggle` (Lucide Sprout icon) wired into `LeftToolSpine` via new `restorationSlot` prop, mounted in `MapView` below the windbreak slot.
+- **Store** `useMapStore.restorationPriorityVisible` + `setRestorationPriorityVisible` added next to `windbreakVisible`.
+- **Manifest**: `soil-restoration-opportunity-map` flipped `partial` → `done` in `packages/shared/src/featureManifest.ts`.
+- **CONTEXT.md**: §7 `soil-ecology/CONTEXT.md` restoration-priority bullet updated to name the overlay + store key.
+
+### Verified
+- `tsc --noEmit` in `apps/web` clean (with `NODE_OPTIONS=--max-old-space-size=6144`).
+- Preview running but lands on the marketing home page — the spine button lives inside the authenticated MapView, so no browser click-through this session. No runtime console errors after reload.
+
+### Deferred
+- **Live map click-through** — needs a logged-in session against a project that has a Tier-3 `soil_regeneration` layer materialised to see the circles paint. Shape parity with MicroclimateOverlay is the only verification gate taken.
+
+---
+
 ## [2026-04-24] session | Atlas §7 P1 close — soil observations round-trip
 
 Objective: lift the two §7 P1 items (`soil-type-drainage-ssurgo`, `ph-organic-compaction-notes`) from `partial` → `done` on the feature manifest.
