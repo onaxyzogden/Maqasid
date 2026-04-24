@@ -3,6 +3,43 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §7 — regeneration_events substrate (migration 015 + shared schema)
+
+Objective: design and ship the `regeneration_events` table + Zod schema that §7's intervention-log / stage-tagging / before-after-compare items are blocked on. This session lays substrate only — API routes + UI are deferred.
+
+### Done
+- **Migration** `apps/api/src/db/migrations/015_regeneration_events.sql` — single-table design carrying three concerns (intervention log, stage tagging, before/after pairs). Columns:
+  - `event_type` (observation | intervention | milestone | photo)
+  - `intervention_type` — mirrors `InterventionType` from `soilRegeneration.ts` + `other`
+  - `phase` — mirrors `SequencePhase` from `soilRegeneration.ts`
+  - `progress` (planned | in_progress | completed | observed)
+  - `title`, `notes`, `event_date`
+  - `location geometry(Geometry, 4326)` — Point OR Polygon OR NULL (site-wide)
+  - `area_ha`, `observations jsonb`, `media_urls text[]`
+  - `parent_event_id` self-FK ON DELETE SET NULL for before/after pairs
+  - CHECK constraints on all four enums (DB boundary) — match Zod character-for-character
+  - GIST index on location, btree indexes on (project_id), (project_id, event_date DESC), (project_id, intervention_type WHERE NOT NULL), (parent_event_id WHERE NOT NULL)
+- **Shared schema** `packages/shared/src/schemas/regenerationEvent.schema.ts` — `RegenerationEvent` (stored record), `RegenerationEventInput` (create payload), `RegenerationEventUpdateInput`, plus the four enum z.enum exports. Location schema accepts GeoJSON Point or Polygon.
+- **Shared export** — re-exported from `packages/shared/src/index.ts`.
+- **CONTEXT.md** §7 — gotcha rewritten: events now persist in `regeneration_events`; pointed at the migration + shared schema; flagged the two-boundary sync rule.
+
+### Decisions (worth remembering)
+- **One table, not three.** Splitting intervention / observation / milestone would force cross-table joins for every timeline query. Discriminator column + CHECK beats 3× surface area.
+- **No FK to `project_layers`.** Tier-3 runs replace prior `soil_regeneration` rows on recompute; hard-linking an event would orphan. When zone pairing is needed, copy the integer `zoneId` into `observations.zoneId`.
+- **CHECK at DB + Zod at API.** Dual boundary validation. If TS enum changes, update both.
+- **Manifest stays `planned`.** Migration + schema alone don't close `regen-stage-intervention-log` — honest accounting. API routes + UI in a future session.
+
+### Verified
+- `trigger_set_updated_at()` function confirmed present in migration 001 before referencing.
+- `tsc -b packages/shared` clean.
+
+### Deferred (explicitly NOT in this session)
+- API routes (POST/GET/PATCH/DELETE `/api/v1/projects/:id/regeneration-events`)
+- UI: timeline list, event-create form, before/after compare pane
+- Media upload plumbing (media_urls is just a pointer array)
+
+---
+
 ## [2026-04-24] session | Atlas §7 P2 close — intervention & agroforestry overlays
 
 Objective: close the remaining two §7 P2 ecology items — `mulching-compost-covercrop-zones` and `silvopasture-foodforest-regen-zones` — both `planned` coming in.
