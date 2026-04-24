@@ -377,6 +377,21 @@ export const UMMAH_BOARDS = [
   { id: 'ummah_moontrance-residency_excellence', name: 'MOONTRANCE RESIDENCY — EXCELLENCE', color: '#5B6E8E', icon: 'Building', description: 'Residency: Excellence (Tahsiniyyat)', moduleId: 'moontrance-residency' },
 ];
 
+export const OGDEN_BOARDS = [
+  // BBOS \u2014 Foundation / Integration / Realization (internal keys: core / growth / excellence)
+  { id: 'ogden_bbos_core',       name: 'BBOS \u2014 FOUNDATION',   color: '#7E6EAD', icon: 'Briefcase', description: 'BBOS: Foundation', moduleId: 'bbos' },
+  { id: 'ogden_bbos_growth',     name: 'BBOS \u2014 INTEGRATION',  color: '#7E6EAD', icon: 'Briefcase', description: 'BBOS: Integration', moduleId: 'bbos' },
+  { id: 'ogden_bbos_excellence', name: 'BBOS \u2014 REALIZATION',  color: '#7E6EAD', icon: 'Briefcase', description: 'BBOS: Realization', moduleId: 'bbos' },
+  // Maqasid (MILOS)
+  { id: 'ogden_maqasid_core',       name: 'MAQASID \u2014 FOUNDATION',   color: '#7E6EAD', icon: 'Compass', description: 'MILOS: Foundation', moduleId: 'maqasid' },
+  { id: 'ogden_maqasid_growth',     name: 'MAQASID \u2014 INTEGRATION',  color: '#7E6EAD', icon: 'Compass', description: 'MILOS: Integration', moduleId: 'maqasid' },
+  { id: 'ogden_maqasid_excellence', name: 'MAQASID \u2014 REALIZATION',  color: '#7E6EAD', icon: 'Compass', description: 'MILOS: Realization', moduleId: 'maqasid' },
+  // Atlas (OLOS)
+  { id: 'ogden_atlas_core',       name: 'ATLAS \u2014 FOUNDATION',   color: '#7E6EAD', icon: 'Globe2', description: 'Atlas: Foundation', moduleId: 'atlas' },
+  { id: 'ogden_atlas_growth',     name: 'ATLAS \u2014 INTEGRATION',  color: '#7E6EAD', icon: 'Globe2', description: 'Atlas: Integration', moduleId: 'atlas' },
+  { id: 'ogden_atlas_excellence', name: 'ATLAS \u2014 REALIZATION',  color: '#7E6EAD', icon: 'Globe2', description: 'Atlas: Realization', moduleId: 'atlas' },
+];
+
 // Migrate any existing BBOS projects from 9-column layout to standard columns
 function migrateBbosProjects(projects) {
   let changed = false;
@@ -988,6 +1003,54 @@ export const useProjectStore = create((set, get) => ({
       updatedAt: new Date().toISOString(),
       archived: false,
       _environmentModule: true,
+    }));
+
+    set((s) => {
+      const projects = [...s.projects, ...newProjects];
+      persistProjects(projects);
+      return { projects };
+    });
+  },
+
+  ensureOgdenProjects: () => {
+    const existing = get().projects;
+
+    // Backfill moduleId for existing projects that lack it
+    const moduleIdMap = Object.fromEntries(OGDEN_BOARDS.filter((ob) => ob.moduleId).map((ob) => [ob.id, ob.moduleId]));
+    const needsPatch = existing.some((p) => moduleIdMap[p.id] && !p.moduleId);
+    if (needsPatch) {
+      set((s) => {
+        const projects = s.projects.map((p) =>
+          moduleIdMap[p.id] && !p.moduleId ? { ...p, moduleId: moduleIdMap[p.id] } : p
+        );
+        persistProjects(projects);
+        return { projects };
+      });
+    }
+
+    const missing = OGDEN_BOARDS.filter(
+      (ob) => !existing.some((p) => p.id === ob.id)
+    );
+
+    if (missing.length === 0) return;
+
+    const newProjects = missing.map((ob) => ({
+      id: ob.id,
+      name: ob.name,
+      description: ob.description,
+      color: ob.color,
+      icon: ob.icon,
+      moduleId: ob.moduleId || null,
+      columns: DEFAULT_COLUMNS.map((col) => ({
+        id: `col_${ob.id}_${col.name.toLowerCase().replace(/\s+/g, '_')}`,
+        name: col.name,
+        color: col.color,
+      })),
+      defaultView: 'dashboard',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      archived: false,
+      _ogdenModule: true,
     }));
 
     set((s) => {

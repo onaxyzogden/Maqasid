@@ -3,6 +3,64 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | OGDEN Ecosystem meta-module scaffolded
+
+Objective: add a MILOS surface that tracks the convergence of BBOS + MILOS + Atlas into Moontrance. Scaffolding-only — journey task content deferred.
+
+### Done
+- `src/data/ogden-ecosystem.js` — `OGDEN_SUB_PILLARS` (bbos, maqasid, atlas), `OGDEN_LEVEL_ROUTES`, `OGDEN_LEVELS` (custom `Foundation/Integration/Realization` display copy over internal `core/growth/excellence` keys), `OGDEN_ACCENT = '#7E6EAD'`, `OGDEN_STORAGE_KEY`, `OGDEN_ENSURE_PROJECTS`.
+- `src/data/modules.js` — 3 new entries: `ogden-bbos` (Briefcase), `ogden-maqasid` (Compass), `ogden-atlas` (Globe2).
+- `src/data/icon-registry.js` — registered `Orbit`, `Briefcase`, `Globe2`.
+- `src/data/module-palette.js` — `ogden` palette entry with `#7E6EAD` theme.
+- `src/store/project-store.js` — `OGDEN_BOARDS` (9 boards: 3 sub-pillars × 3 levels, id pattern `ogden_{pillar}_{level}`) + `ensureOgdenProjects` action mirroring the Faith/Ummah pattern (backfill moduleId, idempotent seed).
+- `src/pages/ogden/` — `OgdenLevelOverview` (wraps shared `LevelOverviewPage`, `boardPrefix="ogden"`, passes `levelDescriptions={OGDEN_LEVELS}`, no comparison wheel in v1), `OgdenFoundationPage` / `OgdenIntegrationPage` / `OgdenRealizationPage` (tier wrappers), `OgdenPillarPage` (wraps shared `PillarLevelPage` with identity pillar→moduleId map), `OgdenBbosPage` / `OgdenMaqasidPage` / `OgdenAtlasPage` (sub-pillar routes), plus `CONTEXT.md`.
+- `src/App.jsx` — 6 routes registered after `moontrance-residency`: `ogden-foundation`, `ogden-integration`, `ogden-realization`, `ogden-bbos`, `ogden-maqasid`, `ogden-atlas`. No CeremonyGuard — OGDEN is not a Maqasid pillar.
+- `src/components/layout/Sidebar.jsx` — 3 new `MODULE_ROUTES` entries + a standalone `<div className="pillar-group">` rendered after the `MAQASID_PILLARS.map()` loop. Orbit icon, indigo accent, 3 children; header click navigates to `/app/ogden-foundation`; expand/collapse via `togglePillar('ogden')`.
+- `wiki/entities/ogden-ecosystem.md` + `wiki/index.md` catalog row.
+- `src/pages/CONTEXT.md` updated with `ogden/` row.
+
+### Design discipline
+- **Not a Maqasid pillar.** Rendered as a sibling group below the `MAQASID_PILLARS` loop to preserve the taxonomy.
+- **No LevelNavigator changes needed.** Discovered `LevelOverviewPage` already threads `levelDescriptions` through the shared `LevelNavigator` (`baseLevels.map(l => ({ ...l, ...levelDescriptions[l.key] }))` at `LevelNavigator.jsx:159`), so the plan's Phase 2 was skipped entirely.
+- **MaqasidComparisonWheel not reused.** Hardcoded to 8 Maqasid lobes; reusing it for 3 OGDEN sub-pillars would misrepresent the data. A 3-lobe variant is deferred.
+
+### Deferred
+- Journey task seeding for all 9 boards (empty by design for v1).
+- 3-lobe `OgdenEcosystemWheel` variant.
+- `ExcellenceCardsComponent` equivalent.
+- Glossary entries for `ogden-bbos` / `ogden-maqasid` / `ogden-atlas`.
+
+---
+
+## [2026-04-24] session | Atlas §7 — biodiversity corridor (least-cost-path) overlay
+
+Objective: close the "biodiversity corridor planning" clause inside `native-pollinator-biodiversity`'s manifest label (§7) by shipping a least-cost-path corridor tool on the existing `soil_regeneration` grid. Keep status at `partial` — friction model is a planning proxy, not a real habitat-friction raster.
+
+### Done
+- `packages/shared/src/ecology/corridorLCP.ts` — pure Dijkstra over an 8-connected grid reconstructed from `zoneId` + `totalZones` (mirrors `SoilRegenerationProcessor.zoneIndexToCentroid` exactly so client corridors land on the same centroids the server writes). Exports `frictionForIntervention`, `gridDims`, `zoneCentroid`, `pickCorridorAnchors`, `dijkstraLCP`, `computeCorridor`, plus `CorridorInput` / `CorridorResult` / `ZoneInput` / `InterventionType` types. Anchor pick: two farthest-apart cells with `primaryIntervention ∈ {food_forest_candidate, silvopasture_candidate}`; returns null when fewer than two or when they are not at least ~35% of grid diagonal apart.
+- `packages/shared/src/tests/corridorLCP.test.ts` — 12 vitest cases: friction ranking, grid reconstruction, centroid formula parity, straight path, √2 diagonal preference, obstacle detour, source==sink short-circuit, anchor pairing correctness, null cases (no high-band, too few zones). All green.
+- `packages/shared/src/index.ts` — re-exports `./ecology/corridorLCP.js`.
+- `apps/web/src/features/map/BiodiversityCorridorOverlay.tsx` — canonical overlay. Reads the `soil_regeneration` layer, derives a zone-to-coord map directly from feature geometries (no bbox round-trip needed), runs Dijkstra, and paints three sources: a 50 m `turf.buffer`-ed corridor band (`fill`), the LCP polyline (`line`), and the two anchor dots (`circle`). Color: `#6ba47a` band at 0.28α, `#4f7f5a` line at 0.9α. Silently paints nothing when substrate is missing (layer unmaterialized, fewer than 4 zones, or no viable anchors).
+- `apps/web/src/features/map/BiodiversityCorridorOverlay.tsx` toggle (Lucide `Waypoints`) — `Biodiversity corridor` tooltip; aria-label `Toggle biodiversity corridor overlay`.
+- `apps/web/src/store/mapStore.ts` — `biodiversityCorridorVisible` / `setBiodiversityCorridorVisible`, default false.
+- `apps/web/src/features/map/LeftToolSpine.tsx` — new `biodiversityCorridorSlot` rendered immediately after `pollinatorOpportunitySlot`.
+- `apps/web/src/features/map/MapView.tsx` — lazy imports, spine slot wiring, overlay mounted alongside sibling §7 overlays after `PollinatorHabitatOverlay`.
+- `apps/web/src/features/soil-ecology/CONTEXT.md` — `native-pollinator-biodiversity` entry rewritten as three-wave (dashboard synthesis + opportunity overlay + corridor LCP) with an honest deferred list.
+
+### Scope discipline
+- **No new server work.** All three corridor inputs (`zoneId`, `primaryIntervention`, centroid coords) already live on the `soil_regeneration` layer.
+- **Manifest stays `partial`.** The overlay closes the "biodiversity corridor *planning*" clause of the item label but the friction model is an intervention-type proxy, not a true habitat-friction raster. Still deferred: Steiner-tree multi-anchor corridors, region-specific plant lists, current-state habitat raster, cross-parcel corridors (`multi-property-corridor-planning`, FUTURE).
+- **Parity untouched.** `computeScores.ts` is unchanged; determinism check passes; `verify-scoring-parity.ts` unchanged.
+- **Grid math kept in lockstep.** `zoneCentroid()` in `corridorLCP.ts` is a literal copy of `zoneIndexToCentroid()` in `SoilRegenerationProcessor.ts`; both are unit-tested against each other's expected output.
+
+### Deferred (next ticket)
+- Real habitat-friction raster (e.g. polygonized land cover × impedance table).
+- Steiner-tree / multi-pair corridors for networks rather than single LCP.
+- User-draggable anchors + click-to-inspect cell.
+- Cross-parcel corridor planning (maps to FUTURE-phase `multi-property-corridor-planning`).
+
+---
+
 ## [2026-04-24] session | Atlas §7 — pollinator planting opportunity map overlay
 
 Objective: close the map-overlay gap in `native-pollinator-biodiversity` (§7) without inflating scope. Leave status at `partial` — corridor connectivity + region-specific plant lists remain genuine gaps.

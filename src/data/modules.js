@@ -540,6 +540,55 @@ export const MODULES = [
       'Waqf endowment structure',
     ],
   },
+  // OGDEN Ecosystem — meta-module tracking the journey of BBOS + MILOS + Atlas \u2192 Moontrance.
+  {
+    id: 'ogden-bbos',
+    name: 'BBOS',
+    description: 'Barakah Business Operating System \u2014 8-stage covenant pipeline for truth-safe Islamic business formation',
+    icon: 'Briefcase',
+    color: 'var(--mod-ogden-bbos, #7E6EAD)',
+    attrs: 'Al-Wakil \u00b7 Al-Muhsin',
+    attrs_ar: 'الوكيل \u00b7 المحسن',
+    ready: true,
+    features: [
+      'Two-Factory architecture (Research / Asset)',
+      'G-Labeling evidence tiers (G1\u2013G4)',
+      'Assembly Gate & operator sovereignty',
+      'Integrated into MILOS as a module',
+    ],
+  },
+  {
+    id: 'ogden-maqasid',
+    name: 'Maqasid',
+    description: 'MILOS \u2014 the Seven-Pillar life operating system where covenant meets daily action',
+    icon: 'Compass',
+    color: 'var(--mod-ogden-maqasid, #7E6EAD)',
+    attrs: 'Al-Hakim \u00b7 Al-Hadi',
+    attrs_ar: 'الحكيم \u00b7 الهادي',
+    ready: true,
+    features: [
+      'Seven Maqasid pillars + Moontrance',
+      'Prophetic Path & Dashboard Sanctuary',
+      'Readiness gates & Amanah Gate',
+      'Host surface for BBOS & Atlas integrations',
+    ],
+  },
+  {
+    id: 'ogden-atlas',
+    name: 'Atlas',
+    description: 'OLOS \u2014 geospatial land intelligence for regenerative stewardship and site verification',
+    icon: 'Globe2',
+    color: 'var(--mod-ogden-atlas, #7E6EAD)',
+    attrs: 'Al-Khaliq \u00b7 Al-Bari',
+    attrs_ar: 'الخالق \u00b7 البارئ',
+    ready: true,
+    features: [
+      'Tier-3 site verification workflow',
+      'Soil, climate, ecology overlays',
+      'Regeneration events substrate',
+      'Deployed independently at atlas.ogden.ag',
+    ],
+  },
 ];
 
 export const PROJECT_COLORS = [

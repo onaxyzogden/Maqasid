@@ -15,6 +15,7 @@
 | `environment/` | EnvironmentDashboard + 4 sub-pages | `environment/CONTEXT.md` |
 | `ummah/` | UmmahDashboard (social) + Neighbors, Community, CollectivePage, Moontrance sub-pages (legacy location) | `ummah/CONTEXT.md` |
 | `moontrance/` | MoontraceDashboard + MoontraceLevelNavigator (pillar 8 — land/seasonal/residency) | — |
+| `ogden/` | OGDEN Ecosystem meta-module (Foundation/Integration/Realization × BBOS·Maqasid·Atlas) | `ogden/CONTEXT.md` |
 | `islamic/` | FivePillars, QuranPage, HadithPage, IslamicKnowledgePage | `islamic/CONTEXT.md` |
 | `modules/` | Work, Project, Money, People, Office, Tech, CRM | `modules/CONTEXT.md` |
 

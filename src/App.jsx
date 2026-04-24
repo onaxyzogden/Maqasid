@@ -67,6 +67,12 @@ import CollectivePage from '@pages/ummah/CollectivePage';
 import MoontraceLandPage from '@pages/ummah/MoontraceLandPage';
 import MoontranceSeasonalPage from '@pages/ummah/MoontranceSeasonalPage';
 import MoontranceResidencyPage from '@pages/ummah/MoontranceResidencyPage';
+import OgdenFoundationPage from '@pages/ogden/OgdenFoundationPage';
+import OgdenIntegrationPage from '@pages/ogden/OgdenIntegrationPage';
+import OgdenRealizationPage from '@pages/ogden/OgdenRealizationPage';
+import OgdenBbosPage from '@pages/ogden/OgdenBbosPage';
+import OgdenMaqasidPage from '@pages/ogden/OgdenMaqasidPage';
+import OgdenAtlasPage from '@pages/ogden/OgdenAtlasPage';
 import PillarDashboard from '@pages/PillarDashboard';
 import FaithDashboard from '@pages/faith/FaithDashboard';
 import LifeDashboard from '@pages/life/LifeDashboard';
@@ -208,6 +214,12 @@ export default function App() {
         <Route path="moontrance-land" element={<CeremonyGuard moduleId="moontrance-land"><MoontraceLandPage /></CeremonyGuard>} />
         <Route path="moontrance-seasonal" element={<CeremonyGuard moduleId="moontrance-seasonal"><MoontranceSeasonalPage /></CeremonyGuard>} />
         <Route path="moontrance-residency" element={<CeremonyGuard moduleId="moontrance-residency"><MoontranceResidencyPage /></CeremonyGuard>} />
+        <Route path="ogden-foundation" element={<OgdenFoundationPage />} />
+        <Route path="ogden-integration" element={<OgdenIntegrationPage />} />
+        <Route path="ogden-realization" element={<OgdenRealizationPage />} />
+        <Route path="ogden-bbos" element={<OgdenBbosPage />} />
+        <Route path="ogden-maqasid" element={<OgdenMaqasidPage />} />
+        <Route path="ogden-atlas" element={<OgdenAtlasPage />} />
         <Route path="pillar/faith" element={<FaithCorePage />} />
         <Route path="pillar/life" element={<LifeCorePage />} />
         <Route path="pillar/intellect" element={<IntellectCorePage />} />

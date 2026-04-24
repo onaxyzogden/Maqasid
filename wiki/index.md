@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-23
+updated: 2026-04-24
 ---
 
 # Wiki Index
@@ -16,6 +16,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[ogden-hub]] | Static marketing/landing site at bismillah.ogden.ag |
 | [[olos]] | Geospatial land intelligence app — React + TypeScript + MapboxGL + Fastify + PostGIS |
 | [[bbos-pipeline]] | Barakah Business Operating System — 8-stage covenant pipeline for Islamic business |
+| [[ogden-ecosystem]] | Meta-module tracking BBOS + MILOS + Atlas convergence into Moontrance (Foundation/Integration/Realization) |
 | [[graphify]] | Knowledge graph tool — builds persistent graphs from codebases with community detection |
 | [[claude-os]] | Claude OS / Model Workspace Protocol — 3-layer system architecture governing Claude Code across projects |
 | [[money-dashboard]] | Money Dashboard — Balance overview chart, store bindings, bar chart data model |

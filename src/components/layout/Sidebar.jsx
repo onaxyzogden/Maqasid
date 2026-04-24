@@ -68,7 +68,18 @@ const MODULE_ROUTES = {
   'moontrance-land': '/app/moontrance-land',
   'moontrance-seasonal': '/app/moontrance-seasonal',
   'moontrance-residency': '/app/moontrance-residency',
+  // OGDEN Ecosystem
+  'ogden-bbos': '/app/ogden-bbos',
+  'ogden-maqasid': '/app/ogden-maqasid',
+  'ogden-atlas': '/app/ogden-atlas',
 };
+
+const OGDEN_SIDEBAR_CHILDREN = [
+  { id: 'ogden-bbos',    name: 'BBOS',    icon: 'Briefcase' },
+  { id: 'ogden-maqasid', name: 'Maqasid', icon: 'Compass' },
+  { id: 'ogden-atlas',   name: 'Atlas',   icon: 'Globe2' },
+];
+const OGDEN_ACCENT = '#7E6EAD';
 
 const modulesById = Object.fromEntries(MODULES.map((m) => [m.id, m]));
 
@@ -220,6 +231,77 @@ export default function Sidebar() {
             </div>
           );
         })}
+
+        {(() => {
+          const OgdenIcon = ICON_MAP.Orbit;
+          const ogdenRoute = '/app/ogden-foundation';
+          const hasActiveChild = OGDEN_SIDEBAR_CHILDREN.some((c) => {
+            const r = MODULE_ROUTES[c.id];
+            return r && (location.pathname === r || location.pathname.startsWith(r + '/'));
+          });
+          const onOgdenLevelRoute = ['/app/ogden-foundation', '/app/ogden-integration', '/app/ogden-realization']
+            .some((r) => location.pathname === r || location.pathname.startsWith(r + '/'));
+          const isExpanded = expandedPillars.ogden || hasActiveChild || onOgdenLevelRoute;
+          return (
+            <div className="pillar-group">
+              <button
+                className={`pillar-header ${hasActiveChild || onOgdenLevelRoute ? 'has-active' : ''}`}
+                style={{ '--pillar-color': OGDEN_ACCENT }}
+                aria-expanded={isExpanded}
+                onClick={() => {
+                  if (collapsed) {
+                    toggleSidebar();
+                    navigate(ogdenRoute);
+                    if (!isExpanded) { collapseAllPillars(); togglePillar('ogden'); }
+                    return;
+                  }
+                  navigate(ogdenRoute);
+                  if (!isExpanded) { collapseAllPillars(); togglePillar('ogden'); }
+                  else togglePillar('ogden');
+                }}
+                title="OGDEN Ecosystem"
+              >
+                {OgdenIcon && <OgdenIcon size={16} style={{ color: OGDEN_ACCENT }} />}
+                {!collapsed && (
+                  <>
+                    <span className="pillar-label">OGDEN Ecosystem</span>
+                    <ChevronDown
+                      size={14}
+                      className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!isExpanded) { collapseAllPillars(); togglePillar('ogden'); }
+                        else togglePillar('ogden');
+                      }}
+                    />
+                  </>
+                )}
+              </button>
+
+              {!collapsed && isExpanded && (
+                <div className="pillar-children">
+                  {OGDEN_SIDEBAR_CHILDREN.map((child) => {
+                    const Icon = ICON_MAP[child.icon];
+                    const route = MODULE_ROUTES[child.id];
+                    const isActive = location.pathname === route || location.pathname.startsWith(route + '/');
+                    return (
+                      <Link
+                        key={child.id}
+                        to={route}
+                        className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
+                        onClick={() => { setActiveModule(child.id); handleNavClick(); }}
+                        title={child.name}
+                      >
+                        {Icon && <Icon size={16} style={isActive ? { color: OGDEN_ACCENT } : undefined} />}
+                        <span>{child.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })()}
       </nav>
 
       {/* Projects list removed from sidebar — accessible via Work module page */}

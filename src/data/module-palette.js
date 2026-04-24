@@ -36,6 +36,7 @@ export const MODULE_PALETTE = {
   environment: { core: GOLD, growth: GREEN, excellence: PURPLE, theme: '#4F8F6E' },
   ummah:       { core: GOLD, growth: GREEN, excellence: PURPLE, theme: '#8A6BB8' },
   moontrance:  { core: GOLD, growth: GREEN, excellence: PURPLE, theme: '#5C8A7B' },
+  ogden:       { core: GOLD, growth: GREEN, excellence: PURPLE, theme: '#7E6EAD' },
 };
 
 export default MODULE_PALETTE;

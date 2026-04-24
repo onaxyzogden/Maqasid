@@ -59,6 +59,9 @@ import {
   // Moontrance
   MapPinned, Leaf, HousePlus,
 
+  // OGDEN Ecosystem
+  Orbit, Briefcase, Globe2,
+
   // Legacy / backward-compat (stored project data may still reference)
   Kanban, Wallet, PiggyBank, Store, Share2, Hammer,
   CalendarHeart, GraduationCap, BarChart3, LayoutGrid,
@@ -98,6 +101,9 @@ export const ICON_REGISTRY = {
 
   // Moontrance
   MapPinned, Leaf, HousePlus,
+
+  // OGDEN Ecosystem
+  Orbit, Briefcase, Globe2,
 
   // Legacy
   Kanban, Wallet, PiggyBank, Store, Share2, Hammer,
