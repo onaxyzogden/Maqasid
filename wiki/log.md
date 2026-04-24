@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-23] session | Prophetic Path — Isha reorder + current-node rotation
+
+Decision: [[2026-04-23-prophetic-path-isha-order-and-rotation]].
+
+### Done
+- Reordered `NODES` in `src/components/islamic/PropheticPath.jsx` so `isha` sits directly after `maghrib`. Canonical cycle is now `maghrib → isha → tahajjud → fajr → morning → dhuhr → midday-labor → asr`.
+- Added `orderedNodes` memo that rotates `NODES` by `activeNodeId` index, pinning the current window to the top of the spine while preserving cycle order. Fallback to canonical order when `activeNodeId` is null.
+- Verified in preview at 23:11 local (Isha active): spine opens on `Isha & Rest → Tahajjud → Fajr → …→ Maghrib` with correct `data-prayer-state` flags.
+
+### Deferred
+- None — scope was tightly contained to one file.
+
 ## [2026-04-22] session | Atlas Tier-3 verification — SSURGO + jsonb fixes landed
 
 Decision: [[2026-04-22-atlas-jsonb-serialization-and-ssurgo-parse]].

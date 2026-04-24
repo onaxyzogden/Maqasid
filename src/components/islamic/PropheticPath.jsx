@@ -230,6 +230,18 @@ const NODES = [
     markerTone: 'primary',
   },
   {
+    id: 'isha',
+    cardStyle: 'muted',
+    eyebrow: 'Late Night',
+    eyebrowTone: 'variant',
+    title: 'Isha & Rest',
+    titleTone: 'on-surface',
+    body: 'Preparation for the final third of the night. A time of stillness and surrender.',
+    pillars: [{ label: 'Faith', tone: 'secondary' }],
+    Icon: Moon,
+    markerTone: 'muted',
+  },
+  {
     id: 'tahajjud',
     cardStyle: 'divine',
     eyebrow: 'Divine Moment',
@@ -316,18 +328,6 @@ const NODES = [
     ],
     Icon: SunMedium,
     markerTone: 'primary',
-  },
-  {
-    id: 'isha',
-    cardStyle: 'muted',
-    eyebrow: 'Late Night',
-    eyebrowTone: 'variant',
-    title: 'Isha & Rest',
-    titleTone: 'on-surface',
-    body: 'Preparation for the final third of the night. A time of stillness and surrender.',
-    pillars: [{ label: 'Faith', tone: 'secondary' }],
-    Icon: Moon,
-    markerTone: 'muted',
   },
 ];
 
@@ -712,6 +712,11 @@ export default function PropheticPath({ variant }) {
   const { timings } = usePrayerTimes();
   const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
   const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
+  const orderedNodes = useMemo(() => {
+    const idx = NODES.findIndex((n) => n.id === activeNodeId);
+    if (idx <= 0) return NODES;
+    return [...NODES.slice(idx), ...NODES.slice(0, idx)];
+  }, [activeNodeId]);
 
 
   // Weekly boards back the midday-labor + morning Before/After satellites
@@ -798,7 +803,7 @@ export default function PropheticPath({ variant }) {
             )}
 
             <div className="pp-spine">
-              {NODES.map((node) => (
+              {orderedNodes.map((node) => (
                 <TimelineNode
                   key={node.id}
                   node={node}
