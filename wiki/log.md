@@ -3,6 +3,70 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §5 — wind / view / privacy / noise rollup
+
+Closed §5 `wind-view-privacy-noise-analysis` (P3, planned → done) on the
+manifest. The codebase already carried the rule infrastructure
+(`features/rules/SitingRules.ts`, `useSitingEvaluation`, RulesEngine with
+weight-adjusted severity), but the existing `SitingPanel` mixes all rule
+categories together. The §5 spec asks specifically about wind / view /
+privacy / noise — the *environmental and social* siting concerns a
+steward worries about, distinct from setback or slope or water rules.
+
+### Added
+- `apps/web/src/features/rules/SitingWarningsCard.tsx` — pure
+  presentation rollup. Filters `useSitingEvaluation`'s weighted
+  violations down to four §5 dimensions:
+  - **Wind** ← `category === 'wind'` (the existing `wind-shelter` rule
+    on the Microclimate Tier 3 layer).
+  - **View** ← honest gap. No viewshed rule exists yet; the tile is
+    rendered with a dashed border + "Not yet evaluated" pill rather than
+    a misleading zero count.
+  - **Privacy** ← `category === 'privacy'` plus the `guest-safe-livestock`
+    buffer rule.
+  - **Noise** ← all `sacred-noise-*` rules (road / livestock /
+    infrastructure acoustic buffers).
+
+  Each tile shows the count + top severity (blocking / warning /
+  advisory), with severity-driven border colors. Below the tile strip,
+  up to three violations per dimension are listed with their suggestion
+  text. Footnote calls out the data sources and notes the viewshed gap.
+
+- `apps/web/src/features/rules/SitingWarningsCard.module.css` — visual
+  language mirrors the §9 sibling cards but borrows the severity palette
+  (red / amber / blue) instead of palette-as-domain, since this card's
+  job is to surface alarm rather than to organize a rollup by type.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  — mounted `<SitingWarningsCard project={project} />` between the §9
+  GatheringRetreatCard and the P4 Guided Walkthrough stub. The card
+  fits the dashboard's "explain the design" framing: it answers the
+  steward question "where is this design exposed?" alongside the
+  rationale index that answers "why this feature, here?"
+- `packages/shared/src/featureManifest.ts` line 255 — flipped the §5
+  status `planned → done`.
+
+### Decisions
+- *Why this dashboard, not SiteIntelligencePanel?* SitingWarningsCard
+  reads from feature stores (placed structures / paddocks / zones), not
+  from the layer fetch result. The Educational Atlas dashboard already
+  frames placement decisions narratively; the panel-side
+  SiteIntelligence surface is layer-data heavy and would dilute focus.
+- *Why not extend SitingPanel?* SitingPanel already shows all violations
+  with weight sliders and rule catalog. The §5 spec asks for a *focused
+  rollup*, not another all-categories list — the value is the framing.
+- *Honest "view" gap.* Rendering a "View — 0" tile would imply the
+  check ran. Showing it explicitly as "Not yet evaluated" tells the
+  steward "we have not looked yet", which is more useful and primes the
+  spec for a future viewshed rule.
+
+### Verified
+- `tsc --noEmit` from `apps/web` clean (only pre-existing MapView errors
+  unrelated to this change).
+- Type-checked specifically `SitingWarningsCard.tsx` and
+  `EducationalAtlasDashboard.tsx` — zero errors in touched files.
+
 ## [2026-04-24] session | Atlas §9 — gathering & retreat capacity rollup
 
 Closed §9 `tent-glamping-gathering-firecircle-lookout` (P2, planned →
