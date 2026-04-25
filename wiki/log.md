@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §19 guided walkthrough card (auto-grouped thematic tours)
+
+**Objective:** Close the §19 `passive-learning-tour-walkthrough` manifest item (P4, planned) with a presentation-layer card that auto-builds 4–6 thematic field-trip itineraries from features already placed on the project — without a real tour-playback engine.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/education/GuidedWalkthroughCard.tsx](atlas/apps/web/src/features/education/GuidedWalkthroughCard.tsx) (~373 lines):
+  - **Six theme buckets** — Water Journey, Soil & Food, Spiritual Path, Community Hubs, Livestock Loop, Energy & Shelter. Each theme declares the structure types, zone categories, and utility types whose presence makes a stop relevant; tours filter to themes with ≥2 waypoints.
+  - **Per-kind reflection prompts** — each theme carries three short prompts (one for structures, one for zones, one for utilities). Examples: *"How does this building shed or use water?"*, *"Who comes here, and what happens when they do?"*, *"How is this paddock rotated, and what feeds back to the soil?"*. The prompt at each waypoint nudges the visitor to pause rather than just walk past.
+  - **Greedy nearest-neighbour ordering** — start at the southwesternmost located waypoint, walk to the closest unvisited each step. Good enough for 3–8 stop tours; no turf dependency. Polygon centroid is approximated with a flat-earth ring average.
+  - **Per-tour metadata** — audience age band (All ages / 8+ / 12+), best season, 6 min/stop duration estimate, and a 1–2 sentence narrative seed so the tour reads as a coherent arc.
+- New [GuidedWalkthroughCard.module.css](atlas/apps/web/src/features/education/GuidedWalkthroughCard.module.css) — ink-on-parchment palette consistent with the §10/§11/§18/§22 family. Per-theme accent on the tour's left edge: blue (water), green (soil_food), gold (spiritual), warm-tan (community), red (livestock), amber (energy). Numbered waypoint chips with prompts in italic muted-tan.
+- Mounted on `EducationalAtlasDashboard.tsx` immediately after `EducationalRouteOverlaysCard`, replacing the "Passive learning tour" row in the §19 P4-stub block. The remaining three P4 items (voiceover script export, slide presentation mode, training/quiz mode) kept as stubs in a renamed "Tour Playback (Pending)" block.
+- Manifest §19 line 461 `passive-learning-tour-walkthrough` flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean (full repo, exit 0). Note: zoneStore exports the type as `LandZone` not `Zone` — caught by typecheck on first run, fixed before commit.
+
+**Discipline:** Pure presentation — zero shared-package math, no real tour-playback engine (auto-advance, voiceover, slide mode are still P4), no map overlays. The card explicitly frames itself as an "AI DRAFT" and notes the underlying ordering heuristic in the footnote. Atlas commit `e6496e5` — 4 files, 611 ins / 5 del.
+
+---
+
 ## [2026-04-25] session | MILOS — Ummah pillar two-axis grounding migration complete
 
 **Objective:** Second pillar pass after Faith. Migrate the 525 legacy-string `sources` entries in `ummah-seed-tasks.js` to structured two-axis arrays per [[2026-04-18-milos-grounding-two-axis]].
