@@ -113,6 +113,64 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas §19 — signs in creation interpretive mode
+
+Closed §19 `signs-in-creation-interpretive-mode` (MT, planned → done).
+The Educational Atlas already shipped six explanation modes (ecology,
+water, livestock, agroforestry, regeneration, spiritual symbolism) but
+the spiritual mode was prose-only. This iteration adds the dedicated
+interpretive overlay the §19 spec calls for: placed features paired
+with canonical āyāt of creation widely cited in Islamic ecology and
+stewardship literature.
+
+**Component:**
+- `SignsInCreationPanel.tsx` (~280 lines) under
+  `apps/web/src/features/education/`. Toggleable overlay (Show / Hide).
+  When opened, surfaces an inline *amanah* disclosure block, then a
+  list of *triggered* signs (where the steward's design surfaces a
+  reference), then a list of *untriggered* invitations (ghost cards
+  that say "if you place X, this sign will surface").
+- Catalog of 11 signs covering water (21:30), livestock (16:5–8), the
+  bee (16:68–69), productive land (80:24–32), gardens (6:141), soil
+  revival (36:33), dwellings (16:80), prayer orientation (2:144),
+  wildlife as communities (6:38), pollinators (55:11–12), and shade /
+  shelter (16:81). Each entry pairs an *interpretive frame sentence*
+  (editorial — not translation) with the reference.
+- Trigger logic reads existing stores: structures (water, dwelling,
+  prayer types), zones (food / conservation / water_retention /
+  spiritual / regen), utilities (water, compost, biochar), crop areas
+  (food / canopy / pollinator types), and paddocks (bees vs. other
+  livestock). All counts presentation-derived; no shared-package math.
+
+**Amanah framing (critical):**
+- The panel does NOT quote, translate, or paraphrase Qur'anic content.
+  It only points to references and offers the designer's own
+  interpretive framing of the design connection. An inline disclosure
+  block makes this explicit on every render. The steward who wants the
+  verse text is directed to consult the Qur'an directly.
+- Per the user's MILOS Amanah Gate principle: "All Arabic + English
+  fetched via quran.ai MCP — never composed." This panel composes no
+  verse content; it composes only the design–reference pairing.
+
+**Mount:**
+- `EducationalAtlasDashboard.tsx` adds the import and mounts
+  `<SignsInCreationPanel project={project} />` directly after
+  `<ContemplationZonesCard ... />`, before the P4 Guided Walkthrough
+  stub — completing the dashboard's spiritual reading layer.
+
+**Visual grammar:**
+- `SignsInCreationPanel.module.css` matches the dashboard's
+  ink-on-parchment palette (gold accents on triggered cards, dashed
+  borders on ghost cards). No new tokens introduced.
+
+**Verification:** filtered `tsc --noEmit` clean after a one-line fix
+(`Paddock.species` is `LivestockSpecies[]`, not a single value — switched
+to `.includes('bees')` and `.some((sp) => sp !== 'bees')`). Atlas commit
+`cec3aba` on `feat/shared-scoring`; submodule pointer bumped from
+`9b39ede`.
+
+---
+
 ## [2026-04-25] session | Atlas §12 — seasonal productivity multilayer
 
 Closed §12 `seasonal-productivity-multilayer` (P3, planned → done).
