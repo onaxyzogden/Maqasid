@@ -24,10 +24,10 @@ const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 const PILLARS = [
   { id: 'faith',       data: FAITH_SEED_TASKS,       expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'life',        data: LIFE_SEED_TASKS,        expectedLegacy: 0,   allowEmptyArray: 0 },
-  { id: 'intellect',   data: INTELLECT_SEED_TASKS,   expectedLegacy: 236, allowEmptyArray: 0 },
-  { id: 'family',      data: FAMILY_SEED_TASKS,      expectedLegacy: 233, allowEmptyArray: 0 },
-  { id: 'wealth',      data: WEALTH_SEED_TASKS,      expectedLegacy: 236, allowEmptyArray: 0 },
-  { id: 'environment', data: ENVIRONMENT_SEED_TASKS, expectedLegacy: 226, allowEmptyArray: 0 },
+  { id: 'intellect',   data: INTELLECT_SEED_TASKS,   expectedLegacy: 0,   allowEmptyArray: 0 },
+  { id: 'family',      data: FAMILY_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },
+  { id: 'wealth',      data: WEALTH_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },
+  { id: 'environment', data: ENVIRONMENT_SEED_TASKS, expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'ummah',       data: UMMAH_SEED_TASKS,       expectedLegacy: 0,   allowEmptyArray: 0 },
   // Prayer is fully structured. The 1 allowEmptyArray is the optional 4-rakʿat
   // before-Isha sunnah (T3/Niyyah) at prayer_isha_during[0].subtasks[0] —

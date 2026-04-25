@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Final four pillars two-axis grounding (batch)
+
+**Objective:** Close the migration arc by batching Intellect (236), Family (233), Wealth (236), Environment (226) — total 931 entries — in a single session per the Life-pillar debrief recommendation. With Faith/Ummah/Life already complete, this lands the full 8-pillar two-axis schema rollout.
+
+**Outcome:** All four migrated via sed-generated parsers. One Quran-MCP patch (Quran 6:165 in environment, `**II. Hadith**` capture failure — same pattern as Faith/Ummah). Round-trip audits 10/10 ref-count clean × 4 pillars. Strict lint dropped 931 → 0 legacy strings. `npm test` 40/40 green; `npm run build` exit 0.
+
+**Decision filed:** [[2026-04-25-milos-grounding-pillars-batch-complete]]
+
+**Carries forward:** Promote `lint:grounding-strict` into the default `npm run lint` chain. Rationale-enrichment polish on ~1,904 synthesized entries becomes a single downstream stream.
+
+---
+
 ## [2026-04-25] session | Atlas §6 — Seasonal shadow rollup card
 
 **Objective:** Manifest gap-fill iteration. Picked candidate 1 — `seasonal-light-shadow-modeling` (mapped to existing manifest key `structure-tree-shadow-casting`, §6 Climate Analysis, line 196, P2, partial → done). Build a per-month solar-noon shadow rollup that complements the existing solstice-only ShadowFootprintsCard by surfacing the seasonal arc and chronic-shade structures.
