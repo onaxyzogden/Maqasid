@@ -3,6 +3,55 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §9 — setback / slope / solar rollup
+
+Closed §9 `setback-slope-solar-orientation-warnings` (P3, *partial* →
+done) on the manifest. Third sibling in the rule-rollup family — same
+shape as SitingWarningsCard and SpatialRelationshipsCard, filtered to
+the structural-placement concerns from the §9 spec line "Setback
+warning, slope warning, solar orientation guide".
+
+### Added
+- `apps/web/src/features/rules/SetbackSlopeSolarCard.tsx` — pure
+  presentation. Three tiles, reusing `SitingWarningsCard.module.css`
+  verbatim (third card now sharing this stylesheet — drift-free by
+  construction).
+
+  Dimension → predicate map:
+  - **Setback** ← `category === 'setback'`
+    (`well-septic-distance`, `dwelling-needs-septic`)
+  - **Slope** ← `category === 'slope'`
+    (`slope-structure`, `slope-road`)
+  - **Solar** ← `category === 'solar'`
+    (`solar-orientation`)
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  — mounted `<SetbackSlopeSolarCard project={project} />` directly
+  below SpatialRelationshipsCard. The Educational Atlas dashboard now
+  carries the full §-rollup trio (wind/view/privacy/noise →
+  walkability/water/zone → setback/slope/solar) as a stacked
+  "exposure / relationships / structural" arc.
+- `packages/shared/src/featureManifest.ts` line 254 — flipped status
+  `partial → done`.
+
+### Decisions
+- *Why "partial → done" rather than "planned → done"?* Slope and solar
+  rules have been live in the catalog and were already surfacing in
+  the all-categories SitingPanel. Setback rules also exist
+  (`well-septic-distance`). What was missing was the *focused rollup*
+  the spec asks for — a single card that stewards can scan to answer
+  "are my structures placed wisely?" without sifting through the
+  combined alert list. That's now shipped.
+- *Three cards now share `SitingWarningsCard.module.css`.* Confirms
+  the no-drift hypothesis from yesterday's iteration: the second card
+  reused the stylesheet without any per-card overrides, and the third
+  follows suit. If a fourth dimension-rollup card lands, the same
+  pattern applies.
+
+### Verified
+- `tsc --noEmit` from `apps/web` clean for touched files.
+
 ## [2026-04-25] session | Atlas §5 — walkability / water / zone relationships
 
 Closed §5 `walkability-water-zone-relationship-checks` (P3, planned →
