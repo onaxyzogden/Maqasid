@@ -3,6 +3,93 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §8 — family privacy & cohort zone rollup
+
+Closed two §8 manifest entries together with a single rollup card:
+- `women-family-privacy-planning` (MT, planned → done)
+- `mens-cohort-activity-zone-planning` (MT, planned → done)
+
+The card surfaces three program-design intents — Family / women's
+privacy, Men's cohort activity, Spiritual contemplation — by
+inspecting placed zones for both natural-fit categories
+(`habitation` → family, `spiritual` → contemplation) and keyword
+matches in zone name / notes / primaryUse / secondaryUse. Includes
+an honest advisory: if residential structures are placed but no
+zone is tagged for family or women's privacy, the card nudges the
+steward to add a tag.
+
+### Added
+- `apps/web/src/features/zones/PrivacyCohortPlanningCard.tsx` — pure
+  presentation. Reads zoneStore + structureStore.
+  - Three intents with per-intent natural-category lists and
+    keyword vocabularies:
+    - **Family / women** ← `habitation` category OR keywords
+      {family, women, women's, ladies, mother, mom, mum, hareem,
+      harem, wife, private}
+    - **Men's cohort** ← keywords only (no natural category — being
+      a cohort zone is a deliberate program designation, not a
+      default for any zone type) {cohort, men, men's, brother,
+      brothers, rijal, fraternity, training, apprentice}
+    - **Contemplation** ← `spiritual` category OR keywords {prayer,
+      salah, salat, dhikr, contemplation, meditation, khalwa,
+      quiet, retreat}
+  - 3-tile grid with pending state when no zones match an intent.
+  - Per-intent zone list (capped at 4 per intent) showing the
+    zone's color dot, category, and area in acres.
+  - Family-privacy advisory triggered when residential structures
+    (cabin / yurt / earthship / tent_glamping) exist but no zone
+    matches the family intent.
+  - Empty state when no zones drawn at all.
+  - Footnote explicitly frames the tags as descriptive of steward
+    intent, not prescriptive — matters for §8 program design where
+    these categories carry social weight.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  - Imported and mounted `<PrivacyCohortPlanningCard projectId={project.id} />`
+    directly below `BuildOrderCard`. The dashboard now hosts six
+    rollup cards across §5 / §8 / §9.
+- `packages/shared/src/featureManifest.ts` — §8 lines 234, 235
+  flipped `planned` → `done` (women-family-privacy-planning and
+  mens-cohort-activity-zone-planning).
+
+### Decisions
+- **Reuse SitingWarningsCard.module.css.** Fourth card to share
+  the same CSS module — pattern is now well-established
+  (SitingWarnings, SpatialRelationships, SetbackSlopeSolar,
+  PrivacyCohortPlanning all import it). Drift-free by construction;
+  visual language stays consistent across the §-rollup cluster.
+- **Inline color override on the dot.** Used `style={{ background:
+  z.color }}` instead of a severity-tinted `dot_*` class because
+  this card lists zones (which carry their own `color` field), not
+  rule violations (which carry a severity). The shape of the row
+  is the same, the meaning of the dot differs.
+- **Descriptive, not prescriptive.** Card surfaces tags rather
+  than enforcing zoning. Footnote and tile labels deliberately
+  avoid normative language ("should have", "required") and stay
+  on "tagged" / "surfaced" / "consider" for the advisory. The §8
+  spec entries are about supporting program designs that include
+  these categories, not mandating them.
+- **One card, two manifest lines.** The §8 entries are conceptual
+  twins (both are program-design zone categories the spec calls
+  out) and the most legible UI surface is a single rollup that
+  covers both. Splitting them into two cards would force the
+  steward to scan twice without adding information.
+- **Cohort has no natural category.** Habitation is the obvious
+  default for family-privacy intent, and spiritual is the obvious
+  default for contemplation, but no existing zone category implies
+  "men's cohort" — that's a program label the steward applies
+  intentionally. Keyword-only matching reflects this honestly.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192
+  npx tsc --noEmit` — clean.
+- Card imports the existing `LandZone` type from zoneStore and the
+  existing `useStructureStore` for the residential-structure
+  advisory check; no new shared exports needed.
+
+---
+
 ## [2026-04-25] session | Atlas §9 — multi-story structure support
 
 Added `multi-story-structure-support` (P3, done) to the §9 manifest.
