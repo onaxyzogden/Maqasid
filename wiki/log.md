@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Grounding gate promoted into default `npm run lint`
+
+**Objective:** Sealing action after the migration arc and inline-refs Phase 1 ship. Lock the structured-array schema and the inline-refs invariant into the default lint chain so future seed-task contributions can't regress.
+
+**Outcome:** `npm run lint` now chains `lint:eslint && lint:grounding-strict && audit:inline-refs`. `audit-inline-refs.mjs` gained `--strict` mode with ratchet 13 (Phase 2 hadith backfill pending). `lint-grounding.mjs --strict` updated to allow the 1 known prayer empty-array (mirrors `allowEmptyArray: 1` in tests). CLAUDE.md script table refreshed. Full chain exits 0; `npm test` 40/40.
+
+**Decision filed:** [[2026-04-25-milos-grounding-gate-default]]
+
+**Carries forward:** Phase 2 hadith backfill ratchets inline-refs 13 → 0; the prayer optional-sunnah citation ratchets empty-array 1 → 0; rationale-enrichment remains the long-tail stream.
+
+---
+
 ## [2026-04-25] session | Atlas — §23 Cartographic Style Presets Card
 
 **Objective:** Continue manifest gap-fill audit. User picked candidate 1 (cartographic style export presets), mapped to manifest §23 `branded-presentation-print-layout` (P3, planned).

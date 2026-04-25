@@ -15,14 +15,16 @@ When writing JavaScript/JSON strings containing apostrophes (e.g., Qur'an, don't
 ```bash
 npm run dev                     # Start Vite dev server
 npm run build                   # Production build
-npm run lint                    # ESLint (flat config, eslint.config.js)
+npm run lint                    # Grounding gate: ESLint + lint:grounding-strict + audit:inline-refs
+npm run lint:eslint             # ESLint only (flat config, eslint.config.js)
 npm run preview                 # Preview production build
 npm test                        # Vitest — schema/grounding conformance tests
 npm run lint:grounding          # Informational pillar-level grounding report
 npm run lint:grounding-strict   # Fails on legacy-string sources or schema errors
+npm run audit:inline-refs       # Fails when description prose cites a ref missing from sources[] (ratchet at 13)
 ```
 
-Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` either as a structured array `[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]` (per [wiki/decisions/2026-04-18-milos-grounding-two-axis.md](wiki/decisions/2026-04-18-milos-grounding-two-axis.md)) or as a legacy markdown string. The grounding test in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) ratchets per-pillar legacy counts so migration progress is monotonic — counts can only decrease. Run `npm test` after any seed-task edit.
+Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` as a structured array `[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]` (per [wiki/decisions/2026-04-18-milos-grounding-two-axis.md](wiki/decisions/2026-04-18-milos-grounding-two-axis.md)). All 8 pillars are migrated; legacy-string entries are forbidden going forward. The grounding test in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) ratchets per-pillar legacy counts at 0; the inline-refs auditor in [scripts/audit-inline-refs.mjs](scripts/audit-inline-refs.mjs) ratchets at 13 (Phase 2 hadith backfill pending). Run `npm test` and `npm run lint` after any seed-task edit.
 
 ## MANDATORY: Context-First Protocol
 STOP. Before you read, modify, or explore ANY source file, you MUST complete these steps in order:

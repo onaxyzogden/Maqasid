@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "npm run lint:eslint && npm run lint:grounding-strict && npm run audit:inline-refs",
+    "lint:eslint": "eslint .",
     "lint:grounding": "node scripts/lint-grounding.mjs",
     "lint:grounding-strict": "node scripts/lint-grounding.mjs --strict",
+    "audit:inline-refs": "node scripts/audit-inline-refs.mjs --strict",
     "test": "vitest run",
     "preview": "vite preview",
     "audit:sources": "node scripts/audit-source-refs.mjs --fail-on=increase"
