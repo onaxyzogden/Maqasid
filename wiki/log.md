@@ -3,6 +3,135 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §16 — water flood/drought scenario sim
+
+Closed §16 `water-flood-drought-scenario-sim` (P3, planned → done).
+WaterBudgetTab now carries scenario controls — four preset chips
+(Baseline / Drought / Wet year / Flood) plus two freeform sliders
+(precipitation 30–200%, demand 50–160%) — that multiply the
+`buildMonthlyBudget` inputs in place. The seasonal arc, running
+balance, storage sizing recommendation, and assumptions footnote
+all reflow off the same `useMemo` chain.
+
+### Added
+- `SCENARIO_PRESETS` (HydrologyDashboard.tsx, before WaterBudgetTab):
+  `'baseline' | 'drought' | 'wet' | 'flood'` with mapped
+  (precipMult, demandMult) pairs:
+  - baseline: 1.00 / 1.00
+  - drought: 0.55 / 1.15 (45% precip deficit, +15% irrigation demand)
+  - wet year: 1.40 / 0.90 (above-normal precip, soils stay moist)
+  - flood: 1.85 / 1.00 (extreme precip, surfaces overflow without
+    event-level routing)
+  Tooltip on each preset carries the description string.
+
+- Inside WaterBudgetTab:
+  - `precipMult` / `demandMult` `useState` defaults at 1.0
+  - `scenarioCatchmentGal = metrics.catchmentPotentialGal * precipMult`
+  - `scenarioDemandGal = annualDemandGal * demandMult`
+  - `budget` `useMemo` now closes over the scenario-adjusted inputs
+  - `baselineBudget` parallel `useMemo` always at 100%/100% — used
+    for the storage-gap delta indicator
+  - `activePreset = SCENARIO_PRESETS.find(...)` — exact-match within
+    0.005 tolerance so slider drift doesn't keep a chip lit
+  - `isScenarioActive` flag drives the Reset button visibility,
+    delta-vs-baseline annotation, and the scenario adjustment line
+    in the assumptions footnote
+
+- Scenario-control card UI rendered above the existing fallback
+  banner (so the controls are the first thing the user sees on the
+  tab):
+  - Header row with status text (active preset name + description,
+    or custom % readout, or default-baseline framing) and a Reset
+    button shown only when `isScenarioActive`
+  - Preset row: 4 pill buttons, active preset filled with the
+    hydrology-blue accent
+  - Slider row: two `<input type="range">` controls in a
+    grid-auto-fit two-column layout collapsing to one column on
+    narrow viewports
+
+- Storage-gap card (third metric card): when scenario is active and
+  the gap delta vs. baseline exceeds 100 gal in absolute value, a
+  subline appears reading either "+X gal vs baseline" or
+  "X gal better than baseline". Threshold of 100 gal suppresses
+  noise from rounding when a slider is barely off baseline.
+
+- Assumptions footnote: gains a conditional `<li>` when scenario
+  is active that prints the active multipliers and the resulting
+  scenario inflow / scenario demand totals, with an honest framing
+  line that this is a steady-state annual-volume model, not an
+  event-level flood simulation.
+
+### Added (CSS)
+- `apps/web/src/features/dashboard/pages/HydrologyDashboard.module.css`
+  appended `.scenarioCard` (hydrology-blue tinted bordered card),
+  `.scenarioHead` / `.scenarioSub`, `.scenarioReset` (chip button),
+  `.scenarioPresets` / `.scenarioPreset` / `.scenarioPresetActive`
+  (pill row with active fill), `.scenarioSliders` /
+  `.scenarioSliderRow` / `.scenarioSliderLabel` /
+  `.scenarioSliderValue` / `.scenarioSlider` (with both
+  `-webkit-` and `-moz-` thumb selectors so the hydrology-blue
+  thumb shows on both Blink and Gecko).
+
+### Changed
+- `packages/shared/src/featureManifest.ts` — flipped
+  `water-flood-drought-scenario-sim` (line 391) from `planned`
+  to `done`.
+
+### Honest framing
+- This is a steady-state annual-volume scenario, not an event-based
+  flood model. We multiply *annual* precip and *annual* demand and
+  redistribute through the same monthly normals. A real flood sim
+  would need rainfall-runoff transformation, channel routing, and
+  pond/swale dynamics — none of which exist in the codebase yet.
+- Drought / wet / flood multipliers are coarse proxies for typical
+  climate-stress envelopes (NOAA-ish ranges for severe drought and
+  90th-percentile-precip years), not site-calibrated values.
+- Demand multiplier scales the entire annual demand uniformly. It
+  does not selectively bump irrigation while leaving baseline
+  household constant — that would require per-component multipliers
+  on `baselineAnnualGal` and `irrigationAnnualGal` separately.
+  Worth doing in a follow-on if the steward asks for "what if I
+  add another household to the property" specifically.
+- Storage-sizing recommendation under flood scenarios still uses
+  `maxDeficitGal × 1.25` — under wet/flood it'll often read
+  COVERED, which is correct for *deficit* sizing but doesn't
+  surface the inverse risk (overflow from undersized routing /
+  overflow). Footnote does not yet call this out — open question
+  for the next §14 / §16 pass.
+
+### Why this is the right scope
+- §16 spec line is "Water flow, flood, drought scenario
+  simulation". This ships drought + wet + flood + baseline as
+  named presets plus continuous sliders, which covers the
+  scenario-comparison intent. "Water flow" remains a separate
+  concern (the existing Flow Analysis tab — partially covered by
+  hydraulic placeholders, not addressed here).
+- Bolts onto the existing §14 budget arc: every visualization
+  piece on the tab already keys off `budget.rows` and reflows
+  for free when the multipliers move. Zero new render paths,
+  zero new layer fetches.
+- Same "presentation-only over already-computed math" pattern
+  that recent iterations (§15 PermitReadinessCard, §10
+  AccessibleRouteCard, §14 WaterBudgetTab itself) have followed.
+
+### Verification
+- Filtered `tsc --noEmit` from `atlas/apps/web` is clean for
+  HydrologyDashboard.tsx and HydrologyDashboard.module.css.
+- Backed by live preview (server `3805c9cb-71c8-4ce0-a91d-3df70dbe9d13`,
+  port 5200) — open `351 House`, Hydrology dashboard, Water Budget
+  sub-tab, click each preset and watch the chart + balance + storage
+  gap reflow. Reset button reappears only when off baseline.
+
+### Deferred (not in this scope)
+- Per-component demand multipliers (household vs. irrigation
+  vs. livestock).
+- Event-level flood routing (peak rainfall × runoff coefficient,
+  channel capacity, overflow detection).
+- Storage-overflow surfacing under wet/flood scenarios (current
+  metric is deficit-only).
+- Save-named-scenarios persistence — currently scenario is local
+  component state, lost on remount.
+
 ## [2026-04-25] session | Atlas §10 — accessible route planning
 
 Closed §10 `accessible-route-planning` (P2, planned → done).
@@ -4299,3 +4428,39 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Completed:** Audit of KanbanBoard + BbosTaskPanel; Q1+Q5 applied to BbosTaskPanel where applicable; Q2/Q3/Q4 documented as intentionally skipped due to BBOS architectural differences.
 - **Deferred:** Live preview verification (no seeded BBOS tasks in current dev state).
 - **Recommended next session:** Lint backlog sweep, or audit any other modal-style surfaces (e.g., `ProjectSlideUp`, `SubmoduleSlideUp`) that may carry display title + description pairs.
+
+
+## 2026-04-25 — Marketing site hero alignment: BBOS + MILOS
+
+**Trigger:** User request to give BBOS and MILOS landing-page heroes the same tonal energy as OLOS ("See the land for what it truly is — before you commit to it.") and MTC ("A place to stand on earth and remember why it matters.") — short forward-statement headlines with verb/noun-led clause, em-dash break, and italic key word at the end.
+
+**Pattern observed across siblings (OLOS / MTC):**
+- Hero order: `.hero-ayah` → `.hero-eyebrow` → `.hero-headline` → `.hero-sub` → `.hero-rule` → `.pathways`
+- Eyebrow uses glyph + middot pattern: `◯ · OLOS · Land Design Intelligence · Functional Prototype` / `◞ · MTC · Faith · Land · Creation · Ontario`
+- Headline is a single forward statement, em-dash break, italic key word at end
+
+**Changes — `website/bbos/index.html` (lines 215–232):**
+- Reordered: `.hero-ayah` now precedes `.hero-eyebrow` (was inverted).
+- Eyebrow: `Barakah Business Operating System` → `◈ · BBOS · Barakah Business Operating System · Live`.
+- Headline: `This is what that forgetting looks like in the ordinary life of *a man building a business.*` → `Build the business — without disappearing *inside* it.` (Candidate B / threshold-warning, OLOS-flavored — verb-led, names what BBOS protects against).
+- Subhead: kept verbatim (5-sentence narrative) per user preference after considering a tightened 2-sentence variant.
+- Ayah unchanged (Surah Al-Hashr 59:19).
+
+**Changes — `website/milos/index.html` (lines 222–236):**
+- Removed standalone `<p class="hero-symbol">◊</p>` element; folded the lozenge glyph into the eyebrow line. Orphaned `.hero-symbol` CSS rule (line 64) left in place — harmless dead style.
+- Reordered: `.hero-ayah` now precedes `.hero-eyebrow`.
+- Eyebrow: `Islamic Life Operating System` → `◊ · MILOS · Islamic Life Operating System · In Development`.
+- Headline: `Your life is not seven separate problems. It is *one trust — with seven dimensions.*` → `A way to organize your whole life — as the trust *it always was.*` (negation-correction → forward statement; iterated through three tweaks: "tend the whole of your life" → "tend your whole life" → "organize your whole life").
+- Subhead: `Faith, life, intellect, family, wealth, environment, and ummah — the seven Maqasid al-Shariah. Not a productivity system. Not a habit tracker. An operating system…` → `Faith, life, intellect, family, wealth, environment, and community — the seven higher objectives of Islamic law. One operating system to help you see what your life is putting forth for tomorrow.` (drops the double-negation that echoed the old headline; "ummah" → "community" for plain-English clarity; "Maqasid al-Shariah" → "higher objectives of Islamic law"; lifts the Al-Hashr 59:18 ayah's image — "what your life is putting forth for tomorrow" — into the body copy).
+- Ayah unchanged (Surah Al-Hashr 59:18).
+
+**Verification:**
+- DOM read of served HTML at each step confirmed every edit applied correctly (`hero-ayah → hero-eyebrow → hero-headline → hero-sub` order, eyebrow glyph + middot pattern present, em italics on headline key word, subhead text exact).
+- `preview_screenshot` was unresponsive throughout the session (timed out at 30s on every attempt; one final "target closed" error). Visual verification deferred — user can confirm by loading `http://localhost:8080/bbos/` and `http://localhost:8080/milos/` after restarting the static preview server.
+- No CSS changes; all hero classes shared and already proven on OLOS/MTC.
+- Pure static HTML — no build, lint, or test step applies.
+
+### Session Debrief
+- **Completed:** BBOS hero tonal alignment (eyebrow + ordering + headline) with original 5-sentence subhead preserved per user preference. MILOS hero full alignment (eyebrow glyph + ordering + headline + subhead) with three iterative headline refinements and a user-authored subhead variant.
+- **Deferred:** Visual screenshot verification (preview tool unresponsive). Side-by-side screenshot comparison of BBOS / OLOS / MTC / MILOS heroes.
+- **Recommended next session:** (a) Apply the same eyebrow glyph + middot pattern to the Ogden Hub home page (`website/index.html`) if it lacks it, for full family consistency. (b) Visual QA pass on all four product heroes at desktop + mobile widths once the preview renderer is healthy. (c) Consider whether the marketing-site sub-pages (`/bbos/solution/`, `/mtc/collective/solution/`, `/olos/solution/`) need the same hero treatment.

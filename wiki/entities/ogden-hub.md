@@ -2,7 +2,7 @@
 title: "OGDEN Hub"
 type: entity
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-25
 tags: [website, static, landing-page, ogden, marketing, html]
 sources: 0
 ---
@@ -42,3 +42,4 @@ Merged into the [[milos]] monorepo as a subtree. Serving as the primary public l
 | Date | Event |
 |---|---|
 | 2026-04-09 | Wiki entity page bootstrapped. Site merged into maqasid-os monorepo via git subtree. Deployed at bismillah.ogden.ag. |
+| 2026-04-25 | BBOS + MILOS hero tonal alignment with OLOS / MTC. Both pages now use the family pattern: ayah → eyebrow (glyph + middot + name + descriptor + stage) → forward-statement headline (verb/noun-led, em-dash, italic key word) → subhead. BBOS H1: _"Build the business — without disappearing inside it."_ MILOS H1: _"A way to organize your whole life — as the trust it always was."_ MILOS subhead reworded — "ummah" → "community", "Maqasid al-Shariah" → "higher objectives of Islamic law"; ayah image ("putting forth for tomorrow") lifted into body copy. No CSS changes — hero classes already shared across product pages. |
