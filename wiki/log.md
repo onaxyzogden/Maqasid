@@ -13,6 +13,16 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas — §19 Walking Tour Script Card
+
+**Objective:** Close the "Voiceover script export" P4 stub on EducationalAtlasDashboard by shipping an auto-generated, voiceable walking-tour script.
+
+**Outcome:** New `WalkingTourScriptCard` (`apps/web/src/features/education/`) snaps every placed structure / water utility / paddock / crop area to the longest path on the parcel, drops candidates farther than 150m off-route, and picks up to 5 stops with kind-diversity preference (one per kind first, then nearest backfill, then a vista terminus). Stops are ordered along-path; each carries a narration blurb derived from the feature type/name (dwelling vs. spiritual vs. gathering vs. agricultural; well vs. tank vs. catchment vs. septic vs. greywater; species-aware livestock; type-aware crop). Copy-to-clipboard handler emits a plain-text script ready for a stakeholder video voiceover or print-out for a site walk. Inline flat-earth `flatEarthMeters` / `projectOntoSegment` / `polygonCentroid` helpers — no new shared math. Mounted on EducationalAtlasDashboard after the guided walkthrough card; replaces the matching `P4Row` stub. Manifest `voiceover-script-slide-export` planned → **partial** (script half done; slide presentation mode still pending). tsc clean. Atlas commit `bf366f8` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Slide presentation mode (one feature per deck slide) is the second half of the manifest entry — natural follow-on. Quiz / training mode remains the lone P4 stub on EducationalAtlas.
+
+---
+
 ## [2026-04-25] session | Atlas — §21 Regulatory Risk Notes Card
 
 **Objective:** Continue manifest gap-fill audit. User picked candidate 2 (regulatory risk notes), mapped to manifest §21 `regulatory-risk-notes` (P2, planned).
