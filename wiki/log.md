@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §18 AI design synthesis (constraints + opportunities)
+
+**Objective:** Close the §18 `ai-constraint-opportunity-summaries` manifest item (P3, planned) with a presentation-layer card that synthesises the parcel's constraints and opportunities from already-computed scores and currently-placed features, framed as an "AI draft" but driven by a deterministic rule cascade.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/ai-design-support/AiSiteSynthesisCard.tsx](atlas/apps/web/src/features/ai-design-support/AiSiteSynthesisCard.tsx) (~410 lines):
+  - **Rule cascade** — 7 constraint patterns + 6 opportunity patterns. Each rule fires on a *combination* of signals (e.g. "steep terrain >15° AND no terracing crops AND no rain catchment placed"), so a finding only surfaces when both the condition and the missing intervention are present. Each finding outputs `{ tone, severity, title, narrative, sources }`.
+  - **Constraints**: steep terrain without erosion control, low rainfall without catchment, livestock without manure handling, hot climate with low canopy, hydrology score sub-baseline, low organic matter, habitation density without spiritual space.
+  - **Opportunities**: flat land underused, water-rich climate with under-built retention, premium soil without perennial system, pollinator corridor opportunity, cool climate without greenhouse, sun-exposed parcel without solar.
+  - **Inputs** are pulled from existing analysis primitives — `computeAssessmentScores` (Hydrology, Habitat Sensitivity, Regenerative Potential), `siteData` layer summaries (climate / soils / elevation / land cover), and store counts for structures / utilities / zones / crops / paddocks. No new entities, no new shared-package math.
+  - **Sort**: high → medium → low severity within each tone, then by id for stability.
+- New [AiSiteSynthesisCard.module.css](atlas/apps/web/src/features/ai-design-support/AiSiteSynthesisCard.module.css) — two-column layout collapses to single-col at 900px; severity-coloured row borders (red / amber / parchment); source chips small-caps.
+- Mounted on `EcologicalDashboard.tsx` right after the dual headline-score row, so it serves as a synthesis layer above the long detail sections.
+- Manifest §18 line 437 `ai-constraint-opportunity-summaries` flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean.
+
+**Discipline:** Pure presentation — no shared-package math touched, no real LLM call. The card is framed as "AI draft" per spec language (§18) but is fully deterministic and reviewable: same inputs always produce the same findings. Disclaimer in footnote makes the heuristic nature explicit and prompts review before sharing. Atlas commit `57602b9` — 4 files, 640 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §19 educational route narrative overlays
 
 **Objective:** Close the §19/§29 `educational-immersion-route` manifest item (MT, planned) with a presentation-layer card that treats every drawn `pathStore` path as a guided-learning route and surfaces the educational themes its waypoints visit.
