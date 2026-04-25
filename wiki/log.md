@@ -3,6 +3,56 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §5 — walkability / water / zone relationships
+
+Closed §5 `walkability-water-zone-relationship-checks` (P3, planned →
+done) on the manifest. Sibling card to the SitingWarningsCard shipped
+in the previous iteration — same `useSitingEvaluation` source, same
+visual language (severity-driven tile colors, per-row suggestion text),
+but filtered to the *spatial-relationship* concerns the spec calls out
+separately: walkability, relationship-to-water, relationship-to-zones.
+
+### Added
+- `apps/web/src/features/rules/SpatialRelationshipsCard.tsx` — pure
+  presentation. Three tiles instead of four; reuses
+  `SitingWarningsCard.module.css` directly to keep the two §5 cards
+  visually identical (sibling appearance reinforces "these are two
+  facets of the same checking pass").
+
+  Dimension → predicate map:
+  - **Walkability** ← `category in {'circulation', 'access'}`
+    (`guest-circulation-conflict`, `access-to-dwelling`,
+    `no-access-paths`, `no-emergency-access`)
+  - **Water** ← `category === 'water'`
+    (`flow-accumulation`, `livestock-water-source`,
+    `water-structure-clearance`, `dwelling-needs-water`)
+  - **Zones** ← `category === 'flood'` plus `livestock-spiritual-buffer`
+    (the only existing cross-zone rules)
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  — mounted `<SpatialRelationshipsCard project={project} />` directly
+  below SitingWarningsCard. The two §5 cards now sit together as a
+  paired "exposure + relationships" rollup, between the §9
+  GatheringRetreatCard and the P4 Guided Walkthrough stub.
+- `packages/shared/src/featureManifest.ts` line 256 — flipped status
+  `planned → done`.
+
+### Decisions
+- *Reuse SitingWarningsCard.module.css verbatim.* The two §5 cards
+  intentionally read as siblings; spinning a second CSS module would
+  invite drift. The only per-card variation is dimension count
+  (4-up vs 3-up), which the existing `repeat(4, 1fr)` grid handles
+  via auto-flow when fewer children are passed.
+- *No "not yet evaluated" tile here.* All three dimensions have at
+  least one rule today, unlike the View dimension in the sibling card.
+  If walkability or zone-relationship gets a future "no rule yet"
+  sub-dimension, the pattern is already established next door.
+
+### Verified
+- `tsc --noEmit` from `apps/web` clean for touched files (only
+  pre-existing MapView errors remain, unrelated).
+
 ## [2026-04-24] session | Atlas §5 — wind / view / privacy / noise rollup
 
 Closed §5 `wind-view-privacy-noise-analysis` (P3, planned → done) on the
