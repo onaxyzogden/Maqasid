@@ -3,6 +3,56 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | MILOS shared UI motif tokens
+
+Extracted five reusable UI motifs from per-page CSS into a shared
+`--motif-*` namespace in `src/styles/tokens.css`, then composed them on
+two initial consumers (Prophetic Path active card + MaqasidBalanceRadar).
+Closes the "cross-module rhythm" (Q5) ask from the FLO consult: halo,
+ghost-text, soft-glass, shimmer-border, and editorial-serif are now one
+vocabulary instead of duplicated per page.
+
+### Motifs
+
+- **soft-glass** — parchment-ish surface with 1px border + inset
+  highlight; consumer scope sets `--motif-tint`.
+- **shimmer-border** — 4s linear gradient sweep using mask composite;
+  tint-driven, respects `prefers-reduced-motion`.
+- **ghost-text** — recede-via-`color-mix()` formula for past/upcoming
+  summary rows (not locked content — still selectable).
+- **halo** — two-layer box-shadow, tint-driven; consumer controls
+  intensity via `--motif-tint-strength` fallback chain.
+- **editorial serif** — `--font-serif` at weight 400 with tightened
+  letter-spacing for hero-scale moments that carry gravitas through
+  size + air, not weight.
+
+### Consumers
+
+- `PropheticPath.jsx/.css` — active prayer card promoted to soft-glass +
+  shimmer-border surface with editorial-serif title; new
+  `pp-intro__header` stack (eyebrow → hero → bookends) with city name
+  and Fajr/Maghrib bookends.
+- `MaqasidBalanceRadar.jsx` — viewBox horizontal padding bump (+60px
+  each side) so left/right axis labels don't clip.
+
+### Wiki
+
+- `wiki/concepts/motif-tokens.md` — concept page explaining the token
+  vocabulary + fallback chain (`--motif-tint` → `--level-color` →
+  `--pillar-accent`).
+- `wiki/decisions/2026-04-24-milos-ui-motif-tokens.md` — architectural
+  decision record.
+- `wiki/index.md` — catalog entry under Concepts.
+
+### Why not a component library
+
+Tokens + utility classes, not CSS-in-JS or a fourth abstraction layer —
+because the per-page JSX already knows its own structure and just needs
+a shared substrate. A page can set `--motif-tint` locally to express its
+accent; the motif applies its geometry.
+
+---
+
 ## [2026-04-24] session | Atlas §9 — support-infrastructure rollup card
 
 Closed §9 `storage-shelter-compost-pumphouse-placement` (P2, planned →

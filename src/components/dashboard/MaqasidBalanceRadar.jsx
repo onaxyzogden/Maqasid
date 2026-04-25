@@ -70,6 +70,9 @@ export default function MaqasidBalanceRadar({
   const VB = 280;
   const cx = VB / 2;
   const cy = VB / 2;
+  // Extra horizontal padding so left/right labels (e.g. "Environment", "Community")
+  // aren't clipped when textAnchor pushes them past the viewBox edge.
+  const PAD_X = 60;
 
   // Start angle: top of circle (−π/2) so first pillar appears at 12 o'clock.
   const axes = MAQASID_PILLARS.map((p, i) => {
@@ -106,7 +109,7 @@ export default function MaqasidBalanceRadar({
       <div className="mbr__chart-wrap">
         <svg
           className="mbr__svg"
-          viewBox={`0 0 ${VB} ${VB}`}
+          viewBox={`${-PAD_X} 0 ${VB + PAD_X * 2} ${VB}`}
           preserveAspectRatio="xMidYMid meet"
           role="img"
           aria-hidden="true"

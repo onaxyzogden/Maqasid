@@ -709,7 +709,7 @@ export default function PropheticPath({ variant }) {
         .filter(Boolean),
     [niyyahFocus]
   );
-  const { timings } = usePrayerTimes();
+  const { timings, cityName } = usePrayerTimes();
   const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
   const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
   const orderedNodes = useMemo(() => {
@@ -717,6 +717,16 @@ export default function PropheticPath({ variant }) {
     if (idx <= 0) return NODES;
     return [...NODES.slice(idx), ...NODES.slice(0, idx)];
   }, [activeNodeId]);
+  const activeNode = useMemo(
+    () => NODES.find((n) => n.id === activeNodeId) || null,
+    [activeNodeId]
+  );
+  const bookends = useMemo(() => {
+    if (!timings) return null;
+    const fajr = stripTz(timings.Fajr);
+    const maghrib = stripTz(timings.Maghrib);
+    return fajr && maghrib ? `Fajr ${fajr} — Maghrib ${maghrib}` : null;
+  }, [timings]);
 
 
   // Weekly boards back the midday-labor + morning Before/After satellites
@@ -776,8 +786,22 @@ export default function PropheticPath({ variant }) {
 
         <div className="pp-content">
           <div className="pp-timeline-col">
-            {niyyahPillars.length > 0 && (
+            {(cityName || activeNode || bookends || niyyahPillars.length > 0) && (
               <div className="pp-intro">
+                {(cityName || activeNode || bookends) && (
+                  <header className="pp-intro__header">
+                    {cityName && (
+                      <span className="pp-intro__eyebrow">{cityName}</span>
+                    )}
+                    {activeNode && (
+                      <h1 className="pp-intro__hero">{activeNode.title}</h1>
+                    )}
+                    {bookends && (
+                      <p className="pp-intro__bookends">{bookends}</p>
+                    )}
+                  </header>
+                )}
+                {niyyahPillars.length > 0 && (
                 <div className="pp-niyyah-echo" role="status" aria-label="Today's intention">
                   <span className="pp-niyyah-echo__label">
                     <span className="pp-niyyah-echo__label-en">Today you carry</span>
@@ -799,6 +823,7 @@ export default function PropheticPath({ variant }) {
                     ))}
                   </span>
                 </div>
+                )}
               </div>
             )}
 

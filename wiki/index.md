@@ -31,6 +31,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[amanah-gate-protocol]] | Amanah Gate Protocol — universal Bayyinah/Qarina/Niyyah evidence tier system across all OGDEN products |
 | [[ceremony-gate-pattern]] | UI access gating pattern — module entry overlay requiring Islamic grounding |
 | [[covenant-architecture]] | System design philosophy — structuring software around Islamic covenant principles |
+| [[motif-tokens]] | Shared `--motif-*` design-system vocabulary (halo, ghost-text, soft-glass, shimmer-border, editorial serif) composed by pages rather than duplicated |
 
 ## Decisions
 

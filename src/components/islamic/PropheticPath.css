@@ -68,6 +68,38 @@
 
 .prophetic-path .pp-intro {
   margin-bottom: 4rem; /* ≥64px — Scholar: let the sacred arc breathe */
+  max-height: 180px; /* hero + bookends + niyyah-echo budget */
+}
+
+/* ── Scholar-reordered header: eyebrow → hero (active node) → bookends ── */
+.prophetic-path .pp-intro__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+.prophetic-path .pp-intro__eyebrow {
+  font-size: 0.65rem; /* 9–10px, consult-specced */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* +10% tracking */
+  color: var(--pillar-faith);
+  font-family: var(--font-heading);
+}
+.prophetic-path .pp-intro__hero {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.025em; /* scholar: tighten kerning -2..-3% */
+  line-height: 1.15;
+  margin: 0;
+  color: var(--pp-on-surface, var(--text));
+}
+.prophetic-path .pp-intro__bookends {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, currentColor 60%, transparent);
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
 /* ── Niyyah echo — mirrors today's intention set on Dashboard ── */
@@ -498,11 +530,12 @@
  * Larger + thinner, NOT bolder — weight carries importance via size and air,
  * not via saturated badges or heavy fills. */
 .prophetic-path .pp-card[data-prayer-state='active'] .pp-title {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-family: var(--font-serif, var(--pp-font-headline));
+  font-size: 2.5rem;
+  line-height: 1.15;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.625rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
 }
 
 /* 2B — Ghost-text receding on past/upcoming summary rows.
@@ -1211,10 +1244,8 @@
   font-weight: 700;
   background: color-mix(in srgb, var(--pp-primary) 18%, transparent);
 }
-.prophetic-path .pp-card[data-prayer-state='active'] .pp-title {
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
+/* Phase 3 (2026-04-24): editorial serif at weight 400 carries "NOW" via size
+   + air, not weight. Superseded earlier weight:600 / letter-spacing:-0.01em. */
 
 /* ---------- Dimmed-text legibility safety ----------
    At opacity 0.42 on a light surface, the standard on-surface-variant eyebrow
@@ -1241,4 +1272,52 @@
   }
 }
 
+/* ==========================================================================
+   Phase 3 — Progressive Disclosure active-card treatment (2026-04-24).
+   Soft-glass surface + editorial serif + shimmer-border motif, consuming
+   the shared --motif-* tokens from tokens.css so the active prayer card
+   reads as a deliberate "now" moment without saturated color.
+   ========================================================================== */
+.prophetic-path .pp-card[data-prayer-state='active'] {
+  background: var(--motif-soft-glass-bg, var(--pp-surface-low));
+  border: 1px solid var(--motif-soft-glass-border, var(--pp-outline-variant-15));
+  padding: 2rem;
+  --motif-tint: var(--pp-primary);
+}
+
+.prophetic-path .pp-card[data-prayer-state='active']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--pp-primary) 45%, transparent) 25%,
+    color-mix(in srgb, var(--pp-primary) 65%, transparent) 50%,
+    color-mix(in srgb, var(--pp-primary) 45%, transparent) 75%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: pp-active-shimmer var(--motif-shimmer-duration, 4s) linear infinite;
+  z-index: 1;
+}
+
+@keyframes pp-active-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prophetic-path .pp-card[data-prayer-state='active']::before {
+    animation: none;
+  }
+}
 
