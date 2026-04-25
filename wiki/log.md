@@ -13,6 +13,18 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas — §17 Safety Buffer Rules Card
+
+**Objective:** Close the safety-buffer half of the §17 manifest item `siting-rules-privacy-solar-access-safety`, picking up directly from the access-efficiency ship earlier in the session.
+
+**Outcome:** New `SafetyBufferRulesCard` (`apps/web/src/features/rules/`) audits the four safety distances zone planning quietly assumes — (1) dwelling ↔ livestock paddock (manure/pathogen, ≥30 m), (2) well utility/structure ↔ septic utility (drinking-water contamination, ≥30 m per US EPA preferred), (3) kitchen-bearing dwelling (cabin, earthship) ↔ nearest path/road segment (fire egress, ≤20 m), (4) gathering or spiritual structure ↔ livestock paddock (visitor odor / safety, ≥50 m). For each rule the card finds the worst pair on the parcel (smallest separation, or for kitchen-egress the largest path-distance), classifies good/fair/poor against thresholds, and surfaces a tally bar + per-rule rationale + actionable next-step guidance when non-good. Inline `flatEarthMeters` / `projectOntoSegment` / `polygonCentroid` helpers reused from sister cards. Mounted on `DecisionSupportPanel` directly below `AccessEfficiencyCard`. Manifest stays at `partial` — guest-privacy buffer rule remains the lone planned half. tsc clean. Atlas commit `4cabd1b` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** The commit accidentally absorbed parallel-session work on `ZoneSiteSuitabilityCard` + manifest update — selective `git add` was followed by what should have been a clean diff, but a post-stage refresh slurped the parallel files in. Functionally additive, no conflict, but to keep audit trails clean future commits will re-verify `git diff --cached --stat` immediately before committing.
+
+**Carries forward:** Guest-privacy siting (sight-line / view-cone heuristics between guest cabins and owner dwelling, between bedroom windows and gathering spaces) is the last planned slice of `siting-rules-privacy-solar-access-safety`. Once that ships the entry can flip done. The user-adjustable design-priority weight sliders (separate planned item) would let stewards retune the four safety thresholds this card hard-codes.
+
+---
+
 ## [2026-04-25] session | Atlas — §17 Access Efficiency Card
 
 **Objective:** Close the access-efficiency portion of the §17 manifest item `siting-rules-privacy-solar-access-safety` — the existing RulesEngine already covers slope/setback/solar but the "how-far-does-the-steward-walk-each-day" lens that zone planning exists to optimize was missing.
