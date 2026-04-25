@@ -5468,3 +5468,22 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Pages touched:** [[milos]] (current state ↦ Phase A complete), this log entry, [[2026-04-25-milos-pre-test-tier-1-fixes]] decision record.
 - **Recommended next:** Phase B per the approved plan — B.1 populate pillar-wisdom + next-actions (20 sub-modules, NotebookLM pass), B.2 Ummah seed-task citation backfill, B.3 Prophetic Path route graduation, B.4 Suspense + prayer-time UX fallbacks, B.5 storage quota + LevelNavigator chunk split.
 
+
+## 2026-04-25 — Prophetic Path midday-labor anchor-offset bug fix
+
+**Brief:** At 14:00 user observed Dhuhr Prayers still flagged `CURRENT` in the Prophetic Path timeline while the right-rail Islamic panel correctly showed Midday Labor as `LINGERING`. Asked for a fix.
+
+**Root cause:** `NODE_TIMING` in [src/components/islamic/PropheticPath.jsx:85](src/components/islamic/PropheticPath.jsx) had both `dhuhr` and `midday-labor` anchored on the Aladhan `Dhuhr` key. In `computeActiveNodeId` the two produced identical `diff` values; the strict `<` keeps the first match → `dhuhr` won by iteration order and stayed "active" all the way to Asr. The right rail uses a separate `inferPhaseForNode` path that respects `PHASE_DURING_MIN` (15 min), which is why only the timeline drifted.
+
+**Fix:** Added optional `offsetMin` field on `NODE_TIMING` plus `effectiveAnchorMs(spec, timings, today)` helper. `computeActiveNodeId`, `computeNextNodeId`, and the active/past/upcoming math in `deriveNodeTiming` now use `effectiveAnchorMs`. `formatTime12(raw)` stays on the raw prayer key, so the displayed time on the midday-labor card is unchanged. Set `midday-labor.offsetMin = 15` to mirror the right rail's `PHASE_DURING_MIN` window. `morning` and `tahajjud` already anchor on distinct keys (Sunrise / Lastthird) so they didn't need offsets.
+
+**Decision record:** [[2026-04-25-prophetic-path-midday-labor-anchor-offset]]
+
+**Verification:**
+- `npm run lint` clean — three ratchets unchanged (legacy 0, empty-array 1, inline-refs 13).
+- `npm test` 40/40 pass.
+- Live preview accessibility snapshot at 14:00: `MIDDAY LABOR · CURRENT` at top, `Asr · NEXT`, Dhuhr Prayers a plain past node — matches the right-rail `LINGERING` state.
+- `preview_screenshot` unresponsive (continuing pattern this week); snapshot-tree accepted.
+
+**Pages touched:** [[milos]] (no current-state change required — UI bug fix), this log entry, [[2026-04-25-prophetic-path-midday-labor-anchor-offset]] decision record, wiki index.
+

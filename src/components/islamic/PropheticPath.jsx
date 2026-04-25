@@ -82,16 +82,26 @@ const DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' };
 // Aladhan returns Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha, Imsak,
 // Midnight, Firstthird, Lastthird — we consume the five salawat plus
 // Sunrise / Lastthird for the transition nodes.
+// `offsetMin` shifts a labor/transition node's *effective* anchor forward from
+// its prayer key (only used for active/next/past math; the displayed time is
+// still the raw prayer time). Without this, midday-labor would tie with dhuhr
+// and never become active. 15 min mirrors PHASE_DURING_MIN in the right rail.
 const NODE_TIMING = {
   isha:           { key: 'Isha',      label: null },
   tahajjud:       { key: 'Lastthird', label: 'Last Third' },
   fajr:           { key: 'Fajr',      label: null },
   morning:        { key: 'Sunrise',   label: 'Sunrise' },
   dhuhr:          { key: 'Dhuhr',     label: null },
-  'midday-labor': { key: 'Dhuhr',     label: 'After Dhuhr' },
+  'midday-labor': { key: 'Dhuhr',     label: 'After Dhuhr', offsetMin: 15 },
   asr:            { key: 'Asr',       label: null },
   maghrib:        { key: 'Maghrib',   label: null },
 };
+
+function effectiveAnchorMs(spec, timings, today) {
+  const ms = timeToMs(timings[spec.key], today);
+  if (ms == null) return null;
+  return ms + (spec.offsetMin ?? 0) * 60_000;
+}
 
 // Canonical ordering used for past/upcoming calculation.
 const PRAYER_ORDER = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
@@ -132,7 +142,7 @@ function computeActiveNodeId(timings) {
   let bestId = null;
   let bestDiff = Infinity;
   for (const [nodeId, spec] of Object.entries(NODE_TIMING)) {
-    const ms = timeToMs(timings[spec.key], today);
+    const ms = effectiveAnchorMs(spec, timings, today);
     if (ms == null) continue;
     let diff = now.getTime() - ms;
     if (diff < 0) diff += ONE_DAY; // anchor later today → count as yesterday's occurrence
@@ -152,7 +162,7 @@ function computeNextNodeId(timings) {
   let bestId = null;
   let bestDiff = Infinity;
   for (const [nodeId, spec] of Object.entries(NODE_TIMING)) {
-    const ms = timeToMs(timings[spec.key], today);
+    const ms = effectiveAnchorMs(spec, timings, today);
     if (ms == null) continue;
     let diff = ms - now.getTime();
     if (diff <= 0) diff += ONE_DAY; // already passed today → tomorrow's occurrence
@@ -174,16 +184,16 @@ function deriveNodeTiming(nodeId, timings, activeNodeId, nextNodeId) {
   const raw = timings[spec.key];
   const time = formatTime12(raw);
   const today = new Date();
-  const prayerMs = timeToMs(raw, today);
+  const anchorMs = effectiveAnchorMs(spec, timings, today);
 
   let state = null;
   if (nodeId === activeNodeId) {
     state = 'active';
   } else if (nodeId === nextNodeId) {
-    const leadMs = prayerMs != null ? prayerMs - Date.now() : Infinity;
+    const leadMs = anchorMs != null ? anchorMs - Date.now() : Infinity;
     state = leadMs > 0 && leadMs <= 10 * 60 * 1000 ? 'next-soon' : 'next';
-  } else if (prayerMs != null) {
-    state = prayerMs < Date.now() ? 'past' : 'upcoming';
+  } else if (anchorMs != null) {
+    state = anchorMs < Date.now() ? 'past' : 'upcoming';
   }
 
   return { time, label: spec.label, state };
