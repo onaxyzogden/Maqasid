@@ -113,6 +113,57 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas §16 — wind, shade & canopy maturity simulation
+
+Closed §16 `wind-shade-tree-canopy-sim` (P3, planned → done). Atlas
+already shipped §16 `water-flood-drought-scenario-sim` on the Hydrology
+dashboard; this iteration completes the section's second simulation
+item by surfacing canopy growth, shade footprint, and downwind wind
+shelter at three maturity horizons.
+
+**Component:**
+- `WindShadeCanopySimCard.tsx` (~250 lines) under
+  `apps/web/src/features/climate/`. Renders an aggregate "All canopy
+  areas" card on top (gold accent, 5y/15y/30y horizons) followed by
+  per-area rows for each canopy-bearing crop area.
+- Heuristic — canopy radius = species `canopySpreadM` × maturity
+  factor where maturity follows a saturating curve (`y / (y + 8)`).
+  Shade per tree = π·r², total shade capped at the area footprint
+  (canopy closure). Tree count from area / spacing²; spacing falls
+  back to canopy spread when `treeSpacingM` is unset, with a sensible
+  cap (≤ areaM2/4) so a tiny pollinator strip doesn't claim 1000 trees.
+- Wind shelter zone — only for `windbreak` and `shelterbelt` types.
+  Approximates the windward edge as √area, height as canopy radius
+  × 1.8, downwind reach as 10× height (rule-of-thumb 10H — same
+  conservative multiplier the existing §6 windbreak card uses).
+- Aggregate shade strips show shade as % of parcel when the project
+  has a parcel boundary (`turf.area`); falls back gracefully when
+  absent.
+
+**Mount:**
+- `SolarClimateDashboard.tsx` — adds the import and mounts
+  `<WindShadeCanopySimCard projectId={...} parcelBoundaryGeojson={...} />`
+  at the very end of the page render block, after the Comfort Exposure
+  Map. Clean diff: import + mount only.
+
+**Visual grammar:**
+- `WindShadeCanopySimCard.module.css` matches the dashboard's existing
+  `.section`/`.sectionLabel` palette (ink-on-parchment with gold
+  accents on the aggregate strip; quieter neutrals on per-area rows
+  so the eye finds the totals first).
+
+**Honest framing in footnote:**
+- Saturating maturity curve formula stated; canopy-closure cap stated;
+  10H windbreak rule-of-thumb attributed; "species-specific growth
+  rates and stand-density effects are *not* modelled at this stage"
+  surfaced explicitly so the steward doesn't read forestry-grade
+  precision into a planning-grade rollup.
+
+**Verification:** filtered `tsc --noEmit` clean. Atlas commit `19c9354`
+on `feat/shared-scoring`; submodule pointer bumped from `cec3aba`.
+
+---
+
 ## [2026-04-25] session | Atlas §19 — signs in creation interpretive mode
 
 Closed §19 `signs-in-creation-interpretive-mode` (MT, planned → done).
