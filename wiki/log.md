@@ -30,6 +30,25 @@ See [[2026-04-25-milos-faith-grounding-complete]].
 
 ---
 
+## [2026-04-25] session | OLOS Atlas — §22 mission-weighted impact rollup card
+
+**Objective:** Close the §22 `mission-weighted-donor-grant-income` manifest item (P3, planned) with a presentation-layer card that visualises the existing `MissionScore` (financial / ecological / spiritual / community) as a side-by-side multi-axis rollup with per-axis rationale and a "biggest opportunity" callout. The mission-weighted half of the spec; donor/grant income remains a future follow-on.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/decision/MissionImpactRollupCard.tsx](atlas/apps/web/src/features/decision/MissionImpactRollupCard.tsx) (~272 lines):
+  - **Score source** — pulls `MissionScore` directly from `useFinancialModel(project.id)`. No re-derivation. Same numbers as the small mission tiles already shown inside `EconomicsPanel`, so a steward seeing two surfaces never sees two figures.
+  - **Per-axis rationale** — each axis has a small describer that mirrors the inputs the financial engine uses: financial reads `model.breakEven.breakEvenYear.mid` and frames it as a year ("Break-even projected by year 5"); ecological computes `% of zoned area in conservation / water-retention / buffer`; spiritual flags spiritual zones + counts prayer / bath structures; community counts education / commons / retreat zones + classroom / pavilion / fire-circle structures. Each rationale closes with a *lift hint* — concrete next move to raise that axis.
+  - **Visualisation** — four full-width bars with tone-coded fills (green ≥ 65, amber ≥ 40, red < 40); headline overall score row tinted by overall tone; "biggest opportunity" callout names the lowest axis with its specific lift hint.
+- New [MissionImpactRollupCard.module.css](atlas/apps/web/src/features/decision/MissionImpactRollupCard.module.css) — same ink-on-parchment palette as §10/§11/§16/§18/§19 cards. Bar fills use linear gradients matched to the axis tone; gold accent on the gap callout to differentiate it from the score-summary band.
+- Mounted on `EcologicalDashboard.tsx` immediately after `NutrientBalanceCard`, completing the cross-cutting heuristic-roll-up chain (AI synthesis → nutrient balance → mission impact).
+- Manifest §22 line 522 `mission-weighted-donor-grant-income` flipped `planned → done` (mission-weighted half; donor/grant income remains future).
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean (full repo, exit 0).
+
+**Discipline:** Pure presentation — zero shared-package math, no map overlays, no new entity types. Complements rather than duplicates the existing financial-panel tiles: same `MissionScore`, but visualised side-by-side with prose rationale on a different surface (ecological dashboard) so the four axes can be compared at a glance without opening the financial-model panel. Atlas commit `1cc1469` — 4 files, 529 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §11 nutrient cycling balance card
 
 **Objective:** Close the §11 `fertility-manure-impact-heatmap` manifest item (P3, planned) with a presentation-layer card that aggregates nitrogen demand from placed crops vs. nitrogen supply from livestock paddocks, compost, and biochar — the textual companion to the future heatmap overlay.
