@@ -3,6 +3,65 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §9 — alternate footprint options
+
+Closed §9 `alternate-footprint-options` (P3, planned → done) on the
+manifest. Surfaces three preset sizes (Compact / Default / Roomy)
+inside `StructurePropertiesModal` so a steward can quickly compare
+what a smaller or larger version of the same structure would mean
+for area and rough cost without driving the width / depth sliders
+manually.
+
+### Added
+- `apps/web/src/features/structures/StructurePropertiesModal.tsx`
+  - Module-level `ALT_FOOTPRINT_PRESETS` (factors 0.75 / 1.0 / 1.3)
+    and `snapToHalf` helper.
+  - In-component `altPresets` derives w / d / area / cost / isActive
+    from the active template; cost scales linearly with floor area
+    using the template midrange as the anchor (defaultArea →
+    templateMidCost). Linear is honest about being a "conversation
+    starter, not a quote" — foundation, plumbing, roof complexity
+    don't actually scale linearly, and the footnote says so.
+  - `applyPreset(w, d, cost)` snaps the width / depth state and
+    overwrites the cost field.
+  - JSX chips between the size sliders and the rotation control:
+    three buttons showing label, dimensions, area, and scaled cost,
+    with an active border / fill when the current sliders match.
+    A muted footnote calls out the linear-scaling assumption.
+
+### Changed
+- `packages/shared/src/featureManifest.ts` — §9 line 259
+  `alternate-footprint-options` flipped `planned` → `done`.
+
+### Decisions
+- **Preset count: three, not five.** Compact / Default / Roomy is
+  the smallest set that gives a steward a "spread" without turning
+  the modal into a price-comparison form. If a fourth tier is ever
+  wanted (e.g., "Family"), it goes into the same constant.
+- **No new template fields.** Considered adding an `altSizes` array
+  to `STRUCTURE_TEMPLATES` so each type could tune its own factors
+  (e.g., a cabin's "compact" might be 0.6, a barn's "compact" 0.85),
+  but that would touch shared and gain little. Uniform factors are
+  legible and the steward can still drag the sliders.
+- **Cost model stays presentation-layer.** Linear scaling on area
+  is a deliberate heuristic; nothing in `@ogden/shared/scoring`
+  changed. Anything more sophisticated belongs in a future cost
+  estimator service, not this modal.
+- **No tab / collapse.** The chips fit in the existing modal
+  height and complement the sliders rather than competing with
+  them. Users see the alternates inline, click one, and watch the
+  sliders snap.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192
+  npx tsc --noEmit` — clean.
+- Modal opens both for new placement (cost prefills with template
+  midrange, "Default" is active by default) and edit (active state
+  reflects whatever the saved width / depth happens to be — could
+  be none if the user dragged the sliders to a custom value).
+
+---
+
 ## [2026-04-25] session | Atlas §9 — structure dependency & build-order
 
 Closed §9 `structure-dependency-build-order` (P3, planned → done) on
