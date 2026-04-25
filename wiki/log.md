@@ -13,6 +13,16 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas — §17 Access Efficiency Card
+
+**Objective:** Close the access-efficiency portion of the §17 manifest item `siting-rules-privacy-solar-access-safety` — the existing RulesEngine already covers slope/setback/solar but the "how-far-does-the-steward-walk-each-day" lens that zone planning exists to optimize was missing.
+
+**Outcome:** New `AccessEfficiencyCard` (`apps/web/src/features/rules/`) computes flat-earth distance from each dwelling structure to the nearest water source (Zone 1, target ≤30m), nearest gathering / spiritual structure (Zone 2, ≤100m), and nearest paddock centroid (Zone 3, ≤250m). Each leg is scored good/fair/poor against the threshold; a dwelling's worst leg drives its overall tone. Card surfaces a 4-cell tally (good/fair/poor counts + median daily-step estimate at 0.75m/step assuming 4 water + 2 gathering + 0.5 paddock round-trips per dwelling), a per-dwelling row showing all three legs with distance and threshold side-by-side, and a worst-access recommendation block when any dwelling is non-good. Inline `flatEarthMeters` / `nearest` / `polygonCentroid` helpers — no new shared math, no rule-engine changes. Mounted on `DecisionSupportPanel` directly above `RulesPanel`. Manifest `siting-rules-privacy-solar-access-safety` planned → **partial** (privacy / safety buffer rules still pending). tsc clean. Atlas commit `2661112` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Privacy buffer rules (guest-cabin distance from owner dwelling, sight-line / view-cone heuristics) and safety buffer rules (well-septic, livestock-domicile, kitchen-fire-egress) remain on the planned half of the same manifest entry — natural follow-on cards. The user-adjustable design-priority weight sliders (separate planned item) would let stewards retune the Zone 1/2/3 thresholds this card hard-codes today.
+
+---
+
 ## [2026-04-25] session | Atlas — §19 Walking Tour Script Card
 
 **Objective:** Close the "Voiceover script export" P4 stub on EducationalAtlasDashboard by shipping an auto-generated, voiceable walking-tour script.
