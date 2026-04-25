@@ -15,6 +15,22 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas §12 — Companion & rotation planner card
+
+**Objective:** Manifest gap-fill iteration. Picked candidate 1 — `crop-rotation-succession-planner` (mapped to existing manifest key `pollinator-strip-companion-zone-notes`, §12 Crops & Agroforestry, line 322, P2, partial → done). Build a deterministic 4-year rotation + companion-planting audit for annual crop areas.
+
+**Shipped:**
+- `apps/web/src/features/crops/CompanionRotationPlannerCard.tsx` (~280 lines) — keyword-heuristic family detection (legume/brassica/solanum/cucurbit/allium/grass-grain/leafy-green/root/umbellifer) over `CropArea.species[]`; per-area report with family chips, 4-column rotation flow (year 1 = current, years 2-4 = recommended cycle), and flag list (monoculture / companion conflict). Site-wide family-distribution stacked bar by acreage. 4-stat header (audited / clean / monoculture / conflicts). Companion conflict pairs: allium+legume (inhibits N-fixation), brassica+solanum (heavy feeders compete), cucurbit+solanum (shared blight pressure), allium+umbellifer (allelopathic).
+- `apps/web/src/features/crops/CompanionRotationPlannerCard.module.css` (~310 lines) — palette consistent with adjacent crop cards; per-family chip colors mirror established zone tone vocabulary (sage, terracotta, gold, mauve, etc.).
+- `PlantingToolDashboard.tsx` — mounted directly after `<SeasonalProductivityCard project={project} />`.
+- Manifest §12 line 322 `pollinator-strip-companion-zone-notes` flipped `partial → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → exit 0. Preview not exercised in this session.
+
+**Discipline:** Presentation-only. Family detection lives inline in the card via keyword arrays (no new shared-package taxonomy added). Filters to annual area types (`row_crop`/`garden_bed`/`market_garden`) — perennial fruit/nut species are excluded from rotation. No new entity types, no map overlays. Atlas commit `572cbc0`. Submodule pointer bumped in MILOS parent.
+
+---
+
 ## [2026-04-25] session | Atlas §11 — Biosecurity & buffer audit card
 
 **Objective:** Manifest gap-fill iteration. Picked candidate 1 — `livestock-disease-quarantine-zones` (mapped to existing manifest key `species-human-conflict-warnings`, §11 Livestock Systems, line 308, P3, partial → done). Build a heuristic disease-vector setback audit for livestock structures.
