@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §20 meeting presentation deck (7-slide stakeholder briefing)
+
+**Objective:** Close the §20 `meeting-presentation-mode` manifest item (P3, planned) with a presentation-layer card that flattens an active project into a print-and-read deck for stakeholder meetings — without building a real slide-playback engine.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/collaboration/PresentationDeckCard.tsx](atlas/apps/web/src/features/collaboration/PresentationDeckCard.tsx) (~317 lines):
+  - **Seven slides** — (1) Cover with name, project type, acreage; (2) Site Context with boundary, hardiness zone, annual precip, mean temp from `siteData.climate`; (3) Design Highlights stat row plus top-3 zones by polygon ring size; (4) Phasing Plan from `usePhaseStore.getProjectPhases`; (5) Financial Outlook reading total investment, annual revenue at maturity, break-even year, 10-year ROI, peak negative cashflow, enterprise list from `useFinancialModel`; (6) Mission Impact with overall score (gold) and four-axis bars; (7) The Ask — capital range + partner asks + next concrete step.
+  - **Visual bookends** — Cover and Ask slides carry distinct gradient accents (gold for Cover, sage for Ask) so the deck reads as a coherent narrative rather than a flat list of cards.
+  - **Empty-state guard** — when no features are placed on the project, the deck renders a single banner inviting the user to add zones / structures / utilities first. Each slide also degrades gracefully when its data source is null (e.g., financial model not yet computed).
+  - **Cost / range formatters** — local helpers (`fmtCurrency`, `fmtRange`) keep the deck self-contained; no new shared utilities.
+- New [PresentationDeckCard.module.css](atlas/apps/web/src/features/collaboration/PresentationDeckCard.module.css) (~362 lines) — ink-on-parchment palette consistent with the §10/§11/§18/§19/§22 family. Per-slide composed `.slide_cover` / `.slide_ask` variants with gradient backgrounds. Tone-coded mission-axis bars (good/fair/poor at 70/40 thresholds).
+- Mounted on `EcologicalDashboard.tsx` immediately after `MobileTractorZonesCard`, extending the cross-cutting heuristic-roll-up chain (AI synthesis → nutrient balance → mission impact → mobile tractors → presentation deck).
+- Manifest §20 line 485 `meeting-presentation-mode` flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean (full repo, exit 0).
+
+**Discipline:** Pure presentation — zero shared-package math, no slide-playback engine, no map overlays. The card explicitly frames itself as a "print-and-read deck" and notes that auto-advance, voiceover, and slide-mode rendering remain §19 / §23 deliverables. Atlas commit `759097a` — 4 files, 684 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §19 guided walkthrough card (auto-grouped thematic tours)
 
 **Objective:** Close the §19 `passive-learning-tour-walkthrough` manifest item (P4, planned) with a presentation-layer card that auto-builds 4–6 thematic field-trip itineraries from features already placed on the project — without a real tour-playback engine.
