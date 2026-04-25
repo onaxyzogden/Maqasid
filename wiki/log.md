@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Life pillar two-axis grounding migration complete
+
+**Objective:** Third pillar pass. Migrate the 236 legacy-string `sources` entries in `life-seed-tasks.js` using the proven parser-copy approach.
+
+**Shipped:**
+- [scripts/migrate-life-grounding.mjs](scripts/migrate-life-grounding.mjs) — `sed`-generated copy of the Ummah parser. Zero grammar changes. **236 entries migrated, 0 skipped, 0 schema violations** on first run — cleanest migration to date, no Quran-MCP patches needed.
+- [scripts/audit-life-migration.mjs](scripts/audit-life-migration.mjs) — 10 random matched entries, 0 ref-count mismatches, all Arabic/translation snippets present in legacy source.
+- Life ratchet decremented `236 → 0` in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js).
+- Decision record: [[2026-04-25-milos-life-grounding-complete]].
+
+**Verification:**
+- `npm test` → 40/40 green (first run)
+- `npm run build` → exit 0
+- `npm run lint:grounding-strict` → 1167 → 931 legacy entries (delta = 236)
+- Preview confirmed — `/app/work/life_physical_core/tasks` → first task → "List all regularly consumed foods, drinks, and supplements" subtask → Source panel renders Surah Al-Baqarah [2:168] structured card with Bayyinah + Direct chips, full Arabic word-by-word breakdown with transliteration, Abdel Haleem translation. (Screenshot tool timed out on render; text proof via `preview_eval` is conclusive.)
+
+**Discipline:** Three pillars complete (Faith 212 + Ummah 525 + Life 236 = 973 entries). Zero-patch run on heterogeneous Life content (Physical/Mental/Safety boards) confirms the legacy markdown convention is uniform across the seed corpus — the four remaining pillars (Intellect 236, Family 233, Wealth 236, Environment 226 = 931 entries) can be batched in a single follow-up session.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §20 meeting presentation deck (7-slide stakeholder briefing)
 
 **Objective:** Close the §20 `meeting-presentation-mode` manifest item (P3, planned) with a presentation-layer card that flattens an active project into a print-and-read deck for stakeholder meetings — without building a real slide-playback engine.

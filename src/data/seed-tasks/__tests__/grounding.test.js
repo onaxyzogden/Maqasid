@@ -23,7 +23,7 @@ const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 // Source of truth: `node scripts/lint-grounding.mjs` (shape = legacy string).
 const PILLARS = [
   { id: 'faith',       data: FAITH_SEED_TASKS,       expectedLegacy: 0,   allowEmptyArray: 0 },
-  { id: 'life',        data: LIFE_SEED_TASKS,        expectedLegacy: 236, allowEmptyArray: 0 },
+  { id: 'life',        data: LIFE_SEED_TASKS,        expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'intellect',   data: INTELLECT_SEED_TASKS,   expectedLegacy: 236, allowEmptyArray: 0 },
   { id: 'family',      data: FAMILY_SEED_TASKS,      expectedLegacy: 233, allowEmptyArray: 0 },
   { id: 'wealth',      data: WEALTH_SEED_TASKS,      expectedLegacy: 236, allowEmptyArray: 0 },
