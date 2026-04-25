@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §24 Mobile Fieldwork Punch-list Card
+
+**Objective:** Land the first concrete §24 (Mobile, Fieldwork & Site Visit Tools) ship beyond the existing FieldworkPanel scaffolding — a today's-walk punch list derived from the design state itself, so the steward's site visit has a checklist that reflects the actual paddocks/utilities/structures/crops on the parcel rather than a static template.
+
+**Outcome:** New `FieldworkChecklistCard` (`apps/web/src/features/fieldwork/`) mounted in the Fieldwork panel's Checklist tab, above the static `SiteChecklist` template. Pure-derivation heuristic — surfaces (a) paddocks with no `species` or `stockingDensity` ("rotation plan not configured"), (b) water utilities (`water_tank` / `well_pump` / `rain_catchment`) with no `capacityGal` ("inspect / measure capacity"), (c) structures with empty `notes` ("confirm build status"), (d) crop areas with empty `species` list ("confirm planned plantings"). Each row has a tap-friendly `Mark observed ✓` toggle that persists per-project to localStorage under `ogden-fieldwork-punchlist-<projectId>` (timestamped on toggle). Tally row counts items / observed / remaining; tone-coded by kind (paddock=fair-amber, water=blue, structure=gold, crop=green). Empty-state when nothing's outstanding. No new shared math, no new entities, no new server endpoints. Mount target chosen over the orphan `MobileFieldworkPage` scaffold because the real surface is the FieldworkPanel that's actually wired up. Manifest §24 `punch-list-site-verification` (P4) planned → **partial**. tsc clean. Atlas commit `dffc2b1` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Several §24 items still planned — `voice-memo-site-checklist` (voice memo done; site-checklist mode partially covered now), `walk-route-quick-annotation`, `on-site-measurement-logging`, `site-visit-report-generation`, `as-built-update-mode`. Next natural slice would be wiring the punch-list "observed" stamps into the existing `fieldworkStore` so observations create real `FieldworkEntry` records (geotag + timestamp) rather than localStorage-only marks — that converts the heuristic into actual `as-built-update-mode` traction.
+
+---
+
 ## [2026-04-25] session | MILOS — Inline-refs Phase 2 hadith backfill (ratchet → 0)
 
 **Objective:** Close the 13 inline-cited hadith refs missing from structured `sources[]` — the Phase 2 follow-up to the Quran backfill.
