@@ -113,28 +113,36 @@
   gap: 32px;
 }
 
-/* ── Priority badge ── */
+/* ── Header block (Q1/Q2/Q5 — title leads, priority eyebrow + receding description follow) ── */
+.tdp-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Priority badge — demoted to eyebrow rank below the title (Q2) ── */
 .tdp-priority-badge {
   display: inline-flex;
-  padding: 4px 12px;
+  padding: 3px 10px;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   border-radius: var(--radius-full);
   line-height: 1.4;
   width: fit-content;
 }
 
-/* ── Title ── */
+/* ── Title — editorial serif at weight 400 (Q1) ── */
 .tdp-title {
-  font-size: 1.875rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
+  font-family: var(--font-serif, var(--font-heading));
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
   border: none;
   background: transparent;
   padding: 0;
-  margin-top: 8px;
+  margin: 0;
   color: var(--text);
   outline: none;
   width: 100%;
@@ -143,9 +151,9 @@
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: pre-wrap;
-  line-height: 1.2;
+  line-height: 1.15;
   field-sizing: content;
-  min-height: calc(1.2em + 4px);
+  min-height: calc(1.15em + 4px);
 }
 .tdp-title[readonly] {
   cursor: default;
@@ -158,12 +166,12 @@
   outline: none;
 }
 
-/* ── Description (read-only) ── */
+/* ── Description — receding context, no container (Q5) ── */
 .tdp-description-text {
   font-size: 14px;
-  line-height: 1.7;
-  color: var(--text2);
-  margin-top: 12px;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--text) calc(var(--motif-ghost-variant-opacity, 0.7) * 100%), transparent);
+  margin: 4px 0 0;
 }
 
 /* ── Progress bar ── */
@@ -217,6 +225,16 @@
   letter-spacing: 0.1em;
   color: var(--text2);
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Q3 — slot for the rolled-up tier badge when all subtasks share one tier */
+.tdp-section-label__tier {
+  display: inline-flex;
+  align-items: center;
 }
 
 .tdp-section-hint {
@@ -558,33 +576,60 @@
   color: var(--text);
 }
 
-/* "Done" button */
+/* "Done" button — Q4: ghost while locked, fill + shimmer when ready */
 .tdp-done-btn {
   all: unset;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 12px 28px;
-  background: var(--tdp-accent);
-  color: white;
+  gap: 8px;
+  padding: 11px 26px;
   border-radius: var(--radius-full);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--tdp-accent) 20%, transparent);
-  transition: all var(--duration) var(--ease);
   font-family: inherit;
+  transition: background var(--duration) var(--ease),
+              color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              transform var(--duration) var(--ease);
+  background: transparent;
+  color: var(--text2);
+  border: 1.5px solid color-mix(in srgb, var(--tdp-accent) 35%, var(--border));
 }
-.tdp-done-btn:hover:not(:disabled) {
+.tdp-done-btn[data-state='locked'],
+.tdp-done-btn[data-state='empty'] {
+  cursor: default;
+}
+.tdp-done-btn[data-state='locked']:hover {
+  border-color: color-mix(in srgb, var(--tdp-accent) 55%, var(--border));
+  color: var(--text);
+}
+.tdp-done-btn[data-state='ready'] {
+  background: var(--tdp-accent);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--tdp-accent) 24%, transparent);
+}
+.tdp-done-btn[data-state='ready']:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--tdp-accent) 30%, transparent);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--tdp-accent) 32%, transparent);
 }
-.tdp-done-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-  box-shadow: none;
+.tdp-done-btn__hint {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tdp-accent) 12%, transparent);
+  color: color-mix(in srgb, var(--tdp-accent) 85%, var(--text));
+  margin-left: 2px;
+}
+/* When ready, --motif-tint anchors the shimmer to the accent color */
+.tdp-done-btn[data-state='ready'] {
+  --motif-tint: var(--tdp-accent);
 }
 
 .tdp-doc-btn {
@@ -795,7 +840,7 @@
     padding: 16px 20px;
   }
   .tdp-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   .tdp-subtask-row {
     padding: 12px;

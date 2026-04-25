@@ -205,6 +205,12 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const totalCount = allSubtasks.length;
   const pct = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
   const priorityObj = PRIORITIES.find((p) => p.id === task.priority);
+  // Q3 — when every subtask shares the same tier, lift the badge to the
+  // section header instead of repeating it on each row (visual noise).
+  const tierSet = new Set(allSubtasks.map((s) => s.tier).filter(Boolean));
+  const sharedTier = tierSet.size === 1 ? [...tierSet][0] : null;
+  const isLocked = totalCount > 0 && doneCount < totalCount;
+  const isReady = totalCount > 0 && doneCount === totalCount;
 
   // Build header label from project name
   const headerLabel = project?.name || 'Project';
@@ -235,16 +241,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
     <>
       {/* ── Body ── */}
       <div className="tdp-body">
-        {/* Priority + Title + Description */}
-        <div>
-          {priorityObj && (
-            <span
-              className="tdp-priority-badge"
-              style={{ background: priorityObj.bg, color: priorityObj.color }}
-            >
-              {priorityObj.label} Priority
-            </span>
-          )}
+        {/* Title + Priority (eyebrow) + Description */}
+        <div className="tdp-header-block">
           <textarea
             ref={titleRef}
             id="task-detail-title"
@@ -254,6 +252,17 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             placeholder="Task title"
             rows={1}
           />
+          {priorityObj && (
+            <span
+              className="tdp-priority-badge"
+              style={{
+                background: `color-mix(in srgb, ${priorityObj.color} 12%, transparent)`,
+                color: priorityObj.color,
+              }}
+            >
+              {priorityObj.label} Priority
+            </span>
+          )}
           {task.description && (
             <p className="tdp-description-text">{task.description}</p>
           )}
@@ -274,7 +283,15 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
 
         {/* Subtasks */}
         <div className="tdp-subtasks-section">
-          <h3 className="tdp-section-label">Subtasks <span className="tdp-section-hint">(tap each one to see why and how)</span></h3>
+          <h3 className="tdp-section-label">
+            <span className="tdp-section-label__text">Subtasks</span>
+            {sharedTier && (
+              <span className="tdp-section-label__tier">
+                <AmanahTierBadge tier={sharedTier} size="sm" />
+              </span>
+            )}
+            <span className="tdp-section-hint">(tap each one to see why and how)</span>
+          </h3>
           <div className="tdp-subtask-list">
             {allSubtasks.map((st) => (
               <div key={st.id} className="tdp-subtask-row" onClick={() => openSubtask(st)}>
@@ -289,7 +306,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 <span className={`tdp-subtask-text ${st.done ? 'tdp-subtask-text--done' : ''}`}>
                   {st.title}
                 </span>
-                {st.tier && <AmanahTierBadge tier={st.tier} size="sm" />}
+                {st.tier && !sharedTier && <AmanahTierBadge tier={st.tier} size="sm" />}
                 <ChevronRight size={16} className="tdp-subtask-chevron" />
               </div>
             ))}
@@ -317,9 +334,11 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           Back
         </button>
         <button
-          className="tdp-done-btn"
-          disabled={doneCount < totalCount}
+          className={`tdp-done-btn${isReady ? ' motif-shimmer-border' : ''}`}
+          data-state={isReady ? 'ready' : isLocked ? 'locked' : 'empty'}
+          aria-disabled={!isReady}
           onClick={() => {
+            if (!isReady) return;
             const doneCol = columns.find((c) => c.name === 'Done');
             if (doneCol) {
               moveTask(projectId, taskId, doneCol.id, 0, columns);
@@ -328,7 +347,10 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           }}
         >
           <Check size={16} />
-          Done
+          <span className="tdp-done-btn__label">Done</span>
+          {totalCount > 0 && !isReady && (
+            <span className="tdp-done-btn__hint">{doneCount}/{totalCount}</span>
+          )}
         </button>
       </div>
     </>

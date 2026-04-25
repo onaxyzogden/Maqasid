@@ -1,0 +1,34 @@
+Follow-up to our Prophetic Path work. Now redesigning the **shared LevelOverviewPage** in MILOS — one component that renders for ALL 7 pillar modules (Faith, Life, Intellect, Family, Wealth, Environment, Ummah). The user's hard constraint: maintain uniformity across all 7 modules.
+
+## Current layout (top to bottom, 900px centered column)
+
+1. **Compact LevelNavigator** — 3-tier carousel: Core (gold #C8A96E) / Growth (teal #4ab8a8) / Excellence (purple #8b5cf6). Active tier sits in centered card with title, desc, and per-pillar "segment bars" (thin stripes, one per task). Inactive tiers sit as squashed teasers on side rails.
+2. **MaqasidComparisonWheel** (Faith opts in, others don't) — SVG circular chart. Floats in raw page bg, no framing.
+3. **Bento grid** — 5 cards (span-2, span-2, span-2 / span-3, span-3). Each: icon chip, pillar name, circular MasteryRing (%). All 0% at first load.
+4. **Path to Excellence** cards (Faith only, stub CTAs).
+
+## Established design language (from our prior work)
+
+- Dashboard three-tier (Qalb/Amal/Barakah) and Prophetic Path Compressed Ribbon: editorial serif titles (2rem, weight 400), ghost-text for receding nodes, purposeful blurred aura behind active, Maqasid pulse shimmer on active pillar chips, level-tinted box-shadow halo.
+
+## My proposed plan
+
+**Phase 1:** LevelNavigator — editorial serif on active title, ghost-text for past-tier teaser (left rail), accent-chevron for next-tier teaser (right rail), level-tinted box-shadow halo on active card.
+
+**Phase 2:** Wrap wheel + bento + path in `.flo__section` with editorial section titles ("Your pattern at this tier" / "Five Pillars" / "Path to Excellence"). Light surface, subtle border — gives the wheel a home.
+
+**Phase 3:** Bento — editorial serif on card names, ghost-text on 0%-progress cards, level-tinted hover halo.
+
+## Key tensions I want your read on
+
+**Q1 — Ghost-text metaphor fit:** On Prophetic Path, "past" means literally past today (time-gated). On LevelOverview, "past" just means "the tier below the one you're viewing" (user-chosen, equally accessible). Is ghost-text the wrong metaphor here — does it wrongly suggest inaccessibility? Should the three tiers be calm peers (no ghost-text, just halo on active)?
+
+**Q2 — Framing the wheel:** Does wrapping the wheel in a `.flo__section` card (title + light bg + border) fight the "sacred emanation" quality of the Prophetic Path active card (no container, just light)? Or does the wheel need a home because it's not a hero moment, just one of three sections?
+
+**Q3 — Pillar identity vs tier identity:** All 7 modules pass through this same page. Tier color (gold/teal/purple) currently dominates; pillar color (Faith gold / Life green / Intellect blue / Family mauve / Wealth olive / Env teal / Ummah bronze) doesn't appear at all on this page. Should pillar color be present as a quiet ambient signal (thin colored rule, page aura tint, pillar-colored page-level accent somewhere) so the user feels which module they're in? Or is tier-dominance correct on a page called "LevelOverview"?
+
+**Q4 — Ghost-text on 0% bento cards:** First-load, all 5 pillar cards are 0%. If I ghost-text all of them, the page reads as 5 ghostly cards with no invitation. Trap? Should ghost-text be comparative (apply ONLY if some sibling has ≥1%) rather than absolute (any 0%)?
+
+**Q5 — Cross-module uniformity:** Anything we're missing — a pattern, motif, or rhythm — that would make all 7 pillar overviews feel like one family while still feeling distinctly themselves?
+
+Reply in under 500 words. Be specific and opinionated. Name the technique and state what to avoid.

@@ -1,0 +1,26 @@
+As we architect this core-task detail modal for MILOS, we must ensure it functions as a "sacred threshold" for the user’s intentions. The current design has robust structural bones, but we can significantly elevate the user-centric experience by refining the hierarchy and reducing visual noise.
+
+### **Q1. Title Weight & Hierarchy**
+You should move toward the **editorial serif at weight 400 with negative kerning (-2% to -4%)** and a tight line height (~110%) [1, 2]. 
+*   **The Tradeoff:** While a heavy sans weight (700) provides a directive, "app-like" authority, it risks "screaming" at the user [3]. In MILOS, where the intent is contemplative, the editorial serif creates a "professional" and "pro" aesthetic that invites the user into a covenant rather than a mere to-do list [2]. 
+*   **The Recommendation:** Prioritize the "sacred presence" of the serif. If everything in the UI has equal weight, the "hierarchy problem" makes the interface feel chaotic [3].
+
+### **Q2. Priority Pill Placement**
+The priority pill should be **demoted to sit below the title** or tucked away as a subtle eyebrow.
+*   **The Treatment:** Hierarchy is intuitive; the most important thing—the user's intent (the Shahada)—should lead [4, 5]. Currently, "URGENT PRIORITY" competes for the top 300px of focus. 
+*   **Proposal:** Place a small, desaturated semantic dot or a tiny label *below* the title [6]. This allows the semantic content (the "What") to guide the eye before the utility (the "How urgent") [7].
+
+### **Q3. "Qarina" Repetition**
+Repeating "Qarina" on every row is **visual noise** that kills the design's clarity [8, 9]. 
+*   **The Treatment:** If all subtasks in this specific view share the same category, the label is redundant. "The fewer elements you can use to get your point across, the better" [10].
+*   **Proposal:** Move the "Qarina" metadata to the section header ("SUBTASKS — ALL QARINA") or integrate it into the top chip row [9]. If a module contains mixed types (Qarina and Bayyinah), use a small, non-obtrusive icon instead of a full text pill [11].
+
+### **Q4. The "0% · Done Button" Loop**
+Avoid the "broken" disabled-and-grey look; instead, leverage **Optimistic UI principles** and **Ghost buttons** [12, 13].
+*   **The Treatment:** A completely greyed-out button feels like a "EULA trap" or a broken interaction [14]. 
+*   **Proposal:** Style the "Done" button as a **Ghost Button** (hairline border, no fill) until the progress bar reaches 100% [13]. At 100%, trigger a "success" state where the button fills with a primary color, potentially using a **shimmer stroke micro-animation** to signal it is now actionable [15, 16]. This makes the "sacred" completion feel earned and responsive [17].
+
+### **Q5. The Paragraph Description**
+This copy is vital for **grounding the user in the "Why"**, but its current styling may fight the subtasks for attention.
+*   **The Treatment:** Use **neutral balance** to ensure the description recedes [18]. This prevents it from feeling like "EULA text" that delays action [19].
+*   **Proposal:** Use a **light gray text color** (around 30-40% white on your parchment background) to signal it is secondary information [20]. By creating "white space" and hierarchy through color, you let the subtask list breathe while still providing the necessary spiritual context for those who choose to read it [18, 21]. Avoid heavy containers; let the text sit naturally between the title and progress section [22].

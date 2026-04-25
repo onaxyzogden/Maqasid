@@ -1,0 +1,18 @@
+Follow-up to our Prophetic Path + FLO work. Scoped question: the pp-intro block at the top of the Prophetic Path page — a three-line header sitting ABOVE the Compressed Ribbon timeline.
+
+Current render (heading / sub / location line):
+  H2: The Prophetic Path   (serif, 2rem, weight 400)
+  p:  A daily rhythm anchored in sacred intention.   (body grey)
+  p:  Prayer times for Testville, US   (smaller caption, bold city)
+
+Placement context: this header sits in a single-column layout, ABOVE the full-day Compressed Ribbon (single left spine, 8 time nodes, active card carrying the hero weight via halo + shimmer chips). The moment the user lands on the page, their attention target is the ACTIVE node — that is the sacred center of gravity. The pp-intro competes for the top 300px.
+
+Three tensions I want your read on:
+
+Q1 — Does the header belong here at all? On Dashboard we removed a similar "What is this page" block because the Sun and Stars layout spoke for itself. On Prophetic Path the Compressed Ribbon ALSO speaks for itself (phases, times, current-now halo). Is the pp-intro a vestige — a page-title-for-a-title's-sake — that should be deleted entirely, letting the ribbon be the opening gesture? Or does this page need a named threshold because it is more ceremonial than Dashboard?
+
+Q2 — If kept, is "A daily rhythm anchored in sacred intention." pulling weight? It is decorative prose that doesn't tell the user anything they can act on. Would a locative micro-line (Fajr at 05:42 | Maghrib at 18:14) carry more signal in the same vertical space, or does that collapse sacredness into utility?
+
+Q3 — The location line (Prayer times for Testville, US) is the only functional element in the whole block. It's also buried as the smallest line. Should it be PROMOTED — become the block's primary line with the poetic title demoted to an eyebrow — or MOVED entirely to a settings affordance (since location changes rarely)?
+
+Name the technique, state what to keep vs. what to cut, and what the reordered header should look like. Under 400 words.

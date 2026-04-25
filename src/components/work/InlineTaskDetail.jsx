@@ -4,6 +4,7 @@ import {
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { PRIORITIES } from '../../data/modules';
+import AmanahTierBadge from '../shared/AmanahTierBadge';
 import './InlineTaskDetail.css';
 
 /**
@@ -139,6 +140,8 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
   const todoSubtasks = task.subtasks?.filter((s) => !s.done) || [];
   const doneSubtasks = task.subtasks?.filter((s) => s.done)  || [];
   const priorityObj  = PRIORITIES.find((p) => p.id === task.priority);
+  const tierSet      = new Set((task.subtasks || []).map((s) => s.tier).filter(Boolean));
+  const sharedTier   = tierSet.size === 1 ? [...tierSet][0] : null;
 
   return (
     <div ref={cardRef} className="iltd" onClick={(e) => e.stopPropagation()}>
@@ -210,7 +213,14 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
 
       {/* Subtasks */}
       <div>
-        <div className="iltd__section-label">Subtasks</div>
+        <div className="iltd__section-label">
+          <span className="iltd__section-label__text">Subtasks</span>
+          {sharedTier && (
+            <span className="iltd__section-label__tier">
+              <AmanahTierBadge tier={sharedTier} size="sm" />
+            </span>
+          )}
+        </div>
         {todoSubtasks.length > 0 && (
           <>
             <div className="iltd__subtask-group-label">To Do</div>
@@ -221,6 +231,9 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
                 </button>
                 <div className="iltd__subtask-content">
                   <span className="iltd__subtask-title">{st.title}</span>
+                  {st.tier && !sharedTier && (
+                    <span className="iltd__subtask-tier"><AmanahTierBadge tier={st.tier} size="sm" /></span>
+                  )}
                   {st.description && <p className="iltd__subtask-desc">{st.description}</p>}
                 </div>
               </div>
@@ -238,6 +251,9 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
                 </button>
                 <div className="iltd__subtask-content">
                   <span className="iltd__subtask-title done">{st.title}</span>
+                  {st.tier && !sharedTier && (
+                    <span className="iltd__subtask-tier"><AmanahTierBadge tier={st.tier} size="sm" /></span>
+                  )}
                   {st.description && <p className="iltd__subtask-desc">{st.description}</p>}
                 </div>
               </div>
