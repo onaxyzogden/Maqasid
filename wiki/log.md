@@ -3,6 +3,79 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §9 — multi-story structure support
+
+Added `multi-story-structure-support` (P3, done) to the §9 manifest.
+Stewards can now mark a structure as 1 / 2 / 3 stories inside
+`StructurePropertiesModal`; the modal reflects the multiplied
+usable floor area in its summary line, and the alternate-footprint
+preset chips scale their preview cost to match what will actually
+be saved. The map polygon is unchanged — stories are vertical, the
+footprint stays at ground level.
+
+### Added
+- `apps/web/src/store/structureStore.ts` — optional
+  `storiesCount?: number` on the `Structure` interface. Treated as
+  1 when absent, so legacy persisted structures keep working with no
+  migration needed.
+- `apps/web/src/features/structures/StructurePropertiesModal.tsx`
+  - Module-level `STORY_OPTIONS = [1, 2, 3] as const` (more than
+    three stories is implausible for any homestead structure in
+    scope).
+  - State `storiesCount` initialised from
+    `props.structure.storiesCount ?? 1` on edit, `1` on new.
+  - Save payload extends `StructureModalSaveData` with optional
+    `storiesCount`.
+  - Footprint summary line now appends `· N stories = M m² floor`
+    when stories > 1, leaving the existing single-story line
+    untouched.
+  - Stories selector (three chips) below the summary, with a muted
+    note that the map footprint stays single-level.
+  - Alternate-footprint preset cost (shipped earlier this session)
+    now multiplies by `storiesCount` so the chip preview matches
+    the persisted value.
+
+### Changed
+- `apps/web/src/components/panels/DesignToolsPanel.tsx`
+  - New-placement save handler accepts `storiesCount` and persists
+    it onto the new `Structure` only when > 1 (legacy single-story
+    structures stay clean — no extra field).
+  - Edit save handler always writes `storiesCount: storiesCount ?? 1`
+    so reverting from 2 stories back to 1 actually persists
+    (Partial<Structure> spread won't clear an absent key on its own).
+- `packages/shared/src/featureManifest.ts` — appended a new §9
+  entry `multi-story-structure-support` (P3, done) directly after
+  `alternate-footprint-options`.
+
+### Decisions
+- **One field, not two.** Could have separately persisted
+  `floorAreaTotalM2` so non-rectangular floor plans could break the
+  `width × depth × stories` assumption. Skipped — current model is
+  still rectangular-only at every other layer; a future "free-form
+  floor plan" feature would replace this calc, not extend it.
+- **Map geometry unchanged.** Considered rendering a 3D-ish hint
+  (extruded polygon, drop shadow lengthened) for multi-story
+  structures. Out of scope and would muddy the existing siting /
+  setback visuals. Stories are persisted but stay invisible on the
+  plan view; the modal is the only surface that reads the field.
+- **No automatic rollup updates.** PhasingDashboard / build-order
+  cards still read `costEstimate` directly without applying stories
+  separately — because stories are already baked into the cost the
+  steward actually saves (via the alternate-footprint preview, or
+  by typing the multi-story figure manually). Avoids double-counting.
+- **Persist on > 1 only for new structures.** Lets a quick "place a
+  shed" stay schema-clean. Edit always writes the field so reverting
+  to 1 is a true revert, not a quirk.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192
+  npx tsc --noEmit` — clean.
+- Type signature of `StructureModalSaveData` and the two
+  `DesignToolsPanel` save handlers all line up; new optional field
+  is handled at every persistence boundary.
+
+---
+
 ## [2026-04-25] session | Atlas §9 — alternate footprint options
 
 Closed §9 `alternate-footprint-options` (P3, planned → done) on the
