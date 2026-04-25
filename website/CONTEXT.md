@@ -43,4 +43,4 @@ Decision record: `wiki/decisions/2026-04-14-amanah-gate-protocol.md`
 ### Knowledge Graph
 A graphify graph of this website lives at `website/graphify-out/graph.html`. Open in any browser. Run `/graphify --update website` after significant copy changes to keep it current.
 
-God nodes (most connected): BBOS Product (12 edges), OLOS Product (11), BBOS Nine-Stage Pipeline (11).
+Keystone Nodes (most connected): BBOS Product (12 edges), OLOS Product (11), BBOS Nine-Stage Pipeline (11).

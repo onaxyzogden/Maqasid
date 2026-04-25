@@ -36,7 +36,7 @@ The pattern name is distinct from the existing `amanah-gate` concept (ethical pe
 | **Tier 1** | High — federal API, auto-populated | G1 — documented evidence | M1 — capital committed, irrevocable |
 | **Tier 2** | Medium — user-provided | G2 — pattern-based inference | M2 — agreement signed/awarded |
 | **Tier 3** | Low — derived or estimated | G3 — aspiration/intent | M3 — intent declared, applied |
-| **Gate** | Site suitability score | Stage 02 Amanah Gate | Community enrollment gate |
+| **Gate** | Site suitability score | Stage 01 CRD Amanah Proof Audit | Community enrollment gate |
 | **What it blocks** | Overconfident site recommendations | Pipeline advancement without evidence | Founding member onboarding on unconfirmed channels |
 | **What it protects** | Integrity of land decisions | Barakah — corrupt foundations corrupt the business | Community covenant — enrolling on M3-only channels breaks the founding promise |
 
@@ -73,7 +73,7 @@ The same design commitment appears independently in two products before being na
 ## Connections
 
 - [[amanah-gate]] — existing concept page, extended by this decision
-- [[bbos-pipeline]] — BBOS implements G-Label and Stage 02 gate
+- [[bbos-pipeline]] — BBOS implements G-Label and the Stage 01 CRD Amanah Proof Audit gate
 - [[olos]] — OLOS implements Confidence Framework and site suitability gate
 - [[covenant-architecture]] — governing philosophy
 - [[graphify]] — the tool that surfaced this pattern from the website corpus

@@ -30,7 +30,7 @@ OGDEN Ecosystem is that surface.
 
 | Sub-pillar | Represents | Route |
 |---|---|---|
-| BBOS | [[bbos-pipeline]] — 8-stage covenant pipeline for Islamic business | `/app/ogden-bbos` |
+| BBOS | [[bbos-pipeline]] — 9-stage covenant pipeline for Islamic business | `/app/ogden-bbos` |
 | MILOS   | [[milos]] — this project; the operating system for the Seven Maqasid | `/app/ogden-milos` |
 | Atlas | [[olos]] — geospatial land intelligence (CSRA readiness) | `/app/ogden-atlas` |
 

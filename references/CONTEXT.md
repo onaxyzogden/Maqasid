@@ -9,6 +9,7 @@ Long-lived reference material that rarely changes. Style guides, voice documents
 | style-guide.md | Design tokens, color palette, spacing scale, typography |
 | voice-and-tone.md | Islamic terminology standards, Arabic transliteration, UI copy voice |
 | component-library.md | Component catalog with props, variants, and usage examples |
+| bbos-protocol.md | BBOS v2.4 canon: 9 stages, 3 layers, Two-Factory architecture, Assembly Gate, Amanah Proof Audit, G-Label tiers |
 
 ## When to Read
 - Before creating new components (check style-guide.md)

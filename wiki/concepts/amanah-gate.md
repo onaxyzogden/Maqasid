@@ -2,7 +2,7 @@
 title: "Amanah Gate"
 type: concept
 created: 2026-04-09
-updated: 2026-04-14
+updated: 2026-04-25
 tags: [ethics, permissibility, protocol, amanah, bbos, atlas, moontrance, tiered-honesty]
 sources: 0
 ---
@@ -20,7 +20,7 @@ The protocol is documented in `docs/principles.md` and is a mandatory step in th
 ## Application
 
 - In the **Context-First Protocol** (`CLAUDE.md`), the Amanah Gate is Step 1 -- executed before identifying domains, reading CONTEXT.md files, or touching any source file.
-- In the [[bbos-pipeline]], it appears at **Stage 01 QAL (Qualification)** -- the first stage where a potential engagement is screened for alignment with Islamic business standards.
+- In the [[bbos-pipeline]], it appears at **Stage 01 CRD (Credibility)** -- the qualification stage where a potential engagement is screened for alignment with Islamic business standards via the Amanah Proof Audit.
 - In the UI, the concept is echoed by the [[ceremony-gate-pattern]] -- the CeremonyGate component that gates module access with Quranic grounding.
 - AI subagents operating within [[milos]] are required to receive the Amanah Gate as part of their prompt context. No autonomous agent bypasses this check.
 - When the gate triggers a stop, the concern is surfaced to the human operator with a clear description of which Maqasid objective is at risk.
@@ -54,7 +54,7 @@ All three tiers use a single set of labels across all OGDEN products. See [[aman
 | Product | Bayyinah | Qarina | Niyyah | Gate |
 |---|---|---|---|---|
 | **OLOS** | Federal API data | User-provided | Derived / estimated | Site suitability score |
-| **BBOS** | G1 + G2 (evidence + documented pattern) | G3 (limited inference) | G4 (aspiration) | Stage 02 Amanah Gate |
+| **BBOS** | G1 + G2 (evidence + documented pattern) | G3 (limited inference) | G4 (aspiration) | Stage 01 CRD Amanah Proof Audit |
 | **MTC** | M1 (capital committed) | M2 (agreement signed) | M3 (intent declared) | Community enrollment gate |
 
 ### Shared Theological Root
@@ -66,7 +66,7 @@ Amanah (trust) and Khilafah (stewardship) define the same obligation from two di
 - [[maqasid-al-shariah]] -- the evaluative framework the gate enforces
 - [[ceremony-gate-pattern]] -- UI-layer parallel (gates interaction; Amanah Gate gates ethics)
 - [[covenant-architecture]] -- the design philosophy that mandates this gate
-- [[bbos-pipeline]] -- Stage 01 QAL implements the ethical gate; G-Label + Stage 02 implements the evidential gate
+- [[bbos-pipeline]] -- Stage 01 CRD implements both the ethical gate (Amanah Proof Audit) and the evidential gate (G-Label tiers G1-G4)
 - [[olos]] -- Confidence Framework + site suitability score implements the evidential gate
 - [[milos]] -- the system in which this protocol operates
 - [[amanah-gate-protocol]] -- canonical spec for universal Bayyinah/Qarina/Niyyah tier labels
