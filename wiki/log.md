@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §23 Cartographic Style Presets Card
+
+**Objective:** Continue manifest gap-fill audit. User picked candidate 1 (cartographic style export presets), mapped to manifest §23 `branded-presentation-print-layout` (P3, planned).
+
+**Outcome:** Shipped `CartographicStylePresetsCard.tsx` + CSS module on the Cartographic dashboard. Four curated map-style presets — Blueprint (engineer/permit), Sepia Field Map (steward/family), Presentation (investor/board), Audit (reviewer/inspector) — each with palette swatches, hex legend, audience, recommended export format, and optional caveat. Active selection persists to `localStorage` under `atlas:cartographic-style-preset` for downstream PDF/PNG export pickup. Manifest §23 line 541 flipped planned → done. `tsc --noEmit` clean. Atlas commit `381d7a0` on `feat/shared-scoring`.
+
+**Carries forward:** Map-canvas live binding for the active preset (intentionally out of scope here — belongs to MapCanvas / export pipeline). Three more fresh candidates to propose next.
+
+---
+
 ## [2026-04-25] session | MILOS — Inline-cited Quran refs backfilled into structured sources
 
 **Objective:** User surfaced a follow-on pattern after the migration arc: subtask `description` prose sometimes cites a specific ref (e.g. `"There is no tiyarah" (Bukhari 5776)`) that doesn't appear in the structured `sources[]`. Resolve by auditing all 8 pillars and backfilling.
