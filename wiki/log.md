@@ -3,6 +3,91 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §11 — welfare notes + infrastructure phasing rollup
+
+Closed §11 `welfare-notes-infrastructure-phasing` (P2, planned → done).
+A second §11 card on LivestockDashboard (after `LivestockLandFitCard`,
+before the project-wide Animal Welfare Summary) that surfaces the two
+spec-line halves the existing welfare summary doesn't cover:
+per-species welfare standards (fencing/water/shelter notes from
+`LIVESTOCK_SPECIES`) and a per-phase infrastructure rollup grouped by
+the free-text `phase` field on each paddock.
+
+### Added
+- `LivestockWelfarePhasingCard.tsx` (~280 lines, presentation-layer
+  only). Reuses `computeShelterAccess` and `computeWaterPointDistance`
+  from `livestockAnalysis.js` plus the `LIVESTOCK_SPECIES` catalog —
+  no new entity types, no new shared exports, no new endpoints.
+
+- Local sets:
+  - `REAL_FENCE_TYPES` = `electric | post_wire | post_rail | woven_wire`
+    (`none` and `temporary` flag a welfare gap)
+  - `WATER_STRUCTURE_TYPES` = `water_pump_house | well | water_tank`
+    (mirrors the welfare-summary filter on LivestockDashboard so coverage
+    counts agree)
+
+- `useMemo` chain:
+  - `paddockStatus` — per-paddock `{ shelterOk, waterOk, fencingOk }`
+    booleans, computed once
+  - `speciesRows` — keyed by every species mentioned in this project's
+    paddocks; multi-species paddocks contribute to each species's row.
+    Sorted by paddock count desc.
+  - `phaseRows` — paddocks grouped by `phase` (defaults to
+    `'Unassigned'`), tracking shelter/water gates met, fencing gaps, and
+    explicit `needsAnimalShelter` / `needsWaterPoint` counts. Sorted
+    via `localeCompare` — close enough for the "Phase 1 / Phase 2 / ..."
+    convention used elsewhere in the codebase.
+
+- Rendering:
+  - Per-species grid (`auto-fill` / `minmax(240px, 1fr)`): each card
+    shows icon + label + paddock count, three notes rows
+    (Fencing / Water / Shelter from species standards), and three gate
+    chips (Shelter X/N, Water X/N, Fencing X/N).
+  - Per-phase rows: phase name, paddock count, an "All gates met" pill
+    when applicable, three gate chips, and a "Needed before phase runs"
+    list — animal_shelter / water_tank placement counts plus fencing
+    upgrade counts — only rendered when the phase has a gap.
+  - `GateChip` helper: thresholds `≥0.999` good (green tint), `≥0.5`
+    partial (amber), else poor (red).
+  - Footnote explicitly cites `LIVESTOCK_SPECIES`, `computeShelterAccess`
+    (≤300m), `computeWaterPointDistance` (species-keyed thresholds,
+    150m default), and the free-text-phase ordering caveat.
+
+- `LivestockWelfarePhasingCard.module.css` matches the visual grammar
+  of `LivestockLandFitCard.module.css` (12px card border-radius,
+  `rgba(232, 220, 200, 0.92)` high-emphasis text, `rgba(180, 165, 140,
+  0.55)` muted, dim borders `rgba(255, 255, 255, 0.06)`). Gate chips
+  carry the same green/amber/red palette as the land-fit matrix tiers.
+
+### Changed
+- `LivestockDashboard.tsx` mounts `<LivestockWelfarePhasingCard
+  projectId={project.id} />` between the existing
+  `<LivestockLandFitCard ... />` and the Animal Welfare Summary section,
+  so all §11 rollups cluster together visually.
+
+- `featureManifest.ts` line 303 (`welfare-notes-infrastructure-phasing`)
+  flipped `planned` → `done`.
+
+### Verification
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc
+  --noEmit` clean (no errors mentioning `LivestockWelfare*` or
+  `LivestockDashboard`).
+
+### Honest framing
+- Phase ordering depends on the user adopting "Phase 1 / Phase 2 / ..."
+  naming — `Paddock.phase` is a free string. Alphabetical sort works
+  for that convention but breaks if users invent custom labels
+  (`'Initial'` would sort before `'Phase 1'`).
+- "Needed before phase runs" counts shelter/water-point placements one
+  per non-satisfying paddock — a single barn can serve multiple paddocks
+  so the count is an upper bound, not a precise placement quota.
+- Multi-species paddocks contribute to each species's row in the
+  per-species rollup; the grid totals therefore exceed the project's
+  paddock count in mixed-grazing scenarios. Intentional — keeps each
+  species's standards visible regardless of co-housing.
+
+---
+
 ## [2026-04-25] session | Atlas §16 — water flood/drought scenario sim
 
 Closed §16 `water-flood-drought-scenario-sim` (P3, planned → done).
