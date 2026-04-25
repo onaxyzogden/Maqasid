@@ -3,6 +3,67 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §9 — structure dependency & build-order
+
+Closed §9 `structure-dependency-build-order` (P3, planned → done) on
+the manifest. Different shape than the rule-rollup trio shipped earlier
+in the session — this one buckets placed structures into a four-phase
+build order based on `category` and `infrastructureReqs` from
+STRUCTURE_TEMPLATES, and checks each structure's required utilities
+against placed utilities in the project.
+
+### Added
+- `apps/web/src/features/structures/BuildOrderCard.tsx` — pure
+  presentation. Reads structureStore + utilityStore. Phase model:
+  - **Phase 1 — Foundation**: 3-cell grid (water / power / septic)
+    showing "X placed" or "Missing" with color-coded border. Maps each
+    utility type to the req key it provides:
+    - water ← `water_tank` | `well_pump` | `rain_catchment`
+    - power ← `solar_panel` | `battery_room` | `generator`
+    - septic ← `septic` | `greywater`
+  - **Phase 2 — Dwellings**: structures with `category === 'dwelling'`.
+  - **Phase 3 — Working Buildings**: `category in {'agricultural',
+    'infrastructure'}`.
+  - **Phase 4 — Program**: `category in {'gathering', 'spiritual'}`.
+
+  Each structure pill renders ✓ ready or ⚠ "needs water + power" based
+  on whether its `infrastructureReqs` are satisfied by placed utilities.
+  Header surfaces total blocked count.
+
+- `apps/web/src/features/structures/BuildOrderCard.module.css` — phase
+  list with blue-cool foundation tint to distinguish "sequencing" from
+  the warm-amber "exposure" rollups.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  — mounted `<BuildOrderCard projectId={project.id} />` directly below
+  SetbackSlopeSolarCard. The dashboard now carries five §-rollup cards
+  in a stewardship-narrative arc: gathering capacity → wind/view/privacy/
+  noise → walkability/water/zone → setback/slope/solar → build order.
+- `packages/shared/src/featureManifest.ts` line 257 — flipped status
+  `planned → done`.
+
+### Decisions
+- *Why not mount on PhasingDashboard?* PhasingDashboard already exposes
+  "Build-Order Warnings" via the existing `checkBuildOrder` helpers,
+  framed around user-assigned phase violations. The new card answers
+  a different question: "what's the heuristic dependency picture for
+  the structures I have placed today, regardless of phase assignment?"
+  Mounting on Educational Atlas keeps it in the steward-narrative
+  family; the two surfaces stay legibly distinct.
+- *Heuristic phase model, not rule-driven.* The four-phase bucketing is
+  category-driven (no new rule definitions). The footnote calls this
+  out — a steward with existing site utilities can build out of order;
+  the card is a conversation starter, not a hard sequencer.
+- *Reused existing dwelling-needs-water/septic/power semantics implicitly.*
+  Rather than re-evaluating those rules and filtering, the card recomputes
+  the same satisfaction logic locally — this avoids coupling to a hook
+  whose effective severity is weight-adjusted (we want a binary "is the
+  utility placed?" answer here, not a severity-weighted alert).
+
+### Verified
+- `tsc --noEmit` from `apps/web` clean for touched files.
+
 ## [2026-04-25] session | Atlas §9 — setback / slope / solar rollup
 
 Closed §9 `setback-slope-solar-orientation-warnings` (P3, *partial* →
