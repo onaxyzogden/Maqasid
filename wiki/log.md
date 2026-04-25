@@ -3,6 +3,89 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §8 — quiet contemplation zone rollup
+
+Closed §8 `quiet-contemplation-zone-planning` (MT, partial → done).
+ContemplationZonesCard surfaces zones tagged for contemplation
+(category `spiritual` OR keyword match) and reports two proximity
+metrics per zone: nearest noise source and nearest prayer facility.
+A contemplation zone with a noise source within 100 m gets a
+warning-tinted tile and inline highlight; one without a prayer
+facility nearby gets a "None nearby" pending pill.
+
+### Added
+- `apps/web/src/features/zones/ContemplationZonesCard.tsx` — pure
+  presentation. Reads zoneStore + structureStore + utilityStore.
+  - `CONTEMPLATION_KEYWORDS`: contemplation, quiet, meditation,
+    meditat, dhikr, khalwa, retreat, reflection, silence, silent,
+    prayer, salah, salat. Zone matches if category is `spiritual`
+    or any keyword appears in name / notes / primaryUse /
+    secondaryUse (lowercased).
+  - `NOISE_STRUCTURE_TYPES`: animal_shelter, barn, workshop,
+    fire_circle, pavilion, water_pump_house. The honest set of
+    on-site noise generators visible to other §-rollup cards.
+  - `NOISE_UTILITY_TYPES`: generator, well_pump.
+  - `PRAYER_FACILITY_TYPES`: prayer_space (only — bathhouses
+    aren't prayer facilities themselves).
+  - `NEARBY_RADIUS_M = 100`. Slightly wider than
+    SpiritualCommunalCard's 50 m wudu-walk threshold because here
+    we measure from a zone centroid (not a structure center) and
+    contemplation tolerates a wider buffer than ablution.
+  - 3-tile grid: Tagged zones · Noise nearby · Prayer nearby. The
+    noise tile uses the existing `tile_warning` / `pill_warning`
+    severity classes when > 0; the prayer tile uses `tilePending`
+    when 0 — repurposing severity language already established by
+    SitingWarningsCard.
+  - Per-zone list (capped at 5) shows the nearest noise source's
+    name + distance (with the distance highlighted amber when
+    within the threshold) and the nearest prayer facility's name
+    + distance.
+  - Footnote frames the noise-source list as a proxy for the §5
+    noise rules, not a replacement (those rules use richer
+    geometry; this card uses center-to-centroid distance).
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  - Imported and mounted `<ContemplationZonesCard projectId={project.id} />`
+    directly below SpiritualCommunalCard. The dashboard now hosts
+    seven rollup cards across §5 / §8 / §9.
+- `packages/shared/src/featureManifest.ts` — §8 line 232
+  `quiet-contemplation-zone-planning` flipped `partial` → `done`.
+
+### Decisions
+- **Centroid-based proximity, not polygon-edge.** Could compute the
+  shortest distance from the zone polygon edge to the structure
+  point (more accurate for elongated zones). Skipped because
+  centroid-to-center is the same convention SpiritualCommunalCard
+  uses; the proxy is honest and the spec line is about
+  steward-facing planning awareness, not an engineering buffer.
+- **Noise sources are explicit, not inferred from §5 evaluations.**
+  Considered pulling from `useSitingEvaluation` violations
+  (category `noise`), but those rules apply to specific feature
+  pairs and don't give a "this zone has a noise source nearby"
+  view. Hard-coded the on-site noise-generator list at the top of
+  the card so the reader can see exactly what's classified as
+  noise. If the §5 rules expand, the card's list can be widened
+  in one edit.
+- **Sixth card to share SitingWarningsCard.module.css.** Pattern is
+  now set: every §-rollup card on EducationalAtlasDashboard imports
+  the same module. Visual drift impossible by construction; tile
+  grid, severity classes, and pill / dot / footnote idioms all
+  reused.
+- **Prayer facility = prayer_space only.** Bathhouses, classrooms,
+  and pavilions can host gatherings but they're not prayer
+  facilities in the sense a contemplation zone benefits from.
+  Honest narrowing.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192
+  npx tsc --noEmit` — clean.
+- Utility interface exposes `name` and `center: [number, number]`
+  (verified at utilityStore.ts:30 and :32) so nearestUtility can
+  read both without casting.
+
+---
+
 ## [2026-04-25] session | Atlas §9 — spiritual & communal facility rollup
 
 Closed §9 `prayer-bathhouse-classroom-placement` (MT, partial → done)
