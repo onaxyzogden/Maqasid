@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Ummah pillar two-axis grounding migration complete
+
+**Objective:** Second pillar pass after Faith. Migrate the 525 legacy-string `sources` entries in `ummah-seed-tasks.js` to structured two-axis arrays per [[2026-04-18-milos-grounding-two-axis]].
+
+**Shipped:**
+- [scripts/migrate-ummah-grounding.mjs](scripts/migrate-ummah-grounding.mjs) — verbatim copy of the Faith parser with FILE path swap. 525 entries migrated, 0 skipped. No grammar changes needed; the four new collection prefixes (`Jami at-Tirmidhi`, `Musnad Ahmad`, `Sunan Ibn Majah`, `Sunan an-Nasai`) are already in canonical sunnah.com form and pass through `parseMarkdown()` unchanged.
+- 1 Quran-MCP patch — Quran 55:7-9 had only a header in legacy markdown so the parser captured `**II. Hadith**` as translation and emitted no Arabic. Patched with ar-simple-clean + en-abdel-haleem.
+- [scripts/audit-ummah-migration.mjs](scripts/audit-ummah-migration.mjs) — 10 deterministic random matched entries, 0 ref-count mismatches.
+- Ummah ratchet decremented `525 → 0` in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js).
+- Decision record: [[2026-04-25-milos-ummah-grounding-complete]].
+
+**Verification:**
+- `npm test` → 40/40 green
+- `npm run build` → exit 0; ummah seed chunk 1,442 KB / 419 KB gz
+- `npm run lint:grounding-strict` → 1692 → 1167 legacy entries (delta = 525)
+- Preview confirmed — `/app/work/ummah_collective_core/tasks` → "Memorise Quranic and Prophetic du'as" subtask → `Source` panel renders Surah An-Nisa [4:75] structured card with Bayyinah + Direct chips, full Arabic word-by-word breakdown, quran.com link; hadith cards (Sahih al-Bukhari 2448, Sahih Muslim 1882) display Sahih grade chip and sunnah.com link.
+
+**Discipline:** Parser proved reusable — five remaining pillars (Life 236, Intellect 236, Family 233, Wealth 236, Environment 226 — total 1,167) are now one-FILE-swap each. Synthesized rationales for entries without `*(Direct/Contextual/Thematic)*` annotations remain a downstream enrichment pass.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §11 mobile tractor zones card (chicken / rabbit / pig)
 
 **Objective:** Close the §11 `chicken-rabbit-pig-tractor-zones` manifest item (P2, planned) with a presentation-layer card that identifies crop areas and zones suited for rotating mobile-tractor systems and recommends head capacity for a one-week rotation.
