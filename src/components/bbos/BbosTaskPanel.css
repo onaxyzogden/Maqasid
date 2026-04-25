@@ -69,11 +69,12 @@
 }
 
 .btp-title {
-  font-size: 1.875rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: var(--font-serif, var(--font-heading));
+  letter-spacing: -0.025em;
   color: var(--text);
-  line-height: 1.2;
+  line-height: 1.15;
   margin: 0;
 }
 
@@ -188,7 +189,7 @@
 
 .btp-purpose-text {
   font-size: 14px;
-  color: var(--text2);
+  color: color-mix(in srgb, var(--text) calc(var(--motif-ghost-variant-opacity, 0.7) * 100%), transparent);
   line-height: 1.7;
   margin: 0;
   max-width: 720px;

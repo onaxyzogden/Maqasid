@@ -3289,3 +3289,32 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Completed:** InlineTaskDetail aligned to shared vocabulary (Q1, Q3, Q5 applied; Q2/Q4 documented as intentionally skipped).
 - **Deferred:** Live preview verification (component out of reach without project-board setup).
 - **Recommended next session:** Either (a) audit any remaining task-display surfaces (e.g., `BbosTaskPanel`, modal flows in `KanbanBoard`) for the same vocabulary alignment, or (b) push the lint backlog sweep.
+
+## 2026-04-25 — Audit: BbosTaskPanel + KanbanBoard vocabulary alignment
+
+**Trigger:** Final follow-on from TaskDetailPanel scholar refit — audit remaining task-display surfaces for the same shared vocabulary.
+
+**Audit results:**
+
+| Surface | Verdict |
+|---|---|
+| `KanbanBoard.{jsx,css}` | No own modal — delegates `onSelectTask` to parent (which mounts TaskDetailPanel). No work needed. |
+| `BbosTaskPanel.{jsx,css}` | Q1 (editorial title) + Q5 (purpose recede) apply. Q2/Q3/Q4 do not — explained below. |
+
+**Why Q2/Q3/Q4 don't apply to BbosTaskPanel:**
+- **Q2 (priority demote):** No priority pill. Stage badge + editable status select sit above title; both are intentionally interactive/anchoring, not display-only.
+- **Q3 (tier rollup):** BBOS tasks carry `stage`/`subLevel`, not `tier`. Different domain vocabulary.
+- **Q4 (ghost Done):** Done button isn't gated by progress — it's a validation gate (all defined fields must have content). The current `btp-done-btn--shake` on validation failure is already a scholar-friendly "never looks broken" signal. Always-filled accent style fits the always-actionable semantics.
+
+**Changes — `src/components/bbos/BbosTaskPanel.css`:**
+- **Q1 (`.btp-title`):** `2rem / weight 400 / Noto Serif / -0.025em / line-height 1.15` (was `1.875rem / 800 / font-heading / 1.2`).
+- **Q5 (`.btp-purpose-text`):** color now `color-mix(in srgb, var(--text) calc(var(--motif-ghost-variant-opacity, 0.7) * 100%), transparent)` (was `var(--text2)`). Aligns the purpose paragraph with the same recede formula used in TaskDetailPanel and InlineTaskDetail.
+
+**Verification:**
+- `npm run build` ✓ (1.50s)
+- Live preview verification skipped: BBOS section in preview has no seeded tasks, so panel can't be reached. CSS is isolated to two selectors and mirrors already-verified pattern.
+
+### Session Debrief
+- **Completed:** Audit of KanbanBoard + BbosTaskPanel; Q1+Q5 applied to BbosTaskPanel where applicable; Q2/Q3/Q4 documented as intentionally skipped due to BBOS architectural differences.
+- **Deferred:** Live preview verification (no seeded BBOS tasks in current dev state).
+- **Recommended next session:** Lint backlog sweep, or audit any other modal-style surfaces (e.g., `ProjectSlideUp`, `SubmoduleSlideUp`) that may carry display title + description pairs.
