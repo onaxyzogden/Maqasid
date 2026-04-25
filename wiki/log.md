@@ -13,6 +13,18 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas — §17 Guest Privacy Card (closes manifest entry)
+
+**Objective:** Final slice that closes the §17 manifest item `siting-rules-privacy-solar-access-safety` outright. Privacy was the last planned half after this session's earlier ships covered access (AccessEfficiencyCard) and safety (SafetyBufferRulesCard); solar was already shipped via RulesEngine `solar-orientation`.
+
+**Outcome:** New `GuestPrivacyCard` (`apps/web/src/features/rules/`) identifies the owner dwelling as the largest dwelling structure on the parcel by `widthM × depthM` and enumerates guest accommodations as the remaining dwellings plus `tent_glamping` / `yurt` units. For each guest unit, scores three privacy signals: (1) flat-earth distance to owner dwelling vs. a 40 m / 20 m good/fair threshold, (2) relative facing — initial bearing from guest to owner compared against the guest's `rotationDeg` (clockwise from north), with delta < 60° = "Faces owner" (poor), 60–120° = "Perpendicular" (fair), > 120° = "Faces away" (good), and (3) walk-distance off the nearest path segment vs. a 5 m / 2 m good/fair threshold. The worst signal drives the guest's overall tone. Card surfaces a tally bar (poor / fair / good / count), a per-guest 3-cell signal grid, and a worst-privacy recommendation block when any guest is non-good. Inline `flatEarthMeters` / `bearingDeg` / `projectOntoSegment` helpers — no new shared math, no rule-engine changes. Mounted on `DecisionSupportPanel` directly below `SafetyBufferRulesCard`. Manifest `siting-rules-privacy-solar-access-safety` partial → **done**. All four sub-items (privacy, solar, access, safety) now covered. tsc clean. Atlas commit `ae87618` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene (recurring):** This commit also absorbed parallel-session work on `OperatingRunwayCard` + `EconomicsPanel.tsx` (3 extra files, ~510 lines). Same pattern as the safety-buffer ship — `git diff --cached --name-only` showed exactly 4 staged files immediately before commit, but the commit itself contained 7. Confirmed no pre-commit hook in `.git/modules/atlas/hooks/`; the most likely cause is a parallel session running `git add` between this session's stage and commit calls. Functionally additive in both cases, no conflict, but the commit message accurately describes only this session's work — parallel work is credited in the cohabiting commit metadata.
+
+**Carries forward:** §17 manifest entry is now done — natural next moves are the user-adjustable design-priority weight sliders (separate planned item, would let stewards retune the thresholds these three cards hard-code) or the OGDEN-specific design template / farm-retreat-conservation-homestead-multi-enterprise design templates (both still planned in §17).
+
+---
+
 ## [2026-04-25] session | Atlas — §17 Safety Buffer Rules Card
 
 **Objective:** Close the safety-buffer half of the §17 manifest item `siting-rules-privacy-solar-access-safety`, picking up directly from the access-efficiency ship earlier in the session.
