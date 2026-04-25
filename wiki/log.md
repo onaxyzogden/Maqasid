@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §16 erosion · grazing pressure · recovery rollup
+
+**Objective:** Close the §16 `erosion-grazing-recovery-modeling` manifest item (P3, planned) with a per-paddock erosion × grazing-pressure × recovery-timeline rollup on the GrazingDashboard.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/scenarios/ErosionGrazingRecoveryCard.tsx](atlas/apps/web/src/features/scenarios/ErosionGrazingRecoveryCard.tsx) (~290 lines):
+  - **Site erosion score** (0-100): multiplicative stack of slope (full-load at 25°), NRCS hydrologic-group weight (A 0.4 → D 1.0), and shielding from canopy + organic matter. Per-paddock score adds a stocking penalty (heavily-stocked paddocks lose ground cover).
+  - **Stocking ratio**: `paddock.stockingDensity / computeRecommendedStocking(species, forage)` — flags overgrazing once forage quality is factored in.
+  - **Rest debt**: days past `LIVESTOCK_SPECIES.recoveryDays` from `computeRecoveryStatus`.
+  - **Compound risk band**: low / moderate / high / critical (critical requires both high erosion AND active overgrazing).
+  - **Recovery-to-baseline timeline**: base 0.5y + erosion contribution (≤3y) + over-stocking contribution (≤1.5y) + rest-debt contribution (≤1y). Capped at 6y because longer projections need intervention design, not a heuristic.
+- Renders three summary stats (area-weighted erosion / overgrazed count / worst recovery yr), a stacked area-weighted risk-band bar with legend, and per-paddock rows tinted by band.
+- Mounted on `GrazingDashboard.tsx` between the overgrazing alerts and the historical archetypes section.
+- Manifest line 400 flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean.
+
+**Discipline:** Pure presentation — no shared-package math touched. Re-uses three existing analysis primitives (`computeForageQuality`, `computeRecommendedStocking`, `computeRecoveryStatus`). Atlas commit `659216b` — 4 files, 709 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §16 carrying-capacity site-level rollup
 
 **Objective:** Close the §16 `carrying-capacity-yield-projections` manifest item (P3, planned) with a presentation-layer site-level "what can this land actually carry?" rollup composing livestock + crops + water lenses.
