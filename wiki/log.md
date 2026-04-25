@@ -3,6 +3,93 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §11 — livestock-land fit matrix
+
+Closed §11 `livestock-land-fit-enterprise-zone` (P3, planned → done).
+LivestockLandFitCard renders a per-zone × per-species fit matrix on
+LivestockDashboard with 0–3 stars per cell and a hover-rationale
+tooltip explaining each rating. First card on a dashboard outside
+the §5/§7/§8/§9 rollup adjacency this loop has been working in.
+
+### Added
+- `apps/web/src/features/livestock/LivestockLandFitCard.tsx` — pure
+  presentation. Reads zoneStore + siteData. No new shared exports.
+  - `MATRIX_SPECIES = ['cattle','sheep','goats','poultry','pigs']` —
+    five major enterprise species. Horses/ducks_geese/rabbits/bees
+    intentionally omitted to keep the matrix readable; all live in
+    the LIVESTOCK_SPECIES catalog and are noted in the footnote.
+  - `SLOPE_TOLERANCE_DEG` per species (cattle 12°, sheep 25°,
+    goats 35°, poultry 10°, pigs 8°) — rules-of-thumb from
+    rotational-grazing literature, not species-data-sheet values.
+  - `DRAINAGE_PREFERENCE` per species: well / any / wet. Matched
+    against SSURGO `drainage_class` strings (substring contains
+    "poor" → wet site; "well drained" without "moderately" → well-
+    drained site).
+  - `ZONE_CATEGORY_FIT` map: livestock/food_production/commons → ok,
+    spiritual/water_retention/habitation/infrastructure → no,
+    everything else → mixed.
+  - `computeFit(zone, species, info, slope, drainage)` returns
+    `{ stars: 0|1|2|3, reasons: string[] }`. Hard-fails to 0 stars
+    on category mismatch; otherwise starts at 3 and subtracts: −1
+    for mixed category, −2 for area below `info.minPaddockHa`, −1
+    for slope-out-of-tolerance, −1 for drainage mismatch. Reasons
+    are appended for each axis whether it passes or fails so the
+    tooltip reads as a complete decision trail, not just a
+    complaint list.
+  - Sortable HTML `<table>` inside a horizontally scrollable
+    `.tableWrap` (matrix needs 520 px min). Sticky `<thead>` for
+    when zone count grows.
+  - Cell tinting via `.fitTier_3 / _2 / _1 / _0` so the grid reads
+    at a glance before any hover. Star rendering uses ★ (U+2605)
+    with `.starOn / .starOff` opacity treatment.
+  - Site banner above the matrix surfaces site slope and drainage
+    so the steward sees what the heuristic is reading from.
+
+- `apps/web/src/features/livestock/LivestockLandFitCard.module.css`
+  — first dedicated CSS module on this dashboard. The shared
+  SitingWarningsCard.module.css can't carry this matrix (no grid
+  cells, no sticky thead, no star rendering). Visual tokens
+  (colors, spacing, font sizes, border-radii) are matched to the
+  shared rollup so the card reads as a member of the same family.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/LivestockDashboard.tsx`
+  imports and mounts `<LivestockLandFitCard projectId={…} />`
+  between Detailed Ledger and Animal Welfare Summary. Renders for
+  any project with at least one zone (paddocks not required —
+  the matrix is about land, not stocking).
+
+- `packages/shared/src/featureManifest.ts` line 300:
+  `livestock-land-fit-enterprise-zone` planned → done.
+
+### Decisions
+- Heuristic over scoring engine. The §11 spec line is satisfied by
+  a transparent, steward-readable rating, not a stocking-density
+  quote. Putting this in `@ogden/shared` would imply
+  cross-consumer math; instead, keep it in apps/web where the
+  zone-category vocab and SSURGO field shapes already live. Same
+  rationale that kept PhasingDashboard's cost rollup local.
+- Five-species cap. Showing all nine LIVESTOCK_SPECIES makes the
+  table 9 columns wide on a sidebar-narrowed dashboard. Five
+  enterprise species cover ~95% of regenerative-ag use cases; the
+  rest are noted in the footnote and remain available in
+  speciesData.ts for future per-zone deep-dives.
+- 0-star floor on category mismatch. Don't surface "1 star, but
+  consider…" suggestions for habitation or spiritual zones. The
+  rating should hard-fail to 0 so a steward never reads "consider
+  cattle in your prayer space" as anything but a clear no.
+- Horse slope tolerance 15° lands between cattle (12°) and sheep
+  (25°). Conservative — horses can navigate steeper terrain but
+  the tolerance here is for sustained pasturing, not trail use.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx
+  tsc --noEmit` — clean (empty output).
+- `_id` notation (e.g., `css.fitTier_3`) compiled by tsc; CSS-
+  modules typing accepts underscore-suffixed class names.
+
+---
+
 ## [2026-04-25] session | Atlas §8 — quiet contemplation zone rollup
 
 Closed §8 `quiet-contemplation-zone-planning` (MT, partial → done).
