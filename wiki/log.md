@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Inline-refs Phase 2 hadith backfill (ratchet → 0)
+
+**Objective:** Close the 13 inline-cited hadith refs missing from structured `sources[]` — the Phase 2 follow-up to the Quran backfill.
+
+**Outcome:** Retrieved canonical Arabic + translations for all 11 unique hadith refs from NotebookLM Muslim Scholar (1c17b03b) over two passes (ref-based + content-based). Built `scripts/backfill-inline-hadith-refs.mjs` and applied 13 entries across faith(1)/family(1)/ummah(11). Decremented `RATCHET` in `scripts/audit-inline-refs.mjs` from 13 → 0. Three entries carry `ratNote` flags for sunnah.com canonical-numbering verification (Bukhari 5267, Tirmidhi 2007 ×2 — Muslim Scholar matched topical content but ref→text alignment uncertain). `npm test` 40/40 green; `npm run lint` exit 0 (eslint + grounding-strict + audit:inline-refs all pass); `npm run build` clean. The Bukhari 5776 case the user originally flagged via screenshot now renders as a structured SubtaskSources card. Filed [[2026-04-25-milos-inline-refs-hadith-backfill]].
+
+**Carries forward:** Scholar polish pass — verify the 3 ratNote'd refs against sunnah.com numbering. Rationale enrichment (~1,904 placeholder entries) remains the long-tail stream. Empty-array ratchet (1) decrements when the optional 4-rakʿat sunnah gets its citation.
+
+---
+
 ## [2026-04-25] session | Atlas — §21 Regulatory Risk Notes Card
 
 **Objective:** Continue manifest gap-fill audit. User picked candidate 2 (regulatory risk notes), mapped to manifest §21 `regulatory-risk-notes` (P2, planned).

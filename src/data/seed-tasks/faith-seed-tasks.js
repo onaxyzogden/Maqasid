@@ -1161,6 +1161,16 @@ Belief in divine decree (*qadar*) means affirming that Allah's knowledge encompa
               hadithGrade: "Sahih — narrated by Abu Dawud 3883, graded sahih by al-Albani",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5776",
+              arabic: "لاَ طِيَرَةَ، وَخَيْرُهَا الْفَأْلُ",
+              translation: "There is no tiyarah (superstitious belief in bird omens), and the best of it is the good omen (al-fa'l). They asked, \"What is al-fa'l?\" He said: \"A righteous word that one of you hears.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
+            },
           ],
           description: `**Why?**
 

@@ -2966,6 +2966,16 @@ One bridge, however durable, reaches only one front of the ummah. The ummah has 
               hadithGrade: "Hasan Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2625",
+              arabic: "يَا أَبَا ذَرٍّ إِذَا طَبَخْتَ مَرَقَةً فَأَكْثِرْ مَاءَهَا وَتَعَاهَدْ جِيرَانَكَ",
+              translation: "O Abu Dharr, when you prepare broth, add more water to it, and have regard for your neighbors.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
+            },
           ],
           description: `**Why?**
 
@@ -3756,6 +3766,16 @@ The Quran says, "We have made some of you a trial for others — will you have p
               hadithGrade: "Hasan",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Jami at-Tirmidhi 2007",
+              arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلاَ يُؤْذِ جَارَهُ",
+              translation: "He who believes in Allah and the Last Day should not hurt (trouble) his neighbor.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval. NotebookLM Muslim Scholar matched the topical content (neighborly principle) — sunnah.com cross-reference verification recommended for exact ref→text alignment.",
+            },
           ],
           description: `**Why?**
 
@@ -3896,6 +3916,16 @@ The Prophet (peace be upon him) used to pray for people who were hostile to him 
               hadithGrade: "Hasan Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Jami at-Tirmidhi 1944",
+              arabic: "خَيْرُ الْأَصْحَابِ عِنْدَ اللَّهِ خَيْرُهُمْ لِصَاحِبِهِ وَخَيْرُ الْجِيرَانِ عِنْدَ اللَّهِ خَيْرُهُمْ لِجَارِهِ",
+              translation: "The best of companions in the sight of Allah is the one who is best to his companion, and the best of neighbors in the sight of Allah is the one who is best to his neighbor.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih (graded sahih by al-Albani)",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
+            },
           ],
           description: `**Why?**
 
@@ -3921,6 +3951,15 @@ The hadith in Tirmidhi 1944 establishes "best neighbor in the sight of Allah" as
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 8",
+              translation: "Umar ibn al-Khattab narrated the Hadith of Jibril, in which the Prophet (ﷺ) defined al-Ihsan as: \"That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you.\" Cited as the prophetic definition of excellence — applied to neighborly relations as exceeding the minimum.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
             },
           ],
           description: `**Why?**
@@ -4549,6 +4588,16 @@ Good intentions without structure lead to inconsistency. Some people will help e
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6011",
+              arabic: "مَثَلُ الْمُؤْمِنِينَ فِي تَوَادِّهِمْ وَتَرَاحُمِهِمْ وَتَعَاطُفِهِمْ مَثَلُ الْجَسَدِ إِذَا اشْتَكَى مِنْهُ عُضْوٌ تَدَاعَى لَهُ سَائِرُ الْجَسَدِ بِالسَّهَرِ وَالْحُمَّى",
+              translation: "The believers in their mutual kindness, compassion and sympathy are like one body; when any part of the body suffers, the whole body responds with sleeplessness and fever.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
             },
           ],
           description: `**Why?**
@@ -10086,6 +10135,16 @@ The rights of the neighbor in Islam begin with awareness. The Quran commands ihs
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6016",
+              arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلاَ يُؤْذِ جَارَهُ",
+              translation: "He who believes in Allah and the Last Day should not hurt (trouble) his neighbor.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
+            },
           ],
           description: `**Why?**
 
@@ -10206,6 +10265,16 @@ Among the explicitly listed rights of the neighbor is that you safeguard their h
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2699",
+              arabic: "وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيَا وَالْآخِرَةِ",
+              translation: "Whoever conceals (the faults of) a Muslim, Allah will conceal his faults in this world and the next.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
+            },
           ],
           description: `**Why?**
 
@@ -10306,6 +10375,16 @@ The neighborly relationship must have practical infrastructure, not just goodwil
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 35",
+              arabic: "الْإِيمَانُ بِضْعٌ وَسِتُّونَ شُعْبَةً ... وَأَدْنَاهَا إِمَاطَةُ الْأَذَى عَنِ الطَّرِيقِ",
+              translation: "Faith (Iman) has over sixty branches ... and the least of which is removing a harmful object from the road.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
             },
           ],
           description: `**Why?**
@@ -10502,6 +10581,16 @@ Islam teaches that the best actions are those done consistently, even if small. 
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Jami at-Tirmidhi 2007",
+              arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلاَ يُؤْذِ جَارَهُ",
+              translation: "He who believes in Allah and the Last Day should not hurt (trouble) his neighbor.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval. NotebookLM Muslim Scholar matched the topical content (neighborly principle) — sunnah.com cross-reference verification recommended for exact ref→text alignment.",
             },
           ],
           description: `**Why?**
@@ -15268,6 +15357,16 @@ The four MTC seasons must align with real agricultural conditions, not arbitrary
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2320",
+              arabic: "مَا مِنْ مُسْلِمٍ يَغْرِسُ غَرْسًا، أَوْ يَزْرَعُ زَرْعًا، فَيَأْكُلُ مِنْهُ طَيْرٌ أَوْ إِنْسَانٌ أَوْ بَهِيمَةٌ، إِلاَّ كَانَ لَهُ بِهِ صَدَقَةٌ",
+              translation: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift (sadaqah) for him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
+            },
           ],
           description: `**Why?**
 
@@ -15517,6 +15616,16 @@ Water is the most critical resource in agriculture and in worship. The water sys
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2320",
+              arabic: "مَا مِنْ مُسْلِمٍ يَغْرِسُ غَرْسًا، أَوْ يَزْرَعُ زَرْعًا، فَيَأْكُلُ مِنْهُ طَيْرٌ أَوْ إِنْسَانٌ أَوْ بَهِيمَةٌ، إِلاَّ كَانَ لَهُ بِهِ صَدَقَةٌ",
+              translation: "There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift (sadaqah) for him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval.",
             },
           ],
           description: `**Why?**

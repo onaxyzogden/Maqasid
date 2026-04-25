@@ -149,7 +149,7 @@ if (process.argv.includes('--json')) {
 // Ratchet gate. Decrement RATCHET as Phase 2 hadith refs land.
 // 2026-04-25: Phase 1 (Quran backfill) reduced 22 → 13. The 13 remainder are
 // hadith refs deferred to a NotebookLM Muslim Scholar pass.
-const RATCHET = 13;
+const RATCHET = 0;
 if (process.argv.includes('--strict')) {
   if (results.missing.length > RATCHET) {
     console.error(`\n[STRICT] Failed: ${results.missing.length} missing inline refs exceeds ratchet ${RATCHET}.`);
