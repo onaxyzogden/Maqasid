@@ -11,14 +11,14 @@ export const OGDEN_ACCENT = '#7E6EAD';
 
 export const OGDEN_SUB_PILLARS = [
   { id: 'bbos',    label: 'BBOS',    Icon: Briefcase, route: '/app/ogden-bbos',    glossaryId: 'ogden-bbos' },
-  { id: 'maqasid', label: 'Maqasid', Icon: Compass,   route: '/app/ogden-maqasid', glossaryId: 'ogden-maqasid' },
+  { id: 'milos',   label: 'MILOS',   Icon: Compass,   route: '/app/ogden-milos',   glossaryId: 'ogden-milos' },
   { id: 'atlas',   label: 'Atlas',   Icon: Globe2,    route: '/app/ogden-atlas',   glossaryId: 'ogden-atlas' },
 ];
 
 // Map pillar.id (board infix) \u2194 MODULES entry id (sidebar/route id).
 export const OGDEN_MODULE_ID = {
   bbos:    'ogden-bbos',
-  maqasid: 'ogden-maqasid',
+  milos:   'ogden-milos',
   atlas:   'ogden-atlas',
 };
 

@@ -9,9 +9,9 @@ import {
 
 // pillarKey \u2194 moduleId (identity map for Ogden \u2014 board infix is the pillar id itself)
 const OGDEN_PILLAR_MODULE_MAP = {
-  bbos:    'bbos',
-  maqasid: 'maqasid',
-  atlas:   'atlas',
+  bbos:  'bbos',
+  milos: 'milos',
+  atlas: 'atlas',
 };
 
 export default function OgdenPillarPage({ pillarKey }) {

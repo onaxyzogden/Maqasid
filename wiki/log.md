@@ -3,6 +3,199 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §9 — support-infrastructure rollup card
+
+Closed §9 `storage-shelter-compost-pumphouse-placement` (P2, planned →
+done) on the manifest. The four structure subtypes (storage, animal_shelter,
+compost_station, water_pump_house) already existed in `StructureType` with
+full footprint definitions in `features/structures/footprints.ts`, and the
+Design Tools structure picker already exposed them via the existing
+category iteration. The missing piece was a read-side rollup so stewards
+can see "what support infrastructure have we placed" at a glance —
+shipped as a self-contained card mounted on the Utilities & Infrastructure
+dashboard (the `infrastructure-utilities` route → `EnergyDashboard
+focus="infrastructure"`).
+
+### Added
+- `apps/web/src/features/structures/SupportInfrastructureCard.tsx` — pure
+  presentation. Aggregates by the four §9 subtypes: count, total floor
+  area (width × depth), and cost-range total (steward-entered estimate
+  when set, else template `costRange` low/high). Renders empty-state
+  prompt when none placed; otherwise totals strip + per-subtype rows
+  with a sage-green floor-area bar (normalized against the largest
+  bucket) and per-subtype meta line.
+- `apps/web/src/features/structures/SupportInfrastructureCard.module.css`
+  — visual language mirrors the existing `.card` / `.cardHead` pattern in
+  EnergyDashboard.module.css so the card reads as a sibling.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EnergyDashboard.tsx` — imported
+  `SupportInfrastructureCard`, mounted between Placed Utilities and
+  Dependency Warnings, gated on `!isEnergy` so it appears only on the
+  infrastructure focus.
+- `packages/shared/src/featureManifest.ts:252` — `storage-shelter-compost-
+  pumphouse-placement` planned → done.
+
+### Untouched
+StructureStore types (already correct), DesignToolsPanel picker (already
+exposes the four subtypes), shared scoring (no math changes), persist
+version (no shape changes).
+
+### Verification
+`NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from
+`apps/web` exits clean. No new shared exports, no migrations, no map
+layer additions.
+
+---
+
+## [2026-04-24] session | OGDEN sub-pillar rename: Maqasid → MILOS
+
+Renamed the middle OGDEN Ecosystem sub-pillar from **Maqasid** to **MILOS**
+to eliminate semantic collision with the *Maqasid al-Shariah* framework
+(the 7 pillars MILOS implements). Full rename across visible labels,
+internal ids, route, store board ids, module entry, page file, wiki entity
+page.
+
+### Changed
+- `src/data/ogden-ecosystem.js` — `OGDEN_SUB_PILLARS` id/label/route/glossaryId;
+  `OGDEN_MODULE_ID` key+value.
+- `src/data/modules.js` — `ogden-maqasid` entry → `ogden-milos`.
+- `src/store/project-store.js` — `OGDEN_BOARDS` 3 entries re-keyed to
+  `ogden_milos_{core,growth,excellence}`; board names `MAQASID — …` →
+  `MILOS — …`; `moduleId: 'milos'`.
+- `src/data/pillar-wisdom.js` + `pillar-next-actions.js` — key `ogden.maqasid`
+  → `ogden.milos`.
+- `src/components/layout/Sidebar.jsx` — `MODULE_ROUTES['ogden-milos']`,
+  `OGDEN_SIDEBAR_CHILDREN` id `ogden-milos`.
+- `src/App.jsx` — import + `<Route path="ogden-milos">`.
+- `src/pages/ogden/OgdenMaqasidPage.jsx` → `OgdenMilosPage.jsx` (component
+  `OgdenMilosPage`, `pillarKey="milos"`).
+- `src/pages/ogden/OgdenPillarPage.jsx` — `OGDEN_PILLAR_MODULE_MAP.milos`.
+- `src/pages/ogden/CONTEXT.md` + `wiki/entities/ogden-ecosystem.md` — table
+  rows, routes, deferred list.
+
+### Untouched (framework, not sub-pillar)
+`MaqasidComparisonWheel`, `MaqasidTable`, `MaqasidBalanceRadar`,
+`MAQASID_PILLARS`, `--pillar-*` tokens, all 7-pillar pages. These refer to
+the Maqasid al-Shariah framework and are orthogonal to the OGDEN sub-pillar
+name.
+
+### Accepted cost
+Any stored `ogden_maqasid_*` board data in localStorage is orphaned on
+reload. OGDEN scaffold shipped this same session with no accumulated
+operator progress, so reseeding is trivial.
+
+---
+
+## [2026-04-24] session | Atlas corridor friction: cover × impedance raster
+
+Second revision of the §7 biodiversity corridor — replaced the
+intervention-only friction proxy with a **zone-polygonized land-cover ×
+impedance surface** grounded in Circuitscape / Omniscape / Theobald 2013
+connectivity defaults.
+
+### Done
+- `SoilRegenerationProcessor` now emits `coverClass` + `disturbanceLevel`
+  on each `soil_regeneration` feature. The per-zone `LandCoverZone` was
+  already computed inside `loadContext` from the `land_cover` layer's
+  class-distribution summary; exposing it 1:1 onto the grid gives the
+  overlay a zone-level cover raster for free (no new adapter work).
+- New `frictionForCell({ intervention, coverClass, disturbanceLevel })`
+  in `@ogden/shared/ecology/corridorLCP`. Cover impedance table:
+  forest/wetland = 1, shrubland = 2, grassland = 3, pasture = 4,
+  cropland = 7, barren = 8, water = 12, urban = 15, unknown = 5.
+  Scaled by `1 + 0.4 × disturbanceLevel` and discounted for permeable
+  interventions (food-forest / silvopasture × 0.7, cover crop × 0.9).
+  Clamped to [1, 20]. Falls back to `frictionForIntervention` when
+  `coverClass` is null so pre-upgrade features still route.
+- `BiodiversityCorridorOverlay` reads the two new props and calls
+  `frictionForCell` instead of the legacy proxy.
+- 20/20 vitest pass on `corridorLCP.test.ts` (added 8 cases: synonym
+  normalization, cover-dominates-intervention, intervention discount,
+  disturbance scaling, fallback, clamp, impedance ranking, cover-aware
+  routing around cropland through forest).
+
+### Verification
+- `npx tsc -b packages/shared` clean.
+- `npx tsc -b apps/api` clean.
+- `apps/web` tsc unchanged — `PlantingToolDashboard.tsx` errors are
+  pre-existing working-tree state on the branch.
+- Scoring parity untouched by design (no edits to `computeScores.ts`;
+  `SoilRegenerationProcessor` change is additive property emission).
+
+### Deferred
+True pixel-scale friction raster (vs zone-polygonized), Steiner-tree
+multi-anchor corridors, regional-plant lists, cross-parcel stitching.
+`native-pollinator-biodiversity` stays `partial` on the manifest.
+
+### Wiki
+- `atlas/apps/web/src/features/soil-ecology/CONTEXT.md` — pollinator
+  three-wave gotcha rewritten with the new cover × impedance model.
+- `wiki/entities/olos.md` — `(corridor LCP)` paragraph amended.
+
+---
+
+## [2026-04-24] session | Atlas §15 phase completion + §13 utility status-sweep
+
+Manifest gap-fill pass continued. Two flips shipped this session.
+
+### Done
+- §15 `phase-completion-tracking-notes` `partial → done`: extended
+  `BuildPhase` with `completed/notes/completedAt`, added
+  `togglePhaseCompleted`, bumped store v1 → v2 with migration. Phasing
+  dashboard gets a Completion progress bar in the Arc summary, per-phase
+  checkbox + completed-at badge, and working-notes textarea. Three
+  financial-engine test fixtures updated for the new required fields.
+- §13 batch sweep: 8 utility manifest entries `partial → done` after
+  confirming `UtilityPanel` covers every `UtilityType` with persistence
+  and phasing (solar/battery/generator placement, water/well/greywater,
+  blackwater/septic, rain catchment/corridor/lighting, firewood/waste/
+  compost/biochar, tool/laundry, utility phasing, off-grid readiness).
+  `energy-demand-notes` left `planned` — needs a per-utility demand
+  field not yet on `Utility`.
+
+### Verification
+`apps/web` tsc clean across all files touched today. Pre-existing
+`PlantingToolDashboard.tsx` errors are unchanged working-tree state.
+
+### Atlas decision / wiki
+- `atlas/wiki/decisions/2026-04-24-phasing-completion-tracking-and-utility-status-sweep.md`
+- `atlas/wiki/log.md` entry prepended
+
+### Recommended next
+- `energy-demand-notes` (§13): add `demandKwhPerDay?` to `Utility`.
+- `infrastructure-cost-placeholder-per-structure` (§9): verify per-
+  structure cost-edit UI end-to-end.
+- `temporary-vs-permanent-seasonal` (§15): boolean + filter UI.
+
+---
+
+## [2026-04-24] session | Atlas §7 pollinator close — ecoregion adapter + patch-graph corridor
+
+Objective (continuation): "update wiki, commit, resume the soil-ecology §7 pollinator work (connectivity corridors, ecoregion plant-list adapter, pollinator-zone map overlay) to flip native-pollinator-biodiversity from partial → done."
+
+### Done
+- Shared: new `ecology/ecoregion.ts` (CEC Level III, 7 ecoregions, bbox→centroid lookup) + curated plant JSON (~150 species). `pollinatorHabitat` upgraded to consume `ecoregionId` + `corridorReadiness`; outputs add `ecoregion`, `ecoregionPlants`, `connectivityBand`. New `pollinator_opportunity` LayerType + summary shape.
+- API: new `PollinatorOpportunityProcessor` — 5×5 deterministic synthesized patch grid, 4-neighbor patch-graph connectivity, `corridorReadiness` index. Wired into `DataPipelineOrchestrator` as non-fatal enrichment after soil-regen.
+- Web: `PollinatorHabitatOverlay` rewritten to read the new layer directly; fill = habitat quality, stroke = connectivity role. `EcologicalDashboard` now shows Corridor Connectivity metric, CEC ecoregion strip, and recommended native species cards.
+- Manifest: §7 `native-pollinator-biodiversity` flipped `partial → done`.
+- Parity: `verify-scoring-parity.ts` determinism check passes; pollinator is read-side only so `computeScores.ts` was not touched.
+
+### Deferred (documented caveats)
+- Rigorous corridor analysis needs polygonized land cover + raster LCP.
+- Ecoregion lookup uses bbox+centroid, not full shapefiles — boundary points misclassify.
+
+### Atlas decision / wiki
+- `atlas/wiki/decisions/2026-04-24-atlas-pollinator-ecoregion-corridor.md`
+- `atlas/wiki/entities/shared-package.md` + `data-pipeline.md` updated
+- `atlas/wiki/log.md` entry prepended
+
+### Recommended next
+- Ingest polygonized land cover to enable real patch graphs.
+- Expand ecoregion coverage west / south as the pilot footprint grows.
+
+---
+
 ## [2026-04-24] session | OGDEN Ecosystem meta-module scaffolded
 
 Objective: add a MILOS surface that tracks the convergence of BBOS + MILOS + Atlas into Moontrance. Scaffolding-only — journey task content deferred.
@@ -2904,3 +3097,52 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
   - Map-label halo sweep for sage/water labels over satellite imagery.
 - **Recommended Next Session:** Either (a) pick up ActiveToolChip since the spine perimeter plan cited it as the UX payoff of hiding tools mid-measurement, or (b) the zone-polygon OKLCH pass since the 13-color perceptual parity is the last place the biophilic palette still reads unbalanced.
 
+
+---
+
+## 2026-04-24 (afternoon) — MILOS scholar-led UI motif pass
+
+**Objective:** Apply UI/UX Scholar recommendations to Prophetic Path (timeline + intro) and LevelOverviewPage (all 7 pillars), underpinned by a shared `--motif-*` token extraction.
+
+**Consults:** `pp-consult.txt`, `pp-intro-consult.txt`, `flo-consult.txt` → NotebookLM 995a59d1. All three answers converged on the same five motifs (editorial serif, shimmer stroke, halo, ghost-text, soft-glass) being duplicated across pages.
+
+**Phases completed:**
+
+- **Phase 0 — Shared motif tokens** (`src/styles/tokens.css`)
+  - Added `--motif-soft-glass-{bg,border,shadow}`, `--motif-ghost-opacity`, `--motif-shimmer-duration` with light + dark variants
+  - Added utilities: `.motif-halo` (+`--strong`), `.motif-ghost-text`, `.motif-soft-glass`, `.motif-shimmer-border`
+  - `@keyframes motifShimmerStroke` + `prefers-reduced-motion` gating
+  - Fallback chain: `var(--motif-tint, var(--level-color, var(--pillar-accent, var(--primary))))`
+
+- **Phase 1 — pp-intro rewrite** (`PropheticPath.{jsx,css}`)
+  - 3-line editorial header: eyebrow (city, 0.65rem uppercase +0.1em), hero (active node title, Noto Serif 2rem / weight 400 / kerning −0.025em), subline (Fajr/Maghrib bookends)
+  - Capped `.pp-intro` at `max-height: 180px`; preserved niyyah-echo below
+  - Consumes existing `cityName` + `timings` from `usePrayerTimes`
+
+- **Phase 2 — FLO refactor** (`LevelOverviewPage.{jsx,css}`)
+  - Wheel wrapped in `.flo__section--wheel.motif-soft-glass.motif-shimmer-border`
+  - `.flo__grid--has-progress` parent class toggles comparative ghosting (Q4 trap fix)
+  - `.flo::after` blurred pillar-tinted aura top-left (360×360, radial gradient, z-index −1 with `.flo > * { z-index: 1 }`)
+  - `.flo__section` top-rule in `color-mix(var(--pillar-accent) 40%)`
+  - 6/7 pillar overview routes smoke-tested — all correctly express pillar ambient while tier dominance holds
+
+- **Phase 3 — Prophetic Path timeline** (`PropheticPath.css`)
+  - Chose **Progressive Disclosure vertical** pattern (user pick from 3 options)
+  - Active card: `--motif-soft-glass-bg` + padding:2rem + Noto Serif 2.5rem @ weight 400 + `::before` shimmer ring (mask-composite xor, 4s linear)
+  - Superseded earlier active-title `font-weight: 600` / `letter-spacing: -0.01em` in favor of size+air hierarchy
+  - Past/upcoming + next semi-expanded rules already in place; no structural changes needed
+
+**Verification:**
+- `npm run build` ✓ (1.90s)
+- `npm run lint`: no new errors in touched files (pre-existing 625-error backlog unchanged)
+- Preview verified at 1400×900 desktop + 390×844 mobile; eval confirmed: active card Noto Serif 40px weight 400 letter-spacing −1px, shimmer anim `pp-active-shimmer` 4s, 8-card spine state sequence `active → next → 4×upcoming → 2×past`
+
+**Decision record:** `wiki/decisions/2026-04-24-milos-ui-motif-tokens.md`
+
+### Session Debrief
+- **Completed:** All 5 plan phases + build + decision record. `--motif-*` tokens live, FLO wheel framed with soft-glass + shimmer, PP active card carries editorial serif + shimmer border, pp-intro bookends render, comparative ghosting replaces absolute ghosting.
+- **Deferred:**
+  - Full 7/7 pillar smoke-test (ummah gated by unrelated CeremonyGuard opening threshold — pre-existing, not a regression)
+  - Light-mode explicit preview verification (Vite prefers-color-scheme override didn't flip the app's internal theme; styling deemed correct from token structure)
+  - Broader lint cleanup (625 pre-existing errors are their own session)
+- **Recommended next session:** Either (a) tackle the lint backlog as a focused sweep, or (b) write `wiki/concepts/motif-tokens.md` so the 4th page that picks up these motifs composes rather than duplicates.

@@ -275,12 +275,14 @@
     border-color 0.3s ease;
 }
 
-/* 0%-progress cards → ghost STROKE, not ghost text. Title fully legible,
-   MasteryRing receives muted prop so its ring stroke falls to --border2. */
-.flo .flo__card[data-progress='0'] {
+/* Scholar Q4 — Comparative ghosting: 0% cards only recede when at least one
+   sibling is started. Absolute ghosting on all-zero first load was a trap
+   ("5 ghostly cards, no invitation"). */
+.flo .flo__grid--has-progress .flo__card[data-progress='0'] {
   border-style: dashed;
   border-color: color-mix(in srgb, var(--border) 75%, transparent);
   background: color-mix(in srgb, var(--surface) 65%, transparent);
+  color: color-mix(in srgb, currentColor var(--motif-ghost-opacity, 55%), transparent);
 }
 
 /* Started cards (≥1%) — solid border with barely-there level-tint */
@@ -354,4 +356,61 @@
   ::view-transition-new(root) {
     animation: none;
   }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Scholar refit (2026-04-24):
+   Q2 — wheel framed in soft-glass section with pillar-tinted shimmer border
+   Q3 — pillar-tinted blurred aura top-left as quiet ambient "which module?"
+   Q5 — cross-module rhythm: all `.flo__section` share shimmer motif
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Pillar-tinted ambient aura — sits in top-left of the .flo pane.
+   Tier color remains dominant in Navigator + cards; pillar whispers. */
+.flo::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 360px;
+  height: 360px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    color-mix(in srgb, var(--pillar-accent) 12%, transparent) 0%,
+    color-mix(in srgb, var(--pillar-accent) 4%, transparent) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+}
+.flo > * { position: relative; z-index: 1; }
+
+/* Shared section wrapper — "a home without a cage" */
+.flo .flo__section {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-6) var(--space-5);
+  margin: var(--space-6) auto;
+  /* Pillar tint drives the shimmer; consumers can override --motif-tint */
+  --motif-tint: var(--pillar-accent, var(--primary));
+  border-top: 2px solid color-mix(in srgb, var(--pillar-accent) 40%, transparent);
+  overflow: hidden;
+}
+
+.flo .flo__section-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 var(--space-4);
+  color: var(--text);
+}
+
+/* Wheel section — inherits max-width from the old .flo__wheel */
+.flo .flo__section--wheel { max-width: 640px; overflow: visible; }
+.flo .flo__section--wheel .flo__wheel {
+  margin: 0;
+  max-width: none;
 }

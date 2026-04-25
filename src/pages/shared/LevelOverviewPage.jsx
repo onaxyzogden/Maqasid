@@ -126,7 +126,6 @@ export default function LevelOverviewPage({
           className="flo__section flo__section--wheel motif-soft-glass motif-shimmer-border"
           aria-label="Your pattern at this tier"
         >
-          <h2 className="flo__section-title">Your pattern at this tier</h2>
           <div className="flo__wheel">
             <ComparisonWheelComponent
               centerLabel={wheelCenterLabel}

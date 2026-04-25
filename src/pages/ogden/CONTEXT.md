@@ -1,9 +1,9 @@
 # Ogden Pages — CONTEXT.md
 
 ## Purpose
-OGDEN Ecosystem meta-module. Tracks the journey of BBOS + MILOS (Maqasid) + Atlas (OLOS) converging to realize Moontrance.
+OGDEN Ecosystem meta-module. Tracks the journey of BBOS + MILOS + Atlas (OLOS) converging to realize Moontrance.
 
-Not a Maqasid pillar — renders as a standalone section in the sidebar below the Moontrance pillar row.
+Not a Maqasid framework pillar — renders as a standalone section in the sidebar below the Moontrance pillar row.
 
 ## Levels (display copy override)
 Internal keys remain `core | growth | excellence` (for LevelNavigator, board id, progress hook compatibility). Display copy overridden via `OGDEN_LEVELS` in `@data/ogden-ecosystem`:
@@ -13,7 +13,7 @@ Internal keys remain `core | growth | excellence` (for LevelNavigator, board id,
 
 ## Sub-pillars
 - `bbos` — Barakah Business Operating System
-- `maqasid` — MILOS
+- `milos` — Maqasid Islamic Life Operating System (this app)
 - `atlas` — OLOS (land intelligence)
 
 ## File Inventory
@@ -25,21 +25,21 @@ Internal keys remain `core | growth | excellence` (for LevelNavigator, board id,
 | `OgdenIntegrationPage.jsx` | Tier wrapper — `level="growth"` |
 | `OgdenRealizationPage.jsx` | Tier wrapper — `level="excellence"` |
 | `OgdenPillarPage.jsx` | Sub-pillar board host (wraps shared PillarLevelPage) |
-| `OgdenBbosPage.jsx` · `OgdenMaqasidPage.jsx` · `OgdenAtlasPage.jsx` | Sub-pillar routes |
+| `OgdenBbosPage.jsx` · `OgdenMilosPage.jsx` · `OgdenAtlasPage.jsx` | Sub-pillar routes |
 
 ## Routes
 - `/app/ogden-foundation` · `/app/ogden-integration` · `/app/ogden-realization`
-- `/app/ogden-bbos` · `/app/ogden-maqasid` · `/app/ogden-atlas`
+- `/app/ogden-bbos` · `/app/ogden-milos` · `/app/ogden-atlas`
 
 ## Data
 - `src/data/ogden-ecosystem.js` — pillars, level routes, level copy, accent (`#7E6EAD`)
-- `src/data/modules.js` — 3 entries: `ogden-bbos`, `ogden-maqasid`, `ogden-atlas`
+- `src/data/modules.js` — 3 entries: `ogden-bbos`, `ogden-milos`, `ogden-atlas`
 - `src/store/project-store.js` — `OGDEN_BOARDS` (9 boards: 3 sub-pillars \u00d7 3 levels), `ensureOgdenProjects()`
 
 ## Sidebar
-Rendered as a standalone `<div className="pillar-group">` in `Sidebar.jsx` after the `MAQASID_PILLARS.map()` block. Orbit icon, three children (BBOS, Maqasid, Atlas).
+Rendered as a standalone `<div className="pillar-group">` in `Sidebar.jsx` after the `MAQASID_PILLARS.map()` block. Orbit icon, three children (BBOS, MILOS, Atlas).
 
 ## Deferred
 - Seed tasks per sub-pillar per level (no `OGDEN_SEED_TASKS` yet)
 - Comparison wheel variant (3-lobe; hardcoded 8-lobe MaqasidComparisonWheel is not reused)
-- Glossary entries for `ogden-bbos`, `ogden-maqasid`, `ogden-atlas`
+- Glossary entries for `ogden-bbos`, `ogden-milos`, `ogden-atlas`

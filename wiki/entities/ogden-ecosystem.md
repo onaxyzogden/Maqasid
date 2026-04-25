@@ -31,7 +31,7 @@ OGDEN Ecosystem is that surface.
 | Sub-pillar | Represents | Route |
 |---|---|---|
 | BBOS | [[bbos-pipeline]] — 8-stage covenant pipeline for Islamic business | `/app/ogden-bbos` |
-| Maqasid | [[milos]] — this project; the operating system for the Seven Maqasid | `/app/ogden-maqasid` |
+| MILOS   | [[milos]] — this project; the operating system for the Seven Maqasid | `/app/ogden-milos` |
 | Atlas | [[olos]] — geospatial land intelligence (CSRA readiness) | `/app/ogden-atlas` |
 
 Moontrance itself is intentionally **not** a sub-pillar — it is the target the
@@ -68,14 +68,14 @@ tasks are filled in later sessions.
 | File | Purpose |
 |---|---|
 | `src/data/ogden-ecosystem.js` | Sub-pillars, level routes, level copy, accent, storage key, ensure-projects selector |
-| `src/data/modules.js` | 3 module entries (`ogden-bbos`, `ogden-maqasid`, `ogden-atlas`) |
+| `src/data/modules.js` | 3 module entries (`ogden-bbos`, `ogden-milos`, `ogden-atlas`) |
 | `src/data/icon-registry.js` | `Orbit`, `Briefcase`, `Globe2` registered |
 | `src/data/module-palette.js` | `ogden` theme entry |
 | `src/store/project-store.js` | `OGDEN_BOARDS` + `ensureOgdenProjects` action |
 | `src/pages/ogden/OgdenLevelOverview.jsx` | Wraps shared `LevelOverviewPage` (no comparison wheel in v1) |
 | `src/pages/ogden/OgdenFoundationPage.jsx`<br>`OgdenIntegrationPage.jsx`<br>`OgdenRealizationPage.jsx` | Tier wrappers |
 | `src/pages/ogden/OgdenPillarPage.jsx` | Sub-pillar host (wraps shared `PillarLevelPage`) |
-| `src/pages/ogden/OgdenBbosPage.jsx`<br>`OgdenMaqasidPage.jsx`<br>`OgdenAtlasPage.jsx` | Sub-pillar routes |
+| `src/pages/ogden/OgdenBbosPage.jsx`<br>`OgdenMilosPage.jsx`<br>`OgdenAtlasPage.jsx` | Sub-pillar routes |
 | `src/pages/ogden/CONTEXT.md` | Module inventory |
 | `src/components/layout/Sidebar.jsx` | Standalone "OGDEN Ecosystem" group below the `MAQASID_PILLARS` loop |
 | `src/App.jsx` | 6 routes registered after Moontrance block |
@@ -98,7 +98,7 @@ tasks are filled in later sessions.
 - Journey task content for all 9 boards
 - 3-lobe `OgdenEcosystemWheel` variant
 - `ExcellenceCardsComponent` equivalent for OGDEN
-- Glossary entries for `ogden-bbos`, `ogden-maqasid`, `ogden-atlas` IslamicTerm tooltips
+- Glossary entries for `ogden-bbos`, `ogden-milos`, `ogden-atlas` IslamicTerm tooltips
 - OGDEN Hub marketing site as a 4th sub-pillar (explicitly out of scope)
 
 ## See also

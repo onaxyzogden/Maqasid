@@ -71,7 +71,7 @@ import OgdenFoundationPage from '@pages/ogden/OgdenFoundationPage';
 import OgdenIntegrationPage from '@pages/ogden/OgdenIntegrationPage';
 import OgdenRealizationPage from '@pages/ogden/OgdenRealizationPage';
 import OgdenBbosPage from '@pages/ogden/OgdenBbosPage';
-import OgdenMaqasidPage from '@pages/ogden/OgdenMaqasidPage';
+import OgdenMilosPage from '@pages/ogden/OgdenMilosPage';
 import OgdenAtlasPage from '@pages/ogden/OgdenAtlasPage';
 import PillarDashboard from '@pages/PillarDashboard';
 import FaithDashboard from '@pages/faith/FaithDashboard';
@@ -218,7 +218,7 @@ export default function App() {
         <Route path="ogden-integration" element={<OgdenIntegrationPage />} />
         <Route path="ogden-realization" element={<OgdenRealizationPage />} />
         <Route path="ogden-bbos" element={<OgdenBbosPage />} />
-        <Route path="ogden-maqasid" element={<OgdenMaqasidPage />} />
+        <Route path="ogden-milos" element={<OgdenMilosPage />} />
         <Route path="ogden-atlas" element={<OgdenAtlasPage />} />
         <Route path="pillar/faith" element={<FaithCorePage />} />
         <Route path="pillar/life" element={<LifeCorePage />} />

@@ -70,13 +70,13 @@ const MODULE_ROUTES = {
   'moontrance-residency': '/app/moontrance-residency',
   // OGDEN Ecosystem
   'ogden-bbos': '/app/ogden-bbos',
-  'ogden-maqasid': '/app/ogden-maqasid',
+  'ogden-milos': '/app/ogden-milos',
   'ogden-atlas': '/app/ogden-atlas',
 };
 
 const OGDEN_SIDEBAR_CHILDREN = [
   { id: 'ogden-bbos',    name: 'BBOS',    icon: 'Briefcase' },
-  { id: 'ogden-maqasid', name: 'Maqasid', icon: 'Compass' },
+  { id: 'ogden-milos',   name: 'MILOS',   icon: 'Compass' },
   { id: 'ogden-atlas',   name: 'Atlas',   icon: 'Globe2' },
 ];
 const OGDEN_ACCENT = '#7E6EAD';
