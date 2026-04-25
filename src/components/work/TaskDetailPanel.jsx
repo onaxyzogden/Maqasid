@@ -48,6 +48,23 @@ function isSubtaskGrounded(sub) {
   return ok;
 }
 
+// Subtask-level `tier` was hand-stamped before per-source `provenanceTier` existed.
+// When structured sources are present, treat the subtask tier as the strongest of them
+// (Bayyinah > Qarina > Niyyah). Falls back to the stored field otherwise.
+const PROVENANCE_TO_T = { Bayyinah: 'T1', Qarina: 'T2', Niyyah: 'T3' };
+const T_RANK = { T1: 1, T2: 2, T3: 3 };
+function deriveSubtaskTier(sub) {
+  if (Array.isArray(sub?.sources) && sub.sources.length > 0) {
+    let best = null;
+    for (const s of sub.sources) {
+      const t = PROVENANCE_TO_T[s?.provenanceTier];
+      if (t && (!best || T_RANK[t] < T_RANK[best])) best = t;
+    }
+    if (best) return best;
+  }
+  return sub?.tier || null;
+}
+
 /* Lucide icon name → component map for project/module icons.
    Resolved via the shared registry (src/data/icon-registry.js).
    `LayoutGrid` is added locally because it's used as a fallback
@@ -204,7 +221,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const priorityObj = PRIORITIES.find((p) => p.id === task.priority);
   // Q3 — when every subtask shares the same tier, lift the badge to the
   // section header instead of repeating it on each row (visual noise).
-  const tierSet = new Set(allSubtasks.map((s) => s.tier).filter(Boolean));
+  const tierSet = new Set(allSubtasks.map(deriveSubtaskTier).filter(Boolean));
   const sharedTier = tierSet.size === 1 ? [...tierSet][0] : null;
   const isLocked = totalCount > 0 && doneCount < totalCount;
   const isReady = totalCount > 0 && doneCount === totalCount;
@@ -292,7 +309,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 <span className={`tdp-subtask-text ${st.done ? 'tdp-subtask-text--done' : ''}`}>
                   {st.title}
                 </span>
-                {st.tier && !sharedTier && <AmanahTierBadge tier={st.tier} size="sm" />}
+                {(() => { const t = deriveSubtaskTier(st); return t && !sharedTier ? <AmanahTierBadge tier={t} size="sm" /> : null; })()}
                 <ChevronRight size={16} className="tdp-subtask-chevron" />
               </div>
             ))}
@@ -506,7 +523,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
             <h2 className={`tdp-subtask-detail__title ${activeSubtask.done ? 'tdp-subtask-text--done' : ''}`}>
               {activeSubtask.title}
             </h2>
-            {activeSubtask.tier && <AmanahTierBadge tier={activeSubtask.tier} size="md" />}
+            {(() => { const t = deriveSubtaskTier(activeSubtask); return t ? <AmanahTierBadge tier={t} size="md" /> : null; })()}
             {(() => {
               const grounded = isSubtaskGrounded(activeSubtask);
               if (grounded === null) return null;

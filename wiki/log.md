@@ -48,6 +48,8 @@ type: log
 
 See [[2026-04-25-milos-faith-grounding-complete]].
 
+**Follow-up — subtask tier badge derivation:** noticed during preview verification that the subtask-level tier badge was rendering `Qarina` (orange) even when the subtask's sources were `Bayyinah × direct` (e.g., Quran 2:255 + Sahih al-Bukhari 3005 on the "List any superstitious beliefs" subtask). Root cause: each Faith subtask carries a hand-stamped `tier` field (158 of 244 = `T2`) that predates the per-source `provenanceTier` schema. Fixed by adding `deriveSubtaskTier(sub)` in [TaskDetailPanel.jsx](src/components/work/TaskDetailPanel.jsx:51) — when structured `sources[]` exist, the badge reflects the strongest source tier (Bayyinah > Qarina > Niyyah); otherwise falls back to the stored `tier`. Applied at all three render sites (subtasks-section shared-tier, per-row badge, detail header). Data file unchanged; pure render-time derivation. Tests still 40/40. The **tier** badge measures *evidence strength* (max provenance) while the separate **Grounded** pill is a two-axis gate (`(Bayyinah|Qarina) × (direct|contextual)`) — they can disagree (e.g., `Bayyinah × thematic` is Bayyinah-tiered but Ungrounded).
+
 ---
 
 ## [2026-04-25] session | OLOS Atlas — §22 mission-weighted impact rollup card
