@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §11 nutrient cycling balance card
+
+**Objective:** Close the §11 `fertility-manure-impact-heatmap` manifest item (P3, planned) with a presentation-layer card that aggregates nitrogen demand from placed crops vs. nitrogen supply from livestock paddocks, compost, and biochar — the textual companion to the future heatmap overlay.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/soil-fertility/NutrientBalanceCard.tsx](atlas/apps/web/src/features/soil-fertility/NutrientBalanceCard.tsx) (~280 lines):
+  - **Demand side** — per crop area, multiplies hectares by a literature-default kg N/ha/yr lookup keyed by `cropType`: market garden 100, row crop 80, garden bed 60, nursery 50, orchard 35, food forest 15, silvopasture 10, shelterbelt/windbreak 5, pollinator strip 0.
+  - **Supply side** — per paddock, sums `head/ha × ha × kg N/head/yr` for each species: cattle 100, horses 70, pigs 16, sheep/goats 12, rabbits 2, ducks/geese 0.6, poultry 0.5. Uses the paddock's declared `stockingDensity` when set; otherwise a conservative default head/ha per species. When multiple species share a paddock the declared density is split equally. Compost utility stations add 25 kg N/yr each; biochar stations add 5.
+  - **Headline balance** — `supply − demand` rendered with sign + `kg N/yr` unit, alongside a coverage percentage and a tone-coded rating word: *Self-fertile* (≥ 90%), *Partial coverage* (≥ 50%), *Major deficit* (> 0%), *No on-site supply* (0%).
+  - **Two-column breakdown** — top four demand lines and top four supply lines, each with quantity and a "0.85 ha @ 80 kg N/ha" or "declared stocking" detail row.
+- New [NutrientBalanceCard.module.css](atlas/apps/web/src/features/soil-fertility/NutrientBalanceCard.module.css) — same ink-on-parchment palette as §16/§18/§19/§10 cards. Demand column has a red left-edge accent, supply column green; headline balance row tone-tints by surplus/deficit magnitude.
+- Mounted on `EcologicalDashboard.tsx` immediately after `AiSiteSynthesisCard` so the deterministic synthesis flows directly into the quantitative roll-up.
+- Manifest §11 line 305 `fertility-manure-impact-heatmap` flipped `planned → done` (presentation-layer subset of the broader heatmap concept; the heatmap overlay itself remains a future map-tooling item).
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean (full repo, exit 0).
+
+**Discipline:** Pure presentation — zero shared-package math, no map overlays, no new entity types. Cover crops, off-site purchased compost, and rotational fallow are explicitly excluded and called out in the footnote so a steward knows the gap. All defaults are stewards-overridable in a future sliders panel (deferred). Atlas commit `373efb5` — 4 files, 669 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §10 wayfinding plan card (orientation legibility audit)
 
 **Objective:** Close the §10 `wayfinding-system-planning` manifest item (P3, planned) with a presentation-layer card that audits the path network for wayfinding gaps — which structures are unreachable from the arrival sequence, which intersections lack a landmark anchor, and which long paths have no intermediate decision point.
