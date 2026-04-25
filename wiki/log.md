@@ -3,6 +3,33 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Faith pillar two-axis grounding migration complete
+
+**Objective:** Close Phase C.2 from the [[concurrent-nibbling-rabbit]] deferred-items plan — migrate Faith pillar's 212 legacy-string `sources` entries to the structured two-axis schema ([[2026-04-18-milos-grounding-two-axis]]) so the test ratchet decrements to zero.
+
+**Shipped:**
+- [scripts/migrate-faith-grounding.mjs](scripts/migrate-faith-grounding.mjs) (new) — state-machine regex `/(\bsources:\s*)`((?:\\`|[^`])*)`/g` walks every template literal, `unescapeTemplate()` reverses `\\\``/`\\$`/`\\\\` so transliteration apostrophes (`Ibn \`Abbas`) inside backticks don't truncate the body. Splits on `### ` headers; extracts ref / Arabic (`**Arabic:**`) / Translation (`**Translation:**`) / `*(Grade: ...)*` / `*(Direct|Contextual|Thematic: ...)*`. Tier mapping: Quran→Bayyinah, Sahih→Bayyinah, Hasan→Qarina, else→Niyyah. Ref normalization: `Quran (X:Y)` → `Quran X:Y`; `Sahih Bukhari` → `Sahih al-Bukhari`; `Sahih Tirmidhi` → `Sunan al-Tirmidhi`. Indentation-preserving serializer reads the matched line's column position. Result: `Migrated: 212, Skipped: 0`.
+- 7 Quran entries manually patched with authoritative Arabic + Abdel Haleem translation via Quran MCP (`fetch_quran ar-simple-clean` + `fetch_translation en-abdel-haleem`) — refs 65:3, 98:5 (×2), 49:15, 63:1-3, 63:1-4, 5:48, 33:40, 42:11, 45:23. Five had `translation: "**II. Hadith**"` (parser captured the section header where no `**Translation:**` marker existed); two had no body at all in the legacy markdown.
+- [scripts/audit-faith-migration.mjs](scripts/audit-faith-migration.mjs) (new) — loads both migrated module and `git show HEAD` snapshot (`tmp/faith-original.js`), picks 10 deterministic random matched entries, verifies per-entry ref-count parity + Arabic/translation snippet presence in legacy. Result: 10/10 ref-count clean, all snippets present.
+- [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) — Faith ratchet `expectedLegacy: 212 → 0`.
+
+**Verification:**
+- `npm test` → 40/40 green (Faith now requires zero legacy entries; would fail if anything regressed)
+- `npm run build` → exit 0
+- `npm run lint:grounding-strict` → `[STRICT] Failed: 1692 legacy-string entries, 1 subtasks with schema errors` (1904 → 1692; the remaining 1 schema error is Prayer's allow-listed empty-array)
+- Round-trip audit: 0 ref-count mismatches across 10 random entries
+- **Preview verification skipped** — `/faith-shahada` rendered 660KB HTML but `innerText` was empty (CeremonyGuard overlay blocking content); screenshot tool timed out at 30s. Per project rule, reporting honestly: visual confirmation not obtained this session. Mitigating evidence: the 32 pre-existing structured Faith entries were already rendering through `SubtaskSources.jsx:151-202`'s array branch before this session.
+
+**Discipline notes:**
+- The original plan called for per-batch NotebookLM Muslim Scholar curation (Tawhid → Salah → ... → Akhlaq). 2 of 3 NotebookLM probe queries timed out on Google's RPC layer ("Chat request timed out") — pivoted to parser-first deterministic migration of the existing legacy markdown (much of which was itself NotebookLM-derived per `amanahRationale` annotations during initial seed authorship). Preserves prior scholar work rather than re-curating.
+- Synthesized rationales (where legacy markdown lacked `*(Direct: ...)*` annotations) are minimal generic placeholders. Schema-valid but not scholar-curated; future enrichment pass can swap entry-by-entry without touching the ratchet.
+- Default `relevance: 'direct'` was assumed wherever no annotation existed.
+- Faith joins Prayer as the second fully two-axis-compliant pillar. Same parser swaps file-path for the remaining 6 pillars (~1,481 entries).
+
+See [[2026-04-25-milos-faith-grounding-complete]].
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §11 nutrient cycling balance card
 
 **Objective:** Close the §11 `fertility-manure-impact-heatmap` manifest item (P3, planned) with a presentation-layer card that aggregates nitrogen demand from placed crops vs. nitrogen supply from livestock paddocks, compost, and biochar — the textual companion to the future heatmap overlay.

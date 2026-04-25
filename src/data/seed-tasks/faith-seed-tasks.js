@@ -13,24 +13,35 @@ export const FAITH_SEED_TASKS = {
         { title: 'Recite the full Shahada with correct pronunciation and meaning', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ
-**Translation:** "So know that there is no deity except Allah and ask forgiveness for your sin and for the believing men and believing women."
-*(Contextual: the command to know the Shahada with certainty before proclaiming it.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 8
-The Prophet ﷺ said: "Islam is built upon five: Testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving zakah, performing Hajj to the House, and fasting Ramadan."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 5
-Narrated Said bin Jubair: Ibn 'Abbas in the explanation of the statement of Allah "Move not your tongue concerning (the Quran) to make haste therewith." (75.16) said "Allah's Messenger (ﷺ) used to bear the revelation with great trouble and used to move his lips (quickly) with the Inspiration." Ibn 'Abbas moved his lips saying, "I am moving my lips in front of you as Allah's Messenger (ﷺ) used to move his." Said moved his lips saying: "I am moving my lips, as I saw Ibn 'Abbas moving his." Ibn 'Abbas added, "So Allah revealed 'Move not your tongue concerning (the Qur'an) to make haste therewith. It is for Us to collect it and to give you (O Muhammad) the ability to recite it (the Quran)' (75.16-17) which means that Allah will make him (the Prophet) remember the portion of the Qur'an which was revealed at that time by heart and recite it. The statement of Allah: 'And when we have recited it to you (O Muhammad through Gabriel) then you follow its (Quran) recital' (75.18) means 'listen to it and be silent.' Then it is for Us (Allah) to make it clear to you' (75.19) means 'Then it is (for Allah) to make you recite it (and its meaning will be clear by itself through your tongue). Afterwards, Allah's Messenger (ﷺ) used to listen to Gabriel whenever he came and after his departure he used to recite it as Gabriel had recited it
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+              translation: "So know that there is no deity except Allah and ask forgiveness for your sin and for the believing men and believing women.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "the command to know the Shahada with certainty before proclaiming it.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 8",
+              translation: "The Prophet ﷺ said: \"Islam is built upon five: Testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving zakah, performing Hajj to the House, and fasting Ramadan.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5",
+              translation: "Narrated Said bin Jubair: Ibn 'Abbas in the explanation of the statement of Allah \"Move not your tongue concerning (the Quran) to make haste therewith.\" (75.16) said \"Allah's Messenger (ﷺ) used to bear the revelation with great trouble and used to move his lips (quickly) with the Inspiration.\" Ibn 'Abbas moved his lips saying, \"I am moving my lips in front of you as Allah's Messenger (ﷺ) used to move his.\" Said moved his lips saying: \"I am moving my lips, as I saw Ibn 'Abbas moving his.\" Ibn 'Abbas added, \"So Allah revealed 'Move not your tongue concerning (the Qur'an) to make haste therewith. It is for Us to collect it and to give you (O Muhammad) the ability to recite it (the Quran)' (75.16-17) which means that Allah will make him (the Prophet) remember the portion of the Qur'an which was revealed at that time by heart and recite it. The statement of Allah: 'And when we have recited it to you (O Muhammad through Gabriel) then you follow its (Quran) recital' (75.18) means 'listen to it and be silent.' Then it is for Us (Allah) to make it clear to you' (75.19) means 'Then it is (for Allah) to make you recite it (and its meaning will be clear by itself through your tongue). Afterwards, Allah's Messenger (ﷺ) used to listen to Gabriel whenever he came and after his departure he used to recite it as Gabriel had recited it",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Shahada must be recited with correct pronunciation and understanding — it is not merely a phrase to repeat, but a binding testimony before Allah. Mispronunciation can alter the meaning, and recitation without comprehension reduces the most powerful statement in Islam to empty words.
@@ -85,25 +96,44 @@ Linguistically, the Shahada isn't just a statement of existence; it is a stateme
         { title: 'Reflect on what "no god but Allah" demands of your daily life', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe journaling or listing specific fears and dependencies, they provide clear logical inference for the subtask by emphasizing ultimate reliance on Allah, prioritizing Him above all else, and manifesting faith in daily actions.',
-          sources: `**I. Quran**
-
-
-### Quran (65:3)
-**Translation:** "And whoever relies upon Allah — then He is sufficient for him." *(Surah At-Talaq 65:3)*
-
-### Quran (98:5)
-**Translation:** "And they were not commanded except to worship Allah, [being] sincere to Him in religion..." *(Surah Al-Bayyinah 98:5)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 16
-The Prophet ﷺ said: "Whoever possesses the following three qualities will taste the sweetness of faith: 1. That Allah and His Messenger are dearer to him than anything else..."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 9
-The Prophet ﷺ said: "Faith (Iman) has over sixty branches... and the least of which is removing a harmful object from the road." This shows that the Shahada must manifest in the smallest daily actions.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 65:3",
+              arabic: "وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۚ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا",
+              translation: "and will provide for them from an unexpected source; God will be enough for those who put their trust in Him. God achieves His purpose; God has set a due measure for everything.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 98:5",
+              arabic: "وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ وَيُقِيمُوا الصَّلَاةَ وَيُؤْتُوا الزَّكَاةَ ۚ وَذَٰلِكَ دِينُ الْقَيِّمَةِ",
+              translation: "though all they are ordered to do is worship God alone, sincerely devoting their religion to Him as people of true faith, keep up the prayer, and pay the prescribed alms, for that is the true religion.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 16",
+              translation: "The Prophet ﷺ said: \"Whoever possesses the following three qualities will taste the sweetness of faith: 1. That Allah and His Messenger are dearer to him than anything else...\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 9",
+              translation: "The Prophet ﷺ said: \"Faith (Iman) has over sixty branches... and the least of which is removing a harmful object from the road.\" This shows that the Shahada must manifest in the smallest daily actions.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 La ilaha illAllah is not a passive statement — it is an active negation of every false object of worship and an affirmation that Allah alone deserves your ultimate devotion. This has direct consequences for where you place your hopes, fears, and reliance.
@@ -118,23 +148,35 @@ La ilaha illAllah is not a passive statement — it is an active negation of eve
         { title: 'Study the difference between verbal declaration and lived conviction', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention the hypocrites or the three specific dimensions of faith, they offer a clear logical inference for the subtask by pairing the verbal declaration of the Shahada with the necessary inward conviction of truly disbelieving in false deities.',
-          sources: `**I. Quran**
-
-
-### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ
-**Translation:** So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.
-
-**I. Hadith**
-
-
-### Sahih Muslim 33
-The Prophet (SAW) said: "Whoever says La ilaha illAllah and disbelieves in whatever is worshipped besides Allah, his property and blood become inviolable, and his reckoning is with Allah."
-*(Grade: Sahih)*
-
-
-### Quran (63:1-3)
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+              translation: "So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 33",
+              translation: "The Prophet (SAW) said: \"Whoever says La ilaha illAllah and disbelieves in whatever is worshipped besides Allah, his property and blood become inviolable, and his reckoning is with Allah.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 63:1-3",
+              arabic: "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ ۗ وَاللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",
+              translation: "When the hypocrites come to you, they say, 'We bear witness that you are the Messenger of Allah.' And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars. They have taken their oaths as a cover, so they averted [people] from the way of Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "The Quran exposes the hypocrites' verbal Shahada as empty when not matched by inner conviction — the textual basis for distinguishing tongue-only declaration from heart-conviction.",
+            },
+          ],
           description: `**Why?**
 
 The Shahada is not merely words on the tongue — it must settle in the heart and manifest in action. The munafiqun declared it verbally but lacked inner conviction, and the Quran exposed the emptiness of their claim.
@@ -149,23 +191,35 @@ The Shahada is not merely words on the tongue — it must settle in the heart an
         { title: 'Journal: what does this testimony mean to you personally?', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe journaling, they offer a clear contextual indication for the subtask by emphasizing the necessity of knowing the truth of the testimony and uttering it with sincere conviction from the heart.',
-          sources: `**I. Quran**
-
-
-### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ  
-**Translation:** So know that there is no deity except Allah and ask forgiveness for your sin and for the believing men and believing women.
-
-### Quran (3:18)
-**Arabic:** شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ  
-**Translation:** Allah witnesses that there is no deity except Him, and so do the angels and those of knowledge, maintaining justice.
-
-**II. Hadith**
-
-
-### Sahih Muslim 26
-The Prophet (SAW) said: "Whoever says La ilaha illAllah sincerely from his heart shall enter Paradise."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+              translation: "So know that there is no deity except Allah and ask forgiveness for your sin and for the believing men and believing women.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 3:18",
+              arabic: "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ",
+              translation: "Allah witnesses that there is no deity except Him, and so do the angels and those of knowledge, maintaining justice.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 26",
+              translation: "The Prophet (SAW) said: \"Whoever says La ilaha illAllah sincerely from his heart shall enter Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Shahada is not abstract theology — it is the core of your identity as a Muslim. Journaling forces you to move beyond rote understanding and confront where your conviction is genuinely strong and where it needs honest growth.
@@ -190,12 +244,17 @@ The Shahada is not abstract theology — it is the core of your identity as a Mu
         { title: 'Study the linguistic meaning of La ilaha illAllah', done: false,
           tier: 'T2',
           amanahRationale: 'Although the verse does not explicitly detail the grammatical breakdown of the testimony, its central declaration that "there is no god but Him" witnessed by those of knowledge provides a strong logical inference for studying the linguistic meaning and implications of this core phrase.',
-          sources: `**I. Quran**
-
-
-### Quran (3:18)
-**Arabic:** شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ  
-**Translation:** God bears witness that there is no god but Him, as do the angels and those who have knowledge. He upholds justice.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:18",
+              arabic: "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ",
+              translation: "God bears witness that there is no god but Him, as do the angels and those who have knowledge. He upholds justice.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Understanding the grammar prevents common misconceptions. For example:
@@ -231,35 +290,62 @@ To study the meaning linguistically is to understand that the sentence cannot fu
         { title: 'Learn what negation (la ilaha) and affirmation (illAllah) entail', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided texts do not explicitly detail the grammatical pillars of negation and affirmation, their specific translation of the phrase as "none has the right to be worshipped but Allâh" provides a clear contextual indication for internalizing this exact meaning.',
-          sources: `**I. Quran**
-
-
-### Quran (3:53)
-**Arabic:** رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ  
-**Translation:** Our Lord! We believe in what You have sent down, and we follow the Messenger [(‘Îsâ (Jesus)]; so write us down among those who bear witness (to the truth i.e. Lâ ilâha illallâh - none has the right to be worshipped but Allâh).
-
-### Quran (22:24)
-**Arabic:** وَهُدُوا إِلَى الطَّيِّبِ مِنَ الْقَوْلِ وَهُدُوا إِلَىٰ صِرَاطِ الْحَمِيدِ  
-**Translation:** And they are guided (in this world) unto goodly speech (i.e. Lâ ilâha illallâh, Alhamdu lillâh, recitation of the Qur’ân, etc.) and they are guided to the Path of Him (i.e. Allâh’s religion of Islâmic Monotheism), Who is Worthy of all praises.
-
-### Quran (37:35)
-**Arabic:** إِنَّهُمْ كَانُوا إِذَا قِيلَ لَهُمْ لَا إِلَٰهَ إِلَّا اللَّهُ يَسْتَكْبِرُونَ  
-**Translation:** Truly, when it was said to them: Lâ ilâha illallâh "(none has the right to be worshipped but Allâh)," they puffed themselves up with pride (i.e. denied it).
-
-**II. Hadith**
-
-
-### Sahih Bukhari 6681
-Narrated Al-Musaiyab:When the death of Abu Talib approached, Allah's Messenger (ﷺ) came to him and said, "Say: La ilaha illallah, a word with which I will be able to defend you before Allah
-*(Grade: Sahih)*
-
-### Sahih Bukhari 6346
-Narrated Ibn \`Abbas:Allah's Messenger (ﷺ) used to say at a time of distress, "La ilaha illal-lahu Rabbul-l-'arsh il-'azim, La ilaha illallahu Rabbu-s-samawati wa Rabbu-l-ard, Rabbu-l-'arsh-il-Karim
-*(Grade: Sahih)*
-
-### Sahih Bukhari 7426
-Narrated Ibn \`Abbas:The Prophet (ﷺ) used to say at the time of difficulty, 'La ilaha il-lallah Al-\`Alimul-Halim. La-ilaha illallah Rabul- Arsh-al-Azim, La ilaha-il-lallah Rabus-Samawati Rab-ul-Ard; wa Rab-ul-Arsh Al- Karim.' (See Hadith No. 356 and 357, Vol)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:53",
+              arabic: "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
+              translation: "Our Lord! We believe in what You have sent down, and we follow the Messenger [(‘Îsâ (Jesus)]; so write us down among those who bear witness (to the truth i.e. Lâ ilâha illallâh - none has the right to be worshipped but Allâh).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 22:24",
+              arabic: "وَهُدُوا إِلَى الطَّيِّبِ مِنَ الْقَوْلِ وَهُدُوا إِلَىٰ صِرَاطِ الْحَمِيدِ",
+              translation: "And they are guided (in this world) unto goodly speech (i.e. Lâ ilâha illallâh, Alhamdu lillâh, recitation of the Qur’ân, etc.) and they are guided to the Path of Him (i.e. Allâh’s religion of Islâmic Monotheism), Who is Worthy of all praises.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 37:35",
+              arabic: "إِنَّهُمْ كَانُوا إِذَا قِيلَ لَهُمْ لَا إِلَٰهَ إِلَّا اللَّهُ يَسْتَكْبِرُونَ",
+              translation: "Truly, when it was said to them: Lâ ilâha illallâh \"(none has the right to be worshipped but Allâh),\" they puffed themselves up with pride (i.e. denied it).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6681",
+              translation: "Narrated Al-Musaiyab:When the death of Abu Talib approached, Allah's Messenger (ﷺ) came to him and said, \"Say: La ilaha illallah, a word with which I will be able to defend you before Allah",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6346",
+              translation: "Narrated Ibn `Abbas:Allah's Messenger (ﷺ) used to say at a time of distress, \"La ilaha illal-lahu Rabbul-l-'arsh il-'azim, La ilaha illallahu Rabbu-s-samawati wa Rabbu-l-ard, Rabbu-l-'arsh-il-Karim",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7426",
+              translation: "Narrated Ibn `Abbas:The Prophet (ﷺ) used to say at the time of difficulty, 'La ilaha il-lallah Al-`Alimul-Halim. La-ilaha illallah Rabul- Arsh-al-Azim, La ilaha-il-lallah Rabus-Samawati Rab-ul-Ard; wa Rab-ul-Arsh Al- Karim.' (See Hadith No. 356 and 357, Vol)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The negation rejects all false deities, superstitions, and objects of ultimate devotion. The affirmation establishes that worship, obedience, love, and fear belong to Allah alone. Without understanding this "clearing and establishing" process, one's testimony remains superficial and fails to protect the heart from subtle forms of shirk.
@@ -281,20 +367,35 @@ To successfully complete this subtask, you must move beyond a simple translation
         { title: 'Understand what it means to worship Allah alone without partners', done: false,
           tier: 'T2',
           amanahRationale: 'While the verses explicitly command worshipping Allah alone and joining nothing with Him, the detailed breakdown of worship into physical, verbal, and internal categories, as well as the identification of subtle partners, is derived through logical inference from these foundational commands.',
-          sources: `**I. Quran**
-
-
-### Quran (51:56)
-**Arabic:** وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ  
-**Translation:** I created jinn and mankind only to worship Me.
-
-### Quran (4:36)
-**Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا  
-**Translation:** Worship God; join nothing with Him.
-
-
-### Quran (45:23)
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 51:56",
+              arabic: "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+              translation: "I created jinn and mankind only to worship Me.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:36",
+              arabic: "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا",
+              translation: "Worship God; join nothing with Him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 45:23",
+              arabic: "أَفَرَأَيْتَ مَنِ اتَّخَذَ إِلَٰهَهُ هَوَاهُ وَأَضَلَّهُ اللَّهُ عَلَىٰ عِلْمٍ وَخَتَمَ عَلَىٰ سَمْعِهِ وَقَلْبِهِ وَجَعَلَ عَلَىٰ بَصَرِهِ غِشَاوَةً فَمَن يَهْدِيهِ مِن بَعْدِ اللَّهِ ۚ أَفَلَا تَذَكَّرُونَ",
+              translation: "Have you seen the one who takes as his god his own desire? Then would you be his guardian? Or do you think that most of them hear or reason? They are not except like livestock — rather, they are [even] more astray.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "The Quran names following hawa as a form of taking another deity besides Allah — the textual basis for auditing 'subtle' partners in worship.",
+            },
+          ],
           description: `**Why?**
 
 Worship (*ibadah*) encompasses prayer, du'a, sacrifice, vows, reliance, hope, and fear. None of these may be directed to anything other than Allah. Directing even a single act of worship to another—whether it be a person, an idol, or one's own ego—invalidates the essence of the Shahada and constitutes *Shirk* (associating partners with Allah).
@@ -315,16 +416,26 @@ To complete this subtask, expand your definition of worship from physical ritual
         { title: 'Review Quranic ayat that establish Tawhid (e.g., 112:1-4, 2:255)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided verses do not explicitly prescribe the use of a tafsir or a structured deconstruction of specific Arabic terms, their direct presentation of Allah\'s foundational attributes provides a clear logical inference for deeply reviewing and analyzing these specific texts.',
-          sources: `**I. Quran**
-
-
-### Quran (112:1-4)
-**Arabic:** قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾  
-**Translation:** Say, "He is God the One, God the eternal. He begot no one nor was He begotten. No one is comparable to Him."
-
-### Quran (2:255)
-**Arabic:** اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ  
-**Translation:** God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 112:1-4",
+              arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾",
+              translation: "Say, \"He is God the One, God the eternal. He begot no one nor was He begotten. No one is comparable to Him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:255",
+              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ",
+              translation: "God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Surah al-Ikhlas (112) defines Allah's oneness and absolute independence, serving as the "litmus test" for monotheism. Ayat al-Kursi (2:255) describes His sovereignty, living nature, and total control over the universe. Reading these with tafsir allows you to move from mere recitation to a deep intellectual and spiritual absorption of His attributes.
@@ -350,23 +461,35 @@ Surah al-Ikhlas (112) defines Allah's oneness and absolute independence, serving
         { title: 'Ilm (Knowledge) \u2014 know what it means', done: false,
           tier: 'T2',
           amanahRationale: 'While Quran 47:19 explicitly commands the believer to "know" that there is no deity except Allah, the specific practical steps of studying its linguistic meaning, reading tafsir, and testing one\'s articulation are derived through clear logical inference to fulfill this divine directive.',
-          sources: `**I. Quran**
-
-
-### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ  
-**Translation:** So know (Ilm) that there is no deity except Allah.
-
-### Quran (112:1-2)
-**Arabic:** قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ  
-**Translation:** Say: He is Allah, the One. Allah, the Eternal Refuge.
-
-**II. Hadith**
-
-
-### Sahih Muslim 8
-The Prophet (SAW) said in the hadith of Jibril: "Iman is to believe in Allah, His Angels, His Books, His Messengers, the Last Day, and to believe in qadar, its good and its evil."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ",
+              translation: "So know (Ilm) that there is no deity except Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 112:1-2",
+              arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ",
+              translation: "Say: He is Allah, the One. Allah, the Eternal Refuge.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 8",
+              translation: "The Prophet (SAW) said in the hadith of Jibril: \"Iman is to believe in Allah, His Angels, His Books, His Messengers, the Last Day, and to believe in qadar, its good and its evil.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 You must know what you are testifying to. Ignorance of the Shahada's meaning invalidates its benefit. Allah commands in Surah Muhammad (47:19): "Know that there is no god but Allah." Knowledge here is not optional — it is a prerequisite for the testimony to carry weight.
@@ -381,21 +504,35 @@ You must know what you are testifying to. Ignorance of the Shahada's meaning inv
         { title: 'Yaqin (Certainty) \u2014 have no doubt', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail the practical steps of identifying and researching specific doubts, they provide a clear logical inference for the subtask by establishing that meeting Allah with certainty and without doubt in the testimonies is a prerequisite for entering Paradise.',
-          sources: `**I. Quran**
-
-
-### Quran (102:5)
-**Arabic:** كَلَّا لَوْ تَعْلَمُونَ عِلْمَ الْيَقِينِ
-**Translation:** "No indeed! If only you knew for certain."
-
-### Quran (49:15)
-
-**II. Hadith**
-
-
-### Sahih Muslim 27
-Narrated Abu Huraira: The Messenger of Allah (ﷺ) said: "I bear witness that there is no deity worthy of worship except Allah, and I am the Messenger of Allah — whoever meets Allah with these two (testimonies), having no doubt in them, shall enter Paradise."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 102:5",
+              arabic: "كَلَّا لَوْ تَعْلَمُونَ عِلْمَ الْيَقِينِ",
+              translation: "No indeed! If only you knew for certain.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 49:15",
+              arabic: "إِنَّمَا الْمُؤْمِنُونَ الَّذِينَ آمَنُوا بِاللَّهِ وَرَسُولِهِ ثُمَّ لَمْ يَرْتَابُوا وَجَاهَدُوا بِأَمْوَالِهِمْ وَأَنفُسِهِمْ فِي سَبِيلِ اللَّهِ ۚ أُولَٰئِكَ هُمُ الصَّادِقُونَ",
+              translation: "The true believers are the ones who have faith in God and His Messenger and leave all doubt behind, the ones who have struggled with their possessions and their persons in God's way: they are the ones who are true.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 27",
+              translation: "Narrated Abu Huraira: The Messenger of Allah (ﷺ) said: \"I bear witness that there is no deity worthy of worship except Allah, and I am the Messenger of Allah — whoever meets Allah with these two (testimonies), having no doubt in them, shall enter Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The heart must be free of doubt regarding Allah's oneness. Certainty distinguishes the believer from the hypocrite. Allah describes the true believers in Quran 49:15 as those "who have not doubted" — doubt erodes the foundation of the entire testimony.
@@ -410,23 +547,35 @@ The heart must be free of doubt regarding Allah's oneness. Certainty distinguish
         { title: 'Qabul (Acceptance) \u2014 accept all its implications', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe reflecting on specific rulings or studying their wisdom, they offer a clear logical inference for the subtask by strictly prohibiting partial belief and demanding complete acceptance of divine and prophetic judgments.',
-          sources: `**I. Quran**
-
-
-### Quran (2:85)
-**Arabic:** أَفَتُؤْمِنُونَ بِبَعْضِ الْكِتَابِ وَتَكْفُرُونَ بِبَعْضٍ  
-**Translation:** So do you believe in part of the Scripture and disbelieve in part?
-
-### Quran (4:65)
-**Arabic:** فَلَا وَرَبِّكَ لَا يُؤْمِنُونَ حَتَّىٰ يُحَكِّمُوكَ فِيمَا شَجَرَ بَيْنَهُمْ  
-**Translation:** But no, by your Lord, they will not believe until they make you judge concerning that over which they dispute among themselves.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 7280
-The Prophet (SAW) said: "All my Ummah will enter Paradise except those who refuse." They said: "Who would refuse?" He said: "Whoever obeys me enters Paradise, and whoever disobeys me has refused."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:85",
+              arabic: "أَفَتُؤْمِنُونَ بِبَعْضِ الْكِتَابِ وَتَكْفُرُونَ بِبَعْضٍ",
+              translation: "So do you believe in part of the Scripture and disbelieve in part?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:65",
+              arabic: "فَلَا وَرَبِّكَ لَا يُؤْمِنُونَ حَتَّىٰ يُحَكِّمُوكَ فِيمَا شَجَرَ بَيْنَهُمْ",
+              translation: "But no, by your Lord, they will not believe until they make you judge concerning that over which they dispute among themselves.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7280",
+              translation: "The Prophet (SAW) said: \"All my Ummah will enter Paradise except those who refuse.\" They said: \"Who would refuse?\" He said: \"Whoever obeys me enters Paradise, and whoever disobeys me has refused.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Acceptance means embracing everything the Shahada requires — every ruling, obligation, and prohibition that comes from Allah and His Messenger. Rejecting any part of what Allah legislated while claiming to accept the Shahada is a contradiction that undermines the testimony itself.
@@ -441,19 +590,26 @@ Acceptance means embracing everything the Shahada requires — every ruling, obl
         { title: 'Inqiyad (Submission) \u2014 act upon it', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail auditing daily practices or the five pillars, they provide a clear logical inference for the subtask by explicitly commanding submission to God and establishing that active obedience is the requirement for entering Paradise.',
-          sources: `**I. Quran**
-
-
-### Quran (27:31)
-**Arabic:** أَلَّا تَعْلُوا عَلَيَّ وَأْتُونِي مُسْلِمِينَ
-**Translation:** "Do not put yourselves above me, and come to me in submission to God."
-
-**II. Hadith**
-
-
-### Sahih Bukhari 7280
-The Prophet (ﷺ) said: "All my followers will enter Paradise except those who refuse." They said: "O Messenger of Allah, who would refuse?" He said: "Whoever obeys me will enter Paradise, and whoever disobeys me has refused."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 27:31",
+              arabic: "أَلَّا تَعْلُوا عَلَيَّ وَأْتُونِي مُسْلِمِينَ",
+              translation: "Do not put yourselves above me, and come to me in submission to God.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7280",
+              translation: "The Prophet (ﷺ) said: \"All my followers will enter Paradise except those who refuse.\" They said: \"O Messenger of Allah, who would refuse?\" He said: \"Whoever obeys me will enter Paradise, and whoever disobeys me has refused.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Knowledge and acceptance must lead to action. Submission (*inqiyad*) is the bridge between knowing the truth and living it. The Shahada demands that you submit to Allah's commands in practice — pray, give zakah, fast, and follow the Sunnah. Without action, the testimony is incomplete.
@@ -468,25 +624,44 @@ Knowledge and acceptance must lead to action. Submission (*inqiyad*) is the brid
         { title: 'Sidq (Truthfulness) \u2014 mean it sincerely', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention reading Surah al-Munafiqun or performing a specific self-assessment regarding the Shahada, they provide a clear logical inference for the subtask by explicitly commanding believers to be truthful and establishing truthfulness as the foundational path to righteousness.',
-          sources: `**I. Quran**
-
-
-### Quran (9:119)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ  
-**Translation:** O you who believe, fear Allah and be with those who are truthful.
-
-### Quran (39:33)
-**Arabic:** وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ ۙ أُولَٰئِكَ هُمُ الْمُتَّقُونَ  
-**Translation:** And the one who has brought the truth and those who believed in it — those are the righteous.
-
-### Quran (63:1-4)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 6094
-The Prophet (SAW) said: "Truthfulness leads to righteousness, and righteousness leads to Paradise. A man keeps on telling the truth until he becomes a truthful person (siddiq)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:119",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ",
+              translation: "O you who believe, fear Allah and be with those who are truthful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 39:33",
+              arabic: "وَالَّذِي جَاءَ بِالصِّدْقِ وَصَدَّقَ بِهِ ۙ أُولَٰئِكَ هُمُ الْمُتَّقُونَ",
+              translation: "And the one who has brought the truth and those who believed in it — those are the righteous.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 63:1-4",
+              arabic: "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ ۗ وَاللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ ۝ اتَّخَذُوا أَيْمَانَهُمْ جُنَّةً فَصَدُّوا عَن سَبِيلِ اللَّهِ ۚ إِنَّهُمْ سَاءَ مَا كَانُوا يَعْمَلُونَ ۝ ذَٰلِكَ بِأَنَّهُمْ آمَنُوا ثُمَّ كَفَرُوا فَطُبِعَ عَلَىٰ قُلُوبِهِمْ فَهُمْ لَا يَفْقَهُونَ ۝ وَإِذَا رَأَيْتَهُمْ تُعْجِبُكَ أَجْسَامُهُمْ",
+              translation: "When the hypocrites come to you [Prophet], they say, 'We bear witness that you are the Messenger of God.' God knows that you truly are His Messenger and He bears witness that the hypocrites are liars — they use their oaths as a cover and so bar others from God's way: what they have been doing is truly evil — because they professed faith and then rejected it, so their hearts have been sealed and they do not understand. When you see them, their outward appearance pleases you...",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6094",
+              translation: "The Prophet (SAW) said: \"Truthfulness leads to righteousness, and righteousness leads to Paradise. A man keeps on telling the truth until he becomes a truthful person (siddiq).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Shahada must be said truthfully from the heart, not merely with the tongue. The opposite is the state of the munafiqun (hypocrites) who declared faith outwardly but disbelieved inwardly. Allah exposed their condition throughout Surah al-Munafiqun — their words did not match their hearts.
@@ -501,33 +676,62 @@ The Shahada must be said truthfully from the heart, not merely with the tongue. 
         { title: 'Ikhlas (Sincerity) \u2014 for Allah alone', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (50:32)
-**Arabic:** هَٰذَا مَا تُوعَدُونَ لِكُلِّ أَوَّابٍ حَفِيظٍ
-**Translation:** (It will be said): "This is what you were promised - (it is) for those oft-returning (to Allâh) in sincere repentance, and those who preserve their covenant with Allâh (by obeying Him in all what He has ordered, and worshipping none but Allâh Alone, i.e. follow Allâh’s religion - Islâmic Monotheism).
-
-### Quran (40:65)
-**Arabic:** هُوَ الْحَيُّ لَا إِلَٰهَ إِلَّا هُوَ فَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ ۗ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-**Translation:** He is the Ever Living, Lâ ilâha illâ Huwa (none has the right to be worshipped but He); so invoke Him making your worship pure for Him Alone (by worshipping Him Alone, and none else, and by doing righteous deeds sincerely for Allâh’s sake only, and not to show off, and not setting up rivals with Him in worship). All the praises and thanks be to Allâh, the Lord of the ‘Âlamîn (mankind, jinn and all that exists).
-
-### Quran (39:14)
-**Arabic:** قُلِ اللَّهَ أَعْبُدُ مُخْلِصًا لَّهُ دِينِي
-**Translation:** Say, "Allāh [alone] do I worship, sincere to Him in my religion,
-
-### Quran (98:5)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3
-Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered him till his fear was over and after that he told her everything that had happened and said, "I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones." Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out." Allah's Messenger (ﷺ) asked, "Will they drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly." But after a few days Waraqa died and the Divine Inspiration was also paused for a while
-*(Grade: Sahih)*
-
-### Sahih Bukhari 50
-Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, "What is faith?" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection." Then he further asked, "What is Islam?" Allah's Messenger (ﷺ) replied, "To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan." Then he further asked, "What is Ihsan (perfection)?" Allah's Messenger (ﷺ) replied, "To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you." Then he further asked, "When will the Hour be established?" Allah's Messenger (ﷺ) replied, "The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: "Verily, with Allah (Alone) is the knowledge of the Hour--." (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, "That was Gabriel who came to teach the people their religion." Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 50:32",
+              arabic: "هَٰذَا مَا تُوعَدُونَ لِكُلِّ أَوَّابٍ حَفِيظٍ",
+              translation: "(It will be said): \"This is what you were promised - (it is) for those oft-returning (to Allâh) in sincere repentance, and those who preserve their covenant with Allâh (by obeying Him in all what He has ordered, and worshipping none but Allâh Alone, i.e. follow Allâh’s religion - Islâmic Monotheism).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 40:65",
+              arabic: "هُوَ الْحَيُّ لَا إِلَٰهَ إِلَّا هُوَ فَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ ۗ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+              translation: "He is the Ever Living, Lâ ilâha illâ Huwa (none has the right to be worshipped but He); so invoke Him making your worship pure for Him Alone (by worshipping Him Alone, and none else, and by doing righteous deeds sincerely for Allâh’s sake only, and not to show off, and not setting up rivals with Him in worship). All the praises and thanks be to Allâh, the Lord of the ‘Âlamîn (mankind, jinn and all that exists).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 39:14",
+              arabic: "قُلِ اللَّهَ أَعْبُدُ مُخْلِصًا لَّهُ دِينِي",
+              translation: "Say, \"Allāh [alone] do I worship, sincere to Him in my religion,",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 98:5",
+              arabic: "وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ وَيُقِيمُوا الصَّلَاةَ وَيُؤْتُوا الزَّكَاةَ ۚ وَذَٰلِكَ دِينُ الْقَيِّمَةِ",
+              translation: "though all they are ordered to do is worship God alone, sincerely devoting their religion to Him as people of true faith, keep up the prayer, and pay the prescribed alms, for that is the true religion.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 50",
+              translation: "Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, \"What is faith?\" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection.\" Then he further asked, \"What is Islam?\" Allah's Messenger (ﷺ) replied, \"To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan.\" Then he further asked, \"What is Ihsan (perfection)?\" Allah's Messenger (ﷺ) replied, \"To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you.\" Then he further asked, \"When will the Hour be established?\" Allah's Messenger (ﷺ) replied, \"The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: \"Verily, with Allah (Alone) is the knowledge of the Hour--.\" (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, \"That was Gabriel who came to teach the people their religion.\" Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Shahada must be for Allah's sake alone, not for worldly gain, social acceptance, or any motive other than devotion to Him. Sincerity (*ikhlas*) is what gives the testimony its weight before Allah — without it, even outwardly correct worship is hollow.
@@ -542,23 +746,35 @@ The Shahada must be for Allah's sake alone, not for worldly gain, social accepta
         { title: 'Muhabbah (Love) \u2014 love Allah and His Messenger above all', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe reading tafsir or reflecting on personal conflicts between desires and divine commands, they provide a clear logical inference for the subtask by explicitly stating that believers must love Allah and His Messenger above all else to experience the sweetness of faith.',
-          sources: `**I. Quran**
-
-
-### Quran (3:31)
-**Arabic:** قُلْ إِن كُنتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللَّهُ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ ۗ وَاللَّهُ غَفُورٌ رَّحِيمٌ
-**Translation:** "Say, 'If you love God, follow me, and God will love you and forgive you your sins; God is most forgiving, most merciful.'"
-
-### Quran (2:165)
-**Arabic:** وَمِنَ النَّاسِ مَن يَتَّخِذُ مِن دُونِ اللَّهِ أَندَادًا يُحِبُّونَهُمْ كَحُبِّ اللَّهِ ۖ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ
-**Translation:** "Even so, there are some who choose to worship others besides God as rivals to Him, loving them with the love due to God, but the believers have greater love for God."
-
-**II. Hadith**
-
-
-### Sahih Bukhari 15
-Narrated Anas: The Prophet (ﷺ) said, "Whoever possesses the following three qualities will have the sweetness of faith: the one to whom Allah and His Messenger become dearer than anything else; who loves a person and loves him only for Allah's sake; and who hates to revert to disbelief as he hates to be thrown into the Fire."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:31",
+              arabic: "قُلْ إِن كُنتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللَّهُ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ ۗ وَاللَّهُ غَفُورٌ رَّحِيمٌ",
+              translation: "Say, 'If you love God, follow me, and God will love you and forgive you your sins; God is most forgiving, most merciful.'\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:165",
+              arabic: "وَمِنَ النَّاسِ مَن يَتَّخِذُ مِن دُونِ اللَّهِ أَندَادًا يُحِبُّونَهُمْ كَحُبِّ اللَّهِ ۖ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ",
+              translation: "Even so, there are some who choose to worship others besides God as rivals to Him, loving them with the love due to God, but the believers have greater love for God.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 15",
+              translation: "Narrated Anas: The Prophet (ﷺ) said, \"Whoever possesses the following three qualities will have the sweetness of faith: the one to whom Allah and His Messenger become dearer than anything else; who loves a person and loves him only for Allah's sake; and who hates to revert to disbelief as he hates to be thrown into the Fire.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Love for Allah and His Messenger must surpass love for all else. Allah says in Quran 2:165: "Those who believe are stronger in their love for Allah." This love is not mere sentiment — it drives obedience, sacrifice, and prioritization of what pleases Allah over what pleases the self or others.
@@ -580,27 +796,44 @@ Love for Allah and His Messenger must surpass love for all else. Allah says in Q
         { title: 'Study belief in Allah (al-Iman billah)', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (2:163)
-**Arabic:** وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَّا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ
-**Translation:** And your god is one God. There is no deity [worthy of worship] except Him, the Most Merciful, the Especially Merciful.
-
-### Quran (2:255)
-**Arabic:** اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ
-**Translation:** Allah — there is no deity except Him, the Ever-Living, the Self-Sustaining.
-
-### Quran (3:18)
-**Arabic:** شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ ۚ لَا إِلَٰهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ
-**Translation:** Allah bears witness that there is no deity except Him, and [so do] the angels and those of knowledge — upholding justice. There is no deity except Him, the Exalted in Might, the Wise.
-
-**II. Hadith**
-
-
-### Sahih Muslim 8
-It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:163",
+              arabic: "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَّا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+              translation: "And your god is one God. There is no deity [worthy of worship] except Him, the Most Merciful, the Especially Merciful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:255",
+              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+              translation: "Allah — there is no deity except Him, the Ever-Living, the Self-Sustaining.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 3:18",
+              arabic: "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ ۚ لَا إِلَٰهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ",
+              translation: "Allah bears witness that there is no deity except Him, and [so do] the angels and those of knowledge — upholding justice. There is no deity except Him, the Exalted in Might, the Wise.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 8",
+              translation: "It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Belief in Allah is the foundation of all other beliefs. It encompasses four dimensions: His existence, His lordship (*Rububiyyah*), His exclusive right to worship (*Uluhiyyah*), and His names and attributes (*Asma wa Sifat*). A deficiency in any one of these dimensions weakens the entire structure of faith.
@@ -615,31 +848,53 @@ Belief in Allah is the foundation of all other beliefs. It encompasses four dime
         { title: 'Study belief in the Angels (al-Mala\'ikah)', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (16:32)
-**Arabic:** الَّذِينَ تَتَوَفَّاهُمُ الْمَلَائِكَةُ طَيِّبِينَ ۙ يَقُولُونَ سَلَامٌ عَلَيْكُمُ ادْخُلُوا الْجَنَّةَ بِمَا كُنتُمْ تَعْمَلُونَ
-**Translation:** the ones to whom angels bring death while they are pure (in beliefs and deeds). They (angels) say, “Peace on you! Enter Paradise for the deeds you have been doing.”
-
-### Quran (6:158)
-**Arabic:** هَلْ يَنظُرُونَ إِلَّا أَن تَأْتِيَهُمُ الْمَلَائِكَةُ أَوْ يَأْتِيَ رَبُّكَ أَوْ يَأْتِيَ بَعْضُ آيَاتِ رَبِّكَ ۗ يَوْمَ يَأْتِي بَعْضُ آيَاتِ رَبِّكَ لَا يَنفَعُ نَفْسًا إِيمَانُهَا لَمْ تَكُنْ آمَنَتْ مِن قَبْلُ أَوْ كَسَبَتْ فِي إِيمَانِهَا خَيْرًا ۗ قُلِ انتَظِرُوا إِنَّا مُنتَظِرُونَ
-**Translation:** Wait they, indeed, for nothing less than that the angels should come unto them, or thy Lord should come, or there should come one of the portents from thy Lord? In the day when one of the portents from thy Lord cometh, its belief availeth naught a soul which theretofore believed not, nor in its belief earned good (by works). Say: Wait ye! Lo! We (too) are waiting.
-
-### Quran (33:43)
-**Arabic:** هُوَ الَّذِي يُصَلِّي عَلَيْكُمْ وَمَلَائِكَتُهُ لِيُخْرِجَكُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ ۚ وَكَانَ بِالْمُؤْمِنِينَ رَحِيمًا
-**Translation:** He it is Who sends Salât (His blessings) on you, and His angels too (ask Allâh to bless and forgive you), that He may bring you out from darkness (of disbelief and polytheism) into light (of Belief and Islâmic Monotheism). And He is Ever Most Merciful to the believers.
-
-### Quran (2:285)
-**Arabic:** ءَامَنَ ٱلرَّسُولُ بِمَآ أُنزِلَ إِلَيْهِ مِن رَّبِّهِۦ وَٱلْمُؤْمِنُونَ ۚ كُلٌّ ءَامَنَ بِٱللَّهِ وَمَلَـٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ لَا نُفَرِّقُ بَيْنَ أَحَدٍۢ مِّن رُّسُلِهِۦ ۚ وَقَالُوا۟ سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ ٱلْمَصِيرُ  
-**Translation:** The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. ‘We make no distinction between any of His messengers,’ they say, ‘We hear and obey. Grant us Your forgiveness, our Lord. To You we all return!’-
-
-**II. Hadith**
-
-
-### Sahih Bukhari 4777
-Narrated Abu Huraira:One day while Allah's Messenger (ﷺ) was sitting with the people, a man came to him walking and said, "O Allah's Messenger (ﷺ). What is Belief?" The Prophet (ﷺ) said, "Belief is to believe in Allah, His Angels, His Books, His Apostles, and the meeting with Him, and to believe in the Resurrection." The man asked, "O Allah's Messenger (ﷺ) What is Islam?" The Prophet (ﷺ) replied, "Islam is to worship Allah and not worship anything besides Him, to offer prayers perfectly, to pay the (compulsory) charity (i.e. Zakat) and to fast the month of Ramadan." The man again asked, "O Allah's Messenger (ﷺ) What is Ihsan (i.e. perfection or Benevolence)?" The Prophet (ﷺ) said, "Ihsan is to worship Allah as if you see Him, and if you do not achieve this state of devotion, then (take it for granted that) Allah sees you." The man further asked, "O Allah's Messenger (ﷺ) When will the Hour be established?" The Prophet (ﷺ) replied, "The one who is asked about it does not know more than the questioner does, but I will describe to you its portents. When the lady slave gives birth to her mistress, that will be of its portents; when the bare-footed naked people become the chiefs of the people, that will be of its portents. The Hour is one of five things which nobody knows except Allah. Verily, the knowledge of the Hour is with Allah (alone). He sends down the rain, and knows that which is in the wombs." (31.34) Then the man left. The Prophet (ﷺ) said, "Call him back to me." They went to call him back but could not see him. The Prophet (ﷺ) said, "That was Gabriel who came to teach the people their religion." (See Hadith No. 47 Vol)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 16:32",
+              arabic: "الَّذِينَ تَتَوَفَّاهُمُ الْمَلَائِكَةُ طَيِّبِينَ ۙ يَقُولُونَ سَلَامٌ عَلَيْكُمُ ادْخُلُوا الْجَنَّةَ بِمَا كُنتُمْ تَعْمَلُونَ",
+              translation: "the ones to whom angels bring death while they are pure (in beliefs and deeds). They (angels) say, “Peace on you! Enter Paradise for the deeds you have been doing.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 6:158",
+              arabic: "هَلْ يَنظُرُونَ إِلَّا أَن تَأْتِيَهُمُ الْمَلَائِكَةُ أَوْ يَأْتِيَ رَبُّكَ أَوْ يَأْتِيَ بَعْضُ آيَاتِ رَبِّكَ ۗ يَوْمَ يَأْتِي بَعْضُ آيَاتِ رَبِّكَ لَا يَنفَعُ نَفْسًا إِيمَانُهَا لَمْ تَكُنْ آمَنَتْ مِن قَبْلُ أَوْ كَسَبَتْ فِي إِيمَانِهَا خَيْرًا ۗ قُلِ انتَظِرُوا إِنَّا مُنتَظِرُونَ",
+              translation: "Wait they, indeed, for nothing less than that the angels should come unto them, or thy Lord should come, or there should come one of the portents from thy Lord? In the day when one of the portents from thy Lord cometh, its belief availeth naught a soul which theretofore believed not, nor in its belief earned good (by works). Say: Wait ye! Lo! We (too) are waiting.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 33:43",
+              arabic: "هُوَ الَّذِي يُصَلِّي عَلَيْكُمْ وَمَلَائِكَتُهُ لِيُخْرِجَكُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ ۚ وَكَانَ بِالْمُؤْمِنِينَ رَحِيمًا",
+              translation: "He it is Who sends Salât (His blessings) on you, and His angels too (ask Allâh to bless and forgive you), that He may bring you out from darkness (of disbelief and polytheism) into light (of Belief and Islâmic Monotheism). And He is Ever Most Merciful to the believers.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:285",
+              arabic: "ءَامَنَ ٱلرَّسُولُ بِمَآ أُنزِلَ إِلَيْهِ مِن رَّبِّهِۦ وَٱلْمُؤْمِنُونَ ۚ كُلٌّ ءَامَنَ بِٱللَّهِ وَمَلَـٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ لَا نُفَرِّقُ بَيْنَ أَحَدٍۢ مِّن رُّسُلِهِۦ ۚ وَقَالُوا۟ سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ ٱلْمَصِيرُ",
+              translation: "The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. ‘We make no distinction between any of His messengers,’ they say, ‘We hear and obey. Grant us Your forgiveness, our Lord. To You we all return!’-",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4777",
+              translation: "Narrated Abu Huraira:One day while Allah's Messenger (ﷺ) was sitting with the people, a man came to him walking and said, \"O Allah's Messenger (ﷺ). What is Belief?\" The Prophet (ﷺ) said, \"Belief is to believe in Allah, His Angels, His Books, His Apostles, and the meeting with Him, and to believe in the Resurrection.\" The man asked, \"O Allah's Messenger (ﷺ) What is Islam?\" The Prophet (ﷺ) replied, \"Islam is to worship Allah and not worship anything besides Him, to offer prayers perfectly, to pay the (compulsory) charity (i.e. Zakat) and to fast the month of Ramadan.\" The man again asked, \"O Allah's Messenger (ﷺ) What is Ihsan (i.e. perfection or Benevolence)?\" The Prophet (ﷺ) said, \"Ihsan is to worship Allah as if you see Him, and if you do not achieve this state of devotion, then (take it for granted that) Allah sees you.\" The man further asked, \"O Allah's Messenger (ﷺ) When will the Hour be established?\" The Prophet (ﷺ) replied, \"The one who is asked about it does not know more than the questioner does, but I will describe to you its portents. When the lady slave gives birth to her mistress, that will be of its portents; when the bare-footed naked people become the chiefs of the people, that will be of its portents. The Hour is one of five things which nobody knows except Allah. Verily, the knowledge of the Hour is with Allah (alone). He sends down the rain, and knows that which is in the wombs.\" (31.34) Then the man left. The Prophet (ﷺ) said, \"Call him back to me.\" They went to call him back but could not see him. The Prophet (ﷺ) said, \"That was Gabriel who came to teach the people their religion.\" (See Hadith No. 47 Vol)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Angels are a pillar of the unseen that Muslims must affirm. They are created from light, obey Allah without fail, and carry out specific duties — Jibril brings revelation, Mika'il manages provisions, and Israfil will blow the trumpet. Denying their existence contradicts clear Quranic texts.
@@ -654,27 +909,53 @@ Angels are a pillar of the unseen that Muslims must affirm. They are created fro
         { title: 'Study belief in the Books (al-Kutub)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly list all the previous scriptures or prescribe studying verse 5:48, they provide a clear logical inference for the subtask by explicitly commanding belief in all the Books and Scriptures revealed by God.',
-          sources: `**I. Quran**
-
-### Quran (4:136)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا آمِنُوا بِاللَّهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلَىٰ رَسُولِهِ وَالْكِتَابِ الَّذِي أَنزَلَ مِن قَبْلُ ۚ وَمَن يَكْفُرْ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا  
-**Translation:** You who believe, believe in God and His Messenger and in the Scripture He sent down to His Messenger, as well as what He sent down before. Anyone who does not believe in God, His angels, His Scriptures, His messengers, and the Last Day has gone far, far astray.
-
-### Quran (2:285)
-**Arabic:** آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ  
-**Translation:** The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. "We make no distinction between any of His messengers."
-
-### Quran (42:15)
-**Arabic:** وَقُلْ آمَنتُ بِمَا أَنزَلَ اللَّهُ مِن كِتَابٍ  
-**Translation:** Say, "I believe in whatever Scripture God has sent down."
-
-### Quran (5:48)
-
-**II. Hadith**
-
-### Sahih Muslim 8a
-The Prophet (peace be upon him) said: "Iman is to believe in Allah, His angels, His Books, His Messengers, the Last Day, and to believe in al-Qadr (divine decree), both its good and its evil."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:136",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا آمِنُوا بِاللَّهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلَىٰ رَسُولِهِ وَالْكِتَابِ الَّذِي أَنزَلَ مِن قَبْلُ ۚ وَمَن يَكْفُرْ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا",
+              translation: "You who believe, believe in God and His Messenger and in the Scripture He sent down to His Messenger, as well as what He sent down before. Anyone who does not believe in God, His angels, His Scriptures, His messengers, and the Last Day has gone far, far astray.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:285",
+              arabic: "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ",
+              translation: "The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. \"We make no distinction between any of His messengers.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 42:15",
+              arabic: "وَقُلْ آمَنتُ بِمَا أَنزَلَ اللَّهُ مِن كِتَابٍ",
+              translation: "Say, \"I believe in whatever Scripture God has sent down.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 5:48",
+              arabic: "وَأَنزَلْنَا إِلَيْكَ الْكِتَابَ بِالْحَقِّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ مِنَ الْكِتَابِ وَمُهَيْمِنًا عَلَيْهِ ۖ فَاحْكُم بَيْنَهُم بِمَا أَنزَلَ اللَّهُ ۖ وَلَا تَتَّبِعْ أَهْوَاءَهُمْ عَمَّا جَاءَكَ مِنَ الْحَقِّ ۚ لِكُلٍّ جَعَلْنَا مِنكُمْ شِرْعَةً وَمِنْهَاجًا",
+              translation: "We sent to you [Muhammad] the Scripture with the truth, confirming the Scriptures that came before it, and with final authority over them: so judge between them according to what God has sent down. Do not follow their whims, which deviate from the truth that has come to you. We have assigned a law and a path to each of you.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 8a",
+              translation: "The Prophet (peace be upon him) said: \"Iman is to believe in Allah, His angels, His Books, His Messengers, the Last Day, and to believe in al-Qadr (divine decree), both its good and its evil.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Allah revealed scriptures to guide humanity throughout history: the Suhuf of Ibrahim, the Tawrat of Musa, the Zabur of Dawud, the Injil of Isa, and the Quran — the final, preserved revelation. Believing in all of them is required, while recognising that the Quran is the only scripture preserved in its original form.
@@ -689,27 +970,44 @@ Allah revealed scriptures to guide humanity throughout history: the Suhuf of Ibr
         { title: 'Study belief in the Messengers (ar-Rusul)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly list the 25 prophets or prescribe a specific study method, they provide a clear logical inference for the subtask by explicitly commanding belief in all messengers without distinction and designating Muhammad as the Seal of the Prophets.',
-          sources: `**I. Quran**
-
-
-### Quran (2:285)
-**Arabic:** آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ
-**Translation:** The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. "We make no distinction between any of His messengers."
-
-### Quran (4:164)
-**Arabic:** وَرُسُلًا قَدْ قَصَصْنَاهُمْ عَلَيْكَ مِن قَبْلُ وَرُسُلًا لَّمْ نَقْصُصْهُمْ عَلَيْكَ ۚ وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا
-**Translation:** Messengers We have already told you about, and other messengers We have not — and to Moses God spoke directly.
-
-### Quran (33:40)
-**Arabic:** مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ ۗ وَكَانَ اللَّهُ بِكُلِّ شَيْءٍ عَلِيمًا
-**Translation:** Muhammad is not the father of any of your men, but he is the Messenger of Allah and the Seal of the Prophets. And Allah has full knowledge of all things.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 4777
-Narrated Abu Huraira: The Prophet (ﷺ) said, "Belief is to believe in Allah, His Angels, His Books, His Apostles, and the meeting with Him, and to believe in the Resurrection."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:285",
+              arabic: "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ",
+              translation: "The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. \"We make no distinction between any of His messengers.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:164",
+              arabic: "وَرُسُلًا قَدْ قَصَصْنَاهُمْ عَلَيْكَ مِن قَبْلُ وَرُسُلًا لَّمْ نَقْصُصْهُمْ عَلَيْكَ ۚ وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا",
+              translation: "Messengers We have already told you about, and other messengers We have not — and to Moses God spoke directly.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 33:40",
+              arabic: "مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ ۗ وَكَانَ اللَّهُ بِكُلِّ شَيْءٍ عَلِيمًا",
+              translation: "Muhammad is not the father of any of your men, but he is the Messenger of Allah and the Seal of the Prophets. And Allah has full knowledge of all things.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4777",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, \"Belief is to believe in Allah, His Angels, His Books, His Apostles, and the meeting with Him, and to believe in the Resurrection.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Believing in all prophets and messengers from Adam to Muhammad (SAW) is a pillar of faith. They were human, chosen by Allah, truthful, and conveyed His message without alteration. Rejecting any one of them — or elevating them beyond their human station — contradicts correct belief.
@@ -724,27 +1022,44 @@ Believing in all prophets and messengers from Adam to Muhammad (SAW) is a pillar
         { title: 'Study belief in the Last Day (al-Yawm al-Akhir)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly outline a study sequence or list all stages of the Hereafter, they provide a clear logical inference for the subtask by explicitly commanding belief in the Last Day and providing specific verses from Surahs 99 and 101 that describe its events and absolute accountability.',
-          sources: `**I. Quran**
-
-
-### Quran (30:56)
-**Arabic:** وَقَالَ الَّذِينَ أُوتُوا الْعِلْمَ وَالْإِيمَانَ لَقَدْ لَبِثْتُمْ فِي كِتَابِ اللَّهِ إِلَىٰ يَوْمِ الْبَعْثِ ۖ فَهَٰذَا يَوْمُ الْبَعْثِ وَلَٰكِنَّكُمْ كُنتُمْ لَا تَعْلَمُونَ
-**Translation:** As for those who were given knowledge and belief, they will say, “You remained, according to the destiny written by Allah, up to the Day of Resurrection. So this is the Day of Resurrection, but you had no belief.”
-
-### Quran (99:7)
-**Arabic:** فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ
-**Translation:** So whoever does an atom's weight of good will see it.
-
-### Quran (101:4)
-**Arabic:** يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِ
-**Translation:** It is a Day when mankind will be like scattered moths.
-
-**II. Hadith**
-
-
-### Sahih Muslim 8
-The Prophet (ﷺ) said: "Iman is to believe in Allah, His angels, His Books, His Messengers, and the Last Day, and to believe in the divine decree, both its good and its evil."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 30:56",
+              arabic: "وَقَالَ الَّذِينَ أُوتُوا الْعِلْمَ وَالْإِيمَانَ لَقَدْ لَبِثْتُمْ فِي كِتَابِ اللَّهِ إِلَىٰ يَوْمِ الْبَعْثِ ۖ فَهَٰذَا يَوْمُ الْبَعْثِ وَلَٰكِنَّكُمْ كُنتُمْ لَا تَعْلَمُونَ",
+              translation: "As for those who were given knowledge and belief, they will say, “You remained, according to the destiny written by Allah, up to the Day of Resurrection. So this is the Day of Resurrection, but you had no belief.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 99:7",
+              arabic: "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ",
+              translation: "So whoever does an atom's weight of good will see it.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 101:4",
+              arabic: "يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِ",
+              translation: "It is a Day when mankind will be like scattered moths.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 8",
+              translation: "The Prophet (ﷺ) said: \"Iman is to believe in Allah, His angels, His Books, His Messengers, and the Last Day, and to believe in the divine decree, both its good and its evil.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Belief in the Last Day gives life its urgency and accountability. It encompasses death, the grave (*barzakh*), resurrection, the gathering, the scales (*mizan*), the bridge (*sirat*), and the final abodes of paradise and hellfire. Without this belief, there is no framework for divine justice.
@@ -759,27 +1074,44 @@ Belief in the Last Day gives life its urgency and accountability. It encompasses
         { title: 'Study belief in Qadar \u2014 Divine Decree (al-Qadr)', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (54:49)
-**Arabic:** إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَرٍ
-**Translation:** Verily, We have created all things with Qadar (Divine Preordainments of all things before their creation as written in the Book of Decrees Al-Lauh Al-Mahfûz).
-
-### Quran (64:11)
-**Arabic:** مَا أَصَابَ مِن مُّصِيبَةٍ إِلَّا بِإِذْنِ اللَّهِ ۗ وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ ۚ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ
-**Translation:** No calamity befalls, but by the Leave [i.e. Decision and Qadar (Divine Preordainments)] of Allâh, and whosoever believes in Allâh, He guides his heart [to the true Faith with certainty, i.e. what has befallen him was already written for him by Allâh from the Qadar (Divine Preordainments)]. And Allâh is the All-Knower of everything.
-
-**II. Hadith**
-
-
-### Sahih Muslim 93
-It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion
-*(Grade: Sahih)*
-
-### Sahih Muslim 99
-It is narrated on the authority of Abu Huraira that the Messenger of Allah (ﷺ) said:Ask me (about religious matters), but they (the Companions) were in awe of asking him. Then came a man, and sat near his knees and said: O Messenger of Allah, what is al-Islam? So he (the Holy Prophet) replied: [That] you do not associate anything with Allah, and establish the prayer, pay the alms (Zakat) and fast Ramadan. He said: You (have) told the truth. He said: Messenger of Allah, what is al-Iman (Faith)? He said: That you affirm your faith in Allah, His angels, His Books, His meeting, His Apostles, and that you believe in Resurrection and that you believe in Qadr (Divine Decree) in all its entirety. He (the inquirer) said: You have told the truth. He said: Messenger of Allah, what is al-Ihsan? Upon this he said: that you fear Allah as if you are seeing Him, and though you see Him not, verily He is seeing you. He (the inquirer) said: You (have) told the truth. He (the inquirer) said: When will the Hour (of Doom) occur? He said: The one who is being asked about it is no better informed than the inquirer and I will narrate some of its signs to you. When you see a [slave] woman giving birth to her master - then that is [one] of its signs. And when you see barefooted, naked, deaf and dumb (ignorant and foolish persons) as the rulers of the earth - then that is [one] of its signs. And when you see the shepherds of black (camels) exult in buildings - then that is [one] of its signs. The (Hour) is one of the five things of the unseen. No one knows them except Allah. Then (the Holy Prophet) recited (the folowing verse):" Verily Allah! with Him alone is the knowledge of the Hour and He it is Who sends down the rain and knows that which is in the wombs. And no soul knows what it shall earn on the morrow and a soul knows not in what land it shall die. Verily Allah is Knowing, Aware." He (Abu Huraira) said: Then the person stood up (and made his way). Then the Messenger of Allah (ﷺ) said: Bring him back to me. He was searched for, but they could not find him. The Messenger of Allah (ﷺ) thereupon said: He was Gabriel and he wanted to teach you when you did not ask
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 54:49",
+              arabic: "إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَرٍ",
+              translation: "Verily, We have created all things with Qadar (Divine Preordainments of all things before their creation as written in the Book of Decrees Al-Lauh Al-Mahfûz).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 64:11",
+              arabic: "مَا أَصَابَ مِن مُّصِيبَةٍ إِلَّا بِإِذْنِ اللَّهِ ۗ وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ ۚ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+              translation: "No calamity befalls, but by the Leave [i.e. Decision and Qadar (Divine Preordainments)] of Allâh, and whosoever believes in Allâh, He guides his heart [to the true Faith with certainty, i.e. what has befallen him was already written for him by Allâh from the Qadar (Divine Preordainments)]. And Allâh is the All-Knower of everything.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 93",
+              translation: "It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 99",
+              translation: "It is narrated on the authority of Abu Huraira that the Messenger of Allah (ﷺ) said:Ask me (about religious matters), but they (the Companions) were in awe of asking him. Then came a man, and sat near his knees and said: O Messenger of Allah, what is al-Islam? So he (the Holy Prophet) replied: [That] you do not associate anything with Allah, and establish the prayer, pay the alms (Zakat) and fast Ramadan. He said: You (have) told the truth. He said: Messenger of Allah, what is al-Iman (Faith)? He said: That you affirm your faith in Allah, His angels, His Books, His meeting, His Apostles, and that you believe in Resurrection and that you believe in Qadr (Divine Decree) in all its entirety. He (the inquirer) said: You have told the truth. He said: Messenger of Allah, what is al-Ihsan? Upon this he said: that you fear Allah as if you are seeing Him, and though you see Him not, verily He is seeing you. He (the inquirer) said: You (have) told the truth. He (the inquirer) said: When will the Hour (of Doom) occur? He said: The one who is being asked about it is no better informed than the inquirer and I will narrate some of its signs to you. When you see a [slave] woman giving birth to her master - then that is [one] of its signs. And when you see barefooted, naked, deaf and dumb (ignorant and foolish persons) as the rulers of the earth - then that is [one] of its signs. And when you see the shepherds of black (camels) exult in buildings - then that is [one] of its signs. The (Hour) is one of the five things of the unseen. No one knows them except Allah. Then (the Holy Prophet) recited (the folowing verse):\" Verily Allah! with Him alone is the knowledge of the Hour and He it is Who sends down the rain and knows that which is in the wombs. And no soul knows what it shall earn on the morrow and a soul knows not in what land it shall die. Verily Allah is Knowing, Aware.\" He (Abu Huraira) said: Then the person stood up (and made his way). Then the Messenger of Allah (ﷺ) said: Bring him back to me. He was searched for, but they could not find him. The Messenger of Allah (ﷺ) thereupon said: He was Gabriel and he wanted to teach you when you did not ask",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Belief in divine decree (*qadar*) means affirming that Allah's knowledge encompasses everything, He wrote it all in al-Lawh al-Mahfuz, He wills everything that happens, and He creates all things. Good and bad are both from His decree. This belief is the anchor of patience in hardship and gratitude in ease.
@@ -801,23 +1133,35 @@ Belief in divine decree (*qadar*) means affirming that Allah's knowledge encompa
         { title: 'List any superstitious beliefs or practices you hold', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe listing personal superstitions or studying the specific hadith on bird omens, they provide a clear logical inference for the subtask by explicitly condemning amulets and love-charms as shirk and prohibiting the association of anything with Allah.',
-          sources: `**I. Quran**
-
-
-### Quran (4:36)
-**Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا  
-**Translation:** Worship Allah and associate nothing with Him.
-
-### Quran (2:255)
-**Arabic:** اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ  
-**Translation:** Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3005
-The Prophet (SAW) said: "Ruqyah (incantation), amulets and love-charms are shirk."
-*(Grade: Sahih — narrated by Abu Dawud 3883, graded sahih by al-Albani)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:36",
+              arabic: "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا",
+              translation: "Worship Allah and associate nothing with Him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:255",
+              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+              translation: "Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3005",
+              translation: "The Prophet (SAW) said: \"Ruqyah (incantation), amulets and love-charms are shirk.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — narrated by Abu Dawud 3883, graded sahih by al-Albani",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Superstitious beliefs — like "bad luck" from broken mirrors, black cats, or certain numbers — contradict reliance on Allah's decree alone. They attribute power or influence to created things that have no ability to benefit or harm, and this undermines the foundation of Tawhid.
@@ -832,23 +1176,35 @@ Superstitious beliefs — like "bad luck" from broken mirrors, black cats, or ce
         { title: 'Identify any reliance on amulets, charms, or talismans', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly condemn wearing amulets as an act of shirk, the practical steps of physically checking for them and replacing them with specific Quranic protections are derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (4:48)
-**Arabic:** إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ  
-**Translation:** Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.
-
-### Quran (6:162-163)
-**Arabic:** قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ ۝ لَا شَرِيكَ لَهُ  
-**Translation:** Say: Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds. No partner has He.
-
-**II. Hadith**
-
-
-### Musnad Ahmad 17422
-The Prophet (SAW) said: "Whoever wears an amulet has committed shirk."
-*(Grade: Sahih — graded sahih by al-Albani)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:48",
+              arabic: "إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ",
+              translation: "Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 6:162-163",
+              arabic: "قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ ۝ لَا شَرِيكَ لَهُ",
+              translation: "Say: Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds. No partner has He.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Musnad Ahmad 17422",
+              translation: "The Prophet (SAW) said: \"Whoever wears an amulet has committed shirk.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — graded sahih by al-Albani",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Wearing items believed to bring protection or luck — such as evil eye bracelets, strings, or stones — can constitute minor or major shirk depending on the belief attached. If you believe the object itself has power, this is major shirk. If you believe it is merely a "cause," it is still prohibited as minor shirk.
@@ -863,19 +1219,26 @@ Wearing items believed to bring protection or luck — such as evil eye bracelet
         { title: 'Check for habits of swearing by other than Allah', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention an incident involving an oath sworn by Allah, they do not address or prohibit the specific practice of swearing by other than Him, providing neither clear proof nor contextual indication for the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (22:40)
-**Arabic:** الَّذِينَ أُخْرِجُوا مِن دِيَارِهِم بِغَيْرِ حَقٍّ إِلَّا أَن يَقُولُوا رَبُّنَا اللَّهُ ۗ وَلَوْلَا دَفْعُ اللَّهِ النَّاسَ بَعْضَهُم بِبَعْضٍ لَّهُدِّمَتْ صَوَامِعُ وَبِيَعٌ وَصَلَوَاتٌ وَمَسَاجِدُ يُذْكَرُ فِيهَا اسْمُ اللَّهِ كَثِيرًا ۗ وَلَيَنصُرَنَّ اللَّهُ مَن يَنصُرُهُ ۗ إِنَّ اللَّهَ لَقَوِيٌّ عَزِيزٌ
-**Translation:** [They are] those who have been evicted from their homes without right - only because they say, "Our Lord is Allāh." And were it not that Allāh checks the people, some by means of others, there would have been demolished monasteries, churches, synagogues, and mosques in which the name of Allāh is much mentioned [i.e., praised]. And Allāh will surely support those who support Him [i.e., His cause]. Indeed, Allāh is Powerful and Exalted in Might.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 2705
-Narrated Aisha:Once Allah's Messenger (ﷺ) heard the loud voices of some opponents quarreling at the door. One of them was appealing to the other to deduct his debt and asking him to be lenient but the other was saying, "By Allah I will not do so." Allah's Messenger (ﷺ) went out to them and said, "Who is the one who was swearing by Allah that he would not do a favor?" That man said, "I am that person, O Allah's Messenger (ﷺ)! I will give my opponent whatever he wishes
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 22:40",
+              arabic: "الَّذِينَ أُخْرِجُوا مِن دِيَارِهِم بِغَيْرِ حَقٍّ إِلَّا أَن يَقُولُوا رَبُّنَا اللَّهُ ۗ وَلَوْلَا دَفْعُ اللَّهِ النَّاسَ بَعْضَهُم بِبَعْضٍ لَّهُدِّمَتْ صَوَامِعُ وَبِيَعٌ وَصَلَوَاتٌ وَمَسَاجِدُ يُذْكَرُ فِيهَا اسْمُ اللَّهِ كَثِيرًا ۗ وَلَيَنصُرَنَّ اللَّهُ مَن يَنصُرُهُ ۗ إِنَّ اللَّهَ لَقَوِيٌّ عَزِيزٌ",
+              translation: "[They are] those who have been evicted from their homes without right - only because they say, \"Our Lord is Allāh.\" And were it not that Allāh checks the people, some by means of others, there would have been demolished monasteries, churches, synagogues, and mosques in which the name of Allāh is much mentioned [i.e., praised]. And Allāh will surely support those who support Him [i.e., His cause]. Indeed, Allāh is Powerful and Exalted in Might.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2705",
+              translation: "Narrated Aisha:Once Allah's Messenger (ﷺ) heard the loud voices of some opponents quarreling at the door. One of them was appealing to the other to deduct his debt and asking him to be lenient but the other was saying, \"By Allah I will not do so.\" Allah's Messenger (ﷺ) went out to them and said, \"Who is the one who was swearing by Allah that he would not do a favor?\" That man said, \"I am that person, O Allah's Messenger (ﷺ)! I will give my opponent whatever he wishes",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  Swearing by something elevates it to a position of reverence that belongs to Allah alone. Many people habitually swear by their life, parents, or honour without realising the gravity of this act.
@@ -889,16 +1252,26 @@ Narrated Aisha:Once Allah's Messenger (ﷺ) heard the loud voices of some oppone
         { title: 'Remove or correct any identified contradictions', done: false,
           tier: 'T2',
           amanahRationale: 'While the verses do not explicitly detail the step-by-step process of physically removing amulets or correcting specific oaths, their severe warning that associating partners with God is unforgivable and nullifies all good deeds provides a clear logical inference that believers must actively eliminate any such contradictions to Tawhid.',
-          sources: `**I. Quran**
-
-
-### Quran (39:65)
-**Arabic:** وَلَقَدْ أُوحِيَ إِلَيْكَ وَإِلَى الَّذِينَ مِن قَبْلِكَ لَئِنْ أَشْرَكْتَ لَيَحْبَطَنَّ عَمَلُكَ وَلَتَكُونَنَّ مِنَ الْخَاسِرِينَ  
-**Translation:** It has already been revealed to you [Prophet] and to those before you: "If you ascribe any partner to God, all your work will come to nothing: you will be one of the losers."
-
-### Quran (4:48)
-**Arabic:** إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ  
-**Translation:** God does not forgive the joining of partners with Him: anything less than that He forgives to whoever He will.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 39:65",
+              arabic: "وَلَقَدْ أُوحِيَ إِلَيْكَ وَإِلَى الَّذِينَ مِن قَبْلِكَ لَئِنْ أَشْرَكْتَ لَيَحْبَطَنَّ عَمَلُكَ وَلَتَكُونَنَّ مِنَ الْخَاسِرِينَ",
+              translation: "It has already been revealed to you [Prophet] and to those before you: \"If you ascribe any partner to God, all your work will come to nothing: you will be one of the losers.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:48",
+              arabic: "إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ",
+              translation: "God does not forgive the joining of partners with Him: anything less than that He forgives to whoever He will.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Identifying contradictions to Tawhid is only the first step — removing them is what completes the process. Each uncorrected practice is a crack in the foundation of your testimony. Taking practical steps to remove these contradictions is an act of worship in itself.
@@ -920,19 +1293,26 @@ Identifying contradictions to Tawhid is only the first step — removing them is
         { title: 'Read the full hadith text in Arabic and English', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (41:44)
-**Arabic:** وَلَوْ جَعَلْنَاهُ قُرْآنًا أَعْجَمِيًّا لَّقَالُوا لَوْلَا فُصِّلَتْ آيَاتُهُ ۖ أَأَعْجَمِيٌّ وَعَرَبِيٌّ ۗ قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ ۖ وَالَّذِينَ لَا يُؤْمِنُونَ فِي آذَانِهِمْ وَقْرٌ وَهُوَ عَلَيْهِمْ عَمًى ۚ أُولَٰئِكَ يُنَادَوْنَ مِن مَّكَانٍ بَعِيدٍ
-**Translation:** Had We made it a non-Arabic Qur’ān, they would have said, “Why are its verses not clearly explained? Is it a non-Arabic (book) and an Arab (messenger)?” Say, “For those who believe, it is guidance and cure. As for those who do not believe, there is deafness in their ears, and for them it is blindness. Such people are being called from a distant place.”
-
-**II. Hadith**
-
-
-### Sahih Bukhari 5191
-Narrated Ibn \`Abbas:I had been eager to ask \`Umar bin Al-Khattab about the two ladies from among the wives of the Prophet regarding whom Allah said 'If you two (wives of the Prophet (ﷺ) namely Aisha and Hafsa) turn in repentance to Allah, your hearts are indeed so inclined (to oppose what the Prophet (ﷺ) likes). (66.4) till \`Umar performed the Hajj and I too, performed the Hajj along with him. (On the way) \`Umar went aside to answer the call of nature, and I also went aside along with him carrying a tumbler full of water, and when \`Umar had finished answering the call of nature, I poured water over his hands and he performed the ablution. Then I said to him, "O chief of the Believers! Who were the two ladies from among the wives of the Prophet (ﷺ) regarding whom Allah said: 'If you two (wives of the Prophet) turn in repentance to Allah your hearts are indeed so inclined (to oppose what the Prophet (ﷺ) likes)?" (66.4) He said, "I am astonished at your question, O Ibn \`Abbas. They were \`Aisha and Hafsa." Then \`Umar went on narrating the Hadith and said, "I and an Ansari neighbor of mine from Bani Umaiyya bin Zaid who used to live in \`Awali-al-Medina, used to visit the Prophet (ﷺ) in turn. He used to go one day and I another day. When I went, I would bring him the news of what had happened that day regarding the Divine Inspiration and other things, and when he went, he used to do the same for me. We, the people of Quraish used to have the upper hand over our wives, but when we came to the Ansar, we found that their women had the upper hand over their men, so our women also started learning the ways of the Ansari women. I shouted at my wife and she retorted against me and I disliked that she should answer me back. She said to me, 'Why are you so surprised at my answering you back? By Allah, the wives of the Prophet answer him back and some of them may leave (does not speak to) him throughout the day till the night.' The (talk) scared me and I said to her, 'Whoever has done so will be ruined!' Then I proceeded after dressing myself, and entered upon Hafsa and said to her, 'Does anyone of you keep the Prophet (ﷺ) angry till night?' She said, 'Yes.' I said, 'You are a ruined losing person! Don't you fear that Allah may get angry for the anger of Allah's Messenger (ﷺ) and thus you will be ruined? So do not ask more from the Prophet (ﷺ) and do not answer him back and do not give up talking to him. Ask me whatever you need and do not be tempted to imitate your neighbor (i.e., \`Aisha) in her manners for she is more charming than you and more beloved to the Prophet (ﷺ) ." \`Umar added,"At that time a talk was circulating among us that (the tribe of) Ghassan were preparing their horses to invade us. My Ansari companion, on the day of his turn, went (to the town) and returned to us at night and knocked at my door violently and asked if I was there. I became horrified and came out to him. He said, 'Today a great thing has happened.' I asked, 'What is it? Have (the people of) Ghassan come?' He said, 'No, but (What has happened) is greater and more horrifying than that: Allah's Messenger (ﷺ); has divorced his wives. \`Umar added, "The Prophet (ﷺ) kept away from his wives and I said "Hafsa is a ruined loser.' I had already thought that most probably this (divorce) would happen in the near future. So I dressed myself and offered the morning prayer with the Prophet (ﷺ) and then the Prophet; entered an upper room and stayed there in seclusion. I entered upon Hafsa and saw her weeping. I asked, 'What makes you weep? Did I not warn you about that? Did the Prophet (ﷺ) divorce you all?' She said, 'I do not know. There he is retired alone in the upper room.' I came out and sat near the pulpit and saw a group of people sitting around it and some of them were weeping. I sat with them for a while but could not endure the situation, so I went to the upper room where the Prophet; was and said to a black slave of his, 'Will you get the permission (of the Prophet (ﷺ) ) for \`Umar (to enter)?' The slave went in, talked to the Prophet (ﷺ) about it and then returned saying, 'I have spoken to the Prophet (ﷺ) and mentioned you but he kept quiet.' Then I returned and sat with the group of people sitting near the pulpit. but I could not bear the situation and once again I said to the slave, 'Will you get the permission for \`Umar?' He went in and returned saying, 'I mentioned you to him but he kept quiet.' So I returned again and sat with the group of people sitting near the pulpit, but I could not bear the situation, and so I went to the slave and said, 'Will you get the permission for \`Umar?' He went in and returned to me saying, 'I mentioned you to him but he kept quiet.' When I was leaving, behold! The slave called me, saying, 'The Prophet (ﷺ) has given you permission.' Then I entered upon Allah's Messenger (ﷺ) and saw him Lying on a bed made of stalks of date palm leaves and there was no bedding between it and him. The stalks left marks on his side and he was leaning on a leather pillow stuffed with date-palm fibres. I greeted him and while still standing I said, 'O Allah's Apostle! Have you divorced your wives?' He looked at me and said, 'No.' I said, 'Allah Akbar!' And then, while still standing, I said chatting, 'Will you heed what I say, O Allah's Messenger (ﷺ)? We, the people of Quraish used to have power over our women, but when we arrived at Medina we found that the men (here) were overpowered by their women.' The Prophet (ﷺ) smiled and then I said to him, 'Will you heed what I say, O Allah's Messenger (ﷺ)? I entered upon Hafsa and said to her, "Do not be tempted to imitate your companion (\`Aisha), for she is more charming than you and more beloved to the Prophet.' " The Prophet (ﷺ) smiled for a second time. When I saw him smiling, I sat down. Then I looked around his house, and by Allah, I could not see anything of importance in his house except three hides, so I said, 'O Allah's Messenger (ﷺ)! Invoke Allah to make your followers rich, for the Persians and the Romans have been made prosperous and they have been given (the pleasures of the world), although they do not worship Allah.' Thereupon the Prophet (ﷺ) sat up as he was reclining. and said, 'Are you of such an opinion, O the son of Al-Khattab? These are the people who have received the rewards for their good deeds in this world.' I said, 'O Allah's Messenger (ﷺ)! Ask Allah to forgive me.' Then the Prophet (ﷺ) kept away from his wives for twenty-nine days because of the story which Hafsa had disclosed to \`Aisha. The Prophet (ﷺ) had said, 'I will not enter upon them (my wives) for one month,' because of his anger towards them, when Allah had admonished him. So, when twenty nine days had passed, the Prophet (ﷺ) first entered upon \`Aisha. \`Aisha said to him, 'O Allah's Messenger (ﷺ)! You had sworn that you would not enter upon us for one month, but now only twenty-nine days have passed, for I have been counting them one by one.' The Prophet (ﷺ) said, 'The (present) month is of twenty nine days.' \`Aisha added, 'Then Allah revealed the Verses of the option. (2) And out of all his-wives he asked me first, and I chose him.' Then he gave option to his other wives and they said what \`Aisha had said . " (1) The Prophet, ' had decided to abstain from eating a certain kind of food because of a certain event, so Allah blamed him for doing so. Some of his wives were the cause of him taking that decision, therefore he deserted them for one month. See Qur'an:
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 41:44",
+              arabic: "وَلَوْ جَعَلْنَاهُ قُرْآنًا أَعْجَمِيًّا لَّقَالُوا لَوْلَا فُصِّلَتْ آيَاتُهُ ۖ أَأَعْجَمِيٌّ وَعَرَبِيٌّ ۗ قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ ۖ وَالَّذِينَ لَا يُؤْمِنُونَ فِي آذَانِهِمْ وَقْرٌ وَهُوَ عَلَيْهِمْ عَمًى ۚ أُولَٰئِكَ يُنَادَوْنَ مِن مَّكَانٍ بَعِيدٍ",
+              translation: "Had We made it a non-Arabic Qur’ān, they would have said, “Why are its verses not clearly explained? Is it a non-Arabic (book) and an Arab (messenger)?” Say, “For those who believe, it is guidance and cure. As for those who do not believe, there is deafness in their ears, and for them it is blindness. Such people are being called from a distant place.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5191",
+              translation: "Narrated Ibn `Abbas:I had been eager to ask `Umar bin Al-Khattab about the two ladies from among the wives of the Prophet regarding whom Allah said 'If you two (wives of the Prophet (ﷺ) namely Aisha and Hafsa) turn in repentance to Allah, your hearts are indeed so inclined (to oppose what the Prophet (ﷺ) likes). (66.4) till `Umar performed the Hajj and I too, performed the Hajj along with him. (On the way) `Umar went aside to answer the call of nature, and I also went aside along with him carrying a tumbler full of water, and when `Umar had finished answering the call of nature, I poured water over his hands and he performed the ablution. Then I said to him, \"O chief of the Believers! Who were the two ladies from among the wives of the Prophet (ﷺ) regarding whom Allah said: 'If you two (wives of the Prophet) turn in repentance to Allah your hearts are indeed so inclined (to oppose what the Prophet (ﷺ) likes)?\" (66.4) He said, \"I am astonished at your question, O Ibn `Abbas. They were `Aisha and Hafsa.\" Then `Umar went on narrating the Hadith and said, \"I and an Ansari neighbor of mine from Bani Umaiyya bin Zaid who used to live in `Awali-al-Medina, used to visit the Prophet (ﷺ) in turn. He used to go one day and I another day. When I went, I would bring him the news of what had happened that day regarding the Divine Inspiration and other things, and when he went, he used to do the same for me. We, the people of Quraish used to have the upper hand over our wives, but when we came to the Ansar, we found that their women had the upper hand over their men, so our women also started learning the ways of the Ansari women. I shouted at my wife and she retorted against me and I disliked that she should answer me back. She said to me, 'Why are you so surprised at my answering you back? By Allah, the wives of the Prophet answer him back and some of them may leave (does not speak to) him throughout the day till the night.' The (talk) scared me and I said to her, 'Whoever has done so will be ruined!' Then I proceeded after dressing myself, and entered upon Hafsa and said to her, 'Does anyone of you keep the Prophet (ﷺ) angry till night?' She said, 'Yes.' I said, 'You are a ruined losing person! Don't you fear that Allah may get angry for the anger of Allah's Messenger (ﷺ) and thus you will be ruined? So do not ask more from the Prophet (ﷺ) and do not answer him back and do not give up talking to him. Ask me whatever you need and do not be tempted to imitate your neighbor (i.e., `Aisha) in her manners for she is more charming than you and more beloved to the Prophet (ﷺ) .\" `Umar added,\"At that time a talk was circulating among us that (the tribe of) Ghassan were preparing their horses to invade us. My Ansari companion, on the day of his turn, went (to the town) and returned to us at night and knocked at my door violently and asked if I was there. I became horrified and came out to him. He said, 'Today a great thing has happened.' I asked, 'What is it? Have (the people of) Ghassan come?' He said, 'No, but (What has happened) is greater and more horrifying than that: Allah's Messenger (ﷺ); has divorced his wives. `Umar added, \"The Prophet (ﷺ) kept away from his wives and I said \"Hafsa is a ruined loser.' I had already thought that most probably this (divorce) would happen in the near future. So I dressed myself and offered the morning prayer with the Prophet (ﷺ) and then the Prophet; entered an upper room and stayed there in seclusion. I entered upon Hafsa and saw her weeping. I asked, 'What makes you weep? Did I not warn you about that? Did the Prophet (ﷺ) divorce you all?' She said, 'I do not know. There he is retired alone in the upper room.' I came out and sat near the pulpit and saw a group of people sitting around it and some of them were weeping. I sat with them for a while but could not endure the situation, so I went to the upper room where the Prophet; was and said to a black slave of his, 'Will you get the permission (of the Prophet (ﷺ) ) for `Umar (to enter)?' The slave went in, talked to the Prophet (ﷺ) about it and then returned saying, 'I have spoken to the Prophet (ﷺ) and mentioned you but he kept quiet.' Then I returned and sat with the group of people sitting near the pulpit. but I could not bear the situation and once again I said to the slave, 'Will you get the permission for `Umar?' He went in and returned saying, 'I mentioned you to him but he kept quiet.' So I returned again and sat with the group of people sitting near the pulpit, but I could not bear the situation, and so I went to the slave and said, 'Will you get the permission for `Umar?' He went in and returned to me saying, 'I mentioned you to him but he kept quiet.' When I was leaving, behold! The slave called me, saying, 'The Prophet (ﷺ) has given you permission.' Then I entered upon Allah's Messenger (ﷺ) and saw him Lying on a bed made of stalks of date palm leaves and there was no bedding between it and him. The stalks left marks on his side and he was leaning on a leather pillow stuffed with date-palm fibres. I greeted him and while still standing I said, 'O Allah's Apostle! Have you divorced your wives?' He looked at me and said, 'No.' I said, 'Allah Akbar!' And then, while still standing, I said chatting, 'Will you heed what I say, O Allah's Messenger (ﷺ)? We, the people of Quraish used to have power over our women, but when we arrived at Medina we found that the men (here) were overpowered by their women.' The Prophet (ﷺ) smiled and then I said to him, 'Will you heed what I say, O Allah's Messenger (ﷺ)? I entered upon Hafsa and said to her, \"Do not be tempted to imitate your companion (`Aisha), for she is more charming than you and more beloved to the Prophet.' \" The Prophet (ﷺ) smiled for a second time. When I saw him smiling, I sat down. Then I looked around his house, and by Allah, I could not see anything of importance in his house except three hides, so I said, 'O Allah's Messenger (ﷺ)! Invoke Allah to make your followers rich, for the Persians and the Romans have been made prosperous and they have been given (the pleasures of the world), although they do not worship Allah.' Thereupon the Prophet (ﷺ) sat up as he was reclining. and said, 'Are you of such an opinion, O the son of Al-Khattab? These are the people who have received the rewards for their good deeds in this world.' I said, 'O Allah's Messenger (ﷺ)! Ask Allah to forgive me.' Then the Prophet (ﷺ) kept away from his wives for twenty-nine days because of the story which Hafsa had disclosed to `Aisha. The Prophet (ﷺ) had said, 'I will not enter upon them (my wives) for one month,' because of his anger towards them, when Allah had admonished him. So, when twenty nine days had passed, the Prophet (ﷺ) first entered upon `Aisha. `Aisha said to him, 'O Allah's Messenger (ﷺ)! You had sworn that you would not enter upon us for one month, but now only twenty-nine days have passed, for I have been counting them one by one.' The Prophet (ﷺ) said, 'The (present) month is of twenty nine days.' `Aisha added, 'Then Allah revealed the Verses of the option. (2) And out of all his-wives he asked me first, and I chose him.' Then he gave option to his other wives and they said what `Aisha had said . \" (1) The Prophet, ' had decided to abstain from eating a certain kind of food because of a certain event, so Allah blamed him for doing so. Some of his wives were the cause of him taking that decision, therefore he deserted them for one month. See Qur'an:",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The hadith of Jibril is one of the most comprehensive narrations in Islam — it defines the three levels of the religion (Islam, Iman, Ihsan) in a single sitting. Reading it in full, in both Arabic and English, gives you the foundational text that scholars have built entire curricula around.
@@ -947,24 +1327,35 @@ The hadith of Jibril is one of the most comprehensive narrations in Islam — it
         { title: 'Memorise the Arabic text', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly focus on the importance of learning and teaching the Quran in its clear Arabic language, the accompanying contextual note provides a logical inference for the subtask by extending this principle of learning sacred texts to the memorization of the foundational Hadith of Jibril.',
-          sources: `**I. Quran**
-
-
-### Quran (16:103)
-**Arabic:** وَلَقَدْ نَعْلَمُ أَنَّهُمْ يَقُولُونَ إِنَّمَا يُعَلِّمُهُ بَشَرٌ ۗ لِّسَانُ الَّذِي يُلْحِدُونَ إِلَيْهِ أَعْجَمِيٌّ وَهَٰذَا لِسَانٌ عَرَبِيٌّ مُّبِينٌ
-**Translation:** “We know very well that they say, ‘There is a man who teaches him.’ The language of the one they refer to is non-Arabic while this is clear Arabic language.”
-
-### Quran (41:44)
-**Arabic:** وَلَوْ جَعَلْنَاهُ قُرْآنًا أَعْجَمِيًّا لَّقَالُوا لَوْلَا فُصِّلَتْ آيَاتُهُ ۖ قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ
-**Translation:** “If We had made it a foreign Quran, they would have said, ‘If only its verses were clear!’ Say, ‘It is guidance and healing for those who have faith.’”
-
-**II. Hadith**
-
-
-### Sahih Bukhari 5027
-Narrated ‘Uthman ibn ‘Affan: The Prophet (ﷺ) said, “The best among you (Muslims) are those who learn the Quran and teach it.”
-*(Grade: Sahih)*
-*(Contextual: memorising the Arabic text of the Hadith of Jibril — a foundational prophetic narration — falls under learning the sacred texts of Islam.)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 16:103",
+              arabic: "وَلَقَدْ نَعْلَمُ أَنَّهُمْ يَقُولُونَ إِنَّمَا يُعَلِّمُهُ بَشَرٌ ۗ لِّسَانُ الَّذِي يُلْحِدُونَ إِلَيْهِ أَعْجَمِيٌّ وَهَٰذَا لِسَانٌ عَرَبِيٌّ مُّبِينٌ",
+              translation: "We know very well that they say, ‘There is a man who teaches him.’ The language of the one they refer to is non-Arabic while this is clear Arabic language.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 41:44",
+              arabic: "وَلَوْ جَعَلْنَاهُ قُرْآنًا أَعْجَمِيًّا لَّقَالُوا لَوْلَا فُصِّلَتْ آيَاتُهُ ۖ قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ",
+              translation: "If We had made it a foreign Quran, they would have said, ‘If only its verses were clear!’ Say, ‘It is guidance and healing for those who have faith.’”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5027",
+              translation: "Narrated ‘Uthman ibn ‘Affan: The Prophet (ﷺ) said, “The best among you (Muslims) are those who learn the Quran and teach it.”",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "memorising the Arabic text of the Hadith of Jibril — a foundational prophetic narration — falls under learning the sacred texts of Islam.",
+            },
+          ],
           description: `**Why?**
 
 Memorising the Arabic text of this hadith embeds the precise prophetic definitions of Islam, Iman, and Ihsan into your memory. These definitions are the framework scholars use to categorise all aspects of the religion — having them memorised gives you a permanent reference point.
@@ -979,31 +1370,53 @@ Memorising the Arabic text of this hadith embeds the precise prophetic definitio
         { title: 'Islam \u2014 study the 5 pillars: Shahada, Salah, Zakah, Siyam, Hajj', done: false,
           tier: 'T2',
           amanahRationale: 'While Sahih Bukhari explicitly lists the five pillars upon which Islam is based, the specific practical steps of assessing one\'s fulfillment of each, identifying weaknesses, and creating a personal improvement plan are derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (27:3)
-**Arabic:** الَّذِينَ يُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ وَهُم بِالْآخِرَةِ هُمْ يُوقِنُونَ
-**Translation:** who establish Salāh and pay Zakāh and who have faith in the Hereafter.
-
-### Quran (31:4)
-**Arabic:** الَّذِينَ يُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ وَهُم بِالْآخِرَةِ هُمْ يُوقِنُونَ
-**Translation:** who are steadfast in Salāh and who pay Zakāh and have faith in the Hereafter.
-
-### Quran (24:56)
-**Arabic:** وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَأَطِيعُوا الرَّسُولَ لَعَلَّكُمْ تُرْحَمُونَ
-**Translation:** Establish Salāh and pay Zakāh and obey the messenger, so that you may be favored with mercy.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 8
-Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: Islam is based on (the following) five (principles): 1. To testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger (ﷺ). 2. To offer the (compulsory congregational) prayers dutifully and perfectly. 3. To pay Zakat (i.e. obligatory charity) . 4. To perform Hajj. (i.e. Pilgrimage to Mecca) 5. To observe fast during the month of Ramadan
-*(Grade: Sahih)*
-
-### Sahih Bukhari 45
-Narrated 'Umar bin Al-Khattab: Once a Jew said to me, "O the chief of believers! There is a verse in your Holy Book Which is read by all of you (Muslims), and had it been revealed to us, we would have taken that day (on which it was revealed as a day of celebration." 'Umar bin Al-Khattab asked, "Which is that verse?" The Jew replied, "This day I have perfected your religion For you, completed My favor upon you, And have chosen for you Islam as your religion." (5:3) 'Umar replied,"No doubt, we know when and where this verse was revealed to the Prophet. It was Friday and the Prophet (ﷺ) was standing at 'Arafat (i.e. the Day of Hajj)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 27:3",
+              arabic: "الَّذِينَ يُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ وَهُم بِالْآخِرَةِ هُمْ يُوقِنُونَ",
+              translation: "who establish Salāh and pay Zakāh and who have faith in the Hereafter.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 31:4",
+              arabic: "الَّذِينَ يُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ وَهُم بِالْآخِرَةِ هُمْ يُوقِنُونَ",
+              translation: "who are steadfast in Salāh and who pay Zakāh and have faith in the Hereafter.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 24:56",
+              arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَأَطِيعُوا الرَّسُولَ لَعَلَّكُمْ تُرْحَمُونَ",
+              translation: "Establish Salāh and pay Zakāh and obey the messenger, so that you may be favored with mercy.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 8",
+              translation: "Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: Islam is based on (the following) five (principles): 1. To testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger (ﷺ). 2. To offer the (compulsory congregational) prayers dutifully and perfectly. 3. To pay Zakat (i.e. obligatory charity) . 4. To perform Hajj. (i.e. Pilgrimage to Mecca) 5. To observe fast during the month of Ramadan",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 45",
+              translation: "Narrated 'Umar bin Al-Khattab: Once a Jew said to me, \"O the chief of believers! There is a verse in your Holy Book Which is read by all of you (Muslims), and had it been revealed to us, we would have taken that day (on which it was revealed as a day of celebration.\" 'Umar bin Al-Khattab asked, \"Which is that verse?\" The Jew replied, \"This day I have perfected your religion For you, completed My favor upon you, And have chosen for you Islam as your religion.\" (5:3) 'Umar replied,\"No doubt, we know when and where this verse was revealed to the Prophet. It was Friday and the Prophet (ﷺ) was standing at 'Arafat (i.e. the Day of Hajj)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 In the hadith, the Prophet (SAW) defined Islam as the outward acts of submission — the five pillars. These are the visible, measurable actions that distinguish a Muslim. Reviewing them ensures your external practice matches the internal beliefs you are building.
@@ -1018,23 +1431,35 @@ In the hadith, the Prophet (SAW) defined Islam as the outward acts of submission
         { title: 'Iman \u2014 study the 6 articles: Allah, Angels, Books, Messengers, Last Day, Qadr', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (4:136)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا آمِنُوا بِاللَّهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلَىٰ رَسُولِهِ وَالْكِتَابِ الَّذِي أَنزَلَ مِن قَبْلُ ۚ وَمَن يَكْفُرْ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا
-**Translation:** Believers! Believe in Allah and His Messenger and in the Book He has revealed to His Messenger, and in the Book He revealed before. And whoever disbelieves in Allah, in His angels, in His Books, in His Messengers and in the Last Day, has indeed strayed far away.
-
-**II. Hadith**
-
-
-### Sahih Muslim 97
-Abu Huraira reported:One day the Messenger of Allah (ﷺ) appeared before the public so a man came to him and then said: Prophet of Allah, what is Iman? Upon this he (the Holy Prophet) replied: That you affirm your faith in Allah, His angels, His Books, His meeting, His Messengers and that you affirm your faith in the Resurrection hereafter. He said: Messenger of Allah, what is al-Islam? He replied: Al-Islam is that you worship Allah and do not associate anything with Him and you establish obligatory prayer and you pay the obligatory alms (Zakat) and you observe the fast of Ramadan. He said: Messenger of Allah, what is al-Ihsan? He replied: That you worship Allah as if you are seeing Him, and for if you fail to see Him. He said: Messenger of Allah, when is the Hour (of Doom)? He replied: The one who is asked about it is no better informed than the inquirer, however I will narrate some of its signs to you. When the slave-girl will give birth to her master, then that is from its signs. When the naked, barefooted would become the chiefs of the people, then that is from its signs. When the shepherds of the black (camels) would exult themselves in buildings, then that is from its signs. (The Hour is) Among one of the five which no one knows but Allah. Then he recited (the verse): "Verily Allah! with Him alone is the knowledge of the Hour and He it is Who sends down the rain and knows that which is in the wombs. And no soul knows what it shall earn tomorrow, and a soul knows not in what land it shall die. Verily Allah is Knowing, Aware." He (Abu Huraira) said: Then the person turned back and went away. The Messenger of Allah (ﷺ) said: Bring that man back to me. They went to bring him back, but they saw nothing there. Upon this the Messenger of Allah remarked: he was Gabriel, who came to teach the people their religion
-*(Grade: Sahih)*
-
-### Sahih Muslim 93
-It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:136",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا آمِنُوا بِاللَّهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلَىٰ رَسُولِهِ وَالْكِتَابِ الَّذِي أَنزَلَ مِن قَبْلُ ۚ وَمَن يَكْفُرْ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا",
+              translation: "Believers! Believe in Allah and His Messenger and in the Book He has revealed to His Messenger, and in the Book He revealed before. And whoever disbelieves in Allah, in His angels, in His Books, in His Messengers and in the Last Day, has indeed strayed far away.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 97",
+              translation: "Abu Huraira reported:One day the Messenger of Allah (ﷺ) appeared before the public so a man came to him and then said: Prophet of Allah, what is Iman? Upon this he (the Holy Prophet) replied: That you affirm your faith in Allah, His angels, His Books, His meeting, His Messengers and that you affirm your faith in the Resurrection hereafter. He said: Messenger of Allah, what is al-Islam? He replied: Al-Islam is that you worship Allah and do not associate anything with Him and you establish obligatory prayer and you pay the obligatory alms (Zakat) and you observe the fast of Ramadan. He said: Messenger of Allah, what is al-Ihsan? He replied: That you worship Allah as if you are seeing Him, and for if you fail to see Him. He said: Messenger of Allah, when is the Hour (of Doom)? He replied: The one who is asked about it is no better informed than the inquirer, however I will narrate some of its signs to you. When the slave-girl will give birth to her master, then that is from its signs. When the naked, barefooted would become the chiefs of the people, then that is from its signs. When the shepherds of the black (camels) would exult themselves in buildings, then that is from its signs. (The Hour is) Among one of the five which no one knows but Allah. Then he recited (the verse): \"Verily Allah! with Him alone is the knowledge of the Hour and He it is Who sends down the rain and knows that which is in the wombs. And no soul knows what it shall earn tomorrow, and a soul knows not in what land it shall die. Verily Allah is Knowing, Aware.\" He (Abu Huraira) said: Then the person turned back and went away. The Messenger of Allah (ﷺ) said: Bring that man back to me. They went to bring him back, but they saw nothing there. Upon this the Messenger of Allah remarked: he was Gabriel, who came to teach the people their religion",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 93",
+              translation: "It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Iman in the hadith refers to the inner beliefs of the heart — the six articles that form the creed every Muslim must affirm with conviction. While Islam is the outward dimension, Iman is the inward. Without these beliefs being settled in the heart, outward actions lack their spiritual foundation.
@@ -1049,23 +1474,35 @@ Iman in the hadith refers to the inner beliefs of the heart — the six articles
         { title: 'Ihsan \u2014 memorise the definition: worship Allah as though you see Him', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (40:60)
-**Arabic:** وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ ۚ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ
-**Translation:** Your Lord has said, “Call Me, I will respond to you. Definitely those who show arrogance against worshipping Me shall enter Jahannam (Hell) with disgrace.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 50
-Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, "What is faith?" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection." Then he further asked, "What is Islam?" Allah's Messenger (ﷺ) replied, "To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan." Then he further asked, "What is Ihsan (perfection)?" Allah's Messenger (ﷺ) replied, "To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you." Then he further asked, "When will the Hour be established?" Allah's Messenger (ﷺ) replied, "The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: "Verily, with Allah (Alone) is the knowledge of the Hour--." (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, "That was Gabriel who came to teach the people their religion." Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith
-*(Grade: Sahih)*
-
-### Sahih Muslim 93
-It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 40:60",
+              arabic: "وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ ۚ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ",
+              translation: "Your Lord has said, “Call Me, I will respond to you. Definitely those who show arrogance against worshipping Me shall enter Jahannam (Hell) with disgrace.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 50",
+              translation: "Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, \"What is faith?\" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection.\" Then he further asked, \"What is Islam?\" Allah's Messenger (ﷺ) replied, \"To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan.\" Then he further asked, \"What is Ihsan (perfection)?\" Allah's Messenger (ﷺ) replied, \"To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you.\" Then he further asked, \"When will the Hour be established?\" Allah's Messenger (ﷺ) replied, \"The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: \"Verily, with Allah (Alone) is the knowledge of the Hour--.\" (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, \"That was Gabriel who came to teach the people their religion.\" Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 93",
+              translation: "It is narrated on the authority of Yahya b. Ya'mur that the first man who discussed qadr (Divine Decree) in Basra was Ma'bad al-Juhani. I along with Humaid b. 'Abdur-Rahman Himyari set out for pilgrimage or for 'Umrah and said:Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Ihsan is the highest level of faith — constant God-consciousness. The Prophet (SAW) defined it as: "To worship Allah as though you see Him, and if you cannot see Him, then know that He sees you." This is the summit that Islam and Iman are meant to lead you toward.
@@ -1080,23 +1517,35 @@ Ihsan is the highest level of faith — constant God-consciousness. The Prophet 
         { title: 'Study the signs of the Hour mentioned at the end of the hadith', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention certain signs of the Hour such as the sun rising from the West, they entirely lack the specific signs regarding the slave-girl and barefoot shepherds that the subtask instructs the user to read, providing neither clear proof nor contextual indication for this specific exercise.',
-          sources: `**I. Quran**
-
-
-### Quran (43:61)
-**Arabic:** وَإِنَّهُ لَعِلْمٌ لِّلسَّاعَةِ فَلَا تَمْتَرُنَّ بِهَا وَاتَّبِعُونِ ۚ هَٰذَا صِرَاطٌ مُّسْتَقِيمٌ
-**Translation:** "This [Quran] gives knowledge of the Hour: do not doubt it. Follow Me for this is the right path."
-
-### Quran (50:40)
-**Arabic:** وَمِنَ اللَّيْلِ فَسَبِّحْهُ وَأَدْبَارَ السُّجُودِ
-**Translation:** "proclaim His praise in the night and at the end of every prayer."
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3651
-Narrated Abu Huraira: The Prophet (ﷺ) said, "The Hour will not be established till the sun rises from the West; and when it rises (from the West) and the people see it, they will all believe. And that is (the time) when no good will it do to a soul to believe then." He also said, "The Hour will not be established till you fight with the Khudh and the Kirman from among the non-Arabs."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 43:61",
+              arabic: "وَإِنَّهُ لَعِلْمٌ لِّلسَّاعَةِ فَلَا تَمْتَرُنَّ بِهَا وَاتَّبِعُونِ ۚ هَٰذَا صِرَاطٌ مُّسْتَقِيمٌ",
+              translation: "This [Quran] gives knowledge of the Hour: do not doubt it. Follow Me for this is the right path.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 50:40",
+              arabic: "وَمِنَ اللَّيْلِ فَسَبِّحْهُ وَأَدْبَارَ السُّجُودِ",
+              translation: "proclaim His praise in the night and at the end of every prayer.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3651",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, \"The Hour will not be established till the sun rises from the West; and when it rises (from the West) and the people see it, they will all believe. And that is (the time) when no good will it do to a soul to believe then.\" He also said, \"The Hour will not be established till you fight with the Khudh and the Kirman from among the non-Arabs.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The hadith concludes with the Prophet (SAW) mentioning minor signs of the Day of Judgement. Studying these signs strengthens your awareness of the Last Day — a pillar of Iman — and connects prophetic wisdom to observable realities in our current times.
@@ -1111,19 +1560,26 @@ The hadith concludes with the Prophet (SAW) mentioning minor signs of the Day of
         { title: 'Reflect: which level describes your current state?', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe a structured self-assessment or goal-setting exercise, their introduction of Islam, Iman, and Ihsan as the foundational levels of religion provides a clear logical inference for reflecting on one\'s spiritual state against these definitions.',
-          sources: `**I. Quran**
-
-
-### Quran (51:56)
-**Arabic:** وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ  
-**Translation:** And I did not create the jinn and mankind except to worship Me.
-
-**II. Hadith**
-
-
-### Sahih Muslim 8
-The Prophet (SAW) was asked by Jibril about Islam, Iman, and Ihsan. He said about Ihsan: "It is to worship Allah as though you see Him, and though you do not see Him, He sees you."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 51:56",
+              arabic: "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+              translation: "And I did not create the jinn and mankind except to worship Me.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 8",
+              translation: "The Prophet (SAW) was asked by Jibril about Islam, Iman, and Ihsan. He said about Ihsan: \"It is to worship Allah as though you see Him, and though you do not see Him, He sees you.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The hadith of Jibril presents three levels — Islam, Iman, and Ihsan — as a ladder of spiritual growth. Honest self-assessment against these levels reveals where you stand and where your growth edge lies. Without this clarity, effort is scattered rather than targeted.
@@ -1147,20 +1603,26 @@ The hadith of Jibril presents three levels — Islam, Iman, and Ihsan — as a l
         { title: 'Obtain a reliable translation with commentary', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention specific works like "Al-Aqidah al-Tahawiyyah" or particular translators, the accompanying contextual note provides a clear logical inference for the subtask by explicitly stating that studying aqidah requires scholarly commentary to be understood correctly.',
-          sources: `**I. Quran**
-
-
-### Quran (16:60)
-**Arabic:** وَلِلَّهِ الْمَثَلُ الْأَعْلَىٰ ۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ
-**Translation:** "Allah's is the highest example. He is the Almighty, the All Wise."
-*(Contextual: studying aqidah is studying the highest reality — Allah's attributes — and requires scholarly commentary to understand them correctly.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 7280
-The Prophet (SAW) said: "All my followers will enter Paradise except those who refuse." They asked, "O Messenger of Allah, who would refuse?" He said: "Whoever obeys me will enter Paradise, and whoever disobeys me has refused."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 16:60",
+              arabic: "وَلِلَّهِ الْمَثَلُ الْأَعْلَىٰ ۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+              translation: "Allah's is the highest example. He is the Almighty, the All Wise.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "studying aqidah is studying the highest reality — Allah's attributes — and requires scholarly commentary to understand them correctly.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7280",
+              translation: "The Prophet (SAW) said: \"All my followers will enter Paradise except those who refuse.\" They asked, \"O Messenger of Allah, who would refuse?\" He said: \"Whoever obeys me will enter Paradise, and whoever disobeys me has refused.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 A creed text without commentary can be dense and easily misunderstood. Scholarly commentary connects each point to its Quranic and hadith evidence and explains the historical context of theological disputes — giving you depth, not just definitions.
@@ -1175,16 +1637,26 @@ A creed text without commentary can be dense and easily misunderstood. Scholarly
         { title: 'Read the section on the attributes of Allah', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 3
-Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered him till his fear was over and after that he told her everything that had happened and said, "I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones." Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out." Allah's Messenger (ﷺ) asked, "Will they drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly." But after a few days Waraqa died and the Divine Inspiration was also paused for a while
-*(Grade: Sahih)*
-
-### Sahih Bukhari 6
-Narrated Ibn 'Abbas: Allah's Messenger (ﷺ) was the most generous of all the people, and he used to reach the peak in generosity in the month of Ramadan when Gabriel met him. Gabriel used to meet him every night of Ramadan to teach him the Qur'an. Allah's Messenger (ﷺ) was the most generous person, even more generous than the strong uncontrollable wind (in readiness and haste to do charitable deeds)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6",
+              translation: "Narrated Ibn 'Abbas: Allah's Messenger (ﷺ) was the most generous of all the people, and he used to reach the peak in generosity in the month of Ramadan when Gabriel met him. Gabriel used to meet him every night of Ramadan to teach him the Qur'an. Allah's Messenger (ﷺ) was the most generous person, even more generous than the strong uncontrollable wind (in readiness and haste to do charitable deeds)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The attributes of Allah are among the most debated topics in Islamic theology. Ahl al-Sunnah affirm them without distortion (*tahrif*), denial (*ta'til*), asking "how" (*takyif*), or likening to creation (*tamthil*). Understanding this methodology protects you from both extremes: denying what Allah affirmed and imagining Him in human terms.
@@ -1199,25 +1671,44 @@ The attributes of Allah are among the most debated topics in Islamic theology. A
         { title: 'Read the section on prophethood and revelation', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe reading a creedal text or studying specific theological terms like "ma\'sum," they offer a clear logical inference for the subtask by establishing the divine lineage of prophethood and explicitly declaring Muhammad as the final prophet.',
-          sources: `**I. Quran**
-
-
-### Quran (29:27)
-**Arabic:** وَوَهَبْنَا لَهُ إِسْحَاقَ وَيَعْقُوبَ وَجَعَلْنَا فِي ذُرِّيَّتِهِ النُّبُوَّةَ وَالْكِتَابَ وَآتَيْنَاهُ أَجْرَهُ فِي الدُّنْيَا
-**Translation:** "We gave Isaac and Jacob to Abraham, and placed prophethood and Scripture among his offspring. We gave him his rewards in this world; and in the life to come he will be among the righteous."
-
-### Quran (57:26)
-**Arabic:** وَلَقَدْ أَرْسَلْنَا نُوحًا وَإِبْرَاهِيمَ وَجَعَلْنَا فِي ذُرِّيَّتِهِمَا النُّبُوَّةَ وَالْكِتَابَ ۖ فَمِنْهُم مُّهْتَدٍ ۖ وَكَثِيرٌ مِّنْهُمْ فَاسِقُونَ
-**Translation:** "We sent Noah and Abraham, and gave prophethood and scripture to their offspring: among them there were some who were rightly guided, but many were lawbreakers."
-
-### Quran (33:40)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3442
-Narrated Abu Huraira: Allah's Messenger (ﷺ) said, "My example and the example of the prophets before me is that of a man who built a house; he built it well and beautifully, except for a place of one brick in a corner. The people started going round the building and wondering at it and saying: 'If only this brick were put in its place!' So I am that brick, and I am the last of the prophets."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 29:27",
+              arabic: "وَوَهَبْنَا لَهُ إِسْحَاقَ وَيَعْقُوبَ وَجَعَلْنَا فِي ذُرِّيَّتِهِ النُّبُوَّةَ وَالْكِتَابَ وَآتَيْنَاهُ أَجْرَهُ فِي الدُّنْيَا",
+              translation: "We gave Isaac and Jacob to Abraham, and placed prophethood and Scripture among his offspring. We gave him his rewards in this world; and in the life to come he will be among the righteous.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 57:26",
+              arabic: "وَلَقَدْ أَرْسَلْنَا نُوحًا وَإِبْرَاهِيمَ وَجَعَلْنَا فِي ذُرِّيَّتِهِمَا النُّبُوَّةَ وَالْكِتَابَ ۖ فَمِنْهُم مُّهْتَدٍ ۖ وَكَثِيرٌ مِّنْهُمْ فَاسِقُونَ",
+              translation: "We sent Noah and Abraham, and gave prophethood and scripture to their offspring: among them there were some who were rightly guided, but many were lawbreakers.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 33:40",
+              arabic: "مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ ۗ وَكَانَ اللَّهُ بِكُلِّ شَيْءٍ عَلِيمًا",
+              translation: "Muhammad is not the father of any one of you men; he is God's Messenger and the seal of the prophets: God knows everything.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3442",
+              translation: "Narrated Abu Huraira: Allah's Messenger (ﷺ) said, \"My example and the example of the prophets before me is that of a man who built a house; he built it well and beautifully, except for a place of one brick in a corner. The people started going round the building and wondering at it and saying: 'If only this brick were put in its place!' So I am that brick, and I am the last of the prophets.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Correct belief about the prophets prevents both extremes: excessive veneration (which can lead to shirk) and disrespect (which can nullify faith). Understanding their truthfulness, protection from major sin, and the finality of Muhammad (SAW) anchors your relationship with prophethood in orthodox belief.
@@ -1232,23 +1723,35 @@ Correct belief about the prophets prevents both extremes: excessive veneration (
         { title: 'Read the section on the unseen (angels, paradise, hellfire)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe reading a creedal text or studying the rejection of rationalistic reinterpretation, they provide a clear logical inference for the subtask by explicitly establishing the realities of the unseen, such as angels, jinn, the Throne, and Paradise.',
-          sources: `**I. Quran**
-
-
-### Quran (16:32)
-**Arabic:** الَّذِينَ تَتَوَفَّاهُمُ الْمَلَائِكَةُ طَيِّبِينَ ۙ يَقُولُونَ سَلَامٌ عَلَيْكُمُ ادْخُلُوا الْجَنَّةَ بِمَا كُنتُمْ تَعْمَلُونَ
-**Translation:** "those whose lives the angels take in a state of goodness. They will say to them, 'Peace be upon you. Enter the Garden as a reward for what you have done.'"
-
-### Quran (40:7)
-**Arabic:** الَّذِينَ يَحْمِلُونَ الْعَرْشَ وَمَنْ حَوْلَهُ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْ وَيُؤْمِنُونَ بِهِ وَيَسْتَغْفِرُونَ لِلَّذِينَ آمَنُوا
-**Translation:** "Those [angels] who carry the Throne and those who surround it celebrate the praise of their Lord and have faith in Him. They beg forgiveness for the believers."
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3207
-Narrated Abu Huraira: The Prophet (ﷺ) said, "Angels are created from light, jinn are created from a smokeless flame of fire, and Adam was created from that which has been described to you."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 16:32",
+              arabic: "الَّذِينَ تَتَوَفَّاهُمُ الْمَلَائِكَةُ طَيِّبِينَ ۙ يَقُولُونَ سَلَامٌ عَلَيْكُمُ ادْخُلُوا الْجَنَّةَ بِمَا كُنتُمْ تَعْمَلُونَ",
+              translation: "those whose lives the angels take in a state of goodness. They will say to them, 'Peace be upon you. Enter the Garden as a reward for what you have done.'\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 40:7",
+              arabic: "الَّذِينَ يَحْمِلُونَ الْعَرْشَ وَمَنْ حَوْلَهُ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْ وَيُؤْمِنُونَ بِهِ وَيَسْتَغْفِرُونَ لِلَّذِينَ آمَنُوا",
+              translation: "Those [angels] who carry the Throne and those who surround it celebrate the praise of their Lord and have faith in Him. They beg forgiveness for the believers.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3207",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, \"Angels are created from light, jinn are created from a smokeless flame of fire, and Adam was created from that which has been described to you.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Matters of the unseen — angels, jinn, paradise, hellfire, the throne — are affirmed by revelation, not by human reason alone. The creedal position is to accept them as the Quran and Sunnah describe without rationalistic reinterpretation. This protects your faith from the trap of rejecting what the intellect cannot fully grasp.
@@ -1263,19 +1766,26 @@ Matters of the unseen — angels, jinn, paradise, hellfire, the throne — are a
         { title: 'Summarise key points and questions', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail the process of writing summaries or consulting a teacher, they provide a clear logical inference for the subtask by emphasizing the importance of acquiring a deep understanding (fiqh) of the religion.',
-          sources: `**I. Quran**
-
-
-### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ  
-**Translation:** So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 99
-The Prophet (SAW) said: "Whoever Allah wants good for, He gives him understanding (fiqh) of the religion."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+              translation: "So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 99",
+              translation: "The Prophet (SAW) said: \"Whoever Allah wants good for, He gives him understanding (fiqh) of the religion.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Summarising forces you to process and consolidate what you have read. It also reveals gaps — areas where your understanding is shallow or where questions remain. These gaps become your roadmap for deeper study or discussion with a qualified teacher.
@@ -1297,23 +1807,35 @@ Summarising forces you to process and consolidate what you have read. It also re
         { title: 'Read the list of ten nullifiers with explanations', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention the ten nullifiers compiled by Imam Muhammad ibn Abd al-Wahhab, they provide a clear logical inference for the subtask by explicitly warning against specific actions—such as shirk and fighting other Muslims—that void a person\'s faith and constitute disbelief.',
-          sources: `**I. Quran**
-
-
-### Quran (39:65)
-**Arabic:** وَلَقَدْ أُوحِيَ إِلَيْكَ وَإِلَى الَّذِينَ مِن قَبْلِكَ لَئِنْ أَشْرَكْتَ لَيَحْبَطَنَّ عَمَلُكَ وَلَتَكُونَنَّ مِنَ الْخَاسِرِينَ  
-**Translation:** And it was already revealed to you and to those before you that if you should associate anything with Allah, your work would surely become worthless, and you would surely be among the losers.
-
-### Quran (4:48)
-**Arabic:** إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ  
-**Translation:** Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 6104
-The Prophet (SAW) said: "Cursing a Muslim is fusooq (evil-doing) and fighting him is kufr (disbelief)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 39:65",
+              arabic: "وَلَقَدْ أُوحِيَ إِلَيْكَ وَإِلَى الَّذِينَ مِن قَبْلِكَ لَئِنْ أَشْرَكْتَ لَيَحْبَطَنَّ عَمَلُكَ وَلَتَكُونَنَّ مِنَ الْخَاسِرِينَ",
+              translation: "And it was already revealed to you and to those before you that if you should associate anything with Allah, your work would surely become worthless, and you would surely be among the losers.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:48",
+              arabic: "إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ",
+              translation: "Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6104",
+              translation: "The Prophet (SAW) said: \"Cursing a Muslim is fusooq (evil-doing) and fighting him is kufr (disbelief).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Just as a contract has terms that can void it, the Shahada has boundaries that — if crossed — nullify a person's Islam. Knowing these ten nullifiers is not about paranoia but about protecting the most important commitment you have ever made.
@@ -1328,23 +1850,35 @@ Just as a contract has terms that can void it, the Shahada has boundaries that �
         { title: 'Understand the difference between major and minor kufr', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly use the terms major and minor kufr or mention the Kharijite deviation, they provide a clear logical inference for the subtask by explicitly distinguishing between the unforgivable sin of shirk and lesser forgivable sins, as well as outlining behavioral traits of hypocrisy that do not automatically expel one from the faith.',
-          sources: `**I. Quran**
-
-
-### Quran (4:116)
-**Arabic:** إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ ۚ وَمَن يُشْرِكْ بِاللَّهِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا  
-**Translation:** Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills. And he who associates others with Allah has certainly gone far astray.
-
-### Quran (16:106)
-**Arabic:** مَن كَفَرَ بِاللَّهِ مِن بَعْدِ إِيمَانِهِ إِلَّا مَنْ أُكْرِهَ وَقَلْبُهُ مُطْمَئِنٌّ بِالْإِيمَانِ  
-**Translation:** Whoever disbelieves in Allah after his belief — except for one who is forced while his heart is secure in faith...
-
-**II. Hadith**
-
-
-### Sahih Muslim 93
-The Prophet (SAW) said: "There are three signs of a hypocrite: when he speaks he lies, when he makes a promise he breaks it, and when he is entrusted he betrays."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:116",
+              arabic: "إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ ۚ وَمَن يُشْرِكْ بِاللَّهِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا",
+              translation: "Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills. And he who associates others with Allah has certainly gone far astray.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 16:106",
+              arabic: "مَن كَفَرَ بِاللَّهِ مِن بَعْدِ إِيمَانِهِ إِلَّا مَنْ أُكْرِهَ وَقَلْبُهُ مُطْمَئِنٌّ بِالْإِيمَانِ",
+              translation: "Whoever disbelieves in Allah after his belief — except for one who is forced while his heart is secure in faith...",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 93",
+              translation: "The Prophet (SAW) said: \"There are three signs of a hypocrite: when he speaks he lies, when he makes a promise he breaks it, and when he is entrusted he betrays.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Confusing major and minor kufr leads to one of two dangerous extremes: either declaring Muslims disbelievers for sins that do not expel from the faith, or dismissing serious violations as trivial. Major kufr removes one from Islam entirely; minor kufr (such as ingratitude) is sinful but does not. This distinction is critical for proper understanding.
@@ -1359,21 +1893,35 @@ Confusing major and minor kufr leads to one of two dangerous extremes: either de
         { title: 'Study the conditions for declaring takfir and why it requires caution', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly list the scholarly conditions or excuses for takfir, they provide a clear logical inference for the subtask by severely warning against unjustly calling a believer a disbeliever and establishing the extreme gravity and caution required for such an accusation.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6104
-The Prophet (SAW) said: "Whoever accuses a believer of kufr (disbelief), it is as if he killed him."
-*(Grade: Sahih)*
-
-### Sahih Muslim 60
-The Prophet (SAW) said: "If a man says to his brother, O kafir (disbeliever)! Then surely one of them is such."
-*(Grade: Sahih)*
-
-### Sahih Muslim 116
-The source states: 'When a man calls his brother an unbeliever, it returns (at least) to one of them.'
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6104",
+              translation: "The Prophet (SAW) said: \"Whoever accuses a believer of kufr (disbelief), it is as if he killed him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 60",
+              translation: "The Prophet (SAW) said: \"If a man says to his brother, O kafir (disbeliever)! Then surely one of them is such.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 116",
+              translation: "The source states: 'When a man calls his brother an unbeliever, it returns (at least) to one of them.'",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Declaring someone a disbeliever (*takfir*) is one of the most serious acts in Islamic jurisprudence. It requires meeting strict conditions and removing all excuses (ignorance, coercion, misunderstanding). The Prophet (SAW) warned that calling a Muslim a disbeliever unjustly returns the accusation upon the accuser.
@@ -1395,19 +1943,26 @@ Declaring someone a disbeliever (*takfir*) is one of the most serious acts in Is
         { title: 'Define major shirk (shirk akbar) with examples', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly define major shirk or list specific historical and contemporary examples, they provide a clear logical inference for the subtask by explicitly declaring the joining of partners with God as the only unforgivable sin and introducing the concept of different types of shirk.',
-          sources: `**I. Quran**
-
-
-### Quran (4:48)
-**Arabic:** إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ ۚ وَمَن يُشْرِكْ بِاللَّهِ فَقَدِ افْتَرَىٰ إِثْمًا عَظِيمًا  
-**Translation:** God does not forgive the joining of partners with Him: anything less than that He forgives to whoever He will, but anyone who joins partners with God has concocted a tremendous sin.
-
-**I. Hadith**
-
-
-### Sahih Muslim 2985
-The Prophet (SAW) said: "Shall I not inform you of what I fear for you more than the Masih al-Dajjal?" They said, "Of course." He said: "Hidden shirk — when a man stands for prayer and beautifies his prayer because he sees another man looking at him."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:48",
+              arabic: "إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ ۚ وَمَن يُشْرِكْ بِاللَّهِ فَقَدِ افْتَرَىٰ إِثْمًا عَظِيمًا",
+              translation: "God does not forgive the joining of partners with Him: anything less than that He forgives to whoever He will, but anyone who joins partners with God has concocted a tremendous sin.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2985",
+              translation: "The Prophet (SAW) said: \"Shall I not inform you of what I fear for you more than the Masih al-Dajjal?\" They said, \"Of course.\" He said: \"Hidden shirk — when a man stands for prayer and beautifies his prayer because he sees another man looking at him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Major shirk (*shirk akbar*) is the most severe sin in Islam — it is the one sin Allah has declared He will not forgive if a person dies upon it (Quran 4:48). Understanding what constitutes major shirk protects you from crossing the most critical boundary in your faith.
@@ -1422,19 +1977,26 @@ Major shirk (*shirk akbar*) is the most severe sin in Islam — it is the one si
         { title: 'Define minor shirk (shirk asghar) with examples', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly list all categories of minor shirk or prescribe learning the specific prophetic remedy, they provide a clear logical inference for the subtask by explicitly identifying and warning against minor shirk, specifically defining it as "riya" (showing off).',
-          sources: `**I. Quran**
-
-
-### Quran (18:110)
-**Arabic:** فَمَن كَانَ يَرْجُو لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلًا صَالِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ أَحَدًا  
-**Translation:** So whoever would hope for the meeting with his Lord — let him do righteous work and not associate in the worship of his Lord anyone.
-
-**II. Hadith**
-
-
-### Musnad Ahmad 23630
-The Prophet (SAW) said: "The thing I fear most for you is the minor shirk." They asked: "What is the minor shirk?" He said: "Ar-riya (showing off)."
-*(Grade: Sahih — graded sahih by al-Albani)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 18:110",
+              arabic: "فَمَن كَانَ يَرْجُو لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلًا صَالِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ أَحَدًا",
+              translation: "So whoever would hope for the meeting with his Lord — let him do righteous work and not associate in the worship of his Lord anyone.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Musnad Ahmad 23630",
+              translation: "The Prophet (SAW) said: \"The thing I fear most for you is the minor shirk.\" They asked: \"What is the minor shirk?\" He said: \"Ar-riya (showing off).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — graded sahih by al-Albani",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Minor shirk (*shirk asghar*) does not expel from Islam but is gravely sinful and can erode the sincerity of your worship. It includes acts like showing off in worship (riya), swearing by other than Allah, or saying "if it weren't for so-and-so." Its danger lies in how easily it goes unnoticed.
@@ -1449,23 +2011,35 @@ Minor shirk (*shirk asghar*) does not expel from Islam but is gravely sinful and
         { title: 'Study riya (showing off) as a form of minor shirk', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly identify and condemn "riya" (showing off) as a form of minor shirk, the specific self-reflection exercises and practical countermeasures are derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (107:4-6)
-**Arabic:** فَوَيْلٌ لِّلْمُصَلِّينَ ۝ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ۝ الَّذِينَ هُمْ يُرَاءُونَ  
-**Translation:** So woe to those who pray, who are heedless of their prayer, who make show of their deeds.
-
-### Quran (18:110)
-**Arabic:** فَلْيَعْمَلْ عَمَلًا صَالِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ أَحَدًا  
-**Translation:** Let him do righteous work and not associate in the worship of his Lord anyone.
-
-**II. Hadith**
-
-
-### Musnad Ahmad 23630
-The Prophet (SAW) said: "The thing I fear most for you is the minor shirk — ar-riya (showing off)."
-*(Grade: Sahih — graded sahih by al-Albani)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 107:4-6",
+              arabic: "فَوَيْلٌ لِّلْمُصَلِّينَ ۝ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ۝ الَّذِينَ هُمْ يُرَاءُونَ",
+              translation: "So woe to those who pray, who are heedless of their prayer, who make show of their deeds.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 18:110",
+              arabic: "فَلْيَعْمَلْ عَمَلًا صَالِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ أَحَدًا",
+              translation: "Let him do righteous work and not associate in the worship of his Lord anyone.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Musnad Ahmad 23630",
+              translation: "The Prophet (SAW) said: \"The thing I fear most for you is the minor shirk — ar-riya (showing off).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — graded sahih by al-Albani",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) called riya "hidden shirk" because it corrupts the sincerity of worship from within. It occurs when you beautify your worship to be seen by people — praying more carefully in public, giving charity for recognition, or seeking praise for religious knowledge. It is the most subtle threat to your Shahada.
@@ -1480,19 +2054,26 @@ The Prophet (SAW) called riya "hidden shirk" because it corrupts the sincerity o
         { title: 'Learn the hadith on hidden shirk and its remedy', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly share the hadith on minor shirk and provide the exact prophetic supplication to be used as a remedy, the specific practical steps of memorizing the Arabic text and incorporating it into daily morning and evening routines are derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (4:48)
-**Arabic:** إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ  
-**Translation:** Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.
-
-**II. Hadith**
-
-
-### Musnad Ahmad 23630
-The Prophet (SAW) said: "The thing I fear most for you is the minor shirk." They asked: "What is the minor shirk?" He said: "Ar-riya (showing off)." He then said: "O Allah, I seek refuge in You from associating anything with You knowingly, and I seek Your forgiveness for what I do unknowingly."
-*(Grade: Sahih — graded sahih by al-Albani)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:48",
+              arabic: "إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ",
+              translation: "Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Musnad Ahmad 23630",
+              translation: "The Prophet (SAW) said: \"The thing I fear most for you is the minor shirk.\" They asked: \"What is the minor shirk?\" He said: \"Ar-riya (showing off).\" He then said: \"O Allah, I seek refuge in You from associating anything with You knowingly, and I seek Your forgiveness for what I do unknowingly.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — graded sahih by al-Albani",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  This du'a acknowledges human vulnerability to hidden shirk and turns the remedy itself into an act of worship and humility before Allah.
@@ -1513,27 +2094,44 @@ The Prophet (SAW) said: "The thing I fear most for you is the minor shirk." They
         { title: 'Study Tawhid al-Rububiyyah \u2014 Lordship of Allah', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention Allah\'s absolute capability and the general study of the Quran, they do not address Tawhid al-Rububiyyah or the specific verses in Surah 29 regarding the Quraysh\'s beliefs, providing neither clear proof nor contextual indication for the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (59:6)
-**Arabic:** وَمَا أَفَاءَ اللَّهُ عَلَىٰ رَسُولِهِ مِنْهُمْ فَمَا أَوْجَفْتُمْ عَلَيْهِ مِنْ خَيْلٍ وَلَا رِكَابٍ وَلَٰكِنَّ اللَّهَ يُسَلِّطُ رُسُلَهُ عَلَىٰ مَن يَشَاءُ ۚ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
-**Translation:** And that which Allah gave as spoil unto His messenger from them, ye urged not any horse or riding-camel for the sake thereof, but Allah giveth His messenger lordship over whom He will. Allah is Able to do all things.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 7364
-Narrated Jundab bin \`Abdullah:Allah's Messenger (ﷺ) said, "Recite (and study) the Qur'an as long as you are in agreement as to its interpretation and meanings, but when you have differences regarding its interpretation and meanings, then you should stop reciting it (for the time being.) (See Hadith No 581, Vol)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 7365
-Narrated Jundab bin \`Abdullah:Allah's Messenger (ﷺ) said, "Recite (and study) the Qur'an as long as your hearts are in agreement as to its meanings, but if you have differences as regards its meaning, stop reading it then
-*(Grade: Sahih)*
-
-### Sahih Bukhari 3220
-Narrated Ibn \`Abbas:Allah's Messenger (ﷺ) was the most generous of all the people, and he used to be more generous in the month of Ramadan when Gabriel used to meet him. Gabriel used to meet him every night in Ramadan to study the Holy Qur'an carefully together. Allah's Messenger (ﷺ) used to become more generous than the fast wind when he met Gabriel
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 59:6",
+              arabic: "وَمَا أَفَاءَ اللَّهُ عَلَىٰ رَسُولِهِ مِنْهُمْ فَمَا أَوْجَفْتُمْ عَلَيْهِ مِنْ خَيْلٍ وَلَا رِكَابٍ وَلَٰكِنَّ اللَّهَ يُسَلِّطُ رُسُلَهُ عَلَىٰ مَن يَشَاءُ ۚ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+              translation: "And that which Allah gave as spoil unto His messenger from them, ye urged not any horse or riding-camel for the sake thereof, but Allah giveth His messenger lordship over whom He will. Allah is Able to do all things.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7364",
+              translation: "Narrated Jundab bin `Abdullah:Allah's Messenger (ﷺ) said, \"Recite (and study) the Qur'an as long as you are in agreement as to its interpretation and meanings, but when you have differences regarding its interpretation and meanings, then you should stop reciting it (for the time being.) (See Hadith No 581, Vol)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7365",
+              translation: "Narrated Jundab bin `Abdullah:Allah's Messenger (ﷺ) said, \"Recite (and study) the Qur'an as long as your hearts are in agreement as to its meanings, but if you have differences as regards its meaning, stop reading it then",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3220",
+              translation: "Narrated Ibn `Abbas:Allah's Messenger (ﷺ) was the most generous of all the people, and he used to be more generous in the month of Ramadan when Gabriel used to meet him. Gabriel used to meet him every night in Ramadan to study the Holy Qur'an carefully together. Allah's Messenger (ﷺ) used to become more generous than the fast wind when he met Gabriel",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tawhid al-Rububiyyah — affirming that Allah alone is the Creator, Sustainer, and Controller of all affairs — is the foundation, but it alone is insufficient. Even the Quraysh of Mecca accepted that Allah created them (Quran 29:61-63), yet they were still polytheists because they did not single Him out in worship.
@@ -1548,31 +2146,53 @@ Tawhid al-Rububiyyah — affirming that Allah alone is the Creator, Sustainer, a
         { title: 'Study Tawhid al-Uluhiyyah \u2014 worship of Allah alone', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (40:65)
-**Arabic:** هُوَ الْحَيُّ لَا إِلَٰهَ إِلَّا هُوَ فَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ ۗ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-**Translation:** He is the Ever Living, Lâ ilâha illâ Huwa (none has the right to be worshipped but He); so invoke Him making your worship pure for Him Alone (by worshipping Him Alone, and none else, and by doing righteous deeds sincerely for Allâh’s sake only, and not to show off, and not setting up rivals with Him in worship). All the praises and thanks be to Allâh, the Lord of the ‘Âlamîn (mankind, jinn and all that exists).
-
-### Quran (29:36)
-**Arabic:** وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا فَقَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ وَارْجُوا الْيَوْمَ الْآخِرَ وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ
-**Translation:** And to (the people of) Madyan (Midian), We sent their brother Shu‘aib. He said: "O my people! Worship Allâh (Alone) and hope for (the reward of good deeds by worshipping Allâh Alone, on) the last Day (i.e. the Day of Resurrection), and commit no mischief on the earth as Mufsidûn (those who commit great crimes, oppressors, tyrants, mischief-makers, corrupters). [Tafsir At-Tabari]
-
-### Quran (6:162)
-**Arabic:** قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ  
-**Translation:** Say, ‘My prayers and sacrifice, my life and death, are all for God, Lord of all the Worlds;
-
-**II. Hadith**
-
-
-### Sahih Bukhari 50
-Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, "What is faith?" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection." Then he further asked, "What is Islam?" Allah's Messenger (ﷺ) replied, "To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan." Then he further asked, "What is Ihsan (perfection)?" Allah's Messenger (ﷺ) replied, "To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you." Then he further asked, "When will the Hour be established?" Allah's Messenger (ﷺ) replied, "The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: "Verily, with Allah (Alone) is the knowledge of the Hour--." (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, "That was Gabriel who came to teach the people their religion." Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith
-*(Grade: Sahih)*
-
-### Sahih Bukhari 3
-Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered him till his fear was over and after that he told her everything that had happened and said, "I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones." Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out." Allah's Messenger (ﷺ) asked, "Will they drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly." But after a few days Waraqa died and the Divine Inspiration was also paused for a while
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 40:65",
+              arabic: "هُوَ الْحَيُّ لَا إِلَٰهَ إِلَّا هُوَ فَادْعُوهُ مُخْلِصِينَ لَهُ الدِّينَ ۗ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+              translation: "He is the Ever Living, Lâ ilâha illâ Huwa (none has the right to be worshipped but He); so invoke Him making your worship pure for Him Alone (by worshipping Him Alone, and none else, and by doing righteous deeds sincerely for Allâh’s sake only, and not to show off, and not setting up rivals with Him in worship). All the praises and thanks be to Allâh, the Lord of the ‘Âlamîn (mankind, jinn and all that exists).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 29:36",
+              arabic: "وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا فَقَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ وَارْجُوا الْيَوْمَ الْآخِرَ وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ",
+              translation: "And to (the people of) Madyan (Midian), We sent their brother Shu‘aib. He said: \"O my people! Worship Allâh (Alone) and hope for (the reward of good deeds by worshipping Allâh Alone, on) the last Day (i.e. the Day of Resurrection), and commit no mischief on the earth as Mufsidûn (those who commit great crimes, oppressors, tyrants, mischief-makers, corrupters). [Tafsir At-Tabari]",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 6:162",
+              arabic: "قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ",
+              translation: "Say, ‘My prayers and sacrifice, my life and death, are all for God, Lord of all the Worlds;",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 50",
+              translation: "Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, \"What is faith?\" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection.\" Then he further asked, \"What is Islam?\" Allah's Messenger (ﷺ) replied, \"To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan.\" Then he further asked, \"What is Ihsan (perfection)?\" Allah's Messenger (ﷺ) replied, \"To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you.\" Then he further asked, \"When will the Hour be established?\" Allah's Messenger (ﷺ) replied, \"The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: \"Verily, with Allah (Alone) is the knowledge of the Hour--.\" (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, \"That was Gabriel who came to teach the people their religion.\" Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tawhid al-Uluhiyyah — directing all acts of worship exclusively to Allah — is the core message of every prophet. Prayer, du'a, sacrifice, vows, love, fear, and hope must all be for Allah alone. This is where most deviations historically occur, and it is the dimension of Tawhid that the Quran emphasises most.
@@ -1587,23 +2207,35 @@ Tawhid al-Uluhiyyah — directing all acts of worship exclusively to Allah — i
         { title: 'Study Tawhid al-Asma wa al-Sifat \u2014 Names and Attributes', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe the structured study of Tawhid al-Asma wa al-Sifat or applying the specific filter of Quran 42:11, they provide a clear logical inference for the subtask by explicitly commanding believers to call upon God using His Most Excellent Names and promising Paradise to those who enumerate and act upon them.',
-          sources: `**I. Quran**
-
-
-### Quran (7:180)
-**Arabic:** وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا ۖ وَذَرُوا الَّذِينَ يُلْحِدُونَ فِي أَسْمَائِهِ  
-**Translation:** The Most Excellent Names belong to God: use them to call on Him, and keep away from those who abuse them — they will be requited for what they do.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 2736
-The Prophet (SAW) said: "Allah has ninety-nine Names, one hundred minus one. Whoever enumerates (and acts upon) them will enter Paradise."
-*(Grade: Sahih)*
-
-
-### Quran (42:11)
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 7:180",
+              arabic: "وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا ۖ وَذَرُوا الَّذِينَ يُلْحِدُونَ فِي أَسْمَائِهِ",
+              translation: "The Most Excellent Names belong to God: use them to call on Him, and keep away from those who abuse them — they will be requited for what they do.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2736",
+              translation: "The Prophet (SAW) said: \"Allah has ninety-nine Names, one hundred minus one. Whoever enumerates (and acts upon) them will enter Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 42:11",
+              arabic: "لَيْسَ كَمِثْلِهِ شَيْءٌ ۖ وَهُوَ السَّمِيعُ الْبَصِيرُ",
+              translation: "There is nothing like unto Him, and He is the All-Hearing, the All-Seeing.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "The defining methodological filter for Tawhid al-Asma wa al-Sifat — affirm the attribute as real without likening Allah to creation.",
+            },
+          ],
           description: `**Why?**
 
 Tawhid al-Asma wa al-Sifat requires affirming Allah's names and attributes as described in the Quran and Sunnah — without denial, distortion, or likening them to creation. The guiding principle is Quran 42:11: "There is nothing like unto Him, and He is the All-Hearing, the All-Seeing."
@@ -1618,25 +2250,44 @@ Tawhid al-Asma wa al-Sifat requires affirming Allah's names and attributes as de
         { title: 'Understand how the three categories interrelate', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts discuss the obligation to exclusively worship God and mention certain divine attributes, they do not address the three specific scholarly categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat) or contain Quran 7:180, providing neither clear proof nor contextual indication for the subtask.',
-          sources: `**I. Quran**
-
-### Quran (51:56)
-**Arabic:** وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ  
-**Translation:** I created jinn and mankind only to worship Me.
-
-### Quran (3:18)
-**Arabic:** شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ ۚ لَا إِلَٰهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ  
-**Translation:** God bears witness that there is no god but Him, as do the angels and those who have knowledge. He upholds justice. There is no god but Him, the Almighty, the All Wise.
-
-### Quran (7:180)
-**Arabic:** وَلِلَّهِ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ فَٱدْعُوهُ بِهَا ۖ وَذَرُوا۟ ٱلَّذِينَ يُلْحِدُونَ فِىٓ أَسْمَـٰٓئِهِۦ ۚ سَيُجْزَوْنَ مَا كَانُوا۟ يَعْمَلُونَ  
-**Translation:** The Most Excellent Names belong to God: use them to call on Him, and keep away from those who abuse them- they will be requited for what they do.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 7372
-The Prophet (peace be upon him) said: "The right of Allah upon His servants is that they worship Him and do not associate anything with Him; and the right of the servants upon Allah is that He does not punish the one who does not associate anything with Him."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 51:56",
+              arabic: "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+              translation: "I created jinn and mankind only to worship Me.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 3:18",
+              arabic: "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ ۚ لَا إِلَٰهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ",
+              translation: "God bears witness that there is no god but Him, as do the angels and those who have knowledge. He upholds justice. There is no god but Him, the Almighty, the All Wise.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 7:180",
+              arabic: "وَلِلَّهِ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ فَٱدْعُوهُ بِهَا ۖ وَذَرُوا۟ ٱلَّذِينَ يُلْحِدُونَ فِىٓ أَسْمَـٰٓئِهِۦ ۚ سَيُجْزَوْنَ مَا كَانُوا۟ يَعْمَلُونَ",
+              translation: "The Most Excellent Names belong to God: use them to call on Him, and keep away from those who abuse them- they will be requited for what they do.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7372",
+              translation: "The Prophet (peace be upon him) said: \"The right of Allah upon His servants is that they worship Him and do not associate anything with Him; and the right of the servants upon Allah is that He does not punish the one who does not associate anything with Him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The three categories of Tawhid are not isolated compartments — they form a unified framework. Rububiyyah necessitates Uluhiyyah: if He is your Lord, then worship Him alone. And Asma wa Sifat informs both: knowing His attributes (e.g., that He is Ar-Razzaq, the Provider) leads to proper worship and trust.
@@ -1660,12 +2311,17 @@ The three categories of Tawhid are not isolated compartments — they form a uni
         { title: 'Prepare a simple outline of the seven conditions', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided hadith highlights the supreme reward and importance of the Shahada, it does not explicitly mention or contextually imply the seven specific conditions (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah) required by the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 26
-The Prophet (SAW) said: "Whoever testifies that there is no deity worthy of worship except Allah alone with no partner, that Muhammad is His servant and messenger, that Isa is His servant and messenger — Allah will admit him to Paradise regardless of what he did."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 26",
+              translation: "The Prophet (SAW) said: \"Whoever testifies that there is no deity worthy of worship except Allah alone with no partner, that Muhammad is His servant and messenger, that Isa is His servant and messenger — Allah will admit him to Paradise regardless of what he did.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Preparing a summary forces you to distil complex knowledge into clear, teachable form. If you cannot explain something simply, you may not understand it deeply enough yourself. This preparation is both a test of your knowledge and a service to the one you will teach.
@@ -1680,12 +2336,17 @@ Preparing a summary forces you to distil complex knowledge into clear, teachable
         { title: 'Schedule a teaching session with a family member or student', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided hadith encourages spreading the salam to foster love among believers, it does not explicitly mention or contextually imply the scheduling of a formal teaching session to share knowledge.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1893
-The Prophet (SAW) said: "By the One in whose hand is my soul, you will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you of something that, if you do it, you will love one another? Spread the salam among yourselves."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1893",
+              translation: "The Prophet (SAW) said: \"By the One in whose hand is my soul, you will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you of something that, if you do it, you will love one another? Spread the salam among yourselves.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Knowledge that is not shared stagnates. Teaching is one of the most powerful ways to solidify your own understanding while fulfilling the prophetic command to convey knowledge. Choosing the right setting and person maximises the impact of what you share.
@@ -1700,19 +2361,26 @@ Knowledge that is not shared stagnates. Teaching is one of the most powerful way
         { title: 'Deliver the lesson and encourage questions', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly outline a specific pedagogical method or mention the Shahada\'s conditions, they provide a clear logical inference for the subtask by explicitly commanding believers to convey the Prophet\'s teachings.',
-          sources: `**I. Quran**
-
-
-### Quran (16:90)
-**Arabic:** إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ  
-**Translation:** God commands justice, doing good, and generosity towards relatives and He forbids what is shameful, blameworthy, and oppressive.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 6018
-The Prophet (SAW) said: "Convey from me even if it is one ayah."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 16:90",
+              arabic: "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ",
+              translation: "God commands justice, doing good, and generosity towards relatives and He forbids what is shameful, blameworthy, and oppressive.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6018",
+              translation: "The Prophet (SAW) said: \"Convey from me even if it is one ayah.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The goal of teaching the Shahada's conditions is not to deliver a lecture — it is to connect hearts to the testimony of faith. Your approach should mirror his: sincere, inviting, and open to questions.
@@ -1733,19 +2401,26 @@ The goal of teaching the Shahada's conditions is not to deliver a lecture — it
         { title: 'Reflect on how Tawhid influences business decisions', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts broadly emphasize that the purpose of creation is worship and that actions are judged by intentions, they do not mention business decisions, commercial ethics, or the prohibition of riba, providing neither clear proof nor contextual indication for this specific financial self-audit.',
-          sources: `**I. Quran**
-
-
-### Quran (51:56)
-**Arabic:** وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ  
-**Translation:** I created jinn and mankind only to worship Me.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1
-The Prophet (SAW) said: "Actions are judged by intentions, and every person shall have what they intended. So whoever emigrated for the sake of Allah and His Messenger, his emigration is for Allah and His Messenger."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 51:56",
+              arabic: "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+              translation: "I created jinn and mankind only to worship Me.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1",
+              translation: "The Prophet (SAW) said: \"Actions are judged by intentions, and every person shall have what they intended. So whoever emigrated for the sake of Allah and His Messenger, his emigration is for Allah and His Messenger.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tawhid is not confined to the prayer mat — it extends into every transaction, contract, and business decision. If you declare that there is no god but Allah, then His rulings on halal income, the prohibition of riba, and the demand for honest dealings are binding on your commercial life, not just your spiritual one.
@@ -1760,20 +2435,26 @@ Tawhid is not confined to the prayer mat — it extends into every transaction, 
         { title: 'Identify three daily actions that express your Shahada', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe identifying exactly three daily actions to track for a week, the accompanying contextual note for Quran 47:19 provides a clear logical inference for the subtask by explicitly calling for daily actions to continuously align one\'s life with the testimony of faith.',
-          sources: `**I. Quran**
-
-### Quran (47:19)
-**Arabic:** فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ ۗ وَاللَّهُ يَعْلَمُ مُتَقَلَّبَكُمْ وَمَثْوَاكُمْ
-**Translation:** "So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women. God knows whenever any of you move, and whenever any of you stay still." (Abdel Haleem)
-
-*(The command "bear in mind" — فَاعْلَمْ — implies living the Shahada continuously, not just reciting it. Allah's awareness of every movement and stillness calls for daily actions to align with the testimony.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1976
-Narrated \`Abdullah bin \`Amr:Allah's Messenger (ﷺ) was informed that I had taken an oath to fast daily and to pray (every night) all the night throughout my life (so Allah's Messenger (ﷺ) came to me and asked whether it was correct): I replied, "Let my parents be sacrificed for you! I said so." The Prophet (ﷺ) said, "You can not do that. So, fast for few days and give it up for few days, offer Salat (prayer) and sleep. Fast three days a month as the reward of good deeds is multiplied ten times and that will be equal to one year of fasting." I replied, "I can do better than that." The Prophet (ﷺ) said to me, "Fast one day and give up fasting for two days." I replied, "I can do better than that." The Prophet (ﷺ) said to me, "Fast one day and give up fasting for a day and that is the fasting of Prophet David and that is the best fasting." I said, "I have the power to fast better (more) than that." The Prophet (ﷺ) said, "There is no better fasting than that
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ ۗ وَاللَّهُ يَعْلَمُ مُتَقَلَّبَكُمْ وَمَثْوَاكُمْ",
+              translation: "So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women. God knows whenever any of you move, and whenever any of you stay still.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1976",
+              translation: "Narrated `Abdullah bin `Amr:Allah's Messenger (ﷺ) was informed that I had taken an oath to fast daily and to pray (every night) all the night throughout my life (so Allah's Messenger (ﷺ) came to me and asked whether it was correct): I replied, \"Let my parents be sacrificed for you! I said so.\" The Prophet (ﷺ) said, \"You can not do that. So, fast for few days and give it up for few days, offer Salat (prayer) and sleep. Fast three days a month as the reward of good deeds is multiplied ten times and that will be equal to one year of fasting.\" I replied, \"I can do better than that.\" The Prophet (ﷺ) said to me, \"Fast one day and give up fasting for two days.\" I replied, \"I can do better than that.\" The Prophet (ﷺ) said to me, \"Fast one day and give up fasting for a day and that is the fasting of Prophet David and that is the best fasting.\" I said, \"I have the power to fast better (more) than that.\" The Prophet (ﷺ) said, \"There is no better fasting than that",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Shahada is not a one-time declaration — it is a living testimony expressed through daily actions. Identifying specific actions that express your faith makes the abstract concrete and turns routine moments into acts of worship.
@@ -1788,20 +2469,26 @@ The Shahada is not a one-time declaration — it is a living testimony expressed
         { title: 'Study how the Sahaba lived their Shahada practically', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly name specific figures like Abu Bakr, Bilal, or Khadijah, the accompanying contextual note provides a clear logical inference for the subtask by explicitly highlighting how the companions practically lived out their testimony of faith through submission and obedience.',
-          sources: `**I. Quran**
-
-### Quran (2:285)
-**Arabic:** آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ
-**Translation:** "The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. 'We make no distinction between any of His messengers,' they say, 'We hear and obey. Grant us Your forgiveness, our Lord. To You we all return!'" (Abdel Haleem)
-
-*(The phrase "We hear and obey" — سَمِعْنَا وَأَطَعْنَا — is the Sahaba's creed made action. This verse describes the believing companions living out their Shahada in submission and obedience.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1295
-Narrated 'Amir bin Sa\`d bin Abi Waqqas:That his father said, "In the year of the last Hajj of the Prophet (ﷺ) I became seriously ill and the Prophet (ﷺ) used to visit me inquiring about my health. I told him, 'I am reduced to this state because of illness and I am wealthy and have no inheritors except a daughter, (In this narration the name of 'Amir bin Sa\`d is mentioned and in fact it is a mistake; the narrator is \`Aisha bint Sa\`d bin Abi Waqqas). Should I give two-thirds of my property in charity?' He said, 'No.' I asked, 'Half?' He said, 'No.' then he added, 'One-third, and even one-third is much. You'd better leave your inheritors wealthy rather than leaving them poor, begging others. You will get a reward for whatever you spend for Allah's sake, even for what you put in your wife's mouth.' I said, 'O Allah's Messenger (ﷺ)! Will I be left alone after my companions have gone?' He said, 'If you are left behind, whatever good deeds you will do will upgrade you and raise you high. And perhaps you will have a long life so that some people will be benefited by you while others will be harmed by you. O Allah! Complete the emigration of my companions and do not turn them renegades.' But Allah's Messenger (ﷺ) felt sorry for poor Sa\`d bin Khaula as he died in Mecca." (but Sa\`d bin Abi Waqqas lived long after the Prophet (ﷺ)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:285",
+              arabic: "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ",
+              translation: "The Messenger believes in what has been sent down to him from his Lord, as do the faithful. They all believe in God, His angels, His scriptures, and His messengers. 'We make no distinction between any of His messengers,' they say, 'We hear and obey. Grant us Your forgiveness, our Lord. To You we all return!'\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1295",
+              translation: "Narrated 'Amir bin Sa`d bin Abi Waqqas:That his father said, \"In the year of the last Hajj of the Prophet (ﷺ) I became seriously ill and the Prophet (ﷺ) used to visit me inquiring about my health. I told him, 'I am reduced to this state because of illness and I am wealthy and have no inheritors except a daughter, (In this narration the name of 'Amir bin Sa`d is mentioned and in fact it is a mistake; the narrator is `Aisha bint Sa`d bin Abi Waqqas). Should I give two-thirds of my property in charity?' He said, 'No.' I asked, 'Half?' He said, 'No.' then he added, 'One-third, and even one-third is much. You'd better leave your inheritors wealthy rather than leaving them poor, begging others. You will get a reward for whatever you spend for Allah's sake, even for what you put in your wife's mouth.' I said, 'O Allah's Messenger (ﷺ)! Will I be left alone after my companions have gone?' He said, 'If you are left behind, whatever good deeds you will do will upgrade you and raise you high. And perhaps you will have a long life so that some people will be benefited by you while others will be harmed by you. O Allah! Complete the emigration of my companions and do not turn them renegades.' But Allah's Messenger (ﷺ) felt sorry for poor Sa`d bin Khaula as he died in Mecca.\" (but Sa`d bin Abi Waqqas lived long after the Prophet (ﷺ)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Sahaba did not merely recite the Shahada — they lived it under the most extreme circumstances. Abu Bakr's spending, Bilal's steadfastness under torture, and Khadijah's unwavering support were the living proof of their testimony. Studying them gives you real models of what a lived Shahada looks like.
@@ -1823,16 +2510,26 @@ The Sahaba did not merely recite the Shahada — they lived it under the most ex
         { title: 'Set aside 30 minutes of focused reflection time', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided verses emphasize that a believer\'s entire life and worship must be dedicated solely to Allah, they do not mention or contextually imply the specific practice of setting aside a 30-minute block for focused reflection and journaling.',
-          sources: `**I. Quran**
-
-
-### Quran (6:162-163)
-**Arabic:** قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ ۝ لَا شَرِيكَ لَهُ  
-**Translation:** Say: Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds. No partner has He.
-
-### Quran (112:1-4)
-**Arabic:** قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ  
-**Translation:** Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 6:162-163",
+              arabic: "قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ ۝ لَا شَرِيكَ لَهُ",
+              translation: "Say: Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds. No partner has He.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 112:1-4",
+              arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+              translation: "Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Meaningful reflection requires stillness. Without dedicated, distraction-free time, your reflection will stay surface-level. Beginning with dhikr or du'a centres the heart on Allah before the mind begins to write — ensuring the reflection is spiritually grounded, not merely intellectual.
@@ -1847,19 +2544,26 @@ Meaningful reflection requires stillness. Without dedicated, distraction-free ti
         { title: 'Write about an area where Tawhid challenged your habits', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts describe God\'s absolute vigilance and the sweetness of finding contentment in faith, they do not mention or contextually imply the specific exercise of writing a personal reflection on a time when Tawhid challenged one\'s habits or life decisions.',
-          sources: `**I. Quran**
-
-
-### Quran (2:255)
-**Arabic:** اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ  
-**Translation:** God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him.
-
-**I. Hadith**
-
-
-### Sahih Muslim 131
-The Prophet (SAW) said: "He has tasted the sweetness of faith who is content with Allah as his Lord, Islam as his religion, and Muhammad as his Messenger."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:255",
+              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ",
+              translation: "God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 131",
+              translation: "The Prophet (SAW) said: \"He has tasted the sweetness of faith who is content with Allah as his Lord, Islam as his religion, and Muhammad as his Messenger.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tawhid is tested not in comfort but in difficulty. The moments where believing in Allah alone required you to change a habit, leave a relationship, or make a difficult choice — these are where your Shahada was most real. Writing about them reveals the depth of your testimony.
@@ -1874,23 +2578,35 @@ Tawhid is tested not in comfort but in difficulty. The moments where believing i
         { title: 'Identify one change you will make based on this reflection', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts offer profound comfort regarding God\'s nearness, responsiveness to prayer, and the peace found in His remembrance, they do not mention or contextually imply the specific practical exercise of committing to a measurable behavioral change or setting up an accountability system.',
-          sources: `**I. Quran**
-
-
-### Quran (2:186)
-**Arabic:** وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ  
-**Translation:** And when My servants ask you concerning Me — indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.
-
-### Quran (13:28)
-**Arabic:** أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ  
-**Translation:** Verily, in the remembrance of Allah do hearts find rest.
-
-**II. Hadith**
-
-
-### Sahih Muslim 2577
-The Prophet (SAW) said: "Allah the Almighty has said: I am as My servant thinks of Me. I am with him when he remembers Me."
-*(Grade: Sahih — Hadith Qudsi)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:186",
+              arabic: "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",
+              translation: "And when My servants ask you concerning Me — indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 13:28",
+              arabic: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+              translation: "Verily, in the remembrance of Allah do hearts find rest.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2577",
+              translation: "The Prophet (SAW) said: \"Allah the Almighty has said: I am as My servant thinks of Me. I am with him when he remembers Me.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — Hadith Qudsi",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Reflection without action is incomplete. Committing to one concrete, actionable change — however small — transforms this exercise from journaling into genuine spiritual growth. The Shahada demands ongoing alignment between declaration and life.
@@ -1916,31 +2632,44 @@ Reflection without action is incomplete. Committing to one concrete, actionable 
         { title: 'Set alarms or reminders for all five prayer times', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention setting modern phone alarms or using apps, they provide a clear logical inference for the subtask by commanding believers to establish their prayers at specific, designated times throughout the day and night.',
-          sources: `**I. Quran**
-
-
-### Quran (40:55)
-**Arabic:** فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ وَاسْتَغْفِرْ لِذَنبِكَ وَسَبِّحْ بِحَمْدِ رَبِّكَ بِالْعَشِيِّ وَالْإِبْكَارِ
-**Translation:** "So be patient, Prophet, for what God has promised is sure to come. Ask forgiveness for your sins; praise your Lord morning and evening." (Abdel Haleem)
-
-*(Morning and evening praise encompasses the daily cycle of prayer times — a call to maintain regular dhikr and salah throughout the day.)*
-
-### Quran (30:18)
-**Arabic:** وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ
-**Translation:** "praise is due to Him in the heavens and the earth— in the late afternoon, and at midday." (Abdel Haleem)
-
-*(Scholars cite this verse as referring specifically to the ‘Asr and Dhuhr prayer times, anchoring the practice of setting times for each prayer.)*
-
-### Quran (11:114)
-**Arabic:** وَأَقِمِ الصَّلَاةَ طَرَفَيِ النَّهَارِ وَزُلَفًا مِّنَ اللَّيْلِ ۚ إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ ۚ ذَٰلِكَ ذِكْرَىٰ لِلذَّاكِرِينَ
-**Translation:** "[Prophet], keep up the prayer at both ends of the day, and during parts of the night, for good things drive bad away— this is a reminder for those who are aware." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 527
-Narrated Ibn Mas’ud: A man kissed a woman and then came to the Prophet (ﷺ) and informed him. Allah then revealed: "Offer prayers perfectly at the two ends of the day and in some hours of the night [i.e. the five compulsory prayers]. Verily, the good deeds remove the evil deeds." The man asked, "O Allah’s Messenger (ﷺ)! Is it for me only?" The Prophet (ﷺ) said, "It is for all my followers."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 40:55",
+              arabic: "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ وَاسْتَغْفِرْ لِذَنبِكَ وَسَبِّحْ بِحَمْدِ رَبِّكَ بِالْعَشِيِّ وَالْإِبْكَارِ",
+              translation: "So be patient, Prophet, for what God has promised is sure to come. Ask forgiveness for your sins; praise your Lord morning and evening.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 30:18",
+              arabic: "وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ",
+              translation: "praise is due to Him in the heavens and the earth— in the late afternoon, and at midday.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 11:114",
+              arabic: "وَأَقِمِ الصَّلَاةَ طَرَفَيِ النَّهَارِ وَزُلَفًا مِّنَ اللَّيْلِ ۚ إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ ۚ ذَٰلِكَ ذِكْرَىٰ لِلذَّاكِرِينَ",
+              translation: "[Prophet], keep up the prayer at both ends of the day, and during parts of the night, for good things drive bad away— this is a reminder for those who are aware.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 527",
+              translation: "Narrated Ibn Mas’ud: A man kissed a woman and then came to the Prophet (ﷺ) and informed him. Allah then revealed: \"Offer prayers perfectly at the two ends of the day and in some hours of the night [i.e. the five compulsory prayers]. Verily, the good deeds remove the evil deeds.\" The man asked, \"O Allah’s Messenger (ﷺ)! Is it for me only?\" The Prophet (ﷺ) said, \"It is for all my followers.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Without reliable reminders, even sincere believers miss prayers due to distraction or busy schedules. Removing the burden of remembering frees your mind to focus on the prayer itself rather than worrying about the clock.
@@ -1952,21 +2681,26 @@ Use a prayer time app (such as Muslim Pro or Athan) or set individual phone alar
         { title: 'Track your prayer consistency for one full week', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe creating a 5-column log or tracking prayers for exactly one week, the accompanying contextual note provides a clear logical inference for the subtask by explicitly linking the Quranic command to "guard/maintain" prayers with the practice of tracking consistency.',
-          sources: `**I. Quran**
-
-
-### Quran (23:9)
-**Arabic:** وَالَّذِينَ هُمْ عَلَىٰ صَلَوَاتِهِمْ يُحَافِظُونَ
-**Translation:** "and who keep up their prayers." (Abdel Haleem)
-
-*(The word يُحَافِظُونَ — "guard/maintain" — implies consistent vigilance over prayer, not merely performing it occasionally. Tracking consistency embodies this quality of guardianship.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 7475
-Narrated Abu Huraira: A man came to Allah's Messenger (ﷺ) and said, "Guide me to a deed that equals Jihad." He said, "I cannot." Then he said, "Can you, when the Mujahid goes out for Jihad, enter your mosque and pray without rest, and fast without breaking it?" The man said, "Who can do that?" (Then) Abu Huraira added, "The Mujahid is recompensed for all his [even small] steps."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 23:9",
+              arabic: "وَالَّذِينَ هُمْ عَلَىٰ صَلَوَاتِهِمْ يُحَافِظُونَ",
+              translation: "and who keep up their prayers.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7475",
+              translation: "Narrated Abu Huraira: A man came to Allah's Messenger (ﷺ) and said, \"Guide me to a deed that equals Jihad.\" He said, \"I cannot.\" Then he said, \"Can you, when the Mujahid goes out for Jihad, enter your mosque and pray without rest, and fast without breaking it?\" The man said, \"Who can do that?\" (Then) Abu Huraira added, \"The Mujahid is recompensed for all his [even small] steps.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 What gets measured gets managed. Without honest tracking, you may overestimate your consistency or fail to notice patterns -- like consistently missing Fajr or delaying Asr. A single week of data gives you a clear baseline to improve from.
@@ -1978,25 +2712,35 @@ Create a simple log (notebook or app) with five columns for each day: Fajr, Dhuh
         { title: 'Identify and resolve common excuses for missing prayers', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly outline the practical steps of listing specific barriers and testing countermeasures for a week, the accompanying contextual note and verses provide a clear logical inference for the subtask by mandating the unconditional establishment of prayer and warning against neglecting it due to personal desires or excuses.',
-          sources: `**I. Quran**
-
-
-### Quran (31:17)
-**Arabic:** يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ ۖ إِنَّ ذَٰلِكَ مِنْ عَزْمِ الْأُمُورِ
-**Translation:** "Keep up the prayer, my son; command what is right; forbid what is wrong; bear anything that happens to you steadfastly: these are things to be aspired to." (Abdel Haleem)
-
-*(Luqman's command includes "bear anything that happens to you" — addressing the same reality that producing excuses avoids. The command to establish prayer is unconditional.)*
-
-### Quran (19:59)
-**Arabic:** فَخَلَفَ مِن بَعْدِهِمْ خَلْفٌ أَضَاعُوا الصَّلَاةَ وَاتَّبَعُوا الشَّهَوَاتِ ۖ فَسَوْفَ يَلْقَوْنَ غَيًّا
-**Translation:** "but there came after them generations who neglected prayer and were driven by their own desires. These will come face to face with their evil." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 7288
-Narrated Jabir: The Prophet (ﷺ) said, "Between a person and shirk and kufr is the abandonment of prayer."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 31:17",
+              arabic: "يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ ۖ إِنَّ ذَٰلِكَ مِنْ عَزْمِ الْأُمُورِ",
+              translation: "Keep up the prayer, my son; command what is right; forbid what is wrong; bear anything that happens to you steadfastly: these are things to be aspired to.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 19:59",
+              arabic: "فَخَلَفَ مِن بَعْدِهِمْ خَلْفٌ أَضَاعُوا الصَّلَاةَ وَاتَّبَعُوا الشَّهَوَاتِ ۖ فَسَوْفَ يَلْقَوْنَ غَيًّا",
+              translation: "but there came after them generations who neglected prayer and were driven by their own desires. These will come face to face with their evil.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7288",
+              translation: "Narrated Jabir: The Prophet (ﷺ) said, \"Between a person and shirk and kufr is the abandonment of prayer.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Shaytan's strategy is to make missing prayer feel justified through "reasonable" excuses. By naming your barriers explicitly and preparing countermeasures in advance, you remove the decision-making in the moment and protect your salah.
@@ -2008,26 +2752,35 @@ List your top three barriers to prayer (e.g., oversleeping for Fajr, work meetin
         { title: 'Pray each salah within its earliest time window', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe a strict 15-minute window or the use of modern prayer apps for a week-long exercise, they provide a clear logical inference for the subtask by explicitly declaring that offering prayers at their early stated fixed times is the best of deeds.',
-          sources: `**I. Quran**
-
-
-### Quran (7:134)
-**Arabic:** وَلَمَّا وَقَعَ عَلَيْهِمُ الرِّجْزُ قَالُوا يَا مُوسَى ادْعُ لَنَا رَبَّكَ بِمَا عَهِدَ عِندَكَ ۖ لَئِن كَشَفْتَ عَنَّا الرِّجْزَ لَنُؤْمِنَنَّ لَكَ وَلَنُرْسِلَنَّ مَعَكَ بَنِي إِسْرَائِيلَ
-**Translation:** "They would say, whenever a plague struck them, 'Moses, pray to your Lord for us by virtue of the promise He has made to you: if you relieve us of the plague, we will believe you and let the Children of Israel go with you.'" (Abdel Haleem)
-
-*(Their urgency to call upon Allah immediately when calamity struck — لَمَّا وَقَعَ, "as soon as it fell" — illustrates the principle of prompt response. As the Prophet (ﷺ) said, the best deed is prayer at its earliest time (Bukhari 527).)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 527
-Narrated Ibn Mas'ud: I asked the Prophet (ﷺ), "Which deed is the best?" He replied, "To offer the prayers at their early stated fixed times." I asked, "What is the next (in goodness)?" He replied, "To be good and dutiful to your parents." I further asked, "What is the next?" He replied, "To participate in Jihad in Allah's Cause."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 505
-The Prophet was asked which deed is 'dearest to Allah' and replied: 'To offer the prayers at their early stated fixed times.' Also recorded in Sahih Muslim 151.
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 7:134",
+              arabic: "وَلَمَّا وَقَعَ عَلَيْهِمُ الرِّجْزُ قَالُوا يَا مُوسَى ادْعُ لَنَا رَبَّكَ بِمَا عَهِدَ عِندَكَ ۖ لَئِن كَشَفْتَ عَنَّا الرِّجْزَ لَنُؤْمِنَنَّ لَكَ وَلَنُرْسِلَنَّ مَعَكَ بَنِي إِسْرَائِيلَ",
+              translation: "They would say, whenever a plague struck them, 'Moses, pray to your Lord for us by virtue of the promise He has made to you: if you relieve us of the plague, we will believe you and let the Children of Israel go with you.'\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 527",
+              translation: "Narrated Ibn Mas'ud: I asked the Prophet (ﷺ), \"Which deed is the best?\" He replied, \"To offer the prayers at their early stated fixed times.\" I asked, \"What is the next (in goodness)?\" He replied, \"To be good and dutiful to your parents.\" I further asked, \"What is the next?\" He replied, \"To participate in Jihad in Allah's Cause.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 505",
+              translation: "The Prophet was asked which deed is 'dearest to Allah' and replied: 'To offer the prayers at their early stated fixed times.' Also recorded in Sahih Muslim 151.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) was asked which deed is best and said: "Prayer at its proper time" (Bukhari/Muslim). Praying at the earliest time demonstrates eagerness to meet Allah and prevents the prayer from being crowded out by later obligations.
@@ -2046,19 +2799,26 @@ For one week, aim to begin each prayer within 15 minutes of the adhan. Note your
         { title: 'Learn the four fard acts of wudu (Hanafi) or six (Shafi\'i)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate the four physical actions of washing the face, arms, head, and feet for prayer, the specific scholarly categorization of these as four or six obligatory acts according to different madhabs is derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (5:6)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ  
-**Translation:** O you who believe, when you rise to pray, wash your faces and your hands up to the elbows, wipe over your heads, and wash your feet to the ankles.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 159
-The Prophet (SAW) performed wudu: he washed his face, washed his arms up to the elbows, wiped his head, and washed his feet up to the ankles.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 5:6",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ",
+              translation: "O you who believe, when you rise to pray, wash your faces and your hands up to the elbows, wipe over your heads, and wash your feet to the ankles.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 159",
+              translation: "The Prophet (SAW) performed wudu: he washed his face, washed his arms up to the elbows, wiped his head, and washed his feet up to the ankles.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Your salah is only valid if your wudu is valid. Knowing the fard acts of wudu according to your madhab ensures that every prayer you perform stands on a sound foundation of purification.
@@ -2070,12 +2830,17 @@ Study the fard acts according to your madhab. Hanafi fard: wash face, wash arms 
         { title: 'Learn the sunnah acts (miswak, rinsing mouth/nose, between fingers)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided hadith explicitly lists using the tooth-stick, snuffing water in the nose, washing finger joints, and rinsing the mouth as natural acts of fitra, their specific application and categorization as sunnah acts of wudu are derived through clear logical inference.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 604
-A'isha reported:The Messenger of Allah (ﷺ) said: Ten are the acts according to fitra: clipping the moustache, letting the beard grow, using the tooth-stick, snuffing water in the nose, cutting the nails, washing the finger joints, plucking the hair under the armpits, shaving the pubes and cleaning one's private parts with water. The narrator said: I have forgotten the tenth, but it may have been rinsing the mouth
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 604",
+              translation: "A'isha reported:The Messenger of Allah (ﷺ) said: Ten are the acts according to fitra: clipping the moustache, letting the beard grow, using the tooth-stick, snuffing water in the nose, cutting the nails, washing the finger joints, plucking the hair under the armpits, shaving the pubes and cleaning one's private parts with water. The narrator said: I have forgotten the tenth, but it may have been rinsing the mouth",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The sunnah acts of wudu perfect your purification and multiply your reward. They follow the example of the Prophet (SAW), who performed wudu with care and completeness. Neglecting them means leaving reward on the table.
@@ -2087,19 +2852,26 @@ Learn and incorporate these sunnah acts: using miswak before wudu, saying bismil
         { title: 'Learn what nullifies wudu', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly identify several foundational actions that break wudu, such as relieving oneself, passing wind, and contacting women, the comprehensive study of both agreed-upon and madhab-specific nullifiers is derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (5:6)
-**Arabic:** وَإِن كُنتُم مَّرْضَىٰ أَوْ عَلَىٰ سَفَرٍ أَوْ جَاءَ أَحَدٌ مِّنكُم مِّنَ الْغَائِطِ أَوْ لَامَسْتُمُ النِّسَاءَ فَلَمْ تَجِدُوا مَاءً فَتَيَمَّمُوا صَعِيدًا طَيِّبًا  
-**Translation:** And if you are ill or on a journey or one of you comes from the place of relieving himself or you have contacted women and find no water, then seek clean earth and wipe over your faces and your hands from it.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 135
-The Prophet (SAW) said: "The prayer of a person who does hadath (passes wind, etc.) is not accepted till he performs wudu."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 5:6",
+              arabic: "وَإِن كُنتُم مَّرْضَىٰ أَوْ عَلَىٰ سَفَرٍ أَوْ جَاءَ أَحَدٌ مِّنكُم مِّنَ الْغَائِطِ أَوْ لَامَسْتُمُ النِّسَاءَ فَلَمْ تَجِدُوا مَاءً فَتَيَمَّمُوا صَعِيدًا طَيِّبًا",
+              translation: "And if you are ill or on a journey or one of you comes from the place of relieving himself or you have contacted women and find no water, then seek clean earth and wipe over your faces and your hands from it.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 135",
+              translation: "The Prophet (SAW) said: \"The prayer of a person who does hadath (passes wind, etc.) is not accepted till he performs wudu.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 If your wudu is unknowingly broken, every prayer you perform afterward may be invalid. Knowing the nullifiers protects the integrity of your worship and gives you confidence that your salah counts.
@@ -2111,24 +2883,35 @@ Study the agreed-upon nullifiers: anything exiting the front or back passage, sl
         { title: 'Practice performing wudu with correct sequence and du\'a', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts outline the physical requirements of wudu and the immense reward for performing it well followed by prayer, they do not mention or contextually imply reciting the Shahada or the specific supplication upon its completion.',
-          sources: `**I. Quran**
-
-
-### Quran (5:6)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ  
-**Translation:** You who believe, when you are about to pray, wash your faces and your hands up to the elbows, wipe your heads, wash your feet up to the ankles.
-
-**I. Hadith**
-
-
-### Sahih Muslim 245
-The Prophet (SAW) said: "No one performs wudu and does it well, then prays two rak'at with full attention, except that Paradise becomes guaranteed for him."
-*(Grade: Sahih)*
-
-### Sahih Muslim 451
-States that for whoever performs wudu well and recites the Shahada, 'the eight gates of Paradise would be opened for him.'
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 5:6",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ",
+              translation: "You who believe, when you are about to pray, wash your faces and your hands up to the elbows, wipe your heads, wash your feet up to the ankles.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 245",
+              translation: "The Prophet (SAW) said: \"No one performs wudu and does it well, then prays two rak'at with full attention, except that Paradise becomes guaranteed for him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 451",
+              translation: "States that for whoever performs wudu well and recites the Shahada, 'the eight gates of Paradise would be opened for him.'",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The du'a after wudu is a sunnah that seals your purification with remembrance of Allah. The Prophet (SAW) said that whoever performs wudu then recites the Shahada, the eight gates of Jannah are opened for them (Muslim).
@@ -2147,20 +2930,35 @@ After completing wudu, recite the Shahada followed by the du'a: "Allahummaj'alni
         { title: 'Memorise the opening du\'a (Subhanaka Allahumma or equivalent)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention a supplication starting with "Subhanaka Allahumma," they explicitly locate it within the bowing and prostrations rather than as the opening du\'a recited after the initial takbir as required by the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 4293
-Narrated 'Aishah (ra):The Prophet (ﷺ) used to say in his bowings and prostrations, "Subhanaka Allahumma Rabbanã wa bihamdika, Allãhumma ighfirli" (Glorified be You, O Allah, our Lord! All the praises are for You. O Allah, forgive me)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 794
-Narrated \`Aisha:The Prophet (ﷺ) used to say in his bowing and prostrations, "Subhanaka l-lahumma Rabbana wa bihamdika; Allahumma ghfir li.' (Exalted [from unbecoming attributes] Are you O Allah our Lord, and by Your praise [do I exalt You]. O Allah! Forgive me
-*(Grade: Sahih)*
-
-### Sahih Bukhari 817
-Narrated \`Aisha:The Prophet (ﷺ) used to say frequently in his bowing and prostrations "Subhanaka l-lahumma Rabbana wa bihamdika, Allahumma ghfir li" (Exalted [from unbecoming attributes] Are you O Allah our Lord, and by Your praise [do I exalt you]. O Allah! Forgive me). In this way [??] he was acting on what was explained to him in the Holy Qur'an
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4293",
+              translation: "Narrated 'Aishah (ra):The Prophet (ﷺ) used to say in his bowings and prostrations, \"Subhanaka Allahumma Rabbanã wa bihamdika, Allãhumma ighfirli\" (Glorified be You, O Allah, our Lord! All the praises are for You. O Allah, forgive me)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 794",
+              translation: "Narrated `Aisha:The Prophet (ﷺ) used to say in his bowing and prostrations, \"Subhanaka l-lahumma Rabbana wa bihamdika; Allahumma ghfir li.' (Exalted [from unbecoming attributes] Are you O Allah our Lord, and by Your praise [do I exalt You]. O Allah! Forgive me",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 817",
+              translation: "Narrated `Aisha:The Prophet (ﷺ) used to say frequently in his bowing and prostrations \"Subhanaka l-lahumma Rabbana wa bihamdika, Allahumma ghfir li\" (Exalted [from unbecoming attributes] Are you O Allah our Lord, and by Your praise [do I exalt you]. O Allah! Forgive me). In this way [??] he was acting on what was explained to him in the Holy Qur'an",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The opening du'a sets the tone for your entire prayer. It is the first words you speak to Allah after entering salah, and it centres your heart on His glory and perfection before you begin reciting the Quran.
@@ -2172,16 +2970,26 @@ Memorise the du'a al-istiftah recited after the takbirat al-ihram: "Subhanaka Al
         { title: 'Memorise the Tashahhud (At-Tahiyyatu)', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadiths provide explicit, clear proof for the subtask by detailing the exact wording of the Tashahhud and demonstrating that it must be recited while sitting after every two rak\'at.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 830
-Narrated \`Abdullah bin Malik bin Buhaina:Once Allah's Messenger (ﷺ) led us in the Zuhr prayer and got up (after the prostrations of the second rak\`a) although he should have sat (for the Tashahhud). So at the end of the prayer, he prostrated twice while sitting (prostrations of Sahu)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1202
-Narrated \`Abdullah bin Mas\`ud:We used to say the greeting, name and greet each other in the prayer. Allah's Messenger (ﷺ) heard it and said:--"Say, 'at-tahiyyatu lil-lahi was-salawatu wat-taiyibatu . Assalamu 'Alaika aiyuha-n-Nabiyu warahmatu- l-lahi wa-barakatuhu. _ Assalamu alaina wa-'ala 'ibadi-l-lahi as-salihin.. Ashhadu an la ilaha illa-l-lah wa ashhadu anna Muhammadan \`Abdu hu wa Rasuluh. (All the compliments are for Allah and all the prayers and all the good things (are for Allah). Peace be on you, O Prophet, and Allah's mercy and blessings (are on you). And peace be on us and on the good (pious) worshipers of Allah. I testify that none has the right to be worshipped but Allah and that Muhammad is His slave and Apostle.) So, when you have said this, then you have surely sent the greetings to every good (pious) worshipper of Allah, whether he be in the Heaven or on the Earth
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 830",
+              translation: "Narrated `Abdullah bin Malik bin Buhaina:Once Allah's Messenger (ﷺ) led us in the Zuhr prayer and got up (after the prostrations of the second rak`a) although he should have sat (for the Tashahhud). So at the end of the prayer, he prostrated twice while sitting (prostrations of Sahu)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1202",
+              translation: "Narrated `Abdullah bin Mas`ud:We used to say the greeting, name and greet each other in the prayer. Allah's Messenger (ﷺ) heard it and said:--\"Say, 'at-tahiyyatu lil-lahi was-salawatu wat-taiyibatu . Assalamu 'Alaika aiyuha-n-Nabiyu warahmatu- l-lahi wa-barakatuhu. _ Assalamu alaina wa-'ala 'ibadi-l-lahi as-salihin.. Ashhadu an la ilaha illa-l-lah wa ashhadu anna Muhammadan `Abdu hu wa Rasuluh. (All the compliments are for Allah and all the prayers and all the good things (are for Allah). Peace be on you, O Prophet, and Allah's mercy and blessings (are on you). And peace be on us and on the good (pious) worshipers of Allah. I testify that none has the right to be worshipped but Allah and that Muhammad is His slave and Apostle.) So, when you have said this, then you have surely sent the greetings to every good (pious) worshipper of Allah, whether he be in the Heaven or on the Earth",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Tashahhud is a conversation that took place during the Prophet's Mi'raj (night ascension). When you recite it, you are re-enacting a greeting of peace between Allah, His Messenger, and the righteous -- placing yourself in that sacred exchange.
@@ -2193,27 +3001,44 @@ Memorise "At-Tahiyyatu lillahi was-salawatu wat-tayyibatu, as-salamu 'alayka ayy
         { title: 'Memorise the Salawat upon the Prophet (Allahumma salli ala Muhammad)', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (2:23)
-**Arabic:** وَإِن كُنتُمْ فِي رَيْبٍ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا بِسُورَةٍ مِّن مِّثْلِهِ وَادْعُوا شُهَدَاءَكُم مِّن دُونِ اللَّهِ إِن كُنتُمْ صَادِقِينَ
-**Translation:** And if you are in doubt about what We have sent down [i.e., the Qur’ān] upon Our Servant [i.e., Prophet Muḥammad (ﷺ)], then produce a sūrah the like thereof and call upon your witnesses [i.e., supporters] other than Allāh, if you should be truthful.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1120
-Narrated Ibn \`Abbas:When the Prophet (ﷺ) got up at night to offer the Tahajjud prayer, he used to say: Allahumma lakal-hamd. Anta qaiyyimus-samawati wal-ard wa man fihinna. Walakal-hamd, Laka mulkus-samawati wal-ard wa man fihinna. Walakal-hamd, anta nurus-samawati wal-ard. Wa lakal-hamd, anta-l-haq wa wa'duka-lhaq, wa liqa'uka Haq, wa qauluka Haq, wal-jannatu Han wan-naru Haq wannabiyuna Haq. Wa Muhammadun, sallal-lahu'alaihi wasallam, Haq, was-sa'atu Haq. Allahumma aslamtu Laka wabika amantu, wa 'Alaika tawakkaltu, wa ilaika anabtu wa bika khasamtu, wa ilaika hakamtu faghfir li ma qaddamtu wama akh-khartu wama as-rartu wama'a lantu, anta-l-muqaddim wa anta-l-mu akh-khir, la ilaha illa anta (or la ilaha ghairuka). (O Allah! All the praises are for you, You are the Holder of the Heavens and the Earth, And whatever is in them. All the praises are for You; You have the possession of the Heavens and the Earth And whatever is in them. All the praises are for You; You are the Light of the Heavens and the Earth And all the praises are for You; You are the King of the Heavens and the Earth; And all the praises are for You; You are the Truth and Your Promise is the truth, And to meet You is true, Your Word is the truth And Paradise is true And Hell is true And all the Prophets (Peace be upon them) are true; And Muhammad is true, And the Day of Resurrection is true. O Allah ! I surrender (my will) to You; I believe in You and depend on You. And repent to You, And with Your help I argue (with my opponents, the non-believers) And I take You as a judge (to judge between us). Please forgive me my previous And future sins; And whatever I concealed or revealed And You are the One who make (some people) forward And (some) backward. There is none to be worshipped but you . Sufyan said that \`Abdul Karim Abu Umaiya added to the above, 'Wala haula Wala quwata illa billah' (There is neither might nor power except with Allah)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 6357
-Narrated \`Abdur-Rahman bin Abi Laila:Ka\`b bin 'Ujra met me and said, "Shall I give you a present? Once the Prophet (ﷺ) came to us and we said, 'O Allah's Messenger (ﷺ) ! We know how to greet you; but how to send 'Salat' upon you? He said, 'Say: Allahumma Salli ala Muhammadin wa 'ala \`Ali Muhammadin, kama sal-laita 'ala all Ibrahima innaka Hamidun Majid. Allahumma barik 'ala Muhammadin wa 'ala all Muhammadin, kama barakta 'ala all Ibrahima, innaka Hamidun Majid
-*(Grade: Sahih)*
-
-### Sahih Bukhari 4797
-Narrated Ka\`b bin Ujra:It was said, "O Allah's Messenger (ﷺ)! We know how to greet you, but how to invoke Allah for you?" The Prophet said, "Say: Allahumma salli ala Muhammadin wa'ala \`Ali Muhammaddin, kama sallaita 'ala all Ibrahim, innaka Hamidun Majid
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:23",
+              arabic: "وَإِن كُنتُمْ فِي رَيْبٍ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا بِسُورَةٍ مِّن مِّثْلِهِ وَادْعُوا شُهَدَاءَكُم مِّن دُونِ اللَّهِ إِن كُنتُمْ صَادِقِينَ",
+              translation: "And if you are in doubt about what We have sent down [i.e., the Qur’ān] upon Our Servant [i.e., Prophet Muḥammad (ﷺ)], then produce a sūrah the like thereof and call upon your witnesses [i.e., supporters] other than Allāh, if you should be truthful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1120",
+              translation: "Narrated Ibn `Abbas:When the Prophet (ﷺ) got up at night to offer the Tahajjud prayer, he used to say: Allahumma lakal-hamd. Anta qaiyyimus-samawati wal-ard wa man fihinna. Walakal-hamd, Laka mulkus-samawati wal-ard wa man fihinna. Walakal-hamd, anta nurus-samawati wal-ard. Wa lakal-hamd, anta-l-haq wa wa'duka-lhaq, wa liqa'uka Haq, wa qauluka Haq, wal-jannatu Han wan-naru Haq wannabiyuna Haq. Wa Muhammadun, sallal-lahu'alaihi wasallam, Haq, was-sa'atu Haq. Allahumma aslamtu Laka wabika amantu, wa 'Alaika tawakkaltu, wa ilaika anabtu wa bika khasamtu, wa ilaika hakamtu faghfir li ma qaddamtu wama akh-khartu wama as-rartu wama'a lantu, anta-l-muqaddim wa anta-l-mu akh-khir, la ilaha illa anta (or la ilaha ghairuka). (O Allah! All the praises are for you, You are the Holder of the Heavens and the Earth, And whatever is in them. All the praises are for You; You have the possession of the Heavens and the Earth And whatever is in them. All the praises are for You; You are the Light of the Heavens and the Earth And all the praises are for You; You are the King of the Heavens and the Earth; And all the praises are for You; You are the Truth and Your Promise is the truth, And to meet You is true, Your Word is the truth And Paradise is true And Hell is true And all the Prophets (Peace be upon them) are true; And Muhammad is true, And the Day of Resurrection is true. O Allah ! I surrender (my will) to You; I believe in You and depend on You. And repent to You, And with Your help I argue (with my opponents, the non-believers) And I take You as a judge (to judge between us). Please forgive me my previous And future sins; And whatever I concealed or revealed And You are the One who make (some people) forward And (some) backward. There is none to be worshipped but you . Sufyan said that `Abdul Karim Abu Umaiya added to the above, 'Wala haula Wala quwata illa billah' (There is neither might nor power except with Allah)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6357",
+              translation: "Narrated `Abdur-Rahman bin Abi Laila:Ka`b bin 'Ujra met me and said, \"Shall I give you a present? Once the Prophet (ﷺ) came to us and we said, 'O Allah's Messenger (ﷺ) ! We know how to greet you; but how to send 'Salat' upon you? He said, 'Say: Allahumma Salli ala Muhammadin wa 'ala `Ali Muhammadin, kama sal-laita 'ala all Ibrahima innaka Hamidun Majid. Allahumma barik 'ala Muhammadin wa 'ala all Muhammadin, kama barakta 'ala all Ibrahima, innaka Hamidun Majid",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4797",
+              translation: "Narrated Ka`b bin Ujra:It was said, \"O Allah's Messenger (ﷺ)! We know how to greet you, but how to invoke Allah for you?\" The Prophet said, \"Say: Allahumma salli ala Muhammadin wa'ala `Ali Muhammaddin, kama sallaita 'ala all Ibrahim, innaka Hamidun Majid",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Sending salawat upon the Prophet (SAW) in prayer fulfils a direct command from Allah (Quran 33:56). It connects you to the blessed legacy of Ibrahim (AS) and Muhammad (SAW), and the angels send blessings upon you in return.
@@ -2225,21 +3050,26 @@ Memorise the Ibrahimiyyah: "Allahumma salli 'ala Muhammadin wa 'ala ali Muhammad
         { title: 'Memorise the du\'a before salam', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadith explicitly commands believers to seek refuge from the punishment of Hell, the grave, the trials of life and death, and the evil of the Dajjal after completing the final Tashahhud, offering clear proof for the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (56:26)
-**Arabic:** إِلَّا قِيلًا سَلَامًا سَلَامًا
-**Translation:** "only clean and wholesome speech." (Abdel Haleem)
-
-*(The last words heard in Paradise are salām — peace. The du'a before salam is the final supplication of prayer, a moment to ask for peace and protection before entering back into the world.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 835
-Narrated Abu Huraira: The Prophet (ﷺ) said, "When any one of you finishes the last Tashahhud, he should seek refuge with Allah from four things: from the punishment of Hell, from the punishment of the grave, from the trials of life and death, and from the evil of the Dajjal."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 56:26",
+              arabic: "إِلَّا قِيلًا سَلَامًا سَلَامًا",
+              translation: "only clean and wholesome speech.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 835",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, \"When any one of you finishes the last Tashahhud, he should seek refuge with Allah from four things: from the punishment of Hell, from the punishment of the grave, from the trials of life and death, and from the evil of the Dajjal.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  This du'a is so important that some scholars consider it obligatory. It is your last supplication before closing the prayer.
@@ -2250,19 +3080,26 @@ After the Salawat Ibrahimiyyah, recite: "Allahumma inni a'udhu bika min 'adhabi 
         { title: 'Learn the meanings of each recitation', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe studying word-by-word translations of specific adhkar, they provide a clear logical inference for the subtask by depicting prayer as a direct, interactive conversation with Allah that inherently requires the worshipper to understand the words being recited.',
-          sources: `**I. Quran**
-
-
-### Quran (1:1-5)
-**Arabic:** بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ  
-**Translation:** In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help.
-
-**II. Hadith**
-
-
-### Sahih Muslim 395
-The Prophet (SAW) said: "Allah said: I have divided the prayer between Myself and My servant into two halves. When the servant says 'Al-hamdu lillahi rabbil-alamin,' Allah says: My servant has praised Me."
-*(Grade: Sahih — Hadith Qudsi)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 1:1-5",
+              arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+              translation: "In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 395",
+              translation: "The Prophet (SAW) said: \"Allah said: I have divided the prayer between Myself and My servant into two halves. When the servant says 'Al-hamdu lillahi rabbil-alamin,' Allah says: My servant has praised Me.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — Hadith Qudsi",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 When you understand what you are saying, your prayer transforms from mechanical repetition into a living conversation with Allah. Khushu' (humility and focus) becomes natural when the words carry meaning in your heart.
@@ -2281,12 +3118,17 @@ Take each adhkar you have memorised (opening du'a, Tashahhud, Salawat, du'a befo
         { title: 'Identify the nearest masjid and its prayer times', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided hadith details specific travel routes, resting places, and pilgrimage rituals involving the Sacred Mosque in Mecca, it provides neither explicit proof nor contextual indication for the daily logistical task of identifying a local masjid and its prayer times.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1767
-Narrated Nafi\`:Ibn \`Umar used to spend the night at Dhi-Tuwa in between the two Thaniyas and then he would enter Mecca through the Thaniya which is at the higher region of Mecca, and whenever he came to Mecca for Hajj or \`Umra, he never made his she camel kneel down except near the gate of the Masjid (Sacred Mosque) and then he would enter (it) and go to the Black (stone) Corner and start from there circumambulating the Ka\`ba seven times: hastening in the first three rounds (Ramal) and walking in the last four. On finishing, he would offer two rak\`at prayer and set out to perform Tawaf between Safa and Marwa before returning to his dwelling place. On returning (to Medina) from Hajj or \`Umra, he used to make his camel kneel down at Al-Batha which is at Dhul-Hulaifa, the place where the Prophet used to make his camel kneel down
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1767",
+              translation: "Narrated Nafi`:Ibn `Umar used to spend the night at Dhi-Tuwa in between the two Thaniyas and then he would enter Mecca through the Thaniya which is at the higher region of Mecca, and whenever he came to Mecca for Hajj or `Umra, he never made his she camel kneel down except near the gate of the Masjid (Sacred Mosque) and then he would enter (it) and go to the Black (stone) Corner and start from there circumambulating the Ka`ba seven times: hastening in the first three rounds (Ramal) and walking in the last four. On finishing, he would offer two rak`at prayer and set out to perform Tawaf between Safa and Marwa before returning to his dwelling place. On returning (to Medina) from Hajj or `Umra, he used to make his camel kneel down at Al-Batha which is at Dhul-Hulaifa, the place where the Prophet used to make his camel kneel down",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 You cannot consistently pray in congregation if you do not know where and when. Identifying your nearest masjid and its schedule removes logistical uncertainty and makes attending jama'ah a realistic daily commitment.
@@ -2298,25 +3140,44 @@ Search online or use apps (like Salah Times or Google Maps) to find the nearest 
         { title: 'Commit to praying at least one salah daily in jama\'ah', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe the step-by-step habit of attending exactly one daily congregational prayer for two weeks, they provide a clear logical inference for the subtask by strongly emphasizing the twenty-seven-fold reward and the overall obligation of praying in jama\'ah.',
-          sources: `**I. Quran**
-
-### Quran (2:43)
-**Arabic:** وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ  
-**Translation:** Keep up the prayer, pay the prescribed alms, and bow your heads [in worship] with those who bow theirs.
-
-### Quran (4:102)
-**Arabic:** وَإِذَا كُنتَ فِيهِمْ فَأَقَمْتَ لَهُمُ الصَّلَاةَ فَلْتَقُمْ طَائِفَةٌ مِّنْهُم مَّعَكَ  
-**Translation:** When you [Prophet] are with the believers, leading them in prayer, let a group of them stand up in prayer with you, taking their weapons with them.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 645
-The Prophet (peace be upon him) said: "The prayer in congregation is twenty-seven times superior to the prayer offered by a person alone."
-*(Grade: Sahih)*
-
-### Sahih Muslim 654
-The Prophet (peace be upon him) said: "I was about to order the prayer to be established and then order a man to lead the people in prayer, and then I would go with some men carrying bundles of wood to people who do not attend the prayer and burn their houses down on them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:43",
+              arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+              translation: "Keep up the prayer, pay the prescribed alms, and bow your heads [in worship] with those who bow theirs.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:102",
+              arabic: "وَإِذَا كُنتَ فِيهِمْ فَأَقَمْتَ لَهُمُ الصَّلَاةَ فَلْتَقُمْ طَائِفَةٌ مِّنْهُم مَّعَكَ",
+              translation: "When you [Prophet] are with the believers, leading them in prayer, let a group of them stand up in prayer with you, taking their weapons with them.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 645",
+              translation: "The Prophet (peace be upon him) said: \"The prayer in congregation is twenty-seven times superior to the prayer offered by a person alone.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 654",
+              translation: "The Prophet (peace be upon him) said: \"I was about to order the prayer to be established and then order a man to lead the people in prayer, and then I would go with some men carrying bundles of wood to people who do not attend the prayer and burn their houses down on them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Committing to just one prayer in congregation daily builds the habit without overwhelming your schedule.
@@ -2327,12 +3188,17 @@ Choose the prayer that is most feasible for you to attend at the masjid -- Fajr 
         { title: 'If no masjid is nearby, establish jama\'ah at home with family', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text provides detailed instructions regarding the rituals and rulings of Hajj-at-Tamattu\', it does not mention or contextually imply the practice of establishing congregational prayers at home when a masjid is inaccessible.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1572
-Ibn 'Abbas said that he has been asked regarding Hajj-at-Tamattu' on which he said:"The Muhajirin and the Ansar and the wives of the Prophet (ﷺ) and we did the same. When we reached Makkah, Allah's Messenger (ﷺ) said, "Give up your intention of doing the Hajj (at this moment) and perform 'Umra, except the one who had garlanded the Hady." So, we performed Tawaf round the Ka'bah and [Sa'y] between As-safa and Al-MArwa, slept with our wives and wore ordinary (stitched) clothes. The Prophet (ﷺ) added, "Whoever has garlanded his Hady is not allowed to finish the Ihram till the Hady has reached its destination (has been sacrificed)". Then on the night of Tarwiya (8th Dhul Hijjah, in the afternoon) he ordered us to assume Ihram for Hajj and when we had performed all the ceremonies of Hajj, we came and performed Tawaf round the Ka'bah and (Sa'y) between As-Safa and Al-Marwa, and then our Hajj was complete, and we had to sacrifice a Hady according to the statement of Allah: "... He must slaughter a Hady such as he can afford, but if he cannot afford it, he should observe Saum (fasts) three days during the Hajj and seven days after his return (to his home)…." (V. 2:196). And the sacrifice of the sheep is sufficient. So, the Prophet (ﷺ) and his Companions joined the two religious deeds, (i.e. Hajj and 'Umra) in one year, for Allah revealed (the permissibility) of such practice in His book and in the Sunna (legal ways) of His Prophet (ﷺ) and rendered it permissible for all the people except those living in Makkah. Allah says: "This is for him whose family is not present at the Al-Masjid-Al-Haram, (i.e. non resident of Makkah)." The months of Hajj which Allah mentioned in His book are: Shawwal, Dhul-Qa'da and Dhul-Hijjah. Whoever performed Hajj-at-Tamattu' in those months, then slaughtering or fasting is compulsory for him. The words: 1. Ar-Rafatha means sexual intercourse. 2. Al-Fasuq means all kinds of sin, and 3. Al-Jidal means to dispute
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1572",
+              translation: "Ibn 'Abbas said that he has been asked regarding Hajj-at-Tamattu' on which he said:\"The Muhajirin and the Ansar and the wives of the Prophet (ﷺ) and we did the same. When we reached Makkah, Allah's Messenger (ﷺ) said, \"Give up your intention of doing the Hajj (at this moment) and perform 'Umra, except the one who had garlanded the Hady.\" So, we performed Tawaf round the Ka'bah and [Sa'y] between As-safa and Al-MArwa, slept with our wives and wore ordinary (stitched) clothes. The Prophet (ﷺ) added, \"Whoever has garlanded his Hady is not allowed to finish the Ihram till the Hady has reached its destination (has been sacrificed)\". Then on the night of Tarwiya (8th Dhul Hijjah, in the afternoon) he ordered us to assume Ihram for Hajj and when we had performed all the ceremonies of Hajj, we came and performed Tawaf round the Ka'bah and (Sa'y) between As-Safa and Al-Marwa, and then our Hajj was complete, and we had to sacrifice a Hady according to the statement of Allah: \"... He must slaughter a Hady such as he can afford, but if he cannot afford it, he should observe Saum (fasts) three days during the Hajj and seven days after his return (to his home)….\" (V. 2:196). And the sacrifice of the sheep is sufficient. So, the Prophet (ﷺ) and his Companions joined the two religious deeds, (i.e. Hajj and 'Umra) in one year, for Allah revealed (the permissibility) of such practice in His book and in the Sunna (legal ways) of His Prophet (ﷺ) and rendered it permissible for all the people except those living in Makkah. Allah says: \"This is for him whose family is not present at the Al-Masjid-Al-Haram, (i.e. non resident of Makkah).\" The months of Hajj which Allah mentioned in His book are: Shawwal, Dhul-Qa'da and Dhul-Hijjah. Whoever performed Hajj-at-Tamattu' in those months, then slaughtering or fasting is compulsory for him. The words: 1. Ar-Rafatha means sexual intercourse. 2. Al-Fasuq means all kinds of sin, and 3. Al-Jidal means to dispute",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Jama'ah is not limited to the masjid. Even two people constitute a jama'ah, so there is almost always an opportunity to earn this multiplied reward at home.
@@ -2350,19 +3216,26 @@ If you cannot reach a masjid, establish jama'ah at home. Pray with your spouse, 
         { title: 'Study the acts that invalidate salah (talking, eating, turning away)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts establish that prayer is an obligation and that losing ritual purity (hadath) renders it unacceptable, they do not mention or contextually imply the specific internal actions that invalidate the prayer itself, such as talking, eating, or turning away.',
-          sources: `**I. Quran**
-
-
-### Quran (4:103)
-**Arabic:** إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا  
-**Translation:** Prayer is obligatory for the believers at prescribed times.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 6251
-The Prophet (SAW) said: "The prayer of a person who does hadath (breaks wudu) is not accepted until he performs wudu again."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:103",
+              arabic: "إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",
+              translation: "Prayer is obligatory for the believers at prescribed times.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6251",
+              translation: "The Prophet (SAW) said: \"The prayer of a person who does hadath (breaks wudu) is not accepted until he performs wudu again.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 If you unknowingly do something that invalidates your prayer, you may walk away thinking you have fulfilled your obligation when in fact you have not. Knowledge of invalidators protects the integrity of every salah you perform.
@@ -2374,19 +3247,26 @@ Study the major invalidators: deliberate speech, eating or drinking, excessive c
         { title: 'Learn the ruling on excessive movement in salah', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts instruct believers to stand devoutly in prayer and address mental uncertainty regarding the number of rak\'ahs performed, they do not mention or contextually imply the specific jurisprudential rules regarding excessive physical movement.',
-          sources: `**I. Quran**
-
-
-### Quran (2:238)
-**Arabic:** حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ  
-**Translation:** Maintain with care the prayers and the middle prayer, and stand before Allah devoutly obedient.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1222
-The Prophet (SAW) said: "If any one of you becomes uncertain during his prayer and does not know how many he has prayed, let him cast aside his doubt and build upon what is certain."
-*(Grade: Sahih — narrated in Sahih Muslim 571)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:238",
+              arabic: "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ",
+              translation: "Maintain with care the prayers and the middle prayer, and stand before Allah devoutly obedient.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1222",
+              translation: "The Prophet (SAW) said: \"If any one of you becomes uncertain during his prayer and does not know how many he has prayed, let him cast aside his doubt and build upon what is certain.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — narrated in Sahih Muslim 571",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Understanding the boundary between permissible and excessive movement prevents you from either invalidating your prayer through carelessness or becoming unnecessarily anxious about minor, natural movements during salah.
@@ -2398,20 +3278,35 @@ Study the scholarly position of your madhab on movement in salah. In the Hanafi 
         { title: 'Understand when sujud al-sahw (prostration of forgetfulness) is required', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided hadiths explicitly illustrate instances of omission and doubt that require the prostration of forgetfulness, the comprehensive categorization of these scenarios and the study of madhab-specific rulings are derived through clear logical inference.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 6051
-Narrated Abu Huraira:The Prophet (ﷺ) led us in the Zuhr prayer, offering only two rak\`at and then (finished it) with Taslim, and went to a piece of wood in front of the mosque and put his hand over it. Abu Bakr and \`Umar were also present among the people on that day but dared not talk to him (about his unfinished prayer). And the hasty people went away, wondering. "Has the prayer been shortened" Among the people there was a man whom the Prophet (ﷺ) used to call Dhul-Yadain (the longarmed). He said, "O Allah's Prophet! Have you forgotten or has the prayer been shortened?" The Prophet (ﷺ) said, "Neither have I forgotten, nor has it been shortened." They (the people) said, "Surely, you have forgotten, O Allah's Messenger (ﷺ)!" The Prophet (ﷺ) said, Dhul-Yadain has told the truth." So the Prophet (ﷺ) got up and offered other two rak\`at and finished his prayer with Taslim. Then he said Takbir, performed a prostration of ordinary duration or longer, then he raised his head and said Takbir and performed another prostration of ordinary duration or longer and then raised his head and said Takbir (i.e. he performed the two prostrations of Sahu, i.e., forgetfulness)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1222
-Narrated Abu Huraira:Allah's Messenger (ﷺ) said, "When the Adhan for the prayer is pronounced, then Satan takes to his heels passing wind so that he may not hear the Adhan and when the Mu'adh-dhin finishes, he comes back; and when the Iqama is pronounced he again takes to his heels and when it is finished, he again comes back and continues reminding the praying person of things that he used not to remember when not in prayer till he forgets how much he has prayed." Abu Salama bin \`Abdur-Rahman said, "If anyone of you has such a thing (forgetting the number of rak\`at he has prayed) he should perform two prostrations of Sahu (i.e. forgetfulness) while sitting." Abu Salama narrates this from Abu Huraira
-*(Grade: Sahih)*
-
-### Sahih Bukhari 3285
-Narrated Abu Huraira:The Prophet (ﷺ) said, "When the call for the prayer is pronounced, Satan takes to his heels, passing wind with noise, When the call for the prayer is finished, he comes back. And when the Iqama is pronounced, he again takes to his heels, and after its completion, he returns again to interfere between the (praying) person and his heart, saying to him. 'Remember this or that thing.' till the person forgets whether he has offered three or four rak\`at: so if one forgets whether he has prayed three or four rak\`at, he should perform two prostrations of Sahu (i.e. forgetfulness)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6051",
+              translation: "Narrated Abu Huraira:The Prophet (ﷺ) led us in the Zuhr prayer, offering only two rak`at and then (finished it) with Taslim, and went to a piece of wood in front of the mosque and put his hand over it. Abu Bakr and `Umar were also present among the people on that day but dared not talk to him (about his unfinished prayer). And the hasty people went away, wondering. \"Has the prayer been shortened\" Among the people there was a man whom the Prophet (ﷺ) used to call Dhul-Yadain (the longarmed). He said, \"O Allah's Prophet! Have you forgotten or has the prayer been shortened?\" The Prophet (ﷺ) said, \"Neither have I forgotten, nor has it been shortened.\" They (the people) said, \"Surely, you have forgotten, O Allah's Messenger (ﷺ)!\" The Prophet (ﷺ) said, Dhul-Yadain has told the truth.\" So the Prophet (ﷺ) got up and offered other two rak`at and finished his prayer with Taslim. Then he said Takbir, performed a prostration of ordinary duration or longer, then he raised his head and said Takbir and performed another prostration of ordinary duration or longer and then raised his head and said Takbir (i.e. he performed the two prostrations of Sahu, i.e., forgetfulness)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1222",
+              translation: "Narrated Abu Huraira:Allah's Messenger (ﷺ) said, \"When the Adhan for the prayer is pronounced, then Satan takes to his heels passing wind so that he may not hear the Adhan and when the Mu'adh-dhin finishes, he comes back; and when the Iqama is pronounced he again takes to his heels and when it is finished, he again comes back and continues reminding the praying person of things that he used not to remember when not in prayer till he forgets how much he has prayed.\" Abu Salama bin `Abdur-Rahman said, \"If anyone of you has such a thing (forgetting the number of rak`at he has prayed) he should perform two prostrations of Sahu (i.e. forgetfulness) while sitting.\" Abu Salama narrates this from Abu Huraira",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3285",
+              translation: "Narrated Abu Huraira:The Prophet (ﷺ) said, \"When the call for the prayer is pronounced, Satan takes to his heels, passing wind with noise, When the call for the prayer is finished, he comes back. And when the Iqama is pronounced, he again takes to his heels, and after its completion, he returns again to interfere between the (praying) person and his heart, saying to him. 'Remember this or that thing.' till the person forgets whether he has offered three or four rak`at: so if one forgets whether he has prayed three or four rak`at, he should perform two prostrations of Sahu (i.e. forgetfulness)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Everyone makes mistakes in prayer. Sujud al-sahw is Allah's mercy -- a built-in mechanism to repair your salah when you forget something or add an extra act. Without knowing when and how to perform it, you may leave valid prayers unrepaired.
@@ -3385,24 +4280,35 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
         { title: '2 before Fajr', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadith explicitly identifies offering "two before Fajr" as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise, providing clear proof for the core subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (17:78)
-**Arabic:** أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا  
-**Translation:** Establish prayer at the decline of the sun until the darkness of the night and the Quran at dawn. Indeed, the recitation of dawn is ever witnessed.
-
-**II. Hadith**
-
-
-### Sahih Muslim 728
-The Prophet (SAW) said: "Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: two before Fajr, four before Dhuhr, two after Dhuhr, two after Maghrib, and two after Isha."
-*(Grade: Sahih)*
-
-### Sahih Muslim 1573
-Recorded as: 'The two rak'ahs at dawn are better than this world and what it contains.'
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 17:78",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
+              translation: "Establish prayer at the decline of the sun until the darkness of the night and the Quran at dawn. Indeed, the recitation of dawn is ever witnessed.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 728",
+              translation: "The Prophet (SAW) said: \"Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: two before Fajr, four before Dhuhr, two after Dhuhr, two after Maghrib, and two after Isha.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1573",
+              translation: "Recorded as: 'The two rak'ahs at dawn are better than this world and what it contains.'",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) said the two rak'at before Fajr are "better than the world and everything in it" (Muslim). He never missed them, even while travelling. This is the most emphasised of all Sunnah Rawatib prayers.
@@ -3414,12 +4320,17 @@ Pray two light rak'at after the Fajr adhan and before the fard prayer. Recite sh
         { title: '4 before Dhuhr and 2 after', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadith explicitly identifies offering four rak\'ahs before Dhuhr and two after it as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise, providing clear proof for the core subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 728
-The Prophet (SAW) said: "Whoever prays twelve rak'at during the day and night, a house will be built for him in Paradise: four before Dhuhr, two after Dhuhr, two after Maghrib, two after Isha, and two before Fajr."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 728",
+              translation: "The Prophet (SAW) said: \"Whoever prays twelve rak'at during the day and night, a house will be built for him in Paradise: four before Dhuhr, two after Dhuhr, two after Maghrib, two after Isha, and two before Fajr.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  These prayers form the largest block of the daily Rawatib.
@@ -3430,16 +4341,26 @@ Pray four rak'at (two sets of two, or four continuous with one salam) before the
         { title: '2 after Maghrib', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadiths explicitly identify offering two rak\'ahs after Maghrib as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise and emphasize the Prophet\'s unyielding consistency in performing them, offering clear proof for the core subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 728
-The Prophet (SAW) said: "Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: ...two after Maghrib..."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1163
-The Prophet (SAW) never abandoned the two rak'ahs after Maghrib, whether at home or while traveling.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 728",
+              translation: "The Prophet (SAW) said: \"Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: ...two after Maghrib...\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1163",
+              translation: "The Prophet (SAW) never abandoned the two rak'ahs after Maghrib, whether at home or while traveling.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Maghrib Sunnah prayers are part of the twelve Rawatib that build a house in Jannah. The Prophet (SAW) would often pray them at home, indicating the value of bringing prayer into the household.
@@ -3451,21 +4372,35 @@ Immediately after completing the fard of Maghrib, pray two rak'at of Sunnah. If 
         { title: '2 after Isha', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadith explicitly identifies offering two rak\'ahs after Isha as part of the twelve voluntary daily rak\'ahs that earn a house in Paradise, providing clear proof for the core subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 728
-The Prophet (SAW) said: "Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: ...two after Isha..."
-*(Grade: Sahih)*
-
-### Sahih Muslim 882
-The Prophet (SAW) said: "Between every two adhans (adhan and iqamah) there is a prayer. Between every two adhans there is a prayer." Then he said on the third time: "For whoever wills."
-*(Grade: Sahih)*
-
-### Sahih Muslim 1579
-States: 'A house will be built in Paradise, for anyone who prays in a day and a night twelve rak'ahs.'
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 728",
+              translation: "The Prophet (SAW) said: \"Whoever prays twelve rak'ahs during the day and night, a house will be built for him in Paradise: ...two after Isha...\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 882",
+              translation: "The Prophet (SAW) said: \"Between every two adhans (adhan and iqamah) there is a prayer. Between every two adhans there is a prayer.\" Then he said on the third time: \"For whoever wills.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1579",
+              translation: "States: 'A house will be built in Paradise, for anyone who prays in a day and a night twelve rak'ahs.'",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 These two rak'at after Isha complete the twelve daily Rawatib. The Prophet (SAW) said: "Whoever prays twelve rak'at during the day and night, a house will be built for him in Jannah" (Muslim). Every night, you have the chance to add to your palace in paradise.
@@ -3477,16 +4412,26 @@ After the fard of Isha, pray two rak'at of Sunnah before moving on to Witr or ot
         { title: 'Track consistency for one month', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe creating a 30-day checklist to track prayer habits, they provide a clear logical inference for the subtask by heavily emphasizing that consistency in performing voluntary prayers and other deeds is highly beloved to Allah.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 728
-The Prophet (SAW) said: "Whoever prays twelve rak'at during the day and night, a house will be built for him in Paradise." Consistency in performing these Rawatib prayers is the key to this reward.
-*(Grade: Sahih)*
-
-### Sahih Bukhari 6464
-The Prophet (SAW) said: "The most beloved deeds to Allah are those done consistently, even if they are small."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 728",
+              translation: "The Prophet (SAW) said: \"Whoever prays twelve rak'at during the day and night, a house will be built for him in Paradise.\" Consistency in performing these Rawatib prayers is the key to this reward.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6464",
+              translation: "The Prophet (SAW) said: \"The most beloved deeds to Allah are those done consistently, even if they are small.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Consistency is the key to making the Rawatib a permanent part of your life. A month of tracking transforms a new practice into an established habit and reveals exactly where your weak spots are.
@@ -3505,19 +4450,26 @@ Create a simple daily checklist with four entries: 2 before Fajr, 4+2 around Dhu
         { title: 'Study the word-by-word meaning of Al-Fatihah', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe studying a word-by-word translation of Al-Fatihah, they provide a clear logical inference for the subtask by establishing that the recitation of this chapter is a direct, interactive dialogue between Allah and the servant.',
-          sources: `**I. Quran**
-
-
-### Quran (1:1-7)
-**Arabic:** بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ  
-**Translation:** In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us to the straight path. The path of those upon whom You have bestowed favor, not of those who have earned anger nor of those who are astray.
-
-**II. Hadith**
-
-
-### Sahih Muslim 395
-The Prophet (SAW) said: "Allah said: I have divided the prayer between Myself and My servant into two halves, and My servant shall have what he has asked for."
-*(Grade: Sahih — Hadith Qudsi)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 1:1-7",
+              arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+              translation: "In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us to the straight path. The path of those upon whom You have bestowed favor, not of those who have earned anger nor of those who are astray.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 395",
+              translation: "The Prophet (SAW) said: \"Allah said: I have divided the prayer between Myself and My servant into two halves, and My servant shall have what he has asked for.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih — Hadith Qudsi",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Al-Fatihah is not a monologue -- it is a dialogue. In a hadith qudsi (Muslim), Allah responds to each verse: when you say "Alhamdulillahi Rabbil Alamin," Allah says "My servant has praised Me." Knowing this transforms every rak'ah into a personal conversation with your Lord.
@@ -3529,12 +4481,17 @@ Study a word-by-word translation of Al-Fatihah. Then read the hadith qudsi in Sa
         { title: 'Learn the meaning of the adhkar of ruku and sujud', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided hadith describes the recitation of takbir during the transitions into bowing and prostration, it provides neither explicit proof nor contextual indication for learning the specific adhkar recited while in those positions.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 867
-Abu Salama reported:Abu Huraira led prayer for them and recited takbir when he bent and raised himself (in ruku' and sujud) and after completing (the prayer) he said: By Allah I say prayer which has the best resemblance with the prayer of the Prophet (ﷺ) amongst you
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 867",
+              translation: "Abu Salama reported:Abu Huraira led prayer for them and recited takbir when he bent and raised himself (in ruku' and sujud) and after completing (the prayer) he said: By Allah I say prayer which has the best resemblance with the prayer of the Prophet (ﷺ) amongst you",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 In ruku you are bowing before Allah's magnificence; in sujud you are prostrating before His supreme highness. The words you recite in these positions match the physical posture -- but only if you understand what you are declaring.
@@ -3546,19 +4503,26 @@ Learn the meanings: "Subhana Rabbiyal Adhim" (Glory to my Lord, the Magnificent)
         { title: 'Memorise and understand three short surahs you recite regularly', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts broadly establish the obligation of timely prayer and the immense virtue of learning the Quran, the specific practice of memorizing and deeply understanding three short surahs for regular recitation is derived through clear logical inference.',
-          sources: `**I. Quran**
-
-
-### Quran (4:103)
-**Arabic:** إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا  
-**Translation:** Indeed, prayer has been decreed upon the believers at specified times.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 5013
-The Prophet (SAW) said: "The best of you are those who learn the Quran and teach it."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:103",
+              arabic: "إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",
+              translation: "Indeed, prayer has been decreed upon the believers at specified times.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5013",
+              translation: "The Prophet (SAW) said: \"The best of you are those who learn the Quran and teach it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Most people rotate a small number of short surahs in prayer. If you understand the meaning of even three surahs deeply, a large portion of your daily salah becomes a conscious act of reflection rather than rote repetition.
@@ -3577,23 +4541,35 @@ Choose three surahs you commonly recite after Al-Fatihah (e.g., Al-Ikhlas, Al-Fa
         { title: 'Set a weekly alarm for the last third of the night', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe setting a weekly alarm to slowly build a habit, they provide a clear logical inference for the subtask by emphasizing the immense virtue of the night prayer and specifically highlighting the hours before dawn as the ideal time for worship and seeking forgiveness.',
-          sources: `**I. Quran**
-
-
-### Quran (17:79)
-**Arabic:** وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا  
-**Translation:** And from the night, pray with it as additional worship for you; it is expected that your Lord will raise you to a praised station.
-
-### Quran (51:18)
-**Arabic:** وَبِالْأَسْحَارِ هُمْ يَسْتَغْفِرُونَ  
-**Translation:** And in the hours before dawn they would ask forgiveness.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1163
-The Prophet (SAW) said: "The best prayer after the obligatory prayers is the night prayer (qiyam al-layl)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 17:79",
+              arabic: "وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا",
+              translation: "And from the night, pray with it as additional worship for you; it is expected that your Lord will raise you to a praised station.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 51:18",
+              arabic: "وَبِالْأَسْحَارِ هُمْ يَسْتَغْفِرُونَ",
+              translation: "And in the hours before dawn they would ask forgiveness.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1163",
+              translation: "The Prophet (SAW) said: \"The best prayer after the obligatory prayers is the night prayer (qiyam al-layl).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The last third of the night is the most blessed time for worship. Allah descends to the lowest heaven and calls out: "Who is calling upon Me so I may answer? Who is asking of Me so I may give? Who is seeking My forgiveness so I may forgive?" (Bukhari/Muslim). Waking at this time places you in direct proximity to divine response.
@@ -3605,26 +4581,44 @@ Calculate the last third by dividing the time between Isha and Fajr into three e
         { title: 'Pray at least 2 rak\'at of Tahajjud', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-### Quran (17:79)
-**Arabic:** وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا
-**Translation:** "and during the night wake up and pray, as an extra offering of your own, so that your Lord may raise you to a [highly] praised status." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1109
-Narrated Az-Zuhri:Salim told me, "\`Abdullah bin \`Umar said, 'I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the \`Isha prayer whenever he was in a hurry during the journey.' " Salim said, "Abdullah bin \`Umar used to do the same whenever he was in a hurry during the journey. After making the call for Iqama, for the Maghrib prayer he used to offer three rak\`at and then perform Taslim. After waiting for a short while, he would pronounce the Iqama for the \`Isha' prayer and offer two rak\`at and perform Taslim. He never prayed any Nawafil in between the two prayers or after the \`Isha' prayers till he got up in the middle of the night (for Tahajjud prayer)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1091
-Narrated \`Abdullah bin \`Umar:"I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the \`Isha' prayer whenever he was in a hurry during the journey." Salim narrated, "Ibn \`Umar used to do the same whenever he was in a hurry during the journey." And Salim added, "Ibn \`Umar used to pray the Maghrib and \`Isha' prayers together in Al-Muzdalifa." Salim said, "Ibn \`Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi \`Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ﷺ) praying in this way, whenever he was in a hurry during the journey.' \`Abdullah (bin \`Umar) added, "Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak\`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the \`Isha' prayer when he would offer two rak\`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1092
-Narrated \`Abdullah bin \`Umar:"I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the \`Isha' prayer whenever he was in a hurry during the journey." Salim narrated, "Ibn \`Umar used to do the same whenever he was in a hurry during the journey." And Salim added, "Ibn \`Umar used to pray the Maghrib and \`Isha' prayers together in Al-Muzdalifa." Salim said, "Ibn \`Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi \`Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ﷺ) praying in this way, whenever he was in a hurry during the journey.' \`Abdullah (bin \`Umar) added, "Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak\`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the \`Isha' prayer when he would offer two rak\`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 17:79",
+              arabic: "وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا",
+              translation: "and during the night wake up and pray, as an extra offering of your own, so that your Lord may raise you to a [highly] praised status.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1109",
+              translation: "Narrated Az-Zuhri:Salim told me, \"`Abdullah bin `Umar said, 'I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the `Isha prayer whenever he was in a hurry during the journey.' \" Salim said, \"Abdullah bin `Umar used to do the same whenever he was in a hurry during the journey. After making the call for Iqama, for the Maghrib prayer he used to offer three rak`at and then perform Taslim. After waiting for a short while, he would pronounce the Iqama for the `Isha' prayer and offer two rak`at and perform Taslim. He never prayed any Nawafil in between the two prayers or after the `Isha' prayers till he got up in the middle of the night (for Tahajjud prayer)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1091",
+              translation: "Narrated `Abdullah bin `Umar:\"I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the `Isha' prayer whenever he was in a hurry during the journey.\" Salim narrated, \"Ibn `Umar used to do the same whenever he was in a hurry during the journey.\" And Salim added, \"Ibn `Umar used to pray the Maghrib and `Isha' prayers together in Al-Muzdalifa.\" Salim said, \"Ibn `Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi `Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ﷺ) praying in this way, whenever he was in a hurry during the journey.' `Abdullah (bin `Umar) added, \"Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the `Isha' prayer when he would offer two rak`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1092",
+              translation: "Narrated `Abdullah bin `Umar:\"I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the `Isha' prayer whenever he was in a hurry during the journey.\" Salim narrated, \"Ibn `Umar used to do the same whenever he was in a hurry during the journey.\" And Salim added, \"Ibn `Umar used to pray the Maghrib and `Isha' prayers together in Al-Muzdalifa.\" Salim said, \"Ibn `Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi `Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ﷺ) praying in this way, whenever he was in a hurry during the journey.' `Abdullah (bin `Umar) added, \"Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the `Isha' prayer when he would offer two rak`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tahajjud is about quality of connection, not quantity of rak'at. Even two sincere rak'at in the stillness of the night can be more beloved to Allah than lengthy prayers performed without presence of heart.
@@ -3636,20 +4630,26 @@ Pray at least two rak'at. Recite at a moderate, unhurried pace. Lengthen your su
         { title: 'Make du\'a during the sujud of Tahajjud', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided Quranic verse generally commands prostrating to draw close to Allah, the accompanying commentary provides a clear contextual indication for the subtask by highlighting the sujud of Tahajjud as the ideal moment for supplication.',
-          sources: `**I. Quran**
-
-### Quran (96:19)
-**Arabic:** كَلَّا لَا تُطِعْهُ وَاسْجُدْ وَاقْتَرِب
-**Translation:** "No! Do not obey him [Prophet]: bow down in worship and draw close." (Abdel Haleem)
-
-*(The command وَاقْتَرِب — "draw close" — comes as the purpose of sujud itself. The sujud of Tahajjud, in the stillness of the night, is the premier moment to draw close to Allah through du'a.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 365
-Narrated Abu Huraira:A man stood up and asked the Prophet (ﷺ) about praying in a single garment. The Prophet (ﷺ) said, "Has every one of you two garments?" A man put a similar question to \`Umar on which he replied, "When Allah makes you wealthier then you should clothe yourself properly during prayers. Otherwise one can pray with an Izar and a Rida' (a sheet covering the upper part of the body.) Izar and a shirt, Izar and a Qaba', trousers and a Rida, trousers and a shirt or trousers and a Qaba', Tubban and a Qaba' or Tubban and a shirt." (The narrator added, "I think that he also said a Tubban and a Rida)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 96:19",
+              arabic: "كَلَّا لَا تُطِعْهُ وَاسْجُدْ وَاقْتَرِب",
+              translation: "No! Do not obey him [Prophet]: bow down in worship and draw close.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 365",
+              translation: "Narrated Abu Huraira:A man stood up and asked the Prophet (ﷺ) about praying in a single garment. The Prophet (ﷺ) said, \"Has every one of you two garments?\" A man put a similar question to `Umar on which he replied, \"When Allah makes you wealthier then you should clothe yourself properly during prayers. Otherwise one can pray with an Izar and a Rida' (a sheet covering the upper part of the body.) Izar and a shirt, Izar and a Qaba', trousers and a Rida, trousers and a shirt or trousers and a Qaba', Tubban and a Qaba' or Tubban and a shirt.\" (The narrator added, \"I think that he also said a Tubban and a Rida)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  Combining the closeness of sujud with the blessed time of the last third of the night creates the most powerful moment for supplication in the entire day.
@@ -3667,35 +4667,62 @@ During the sujud of your Tahajjud prayer, make du'a in your own language. Bring 
         { title: 'Read Ibn al-Qayyim\'s description of khushu\u02bf in prayer', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (48:29)
-**Arabic:** مُّحَمَّدٌ رَّسُولُ اللَّهِ ۚ وَالَّذِينَ مَعَهُ أَشِدَّاءُ عَلَى الْكُفَّارِ رُحَمَاءُ بَيْنَهُمْ ۖ تَرَاهُمْ رُكَّعًا سُجَّدًا يَبْتَغُونَ فَضْلًا مِّنَ اللَّهِ وَرِضْوَانًا ۖ سِيمَاهُمْ فِي وُجُوهِهِم مِّنْ أَثَرِ السُّجُودِ ۚ ذَٰلِكَ مَثَلُهُمْ فِي التَّوْرَاةِ ۚ وَمَثَلُهُمْ فِي الْإِنجِيلِ كَزَرْعٍ أَخْرَجَ شَطْأَهُ فَآزَرَهُ فَاسْتَغْلَظَ فَاسْتَوَىٰ عَلَىٰ سُوقِهِ يُعْجِبُ الزُّرَّاعَ لِيَغِيظَ بِهِمُ الْكُفَّارَ ۗ وَعَدَ اللَّهُ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُم مَّغْفِرَةً وَأَجْرًا عَظِيمًا
-**Translation:** "Muhammad is the Messenger of God. Those who follow him are harsh towards the disbelievers and compassionate towards each other. You see them kneeling and prostrating, seeking God’s bounty and His good pleasure: on their faces they bear the marks of their prostrations." (Abdel Haleem)
-
-### Quran (30:18)
-**Arabic:** وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ
-**Translation:** "praise is due to Him in the heavens and the earth— in the late afternoon, and at midday." (Abdel Haleem)
-
-### Quran (17:78)
-**Arabic:** أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا
-**Translation:** "So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn— dawn recitation is always witnessed." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 958
-Narrated Ibn Juraij:\`Ata' said, "Jabir bin \`Abdullah said, 'The Prophet (ﷺ) went out on the Day of \`Id-ul-Fitr and offered the prayer before delivering the Khutba, Ata told me that during the early days of Ibn Az-Zubair, Ibn \`Abbas had sent a message to him telling him that the Adhan for the \`Id Prayer was never pronounced (in the life time of Allah's Messenger (ﷺ)) and the Khutba used to be delivered after the prayer. Ata told me that Ibn \`Abbas and Jabir bin \`Abdullah, had said, "There was no Adhan for the prayer of \`Id-ul-Fitr and \`Id-ul-Aqha." \`Ata' said, "I heard Jabir bin \`Abdullah saying, 'The Prophet (ﷺ) stood up and started with the prayer, and after it he delivered the Khutba. When the Prophet of Allah (ﷺ) finished (the Khutba), he went to the women and preached to them, while he was leaning on Bilal's hand. Bilal was spreading his garment and the ladies were putting alms in it.' " I said to Ata, "Do you think it incumbent upon an Imam to go to the women and preach to them after finishing the prayer and Khutba?" \`Ata' said, "No doubt it is incumbent on Imams to do so, and why should they not do so?
-*(Grade: Sahih)*
-
-### Sahih Bukhari 959
-Narrated Ibn Juraij:\`Ata' said, "Jabir bin \`Abdullah said, 'The Prophet (ﷺ) went out on the Day of \`Id-ul-Fitr and offered the prayer before delivering the Khutba, Ata told me that during the early days of Ibn Az-Zubair, Ibn \`Abbas had sent a message to him telling him that the Adhan for the \`Id Prayer was never pronounced (in the life time of Allah's Messenger (ﷺ)) and the Khutba used to be delivered after the prayer. Ata told me that Ibn \`Abbas and Jabir bin \`Abdullah, had said, "There was no Adhan for the prayer of \`Id-ul-Fitr and \`Id-ul-Aqha." \`Ata' said, "I heard Jabir bin \`Abdullah saying, 'The Prophet (ﷺ) stood up and started with the prayer, and after it he delivered the Khutba. When the Prophet of Allah (ﷺ) finished (the Khutba), he went to the women and preached to them, while he was leaning on Bilal's hand. Bilal was spreading his garment and the ladies were putting alms in it.' " I said to Ata, "Do you think it incumbent upon an Imam to go to the women and preach to them after finishing the prayer and Khutba?" \`Ata' said, "No doubt it is incumbent on Imams to do so, and why should they not do so?
-*(Grade: Sahih)*
-
-### Sahih Bukhari 621
-Narrated \`Abdullah bin Mas\`ud:The Prophet (ﷺ) said, "The Adhan pronounced by Bilal should not stop you from taking Suhur, for he pronounces the Adhan at night, so that the one offering the late night prayer (Tahajjud) from among you might hurry up and the sleeping from among you might wake up. It does not mean that dawn or morning has started." Then he (the Prophet) pointed with his fingers and raised them up (towards the sky) and then lowered them (towards the earth) like this (Ibn Mas\`ud imitated the gesture of the Prophet). Az-Zuhri gestured with his two index fingers which he put on each other and then stretched them to the right and left. These gestures illustrate the way real dawn appears. It spreads left and right horizontally. The dawn that appears in the high sky and lowers down is not the real dawn
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 48:29",
+              arabic: "مُّحَمَّدٌ رَّسُولُ اللَّهِ ۚ وَالَّذِينَ مَعَهُ أَشِدَّاءُ عَلَى الْكُفَّارِ رُحَمَاءُ بَيْنَهُمْ ۖ تَرَاهُمْ رُكَّعًا سُجَّدًا يَبْتَغُونَ فَضْلًا مِّنَ اللَّهِ وَرِضْوَانًا ۖ سِيمَاهُمْ فِي وُجُوهِهِم مِّنْ أَثَرِ السُّجُودِ ۚ ذَٰلِكَ مَثَلُهُمْ فِي التَّوْرَاةِ ۚ وَمَثَلُهُمْ فِي الْإِنجِيلِ كَزَرْعٍ أَخْرَجَ شَطْأَهُ فَآزَرَهُ فَاسْتَغْلَظَ فَاسْتَوَىٰ عَلَىٰ سُوقِهِ يُعْجِبُ الزُّرَّاعَ لِيَغِيظَ بِهِمُ الْكُفَّارَ ۗ وَعَدَ اللَّهُ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُم مَّغْفِرَةً وَأَجْرًا عَظِيمًا",
+              translation: "Muhammad is the Messenger of God. Those who follow him are harsh towards the disbelievers and compassionate towards each other. You see them kneeling and prostrating, seeking God’s bounty and His good pleasure: on their faces they bear the marks of their prostrations.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 30:18",
+              arabic: "وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ",
+              translation: "praise is due to Him in the heavens and the earth— in the late afternoon, and at midday.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 17:78",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
+              translation: "So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn— dawn recitation is always witnessed.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 958",
+              translation: "Narrated Ibn Juraij:`Ata' said, \"Jabir bin `Abdullah said, 'The Prophet (ﷺ) went out on the Day of `Id-ul-Fitr and offered the prayer before delivering the Khutba, Ata told me that during the early days of Ibn Az-Zubair, Ibn `Abbas had sent a message to him telling him that the Adhan for the `Id Prayer was never pronounced (in the life time of Allah's Messenger (ﷺ)) and the Khutba used to be delivered after the prayer. Ata told me that Ibn `Abbas and Jabir bin `Abdullah, had said, \"There was no Adhan for the prayer of `Id-ul-Fitr and `Id-ul-Aqha.\" `Ata' said, \"I heard Jabir bin `Abdullah saying, 'The Prophet (ﷺ) stood up and started with the prayer, and after it he delivered the Khutba. When the Prophet of Allah (ﷺ) finished (the Khutba), he went to the women and preached to them, while he was leaning on Bilal's hand. Bilal was spreading his garment and the ladies were putting alms in it.' \" I said to Ata, \"Do you think it incumbent upon an Imam to go to the women and preach to them after finishing the prayer and Khutba?\" `Ata' said, \"No doubt it is incumbent on Imams to do so, and why should they not do so?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 959",
+              translation: "Narrated Ibn Juraij:`Ata' said, \"Jabir bin `Abdullah said, 'The Prophet (ﷺ) went out on the Day of `Id-ul-Fitr and offered the prayer before delivering the Khutba, Ata told me that during the early days of Ibn Az-Zubair, Ibn `Abbas had sent a message to him telling him that the Adhan for the `Id Prayer was never pronounced (in the life time of Allah's Messenger (ﷺ)) and the Khutba used to be delivered after the prayer. Ata told me that Ibn `Abbas and Jabir bin `Abdullah, had said, \"There was no Adhan for the prayer of `Id-ul-Fitr and `Id-ul-Aqha.\" `Ata' said, \"I heard Jabir bin `Abdullah saying, 'The Prophet (ﷺ) stood up and started with the prayer, and after it he delivered the Khutba. When the Prophet of Allah (ﷺ) finished (the Khutba), he went to the women and preached to them, while he was leaning on Bilal's hand. Bilal was spreading his garment and the ladies were putting alms in it.' \" I said to Ata, \"Do you think it incumbent upon an Imam to go to the women and preach to them after finishing the prayer and Khutba?\" `Ata' said, \"No doubt it is incumbent on Imams to do so, and why should they not do so?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 621",
+              translation: "Narrated `Abdullah bin Mas`ud:The Prophet (ﷺ) said, \"The Adhan pronounced by Bilal should not stop you from taking Suhur, for he pronounces the Adhan at night, so that the one offering the late night prayer (Tahajjud) from among you might hurry up and the sleeping from among you might wake up. It does not mean that dawn or morning has started.\" Then he (the Prophet) pointed with his fingers and raised them up (towards the sky) and then lowered them (towards the earth) like this (Ibn Mas`ud imitated the gesture of the Prophet). Az-Zuhri gestured with his two index fingers which he put on each other and then stretched them to the right and left. These gestures illustrate the way real dawn appears. It spreads left and right horizontally. The dawn that appears in the high sky and lowers down is not the real dawn",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Ibn al-Qayyim's classification of five levels of prayer provides a powerful self-diagnostic. Most people assume their prayer is "fine" without ever measuring it against a scholarly standard. Knowing your level is the first step to improving it.
@@ -3707,19 +4734,26 @@ Read Ibn al-Qayyim's description in "al-Wabil al-Sayyib" or "as-Salah wa Hukm Ta
         { title: 'Identify three personal barriers to focus in salah', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe the diagnostic exercise of identifying and ranking personal distractions, they provide a clear logical inference for the subtask by establishing that attaining khushu\' (humility and focus) is a fundamental characteristic of successful believers.',
-          sources: `**I. Quran**
-
-
-### Quran (23:1-2)
-**Arabic:** قَدْ أَفْلَحَ الْمُؤْمِنُونَ ﴿١﴾ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ ﴿٢﴾  
-**Translation:** [How] prosperous are the believers! Those who pray humbly.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 6491
-The Prophet (SAW) said: "Pray as you have seen me praying." Full presence and attention in salah is the foundation of khushu.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 23:1-2",
+              arabic: "قَدْ أَفْلَحَ الْمُؤْمِنُونَ ﴿١﴾ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ ﴿٢﴾",
+              translation: "[How] prosperous are the believers! Those who pray humbly.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6491",
+              translation: "The Prophet (SAW) said: \"Pray as you have seen me praying.\" Full presence and attention in salah is the foundation of khushu.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Khushu' is not lost by accident -- it is stolen by specific, identifiable distractions. Until you name your personal barriers, you cannot address them. Generic advice about "being more focused" is useless without diagnosing the specific causes of your distraction.
@@ -3731,19 +4765,26 @@ After your next five prayers, immediately note what distracted you most. Common 
         { title: 'Practice one technique for improving khushu\u02bf this week', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts emphasize the protective nature of prayer and the closeness to Allah achieved during prostration, they provide neither explicit proof nor contextual indication for the specific practice of adopting scholarly techniques to purposefully improve khushu\' (focus) over a week.',
-          sources: `**I. Quran**
-
-
-### Quran (29:45)
-**Arabic:** وَأَقِمِ الصَّلَاةَ ۖ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ ۗ وَلَذِكْرُ اللَّهِ أَكْبَرُ  
-**Translation:** Keep up the prayer: prayer restrains outrageous and unacceptable behaviour. Remembering God is greater.
-
-**I. Hadith**
-
-
-### Sahih Muslim 482
-The Prophet (SAW) said: "The closest a servant is to his Lord is when he is in prostration, so increase your supplication therein."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 29:45",
+              arabic: "وَأَقِمِ الصَّلَاةَ ۖ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ ۗ وَلَذِكْرُ اللَّهِ أَكْبَرُ",
+              translation: "Keep up the prayer: prayer restrains outrageous and unacceptable behaviour. Remembering God is greater.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 482",
+              translation: "The Prophet (SAW) said: \"The closest a servant is to his Lord is when he is in prostration, so increase your supplication therein.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Khushu' is a skill that can be developed through deliberate practice. The scholars have identified concrete techniques that increase focus in prayer. Even one new habit can noticeably improve your experience of salah.
@@ -3802,20 +4843,26 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
         { title: 'Learn the time window for Duha prayer', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail the exact minute-by-minute boundaries of the prayer window, they provide a clear logical inference for the subtask by linking the Duha prayer to the "morning brightness" and "forenoon" while explicitly forbidding prayer exactly at sunrise.',
-          sources: `**I. Quran**
-
-### Quran (93:1-2)
-**Arabic:** وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ
-**Translation:** "By the morning brightness, and by the night when it grows still." (Abdel Haleem)
-
-*(Allah swears by al-Duha — the morning brightness — giving this time of day a divine dignity. The Duha prayer takes its name from and is prayed during this blessed period.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1191
-Narrated Nafi\`:Ibn \`Umar never offered the Duha prayer except on two occasions: (1) Whenever he reached Mecca; and he always used to reach Mecca in the forenoon. He would perform Tawaf round the Ka\`ba and then offer two rak\`at at the rear of Maqam Ibrahim. (2) Whenever he visited Quba, for he used to visit it every Saturday. When he entered the Mosque, he disliked to leave it without offering a prayer. Ibn \`Umar narrated that Allah's Messenger (ﷺ) used to visit the Mosque of Quba (sometime) walking and (sometime) riding. And he (i.e. Ibn \`Umar) used to say, "I do only what my companions used to do and I don't forbid anybody to pray at any time during the day or night except that one should not intend to pray at sunrise or sunset
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 93:1-2",
+              arabic: "وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ",
+              translation: "By the morning brightness, and by the night when it grows still.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1191",
+              translation: "Narrated Nafi`:Ibn `Umar never offered the Duha prayer except on two occasions: (1) Whenever he reached Mecca; and he always used to reach Mecca in the forenoon. He would perform Tawaf round the Ka`ba and then offer two rak`at at the rear of Maqam Ibrahim. (2) Whenever he visited Quba, for he used to visit it every Saturday. When he entered the Mosque, he disliked to leave it without offering a prayer. Ibn `Umar narrated that Allah's Messenger (ﷺ) used to visit the Mosque of Quba (sometime) walking and (sometime) riding. And he (i.e. Ibn `Umar) used to say, \"I do only what my companions used to do and I don't forbid anybody to pray at any time during the day or night except that one should not intend to pray at sunrise or sunset",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Knowing the exact time window prevents you from accidentally praying outside it (which would not count as Duha) or missing it altogether because you thought the window had passed. The Duha window is wider than most people realise.
@@ -3827,24 +4874,35 @@ Duha begins approximately 15-20 minutes after sunrise and extends until shortly 
         { title: 'Pray Duha at least 3 times this week', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided Quranic verse elevates the morning hours as sacred, the accompanying hadiths describe a companion referring to the Duha prayer as a heresy, providing neither explicit proof nor contextual indication for the specific practice of praying it at least three times a week.',
-          sources: `**I. Quran**
-
-### Quran (93:1-2)
-**Arabic:** وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ
-**Translation:** "By the morning brightness, and by the night when it grows still." (Abdel Haleem)
-
-*(Allah's oath by al-Duha — the mid-morning light — elevates this time as sacred. The Duha prayer is the embodied response to this divine honour of the morning hours.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1775
-Narrated Mujahid:Urwa bin Az-Zubair and I entered the Mosque (of the Prophet) and saw \`Abdullah bin \`Umar sitting near the dwelling place of Aisha and some people were offering the Duha prayer. We asked him about their prayer and he replied that it was a heresy. He (Urwa) then asked him how many times the Prophet (ﷺ) had performed \`Umra. He replied, 'Four times; one of them was in the month of Rajab." We disliked to contradict him. Then we heard \`Aisha, the Mother of faithful believers cleaning her teeth with Siwak in the dwelling place. 'Urwa said, "O Mother! O Mother of the believers! Don't you hear what Abu \`Abdur Rahman is saying?" She said, "What does he say?" 'Urwa said, "He says that Allah's Messenger (ﷺ) performed four \`Umra and one of them was in the month of Rajab." \`Aisha said, "May Allah be merciful to Abu \`Abdur Rahman! The Prophet (ﷺ) did not perform any \`Umra except that he was with him, and he never performed any \`Umra in Rajab
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1776
-Narrated Mujahid:Urwa bin Az-Zubair and I entered the Mosque (of the Prophet) and saw \`Abdullah bin \`Umar sitting near the dwelling place of Aisha and some people were offering the Duha prayer. We asked him about their prayer and he replied that it was a heresy. He (Urwa) then asked him how many times the Prophet (ﷺ) had performed \`Umra. He replied, 'Four times; one of them was in the month of Rajab." We disliked to contradict him. Then we heard \`Aisha, the Mother of faithful believers cleaning her teeth with Siwak in the dwelling place. 'Urwa said, "O Mother! O Mother of the believers! Don't you hear what Abu \`Abdur Rahman is saying?" She said, "What does he say?" 'Urwa said, "He says that Allah's Messenger (ﷺ) performed four \`Umra and one of them was in the month of Rajab." \`Aisha said, "May Allah be merciful to Abu \`Abdur Rahman! The Prophet (ﷺ) did not perform any \`Umra except that he was with him, and he never performed any \`Umra in Rajab
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 93:1-2",
+              arabic: "وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ",
+              translation: "By the morning brightness, and by the night when it grows still.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1775",
+              translation: "Narrated Mujahid:Urwa bin Az-Zubair and I entered the Mosque (of the Prophet) and saw `Abdullah bin `Umar sitting near the dwelling place of Aisha and some people were offering the Duha prayer. We asked him about their prayer and he replied that it was a heresy. He (Urwa) then asked him how many times the Prophet (ﷺ) had performed `Umra. He replied, 'Four times; one of them was in the month of Rajab.\" We disliked to contradict him. Then we heard `Aisha, the Mother of faithful believers cleaning her teeth with Siwak in the dwelling place. 'Urwa said, \"O Mother! O Mother of the believers! Don't you hear what Abu `Abdur Rahman is saying?\" She said, \"What does he say?\" 'Urwa said, \"He says that Allah's Messenger (ﷺ) performed four `Umra and one of them was in the month of Rajab.\" `Aisha said, \"May Allah be merciful to Abu `Abdur Rahman! The Prophet (ﷺ) did not perform any `Umra except that he was with him, and he never performed any `Umra in Rajab",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1776",
+              translation: "Narrated Mujahid:Urwa bin Az-Zubair and I entered the Mosque (of the Prophet) and saw `Abdullah bin `Umar sitting near the dwelling place of Aisha and some people were offering the Duha prayer. We asked him about their prayer and he replied that it was a heresy. He (Urwa) then asked him how many times the Prophet (ﷺ) had performed `Umra. He replied, 'Four times; one of them was in the month of Rajab.\" We disliked to contradict him. Then we heard `Aisha, the Mother of faithful believers cleaning her teeth with Siwak in the dwelling place. 'Urwa said, \"O Mother! O Mother of the believers! Don't you hear what Abu `Abdur Rahman is saying?\" She said, \"What does he say?\" 'Urwa said, \"He says that Allah's Messenger (ﷺ) performed four `Umra and one of them was in the month of Rajab.\" `Aisha said, \"May Allah be merciful to Abu `Abdur Rahman! The Prophet (ﷺ) did not perform any `Umra except that he was with him, and he never performed any `Umra in Rajab",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) advised Abu Hurayrah (RA) to never abandon Duha prayer. It serves as a charity for every joint in your body (Muslim). Starting with just three days a week makes it achievable while building toward daily practice.
@@ -3856,16 +4914,26 @@ Choose three days this week and pray two rak'at of Duha during the mid-morning w
         { title: 'Gradually increase to daily practice', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe a step-by-step plan to gradually build a prayer routine, they provide a clear logical inference for the subtask\'s ultimate goal of daily practice by establishing that the charitable obligation for one\'s joints is due "every day the sun rises" and can be fulfilled by the Duha prayer.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 720
-The Prophet (SAW) said: "Charity is due upon every joint of a person every day the sun rises. Judging justly between two people is charity... and the two rak'ahs of Duha compensate for all of that."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1178
-The Prophet (SAW) said: "In the morning, charity is due from every one of your joints. Every tasbeehah is charity, every tahmeedah is charity... and two rak'ahs of Duha suffice for all that."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 720",
+              translation: "The Prophet (SAW) said: \"Charity is due upon every joint of a person every day the sun rises. Judging justly between two people is charity... and the two rak'ahs of Duha compensate for all of that.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1178",
+              translation: "The Prophet (SAW) said: \"In the morning, charity is due from every one of your joints. Every tasbeehah is charity, every tahmeedah is charity... and two rak'ahs of Duha suffice for all that.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Consistency in voluntary worship is more beloved to Allah than occasional bursts of effort. Daily Duha takes only 2-3 minutes but compounds into a lifetime of reward.
@@ -3883,31 +4951,53 @@ Once you have established Duha three times per week for at least two weeks, begi
         { title: 'Learn the 15 ayat of sajdah in the Quran', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly specify the number of prostration verses or mandate memorizing their exact locations, they provide a clear logical inference for the subtask by highlighting the immense spiritual significance and reward of prostrating whenever an Ayah of Sajdah is recited.',
-          sources: `**I. Quran**
-
-
-### Quran (54:32)
-**Arabic:** وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ
-**Translation:** We have made it easy to learn lessons from the Quran: will anyone take heed?
-
-### Quran (54:40)
-**Arabic:** وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ
-**Translation:** We have made it easy to learn lessons from the Quran: will anyone take heed?
-
-### Quran (54:17)
-**Arabic:** وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ
-**Translation:** We have made it easy to learn lessons from the Quran: will anyone take heed?
-
-**II. Hadith**
-
-
-### Sahih Muslim 244
-It is narrated on the authority of Abu Huraira that when, the son of Adam recites the Ayat of Sajdah (prostration) and then falls down in prostration, the Satan goes into seclusion and weeps and says:Alas, and in the narration of Abu Kuraib the words are: Woe unto me, the son of Adam was commanded to prostrate, and he prostrated and Paradise was entitled to him and I was commanded to prostrate, but I refused and am doomed to Hell
-*(Grade: Sahih)*
-
-### Sahih Muslim 2015
-It was narrated that Umm Hisham bin Harithah bin An-Nu'man said:"Our oven and the oven of the Messenger of Allah (ﷺ) were the same for two years, or for one year and part of a year. And I only learned "Surah Qaf. By the Glorious Quran" from the tongue of the Messenger of Allah (ﷺ), who used to recited it every Friday from the Minbar, when he addresses the people
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 54:32",
+              arabic: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+              translation: "We have made it easy to learn lessons from the Quran: will anyone take heed?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 54:40",
+              arabic: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+              translation: "We have made it easy to learn lessons from the Quran: will anyone take heed?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 54:17",
+              arabic: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
+              translation: "We have made it easy to learn lessons from the Quran: will anyone take heed?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 244",
+              translation: "It is narrated on the authority of Abu Huraira that when, the son of Adam recites the Ayat of Sajdah (prostration) and then falls down in prostration, the Satan goes into seclusion and weeps and says:Alas, and in the narration of Abu Kuraib the words are: Woe unto me, the son of Adam was commanded to prostrate, and he prostrated and Paradise was entitled to him and I was commanded to prostrate, but I refused and am doomed to Hell",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2015",
+              translation: "It was narrated that Umm Hisham bin Harithah bin An-Nu'man said:\"Our oven and the oven of the Messenger of Allah (ﷺ) were the same for two years, or for one year and part of a year. And I only learned \"Surah Qaf. By the Glorious Quran\" from the tongue of the Messenger of Allah (ﷺ), who used to recited it every Friday from the Minbar, when he addresses the people",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 When Allah commands prostration in the Quran and you respond immediately, you are demonstrating submission in real time. Knowing where these ayat appear means you are never caught off guard and can respond with the reverence the moment deserves.
@@ -3919,31 +5009,53 @@ Learn the locations of the 15 ayat of sajdah. They appear in surahs such as Al-A
         { title: 'Study the du\'a recited during Sujud al-Tilawah', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (41:26)
-**Arabic:** وَقَالَ الَّذِينَ كَفَرُوا لَا تَسْمَعُوا لِهَٰذَا الْقُرْآنِ وَالْغَوْا فِيهِ لَعَلَّكُمْ تَغْلِبُونَ
-**Translation:** And said those who disbelieved, “Do not listen to this Qur’ān, and make noise during its recitation, so that you may overcome.”
-
-### Quran (75:16)
-**Arabic:** لَا تُحَرِّكْ بِهِ لِسَانَكَ لِتَعْجَلَ بِهِ
-**Translation:** (O Prophet,) do not move your tongue (during revelation) for (reciting) it (the Qur’ān) to receive it in hurry.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1065
-Narrated \`Aisha:The Prophet (ﷺ) recited (the Qur'an) aloud during the eclipse prayer and when he had finished the eclipse prayer he said the Takbir and bowed. When he stood straight from bowing he would say "Sami 'allahu liman hamidah Rabbana wa laka l-hamd." And he would again start reciting. In the eclipse prayer there are four bowing and four prostrations in two rak\`at. Al-Auza'i and others said that they had heard Az-Zuhri from 'Urwa from \`Aisha saying, "In the lifetime of Allah's Messenger (ﷺ) the sun eclipsed, and he made a person to announce: 'Prayer in congregation.' He led the prayer and performed four bowing and four prostrations in two rak\`at." Narrated Al-Walid that \`Abdur-Rahman bin Namir had informed him that he had heard the same. Ibn Shihab heard the same. Az-Zuhri said, "I asked ('Urwa), 'What did your brother \`Abdullah bin Az-Zubair do? He prayed two rak\`at (of the eclipse prayer) like the morning prayer, when he offered the (eclipse) prayer in Medina.' 'Urwa replied that he had missed (i.e. did not pray according to) the Prophet's tradition." Sulaiman bin Kathir and Sufyan bin Husain narrated from Az-Zuhri that the prayer for the eclipse used to be offered with loud recitation
-*(Grade: Sahih)*
-
-### Sahih Bukhari 377
-Narrated Abu Hazim:Sahl bin Sa\`d was asked about the (Prophet's) pulpit as to what thing it was made of? Sahl replied: "None remains alive amongst the people, who knows about it better than I. It was made of tamarisk (wood) of the forest. So and so, the slave of so and so prepared it for Allah's Messenger (ﷺ) . When it was constructed and place (in the Mosque), Allah's Messenger (ﷺ) stood on it facing the Qibla and said 'Allahu Akbar', and the people stood behind him (and led the people in prayer). He recited and bowed and the people bowed behind him. Then he raised his head and stepped back, got down and prostrated on the ground and then he again ascended the pulpit, recited, bowed, raised his head and stepped back, got down and prostrated on the ground. So, this is what I know about the pulpit." Ahmad bin Hanbal said, "As the Prophet (ﷺ) was at a higher level than the people, there is no harm according to the above-mentioned Hadith if the Imam is at a higher level than his followers during the prayers
-*(Grade: Sahih)*
-
-### Sahih Bukhari 50
-Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, "What is faith?" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection." Then he further asked, "What is Islam?" Allah's Messenger (ﷺ) replied, "To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan." Then he further asked, "What is Ihsan (perfection)?" Allah's Messenger (ﷺ) replied, "To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you." Then he further asked, "When will the Hour be established?" Allah's Messenger (ﷺ) replied, "The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: "Verily, with Allah (Alone) is the knowledge of the Hour--." (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, "That was Gabriel who came to teach the people their religion." Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 41:26",
+              arabic: "وَقَالَ الَّذِينَ كَفَرُوا لَا تَسْمَعُوا لِهَٰذَا الْقُرْآنِ وَالْغَوْا فِيهِ لَعَلَّكُمْ تَغْلِبُونَ",
+              translation: "And said those who disbelieved, “Do not listen to this Qur’ān, and make noise during its recitation, so that you may overcome.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 75:16",
+              arabic: "لَا تُحَرِّكْ بِهِ لِسَانَكَ لِتَعْجَلَ بِهِ",
+              translation: "(O Prophet,) do not move your tongue (during revelation) for (reciting) it (the Qur’ān) to receive it in hurry.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1065",
+              translation: "Narrated `Aisha:The Prophet (ﷺ) recited (the Qur'an) aloud during the eclipse prayer and when he had finished the eclipse prayer he said the Takbir and bowed. When he stood straight from bowing he would say \"Sami 'allahu liman hamidah Rabbana wa laka l-hamd.\" And he would again start reciting. In the eclipse prayer there are four bowing and four prostrations in two rak`at. Al-Auza'i and others said that they had heard Az-Zuhri from 'Urwa from `Aisha saying, \"In the lifetime of Allah's Messenger (ﷺ) the sun eclipsed, and he made a person to announce: 'Prayer in congregation.' He led the prayer and performed four bowing and four prostrations in two rak`at.\" Narrated Al-Walid that `Abdur-Rahman bin Namir had informed him that he had heard the same. Ibn Shihab heard the same. Az-Zuhri said, \"I asked ('Urwa), 'What did your brother `Abdullah bin Az-Zubair do? He prayed two rak`at (of the eclipse prayer) like the morning prayer, when he offered the (eclipse) prayer in Medina.' 'Urwa replied that he had missed (i.e. did not pray according to) the Prophet's tradition.\" Sulaiman bin Kathir and Sufyan bin Husain narrated from Az-Zuhri that the prayer for the eclipse used to be offered with loud recitation",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 377",
+              translation: "Narrated Abu Hazim:Sahl bin Sa`d was asked about the (Prophet's) pulpit as to what thing it was made of? Sahl replied: \"None remains alive amongst the people, who knows about it better than I. It was made of tamarisk (wood) of the forest. So and so, the slave of so and so prepared it for Allah's Messenger (ﷺ) . When it was constructed and place (in the Mosque), Allah's Messenger (ﷺ) stood on it facing the Qibla and said 'Allahu Akbar', and the people stood behind him (and led the people in prayer). He recited and bowed and the people bowed behind him. Then he raised his head and stepped back, got down and prostrated on the ground and then he again ascended the pulpit, recited, bowed, raised his head and stepped back, got down and prostrated on the ground. So, this is what I know about the pulpit.\" Ahmad bin Hanbal said, \"As the Prophet (ﷺ) was at a higher level than the people, there is no harm according to the above-mentioned Hadith if the Imam is at a higher level than his followers during the prayers",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 50",
+              translation: "Narrated Abu Huraira: One day while the Prophet (ﷺ) was sitting in the company of some people, (The angel) Gabriel came and asked, \"What is faith?\" Allah's Messenger (ﷺ) replied, 'Faith is to believe in Allah, His angels, (the) meeting with Him, His Apostles, and to believe in Resurrection.\" Then he further asked, \"What is Islam?\" Allah's Messenger (ﷺ) replied, \"To worship Allah Alone and none else, to offer prayers perfectly to pay the compulsory charity (Zakat) and to observe fasts during the month of Ramadan.\" Then he further asked, \"What is Ihsan (perfection)?\" Allah's Messenger (ﷺ) replied, \"To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you.\" Then he further asked, \"When will the Hour be established?\" Allah's Messenger (ﷺ) replied, \"The answerer has no better knowledge than the questioner. But I will inform you about its portents. 1. When a slave (lady) gives birth to her master. 2. When the shepherds of black camels start boasting and competing with others in the construction of higher buildings. And the Hour is one of five things which nobody knows except Allah. The Prophet (ﷺ) then recited: \"Verily, with Allah (Alone) is the knowledge of the Hour--.\" (31. 34) Then that man (Gabriel) left and the Prophet (ﷺ) asked his companions to call him back, but they could not see him. Then the Prophet (ﷺ) said, \"That was Gabriel who came to teach the people their religion.\" Abu 'Abdullah said: He (the Prophet) considered all that as a part of faith",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The du'a of Sujud al-Tilawah is an act of profound humility -- you are declaring that your very face, the most honoured part of your body, submits to the One who created and shaped it. Knowing this du'a allows you to perform the prostration with both correctness and consciousness.
@@ -3955,21 +5067,26 @@ Memorise the du'a: "Sajada wajhi lilladhi khalaqahu wa sawwarahu wa shaqqa sam'a
         { title: 'Practice performing it when you encounter a sajdah ayah', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadith explicitly records the Prophet and all those present performing a prostration immediately upon the recitation of a chapter containing a verse of prostration, providing clear proof for the core subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (4:102)
-**Arabic:** وَإِذَا كُنتَ فِيهِمْ فَأَقَمْتَ لَهُمُ الصَّلَاةَ فَلْتَقُمْ طَائِفَةٌ مِّنْهُم مَّعَكَ وَلْيَأْخُذُوا أَسْلِحَتَهُمْ فَإِذَا سَجَدُوا فَلْيَكُونُوا مِن وَرَائِكُمْ وَلْتَأْتِ طَائِفَةٌ أُخْرَىٰ لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَأَسْلِحَتَهُمْ ۗ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ أَسْلِحَتِكُمْ وَأَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُم مَّيْلَةً وَاحِدَةً ۚ وَلَا جُنَاحَ عَلَيْكُمْ إِن كَانَ بِكُمْ أَذًى مِّن مَّطَرٍ أَوْ كُنتُم مَّرْضَىٰ أَن تَضَعُوا أَسْلِحَتَكُمْ ۖ وَخُذُوا حِذْرَكُمْ ۗ إِنَّ اللَّهَ أَعَدَّ لِلْكَافِرِينَ عَذَابًا مُّهِينًا
-**Translation:** "When you [Prophet] are with the believers, leading them in prayer, let a group of them stand up in prayer with you, taking their weapons with them, and when they have finished their prostration, let them take up their positions at the back." (Abdel Haleem)
-
-*(This verse legislates prayer even during battle, emphasising the inviolability of sujud — even under threat. The Sujud al-Tilawah is a voluntary expression of the same sacred act.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1075
-Narrated Ibn \`Abbas: The Prophet (ﷺ) performed a prostration on reading (Surat-an-Najm 53) and all the Muslims, pagans, Jinn and human beings prostrated along with him.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:102",
+              arabic: "وَإِذَا كُنتَ فِيهِمْ فَأَقَمْتَ لَهُمُ الصَّلَاةَ فَلْتَقُمْ طَائِفَةٌ مِّنْهُم مَّعَكَ وَلْيَأْخُذُوا أَسْلِحَتَهُمْ فَإِذَا سَجَدُوا فَلْيَكُونُوا مِن وَرَائِكُمْ وَلْتَأْتِ طَائِفَةٌ أُخْرَىٰ لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَأَسْلِحَتَهُمْ ۗ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ أَسْلِحَتِكُمْ وَأَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُم مَّيْلَةً وَاحِدَةً ۚ وَلَا جُنَاحَ عَلَيْكُمْ إِن كَانَ بِكُمْ أَذًى مِّن مَّطَرٍ أَوْ كُنتُم مَّرْضَىٰ أَن تَضَعُوا أَسْلِحَتَكُمْ ۖ وَخُذُوا حِذْرَكُمْ ۗ إِنَّ اللَّهَ أَعَدَّ لِلْكَافِرِينَ عَذَابًا مُّهِينًا",
+              translation: "When you [Prophet] are with the believers, leading them in prayer, let a group of them stand up in prayer with you, taking their weapons with them, and when they have finished their prostration, let them take up their positions at the back.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1075",
+              translation: "Narrated Ibn `Abbas: The Prophet (ﷺ) performed a prostration on reading (Surat-an-Najm 53) and all the Muslims, pagans, Jinn and human beings prostrated along with him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Knowing the practical ruling allows you to respond correctly in the moment rather than hesitating or skipping the prostration out of uncertainty. The more you practice it, the more natural this beautiful act of submission becomes.
@@ -3988,28 +5105,44 @@ When you recite or hear an ayah of sajdah, prostrate immediately if you are in a
         { title: 'Choose a consistent time in the last third of the night', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts strongly encourage the night prayer and detail the specific proportions of Prophet Dawud\'s nightly routine, they provide neither explicit proof nor contextual indication for the specific subtask of choosing a consistent time specifically in the last third of the night.',
-          sources: `**I. Quran**
-
-
-### Quran (73:1-4)
-**Arabic:** يَا أَيُّهَا الْمُزَّمِّلُ ۝ قُمِ اللَّيْلَ إِلَّا قَلِيلًا ۝ نِّصْفَهُ أَوِ انقُصْ مِنْهُ قَلِيلًا ۝ أَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا  
-**Translation:** O you who wraps himself. Arise the night, except for a little. Half of it, or subtract from it a little. Or add to it, and recite the Quran with measured recitation.
-
-### Quran (17:79)
-**Arabic:** وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا  
-**Translation:** And from the night, pray with it as additional worship for you; it is expected that your Lord will raise you to a praised station.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1131
-The Prophet (SAW) said: "The most beloved prayer to Allah is the prayer of Dawud: he used to sleep half the night, pray for a third of it, and sleep for a sixth of it."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 41
-States: 'the best deed (act of Worship) in the sight of Allah is that which is done regularly.' Also found in Sahih Muslim 1710.
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 73:1-4",
+              arabic: "يَا أَيُّهَا الْمُزَّمِّلُ ۝ قُمِ اللَّيْلَ إِلَّا قَلِيلًا ۝ نِّصْفَهُ أَوِ انقُصْ مِنْهُ قَلِيلًا ۝ أَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا",
+              translation: "O you who wraps himself. Arise the night, except for a little. Half of it, or subtract from it a little. Or add to it, and recite the Quran with measured recitation.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 17:79",
+              arabic: "وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا",
+              translation: "And from the night, pray with it as additional worship for you; it is expected that your Lord will raise you to a praised station.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1131",
+              translation: "The Prophet (SAW) said: \"The most beloved prayer to Allah is the prayer of Dawud: he used to sleep half the night, pray for a third of it, and sleep for a sixth of it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 41",
+              translation: "States: 'the best deed (act of Worship) in the sight of Allah is that which is done regularly.' Also found in Sahih Muslim 1710.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) said: "The most beloved deeds to Allah are those done consistently, even if small" (Bukhari). Choosing a realistic time ensures you can sustain your Qiyam routine long-term rather than burning out after a few intense nights.
@@ -4021,19 +5154,26 @@ Pick a specific time in the last third of the night that you can realistically m
         { title: 'Start with 2-4 rak\'at and gradually increase', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts detail the proportions of the night spent in prayer by the Prophet and Prophet Dawud, they provide neither explicit proof nor contextual indication for the specific subtask of starting with a small number of rak\'ahs and gradually increasing to eleven.',
-          sources: `**I. Quran**
-
-
-### Quran (73:20)
-**Arabic:** إِنَّ رَبَّكَ يَعْلَمُ أَنَّكَ تَقُومُ أَدْنَىٰ مِن ثُلُثَيِ اللَّيْلِ وَنِصْفَهُ وَثُلُثَهُ  
-**Translation:** [Prophet], your Lord is well aware that you sometimes spend nearly two-thirds of the night at prayer — sometimes half, sometimes a third.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1145
-The Prophet (SAW) said: "The most beloved prayer to Allah is the prayer of Dawud: he used to sleep half the night, pray for a third of it, and sleep for a sixth of it."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 73:20",
+              arabic: "إِنَّ رَبَّكَ يَعْلَمُ أَنَّكَ تَقُومُ أَدْنَىٰ مِن ثُلُثَيِ اللَّيْلِ وَنِصْفَهُ وَثُلُثَهُ",
+              translation: "[Prophet], your Lord is well aware that you sometimes spend nearly two-thirds of the night at prayer — sometimes half, sometimes a third.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1145",
+              translation: "The Prophet (SAW) said: \"The most beloved prayer to Allah is the prayer of Dawud: he used to sleep half the night, pray for a third of it, and sleep for a sixth of it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Starting small protects you from the common trap of beginning with long sessions that you cannot maintain. Aisha (RA) noted that the Prophet's (SAW) deeds were consistent. His typical Qiyam was 11 rak'at including Witr -- a goal to work toward, not a starting requirement.
@@ -4045,31 +5185,53 @@ Begin with 2 rak'at of Qiyam followed by Witr. Once this feels comfortable for t
         { title: 'Include Witr as the final prayer of the night', done: false,
           tier: 'T1',
           amanahRationale: 'The provided hadith explicitly describes the Prophet\'s sequence of night prayers, concluding "finally" with the one rak\'ah Witr prayer, thereby providing clear proof for the core subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (73:2)
-**Arabic:** قُمِ اللَّيْلَ إِلَّا قَلِيلًا
-**Translation:** Stand (to prayer) by night, but not all night,-
-
-### Quran (17:78)
-**Arabic:** أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا
-**Translation:** Establish regular prayers - at the sun's decline till the darkness of the night, and the morning prayer and reading: for the prayer and reading in the morning carry their testimony.
-
-### Quran (76:26)
-**Arabic:** وَمِنَ اللَّيْلِ فَاسْجُدْ لَهُ وَسَبِّحْهُ لَيْلًا طَوِيلًا
-**Translation:** And during night, prostrate yourself to Him (i.e. the offering of Maghrib and ‘Ishâ’ prayers), and glorify Him a long night through (i.e. Tahajjud prayer).
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1140
-Narrated \`Aisha:The Prophet (ﷺ) used to offer thirteen rak\`at of the night prayer and that included the witr and two rak\`at (Sunna) of the Fajr prayer
-*(Grade: Sahih)*
-
-### Sahih Bukhari 4570
-Narrated Ibn \`Abbas:(One night) I stayed overnight in the house of my aunt Maimuna, and said to myself, "I will watch the prayer of Allah's Messenger (ﷺ) " My aunt placed a cushion for Allah's Messenger (ﷺ) and he slept on it in its length-wise direction and (woke-up) rubbing the traces of sleep off his face and then he recited the last ten Verses of Surat-al-\`Imran till he finished it. Then he went to a hanging water skin and took it, performed the ablution and then stood up to offer the prayer. I got up and did the same as he had done, and stood beside him. He put his hand on my head and held me by the ear and twisted it. He offered two rak\`at, then two rak\`at, then two rak\`at, then two rak\`at, then two rak\`at, then two rak\`at, and finally the witr (i.e. one rak\`a) prayer
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 73:2",
+              arabic: "قُمِ اللَّيْلَ إِلَّا قَلِيلًا",
+              translation: "Stand (to prayer) by night, but not all night,-",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 17:78",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
+              translation: "Establish regular prayers - at the sun's decline till the darkness of the night, and the morning prayer and reading: for the prayer and reading in the morning carry their testimony.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 76:26",
+              arabic: "وَمِنَ اللَّيْلِ فَاسْجُدْ لَهُ وَسَبِّحْهُ لَيْلًا طَوِيلًا",
+              translation: "And during night, prostrate yourself to Him (i.e. the offering of Maghrib and ‘Ishâ’ prayers), and glorify Him a long night through (i.e. Tahajjud prayer).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1140",
+              translation: "Narrated `Aisha:The Prophet (ﷺ) used to offer thirteen rak`at of the night prayer and that included the witr and two rak`at (Sunna) of the Fajr prayer",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4570",
+              translation: "Narrated Ibn `Abbas:(One night) I stayed overnight in the house of my aunt Maimuna, and said to myself, \"I will watch the prayer of Allah's Messenger (ﷺ) \" My aunt placed a cushion for Allah's Messenger (ﷺ) and he slept on it in its length-wise direction and (woke-up) rubbing the traces of sleep off his face and then he recited the last ten Verses of Surat-al-`Imran till he finished it. Then he went to a hanging water skin and took it, performed the ablution and then stood up to offer the prayer. I got up and did the same as he had done, and stood beside him. He put his hand on my head and held me by the ear and twisted it. He offered two rak`at, then two rak`at, then two rak`at, then two rak`at, then two rak`at, then two rak`at, and finally the witr (i.e. one rak`a) prayer",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  It includes the Qunut du'a, one of the most comprehensive supplications in the Sunnah. Making Witr your last prayer of the night follows prophetic guidance directly.
@@ -4080,23 +5242,35 @@ After completing your Qiyam rak'at, pray Witr as the final prayer of the night. 
         { title: 'Maintain the routine for 30 consecutive days', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe a 30-day tracking routine, they provide a clear logical inference for the subtask by heavily emphasizing the importance of consistency and specifically warning against the abandonment of the night prayer once started.',
-          sources: `**I. Quran**
-
-
-### Quran (73:2-4)
-**Arabic:** قُمِ اللَّيْلَ إِلَّا قَلِيلًا ۝ نِّصْفَهُ أَوِ انقُصْ مِنْهُ قَلِيلًا ۝ أَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا  
-**Translation:** Arise the night, except for a little. Half of it, or subtract from it a little. Or add to it, and recite the Quran with measured recitation.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1152
-The Prophet (SAW) said: "O Abdullah, do not be like so-and-so who used to pray qiyam al-layl and then abandoned it."
-*(Grade: Sahih)*
-
-### Sahih Muslim 782
-A'ishah (RA) said: "The Prophet (SAW) would never abandon the night prayer. If he was ill or tired, he would pray sitting."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 73:2-4",
+              arabic: "قُمِ اللَّيْلَ إِلَّا قَلِيلًا ۝ نِّصْفَهُ أَوِ انقُصْ مِنْهُ قَلِيلًا ۝ أَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا",
+              translation: "Arise the night, except for a little. Half of it, or subtract from it a little. Or add to it, and recite the Quran with measured recitation.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1152",
+              translation: "The Prophet (SAW) said: \"O Abdullah, do not be like so-and-so who used to pray qiyam al-layl and then abandoned it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 782",
+              translation: "A'ishah (RA) said: \"The Prophet (SAW) would never abandon the night prayer. If he was ill or tired, he would pray sitting.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Research and prophetic practice both confirm that consistency builds lasting change. Thirty consecutive days transforms Qiyam from a sporadic act of devotion into an ingrained part of your nightly rhythm that you would feel incomplete without.
@@ -4187,23 +5361,35 @@ Track your Qiyam streak for 30 consecutive days using a simple checklist or app.
         { title: 'Look up the current nisab threshold in your currency', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention looking up modern fiat currency conversions, the hadith\'s specification of a minimum threshold (five uqiyahs of silver) provides a clear logical inference that believers must calculate this equivalent value to determine their obligatory zakah.',
-          sources: `**I. Quran**
-
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا  
-**Translation:** Take from their wealth a charity by which you purify them and cause them increase.
-
-### Quran (2:267)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ  
-**Translation:** O you who believe, spend from the good things which you have earned.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1395
-The Prophet (SAW) said: "No zakah is due on property mounting to less than five uqiyahs (of silver), and no zakah is due on less than five camels, and there is no zakah on less than five wasqs of dates."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا",
+              translation: "Take from their wealth a charity by which you purify them and cause them increase.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:267",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ",
+              translation: "O you who believe, spend from the good things which you have earned.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1395",
+              translation: "The Prophet (SAW) said: \"No zakah is due on property mounting to less than five uqiyahs (of silver), and no zakah is due on less than five camels, and there is no zakah on less than five wasqs of dates.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Without knowing the nisab in your local currency, you cannot determine whether zakah is obligatory on you. This is the very first step in fulfilling the pillar correctly.
@@ -4215,19 +5401,26 @@ Nisab is the value of 85 grams of gold or 595 grams of silver. Look up today's g
         { title: 'List all your zakatable assets (cash, gold, investments, trade goods)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe writing a detailed annual list of specific assets, they provide a clear logical inference for the subtask by establishing the overarching obligation to accurately calculate and pay zakah from one\'s wealth.',
-          sources: `**I. Quran**
-
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا  
-**Translation:** Take from their wealth a charity by which you purify them and cause them increase.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1454
-The Prophet (SAW) sent Mu'adh to Yemen and said: "Inform them that Allah has made it obligatory for them to pay the zakah from their property and it is to be taken from the wealthy among them and given to the poor."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا",
+              translation: "Take from their wealth a charity by which you purify them and cause them increase.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "The Prophet (SAW) sent Mu'adh to Yemen and said: \"Inform them that Allah has made it obligatory for them to pay the zakah from their property and it is to be taken from the wealthy among them and given to the poor.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Zakah applies only to specific categories of wealth. Missing an asset means underpaying what is owed to Allah and the poor; including a non-zakatable asset means overpaying unnecessarily.
@@ -4239,19 +5432,26 @@ List every zakatable asset you own: bank balances, cash on hand, gold and silver
         { title: 'Determine if you meet the nisab after deducting debts', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention spending from earned wealth and the existence of a minimum threshold (nisab) for zakah, they provide neither explicit proof nor contextual indication for the specific rulings regarding the deduction of personal debts, the passing of a lunar year, or the 2.5% rate.',
-          sources: `**I. Quran**
-
-
-### Quran (2:267)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ  
-**Translation:** O you who believe, spend from the good things which you have earned and from that which We have produced for you from the earth.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1395
-The Prophet (SAW) defined the nisab threshold for various types of wealth, below which no zakah is due.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:267",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ",
+              translation: "O you who believe, spend from the good things which you have earned and from that which We have produced for you from the earth.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1395",
+              translation: "The Prophet (SAW) defined the nisab threshold for various types of wealth, below which no zakah is due.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Islam is just — debts you owe are deducted before zakah is assessed, ensuring you are not burdened beyond your means. Accuracy here determines whether zakah is truly obligatory on you.
@@ -4263,19 +5463,26 @@ Subtract your immediate debts and obligations from your total zakatable wealth. 
         { title: 'Mark your zakah anniversary date (hawl)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe marking a specific anniversary date on calendars or setting reminders, they provide a clear logical inference for the subtask by establishing that the passage of one lunar year (hawl) is a necessary condition for the obligation of paying zakah.',
-          sources: `**I. Quran**
-
-
-### Quran (2:43)
-**Arabic:** وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ  
-**Translation:** And establish prayer and give zakah and bow with those who bow.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1454
-The Prophet (SAW) said: "...Allah has made it obligatory for them to pay the zakah from their property." The condition of hawl (one lunar year of possession) is established by scholarly consensus from multiple ahadith.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:43",
+              arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+              translation: "And establish prayer and give zakah and bow with those who bow.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "The Prophet (SAW) said: \"...Allah has made it obligatory for them to pay the zakah from their property.\" The condition of hawl (one lunar year of possession) is established by scholarly consensus from multiple ahadith.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The hawl (lunar year) is a condition for zakah — without tracking it, you risk paying too early, too late, or not at all. Marking a fixed date brings discipline to this pillar.
@@ -4294,18 +5501,26 @@ Identify the date you first possessed nisab-level wealth. Mark this as your zaka
         { title: 'Study zakah on gold and silver (2.5%)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail the 2.5% rate or specific weight thresholds, they provide a clear logical inference for the subtask by warning of severe punishment for hoarding gold and silver without paying their obligatory zakah, which inherently necessitates studying its specific rules.',
-          sources: `**I. Quran**
-
-### Quran (9:34)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِنَّ كَثِيرًا مِّنَ الْأَحْبَارِ وَالرُّهْبَانِ لَيَأْكُلُونَ أَمْوَالَ النَّاسِ بِالْبَاطِلِ وَيَصُدُّونَ عَن سَبِيلِ اللَّهِ ۗ وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ
-**Translation:** "Believers, many rabbis and monks wrongfully consume people's possessions and turn people away from God's path. [Prophet], tell those who hoard gold and silver instead of giving in God's cause that they will have a grievous punishment." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1404
-Narrated Khalid bin Aslam:We went out with 'Abdullah bin 'Umar and a bedouin said (to 'Abdullah), "Tell me about Allah's saying: "And those who hoard up gold and silver (Al-Kanz - money, gold, silver etc., the Zakat of which has not been paid) and spend it not in the Way of Allah (V.9:34)." Ibn 'Umar said, "Whoever hoarded them and did not pay the Zakat thereof, then woe to him. But these holy Verses were revealed before the Verses of Zakat. So when the Verses of Zakat were revealed, Allah made Zakat a purifier of the property
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:34",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِنَّ كَثِيرًا مِّنَ الْأَحْبَارِ وَالرُّهْبَانِ لَيَأْكُلُونَ أَمْوَالَ النَّاسِ بِالْبَاطِلِ وَيَصُدُّونَ عَن سَبِيلِ اللَّهِ ۗ وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ",
+              translation: "Believers, many rabbis and monks wrongfully consume people's possessions and turn people away from God's path. [Prophet], tell those who hoard gold and silver instead of giving in God's cause that they will have a grievous punishment.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1404",
+              translation: "Narrated Khalid bin Aslam:We went out with 'Abdullah bin 'Umar and a bedouin said (to 'Abdullah), \"Tell me about Allah's saying: \"And those who hoard up gold and silver (Al-Kanz - money, gold, silver etc., the Zakat of which has not been paid) and spend it not in the Way of Allah (V.9:34).\" Ibn 'Umar said, \"Whoever hoarded them and did not pay the Zakat thereof, then woe to him. But these holy Verses were revealed before the Verses of Zakat. So when the Verses of Zakat were revealed, Allah made Zakat a purifier of the property",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Gold and silver are the original assets on which zakah was legislated. Understanding their rules is foundational to calculating zakah correctly on all monetary wealth.
@@ -4317,19 +5532,26 @@ Gold above 85g and silver above 595g are subject to 2.5% zakah annually. In the 
         { title: 'Study zakah on cash and bank savings', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not detail modern banking structures or the specific 2.5% rate, the explicit statement that zakah on cash follows the nisab of silver provides a clear logical inference for the subtask to study and calculate zakah on cash holdings.',
-          sources: `**I. Quran**
-
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا  
-**Translation:** In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1454
-The Prophet (SAW) said: "There is no zakah on less than five awsuq of dates, no zakah on less than five awqiyyah of silver, and no zakah on less than five camels." Zakah on cash follows the nisab of silver.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا",
+              translation: "In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "The Prophet (SAW) said: \"There is no zakah on less than five awsuq of dates, no zakah on less than five awqiyyah of silver, and no zakah on less than five camels.\" Zakah on cash follows the nisab of silver.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Most modern wealth is held as cash rather than gold or silver. Understanding that cash follows the same zakah rules ensures you do not overlook the largest portion of your zakatable assets.
@@ -4341,19 +5563,26 @@ Total all cash holdings: bank balances (checking, savings, fixed deposits), cash
         { title: 'Study zakah on trade goods (uruud al-tijarah)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail the specific rules, rates, or valuation methods for business inventory, they provide a clear logical inference for the subtask by establishing the overarching obligation to pay zakah on all acquired wealth and earned goods.',
-          sources: `**I. Quran**
-
-
-### Quran (2:267)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ  
-**Translation:** You who believe, give charitably from the good things you have acquired and that We have produced for you from the earth. Do not give away the bad things that you yourself would only accept with your eyes closed.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1458
-The Prophet (SAW) instructed Mu'adh ibn Jabal: "Inform them that Allah has made zakah obligatory on their wealth — taken from the rich and given to the poor among them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:267",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَنفِقُوا مِن طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا أَخْرَجْنَا لَكُم مِّنَ الْأَرْضِ",
+              translation: "You who believe, give charitably from the good things you have acquired and that We have produced for you from the earth. Do not give away the bad things that you yourself would only accept with your eyes closed.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1458",
+              translation: "The Prophet (SAW) instructed Mu'adh ibn Jabal: \"Inform them that Allah has made zakah obligatory on their wealth — taken from the rich and given to the poor among them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Trade goods (uruud al-tijarah) are a major category of zakatable wealth. Entrepreneurs and business owners must understand how to value and assess zakah on their inventory to fulfil this obligation properly.
@@ -4365,21 +5594,26 @@ On your zakah date, value all business inventory held for sale at its current ma
         { title: 'Study zakah on agricultural produce and livestock', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not detail the exact percentage rates or sliding scales for agricultural and livestock zakah, they provide a clear logical inference for the subtask by explicitly establishing distinct minimum thresholds for camels and harvested foodstuff.',
-          sources: `**I. Quran**
-
-
-### Quran (23:21)
-**Arabic:** وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً ۖ نُّسْقِيكُم مِّمَّا فِي بُطُونِهَا وَلَكُمْ فِيهَا مَنَافِعُ كَثِيرَةٌ وَمِنْهَا تَأْكُلُونَ
-**Translation:** "There is a lesson for you in livestock: We produce milk for you to drink from their bellies. And they have many other benefits: you eat them." (Abdel Haleem)
-
-*(The recognition of livestock as a source of "many benefits" forms the basis for the zakah obligation on this wealth — every asset that generates benefit carries a social right.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1454
-Narrated Abu Sa'id Al-Khudri: Allah's Messenger (ﷺ) said, "There is no Zakat on less than five camels and also there is no Zakat on less than five Awaq (of silver) and there is no Zakat on less than five Awsaq (of dates or foodstuff)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 23:21",
+              arabic: "وَإِنَّ لَكُمْ فِي الْأَنْعَامِ لَعِبْرَةً ۖ نُّسْقِيكُم مِّمَّا فِي بُطُونِهَا وَلَكُمْ فِيهَا مَنَافِعُ كَثِيرَةٌ وَمِنْهَا تَأْكُلُونَ",
+              translation: "There is a lesson for you in livestock: We produce milk for you to drink from their bellies. And they have many other benefits: you eat them.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "Narrated Abu Sa'id Al-Khudri: Allah's Messenger (ﷺ) said, \"There is no Zakat on less than five camels and also there is no Zakat on less than five Awaq (of silver) and there is no Zakat on less than five Awsaq (of dates or foodstuff).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Agricultural and livestock zakah have distinct rules that differ significantly from monetary zakah. If you earn from farming or animal husbandry, these specific rates apply and must be studied separately.
@@ -4391,12 +5625,17 @@ For crops: zakah is 10% of the harvest if rain-watered, and 5% if irrigated with
         { title: 'Learn what is exempt (personal use items, primary home)', done: false,
           tier: 'T1',
           amanahRationale: 'The provided source explicitly states that personal use items and one\'s primary home are exempt from zakah, providing direct and clear proof for the core subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1463
-The Prophet (SAW) said: "There is no zakah on one's riding horse, personal slave, or personal possessions." Personal use items and one's primary home are exempt from zakah.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1463",
+              translation: "The Prophet (SAW) said: \"There is no zakah on one's riding horse, personal slave, or personal possessions.\" Personal use items and one's primary home are exempt from zakah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Knowing what is exempt prevents you from over-calculating your zakah and gives you clarity on the boundary between personal possessions and zakatable wealth. Islam does not tax you on what you need to live.
@@ -4415,19 +5654,26 @@ Exclude from your zakah calculation: your primary residence, personal clothing, 
         { title: 'Al-Fuqara (the poor)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly list food, shelter, and clothing or prescribe using trusted organizations, they provide a clear logical inference for the subtask to proactively identify such individuals by defining the truly poor as those who lack enough to fulfill their needs but whose condition remains unknown because they do not beg.',
-          sources: `**I. Quran**
-
-
-### Quran (2:273)
-**Arabic:** لِلْفُقَرَاءِ الَّذِينَ أُحْصِرُوا فِي سَبِيلِ اللَّهِ لَا يَسْتَطِيعُونَ ضَرْبًا فِي الْأَرْضِ يَحْسَبُهُمُ الْجَاهِلُ أَغْنِيَاءَ مِنَ التَّعَفُّفِ تَعْرِفُهُم بِسِيمَاهُمْ لَا يَسْأَلُونَ النَّاسَ إِلْحَافًا ۗ وَمَا تُنفِقُوا مِنْ خَيْرٍ فَإِنَّ اللَّهَ بِهِ عَلِيمٌ
-**Translation:** "[Give] to those needy who are wholly occupied in God’s way and cannot travel in the land [for trade]. The unknowing might think them rich because of their self-restraint, but you will recognize them by their characteristic of not begging persistently. God is well aware of any good you give." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1479
-Narrated Abu Huraira: Allah’s Messenger (ﷺ) said, "The poor person is not the one who asks a morsel or two from people, but the poor person is the one who doesn’t have enough to fulfill his needs, but whose condition is not known to others so that charity could be given to him."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:273",
+              arabic: "لِلْفُقَرَاءِ الَّذِينَ أُحْصِرُوا فِي سَبِيلِ اللَّهِ لَا يَسْتَطِيعُونَ ضَرْبًا فِي الْأَرْضِ يَحْسَبُهُمُ الْجَاهِلُ أَغْنِيَاءَ مِنَ التَّعَفُّفِ تَعْرِفُهُم بِسِيمَاهُمْ لَا يَسْأَلُونَ النَّاسَ إِلْحَافًا ۗ وَمَا تُنفِقُوا مِنْ خَيْرٍ فَإِنَّ اللَّهَ بِهِ عَلِيمٌ",
+              translation: "[Give] to those needy who are wholly occupied in God’s way and cannot travel in the land [for trade]. The unknowing might think them rich because of their self-restraint, but you will recognize them by their characteristic of not begging persistently. God is well aware of any good you give.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1479",
+              translation: "Narrated Abu Huraira: Allah’s Messenger (ﷺ) said, \"The poor person is not the one who asks a morsel or two from people, but the poor person is the one who doesn’t have enough to fulfill his needs, but whose condition is not known to others so that charity could be given to him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The fuqara are the first category Allah mentions in the zakah verse (9:60). Recognising who qualifies as 'poor' ensures your zakah reaches those with the most urgent need.
@@ -4439,23 +5685,35 @@ Identify individuals whose income falls significantly short of meeting basic nee
         { title: 'Al-Masakin (the needy)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention "the needy" (al-masakin) in the contexts of property distribution and congregational prayer, they provide neither explicit proof nor contextual indication for the specific definitions and practical identification methods detailed in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (4:8)
-**Arabic:** وَإِذَا حَضَرَ الْقِسْمَةَ أُولُو الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينُ فَارْزُقُوهُم مِّنْهُ وَقُولُوا لَهُمْ قَوْلًا مَّعْرُوفًا
-**Translation:** "If other relatives, orphans, or needy people are present at the distribution, give them something too, and speak kindly to them." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 702
-Narrated Abu Mas\`ud:A man came and said, "O Allah's Messenger (ﷺ)! By Allah, I keep away from the morning prayer only because So and so prolongs the prayer when he leads us in it." The narrator said, "I never saw Allah's Apostle more furious in giving advice than he was at that time. He then said, "Some of you make people dislike good deeds (the prayer). So whoever among you leads the people in prayer should shorten it because among them are the weak, the old and the needy
-*(Grade: Sahih)*
-
-### Sahih Bukhari 704
-Narrated Abu Mas\`ud:A man came and said, "O Allah's Messenger (ﷺ)! I keep away from the morning prayer because so-and-so (Imam) prolongs it too much." Allah's Messenger (ﷺ) became furious and I had never seen him more furious than he was on that day. The Prophet (ﷺ) said, "O people! Some of you make others dislike the prayer, so whoever becomes an Imam he should shorten the prayer, as behind him are the weak, the old and the needy
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:8",
+              arabic: "وَإِذَا حَضَرَ الْقِسْمَةَ أُولُو الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينُ فَارْزُقُوهُم مِّنْهُ وَقُولُوا لَهُمْ قَوْلًا مَّعْرُوفًا",
+              translation: "If other relatives, orphans, or needy people are present at the distribution, give them something too, and speak kindly to them.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 702",
+              translation: "Narrated Abu Mas`ud:A man came and said, \"O Allah's Messenger (ﷺ)! By Allah, I keep away from the morning prayer only because So and so prolongs the prayer when he leads us in it.\" The narrator said, \"I never saw Allah's Apostle more furious in giving advice than he was at that time. He then said, \"Some of you make people dislike good deeds (the prayer). So whoever among you leads the people in prayer should shorten it because among them are the weak, the old and the needy",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 704",
+              translation: "Narrated Abu Mas`ud:A man came and said, \"O Allah's Messenger (ﷺ)! I keep away from the morning prayer because so-and-so (Imam) prolongs it too much.\" Allah's Messenger (ﷺ) became furious and I had never seen him more furious than he was on that day. The Prophet (ﷺ) said, \"O people! Some of you make others dislike the prayer, so whoever becomes an Imam he should shorten the prayer, as behind him are the weak, the old and the needy",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The masakin are often invisible -- they have some means but not enough. Recognising this category prevents zakah from being directed only to the visibly destitute while others quietly suffer.
@@ -4467,19 +5725,26 @@ Look for people who have some income or resources but cannot fully cover their n
         { title: 'Al-Amilina Alayha (zakah collectors/administrators)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention paying zakah and the historical existence of "collectors of Sadaqa," they provide neither explicit proof nor contextual indication that these administrators represent a designated category eligible to receive a portion of the collected zakah funds for operational costs.',
-          sources: `**I. Quran**
-
-
-### Quran (23:4)
-**Arabic:** وَالَّذِينَ هُمْ لِلزَّكَاةِ فَاعِلُونَ
-**Translation:** "who pay the prescribed alms." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Muslim 2298
-Jabir b. 'Abdullah reported:There came people from among the Bedouins to the Messenger of Allah (ﷺ) and said: Collectors of Sadaqa come to us and treat us unjustly. Upon this the Messenger of Allah (ﷺ) said: Please your collectors. Jarir said: Ever since I heard it from the Messenger of Allah (ﷺ) no collector had departed but was pleased with me
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 23:4",
+              arabic: "وَالَّذِينَ هُمْ لِلزَّكَاةِ فَاعِلُونَ",
+              translation: "who pay the prescribed alms.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2298",
+              translation: "Jabir b. 'Abdullah reported:There came people from among the Bedouins to the Messenger of Allah (ﷺ) and said: Collectors of Sadaqa come to us and treat us unjustly. Upon this the Messenger of Allah (ﷺ) said: Please your collectors. Jarir said: Ever since I heard it from the Messenger of Allah (ﷺ) no collector had departed but was pleased with me",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Allah designated zakah administrators as eligible recipients to ensure the system functions properly. Understanding this category clarifies that operational costs of zakah collection are legitimate.
@@ -4491,17 +5756,26 @@ When donating through an organisation, understand that a portion may go to admin
         { title: 'Al-Mu\'allafati Qulubuhum (those whose hearts are to be reconciled)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly list "those whose hearts need winning over" as a designated category for receiving zakah, they do not explicitly define them as new converts facing financial hardship or detail specific identification methods, providing a clear logical inference for the subtask to identify and support such individuals.',
-          sources: `**I. Quran**
-
-### Quran (9:60)
-**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ ۖ فَرِيضَةً مِّنَ اللَّهِ ۗ وَاللَّهُ عَلِيمٌ حَكِيمٌ  
-**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need. This is ordained by God; God is all knowing and wise.
-
-**II. Hadith**
-
-### Sahih al-Bukhari 1395
-The Prophet (peace be upon him) said to Mu'adh ibn Jabal when sending him to Yemen: "Inform them that Allah has enjoined on them sadaqah (zakah) which is to be taken from the wealthy among them and given to the poor among them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ ۖ فَرِيضَةً مِّنَ اللَّهِ ۗ وَاللَّهُ عَلِيمٌ حَكِيمٌ",
+              translation: "Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need. This is ordained by God; God is all knowing and wise.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1395",
+              translation: "The Prophet (peace be upon him) said to Mu'adh ibn Jabal when sending him to Yemen: \"Inform them that Allah has enjoined on them sadaqah (zakah) which is to be taken from the wealthy among them and given to the poor among them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Islam recognises that new Muslims or those whose hearts incline toward Islam may need material support to stabilise their faith. This category reflects Islam's concern for spiritual wellbeing alongside material need.
@@ -4513,16 +5787,26 @@ Identify new Muslims in your community who may face financial hardship due to th
         { title: 'Fi al-Riqab (freeing captives)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly designate the freeing of captives and slaves as a valid category for zakah expenditures, they do not explicitly mention modern organizations or specific contemporary manifestations like human trafficking and bonded labor, providing a clear logical inference to apply this timeless principle to modern forms of enslavement.',
-          sources: `**I. Quran**
-
-
-### Quran (9:60)
-**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ  
-**Translation:** Zakah expenditures are only for the poor and the needy, and those employed to collect it, and for bringing hearts together, and for freeing captives, and for those in debt, and for the cause of Allah, and for the stranded traveler.
-
-### Quran (2:177)
-**Arabic:** وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ  
-**Translation:** And gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask, and for freeing slaves.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ",
+              translation: "Zakah expenditures are only for the poor and the needy, and those employed to collect it, and for bringing hearts together, and for freeing captives, and for those in debt, and for the cause of Allah, and for the stranded traveler.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:177",
+              arabic: "وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ",
+              translation: "And gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask, and for freeing slaves.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Although chattel slavery has largely been abolished, this category remains relevant. Understanding its modern applications ensures zakah continues to serve its liberating purpose.
@@ -4534,21 +5818,26 @@ In the modern context, scholars apply this category to freeing prisoners of war,
         { title: 'Al-Gharimin (those in debt)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly designate those in debt (al-gharimin) as eligible to receive charity until they clear their obligations, they do not explicitly detail the specific types of qualifying debts or the exact methods of payment, providing a clear logical inference for the practical steps outlined in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (56:66)
-**Arabic:** إِنَّا لَمُغْرَمُونَ
-**Translation:** "'We are burdened with debt.'" (Abdel Haleem)
-
-*(This exclamation of the disbelievers who lost their harvest captures the weight of inescapable debt. Allah uses this image to establish relief for the gharimin as one of the eight zakah categories.)*
-
-**II. Hadith**
-
-
-### Sahih Muslim 1044
-Narrated Qabisa ibn Mukhariq al-Hilali: The Prophet (ﷺ) said, "O Qabisa, asking for charity is not permissible except for one of three men: a man in debt (al-gharim) — he may beg until he clears himself, and then he must stop."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 56:66",
+              arabic: "إِنَّا لَمُغْرَمُونَ",
+              translation: "We are burdened with debt.'\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1044",
+              translation: "Narrated Qabisa ibn Mukhariq al-Hilali: The Prophet (ﷺ) said, \"O Qabisa, asking for charity is not permissible except for one of three men: a man in debt (al-gharim) — he may beg until he clears himself, and then he must stop.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Debt can be crushing and spiritually debilitating. Allah made debt relief an explicit category of zakah, showing that freeing people from financial bondage is a priority in Islam.
@@ -4560,31 +5849,53 @@ Identify individuals burdened with debts they genuinely cannot repay -- medical 
         { title: 'Fi Sabilillah (in the way of Allah)', done: false,
           tier: 'T3',
           amanahRationale: 'The provided texts do not mention zakah, its recipient categories, or the concept of "fi sabilillah," providing neither explicit proof nor contextual indication for the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (18:43)
-**Arabic:** وَلَمْ تَكُن لَّهُ فِئَةٌ يَنصُرُونَهُ مِن دُونِ اللَّهِ وَمَا كَانَ مُنتَصِرًا
-**Translation:** Walam takun lahu fi-atun yansuroonahumin dooni Allahi wama kana muntasira
-
-### Quran (8:45)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا لَقِيتُمْ فِئَةً فَاثْبُتُوا وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ
-**Translation:** Ya ayyuha allatheena amanooitha laqeetum fi-atan fathbutoo wathkurooAllaha katheeran laAAallakum tuflihoon
-
-### Quran (2:249)
-**Arabic:** فَلَمَّا فَصَلَ طَالُوتُ بِالْجُنُودِ قَالَ إِنَّ اللَّهَ مُبْتَلِيكُم بِنَهَرٍ فَمَن شَرِبَ مِنْهُ فَلَيْسَ مِنِّي وَمَن لَّمْ يَطْعَمْهُ فَإِنَّهُ مِنِّي إِلَّا مَنِ اغْتَرَفَ غُرْفَةً بِيَدِهِ ۚ فَشَرِبُوا مِنْهُ إِلَّا قَلِيلًا مِّنْهُمْ ۚ فَلَمَّا جَاوَزَهُ هُوَ وَالَّذِينَ آمَنُوا مَعَهُ قَالُوا لَا طَاقَةَ لَنَا الْيَوْمَ بِجَالُوتَ وَجُنُودِهِ ۚ قَالَ الَّذِينَ يَظُنُّونَ أَنَّهُم مُّلَاقُو اللَّهِ كَم مِّن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً بِإِذْنِ اللَّهِ ۗ وَاللَّهُ مَعَ الصَّابِرِينَ
-**Translation:** Falamma fasala talootubiljunoodi qala inna Allaha mubtaleekumbinaharin faman shariba minhu falaysa minnee waman lam yatAAamhufa-innahu minnee illa mani ightarafa ghurfatan biyadihifashariboo minhu illa qaleelan minhum falamma jawazahuhuwa wallatheena amanoo maAAahu qaloola taqata lana alyawma bijalootawajunoodihi qala allatheena yathunnoonaannahum mulaqoo Allahi kam min fi-atin qaleelatinghalabat fi-atan katheeratan bi-ithni Allahi wallahumaAAa assabireen
-
-**II. Hadith**
-
-
-### Sahih Bukhari 49
-Narrated 'Ubada bin As-Samit:"Allah's Messenger (ﷺ) went out to inform the people about the (date of the) night of decree (Al-Qadr) but there happened a quarrel between two Muslim men. The Prophet (ﷺ) said, "I came out to inform you about (the date of) the night of Al-Qadr, but as so and so and so and so quarrelled, its knowledge was taken away (I forgot it) and maybe it was better for you. Now look for it in the 7th, the 9th and the 5th (of the last 10 nights of the month of Ramadan)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 29
-Narrated Ibn 'Abbas: The Prophet (ﷺ) said: "I was shown the Hell-fire and that the majority of its dwellers were women who were ungrateful." It was asked, "Do they disbelieve in Allah?" (or are they ungrateful to Allah?) He replied, "They are ungrateful to their husbands and are ungrateful for the favors and the good (charitable deeds) done to them. If you have always been good (benevolent) to one of them and then she sees something in you (not of her liking), she will say, 'I have never received any good from you
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 18:43",
+              arabic: "وَلَمْ تَكُن لَّهُ فِئَةٌ يَنصُرُونَهُ مِن دُونِ اللَّهِ وَمَا كَانَ مُنتَصِرًا",
+              translation: "Walam takun lahu fi-atun yansuroonahumin dooni Allahi wama kana muntasira",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 8:45",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا لَقِيتُمْ فِئَةً فَاثْبُتُوا وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ",
+              translation: "Ya ayyuha allatheena amanooitha laqeetum fi-atan fathbutoo wathkurooAllaha katheeran laAAallakum tuflihoon",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:249",
+              arabic: "فَلَمَّا فَصَلَ طَالُوتُ بِالْجُنُودِ قَالَ إِنَّ اللَّهَ مُبْتَلِيكُم بِنَهَرٍ فَمَن شَرِبَ مِنْهُ فَلَيْسَ مِنِّي وَمَن لَّمْ يَطْعَمْهُ فَإِنَّهُ مِنِّي إِلَّا مَنِ اغْتَرَفَ غُرْفَةً بِيَدِهِ ۚ فَشَرِبُوا مِنْهُ إِلَّا قَلِيلًا مِّنْهُمْ ۚ فَلَمَّا جَاوَزَهُ هُوَ وَالَّذِينَ آمَنُوا مَعَهُ قَالُوا لَا طَاقَةَ لَنَا الْيَوْمَ بِجَالُوتَ وَجُنُودِهِ ۚ قَالَ الَّذِينَ يَظُنُّونَ أَنَّهُم مُّلَاقُو اللَّهِ كَم مِّن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً بِإِذْنِ اللَّهِ ۗ وَاللَّهُ مَعَ الصَّابِرِينَ",
+              translation: "Falamma fasala talootubiljunoodi qala inna Allaha mubtaleekumbinaharin faman shariba minhu falaysa minnee waman lam yatAAamhufa-innahu minnee illa mani ightarafa ghurfatan biyadihifashariboo minhu illa qaleelan minhum falamma jawazahuhuwa wallatheena amanoo maAAahu qaloola taqata lana alyawma bijalootawajunoodihi qala allatheena yathunnoonaannahum mulaqoo Allahi kam min fi-atin qaleelatinghalabat fi-atan katheeratan bi-ithni Allahi wallahumaAAa assabireen",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 49",
+              translation: "Narrated 'Ubada bin As-Samit:\"Allah's Messenger (ﷺ) went out to inform the people about the (date of the) night of decree (Al-Qadr) but there happened a quarrel between two Muslim men. The Prophet (ﷺ) said, \"I came out to inform you about (the date of) the night of Al-Qadr, but as so and so and so and so quarrelled, its knowledge was taken away (I forgot it) and maybe it was better for you. Now look for it in the 7th, the 9th and the 5th (of the last 10 nights of the month of Ramadan)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 29",
+              translation: "Narrated Ibn 'Abbas: The Prophet (ﷺ) said: \"I was shown the Hell-fire and that the majority of its dwellers were women who were ungrateful.\" It was asked, \"Do they disbelieve in Allah?\" (or are they ungrateful to Allah?) He replied, \"They are ungrateful to their husbands and are ungrateful for the favors and the good (charitable deeds) done to them. If you have always been good (benevolent) to one of them and then she sees something in you (not of her liking), she will say, 'I have never received any good from you",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 This is one of the broadest and most discussed categories of zakah recipients. Understanding its scope helps you direct zakah toward efforts that strengthen the Muslim community and advance Islam's mission.
@@ -4596,23 +5907,35 @@ Scholars differ on the scope of 'fi sabilillah.' Some limit it to military defen
         { title: 'Ibn al-Sabil (the stranded traveller)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly designate the stranded traveler as a valid recipient for the distribution of community wealth, they do not explicitly detail the rules regarding their wealth at home or contemporary applications like refugees, providing a clear logical inference to identify and support such individuals.',
-          sources: `**I. Quran**
-
-
-### Quran (59:7)
-**Arabic:** مَّا أَفَاءَ اللَّهُ عَلَىٰ رَسُولِهِ مِنْ أَهْلِ الْقُرَىٰ فَلِلَّهِ وَلِلرَّسُولُ وَلِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَابْنِ السَّبِيلِ كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ ۚ وَمَا آتَاكُمُ الرَّسُولُ فَخُذُوهُ وَمَا نَهَاكُمْ عَنْهُ فَانتَهُوا ۚ وَاتَّقُوا اللَّهَ ۖ إِنَّ اللَّهَ شَدِيدُ الْعِقَابِ
-**Translation:** And what Allāh restored to His Messenger from the people of the towns - it is for Allāh and for the Messenger and for [his] near relatives and orphans and the needy and the [stranded] traveler - so that it will not be a perpetual distribution among the rich from among you. And whatever the Messenger has given you - take; and what he has forbidden you - refrain from. And fear Allāh; indeed, Allāh is severe in penalty.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1576
-Ibn 'Abbas reported:Allah has prescribed the prayer by the tongue of your Apostle (ﷺ) as two rak'ahs for the traveller, four for the resident, and one in danger
-*(Grade: Sahih)*
-
-### Sahih Muslim 1594
-Ibn 'Umar reported:The Apostle of Allah (ﷺ) said in Mina the prayer of a traveller (short prayer) ; Abu Bakr and 'Umar did the same and 'Uthmia did it for eight years or six years. Hafs (one of the narrators) said: Ibn 'Umar would also say two rak'ahs at Mina and then go to bed. I said to him: O uncle, I wish you could have said two rak'ahs (of Sunnah prayer after shorenting the Fard prayer). He said: Were I to do that, I would have completed the prayer
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 59:7",
+              arabic: "مَّا أَفَاءَ اللَّهُ عَلَىٰ رَسُولِهِ مِنْ أَهْلِ الْقُرَىٰ فَلِلَّهِ وَلِلرَّسُولُ وَلِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَابْنِ السَّبِيلِ كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ ۚ وَمَا آتَاكُمُ الرَّسُولُ فَخُذُوهُ وَمَا نَهَاكُمْ عَنْهُ فَانتَهُوا ۚ وَاتَّقُوا اللَّهَ ۖ إِنَّ اللَّهَ شَدِيدُ الْعِقَابِ",
+              translation: "And what Allāh restored to His Messenger from the people of the towns - it is for Allāh and for the Messenger and for [his] near relatives and orphans and the needy and the [stranded] traveler - so that it will not be a perpetual distribution among the rich from among you. And whatever the Messenger has given you - take; and what he has forbidden you - refrain from. And fear Allāh; indeed, Allāh is severe in penalty.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1576",
+              translation: "Ibn 'Abbas reported:Allah has prescribed the prayer by the tongue of your Apostle (ﷺ) as two rak'ahs for the traveller, four for the resident, and one in danger",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1594",
+              translation: "Ibn 'Umar reported:The Apostle of Allah (ﷺ) said in Mina the prayer of a traveller (short prayer) ; Abu Bakr and 'Umar did the same and 'Uthmia did it for eight years or six years. Hafs (one of the narrators) said: Ibn 'Umar would also say two rak'ahs at Mina and then go to bed. I said to him: O uncle, I wish you could have said two rak'ahs (of Sunnah prayer after shorenting the Fard prayer). He said: Were I to do that, I would have completed the prayer",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Islam recognises that a traveller can become vulnerable regardless of their wealth at home. This category ensures that no Muslim is left stranded without support.
@@ -4631,23 +5954,35 @@ If you encounter a traveller who is stranded and lacks funds to continue or retu
         { title: 'Calculate any overdue zakah from previous years', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe the retroactive calculation methods or the 2.5% rate, they provide a clear logical inference for the subtask by issuing severe warnings of punishment for failing to pay zakah on accumulated wealth, logically necessitating the rectification of past unpaid obligations to avoid such consequences.',
-          sources: `**I. Quran**
-
-
-### Quran (2:43)
-**Arabic:** وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ  
-**Translation:** And establish prayer and give zakah.
-
-### Quran (9:34)
-**Arabic:** وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ  
-**Translation:** And those who hoard gold and silver and spend it not in the way of Allah — give them tidings of a painful punishment.
-
-**II. Hadith**
-
-
-### Sahih Muslim 987
-The Prophet (SAW) said: "There is no owner of gold or silver who does not pay their due zakah except that on the Day of Resurrection, plates of fire will be heated and his sides, forehead, and back will be branded with them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:43",
+              arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ",
+              translation: "And establish prayer and give zakah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 9:34",
+              arabic: "وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ",
+              translation: "And those who hoard gold and silver and spend it not in the way of Allah — give them tidings of a painful punishment.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 987",
+              translation: "The Prophet (SAW) said: \"There is no owner of gold or silver who does not pay their due zakah except that on the Day of Resurrection, plates of fire will be heated and his sides, forehead, and back will be branded with them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Unpaid zakah does not expire -- it accumulates as a debt to Allah. Calculating overdue amounts is the first step toward clearing this obligation and purifying your wealth retroactively.
@@ -4659,19 +5994,26 @@ For each year you missed, estimate your total zakatable wealth at that time (ban
         { title: 'Identify trustworthy recipients or organisations', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention the eight Quranic categories or verified organizations, they provide a clear logical inference for the subtask by establishing the strict obligation to ensure zakah is specifically taken from the wealthy and given to "the poor among them," which inherently necessitates identifying eligible and trustworthy recipients.',
-          sources: `**I. Quran**
-
-
-### Quran (2:43)
-**Arabic:** وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ  
-**Translation:** Keep up the prayer, pay the prescribed alms, and bow your heads [in worship] with those who bow theirs.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1458
-The Prophet (SAW) sent Mu'adh to Yemen and instructed: "Inform them that Allah has made zakah obligatory on their wealth — taken from the rich among them and given to the poor among them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:43",
+              arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+              translation: "Keep up the prayer, pay the prescribed alms, and bow your heads [in worship] with those who bow theirs.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1458",
+              translation: "The Prophet (SAW) sent Mu'adh to Yemen and instructed: \"Inform them that Allah has made zakah obligatory on their wealth — taken from the rich among them and given to the poor among them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Zakah must reach eligible recipients for it to be valid. Giving to the wrong people, however well-intentioned, does not fulfil the obligation. Choosing trustworthy channels protects the validity of your worship.
@@ -4683,19 +6025,26 @@ Choose recipients from the eight Quranic categories. You can distribute directly
         { title: 'Distribute the outstanding amount', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention formulating a clear intention or creating written instalment schedules, they provide a clear logical inference for the subtask by explicitly defining zakah as a strict obligation from Allah that must be taken from the wealthy and given to the poor, inherently necessitating its timely distribution.',
-          sources: `**I. Quran**
-
-
-### Quran (9:60)
-**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ ۖ فَرِيضَةً مِّنَ اللَّهِ  
-**Translation:** Zakah expenditures are only for the poor and the needy, and those employed to collect it, and for bringing hearts together, and for freeing captives, and for those in debt, and for the cause of Allah, and for the stranded traveler — an obligation from Allah.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1454
-The Prophet (SAW) said: "...it is to be taken from the wealthy among them and given to the poor among them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ ۖ فَرِيضَةً مِّنَ اللَّهِ",
+              translation: "Zakah expenditures are only for the poor and the needy, and those employed to collect it, and for bringing hearts together, and for freeing captives, and for those in debt, and for the cause of Allah, and for the stranded traveler — an obligation from Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "The Prophet (SAW) said: \"...it is to be taken from the wealthy among them and given to the poor among them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Delaying zakah without a valid reason is sinful -- the poor have a right over your wealth that must be honoured promptly. Every day you delay, you withhold what belongs to others.
@@ -4716,20 +6065,26 @@ Pay the full calculated amount as soon as possible. Make a clear intention (niyy
         { title: 'Choose your zakah calculation date (e.g., 1st Ramadan)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe recording a specific zakah anniversary on Hijri and Gregorian calendars, they provide a clear logical inference for the subtask by establishing that choosing a fixed date is a practical means to fulfill the divine command of annual wealth purification.',
-          sources: `**I. Quran**
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ ۗ وَاللَّهُ سَمِيعٌ عَلِيمٌ
-**Translation:** "In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them— your prayer will be a comfort to them. God is all hearing, all knowing." (Abdel Haleem)
-
-*(The obligation of zakah is an annual purification of wealth. Choosing a fixed date is the practical means of fulfilling this divine command with discipline and regularity.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 49
-Narrated 'Ubada bin As-Samit:"Allah's Messenger (ﷺ) went out to inform the people about the (date of the) night of decree (Al-Qadr) but there happened a quarrel between two Muslim men. The Prophet (ﷺ) said, "I came out to inform you about (the date of) the night of Al-Qadr, but as so and so and so and so quarrelled, its knowledge was taken away (I forgot it) and maybe it was better for you. Now look for it in the 7th, the 9th and the 5th (of the last 10 nights of the month of Ramadan)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ ۗ وَاللَّهُ سَمِيعٌ عَلِيمٌ",
+              translation: "In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them— your prayer will be a comfort to them. God is all hearing, all knowing.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 49",
+              translation: "Narrated 'Ubada bin As-Samit:\"Allah's Messenger (ﷺ) went out to inform the people about the (date of the) night of decree (Al-Qadr) but there happened a quarrel between two Muslim men. The Prophet (ﷺ) said, \"I came out to inform you about (the date of) the night of Al-Qadr, but as so and so and so and so quarrelled, its knowledge was taken away (I forgot it) and maybe it was better for you. Now look for it in the 7th, the 9th and the 5th (of the last 10 nights of the month of Ramadan)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 A fixed annual date eliminates guesswork and procrastination. Many Muslims choose Ramadan for the multiplied reward, but any consistent date fulfils the requirement.
@@ -4741,12 +6096,17 @@ Pick a date you can remember and commit to -- 1st Ramadan is popular for its bar
         { title: 'Set annual calendar reminders', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text does not explicitly prescribe using phone calendars or setting specific two-week notifications, it provides a clear logical inference for the subtask by emphasizing that setting a consistent annual date ensures the timely calculation of zakah.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1454
-The Prophet (SAW) said: "There is no zakah on less than five awsuq of dates, no zakah on less than five awqiyyah of silver, and no zakah on less than five camels." Setting a consistent annual date (hawl) ensures timely calculation.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "The Prophet (SAW) said: \"There is no zakah on less than five awsuq of dates, no zakah on less than five awqiyyah of silver, and no zakah on less than five camels.\" Setting a consistent annual date (hawl) ensures timely calculation.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Without reminders, zakah dates can slip by unnoticed, leading to delayed payment. A reminder system ensures you have time to prepare your financial records before the due date.
@@ -4758,12 +6118,17 @@ Set two calendar reminders: one 2 weeks before your zakah date (to start gatheri
         { title: 'Create a spreadsheet or use a zakah calculator app', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text establishes the general principle of taking charity from one\'s property for purification, it provides neither explicit proof nor contextual indication for the specific 2.5% rate, deduction of debts, or the use of modern tools like spreadsheets and calculators detailed in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ  
-**Translation:** In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them — your prayer will be a comfort to them.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ",
+              translation: "In order to cleanse and purify them [Prophet], accept a gift out of their property [to make amends] and pray for them — your prayer will be a comfort to them.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 A structured calculation tool prevents errors and makes the annual process quick and repeatable. It also creates a historical record you can reference in future years.
@@ -4782,19 +6147,26 @@ Create a simple spreadsheet with columns for: asset type, description, and curre
         { title: 'Research 3 local zakah-accepting organisations', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mandate researching exactly three specific organizations, they provide a clear logical inference for the subtask by formally recognizing zakah administrators and strictly restricting disbursements to eight specific categories within the local community, which inherently necessitates verifying a local organization\'s compliance with these rules.',
-          sources: `**I. Quran**
-
-
-### Quran (9:60)
-**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا  
-**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1458
-The Prophet (SAW) said to Mu'adh: "Inform them that Allah has made zakah obligatory on their wealth — taken from the rich among them and given to the poor among them."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا",
+              translation: "Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1458",
+              translation: "The Prophet (SAW) said to Mu'adh: \"Inform them that Allah has made zakah obligatory on their wealth — taken from the rich among them and given to the poor among them.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Local organisations can distribute zakah efficiently to people in your own community. Verifying they separate zakah from sadaqah ensures your obligatory payment reaches only eligible recipients.
@@ -4806,12 +6178,17 @@ Research at least 3 local Islamic centres, masjids, or charities that accept zak
         { title: 'Research 2 international zakah organisations', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text encourages believers to generally give from the wealth God has entrusted to them, it provides neither explicit proof nor contextual indication for the specific subtask of researching international zakah organizations or evaluating their distribution data and overhead costs.',
-          sources: `**I. Quran**
-
-
-### Quran (57:7)
-**Arabic:** آمِنُوا بِاللَّهِ وَرَسُولِهِ وَأَنفِقُوا مِمَّا جَعَلَكُم مُّسْتَخْلَفِينَ فِيهِ  
-**Translation:** Believe in God and His Messenger, and give out of what He has made pass down to you: those of you who believe and give will have a great reward.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 57:7",
+              arabic: "آمِنُوا بِاللَّهِ وَرَسُولِهِ وَأَنفِقُوا مِمَّا جَعَلَكُم مُّسْتَخْلَفِينَ فِيهِ",
+              translation: "Believe in God and His Messenger, and give out of what He has made pass down to you: those of you who believe and give will have a great reward.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 International organisations can reach zakah-eligible Muslims in conflict zones, refugee camps, and regions of extreme poverty that you cannot access directly. Diversifying your distribution maximises impact.
@@ -4823,12 +6200,17 @@ Research at least 2 established international zakah organisations. Look for thos
         { title: 'Verify their zakah compliance and transparency reports', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text emphasizes the essential need to verify that organizations comply with Sharia distribution to fulfill the trust of zakah, it does not explicitly detail specific modern methods like checking for a Sharia board or reviewing published transparency reports, providing a clear logical inference for the subtask\'s practical verification steps.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1458
-The Prophet (SAW) instructed Mu'adh: "Inform them that Allah has made zakah obligatory on their wealth — taken from the rich and given to the poor." Verifying that organisations comply with Sharia distribution is essential to fulfilling this trust.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1458",
+              translation: "The Prophet (SAW) instructed Mu'adh: \"Inform them that Allah has made zakah obligatory on their wealth — taken from the rich and given to the poor.\" Verifying that organisations comply with Sharia distribution is essential to fulfilling this trust.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Not every charity that accepts 'zakah' distributes it correctly. Without verification, your zakah may go to ineligible recipients, potentially invalidating your obligation.
@@ -4847,16 +6229,26 @@ For each organisation you are considering, check three things: (1) Do they have 
         { title: 'Learn the amount and types of food acceptable for Fitr', done: false,
           tier: 'T1',
           amanahRationale: 'The provided texts explicitly state the required amount as one sa\' of specific foods like dates or barley and define its purpose as purification for the fasting person and food for the poor, providing clear and direct proof for the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1503
-The Prophet (SAW) enjoined the payment of one sa' of dates or one sa' of barley as Zakat al-Fitr on every Muslim, slave or free, male or female, young or old, and he ordered that it be paid before the people go out for the Eid prayer.
-*(Grade: Sahih)*
-
-### Sunan Abu Dawud 1609
-The Prophet (SAW) said: "The zakah of al-Fitr is a purification for the fasting person from idle talk and obscenity, and food for the poor."
-*(Grade: Hasan — graded hasan by al-Albani)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1503",
+              translation: "The Prophet (SAW) enjoined the payment of one sa' of dates or one sa' of barley as Zakat al-Fitr on every Muslim, slave or free, male or female, young or old, and he ordered that it be paid before the people go out for the Eid prayer.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sunan Abi Dawud 1609",
+              translation: "The Prophet (SAW) said: \"The zakah of al-Fitr is a purification for the fasting person from idle talk and obscenity, and food for the poor.\"",
+              relevance: "direct",
+              provenanceTier: "Qarina",
+              hadithGrade: "Hasan — graded hasan by al-Albani",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Zakah al-Fitr purifies the fasting person from any shortcomings during Ramadan and provides food for the poor on Eid day. Knowing the correct amount ensures your payment is valid.
@@ -4868,12 +6260,17 @@ The amount is one sa' (approximately 2.5-3 kg) of a staple food per person -- da
         { title: 'Understand the timing (before Eid prayer)', done: false,
           tier: 'T1',
           amanahRationale: 'The provided source explicitly commands that Zakah al-Fitr must be given before the people go out for the Eid prayer, providing clear and direct proof for the core timing rule of the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1503
-Ibn Umar reported: "The Messenger of Allah (SAW) made Zakah al-Fitr obligatory — one sa' of dates or one sa' of barley — on every Muslim, free or slave, male or female, young or old, and he commanded that it be given before the people go out for the Eid prayer."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1503",
+              translation: "Ibn Umar reported: \"The Messenger of Allah (SAW) made Zakah al-Fitr obligatory — one sa' of dates or one sa' of barley — on every Muslim, free or slave, male or female, young or old, and he commanded that it be given before the people go out for the Eid prayer.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The timing of Zakah al-Fitr is a condition of its validity. Paying after the Eid prayer downgrades it to regular charity, and the obligation remains unfulfilled. Knowing the window prevents this mistake.
@@ -4885,16 +6282,26 @@ The preferred time is before the Eid prayer on 1st Shawwal. Paying 1-2 days befo
         { title: 'Learn who is responsible to pay and for whom', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly state that the head of the household pays Zakat al-Fitr for all dependents regardless of age before the Eid prayer, they do not explicitly detail specific edge cases like newborns born the night before or elderly parents, providing a clear logical inference for the practical counting and calculation methods outlined in the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1503
-The Prophet (SAW) enjoined the payment of Zakat al-Fitr on every Muslim, slave or free, male or female, young or old. The head of the household pays on behalf of those under his care.
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1504
-Ibn Umar (RA) said: "The Prophet (SAW) ordered Zakat al-Fitr to be paid before the people go out to pray (the Eid prayer)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1503",
+              translation: "The Prophet (SAW) enjoined the payment of Zakat al-Fitr on every Muslim, slave or free, male or female, young or old. The head of the household pays on behalf of those under his care.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1504",
+              translation: "Ibn Umar (RA) said: \"The Prophet (SAW) ordered Zakat al-Fitr to be paid before the people go out to pray (the Eid prayer).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Zakah al-Fitr is an individual obligation, but the head of household pays on behalf of all dependants. Knowing who you are responsible for ensures no one in your family is missed.
@@ -4913,27 +6320,44 @@ Count every person you are financially responsible for: yourself, your spouse, y
         { title: 'Study the Quranic ayat linking zakah with purification (9:103)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly establishes the foundational principle that alms cleanse and purify the giver, it does not explicitly prescribe modern study methods like journaling or using a tafsir, providing a clear logical inference to deeply reflect on its meaning as outlined in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ ۗ وَاللَّهُ سَمِيعٌ عَلِيمٌ
-**Translation:** [9:103] (O Prophet)! "Take alms out of their riches and thereby cleanse them and bring about their growth (in righteousness), and pray for them. Indeed your prayer is a source of tranquillity for them." Allah is All-Hearing, All-Knowing.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 22
-Narrated Abu Said Al-Khudri: The Prophet (ﷺ) said, "When the people of Paradise will enter Paradise and the people of Hell will go to Hell, Allah will order those who have had faith equal to the weight of a grain of mustard seed to be taken out from Hell. So they will be taken out but (by then) they will be blackened (charred). Then they will be put in the river of Haya' (rain) or Hayat (life) (the Narrator is in doubt as to which is the right term), and they will revive like a grain that grows near the bank of a flood channel. Don't you see that it comes out yellow and twisted?
-*(Grade: Sahih)*
-
-### Sahih Bukhari 541
-Narrated Abu Al-Minhal:Abu Barza said, "The Prophet (ﷺ) used to offer the Fajr (prayer) when one could recognize the person sitting by him (after the prayer) and he used to recite between 60 to 100 Ayat (verses) of the Qur'an. He used to offer the Zuhr prayer as soon as the sun declined (at noon) and the \`Asr prayer at a time when a man might go and return from the farthest place in Medina and find the sun still hot. (The sub-narrator forgot what was said about the Maghrib). He did not mind delaying the \`Isha prayer to one third of the night or the middle of the night
-*(Grade: Sahih)*
-
-### Sahih Bukhari 547
-Narrated Saiyar bin Salama:I along with my father went to Abu- Barza Al-Aslami and my father asked him, "How Allah's Messenger (ﷺ) used to offer the five compulsory congregational prayers?" Abu- Barza said, "The Prophet (ﷺ) used to pray the Zuhr prayer which you (people) call the first one at midday when the sun had just declined The \`Asr prayer at a time when after the prayer, a man could go to the house at the farthest place in Medina (and arrive) while the sun was still hot. (I forgot about the Maghrib prayer). The Prophet (ﷺ) Loved to delay the \`Isha which you call Al- \`Atama [??] and he disliked sleeping before it and speaking after it. After the Fajr prayer he used to leave when a man could recognize the one sitting beside him and he used to recite between 60 to 100 Ayat (in the Fajr prayer)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ ۗ وَاللَّهُ سَمِيعٌ عَلِيمٌ",
+              translation: "[9:103] (O Prophet)! \"Take alms out of their riches and thereby cleanse them and bring about their growth (in righteousness), and pray for them. Indeed your prayer is a source of tranquillity for them.\" Allah is All-Hearing, All-Knowing.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 22",
+              translation: "Narrated Abu Said Al-Khudri: The Prophet (ﷺ) said, \"When the people of Paradise will enter Paradise and the people of Hell will go to Hell, Allah will order those who have had faith equal to the weight of a grain of mustard seed to be taken out from Hell. So they will be taken out but (by then) they will be blackened (charred). Then they will be put in the river of Haya' (rain) or Hayat (life) (the Narrator is in doubt as to which is the right term), and they will revive like a grain that grows near the bank of a flood channel. Don't you see that it comes out yellow and twisted?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 541",
+              translation: "Narrated Abu Al-Minhal:Abu Barza said, \"The Prophet (ﷺ) used to offer the Fajr (prayer) when one could recognize the person sitting by him (after the prayer) and he used to recite between 60 to 100 Ayat (verses) of the Qur'an. He used to offer the Zuhr prayer as soon as the sun declined (at noon) and the `Asr prayer at a time when a man might go and return from the farthest place in Medina and find the sun still hot. (The sub-narrator forgot what was said about the Maghrib). He did not mind delaying the `Isha prayer to one third of the night or the middle of the night",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 547",
+              translation: "Narrated Saiyar bin Salama:I along with my father went to Abu- Barza Al-Aslami and my father asked him, \"How Allah's Messenger (ﷺ) used to offer the five compulsory congregational prayers?\" Abu- Barza said, \"The Prophet (ﷺ) used to pray the Zuhr prayer which you (people) call the first one at midday when the sun had just declined The `Asr prayer at a time when after the prayer, a man could go to the house at the farthest place in Medina (and arrive) while the sun was still hot. (I forgot about the Maghrib prayer). The Prophet (ﷺ) Loved to delay the `Isha which you call Al- `Atama [??] and he disliked sleeping before it and speaking after it. After the Fajr prayer he used to leave when a man could recognize the one sitting beside him and he used to recite between 60 to 100 Ayat (in the Fajr prayer)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 This ayah reveals the dual purpose of zakah: it purifies the giver's soul from greed and miserliness, while simultaneously increasing them in goodness and barakah. Understanding this transforms zakah from a tax into an act of spiritual growth.
@@ -4945,23 +6369,35 @@ Read Surah At-Tawbah 9:103 with a reliable tafsir. Reflect on how 'purification'
         { title: 'Reflect on how giving reduces attachment to dunya', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention the term \'dunya\' or prescribe specific reflective practices like sitting with intention, they provide a clear logical inference for the subtask by emphasizing purification through charity and declaring ultimate success for those who overcome the stinginess of their souls.',
-          sources: `**I. Quran**
-
-
-### Quran (9:103)
-**Arabic:** خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا  
-**Translation:** Take from their wealth a charity by which you purify them and cause them increase.
-
-### Quran (64:16)
-**Arabic:** وَمَن يُوقَ شُحَّ نَفْسِهِ فَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ  
-**Translation:** And whoever is protected from the stinginess of his soul — it is those who will be the successful.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1015
-The Prophet (SAW) said: "Charity does not decrease wealth."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:103",
+              arabic: "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا",
+              translation: "Take from their wealth a charity by which you purify them and cause them increase.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 64:16",
+              arabic: "وَمَن يُوقَ شُحَّ نَفْسِهِ فَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
+              translation: "And whoever is protected from the stinginess of his soul — it is those who will be the successful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1015",
+              translation: "The Prophet (SAW) said: \"Charity does not decrease wealth.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Attachment to dunya is one of the greatest diseases of the heart. Zakah is a divinely prescribed cure -- it loosens the grip of materialism and trains the soul to trust in Allah as the true Provider (Ar-Razzaq).
@@ -4973,21 +6409,26 @@ Before paying zakah, sit with your intention. Notice any reluctance or tightness
         { title: 'Read about the blessings of zakah from hadith literature', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly encourages reading hadith literature to deepen one\'s appreciation of zakah\'s blessings, it does not detail the specific narrations to study or the use of modern tools like hadith apps, providing a clear logical inference for the practical study methods outlined in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (19:31)
-**Arabic:** وَجَعَلَنِي مُبَارَكًا أَيْنَ مَا كُنتُ وَأَوْصَانِي بِالصَّلَاةِ وَالزَّكَاةِ مَا دُمْتُ حَيًّا
-**Translation:** "made me blessed wherever I may be. He commanded me to pray, to give alms as long as I live." (Abdel Haleem)
-
-*(Isa (AS) speaks — the command to give zakah was not unique to Muhammad (ﷺ)'s ummah but was given to every prophet. Reading the hadith on its blessings deepens appreciation of this universal divine institution.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1405
-Narrated Abu Huraira: A man came to the Prophet (ﷺ) and said: "I have a dinar." He said: "Spend it on yourself." The man said: "I have another." He said: "Spend it on your family." He said: "I have another." He said: "Spend it on your servant." He said: "I have another." He said: "You know better (where to spend it)." The point: voluntary charity is boundless in blessing, and zakah is the obligatory foundation upon which all giving is built.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 19:31",
+              arabic: "وَجَعَلَنِي مُبَارَكًا أَيْنَ مَا كُنتُ وَأَوْصَانِي بِالصَّلَاةِ وَالزَّكَاةِ مَا دُمْتُ حَيًّا",
+              translation: "made me blessed wherever I may be. He commanded me to pray, to give alms as long as I live.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1405",
+              translation: "Narrated Abu Huraira: A man came to the Prophet (ﷺ) and said: \"I have a dinar.\" He said: \"Spend it on yourself.\" The man said: \"I have another.\" He said: \"Spend it on your family.\" He said: \"I have another.\" He said: \"Spend it on your servant.\" He said: \"I have another.\" He said: \"You know better (where to spend it).\" The point: voluntary charity is boundless in blessing, and zakah is the obligatory foundation upon which all giving is built.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The hadith literature provides both encouragement and warning regarding zakah. Studying these narrations deepens your conviction and urgency in fulfilling this pillar with excellence.
@@ -5008,23 +6449,35 @@ Study key hadith on zakah: the promise that wealth does not decrease from charit
         { title: 'Set up a monthly automated sadaqah donation', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts highly encourage the general practice of giving charity secretly and from one\'s surplus, they provide neither explicit proof nor contextual indication for the subtask\'s specific focus on the importance of consistency or the modern method of setting up automated monthly bank transfers.',
-          sources: `**I. Quran**
-
-
-### Quran (57:18)
-**Arabic:** إِنَّ الْمُصَّدِّقِينَ وَالْمُصَّدِّقَاتِ وَأَقْرَضُوا اللَّهَ قَرْضًا حَسَنًا يُضَاعَفُ لَهُمْ وَلَهُمْ أَجْرٌ كَرِيمٌ  
-**Translation:** Indeed, the men who practice charity and the women who practice charity and have loaned Allah a goodly loan — it will be multiplied for them, and they will have a generous reward.
-
-### Quran (2:271)
-**Arabic:** إِن تُبْدُوا الصَّدَقَاتِ فَنِعِمَّا هِيَ ۖ وَإِن تُخْفُوهَا وَتُؤْتُوهَا الْفُقَرَاءَ فَهُوَ خَيْرٌ لَّكُمْ  
-**Translation:** If you disclose your charitable expenditures, they are good; but if you conceal them and give them to the poor, it is better for you.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1442
-The Prophet (SAW) said: "The best charity is that which is given out of richness (surplus), and the upper hand (the giving hand) is better than the lower hand (the receiving hand)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 57:18",
+              arabic: "إِنَّ الْمُصَّدِّقِينَ وَالْمُصَّدِّقَاتِ وَأَقْرَضُوا اللَّهَ قَرْضًا حَسَنًا يُضَاعَفُ لَهُمْ وَلَهُمْ أَجْرٌ كَرِيمٌ",
+              translation: "Indeed, the men who practice charity and the women who practice charity and have loaned Allah a goodly loan — it will be multiplied for them, and they will have a generous reward.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:271",
+              arabic: "إِن تُبْدُوا الصَّدَقَاتِ فَنِعِمَّا هِيَ ۖ وَإِن تُخْفُوهَا وَتُؤْتُوهَا الْفُقَرَاءَ فَهُوَ خَيْرٌ لَّكُمْ",
+              translation: "If you disclose your charitable expenditures, they are good; but if you conceal them and give them to the poor, it is better for you.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1442",
+              translation: "The Prophet (SAW) said: \"The best charity is that which is given out of richness (surplus), and the upper hand (the giving hand) is better than the lower hand (the receiving hand).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Consistency in giving is more beloved to Allah than occasional large donations. Automating sadaqah removes the friction of deciding each month and ensures the habit never lapses.
@@ -5035,23 +6488,35 @@ Set up an automatic monthly bank transfer to a charity of your choice. Start wit
         { title: 'Identify causes that resonate with you (orphans, education, water)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly highlight the immense reward and virtue of supporting specific causes like orphans and feeding the hungry, they do not explicitly mention modern practices like researching specific organizations or signing up for updates, providing a clear logical inference to identify and dedicate oneself to such impactful causes.',
-          sources: `**I. Quran**
-
-
-### Quran (76:8-9)
-**Arabic:** وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا ۝ إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا  
-**Translation:** And they give food in spite of love for it to the needy, the orphan, and the captive. We feed you only for the countenance of Allah. We wish not from you reward or gratitude.
-
-### Quran (93:9-10)
-**Arabic:** فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ ۝ وَأَمَّا السَّائِلَ فَلَا تَنْهَرْ  
-**Translation:** So as for the orphan, do not oppress him. And as for the petitioner, do not repel him.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 5304
-The Prophet (SAW) said: "I and the one who sponsors an orphan will be in Paradise like these two" — and he indicated his index and middle fingers.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 76:8-9",
+              arabic: "وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا ۝ إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا",
+              translation: "And they give food in spite of love for it to the needy, the orphan, and the captive. We feed you only for the countenance of Allah. We wish not from you reward or gratitude.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 93:9-10",
+              arabic: "فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ ۝ وَأَمَّا السَّائِلَ فَلَا تَنْهَرْ",
+              translation: "So as for the orphan, do not oppress him. And as for the petitioner, do not repel him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5304",
+              translation: "The Prophet (SAW) said: \"I and the one who sponsors an orphan will be in Paradise like these two\" — and he indicated his index and middle fingers.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 When you give to a cause that deeply moves you, your giving becomes an act of love rather than obligation. This emotional connection sustains long-term generosity and makes your charity more sincere.
@@ -5063,19 +6528,26 @@ Reflect on which needs stir your heart most: orphan sponsorship, clean water pro
         { title: 'Track your giving for motivation and accountability', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts heavily emphasize the immense spiritual virtue of concealing one\'s charity to the point that the left hand does not know what the right hand has given, they provide neither explicit proof nor contextual indication for the modern practice of meticulously tracking or logging one\'s donations for personal accountability.',
-          sources: `**I. Quran**
-
-
-### Quran (2:271)
-**Arabic:** إِن تُبْدُوا الصَّدَقَاتِ فَنِعِمَّا هِيَ ۖ وَإِن تُخْفُوهَا وَتُؤْتُوهَا الْفُقَرَاءَ فَهُوَ خَيْرٌ لَّكُمْ  
-**Translation:** If you give charity openly, it is good, but if you keep it secret and give to the needy in private, that is better for you, and it will atone for some of your bad deeds.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1423
-The Prophet (SAW) said: "Seven will be shaded by Allah on a day when there is no shade but His..." among them: "a man who gives charity so secretly that his left hand does not know what his right hand has given."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:271",
+              arabic: "إِن تُبْدُوا الصَّدَقَاتِ فَنِعِمَّا هِيَ ۖ وَإِن تُخْفُوهَا وَتُؤْتُوهَا الْفُقَرَاءَ فَهُوَ خَيْرٌ لَّكُمْ",
+              translation: "If you give charity openly, it is good, but if you keep it secret and give to the needy in private, that is better for you, and it will atone for some of your bad deeds.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1423",
+              translation: "The Prophet (SAW) said: \"Seven will be shaded by Allah on a day when there is no shade but His...\" among them: \"a man who gives charity so secretly that his left hand does not know what his right hand has given.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tracking your sadaqah is not about showing off -- it is about accountability to yourself and motivation to grow. Reviewing your giving history reveals patterns and inspires you to increase in generosity.
@@ -5094,27 +6566,44 @@ Create a simple log (spreadsheet, notes app, or journal) with columns for: date,
         { title: 'Learn the Islamic principles of waqf', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (3:104)
-**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ
-**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.
-
-### Quran (26:197)
-**Arabic:** أَوَلَمْ يَكُن لَّهُمْ آيَةً أَن يَعْلَمَهُ عُلَمَاءُ بَنِي إِسْرَائِيلَ
-**Translation:** Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1643
-Narrated \`Urwa:I asked \`Aisha : "How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka\`ba or performs \`Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa." \`Aisha said, "O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called "Manat" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, "O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa." So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' " Aisha added, "Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them." Later on I (\`Urwa) told Abu Bakr bin \`Abdur-Rahman (of \`Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom \`Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka\`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka\`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: "Verily As-Safa and Al- Marwa are among the symbols of Allah." Abu Bakr said, "It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka\`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka\`ba
-*(Grade: Sahih)*
-
-### Sahih Bukhari 3
-Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered him till his fear was over and after that he told her everything that had happened and said, "I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones." Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out." Allah's Messenger (ﷺ) asked, "Will they drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly." But after a few days Waraqa died and the Divine Inspiration was also paused for a while
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:104",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
+              translation: "Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 26:197",
+              arabic: "أَوَلَمْ يَكُن لَّهُمْ آيَةً أَن يَعْلَمَهُ عُلَمَاءُ بَنِي إِسْرَائِيلَ",
+              translation: "Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1643",
+              translation: "Narrated `Urwa:I asked `Aisha : \"How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka`ba or performs `Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa.\" `Aisha said, \"O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called \"Manat\" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, \"O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa.\" So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' \" Aisha added, \"Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them.\" Later on I (`Urwa) told Abu Bakr bin `Abdur-Rahman (of `Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom `Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: \"Verily As-Safa and Al- Marwa are among the symbols of Allah.\" Abu Bakr said, \"It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka`ba",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Waqf is one of the most powerful forms of sadaqah jariyah -- an endowment whose rewards continue flowing to you even after death. Understanding its principles opens the door to leaving a lasting legacy.
@@ -5126,12 +6615,17 @@ Study the Islamic principles of waqf: an asset is dedicated permanently to a cha
         { title: 'Research existing waqf platforms and institutions', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text highlights the immense spiritual value of ongoing charity and its institutionalised form as waqf, it does not explicitly prescribe modern practices like researching platforms or evaluating governance structures, providing instead a clear logical inference to actively identify and utilize such institutions to secure this everlasting reward.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1631
-The Prophet (SAW) said: "When a son of Adam dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), knowledge from which benefit is derived, or a righteous child who prays for him." Waqf is the institutionalised form of sadaqah jariyah.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1631",
+              translation: "The Prophet (SAW) said: \"When a son of Adam dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), knowledge from which benefit is derived, or a righteous child who prays for him.\" Waqf is the institutionalised form of sadaqah jariyah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 You do not need to be wealthy to participate in waqf. Modern platforms offer collective waqf options where many contributors pool resources to create a larger endowment, making this form of ongoing charity accessible to everyone.
@@ -5143,19 +6637,26 @@ Research established waqf institutions in your region and internationally. Look 
         { title: 'Explore contributing to or establishing a small waqf', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention the term "waqf" or detail modern examples like medical clinics, they provide a clear logical inference for the subtask by highlighting the immense, multiplied rewards of spending in Allah\'s cause and explicitly establishing "ongoing charity" (sadaqah jariyah) as one of the few deeds that continuously benefits a person after death.',
-          sources: `**I. Quran**
-
-
-### Quran (2:261)
-**Arabic:** مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ  
-**Translation:** Those who spend their wealth in God's cause are like grains of corn that produce seven ears, each bearing a hundred grains. God gives multiple increase to whoever He wishes.
-
-**I. Hadith**
-
-
-### Sahih Muslim 1631
-The Prophet (SAW) said: "When a son of Adam dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), knowledge from which benefit is derived, or a righteous child who prays for him."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:261",
+              arabic: "مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ",
+              translation: "Those who spend their wealth in God's cause are like grains of corn that produce seven ears, each bearing a hundred grains. God gives multiple increase to whoever He wishes.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1631",
+              translation: "The Prophet (SAW) said: \"When a son of Adam dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), knowledge from which benefit is derived, or a righteous child who prays for him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  A waqf contribution, however small, can generate rewards for you long after you have left this world.
@@ -5173,23 +6674,35 @@ Choose a waqf cause that resonates with you: a masjid, an Islamic school, a wate
         { title: 'Identify someone who needs guidance on zakah', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly mention identifying specific individuals to teach about zakah calculation, they provide a clear logical inference for the subtask by combining the principles of zakah with the general directives to invite others to good and the promise of reward for guiding someone to a righteous deed.',
-          sources: `**I. Quran**
-
-
-### Quran (9:60)
-**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا  
-**Translation:** Zakah expenditures are only for the poor and the needy, and those employed to collect it...
-
-### Quran (3:104)
-**Arabic:** وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ  
-**Translation:** And let there be from you a nation inviting to good, enjoining what is right.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1893
-The Prophet (SAW) said: "Whoever guides someone to goodness will have a reward like that of the one who does it."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا",
+              translation: "Zakah expenditures are only for the poor and the needy, and those employed to collect it...",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 3:104",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ",
+              translation: "And let there be from you a nation inviting to good, enjoining what is right.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1893",
+              translation: "The Prophet (SAW) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Many Muslims neglect zakah not out of unwillingness but out of confusion about how to calculate it. By identifying and helping someone, you earn reward for both your own knowledge and their resulting worship.
@@ -5201,19 +6714,26 @@ Think of friends, family members, colleagues, or new Muslims who may not be calc
         { title: 'Walk them through calculating their zakatable wealth', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe modern teaching methods, spreadsheets, or the specific 2.5% calculation rate, they provide a clear logical inference for the subtask by establishing distinct nisab thresholds and emphasizing that accurate calculation fundamentally requires identifying qualifying assets.',
-          sources: `**I. Quran**
-
-
-### Quran (9:60)
-**Arabic:** إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ  
-**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1454
-The Prophet (SAW) established the nisab thresholds: five awsuq of dates, five awqiyyah of silver, and five camels. Calculating zakatable wealth accurately begins with identifying which assets reach these thresholds.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ",
+              translation: "Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1454",
+              translation: "The Prophet (SAW) established the nisab thresholds: five awsuq of dates, five awqiyyah of silver, and five camels. Calculating zakatable wealth accurately begins with identifying which assets reach these thresholds.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Walking someone through the calculation step by step demystifies zakah and empowers them to do it independently in future years. Teaching is one of the highest forms of sadaqah.
@@ -5225,25 +6745,35 @@ Sit down together (in person or virtually) and go through each step: list all za
         { title: 'Help them identify appropriate recipients', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail explaining the eight specific categories or splitting zakah internationally, they provide a clear logical inference for the subtask by establishing the core principle that wealth must not merely circulate among the rich and explicitly defining the prophetic mission of taking zakah from the wealthy to give to the poor.',
-          sources: `**I. Quran**
-
-
-### Quran (59:7)
-**Arabic:** كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ  
-**Translation:** This is so that they do not just circulate among those of you who are rich.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1458
-The Prophet (SAW) said to Mu'adh: "Inform them that Allah has made zakah obligatory — taken from the rich among them and given to the poor among them." Helping others identify appropriate recipients fulfils this prophetic mission.
-*(Grade: Sahih)*
-
-
-### Quran (9:60)
-**Arabic:** ۞ إِنَّمَا ٱلصَّدَقَـٰتُ لِلْفُقَرَآءِ وَٱلْمَسَـٰكِينِ وَٱلْعَـٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَـٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ  
-**Translation:** Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God’s cause, and for travellers in need. This is ordained by God; God is all knowing and wise.
-`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 59:7",
+              arabic: "كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ",
+              translation: "This is so that they do not just circulate among those of you who are rich.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1458",
+              translation: "The Prophet (SAW) said to Mu'adh: \"Inform them that Allah has made zakah obligatory — taken from the rich among them and given to the poor among them.\" Helping others identify appropriate recipients fulfils this prophetic mission.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "۞ إِنَّمَا ٱلصَّدَقَـٰتُ لِلْفُقَرَآءِ وَٱلْمَسَـٰكِينِ وَٱلْعَـٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَـٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ",
+              translation: "Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God’s cause, and for travellers in need. This is ordained by God; God is all knowing and wise.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Calculation is only half the task -- proper distribution is equally important. Helping someone understand the eight categories ensures their zakah is valid and reaches those who truly deserve it.
@@ -5266,21 +6796,26 @@ Briefly explain the eight categories from Surah At-Tawbah 9:60. Share your own l
         { title: 'Learn when and how to make the intention (niyyah) for fasting', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly detail the specific timing and non-verbal method of making the intention for fasting, they provide a clear logical inference for the subtask to learn these rules by establishing that the reward and validity of all prescribed deeds fundamentally depend upon one\'s intention.',
-          sources: `**I. Quran**
-
-
-### Quran (2:183)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
-**Translation:** "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God." (Abdel Haleem)
-
-*(Fasting is prescribed — كُتِبَ — meaning it is an obligation. The niyyah is the inner act that orients this obligation toward its purpose: God-consciousness, taqwa.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1
-Narrated 'Umar bin al-Khattab: I heard Allah's Messenger (ﷺ) saying, "The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:183",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+              translation: "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1",
+              translation: "Narrated 'Umar bin al-Khattab: I heard Allah's Messenger (ﷺ) saying, \"The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The niyyah distinguishes a genuine act of worship from mere hunger. Without a conscious intention directed to Allah, the fast has no spiritual weight.
@@ -5292,19 +6827,26 @@ The intention must be made before Fajr for obligatory fasts. It resides in the h
         { title: 'Know the fasting hours (Fajr to Maghrib)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mention the ending boundary of breaking the fast at Maghrib, they omit the starting boundary of Fajr and modern tools like prayer-time apps, providing a strong contextual indication rather than complete explicit proof for the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:184)
-**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
-**Translation:** "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate— feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1916
-Narrated Sahl bin Sa'd: The Prophet (ﷺ) said, "The people will remain on the right path as long as they hasten the breaking of the fast (at Maghrib)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:184",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate— feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1916",
+              translation: "Narrated Sahl bin Sa'd: The Prophet (ﷺ) said, \"The people will remain on the right path as long as they hasten the breaking of the fast (at Maghrib).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Knowing the exact boundaries of the fast protects its validity. Eating even a moment after Fajr or breaking fast before Maghrib can invalidate the entire day.
@@ -5316,21 +6858,26 @@ Fasting begins at the onset of Fajr (true dawn) and ends at Maghrib (sunset). Ea
         { title: 'Learn what you must abstain from (food, drink, relations)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly identify giving up food and drink as fundamental physical components of fasting, they omit specific details regarding marital relations, precise timings, and fiqh consequences like kaffarah, providing a clear contextual indication to formally study these essential physical boundaries.',
-          sources: `**I. Quran**
-
-
-### Quran (19:26)
-**Arabic:** فَكُلِي وَاشْرَبِي وَقَرِّي عَيْنًا ۖ فَإِمَّا تَرَيِنَّ مِنَ الْبَشَرِ أَحَدًا فَقُولِي إِنِّي نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًا فَلَنْ أُكَلِّمَ الْيَوْمَ إِنسِيًّا
-**Translation:** “so eat, drink, be glad, and say to anyone you may see: ‘I have vowed to the Lord of Mercy to abstain from conversation, and I will not talk to anyone today.’” (Abdel Haleem)
-
-*(Maryam’s (AS) “sawm” — صَوْمًا — was abstinence from speech, not just food. This verse reveals the deeper dimension: fasting is complete abstention from what the soul is commanded to withhold.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1894
-Narrated Abu Huraira: The Prophet (ﷺ) said, “Whoever does not give up false speech and acting upon it and offensive behaviour, Allah has no need that he should give up his food and drink.”
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 19:26",
+              arabic: "فَكُلِي وَاشْرَبِي وَقَرِّي عَيْنًا ۖ فَإِمَّا تَرَيِنَّ مِنَ الْبَشَرِ أَحَدًا فَقُولِي إِنِّي نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًا فَلَنْ أُكَلِّمَ الْيَوْمَ إِنسِيًّا",
+              translation: "so eat, drink, be glad, and say to anyone you may see: ‘I have vowed to the Lord of Mercy to abstain from conversation, and I will not talk to anyone today.’” (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1894",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, “Whoever does not give up false speech and acting upon it and offensive behaviour, Allah has no need that he should give up his food and drink.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The physical restraints of fasting are the pillars that hold the fast together. Ignorance of the basics risks repeated invalid fasts and unnecessary guilt.
@@ -5342,16 +6889,26 @@ A fasting person abstains from food, drink, and marital relations from Fajr to M
         { title: 'Understand who is exempt from fasting and their alternatives', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly detail the core exemptions for the ill and travelers along with the alternatives of making up days or paying fidyah, they omit specific categories like pregnant women, the elderly, or children, providing a clear logical inference to comprehensively study and categorize these exemptions as outlined in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:184)
-**Arabic:** فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ  
-**Translation:** So whoever among you is ill or on a journey — then an equal number of days are to be made up. And upon those who are able to fast but with hardship — a ransom of feeding a poor person.
-
-### Quran (2:185)
-**Arabic:** يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ  
-**Translation:** Allah intends for you ease and does not intend for you hardship.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:184",
+              arabic: "فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ",
+              translation: "So whoever among you is ill or on a journey — then an equal number of days are to be made up. And upon those who are able to fast but with hardship — a ransom of feeding a poor person.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:185",
+              arabic: "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ",
+              translation: "Allah intends for you ease and does not intend for you hardship.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Allah's mercy built exemptions into this obligation. Understanding them prevents unnecessary hardship and ensures those who cannot fast still fulfil their duty through proper alternatives.
@@ -5370,19 +6927,26 @@ Exemptions include: the ill, the traveller, pregnant/nursing women, the elderly 
         { title: 'List the acts that clearly break the fast', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly identify eating and drinking as fundamental acts to abstain from during the fast, they omit other invalidating acts like intentional vomiting or the modern practice of writing a reference list, providing a clear logical inference to compile and clarify these rules to protect one\'s worship.',
-          sources: `**I. Quran**
-
-
-### Quran (2:187)
-**Arabic:** وَكُلُوا وَاشْرَبُوا حَتَّىٰ يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ مِنَ الْفَجْرِ ۖ ثُمَّ أَتِمُّوا الصِّيَامَ إِلَى اللَّيْلِ  
-**Translation:** And eat and drink until the white thread of dawn becomes distinct to you from the black thread. Then complete the fast until the night.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1933
-The Prophet (SAW) said: "Whoever does not give up false speech and acting upon it, Allah has no need that he should give up his food and drink."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:187",
+              arabic: "وَكُلُوا وَاشْرَبُوا حَتَّىٰ يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ مِنَ الْفَجْرِ ۖ ثُمَّ أَتِمُّوا الصِّيَامَ إِلَى اللَّيْلِ",
+              translation: "And eat and drink until the white thread of dawn becomes distinct to you from the black thread. Then complete the fast until the night.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1933",
+              translation: "The Prophet (SAW) said: \"Whoever does not give up false speech and acting upon it, Allah has no need that he should give up his food and drink.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Confusing what does and does not break the fast leads to either unnecessary guilt or unknowingly invalid fasts. Clarity here protects your worship.
@@ -5394,19 +6958,26 @@ Deliberate eating, drinking, and sexual intercourse during fasting hours invalid
         { title: 'Learn common misconceptions (e.g., swallowing saliva, eye drops)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly correct the specific misconception that eating or drinking forgetfully invalidates the fast, they omit everyday and modern scenarios like swallowing saliva or using eye drops, providing a clear logical inference to study these boundaries comprehensively to prevent needless anxiety.',
-          sources: `**I. Quran**
-
-
-### Quran (2:187)
-**Arabic:** أُحِلَّ لَكُمْ لَيْلَةَ الصِّيَامِ الرَّفَثُ إِلَىٰ نِسَائِكُمْ  
-**Translation:** It has been made permissible for you the night preceding fasting to go to your wives.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1938
-The Prophet (SAW) said: "If somebody eats or drinks forgetfully then he should complete his fast, for what he has eaten or drunk has been given to him by Allah."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:187",
+              arabic: "أُحِلَّ لَكُمْ لَيْلَةَ الصِّيَامِ الرَّفَثُ إِلَىٰ نِسَائِكُمْ",
+              translation: "It has been made permissible for you the night preceding fasting to go to your wives.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1938",
+              translation: "The Prophet (SAW) said: \"If somebody eats or drinks forgetfully then he should complete his fast, for what he has eaten or drunk has been given to him by Allah.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Misconceptions about what breaks the fast cause needless anxiety and may lead people to invalidate fasts they did not actually break. Knowledge removes doubt.
@@ -5418,19 +6989,26 @@ Swallowing saliva, using eye drops, tasting food without swallowing, and receivi
         { title: 'Understand when kaffarah vs. qada is required', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly detail the specific expiation (kaffarah) required for intentionally breaking the fast, they omit the concept of simply making up missed days (qada), providing a clear logical inference to study and distinguish between these two methods of rectification.',
-          sources: `**I. Quran**
-
-
-### Quran (2:183)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ  
-**Translation:** O you who believe, decreed upon you is fasting as it was decreed upon those before you, that you may become righteous.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1936
-The Prophet (SAW) taught that kaffarah (expiation) is required for intentionally breaking the fast during Ramadan by marital relations: freeing a slave, or fasting two consecutive months, or feeding sixty poor people.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:183",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+              translation: "O you who believe, decreed upon you is fasting as it was decreed upon those before you, that you may become righteous.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1936",
+              translation: "The Prophet (SAW) taught that kaffarah (expiation) is required for intentionally breaking the fast during Ramadan by marital relations: freeing a slave, or fasting two consecutive months, or feeding sixty poor people.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The distinction between qada and kaffarah determines how you rectify a missed or broken fast. Misunderstanding this can leave obligations unfulfilled.
@@ -5449,19 +7027,26 @@ Qada (making up) is required for any missed fast. Kaffarah (expiation \u2014 fre
         { title: 'Calculate how many fasts you owe from previous years', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate making up an equal number of missed fasting days and mention owing days from Ramadan, they omit modern tracking methods like using a dedicated app, providing a clear logical inference to systematically calculate and account for this obligation as outlined in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:185)
-**Arabic:** فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ  
-**Translation:** So whoever sights the month, let him fast it; and whoever is ill or on a journey — then an equal number of other days.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1146
-A'ishah (RA) said: "I used to owe days from Ramadan and I could not make them up until Sha'ban." This indicates that qada should be made up before the next Ramadan.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:185",
+              arabic: "فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ",
+              translation: "So whoever sights the month, let him fast it; and whoever is ill or on a journey — then an equal number of other days.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1146",
+              translation: "A'ishah (RA) said: \"I used to owe days from Ramadan and I could not make them up until Sha'ban.\" This indicates that qada should be made up before the next Ramadan.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Missed fasts are a debt to Allah. You cannot repay what you have not counted. An honest accounting is the first step toward clearing this obligation.
@@ -5473,19 +7058,26 @@ Honestly account for any Ramadan fasts you missed due to illness, travel, menstr
         { title: 'Learn the deadline for making up Ramadan fasts', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate the core obligation to make up missed fasts on "other days later," they omit specific details regarding the deadline before the next Ramadan and the fiqh consequences of unjustified delay, providing a clear logical inference to study these temporal boundaries to ensure the duty is properly fulfilled.',
-          sources: `**I. Quran**
-
-
-### Quran (2:185)
-**Arabic:** شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ ۚ فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۗ يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللَّهَ عَلَىٰ مَا هَدَاكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ
-**Translation:** It was in the month of Ramadan that the Quran was revealed as guidance for mankind, clear messages giving guidance and distinguishing between right and wrong. So any one of you who is present that month should fast, and anyone who is ill or on a journey should make up for the lost days by fasting on other days later. God wants ease for you, not hardship. He wants you to complete the prescribed period and to glorify Him for having guided you, so that you may be thankful.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 38
-Narrated Abu Huraira: Allah's Messenger (ﷺ) said, "Whoever observes fasts during the month of Ramadan out of sincere faith, and hoping to attain Allah's rewards, then all his past sins will be forgiven
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:185",
+              arabic: "شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ ۚ فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۗ يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللَّهَ عَلَىٰ مَا هَدَاكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ",
+              translation: "It was in the month of Ramadan that the Quran was revealed as guidance for mankind, clear messages giving guidance and distinguishing between right and wrong. So any one of you who is present that month should fast, and anyone who is ill or on a journey should make up for the lost days by fasting on other days later. God wants ease for you, not hardship. He wants you to complete the prescribed period and to glorify Him for having guided you, so that you may be thankful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 38",
+              translation: "Narrated Abu Huraira: Allah's Messenger (ﷺ) said, \"Whoever observes fasts during the month of Ramadan out of sincere faith, and hoping to attain Allah's rewards, then all his past sins will be forgiven",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Delaying make-up fasts without awareness of the deadline can compound your obligation. Some scholars hold that unjustified delay adds fidyah on top of qada.
@@ -5497,19 +7089,26 @@ Missed fasts should ideally be made up before the next Ramadan arrives. Scholars
         { title: 'Understand the fidyah ruling for those permanently unable to fast', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the core fidyah ruling of feeding one poor person for each missed day for those permanently unable to fast, they omit modern administrative steps like calculating monetary equivalents or identifying trustworthy charities, providing a clear logical inference to systematically organize and fulfill this obligation.',
-          sources: `**I. Quran**
-
-
-### Quran (2:184)
-**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
-**Translation:** "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate— feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 4505
-Narrated Ibn \`Abbas: The Verse 'Those who can fast only with extreme difficulty, there is a way to compensate' was a concession granted to very old men and very old women who could not fast, allowing them to feed one poor person for each day (instead).
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:184",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate— feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4505",
+              translation: "Narrated Ibn `Abbas: The Verse 'Those who can fast only with extreme difficulty, there is a way to compensate' was a concession granted to very old men and very old women who could not fast, allowing them to feed one poor person for each day (instead).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 For those permanently unable to fast, fidyah is the merciful alternative that keeps them connected to the obligation. Understanding the amount and method ensures it is done correctly.
@@ -5528,19 +7127,26 @@ The elderly or chronically ill who cannot fast pay fidyah: feeding one poor pers
         { title: 'Calculate the total number of missed fasts', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate making up an "equal number" of missed fasting days and demonstrate an awareness of owing fasts, they omit modern practices like reviewing year by year or using a dedicated tracker, providing a clear logical inference to systematically calculate and quantify the exact obligation.',
-          sources: `**I. Quran**
-
-
-### Quran (2:184)
-**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
-**Translation:** "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate— feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1951
-Narrated \`Aisha: Sometimes I had missed fasts from Ramadan which I could not make up except in Sha'ban due to (being occupied in) serving the Prophet (ﷺ).
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:184",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate— feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1951",
+              translation: "Narrated `Aisha: Sometimes I had missed fasts from Ramadan which I could not make up except in Sha'ban due to (being occupied in) serving the Prophet (ﷺ).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 You cannot systematically repay a debt you have not quantified. A clear number turns a vague obligation into a concrete, achievable goal.
@@ -5552,19 +7158,26 @@ Review each previous Ramadan year by year. Count days missed for valid reasons. 
         { title: 'Create a schedule to make them up (e.g., Mondays and Thursdays)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate making up missed fasting days on "other days later," they omit specific strategies like combining them with Sunnah days or using modern calendar reminders, providing a clear logical inference to systematically plan and schedule this obligation as outlined in the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:185)
-**Arabic:** فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ  
-**Translation:** So any one of you who is present that month should fast, and anyone who is ill or on a journey should make up for the lost days by fasting on other days later.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1950
-The Prophet (SAW) said: "Whoever has fasting days to make up from Ramadan, let him fast them." Aishah reported that she would make up her missed Ramadan fasts in Sha'ban.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:185",
+              arabic: "فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ",
+              translation: "So any one of you who is present that month should fast, and anyone who is ill or on a journey should make up for the lost days by fasting on other days later.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1950",
+              translation: "The Prophet (SAW) said: \"Whoever has fasting days to make up from Ramadan, let him fast them.\" Aishah reported that she would make up her missed Ramadan fasts in Sha'ban.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 A schedule transforms good intentions into consistent action. Combining make-up fasts with Sunnah days lets you earn double reward while clearing your debt.
@@ -5576,21 +7189,26 @@ Combine make-up fasts with Sunnah days for double reward. Mondays and Thursdays 
         { title: 'Track your progress until all are completed', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts highly encourage gradual spiritual progression and the consistent performance of good deeds, they provide neither explicit proof nor contextual indication for the modern practice of systematically tracking progress through tallies, spreadsheets, or celebrating milestones to sustain motivation.',
-          sources: `**I. Quran**
-
-
-### Quran (84:19)
-**Arabic:** لَتَرْكَبُنَّ طَبَقًا عَن طَبَقٍ
-**Translation:** "you will progress from stage to stage." (Abdel Haleem)
-
-*(The Quran's promise of progression stage by stage applies directly to this gradual journey of completing a spiritual debt — each fast cleared is a rung climbed.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1950
-Narrated \`Aisha: The Prophet (ﷺ) said, "The most beloved deeds to Allah are those done consistently, even if they are few." [Paying back missed fasts one by one is an example of consistent, deliberate worship.]
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 84:19",
+              arabic: "لَتَرْكَبُنَّ طَبَقًا عَن طَبَقٍ",
+              translation: "you will progress from stage to stage.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1950",
+              translation: "Narrated `Aisha: The Prophet (ﷺ) said, \"The most beloved deeds to Allah are those done consistently, even if they are few.\" [Paying back missed fasts one by one is an example of consistent, deliberate worship.]",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Visible progress sustains motivation over what may be a months-long journey. Completing this obligation lifts a spiritual weight and brings immense relief.
@@ -5611,16 +7229,26 @@ Use a simple tally, spreadsheet, or app to count down your remaining fasts. Mark
         { title: 'Start with one day per week (Monday or Thursday)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly highlight the Prophetic practice and immense virtue of fasting on Mondays and Thursdays, they omit specific modern habit-building strategies like starting with one day a week for four weeks or setting recurring reminders, providing a clear logical inference to adopt these specific days for voluntary fasting.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1162
-The Prophet (SAW) said: "Deeds are presented (to Allah) on Mondays and Thursdays, and I like my deeds to be presented while I am fasting."
-*(Grade: Sahih)*
-
-### Sahih Muslim 1161
-The Prophet (SAW) used to fast Mondays and Thursdays. When asked why he fasted on Mondays, he said: "That is the day on which I was born and the day on which I was sent (as a Prophet)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1162",
+              translation: "The Prophet (SAW) said: \"Deeds are presented (to Allah) on Mondays and Thursdays, and I like my deeds to be presented while I am fasting.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1161",
+              translation: "The Prophet (SAW) used to fast Mondays and Thursdays. When asked why he fasted on Mondays, he said: \"That is the day on which I was born and the day on which I was sent (as a Prophet).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  Starting with one day builds the habit gently.
@@ -5631,16 +7259,26 @@ Choose whichever day fits your schedule better — Monday or Thursday. Set a rec
         { title: 'Build up to both days consistently', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the Prophetic preference for fasting on Mondays and Thursdays alongside the high virtue of consistent fasting like that of Dawud, they omit modern habit-building strategies such as waiting 4-6 weeks or preparing meals in advance, providing a clear logical inference to systematically build up to this two-day rhythm.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1162
-The Prophet (SAW) said: "Deeds are presented (to Allah) on Mondays and Thursdays, and I like my deeds to be presented while I am fasting."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1975
-The Prophet (SAW) said: "The most beloved fasting to Allah is the fasting of Dawud: he used to fast one day and not fast the next."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1162",
+              translation: "The Prophet (SAW) said: \"Deeds are presented (to Allah) on Mondays and Thursdays, and I like my deeds to be presented while I am fasting.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1975",
+              translation: "The Prophet (SAW) said: \"The most beloved fasting to Allah is the fasting of Dawud: he used to fast one day and not fast the next.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Two voluntary fasts per week creates a sustainable rhythm of weekly spiritual renewal, training the nafs in discipline and drawing you closer to the Prophetic practice.
@@ -5652,16 +7290,26 @@ Once one day feels natural (typically after 4-6 weeks), add the second. Prepare 
         { title: 'Track your voluntary fasting for one month', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly highlight the Prophetic practice of fasting on Mondays and Thursdays and emphasize the immense virtue of consistent deeds, they provide neither explicit proof nor contextual indication for the modern practice of systematically tracking fasts in a journal or app to analyze personal energy and mood patterns.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1162
-The Prophet (SAW) said: "Deeds are presented (to Allah) on Mondays and Thursdays, and I like my deeds to be presented while I am fasting."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 6464
-The Prophet (SAW) said: "The most beloved deeds to Allah are the most consistent ones, even if they are small."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1162",
+              translation: "The Prophet (SAW) said: \"Deeds are presented (to Allah) on Mondays and Thursdays, and I like my deeds to be presented while I am fasting.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6464",
+              translation: "The Prophet (SAW) said: \"The most beloved deeds to Allah are the most consistent ones, even if they are small.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tracking reveals patterns you would otherwise miss — how fasting affects your energy, worship quality, and relationship with food. Data turns a spiritual practice into a feedback loop.
@@ -5680,12 +7328,17 @@ Log each voluntary fast in a journal or app. After one month, review: How did fa
         { title: 'Download a Hijri calendar to track the white days', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly identifies the "white days" as the 13th, 14th, and 15th of the lunar month, it omits modern technological methods like downloading a calendar app or setting reminders, providing a clear logical inference to track the Hijri calendar to properly fulfill this Prophetic recommendation.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 1162
-The Prophet (SAW) said: "Fasting three days of each month is fasting for a lifetime." He was asked about the white days and said they are the 13th, 14th, and 15th of the lunar month.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1162",
+              translation: "The Prophet (SAW) said: \"Fasting three days of each month is fasting for a lifetime.\" He was asked about the white days and said they are the 13th, 14th, and 15th of the lunar month.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The white days follow the lunar calendar, which shifts relative to the Gregorian calendar each month. Without a Hijri reference, you will miss them.
@@ -5697,16 +7350,26 @@ Download an Islamic calendar app that displays Hijri dates alongside the Gregori
         { title: 'Fast the white days for one lunar month as a trial', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the Prophetic command to fast the 13th, 14th, and 15th of each lunar month for the reward of a lifetime, they omit modern habit-building strategies like using a single month as a trial or noting physical and spiritual feelings, providing a clear logical inference to test and systematically adopt this practice.',
-          sources: `**I. Hadith**
-
-
-### Sunan al-Nasa'i 2420
-The Prophet (SAW) said: "Fasting three days of every month is fasting for a lifetime." This refers to the three white days (al-ayyam al-bid): the 13th, 14th, and 15th of each lunar month.
-*(Grade: Sahih)*
-
-### Sahih Muslim 1162
-Abu Dharr (RA) reported: "The Messenger of Allah commanded us to fast three days of each month: the 13th, 14th, and 15th."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sunan al-Nasa'i 2420",
+              translation: "The Prophet (SAW) said: \"Fasting three days of every month is fasting for a lifetime.\" This refers to the three white days (al-ayyam al-bid): the 13th, 14th, and 15th of each lunar month.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1162",
+              translation: "Abu Dharr (RA) reported: \"The Messenger of Allah commanded us to fast three days of each month: the 13th, 14th, and 15th.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Three fasts per month equals 36 per year, which with the ten-fold multiplier equals fasting the entire year in reward. A single trial month proves to yourself that this is achievable.
@@ -5718,21 +7381,35 @@ Identify the 13th, 14th, and 15th of the upcoming lunar month on your Hijri cale
         { title: 'Make it a consistent monthly practice', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the Prophetic command to fast three days of every month and emphasize the virtue of consistency, they omit modern practical strategies like adding recurring calendar events or preparing a balanced suhoor, providing a clear logical inference to adopt these specific methods to ensure the practice becomes a lifelong habit.',
-          sources: `**I. Hadith**
-
-
-### Sunan al-Nasa'i 2420
-The Prophet (SAW) said: "Fasting three days of every month is fasting for a lifetime."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 6464
-The Prophet (SAW) said: "The most beloved deeds to Allah are the most consistent ones, even if they are small."
-*(Grade: Sahih)*
-
-### Sahih Bukhari 202
-Abu Huraira reported the Prophet advised him 'to fast three days a month.' Also recorded in Sahih Muslim 1558.
-*(Grade: Sahih)*
-`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sunan al-Nasa'i 2420",
+              translation: "The Prophet (SAW) said: \"Fasting three days of every month is fasting for a lifetime.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6464",
+              translation: "The Prophet (SAW) said: \"The most beloved deeds to Allah are the most consistent ones, even if they are small.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 202",
+              translation: "Abu Huraira reported the Prophet advised him 'to fast three days a month.' Also recorded in Sahih Muslim 1558.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Abu Hurayrah (RA) reported that the Prophet (SAW) advised him to fast three days of every month (Bukhari/Muslim). Making this a lifelong habit earns the reward of fasting an entire year, every year.
@@ -5751,19 +7428,26 @@ Add the white days to your calendar as a recurring monthly event. Prepare by eat
         { title: 'Study the ayah linking fasting to taqwa (2:183)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish that the purpose of fasting is to attain mindfulness of God (taqwa), they omit modern educational practices like reading trusted translations or journaling reflections, providing a clear logical inference to actively study and internalize this foundational verse.',
-          sources: `**I. Quran**
-
-
-### Quran (2:183)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ  
-**Translation:** You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1904
-The Prophet (SAW) said: "Whoever fasts Ramadan out of faith and seeking reward, his previous sins will be forgiven."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:183",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+              translation: "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1904",
+              translation: "The Prophet (SAW) said: \"Whoever fasts Ramadan out of faith and seeking reward, his previous sins will be forgiven.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Allah explicitly states the purpose of fasting in Surah al-Baqarah 2:183 — that you may attain taqwa. Understanding this transforms fasting from physical endurance into spiritual cultivation.
@@ -5775,19 +7459,26 @@ Read the ayah in Arabic and a trusted translation. Reflect on how physical restr
         { title: 'Reflect on how fasting develops patience with hunger and anger', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish fasting as a shield and command restraint against anger and ignorant behavior, they omit modern reflective practices like journaling, providing a clear logical inference to actively monitor and reflect on one\'s temper to attain the prescribed mindfulness of God (taqwa).',
-          sources: `**I. Quran**
-
-
-### Quran (2:183)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ  
-**Translation:** O you who believe, fasting is prescribed for you as it was prescribed for those before you, that you may attain taqwa (God-consciousness).
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1904
-The Prophet (SAW) said: "Fasting is a shield. When any one of you is fasting, let him not speak indecently or act ignorantly. If someone fights or insults him, let him say: I am fasting, I am fasting."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:183",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+              translation: "O you who believe, fasting is prescribed for you as it was prescribed for those before you, that you may attain taqwa (God-consciousness).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1904",
+              translation: "The Prophet (SAW) said: \"Fasting is a shield. When any one of you is fasting, let him not speak indecently or act ignorantly. If someone fights or insults him, let him say: I am fasting, I am fasting.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) called fasting a shield (Bukhari). It is not merely about hunger — it trains you to govern your tongue and temper, which are far harder to control than appetite.
@@ -5799,19 +7490,26 @@ During your next fast, pay deliberate attention to moments of irritation or impa
         { title: 'Journal about gratitude for provisions after breaking fast', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly encourage gratitude and highlight the special acceptance of a fasting person\'s supplication upon breaking the fast, they omit modern reflective practices like journaling, providing a clear logical inference to actively cultivate and record this gratitude.',
-          sources: `**I. Quran**
-
-
-### Quran (2:185)
-**Arabic:** يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللَّهَ عَلَىٰ مَا هَدَاكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ  
-**Translation:** Allah intends for you ease and does not intend for you hardship, and wants for you to complete the period and to glorify Allah for having guided you, and perhaps you will be grateful.
-
-**II. Hadith**
-
-
-### Sunan al-Tirmidhi 3598
-The Prophet (SAW) said: "There are three whose supplication is not rejected: the fasting person when he breaks his fast, the just ruler, and the supplication of the oppressed."
-*(Grade: Hasan)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:185",
+              arabic: "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللَّهَ عَلَىٰ مَا هَدَاكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ",
+              translation: "Allah intends for you ease and does not intend for you hardship, and wants for you to complete the period and to glorify Allah for having guided you, and perhaps you will be grateful.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sunan al-Tirmidhi 3598",
+              translation: "The Prophet (SAW) said: \"There are three whose supplication is not rejected: the fasting person when he breaks his fast, the just ruler, and the supplication of the oppressed.\"",
+              relevance: "direct",
+              provenanceTier: "Qarina",
+              hadithGrade: "Hasan",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The moment of iftar reveals how much we take water, dates, and bread for granted. Gratitude (shukr) is a core fruit of fasting — journaling captures and deepens it.
@@ -5830,21 +7528,26 @@ Keep a small notebook or phone note dedicated to fasting reflections. After brea
         { title: 'Learn the du\'a for breaking the fast', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly document the exact Prophetic supplication (du\'a) for breaking the fast, they omit explicit learning directives like memorization and the specific detail that iftar is a time when supplication is most accepted, providing a clear logical inference to actively learn and habituate this practice.',
-          sources: `**I. Quran**
-
-
-### Quran (2:183)
-**Arabic:** يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
-**Translation:** "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God." (Abdel Haleem)
-
-*(The taqwa that fasting builds finds its culmination in the du'a of iftar — an act of gratitude and hope marking the transition back from abstinence to sustenance.)*
-
-**II. Hadith**
-
-
-### Sahih Abu Dawud 2357
-Narrated 'Abdullah ibn 'Umar: The Prophet (ﷺ) used to say when breaking his fast: "Dhahaba al-zama', wa-btallat al-'uruq, wa-thabat al-ajr in sha'a Allah" (The thirst has gone, the veins are refreshed, and the reward is confirmed, if Allah wills).
-*(Grade: Hasan)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:183",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+              translation: "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sunan Abi Dawud 2357",
+              translation: "Narrated 'Abdullah ibn 'Umar: The Prophet (ﷺ) used to say when breaking his fast: \"Dhahaba al-zama', wa-btallat al-'uruq, wa-thabat al-ajr in sha'a Allah\" (The thirst has gone, the veins are refreshed, and the reward is confirmed, if Allah wills).",
+              relevance: "direct",
+              provenanceTier: "Qarina",
+              hadithGrade: "Hasan",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The moment of iftar is one of the times when du'a is most accepted. Learning the Prophetic du'a connects your fast's end to gratitude and hope in Allah's reward.
@@ -5856,12 +7559,17 @@ Memorize the du'a: "Dhahaba al-dhama', wabtallat al-uruq, wa thabata al-ajr in s
         { title: 'Study what the Prophet (SAW) ate for suhoor and iftar', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text explicitly recounts the revelation permitting eating and drinking during the night of fasting, it provides neither explicit proof nor contextual indication regarding the specific foods the Prophet ate for suhoor and iftar, such as dates or water.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1915
-Narrated Al-Bara:It was the custom among the companions of Muhammad that if any of them was fasting and the food was presented (for breaking his fast), but he slept before eating, he would not eat that night and the following day till sunset. Qais bin Sirma-al-Ansari was fasting and came to his wife at the time of Iftar (breaking one's fast) and asked her whether she had anything to eat. She replied, "No, but I would go and bring some for you." He used to do hard work during the day, so he was overwhelmed by sleep and slept. When his wife came and saw him, she said, "Disappointment for you." When it was midday on the following day, he fainted and the Prophet (ﷺ) was informed about the whole matter and the following verses were revealed: "You are permitted To go to your wives (for sexual relation) At the night of fasting." So, they were overjoyed by it. And then Allah also revealed: "And eat and drink Until the white thread Of dawn appears to you Distinct from the black thread (of the night)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1915",
+              translation: "Narrated Al-Bara:It was the custom among the companions of Muhammad that if any of them was fasting and the food was presented (for breaking his fast), but he slept before eating, he would not eat that night and the following day till sunset. Qais bin Sirma-al-Ansari was fasting and came to his wife at the time of Iftar (breaking one's fast) and asked her whether she had anything to eat. She replied, \"No, but I would go and bring some for you.\" He used to do hard work during the day, so he was overwhelmed by sleep and slept. When his wife came and saw him, she said, \"Disappointment for you.\" When it was midday on the following day, he fainted and the Prophet (ﷺ) was informed about the whole matter and the following verses were revealed: \"You are permitted To go to your wives (for sexual relation) At the night of fasting.\" So, they were overjoyed by it. And then Allah also revealed: \"And eat and drink Until the white thread Of dawn appears to you Distinct from the black thread (of the night)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Following the Prophetic example in suhoor and iftar connects your daily meals to his Sunnah and brings barakah to the simplest food.
@@ -5873,20 +7581,35 @@ The Prophet (SAW) would break his fast with fresh dates; if not available, then 
         { title: 'Practice delaying suhoor and hastening iftar as Sunnah', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate hastening the breaking of the fast and the general practice of eating suhoor, they omit the specific directive to delay suhoor and modern practical strategies like setting alarms or preparing food in advance, providing a clear logical inference to adopt these specific methods to properly fulfill this Prophetic practice.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1957
-The Prophet (SAW) said: "Hasten to break the fast (iftar), for that is the practice of goodness."
-*(Grade: Sahih)*
-
-### Sahih Muslim 1095
-The Prophet (SAW) said: "My Ummah will continue to be upon goodness so long as they hasten to break the fast."
-*(Grade: Sahih)*
-
-### Sahih Muslim 1096
-The Prophet (SAW) said: "Eat suhoor, for in suhoor there is blessing (barakah)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1957",
+              translation: "The Prophet (SAW) said: \"Hasten to break the fast (iftar), for that is the practice of goodness.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1095",
+              translation: "The Prophet (SAW) said: \"My Ummah will continue to be upon goodness so long as they hasten to break the fast.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1096",
+              translation: "The Prophet (SAW) said: \"Eat suhoor, for in suhoor there is blessing (barakah).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
  These timings are markers of adherence to the Sunnah.
@@ -5906,21 +7629,26 @@ Set an alarm for suhoor 20-30 minutes before Fajr so you eat close to the deadli
         { title: 'Mark the dates of Arafah and Ashura on your calendar', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly highlight the immense expiation of sins for fasting on specific sacred days like Arafah, they omit modern tracking methods such as using calendar apps or setting reminders, providing a clear logical inference to systematically identify and prepare for these dates to ensure their immense rewards are not missed.',
-          sources: `**I. Quran**
-
-
-### Quran (55:11)
-**Arabic:** فِيهَا فَاكِهَةٌ وَالنَّخْلُ ذَاتُ الْأَكْمَامِ
-**Translation:** "with its fruits, its palm trees with sheathed clusters." (Abdel Haleem)
-
-*(Surah al-Rahman describes the blessings of creation and time. Marking sacred days of the Islamic calendar — Arafah and Ashura — is an act of consciousness of Allah's gifts woven into time itself.)*
-
-**II. Hadith**
-
-
-### Sahih Muslim 1162
-Abu Qatadah al-Ansari reported that the Messenger of Allah (ﷺ) was asked about fasting on the day of Arafah, whereupon he said: "It expiates the sins of the preceding year and the coming year."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 55:11",
+              arabic: "فِيهَا فَاكِهَةٌ وَالنَّخْلُ ذَاتُ الْأَكْمَامِ",
+              translation: "with its fruits, its palm trees with sheathed clusters.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1162",
+              translation: "Abu Qatadah al-Ansari reported that the Messenger of Allah (ﷺ) was asked about fasting on the day of Arafah, whereupon he said: \"It expiates the sins of the preceding year and the coming year.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 These are among the most rewarding voluntary fasts in the entire year. Missing them because you did not check the Hijri calendar means missing enormous expiation of sins.
@@ -5932,12 +7660,17 @@ Arafah is the 9th of Dhul Hijjah; Ashura is the 10th of Muharram. At the start o
         { title: 'Fast the day of Arafah (for non-pilgrims)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text identifies the day of Arafat as the 9th of Dhul-Hijja and discusses a specific compensatory fast for pilgrims, it provides neither explicit proof nor contextual indication for the highly rewarded practice of voluntary fasting specifically recommended for non-pilgrims.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 4521
-Narrated Ibn \`Abbas:A man who wants to perform the Hajj (from Mecca) can perform the Tawaf around the Ka\`ba as long as he is not in the state of Ihram till he assumes the Ihram for Hajj. Then, if he rides and proceeds to \`Arafat, he should take a Hadi (i.e. animal for sacrifice), either a camel or a cow or a sheep, whatever he can afford; but if he cannot afford it, he should fast for three days during the Hajj before the day of \`Arafat, but if the third day of his fasting happens to be the day of \`Arafat (i.e. 9th of Dhul-Hijja) then it is no sin for him (to fast on it). Then he should proceed to \`Arafat and stay there from the time of the \`Asr prayer till darkness falls. Then the pilgrims should proceed from \`Arafat, and when they have departed from it, they reach Jam' (i.e. Al-Muzdalifa) where they ask Allah to help them to be righteous and dutiful to Him, and there they remember Allah greatly or say Takbir (i.e. Allah is Greater) and Tahlil (i.e. None has the right to be worshipped but Allah) repeatedly before dawn breaks. Then, after offering the morning (Fajr) prayer you should pass on (to Mina) for the people used to do so and Allah said:-- "Then depart from the place whence all the people depart. And ask for Allah's Forgiveness. Truly! Allah is Oft-Forgiving, Most Merciful." (2.199) Then you should go on doing so till you throw pebbles over the Jamra
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 4521",
+              translation: "Narrated Ibn `Abbas:A man who wants to perform the Hajj (from Mecca) can perform the Tawaf around the Ka`ba as long as he is not in the state of Ihram till he assumes the Ihram for Hajj. Then, if he rides and proceeds to `Arafat, he should take a Hadi (i.e. animal for sacrifice), either a camel or a cow or a sheep, whatever he can afford; but if he cannot afford it, he should fast for three days during the Hajj before the day of `Arafat, but if the third day of his fasting happens to be the day of `Arafat (i.e. 9th of Dhul-Hijja) then it is no sin for him (to fast on it). Then he should proceed to `Arafat and stay there from the time of the `Asr prayer till darkness falls. Then the pilgrims should proceed from `Arafat, and when they have departed from it, they reach Jam' (i.e. Al-Muzdalifa) where they ask Allah to help them to be righteous and dutiful to Him, and there they remember Allah greatly or say Takbir (i.e. Allah is Greater) and Tahlil (i.e. None has the right to be worshipped but Allah) repeatedly before dawn breaks. Then, after offering the morning (Fajr) prayer you should pass on (to Mina) for the people used to do so and Allah said:-- \"Then depart from the place whence all the people depart. And ask for Allah's Forgiveness. Truly! Allah is Oft-Forgiving, Most Merciful.\" (2.199) Then you should go on doing so till you throw pebbles over the Jamra",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) said fasting the day of Arafah expiates the sins of the previous year and the coming year (Muslim). No other single voluntary fast carries this weight of reward.
@@ -5949,16 +7682,26 @@ Confirm the Gregorian date of 9th Dhul Hijjah using your Hijri calendar. Make yo
         { title: 'Fast the 9th and 10th of Muharram (or 10th and 11th)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly establish the practice and voluntary nature of fasting on the 10th of Muharram (\'Ashura), they omit any mention of fasting on the 9th or 11th, the intention to distinguish Muslim practice, or the expiation of sins, providing neither explicit proof nor contextual indication for these specific details outlined in the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1892
-Narrated Ibn \`Umar:The Prophet (ﷺ) observed the fast on the 10th of Muharram ('Ashura), and ordered (Muslims) to fast on that day, but when the fasting of the month of Ramadan was prescribed, the fasting of the 'Ashura' was abandoned. \`Abdullah did not use to fast on that day unless it coincided with his routine fasting by chance
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1592
-Narrated \`Aisha:The people used to fast on 'Ashura (the tenth day of the month of Muharram) before the fasting of Ramadan was made obligatory. And on that day the Ka\`ba used to be covered with a cover. When Allah made the fasting of the month of Ramadan compulsory, Allah's Messenger (ﷺ) said, "Whoever wishes to fast (on the day of 'Ashura') may do so; and whoever wishes to leave it can do so
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1892",
+              translation: "Narrated Ibn `Umar:The Prophet (ﷺ) observed the fast on the 10th of Muharram ('Ashura), and ordered (Muslims) to fast on that day, but when the fasting of the month of Ramadan was prescribed, the fasting of the 'Ashura' was abandoned. `Abdullah did not use to fast on that day unless it coincided with his routine fasting by chance",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1592",
+              translation: "Narrated `Aisha:The people used to fast on 'Ashura (the tenth day of the month of Muharram) before the fasting of Ramadan was made obligatory. And on that day the Ka`ba used to be covered with a cover. When Allah made the fasting of the month of Ramadan compulsory, Allah's Messenger (ﷺ) said, \"Whoever wishes to fast (on the day of 'Ashura') may do so; and whoever wishes to leave it can do so",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) fasted Ashura and expressed the intention to add the 9th to distinguish the Muslim practice. Fasting the 10th of Muharram expiates the sins of the previous year.
@@ -5977,21 +7720,26 @@ Identify the 9th and 10th of Muharram on your Hijri calendar. Fast both days if 
         { title: 'Plan when to fast the six days (consecutively or spread out)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the highly rewarded Sunnah of fasting six days in Shawwal, they omit specific logistical details such as whether to fast them consecutively or spread them out and modern planning methods like calendar marking, providing a clear logical inference to systematically plan and schedule these fasts to ensure their completion.',
-          sources: `**I. Quran**
-
-
-### Quran (2:184)
-**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
-**Translation:** "Fast for a specific number of days... But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew." (Abdel Haleem)
-
-*("And fasting is better for you" — the Quran's encouragement of voluntary fasting beyond the obligatory points to the Sunnah of the six Shawwal fasts.)*
-
-**II. Hadith**
-
-
-### Sahih Muslim 2758
-Narrated Abu Ayyub al-Ansari: The Messenger of Allah (ﷺ) said, "He who fasts during Ramadan and follows it up with six (fasts) of Shawwal, it is as if he fasted perpetually."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:184",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days... But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2758",
+              translation: "Narrated Abu Ayyub al-Ansari: The Messenger of Allah (ﷺ) said, \"He who fasts during Ramadan and follows it up with six (fasts) of Shawwal, it is as if he fasted perpetually.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Planning ahead ensures you complete all six fasts within Shawwal. Without a plan, the month slips by and the opportunity is lost.
@@ -6003,12 +7751,17 @@ You can fast the six days consecutively starting from 2nd Shawwal, or spread the
         { title: 'Complete the six fasts within Shawwal', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly establishes the highly rewarded Sunnah of fasting six days in Shawwal after completing Ramadan, it omits modern practical steps such as tracking completed days, consulting scholars on making up missed fasts (qada), and aiming to finish early, providing a clear logical inference to systematically fulfill this specific obligation within the month.',
-          sources: `**I. Hadith**
-
-
-### Sahih Muslim 2758
-Abu Ayyub al-Ansari (Allah be pleased with him) reported Allah's Messenger (ﷺ) as saying:He who observed the fast of Ramadan and then followed it with six (fasts) of Shawwal. it would be as if he fasted perpetually
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2758",
+              translation: "Abu Ayyub al-Ansari (Allah be pleased with him) reported Allah's Messenger (ﷺ) as saying:He who observed the fast of Ramadan and then followed it with six (fasts) of Shawwal. it would be as if he fasted perpetually",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The reward — equivalent to fasting the entire year — is tied specifically to Shawwal. Delaying past the month forfeits this particular reward.
@@ -6020,19 +7773,26 @@ The hadith specifies Shawwal (the month after Ramadan). If you owe make-up fasts
         { title: 'Make a habit of fasting them every year', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly emphasize the virtue of voluntary fasting and the immense value of making good deeds regular and constant, they omit the specific mention of the six days of Shawwal, their ten-fold reward multiplier, and modern habit-building techniques like setting reminders, providing a clear logical inference to establish this specific fast as a consistent annual habit.',
-          sources: `**I. Quran**
-
-
-### Quran (2:184)
-**Arabic:** أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
-**Translation:** "Fast for a specific number of days... and fasting is better for you, if only you knew." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 43
-Narrated \`Aisha: The Prophet (ﷺ) said, "Do good deeds properly, sincerely and moderately and know that your deeds will not make you enter Paradise, and that the most beloved deed to Allah is the most regular and constant even though it were little."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:184",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days... and fasting is better for you, if only you knew.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 43",
+              translation: "Narrated `Aisha: The Prophet (ﷺ) said, \"Do good deeds properly, sincerely and moderately and know that your deeds will not make you enter Paradise, and that the most beloved deed to Allah is the most regular and constant even though it were little.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Ramadan (30 days) + 6 of Shawwal = 36 days. With the ten-fold multiplier, that equals 360 days — like fasting the entire year. Making this annual locks in a massive, compounding reward.
@@ -6051,12 +7811,17 @@ After completing the six fasts this year, immediately add a reminder for next Sh
         { title: 'Plan the logistics (venue, menu, invitations)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly highlights the immense reward for providing iftar to a fasting person, it omits specific modern logistical details such as choosing a venue, planning a menu, or sending invitations via WhatsApp, providing a clear logical inference to systematically plan and organize these efforts to successfully fulfill this highly rewarded practice.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1957
-The Prophet (SAW) said: "Whoever provides iftar for a fasting person will have a reward like his, without diminishing the fasting person's reward in any way."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1957",
+              translation: "The Prophet (SAW) said: \"Whoever provides iftar for a fasting person will have a reward like his, without diminishing the fasting person's reward in any way.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Feeding a fasting person earns you the reward of their fast without diminishing theirs. Good logistics ensure the event actually happens rather than remaining a good intention.
@@ -6068,23 +7833,35 @@ Choose a venue (masjid, community hall, or your home). Plan a simple, nutritious
         { title: 'Invite neighbours, new Muslims, and those in need', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly command doing good to neighbors, the needy, and travelers, they omit modern practical applications such as hosting community iftars or sourcing guest lists from local mosques and student associations, providing a clear logical inference to fulfill these divine directives by specifically inviting isolated and vulnerable individuals to break their fast together.',
-          sources: `**I. Quran**
-
-
-### Quran (4:36)
-**Arabic:** وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا ۖ وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنبِ وَابْنِ السَّبِيلِ وَمَا مَلَكَتْ أَيْمَانُكُمْ ۗ إِنَّ اللَّهَ لَا يُحِبُّ مَن كَانَ مُخْتَالًا فَخُورًا
-**Translation:** "Worship God; join nothing with Him. Be good to your parents, to relatives, to orphans, to the needy, to neighbours near and far, to travellers in need, and to your slaves. God does not like arrogant, boastful people." (Abdel Haleem)
-
-### Quran (41:33)
-**Arabic:** وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ
-**Translation:** "Who speaks better than someone who calls people to God, does what is right, and says, 'I am one of those devoted to God'?" (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 5185
-Narrated Abu Huraira: The Prophet (ﷺ) said, "He who believes in Allah and the Last Day should not hurt (trouble) his neighbour. And I advise you to take care of women, for they are created from a rib and the most crooked portion of the rib is its upper part; if you try to straighten it, it will break, and if you leave it, it will remain crooked, so I urge you to take care of women."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:36",
+              arabic: "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا ۖ وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنبِ وَابْنِ السَّبِيلِ وَمَا مَلَكَتْ أَيْمَانُكُمْ ۗ إِنَّ اللَّهَ لَا يُحِبُّ مَن كَانَ مُخْتَالًا فَخُورًا",
+              translation: "Worship God; join nothing with Him. Be good to your parents, to relatives, to orphans, to the needy, to neighbours near and far, to travellers in need, and to your slaves. God does not like arrogant, boastful people.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 41:33",
+              arabic: "وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ",
+              translation: "Who speaks better than someone who calls people to God, does what is right, and says, 'I am one of those devoted to God'?\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5185",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, \"He who believes in Allah and the Last Day should not hurt (trouble) his neighbour. And I advise you to take care of women, for they are created from a rib and the most crooked portion of the rib is its upper part; if you try to straighten it, it will break, and if you leave it, it will remain crooked, so I urge you to take care of women.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The greatest impact of a community iftar comes from reaching those who would otherwise break their fast alone. These are the people most in need of belonging.
@@ -6096,19 +7873,26 @@ Prioritise those who may not have community connections \u2014 new Muslims, inte
         { title: 'Host the iftar and foster community bonds', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly command humanity to get to know one another and emphasize loving for one\'s brother what one loves for oneself to build brotherhood, they omit specific modern hosting details like using simple decorations, sharing food family-style, and following up after Ramadan, providing a clear logical inference to actively employ these practical methods to foster community bonds.',
-          sources: `**I. Quran**
-
-
-### Quran (49:13)
-**Arabic:** يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا  
-**Translation:** People, We created you all from a single man and a single woman, and made you into races and tribes so that you should recognize one another.
-
-**I. Hadith**
-
-
-### Sahih Muslim 2586
-The Prophet (SAW) said: "None of you truly believes until he loves for his brother what he loves for himself." Sharing iftar strengthens bonds of brotherhood.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 49:13",
+              arabic: "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا",
+              translation: "People, We created you all from a single man and a single woman, and made you into races and tribes so that you should recognize one another.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2586",
+              translation: "The Prophet (SAW) said: \"None of you truly believes until he loves for his brother what he loves for himself.\" Sharing iftar strengthens bonds of brotherhood.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Community bonds built over shared food last long beyond Ramadan. A single welcoming iftar can transform a stranger into a lifelong brother or sister in faith.
@@ -6131,23 +7915,35 @@ Create a welcoming atmosphere with simple decorations and warm greetings. Begin 
         { title: 'Study the five conditions of obligation', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish that Hajj is obligatory only for those with the physical and financial ability to perform it, they omit the specific scholarly enumeration of the five conditions and the modern recommendation to use a reliable fiqh reference, providing a clear logical inference to systematically study these requirements to properly understand one\'s obligation.',
-          sources: `**I. Quran**
-
-
-### Quran (3:97)
-**Arabic:** وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا  
-**Translation:** And due to Allah from the people is a pilgrimage to the House — for whoever is able to find thereto a way.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1513
-The Prophet (SAW) was asked: "What makes Hajj obligatory?" He said: "Provision and a means of transport."
-*(Grade: Sahih)*
-
-### Sahih Muslim 1337
-The Prophet (SAW) said: "O people, Allah has made Hajj obligatory upon you, so perform Hajj." A man asked: "Every year, O Messenger of Allah?" He said: "If I said yes, it would become obligatory every year."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:97",
+              arabic: "وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا",
+              translation: "And due to Allah from the people is a pilgrimage to the House — for whoever is able to find thereto a way.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1513",
+              translation: "The Prophet (SAW) was asked: \"What makes Hajj obligatory?\" He said: \"Provision and a means of transport.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1337",
+              translation: "The Prophet (SAW) said: \"O people, Allah has made Hajj obligatory upon you, so perform Hajj.\" A man asked: \"Every year, O Messenger of Allah?\" He said: \"If I said yes, it would become obligatory every year.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Hajj is one of Islam's five pillars, but it is only obligatory when specific conditions are met. Knowing these conditions prevents you from either neglecting a duty or burdening yourself beyond what Allah requires.
@@ -6159,19 +7955,26 @@ Study the five conditions: being Muslim, sane, having reached puberty, being phy
         { title: 'Assess your current financial and physical ability', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish that the pilgrimage is a duty for those who are able to undertake it, they omit explicit definitions of this ability and modern practical steps like consulting a doctor or reviewing finances, providing a clear logical inference to systematically assess one\'s physical and financial capacity to fulfill this obligation.',
-          sources: `**I. Quran**
-
-
-### Quran (3:97)
-**Arabic:** وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا  
-**Translation:** Pilgrimage to the House is a duty owed to God by people who are able to undertake it. Those who reject this [should know that] God has no need of anyone.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1513
-The Prophet (SAW) said: "Islam is built upon five pillars..." among them: "pilgrimage to the House for whoever is able to find a way."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:97",
+              arabic: "وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا",
+              translation: "Pilgrimage to the House is a duty owed to God by people who are able to undertake it. Those who reject this [should know that] God has no need of anyone.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1513",
+              translation: "The Prophet (SAW) said: \"Islam is built upon five pillars...\" among them: \"pilgrimage to the House for whoever is able to find a way.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Hajj requires both financial and physical capacity. An honest self-assessment ensures you fulfil the obligation at the right time without harming yourself or your dependants.
@@ -6183,23 +7986,35 @@ Ask yourself: can you afford the trip without going into debt or depriving your 
         { title: 'Determine if Hajj is currently fard upon you', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish that Allah has made Hajj obligatory for Muslims, they omit the specific enumeration of the five conditions and the scholarly consensus regarding the sinfulness of delaying, providing a clear logical inference to systematically review one\'s personal circumstances to determine if the obligation currently applies.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ
-**Translation:** "The pilgrimage takes place during the prescribed months. There should be no indecent speech, misbehaviour, or quarrelling for anyone undertaking the pilgrimage— whatever good you do, God is well aware of it. Provide well for yourselves: the best provision is to be mindful of God— always be mindful of Me, you who have understanding." (Abdel Haleem)
-
-### Quran (22:27)
-**Arabic:** وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ
-**Translation:** "Proclaim the Pilgrimage to all people. They will come to you on foot and on every kind of swift mount, emerging from every deep mountain pass." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Muslim 1337
-Narrated Abu Huraira: The Messenger of Allah (ﷺ) addressed us and said: "O people, Allah has made Hajj obligatory for you, so perform Hajj." A man asked: "Every year, O Messenger of Allah?" He kept silent until the man asked three times, then he said: "If I had said yes, it would have become obligatory (every year)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ",
+              translation: "The pilgrimage takes place during the prescribed months. There should be no indecent speech, misbehaviour, or quarrelling for anyone undertaking the pilgrimage— whatever good you do, God is well aware of it. Provide well for yourselves: the best provision is to be mindful of God— always be mindful of Me, you who have understanding.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 22:27",
+              arabic: "وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ",
+              translation: "Proclaim the Pilgrimage to all people. They will come to you on foot and on every kind of swift mount, emerging from every deep mountain pass.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1337",
+              translation: "Narrated Abu Huraira: The Messenger of Allah (ﷺ) addressed us and said: \"O people, Allah has made Hajj obligatory for you, so perform Hajj.\" A man asked: \"Every year, O Messenger of Allah?\" He kept silent until the man asked three times, then he said: \"If I had said yes, it would have become obligatory (every year).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 If all five conditions are met, Hajj becomes immediately obligatory -- delaying without a valid reason is sinful according to the majority of scholars. Clarity on your obligation status drives urgency or patience as appropriate.
@@ -6218,20 +8033,35 @@ Review the five conditions against your current situation. If all are met, begin
         { title: 'Learn the four arkan: Ihram, Arafah, Tawaf al-Ifadah, Sa\'i', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 5851
-Narrated Sa\`id Al-Maqburi:'Ubai bin Juraij said to \`Abdullah Ben \`Umar, "I see you doing four things which are not done by your friends." Ibn \`Umar said, "What are they, O Ibn Juraij?" He said, "I see that you do not touch except the two Yemenite corners of the Ka\`ba (while performing the Tawaf): and I see you wearing the Sabtiyya shoes; and I see you dyeing (your hair) with Sufra; and I see that when you are in Mecca, the people assume the state of Ihram on seeing the crescent (on the first day of Dhul-Hijja) while you do not assume the state of Ihram till the Day of Tarwiya (8th Dhul Hijja)." \`Abdullah bin \`Umar said to him, "As for the corners of the Ka\`ba, I have not seen Allah's Messenger (ﷺ) touching except the two Yemenite corners, As for the Sabtiyya shoes, I saw Allah's Messenger (ﷺ) wearing leather shoes that had no hair, and he used to perform the ablution while wearing them. Therefore, I like to wear such shoes. As regards dyeing with Sufra, I saw Allah's Messenger (ﷺ) dyeing his hair with it, so I like to dye (my hair) with it. As regards the crescent (of Dhul-Hijja), I have not seen Allah's Messenger (ﷺ) assuming the state of Ihram till his she-camel set out (on the 8th of Dhul-Hijja)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1643
-Narrated \`Urwa:I asked \`Aisha : "How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka\`ba or performs \`Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa." \`Aisha said, "O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called "Manat" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, "O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa." So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' " Aisha added, "Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them." Later on I (\`Urwa) told Abu Bakr bin \`Abdur-Rahman (of \`Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom \`Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka\`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka\`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: "Verily As-Safa and Al- Marwa are among the symbols of Allah." Abu Bakr said, "It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka\`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka\`ba
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1691
-Narrated Ibn \`Umar:During the last Hajj (Hajj-al-Wada\`) of Allah's Messenger (ﷺ) he performed \`Umra and Hajj. He drove a Hadi along with him from Dhul-Hulaifa. Allah's Messenger (ﷺ) started by assuming Ihram for \`Umra and Hajj. And the people, too, performed the \`Umra and Hajj along with the Prophet. Some of them brought the Hadi and drove it along with them, while the others did not. So, when the Prophet (ﷺ) arrived at Mecca. he said to the people, "Whoever among you has driven the Hadi, should not finish his Ihram till he completes his Hajj. And whoever among you has not (driven) the Hadi with him, should perform Tawaf of the Ka\`ba and the Tawaf between Safa and Marwa, then cut short his hair and finish his Ihram, and should later assume Ihram for Hajj; but he must offer a Hadi (sacrifice); and if anyone cannot afford a Hadi, he should fast for three days during the Hajj and seven days when he returns home. The Prophet (ﷺ) performed Tawaf of the Ka\`ba on his arrival (at Mecca); he touched the (Black Stone) corner first of all and then did Ramal (fast walking with moving of the shoulders) during the first three rounds round the Ka\`ba, and during the last four rounds he walked. After finishing Tawaf of the Ka\`ba, he offered a two rak\`at prayer at Maqam Ibrahim, and after finishing the prayer he went to Safa and Marwa and performed seven rounds of Tawaf between them and did not do any deed forbidden because of Ihram, till he finished all the ceremonies of his Hajj and sacrificed his Hadi on the day of Nahr (10th day of Dhul-Hijja). He then hastened onwards (to Mecca) and performed Tawaf of the Ka\`ba and then everything that was forbidden because of Ihram became permissible. Those who took and drove the Hadi with them did the same as Allah's Messenger (ﷺ) did
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5851",
+              translation: "Narrated Sa`id Al-Maqburi:'Ubai bin Juraij said to `Abdullah Ben `Umar, \"I see you doing four things which are not done by your friends.\" Ibn `Umar said, \"What are they, O Ibn Juraij?\" He said, \"I see that you do not touch except the two Yemenite corners of the Ka`ba (while performing the Tawaf): and I see you wearing the Sabtiyya shoes; and I see you dyeing (your hair) with Sufra; and I see that when you are in Mecca, the people assume the state of Ihram on seeing the crescent (on the first day of Dhul-Hijja) while you do not assume the state of Ihram till the Day of Tarwiya (8th Dhul Hijja).\" `Abdullah bin `Umar said to him, \"As for the corners of the Ka`ba, I have not seen Allah's Messenger (ﷺ) touching except the two Yemenite corners, As for the Sabtiyya shoes, I saw Allah's Messenger (ﷺ) wearing leather shoes that had no hair, and he used to perform the ablution while wearing them. Therefore, I like to wear such shoes. As regards dyeing with Sufra, I saw Allah's Messenger (ﷺ) dyeing his hair with it, so I like to dye (my hair) with it. As regards the crescent (of Dhul-Hijja), I have not seen Allah's Messenger (ﷺ) assuming the state of Ihram till his she-camel set out (on the 8th of Dhul-Hijja)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1643",
+              translation: "Narrated `Urwa:I asked `Aisha : \"How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka`ba or performs `Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa.\" `Aisha said, \"O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called \"Manat\" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, \"O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa.\" So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' \" Aisha added, \"Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them.\" Later on I (`Urwa) told Abu Bakr bin `Abdur-Rahman (of `Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom `Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: \"Verily As-Safa and Al- Marwa are among the symbols of Allah.\" Abu Bakr said, \"It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka`ba",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1691",
+              translation: "Narrated Ibn `Umar:During the last Hajj (Hajj-al-Wada`) of Allah's Messenger (ﷺ) he performed `Umra and Hajj. He drove a Hadi along with him from Dhul-Hulaifa. Allah's Messenger (ﷺ) started by assuming Ihram for `Umra and Hajj. And the people, too, performed the `Umra and Hajj along with the Prophet. Some of them brought the Hadi and drove it along with them, while the others did not. So, when the Prophet (ﷺ) arrived at Mecca. he said to the people, \"Whoever among you has driven the Hadi, should not finish his Ihram till he completes his Hajj. And whoever among you has not (driven) the Hadi with him, should perform Tawaf of the Ka`ba and the Tawaf between Safa and Marwa, then cut short his hair and finish his Ihram, and should later assume Ihram for Hajj; but he must offer a Hadi (sacrifice); and if anyone cannot afford a Hadi, he should fast for three days during the Hajj and seven days when he returns home. The Prophet (ﷺ) performed Tawaf of the Ka`ba on his arrival (at Mecca); he touched the (Black Stone) corner first of all and then did Ramal (fast walking with moving of the shoulders) during the first three rounds round the Ka`ba, and during the last four rounds he walked. After finishing Tawaf of the Ka`ba, he offered a two rak`at prayer at Maqam Ibrahim, and after finishing the prayer he went to Safa and Marwa and performed seven rounds of Tawaf between them and did not do any deed forbidden because of Ihram, till he finished all the ceremonies of his Hajj and sacrificed his Hadi on the day of Nahr (10th day of Dhul-Hijja). He then hastened onwards (to Mecca) and performed Tawaf of the Ka`ba and then everything that was forbidden because of Ihram became permissible. Those who took and drove the Hadi with them did the same as Allah's Messenger (ﷺ) did",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The arkan (pillars) are the non-negotiable core of Hajj. Missing even one of them invalidates the entire pilgrimage, so you must know them thoroughly before you go.
@@ -6243,23 +8073,35 @@ Study the four pillars: entering the state of Ihram, standing at Arafah, perform
         { title: 'Learn the wajibat: Muzdalifah, stoning, shaving, Tawaf al-Wada', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (2:125)
-**Arabic:** وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا إِلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ
-**Translation:** "We made the House a resort and a sanctuary for people, saying, ‘Take the spot where Abraham stood as your place of prayer.’ We commanded Abraham and Ishmael: ‘Purify My House for those who walk round it, those who stay there, and those who bow and prostrate themselves in worship.’" (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1643
-Narrated \`Urwa:I asked \`Aisha : "How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka\`ba or performs \`Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa." \`Aisha said, "O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called "Manat" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, "O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa." So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' " Aisha added, "Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them." Later on I (\`Urwa) told Abu Bakr bin \`Abdur-Rahman (of \`Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom \`Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka\`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka\`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: "Verily As-Safa and Al- Marwa are among the symbols of Allah." Abu Bakr said, "It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka\`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka\`ba
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1755
-Narrated Ibn \`Abbas:The people were ordered to perform the Tawaf of the Ka\`ba (Tawaf-al-Wada\`) as the lastly thing, before leaving (Mecca), except the menstruating women who were excused
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:125",
+              arabic: "وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا إِلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",
+              translation: "We made the House a resort and a sanctuary for people, saying, ‘Take the spot where Abraham stood as your place of prayer.’ We commanded Abraham and Ishmael: ‘Purify My House for those who walk round it, those who stay there, and those who bow and prostrate themselves in worship.’\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1643",
+              translation: "Narrated `Urwa:I asked `Aisha : \"How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka`ba or performs `Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa.\" `Aisha said, \"O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called \"Manat\" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, \"O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa.\" So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' \" Aisha added, \"Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them.\" Later on I (`Urwa) told Abu Bakr bin `Abdur-Rahman (of `Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom `Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: \"Verily As-Safa and Al- Marwa are among the symbols of Allah.\" Abu Bakr said, \"It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka`ba",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1755",
+              translation: "Narrated Ibn `Abbas:The people were ordered to perform the Tawaf of the Ka`ba (Tawaf-al-Wada`) as the lastly thing, before leaving (Mecca), except the menstruating women who were excused",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The wajibat (obligatory acts) are a tier below the pillars -- missing one does not invalidate your Hajj, but it does incur a penalty sacrifice. Knowing the distinction prevents costly mistakes.
@@ -6271,19 +8113,26 @@ Study the obligatory acts: staying at Muzdalifah, stoning the Jamarat, shaving o
         { title: 'Understand the penalties for missing a wajib act', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mandate offering a sacrifice in compensation for missing an obligatory (wajib) act during Hajj, they omit specific logistical and jurisprudential details such as sacrificing a sheep or goat in Makkah and distributing the meat to the poor, providing a clear logical inference to systematically study and understand these penalties to ensure the pilgrimage is not compromised.',
-          sources: `**I. Quran**
-
-
-### Quran (2:196)
-**Arabic:** وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ ۚ فَإِنْ أُحْصِرْتُمْ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ  
-**Translation:** And complete the Hajj and Umrah for Allah. But if you are prevented, then offer whatever sacrifice is easily available.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1810
-The Prophet (SAW) said: "Whoever leaves a wajib act of Hajj must offer a sacrifice (dam) in compensation."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:196",
+              arabic: "وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ ۚ فَإِنْ أُحْصِرْتُمْ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ",
+              translation: "And complete the Hajj and Umrah for Allah. But if you are prevented, then offer whatever sacrifice is easily available.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1810",
+              translation: "The Prophet (SAW) said: \"Whoever leaves a wajib act of Hajj must offer a sacrifice (dam) in compensation.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Understanding the penalty system gives you clarity on the consequences of mistakes during Hajj and helps you prioritise correctly under pressure. It also provides reassurance that an error does not void your entire pilgrimage.
@@ -6302,20 +8151,35 @@ Learn that if you miss a wajib act, you must sacrifice a sheep or goat in Makkah
         { title: 'Ihram from the miqat with niyyah', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the designated miqat points for assuming Ihram based on one\'s travel route, they omit specific practical and jurisprudential details such as performing ghusl, reciting the Talbiyah, making the niyyah, and learning the prohibitions of Ihram, providing a clear logical inference to systematically study and implement these associated acts to properly enter this sacred state.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1522
-Narrated Zaid bin Jubair:I went to visit \`Abdullah bin \`Umar at his house which contained many tents made of cotton cloth and these were encircled with Suradik (part of the tent). I asked him from where, should one assume Ihram for Umra. He said, "Allah's Messenger (ﷺ) had fixed as Miqat (singular of Mawaqit) Qarn for the people of Najd, Dhul-Hulaifa for the people of Medina, and Al-Juhfa for the people of Sham
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1524
-Narrated Ibn \`Abbas:Allah's Messenger (ﷺ) made Dhul-Hulaifa as the Miqat for the people of Medina; Al-Juhfa for the people of Sham; Qarn-al-Manazil for the people of Najd; and Yalamlam for the people of Yemen; and these Mawaqit are for the people at those very places, and besides them for those who come through those places with the intention of performing Hajj and \`Umra; and whoever is living within these boundaries can assume Ihram from the place he starts, and the people of Mecca can assume Ihram from Mecca
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1526
-Narrated Ibn \`Abbas:Allah's Messenger (ﷺ) had fixed Dhul Hulaifa as the Miqat for the people of Medina; Al-Juhfa for the people of Sham; and Qarn Ul-Manazil for the people of Najd; and Yalamlam for the people of Yemen. So, these (above mentioned) are the Mawaqit for all those living at those places, and besides them for those who come through those places with the intention of performing Hajj and \`Umra and whoever lives within these places should assume Ihram from his dwelling place, and similarly the people of Mecca can assume Ihram from Mecca
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1522",
+              translation: "Narrated Zaid bin Jubair:I went to visit `Abdullah bin `Umar at his house which contained many tents made of cotton cloth and these were encircled with Suradik (part of the tent). I asked him from where, should one assume Ihram for Umra. He said, \"Allah's Messenger (ﷺ) had fixed as Miqat (singular of Mawaqit) Qarn for the people of Najd, Dhul-Hulaifa for the people of Medina, and Al-Juhfa for the people of Sham",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1524",
+              translation: "Narrated Ibn `Abbas:Allah's Messenger (ﷺ) made Dhul-Hulaifa as the Miqat for the people of Medina; Al-Juhfa for the people of Sham; Qarn-al-Manazil for the people of Najd; and Yalamlam for the people of Yemen; and these Mawaqit are for the people at those very places, and besides them for those who come through those places with the intention of performing Hajj and `Umra; and whoever is living within these boundaries can assume Ihram from the place he starts, and the people of Mecca can assume Ihram from Mecca",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1526",
+              translation: "Narrated Ibn `Abbas:Allah's Messenger (ﷺ) had fixed Dhul Hulaifa as the Miqat for the people of Medina; Al-Juhfa for the people of Sham; and Qarn Ul-Manazil for the people of Najd; and Yalamlam for the people of Yemen. So, these (above mentioned) are the Mawaqit for all those living at those places, and besides them for those who come through those places with the intention of performing Hajj and `Umra and whoever lives within these places should assume Ihram from his dwelling place, and similarly the people of Mecca can assume Ihram from Mecca",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Ihram is the first pillar of Umrah -- without it your rites are invalid. Entering Ihram at the correct miqat with a sincere intention marks the spiritual transition from ordinary life into sacred worship.
@@ -6327,23 +8191,35 @@ Identify the designated miqat point for your travel route. Perform ghusl, put on
         { title: 'Tawaf around the Ka\'bah (7 circuits)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly command performing tawaf around the Ka\'bah in seven circuits and specify brisk walking (raml) in the first three, they omit specific practical and jurisprudential details such as starting from the Black Stone, moving counter-clockwise, maintaining wudu, and making supplication (du\'a), providing a clear logical inference to systematically incorporate these associated acts to properly fulfill this foundational ritual.',
-          sources: `**I. Quran**
-
-
-### Quran (22:29)
-**Arabic:** وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ  
-**Translation:** And let them perform tawaf around the Ancient House.
-
-### Quran (2:196)
-**Arabic:** وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ  
-**Translation:** And complete the Hajj and Umrah for Allah.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1643
-The Prophet (SAW) performed tawaf around the Ka'bah in seven circuits, walking quickly (raml) in the first three and walking normally in the last four.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 22:29",
+              arabic: "وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",
+              translation: "And let them perform tawaf around the Ancient House.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:196",
+              arabic: "وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ",
+              translation: "And complete the Hajj and Umrah for Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1643",
+              translation: "The Prophet (SAW) performed tawaf around the Ka'bah in seven circuits, walking quickly (raml) in the first three and walking normally in the last four.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tawaf is a pillar of Umrah and one of the most spiritually powerful acts a Muslim can perform. Circling the Ka'bah connects you to the millions of believers who have done the same since the time of Ibrahim (AS).
@@ -6355,20 +8231,35 @@ Circle the Ka'bah seven times counter-clockwise, starting from the Black Stone. 
         { title: 'Two rak\'at behind Maqam Ibrahim', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the Prophetic practice of offering a two-rak\'at prayer behind Maqam Ibrahim after circumambulating the Ka\'bah, they omit specific practical and jurisprudential details such as reciting Surah al-Kafirun and Surah al-Ikhlas, relocating if the area is crowded, and drinking Zamzam water, providing a clear logical inference to systematically incorporate these associated acts to properly complete this ritual.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1627
-Narrated Ibn \`Umar:The Prophet (ﷺ) reached Mecca, circumambulated the Ka\`ba seven times and then offered a two rak\`at prayer behind Maqam Ibrahim. Then he went towards the Safa. Allah has said, "Verily, in Allah's Apostle you have a good example
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1623
-Narrated \`Amr:We asked Ibn \`Umar: "May a man have sexual relations with his wife during the Umra before performing Tawaf between Safa and Marwa?" He said, "Allah's Messenger (ﷺ) arrived (in Mecca) and circumambulated the Ka\`ba seven times, then offered two rak\`at behind Maqam Ibrahim (the station of Abraham), then performed Tawaf between Safa and Marwa." Ibn \`Umar added, "Verily! In Allah's Apostle you have a good example." And I asked Jabir bin \`Abdullah (the same question), and he replied, "You should not go near your wives (have sexual relations) till you have finished Tawaf between Safa and Marwa
-*(Grade: Sahih)*
-
-### Sahih Bukhari 1624
-Narrated \`Amr:We asked Ibn \`Umar: "May a man have sexual relations with his wife during the Umra before performing Tawaf between Safa and Marwa?" He said, "Allah's Messenger (ﷺ) arrived (in Mecca) and circumambulated the Ka\`ba seven times, then offered two rak\`at behind Maqam Ibrahim (the station of Abraham), then performed Tawaf between Safa and Marwa." Ibn \`Umar added, "Verily! In Allah's Apostle you have a good example." And I asked Jabir bin \`Abdullah (the same question), and he replied, "You should not go near your wives (have sexual relations) till you have finished Tawaf between Safa and Marwa
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1627",
+              translation: "Narrated Ibn `Umar:The Prophet (ﷺ) reached Mecca, circumambulated the Ka`ba seven times and then offered a two rak`at prayer behind Maqam Ibrahim. Then he went towards the Safa. Allah has said, \"Verily, in Allah's Apostle you have a good example",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1623",
+              translation: "Narrated `Amr:We asked Ibn `Umar: \"May a man have sexual relations with his wife during the Umra before performing Tawaf between Safa and Marwa?\" He said, \"Allah's Messenger (ﷺ) arrived (in Mecca) and circumambulated the Ka`ba seven times, then offered two rak`at behind Maqam Ibrahim (the station of Abraham), then performed Tawaf between Safa and Marwa.\" Ibn `Umar added, \"Verily! In Allah's Apostle you have a good example.\" And I asked Jabir bin `Abdullah (the same question), and he replied, \"You should not go near your wives (have sexual relations) till you have finished Tawaf between Safa and Marwa",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1624",
+              translation: "Narrated `Amr:We asked Ibn `Umar: \"May a man have sexual relations with his wife during the Umra before performing Tawaf between Safa and Marwa?\" He said, \"Allah's Messenger (ﷺ) arrived (in Mecca) and circumambulated the Ka`ba seven times, then offered two rak`at behind Maqam Ibrahim (the station of Abraham), then performed Tawaf between Safa and Marwa.\" Ibn `Umar added, \"Verily! In Allah's Apostle you have a good example.\" And I asked Jabir bin `Abdullah (the same question), and he replied, \"You should not go near your wives (have sexual relations) till you have finished Tawaf between Safa and Marwa",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 These two rak'at are a Sunnah completion of Tawaf, performed at the very station where Ibrahim (AS) stood while building the Ka'bah. It is a moment of intimate prayer in the holiest place on earth.
@@ -6380,12 +8271,17 @@ After completing Tawaf, pray two rak'at behind the Station of Ibrahim if possibl
         { title: 'Sa\'i between Safa and Marwah (7 laps)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly establishes the rite of circulating between Safa and Marwa during pilgrimage, it omits specific historical context like Hajar\'s search for water and practical details such as completing seven laps, jogging between green markers, and making supplication, providing a clear logical inference to systematically incorporate these associated acts to properly fulfill this ritual.',
-          sources: `**I. Quran**
-
-
-### Quran (2:158)
-**Arabic:** إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا  
-**Translation:** Safa and Marwa are among the rites of God, so for those who make major or minor pilgrimage to the House it is no offence to circulate between the two. Anyone who does good of his own accord will be rewarded.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:158",
+              arabic: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا",
+              translation: "Safa and Marwa are among the rites of God, so for those who make major or minor pilgrimage to the House it is no offence to circulate between the two. Anyone who does good of his own accord will be rewarded.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Sa'i commemorates Hajar's desperate search for water for baby Isma'il. It teaches that tawakkul (trust in Allah) is paired with active striving -- she ran between the hills while relying completely on Allah's mercy.
@@ -6397,19 +8293,26 @@ Walk seven times between the hills of Safa and Marwah, starting at Safa and endi
         { title: 'Shaving or trimming the hair to exit Ihram', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the rites of shaving or trimming the head and the Prophet\'s supplication for those who perform them, they omit specific practical and jurisprudential details such as how women should cut their hair and that this act formally releases one from the state of Ihram, providing a clear logical inference to systematically incorporate these associated rules to properly complete the pilgrimage.',
-          sources: `**I. Quran**
-
-
-### Quran (2:196)
-**Arabic:** وَلَا تَحْلِقُوا رُءُوسَكُمْ حَتَّىٰ يَبْلُغَ الْهَدْيُ مَحِلَّهُ  
-**Translation:** And do not shave your heads until the sacrificial animal has reached its place of slaughter.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1301
-The Prophet (SAW) said: "May Allah have mercy on those who shave their heads." They said: "And those who trim, O Messenger of Allah?" He said it three times, then finally said: "And those who trim."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:196",
+              arabic: "وَلَا تَحْلِقُوا رُءُوسَكُمْ حَتَّىٰ يَبْلُغَ الْهَدْيُ مَحِلَّهُ",
+              translation: "And do not shave your heads until the sacrificial animal has reached its place of slaughter.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1301",
+              translation: "The Prophet (SAW) said: \"May Allah have mercy on those who shave their heads.\" They said: \"And those who trim, O Messenger of Allah?\" He said it three times, then finally said: \"And those who trim.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Shaving or trimming the hair is the act that releases you from the state of Ihram and completes the Umrah. It symbolises humility, renewal, and submission to Allah's commands over personal vanity.
@@ -6428,21 +8331,26 @@ Men shave their heads completely (preferred, as the Prophet made du'a three time
         { title: 'Research the average cost of Hajj from your country', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly command believers to take provisions for the journey and hasten to perform the pilgrimage, they omit specific modern financial planning steps like researching average costs and contacting tour operators, providing a clear logical inference to systematically determine these expenses to ensure the obligation is fulfilled without unnecessary delay.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ
-**Translation:** "The pilgrimage takes place during the prescribed months... Provide well for yourselves: the best provision is to be mindful of God— always be mindful of Me, you who have understanding." (Abdel Haleem)
-
-*(The Quran's command to "provide well for yourselves" — وَتَزَوَّدُوا — is both spiritual and practical. Researching Hajj costs is how a Muslim prepares the material provision that makes the spiritual journey possible.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1513
-Narrated Ibn \`Abbas: The Prophet (ﷺ) said, "Whoever wants to perform Hajj, let him hasten to do so; for he may fall ill or some other matter may prevent him."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ",
+              translation: "The pilgrimage takes place during the prescribed months... Provide well for yourselves: the best provision is to be mindful of God— always be mindful of Me, you who have understanding.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1513",
+              translation: "Narrated Ibn `Abbas: The Prophet (ﷺ) said, \"Whoever wants to perform Hajj, let him hasten to do so; for he may fall ill or some other matter may prevent him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Hajj costs vary enormously by country and package tier. Without researching actual costs, you cannot set a realistic savings target or timeline, which may cause you to delay this obligation unnecessarily.
@@ -6454,19 +8362,26 @@ Research costs for economy, standard, and premium Hajj packages from your countr
         { title: 'Open a dedicated Hajj savings account or fund', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the necessity of having provision and a means of transport to fulfill the obligation of Hajj, they omit modern financial strategies like opening a dedicated savings account or fund, providing a clear logical inference to systematically save and secure the required funds to undertake the journey.',
-          sources: `**I. Quran**
-
-
-### Quran (3:97)
-**Arabic:** وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا  
-**Translation:** And due to Allah from the people is a pilgrimage to the House — for whoever is able to find thereto a way.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1513
-The Prophet (SAW) was asked about what makes Hajj obligatory: "Provision (al-zad) and a means of transport (al-rahilah)."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:97",
+              arabic: "وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا",
+              translation: "And due to Allah from the people is a pilgrimage to the House — for whoever is able to find thereto a way.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1513",
+              translation: "The Prophet (SAW) was asked about what makes Hajj obligatory: \"Provision (al-zad) and a means of transport (al-rahilah).\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Separating your Hajj fund from general savings protects it from being spent on other needs. A dedicated account makes the goal tangible and creates psychological commitment to the pilgrimage.
@@ -6478,19 +8393,26 @@ Open a separate savings account labelled for Hajj. Some Islamic banks offer shar
         { title: 'Set up monthly automatic contributions', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly highlight the requirement of securing provision and note that steady saving fulfills the condition of financial ability for Hajj, they omit specific modern methods like setting up monthly automatic contributions, providing a clear logical inference to systematically automate savings to reach this obligatory financial goal.',
-          sources: `**I. Quran**
-
-
-### Quran (3:97)
-**Arabic:** مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا  
-**Translation:** Whoever is able to find thereto a way.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1513
-The Prophet (SAW) said Hajj is obligatory when one has provision and a means of transport — steady saving toward this obligation fulfills the condition of financial ability (istita'ah).
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:97",
+              arabic: "مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا",
+              translation: "Whoever is able to find thereto a way.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1513",
+              translation: "The Prophet (SAW) said Hajj is obligatory when one has provision and a means of transport — steady saving toward this obligation fulfills the condition of financial ability (istita'ah).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Automating contributions ensures consistent progress toward your Hajj goal. It removes the temptation to skip months and leverages the principle of paying yourself first.
@@ -6511,19 +8433,26 @@ Calculate how much you need to save monthly to reach your target by your intende
         { title: 'Study the symbolism of Tawaf \u2014 circling the House of Allah', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts discuss the historical context and obligation of performing the going (Tawaf) between the hills of Safa and Marwah, they omit any mention of the symbolism of circumambulating the Ka\'bah, angels circling the Throne, or modern reflective practices like reading commentaries and journaling, providing neither explicit proof nor contextual indication for the subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:158)
-**Arabic:** إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ
-**Translation:** Verily! As-Safâ and Al-Marwah (two mountains in Makkah) are of the Symbols of Allâh. So it is not a sin on him who performs Hajj or ‘Umrah (pilgrimage) of the House (the Ka‘bah at Makkah) to perform the going (Tawâf) between them (As-Safâ and Al-Marwah). And whoever does good voluntarily, then verily, Allâh is All-Recogniser, All-Knower.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1790
-Narrated Hisham Ibn \`Urwa from his father who said:While I was a youngster, I asked \`Aisha the wife of the Prophet. "What about the meaning of the Statement of Allah; "Verily! (the mountains) As-Safa and Al Marwa, are among the symbols of Allah. So, it is not harmful if those who perform Hajj or \`Umra of the House (Ka\`ba at Mecca) to perform the going (Tawaf) between them? (2.158) I understand (from that) that there is no harm if somebody does not perform the Tawaf between them." \`Aisha replied, "No, for if it were as you are saying, then the recitation would have been like this: 'It is not harmful not to perform Tawaf between them.' This verse was revealed in connection with the Ansar who used to assume the Ihram for the idol Manat which was put beside a place called Qudaid and those people thought it not right to perform the Tawaf of As- Safa and Al-Marwa. When Islam came, they asked Allah's Messenger (ﷺ) about that, and Allah revealed:-- "Verily! (the mountains) As-Safa and Al-Marwa Are among the symbols of Allah. So, it is not harmful of those who perform Hajj or \`Umra of the House (Ka\`ba at Mecca) to perform the going (Tawaf) between them." (2.158) Sufyan and Abu Muawiya added from Hisham (from \`Aisha): "The Hajj or \`Umra of the person who does not perform the going (Tawaf) between As-Safa and Al-Marwa is incomplete in Allah's sight
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:158",
+              arabic: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ",
+              translation: "Verily! As-Safâ and Al-Marwah (two mountains in Makkah) are of the Symbols of Allâh. So it is not a sin on him who performs Hajj or ‘Umrah (pilgrimage) of the House (the Ka‘bah at Makkah) to perform the going (Tawâf) between them (As-Safâ and Al-Marwah). And whoever does good voluntarily, then verily, Allâh is All-Recogniser, All-Knower.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1790",
+              translation: "Narrated Hisham Ibn `Urwa from his father who said:While I was a youngster, I asked `Aisha the wife of the Prophet. \"What about the meaning of the Statement of Allah; \"Verily! (the mountains) As-Safa and Al Marwa, are among the symbols of Allah. So, it is not harmful if those who perform Hajj or `Umra of the House (Ka`ba at Mecca) to perform the going (Tawaf) between them? (2.158) I understand (from that) that there is no harm if somebody does not perform the Tawaf between them.\" `Aisha replied, \"No, for if it were as you are saying, then the recitation would have been like this: 'It is not harmful not to perform Tawaf between them.' This verse was revealed in connection with the Ansar who used to assume the Ihram for the idol Manat which was put beside a place called Qudaid and those people thought it not right to perform the Tawaf of As- Safa and Al-Marwa. When Islam came, they asked Allah's Messenger (ﷺ) about that, and Allah revealed:-- \"Verily! (the mountains) As-Safa and Al-Marwa Are among the symbols of Allah. So, it is not harmful of those who perform Hajj or `Umra of the House (Ka`ba at Mecca) to perform the going (Tawaf) between them.\" (2.158) Sufyan and Abu Muawiya added from Hisham (from `Aisha): \"The Hajj or `Umra of the person who does not perform the going (Tawaf) between As-Safa and Al-Marwa is incomplete in Allah's sight",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Tawaf represents the believer's life revolving around Allah. Just as the angels circle the Throne, the pilgrim circles Allah's House on earth in devotion and submission. Understanding this transforms a physical walk into a profound spiritual declaration.
@@ -6535,19 +8464,26 @@ Read scholarly commentaries on the spiritual dimensions of Tawaf. Reflect on wha
         { title: 'Understand Sa\'i \u2014 Hajar\'s trust and striving', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly recount the story of Hajar\'s trusting and striving search for water between Safa and Marwah, they omit specific modern reflective practices such as studying tafsir and journaling about balancing effort with trust, providing a clear logical inference to actively contemplate her example to deepen one\'s understanding of Sa\'i.',
-          sources: `**I. Quran**
-
-
-### Quran (2:158)
-**Arabic:** إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا  
-**Translation:** Indeed, Safa and Marwah are among the symbols of Allah. So whoever makes pilgrimage to the House or performs Umrah — there is no blame upon him for walking between them.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3364
-The story of Hajar running between Safa and Marwah seeking water for her son Ismail, trusting fully in Allah, until the water of Zamzam was revealed.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:158",
+              arabic: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا",
+              translation: "Indeed, Safa and Marwah are among the symbols of Allah. So whoever makes pilgrimage to the House or performs Umrah — there is no blame upon him for walking between them.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3364",
+              translation: "The story of Hajar running between Safa and Marwah seeking water for her son Ismail, trusting fully in Allah, until the water of Zamzam was revealed.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Sa'i commemorates Hajar's desperate search for water between Safa and Marwah. It teaches that trust in Allah (tawakkul) does not mean passivity -- it means striving with everything you have while relying completely on Him for the outcome.
@@ -6559,27 +8495,44 @@ Study the story of Hajar in detail from Sahih al-Bukhari and Quranic tafsir. Ref
         { title: 'Reflect on Arafah \u2014 standing before Allah in humility', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts mention standing before Allah and reflecting generally, they omit any reference to the Day of Arafah, the pilgrimage of Hajj, or visualizing the Day of Judgement, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (34:46)
-**Arabic:** قُلْ إِنَّمَا أَعِظُكُم بِوَاحِدَةٍ ۖ أَن تَقُومُوا لِلَّهِ مَثْنَىٰ وَفُرَادَىٰ ثُمَّ تَتَفَكَّرُوا ۚ مَا بِصَاحِبِكُم مِّن جِنَّةٍ ۚ إِنْ هُوَ إِلَّا نَذِيرٌ لَّكُم بَيْنَ يَدَيْ عَذَابٍ شَدِيدٍ
-**Translation:** Say: "I do admonish you on one point: that ye do stand up before Allah,- (It may be) in pairs, or (it may be) singly,- and reflect (within yourselves): your Companion is not possessed: he is no less than a warner to you, in face of a terrible Penalty."
-
-### Quran (3:191)
-**Arabic:** الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ
-**Translation:** those who remember Allah while standing, sitting or (reclining) on their backs, and reflect in the creation of the heavens and the earth, (saying): 'Our Lord! You have not created this in vain. Glory to You! Save us, then, from the chastisement of the Fire.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 66
-Narrated Abu Waqid Al-Laithi:While Allah's Messenger (ﷺ) was sitting in the mosque with some people, three men came. Two of them came in front of Allah's Messenger (ﷺ) and the third one went away. The two persons kept on standing before Allah's Messenger (ﷺ) for a while and then one of them found a place in the circle and sat there while the other sat behind the gathering, and the third one went away. When Allah's Messenger (ﷺ) finished his preaching, he said, "Shall I tell you about these three persons? One of them betook himself to Allah, so Allah took him into His grace and mercy and accommodated him, the second felt shy from Allah, so Allah sheltered Him in His mercy (and did not punish him), while the third turned his face from Allah and went away, so Allah turned His face from him likewise
-*(Grade: Sahih)*
-
-### Sahih Bukhari 89
-Narrated \`Umar:My Ansari neighbor from Bani Umaiya bin Zaid who used to live at \`Awali Al-Medina and I used to visit the Prophet (ﷺ) by turns. He used to go one day and I another day. When I went I used to bring the news of that day regarding the Divine Inspiration and other things, and when he went, he used to do the same for me. Once my Ansari friend, in his turn (on returning from the Prophet), knocked violently at my door and asked if I was there." I became horrified and came out to him. He said, "Today a great thing has happened." I then went to Hafsa and saw her weeping. I asked her, "Did Allah's Messenger (ﷺ) divorce you all?" She replied, "I do not know." Then, I entered upon the Prophet (ﷺ) and said while standing, "Have you divorced your wives?" The Prophet (ﷺ) replied in the negative. On that I said, "Allahu-Akbar (Allah is Greater)." (See Hadith No. 119, Vol. 3 for details)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 34:46",
+              arabic: "قُلْ إِنَّمَا أَعِظُكُم بِوَاحِدَةٍ ۖ أَن تَقُومُوا لِلَّهِ مَثْنَىٰ وَفُرَادَىٰ ثُمَّ تَتَفَكَّرُوا ۚ مَا بِصَاحِبِكُم مِّن جِنَّةٍ ۚ إِنْ هُوَ إِلَّا نَذِيرٌ لَّكُم بَيْنَ يَدَيْ عَذَابٍ شَدِيدٍ",
+              translation: "Say: \"I do admonish you on one point: that ye do stand up before Allah,- (It may be) in pairs, or (it may be) singly,- and reflect (within yourselves): your Companion is not possessed: he is no less than a warner to you, in face of a terrible Penalty.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 3:191",
+              arabic: "الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ",
+              translation: "those who remember Allah while standing, sitting or (reclining) on their backs, and reflect in the creation of the heavens and the earth, (saying): 'Our Lord! You have not created this in vain. Glory to You! Save us, then, from the chastisement of the Fire.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 66",
+              translation: "Narrated Abu Waqid Al-Laithi:While Allah's Messenger (ﷺ) was sitting in the mosque with some people, three men came. Two of them came in front of Allah's Messenger (ﷺ) and the third one went away. The two persons kept on standing before Allah's Messenger (ﷺ) for a while and then one of them found a place in the circle and sat there while the other sat behind the gathering, and the third one went away. When Allah's Messenger (ﷺ) finished his preaching, he said, \"Shall I tell you about these three persons? One of them betook himself to Allah, so Allah took him into His grace and mercy and accommodated him, the second felt shy from Allah, so Allah sheltered Him in His mercy (and did not punish him), while the third turned his face from Allah and went away, so Allah turned His face from him likewise",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 89",
+              translation: "Narrated `Umar:My Ansari neighbor from Bani Umaiya bin Zaid who used to live at `Awali Al-Medina and I used to visit the Prophet (ﷺ) by turns. He used to go one day and I another day. When I went I used to bring the news of that day regarding the Divine Inspiration and other things, and when he went, he used to do the same for me. Once my Ansari friend, in his turn (on returning from the Prophet), knocked violently at my door and asked if I was there.\" I became horrified and came out to him. He said, \"Today a great thing has happened.\" I then went to Hafsa and saw her weeping. I asked her, \"Did Allah's Messenger (ﷺ) divorce you all?\" She replied, \"I do not know.\" Then, I entered upon the Prophet (ﷺ) and said while standing, \"Have you divorced your wives?\" The Prophet (ﷺ) replied in the negative. On that I said, \"Allahu-Akbar (Allah is Greater).\" (See Hadith No. 119, Vol. 3 for details)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Standing at Arafah is the essence of Hajj. It is a rehearsal for the Day of Judgement -- millions standing in white garments, equal before Allah, with nothing but their deeds.
@@ -6590,12 +8543,17 @@ Study the significance of the Day of Arafah in hadith literature. Visualise the 
         { title: 'Learn the meaning of stoning \u2014 rejecting Shaytan\'s whispers', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly establishes that stoning the Jamarat symbolizes the rejection of Shaytan\'s temptations, it omits specific modern reflective practices such as identifying personal rationalizations and doubts, providing a clear logical inference to actively internalize this symbolism to resist daily whispers.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1749
-Ibn Abbas narrated that the Prophet (SAW) said regarding the stoning of the Jamarat: "When Ibrahim was commanded to perform the rites, Shaytan appeared to him at each station. He threw seven pebbles at each one until Shaytan retreated." The stoning symbolises rejection of Shaytan's temptations.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1749",
+              translation: "Ibn Abbas narrated that the Prophet (SAW) said regarding the stoning of the Jamarat: \"When Ibrahim was commanded to perform the rites, Shaytan appeared to him at each station. He threw seven pebbles at each one until Shaytan retreated.\" The stoning symbolises rejection of Shaytan's temptations.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The stoning of the Jamarat symbolises Ibrahim's rejection of Shaytan's attempts to dissuade him from obeying Allah. Each stone thrown is a declaration of resistance against temptation and a renewal of your commitment to obey Allah over your desires.
@@ -6614,23 +8572,35 @@ Study the narration of Ibrahim (AS) being approached by Shaytan at each of the t
         { title: 'Read the Quranic account of Ibrahim building the Ka\'bah (2:127)', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (2:125)
-**Arabic:** وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا إِلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ
-**Translation:** "We made the House a resort and a sanctuary for people, saying, ‘Take the spot where Abraham stood as your place of prayer.’ We commanded Abraham and Ishmael: ‘Purify My House for those who walk round it, those who stay there, and those who bow and prostrate themselves in worship.’" (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Muslim 416
-Anas b. Malik reported on the authority of Malik b. Sa sa', perhaps a person of his tribe, that the Prophet of Allah (ﷺ) said:I was near the House (i. e. Ka'bah) in a state between sleep and wakefulness when I heard someone say: He is the third among the two persons. Then he came to me and took me with him. Then a golden basin containing the water of Zamzam was brought to me and my heart was opened up to such and such (part). Qatada said: I asked him who was with me (i e. the narrator) and what he meant by such and such (part). He replied: (It means that it was opened) up to the lower part of his abdomen (Then the hadith continues): My heart was extracted and it was washed with the water of Zamzam and then it was restored in its original position, after which it was filled with faith and wisdom. I was then brought a white beast which is called al-Buraq, bigger than a donkey and smaller than a mule. Its stride was as long as the eye could reach. I was mounted on it, and then we went forth till we reached the lowest heaven. Gabriel asked for the (gate) to be opened, and it was said: Who is he? He replied: Gabriel. It was again said: Who is with thee? He replied: Muhammad (ﷺ). It was said: Has he been sent for? He (Gabriel) said: Yes. He (the Prophet) said: Then (the gate) was opened for us (and it was said): Welcome unto him! His is a blessed arrival. Then we came to Adam (peace be upon him). And he (the narrator) narrated the whole account of the hadith. (The Holy Prophet) observed that he met Jesus in the second heaven, Yahya (peace be on both of them) in the third heaven, Yusuf in the third, Idris in the fourth, Harun in the fifth (peace and blessings of Allah be upon them). Then we travelled on till we reached the sixth heaven and came to Moses (peace be upon him) and I greeted him and he said: Welcome unto righteous brother and righteous prophet. And when I passed (by him) he wept, and a voice was heard saying: What makes thee weep? He said: My Lord, he is a young man whom Thou hast sent after me (as a prophet) and his followers will enter Paradise in greater numbers than my followers. Then we travelled on till we reached the seventh heaven and I came to Ibrahim. He (the narrator) narrat- ed in this hadith that the Prophet of Allah (ﷺ) told that he saw four rivers which flowed from (the root of the lote-tree of the farthest limits): two manifest rivers and two hidden rivers. I said: ' Gabriel! what are these rivers? He replied: The two hidden rivers are the rivers of Paradise, and as regards the two manifest ones, they are the Nile and the Euphrates. Then the Bait-ul-Ma'mur was raised up to me. I said: O Gabriel! what is this? He replied: It is the Bait-ul-Ma'mur. Seventy thousand angels enter into it daily and, after they come out, they never return again. Two vessels were then brought to me. The first one contained wine and the second one contained milk, and both of them were placed before me. I chose milk. It was said: You did right. Allah will guide rightly through you your Ummah on the natural course. Then fifty prayers daily were made obligatory for me. And then he narrated the rest of the hadith to the end
-*(Grade: Sahih)*
-
-### Sahih Bukhari 64
-Narrated \`Abdullah bin \`Abbas:Once Allah's Messenger (ﷺ) gave a letter to a person and ordered him to go and deliver it to the Governor of Bahrain. (He did so) and the Governor of Bahrain sent it to Chousroes, who read that letter and then tore it to pieces. (The sub-narrator (Ibn Shihab) thinks that Ibn Al-Musaiyab said that Allah's Messenger (ﷺ) invoked Allah against them (saying), "May Allah tear them into pieces, and disperse them all totally
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:125",
+              arabic: "وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا إِلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",
+              translation: "We made the House a resort and a sanctuary for people, saying, ‘Take the spot where Abraham stood as your place of prayer.’ We commanded Abraham and Ishmael: ‘Purify My House for those who walk round it, those who stay there, and those who bow and prostrate themselves in worship.’\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 416",
+              translation: "Anas b. Malik reported on the authority of Malik b. Sa sa', perhaps a person of his tribe, that the Prophet of Allah (ﷺ) said:I was near the House (i. e. Ka'bah) in a state between sleep and wakefulness when I heard someone say: He is the third among the two persons. Then he came to me and took me with him. Then a golden basin containing the water of Zamzam was brought to me and my heart was opened up to such and such (part). Qatada said: I asked him who was with me (i e. the narrator) and what he meant by such and such (part). He replied: (It means that it was opened) up to the lower part of his abdomen (Then the hadith continues): My heart was extracted and it was washed with the water of Zamzam and then it was restored in its original position, after which it was filled with faith and wisdom. I was then brought a white beast which is called al-Buraq, bigger than a donkey and smaller than a mule. Its stride was as long as the eye could reach. I was mounted on it, and then we went forth till we reached the lowest heaven. Gabriel asked for the (gate) to be opened, and it was said: Who is he? He replied: Gabriel. It was again said: Who is with thee? He replied: Muhammad (ﷺ). It was said: Has he been sent for? He (Gabriel) said: Yes. He (the Prophet) said: Then (the gate) was opened for us (and it was said): Welcome unto him! His is a blessed arrival. Then we came to Adam (peace be upon him). And he (the narrator) narrated the whole account of the hadith. (The Holy Prophet) observed that he met Jesus in the second heaven, Yahya (peace be on both of them) in the third heaven, Yusuf in the third, Idris in the fourth, Harun in the fifth (peace and blessings of Allah be upon them). Then we travelled on till we reached the sixth heaven and came to Moses (peace be upon him) and I greeted him and he said: Welcome unto righteous brother and righteous prophet. And when I passed (by him) he wept, and a voice was heard saying: What makes thee weep? He said: My Lord, he is a young man whom Thou hast sent after me (as a prophet) and his followers will enter Paradise in greater numbers than my followers. Then we travelled on till we reached the seventh heaven and I came to Ibrahim. He (the narrator) narrat- ed in this hadith that the Prophet of Allah (ﷺ) told that he saw four rivers which flowed from (the root of the lote-tree of the farthest limits): two manifest rivers and two hidden rivers. I said: ' Gabriel! what are these rivers? He replied: The two hidden rivers are the rivers of Paradise, and as regards the two manifest ones, they are the Nile and the Euphrates. Then the Bait-ul-Ma'mur was raised up to me. I said: O Gabriel! what is this? He replied: It is the Bait-ul-Ma'mur. Seventy thousand angels enter into it daily and, after they come out, they never return again. Two vessels were then brought to me. The first one contained wine and the second one contained milk, and both of them were placed before me. I chose milk. It was said: You did right. Allah will guide rightly through you your Ummah on the natural course. Then fifty prayers daily were made obligatory for me. And then he narrated the rest of the hadith to the end",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 64",
+              translation: "Narrated `Abdullah bin `Abbas:Once Allah's Messenger (ﷺ) gave a letter to a person and ordered him to go and deliver it to the Governor of Bahrain. (He did so) and the Governor of Bahrain sent it to Chousroes, who read that letter and then tore it to pieces. (The sub-narrator (Ibn Shihab) thinks that Ibn Al-Musaiyab said that Allah's Messenger (ﷺ) invoked Allah against them (saying), \"May Allah tear them into pieces, and disperse them all totally",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Ibrahim and Isma'il (AS) built the Ka'bah together as an act of pure worship, making du'a for its acceptance even as they laid the stones. Understanding this history transforms the Ka'bah from a building into a living testament of prophetic devotion.
@@ -6642,19 +8612,26 @@ Read Surah al-Baqarah 2:125-129 with a reliable tafsir. Study the du'a they made
         { title: 'Study the story of Hajar and Isma\'il in Makkah', done: false,
           tier: 'T2',
           amanahRationale: 'Fallback assignment — NotebookLM returned empty answer; subtask has sources so Qarina is the conservative assignment.',
-          sources: `**I. Quran**
-
-
-### Quran (2:125)
-**Arabic:** وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا إِلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ
-**Translation:** "We made the House a resort and a sanctuary for people, saying, ‘Take the spot where Abraham stood as your place of prayer.’ We commanded Abraham and Ishmael: ‘Purify My House for those who walk round it, those who stay there, and those who bow and prostrate themselves in worship.’" (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 3
-Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered him till his fear was over and after that he told her everything that had happened and said, "I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones." Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out." Allah's Messenger (ﷺ) asked, "Will they drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly." But after a few days Waraqa died and the Divine Inspiration was also paused for a while
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:125",
+              arabic: "وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا إِلَىٰ إِبْرَاهِيمَ وَإِسْمَاعِيلَ أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",
+              translation: "We made the House a resort and a sanctuary for people, saying, ‘Take the spot where Abraham stood as your place of prayer.’ We commanded Abraham and Ishmael: ‘Purify My House for those who walk round it, those who stay there, and those who bow and prostrate themselves in worship.’\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 3",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Ibrahim left Hajar and baby Isma'il in the barren valley of Makkah by Allah's command. Her trust, her running between the hills, and the miracle of Zamzam are foundational to Hajj. Every pilgrim who performs Sa'i is walking in her footsteps.
@@ -6666,16 +8643,26 @@ Read the full narration in Sahih al-Bukhari (Kitab al-Anbiya). Pay attention to 
         { title: 'Learn about Ibrahim\'s sacrifice and its connection to Eid al-Adha', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly outline the proper timing and procedure for offering sacrifices on Eid al-Adha, they omit any mention of Prophet Ibrahim, his son Isma\'il, the historical origin of the practice, or modern reflective practices like reading specific Quranic verses and contemplating personal sacrifices, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 951
-Narrated Al-Bara':I heard the Prophet (ﷺ) delivering a Khutba saying, "The first thing to be done on this day (first day of \`Id ul Adha) is to pray; and after returning from the prayer we slaughter our sacrifices (in the name of Allah) and whoever does so, he acted according to our Sunna (traditions)
-*(Grade: Sahih)*
-
-### Sahih Bukhari 968
-Narrated Al-Bara':The Prophet (ﷺ) delivered the Khutba on the day of Nahr (\`Id-ul-Adha) and said, "The first thing we should do on this day of ours is to pray and then return and slaughter (our sacrifices). So anyone who does so he acted according to our Sunna; and whoever slaughtered before the prayer then it was just meat that he offered to his family and would not be considered as a sacrifice in any way. My uncle Abu Burda bin Niyar got up and said, "O Allah's Messenger (ﷺ)! I slaughtered the sacrifice before the prayer but I have a young she-goat which is better than an older sheep." The Prophet (ﷺ) said, "Slaughter it in lieu of the first and such a goat will not be considered as a sacrifice for anybody else after you
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 951",
+              translation: "Narrated Al-Bara':I heard the Prophet (ﷺ) delivering a Khutba saying, \"The first thing to be done on this day (first day of `Id ul Adha) is to pray; and after returning from the prayer we slaughter our sacrifices (in the name of Allah) and whoever does so, he acted according to our Sunna (traditions)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 968",
+              translation: "Narrated Al-Bara':The Prophet (ﷺ) delivered the Khutba on the day of Nahr (`Id-ul-Adha) and said, \"The first thing we should do on this day of ours is to pray and then return and slaughter (our sacrifices). So anyone who does so he acted according to our Sunna; and whoever slaughtered before the prayer then it was just meat that he offered to his family and would not be considered as a sacrifice in any way. My uncle Abu Burda bin Niyar got up and said, \"O Allah's Messenger (ﷺ)! I slaughtered the sacrifice before the prayer but I have a young she-goat which is better than an older sheep.\" The Prophet (ﷺ) said, \"Slaughter it in lieu of the first and such a goat will not be considered as a sacrifice for anybody else after you",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Allah tested Ibrahim with a command to sacrifice his son Isma'il. His willingness to submit earned Allah's pleasure and a ram was sent as a substitute. This ultimate act of surrender is commemorated annually on Eid al-Adha by Muslims worldwide.
@@ -6694,25 +8681,35 @@ Read Surah as-Saffat 37:99-111 with tafsir. Study how both father and son submit
         { title: 'Memorise the Talbiyah in Arabic', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly establish the exact Arabic wording of the Talbiyah recited by the Prophet and emphasize the significance of the Arabic language, they omit specific practical steps such as learning its translation and reciting it daily, providing a clear logical inference to actively commit this declaration to memory to properly fulfill this pilgrimage rite.',
-          sources: `**I. Quran**
-
-
-### Quran (26:198)
-**Arabic:** وَلَوْ نَزَّلْنَاهُ عَلَىٰ بَعْضِ الْأَعْجَمِينَ
-**Translation:** “If We had sent it down to someone who was not an Arab.” (Abdel Haleem)
-
-*(The Quran was sent down in clear Arabic — underscoring the significance of pronouncing Islamic rites in their Arabic form, including the Talbiyah.)*
-
-### Quran (16:103)
-**Arabic:** وَلَقَدْ نَعْلَمُ أَنَّهُمْ يَقُولُونَ إِنَّمَا يُعَلِّمُهُ بَشَرٌ ۗ لِّسَانُ الَّذِي يُلْحِدُونَ إِلَيْهِ أَعْجَمِيٌّ وَهَٰذَا لِسَانٌ عَرَبِيٌّ مُّبِينٌ
-**Translation:** “We know very well that they say, 'It is a man who teaches him,' but the language of the person they allude to is foreign, while this revelation is in clear Arabic.” (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1549
-Narrated Ibn \`Umar: The Prophet (ﷺ) started the Talbiyah with “Labbayk Allahumma labbayk, labbayka la shareeka laka labbayk. Innal-hamda wan-ni'mata laka wal-mulk, la shareeka lak.”
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 26:198",
+              arabic: "وَلَوْ نَزَّلْنَاهُ عَلَىٰ بَعْضِ الْأَعْجَمِينَ",
+              translation: "If We had sent it down to someone who was not an Arab.” (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 16:103",
+              arabic: "وَلَقَدْ نَعْلَمُ أَنَّهُمْ يَقُولُونَ إِنَّمَا يُعَلِّمُهُ بَشَرٌ ۗ لِّسَانُ الَّذِي يُلْحِدُونَ إِلَيْهِ أَعْجَمِيٌّ وَهَٰذَا لِسَانٌ عَرَبِيٌّ مُّبِينٌ",
+              translation: "We know very well that they say, 'It is a man who teaches him,' but the language of the person they allude to is foreign, while this revelation is in clear Arabic.” (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1549",
+              translation: "Narrated Ibn `Umar: The Prophet (ﷺ) started the Talbiyah with “Labbayk Allahumma labbayk, labbayka la shareeka laka labbayk. Innal-hamda wan-ni'mata laka wal-mulk, la shareeka lak.”",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Talbiyah is the pilgrim's constant declaration from the moment of Ihram until stoning on the 10th of Dhul Hijjah. It is the anthem that unifies millions of pilgrims in a single cry of devotion. Arriving at Hajj without it memorised diminishes the experience.
@@ -6724,19 +8721,26 @@ Memorise: "Labbayk Allahumma labbayk, labbayka la sharika laka labbayk, innal-ha
         { title: 'Learn the du\'a for entering Ihram', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly mention entering the state of Ihram and reciting the general Talbiyah, they omit the specific Arabic formulations for the intention (niyyah) based on the type of pilgrimage, providing a clear logical inference to systematically learn and practice these precise phrases to ensure the validity of the rite.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ  
-**Translation:** Hajj is in appointed months. Whoever undertakes Hajj therein — there is no sexual relations, no disobedience, and no disputing during Hajj.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1549
-The Prophet (SAW) entered into ihram saying: "Labbayk Allahumma labbayk, labbayka la shareeka laka labbayk. Innal hamda wan-ni'mata laka wal-mulk, la shareeka lak."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ",
+              translation: "Hajj is in appointed months. Whoever undertakes Hajj therein — there is no sexual relations, no disobedience, and no disputing during Hajj.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1549",
+              translation: "The Prophet (SAW) entered into ihram saying: \"Labbayk Allahumma labbayk, labbayka la shareeka laka labbayk. Innal hamda wan-ni'mata laka wal-mulk, la shareeka lak.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The intention (niyyah) for Ihram determines what you are performing -- Hajj, Umrah, or both. Stating it correctly at the outset ensures the validity of your entire pilgrimage.
@@ -6748,12 +8752,17 @@ Make your intention clearly: "Labbayk Allahumma Hajjan" (for Hajj) or "Labbayk A
         { title: 'Learn the du\'a between the Yemeni corner and the Black Stone', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text explicitly describes the physical actions of walking between and touching the Black Stone and the Yemenite Corner, it entirely omits any mention of reciting a prescribed supplication or the modern recommendation to memorize a specific Quranic du\'a during this portion of Tawaf, providing neither explicit proof nor contextual indication for the subtask.',
-          sources: `**I. Hadith**
-
-
-### Sahih Bukhari 1606
-Narrated Nafi\`:Ibn \`Umar. said, "I have never missed the touching of these two stones of Ka\`ba (the Black Stone and the Yemenite Corner) both in the presence and the absence of crowds, since I saw the Prophet (ﷺ) touching them." I asked Nafi\`: "Did Ibn \`Umar use to walk between the two Corners?" Nafi\` replied, "He used to walk in order that it might be easy for him to touch it (the Corner Stone)
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1606",
+              translation: "Narrated Nafi`:Ibn `Umar. said, \"I have never missed the touching of these two stones of Ka`ba (the Black Stone and the Yemenite Corner) both in the presence and the absence of crowds, since I saw the Prophet (ﷺ) touching them.\" I asked Nafi`: \"Did Ibn `Umar use to walk between the two Corners?\" Nafi` replied, \"He used to walk in order that it might be easy for him to touch it (the Corner Stone)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 This specific portion of Tawaf has a recommended du'a from the Quran (2:201), making it one of the few moments during Tawaf with a specifically prescribed supplication. Knowing it enriches your Tawaf with prophetic practice.
@@ -6765,21 +8774,26 @@ Memorise: "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina a
         { title: 'Learn the du\'a of Arafah (the best du\'a)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly identifies the exact Arabic phrasing of the best supplication for the Day of Arafah, it omits specific practical steps such as memorizing its translation and repeating it frequently alongside personal prayers, providing a clear logical inference to actively learn and utilize this prophetic invocation during the pilgrimage.',
-          sources: `**I. Quran**
-
-
-### Quran (7:26)
-**Arabic:** يَا بَنِي آدَمَ قَدْ أَنزَلْنَا عَلَيْكُمْ لِبَاسًا يُوَارِي سَوْآتِكُمْ وَرِيشًا ۖ وَلِبَاسُ التَّقْوَىٰ ذَٰلِكَ خَيْرٌ ۚ ذَٰلِكَ مِنْ آيَاتِ اللَّهِ لَعَلَّهُمْ يَذَّكَّرُونَ
-**Translation:** "Children of Adam, We have given you garments to cover your nakedness and as adornment for you; the garment of God-consciousness is the best of all garments— this is one of God’s signs, so that people may take heed." (Abdel Haleem)
-
-*(The "garment of taqwa" — لِبَاسُ التَّقْوَىٰ — finds its fullest expression on the Day of Arafah. The pilgrim stripped of worldly garments in Ihram clothes himself in this inner garment through du’a, humility, and nearness to Allah.)*
-
-**II. Hadith**
-
-
-### Sahih Tirmidhi 3585
-The Prophet (ﷺ) said: "The best du’a is the du’a of the Day of Arafah, and the best thing that I and the prophets before me have said is: ‘La ilaha illAllahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa ‘ala kulli shay’in qadir.’"
-*(Grade: Hasan Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 7:26",
+              arabic: "يَا بَنِي آدَمَ قَدْ أَنزَلْنَا عَلَيْكُمْ لِبَاسًا يُوَارِي سَوْآتِكُمْ وَرِيشًا ۖ وَلِبَاسُ التَّقْوَىٰ ذَٰلِكَ خَيْرٌ ۚ ذَٰلِكَ مِنْ آيَاتِ اللَّهِ لَعَلَّهُمْ يَذَّكَّرُونَ",
+              translation: "Children of Adam, We have given you garments to cover your nakedness and as adornment for you; the garment of God-consciousness is the best of all garments— this is one of God’s signs, so that people may take heed.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sunan al-Tirmidhi 3585",
+              translation: "The Prophet (ﷺ) said: \"The best du’a is the du’a of the Day of Arafah, and the best thing that I and the prophets before me have said is: ‘La ilaha illAllahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa ‘ala kulli shay’in qadir.’\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Hasan Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The Prophet (SAW) called the du'a of Arafah the best du'a. The Day of Arafah is the day Allah frees the most people from the Fire. Having this du'a memorised ensures you spend this precious time in the most rewarded form of remembrance.
@@ -6798,21 +8812,26 @@ Memorise: "La ilaha illAllahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu
         { title: 'Research 3-5 licensed Hajj operators', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly command believers to take provisions for the pilgrimage and emphasize general preparation, they omit specific modern logistical steps like researching and verifying licensed Hajj operators, providing a clear logical inference to systematically secure reliable travel and accommodation arrangements to fulfill the obligation safely.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ
-**Translation:** "The pilgrimage takes place during the prescribed months... Provide well for yourselves: the best provision is to be mindful of God." (Abdel Haleem)
-
-*(Preparing through research and operator selection is the practical application of وَتَزَوَّدُوا — "provide well for yourselves" — before the journey to Allah's House.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1773
-Narrated \`Aisha: The Prophet (ﷺ) said, "Five are the acts of fitra (natural disposition): circumcision, shaving the pubic hair, cutting the nails, depilating the hair under the armpits, clipping or shaving the moustache." [Preparing properly for Hajj — including operator research — is the practical expression of the Prophet's emphasis on thorough preparation.]
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ",
+              translation: "The pilgrimage takes place during the prescribed months... Provide well for yourselves: the best provision is to be mindful of God.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1773",
+              translation: "Narrated `Aisha: The Prophet (ﷺ) said, \"Five are the acts of fitra (natural disposition): circumcision, shaving the pubic hair, cutting the nails, depilating the hair under the armpits, clipping or shaving the moustache.\" [Preparing properly for Hajj — including operator research — is the practical expression of the Prophet's emphasis on thorough preparation.]",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Only licensed operators can guarantee your visa and accommodation in Makkah and Madinah. Unlicensed operators have left pilgrims stranded or in substandard conditions. Your Hajj experience depends heavily on this choice.
@@ -6824,12 +8843,17 @@ Check your country's official Hajj authority for the list of licensed operators.
         { title: 'Compare packages (economy, standard, premium)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided text explicitly commands believers to provide well for themselves for the pilgrimage, it omits specific modern logistical details like comparing economy, standard, and premium packages, providing a clear logical inference to systematically evaluate travel options to ensure adequate preparation for the journey.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ  
-**Translation:** The pilgrimage takes place during the prescribed months. There should be no indecent speech, misbehaviour, or quarrelling for anyone undertaking the pilgrimage. Provide well for yourselves: the best provision is to be mindful of God.`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ",
+              translation: "The pilgrimage takes place during the prescribed months. There should be no indecent speech, misbehaviour, or quarrelling for anyone undertaking the pilgrimage. Provide well for yourselves: the best provision is to be mindful of God.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The package you choose affects your proximity to the Haram, the quality of scholarly guidance, group size, and overall comfort. Economy packages are closer to the Sunnah in simplicity, while premium packages offer more ease for those who need it.
@@ -6841,19 +8865,26 @@ Request detailed itineraries from your shortlisted operators. Compare: proximity
         { title: 'Read reviews and ask community members for recommendations', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts highlight the general call to perform Hajj, the journey of pilgrims from distant places, and the spiritual reward of a sinless pilgrimage, they omit any mention of modern logistical preparations such as reading reviews or asking community members for recommendations regarding tour operators, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (22:27-28)
-**Arabic:** وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ ۝ لِّيَشْهَدُوا مَنَافِعَ لَهُمْ  
-**Translation:** And proclaim to the people the Hajj; they will come to you on foot and on every lean camel from every distant pass. That they may witness benefits for themselves.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1521
-The Prophet (SAW) said: "Whoever performs Hajj and does not commit any obscenity or transgression shall return (free from sin) as the day his mother bore him."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 22:27-28",
+              arabic: "وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ ۝ لِّيَشْهَدُوا مَنَافِعَ لَهُمْ",
+              translation: "And proclaim to the people the Hajj; they will come to you on foot and on every lean camel from every distant pass. That they may witness benefits for themselves.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1521",
+              translation: "The Prophet (SAW) said: \"Whoever performs Hajj and does not commit any obscenity or transgression shall return (free from sin) as the day his mother bore him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Personal recommendations from those who have performed Hajj are invaluable. Written reviews only capture part of the picture -- direct conversations reveal how operators handle unexpected situations, crowds, and logistical challenges.
@@ -6874,19 +8905,26 @@ Ask community members at your masjid who have recently performed Hajj about thei
         { title: 'Book an Umrah trip during a less crowded season', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly establish the obligation and spiritual rewards of performing Umrah and Hajj, they omit any mention of modern practical travel strategies such as booking during an off-peak season to avoid crowds, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:196)
-**Arabic:** وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ  
-**Translation:** And complete the Hajj and Umrah for Allah.
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1773
-The Prophet (SAW) said: "An Umrah is an expiation for the sins committed between it and the next Umrah, and Hajj Mabrur (the one accepted by Allah) has no reward other than Paradise."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:196",
+              arabic: "وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ",
+              translation: "And complete the Hajj and Umrah for Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1773",
+              translation: "The Prophet (SAW) said: \"An Umrah is an expiation for the sins committed between it and the next Umrah, and Hajj Mabrur (the one accepted by Allah) has no reward other than Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Performing Umrah outside of peak seasons (Ramadan and Hajj) gives you space to learn the rites at a comfortable pace. The reduced crowds allow you to absorb the spiritual atmosphere and build familiarity with the sacred sites before the intensity of Hajj.
@@ -6898,23 +8936,35 @@ Research off-peak travel periods (typically Rabi al-Awwal through Sha'ban, exclu
         { title: 'Perform all the rites with full awareness and presence', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly outline the physical rites of the pilgrimage and their immense spiritual rewards, they omit any mention of specific modern mindful practices such as taking notes, monitoring focus, and treating Umrah as a deliberate practice run for Hajj, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (22:29)
-**Arabic:** ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ
-**Translation:** "so let the pilgrims perform their acts of cleansing, fulfil their vows, and circle around the Ancient House." (Abdel Haleem)
-
-### Quran (2:158)
-**Arabic:** إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ
-**Translation:** "Safa and Marwa are among the rites of God, so for those who make major or minor pilgrimage to the House it is no offence to circulate between the two. Anyone who does good of his own accord will be rewarded, for God rewards good deeds, and knows everything." (Abdel Haleem)
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1773
-Narrated Abu Huraira: The Prophet (ﷺ) said, "(The performance of) Umrah is an expiation for the sins committed between it and the previous Umrah; and the reward of Hajj Mabrur (the one accepted by Allah) is nothing except Paradise."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 22:29",
+              arabic: "ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",
+              translation: "so let the pilgrims perform their acts of cleansing, fulfil their vows, and circle around the Ancient House.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:158",
+              arabic: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ",
+              translation: "Safa and Marwa are among the rites of God, so for those who make major or minor pilgrimage to the House it is no offence to circulate between the two. Anyone who does good of his own accord will be rewarded, for God rewards good deeds, and knows everything.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1773",
+              translation: "Narrated Abu Huraira: The Prophet (ﷺ) said, \"(The performance of) Umrah is an expiation for the sins committed between it and the previous Umrah; and the reward of Hajj Mabrur (the one accepted by Allah) is nothing except Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 This Umrah is practice for Hajj. Performing it with full khushu' (presence of heart) not only earns immense reward on its own, but builds the muscle memory and spiritual awareness you will need when Hajj adds complexity and larger crowds.
@@ -6926,19 +8976,26 @@ Focus on understanding each rite as you perform it, making du'a at the appropria
         { title: 'Document lessons learned for your future Hajj preparation', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly mention taking provisions and highlight the spiritual rewards of Umrah and Hajj, they omit any reference to documenting practical lessons, creating checklists, or treating Umrah as a learning experience for future Hajj preparation, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ  
-**Translation:** And take provisions, but indeed the best provision is taqwa (God-consciousness).
-
-**II. Hadith**
-
-
-### Sahih Bukhari 1773
-The Prophet (SAW) said: "An Umrah is an expiation for the sins committed between it and the next Umrah, and Hajj Mabrur has no reward other than Paradise."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ",
+              translation: "And take provisions, but indeed the best provision is taqwa (God-consciousness).",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1773",
+              translation: "The Prophet (SAW) said: \"An Umrah is an expiation for the sins committed between it and the next Umrah, and Hajj Mabrur has no reward other than Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 The practical lessons from Umrah -- what to pack, how to manage crowds, which du'as to prepare, what surprised you -- are gold for your future Hajj. Capturing them while fresh ensures you do not lose these insights.
@@ -6957,21 +9014,26 @@ Write down practical lessons immediately after returning: what worked, what you 
         { title: 'Identify a trustworthy Hajj sponsorship programme', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly encourage performing good deeds and highlight the reward of an honest treasurer, they omit specific modern charitable practices like researching and verifying a trustworthy Hajj sponsorship programme, providing a clear logical inference to systematically ensure that donated funds are managed honestly and reach legitimate recipients.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ
-**Translation:** "The pilgrimage takes place during the prescribed months... whatever good you do, God is well aware of it." (Abdel Haleem)
-
-*(Sponsoring another's Hajj falls under "whatever good you do" — وَمَا تَفْعَلُوا مِنْ خَيْرٍ — a deed that Allah witnesses directly.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 2671
-Narrated Abu Musa: The Prophet (ﷺ) said, "The honest treasurer who gives willingly what he is ordered to give, is one of the two givers of charity."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ",
+              translation: "The pilgrimage takes place during the prescribed months... whatever good you do, God is well aware of it.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2671",
+              translation: "Narrated Abu Musa: The Prophet (ﷺ) said, \"The honest treasurer who gives willingly what he is ordered to give, is one of the two givers of charity.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Sponsoring someone's Hajj enables them to fulfil a pillar of Islam they could not achieve on their own. This is among the most impactful forms of sadaqah. However, the funds must reach a legitimate recipient through a credible channel.
@@ -6983,19 +9045,26 @@ Research organisations and masjids that run Hajj sponsorship funds for those who
         { title: 'Contribute to sponsoring a pilgrim', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided texts explicitly establish the obligation of Hajj for those who are able to undertake it and highlight the immense spiritual rewards of the pilgrimage, they omit any mention of charitable giving, ongoing sadaqah, or financially sponsoring another person\'s journey, providing neither explicit proof nor contextual indication for the specific subtask.',
-          sources: `**I. Quran**
-
-
-### Quran (3:97)
-**Arabic:** وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا  
-**Translation:** Pilgrimage to the House is a duty owed to God by people who are able to undertake it.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1773
-The Prophet (SAW) said: "An Umrah to the next Umrah is an expiation for what is between them, and Hajj Mabrur has no reward except Paradise."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:97",
+              arabic: "وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا",
+              translation: "Pilgrimage to the House is a duty owed to God by people who are able to undertake it.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1773",
+              translation: "The Prophet (SAW) said: \"An Umrah to the next Umrah is an expiation for what is between them, and Hajj Mabrur has no reward except Paradise.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Whether you sponsor a full Hajj or contribute partially, the reward is immense. Enabling someone to worship Allah at His House is a form of ongoing sadaqah whose reward multiplies through every du'a that pilgrim makes.
@@ -7007,21 +9076,26 @@ Decide on a contribution amount based on your means. Donate through the verified
         { title: 'Make du\'a for the sponsored pilgrim', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly encourage making supplication for a brother in his absence and highlight the angel\'s reciprocal response, they omit specific practices like praying for a sponsored pilgrim on the Day of Arafah and requesting mutual supplications, providing a clear logical inference to actively pray for their successful pilgrimage to attain these shared blessings.',
-          sources: `**I. Quran**
-
-
-### Quran (22:29)
-**Arabic:** ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ
-**Translation:** "so let the pilgrims perform their acts of cleansing, fulfil their vows, and circle around the Ancient House." (Abdel Haleem)
-
-*(Praying for the pilgrim you sponsored to complete their rites with sincerity and acceptance is itself an act of worship, tying your du’a to the sacred rites described in this verse.)*
-
-**II. Hadith**
-
-
-### Sahih Muslim 2733
-Narrated Abu al-Darda: The Prophet (ﷺ) said: "No Muslim makes du’a for his brother in his absence except that the angel says: And for you the same."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 22:29",
+              arabic: "ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",
+              translation: "so let the pilgrims perform their acts of cleansing, fulfil their vows, and circle around the Ancient House.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 2733",
+              translation: "Narrated Abu al-Darda: The Prophet (ﷺ) said: \"No Muslim makes du’a for his brother in his absence except that the angel says: And for you the same.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Your du'a for them in their absence is answered by an angel who says "And for you the same." This reciprocal blessing means that praying for the pilgrim's accepted Hajj and forgiveness returns the same to you.
@@ -7040,21 +9114,26 @@ Pray that Allah accepts their Hajj, forgives their sins, and returns them home r
         { title: 'Keep a journal during your Hajj preparation', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly encourage taking adequate provisions for the pilgrimage and teaching acquired wisdom to others, they omit specific modern methods like keeping a journal, providing a clear logical inference to document one\'s preparation journey as a means of spiritual provision and a resource to educate future pilgrims.',
-          sources: `**I. Quran**
-
-
-### Quran (2:197)
-**Arabic:** الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ
-**Translation:** "The pilgrimage takes place during the prescribed months... whatever good you do, God is well aware of it. Provide well for yourselves: the best provision is to be mindful of God." (Abdel Haleem)
-
-*(Journaling the preparation journey is itself a form of provision — وَتَزَوَّدُوا — equipping the soul with reflection and intentionality before arriving at Allah's House.)*
-
-**II. Hadith**
-
-
-### Sahih Bukhari 79
-Narrated \`Abdullah bin Mas\`ud: The Prophet (ﷺ) said, "Do not wish to be like anyone except in two cases: (1) A person, whom Allah has given wealth and he spends it righteously; (2) A person whom Allah has given wisdom (the knowledge of Qur'an and hadith) and he acts according to it and teaches it to others."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:197",
+              arabic: "الْحَجُّ أَشْهُرٌ مَّعْلُومَاتٌ ۚ فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ ۗ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ ۗ وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ ۚ وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ",
+              translation: "The pilgrimage takes place during the prescribed months... whatever good you do, God is well aware of it. Provide well for yourselves: the best provision is to be mindful of God.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 79",
+              translation: "Narrated `Abdullah bin Mas`ud: The Prophet (ﷺ) said, \"Do not wish to be like anyone except in two cases: (1) A person, whom Allah has given wealth and he spends it righteously; (2) A person whom Allah has given wisdom (the knowledge of Qur'an and hadith) and he acts according to it and teaches it to others.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Documenting your learning journey creates a resource for both yourself and others. The questions you struggled with, the books that helped, and the practical preparations you made are exactly what future pilgrims need to know.
@@ -7066,23 +9145,35 @@ Start a journal (digital or physical) that tracks: what books and courses you st
         { title: 'Share key lessons with family or community', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly state the immense reward for guiding someone to goodness and the overarching benefits of Hajj, they omit specific modern practices like hosting preparation sessions and sharing personal journal notes, providing a clear logical inference to actively share one\'s pilgrimage lessons to educate and inspire the community.',
-          sources: `**I. Quran**
-
-
-### Quran (22:27-28)
-**Arabic:** وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ ۝ لِّيَشْهَدُوا مَنَافِعَ لَهُمْ  
-**Translation:** And proclaim to the people the Hajj; they will come to you on foot and on every lean camel from every distant pass. That they may witness benefits for themselves.
-
-### Quran (22:37)
-**Arabic:** لَن يَنَالَ اللَّهَ لُحُومُهَا وَلَا دِمَاؤُهَا وَلَٰكِن يَنَالُهُ التَّقْوَىٰ مِنكُمْ  
-**Translation:** Their meat will not reach Allah, nor will their blood, but what reaches Him is piety (taqwa) from you.
-
-**II. Hadith**
-
-
-### Sahih Muslim 1893
-The Prophet (SAW) said: "Whoever guides someone to goodness will have a reward like that of the one who does it."
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 22:27-28",
+              arabic: "وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ ۝ لِّيَشْهَدُوا مَنَافِعَ لَهُمْ",
+              translation: "And proclaim to the people the Hajj; they will come to you on foot and on every lean camel from every distant pass. That they may witness benefits for themselves.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 22:37",
+              arabic: "لَن يَنَالَ اللَّهَ لُحُومُهَا وَلَا دِمَاؤُهَا وَلَٰكِن يَنَالُهُ التَّقْوَىٰ مِنكُمْ",
+              translation: "Their meat will not reach Allah, nor will their blood, but what reaches Him is piety (taqwa) from you.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 1893",
+              translation: "The Prophet (SAW) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 Many Muslims feel overwhelmed by Hajj preparation because they lack accessible, personal guidance. Your lived experience and lessons learned can demystify the process and inspire others to begin their own preparation.
@@ -7094,19 +9185,26 @@ Host a Hajj preparation session at your local masjid or with family. Share what 
         { title: 'Create a resource list (books, courses, du\'a cards) for future pilgrims', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts explicitly encourage completing the pilgrimage and note that sharing preparation resources assists future pilgrims, they omit specific modern methods like compiling a curated digital list of books and courses, providing a clear logical inference to create and share these materials to help others achieve an accepted Hajj.',
-          sources: `**I. Quran**
-
-
-### Quran (2:196)
-**Arabic:** وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ  
-**Translation:** Complete the pilgrimages, major and minor, for the sake of God.
-
-**I. Hadith**
-
-
-### Sahih Bukhari 1773
-The Prophet (SAW) said: "Hajj Mabrur has no reward except Paradise." Sharing preparation resources helps future pilgrims achieve a Hajj accepted by Allah.
-*(Grade: Sahih)*`,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:196",
+              arabic: "وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ",
+              translation: "Complete the pilgrimages, major and minor, for the sake of God.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1773",
+              translation: "The Prophet (SAW) said: \"Hajj Mabrur has no reward except Paradise.\" Sharing preparation resources helps future pilgrims achieve a Hajj accepted by Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
           description: `**Why?**
 
 A curated resource list saves future pilgrims from the overwhelming task of finding quality Hajj preparation materials on their own. Your personal recommendations carry weight because they are tested, not theoretical.

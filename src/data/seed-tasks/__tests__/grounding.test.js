@@ -22,7 +22,7 @@ const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 // Per-pillar ratchet. Set to current legacy count. Decrement as entries migrate.
 // Source of truth: `node scripts/lint-grounding.mjs` (shape = legacy string).
 const PILLARS = [
-  { id: 'faith',       data: FAITH_SEED_TASKS,       expectedLegacy: 212, allowEmptyArray: 0 },
+  { id: 'faith',       data: FAITH_SEED_TASKS,       expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'life',        data: LIFE_SEED_TASKS,        expectedLegacy: 236, allowEmptyArray: 0 },
   { id: 'intellect',   data: INTELLECT_SEED_TASKS,   expectedLegacy: 236, allowEmptyArray: 0 },
   { id: 'family',      data: FAMILY_SEED_TASKS,      expectedLegacy: 233, allowEmptyArray: 0 },
