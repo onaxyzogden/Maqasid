@@ -3,6 +3,95 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §15 — permit readiness checklist
+
+Closed §15 `permit-dependencies-readiness-checklist` (P3, planned →
+done). PermitReadinessCard surfaces five regulatory gates per phase
+(building permit, septic perc test, well permit, electrical service,
+ag exemption) with status chips derived heuristically from structure
+type and infrastructureReqs. Lives under the build-order warnings
+on PhasingDashboard.
+
+### Added
+- `apps/web/src/features/structures/PermitReadinessCard.tsx` — pure
+  presentation. Reads structureStore + phaseStore. No new shared
+  exports, no permit-tracking field persisted.
+  - `HABITABLE_TYPES` set: cabin / yurt / earthship / classroom /
+    prayer_space / bathhouse / workshop / tent_glamping. Triggers
+    the residential building permit gate.
+  - `AGRICULTURAL_TYPES` set: barn / animal_shelter / greenhouse /
+    compost_station / storage. Drives the ag-exemption eligibility
+    flag.
+  - `PERMITS` array: 5 gates with id / label / blurb. Chosen to
+    cover ~90% of regenerative-ag site permitting without
+    descending into jurisdiction-specific filings.
+  - `evaluateGate(gate, phaseStructures, allProjectStructures)`
+    returns `{ status, triggeredBy, detail }` per gate. Status is
+    one of `required` / `eligible` / `ok` / `na`. Cross-phase
+    awareness: septic perc test marks `ok` when an earlier phase
+    already placed a compost/septic structure (steward should
+    still confirm); well permit marks `ok` when a well exists
+    project-wide; ag-exemption marks `eligible` only when ag
+    structures outnumber habitable ones.
+  - Per-phase grouping: phases without any assigned structures are
+    skipped to keep the rollup focused. An explicit empty state
+    explains "structures placed but none assigned to a phase" when
+    the project has structures but no phase assignment.
+
+- `apps/web/src/features/structures/PermitReadinessCard.module.css`
+  — own module rather than reusing PhasingDashboard.module.css.
+  Permit chips need their own color palette (amber for required,
+  blue for eligible, green for ok, dim for n/a) that the warnings
+  CSS doesn't carry. Visual tokens still match the parent
+  dashboard's grammar.
+  - `.chipGrid` uses `auto-fit` minmax(220px, 1fr) so the 5 chips
+    flow into 1–5 columns depending on viewport width.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/PhasingDashboard.tsx`
+  imports and mounts `<PermitReadinessCard projectId={…} />`
+  between the build-order warnings card and the closing footnote.
+
+- `packages/shared/src/featureManifest.ts` line 378:
+  `permit-dependencies-readiness-checklist` planned → done.
+
+### Decisions
+- Heuristic, no persisted permit-tracking. Real permit nomenclature,
+  fees, eligibility, and forms vary by state and county — a real
+  tracker needs a jurisdictional schema, vendor APIs, and probably
+  a per-permit attachment store. That's a separate planned item.
+  The card is honest about this in the footnote: "a steward-facing
+  pre-flight, not a jurisdictional permit tracker."
+- Cross-phase coupling is one-directional. If Phase 1 places a
+  well, Phase 2 inherits the well's permit as `ok`. We don't try
+  to detect mid-project well decommissioning or per-phase permit
+  expiration — the model is "what permits will this phase prompt
+  if everything before it stays in place."
+- 5-gate cap. Fewer gates would miss real categories; more would
+  drift into county-specific filings (driveway permit, stormwater
+  permit, fire-marshal sign-off, food-service license for some
+  classrooms). Five is the readable rollup; the rest belong in a
+  per-jurisdiction module if/when we ship one.
+- Septic perc gate marks `ok` when ANY compost_station exists,
+  even if it's a different system. Conservative trade-off:
+  steward might over-trust this. Detail string says "confirm the
+  existing perc test covers this phase" to push the steward toward
+  verification rather than passive acceptance.
+- Ag-exemption eligibility threshold: ag structures >= habitable
+  count. A simple majority-rule heuristic. Real ag-exemption tests
+  are jurisdiction-specific (parcel size, gross ag income, density
+  of ag use), but the count-based rule cleanly distinguishes
+  "primarily a homestead with a barn" from "primarily a working
+  farm."
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx
+  tsc --noEmit` — clean (empty output).
+- Renamed `Phase` import to `BuildPhase` after first compile —
+  phaseStore exports `BuildPhase`, not `Phase`.
+
+---
+
 ## [2026-04-25] session | OGDEN Ecosystem Presentation Mode
 
 Built a fullscreen presentation wrapper at `/present/ogden` for the 2:45
