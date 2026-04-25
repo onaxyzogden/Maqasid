@@ -4464,3 +4464,40 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Completed:** BBOS hero tonal alignment (eyebrow + ordering + headline) with original 5-sentence subhead preserved per user preference. MILOS hero full alignment (eyebrow glyph + ordering + headline + subhead) with three iterative headline refinements and a user-authored subhead variant.
 - **Deferred:** Visual screenshot verification (preview tool unresponsive). Side-by-side screenshot comparison of BBOS / OLOS / MTC / MILOS heroes.
 - **Recommended next session:** (a) Apply the same eyebrow glyph + middot pattern to the Ogden Hub home page (`website/index.html`) if it lacks it, for full family consistency. (b) Visual QA pass on all four product heroes at desktop + mobile widths once the preview renderer is healthy. (c) Consider whether the marketing-site sub-pages (`/bbos/solution/`, `/mtc/collective/solution/`, `/olos/solution/`) need the same hero treatment.
+
+
+## 2026-04-25 — OGDEN Hub home eyebrow + product glyph audit
+
+**Trigger:** Follow-on from same-day BBOS/MILOS hero alignment (commit `96dbc48`). Home page (`website/index.html`) lacked the family eyebrow pattern; glyph audit surfaced two product-card vs product-page mismatches.
+
+**Changes:**
+
+- **`website/index.html` line 227** — Home hero eyebrow: `Structured Service · Rooted Intention` → `◆ · OGDEN · Structured Service · Rooted Intention` (full family pattern: glyph + name slot + descriptor pair). Glyph `&#9670;` (◆ U+25C6 Black Diamond) — distinct from the four product glyphs (◤ ○ ◈ ◇), reads as the umbrella shape.
+- **`website/index.html` line 383** — BBOS product card badge: `&#8297;&#10689;` (Left-to-Right Isolate U+2069 + ◈ U+29C1) → `&#9672;` (◈ U+25C8). Drops the bidirectional control char (was likely an accidental editor artifact); aligns home-card glyph with the BBOS product-page eyebrow which already uses U+25C8.
+- **`website/milos/index.html` line 228** — MILOS hero eyebrow glyph: `&loz;` (◊ U+25CA Lozenge, filled) → `&#9671;` (◇ U+25C7 White Diamond, open). Aligns the product page with the home card, which already uses the open ◇. Open/hairline diamond pairs better with OLOS's open ○ in the family treatment.
+
+**Canonical glyphs (now consistent across home cards + product page eyebrows):**
+| Product | Canonical glyph (codepoint) |
+|---|---|
+| OGDEN umbrella | ◆ U+25C6 (9670) |
+| MTC | ◤ U+25E4 (9700) |
+| OLOS | ○ U+25CB (9675) |
+| BBOS | ◈ U+25C8 (9672) |
+| MILOS | ◇ U+25C7 (9671) |
+
+**Verification (DOM + layout via `preview_inspect`):**
+- All three edits confirmed live in served HTML.
+- All five hero blocks (`/`, `/bbos/`, `/olos/`, `/mtc/`, `/milos/`) verified at three viewports (1440 desktop, 768 tablet, 375 mobile):
+  - Hero child ordering: `hero-ayah/hadith → hero-eyebrow → hero-headline → hero-sub` ✓
+  - Headline `<em>` italics computed-style `italic` (inside / commit / why it matters. / it always was.) ✓
+  - All eyebrow glyph codepoints render as intended (no tofu / replacement boxes).
+  - No horizontal overflow at any viewport.
+  - Home eyebrow wraps to 3 lines at 375px mobile (consistent with MILOS sibling), 1 line at 768/1440.
+- All four home product card badges render their canonical glyphs (◤ ○ ◈ ◇).
+
+**QA gap (deferred):** `preview_screenshot` was unresponsive across both 2026-04-25 sessions — every call timed out at 30s. DOM/layout inspection covered content, structure, computed styles, dimensions, and overflow, but no rendered-pixel verification was possible. User can confirm visually at `http://localhost:8080/`.
+
+### Session Debrief
+- **Completed:** Home page family eyebrow alignment; BBOS + MILOS canonical glyph fix-up; full DOM + layout QA across 5 pages × 3 viewports; new `feedback_bbos_subhead_protected` memory written (5-sentence subhead is canonical, do not tighten).
+- **Deferred:** Visual screenshot QA (preview tool unresponsive — environment issue, not code). Graphify regeneration (`/graphify --update website` per `website/CONTEXT.md`).
+- **Recommended next session:** (a) Investigate why `preview_screenshot` keeps timing out on this Windows env. (b) Consider whether `/solution/` sub-pages need parallel hero/eyebrow treatment. (c) Run `/graphify --update website` to refresh the website knowledge graph.
