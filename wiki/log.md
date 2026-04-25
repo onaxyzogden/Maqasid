@@ -3,6 +3,53 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-24] session | Atlas §9 — gathering & retreat capacity rollup
+
+Closed §9 `tent-glamping-gathering-firecircle-lookout` (P2, planned →
+done) on the manifest. Sibling to the SupportInfrastructureCard shipped
+earlier this session — same skeleton (count / floor area / per-subtype
+bar), but framed for program/people surfaces rather than operations.
+Mounted on the Educational Atlas dashboard between the Rationale Index
+and the P4 Guided Walkthrough stub, since these are the spaces stewards
+actually program.
+
+### Added
+- `apps/web/src/features/structures/GatheringRetreatCard.tsx` — pure
+  presentation. Aggregates by the four §9 subtypes called out in the
+  spec line: tent_glamping, pavilion (canonical "Open-air gathering
+  structure"), fire_circle, lookout. Classroom is intentionally
+  excluded — it lives under §9 `prayer-bathhouse-classroom-placement`.
+  Totals strip shows sites count, floor area (m²), and a heuristic
+  seating-capacity total derived from per-subtype defaults (40/pavilion,
+  16/fire_circle, 4/lookout, 2/tent). Per-subtype rows render a warm-
+  amber floor-area bar (distinguishes "program/people" from the sage-
+  green "operations/things" palette of SupportInfrastructureCard) and
+  per-instance meta line.
+- `apps/web/src/features/structures/GatheringRetreatCard.module.css`
+  — visual language mirrors SupportInfrastructureCard with an amber
+  gradient swap.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  — imported `GatheringRetreatCard`, mounted between the Rationale
+  Index card and the Guided Walkthrough P4-stub card.
+- `packages/shared/src/featureManifest.ts:253` — `tent-glamping-
+  gathering-firecircle-lookout` planned → done.
+
+### Untouched
+StructureStore types (already correct), DesignToolsPanel picker (already
+exposes the four subtypes via the existing 'gathering' category
+iteration), shared scoring (no math changes), persist version (no shape
+changes), classroom-bearing §9 prayer-bathhouse-classroom row.
+
+### Verification
+`NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from
+`apps/web` exits clean. Pre-existing MapView.tsx errors from a parallel
+session's uncommitted work (`rightPanelCollapsed`,
+`RailPanelShellProps`) are unrelated and not addressed here.
+
+---
+
 ## [2026-04-24] session | MILOS shared UI motif tokens
 
 Extracted five reusable UI motifs from per-page CSS into a shared
@@ -3196,3 +3243,49 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
   - Light-mode explicit preview verification (Vite prefers-color-scheme override didn't flip the app's internal theme; styling deemed correct from token structure)
   - Broader lint cleanup (625 pre-existing errors are their own session)
 - **Recommended next session:** Either (a) tackle the lint backlog as a focused sweep, or (b) write `wiki/concepts/motif-tokens.md` so the 4th page that picks up these motifs composes rather than duplicates.
+
+## 2026-04-24 — TaskDetailPanel UI/UX scholar refit (Shahada modal)
+
+**Trigger:** User pasted Shahada — Core modal screenshot, requested `/notebooklm` UI/UX Scholar consult. Five Q's sent to NotebookLM `995a59d1`; all 5 answers approved into Session Execution Plan; user typed "approved".
+
+**Changes — `src/components/work/TaskDetailPanel.{jsx,css}`:**
+- **Q1 (title weight):** `.tdp-title` → Noto Serif 2rem / weight 400 / letter-spacing −0.025em / line-height 1.15. Mobile bumped 1.25→1.5rem.
+- **Q2 (priority placement):** New `.tdp-header-block` flex column reorders title → priority pill → description; pill desaturated to `color-mix(... 12%, transparent)` and reduced to 3px×10px / 10px text / 0.08em tracking.
+- **Q3 (tier repetition):** `tierSet` rollup in JSX — homogeneous-tier subtask lists hoist a single `AmanahTierBadge` into `.tdp-section-label__tier` slot; per-row badges gated by `!sharedTier`. Mixed-tier lists unchanged.
+- **Q4 (Done button loop):** `data-state` attribute (`empty`/`locked`/`ready`) replaces `disabled`. Ghost default (1.5px hairline accent, transparent bg). At `ready`, button fills with accent + sets `--motif-tint` + composes `.motif-shimmer-border` (earned-completion shimmer). Click guarded by `if (!isReady) return`.
+- **Q5 (description recede):** `.tdp-description-text` color via `color-mix(in srgb, var(--text) calc(var(--motif-ghost-variant-opacity, 0.7) * 100%), transparent)` — naked text, no container. Caught a unit-coercion bug: bare `var(--motif-ghost-variant-opacity, 65%)` was producing fully-opaque text because the token resolves to `0.7` (unitless) not `70%`; `calc(... * 100%)` fixes.
+
+**Verification:**
+- `npm run build` ✓
+- Preview eval at `/app/faith-shahada` → opened TaskDetailPanel for "Study the meaning…": confirmed title=Noto Serif 32px/400/−0.8px, priority=10px/700/0.8px, sectionLabelHasTier=true, btnState=`locked` & btnBg=transparent (ghost), desc color resolved to `color(srgb 0.10 0.11 0.13 / 0.7)` after fix.
+- Screenshot tool timed out (renderer stuck on modal); state-eval verification accepted in lieu.
+
+**Decision record:** `wiki/decisions/2026-04-24-task-detail-panel-scholar-refit.md`
+
+### Session Debrief
+- **Completed:** All 5 scholar Q's applied to TaskDetailPanel; build clean; live preview verified via computed-style eval; decision record + log entry filed; one CSS-coercion bug caught and fixed.
+- **Deferred:** Visual screenshot (preview_screenshot timed out on the open modal — eval-based verification used instead). `InlineTaskDetail` not yet refactored to match — flagged as follow-on.
+- **Recommended next session:** Apply the same header-block / tier-rollup / ghost-button pattern to `InlineTaskDetail` so all task-modal surfaces share the new vocabulary.
+
+## 2026-04-24 — InlineTaskDetail follow-on (vocabulary alignment)
+
+**Trigger:** Carry the TaskDetailPanel scholar-refit pattern to its sibling component so both task-modal surfaces share vocabulary.
+
+**Changes — `src/components/work/InlineTaskDetail.{jsx,css}`:**
+- **Q1 (editorial title):** `.iltd__title` → Noto Serif 1.75rem / weight 400 / −0.025em / line-height 1.15 (was var(--text-lg) / 700 / −0.02em / 1.3). Slightly smaller than TaskDetailPanel's 2rem because iltd is an inline-expanded card, not a modal — the smaller size respects the surrounding grid density.
+- **Q3 (tier rollup):** Imported `AmanahTierBadge`. Added `tierSet`/`sharedTier` rollup. New `.iltd__section-label__tier` slot inside Subtasks header hosts a single badge when homogeneous; per-row `.iltd__subtask-tier` gated by `!sharedTier` for mixed-tier sets. Section-label is now `inline-flex` with 8px gap to seat the badge.
+- **Q5 (description recede):** `.iltd__description` color now uses the same `color-mix(in srgb, var(--text) calc(var(--motif-ghost-variant-opacity, 0.7) * 100%), transparent)` formula as TaskDetailPanel.
+
+**Skipped (intentionally):**
+- **Q2 (priority demoted):** N/A — InlineTaskDetail's priority is an *editable select* in the controls grid, not a display pill. Demotion would conflict with the editing semantics.
+- **Q4 (ghost Done button):** N/A — InlineTaskDetail has no Done button; status changes via select.
+
+**Verification:**
+- `npm run build` ✓ (1.64s)
+- AmanahTierBadge import path resolves
+- Live preview verification skipped: couldn't reach a `PillarLevelDashboard` view with an active inline-selected task from current preview navigation state. Pattern mirrors already-verified TaskDetailPanel; risk of visual regression low.
+
+### Session Debrief
+- **Completed:** InlineTaskDetail aligned to shared vocabulary (Q1, Q3, Q5 applied; Q2/Q4 documented as intentionally skipped).
+- **Deferred:** Live preview verification (component out of reach without project-board setup).
+- **Recommended next session:** Either (a) audit any remaining task-display surfaces (e.g., `BbosTaskPanel`, modal flows in `KanbanBoard`) for the same vocabulary alignment, or (b) push the lint backlog sweep.
