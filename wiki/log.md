@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §21 Missing Information Checklist Card
+
+**Objective:** Continue manifest gap-fill audit. User picked candidate 2 (decision-readiness gates checklist), mapped to manifest §21 `feasibility-summary` (P2, partial) — specifically the "missing information checklist" half of that bundled item.
+
+**Outcome:** Shipped `MissingInformationChecklistCard.tsx` + CSS module on `DecisionSupportPanel` between the existing Feasibility Checklist and Vision Fit Analysis. Tri-state (provided / partial / missing) roll-up across three input groups: Project (boundary, acreage, project type), Design (zones, structures, paths, utilities, livestock, crops), and Site Data (climate, elevation, soils, wetlands_flood, watershed, land_cover, microclimate, critical_habitat). Each row carries a "why this matters" rationale so the steward sees the consequence of the gap, plus an aggregate input-completeness percentage tone-coded good/fair/poor. Complements the existing Feasibility Checklist (which judges quality of present inputs) by answering whether each input was provided at all. One typecheck cycle: caught CSS-module `string | undefined` access on the `Stat` tone prop (noUncheckedIndexedAccess) — fixed by widening the prop type. Manifest §21 line 495 flipped partial → done. Atlas commit `38c96df` on `feat/shared-scoring`.
+
+**Carries forward:** §21 still has `regulatory-risk-notes`, `access-water-ag-livestock-feasibility`, `hospitality-education-energy-feasibility`, `terrain-construction-difficulty`, `capital-intensity-operational-complexity`, `seasonal-vulnerability-phasing-realism`, `maintenance-complexity-score` planned. Three more fresh candidates to propose next.
+
+---
+
 ## [2026-04-25] session | Atlas — §16 Best / Base / Worst Case Card
 
 **Objective:** Continue manifest gap-fill audit. User picked candidate 1 (scenario comparison side-by-side), mapped to manifest §16 `best-base-worst-case-scenarios` (P3, partial).
