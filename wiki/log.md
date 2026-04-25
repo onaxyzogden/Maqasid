@@ -3,6 +3,43 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §16 carrying-capacity site-level rollup
+
+**Objective:** Close the §16 `carrying-capacity-yield-projections` manifest item (P3, planned) with a presentation-layer site-level "what can this land actually carry?" rollup composing livestock + crops + water lenses.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/scenarios/CarryingCapacityCard.tsx](atlas/apps/web/src/features/scenarios/CarryingCapacityCard.tsx) (~290 lines) — three-lens parcel rollup:
+  - **Livestock**: representative species (most-placed, falls back to cattle) × `LIVESTOCK_SPECIES.typicalStocking` × adjusted-stocking multiplier from `computeForageQuality(om, canopy, slope, growingSeason)`. Renders property head-capacity, currently-placed head, and a utilization bar.
+  - **Crops**: `computeYieldEstimates(cropAreas)` total kg/yr from placed species + a transparent "25% of un-planted parcel at orchard-equivalent (22 kg/tree, 5m spacing)" extrapolation. Hero shows placed yield, sub-row shows extrapolation, total potential below.
+  - **Water**: rational method `precip × runoff_C(NRCS group) × area` annual catchment vs WHO-baseline 4-person + 18k gal/acre/yr irrigation demand. Surplus/deficit chip flips colour above/below 1.0 coverage ratio.
+- New CSS module — three-lens grid responsive to single-column < 900px, gradient utilization bar, surplus/deficit semantic colours.
+- Mounted on `EcologicalDashboard.tsx` between Carbon Estimate and Ecological Opportunities (wraps the page in: scores → soil → vegetation → wetlands → pollinators → interventions → zone rollups → carbon → **carrying capacity** → opportunities → field-survey CTA).
+- Manifest line 401 flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean.
+
+**Discipline:** Pure presentation — no shared-package math touched, no new entities, no new map layers. Re-uses three existing analysis primitives (`computeForageQuality`, `computeYieldEstimates`, `LIVESTOCK_SPECIES`). Atlas commit `6b14678` — 4 files, 843 ins / 20 del.
+
+---
+
+## [2026-04-25] session | MILOS deferred-items closeout — Phase A (LevelNavigator chunk split)
+
+**Objective:** Close the three items deferred from the pre-test audit. Phase A: collapse the 4.7 MB LevelNavigator chunk by lazy-loading pillar seed-task data.
+
+**Shipped (Phase A):**
+- Rewrote [src/services/seed-hydrator.js](src/services/seed-hydrator.js) — lazy `PILLAR_LOADERS` with promise cache; sync API preserved (passthrough on cache miss) so only entry points need to await.
+- Made [src/store/task-store.js](src/store/task-store.js) `loadTasks` async with `await preloadBoardSeeds(projectId)`.
+- Made all 8 `ensureXProjects` in [src/store/project-store.js](src/store/project-store.js) async with `await preloadPillarSeeds(<pillar>)`. Rewrote `backfillAndStripSeeds` as async with **pillar discovery** (only loads pillars actually present in `localStorage.projects`). Module-load invocation deferred to `requestIdleCallback`.
+- Added `manualChunks` to [vite.config.js](vite.config.js) — 9 named pillar-seed chunks.
+
+**Verification:** `npm run build` exits 0, 2,766 modules transformed. **LevelNavigator chunk: 4,699 KB → 178 KB raw (47 KB gz, 96% reduction).** 9 named pillar-seed chunks present (smallest `seed-weekly` 4.7 KB, largest `seed-ummah` 1,295 KB). Preview-tested 7 pillar surfaces (faith/wealth/ummah/intellect/family/life/environment cores + prophetic-path) — all render correctly with dynamically-loaded seed data. Console clean (only pre-existing aladhan 400s from lat=0/lng=0 geolocation fallback).
+
+**Decision record:** [[2026-04-25-milos-chunk-split]]
+
+**Carries forward in this session:** Phase B (lint full pass), Phase C.1 (two-axis tooling), Phase C.2 (Faith pillar finish).
+
+---
+
 ## [2026-04-25] session | MILOS pre-test audit — Phase C (Tier-3 cleanup, session close)
 
 **Objective:** Close the pre-test audit with the Tier-3 inconsistency / drift backlog: dark-mode coverage, shimmer-keyframe consolidation, hard-coded hex → tokens, date-format canonical, threshold-store persistence-tier markers.
