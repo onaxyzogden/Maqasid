@@ -51,3 +51,6 @@ stages/_qa-sample-*.md
 
 # Git worktrees
 .worktrees/
+
+# Migration scratch snapshots (regenerable via `git show HEAD:<path>`)
+tmp/
