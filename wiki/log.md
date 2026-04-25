@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §16 Best / Base / Worst Case Card
+
+**Objective:** Continue manifest gap-fill audit. User picked candidate 1 (scenario comparison side-by-side), mapped to manifest §16 `best-base-worst-case-scenarios` (P3, partial).
+
+**Outcome:** Shipped `BestBaseWorstCaseCard.tsx` + CSS module on `ScenarioPanel` (the real surface for the orphaned simulation-scenarios scaffold). Three-column layout collapses the financial engine's existing low/mid/high cost ranges into the canonical scenario triad: best case (low cost + high revenue), base case (mid), worst case (high cost + low revenue) across capital, break-even, year-5/10 cumulative cashflow, 10-year ROI, and annual revenue. Also surfaces capital spread % and ROI swing pp with a wide-uncertainty callout (>60% capital spread or >80pp ROI swing) advising stress-test against worst case before financing. Pure derivation from existing `FinancialModel` — no new engine math. Manifest §16 line 404 flipped partial → done. `tsc --noEmit` clean. Atlas commit `3e6c106` on `feat/shared-scoring`.
+
+**Carries forward:** Independent revenue distribution (current model couples cost and revenue bands); §16 still has `visitor-event-parking-overflow-sim`, `climate-shift-overlays`, `fire-emergency-infrastructure-failure-water-shortage` planned. Three more fresh candidates to propose next.
+
+---
+
 ## [2026-04-25] session | MILOS — Grounding gate promoted into default `npm run lint`
 
 **Objective:** Sealing action after the migration arc and inline-refs Phase 1 ship. Lock the structured-array schema and the inline-refs invariant into the default lint chain so future seed-task contributions can't regress.
