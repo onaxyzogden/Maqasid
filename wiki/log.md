@@ -3,6 +3,93 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §9 — spiritual & communal facility rollup
+
+Closed §9 `prayer-bathhouse-classroom-placement` (MT, partial → done)
+on the manifest. Placement mechanics for the three structure types
+already existed; what was missing was a steward-facing rationale
+surface. The new SpiritualCommunalCard provides it: qiblah bearing
+for the project, per-instance qiblah-rotation delta for prayer
+spaces, capacity hints (worshippers / wudu stations / seats) for
+each instance, infrastructure-coverage check, and an adjacency
+advisory when a prayer space has no bathhouse within 50 m.
+
+### Added
+- `apps/web/src/features/structures/SpiritualCommunalCard.tsx` — pure
+  presentation. Reads structureStore + utilityStore + parcel
+  centroid via turf, computes qiblah via the existing
+  `lib/qibla.ts` (`computeQibla` + `bearingToCardinal`).
+  - Three FACILITIES configs (prayer_space / bathhouse / classroom)
+    with per-type m²-per-occupant heuristic:
+    - prayer_space: 1.0 m² / worshipper standing
+    - bathhouse:    2.0 m² / wudu station
+    - classroom:    1.5 m² / seat
+    - Floor area accounts for `storiesCount` (shipped earlier this
+      session) so a two-story classroom shows double the seats.
+  - 3-tile grid with pending state.
+  - Per-instance list showing dimensions × stories, capacity, and
+    infrastructure status (cross-checked against placed utilities
+    via the same UTILITY_PROVIDES map BuildOrderCard uses).
+  - For prayer spaces only: rotation deg + qiblah delta in degrees.
+    `qiblahDeltaDeg` reduces to a [0, 180] absolute delta — honest
+    note in the footnote that this treats rotation as long-axis
+    bearing, which is a steward-facing hint not a survey-grade
+    alignment.
+  - Adjacency advisory: for each prayer space, find the nearest
+    bathhouse via planar-meter distance from `Structure.center`;
+    flag any beyond 50 m as needing a closer wudu facility.
+  - Card-level qiblah header in the cardHint when any facility is
+    placed; surfaces qiblah at the bottom of the empty-state card
+    so even a zero-placement project gets the value.
+
+### Changed
+- `apps/web/src/features/dashboard/pages/EducationalAtlasDashboard.tsx`
+  - Imported and mounted `<SpiritualCommunalCard project={project} />`
+    directly below `PrivacyCohortPlanningCard`. Card takes the full
+    project (not just `projectId`) so it can derive the parcel
+    centroid for qiblah.
+- `packages/shared/src/featureManifest.ts` — §9 line 251
+  `prayer-bathhouse-classroom-placement` flipped `partial` → `done`.
+
+### Decisions
+- **Reuse SitingWarningsCard.module.css.** Fifth card in the
+  shared-CSS family. Visual language stays consistent across the
+  EducationalAtlasDashboard cluster (six rollup cards now: §5
+  siting + relationships + setback / §9 build-order + spiritual /
+  §8 privacy).
+- **Rotation-as-bearing is a hint, not a measurement.** Without
+  per-type "primary axis" metadata on FootprintTemplate, there's
+  no reliable way to know which edge of a rectangle is the qiblah
+  wall. Honest framing in the footnote prevents stewards from
+  trusting the delta number more than it deserves.
+- **Adjacency 50 m is one threshold, not a gradient.** Considered
+  three bands (within 30 m / 30–80 m / beyond 80 m) but a single
+  comfortable-walk threshold is enough for a planning hint. If a
+  steward really wants ablution metrics, a future wudu-flow card
+  could elaborate.
+- **Per-instance reqs filter.** The reqs array is filtered to
+  {water, power, septic} on facility types we know carry those
+  semantics — prevents a future structure type with non-utility
+  reqs from leaking through. Cabin is intentionally listed too
+  because the early UTILITY_PROVIDES pattern was lifted from
+  BuildOrderCard which serves the same broader set.
+- **Pull qiblah from parcel centroid, not project location field.**
+  No top-level `project.location` exists; parcelBoundaryGeojson is
+  the canonical site geometry and the same pattern HydrologyDashboard
+  uses for `latitudeDeg`. Try / catch around `turf.centroid` so an
+  invalid boundary degrades to "no qiblah display" rather than
+  crashing the whole card.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192
+  npx tsc --noEmit` — clean.
+- All UtilityType keys in UTILITY_PROVIDES verified against the
+  current `utilityStore.ts` enum (water_tank / well_pump /
+  rain_catchment / solar_panel / battery_room / generator /
+  septic / greywater).
+
+---
+
 ## [2026-04-25] session | Atlas §8 — family privacy & cohort zone rollup
 
 Closed two §8 manifest entries together with a single rollup card:
