@@ -3,6 +3,114 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | BBOS pre-live-test hardening — stage canonicality alignment
+
+**Objective:** Resolve three-way stage-code drift between code (FND/TRU/SAL/DLR), marketing (INT/QAL/SAL/DLR), and the wiki canon claim (PRE/STR/OFR/OUT/SAL/FUL/RET/OPT) before live testing begins.
+
+**Decisions captured:**
+- DP1 — Adopt the **9-stage code-aligned canon** with renamed codes: `IDY` (Identity), `CRD` (Credibility), `STR` (Structure), `OFR` (Offering), `OUT` (Reach), `SLS` (Convert), `DEL` (Deliver), `RET` (Retain), `OPT` (Reckon). Layers: Think (IDY/CRD/STR/OFR), Execute (OUT/SLS/DEL/RET), Reckon (OPT).
+- DP2 — In-scope this session: Q1 (rejection/off-ramp flow on Amanah Proof Audit failure), Q2 (multi-pipeline support), Q3 (00A/01B dedicated task definitions). All three Open Questions to be resolved in this hardening pass.
+- DP3 — Consolidate the three vision pages (`bbos/vision/`, `bbos/solution/vision/`, `bbos/product/vision/`) into a single canonical `/bbos/vision/` page.
+
+**Phase 2 — Canonicality alignment (this update):**
+- Renamed BBOS_STAGES, BBOS_LAYERS, BBOS_PATCH_STAGES, BBOS_NAV_LEVELS in `src/data/bbos/bbos-pipeline.js`
+- Renamed every task ID prefix and stage reference in `src/data/bbos/bbos-task-definitions.js`, `bbos-role-access.js`, `bbos-stage-islamic.js`
+- Renamed STAGE_QUOTES, STAGE_SCORE_SIGNALS keys and quoted task IDs in `src/components/bbos/BbosFullDashboard.jsx`; updated CRD-S5 runway-completion hook in `BbosTaskPanel.jsx`
+- Renamed STAGE_DEFAULTS and TASK_OVERRIDES in `src/services/ai/prompt-registry.js`; STAGE_ORDER in `context-gatherer.js`; laterStages in `prompt-builder.js`; pattern-comment refs in `prompt-patterns.js`; `bbos-export.js` instruction text
+- Renamed default `bbosStage` initializer in `src/store/project-store.js` (preserved SALAH module-board labels — those are the Islamic prayer name, not the SAL stage code)
+- Renamed `'FND'` defaults in `src/pages/Dashboard.jsx`, `src/components/work/ProjectBoard.jsx`; renamed legacy `TRU-AF1..AF5` comments in `src/components/work/DashboardView.jsx`; renamed `'bbos:FND'` comment in `src/components/islamic/ThresholdModal.jsx`
+- Updated CONTEXT.md routing files: `src/data/bbos/CONTEXT.md` (stage range), `src/components/bbos/CONTEXT.md` (example task IDs), `website/CONTEXT.md` and `website/.graphify_website_staging/CONTEXT.md` ("Keystone Nodes" replacing "God nodes")
+- Wiki: rewrote `wiki/entities/bbos-pipeline.md` with the 9-stage table, removed stale `BbosPipelineHeader` reference, reconciled the contradictory TRU history at lines 111-113 into a single truthful entry, updated `wiki/concepts/amanah-gate.md` (CRD instead of QAL), updated `wiki/decisions/2026-04-14-amanah-gate-protocol.md` BBOS gate row, updated `wiki/index.md` and `wiki/entities/ogden-ecosystem.md` ("9-stage" replacing "8-stage")
+
+**Verification (so far):** `Grep` for `'FND'|'TRU'|'SAL'|'DLR'|FND-|TRU-|SAL-|DLR-` across `src/` returns zero matches; remaining `SALAH` matches are the Islamic prayer term in module-board metadata, not stage codes. Marketing HTML rename, build/lint verification, and the Phase 3-5 fixes still pending.
+
+**Decision record on stage canonicality:** Filed inline in this log; the rename does not introduce a new architectural decision but resolves a documentation/naming drift, so no separate `wiki/decisions/` record was created.
+
+---
+
+## [2026-04-25] session | Atlas §17 — ecological & wildlife protection rules
+
+Closed §17 `ecological-wildlife-protection-rules` (P3, planned → done).
+The `RULE_CATALOG` slot at the bottom of `SitingRules.ts` literally
+read "reserved for future rules — wetland encroachment, habitat
+corridor breaks, etc." This iteration ships the focused dashboard
+rollup that fills it.
+
+### Added
+- `EcologicalProtectionCard.tsx` (~280 lines) under
+  `apps/web/src/features/zones/`. Standalone presentation-layer card
+  that runs five heuristic checks against existing zone / structure /
+  paddock / path stores. No edits to `RulesEngine.ts` — keeps the
+  engine surface stable while still surfacing the spec line on the
+  dashboard.
+
+  Checks:
+  1. `structure-in-conservation` (error) — structure `center` point
+     falls inside a `conservation` zone polygon. Built footprint
+     inside protected land is the bluntest violation.
+  2. `paddock-in-conservation` (warning) — paddock centroid inside a
+     `conservation` zone. Grazing pressure on protected land.
+  3. `vehicle-path-cuts-conservation` (warning) — any pressure-class
+     path (main_road / secondary_road / service_road / farm_lane /
+     animal_corridor / grazing_route / arrival_sequence /
+     emergency_access) whose linestring has a vertex inside a
+     conservation zone. Pedestrian paths and trails intentionally
+     excluded — passive recreation does not break corridor integrity.
+  4. `structure-near-water-retention` (warning) — structure within
+     `SETBACK_RULES.riparian` (30m) of a `water_retention` zone
+     centroid. Reuses the existing constant from `SitingRules.ts` so
+     the engine and dashboard agree.
+  5. `high-invasive-pressure-zone` (info) — zone with
+     `invasivePressure === 'high'`. Surfaces zones that need active
+     treatment before surrounding habitat degrades.
+
+  Local pure helpers (mirror `RulesEngine.ts` formulas, not imported
+  to keep the module standalone): `approxDistanceM` (equirectangular),
+  `polygonCentroid` (exterior-ring average), `pointInPolygon`
+  (ray-casting), `lineCrossesPolygon` (vertex-in-polygon — safe lower
+  bound; a path can graze a zone with no vertex inside, but on
+  parcel-scale draws this is rare).
+
+- `EcologicalProtectionCard.module.css` reuses the visual grammar of
+  `ZoneEcologyRollup.module.css` and `LivestockLandFitCard.module.css`
+  (12px card border-radius, `rgba(232, 220, 200, 0.92)` text,
+  dim borders). Severity tints mirror `RulesPanel.tsx` so the same
+  red/amber/blue language reads across both surfaces.
+
+### Changed
+- `EcologicalDashboard.tsx` mounts `<EcologicalProtectionCard ... />`
+  directly after `<ZoneEcologyRollup ... />` in both the loading
+  branch and the loaded render branch — keeps the §17 ecology card
+  paired with the §7 ecology rollup it builds on.
+
+- `featureManifest.ts` line 421 (`ecological-wildlife-protection-rules`)
+  flipped `planned → done`.
+
+### Verification
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc
+  --noEmit` clean (no errors mentioning `EcologicalProtection*` or
+  `EcologicalDashboard`).
+
+### Honest framing
+- Structures are tested as their `center` point against the zone
+  polygon — large-footprint structures may have corners extending
+  slightly past the boundary that this check would miss. Adequate
+  for warning-level surfacing on parcel-scale designs.
+- Path crossings use a vertex-in-polygon test rather than full
+  segment-vs-polygon clipping. A long segment can graze a small
+  zone with no vertex inside — rare in practice but worth noting.
+- Riparian buffer measures from structure to zone *centroid*, not
+  to the nearest zone edge — for elongated water-retention features
+  the buffer flag may fire later than ideal. Footnote on the card
+  spells these caveats out.
+- No edits to `RulesEngine.ts` — the existing 15-rule engine is
+  stable and shipped through `RulesPanel.tsx`. This card runs in
+  parallel as a focused dashboard rollup. Future iteration could
+  promote these five checks into `SitingRules.ts` + `RulesEngine.ts`
+  if cross-surface unification becomes valuable.
+
+---
+
 ## [2026-04-25] session | Atlas §11 — welfare notes + infrastructure phasing rollup
 
 Closed §11 `welfare-notes-infrastructure-phasing` (P2, planned → done).
@@ -4586,3 +4694,37 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Completed:** Home page family eyebrow alignment; BBOS + MILOS canonical glyph fix-up; full DOM + layout QA across 5 pages × 3 viewports; new `feedback_bbos_subhead_protected` memory written (5-sentence subhead is canonical, do not tighten).
 - **Deferred:** Visual screenshot QA (preview tool unresponsive — environment issue, not code). Graphify regeneration (`/graphify --update website` per `website/CONTEXT.md`).
 - **Recommended next session:** (a) Investigate why `preview_screenshot` keeps timing out on this Windows env. (b) Consider whether `/solution/` sub-pages need parallel hero/eyebrow treatment. (c) Run `/graphify --update website` to refresh the website knowledge graph.
+
+
+## 2026-04-25 — MILOS pre-test audit Phase A (Tier-1 fixes)
+
+**Trigger:** Yousef requested a comprehensive pre-test scan to surface friction (workflow / architecture / UI) and content gaps (missing references / inconsistencies) before the next live click-through pass. Three Explore agents fanned out across the codebase; findings triaged into four severity tiers. Phase A targeted Tier-1: items that would visibly break the live test.
+
+**Plan reference:** `C:/Users/MY OWN AXIS/.claude/plans/concurrent-nibbling-rabbit.md`
+
+**Audit corrections (findings verified incorrect during execution):**
+- T1.1 — claimed Moontrance `MODULE_ATTRS` missing → actually present at [src/data/islamic/islamic-data.js:3914,4029,4144](src/data/islamic/islamic-data.js). Each entry has full attrs/dua/closingDua/readiness/reflection. `getModuleData()` at line 6134 resolves them correctly. **Real gap:** no top-level `moontrance:` pillar key (deferred to Phase B authoring with NotebookLM grounding).
+- T1.4 — claimed `toastStore.js` an orphan → actually 10 callers; distinct from `toast-store.js` (11 callers) by purpose (pillar-pulse vs operation toast).
+
+**Changes:**
+- **A.2 — CeremonyGuard wrapping** ([src/App.jsx:225-233](src/App.jsx)). Wrapped `pillar/faith` through `pillar/environment` in `<CeremonyGuard moduleId="{name}-core" isLevel1>`, `pillar/ummah` in `<CeremonyGuard moduleId="ummah">`, and the `pillar/:pillarId` catch-all in `<CeremonyGuardDynamic paramKey="pillarId">`. `pillar/moontrance` left unguarded pending top-level entry.
+- **A.3 — Storage + migration error logging** ([src/services/storage.js](src/services/storage.js), [src/services/migration.js](src/services/migration.js)). Replaced silent `catch {}` blocks in `safeGet`, `safeGetJSON`, `safeRemove`, `createBackup`, `restoreBackup`, migration `read`/`write` with `console.warn(…)`. Backup create/restore failures and migration write failures additionally dispatch `bbiz:storage-error` so the existing banner surfaces them.
+- **A.4 — Toast store documentation** ([src/store/toastStore.js](src/store/toastStore.js), [src/store/toast-store.js](src/store/toast-store.js)). Added cross-referencing docstring headers explaining the intentional purpose split. No deletion.
+- **A.5 — Onboarding niyyah seed** ([src/pages/Onboarding.jsx](src/pages/Onboarding.jsx)). `finish()` now seeds today's niyyah from onboarding pillar+submodule selections via `completeNiyyah(...)`, or marks the day skipped via `skipNiyyah()` if user finished without selecting. User no longer hits a second ceremony immediately on first dashboard visit.
+
+**Decision record:** [[2026-04-25-milos-pre-test-tier-1-fixes]]
+
+**Verification:**
+- `npm run build` exit 0; 2764 modules transformed; only pre-existing chunk-size warning.
+- `pillar/test-unknown-id` → CeremonyGate renders (CeremonyGuardDynamic confirmed).
+- `pillar/wealth` with `disable_l1_threshold_gate=false` → CeremonyGate renders for `wealth-core` moduleId.
+- `pillar/wealth` with default L1 disabled → page renders directly (matches `/app/wealth-core` behavior, by design — L1 gate is opt-in).
+- No console errors during navigation tests.
+- `preview_screenshot` unresponsive (continuing pattern from prior 2026-04-25 sessions); eval-based verification accepted.
+
+### Session Debrief — Phase A
+- **Completed:** A.1 verification, A.2 CeremonyGuard wrapping (8 thick + 1 catch-all routes), A.3 storage/migration error logging, A.4 toast-store documentation, A.5 onboarding niyyah seed. Build clean. Two audit findings corrected as inaccurate.
+- **Deferred:** Top-level `moontrance` MODULE_ATTRS entry (needs NotebookLM Muslim Scholar grounding — filed for Phase B). Pillar/moontrance ceremony gating (blocked on the same).
+- **Pages touched:** [[milos]] (current state ↦ Phase A complete), this log entry, [[2026-04-25-milos-pre-test-tier-1-fixes]] decision record.
+- **Recommended next:** Phase B per the approved plan — B.1 populate pillar-wisdom + next-actions (20 sub-modules, NotebookLM pass), B.2 Ummah seed-task citation backfill, B.3 Prophetic Path route graduation, B.4 Suspense + prayer-time UX fallbacks, B.5 storage quota + LevelNavigator chunk split.
+
