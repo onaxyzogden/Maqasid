@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §26 Data Completeness Card (closes incomplete-data-warnings)
+
+**Objective:** Close the §26 manifest item `incomplete-data-warnings` (P2 partial) by surfacing a per-section intake audit on the existing assessment surface, so the steward can see which slices of project intake are dragging the headline assessment scores down.
+
+**Outcome:** New `DataCompletenessCard` (`apps/web/src/features/assessment/`) mounted in `SiteAssessmentPanel` directly under the panel header, above the existing score cards. Audits five intake sections — (1) project basics: address, parcel ID, project type, province/state, acreage, description; (2) boundary & geometry: parcel drawn (uses `hasParcelBoundary` ∧ non-empty `parcelBoundaryGeojson.features`), acreage derived, units set; (3) Tier-1 site-data layers: climate / soil / hydrology / landcover / elevation, checked via `getLayer(useSiteData(projectId), type)`; (4) placed entities: ≥1 structure / utility / path / zone / paddock-or-crop; (5) vision & economics: visionStatement, ownerNotes, zoningNotes, accessNotes, plus "any cost or revenue override set" from `useFinancialStore`. Each section scores `filled / total * 100`; overall is the unweighted mean across the five. Tone-coded section rows (≥80 good-green / ≥50 fair-amber / <50 poor-red) with missing-field listing inline. "Fix these first" block highlights the three lowest-scoring non-100 sections with their two top missing fields. Pure introspection — no new endpoints, no shared math, no entity churn. Manifest `incomplete-data-warnings` partial → **done**. tsc clean (the parallel-session `SolarClimateDashboard.tsx(372,33)` error from earlier in the run was no longer present at final tsc — parallel session pushed a fix). Atlas commit `b894105` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene (clean run):** Selective `git add` succeeded with exactly the 4 intended files; the commit absorbed no parallel-session work this time. Two of the last three ships have now landed clean — appears intermittent rather than systemic.
+
+**Carries forward:** §26 still has heavy planned cluster — `data-provenance-notes`, `source-citation-tracking`, `assumption-tracking`, `manual-override-logging`, `qa-checklist`, `design-review-checklist`, `locked-approval-states`, `archive-delete-recover-projects`, `naming-conventions`. Natural follow-on is `assumption-tracking` — surfacing which heuristic thresholds (the dozens of "T_GOOD / T_FAIR" constants now baked into rule cards) are derived defaults vs. steward-tuned, so the audit trail covers reasoning provenance not just data fields.
+
+---
+
 ## [2026-04-25] session | Atlas — §24 Mobile Fieldwork Punch-list Card
 
 **Objective:** Land the first concrete §24 (Mobile, Fieldwork & Site Visit Tools) ship beyond the existing FieldworkPanel scaffolding — a today's-walk punch list derived from the design state itself, so the steward's site visit has a checklist that reflects the actual paddocks/utilities/structures/crops on the parcel rather than a static template.
