@@ -73,6 +73,7 @@ import OgdenRealizationPage from '@pages/ogden/OgdenRealizationPage';
 import OgdenBbosPage from '@pages/ogden/OgdenBbosPage';
 import OgdenMilosPage from '@pages/ogden/OgdenMilosPage';
 import OgdenAtlasPage from '@pages/ogden/OgdenAtlasPage';
+import OgdenPresentationPage from '@pages/ogden/OgdenPresentationPage';
 import PillarDashboard from '@pages/PillarDashboard';
 import FaithDashboard from '@pages/faith/FaithDashboard';
 import LifeDashboard from '@pages/life/LifeDashboard';
@@ -136,6 +137,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/get-started" element={<Onboarding />} />
+      <Route path="/present/ogden" element={<OgdenPresentationPage />} />
       <Route
         path="/app"
         element={

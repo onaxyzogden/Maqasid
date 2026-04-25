@@ -38,6 +38,12 @@
   text-overflow: ellipsis;
 }
 
+.mcw-next-card--wrap .mcw-next-card-text {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
 @keyframes mcw-next-card-in {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }

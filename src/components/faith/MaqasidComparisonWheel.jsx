@@ -61,6 +61,9 @@ export default function MaqasidComparisonWheel({
   mithaqDomain = null,
   pillarWisdom = null,
   nextActions = null,
+  forceHover = null,
+  forceConverged = false,
+  centerLabelOverride = null,
 }) {
   const navigate = useNavigate();
   const handleActivate = (seg) => {
@@ -123,6 +126,19 @@ export default function MaqasidComparisonWheel({
     return () => cancelAnimationFrame(id);
   }, []);
 
+  // Presentation-mode convergence — when forceConverged flips true, replay
+  // the ignition stagger so all three vessels light up together.
+  useEffect(() => {
+    if (!forceConverged) return undefined;
+    const duration = 80 + 5 * 50 + 520;
+    const raf = requestAnimationFrame(() => setIsIgniting(true));
+    const t = setTimeout(() => setIsIgniting(false), duration);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(t);
+    };
+  }, [forceConverged]);
+
   // Milestone watcher — fires once when a segment crosses 0..99 → 100
   useMilestoneWatcher(segments, onReach100);
 
@@ -141,7 +157,7 @@ export default function MaqasidComparisonWheel({
 
   // Effective hover reflects either the user's cursor on the wheel OR the
   // synced hover from the LevelNavigator above it — the two act as one UI.
-  const effectiveHover = hovered || externalHover;
+  const effectiveHover = forceHover || hovered || externalHover;
   const hoveredIndex = effectiveHover ? segments.findIndex((s) => s.id === effectiveHover) : -1;
   const hoveredSeg = hoveredIndex >= 0 ? segments[hoveredIndex] : null;
 
@@ -184,24 +200,37 @@ export default function MaqasidComparisonWheel({
   // Progressive disclosure: the hovered pillar's next action shown in a
   // sector-adjacent pop-out card (not in the hub at rest).
   const nextCardText = hoveredSeg
-    ? (hoveredSeg.current >= 100
-        ? 'Flourishing'
-        : (nextActions?.[hoveredSeg.id]?.[level] || hoveredSeg.label))
+    ? (hoveredSeg.tooltipText
+        ? hoveredSeg.tooltipText
+        : hoveredSeg.current >= 100
+          ? 'Flourishing'
+          : (nextActions?.[hoveredSeg.id]?.[level] || hoveredSeg.label))
     : null;
+  const nextCardLabel = hoveredSeg?.tooltipLabel || 'Next';
+  const nextCardWidth = hoveredSeg?.tooltipWidth;
+  const nextCardHeight = hoveredSeg?.tooltipHeight;
 
   // Anchor the card at the hovered sector's outer midangle; flip leftward
   // for left-half sectors so it opens away from the wheel.
   const cardPos = useMemo(() => {
     if (hoveredIndex < 0) return null;
+    // Descriptive tooltip path (presentation mode): anchor to a fixed
+    // bottom-center position so wider cards never clip on left sectors.
+    if (hoveredSeg?.tooltipText) {
+      const w = hoveredSeg.tooltipWidth || 200;
+      return { x: CX - w / 2, y: 440, flip: false };
+    }
     const midDeg = startOffset + hoveredIndex * arcSize + arcSize / 2;
     const r = LABEL_OUTER_R + 14;
     const [px, py] = polar(r, midDeg);
     const normalized = ((midDeg % 360) + 360) % 360;
     const flip = normalized > 90 && normalized < 270;
     return { x: px, y: py, flip };
-  }, [hoveredIndex, startOffset, arcSize]);
+  }, [hoveredIndex, startOffset, arcSize, hoveredSeg]);
 
-  const hubTopLabel = hoveredSeg ? hoveredSeg.label.toUpperCase() : centerLabel;
+  const hubTopLabel = hoveredSeg
+    ? hoveredSeg.label.toUpperCase()
+    : (centerLabelOverride || centerLabel);
   const hubBottomLabel = hoveredSeg ? `${Math.round(hoveredSeg.current)}%` : `${avgPct}%`;
   const patternId = `mcw-pat-${levelPattern}`;
 
@@ -278,7 +307,7 @@ export default function MaqasidComparisonWheel({
     <div className="mcw-wrap">
       <svg
         viewBox="0 0 400 400"
-        className={`mcw-svg${isDormant ? ' mcw-svg--dormant' : ''}${isLit ? ' mcw-svg--lit' : ''}${isIgniting ? ' mcw-svg--igniting' : ''}`}
+        className={`mcw-svg${isDormant ? ' mcw-svg--dormant' : ''}${isLit || forceConverged ? ' mcw-svg--lit' : ''}${isIgniting ? ' mcw-svg--igniting' : ''}${forceConverged ? ' mcw-svg--converged' : ''}`}
         role="img"
         aria-label={`${centerLabel} comparison wheel`}
         style={{
@@ -379,9 +408,9 @@ export default function MaqasidComparisonWheel({
                   <path
                     key={`fill-${seg.id}-${bucket}`}
                     d={annularSector(HUB_R, currentR, startDeg, endDeg)}
-                    fill="url(#mcw-progress-grad)"
+                    fill={seg.color || 'url(#mcw-progress-grad)'}
                     className={`mcw-seg-current${hov}`}
-                    style={{ animationDelay: `${i * 80}ms` }}
+                    style={{ animationDelay: `${i * 80}ms`, opacity: seg.color ? 0.85 : undefined }}
                   />
                   <path
                     d={annularSector(HUB_R, currentR, startDeg, endDeg)}
@@ -416,7 +445,7 @@ export default function MaqasidComparisonWheel({
             <path
               key={`band-${seg.id}`}
               d={annularSector(LABEL_INNER_R, LABEL_OUTER_R, startDeg, endDeg)}
-              fill="url(#mcw-band-level)"
+              fill={seg.color || 'url(#mcw-band-level)'}
               stroke="rgba(10, 20, 24, 0.85)"
               strokeWidth="1.5"
               className={`mcw-band${hov}`}
@@ -449,7 +478,7 @@ export default function MaqasidComparisonWheel({
           const isHov = effectiveHover === seg.id;
           const isComplete = (seg.current || 0) >= 100;
           const hov = isHov ? ' is-hovered' : '';
-          const vesselLit = (isLit || isComplete) ? ' is-lit' : '';
+          const vesselLit = (isLit || isComplete || forceConverged) ? ' is-lit' : '';
           const vesselComplete = isComplete ? ' is-complete' : '';
           return (
             <g
@@ -459,6 +488,7 @@ export default function MaqasidComparisonWheel({
                 '--mcw-aura-cx': `${ix}px`,
                 '--mcw-aura-cy': `${iy}px`,
                 '--mcw-ignite-delay': `${80 + i * 50}ms`,
+                ...(seg.color ? { '--mcw-level-aura': seg.color } : null),
               }}
               pointerEvents="none"
             >
@@ -570,6 +600,10 @@ export default function MaqasidComparisonWheel({
             flip={cardPos.flip}
             levelColor={palette.base}
             text={nextCardText}
+            label={nextCardLabel}
+            width={nextCardWidth}
+            height={nextCardHeight}
+            multiline={Boolean(hoveredSeg?.tooltipText)}
           />
         )}
       </svg>

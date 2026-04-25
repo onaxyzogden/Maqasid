@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OGDEN Ecosystem Presentation Mode
+
+Built a fullscreen presentation wrapper at `/present/ogden` for the 2:45
+KAS Ecosystem Intro recording. Reuses `MaqasidComparisonWheel` (already
+rendering BBOS / OLOS / MILOS) inside `EcosystemPresentationFrame`, which
+hides AppShell chrome via a `body.is-presenting` class and listens on
+`window` for keyboard beats: `0/Esc` reset, `1/2/3` highlight each system,
+`4` convergence, `z/Z` zoom, `→/Space` auto-advance, `i` toggle HUD.
+
+Added additive props to the wheel — `forceHover`, `forceConverged`,
+`centerLabelOverride`, per-segment `seg.color`, and a new tooltip path
+(`seg.tooltipText/Label/Width/Height`) that replaces the "Next" card with
+descriptive copy. Tooltip is anchored bottom-center when `tooltipText` is
+set, avoiding the left-sector clipping that bit OLOS at midangle 150°.
+
+Per-segment colors for the recording: BBOS gold (`#c9a05a`), OLOS green
+(`#5fa873`), MILOS white (`#f3efe4`). Hub label override: "MOONTRANCE".
+
+Decision: [[2026-04-25-ogden-ecosystem-presentation-mode]].
+
 ## [2026-04-25] session | Atlas §17 — "why this suggestion?" expander
 
 Closed §17 `why-this-suggestion-was-made` (P3, planned → done).

@@ -5,10 +5,10 @@ import './MaqasidNextActionCard.css';
  * at the hovered sector's outer midangle. Flips leftward for left-half sectors so
  * the card always opens away from the wheel center.
  */
-export default function MaqasidNextActionCard({ x, y, flip, levelColor, text }) {
+export default function MaqasidNextActionCard({ x, y, flip, levelColor, text, label = 'Next', width = 160, height = 40, multiline = false }) {
   if (!text) return null;
-  const W = 160;
-  const H = 40;
+  const W = width;
+  const H = height;
   return (
     <foreignObject
       x={flip ? x - W : x}
@@ -19,8 +19,8 @@ export default function MaqasidNextActionCard({ x, y, flip, levelColor, text }) 
       pointerEvents="none"
       style={{ overflow: 'visible' }}
     >
-      <div className="mcw-next-card" style={{ borderColor: levelColor }}>
-        <span className="mcw-next-card-label">Next</span>
+      <div className={`mcw-next-card${multiline ? ' mcw-next-card--wrap' : ''}`} style={{ borderColor: levelColor }}>
+        <span className="mcw-next-card-label">{label}</span>
         <span className="mcw-next-card-text">{text}</span>
       </div>
     </foreignObject>

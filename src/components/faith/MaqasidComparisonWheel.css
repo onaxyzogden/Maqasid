@@ -376,6 +376,28 @@
   filter: drop-shadow(0 0 6px var(--mcw-level-aura, #e9d9a0));
 }
 
+/* ─────── Presentation-mode convergence ─────── */
+/* When forceConverged=true (presentation beat 4 / "Architecture" climax) the
+ * hub glows brighter and the label adopts the level-aura color. The Mithaq
+ * ring is repurposed as an "Amanah Gate" hairline at full pathLength. */
+.mcw-svg--converged .mcw-hub {
+  stroke: var(--mcw-level-aura, #e9d9a0);
+  stroke-width: 1.8;
+  stroke-opacity: 0.95;
+  filter: drop-shadow(0 0 10px var(--mcw-level-aura, #e9d9a0))
+          drop-shadow(0 0 4px var(--mcw-level-aura, #e9d9a0));
+}
+
+.mcw-svg--converged .mcw-hub-label {
+  fill: var(--mcw-level-aura, #e9d9a0);
+  filter: drop-shadow(0 0 3px var(--mcw-level-aura, #e9d9a0));
+}
+
+.mcw-svg--converged .mcw-hub-readout {
+  opacity: 1;
+  fill: var(--mcw-level-aura, #f3efe4);
+}
+
 /* Dormant hint text under the hub label */
 .mcw-hub-hint {
   fill: #c9a05a;
