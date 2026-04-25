@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §10 wayfinding plan card (orientation legibility audit)
+
+**Objective:** Close the §10 `wayfinding-system-planning` manifest item (P3, planned) with a presentation-layer card that audits the path network for wayfinding gaps — which structures are unreachable from the arrival sequence, which intersections lack a landmark anchor, and which long paths have no intermediate decision point.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/access/WayfindingPlanCard.tsx](atlas/apps/web/src/features/access/WayfindingPlanCard.tsx) (~436 lines):
+  - **Junction detection** — 16 evenly-spaced sample points per path; nested pairwise scan finds the closest sample-pair between every two paths. If they're within 25 m a junction is recorded with `isEndpoint = true` when both hits are at sample 0 or 15 (so endpoint-meets-endpoint isn't counted as a "decision point").
+  - **Landmark anchoring** — each junction looks for the nearest `structureStore` placement within 50 m; without an anchor the junction is "ambiguous".
+  - **Orphan structures** — any structure further than 80 m from every path sample point.
+  - **Blind paths** — paths longer than 200 m with zero intermediate (non-endpoint) junctions.
+  - **Unreachable destinations** — structures further than 80 m from every sample of an "arrival network" path (typed `arrival_sequence`, `main_road`, or `secondary_road`). When no arrival path exists, a separate flag prompts the steward to draw one.
+  - **Composite score** — `50 + 25·anchorRatio + 15·(1 − orphanRatio) + 10·(1 − blindRatio)`, clamped 0–100, with empty-state edge cases (no paths → 0; structures absent → cap 35). Maps to Legible / Workable / Confusing / Disorienting.
+- New [WayfindingPlanCard.module.css](atlas/apps/web/src/features/access/WayfindingPlanCard.module.css) — compact right-rail card aesthetic matching AccessPanel; tone-tinted score gauge; 2×2 stat grid; amber flag rows for arrival-reachability issues; up-to-five ambiguous junctions + three blind paths + three orphans in the "Top issues" list.
+- Mounted on `AccessPanel.tsx` analysis tab after `AccessibleRouteCard` (last in the column so the score acts as a roll-up of everything above it).
+- Manifest §10 line 287 `wayfinding-system-planning` flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean (full repo, exit 0).
+
+**Discipline:** Pure presentation — geometry helpers (`metersPerDegree`, `distMeters`, `sampleLine`) are local to the file (same flat-earth approximation already used in `EducationalRouteOverlaysCard`); no shared-package math touched. No turf import. No new map overlays. No new entity types. Atlas commit `375e1e6` — 4 files, 714 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §18 AI design synthesis (constraints + opportunities)
 
 **Objective:** Close the §18 `ai-constraint-opportunity-summaries` manifest item (P3, planned) with a presentation-layer card that synthesises the parcel's constraints and opportunities from already-computed scores and currently-placed features, framed as an "AI draft" but driven by a deterministic rule cascade.
