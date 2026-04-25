@@ -3,6 +3,102 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §10 — accessible route planning
+
+Closed §10 `accessible-route-planning` (P2, planned → done).
+AccessibleRouteCard rates each guest-circulation path against an
+ADA-flavored heuristic: firm-surface route on terrain mean slope
+≤ 5% = accessible; firm route on 5–8.33% slope OR trail on flat
+ground = conditional; anything steeper or trail on rolling ground
+= not accessible. Animal corridors, grazing routes, emergency
+access, and farm lanes are excluded — they are not guest-mobility
+surfaces and the spec's CONTEXT.md gotcha calls out not to conflate
+accessible routes with generic pedestrian paths.
+
+### Added
+- `apps/web/src/features/access/AccessibleRouteCard.tsx` — pure
+  presentation. Reads `usePathStore` paths and the existing
+  `terrain_analysis.mean_slope_deg` site summary already used by
+  `SlopeWarnings`. No new shared exports, no new fields on
+  `DesignPath`, no new endpoint.
+  - `GUEST_TYPES`: main_road / secondary_road / service_road /
+    pedestrian_path / arrival_sequence / quiet_route / trail.
+    Drives which paths are evaluated; everything else is filtered
+    out before rating.
+  - `SURFACE_ASSUMED`: per-`PathType` map onto `'firm' | 'variable'
+    | 'na'`. Firm-by-default for all guest types except `trail`
+    (variable) until `DesignPath` carries an explicit surface
+    field. Non-guest types map to `'na'` and are never rated.
+  - `FLAT_LIMIT_DEG = 2.862` (≈ 5% running slope) and
+    `RAMP_LIMIT_DEG = 4.764` (≈ 8.33%, the ADA 1:12 ramp ceiling).
+    Site mean slope is converted from degrees on display so the
+    rationale strings carry both `°` and `%` for the steward.
+  - `ratePath(path, meanSlopeDeg)` returns `{ rating, reason }`
+    with one of three ratings and a one-line rationale string.
+    Trail-on-flat-ground gets a "conditional" rating with surface
+    rationale, not an "accessible" rating, since loose / uneven
+    surface still blocks wheeled access.
+  - Two empty states: terrain analysis hasn't run yet (points
+    user at Site Assessment), and no guest paths drawn yet.
+
+- `apps/web/src/features/access/AccessPanel.module.css` — appended
+  `.accessibleRow` / `.accessibleHead` / `.accessibleName` /
+  `.accessibleNote` / `.accessibleBadge` (+ three rating tints,
+  `_yes` confidence-high green, `_maybe` warning amber, `_no` error
+  red) / `.accessibleEmpty` / `.accessibleFootnote`. Reuses the same
+  CSS-variable palette (`--color-confidence-high`, `--color-warning`,
+  `--color-error`, `--color-panel-card-border`) the existing
+  `corridorCard` / `slopeCard` / `conflictCard` use, so the new
+  rollup looks like a sibling of the cards already in the panel.
+
+### Changed
+- `apps/web/src/features/access/AccessPanel.tsx` — imported
+  `AccessibleRouteCard` and mounted it inside the `analysis` tab
+  after `SlopeWarnings`. No prop drilling beyond what `SlopeWarnings`
+  already needed (`paths`, `terrainSummary`).
+- `packages/shared/src/featureManifest.ts` — flipped
+  `accessible-route-planning` (line 273) from `planned` to `done`.
+
+### Honest framing
+- We only have site-wide `mean_slope_deg`, not per-segment slope.
+  A path that crosses a 4° plateau for 90 m of its 100 m length and
+  one 12° step still gets rated by mean. Card footnote calls this
+  out.
+- Surface inference is type-keyed, not measured. A pedestrian_path
+  drawn over loose gravel will still rate `accessible` if the type
+  defaults to firm. Until a surface field lands on `DesignPath`,
+  the steward has to verify in the field.
+- This is an ADA-flavored pre-flight, not a code-compliant audit.
+  Width, cross slope, ramp segmentation, handrail placement, and
+  surface firmness all still need physical inspection.
+
+### Why this is the right scope
+- §10 CONTEXT.md explicitly flags accessible-route-planning as
+  "**planned** — no existing surface" and warns not to conflate
+  with the generic `pedestrian_path` type. We honored that by
+  giving accessibility its own card with its own rating semantics
+  rather than overloading SlopeWarnings or AccessAnalysisCard.
+- Reuses the exact terrain summary `SlopeWarnings` already
+  consumes — no new fetches, no new dependencies, no zustand
+  bumps. Same heuristic-rollup pattern as the recent §15
+  `PermitReadinessCard` and §11 `LivestockLandFitCard`.
+
+### Verification
+- Filtered `tsc --noEmit` from `atlas/apps/web` is clean for
+  `AccessibleRouteCard` and `AccessPanel`. (Background full-tsc
+  task in flight at commit time — flag any unrelated regressions
+  in the next session.)
+
+### Deferred (not in this scope)
+- Surface field on `DesignPath` — needs schema bump on
+  `pathStore.ts` plus a UI field in the Path naming modal.
+- Per-segment slope sampling — requires elevation-along-line
+  query (existing `/api/v1/elevation/*` route can sample point
+  but not interpolate a polyline).
+- Width field on `DesignPath` — same shape as surface; deferrable.
+- ADA cross-slope check — needs an elevation gradient field, not
+  available from the current terrain summary.
+
 ## [2026-04-25] session | Atlas §15 — permit readiness checklist
 
 Closed §15 `permit-dependencies-readiness-checklist` (P3, planned →
