@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §19 educational route narrative overlays
+
+**Objective:** Close the §19/§29 `educational-immersion-route` manifest item (MT, planned) with a presentation-layer card that treats every drawn `pathStore` path as a guided-learning route and surfaces the educational themes its waypoints visit.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/education/EducationalRouteOverlaysCard.tsx](atlas/apps/web/src/features/education/EducationalRouteOverlaysCard.tsx) (~330 lines):
+  - **Theme catalogue** (13): spiritual, education, food, livestock, water, energy, closed-loops, community, wildlife, agroforestry, microclimate, wayfinding, shelter — each with label, glyph, and blurb.
+  - **Feature → themes mappings** for `StructureType` (20 kinds), `UtilityType` (15), `ZoneCategory` (13), `CropAreaType` (10).
+  - **Per-path scan**: 24 evenly-sampled points along each LineString; each placed feature checked against a path-type-aware proximity threshold (25 m for quiet routes / pedestrian paths up to 60 m for grazing routes and main roads). Zone proximity loosened ×1.5 (large polygons), crop-area proximity ×1.25.
+  - **Geometry (no turf)**: flat-earth `metersPerDegree(lat)` × cos correction, straight-line distance in metres, polygon centroid (Polygon + MultiPolygon).
+- Renders a site-wide rollup of themes the path network surfaces, plus per-path rows showing scan radius, encountered count, theme chips, and a "Passes <feature names>" callout (capped at 6 with overflow counter). Empty paths get a "runs through open ground" message; empty sites get a "draw a path" nudge.
+- New [EducationalRouteOverlaysCard.module.css](atlas/apps/web/src/features/education/EducationalRouteOverlaysCard.module.css) — same ink-on-parchment palette as `SignsInCreationPanel` and the §16 cards.
+- Mounted on `EducationalAtlasDashboard.tsx` between `SignsInCreationPanel` and the Guided Walkthrough P4 stub.
+- Manifest §29 line 662 `educational-immersion-route` flipped `planned → done` (closest semantic fit; the path-overlay narrative scaffolding is the practical realisation of the immersion-route concept).
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean.
+
+**Discipline:** Pure presentation — no shared-package math touched, no map overlays, no new entity types. Atlas commit `6fe5b1f` — 4 files, 735 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | OLOS Atlas — §16 erosion · grazing pressure · recovery rollup
 
 **Objective:** Close the §16 `erosion-grazing-recovery-modeling` manifest item (P3, planned) with a per-paddock erosion × grazing-pressure × recovery-timeline rollup on the GrazingDashboard.
@@ -40,6 +61,48 @@ type: log
 **Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean.
 
 **Discipline:** Pure presentation — no shared-package math touched, no new entities, no new map layers. Re-uses three existing analysis primitives (`computeForageQuality`, `computeYieldEstimates`, `LIVESTOCK_SPECIES`). Atlas commit `6b14678` — 4 files, 843 ins / 20 del.
+
+---
+
+## [2026-04-25] session | MILOS deferred-items closeout — Phase C.1 (grounding tooling) + session debrief
+
+**Objective:** Install the test framework + schema-conformance ratchet that unblocks the two-axis grounding migration, then close the session at the planned "safe pause" before the high-token Faith-pillar pass.
+
+**Shipped (Phase C.1):**
+- Vitest 4.1.5 added as devDep with [vitest.config.js](vitest.config.js) mirroring the Vite alias map.
+- [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) — 40 tests across 8 pillars (5 each: missing/invalid/legacy-ratchet/empty-array-ratchet/schema-conformance). Per-pillar `expectedLegacy` ratchet enforces monotonic migration progress. Prayer's 1 known empty-array gap (optional pre-Isha 4-rakʿat T3 sunnah) allow-listed with TODO.
+- [scripts/lint-grounding.mjs](scripts/lint-grounding.mjs) `--strict` mode added — exits non-zero on legacy-string entries or schema errors. Default mode unchanged (informational).
+- npm scripts: `test`, `lint:grounding`, `lint:grounding-strict`. [CLAUDE.md](CLAUDE.md) commands block updated; "no test framework is configured" line removed.
+- Current strict-mode signal: `1904 legacy + 1 schema-error` — the load-bearing failure that subsequent migration batches drive to zero.
+
+**Verification:** `npm test` exits 0 with 40/40 passing. `npm run lint:grounding-strict` exits 1 with the expected legacy-count failure signal. `npm run build` exits 0.
+
+**Decision record:** [[2026-04-25-milos-grounding-tooling]]
+
+**Phase C.2 (Faith finish) deferred:** Per the approved plan's "safe pause point if Faith pass is too long" — 212 NotebookLM Muslim Scholar grounding calls (one per legacy entry) is genuinely 80k+ tokens of focused scholar-craft work that should run in its own session for context-budget reasons. The newly-installed ratchet means future Faith batches (and Life/Intellect/Family/Wealth/Environment/Ummah after) cannot regress without test failure.
+
+**Session debrief:**
+- Completed: Phase A (LevelNavigator chunk: 4,699 KB → 178 KB via lazy seed loading + manualChunks); Phase B (lint backlog 658 → 0/0 via auto-fix + custom escape strip + 13 constant-extraction files + 28 hook fixes + ESM vite.config); Phase C.1 (Vitest + per-pillar ratchet test + strict-mode lint).
+- Deferred: Phase C.2 — Faith pillar 212-entry NotebookLM grounding pass (next dedicated session). Same pattern for the other 5 unmigrated pillars (one session each).
+- Recommended next session: Faith pillar two-axis migration, batched by sub-pillar (Tawhid → Salah → Sawm → Zakat → Hajj → Iman → Akhlaq), with `npm test` decrementing the ratchet after each batch.
+
+---
+
+## [2026-04-25] session | MILOS deferred-items closeout — Phase B (lint full pass)
+
+**Objective:** Drive the Tier-4 lint backlog from 658 problems to 0/0 across all four buckets.
+
+**Shipped (Phase B):**
+- B.1 Auto-fix + custom escape strip: `eslint --fix` + custom [scripts/strip-template-escapes.mjs](scripts/strip-template-escapes.mjs) state-machine that walks string contexts and strips `\'`/`\$` only inside backtick template literals. 515 `no-useless-escape` → 0 across family/intellect/wealth/environment seed-task files + BbosFullDashboard.
+- B.2 Constant extraction: 13 new `*-constants.js` sibling files for the LevelNavigator/CorePage pattern — split data exports (pillar arrays, route maps, storage keys, ensure-projects selectors) from JSX components. 21 `react-refresh/only-export-components` → 0. ~30 consumer files updated.
+- B.3 React-hooks semantic bucket: 35 exhaustive-deps + 10 rules-of-hooks + 8 set-state-in-effect + misc → 0. Notable structural fixes: hoisted ProjectBoard.jsx cross-fade hook block above its early-return (9 rules-of-hooks errors), aliased FaithDashboard `Infinity` lucide import as `InfinityIcon`, removed dead `|| true` truthiness guards. ~28 annotated `eslint-disable-next-line` with one-line rationale where the rule's preferred pattern doesn't apply (mount-only effects, store-action selectors). [eslint.config.js](eslint.config.js) ignore patterns added so Icon-component args stop tripping no-unused-vars.
+- B.4 Architectural: [vite.config.js](vite.config.js) now uses ESM `path.dirname(fileURLToPath(import.meta.url))` replacing 8 `__dirname` refs.
+
+**Verification:** `npx eslint .` exits 0 with 0/0. `npm run build` exits 0, 2,766 modules transformed. Preview-tested faith/wealth/ummah/intellect/family/life/environment cores + growth + dashboard — all render correctly post-refactor.
+
+**Decision record:** [[2026-04-25-milos-lint-clean]]
+
+**Files touched (Phase B):** ~70 across data/UI/config layers.
 
 ---
 
