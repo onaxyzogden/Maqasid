@@ -15,6 +15,22 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas §11 — Biosecurity & buffer audit card
+
+**Objective:** Manifest gap-fill iteration. Picked candidate 1 — `livestock-disease-quarantine-zones` (mapped to existing manifest key `species-human-conflict-warnings`, §11 Livestock Systems, line 308, P3, partial → done). Build a heuristic disease-vector setback audit for livestock structures.
+
+**Shipped:**
+- `apps/web/src/features/livestock/BiosecurityBufferCard.tsx` (~290 lines) — 3-stat header (audited / clean / violations), rules legend with colored dots (livestock/water/human/boundary), per-structure report with nearest-distance buffer grid (4 categories, tone-coded against threshold), violations list with target + required distance, "isolation pad candidate" callout ranking the most-buffered livestock structure for sick-animal quarantine. Setbacks: livestock↔livestock 30 m, livestock↔water 30 m, livestock↔human 50 m, livestock↔boundary 15 m.
+- `apps/web/src/features/livestock/BiosecurityBufferCard.module.css` (~280 lines) — ink-on-parchment palette consistent with other livestock cards; tone classes good/fair/poor; per-rule colored dots; sage gradient on isolation-pad callout.
+- `LivestockDashboard.tsx` — mounted directly after `LivestockWelfarePhasingCard`, passing both `projectId` and `parcelBoundaryGeojson`.
+- Manifest §11 line 308 `species-human-conflict-warnings` flipped `partial → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → exit 0. Preview not exercised in this session.
+
+**Discipline:** Presentation-only. Local flat-earth distance helper (equirectangular, < 0.5% error at planning scale) inline in the card — no new shared-package math, no new entity types, no map overlays. Boundary distance uses point-to-segment projection over Polygon/MultiPolygon ring vertices. Atlas commit `45bd415`. Submodule pointer bumped in MILOS parent.
+
+---
+
 ## [2026-04-25] session | Atlas §6 — Seasonal shadow rollup card
 
 **Objective:** Manifest gap-fill iteration. Picked candidate 1 — `seasonal-light-shadow-modeling` (mapped to existing manifest key `structure-tree-shadow-casting`, §6 Climate Analysis, line 196, P2, partial → done). Build a per-month solar-noon shadow rollup that complements the existing solstice-only ShadowFootprintsCard by surfacing the seasonal arc and chronic-shade structures.
