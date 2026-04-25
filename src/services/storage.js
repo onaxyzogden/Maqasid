@@ -3,10 +3,34 @@
 
 const PREFIX = 'bbiz_';
 
+// Pre-write quota probe — fired async on large writes (>200 KB serialized).
+// We can't await navigator.storage.estimate() inside the sync safeSet, so we
+// kick off a fire-and-forget probe; if usage is >90% of quota the user gets
+// the same toast they'd get from a hard quota error, but ahead of the next
+// write that would actually fail.
+const LARGE_WRITE_BYTES = 200 * 1024;
+let _quotaProbedAt = 0;
+function probeQuotaIfLarge(key, byteSize) {
+  if (byteSize < LARGE_WRITE_BYTES) return;
+  const now = Date.now();
+  if (now - _quotaProbedAt < 30_000) return; // throttle to once per 30s
+  _quotaProbedAt = now;
+  if (typeof navigator === 'undefined' || !navigator.storage?.estimate) return;
+  navigator.storage.estimate().then((est) => {
+    if (!est?.quota || !est?.usage) return;
+    const ratio = est.usage / est.quota;
+    if (ratio < 0.9) return;
+    window.dispatchEvent(new CustomEvent('bbiz:storage-error', {
+      detail: { key, error: new Error(`Storage near quota: ${(ratio * 100).toFixed(0)}%`) },
+    }));
+  }).catch(() => { /* best-effort probe */ });
+}
+
 /** Returns true on success, false on failure (e.g. quota exceeded). */
 export function safeSet(key, value) {
   try {
     const v = typeof value === 'string' ? value : JSON.stringify(value);
+    probeQuotaIfLarge(key, v.length);
     localStorage.setItem(PREFIX + key, v);
     return true;
   } catch (e) {
@@ -22,7 +46,8 @@ export function safeGet(key, fallback = null) {
   try {
     const v = localStorage.getItem(PREFIX + key);
     return v !== null ? v : fallback;
-  } catch {
+  } catch (e) {
+    console.warn('[bbiz] storage read failed:', key, e);
     return fallback;
   }
 }
@@ -31,13 +56,15 @@ export function safeGetJSON(key, fallback = null) {
   try {
     const v = localStorage.getItem(PREFIX + key);
     return v !== null ? JSON.parse(v) : fallback;
-  } catch {
+  } catch (e) {
+    console.warn('[bbiz] storage JSON parse failed:', key, e);
     return fallback;
   }
 }
 
 export function safeRemove(key) {
-  try { localStorage.removeItem(PREFIX + key); } catch {}
+  try { localStorage.removeItem(PREFIX + key); }
+  catch (e) { console.warn('[bbiz] storage remove failed:', key, e); }
 }
 
 export function listKeys(prefix = '') {
@@ -95,7 +122,11 @@ export function createBackup() {
   try {
     localStorage.setItem(BACKUP_KEY, JSON.stringify(snapshot));
     return true;
-  } catch {
+  } catch (e) {
+    console.warn('[bbiz] backup create failed:', e);
+    window.dispatchEvent(new CustomEvent('bbiz:storage-error', {
+      detail: { key: BACKUP_KEY, error: e },
+    }));
     return false;
   }
 }
@@ -112,7 +143,11 @@ export function restoreBackup() {
     }
     localStorage.removeItem(BACKUP_KEY);
     return true;
-  } catch {
+  } catch (e) {
+    console.warn('[bbiz] backup restore failed:', e);
+    window.dispatchEvent(new CustomEvent('bbiz:storage-error', {
+      detail: { key: BACKUP_KEY, error: e },
+    }));
     return false;
   }
 }

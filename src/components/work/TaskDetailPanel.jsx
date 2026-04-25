@@ -16,6 +16,7 @@ import { ICON_REGISTRY } from '../../data/icon-registry';
 const LazyMarkdown = lazy(() => import('../shared/LazyMarkdown'));
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import AmanahTierBadge from '../shared/AmanahTierBadge';
+import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
 // SubtaskSources pulls in hadith.js (1.3 MB) + quran-wbw.js (536 KB) via HadithCard/QuranVerseCard.
 // Lazy-load so those 1.8 MB only ship when a user opens the Sources tab on a subtask.
 const SubtaskSources = lazy(() => import('./SubtaskSources'));
@@ -488,9 +489,11 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           <div className="tdp-subtask-detail__header">
             <h2 className="tdp-subtask-detail__title">Source</h2>
           </div>
-          <Suspense fallback={<SourcesSkeleton />}>
-            <SubtaskSources subtask={activeSubtask} />
-          </Suspense>
+          <ChunkErrorBoundary label="Could not load Sources.">
+            <Suspense fallback={<SourcesSkeleton />}>
+              <SubtaskSources subtask={activeSubtask} />
+            </Suspense>
+          </ChunkErrorBoundary>
         </div>
       </div>
       <div className="tdp-footer tdp-footer--subtask">

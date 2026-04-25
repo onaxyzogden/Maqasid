@@ -7,6 +7,7 @@ import {
 import { useAuthStore } from '../store/auth-store';
 import { useSettingsStore } from '../store/settings-store';
 import { useOnboardingStore } from '../store/onboarding-store';
+import { useThresholdStore } from '../store/threshold-store';
 import { genUserId } from '../services/id';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import { MODULES } from '../data/modules';
@@ -29,6 +30,8 @@ export default function Onboarding() {
   const login = useAuthStore((s) => s.login);
   const setValuesLayer = useSettingsStore((s) => s.setValuesLayer);
   const { setWizardIntent, setFirstSubmodule, recordFirstLogin } = useOnboardingStore();
+  const completeNiyyah = useThresholdStore((s) => s.completeNiyyah);
+  const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
 
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
@@ -82,6 +85,19 @@ export default function Onboarding() {
       createdAt: new Date().toISOString(),
     });
     setValuesLayer(values);
+    // Seed today's Niyyah Act from onboarding selections so the user doesn't
+    // hit a second ceremony immediately on first dashboard visit. Carries
+    // pillar focus + first submodule forward; falls back to a skipped marker
+    // if the user finished without picking anything (Skip for now path).
+    if (selectedPillars.length > 0) {
+      completeNiyyah({
+        pillars: selectedPillars,
+        submodule: selectedSubmodule || null,
+        level: 'core',
+      });
+    } else {
+      skipNiyyah();
+    }
     navigate('/app');
   };
 

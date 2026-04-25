@@ -5,10 +5,19 @@ const PREFIX = 'bbiz_';
 const SCHEMA_VERSION = '5.0';
 
 function read(key) {
-  try { return JSON.parse(localStorage.getItem(PREFIX + key)); } catch { return null; }
+  try { return JSON.parse(localStorage.getItem(PREFIX + key)); }
+  catch (e) { console.warn('[bbiz:migration] read failed:', key, e); return null; }
 }
 function write(key, val) {
-  try { localStorage.setItem(PREFIX + key, JSON.stringify(val)); } catch {}
+  try { localStorage.setItem(PREFIX + key, JSON.stringify(val)); }
+  catch (e) {
+    console.warn('[bbiz:migration] write failed:', key, e);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('bbiz:storage-error', {
+        detail: { key, error: e, source: 'migration' },
+      }));
+    }
+  }
 }
 
 const AVATAR_COLORS = [

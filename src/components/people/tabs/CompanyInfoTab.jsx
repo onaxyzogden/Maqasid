@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
-import { format } from 'date-fns';
+import { formatDate } from '../../../lib/format-date';
 
 export default function CompanyInfoTab({ company }) {
   const updateCompany = useContactsStore((s) => s.updateCompany);
@@ -36,8 +36,7 @@ export default function CompanyInfoTab({ company }) {
   }
 
   function formatCreatedAt(iso) {
-    if (!iso) return '';
-    try { return format(new Date(iso), 'MMM d yyyy HH:mm'); } catch { return iso; }
+    return formatDate(iso, 'datetime', iso || '');
   }
 
   const inputStyle = {

@@ -54,7 +54,7 @@ export default function IslamicPanel() {
   const toggleCitations = useAppStore((s) => s.toggleCitations);
   const mobile = useMobile();
   const { pathname } = useLocation();
-  const isTimelineRoute = pathname.startsWith('/app/prophetic-path-test');
+  const isTimelineRoute = pathname.startsWith('/app/prophetic-path');
 
   const mod = MODULES.find((m) => m.id === activeModule);
   const data = getModuleData(activeModule, valuesLayer);

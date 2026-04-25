@@ -105,7 +105,7 @@ export default function TodayFocusSection({ pillarSummary = [], primaryPillarId 
         })}
       </div>
       <div className="tfs-handoff-row">
-        <Link to="/app/prophetic-path-test" className="tfs-handoff">
+        <Link to="/app/prophetic-path" className="tfs-handoff">
           <SquareChevronRight size={16} />
           <span>Begin the day&apos;s rhythm</span>
         </Link>

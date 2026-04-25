@@ -91,7 +91,25 @@ type: log
 - T3.3 already resolved at `website/index.html:422` (mentions MTC, OLOS, BBOS)
 - T3.8 (00A/01B marketing callouts) deferred — copy decision better made by user
 
-**Pending:** Phase 5 (Q1 rejection flow + Q2 multi-pipeline + Q3 patch sub-stage tasks) and Phase 6 final verification. Q2 (multi-pipeline) is a large schema migration touching project-store, task-store, route definitions, and dashboard views — flagged for explicit scope confirmation before implementation.
+**Phase 5 — Open Question resolution (Q1 + Q3 in scope; Q2 deferred):**
+- Q1 — Amanah Proof Audit rejection flow: `BBOS_REJECTION_REASONS` constant added to `bbos-pipeline.js` (riba, gharar, capability_gap, regulatory, withdrawal). `rejectBbosPipeline(projectId, reasonId, reviewer)` and `unrejectBbosPipeline(projectId)` actions added to `project-store.js`; `advanceBbosStage` guarded against rejected pipelines; `startNewBbosCycle` clears rejection fields. `BbosFullDashboard.jsx` renders a red rejection banner across all stages, a CRD-stage-only reject button (gated to roles with `O` access on `CRD-V1` — OW/ST), a 5-option modal, and a Resume action. ~180 lines of CSS added (`.bfd__rejection-banner`, `.bfd__reject-btn`, `.bfd__modal-*`).
+- Q3 — Patch sub-stage tasks: `IDY-PATCH-V1` (Input Integrity Gate, 6 fields including capitalProofTier/skillsProofTier/gateVerdict PASS-HOLD-FAIL) and `STR-PATCH-V1` (Mechanism Factory, 5 fields including valueMechanism/bridgeVerdict READY-GAP-REWORK) added to `bbos-task-definitions.js` with role access in `bbos-role-access.js` (OW/ST: O; all others: -). `PATCH` prefix added to `RESEARCH_PREFIXES` in `BbosFullDashboard.jsx` so patch tasks gate Asset factory unlock.
+- Q2 deferred — see [[2026-04-25-bbos-multi-pipeline-deferred]]. Multi-pipeline support requires a non-trivial schema migration (project-store from single-pipeline to pipelines[] array, task-store keyed by pipelineId, route /work/:projectId/bbos/:pipelineId, dashboard view tabs). Scoped for a dedicated future session.
+
+**Phase 6 — Final verification:**
+- `npm run build` exits 0 in 1.18s (2,765+ modules transformed). Only the pre-existing chunk-size warning remains.
+- `npm run lint` — pre-existing 658 issues; the 2 BBOS-touched files (`BbosFullDashboard.jsx` line 334, `BbosTaskPanel.jsx` line 102) have only pre-existing warnings, no new ones from this session.
+- Preview verification of rejection flow end-to-end: modal opens with 5 options → riba selected → confirm → red banner renders ("Pipeline rejected at Amanah Proof Audit | Riba (interest-based mechanism) — ... | Rejected 4/25/2026 · by all | Resume") → localStorage persists `rejectedAt`/`rejectionReason`/`rejectedBy` → Resume clears all three fields and reject button returns. Patch sub-stage gates ("Gate: Input Integrity Gate — pending", "Gate: Mechanism Factory — pending") visible in stage navigation.
+- Stale-reference grep: `git grep -n "BbosPipelineHeader"` — fixed missed reference in `src/components/work/CONTEXT.md:33` (now LevelNavigator). `git grep -n "God nodes"` — fixed historical log entry on line 3935 to "Keystone Nodes".
+- Retired-stage-code grep: legacy codes (FND/TRU/DLR/SAL/INT/QAL) appear only in (a) wiki history entries, (b) graphify cache files (auto-regenerated), (c) atlas worktrees (separate repo), and (d) `website/bbos/demo/2D/truthmarket_bbos.html` — a 6,314-line standalone interactive demo with 148 occurrences and CSS variables tied to old names (`--int`, `--qal`, `--ful`, `--dlr`). Demo file rename is a self-contained mini-project and is **deferred** rather than rushed inline; flagged here for a dedicated future pass.
+- Wiki entity `bbos-pipeline.md` Open Questions updated: Q1 and Q3 moved to Resolved (2026-04-25); Q2 retained with pointer to deferred-decision record.
+
+**Decision records:** [[2026-04-25-bbos-multi-pipeline-deferred]] (Q2 scope rationale)
+
+**Session debrief:**
+- Completed: Three-way stage-code drift resolved (DP1 = 9-stage IDY/CRD/STR/OFR/OUT/SLS/DEL/RET/OPT canon); vision pages consolidated (DP3); 113 stale per-task attributes stripped + delegated to stage-level; Tier-2 friction (mobile scroll lock, validation scroll, Assembly Gate guard, CTA mismatch, hardcoded marker) closed; Tier-3 stale docs cleaned; `references/bbos-protocol.md` filed as canonical; **Q1 Amanah rejection flow** shipped end-to-end and verified in preview; **Q3 patch sub-stage tasks** wired with role access and Assembly Gate participation.
+- Deferred: Q2 multi-pipeline support (schema migration, dedicated session); `truthmarket_bbos.html` demo stage-code rename (148 occurrences, isolated file); 00A/01B marketing copy (user-decision call).
+- Recommended next session: live click-through test of the BBOS module on a fresh project, exercising the rejection flow + patch gates. Either Q2 multi-pipeline migration OR the truthmarket demo rename, depending on which surfaces friction first.
 
 ---
 
@@ -3932,7 +3950,7 @@ Regenerated graphify knowledge graph after completing all 35 audit findings acro
 - **Scope:** `src/ + wiki/ + docs/ + tasks/` (314 files, ~295K words)
 - **Graph:** 1,012 nodes, 1,517 edges, 8 hyperedges, 126 communities (25 labeled)
 - **Token reduction:** 79.7% (383K raw → 78K graph tokens)
-- **God nodes:** threshold-store (93 edges, bridges 9 communities), project-store (79), contacts-store (49), task-store (34), settings-store (27)
+- **Keystone Nodes:** threshold-store (93 edges, bridges 9 communities), project-store (79), contacts-store (49), task-store (34), settings-store (27)
 - **Key insight:** threshold-store centrality is intentional (Islamic ceremony gating is cross-cutting), but 63/93 edges are per-page imports that could be lifted to a single router-level `<CeremonyGuard>` wrapper
 - **Outputs:** `graphify-out/graph.html`, `graphify-out/graph.json`, `graphify-out/GRAPH_REPORT.md`
 - Updated `wiki/entities/maqasid-os.md` with new graph stats; resolved open question on graph regeneration

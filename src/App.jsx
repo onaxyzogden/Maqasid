@@ -6,6 +6,7 @@ import Onboarding from '@pages/Onboarding';
 import AppShell from '@components/layout/AppShell';
 import Dashboard from '@pages/Dashboard';
 import RouteSpinner from '@components/shared/RouteSpinner';
+import ChunkErrorBoundary from '@components/shared/ChunkErrorBoundary';
 // Phase 3 — Work module subtree is lazy: pulls in @dnd-kit + react-markdown
 // + remark-gfm only when a user opens a Work/Project route.
 const Work = lazy(() => import('@pages/modules/Work'));
@@ -64,9 +65,11 @@ import EnvironmentWastePage from '@pages/environment/EnvironmentWastePage';
 import EnvironmentEcosystemPage from '@pages/environment/EnvironmentEcosystemPage';
 import EnvironmentSourcingPage from '@pages/environment/EnvironmentSourcingPage';
 import CollectivePage from '@pages/ummah/CollectivePage';
-import MoontraceLandPage from '@pages/ummah/MoontraceLandPage';
-import MoontranceSeasonalPage from '@pages/ummah/MoontranceSeasonalPage';
-import MoontranceResidencyPage from '@pages/ummah/MoontranceResidencyPage';
+// Moontrance Land/Seasonal/Residency pull in heavy LevelNavigator data.
+// Lazy-load so the chunk only ships when those routes are visited.
+const MoontraceLandPage = lazy(() => import('@pages/ummah/MoontraceLandPage'));
+const MoontranceSeasonalPage = lazy(() => import('@pages/ummah/MoontranceSeasonalPage'));
+const MoontranceResidencyPage = lazy(() => import('@pages/ummah/MoontranceResidencyPage'));
 import OgdenFoundationPage from '@pages/ogden/OgdenFoundationPage';
 import OgdenIntegrationPage from '@pages/ogden/OgdenIntegrationPage';
 import OgdenRealizationPage from '@pages/ogden/OgdenRealizationPage';
@@ -84,7 +87,7 @@ import UmmahDashboard from '@pages/ummah/UmmahDashboard';
 import MoontraceDashboard from '@pages/moontrance/MoontraceDashboard';
 import Settings from '@pages/Settings';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
-import PropheticPathTestPage from '@pages/prototypes/PropheticPathTestPage';
+import PropheticPathPage from '@pages/PropheticPathPage';
 import CeremonyGuard from '@components/islamic/CeremonyGuard';
 import CeremonyGuardDynamic from '@components/islamic/CeremonyGuardDynamic';
 import ProjectBoard from '@components/work/ProjectBoard';
@@ -133,6 +136,7 @@ function useGlobalTextareaAutoResize() {
 export default function App() {
   useGlobalTextareaAutoResize();
   return (
+    <ChunkErrorBoundary>
     <Suspense fallback={<RouteSpinner />}>
     <Routes>
       <Route path="/" element={<Landing />} />
@@ -222,20 +226,22 @@ export default function App() {
         <Route path="ogden-bbos" element={<OgdenBbosPage />} />
         <Route path="ogden-milos" element={<OgdenMilosPage />} />
         <Route path="ogden-atlas" element={<OgdenAtlasPage />} />
-        <Route path="pillar/faith" element={<FaithCorePage />} />
-        <Route path="pillar/life" element={<LifeCorePage />} />
-        <Route path="pillar/intellect" element={<IntellectCorePage />} />
-        <Route path="pillar/family" element={<FamilyCorePage />} />
-        <Route path="pillar/wealth" element={<WealthCorePage />} />
-        <Route path="pillar/environment" element={<EnvironmentCorePage />} />
-        <Route path="pillar/ummah" element={<UmmahDashboard />} />
+        <Route path="pillar/faith" element={<CeremonyGuard moduleId="faith-core" isLevel1><FaithCorePage /></CeremonyGuard>} />
+        <Route path="pillar/life" element={<CeremonyGuard moduleId="life-core" isLevel1><LifeCorePage /></CeremonyGuard>} />
+        <Route path="pillar/intellect" element={<CeremonyGuard moduleId="intellect-core" isLevel1><IntellectCorePage /></CeremonyGuard>} />
+        <Route path="pillar/family" element={<CeremonyGuard moduleId="family-core" isLevel1><FamilyCorePage /></CeremonyGuard>} />
+        <Route path="pillar/wealth" element={<CeremonyGuard moduleId="wealth-core" isLevel1><WealthCorePage /></CeremonyGuard>} />
+        <Route path="pillar/environment" element={<CeremonyGuard moduleId="environment-core" isLevel1><EnvironmentCorePage /></CeremonyGuard>} />
+        <Route path="pillar/ummah" element={<CeremonyGuard moduleId="ummah"><UmmahDashboard /></CeremonyGuard>} />
         <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
-        <Route path="pillar/:pillarId" element={<PillarDashboard />} />
+        <Route path="pillar/:pillarId" element={<CeremonyGuardDynamic paramKey="pillarId"><PillarDashboard /></CeremonyGuardDynamic>} />
         <Route path="settings" element={<Settings />} />
-        <Route path="prophetic-path-test" element={<PropheticPathTestPage />} />
+        <Route path="prophetic-path" element={<PropheticPathPage />} />
+        <Route path="prophetic-path-test" element={<Navigate to="/app/prophetic-path" replace />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
       </Route>
     </Routes>
     </Suspense>
+    </ChunkErrorBoundary>
   );
 }

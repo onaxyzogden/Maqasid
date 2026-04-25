@@ -132,10 +132,10 @@ export default function Sidebar() {
       {/* Main Nav */}
       <nav className="sidebar-nav" aria-label="Main navigation" data-tour="sidebar-nav">
         <Link
-          to="/app/prophetic-path-test"
-          className={`sidebar-item ${location.pathname === '/app/prophetic-path-test' ? 'active' : ''}`}
+          to="/app/prophetic-path"
+          className={`sidebar-item ${location.pathname === '/app/prophetic-path' ? 'active' : ''}`}
           onClick={handleNavClick}
-          title="Prophetic Path (prototype)"
+          title="Prophetic Path"
         >
           <SquareChevronRight size={18} />
           {!collapsed && <span>Prophetic Path</span>}

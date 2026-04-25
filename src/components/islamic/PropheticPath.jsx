@@ -709,7 +709,8 @@ export default function PropheticPath({ variant }) {
         .filter(Boolean),
     [niyyahFocus]
   );
-  const { timings, cityName } = usePrayerTimes();
+  const { timings, cityName, loading: prayerLoading, error: prayerError, requestLocation } = usePrayerTimes();
+  const prayerDegraded = !timings && !prayerLoading;
   const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
   const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
   const orderedNodes = useMemo(() => {
@@ -786,6 +787,44 @@ export default function PropheticPath({ variant }) {
 
         <div className="pp-content">
           <div className="pp-timeline-col">
+            {prayerDegraded && (
+              <div
+                role="alert"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: 12,
+                  padding: '10px 14px',
+                  marginBottom: 12,
+                  border: '1px solid var(--border, #d4b06f44)',
+                  borderRadius: 8,
+                  background: 'var(--surface-2, rgba(200,169,110,0.08))',
+                  color: 'var(--text2, #888)',
+                  fontSize: 13,
+                }}
+              >
+                <span>
+                  Prayer times unavailable
+                  {prayerError ? ` — ${prayerError}` : ' — set city in Settings to ground today\'s rhythm'}.
+                </span>
+                <button
+                  type="button"
+                  onClick={requestLocation}
+                  style={{
+                    padding: '4px 10px',
+                    fontSize: 12,
+                    border: '1px solid var(--border, #ccc)',
+                    borderRadius: 6,
+                    background: 'var(--surface, #fff)',
+                    color: 'var(--text, #222)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Retry
+                </button>
+              </div>
+            )}
             {(cityName || activeNode || bookends || niyyahPillars.length > 0) && (
               <div className="pp-intro">
                 {(cityName || activeNode || bookends) && (

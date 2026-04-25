@@ -136,7 +136,7 @@ export default function TimelineIslamicContent() {
             {tasks.map((t) => (
               <li key={t.id} className="til-task-row">
                 <a
-                  href={`/app/prophetic-path-test#node-${nodeId}`}
+                  href={`/app/prophetic-path#node-${nodeId}`}
                   className="til-task-link"
                   title={t.title}
                 >

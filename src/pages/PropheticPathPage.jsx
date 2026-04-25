@@ -1,5 +1,5 @@
 import PropheticPath from '@components/islamic/PropheticPath';
 
-export default function PropheticPathTestPage() {
+export default function PropheticPathPage() {
   return <PropheticPath />;
 }

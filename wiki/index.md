@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-24
+updated: 2026-04-25
 ---
 
 # Wiki Index
@@ -15,7 +15,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[milos]] | Islamic life operating system — React 19 SPA managing work, money, people across Seven Maqasid |
 | [[ogden-hub]] | Static marketing/landing site at bismillah.ogden.ag |
 | [[olos]] | Geospatial land intelligence app — React + TypeScript + MapboxGL + Fastify + PostGIS |
-| [[bbos-pipeline]] | Barakah Business Operating System — 8-stage covenant pipeline for Islamic business |
+| [[bbos-pipeline]] | Barakah Business Operating System — 9-stage covenant pipeline (IDY/CRD/STR/OFR/OUT/SLS/DEL/RET/OPT) for Islamic business |
 | [[ogden-ecosystem]] | Meta-module tracking BBOS + MILOS + Atlas convergence into Moontrance (Foundation/Integration/Realization) |
 | [[graphify]] | Knowledge graph tool — builds persistent graphs from codebases with community detection |
 | [[claude-os]] | Claude OS / Model Workspace Protocol — 3-layer system architecture governing Claude Code across projects |
@@ -79,6 +79,9 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-23-landing-hero-scholar-polish-phase-2]] | 2026-04-23 | Landing hero phase 2 — break-the-box Faith ring (absolute-positioned, right: -120px) with 4s Maqasid Pulse traveling shimmer via `strokeDasharray 250/1005` gradient head; `.hero-modules` chip row replaced with `.hero-bento` 8-card grid (4×2 desktop / 2×4 mobile) with per-pillar accent, 28px 0% Mastery Rings, and progressive-disclosure descriptions on `:hover` / `:focus-within` |
 | [[2026-04-24-atlas-ca-tier3-verification-crs-and-race-fixes]] | 2026-04-24 | Atlas Tier-3 end-to-end verification on Milton, ON surfaced + fixed four CA-path defects: CA-1 NRCan STAC queryable, CA-2 ECCC `data_period` date coercion, CA-3 HRDEM COGs are EPSG:3979 (proj4 reprojection added to `ElevationGridReader`), CA-4 writer-vs-layers race (writer now gates on Tier-3 derived `project_layers` presence). Milton overall 73.0, parity delta 0.000 |
 | [[2026-04-24-task-detail-panel-scholar-refit]] | 2026-04-24 | TaskDetailPanel modal refit applying NotebookLM UI/UX Scholar's 5 answers: editorial serif title (Q1), priority eyebrow demoted (Q2), homogeneous-tier rollup to section header (Q3), ghost Done button with shimmer-on-ready (Q4), receding description via motif-ghost color-mix (Q5); pattern propagated to InlineTaskDetail |
+| [[2026-04-25-milos-pre-test-tier-1-fixes]] | 2026-04-25 | Phase A of pre-test audit: CeremonyGuard wrapping for 8 thick pillar routes + catch-all (App.jsx 225-233); silent storage/migration `catch {}` replaced with logged warnings + storage-error events; toastStore vs toast-store documented as intentional twins (audit was wrong about orphan); Onboarding `finish()` seeds today's niyyah from selections so no second ceremony on first dashboard visit; two original audit findings (T1.1, T1.4) verified incorrect |
+| [[2026-04-25-milos-tier-2-polish]] | 2026-04-25 | Phase B of pre-test audit: 23 pillar-wisdom + next-actions stubs replaced with quran.ai-grounded content; Prophetic Path graduated test→prod with redirect; new `ChunkErrorBoundary` wraps App + TaskDetailPanel Suspense (Retry on chunk-load failure); PropheticPath surfaces prayer-times degraded banner with Retry; storage `safeSet` adds `navigator.storage.estimate()` pre-probe for >200KB writes; Moontrance routes lazy-split (-322KB index). Audit correction: Ummah seed-tasks already grounded (525 subtasks, 0 missing). Caveat: LevelNavigator 4.7MB chunk root cause is shared data hoisting — deferred |
+| [[2026-04-25-milos-tier-3-cleanup]] | 2026-04-25 | Phase C of pre-test audit (session close): persistence-tier comment block in `threshold-store.js`; new `formatDate` canonical helper at `src/lib/format-date.js` (`MMM d, yyyy` default) + concept doc; 6 hard-coded hex sites in PillarBoard + TaskDetailPanel migrated to tokens. Two audit corrections: (1) the 4 shimmer keyframes animate different properties and aren't redundant; (2) dark-mode coverage was already correct via 100+ token remappings in `tokens.css`, verified live in preview. Pre-test audit fully closed |
 
 ## Sources
 

@@ -30,8 +30,22 @@ function archiveStaleNiyyah(get, today) {
   return next;
 }
 
+// ─── Persistence boundary ───────────────────────────────────────────────
+// Three storage tiers in this store:
+//   1. PERSISTENT (localStorage via safe* helpers, `thr_*` prefix) — niyyah
+//      slots, completed/deferred ceremonies, history ring buffer. Survives
+//      reload + tab close. Cleared only by explicit user action or the
+//      stale-day rollover archiver.
+//   2. SESSION (sessionStorage, `thr_opening_mid`/`thr_closing_mid`) — which
+//      module ceremony is currently mid-flow. Survives reload but dies with
+//      the tab. Used so refreshing during a ceremony doesn't lose place.
+//   3. EPHEMERAL (in-memory only) — prayer-lock state, presence flags,
+//      resumeModuleId. Recomputed on each mount; never persisted.
+// Edits that change persistence tier are load-bearing: dropping a write or
+// flipping a key from `safeSet` to in-memory state will silently regress
+// the rollover, ceremony resume, or onboarding niyyah seeding.
 export const useThresholdStore = create((set, get) => ({
-  // Daily Niyyah Act — pre-entry orientation
+  // Daily Niyyah Act — pre-entry orientation (PERSISTENT)
   niyyahDate: safeGet('thr_niyyah_date', null),            // plain string (YYYY-MM-DD)
   niyyahFocus: safeGetJSON('thr_niyyah_focus', []),        // array of pillar IDs
   niyyahFeeling: hydrateOptionalString('thr_niyyah_feeling'),      // feeling id from niyyah-feelings.js

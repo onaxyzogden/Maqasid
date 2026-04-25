@@ -412,7 +412,7 @@
   font-style: italic;
 }
 .tdp-subtask-detail__content a {
-  color: #2563eb;
+  color: var(--col-progress, #2563eb);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -887,8 +887,8 @@
   margin: 0 0 14px;
   padding: 10px 14px;
   border-radius: 8px;
-  background: color-mix(in oklab, var(--accent-muted, #8b5cf6) 6%, transparent);
-  border-left: 3px solid #8b5cf630;
+  background: color-mix(in oklab, var(--accent-muted, var(--mod-people)) 6%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--mod-people) 19%, transparent);
 }
 .tdp-amanah-rationale__text {
   margin: 0;

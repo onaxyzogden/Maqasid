@@ -172,17 +172,17 @@
 }
 
 .fpd__card--growth .fpd__card-icon {
-  color: #4ab8a8;
+  color: var(--primary);
 }
 
 .fpd__card--growth .fpd__card-cta {
-  background: #4ab8a8;
+  background: var(--primary);
   color: #fff;
   border: none;
 }
 
 .fpd__card--growth .fpd__card-cta:hover {
-  background: #3da396;
+  background: var(--primary-hover);
 }
 
 /* Excellence — light, bordered */
@@ -193,7 +193,7 @@
 }
 
 .fpd__card--excellence .fpd__card-icon {
-  color: #8b5cf6;
+  color: var(--mod-people);
 }
 
 .fpd__card--excellence .fpd__card-cta {

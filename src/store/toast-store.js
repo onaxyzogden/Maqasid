@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 /**
- * Toast Store — lightweight transient notification system
+ * Operation Toast Store — generic save/delete/copy notification system
  *
  * Two types (per NotebookLM design intelligence):
  *   'toast'  — slides up bottom-right, auto-dismisses after 3s (for operations: save, delete, create)
@@ -12,6 +12,10 @@ import { create } from 'zustand';
  *   addToast({ type: 'success', message: 'Task completed' });
  *   addToast({ type: 'error', message: 'Failed to save' });
  *   addToast({ type: 'info', message: 'Copied to clipboard', variant: 'chip' });
+ *
+ * NOT THE SAME as `@store/toastStore` (camelCase). That one carries pillar
+ * identity + level color for Istiqamah pulse toasts on LevelOverview pages.
+ * The two are intentionally separate by purpose.
  */
 
 let nextId = 1;

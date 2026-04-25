@@ -8,7 +8,7 @@ import './MobileNav.css';
 // pillars surface on the Home dashboard instead.
 const ITEMS = [
   { to: '/app', icon: LayoutDashboard, label: 'Home', exact: true },
-  { to: '/app/prophetic-path-test', icon: SquareChevronRight, label: 'Prophetic Path' },
+  { to: '/app/prophetic-path', icon: SquareChevronRight, label: 'Prophetic Path' },
   { to: '/app/settings', icon: Settings, label: 'Settings' },
 ];
 
