@@ -4630,6 +4630,15 @@ Not all relatives have equal rights upon you. Islam establishes a clear hierarch
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "quran",
+              ref: "Quran 60:8-9",
+              arabic: "لَّا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوا إِلَيْهِمْ ۚ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ ۝ إِنَّمَا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ قَاتَلُوكُمْ فِي الدِّينِ وَأَخْرَجُوكُم مِّن دِيَارِكُمْ وَظَاهَرُوا عَلَىٰ إِخْرَاجِكُمْ أَن تَوَلَّوْهُمْ ۚ وَمَن يَتَوَلَّهُمْ فَأُولَٰئِكَ هُمُ الظَّالِمُونَ",
+              translation: "and He does not forbid you to deal kindly and justly with anyone who has not fought you for your faith or driven you out of your homes: God loves the just. But God forbids you to take as allies those who have fought against you for your faith, driven you out of your homes, and helped others to drive you out: any of you who take them as allies will truly be wrongdoers.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
+            },
           ],
           description: `**Why?**
 

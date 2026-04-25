@@ -2131,6 +2131,15 @@ The Prophet (SAW) called riya "hidden shirk" because it corrupts the sincerity o
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "quran",
+              ref: "Quran 29:61-63",
+              arabic: "وَلَئِن سَأَلْتَهُم مَّنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ وَسَخَّرَ الشَّمْسَ وَالْقَمَرَ لَيَقُولُنَّ اللَّهُ ۖ فَأَنَّىٰ يُؤْفَكُونَ ۝ اللَّهُ يَبْسُطُ الرِّزْقَ لِمَن يَشَاءُ مِنْ عِبَادِهِ وَيَقْدِرُ لَهُ ۚ إِنَّ اللَّهَ بِكُلِّ شَيْءٍ عَلِيمٌ ۝ وَلَئِن سَأَلْتَهُم مَّن نَّزَّلَ مِنَ السَّمَاءِ مَاءً فَأَحْيَا بِهِ الْأَرْضَ مِن بَعْدِ مَوْتِهَا لَيَقُولُنَّ اللَّهُ ۚ قُلِ الْحَمْدُ لِلَّهِ ۚ بَلْ أَكْثَرُهُمْ لَا يَعْقِلُونَ",
+              translation: "If you ask the disbelievers who created the heavens and earth and who harnessed the sun and moon, they are sure to say, \"God.\" Then why do they turn away from Him? It is God who gives abundantly to whichever of His servants He will, and sparingly to whichever He will: He has full knowledge of everything. If you ask them, \"Who sends water down from the sky and gives life with it to the earth after it has died?\" they are sure to say, \"God.\" Say, \"Praise belongs to God!\" Truly, most of them do not use their reason.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
+            },
           ],
           description: `**Why?**
 
@@ -3037,6 +3046,15 @@ Memorise "At-Tahiyyatu lillahi was-salawatu wat-tayyibatu, as-salamu 'alayka ayy
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 33:56",
+              arabic: "إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا",
+              translation: "God and His angels bless the Prophet- so, you who believe, bless him too and give him greetings of peace.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
             },
           ],
           description: `**Why?**
@@ -8761,6 +8779,15 @@ Make your intention clearly: "Labbayk Allahumma Hajjan" (for Hajj) or "Labbayk A
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 2:201",
+              arabic: "وَمِنْهُم مَّن يَقُولُ رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+              translation: "others pray, \"Our Lord, give us good in this world and in the Hereafter, and protect us from the torment of the Fire.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
             },
           ],
           description: `**Why?**

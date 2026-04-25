@@ -344,6 +344,15 @@ Completion indicator: at least one viable halal replacement identified for each 
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "quran",
+              ref: "Quran 65:2-3",
+              arabic: "فَإِذَا بَلَغْنَ أَجَلَهُنَّ فَأَمْسِكُوهُنَّ بِمَعْرُوفٍ أَوْ فَارِقُوهُنَّ بِمَعْرُوفٍ وَأَشْهِدُوا ذَوَيْ عَدْلٍ مِّنكُمْ وَأَقِيمُوا الشَّهَادَةَ لِلَّهِ ۚ ذَٰلِكُمْ يُوعَظُ بِهِ مَن كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ ۚ وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ ۚ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا",
+              translation: "When they have completed their appointed term, either keep them honourably, or part with them honourably. Call two just witnesses from your people and establish witness for the sake of God. Anyone who believes in God and the Last Day should heed this: God will find a way out for those who are mindful of Him, and will provide for them from an unexpected source; God will be enough for those who put their trust in Him. God achieves His purpose; God has set a due measure for everything.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
+            },
           ],
           description: `**Why?**
 
@@ -840,6 +849,15 @@ Completion indicator: a documented total estimate of past haram earnings, with s
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 65:2",
+              arabic: "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",
+              translation: "God will find a way out for those who are mindful of Him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
             },
           ],
           description: `**Why?**
@@ -2773,6 +2791,15 @@ Saving is not merely a financial strategy — it is an expression of responsible
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 7:31",
+              arabic: "يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ",
+              translation: "Children of Adam, dress well whenever you are at worship, and eat and drink [as We have permitted] but do not be extravagant: God does not like extravagant people.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
             },
           ],
           description: `**Why?**

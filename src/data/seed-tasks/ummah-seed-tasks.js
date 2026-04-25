@@ -6835,6 +6835,15 @@ Zakat and sadaqah are most effective when they reach people in genuine need with
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "quran",
+              ref: "Quran 9:60",
+              arabic: "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ ۖ فَرِيضَةً مِّنَ اللَّهِ ۗ وَاللَّهُ عَلِيمٌ حَكِيمٌ",
+              translation: "Alms are meant only for the poor, the needy, those who administer them, those whose hearts need winning over, to free slaves and help those in debt, for God's cause, and for travellers in need. This is ordained by God; God is all knowing and wise.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
+            },
           ],
           description: `**Why?**
 
@@ -12069,6 +12078,15 @@ Your hands can tell you texture and colour, but they cannot tell you pH, nitroge
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 99:4",
+              arabic: "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا",
+              translation: "on that Day, it will tell all",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
             },
           ],
           description: `**Why?**

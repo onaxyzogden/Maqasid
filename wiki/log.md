@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS — Inline-cited Quran refs backfilled into structured sources
+
+**Objective:** User surfaced a follow-on pattern after the migration arc: subtask `description` prose sometimes cites a specific ref (e.g. `"There is no tiyarah" (Bukhari 5776)`) that doesn't appear in the structured `sources[]`. Resolve by auditing all 8 pillars and backfilling.
+
+**Outcome:** New auditor [scripts/audit-inline-refs.mjs](scripts/audit-inline-refs.mjs) found 22 affected subtasks (9 Quran refs + 13 hadith refs). Phase 1: anchored backfill script applied 9 Quran entries via MCP-fetched Arabic + Abdel Haleem translation. Tests 40/40; strict lint clean. Phase 2 (13 hadith refs) deferred to a NotebookLM Muslim Scholar pass for sunnah.com-grade sourcing.
+
+**Decision filed:** [[2026-04-25-milos-inline-refs-quran-backfill]]
+
+**Carries forward:** Phase 2 hadith backfill via Muslim Scholar (`1c17b03b`); optional CI integration of inline-refs auditor alongside `lint:grounding-strict`.
+
+---
+
 ## [2026-04-25] session | MILOS — Final four pillars two-axis grounding (batch)
 
 **Objective:** Close the migration arc by batching Intellect (236), Family (233), Wealth (236), Environment (226) — total 931 entries — in a single session per the Life-pillar debrief recommendation. With Faith/Ummah/Life already complete, this lands the full 8-pillar two-axis schema rollout.
