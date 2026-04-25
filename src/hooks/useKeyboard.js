@@ -16,5 +16,7 @@ export function useKeyboard(key, handler, deps = []) {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
+    // reason: deps array is forwarded by caller; static checking impossible
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 }

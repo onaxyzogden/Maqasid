@@ -170,7 +170,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
       </div>
 
       <div className="proj-dash__grid">
-        {/* ── 01: Project Health (sub-cards like TRU-AF1) ── */}
+        {/* ── 01: Project Health (sub-cards like CRD-AF1) ── */}
         <div className="proj-dash__card proj-dash__card--health">
           <div className="proj-dash__card-head">
             <span className="proj-dash__card-num">01</span>
@@ -200,7 +200,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
           </div>
         </div>
 
-        {/* ── 02: Pipeline Table (like TRU-AF2) ── */}
+        {/* ── 02: Pipeline Table (like CRD-AF2) ── */}
         <div className="proj-dash__card proj-dash__card--pipeline">
           <div className="proj-dash__pipe-head">
             <div className="proj-dash__card-head">
@@ -244,7 +244,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
           </table>
         </div>
 
-        {/* ── 03: Priority Matrix (2×2 quadrant like TRU-AF3) ── */}
+        {/* ── 03: Priority Matrix (2×2 quadrant like CRD-AF3) ── */}
         <div className="proj-dash__card proj-dash__card--priority">
           <div className="proj-dash__card-head">
             <span className="proj-dash__card-num">03</span>
@@ -298,7 +298,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
           </div>
         </div>
 
-        {/* ── 04: Analysis (like TRU-AF4) ── */}
+        {/* ── 04: Analysis (like CRD-AF4) ── */}
         <div className="proj-dash__card proj-dash__card--activity">
           <div className="proj-dash__card-head">
             <span className="proj-dash__card-num">04</span>
@@ -349,7 +349,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
           </div>
         </div>
 
-        {/* ── 05: Audit (like TRU-AF5 — verdict + star ratings) ── */}
+        {/* ── 05: Audit (like CRD-AF5 — verdict + star ratings) ── */}
         <div className="proj-dash__card proj-dash__card--audit">
           <div className="proj-dash__audit-left">
             <div className="proj-dash__card-head">

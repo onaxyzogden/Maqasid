@@ -1,8 +1,9 @@
 import { useMemo, useState, useRef, useLayoutEffect, Fragment } from 'react';
-import { CheckCircle, XCircle, AlertTriangle, Star } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Star, ShieldOff, RotateCcw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
+import { useProjectStore } from '../../store/project-store';
 import { getBbosTaskDef, getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
-import { getStage, BBOS_STAGES, BBOS_LAYERS } from '../../data/bbos/bbos-pipeline';
+import { getStage, BBOS_STAGES, BBOS_LAYERS, BBOS_REJECTION_REASONS, getBbosRejectionReason } from '../../data/bbos/bbos-pipeline';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
@@ -38,6 +39,7 @@ function countFilledFields(def, fieldData) {
 
 function getSubLevelPrefix(subLevel) {
   if (!subLevel) return 'OTHER';
+  if (subLevel.startsWith('PATCH')) return 'PATCH';
   if (subLevel.startsWith('AF'))  return 'AF';
   if (subLevel.startsWith('IFB')) return 'IFB';
   if (subLevel.startsWith('FP'))  return 'FP';
@@ -49,6 +51,7 @@ function getSubLevelPrefix(subLevel) {
 }
 
 const PREFIX_LABELS = {
+  PATCH: 'Patch Plan Sub-Stage',
   AF:    'Analysis Framework',
   S:     'Strategic Tasks',
   A:     'Asset Tasks',
@@ -60,10 +63,10 @@ const PREFIX_LABELS = {
 };
 
 // ── Factory classification ───────────────────────────────────────────────────
-// Groundwork (research): S, V, FP — strategic tasks, validation gates, and
-// framework prompts. Workshop (asset): AF, A, IC — asset factory tasks.
+// Groundwork (research): S, V, FP, PATCH — strategic tasks, validation gates,
+// framework prompts, and patch sub-stage gates. Workshop (asset): AF, A, IC.
 // Assembly Gate unlocks Workshop after all Groundwork tasks are Done.
-const RESEARCH_PREFIXES = new Set(['S', 'V', 'FP']);
+const RESEARCH_PREFIXES = new Set(['S', 'V', 'FP', 'PATCH']);
 const ASSET_PREFIXES = new Set(['A', 'AF', 'IC']);
 
 function getFactory(prefix) {
@@ -108,13 +111,13 @@ function ratingToStars(text) {
 // ── Stage quotes ──────────────────────────────────────────────────────────────
 
 const STAGE_QUOTES = {
-  FND: '"He who is not truthful in establishing the foundation has built upon sand."',
-  TRU: '"A business built on self-deception is a business that cannot sustain."',
+  IDY: '"He who is not truthful in establishing the foundation has built upon sand."',
+  CRD: '"A business built on self-deception is a business that cannot sustain."',
   STR: '"Before you speak a word to the market, be certain of the truth behind it."',
   OFR: '"The offering is only as sound as the promise it is built upon."',
   OUT: '"Reach those who need you — not those you want to sell to."',
-  SAL: '"A sale is not a conquest — it is a covenant entered freely by both parties."',
-  DLR: '"Excellence in delivery is not efficiency alone — it is that the client feels cared for at every step."',
+  SLS: '"A sale is not a conquest — it is a covenant entered freely by both parties."',
+  DEL: '"Excellence in delivery is not efficiency alone — it is that the client feels cared for at every step."',
   RET: '"The bond after the sale is the true measure of the relationship."',
   OPT: '"Optimization without integrity is just efficient exploitation."',
 };
@@ -130,37 +133,37 @@ function countNonEmpty(...keys) {
 }
 
 const STAGE_SCORE_SIGNALS = {
-  FND: [
-    { label: 'Capital & Skills Declared',  taskId: 'FND-S1',
+  IDY: [
+    { label: 'Capital & Skills Declared',  taskId: 'IDY-S1',
       fieldIds: ['capitalDeclaration', 'skillsDeclaration'],
       score: countNonEmpty('capitalDeclaration', 'skillsDeclaration') },
-    { label: 'Proof & Constraints',        taskId: 'FND-S1',
+    { label: 'Proof & Constraints',        taskId: 'IDY-S1',
       fieldIds: ['proofLinks', 'constraintsDeclaration', 'geographyDeclaration', 'regulatoryDeclaration'],
       score: countNonEmpty('proofLinks', 'constraintsDeclaration', 'geographyDeclaration', 'regulatoryDeclaration') },
-    { label: 'Normalisation Complete',     taskId: 'FND-S2',
+    { label: 'Normalisation Complete',     taskId: 'IDY-S2',
       fieldIds: ['capitalMapping', 'skillsMapping', 'proofMapping', 'constraintsMapping'],
       score: countNonEmpty('capitalMapping', 'skillsMapping', 'proofMapping', 'constraintsMapping') },
-    { label: 'Gap Severity Assessed',      taskId: 'FND-S3',
+    { label: 'Gap Severity Assessed',      taskId: 'IDY-S3',
       fieldIds: ['gapSeverity', 'resolutionActions'],
       score: (fd) => fd?.gapSeverity?.trim() ? (fd?.resolutionActions?.trim() ? 5 : 3) : 0 },
-    { label: 'Routing Decision Made',      taskId: 'FND-S4',
+    { label: 'Routing Decision Made',      taskId: 'IDY-S4',
       fieldIds: ['routingDecision', 'routingBasis'],
       score: (fd) => fd?.routingDecision?.trim() ? (fd?.routingBasis?.trim() ? 5 : 3) : 0 },
   ],
-  TRU: [
-    { label: 'Overall Proof Strength',    taskId: 'TRU-S3',
+  CRD: [
+    { label: 'Overall Proof Strength',    taskId: 'CRD-S3',
       fieldIds: ['overallProofStrength'],
       score: (fd) => ({ strong: 5, moderate: 3, weak: 1, insufficient: 0 }[fd?.overallProofStrength] ?? 0) },
-    { label: 'Gate A — Regulatory',       taskId: 'TRU-V1',
+    { label: 'Gate A — Regulatory',       taskId: 'CRD-V1',
       fieldIds: ['gateARegulatory'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateARegulatory] ?? 0) },
-    { label: 'Gate B — Market Fit',       taskId: 'TRU-V1',
+    { label: 'Gate B — Market Fit',       taskId: 'CRD-V1',
       fieldIds: ['gateBMarketFit'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateBMarketFit] ?? 0) },
-    { label: 'Gate C — Competence Proof', taskId: 'TRU-V1',
+    { label: 'Gate C — Competence Proof', taskId: 'CRD-V1',
       fieldIds: ['gateCCompetenceProof'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateCCompetenceProof] ?? 0) },
-    { label: 'Gate D — Proven Demand',    taskId: 'TRU-V1',
+    { label: 'Gate D — Proven Demand',    taskId: 'CRD-V1',
       fieldIds: ['gateDProvenDemand'],
       score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateDProvenDemand] ?? 0) },
   ],
@@ -215,37 +218,37 @@ const STAGE_SCORE_SIGNALS = {
       fieldIds: ['icOut5'],
       score: (fd) => fd?.icOut5 === 'pass' ? 5 : 0 },
   ],
-  SAL: [
-    { label: 'Qualification Depth',       taskId: 'SAL-S1',
+  SLS: [
+    { label: 'Qualification Depth',       taskId: 'SLS-S1',
       fieldIds: ['qualificationQuestions', 'autoDisqualifiers', 'scoringRoutingNotes'],
       score: countNonEmpty('qualificationQuestions', 'autoDisqualifiers', 'scoringRoutingNotes') },
-    { label: 'Routing Completeness',      taskId: 'SAL-S2',
+    { label: 'Routing Completeness',      taskId: 'SLS-S2',
       fieldIds: ['routingTable', 'decisionTreeSteps', 'noFitExitPath'],
       score: countNonEmpty('routingTable', 'decisionTreeSteps', 'noFitExitPath') },
-    { label: 'Call Script Ready',         taskId: 'SAL-S3',
+    { label: 'Call Script Ready',         taskId: 'SLS-S3',
       fieldIds: ['callStructure', 'verbatimScript', 'branchPrompts'],
       score: countNonEmpty('callStructure', 'verbatimScript', 'branchPrompts') },
-    { label: 'Objection Coverage',        taskId: 'SAL-S4',
+    { label: 'Objection Coverage',        taskId: 'SLS-S4',
       fieldIds: ['objectionList'],
       score: (fd) => { const n = splitLines(fd?.objectionList).length; return n >= 10 ? 5 : n >= 5 ? 3 : n >= 1 ? 1 : 0; } },
-    { label: 'Asset Assembly',            taskId: 'SAL-A0',
+    { label: 'Asset Assembly',            taskId: 'SLS-A0',
       fieldIds: ['assemblyStatus'],
       score: (fd) => ({ complete: 5, partial: 3, pending: 1 }[fd?.assemblyStatus] ?? 0) },
   ],
-  DLR: [
-    { label: 'Delivery Phases Mapped',    taskId: 'DLR-S1',
+  DEL: [
+    { label: 'Delivery Phases Mapped',    taskId: 'DEL-S1',
       fieldIds: ['deliveryPhases', 'checkpoints', 'ownerAssignments'],
       score: countNonEmpty('deliveryPhases', 'checkpoints', 'ownerAssignments') },
-    { label: 'Quality & Risk Coverage',   taskId: 'DLR-S2',
+    { label: 'Quality & Risk Coverage',   taskId: 'DEL-S2',
       fieldIds: ['failureModes', 'qcChecks', 'guaranteeTriggers', 'mitigationSteps'],
       score: countNonEmpty('failureModes', 'qcChecks', 'guaranteeTriggers', 'mitigationSteps') },
-    { label: 'Success Milestones',        taskId: 'DLR-S3',
+    { label: 'Success Milestones',        taskId: 'DEL-S3',
       fieldIds: ['milestoneList', 'successDefinition'],
       score: countNonEmpty('milestoneList', 'successDefinition') },
-    { label: 'Proof Capture Plan',        taskId: 'DLR-S4',
+    { label: 'Proof Capture Plan',        taskId: 'DEL-S4',
       fieldIds: ['proofTypes', 'captureTimeline', 'captureMethod', 'consentLanguage'],
       score: countNonEmpty('proofTypes', 'captureTimeline', 'captureMethod', 'consentLanguage') },
-    { label: 'Retention Handoff',         taskId: 'DLR-S5',
+    { label: 'Retention Handoff',         taskId: 'DEL-S5',
       fieldIds: ['handoffNotes', 'retentionSeedMessage', 'nextSteps'],
       score: countNonEmpty('handoffNotes', 'retentionSeedMessage', 'nextSteps') },
   ],
@@ -307,7 +310,7 @@ if (import.meta.env.DEV) {
 
 // ── Sub-renderers ─────────────────────────────────────────────────────────────
 
-// CategoryGridRenderer — TRU-AF1
+// CategoryGridRenderer — CRD-AF1
 function CategoryGridRenderer({ fieldData }) {
   const categories = splitLines(fieldData.matchedCategories).slice(0, 4);
   const rationales = splitLines(fieldData.matchRationale);
@@ -326,9 +329,9 @@ function CategoryGridRenderer({ fieldData }) {
   );
 }
 
-// CandidateTableRenderer — TRU-AF2
+// CandidateTableRenderer — CRD-AF2
 function parseCandidateLine(line) {
-  const match = line.match(/^(.+?)[\s:—\-]+(\d+(?:\.\d+)?)\s*(.*)$/);
+  const match = line.match(/^(.+?)[\s:—-]+(\d+(?:\.\d+)?)\s*(.*)$/);
   if (match) return { name: match[1].trim(), score: parseFloat(match[2]), note: match[3].trim() };
   return { name: line.trim(), score: null, note: '' };
 }
@@ -361,7 +364,7 @@ function CandidateTableRenderer({ fieldData }) {
   );
 }
 
-// Matrix2x2Renderer — TRU-AF3, OFR-A2
+// Matrix2x2Renderer — CRD-AF3, OFR-A2
 function Matrix2x2Renderer({ quadrants }) {
   return (
     <div className="bfd__matrix">
@@ -377,7 +380,7 @@ function Matrix2x2Renderer({ quadrants }) {
   );
 }
 
-// GateChecksRenderer — TRU-V1, STR-V1, OUT-IC
+// GateChecksRenderer — CRD-V1, STR-V1, OUT-IC
 function GateChecksRenderer({ checks, overallValue, overallLabel }) {
   const passCount = checks.filter((c) => c.value === 'pass').length;
   const allPending = checks.every((c) => !c.value);
@@ -418,7 +421,7 @@ function GateChecksRenderer({ checks, overallValue, overallLabel }) {
   );
 }
 
-// ProofAuditRenderer — TRU-AF5
+// ProofAuditRenderer — CRD-AF5
 function ProofAuditRenderer({ fieldData }) {
   const claims = splitLines(fieldData.auditedClaims).slice(0, 5);
   const ratings = splitLines(fieldData.claimStrengthRatings);
@@ -497,7 +500,7 @@ function ContentGridRenderer({ fieldData }) {
   );
 }
 
-// VerdictBadgeRenderer — FND-S4, STR-V1
+// VerdictBadgeRenderer — IDY-S4, STR-V1
 function VerdictBadgeRenderer({ verdict, color, basisLabel, basisContent }) {
   return (
     <div className="bfd__verdict-wrap">
@@ -519,7 +522,7 @@ function VerdictBadgeRenderer({ verdict, color, basisLabel, basisContent }) {
   );
 }
 
-// TimelineRenderer — OUT-A4, DLR-S3
+// TimelineRenderer — OUT-A4, DEL-S3
 function TimelineRenderer({ steps, subItems, exitNote, exitLabel }) {
   if (steps.length === 0) return <span className="bfd__field-empty">—</span>;
   return (
@@ -546,7 +549,7 @@ function TimelineRenderer({ steps, subItems, exitNote, exitLabel }) {
   );
 }
 
-// SegmentListRenderer — SAL-A3
+// SegmentListRenderer — SLS-A3
 function SegmentListRenderer({ fieldData }) {
   const SEGS = ['HOT', 'WARM', 'COLD'];
   const criteriaLines = splitLines(fieldData.criteriaDefinitions).slice(0, 3);
@@ -676,13 +679,13 @@ function StepPanelRenderer({ steps }) {
 // ── TASK_RENDERERS registry ───────────────────────────────────────────────────
 
 const TASK_RENDERERS = {
-  'TRU-AF1': ({ fieldData }) => <CategoryGridRenderer fieldData={fieldData} />,
+  'CRD-AF1': ({ fieldData }) => <CategoryGridRenderer fieldData={fieldData} />,
 
-  'TRU-AF2': ({ fieldData }) => <CandidateTableRenderer fieldData={fieldData} />,
+  'CRD-AF2': ({ fieldData }) => <CandidateTableRenderer fieldData={fieldData} />,
 
-  'TRU-AF3': ({ fieldData }) => {
+  'CRD-AF3': ({ fieldData }) => {
     const lines = splitLines(fieldData.topCandidateRanking);
-    const clean = lines.map((l) => l.replace(/^\d+[\.\)]\s*/, '').trim());
+    const clean = lines.map((l) => l.replace(/^\d+[.)]\s*/, '').trim());
     const quadrants = [
       { label: 'High Revenue · High Ease',  content: clean.slice(0, 2).join('\n') || null, accent: true },
       { label: 'High Revenue · Low Ease',   content: clean[2] || null },
@@ -692,9 +695,9 @@ const TASK_RENDERERS = {
     return <Matrix2x2Renderer quadrants={quadrants} />;
   },
 
-  'TRU-AF5': ({ fieldData }) => <ProofAuditRenderer fieldData={fieldData} />,
+  'CRD-AF5': ({ fieldData }) => <ProofAuditRenderer fieldData={fieldData} />,
 
-  'TRU-V1': ({ fieldData }) => {
+  'CRD-V1': ({ fieldData }) => {
     const checks = [
       { label: 'Gate A — Regulatory Clearance',   value: fieldData.gateARegulatory },
       { label: 'Gate B — Addressable Market Fit',  value: fieldData.gateBMarketFit },
@@ -761,9 +764,9 @@ const TASK_RENDERERS = {
     return <GateChecksRenderer checks={checks} />;
   },
 
-  'SAL-A3': ({ fieldData }) => <SegmentListRenderer fieldData={fieldData} />,
+  'SLS-A3': ({ fieldData }) => <SegmentListRenderer fieldData={fieldData} />,
 
-  'FND-S4': ({ fieldData }) => {
+  'IDY-S4': ({ fieldData }) => {
     const verdictMap = { proceed: 'PROCEED', incomplete: 'INCOMPLETE', reject: 'REJECT' };
     const verdict = verdictMap[fieldData.routingDecision] || 'PENDING';
     const colorMap = {
@@ -782,7 +785,7 @@ const TASK_RENDERERS = {
     );
   },
 
-  'DLR-S3': ({ fieldData }) => {
+  'DEL-S3': ({ fieldData }) => {
     const steps = splitLines(fieldData.milestoneList).slice(0, 5);
     const labels = steps.map((_, i) => `Milestone ${i + 1}`);
     return (
@@ -797,8 +800,8 @@ const TASK_RENDERERS = {
 
   // ── Phase 2 additions (14 new renderers) ──────────────────────────────────
 
-  // VerdictBadge — FND-S3: Gap Check
-  'FND-S3': ({ fieldData }) => {
+  // VerdictBadge — IDY-S3: Gap Check
+  'IDY-S3': ({ fieldData }) => {
     const verdictMap = { none: 'NO GAPS', minor: 'MINOR', major: 'MAJOR', disqualifying: 'DISQUALIFYING' };
     const verdict = verdictMap[fieldData.gapSeverity] || 'PENDING';
     const colorMap = {
@@ -811,8 +814,8 @@ const TASK_RENDERERS = {
     return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Resolution Actions" basisContent={fieldData.resolutionActions} />;
   },
 
-  // VerdictBadge — TRU-S3: Integrity Proof Audit
-  'TRU-S3': ({ fieldData }) => {
+  // VerdictBadge — CRD-S3: Integrity Proof Audit
+  'CRD-S3': ({ fieldData }) => {
     const verdictMap = { strong: 'STRONG', moderate: 'MODERATE', weak: 'WEAK', insufficient: 'INSUFFICIENT' };
     const verdict = verdictMap[fieldData.overallProofStrength] || 'PENDING';
     const colorMap = {
@@ -825,8 +828,8 @@ const TASK_RENDERERS = {
     return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Reliability Assessment" basisContent={fieldData.reliabilityAssessment} />;
   },
 
-  // VerdictBadge — TRU-S6: Regulatory Baseline
-  'TRU-S6': ({ fieldData }) => {
+  // VerdictBadge — CRD-S6: Regulatory Baseline
+  'CRD-S6': ({ fieldData }) => {
     const verdictMap = { clear: 'CLEAR', pending: 'PENDING', hardStop: 'HARD STOP' };
     const verdict = verdictMap[fieldData.regulatoryStatus] || 'UNSET';
     const colorMap = {
@@ -846,8 +849,8 @@ const TASK_RENDERERS = {
     return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="Promise Statement" basisContent={fieldData.promiseStatement} />;
   },
 
-  // VerdictBadge — SAL-A0: Sales Asset Pack Assembly
-  'SAL-A0': ({ fieldData }) => {
+  // VerdictBadge — SLS-A0: Sales Asset Pack Assembly
+  'SLS-A0': ({ fieldData }) => {
     const verdictMap = { complete: 'COMPLETE', partial: 'PARTIAL', blocked: 'BLOCKED' };
     const verdict = verdictMap[fieldData.assemblyStatus] || 'PENDING';
     const colorMap = {
@@ -859,8 +862,8 @@ const TASK_RENDERERS = {
     return <VerdictBadgeRenderer verdict={verdict} color={colorMap[verdict]} basisLabel="NO-SHIP List" basisContent={fieldData.noShipList} />;
   },
 
-  // GateChecks — TRU-FP02: Amanah Intake Screening Rubric (10 questions)
-  'TRU-FP02': ({ fieldData }) => {
+  // GateChecks — CRD-FP02: Amanah Intake Screening Rubric (10 questions)
+  'CRD-FP02': ({ fieldData }) => {
     // Q3, Q5, Q8 are auto-disqualifiers (★) — reversed polarity (yes = fail)
     const normalQ = (v) => v === 'yes' ? 'pass' : v === 'no' ? 'fail' : undefined;
     const invertQ = (v) => v === 'no' ? 'pass' : v === 'yes' ? 'fail' : undefined;
@@ -897,8 +900,8 @@ const TASK_RENDERERS = {
     return <Matrix2x2Renderer quadrants={quadrants} />;
   },
 
-  // Matrix2x2 — DLR-S2: Quality & Risk Map
-  'DLR-S2': ({ fieldData }) => {
+  // Matrix2x2 — DEL-S2: Quality & Risk Map
+  'DEL-S2': ({ fieldData }) => {
     const quadrants = [
       { label: 'Failure Modes',       content: fieldData.failureModes ? truncate(fieldData.failureModes, 130) : null, accent: true },
       { label: 'QC Checks',           content: fieldData.qcChecks ? truncate(fieldData.qcChecks, 130) : null },
@@ -919,15 +922,15 @@ const TASK_RENDERERS = {
     return <Matrix2x2Renderer quadrants={quadrants} />;
   },
 
-  // Timeline — DLR-S1: Offer-to-Delivery Map
-  'DLR-S1': ({ fieldData }) => {
+  // Timeline — DEL-S1: Offer-to-Delivery Map
+  'DEL-S1': ({ fieldData }) => {
     const steps = splitLines(fieldData.deliveryPhases).slice(0, 6);
     const labels = steps.map((_, i) => `Phase ${i + 1}`);
     return <TimelineRenderer steps={steps} subItems={labels} exitNote={fieldData.timingConstraints} exitLabel="Timing" />;
   },
 
-  // Timeline — DLR-S4: Proof Capture Plan
-  'DLR-S4': ({ fieldData }) => {
+  // Timeline — DEL-S4: Proof Capture Plan
+  'DEL-S4': ({ fieldData }) => {
     const steps = splitLines(fieldData.proofTypes).slice(0, 5);
     const labels = steps.map((_, i) => `Proof ${i + 1}`);
     return <TimelineRenderer steps={steps} subItems={labels} exitNote={fieldData.captureTimeline} exitLabel="Capture Timeline" />;
@@ -964,7 +967,7 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // ── SAL/OUT expansion (11 new renderers) ──────────────────────────────────
+  // ── SLS/OUT expansion (11 new renderers) ──────────────────────────────────
 
   // DualColumn — OUT-S4: Objection Intelligence
   'OUT-S4': ({ fieldData }) => (
@@ -992,24 +995,24 @@ const TASK_RENDERERS = {
     />
   ),
 
-  // DualColumn — SAL-A5: Objection Library
-  'SAL-A5': ({ fieldData }) => (
+  // DualColumn — SLS-A5: Objection Library
+  'SLS-A5': ({ fieldData }) => (
     <DualColumnRenderer
       left={{ label: 'Objection Library (Top 10)', content: fieldData.objections }}
       right={{ label: 'Proof Asset References', content: fieldData.proofAssetReferences }}
     />
   ),
 
-  // DualColumn — SAL-S5: Pre-Call Nurture
-  'SAL-S5': ({ fieldData }) => (
+  // DualColumn — SLS-S5: Pre-Call Nurture
+  'SLS-S5': ({ fieldData }) => (
     <DualColumnRenderer
       left={{ label: 'Nurture Messages (3-5)', content: fieldData.nurtureMessages }}
       right={{ label: 'Proof Asset Mapping', content: fieldData.proofAssetMapping }}
     />
   ),
 
-  // StepPanel — SAL-S3: Fit Call Script Deep-Dive
-  'SAL-S3': ({ fieldData }) => (
+  // StepPanel — SLS-S3: Fit Call Script Deep-Dive
+  'SLS-S3': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Call Structure (15 min)', content: fieldData.callStructure },
       { label: 'Verbatim Script Blocks', content: fieldData.verbatimScript },
@@ -1017,8 +1020,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-S6: Show-Rate Reminders
-  'SAL-S6': ({ fieldData }) => (
+  // StepPanel — SLS-S6: Show-Rate Reminders
+  'SLS-S6': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: '24-Hour Reminder', content: fieldData.reminder24hr },
       { label: '1-Hour Reminder', content: fieldData.reminder1hr },
@@ -1026,8 +1029,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-S7: Post-Call Follow-Up (Non-Closes)
-  'SAL-S7': ({ fieldData }) => (
+  // StepPanel — SLS-S7: Post-Call Follow-Up (Non-Closes)
+  'SLS-S7': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Follow-Up Sequence (7-14 days)', content: fieldData.followUpSequence },
       { label: 'Stop Triggers', content: fieldData.stopTriggers },
@@ -1035,8 +1038,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-A4: Fit Call Script (Asset)
-  'SAL-A4': ({ fieldData }) => (
+  // StepPanel — SLS-A4: Fit Call Script (Asset)
+  'SLS-A4': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Minute-by-Minute (0-15)', content: fieldData.minuteByMinute },
       { label: 'Verbatim Script Blocks', content: fieldData.verbatimBlocks },
@@ -1044,8 +1047,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-A6: Nurture + Reminders + Follow-Up
-  'SAL-A6': ({ fieldData }) => (
+  // StepPanel — SLS-A6: Nurture + Reminders + Follow-Up
+  'SLS-A6': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Pre-Call Nurture (3-5 Messages)', content: fieldData.preCallNurture },
       { label: 'Show-Rate Reminders', content: fieldData.showRateReminders },
@@ -1063,7 +1066,7 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // ── DLR/RET/OPT expansion (Tier 3) ─────────────────────────────────────────
+  // ── DEL/RET/OPT expansion (Tier 3) ─────────────────────────────────────────
 
   // DualColumn — OUT-A2: Hook Library
   'OUT-A2': ({ fieldData }) => (
@@ -1129,8 +1132,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-S0: Sales Research Intake
-  'SAL-S0': ({ fieldData }) => (
+  // StepPanel — SLS-S0: Sales Research Intake
+  'SLS-S0': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Lead States', content: fieldData.leadStates },
       { label: 'Qualification Criteria Draft', content: fieldData.qualificationCriteriaDraft },
@@ -1139,8 +1142,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-S1: Qualification Questions
-  'SAL-S1': ({ fieldData }) => (
+  // StepPanel — SLS-S1: Qualification Questions
+  'SLS-S1': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Qualification Questions (8-10)', content: fieldData.qualificationQuestions },
       { label: 'Automatic Disqualifiers (3)', content: fieldData.autoDisqualifiers },
@@ -1148,8 +1151,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-S2: Routing & Decision Tree
-  'SAL-S2': ({ fieldData }) => (
+  // StepPanel — SLS-S2: Routing & Decision Tree
+  'SLS-S2': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Routing Table', content: fieldData.routingTable },
       { label: 'Decision Tree Steps', content: fieldData.decisionTreeSteps },
@@ -1158,8 +1161,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-S4: Objection Research
-  'SAL-S4': ({ fieldData }) => (
+  // StepPanel — SLS-S4: Objection Research
+  'SLS-S4': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Top 10 Objections', content: fieldData.objectionList },
       { label: 'Best Responses', content: fieldData.bestResponses },
@@ -1167,8 +1170,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-A1: Qualification Form Asset
-  'SAL-A1': ({ fieldData }) => (
+  // StepPanel — SLS-A1: Qualification Form Asset
+  'SLS-A1': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Form Introduction', content: fieldData.formIntro },
       { label: 'Questions (Q1-Q10)', content: fieldData.questions },
@@ -1178,8 +1181,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — SAL-A2: Routing Automation Flow
-  'SAL-A2': ({ fieldData }) => (
+  // StepPanel — SLS-A2: Routing Automation Flow
+  'SLS-A2': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Flow Triggers', content: fieldData.triggers },
       { label: 'Flow Map (Step-by-Step)', content: fieldData.flowMap },
@@ -1189,8 +1192,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — DLR-S5: Handoff to RET
-  'DLR-S5': ({ fieldData }) => (
+  // StepPanel — DEL-S5: Handoff to RET
+  'DEL-S5': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Handoff Notes to RET', content: fieldData.handoffNotes },
       { label: 'Retention Seed Message', content: fieldData.retentionSeedMessage },
@@ -1198,8 +1201,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — DLR-A1: Onboarding SOP
-  'DLR-A1': ({ fieldData }) => (
+  // StepPanel — DEL-A1: Onboarding SOP
+  'DEL-A1': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Payment → Work-Start Steps', content: fieldData.paymentToStartSteps },
       { label: 'Communication Triggers', content: fieldData.communicationTriggers },
@@ -1207,8 +1210,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // Matrix2x2 — DLR-A2: Client Brief
-  'DLR-A2': ({ fieldData }) => {
+  // Matrix2x2 — DEL-A2: Client Brief
+  'DEL-A2': ({ fieldData }) => {
     const quadrants = [
       { label: 'Client Constraints',    content: fieldData.clientConstraints ? truncate(fieldData.clientConstraints, 130) : null },
       { label: 'Access Requirements',   content: fieldData.accessRequirements ? truncate(fieldData.accessRequirements, 130) : null },
@@ -1218,8 +1221,8 @@ const TASK_RENDERERS = {
     return <Matrix2x2Renderer quadrants={quadrants} />;
   },
 
-  // StepPanel — DLR-A3: Execution SOP
-  'DLR-A3': ({ fieldData }) => (
+  // StepPanel — DEL-A3: Execution SOP
+  'DEL-A3': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Execution Steps', content: fieldData.sopSteps },
       { label: 'Templates & Scripts', content: fieldData.templates },
@@ -1227,27 +1230,27 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // Matrix2x2 — DLR-A4: QC Checklist
-  'DLR-A4': ({ fieldData }) => {
+  // Matrix2x2 — DEL-A4: QC Checklist
+  'DEL-A4': ({ fieldData }) => {
     const quadrants = [
       { label: 'QC Checklist Items',     content: fieldData.qcItems ? truncate(fieldData.qcItems, 130) : null, accent: true },
       { label: 'Guarantee Alignment',    content: fieldData.guaranteeAlignment ? truncate(fieldData.guaranteeAlignment, 130) : null },
       { label: 'IC-OFR Checks',          content: fieldData.icOfrChecks ? truncate(fieldData.icOfrChecks, 130) : null },
-      { label: 'IC-FUL Checks',          content: fieldData.icFulChecks ? truncate(fieldData.icFulChecks, 130) : null },
+      { label: 'IC-DEL Checks',          content: fieldData.icDelChecks ? truncate(fieldData.icDelChecks, 130) : null },
     ];
     return <Matrix2x2Renderer quadrants={quadrants} />;
   },
 
-  // DualColumn — DLR-A5: Milestone Messages
-  'DLR-A5': ({ fieldData }) => (
+  // DualColumn — DEL-A5: Milestone Messages
+  'DEL-A5': ({ fieldData }) => (
     <DualColumnRenderer
       left={{ label: 'Milestone Message Templates', content: fieldData.milestoneTemplates }}
       right={{ label: 'Delivery Schedule', content: fieldData.deliverySchedule }}
     />
   ),
 
-  // StepPanel — DLR-A6: Proof Capture Protocol
-  'DLR-A6': ({ fieldData }) => (
+  // StepPanel — DEL-A6: Proof Capture Protocol
+  'DEL-A6': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Capture Protocol Steps', content: fieldData.protocolSteps },
       { label: 'Consent Template', content: fieldData.consentTemplate },
@@ -1255,8 +1258,8 @@ const TASK_RENDERERS = {
     ]} />
   ),
 
-  // StepPanel — DLR-A7: Close & Handoff
-  'DLR-A7': ({ fieldData }) => (
+  // StepPanel — DEL-A7: Close & Handoff
+  'DEL-A7': ({ fieldData }) => (
     <StepPanelRenderer steps={[
       { label: 'Close Communication', content: fieldData.closeCommunication },
       { label: 'Retention Seed Message', content: fieldData.retentionSeed },
@@ -1665,7 +1668,7 @@ function StageScoreCard({ bbosFilter, taskMap }) {
 
 const EMPTY_TASKS = [];
 
-export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance, onStageSelect }) {
+export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactoryRaw] = useState('research');
@@ -1685,7 +1688,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
     prevTimerRef.current = setTimeout(() => setPrevFactory(null), 320);
   }, [activeFactory]);
 
-  const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, doneCount, totalCount, stagePct } = useMemo(() => {
+  const { stageMeta, taskGroups, taskMap, globalIdxMap, stageTasks, doneColumnId, allDefs, totalCount, stagePct } = useMemo(() => {
     const stageMeta = getStage(bbosFilter) || { label: bbosFilter, description: '', attributes: '', order: 0 };
     const allDefs = getBbosTaskDefsByStage(bbosFilter);
 
@@ -1741,8 +1744,68 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   const quote = STAGE_QUOTES[bbosFilter] || '';
   const nextStage = BBOS_STAGES[(stageMeta.order ?? 0) + 1] ?? null;
 
+  // ── Rejection / off-ramp state ────────────────────────────────────────────
+  const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
+  const unrejectBbosPipeline = useProjectStore((s) => s.unrejectBbosPipeline);
+  const isRejected = !!project.rejectedAt;
+  const rejectionReasonMeta = isRejected ? getBbosRejectionReason(project.rejectionReason) : null;
+
+  // Operator with audit-edit access on the proof task may reject.
+  const canReject = bbosRole === 'all' || getTaskAccessLevel(bbosRole, 'CRD-V1') === 'O';
+  const showRejectButton = bbosFilter === 'CRD' && !isRejected && canReject;
+
+  const [rejectModalOpen, setRejectModalOpen] = useState(false);
+  const [rejectReasonId, setRejectReasonId] = useState(BBOS_REJECTION_REASONS[0]?.id || '');
+
+  const handleConfirmReject = () => {
+    if (!rejectReasonId) return;
+    rejectBbosPipeline(project.id, rejectReasonId, project.bbosRole || null);
+    setRejectModalOpen(false);
+  };
+
+  const handleResume = () => {
+    if (typeof window !== 'undefined' && !window.confirm(
+      'Resume this BBOS pipeline? The rejection record will be cleared and stages will unlock.'
+    )) return;
+    unrejectBbosPipeline(project.id);
+  };
+
   return (
     <div className="bfd">
+      {/* ── Rejection banner ── */}
+      {isRejected && (
+        <div className="bfd__rejection-banner" role="alert">
+          <ShieldOff size={20} className="bfd__rejection-icon" />
+          <div className="bfd__rejection-body">
+            <div className="bfd__rejection-title">
+              Pipeline rejected at Amanah Proof Audit
+            </div>
+            <div className="bfd__rejection-reason">
+              {rejectionReasonMeta?.label || 'Unspecified reason'}
+              {rejectionReasonMeta?.description && (
+                <> — {rejectionReasonMeta.description}</>
+              )}
+            </div>
+            <div className="bfd__rejection-meta">
+              {project.rejectedAt && (
+                <>Rejected {new Date(project.rejectedAt).toLocaleDateString()}</>
+              )}
+              {project.rejectedBy && <> · by {project.rejectedBy}</>}
+            </div>
+          </div>
+          {canReject && (
+            <button
+              className="bfd__rejection-resume"
+              onClick={handleResume}
+              type="button"
+              aria-label="Resume pipeline"
+            >
+              <RotateCcw size={14} /> Resume
+            </button>
+          )}
+        </div>
+      )}
+
       {/* ── Header ── */}
       <div className="bfd__header">
 
@@ -1751,7 +1814,17 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
           {stageMeta.attributes && <>{' '}<em>{stageMeta.attributes}</em></>}
         </p>
 
-        {stagePct === 100 && onStageAdvance && (
+        {showRejectButton && (
+          <button
+            className="bfd__reject-btn"
+            onClick={() => setRejectModalOpen(true)}
+            type="button"
+          >
+            <ShieldOff size={14} /> Reject pipeline
+          </button>
+        )}
+
+        {!isRejected && stagePct === 100 && onStageAdvance && (
           <div className="bfd__stage-ready">
             <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
@@ -1764,11 +1837,50 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
         )}
       </div>
 
+      {/* ── Reject modal ── */}
+      {rejectModalOpen && (
+        <div className="bfd__modal-overlay" onClick={() => setRejectModalOpen(false)}>
+          <div className="bfd__modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Reject BBOS pipeline">
+            <div className="bfd__modal-head">
+              <ShieldOff size={18} />
+              <span>Reject BBOS pipeline</span>
+            </div>
+            <p className="bfd__modal-desc">
+              Mark this pipeline as rejected at the Amanah Proof Audit. Stage advancement will be locked. You can resume the pipeline later if circumstances change.
+            </p>
+            <div className="bfd__modal-options" role="radiogroup" aria-label="Rejection reason">
+              {BBOS_REJECTION_REASONS.map((r) => (
+                <label key={r.id} className={`bfd__modal-option${rejectReasonId === r.id ? ' bfd__modal-option--active' : ''}`}>
+                  <input
+                    type="radio"
+                    name="bfd-reject-reason"
+                    value={r.id}
+                    checked={rejectReasonId === r.id}
+                    onChange={() => setRejectReasonId(r.id)}
+                  />
+                  <span className="bfd__modal-option-label">{r.label}</span>
+                  <span className="bfd__modal-option-desc">{r.description}</span>
+                </label>
+              ))}
+            </div>
+            <div className="bfd__modal-actions">
+              <button className="bfd__modal-cancel" type="button" onClick={() => setRejectModalOpen(false)}>
+                Cancel
+              </button>
+              <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId}>
+                Confirm rejection
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── Task grid ── */}
       <div className="bfd__grid">
         {bbosRole !== 'all' && allDefs.length > 0 && taskGroups.length === 0 ? (
           <ScopeGate bbosRole={bbosRole} bbosFilter={bbosFilter} />
         ) : (<>
+        {/* eslint-disable-next-line react-hooks/refs -- hasTransitionedRef is a one-way mount-flag toggled in useLayoutEffect; reading during render is intentional and stable */}
         {(() => {
           const researchGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'research');
           const assetGroups = taskGroups.filter((g) => getFactory(g.prefix) === 'asset');
@@ -1779,7 +1891,9 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             const t = taskMap[def.id];
             return t && t.columnId === doneColumnId;
           });
-          const gateCleared = researchAllDone || !doneColumnId; // unlock if no Done column exists
+          // Roles with no Research visibility (researchDefs empty) treat the gate as N/A,
+          // not locked — otherwise their Asset tasks would never unlock.
+          const gateCleared = researchDefs.length === 0 || researchAllDone || !doneColumnId;
 
           const renderGroup = (group, assetLocked) => {
             const spans = computeGroupSpans(group.prefix, group.defs);

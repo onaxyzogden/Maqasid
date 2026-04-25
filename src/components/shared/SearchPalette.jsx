@@ -70,6 +70,8 @@ export default function SearchPalette() {
 
   useEffect(() => {
     if (searchOpen) {
+      // reason: reset palette state on open trigger from external store
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery('');
       setSelectedIdx(0);
       setTimeout(() => inputRef.current?.focus(), 50);
@@ -77,6 +79,8 @@ export default function SearchPalette() {
   }, [searchOpen]);
 
   useEffect(() => {
+    // reason: reset highlighted index whenever query changes
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedIdx(0);
   }, [query]);
 

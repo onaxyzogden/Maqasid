@@ -9,6 +9,8 @@ export default function CompanyNotesTab({ companyId }) {
   const [saved, setSaved] = useState(true);
 
   useEffect(() => {
+    // reason: hydrate local edit state when switching companies or external updates land
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNotes(company?.notes || '');
     setSaved(true);
   }, [companyId, company?.notes]);

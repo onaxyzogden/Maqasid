@@ -28,9 +28,10 @@ const VALID_TIERS = new Set(['Bayyinah', 'Qarina', 'Niyyah']);
 const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 
 function parseArgs(argv) {
-  const out = { pillar: null, json: false };
+  const out = { pillar: null, json: false, strict: false };
   for (const arg of argv.slice(2)) {
     if (arg === '--json') out.json = true;
+    else if (arg === '--strict') out.strict = true;
     else if (arg.startsWith('--pillar=')) out.pillar = arg.slice('--pillar='.length);
   }
   return out;
@@ -224,6 +225,29 @@ async function main() {
   }
 
   if (anyMissing) process.exit(1);
+
+  if (args.strict) {
+    // Strict mode: any legacy-string entry, structured-entry error, or empty-array
+    // counts as a build-breaking violation. Default mode stays informational so
+    // existing CI / dev workflows aren't broken.
+    let totalLegacy = 0;
+    let totalErrors = 0;
+    let totalEmpty = 0;
+    for (const [pid, summary] of Object.entries(allSummaries)) {
+      const legacy = summary.byShape.string || 0;
+      totalLegacy += legacy;
+      totalErrors += summary.withErrors || 0;
+      // empty-array isn't tracked separately by summarize() — recompute here
+      const empty = (allRecords[pid] || []).filter((r) => Array.isArray(r) ? false : (r.shape === 'array' && r.errors.some((e) => /empty/.test(e)))).length;
+      totalEmpty += empty;
+    }
+    if (totalLegacy > 0 || totalErrors > 0) {
+      console.error(`\n[STRICT] Failed: ${totalLegacy} legacy-string entries, ${totalErrors} subtasks with schema errors.`);
+      console.error('Migrate legacy entries to structured arrays per wiki/decisions/2026-04-18-milos-grounding-two-axis.md');
+      process.exit(1);
+    }
+    console.log('\n[STRICT] Pass: all entries conform to two-axis schema.');
+  }
 }
 
 main().catch((err) => {

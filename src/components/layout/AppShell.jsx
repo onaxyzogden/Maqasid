@@ -117,11 +117,15 @@ export default function AppShell() {
       return;
     }
     setActiveModule(segment);
+    // reason: setActiveModule is a stable store action; only react to URL changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   // Preload all project tasks so cross-project search works
   useEffect(() => {
     projects.forEach((p) => loadTasks(p.id));
+    // reason: only run when project count actually changes; loadTasks is stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects.length]);
 
   // Inactivity detection — resume overlay on return
@@ -150,6 +154,8 @@ export default function AppShell() {
     if (!activePrayer) {
       dismissedPrayerRef.current = null;
     }
+    // reason: react only to prayer name change; setPrayerLock is stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePrayer?.name, isPrayerLocked, valuesLayer]);
 
   // Prayer warning — triggers 15 min before prayer
@@ -167,6 +173,8 @@ export default function AppShell() {
     if (isPrayerLocked && prayerWarningName) {
       clearPrayerWarning();
     }
+    // reason: only fire when remaining-ms or lock state changes; deps deliberately narrow
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nextPrayer?.remainingMs, isPrayerLocked]);
 
   // Prayer dismiss handler — chain into resume overlay
@@ -176,6 +184,8 @@ export default function AppShell() {
     if (completedOpening[activeModule]) {
       triggerResume(activeModule);
     }
+    // reason: currentPrayerName is read into a ref, intentionally not a dep
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setPrayerLock, completedOpening, activeModule, triggerResume]);
 
   // Daily Niyyah Act gate

@@ -4,7 +4,7 @@ import {
   UMMAH_LEVEL_ROUTES,
   UMMAH_STORAGE_KEY,
   UMMAH_ENSURE_PROJECTS,
-} from './UmmahLevelNavigator';
+} from './UmmahLevelNavigator-constants';
 
 // Identity map — pillarKey segments match module IDs exactly
 const UMMAH_PILLAR_MODULE_MAP = {

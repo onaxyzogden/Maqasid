@@ -47,7 +47,7 @@ Arabic is a cursive script — every letter changes shape depending on its posit
 
 4. **Use flashcard drills.** Create flashcards (physical or via Anki) showing a letter form on one side and its name and position on the other. Drill daily until recognition is instant.
 
-5. **Test yourself with real words.** Once you know a family, find simple Quranic words that use those letters and practise identifying each letter\'s form in context.
+5. **Test yourself with real words.** Once you know a family, find simple Quranic words that use those letters and practise identifying each letter's form in context.
 
 6. **Benchmark:** You have completed this step when you can look at any Arabic word and correctly identify every letter and its position-form without hesitation.` },
         { title: 'Study the basic tajweed rules: noon sakinah, meem sakinah, and madd', done: false,
@@ -65,7 +65,7 @@ Tajweed is not optional ornamentation — it is the science of reciting the Qura
 **How?**
 
 1. **Noon Sakinah and Tanween rules (4 categories):**
-   - **Idh-har** (clear pronunciation) — when noon sakinah/tanween is followed by a throat letter (hamza, ha, \'ayn, ghayn, ha, kha)
+   - **Idh-har** (clear pronunciation) — when noon sakinah/tanween is followed by a throat letter (hamza, ha, 'ayn, ghayn, ha, kha)
    - **Idghaam** (merging) — when followed by ya, ra, meem, lam, waw, noon
    - **Iqlaab** (conversion) — when followed by ba (noon becomes meem)
    - **Ikhfa** (hiding) — when followed by the remaining 15 letters
@@ -76,13 +76,13 @@ Tajweed is not optional ornamentation — it is the science of reciting the Qura
    - **Idh-har Shafawi** — meem sakinah followed by any other letter
 
 3. **Madd (elongation) rules — start with the three primary types:**
-   - **Madd Tabee\'ee** (natural madd) — 2 counts, the default elongation
+   - **Madd Tabee'ee** (natural madd) — 2 counts, the default elongation
    - **Madd Muttasil** (connected) — 4-5 counts, hamza in the same word
    - **Madd Munfasil** (separated) — 4-5 counts, hamza at the start of the next word
 
 4. **Study method:**
    - Use a tajweed textbook such as *Tajweed Rules of the Quran* by Kareema Czerepinski
-   - Watch video explanations from qualified reciters (Wisam Sharieff, Yasir Qadhi\'s tajweed series)
+   - Watch video explanations from qualified reciters (Wisam Sharieff, Yasir Qadhi's tajweed series)
    - After learning each rule, find 5-10 examples in Juz Amma and mark them with a colour code
    - Recite those examples aloud, applying the rule, and have a teacher or app verify` },
         { title: 'Practice reading from Juz Amma with a teacher or qualified app', done: false,
@@ -131,7 +131,7 @@ Transliteration (writing Arabic sounds in English letters) is a crutch that prev
 
 **How?**
 
-1. **Choose a mushaf with clear, large script.** The Madinah Mushaf (15-line) is the global standard. For beginners, colour-coded tajweed mushafs (like the Tajweed Quran by Dar al-Ma\'rifah) highlight rules visually.
+1. **Choose a mushaf with clear, large script.** The Madinah Mushaf (15-line) is the global standard. For beginners, colour-coded tajweed mushafs (like the Tajweed Quran by Dar al-Ma'rifah) highlight rules visually.
 
 2. **Start with pages you have already practised.** Do not jump to unfamiliar pages — begin with Juz Amma pages you learned in the previous subtask, then gradually move to new material.
 
@@ -177,18 +177,18 @@ Self-assessment is notoriously unreliable in recitation — you often cannot hea
 
 1. **Choose a benchmark reciter.** Select a sheikh known for clear, didactic recitation:
    - **Mahmoud Khalil al-Husary** — the gold standard for precise, slow-paced tajweed
-   - **Muhammad Siddiq al-Minshawi** (mu\'allim version) — includes pauses for repetition
+   - **Muhammad Siddiq al-Minshawi** (mu'allim version) — includes pauses for repetition
    - **Ibrahim al-Akhdar** — another excellent choice for learners
 
 2. **Pick a passage you have been practising.** Start with 3-5 ayahs, not a full page.
 
 3. **Record your recitation:**
-   - Use your phone\'s voice recorder or an app like Tarteel
+   - Use your phone's voice recorder or an app like Tarteel
    - Recite in a quiet space at your natural pace
    - Do not re-record — capture your authentic current level
 
 4. **Compare systematically:**
-   - Play one ayah of the sheikh\'s recording, then the same ayah of yours
+   - Play one ayah of the sheikh's recording, then the same ayah of yours
    - Listen for: letter pronunciation (makharij), elongation lengths (madd), merging/hiding rules, and overall rhythm
    - Note specific differences in a simple table:
 
@@ -499,7 +499,7 @@ Research on habit formation consistently shows that tracking creates commitment.
 **How?**
 
 1. **Choose a tracking method:**
-   - **Physical calendar** (recommended): Hang it where you see it daily. Mark an X on every day you read. The "don\'t break the chain" visual effect is powerful.
+   - **Physical calendar** (recommended): Hang it where you see it daily. Mark an X on every day you read. The "don't break the chain" visual effect is powerful.
    - **Habit tracking app**: Streaks (iOS), Loop Habit Tracker (Android), or Habitica (gamified)
    - **Bullet journal**: A simple monthly habit grid
 
@@ -516,7 +516,7 @@ Research on habit formation consistently shows that tracking creates commitment.
 4. **If you break the streak:**
    - Do not abandon the project — restart and aim for 30 again
    - Identify what caused the break and build a prevention strategy
-   - Never "double up" the next day to compensate — one day\'s reading is one day\'s reading
+   - Never "double up" the next day to compensate — one day's reading is one day's reading
 
 5. **Celebrate the milestone.** When you hit 30 consecutive days, acknowledge it. Then set your next target: 60 days, or the completion of 3 books, or another meaningful marker.` },
         { title: 'Write a brief reflection or note after each reading session', done: false,
@@ -590,7 +590,7 @@ The very first words Allah chose to reveal to humanity through His final Messeng
 2. **Study a tafsir (commentary) of these ayahs.** Recommended sources:
    - *Tafsir Ibn Kathir* — concise and authentic
    - *In the Shade of the Quran* by Sayyid Qutb — reflective and moving
-   - *Tafsir al-Sa\'di* — accessible and practical
+   - *Tafsir al-Sa'di* — accessible and practical
 
 3. **Reflect on the key themes:**
    - Knowledge begins with the name of Allah (bismillah) — all learning is sacred when oriented correctly
@@ -622,7 +622,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path upon which to obtain
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The Quran establishes the principle; the ahadith elaborate the details, incentives, and practical implications. The hadith literature on knowledge is extraordinarily rich — it covers the obligation to seek knowledge, the reward for doing so, the rank of scholars, the danger of concealing knowledge, and the etiquette of learning. Without engaging these texts, your understanding of Islam\'s intellectual tradition remains incomplete.
+The Quran establishes the principle; the ahadith elaborate the details, incentives, and practical implications. The hadith literature on knowledge is extraordinarily rich — it covers the obligation to seek knowledge, the reward for doing so, the rank of scholars, the danger of concealing knowledge, and the etiquette of learning. Without engaging these texts, your understanding of Islam's intellectual tradition remains incomplete.
 
 
 **How?**
@@ -631,7 +631,7 @@ The Quran establishes the principle; the ahadith elaborate the details, incentiv
    - **Sahih Muslim**, Kitab al-Ilm — the chapter on knowledge
    - **Sahih al-Bukhari**, Kitab al-Ilm — often placed at the very beginning of the collection, reflecting its importance
    - **Sunan Abu Dawud**, Kitab al-Ilm
-   - **Jami\' al-Tirmidhi**, chapters on knowledge
+   - **Jami' al-Tirmidhi**, chapters on knowledge
 
 2. **Key ahadith to study and understand (not just read):**
    - "Seeking knowledge is an obligation upon every Muslim" (Ibn Majah)
@@ -680,15 +680,15 @@ Not all knowledge carries the same obligation. Fard ayn (individually obligatory
    | **Fard Kifayah** | Knowledge the community must collectively ensure is present | Medicine, law, agriculture, engineering, Islamic jurisprudence at advanced levels, Quran memorisation (hifz), military science, mathematics |
 
 2. **Read the scholarly discussions on this topic:**
-   - Imam al-Ghazali\'s *Ihya Ulum al-Din* (Revival of the Religious Sciences), Book of Knowledge — the most comprehensive classical treatment
-   - Ibn Abdil Barr\'s *Jami\' Bayan al-Ilm wa Fadlih* — a thorough compilation of scholarly views
+   - Imam al-Ghazali's *Ihya Ulum al-Din* (Revival of the Religious Sciences), Book of Knowledge — the most comprehensive classical treatment
+   - Ibn Abdil Barr's *Jami' Bayan al-Ilm wa Fadlih* — a thorough compilation of scholarly views
    - Contemporary: *Purification of the Heart* by Hamza Yusuf touches on knowledge obligations
 
 3. **Apply this framework to your own life:**
    - List the fard ayn knowledge you still need to acquire (be honest — many Muslims have gaps in worship rules, aqidah, or the rulings specific to their life circumstances)
    - Identify whether your profession falls under fard kifayah — if your community needs engineers, doctors, teachers, or farmers, your professional learning may carry communal obligation
 
-4. **Key insight to internalise:** Studying software engineering, medicine, or agriculture with the intention of serving the Muslim community transforms "secular" education into ibadah. The distinction is not between "religious" and "worldly" knowledge — it is between knowledge pursued for Allah\'s sake and knowledge pursued without purpose.
+4. **Key insight to internalise:** Studying software engineering, medicine, or agriculture with the intention of serving the Muslim community transforms "secular" education into ibadah. The distinction is not between "religious" and "worldly" knowledge — it is between knowledge pursued for Allah's sake and knowledge pursued without purpose.
 
 5. **Discuss this framework with a local scholar or study circle** to resolve specific questions about what is obligatory in your circumstances.` },
         { title: 'Write a personal reflection on how seeking knowledge is ibadah in your life', done: false,
@@ -758,7 +758,7 @@ The Islamic knowledge landscape is vast and uneven — there are excellent insti
 **How?**
 
 1. **Identify reputable online Islamic institutes.** Well-established options include:
-   - **SeekersGuidance** (Hanafi/Shafi\'i focus, free courses, qualified scholars)
+   - **SeekersGuidance** (Hanafi/Shafi'i focus, free courses, qualified scholars)
    - **Al-Maghrib Institute** (weekend seminars, engaging format)
    - **Bayyinah Institute** (Arabic and Quranic focus, Ustadh Nouman Ali Khan)
    - **Islamic Online University (IOU) / International Open University** (Dr. Bilal Philips, degree programmes)
@@ -766,7 +766,7 @@ The Islamic knowledge landscape is vast and uneven — there are excellent insti
    - **Yaqeen Institute** (research-based, contemporary issues)
 
 2. **Identify local options:**
-   - Your local masjid\'s education programmes
+   - Your local masjid's education programmes
    - Dar al-Uloom or Islamic seminary in your city
    - Community study circles (halaqat) led by qualified teachers
 
@@ -829,7 +829,7 @@ Enrolment without scheduled study time is just wishful thinking. The difference 
 
 1. **Enrol in your chosen course.** Complete the registration, pay the fee (if applicable), and gain access to materials. Do this now — do not defer.
 
-2. **Determine the course\'s time requirements:**
+2. **Determine the course's time requirements:**
    - How many hours of video/reading per week?
    - Are there live sessions at fixed times?
    - How much time do assignments require?
@@ -1045,7 +1045,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
    **Date Completed:** [Date]
 
    **Core Thesis (2-3 sentences):**
-   What is the author\'s central argument or contribution?
+   What is the author's central argument or contribution?
 
    **Key Takeaways (3-5 bullet points):**
    - The most important insights, findings, or frameworks
@@ -1152,7 +1152,7 @@ A course without mission alignment is a distraction disguised as productivity. Y
 
 3. **Highlight the skills where:**
    - Your current level is below 3 (significant gap)
-   - The skill is critical to your mission\'s success (not peripheral)
+   - The skill is critical to your mission's success (not peripheral)
    - Structured learning would be more effective than self-study (complex, technical, or credential-required skills)
 
 4. **These highlighted skills become your criteria for course selection** in the next subtask. You are not looking for the most interesting course — you are looking for the course that closes the most mission-critical gap.
@@ -1198,7 +1198,7 @@ Comparing multiple options prevents the common mistake of enrolling in the first
    | Student reviews/outcomes | | | |
    | Alignment with my skill gap | | | |
 
-3. **Read reviews from actual graduates**, not just testimonials on the programme\'s website. Check LinkedIn, Reddit, and Course Report for unfiltered opinions.
+3. **Read reviews from actual graduates**, not just testimonials on the programme's website. Check LinkedIn, Reddit, and Course Report for unfiltered opinions.
 
 4. **Contact current students or alumni** if possible. Ask: "What did you actually learn? Would you do it again? What was the weakest part of the programme?"
 
@@ -1298,7 +1298,7 @@ The gap between "I plan to enrol" and "I am enrolled with study time blocked" is
    - Study space set up (refer to the distraction-free space you created earlier)
    - Calendar synced across all devices
 
-6. **Set a start-of-course ritual.** Begin with bismillah and a brief du\'a for beneficial knowledge. This frames every study session as ibadah from the very first day.` },
+6. **Set a start-of-course ritual.** Begin with bismillah and a brief du'a for beneficial knowledge. This frames every study session as ibadah from the very first day.` },
         { title: 'Complete the course and document what you learned', done: false,
           sources: `**I. Quran**
 
@@ -1457,7 +1457,7 @@ Language acquisition is governed by one fundamental law: frequency beats intensi
 **How?**
 
 1. **Fix a daily time slot and protect it:**
-   - Morning (after Fajr) — fresh mind, less likely to be cancelled by the day\'s events
+   - Morning (after Fajr) — fresh mind, less likely to be cancelled by the day's events
    - Commute time — excellent for audio-based practice (listening, podcast, Pimsleur)
    - Lunch break — a mental reset that doubles as language practice
    - Before bed — can work for reading-based practice, but watch for fatigue
@@ -1466,7 +1466,7 @@ Language acquisition is governed by one fundamental law: frequency beats intensi
 
    | Time | Activity | Purpose |
    |------|----------|---------|
-   | 5 min | **Review** yesterday\'s vocabulary with flashcards (Anki) | Spaced repetition for retention |
+   | 5 min | **Review** yesterday's vocabulary with flashcards (Anki) | Spaced repetition for retention |
    | 10 min | **New material** — next lesson in your course or textbook | Progressive learning |
    | 5-10 min | **Active production** — write 3-5 sentences or speak aloud | Forces recall, not just recognition |
    | 5 min | **Listen** to native content (Quran recitation for Arabic, podcast, etc.) | Trains ear and builds comprehension |
@@ -1477,8 +1477,8 @@ Language acquisition is governed by one fundamental law: frequency beats intensi
 
 5. **Make practice frictionless:**
    - Keep your textbook/app on the home screen or bedside table
-   - Prepare tomorrow\'s practice materials tonight
-   - Use your phone\'s language settings in your target language for passive immersion` },
+   - Prepare tomorrow's practice materials tonight
+   - Use your phone's language settings in your target language for passive immersion` },
         { title: 'Find a conversation partner or language exchange', done: false,
           sources: `**I. Quran**
 
@@ -1600,7 +1600,7 @@ Narrated Abu As-Safar:I heard Ibn \`Abbas saying, "O people! Listen to what I sa
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Your Islamic library is the intellectual foundation of your faith. Owning and engaging with essential Islamic texts means you are not dependent on whatever article or video algorithm serves you next — you have authoritative sources you can return to repeatedly. The scholars of Islam were known by their libraries; Imam al-Dhahabi described a scholar\'s books as "his best companions." A well-chosen Islamic library provides tafsir for understanding the Quran, fiqh for daily practice, seerah for prophetic guidance, and tasawwuf for spiritual refinement.
+Your Islamic library is the intellectual foundation of your faith. Owning and engaging with essential Islamic texts means you are not dependent on whatever article or video algorithm serves you next — you have authoritative sources you can return to repeatedly. The scholars of Islam were known by their libraries; Imam al-Dhahabi described a scholar's books as "his best companions." A well-chosen Islamic library provides tafsir for understanding the Quran, fiqh for daily practice, seerah for prophetic guidance, and tasawwuf for spiritual refinement.
 
 
 **How?**
@@ -1609,9 +1609,9 @@ Your Islamic library is the intellectual foundation of your faith. Owning and en
 
    | Category | Purpose | Recommended Titles |
    |----------|---------|-------------------|
-   | **Tafsir** | Understanding the Quran | *Tafsir Ibn Kathir* (abridged), *In the Shade of the Quran* (Qutb), *Ma\'ariful Quran* (Mufti Shafi Usmani) |
+   | **Tafsir** | Understanding the Quran | *Tafsir Ibn Kathir* (abridged), *In the Shade of the Quran* (Qutb), *Ma'ariful Quran* (Mufti Shafi Usmani) |
    | **Hadith** | Prophetic guidance | *Riyad al-Salihin* (Nawawi), *40 Hadith Nawawi*, *Sahih al-Bukhari* (summarised edition) |
-   | **Fiqh** | Worship and daily rulings | *Fiqh al-Sunnah* (Sayyid Sabiq), *The Reliance of the Traveller* (Shafi\'i fiqh), your madhab\'s primary reference |
+   | **Fiqh** | Worship and daily rulings | *Fiqh al-Sunnah* (Sayyid Sabiq), *The Reliance of the Traveller* (Shafi'i fiqh), your madhab's primary reference |
    | **Seerah** | Life of the Prophet (peace be upon him) | *The Sealed Nectar* (Mubarakpuri), *Muhammad: His Life Based on the Earliest Sources* (Martin Lings) |
    | **Spirituality/Tazkiyah** | Purification of the heart | *Purification of the Heart* (Hamza Yusuf), *Ihya Ulum al-Din* (al-Ghazali, abridged), *The Book of Assistance* (al-Haddad) |
 
@@ -1687,17 +1687,17 @@ A person who only reads within their faith and profession becomes intellectually
    |----------|---------|------------------------|
    | **World History** | Understand patterns of civilisation | *A History of the World in Six Glasses* (Standage), *Sapiens* (Harari — read critically), *The Muqaddimah* (Ibn Khaldun) |
    | **Islamic Civilisation** | Know your own heritage | *Lost Islamic History* (Hathaway), *1001 Inventions*, *The House of Wisdom* (al-Khalili) |
-   | **Philosophy and Ethics** | Sharpen reasoning and moral thinking | *Justice* (Sandel), *The Nicomachean Ethics* (Aristotle), *Al-Ghazali\'s Deliverance from Error* |
+   | **Philosophy and Ethics** | Sharpen reasoning and moral thinking | *Justice* (Sandel), *The Nicomachean Ethics* (Aristotle), *Al-Ghazali's Deliverance from Error* |
    | **Science and Nature** | Fulfil the Quranic command to reflect on creation | *A Short History of Nearly Everything* (Bryson), *The Gene* (Mukherjee), *Cosmos* (Sagan) |
    | **Economics and Society** | Understand the systems that shape human life | *Thinking, Fast and Slow* (Kahneman), *Small is Beautiful* (Schumacher), *The Road to Serfdom* (Hayek) |
-   | **Psychology** | Understand the human self (nafs) | *Thinking, Fast and Slow* (Kahneman), *Man\'s Search for Meaning* (Frankl), *The Body Keeps the Score* (van der Kolk) |
+   | **Psychology** | Understand the human self (nafs) | *Thinking, Fast and Slow* (Kahneman), *Man's Search for Meaning* (Frankl), *The Body Keeps the Score* (van der Kolk) |
 
 2. **Apply the Islamic intellectual filter:**
    - For each book, consider: does this challenge, complement, or contradict Islamic teachings?
    - Read with critical engagement, not passive absorption
    - Include at least 3-4 books by Muslim authors to ensure your worldview shelf is not exclusively Western
 
-3. **Prioritise books that have stood the test of time.** "Classics" become classics because their insights remain relevant across generations. A 50-year-old book that is still recommended is a safer bet than this year\'s bestseller.
+3. **Prioritise books that have stood the test of time.** "Classics" become classics because their insights remain relevant across generations. A 50-year-old book that is still recommended is a safer bet than this year's bestseller.
 
 4. **Compile your list with the same format as your other categories.** Aim for a mix of accessible reads and more demanding texts.` },
         { title: 'Acquire and shelve the books you don\'t yet own', done: false,
@@ -1828,7 +1828,7 @@ Writing without a clear thesis is meandering, not authoring. The thesis is the b
 3. **Test your thesis with three questions:**
    - Is this arguable? (If everyone already agrees, it is not a thesis)
    - Is this supportable? (Can I provide evidence, examples, or reasoning?)
-   - Is this valuable? (Will someone\'s thinking or behaviour change if they accept this?)
+   - Is this valuable? (Will someone's thinking or behaviour change if they accept this?)
 
 4. **Write a one-paragraph thesis statement** that captures: your claim, why it matters, and who it serves. This paragraph becomes the compass for everything you write.
 
@@ -1919,7 +1919,7 @@ Perfectionism kills more books, articles, and papers than lack of talent ever wi
 3. **Create a writing ritual:**
    - Same time each day
    - Same location
-   - Begin with bismillah and a brief du\'a for clarity
+   - Begin with bismillah and a brief du'a for clarity
    - Turn off notifications and internet (if not needed for writing)
    - Set a timer and write until it rings
 
@@ -2085,7 +2085,7 @@ The Prophet (peace be upon him) said: "Whoever guides someone to good will have 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Mentorship without regular meetings is just occasional advice — it lacks the continuity and progressive development that transforms a student. A fixed cadence creates rhythm and expectation: your mentee prepares because they know you are meeting on Thursday, and you stay engaged because the next session is always approaching. The Prophet\'s (peace be upon him) teaching circles were regular and predictable — the companions knew when and where to find him.
+Mentorship without regular meetings is just occasional advice — it lacks the continuity and progressive development that transforms a student. A fixed cadence creates rhythm and expectation: your mentee prepares because they know you are meeting on Thursday, and you stay engaged because the next session is always approaching. The Prophet's (peace be upon him) teaching circles were regular and predictable — the companions knew when and where to find him.
 
 
 **How?**
@@ -2131,7 +2131,7 @@ The Prophet (peace be upon him) said: "The best of you is the one who learns the
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Mentorship without goals is just a pleasant conversation. Defined goals give the relationship direction, enable progress measurement, and provide both mentor and mentee with a shared understanding of success. When the Prophet (peace be upon him) assigned Mu\'adh ibn Jabal to Yemen, he gave him clear priorities — what to teach first, second, and third. Your mentee deserves the same clarity about where this mentorship is heading.
+Mentorship without goals is just a pleasant conversation. Defined goals give the relationship direction, enable progress measurement, and provide both mentor and mentee with a shared understanding of success. When the Prophet (peace be upon him) assigned Mu'adh ibn Jabal to Yemen, he gave him clear priorities — what to teach first, second, and third. Your mentee deserves the same clarity about where this mentorship is heading.
 
 
 **How?**
@@ -2225,7 +2225,7 @@ The Prophet (peace be upon him) said: "He who goes out in search of knowledge is
 *(Grade: Hasan)*`,
           description: `**Why?**
 
-A mentorship without a formal review is a relationship that drifts rather than concludes. The end-of-period review serves multiple purposes: it celebrates genuine growth (which your mentee may not recognise without your mirror), it honestly acknowledges where goals were not met, and it creates a conscious transition point — either to a new phase of mentorship with new goals, or to a graceful conclusion with clear next steps for the mentee\'s continued development.
+A mentorship without a formal review is a relationship that drifts rather than concludes. The end-of-period review serves multiple purposes: it celebrates genuine growth (which your mentee may not recognise without your mirror), it honestly acknowledges where goals were not met, and it creates a conscious transition point — either to a new phase of mentorship with new goals, or to a graceful conclusion with clear next steps for the mentee's continued development.
 
 
 **How?**
@@ -2244,7 +2244,7 @@ A mentorship without a formal review is a relationship that drifts rather than c
    **Part 1: Reflection (20 min)**
    - Ask the mentee to self-assess first: "How do you think you did against our goals?"
    - Share your assessment — affirm where you agree, gently correct where you differ
-   - Highlight growth they may not see: "When we started, you couldn\'t [X]. Now you [Y]."
+   - Highlight growth they may not see: "When we started, you couldn't [X]. Now you [Y]."
 
    **Part 2: Honest evaluation (15 min)**
    - What worked well in our mentoring approach?
@@ -2253,14 +2253,14 @@ A mentorship without a formal review is a relationship that drifts rather than c
 
    **Part 3: Next steps (20 min)**
    - **If continuing:** Set new 3-6 month goals based on what was learned
-   - **If concluding:** Define the mentee\'s independent development plan
+   - **If concluding:** Define the mentee's independent development plan
    - Identify resources, communities, or next mentors they should connect with
 
 4. **Document the review.** Write a brief summary of the assessment, mutual feedback, and agreed next steps. Share it with your mentee.
 
 5. **Express genuine gratitude.** Thank your mentee for their commitment and trust. Mentoring is a two-way gift — they gave you the opportunity to teach, which deepened your own understanding and earned you reward with Allah.
 
-6. **Make du\'a for them.** The du\'a of a teacher for their student carries special weight. Ask Allah to bless their knowledge, make it beneficial, and use them for good.` },
+6. **Make du'a for them.** The du'a of a teacher for their student carries special weight. Ask Allah to bless their knowledge, make it beneficial, and use them for good.` },
       ],
     },
     {
@@ -2327,7 +2327,7 @@ Learning outcomes are the promise your curriculum makes to the learner: "If you 
 
 **How?**
 
-1. **Write outcomes using action verbs (Bloom\'s Taxonomy):**
+1. **Write outcomes using action verbs (Bloom's Taxonomy):**
 
    | Level | Verbs | Example Outcome |
    |-------|-------|----------------|
@@ -2410,7 +2410,7 @@ The Prophet (peace be upon him) said: "The best among you are those who learn th
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A curriculum without materials is just a table of contents. The learning materials — readings, videos, exercises, case studies, and assessments — are what actually teach. Creating original materials ensures they are perfectly aligned with your outcomes and audience; curating existing materials saves time and leverages the best work already available. Most effective curricula use a combination of both. The Islamic tradition has always valued both original authorship (ta\'lif) and careful selection and commentary on existing works (sharh and mukhtasar).
+A curriculum without materials is just a table of contents. The learning materials — readings, videos, exercises, case studies, and assessments — are what actually teach. Creating original materials ensures they are perfectly aligned with your outcomes and audience; curating existing materials saves time and leverages the best work already available. Most effective curricula use a combination of both. The Islamic tradition has always valued both original authorship (ta'lif) and careful selection and commentary on existing works (sharh and mukhtasar).
 
 
 **How?**
@@ -2427,15 +2427,15 @@ A curriculum without materials is just a table of contents. The learning materia
 
 2. **When creating original materials:**
    - Write at the level of your target audience (refer to your learner profile)
-   - Use examples from your audience\'s world (not abstract academic examples)
+   - Use examples from your audience's world (not abstract academic examples)
    - Include Islamic framing where natural — connect concepts to Quranic principles, prophetic methodology, or scholarly wisdom
    - Keep individual pieces digestible: 10-15 minute video segments, 3-5 page readings, exercises completable in 30-60 minutes
 
 3. **When curating existing materials:**
-   - Vet quality rigorously — not everything on the internet is worth a learner\'s time
+   - Vet quality rigorously — not everything on the internet is worth a learner's time
    - Check for Islamic compatibility — no content that contradicts Islamic values
    - Write a brief introduction to each curated resource explaining: what it covers, why it is included, and what to focus on
-   - Ensure the material is accessible (free or affordable, available in your audience\'s language)
+   - Ensure the material is accessible (free or affordable, available in your audience's language)
 
 4. **Create a materials checklist per module:**
 
@@ -2454,7 +2454,7 @@ The Prophet (peace be upon him) said: "Whoever introduces a good practice in Isl
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-No curriculum survives first contact with real learners unchanged. What seems clear to the designer is often confusing to the student. What seems well-paced to the expert is often too fast for the beginner. A pilot with a small group (5-15 people) reveals these problems before you publish to a wider audience, when changes are still cheap and easy. The Prophetic method was iterative — the Prophet (peace be upon him) adapted his teaching to his audience\'s reactions and understanding, adjusting explanations when he saw confusion.
+No curriculum survives first contact with real learners unchanged. What seems clear to the designer is often confusing to the student. What seems well-paced to the expert is often too fast for the beginner. A pilot with a small group (5-15 people) reveals these problems before you publish to a wider audience, when changes are still cheap and easy. The Prophetic method was iterative — the Prophet (peace be upon him) adapted his teaching to his audience's reactions and understanding, adjusting explanations when he saw confusion.
 
 
 **How?**
@@ -2742,22 +2742,22 @@ Tawbah (repentance) includes rectifying past wrongs where possible. If you have 
 **Translation:** And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those one will be questioned.`,
           description: `**Why?**
 
-The qat\'i/dhanni distinction is one of the most important intellectual tools in Islamic scholarship. It determines how much certainty a ruling or belief carries and, therefore, how much room exists for disagreement. Misunderstanding this distinction leads to two errors: treating speculative matters as absolute (producing rigidity) or treating definitive matters as open to reinterpretation (producing relativism). Both are intellectually and spiritually harmful.
+The qat'i/dhanni distinction is one of the most important intellectual tools in Islamic scholarship. It determines how much certainty a ruling or belief carries and, therefore, how much room exists for disagreement. Misunderstanding this distinction leads to two errors: treating speculative matters as absolute (producing rigidity) or treating definitive matters as open to reinterpretation (producing relativism). Both are intellectually and spiritually harmful.
 
 
 **How?**
 
 1. **Learn the core definitions:**
-   - **Qat\'i al-thubut** — definitive in its transmission (e.g., the Quran, mutawatir hadith)
+   - **Qat'i al-thubut** — definitive in its transmission (e.g., the Quran, mutawatir hadith)
    - **Dhanni al-thubut** — speculative in its transmission (e.g., ahad hadith)
-   - **Qat\'i al-dalalah** — definitive in its meaning (text has only one possible interpretation)
+   - **Qat'i al-dalalah** — definitive in its meaning (text has only one possible interpretation)
    - **Dhanni al-dalalah** — speculative in its meaning (text is open to more than one valid interpretation)
 2. **Study a reliable usul al-fiqh primer** — recommended texts:
    - *Usul al-Fiqh al-Islami* by Wahbah al-Zuhayli (comprehensive)
    - *Principles of Islamic Jurisprudence* by M.H. Kamali (English-language introduction)
    - *Al-Waraqat* by Imam al-Juwayni (classical, concise)
 3. **Map the four-box grid** — every text falls into one of four categories based on transmission and meaning. Create a 2x2 matrix and place examples in each cell.
-4. **Identify practical implications** — a ruling based on qat\'i thubut AND qat\'i dalalah is binding and not open to ijtihad. A ruling based on dhanni sources allows legitimate scholarly disagreement.`
+4. **Identify practical implications** — a ruling based on qat'i thubut AND qat'i dalalah is binding and not open to ijtihad. A ruling based on dhanni sources allows legitimate scholarly disagreement.`
         },
         {
           title: 'Learn the categories of hadith authentication (sahih, hasan, da\'if, mawdu\')', done: false,
@@ -2789,10 +2789,10 @@ Hadith are the second source of Islamic law and guidance after the Quran. The sc
 |---|---|---|
 | **Sahih** (authentic) | Continuous chain, all narrators trustworthy and precise, no hidden defects or anomalies | Accepted as proof |
 | **Hasan** (good) | Meets sahih criteria but one or more narrators have slightly lesser precision | Accepted as proof |
-| **Da\'if** (weak) | Missing a condition of sahih/hasan — broken chain, weak narrator, or hidden defect | Not used as independent proof; scholars differ on using it for virtuous deeds |
-| **Mawdu\'** (fabricated) | Evidence of intentional fabrication in the chain | Absolutely rejected; haram to attribute to the Prophet without disclaimer |
+| **Da'if** (weak) | Missing a condition of sahih/hasan — broken chain, weak narrator, or hidden defect | Not used as independent proof; scholars differ on using it for virtuous deeds |
+| **Mawdu'** (fabricated) | Evidence of intentional fabrication in the chain | Absolutely rejected; haram to attribute to the Prophet without disclaimer |
 
-2. **Study the sub-categories** — da\'if alone has over a dozen sub-types (mursal, munqati\', mudallas, munkar, etc.). Start with the major ones.
+2. **Study the sub-categories** — da'if alone has over a dozen sub-types (mursal, munqati', mudallas, munkar, etc.). Start with the major ones.
 3. **Use authoritative databases** — sunnah.com and dorar.net provide grading for thousands of hadith. Learn to read their grading notations.
 4. **Read an introductory text on mustalah al-hadith** (hadith terminology):
    - *Al-Bayquniyyah* poem with commentary (classical, brief)
@@ -2815,14 +2815,14 @@ Knowing the categories of certainty is only useful if you understand how scholar
 **How?**
 
 1. **Study the hierarchy of evidence** — scholars generally prioritise sources in this order:
-   - Quran (qat\'i al-thubut)
-   - Mutawatir Sunnah (qat\'i al-thubut)
+   - Quran (qat'i al-thubut)
+   - Mutawatir Sunnah (qat'i al-thubut)
    - Ahad Sunnah (dhanni al-thubut, but accepted with conditions)
-   - Ijma\' (scholarly consensus — binding when authentic)
+   - Ijma' (scholarly consensus — binding when authentic)
    - Qiyas (analogical reasoning — dhanni by nature)
 2. **Learn how certainty level affects rulings:**
-   - Qat\'i + qat\'i = obligation/prohibition with no room for ijtihad (e.g., prohibition of riba, obligation of five prayers)
-   - Qat\'i thubut + dhanni dalalah = legitimate scholarly disagreement exists (e.g., interpretation of "quru\'" in 2:228)
+   - Qat'i + qat'i = obligation/prohibition with no room for ijtihad (e.g., prohibition of riba, obligation of five prayers)
+   - Qat'i thubut + dhanni dalalah = legitimate scholarly disagreement exists (e.g., interpretation of "quru'" in 2:228)
    - Dhanni + dhanni = wide room for ijtihad and difference of opinion
 3. **Study 2-3 case examples** — pick rulings where the four madhahib differ and trace the disagreement back to differences in how they evaluated the certainty of evidence.
 4. **Read about the conditions for ijtihad** — who is qualified to derive rulings, and what safeguards exist against arbitrary interpretation.
@@ -2838,7 +2838,7 @@ Knowing the categories of certainty is only useful if you understand how scholar
 **Translation:** Those who listen to speech and then follow the best of it. Those are the ones Allah has guided, and those are people of understanding.`,
           description: `**Why?**
 
-Theory without application remains abstract. By applying the qat\'i/dhanni framework to a real contemporary debate, you develop the ability to distinguish between matters where disagreement is illegitimate (because the evidence is definitive) and matters where disagreement is natural and healthy (because the evidence is speculative). This skill is desperately needed in Muslim communities where every disagreement is treated as either heresy or irrelevant.
+Theory without application remains abstract. By applying the qat'i/dhanni framework to a real contemporary debate, you develop the ability to distinguish between matters where disagreement is illegitimate (because the evidence is definitive) and matters where disagreement is natural and healthy (because the evidence is speculative). This skill is desperately needed in Muslim communities where every disagreement is treated as either heresy or irrelevant.
 
 
 **How?**
@@ -2850,9 +2850,9 @@ Theory without application remains abstract. By applying the qat\'i/dhanni frame
    - Cryptocurrency and its classification in Islamic finance
 2. **Map the evidence** — for each side of the debate, list the primary texts (Quran, hadith) and scholarly arguments used.
 3. **Classify each piece of evidence:**
-   - Is the text qat\'i or dhanni in transmission?
-   - Is it qat\'i or dhanni in meaning?
-   - Is there ijma\' on this point, or have scholars historically differed?
+   - Is the text qat'i or dhanni in transmission?
+   - Is it qat'i or dhanni in meaning?
+   - Is there ijma' on this point, or have scholars historically differed?
 4. **Write your analysis** — a 1-2 page document that:
    - States the question clearly
    - Maps the evidence from both sides
@@ -2896,7 +2896,7 @@ Logical fallacies are the intellectual equivalent of optical illusions — they 
 | # | Fallacy | Core Error |
 |---|---|---|
 | 1 | Ad Hominem | Attacking the person instead of the argument |
-| 2 | Straw Man | Misrepresenting an opponent\'s position to make it easier to attack |
+| 2 | Straw Man | Misrepresenting an opponent's position to make it easier to attack |
 | 3 | Appeal to Authority | Citing an authority figure as proof when they lack relevant expertise |
 | 4 | Appeal to Emotion | Using feelings instead of evidence to support a conclusion |
 | 5 | False Dilemma | Presenting only two options when more exist |
@@ -2904,7 +2904,7 @@ Logical fallacies are the intellectual equivalent of optical illusions — they 
 | 7 | Red Herring | Introducing an irrelevant topic to divert attention |
 | 8 | Circular Reasoning | Using the conclusion as a premise (begging the question) |
 | 9 | Hasty Generalisation | Drawing a broad conclusion from too few examples |
-| 10 | Tu Quoque | Deflecting criticism by pointing to the accuser\'s behaviour |
+| 10 | Tu Quoque | Deflecting criticism by pointing to the accuser's behaviour |
 | 11 | Bandwagon | Arguing something is true because many people believe it |
 | 12 | False Cause | Assuming correlation equals causation |
 | 13 | Equivocation | Using a word with multiple meanings ambiguously |
@@ -2936,7 +2936,7 @@ Knowing fallacies in theory is different from spotting them in the wild. Real-wo
 
 1. **Keep a "Fallacy Journal"** — a simple notebook or note on your phone with these columns:
 
-| Date | Source | Quote/Paraphrase | Fallacy | Why It\'s Fallacious |
+| Date | Source | Quote/Paraphrase | Fallacy | Why It's Fallacious |
 |---|---|---|---|---|
 | Day 1 | News headline | "If we allow X, next thing Y will happen" | Slippery Slope | No evidence for the causal chain |
 
@@ -3084,7 +3084,7 @@ The Prophet (peace be upon him) said: "Allah does not take away knowledge by sna
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Most people only encounter opposing views through their critics — which guarantees a distorted picture. Imam al-Shafi\'i was known for saying he never debated anyone without first wishing that the truth would appear on their tongue rather than his own. Seeking out the strongest advocates of a position ensures you engage with the real argument, not a caricature.
+Most people only encounter opposing views through their critics — which guarantees a distorted picture. Imam al-Shafi'i was known for saying he never debated anyone without first wishing that the truth would appear on their tongue rather than his own. Seeking out the strongest advocates of a position ensures you engage with the real argument, not a caricature.
 
 
 **How?**
@@ -3386,15 +3386,15 @@ Narrated Abu Sa'id Al-Khudri: The Prophet (peace be upon him) delivered a sermon
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The choice of text determines the lens through which you will develop your logical thinking. Al-Ghazali\'s *Maqasid al-Falasifah* presents Greek philosophy through an Islamic scholarly lens, while Aristotle\'s *Organon* is the original foundation of formal logic. Choosing deliberately — rather than randomly — ensures the text matches your current level and learning goals.
+The choice of text determines the lens through which you will develop your logical thinking. Al-Ghazali's *Maqasid al-Falasifah* presents Greek philosophy through an Islamic scholarly lens, while Aristotle's *Organon* is the original foundation of formal logic. Choosing deliberately — rather than randomly — ensures the text matches your current level and learning goals.
 
 
 **How?**
 
 1. **Assess your starting level:**
    - **Beginner in logic/philosophy** — start with a modern introduction like *Thinking Logically* by Salmon or *The Philosophy Book* (DK) for a survey, then move to primary texts
-   - **Familiar with basic logic** — go directly to Al-Ghazali\'s *Maqasid al-Falasifah* or Aristotle\'s *Categories*
-   - **Intermediate** — tackle Aristotle\'s *Prior Analytics* or Al-Farabi\'s commentaries on Aristotle
+   - **Familiar with basic logic** — go directly to Al-Ghazali's *Maqasid al-Falasifah* or Aristotle's *Categories*
+   - **Intermediate** — tackle Aristotle's *Prior Analytics* or Al-Farabi's commentaries on Aristotle
 
 2. **Consider these recommended texts:**
 
@@ -3509,7 +3509,7 @@ The Islamic intellectual tradition was built on halaqat (study circles), not sol
 2. **Structure your discussions:**
    - **Weekly meeting** (30-60 minutes, in person or video call)
    - **Format per session:**
-     1. Each person summarises the chapter\'s main argument (5 minutes each)
+     1. Each person summarises the chapter's main argument (5 minutes each)
      2. Identify points of agreement and disagreement (10 minutes)
      3. Discuss the hardest or most confusing part (10 minutes)
      4. Connect to contemporary issues or Islamic thought (10 minutes)
@@ -3588,7 +3588,7 @@ A poorly defined question leads to a confused decision process. Many people agon
 
 1. **Identify the decision** — what major choice are you currently facing? Examples:
    - Career: "Should I accept this job offer or stay in my current role?"
-   - Education: "Should I pursue a master\'s degree in X or begin working in Y?"
+   - Education: "Should I pursue a master's degree in X or begin working in Y?"
    - Relocation: "Should I move to city A for this opportunity?"
    - Financial: "Should I invest in this business or save the capital?"
    - Marriage: "Should I proceed with this potential match?"
@@ -3720,15 +3720,15 @@ Recorded in Sahih al-Bukhari (Volume 2, Book 21, Number 263): 'The Prophet (p.b.
 `,
           description: `**Why?**
 
-Istikharah is the spiritual dimension of decision-making — acknowledging that despite your best analysis and consultation, your knowledge is limited and Allah\'s knowledge is complete. It is not a magical shortcut that replaces rational thought; it is the culmination of a process where you have done your due diligence and now submit the matter to the One who sees what you cannot. The Prophet (peace be upon him) taught his companions istikharah for all their affairs (Bukhari).
+Istikharah is the spiritual dimension of decision-making — acknowledging that despite your best analysis and consultation, your knowledge is limited and Allah's knowledge is complete. It is not a magical shortcut that replaces rational thought; it is the culmination of a process where you have done your due diligence and now submit the matter to the One who sees what you cannot. The Prophet (peace be upon him) taught his companions istikharah for all their affairs (Bukhari).
 
 
 **How?**
 
 1. **Learn the istikharah prayer properly:**
-   - Pray two voluntary rak\'at (units of prayer)
-   - After completing the prayer, recite the istikharah supplication (du\'a) taught by the Prophet (peace be upon him)
-   - The du\'a asks Allah to facilitate the matter if it is good for you and to turn it away if it is harmful — in your religion, livelihood, and ultimate outcome
+   - Pray two voluntary rak'at (units of prayer)
+   - After completing the prayer, recite the istikharah supplication (du'a) taught by the Prophet (peace be upon him)
+   - The du'a asks Allah to facilitate the matter if it is good for you and to turn it away if it is harmful — in your religion, livelihood, and ultimate outcome
 
 2. **Approach it with the right mindset:**
    - **Not a coin flip** — istikharah is not about receiving a dream or a sign. It is about sincere submission after doing your homework
@@ -3741,7 +3741,7 @@ Istikharah is the spiritual dimension of decision-making — acknowledging that 
    - There is no limit to how many times you can pray istikharah for the same decision
 
 4. **After istikharah:**
-   - Proceed with the option that feels right after sincere du\'a and analysis
+   - Proceed with the option that feels right after sincere du'a and analysis
    - Trust the process — if obstacles arise, they may be part of the answer
    - Do not second-guess endlessly; trust that you have done your part`
         },
@@ -3784,7 +3784,7 @@ A decision without documentation teaches you nothing for the future. By recordin
 3. **Set a calendar reminder for the 90-day review.** When the date arrives, answer:
    - Was the outcome as expected? Better or worse?
    - Were my risk assessments accurate?
-   - Did my advisors\' input prove valuable?
+   - Did my advisors' input prove valuable?
    - What would I do differently in the process next time?
    - What did I learn about my decision-making patterns?
 
@@ -3824,7 +3824,7 @@ A belief that cannot be tested against evidence is not a reasoned conviction —
 1. **Select a strongly held belief** — choose something you feel certain about. The stronger the certainty, the more valuable this exercise. Examples:
    - "The education system needs to be completely overhauled"
    - "Remote work is always better than office work"
-   - "This particular scholar\'s methodology is the best approach"
+   - "This particular scholar's methodology is the best approach"
    - "Entrepreneurship is the best path to financial independence"
 
 2. **Write the belief as a clear proposition** — "I believe that [X] because [Y]."
@@ -3850,7 +3850,7 @@ A belief that cannot be tested against evidence is not a reasoned conviction —
 **Translation:** And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those one will be questioned.`,
           description: `**Why?**
 
-Seeking counter-arguments is the intellectual equivalent of physical training — it strengthens your reasoning by exposing it to resistance. Imam al-Shafi\'i famously said that he never debated anyone except that he wished the truth would appear on their tongue. This attitude — genuinely wanting to encounter the strongest challenge to your beliefs — is a mark of intellectual integrity.
+Seeking counter-arguments is the intellectual equivalent of physical training — it strengthens your reasoning by exposing it to resistance. Imam al-Shafi'i famously said that he never debated anyone except that he wished the truth would appear on their tongue. This attitude — genuinely wanting to encounter the strongest challenge to your beliefs — is a mark of intellectual integrity.
 
 
 **How?**
@@ -4217,7 +4217,7 @@ Excellence in thinking is demonstrated not by solving easy problems but by engag
 3. **Test your selection:**
    - Can you write it as a clear question? If not, it may be too vague.
    - Does it matter? If no one is affected by the answer, choose something more impactful.
-   - Can you add value? You should have enough expertise to contribute meaningfully, even if you are not the world\'s foremost authority.
+   - Can you add value? You should have enough expertise to contribute meaningfully, even if you are not the world's foremost authority.
 
 4. **Commit to the issue** — write a one-paragraph scope statement defining exactly what aspect you will analyse.`
         },
@@ -4243,9 +4243,9 @@ Complex problems exist at the intersection of multiple fields. Studying them fro
 
 2. **For each discipline, conduct targeted research:**
    - **Find 3-5 key sources** — peer-reviewed papers, authoritative books, or expert analyses
-   - **Identify the discipline\'s framing** — how does this field define the problem?
+   - **Identify the discipline's framing** — how does this field define the problem?
    - **Note the methodology** — what tools and evidence does this discipline use?
-   - **Extract key findings** — what does this discipline\'s research conclude?
+   - **Extract key findings** — what does this discipline's research conclude?
 
 3. **Create a cross-disciplinary comparison matrix:**
 
@@ -4270,7 +4270,7 @@ Complex problems exist at the intersection of multiple fields. Studying them fro
 **Translation:** Say, "Produce your proof, if you should be truthful."`,
           description: `**Why?**
 
-Clear, structured writing is the vehicle through which complex thinking becomes accessible and impactful. An unstructured analysis, no matter how brilliant, fails to communicate. The Islamic scholarly tradition produced masterworks of structured analysis — from Ibn Khaldun\'s *Muqaddimah* to Al-Shatibi\'s *Al-Muwafaqat*. Your analysis should aspire to that same clarity and rigour.
+Clear, structured writing is the vehicle through which complex thinking becomes accessible and impactful. An unstructured analysis, no matter how brilliant, fails to communicate. The Islamic scholarly tradition produced masterworks of structured analysis — from Ibn Khaldun's *Muqaddimah* to Al-Shatibi's *Al-Muwafaqat*. Your analysis should aspire to that same clarity and rigour.
 
 
 **How?**
@@ -4346,10 +4346,10 @@ The maqasid al-Shariah (objectives of Islamic law) provide a comprehensive ethic
 
 | Maqsad (Objective) | Questions to Ask |
 |---|---|
-| **Hifz al-Din** (Preserving faith) | Does this issue affect people\'s ability to practise their faith freely? |
+| **Hifz al-Din** (Preserving faith) | Does this issue affect people's ability to practise their faith freely? |
 | **Hifz al-Nafs** (Preserving life) | What are the implications for human life, health, and safety? |
-| **Hifz al-Aql** (Preserving intellect) | Does this issue affect people\'s ability to think clearly, access education, or make informed decisions? |
-| **Hifz al-Nasl** (Preserving family) | What are the implications for family stability, children\'s welfare, and social cohesion? |
+| **Hifz al-Aql** (Preserving intellect) | Does this issue affect people's ability to think clearly, access education, or make informed decisions? |
+| **Hifz al-Nasl** (Preserving family) | What are the implications for family stability, children's welfare, and social cohesion? |
 | **Hifz al-Mal** (Preserving wealth) | What are the economic justice implications? Does it protect or exploit the vulnerable? |
 
 2. **Integrate — do not append:**
@@ -4455,7 +4455,7 @@ Knowledge that remains in your notebook benefits only you. Publishing or present
 3. **Prepare for engagement:**
    - Anticipate questions and objections
    - Prepare concise responses to the most likely challenges
-   - Be ready to say "I don\'t know" or "I need to think about that" — honesty builds more credibility than bluffing
+   - Be ready to say "I don't know" or "I need to think about that" — honesty builds more credibility than bluffing
 
 4. **Follow up:**
    - Respond to comments and feedback thoughtfully
@@ -4517,7 +4517,7 @@ The Islamic tradition emphasises speaking with knowledge, not mere opinion. Choo
 **Translation:** Say, "Produce your proof, if you should be truthful." Preparing evidence and anticipating objections is the Quranic standard for discourse.`,
           description: `**Why?**
 
-The difference between a valuable intellectual contribution and a rambling opinion is structure. The Islamic scholarly tradition produced some of history\'s most rigorously structured arguments — from Al-Ghazali\'s systematic demolition of philosophical claims in *Tahafut al-Falasifah* to Ibn Rushd\'s equally systematic response. Your preparation should honour that tradition of clarity and rigour.
+The difference between a valuable intellectual contribution and a rambling opinion is structure. The Islamic scholarly tradition produced some of history's most rigorously structured arguments — from Al-Ghazali's systematic demolition of philosophical claims in *Tahafut al-Falasifah* to Ibn Rushd's equally systematic response. Your preparation should honour that tradition of clarity and rigour.
 
 
 **How?**
@@ -4550,7 +4550,7 @@ The difference between a valuable intellectual contribution and a rambling opini
 
 3. **Prepare for Q&A:**
    - List the 10 most likely questions and prepare concise answers
-   - Practise saying "I don\'t know, but here is how I would investigate that"
+   - Practise saying "I don't know, but here is how I would investigate that"
    - Have backup slides or references for deep-dive questions`
         },
         {
@@ -4584,12 +4584,12 @@ The quality of a discussion depends as much on the environment as on the content
    2. **Listen to understand, not to respond** — let the speaker finish before formulating your reply
    3. **Steel-man before critiquing** — show you understand the opposing view before challenging it
    4. **Cite evidence** — "I believe" is fine for personal testimony, but "research shows" requires a source
-   5. **Acknowledge uncertainty** — saying "I\'m not sure" is a sign of strength, not weakness
+   5. **Acknowledge uncertainty** — saying "I'm not sure" is a sign of strength, not weakness
    6. **One voice at a time** — no interrupting, no side conversations
    7. **Stay on topic** — the moderator will redirect if the discussion drifts
    8. **Confidentiality** — views expressed in this discussion are not to be attributed outside the room without permission
 
-3. **Designate a moderator** — either yourself or someone else. The moderator\'s job is to:
+3. **Designate a moderator** — either yourself or someone else. The moderator's job is to:
    - Enforce the ground rules
    - Ensure balanced participation (prevent any one person from dominating)
    - Keep the discussion focused on the topic
@@ -4626,8 +4626,8 @@ Preparation without delivery is incomplete. The act of presenting your ideas pub
 
 3. **During Q&A:**
    - **Listen fully** before responding — repeat or paraphrase the question to ensure you understood
-   - **Acknowledge good challenges** — "That\'s an excellent point" is not weakness; it is intellectual honesty
-   - **Be honest about limitations** — "I haven\'t fully worked that out yet" is always better than a bluff
+   - **Acknowledge good challenges** — "That's an excellent point" is not weakness; it is intellectual honesty
+   - **Be honest about limitations** — "I haven't fully worked that out yet" is always better than a bluff
    - **Stay calm under pressure** — if someone is aggressive, respond with composure and redirect to the ideas
    - **Take notes** — jot down questions that require further thought
 
@@ -5160,7 +5160,7 @@ The Prophet (peace be upon him) said: "Among the excellence of a person's Islam 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Physical distance is the most reliable form of discipline. If your phone is within arm\'s reach when you wake, the temptation to "just check one thing" is overwhelming. Placing it in another room removes the option entirely, forcing you to get up, make wudu, and begin your morning protocol before you even see a screen.
+Physical distance is the most reliable form of discipline. If your phone is within arm's reach when you wake, the temptation to "just check one thing" is overwhelming. Placing it in another room removes the option entirely, forcing you to get up, make wudu, and begin your morning protocol before you even see a screen.
 
 
 **How?**
@@ -5232,7 +5232,7 @@ The Prophet (peace be upon him) said: "Whoever believes in Allah and the Last Da
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Silence without direction can become restlessness. The Islamic practice of tafakkur (deep contemplation) gives silence its purpose — reflecting on Allah\'s creation, your own state, your direction in life. Journaling during this time captures insights that would otherwise evaporate. Simply sitting with your thoughts teaches you to tolerate discomfort and observe your own mind.
+Silence without direction can become restlessness. The Islamic practice of tafakkur (deep contemplation) gives silence its purpose — reflecting on Allah's creation, your own state, your direction in life. Journaling during this time captures insights that would otherwise evaporate. Simply sitting with your thoughts teaches you to tolerate discomfort and observe your own mind.
 
 
 **How?**
@@ -5267,7 +5267,7 @@ Silence surfaces what noise buries. Anxieties you have been avoiding, creative i
 2. When a thought arises that feels significant — an insight, a worry, an idea — jot it down briefly and return to silence.
 3. Do not judge or analyse what arises during the session; simply capture it.
 4. After the session, review your notes. Look for recurring themes over the course of a week.
-5. Recurring anxieties should be addressed (make du\'a, seek counsel, take action). Recurring ideas should be explored further. Recurring insights may indicate areas where Allah is guiding your attention.` },
+5. Recurring anxieties should be addressed (make du'a, seek counsel, take action). Recurring ideas should be explored further. Recurring insights may indicate areas where Allah is guiding your attention.` },
         { title: 'Gradually extend the practice or add a second daily session', done: false,
           sources: `**I. Hadith**
 
@@ -5315,13 +5315,13 @@ Narrated \`Abdullah bin \`Amr bin Al-\`As:I heard Allah's Messenger (ﷺ) saying
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-These verses establish a divine command for intellectual rigour. Surah Al-Isra 17:36 states that hearing, sight, and the heart will all be questioned — meaning you are accountable for claims you make. Surah Al-An\'am 6:148 warns against following conjecture. Understanding these verses transforms intellectual honesty from a personal virtue into a religious obligation.
+These verses establish a divine command for intellectual rigour. Surah Al-Isra 17:36 states that hearing, sight, and the heart will all be questioned — meaning you are accountable for claims you make. Surah Al-An'am 6:148 warns against following conjecture. Understanding these verses transforms intellectual honesty from a personal virtue into a religious obligation.
 
 
 **How?**
 
-1. Read Surah Al-Isra (17:36) in Arabic with a reliable English translation and tafsir (Ibn Kathir or Al-Sa\'di).
-2. Read Surah Al-An\'am (6:148) with the same approach.
+1. Read Surah Al-Isra (17:36) in Arabic with a reliable English translation and tafsir (Ibn Kathir or Al-Sa'di).
+2. Read Surah Al-An'am (6:148) with the same approach.
 3. Note the specific warnings: what does Allah say about those who speak without knowledge?
 4. Cross-reference with hadith on the severity of speaking without knowledge in matters of deen.
 5. Write a personal summary: what do these verses demand of me in my daily speech and online behaviour?` },
@@ -5345,7 +5345,7 @@ Most people conflate what they know, what they believe, and what they are guessi
 1. For one full day, pay attention to every claim you make in conversation, messages, or social media.
 2. After each statement, mentally tag it: **knowledge** (I have verified evidence), **opinion** (I believe this based on reasoning but am not certain), or **speculation** (I am guessing).
 3. Notice how often you state speculation as if it were knowledge.
-4. Begin prefacing uncertain statements with honest qualifiers: "I think," "I\'m not certain, but," "From what I\'ve read..."
+4. Begin prefacing uncertain statements with honest qualifiers: "I think," "I'm not certain, but," "From what I've read..."
 5. Practise this daily for two weeks until the categorisation becomes automatic.` },
         { title: 'Build the habit of saying "I don\'t know" or "I\'m not sure" when appropriate', done: false,
           sources: `**I. Quran**
@@ -5361,16 +5361,16 @@ The Prophet (peace be upon him) said: "Whoever Allah wants good for, He gives hi
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Imam Malik was once asked forty questions and answered "I don\'t know" to the majority of them — and he was one of the greatest scholars of Islam. Saying "I don\'t know" is not weakness; it is a sign of intellectual integrity and fear of Allah. In a culture that rewards confident opinions, this habit is a quiet act of courage.
+Imam Malik was once asked forty questions and answered "I don't know" to the majority of them — and he was one of the greatest scholars of Islam. Saying "I don't know" is not weakness; it is a sign of intellectual integrity and fear of Allah. In a culture that rewards confident opinions, this habit is a quiet act of courage.
 
 
 **How?**
 
-1. The next time someone asks you a question and you are not genuinely certain of the answer, say: "I don\'t know, but I can find out."
+1. The next time someone asks you a question and you are not genuinely certain of the answer, say: "I don't know, but I can find out."
 2. Resist the urge to fill silence with guesses or half-remembered information.
 3. Notice the social pressure to have an opinion on everything — and consciously resist it.
-4. In group discussions, practise saying: "I haven\'t studied that enough to have a view."
-5. Track how often you say "I don\'t know" in a week — if the number is zero, you are likely overestimating your knowledge.` },
+4. In group discussions, practise saying: "I haven't studied that enough to have a view."
+5. Track how often you say "I don't know" in a week — if the number is zero, you are likely overestimating your knowledge.` },
         { title: 'Before sharing any opinion publicly, ask: what is my evidence for this?', done: false,
           sources: `**I. Quran**
 
@@ -5519,8 +5519,8 @@ Setting boundaries is not about being unkind — it is about stewardship of the 
 1. For people in your "draining" category, identify the specific behaviour that drains you (gossip, constant complaining, argumentativeness).
 2. You do not need to end relationships — simply restructure them:
    - Reduce frequency of contact gradually.
-   - When conversations drift toward draining patterns, redirect: "Let\'s talk about something we\'re learning."
-   - Set time limits on interactions: "I have 20 minutes — what\'s the most important thing?"
+   - When conversations drift toward draining patterns, redirect: "Let's talk about something we're learning."
+   - Set time limits on interactions: "I have 20 minutes — what's the most important thing?"
 3. For online relationships that drain you: mute, unfollow, or leave group chats that consistently produce low-value content.
 4. If someone is both a family obligation and a cognitive drain, limit interactions to what is necessary for maintaining ties of kinship (silat al-rahim) while protecting your deeper intellectual time.` },
         { title: 'Seek out one new relationship with someone whose intellect you admire', done: false,
@@ -5595,7 +5595,7 @@ Rituals signal to your brain that a specific mode of operation is beginning. Mak
    - Make wudu (even if you already have it — the act itself centres you).
    - Set your niyyah silently or aloud: "I intend this work for the sake of Allah and to develop the intellect He entrusted me with."
    - Place your phone in another room or in a locked drawer, on airplane mode.
-   - Close all browser tabs and applications unrelated to the session\'s task.
+   - Close all browser tabs and applications unrelated to the session's task.
    - Take three deep breaths and begin.
 2. Perform this ritual identically before every session until it becomes automatic.
 3. The consistency of the ritual is more important than its length — keep it simple and repeatable.` },
@@ -5801,7 +5801,7 @@ Testing is not just assessment — it is one of the most powerful learning techn
 1. Set aside one session per week (Friday is a good choice) as a pure testing session — no looking at the text.
 2. Recite or write from memory everything you have memorised so far. For Quran, recite to your partner or teacher without looking. For other material, use blank flashcards or write from memory.
 3. Mark every point where you hesitated, made an error, or forgot.
-4. Focus your next week\'s review on the weak points identified in the test.
+4. Focus your next week's review on the weak points identified in the test.
 5. Track your cumulative progress: total ayat memorised, total hadith memorised, or total pages of technical material committed to memory.
 6. Celebrate milestones — completing a surah, finishing the 40 hadith, or mastering a full chapter of technical content.` },
       ],
@@ -5884,7 +5884,7 @@ The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Screens and news are cognitive stimulants — they demand attention, trigger emotional reactions, and keep your mind in processing mode. True cognitive rest requires removing these inputs so your brain can shift from "consumption mode" to "consolidation mode." This is when your subconscious integrates the week\'s learning and generates the creative connections that conscious effort cannot produce.
+Screens and news are cognitive stimulants — they demand attention, trigger emotional reactions, and keep your mind in processing mode. True cognitive rest requires removing these inputs so your brain can shift from "consumption mode" to "consolidation mode." This is when your subconscious integrates the week's learning and generates the creative connections that conscious effort cannot produce.
 
 
 **How?**
@@ -5908,7 +5908,7 @@ The Prophet (peace be upon him) said: "The most beloved deeds to Allah are those
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The proof of rest\'s value is in the day that follows. If you have rested properly, Monday (or the day after your rest day) will feel markedly different — sharper, more creative, more energised. Noticing this difference consciously reinforces the habit and provides the motivation to protect your rest day when competing demands arise.
+The proof of rest's value is in the day that follows. If you have rested properly, Monday (or the day after your rest day) will feel markedly different — sharper, more creative, more energised. Noticing this difference consciously reinforces the habit and provides the motivation to protect your rest day when competing demands arise.
 
 
 **How?**
@@ -6020,7 +6020,7 @@ Your digital environment is as influential as your physical one — perhaps more
    - Reorganise your home screen: only essential tools on the first screen; move social media and entertainment apps to a folder on the last screen.
    - Set your phone to greyscale mode to reduce its visual appeal.
 2. **Computer audit:**
-   - Set your browser\'s default homepage to a blank page or a beneficial site (your task manager, a Quran app).
+   - Set your browser's default homepage to a blank page or a beneficial site (your task manager, a Quran app).
    - Install a website blocker and block your top time-wasting sites during work hours.
    - Close all unnecessary tabs before starting any work session.
 3. **Communication audit:**
@@ -6136,7 +6136,7 @@ A flow protocol transforms random inspiration into a reliable system. Just as yo
 **How?**
 
 1. Based on your identified patterns, write a step-by-step protocol. Example:
-   - **The night before**: Choose tomorrow\'s deep work task. Prepare materials. Sleep by 10:30 PM.
+   - **The night before**: Choose tomorrow's deep work task. Prepare materials. Sleep by 10:30 PM.
    - **Morning**: Wake for Fajr. Pray, adhkar, light breakfast. No phone.
    - **T-minus 15 minutes**: Make coffee/tea. Clear desk. Open only the relevant document/tool.
    - **T-minus 5 minutes**: Set phone to airplane mode. Set a 90-minute timer (visible but not audible). Make wudu.
@@ -6224,7 +6224,7 @@ The Prophet (peace be upon him) said: "Whoever takes a path in search of knowled
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Original contribution begins with seeing what others have missed. Every great framework in Islamic intellectual history — from Al-Shatibi\'s Maqasid to Ibn Khaldun\'s theory of civilisation — began with someone noticing that existing models failed to explain or address something important. Training yourself to identify gaps is the first skill of original scholarship.
+Original contribution begins with seeing what others have missed. Every great framework in Islamic intellectual history — from Al-Shatibi's Maqasid to Ibn Khaldun's theory of civilisation — began with someone noticing that existing models failed to explain or address something important. Training yourself to identify gaps is the first skill of original scholarship.
 
 
 **How?**
@@ -6279,7 +6279,7 @@ An idea in your head is not a framework — it becomes one when it is articulate
 
 **How?**
 
-1. **Define the framework\'s purpose**: In one sentence, what does this framework help people do or understand that existing models do not?
+1. **Define the framework's purpose**: In one sentence, what does this framework help people do or understand that existing models do not?
 2. **Name the framework**: Choose a name that is descriptive and memorable.
 3. **Define core terms**: Write a precise definition for every key concept in your framework. Avoid ambiguity.
 4. **Identify the components**: What are the 3-7 distinct elements of your framework? Draw them as a diagram.
@@ -6295,12 +6295,12 @@ The Prophet (peace be upon him) said: "When Allah wishes good for someone, He be
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A framework that only works in theory is not a framework — it is a hypothesis. Testing your model against real scenarios reveals whether it is genuinely useful, where it breaks down, and what adjustments are needed. The Islamic intellectual tradition values \'amal (practice) alongside \'ilm (knowledge) — a framework must work in the real world to be worth sharing.
+A framework that only works in theory is not a framework — it is a hypothesis. Testing your model against real scenarios reveals whether it is genuinely useful, where it breaks down, and what adjustments are needed. The Islamic intellectual tradition values 'amal (practice) alongside 'ilm (knowledge) — a framework must work in the real world to be worth sharing.
 
 
 **How?**
 
-1. Select 3-5 real scenarios from your domain that are diverse enough to test the framework\'s range:
+1. Select 3-5 real scenarios from your domain that are diverse enough to test the framework's range:
    - One straightforward scenario where you expect the framework to work well.
    - One complex scenario with multiple variables.
    - One edge case or unusual situation that challenges the framework.
@@ -6334,7 +6334,7 @@ Narrated Ibn ' \`Abbas:Dhul-Majaz and \`Ukaz were the markets of the people duri
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Self-assessment has blind spots. Islamic scholars can evaluate whether your framework\'s Islamic grounding is sound, while domain experts can evaluate whether it adds genuine value to the field. This dual critique — from both traditions — is what separates a well-intentioned attempt from a rigorous contribution. The scholars of the past subjected their works to peer review long before academia formalised the concept.
+Self-assessment has blind spots. Islamic scholars can evaluate whether your framework's Islamic grounding is sound, while domain experts can evaluate whether it adds genuine value to the field. This dual critique — from both traditions — is what separates a well-intentioned attempt from a rigorous contribution. The scholars of the past subjected their works to peer review long before academia formalised the concept.
 
 
 **How?**
@@ -6498,7 +6498,7 @@ Completion is the threshold between a hobby and a contribution. Many talented pe
    - If it is written work: publish, submit, or distribute to your audience.
    - If it is a system or tool: launch it, even in beta.
    - If it is research: present it at a conference, submit to a journal, or share with your community.
-5. Make du\'a that Allah places barakah in the work and benefits others through it.` },
+5. Make du'a that Allah places barakah in the work and benefits others through it.` },
         { title: 'Write a retrospective: what did the process teach you about your own cognitive capacity?', done: false,
           sources: `**I. Quran**
 
@@ -6549,12 +6549,12 @@ The Prophet (peace be upon him) said: "Allah loves that when one of you does a j
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-You cannot verify what you haven\'t identified. Many professionals operate with an incomplete picture of their regulatory landscape — they hold the obvious licence but miss industry-specific registrations, continuing education requirements, or jurisdiction-specific mandates. In Islam, ignorance of an obligation does not excuse you from it.
+You cannot verify what you haven't identified. Many professionals operate with an incomplete picture of their regulatory landscape — they hold the obvious licence but miss industry-specific registrations, continuing education requirements, or jurisdiction-specific mandates. In Islam, ignorance of an obligation does not excuse you from it.
 
 
 **How?**
 
-1. Check your country\'s or state\'s professional regulatory body website for a complete list of requirements.
+1. Check your country's or state's professional regulatory body website for a complete list of requirements.
 2. Ask a senior colleague or your professional association what credentials are standard and which are legally required versus recommended.
 3. Review your employment contract — some roles require specific certifications as a condition of employment.
 4. Create a master spreadsheet with columns: credential name, issuing body, requirement type (legal/contractual/recommended), and current status.
@@ -6577,7 +6577,7 @@ An expired credential is functionally the same as having no credential. Continui
 
 1. Pull out every certificate, licence card, or registration document you hold.
 2. Check the expiry date on each one — note any that have already lapsed or will lapse within 90 days.
-3. Log into the issuing body\'s portal for each credential and verify your status is listed as "active" or equivalent.
+3. Log into the issuing body's portal for each credential and verify your status is listed as "active" or equivalent.
 4. If any credential shows a discrepancy between your records and the issuing body, contact them immediately.
 5. Update your master spreadsheet with verified expiry dates and renewal windows.`,
         },
@@ -6600,7 +6600,7 @@ The Prophet (peace be upon him) said: "Allah loves that when one of you does som
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Gaps in your credentials may mean you are operating outside your qualified scope — even unknowingly. Identifying these gaps proactively demonstrates professional integrity and protects you from legal liability. It also opens doors: credentials you don\'t yet hold may be the key to roles, clients, or projects currently beyond your reach.
+Gaps in your credentials may mean you are operating outside your qualified scope — even unknowingly. Identifying these gaps proactively demonstrates professional integrity and protects you from legal liability. It also opens doors: credentials you don't yet hold may be the key to roles, clients, or projects currently beyond your reach.
 
 
 **How?**
@@ -6657,10 +6657,10 @@ Identifying gaps means nothing if you do not act on them. Every day you practise
 
 **How?**
 
-1. For each missing or expired credential, visit the issuing body\'s website and download the application or renewal requirements.
+1. For each missing or expired credential, visit the issuing body's website and download the application or renewal requirements.
 2. List the prerequisites: exams, continuing education hours, references, fees, or experience requirements.
 3. Create a timeline working backwards from your target completion date — when must each step be done?
-4. Register for any required exams or courses immediately (don\'t wait for the "right time").
+4. Register for any required exams or courses immediately (don't wait for the "right time").
 5. Block study or preparation time in your weekly calendar and protect it as you would a client meeting.`,
         },
       ],
@@ -6698,7 +6698,7 @@ Understanding the origin of your professional path reveals whether you are where
 2. Answer these questions honestly: What drew me to this work originally? Was it my choice, or was it shaped by circumstances? If I could start over knowing what I know now, would I choose this path again?
 3. Identify the moments in your career where you felt most aligned and fulfilled — what were you doing?
 4. Identify the moments where you felt most drained or conflicted — what was different?
-5. Write a brief paragraph summarising what you\'ve discovered about your relationship with your profession.`,
+5. Write a brief paragraph summarising what you've discovered about your relationship with your profession.`,
         },
         {
           title: 'Identify the specific ways your work benefits others', done: false,
@@ -6987,7 +6987,7 @@ Your employment contract or business model is the foundation of your income. If 
 **Translation:** And do not consume one another's wealth unjustly.`,
           description: `**Why?**
 
-Even if your own work is halal in nature, providing services to clients whose core business is haram makes you a facilitator of that harm. The principle of ta\'awun (cooperation) in the Quran instructs believers to cooperate in righteousness and not in sin and transgression. Auditing your client list ensures your professional relationships align with this principle.
+Even if your own work is halal in nature, providing services to clients whose core business is haram makes you a facilitator of that harm. The principle of ta'awun (cooperation) in the Quran instructs believers to cooperate in righteousness and not in sin and transgression. Auditing your client list ensures your professional relationships align with this principle.
 
 
 **How?**
@@ -7015,7 +7015,7 @@ Many professionals have savings accounts, pension funds, or investment portfolio
 
 1. List every account where your money sits: savings accounts, current accounts, pension funds, ISAs, investment portfolios, and any other financial instruments.
 2. For each account, determine: does it pay or charge interest? Is it invested in interest-bearing bonds or prohibited industries?
-3. Contact your pension provider and request the fund\'s investment breakdown — many default pension funds include interest-based bonds and shares in prohibited companies.
+3. Contact your pension provider and request the fund's investment breakdown — many default pension funds include interest-based bonds and shares in prohibited companies.
 4. Research Islamic alternatives: Islamic banks, Shariah-compliant pension funds, halal investment platforms (e.g., Wahed Invest, Islamicly).
 5. Create a transition plan with specific dates for moving each account to a halal alternative.`,
         },
@@ -7029,16 +7029,16 @@ The Prophet (peace be upon him) said: "If a judge gives a ruling, having tried h
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Not every financial question has a clear-cut answer. Islamic commercial law (fiqh al-mu\'amalat) is a deep and nuanced field, and applying it to modern professional contexts requires expertise most of us do not have. Consulting a knowledgeable scholar for grey areas is not a sign of weakness — it is a sign of taqwa (God-consciousness) and intellectual honesty.
+Not every financial question has a clear-cut answer. Islamic commercial law (fiqh al-mu'amalat) is a deep and nuanced field, and applying it to modern professional contexts requires expertise most of us do not have. Consulting a knowledgeable scholar for grey areas is not a sign of weakness — it is a sign of taqwa (God-consciousness) and intellectual honesty.
 
 
 **How?**
 
 1. Compile your list of grey areas from the previous subtasks — specific clauses, client relationships, or financial products you are unsure about.
-2. Identify a scholar who has expertise in Islamic commercial law (fiqh al-mu\'amalat), not just general Islamic knowledge. Ask your local mosque, Islamic finance professionals, or trusted community members for recommendations.
+2. Identify a scholar who has expertise in Islamic commercial law (fiqh al-mu'amalat), not just general Islamic knowledge. Ask your local mosque, Islamic finance professionals, or trusted community members for recommendations.
 3. Prepare your questions in writing with full context: describe the contract clause, business relationship, or financial product in detail so the scholar can give an informed ruling.
 4. Present the facts honestly — do not frame questions to get the answer you want.
-5. If the scholar\'s guidance requires changes, document the ruling and your action plan. If you receive conflicting opinions, follow the one that is most cautious (the principle of wara\').`,
+5. If the scholar's guidance requires changes, document the ruling and your action plan. If you receive conflicting opinions, follow the one that is most cautious (the principle of wara').`,
         },
         {
           title: 'Create a plan to transition away from any problematic income sources', done: false,
@@ -7064,7 +7064,7 @@ Identifying haram income sources is only valuable if you act on the findings. Th
 2. For each one, assess the practical constraints: contractual notice periods, financial dependency (what percentage of your income does it represent?), and available alternatives.
 3. Set a firm transition deadline for each — ideally within 3-6 months for clear haram sources.
 4. Identify replacement income: can you replace a haram client with a halal one? Can you switch to a Shariah-compliant financial product without significant loss?
-5. Execute the transition in order of severity. Begin with the most clearly problematic source, even if it is also the most financially significant — trust in Allah\'s provision (tawakkul) paired with practical effort.`,
+5. Execute the transition in order of severity. Begin with the most clearly problematic source, even if it is also the most financially significant — trust in Allah's provision (tawakkul) paired with practical effort.`,
         },
       ],
     },
@@ -7138,7 +7138,7 @@ The Prophet (peace be upon him) said: "Allah loves that when one of you does a j
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-The format of your portfolio affects how seriously it is received. A software developer needs a GitHub profile or personal website; an architect needs high-resolution visuals; a consultant may need a polished PDF. Choosing the right format shows that you understand your industry\'s expectations and can present information professionally.
+The format of your portfolio affects how seriously it is received. A software developer needs a GitHub profile or personal website; an architect needs high-resolution visuals; a consultant may need a polished PDF. Choosing the right format shows that you understand your industry's expectations and can present information professionally.
 
 
 **How?**
@@ -7165,8 +7165,8 @@ You are too close to your own work to evaluate your portfolio objectively. A tru
 **How?**
 
 1. Choose a colleague who knows your field and whose professional judgement you trust.
-2. Share the portfolio and ask specific questions: "Is anything unclear? Does this represent my strongest work? What\'s missing? What would you remove?"
-3. Also ask: "If you didn\'t know me, what impression would this portfolio give you?" — this reveals whether your intended message is landing.
+2. Share the portfolio and ask specific questions: "Is anything unclear? Does this represent my strongest work? What's missing? What would you remove?"
+3. Also ask: "If you didn't know me, what impression would this portfolio give you?" — this reveals whether your intended message is landing.
 4. Take notes on their feedback without defending your choices. Let the feedback settle for a day before deciding what to change.
 5. Implement the feedback that resonates and do a final review before considering the portfolio ready.`,
         },
@@ -7186,7 +7186,7 @@ A stale portfolio suggests stagnation. If your most recent work is from two year
 **How?**
 
 1. Set a quarterly reminder (e.g., first Monday of January, April, July, October) to review your portfolio.
-2. At each review, ask: "What is the best work I\'ve done in the past three months? Does it deserve a place in the portfolio?"
+2. At each review, ask: "What is the best work I've done in the past three months? Does it deserve a place in the portfolio?"
 3. If a new piece is strong enough, add it and consider removing an older, weaker piece to keep the total at 5-10.
 4. Update descriptions to reflect any new context: did an old project produce long-term results you can now document?
 5. Check that all links, files, and formatting still work — broken links in a portfolio are unprofessional.`,
@@ -7344,7 +7344,7 @@ The Prophet (peace be upon him) said: "A man follows the religion of his close f
 *(Grade: Hasan)*`,
           description: `**Why?**
 
-A vague request for mentorship burdens the mentor and wastes both your time. The more specific you are about what you need, the easier it is to find the right person and the more productive each interaction will be. Clarity of need is a form of respect — it shows you have done the internal work before asking for someone else\'s time.
+A vague request for mentorship burdens the mentor and wastes both your time. The more specific you are about what you need, the easier it is to find the right person and the more productive each interaction will be. Clarity of need is a form of respect — it shows you have done the internal work before asking for someone else's time.
 
 
 **How?**
@@ -7649,13 +7649,13 @@ The Prophet (peace be upon him) said: "Whoever guides someone to good will have 
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-People cannot help you effectively if they do not understand what you are asking. A clear invitation sets expectations, prevents misunderstandings, and demonstrates professionalism. It also honours the other person\'s time by letting them make an informed decision about whether to participate.
+People cannot help you effectively if they do not understand what you are asking. A clear invitation sets expectations, prevents misunderstandings, and demonstrates professionalism. It also honours the other person's time by letting them make an informed decision about whether to participate.
 
 
 **How?**
 
 1. Craft a personalised invitation for each person that includes:
-   - What you are building: "I\'m assembling a small personal advisory board of 3-5 people I trust to challenge my professional thinking."
+   - What you are building: "I'm assembling a small personal advisory board of 3-5 people I trust to challenge my professional thinking."
    - Why them specifically: "I deeply respect your [specific quality or expertise], and I believe your perspective would be invaluable because [specific reason]."
    - What you are asking: "A quarterly conversation of about 45-60 minutes where I share my plans and challenges, and you give me honest feedback."
    - What you are not asking: clarify that this is informal, unpaid, and low-commitment. No one should feel trapped.
@@ -7674,7 +7674,7 @@ People cannot help you effectively if they do not understand what you are asking
 **Translation:** And whose affair is determined by consultation among themselves. Quarterly check-ins with candid feedback are the practice of shura in professional life.`,
           description: `**Why?**
 
-The structure of regular check-ins transforms an informal advisory relationship into a disciplined practice of shura. Quarterly cadence is ideal: frequent enough to maintain continuity but infrequent enough to respect everyone\'s time. Presenting your plans formally — rather than just chatting — ensures the feedback is substantive and actionable.
+The structure of regular check-ins transforms an informal advisory relationship into a disciplined practice of shura. Quarterly cadence is ideal: frequent enough to maintain continuity but infrequent enough to respect everyone's time. Presenting your plans formally — rather than just chatting — ensures the feedback is substantive and actionable.
 
 
 **How?**
@@ -7736,7 +7736,7 @@ Every professional accumulates unique insights through their work, but few take 
 **How?**
 
 1. Review your past 1-2 years of professional work. Look for moments where you solved a problem in an unconventional way, discovered something surprising, or developed a new method.
-2. Ask yourself: "What do I know from experience that most people in my field have to learn the hard way? What would I teach a junior professional that isn\'t in any textbook?"
+2. Ask yourself: "What do I know from experience that most people in my field have to learn the hard way? What would I teach a junior professional that isn't in any textbook?"
 3. Talk to colleagues and clients: "What do you think I do differently or particularly well?" — their answers often point to your unique contributions.
 4. Look for patterns: if you have solved the same type of problem multiple times using a consistent approach, that approach may be worth documenting.
 5. Select the insight with the broadest applicability — the one that would help the most people if they knew about it.`,
@@ -7906,7 +7906,7 @@ Many qualified professionals never lead because they wait to be asked. Expressin
 **How?**
 
 1. For formal roles: prepare a compelling application that highlights your relevant experience, your vision for the role, and what you bring that others may not.
-2. For informal or networked roles: have a direct conversation with the decision-maker. Express your interest clearly: "I\'d like to contribute to [the board/committee/team] because [specific reason connected to your mission and their need]."
+2. For informal or networked roles: have a direct conversation with the decision-maker. Express your interest clearly: "I'd like to contribute to [the board/committee/team] because [specific reason connected to your mission and their need]."
 3. Prepare for questions about your time commitment, potential conflicts of interest, and your leadership philosophy.
 4. If there is a selection process, treat it with the same rigour you would a job interview: research the organisation, understand their challenges, and articulate how you would address them.
 5. If not selected, ask for feedback and express continued interest for future opportunities. Persistence without desperation is respected.`,
@@ -7991,7 +7991,7 @@ The most impactful training programmes address real, widespread needs — not wh
 2. Talk to managers and team leads: "What is the most common gap you see in junior hires? Where do they consistently struggle?"
 3. Review online forums, subreddits, and professional communities for recurring questions and frustrations from early-career professionals.
 4. Reflect on your own early career: what did you wish someone had taught you? What took you years to learn that could have taken weeks with the right guidance?
-5. Identify the single most common and impactful gap — this is your training programme\'s focus. Resist the temptation to address everything; depth on one topic beats breadth across many.`,
+5. Identify the single most common and impactful gap — this is your training programme's focus. Resist the temptation to address everything; depth on one topic beats breadth across many.`,
         },
         {
           title: 'Design a curriculum that addresses this gap with clear learning outcomes', done: false,
@@ -8061,7 +8061,7 @@ The Prophet (peace be upon him) said: "Whoever introduces a good practice in Isl
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-A training programme that has not been tested is a theory, not a product. Piloting with a small cohort reveals what works, what does not, and what you did not anticipate — insights that are impossible to gain from design alone. The pilot cohort\'s feedback is the most valuable input you will receive, and acting on it dramatically improves the programme before it reaches a larger audience.
+A training programme that has not been tested is a theory, not a product. Piloting with a small cohort reveals what works, what does not, and what you did not anticipate — insights that are impossible to gain from design alone. The pilot cohort's feedback is the most valuable input you will receive, and acting on it dramatically improves the programme before it reaches a larger audience.
 
 
 **How?**

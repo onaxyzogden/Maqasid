@@ -1,30 +1,65 @@
-// Hydrates task description and subtask description/sources from bundled seed data
-// at read time, so these large reference strings never need to live in localStorage.
+// Hydrates task description and subtask description/sources from bundled seed
+// data at read time, so these large reference strings never need to live in
+// localStorage.
 //
-// Matching: task by title within the board's seed array; subtask by title within
-// the matched seed task. Unmatched tasks/subtasks (user-created) pass through untouched.
+// Seed files are loaded LAZILY per pillar via dynamic import — only the
+// pillars whose surfaces a user actually visits get downloaded. Vite splits
+// each pillar seed into its own chunk (see manualChunks in vite.config.js).
+//
+// Sync API is preserved: hydrate*/strip*/getSeedSubtask/getBoardSeeds/
+// isPillarBoard return passthrough (no-op) on cache miss. Callers should
+// `await preloadBoardSeeds(boardId)` before relying on hydrated output.
 
-import { FAITH_SEED_TASKS } from '@data/seed-tasks/faith-seed-tasks';
-import { LIFE_SEED_TASKS } from '@data/seed-tasks/life-seed-tasks';
-import { INTELLECT_SEED_TASKS } from '@data/seed-tasks/intellect-seed-tasks';
-import { FAMILY_SEED_TASKS } from '@data/seed-tasks/family-seed-tasks';
-import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
-import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
-import { UMMAH_SEED_TASKS } from '@data/seed-tasks/ummah-seed-tasks';
-import { PRAYER_SEED_TASKS } from '@data/seed-tasks/prayer-seed-tasks';
-
-const ALL_SEEDS = {
-  ...FAITH_SEED_TASKS,
-  ...LIFE_SEED_TASKS,
-  ...INTELLECT_SEED_TASKS,
-  ...FAMILY_SEED_TASKS,
-  ...WEALTH_SEED_TASKS,
-  ...ENVIRONMENT_SEED_TASKS,
-  ...UMMAH_SEED_TASKS,
-  ...PRAYER_SEED_TASKS,
+const PILLAR_LOADERS = {
+  faith:       () => import('@data/seed-tasks/faith-seed-tasks').then((m) => m.FAITH_SEED_TASKS),
+  life:        () => import('@data/seed-tasks/life-seed-tasks').then((m) => m.LIFE_SEED_TASKS),
+  intellect:   () => import('@data/seed-tasks/intellect-seed-tasks').then((m) => m.INTELLECT_SEED_TASKS),
+  family:      () => import('@data/seed-tasks/family-seed-tasks').then((m) => m.FAMILY_SEED_TASKS),
+  wealth:      () => import('@data/seed-tasks/wealth-seed-tasks').then((m) => m.WEALTH_SEED_TASKS),
+  environment: () => import('@data/seed-tasks/environment-seed-tasks').then((m) => m.ENVIRONMENT_SEED_TASKS),
+  ummah:       () => import('@data/seed-tasks/ummah-seed-tasks').then((m) => m.UMMAH_SEED_TASKS),
+  prayer:      () => import('@data/seed-tasks/prayer-seed-tasks').then((m) => m.PRAYER_SEED_TASKS),
+  weekly:      () => import('@data/seed-tasks/weekly-seed-tasks').then((m) => m.WEEKLY_SEED_TASKS),
 };
 
+const ALL_SEEDS = {}; // boardId -> Task[]
+const PILLAR_PROMISES = {}; // pillarKey -> Promise<void>
 const BOARD_TASK_MAPS = new Map(); // boardId -> Map<title, seedTask>
+
+function pillarOf(boardId) {
+  if (!boardId || typeof boardId !== 'string') return null;
+  const i = boardId.indexOf('_');
+  return i === -1 ? null : boardId.slice(0, i);
+}
+
+/** Dynamically loads the seed file for the pillar that owns this boardId.
+ *  Idempotent: returns the same Promise across calls for one pillar. */
+export function preloadBoardSeeds(boardId) {
+  const pillar = pillarOf(boardId);
+  return preloadPillarSeeds(pillar);
+}
+
+export function preloadPillarSeeds(pillar) {
+  if (!pillar || !PILLAR_LOADERS[pillar]) return Promise.resolve();
+  if (PILLAR_PROMISES[pillar]) return PILLAR_PROMISES[pillar];
+  PILLAR_PROMISES[pillar] = PILLAR_LOADERS[pillar]()
+    .then((seedMap) => {
+      Object.assign(ALL_SEEDS, seedMap);
+      // Invalidate cached title-maps for boards in this pillar so the next
+      // hydrate call rebuilds them with the now-available seed data.
+      for (const bid of Object.keys(seedMap)) BOARD_TASK_MAPS.delete(bid);
+    })
+    .catch((e) => {
+      console.warn(`[seed-hydrator] Failed to load ${pillar} seeds`, e);
+      delete PILLAR_PROMISES[pillar]; // allow retry on next call
+    });
+  return PILLAR_PROMISES[pillar];
+}
+
+/** Loads every pillar's seeds. Use sparingly — defeats the lazy split. */
+export function preloadAllSeeds() {
+  return Promise.all(Object.keys(PILLAR_LOADERS).map(preloadPillarSeeds));
+}
 
 function getTaskMap(boardId) {
   let map = BOARD_TASK_MAPS.get(boardId);
@@ -118,11 +153,13 @@ export function stripSeedFields(task, boardId) {
   return changed ? out : task;
 }
 
-/** Returns the seed record for a board (used by seedTasks to build slim records). */
+/** Returns the seed record for a board, or null if the pillar isn't loaded. */
 export function getBoardSeeds(boardId) {
   return ALL_SEEDS[boardId] || null;
 }
 
 export function isPillarBoard(boardId) {
-  return Object.prototype.hasOwnProperty.call(ALL_SEEDS, boardId);
+  // Static check by id prefix — works even before seeds are loaded.
+  const pillar = pillarOf(boardId);
+  return pillar !== null && Object.prototype.hasOwnProperty.call(PILLAR_LOADERS, pillar);
 }

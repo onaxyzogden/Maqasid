@@ -35,7 +35,7 @@ export default function AbsenceTab({ contactId }) {
     try {
       const s = parseISO(form.startDate), e = parseISO(form.endDate);
       if (isValid(s) && isValid(e)) days = Math.max(1, differenceInBusinessDays(e, s) + 1);
-    } catch {}
+    } catch { /* date parse failed; keep days=0 */ }
     addAbsence({
       contactId, type: 'vacation', subType: form.subType,
       startDate: form.startDate, endDate: form.endDate, days, note: form.note, status: 'pending',

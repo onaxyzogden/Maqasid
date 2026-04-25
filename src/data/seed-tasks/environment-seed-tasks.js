@@ -1386,7 +1386,7 @@ Even the most diligent household will have some residual emissions that cannot b
 2. Research verified carbon offset programmes — look for certifications such as Gold Standard, Verified Carbon Standard (VCS/Verra), or equivalent national standards.
 3. Compare offset types: tree planting and reforestation, renewable energy projects in developing countries, methane capture from landfills, and direct air capture.
 4. Consider local tree-planting initiatives where you can physically participate — this adds a tangible, hands-on element to the offset.
-5. Calculate the annual cost: verified offsets typically range from \$10-50 per tonne CO2e depending on the project type and quality.
+5. Calculate the annual cost: verified offsets typically range from $10-50 per tonne CO2e depending on the project type and quality.
 6. Purchase offsets and retain certificates or receipts as documentation.
 7. Completion indicator: residual emissions are fully offset through verified programmes, with certificates or documentation retained, and the household can legitimately claim carbon-neutral or net-zero status.` },
         { title: 'Document the full journey — costs, savings, challenges, and lessons learned', done: false,
@@ -1817,7 +1817,7 @@ The Prophet (peace be upon him) said: "Removing a harmful thing from the road is
 *(Grade: Sahih)*`,
           description: `**Why?**
 
-Individual clean-up efforts are valuable but limited in scale and sustainability. When neighbours see you consistently cleaning shared spaces, it creates social proof — a visible demonstration that someone cares about the community. In Islam, enjoining good (amr bil ma\'ruf) is an obligation, and the most effective form is often leading by example rather than lecturing. A neighbourhood that collectively maintains its environment is healthier, safer, and more cohesive.
+Individual clean-up efforts are valuable but limited in scale and sustainability. When neighbours see you consistently cleaning shared spaces, it creates social proof — a visible demonstration that someone cares about the community. In Islam, enjoining good (amr bil ma'ruf) is an obligation, and the most effective form is often leading by example rather than lecturing. A neighbourhood that collectively maintains its environment is healthier, safer, and more cohesive.
 
 
 **How?**
@@ -2338,7 +2338,7 @@ Impulse purchases are the engine of overconsumption and, ultimately, waste. Mark
 
 **How?**
 
-1. Establish a personal rule: no non-essential purchase over a set threshold (e.g., \$20-\$50) without a 48-hour waiting period.
+1. Establish a personal rule: no non-essential purchase over a set threshold (e.g., $20-$50) without a 48-hour waiting period.
 2. When you feel the urge to buy something, write it down in a "waiting list" — a note on your phone, a small notebook, or a notes app.
 3. Record the item, the price, and why you think you need it. Also note the emotional state you are in (bored, stressed, excited).
 4. After 48 hours, revisit the list. Ask: "Do I still want this? Do I have something that serves the same purpose? Where will this item be in 12 months?"
@@ -2365,7 +2365,7 @@ A cheap appliance that breaks after one year generates waste and requires replac
 4. Favour brands with a reputation for durability and customer support over trendy brands with no track record.
 5. Check whether spare parts (filters, batteries, seals, blades) are readily available and reasonably priced.
 6. Read long-term user reviews (1-2 years post-purchase) rather than only initial impressions — these reveal durability issues that do not appear in early reviews.
-7. Consider the total cost of ownership: a \$200 blender that lasts 10 years costs less per year than a \$50 blender replaced every 18 months.
+7. Consider the total cost of ownership: a $200 blender that lasts 10 years costs less per year than a $50 blender replaced every 18 months.
 8. Benchmark: your next three significant purchases are informed by durability and repairability research, not just price and features.` },
         { title: 'Choose items with longer warranties and available spare parts', done: false,
           sources: `**I. Hadith**
@@ -2704,7 +2704,7 @@ Vague suggestions ("we should recycle more") are easily dismissed. A specific, w
 1. Structure your proposal simply: current situation (from your audit), recommended changes, estimated costs, expected benefits, and implementation timeline.
 2. Limit recommendations to 3-5 specific, actionable items — too many suggestions overwhelm and lead to inaction.
 3. Prioritise quick wins: changes that are low-cost, high-impact, and easy to implement (e.g., adding labelled recycling bins, moving bins to more visible locations).
-4. Include cost estimates — even rough ones. Decision-makers need to know whether this costs \$50 or \$5,000. Where possible, show cost savings (reduced waste collection fees, less bin servicing).
+4. Include cost estimates — even rough ones. Decision-makers need to know whether this costs $50 or $5,000. Where possible, show cost savings (reduced waste collection fees, less bin servicing).
 5. Reference Islamic principles naturally: the masjid should model environmental taharah, and the workplace can demonstrate khalifah values in practice.
 6. Keep the document concise — one to two pages maximum. Attach the detailed audit as an appendix if needed.
 7. Anticipate objections (cost, inconvenience, "we've always done it this way") and address them briefly in the proposal.
@@ -4934,7 +4934,7 @@ The distinction between need and want is the foundation of Islamic moderation. C
 1. Make this question a non-negotiable habit: before adding any clothing item to your cart (online or physical), pause and ask aloud or in writing, "Do I need this, or do I want this?"
 2. If the answer is "want," apply a 48-hour waiting period. If you still want it after 48 hours, evaluate whether it serves a genuine gap in your wardrobe.
 3. If the answer is "need," verify it: can an existing item in your wardrobe serve this function? Can the item it replaces be repaired instead?
-4. Consider the "cost-per-wear" calculation: divide the price by the number of times you realistically expect to wear it. Aim for items that cost less than \$1-2 per wear.
+4. Consider the "cost-per-wear" calculation: divide the price by the number of times you realistically expect to wear it. Aim for items that cost less than $1-2 per wear.
 5. Check if the item can be sourced second-hand, borrowed, or swapped before buying new.
 6. Keep a log of purchases you decided against after asking this question — over time, this log becomes powerful evidence of how much money and waste you avoided.
 
@@ -5626,7 +5626,7 @@ The capsule wardrobe only delivers its environmental benefit if replacement piec
 3. Check the brand's ethical credentials before purchasing: fair labour practices, transparent supply chain, environmental certifications.
 4. Examine construction quality: reinforced seams, quality stitching, durable buttons and zippers. These details determine whether a garment lasts 2 years or 10.
 5. Consider second-hand or vintage options first — a high-quality pre-owned garment is more ethical and more durable than a new fast-fashion piece.
-6. Apply the cost-per-wear calculation: a \$100 garment worn 200 times costs \$0.50 per wear, while a \$20 garment worn 10 times costs \$2.00 per wear.
+6. Apply the cost-per-wear calculation: a $100 garment worn 200 times costs $0.50 per wear, while a $20 garment worn 10 times costs $2.00 per wear.
 7. Care for your investment: follow washing instructions, hang-dry when possible, and repair minor damage promptly to extend garment life.
 
 Benchmark: Every replacement piece in your capsule should be sourced from an ethical brand or second-hand, with an expected useful life of at least 3 years.` },

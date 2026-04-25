@@ -13,12 +13,16 @@ When writing JavaScript/JSON strings containing apostrophes (e.g., Qur'an, don't
 
 ## Build & Dev Commands
 ```bash
-npm run dev        # Start Vite dev server
-npm run build      # Production build
-npm run lint       # ESLint (flat config, eslint.config.js)
-npm run preview    # Preview production build
+npm run dev                     # Start Vite dev server
+npm run build                   # Production build
+npm run lint                    # ESLint (flat config, eslint.config.js)
+npm run preview                 # Preview production build
+npm test                        # Vitest — schema/grounding conformance tests
+npm run lint:grounding          # Informational pillar-level grounding report
+npm run lint:grounding-strict   # Fails on legacy-string sources or schema errors
 ```
-No test framework is configured.
+
+Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` either as a structured array `[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]` (per [wiki/decisions/2026-04-18-milos-grounding-two-axis.md](wiki/decisions/2026-04-18-milos-grounding-two-axis.md)) or as a legacy markdown string. The grounding test in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) ratchets per-pillar legacy counts so migration progress is monotonic — counts can only decrease. Run `npm test` after any seed-task edit.
 
 ## MANDATORY: Context-First Protocol
 STOP. Before you read, modify, or explore ANY source file, you MUST complete these steps in order:

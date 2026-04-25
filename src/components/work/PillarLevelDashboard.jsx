@@ -38,22 +38,6 @@ function detectPillarLevel(projectId) {
   return m ? m[1] : null;
 }
 
-function computeSpans(tasks) {
-  const spans = [];
-  for (let i = 0; i < tasks.length; i += 2) {
-    const a = tasks[i];
-    const b = tasks[i + 1];
-    if (!b) {
-      spans.push(12);
-    } else {
-      const aLen = a.title.length;
-      const bLen = b.title.length;
-      spans.push(aLen >= bLen ? 7 : 5, aLen >= bLen ? 5 : 7);
-    }
-  }
-  return spans;
-}
-
 function formatDue(dateStr) {
   if (!dateStr) return null;
   const d = new Date(dateStr);
@@ -64,11 +48,6 @@ function formatDue(dateStr) {
   if (days === 0) return { text: 'Today',  colorVar: 'var(--warning)' };
   if (days <= 3)  return { text: `${days}d`, colorVar: 'var(--warning)' };
   return { text: d.toLocaleDateString('en', { month: 'short', day: 'numeric' }), colorVar: 'var(--text3)' };
-}
-
-function capitalize(str) {
-  if (!str) return '';
-  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 // ── Pillar card helper ────────────────────────────────────────────────────────
@@ -397,7 +376,7 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
   const doneColId     = columns.find((c) => c.id.endsWith('_done'))?.id ?? null;
   const progressColId = columns.find((c) => c.id.endsWith('_progress'))?.id ?? null;
 
-  const { tasks, tagGroups, statusGroups, metrics } = useMemo(() => {
+  const { tasks, statusGroups, metrics } = useMemo(() => {
     const tasks = tasksByProject[project.id] || [];
 
     // Tag grouping
@@ -435,6 +414,8 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
     const totalSubs     = tasks.reduce((s, t) => s + (t.subtasks?.length ?? 0), 0);
     const doneSubs      = tasks.reduce((s, t) => s + (t.subtasks?.filter((st) => st.done).length ?? 0), 0);
     const subtaskPct    = totalSubs > 0 ? Math.round((doneSubs / totalSubs) * 100) : null;
+    // reason: dashboard rollup snapshot; rerunning this on every render is acceptable
+    // eslint-disable-next-line react-hooks/purity
     const weekAgo       = new Date(Date.now() - 7 * 86400000);
     const recentlyDone  = doneTasks.filter((t) => t.completedAt && new Date(t.completedAt) > weekAgo);
     const masteryCandidates = doneTasks.filter(
@@ -451,12 +432,6 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
       },
     };
   }, [tasksByProject, project.id, doneColId, progressColId]);
-
-  function getStatus(task) {
-    if (task.columnId === doneColId)     return 'done';
-    if (task.columnId === progressColId) return 'in-progress';
-    return 'todo';
-  }
 
   // Empty state
   if (tasks.length === 0) {

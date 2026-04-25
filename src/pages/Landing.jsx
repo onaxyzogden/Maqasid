@@ -264,6 +264,8 @@ function DemoCarousel() {
     if (paused) return;
     const id = setInterval(() => setActiveSlide((s) => (s + 1) % COUNT), 3500);
     return () => clearInterval(id);
+    // reason: COUNT is module-constant; intentionally not a dep
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paused]);
 
   const prev = () => setActiveSlide((s) => (s - 1 + COUNT) % COUNT);

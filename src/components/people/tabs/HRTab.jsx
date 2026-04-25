@@ -61,7 +61,7 @@ export default function HRTab({ contactId }) {
     try {
       const d = parseISO(hiringDate);
       if (isValid(d)) yearsWithCompany = differenceInYears(new Date(), d);
-    } catch {}
+    } catch { /* invalid date; keep default */ }
   }
 
   const dob = contact?.dob;
@@ -75,7 +75,7 @@ export default function HRTab({ contactId }) {
         if (next < today) next.setFullYear(today.getFullYear() + 1);
         daysUntilBirthday = differenceInDays(next, today);
       }
-    } catch {}
+    } catch { /* invalid date; keep default */ }
   }
 
   const dept = departments.find((d) => d.id === (hrRec?.departmentId));

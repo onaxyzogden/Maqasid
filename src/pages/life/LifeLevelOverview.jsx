@@ -11,7 +11,7 @@ import {
   LIFE_LEVEL_ROUTES,
   LIFE_STORAGE_KEY,
   LIFE_ENSURE_PROJECTS,
-} from './LifeLevelNavigator';
+} from './LifeLevelNavigator-constants';
 
 const LEVEL_PATTERN = {
   core: 'dots',

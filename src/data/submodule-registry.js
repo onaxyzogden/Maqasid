@@ -7,31 +7,31 @@ import { getPillarForModule, getSubmoduleLabel } from './maqasid';
 import {
   WEALTH_PILLARS, WEALTH_LEVEL_ROUTES, WEALTH_STORAGE_KEY,
   WEALTH_ENSURE_PROJECTS, WEALTH_LEVEL_DESCRIPTIONS,
-} from '@pages/wealth/WealthCorePage';
+} from '@pages/wealth/WealthCorePage-constants';
 import {
   LIFE_PILLARS, LIFE_LEVEL_ROUTES, LIFE_STORAGE_KEY,
   LIFE_ENSURE_PROJECTS, LIFE_LEVEL_DESCRIPTIONS,
-} from '@pages/life/LifeCorePage';
+} from '@pages/life/LifeCorePage-constants';
 import {
   INTELLECT_PILLARS, INTELLECT_LEVEL_ROUTES, INTELLECT_STORAGE_KEY,
   INTELLECT_ENSURE_PROJECTS, INTELLECT_LEVEL_DESCRIPTIONS,
-} from '@pages/intellect/IntellectCorePage';
+} from '@pages/intellect/IntellectCorePage-constants';
 import {
   FAMILY_PILLARS, FAMILY_LEVEL_ROUTES, FAMILY_STORAGE_KEY,
   FAMILY_ENSURE_PROJECTS, FAMILY_LEVEL_DESCRIPTIONS,
-} from '@pages/family/FamilyCorePage';
+} from '@pages/family/FamilyCorePage-constants';
 import {
   ENVIRONMENT_PILLARS, ENVIRONMENT_LEVEL_ROUTES, ENVIRONMENT_STORAGE_KEY,
   ENVIRONMENT_ENSURE_PROJECTS, ENVIRONMENT_LEVEL_DESCRIPTIONS,
-} from '@pages/environment/EnvironmentCorePage';
+} from '@pages/environment/EnvironmentCorePage-constants';
 import {
   FAITH_PILLARS, FAITH_LEVEL_ROUTES, FAITH_STORAGE_KEY,
   FAITH_ENSURE_PROJECTS,
-} from '@pages/faith/FaithLevelNavigator';
+} from '@pages/faith/FaithLevelNavigator-constants';
 import {
   UMMAH_PILLARS, UMMAH_LEVEL_ROUTES, UMMAH_STORAGE_KEY,
   UMMAH_ENSURE_PROJECTS,
-} from '@pages/ummah/UmmahLevelNavigator';
+} from '@pages/ummah/UmmahLevelNavigator-constants';
 
 // pillarKey (board segment) → moduleId (FAITH_PILLARS.id). Mirrors FaithPillarPage.
 const FAITH_PILLAR_MODULE_MAP = {

@@ -17,6 +17,8 @@ export default function Project() {
 
   useEffect(() => {
     if (projectId) loadTasks(projectId);
+    // reason: loadTasks is a stable store action
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectId]);
 
   // Handle ?task= deep-link from search
@@ -26,6 +28,8 @@ export default function Project() {
       searchParams.delete('task');
       setSearchParams(searchParams, { replace: true });
     }
+    // reason: setSearchParams is stable; deps narrowed to searchParams
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   if (!project) {

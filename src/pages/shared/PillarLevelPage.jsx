@@ -80,6 +80,8 @@ export default function PillarLevelPage({
       const boardId = `${boardPrefix}_${pillarKey}_${lvl}`;
       if (projects.some((p) => p.id === boardId)) loadTasks(boardId);
     }
+    // reason: boardPrefix is caller-stable for a given page; deps narrowed
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects, pillarKey, loadTasks]);
 
   const boardId = `${boardPrefix}_${pillarKey}_${activeLevel}`;

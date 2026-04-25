@@ -26,7 +26,7 @@ import {
   UMMAH_LEVEL_ROUTES,
   UMMAH_STORAGE_KEY,
   UMMAH_ENSURE_PROJECTS,
-} from './UmmahLevelNavigator';
+} from './UmmahLevelNavigator-constants';
 import './UmmahDashboard.css';
 
 const LEVEL_PATTERN = {

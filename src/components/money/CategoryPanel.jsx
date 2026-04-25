@@ -27,6 +27,8 @@ export default function CategoryPanel({ open, category, onClose }) {
   // Reset form whenever the panel opens
   useEffect(() => {
     if (!open) return;
+    // reason: hydrate form from props each open; init state can't capture latest category
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setName(category?.name ?? '');
     setColor(category?.color ?? DEFAULT_COLOR);
     setIsEssential(category?.isEssential ?? false);

@@ -34,6 +34,8 @@ export default function QuranEmbed({ verseKey }) {
   useEffect(() => {
     if (!useIframe) return;
     ensureWidgetScript();
+    // reason: reset load flag whenever the embed (re)mounts for a new verse
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoaded(false);
     timeoutRef.current = setTimeout(() => {
       setUseIframe(false);

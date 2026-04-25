@@ -1,4 +1,4 @@
-import { Leaf, Diamond, Infinity } from 'lucide-react';
+import { Leaf, Diamond, Infinity as InfinityIcon } from 'lucide-react';
 import FaithLevelNavigator from './FaithLevelNavigator';
 import './FaithDashboard.css';
 
@@ -19,7 +19,7 @@ export default function FaithDashboard() {
         <div className="faith-footer__icons">
           <Leaf size={20} />
           <Diamond size={20} />
-          <Infinity size={20} />
+          <InfinityIcon size={20} />
         </div>
       </footer>
 

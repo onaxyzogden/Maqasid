@@ -14,11 +14,10 @@ import './InlineTaskDetail.css';
  * Preserves the same auto-status logic as TaskDetailPanel:
  *   To Do → In Progress on open; revert on close if no subtasks completed.
  */
-export default function InlineTaskDetail({ project, projectId, taskId, levelColor, onClose }) {
+export default function InlineTaskDetail({ project, projectId, taskId, onClose }) {
   const cardRef = useRef(null);
   const task         = useTaskStore((s) => s.getTask(projectId, taskId));
   const updateTask   = useTaskStore((s) => s.updateTask);
-  const addSubtask   = useTaskStore((s) => s.addSubtask);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
 
   const moveTask     = useTaskStore((s) => s.moveTask);
@@ -26,7 +25,6 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
   const [title, setTitle]           = useState('');
   const [description, setDescription] = useState('');
   const [notes, setNotes]           = useState('');
-  const [newSubtask, setNewSubtask] = useState('');
 
   const saveTimeout   = useRef(null);
   const titleRef      = useRef(null);
@@ -39,7 +37,6 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
   const currentDoneCountRef   = useRef(0);
 
   const columns     = project?.columns || [];
-  const currentCol  = columns.find((c) => c.id === task?.columnId);
 
   // Keep currentDoneCount in sync with live subtask data
   useEffect(() => {
@@ -110,6 +107,8 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
       setDescription(task.description || '');
       setNotes(task.notes || '');
     }
+    // reason: depend on discrete fields, not unstable task object reference
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId, task?.title, task?.description, task?.notes]);
 
   if (!task) return null;
@@ -118,13 +117,6 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
   const autoSave = (field, value) => {
     clearTimeout(saveTimeout.current);
     saveTimeout.current = setTimeout(() => updateTask(projectId, taskId, { [field]: value }), 300);
-  };
-
-  const handleAddSubtask = () => {
-    if (newSubtask.trim()) {
-      addSubtask(projectId, taskId, newSubtask.trim());
-      setNewSubtask('');
-    }
   };
 
   const handleStatusChange = (colId) => {
@@ -277,7 +269,8 @@ export default function InlineTaskDetail({ project, projectId, taskId, levelColo
       </div>
 
       {/* Tags */}
-      {(task.tags?.length > 0 || true) && (
+      {(
+
         <div>
           <div className="iltd__section-label">Tags</div>
           <div className="iltd__tags-row">

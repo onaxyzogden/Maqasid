@@ -953,7 +953,7 @@ Not every good idea is a viable one, and not every viable idea is halal. Evaluat
 
 1. Create an evaluation table with columns: Idea Name, Halal Status, Startup Cost, Monthly Time Required, Revenue Potential, and Overall Score.
 2. **Halal compliance:** Apply your halal earning framework to each idea. Does the product or service involve anything haram? Does the business model involve riba, gharar, or maysir? Would marketing or sales require deception? Rate as: Clearly Halal, Needs Verification, or Potentially Problematic.
-3. **Startup cost:** Estimate the minimum upfront investment needed — equipment, software, licensing, inventory, marketing. Distinguish between ideas that can start with under \$500 versus those requiring thousands.
+3. **Startup cost:** Estimate the minimum upfront investment needed — equipment, software, licensing, inventory, marketing. Distinguish between ideas that can start with under $500 versus those requiring thousands.
 4. **Time commitment:** Estimate the weekly hours required to launch and then to maintain. Be honest about your available time — overcommitting leads to burnout and harms both your primary job and family responsibilities.
 5. **Revenue potential:** Based on your market research, estimate realistic monthly revenue after the first 3-6 months. Avoid inflated projections — use conservative figures.
 6. Score each idea on a 1-5 scale across all four criteria and calculate a weighted total (weight halal compliance heaviest).
@@ -1212,7 +1212,7 @@ Every dirham saved from wasteful spending is a dirham that can be directed towar
 1. Review your baseline month of data and sort all discretionary spending categories from highest to lowest.
 2. For each of the top 5 discretionary categories, ask: "Does this spending genuinely serve my well-being and my family's needs, or has it become habitual, excessive, or driven by social pressure?"
 3. Identify the top 3 categories where you could realistically reduce spending by 20-50% without meaningful harm to your quality of life. Common candidates include: dining out, subscriptions and memberships, impulse purchases, entertainment, and branded items where generic alternatives exist.
-4. For each identified area, define a specific, measurable reduction target: "Reduce dining out from \$400/month to \$250/month" rather than "eat out less."
+4. For each identified area, define a specific, measurable reduction target: "Reduce dining out from $400/month to $250/month" rather than "eat out less."
 5. Determine where the freed-up funds will go — the redirection is as important as the reduction. Options include: increasing zakah savings, accelerating debt repayment, building the emergency fund, or increasing sadaqah.
 6. Implement the changes for one month and then evaluate: was the reduction sustainable? Did it cause genuine hardship or merely mild inconvenience? Adjust as needed.
 7. Resist the temptation to redirect savings toward other discretionary categories — the goal is to channel funds toward higher-priority uses, not to swap one indulgence for another.
@@ -4667,7 +4667,7 @@ The Quranic command to document transactions (2:282) is not limited to formal co
 
 **How?**
 
-1. **Set your threshold.** Choose an amount that is meaningful in your financial context. A common approach is to document any transaction exceeding one day's earnings, or a fixed amount (e.g., \$100, \$500) depending on your income level.
+1. **Set your threshold.** Choose an amount that is meaningful in your financial context. A common approach is to document any transaction exceeding one day's earnings, or a fixed amount (e.g., $100, $500) depending on your income level.
 
 2. **Define what constitutes a "written record."** At minimum: the date, the parties involved, the amount, what was exchanged (goods, services, loan), the terms (payment schedule, delivery date), and signatures or acknowledgment from both parties.
 
@@ -5501,7 +5501,7 @@ The rate of 2.5% (one-fortieth) on most categories of wealth is a divinely presc
 
 1. **Take your net zakatable wealth figure.** This is the number from the previous step — total zakatable assets minus immediately due debts.
 
-2. **Multiply by 0.025.** This gives you exactly 2.5% of your net zakatable wealth. For example, if your net zakatable wealth is \$40,000, your zakah is \$1,000.
+2. **Multiply by 0.025.** This gives you exactly 2.5% of your net zakatable wealth. For example, if your net zakatable wealth is $40,000, your zakah is $1,000.
 
 3. **Handle different asset categories separately if needed.** Agricultural produce, livestock, and mineral extraction have different rates (5%, 10%, or 20% depending on the category). If you hold these, calculate them at their specific rates rather than the standard 2.5%.
 
@@ -5744,7 +5744,7 @@ Each missed year carries its own independent zakah obligation — you cannot sim
 
 1. **Take each year's estimated zakatable wealth from your reconstruction.** Work through one year at a time, starting from the earliest missed year.
 
-2. **Apply the 2.5% rate to each year's figure.** For example, if you estimate your zakatable wealth was \$20,000 in a given year, the zakah for that year is \$500.
+2. **Apply the 2.5% rate to each year's figure.** For example, if you estimate your zakatable wealth was $20,000 in a given year, the zakah for that year is $500.
 
 3. **Handle compounding correctly.** There is scholarly discussion on whether unpaid zakah from previous years reduces the base for subsequent years. The safer opinion is to calculate each year on the full estimated wealth for that year. Consult a scholar if the amounts are significant.
 
@@ -5807,7 +5807,7 @@ If the total outstanding zakah is substantial — which is common when multiple 
 
 3. **Prioritise this year's zakah first.** Current-year zakah takes precedence — do not delay it in favour of past obligations.
 
-4. **Set a realistic but ambitious timeline.** If you owe \$5,000 in outstanding zakah and can pay \$500/month, plan for 10 months. Aim to clear the debt as quickly as possible without causing hardship.
+4. **Set a realistic but ambitious timeline.** If you owe $5,000 in outstanding zakah and can pay $500/month, plan for 10 months. Aim to clear the debt as quickly as possible without causing hardship.
 
 5. **Distribute on a regular schedule.** Treat each monthly payment like a bill — set up reminders or automatic transfers to maintain consistency.
 
@@ -5900,11 +5900,11 @@ Paying the full zakah amount in one lump sum at the hawl date can feel financial
 
 1. **Estimate your annual zakah.** Use last year's calculation as a baseline, or make a conservative estimate based on your current assets. You can adjust later.
 
-2. **Divide by twelve.** If your estimated annual zakah is \$1,200, your monthly transfer is \$100.
+2. **Divide by twelve.** If your estimated annual zakah is $1,200, your monthly transfer is $100.
 
 3. **Set up the automatic transfer.** Configure a recurring monthly transfer from your primary account to your dedicated zakah account on a fixed date — ideally right after payday.
 
-4. **Build in a buffer.** Consider rounding up slightly (e.g., \$110 instead of \$100) to account for asset growth during the year. Any surplus can become voluntary sadaqah.
+4. **Build in a buffer.** Consider rounding up slightly (e.g., $110 instead of $100) to account for asset growth during the year. Any surplus can become voluntary sadaqah.
 
 5. **Review the estimate quarterly.** If your income or assets change significantly, adjust the monthly amount so the fund stays aligned with your actual obligation.
 
@@ -5954,7 +5954,7 @@ A zakah fund that runs on autopilot without periodic review may drift out of ali
 
 1. **Set a quarterly reminder.** Choose four dates spread evenly through the year — ideally at the end of each financial quarter or at the start of each Islamic season.
 
-2. **Check the current balance against projections.** Compare what is in the zakah account with what you expect to owe. If you estimated \$1,200 annually, you should have approximately \$300 by the end of the first quarter.
+2. **Check the current balance against projections.** Compare what is in the zakah account with what you expect to owe. If you estimated $1,200 annually, you should have approximately $300 by the end of the first quarter.
 
 3. **Reassess your zakatable assets.** Have you acquired new investments, received a windfall, or paid off significant debts? Any of these changes your zakatable base.
 
@@ -6163,7 +6163,7 @@ The Prophet (peace be upon him) taught that the most beloved deeds to Allah are 
 
 1. **Review your monthly budget.** After accounting for necessities (nafaqah), zakah savings, debt repayment, and a reasonable emergency buffer, identify what remains as discretionary income.
 
-2. **Start with 1-3% of your net income.** This is a manageable starting point for most people. If your net monthly income is \$4,000, begin with \$40-\$120 per month.
+2. **Start with 1-3% of your net income.** This is a manageable starting point for most people. If your net monthly income is $4,000, begin with $40-$120 per month.
 
 3. **Test the amount for one month.** Live with it before committing to automation. Did it cause hardship? Did you barely notice it? Adjust accordingly.
 
@@ -6411,7 +6411,7 @@ Qard hasan is an act of immense virtue, but it must not come at the expense of y
 
 3. **Apply a conservative threshold.** Do not lend more than you could afford to lose entirely. While qard hasan expects repayment, the borrower may face genuine hardship, and you should be prepared for that possibility.
 
-4. **Consider the timeframe.** A \$1,000 loan repaid in three months is very different from \$1,000 repaid over two years. Factor in how long you can have the money inaccessible.
+4. **Consider the timeframe.** A $1,000 loan repaid in three months is very different from $1,000 repaid over two years. Factor in how long you can have the money inaccessible.
 
 5. **Protect your emergency fund.** Never lend from your emergency reserves. An unexpected expense on your end should not force you to pressure the borrower for early repayment.
 
@@ -6619,7 +6619,7 @@ Research without commitment is procrastination dressed as diligence. The spiritu
 
 1. **Choose the project that best combines credibility, impact, and personal resonance.** You will sustain contributions more easily to a cause that genuinely moves you.
 
-2. **Determine a monthly contribution amount.** This should be separate from your zakah and regular sadaqah. Even a small amount — \$20 or \$50 per month — compounds into significant impact over years.
+2. **Determine a monthly contribution amount.** This should be separate from your zakah and regular sadaqah. Even a small amount — $20 or $50 per month — compounds into significant impact over years.
 
 3. **Set up a recurring payment.** Automate the contribution just as you did with regular sadaqah. Consistency is the hallmark of beloved deeds.
 
@@ -7004,14 +7004,14 @@ Children who participate in charitable decision-making grow into adults who give
 **Translation:** Those who spend their wealth [in Allah's way] by night and by day, secretly and publicly — for them is their reward with their Lord.`,
           description: `**Why?**
 
-Tracking transforms scattered acts of kindness into a documented legacy of generosity. When a family can look back and see that they collectively gave \$2,400 over the past year — feeding twelve families during Ramadan, sponsoring a student's tuition, and contributing to a masjid expansion — the cumulative picture is far more powerful than any individual gift. This record becomes a source of family pride, a motivator to continue and increase, and a tangible inheritance of values that children carry into their own households. It also ensures accountability — every dollar collected is accounted for and distributed.
+Tracking transforms scattered acts of kindness into a documented legacy of generosity. When a family can look back and see that they collectively gave $2,400 over the past year — feeding twelve families during Ramadan, sponsoring a student's tuition, and contributing to a masjid expansion — the cumulative picture is far more powerful than any individual gift. This record becomes a source of family pride, a motivator to continue and increase, and a tangible inheritance of values that children carry into their own households. It also ensures accountability — every dollar collected is accounted for and distributed.
 
 
 **How?**
 
 1. **Create a simple family sadaqah ledger.** A notebook, spreadsheet, or note on a shared family device. Columns: date, contributor, amount in, recipient, amount out, running balance.
 
-2. **Record every contribution.** Even small amounts matter — a child's \$2 contribution should be logged just as carefully as a parent's \$100.
+2. **Record every contribution.** Even small amounts matter — a child's $2 contribution should be logged just as carefully as a parent's $100.
 
 3. **Record every distribution.** Note who received the funds, the approximate amount, and what it was intended for.
 
@@ -7125,7 +7125,7 @@ The wasiyyah — your Islamic will's charitable bequest — is the portion of yo
 
 3. **Consider establishing a waqf.** A portion of your wasiyyah can seed a permanent endowment that generates returns indefinitely — combining the wasiyyah with sadaqah jariyah for maximum perpetual impact.
 
-4. **Name specific organisations or projects.** Vague instructions like "give to charity" create confusion for executors. Be specific: "Allocate \$50,000 to [Organisation] for their water well program."
+4. **Name specific organisations or projects.** Vague instructions like "give to charity" create confusion for executors. Be specific: "Allocate $50,000 to [Organisation] for their water well program."
 
 5. **Ensure the wasiyyah does not benefit an heir.** Islamic law prohibits bequeathing additional wealth to someone who already receives a fara'id share, unless all other heirs consent.
 

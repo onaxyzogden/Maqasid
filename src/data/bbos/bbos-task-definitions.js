@@ -9,12 +9,10 @@
 
 export const BBOS_TASK_DEFINITIONS = [
   {
-    id: "FND-S1",
-    stage: "FND",
+    id: "IDY-S1",
+    stage: "IDY",
     subLevel: "S1",
     label: "Raw Intake Capture",
-    governingAttributes: ["Al-Awwal","Ash-Shahid"],
-    attrMeaning: "Ash-Shahid witnesses every declaration — the accurate version and the comfortable one. The raw capture preserves your exact language before any normalisation, because the first act of the system must honour what was actually said, not what was convenient to hear.",
     purpose: "Your answers as provided, without normalisation or interpretation. Preserves your exact language as the foundational record.",
     fields: [
       {
@@ -65,12 +63,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "FND-S2",
-    stage: "FND",
+    id: "IDY-S2",
+    stage: "IDY",
     subLevel: "S2",
     label: "Normalised Intake Packet",
-    governingAttributes: ["Al-Awwal","Ash-Shahid"],
-    attrMeaning: "Ash-Shahid witnesses the normalisation process — it is an honest mapping of what was declared, not an interpretation in the best possible light. Gaps and ambiguities must be surfaced, not resolved by charitable inference.",
     purpose: "The intake answers mapped to their corresponding BBOS fields (Capital, Skills, Proof, Constraints, Geography, Regulatory Pre-Check). Flags any field where the answer does not clearly map to the required data.",
     fields: [
       {
@@ -128,12 +124,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "FND-S3",
-    stage: "FND",
+    id: "IDY-S3",
+    stage: "IDY",
     subLevel: "S3",
     label: "Gap Check",
-    governingAttributes: ["Al-Awwal","Ash-Shahid"],
-    attrMeaning: "Al-Awwal governs the integrity of beginnings. A gap is a gap — naming it honestly before anything is built on top of it is how the system begins rightly.",
     purpose: "A review of which required fields are incomplete, ambiguous, or unverifiable from the intake data provided. Each gap listed with: what is missing, why it is required, and what information would resolve it.",
     fields: [
       {
@@ -162,19 +156,17 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "FND-S4",
-    stage: "FND",
+    id: "IDY-S4",
+    stage: "IDY",
     subLevel: "S4",
     label: "Routing Decision",
-    governingAttributes: ["Al-Awwal","Ash-Shahid"],
-    attrMeaning: "Al-Awwal governs the integrity of beginnings. The routing decision is the first consequential act of the system — a routing made honestly, including routing to rejection when the intake reveals a genuine barrier, is an act of building rightly from the start.",
-    purpose: "Based on the normalised packet and gap check: route to Stage TRU (QAL) if the intake is sufficiently complete and no disqualifying conditions are present, or output NO-SHIP — INTAKE INCOMPLETE if gaps prevent valid routing.",
+    purpose: "Based on the normalised packet and gap check: route to Stage CRD if the intake is sufficiently complete and no disqualifying conditions are present, or output NO-SHIP — INTAKE INCOMPLETE if gaps prevent valid routing.",
     fields: [
       {
         id: "routingDecision",
         type: "select",
         label: "Routing Decision",
-        options: [{"value":"proceed","label":"Proceed → TRU (Stage 02 QAL)"},{"value":"incomplete","label":"NO-SHIP — Intake Incomplete"},{"value":"reject","label":"Reject → Responsible Removal (Stage 02.1)"}],
+        options: [{"value":"proceed","label":"Proceed → CRD (Stage 02 Credibility)"},{"value":"incomplete","label":"NO-SHIP — Intake Incomplete"},{"value":"reject","label":"Reject → Responsible Removal (Stage 02.1)"}],
       },
       {
         id: "routingBasis",
@@ -196,12 +188,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "TRU-S1",
-    stage: "TRU",
+    id: "CRD-S1",
+    stage: "CRD",
     subLevel: "S1",
     label: "Core Competency",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Khabir knows the real constraint — including the competency you have but have not yet named with precision, and the one you claim but cannot demonstrate. S1 is the honest answer to: what can you actually deliver?",
     purpose: "A precise, evidence-backed definition of your highest-leverage skill or unique operational expertise. The singular, most potent capability that forms the bedrock of your potential business model.",
     fields: [
       {
@@ -230,12 +220,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["PROOF_PENDING"],
   },
   {
-    id: "TRU-S2",
-    stage: "TRU",
+    id: "CRD-S2",
+    stage: "CRD",
     subLevel: "S2",
     label: "Advantage Register",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq measures every claim against unchanging reality. The advantage declared here must be genuinely sustainable and principle-driven — not aspirational branding dressed as competitive moat.",
     purpose: "The articulation of your sustainable, principle-driven competitive advantage derived from S1 in the context of your target market. The moat built on integrity.",
     fields: [
       {
@@ -265,12 +253,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "TRU-S3",
-    stage: "TRU",
+    id: "CRD-S3",
+    stage: "CRD",
     subLevel: "S3",
     label: "Integrity Proof Audit",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq does not bend — weak or non-verifiable proof cannot ethically justify the high-integrity claims of G1/G2 deliverables later in the system. The Proof Audit is the system's act of honest scrutiny.",
     purpose: "A detailed, objective assessment of the Integrity Proof Links provided. Quantifies the reliability, scope, and direct ethical relevance of the provided evidence. Highlights gaps in proof.",
     fields: [
       {
@@ -306,12 +292,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["PROOF_PENDING"],
   },
   {
-    id: "TRU-S4",
-    stage: "TRU",
+    id: "CRD-S4",
+    stage: "CRD",
     subLevel: "S4",
     label: "Energy Profile",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Khabir knows the inner reality behind every intake answer — including the exhaustion you did not declare. The Energy Profile is your act of honest self-reckoning before God. Candor here is shukr for the capacity you actually have.",
     purpose: "A psychological and operational map based on the intersection of Core Competency (S1) and Work Aversions. Identifies energy-generating vs energy-depleting activities. Designs for your longevity.",
     fields: [
       {
@@ -348,12 +332,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "TRU-S5",
-    stage: "TRU",
+    id: "CRD-S5",
+    stage: "CRD",
     subLevel: "S5",
     label: "Constraint Map",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Khabir knows the hidden reality — the constraint you minimised and the runway shorter than declared. Optimism here is a debt that compounds with interest across every stage that follows.",
     purpose: "A comprehensive outline of all significant limitations or obstacles. Includes Financial Stewardship Horizon, proof gaps (S3), regulatory hurdles, and resource dependencies. Critical for risk mitigation.",
     fields: [
       {
@@ -396,12 +378,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "TRU-S6",
-    stage: "TRU",
+    id: "CRD-S6",
+    stage: "CRD",
     subLevel: "S6",
     label: "Regulatory Baseline",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq does not negotiate with regulatory reality. A Regulatory Hard Stop is a non-negotiable pause — proceeding without clearance is building on a foundation that contradicts divine reality.",
     purpose: "A distilled summary of the essential permits, licenses, zoning compliance requirements, and operational standards mandated by the Target Zoning/Geography.",
     fields: [
       {
@@ -437,12 +417,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "TRU-V1",
-    stage: "TRU",
+    id: "CRD-V1",
+    stage: "CRD",
     subLevel: "V1",
     label: "Viability Gate Results (Integrity Matrix)",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq — the gate exists because truth is the only viable foundation. A pass that is not genuinely earned is a deferred failure. Every niche candidate must clear Gates A–D honestly.",
     purpose: "Each niche candidate evaluated against the four foundational gates: Regulatory Clearance (A), Addressable Market Fit (B), Certification/Competence Proof (C), and Proven Demand (D). Integrity first, opportunity second.",
     fields: [
       {
@@ -488,12 +466,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "TRU-V2",
-    stage: "TRU",
+    id: "CRD-V2",
+    stage: "CRD",
     subLevel: "V2",
     label: "Removed Niche Log",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq does not bend to pipeline anxiety or sunk cost. If a candidate cannot clear Gates A–D honestly, the removal is itself an act of worship — protecting the foundation.",
     purpose: "A documented log of all niche candidates removed during the viability pre-check, with the specific gate that caused removal and the reason.",
     fields: [
       {
@@ -516,12 +492,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "TRU-V3",
-    stage: "TRU",
+    id: "CRD-V3",
+    stage: "CRD",
     subLevel: "V3",
     label: "Cleared Candidate Handoff",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq — only candidates that genuinely passed the viability gates are handed off. The handoff document is a declaration of truthful clearance, not an optimistic interpretation of borderline results.",
     purpose: "The list of niche candidates that cleared all four viability gates, ready for scoring in the Asset Factory. Each candidate documented with its gate results.",
     fields: [
       {
@@ -544,12 +518,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "TRU-FP02",
-    stage: "TRU",
+    id: "CRD-FP02",
+    stage: "CRD",
     subLevel: "FP-02",
     label: "Amanah Intake Screening Rubric",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq does not negotiate. The three starred disqualifiers are moments where the system asks: is this built on truth? When pipeline is thin, the temptation to soften a hard no is at its highest. That softening is batil.",
     purpose: "A binary, escalation-ready screening tool that makes the Amanah Gate delegable. Score each question YES or NO based only on intake data — no inference, no benefit of the doubt. Automatic Disqualifiers trigger immediate rejection.",
     fields: [
       {
@@ -631,12 +603,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "TRU-AF1",
-    stage: "TRU",
+    id: "CRD-AF1",
+    stage: "CRD",
     subLevel: "AF-1",
     label: "Offer Category Match",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq — the offer category must emerge from the truthful intersection of competency, advantage, and market need. Forcing a match where none exists is building on batil.",
     purpose: "The mapping of your S1 Core Competency and S2 Advantage Register to viable offer categories that genuinely align with your capabilities.",
     fields: [
       {
@@ -659,12 +629,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "TRU-AF2",
-    stage: "TRU",
+    id: "CRD-AF2",
+    stage: "CRD",
     subLevel: "AF-2",
     label: "Niche Candidates Scored",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Khabir knows the real constraint. The score that reflects honest capacity is the score that carries Barakah forward. Inflated scores produce batil outcomes.",
     purpose: "Each cleared niche candidate scored against your capabilities, market fit, and constraint profile. Scores reflect honest capacity, not aspirational potential.",
     fields: [
       {
@@ -701,12 +669,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "TRU-AF3",
-    stage: "TRU",
+    id: "CRD-AF3",
+    stage: "CRD",
     subLevel: "AF-3",
     label: "Niche Scoring Matrix",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Khabir — God knows the real constraint. The score that reflects honest capacity is the score that carries Barakah forward.",
     purpose: "A structured matrix presenting all scored niche candidates side by side for comparison, enabling transparent selection based on truthful assessment.",
     fields: [
       {
@@ -729,12 +695,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "TRU-AF4",
-    stage: "TRU",
+    id: "CRD-AF4",
+    stage: "CRD",
     subLevel: "AF-4",
     label: "Score Pattern Analysis",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq — patterns in the data reveal the truth about where your real advantage lies. The analysis must report what the patterns actually show, not what you hope they show.",
     purpose: "Analysis of patterns across the scoring matrix — where scores cluster, where gaps appear, and what the patterns reveal about your genuine strategic position.",
     fields: [
       {
@@ -764,12 +728,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "TRU-AF5",
-    stage: "TRU",
+    id: "CRD-AF5",
+    stage: "CRD",
     subLevel: "AF-5",
     label: "Amanah Proof Audit",
-    governingAttributes: ["Al-Haqq","Al-Khabir"],
-    attrMeaning: "Al-Haqq measures every claim against unchanging reality. The Proof Audit is the scrutiny of evidence — weak or non-verifiable proof cannot ethically justify the high-integrity claims of G1/G2 deliverables.",
     purpose: "The definitive audit of all claimed proof for the selected niche, quantifying reliability and identifying claims that cannot be ethically sustained through the pipeline.",
     fields: [
       {
@@ -803,8 +765,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "S1",
     label: "Market Definition",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees through every surface into the hidden reality beneath. The Market Definition must define the target buyer's actual situation — not the version the operator projects onto them — with the precision of genuine seeing.",
     purpose: "Define the target buyer's current situation, their immediate context, and the specific goal they are trying to accomplish.",
     fields: [
       {
@@ -838,8 +798,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "S2",
     label: "Voice of Customer (Buying Language Bank)",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees what people cannot say about themselves. The rule here is verbatim only — the exact phrase someone used when the performance dropped is a window into a reality they did not consciously choose to share. Paraphrasing closes the window.",
     purpose: "A list of 15+ verbatim phrases from the sources describing problems, frustrations, and the specific hell the target audience is trying to escape. Verbatim only — no paraphrasing.",
     fields: [
       {
@@ -873,8 +831,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "S3",
     label: "Emotional Triggers",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees the hidden tears and the fears people edit out of their public lives. The emotional triggers catalogued here must come from what was genuinely present in the data — not from what the operator assumes the audience feels.",
     purpose: "Catalog the top 3 fears (what keeps them up) and top 3 desires (what they secretly hope for) found in the data, for each audience segment.",
     fields: [
       {
@@ -908,8 +864,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "S4",
     label: "Competitive Enemy Analysis",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees the full context of a human life — the enemy is always an external system, a convergent set of forces that has trapped a human being who was trying their best. Blaming the customer for being in the trap is the absence of basirah.",
     purpose: "Identify 'The Enemy' — the external force causing the problem — and summarise how current competitor solutions in the sources are failing to defeat it. The enemy is never the customer's character.",
     fields: [
       {
@@ -950,9 +904,7 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "S5",
     label: "Operator Strategic Constraints",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees without distortion — including the operator's own constraints. Anything not directly confirmed in the QAL Asset Pack must be labelled ASSUMPTION. Blurring the boundary between what was seen and what was inferred is seeing carelessly before the All-Seeing.",
-    purpose: "Based on the Operator Asset Inventory (Stages FND–TRU), list the specific constraints (time, capital, skills, energy) that this strategy must respect. Label anything not confirmed in the QAL Asset Pack as ASSUMPTION.",
+    purpose: "Based on the Operator Asset Inventory (Stages IDY–CRD), list the specific constraints (time, capital, skills, energy) that this strategy must respect. Label anything not confirmed in the CRD Asset Pack as ASSUMPTION.",
     fields: [
       {
         id: "timeConstraint",
@@ -986,7 +938,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "assumptionFlags",
         type: "textarea",
         label: "Assumption Flags",
-        placeholder: "Any constraint above that is ASSUMED rather than confirmed from QAL data — label explicitly...",
+        placeholder: "Any constraint above that is ASSUMED rather than confirmed from CRD data — label explicitly...",
         rows: 3,
       },
     ],
@@ -999,8 +951,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "V1",
     label: "Integrity Matrix",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees without distortion. The integrity matrix pass/fail determination must be earned from genuine data, not shaped by what the operator wants the market to be.",
     purpose: "The Amanah Viability Pre-Check for the strategy stage — evaluating each niche candidate against integrity criteria before strategy assets are built.",
     fields: [
       {
@@ -1026,8 +976,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "V2",
     label: "Responsible Removal Log",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees clearly — removal from the pipeline is an act of honest seeing, not a failure of hospitality. Documenting the removal protects the integrity of the system.",
     purpose: "A documented log of niche candidates or strategy directions removed during the integrity pre-check, with the specific reason and what was genuinely seen in the data.",
     fields: [
       {
@@ -1054,8 +1002,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "V3",
     label: "Cleansed Candidate Handoff",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir — only what was genuinely seen and verified passes to the asset factory. The handoff is a declaration of honest clearance.",
     purpose: "The list of strategy candidates that cleared the integrity matrix, ready for asset production. Each candidate documented with its integrity results.",
     fields: [
       {
@@ -1082,8 +1028,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "AF-1",
     label: "The Belief (Strategic Contribution)",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees the hidden reality — the Belief Statement must emerge from what was genuinely seen in the VoC data, not from what the operator wants the prospect to believe.",
     purpose: "One specific sentence the prospect must believe is true to take action. Emotionally resonant, using customer language from S2. If believed, the operator's offer becomes the only logical solution.",
     fields: [
       {
@@ -1117,8 +1061,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "AF-2",
     label: "Enemy Narrative (Stewardship Opportunities)",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees the full context — the cultural forces, the theological weight, the economic pressure — that has produced the struggle. Write the Before state as a portrait of a person genuinely trapped by forces larger than their choices. Assumption dressed as empathy does not carry Barakah.",
     purpose: "A 3-paragraph Transformation Arc: (1) The Before state — the struggle against the external Enemy, (2) The Transformation — how the operator's method changes the situation, (3) The After state — the G4-labelled Aspirational Outcome.",
     fields: [
       {
@@ -1152,8 +1094,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "AF-3",
     label: "Positioning Statement",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir — the positioning statement must be seeded from verbatim VoC language. Positioning built on the operator's summary of human language does not carry the same quality as positioning built on actual human language.",
     purpose: "A one-sentence statement defining how the operator stands apart from the competitors listed in S3/S4. Must use verbatim VoC language from S2 as its seed.",
     fields: [
       {
@@ -1187,8 +1127,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "AF-4",
     label: "Amanah Content Engine",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir — every content angle must address a specific Fear or Desire from S3 that was genuinely present in the data. Dream Outcomes labelled G4. Process claims labelled G1 or G2. No certainty theatre.",
     purpose: "6 distinct content angles (hooks and core arguments) derived from the STR research. Each angle addresses a specific Fear or Desire from S3. All Dream Outcomes labelled G4. Process claims labelled G1 or G2.",
     fields: [
       {
@@ -1243,8 +1181,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "STR",
     subLevel: "AF-5",
     label: "Truth-Gate Advisory",
-    governingAttributes: ["Al-Basir"],
-    attrMeaning: "Al-Basir sees without distortion — the three phrases safe for use as headlines must be earned from what was genuinely present in the VoC data, not shaped by what the operator wants the offer to claim. What was not seen cannot be safely declared.",
     purpose: "Identify the 3 strongest Buying Language phrases that are safe to use as headlines without further substantiation. These must earn that designation from the data — not from the offer.",
     fields: [
       {
@@ -1303,8 +1239,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "S1",
     label: "Niche Summary",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl requires that the niche is defined with honest precision — not inflated to appear larger than it is, nor narrowed to avoid discomfort. Al-Muqsit ensures the operator serves a community whose needs they can genuinely meet.",
     purpose: "Define the specific market niche the operator serves — whom we serve, with what problem, and why this operator is the right steward for this audience.",
     fields: [
       {
@@ -1338,8 +1272,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "S2",
     label: "Voice of Customer",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Muqsit demands that the operator listens to what customers truly need — not what the operator wishes they needed. Equity begins with honest reception of the other party's reality.",
     purpose: "Capture the authentic language, pain points, desires, and decision drivers of the target audience using real market data — not operator assumptions.",
     fields: [
       {
@@ -1380,8 +1312,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "S3",
     label: "Competitor References",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl requires honest assessment of the competitive landscape — neither dismissing competitors out of arrogance nor inflating them out of insecurity. The standard is truthful positioning.",
     purpose: "Map the competitive landscape to understand where the operator stands — identifying gaps, strengths, and honest differentiation opportunities.",
     fields: [
       {
@@ -1415,8 +1345,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "S4",
     label: "Pricing References",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Muqsit governs the exchange: pricing references must be gathered to ensure what the operator charges reflects genuine market reality — not aspiration or avoidance. Fair pricing begins with honest research.",
     purpose: "Research market pricing to establish what is fair and right — benchmarking against competitor rates, perceived value, and the operator's genuine cost of delivery.",
     fields: [
       {
@@ -1450,8 +1378,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "S5",
     label: "Operator Constraints",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl sees the difference between the operator's actual capacity and their aspirational capacity. S5 is the hard stop that prevents the offer from exceeding what is truly possible — because a covenant built beyond real constraints is unjust.",
     purpose: "Document the operator's real constraints — capacity, time, bandwidth, geography, tools — as non-negotiable hard stops that the offer cannot exceed.",
     fields: [
       {
@@ -1485,8 +1411,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A1",
     label: "The Promise (G1/G2)",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl does not accept certainty theater. The Promise must be exactly what will be delivered — a G1 (deliverable) or G2 (standard) commitment backed by verifiable proof. A G3 labeled as G2 is a covenant made on ground the operator does not control.",
     purpose: "Define the core guaranteed result or transformation the client receives. Must be G1 or G2 only — with formal proof documentation or PROOF PENDING status. Strictly prohibited from client-facing use without proof.",
     fields: [
       {
@@ -1525,8 +1449,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A2",
     label: "Ideal Customer Profile",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Muqsit ensures the operator serves only those they can genuinely help. An ICP built honestly protects both parties — the client from receiving what does not fit, and the operator from committing to what they cannot steward well.",
     purpose: "A detailed, data-driven profile of the specific customer segment — demographics, psychographics, buying behavior, and qualification criteria.",
     fields: [
       {
@@ -1567,8 +1489,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A3",
     label: "The Mechanism",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl requires the mechanism to be genuinely capable of producing the promised result — not a repackaged process dressed in proprietary language. The mechanism is the reliable engine; it must be real.",
     purpose: "Define the unique, proprietary system or process that is the reliable engine for producing the promised result. The mechanism must be specific, ethical, and genuinely capable.",
     fields: [
       {
@@ -1601,8 +1521,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A4",
     label: "Scope Map",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Muqsit ensures neither party carries risk that belongs to the other. The EXCLUDED column is where this principle is most frequently violated — not through deception, but through the tendency to leave edges comfortable rather than clear. Every exclusion must be specific enough that the client cannot reasonably claim they expected it.",
     purpose: "Explicitly detail what is INCLUDED, EXCLUDED, and what triggers a change order — to manage expectations, prevent scope creep, and uphold bilateral equity between operator and client.",
     fields: [
       {
@@ -1636,8 +1554,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A5",
     label: "Value Stack",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Muqsit governs valuation: each component's Perceived Monetary Value must be honest — not inflated to justify a price that does not reflect genuine value. The value stack is the operator's case for fairness.",
     purpose: "An itemized list of all offer components with their Perceived Monetary Value (PMV), justifying the final price through transparent, honest valuation.",
     fields: [
       {
@@ -1670,8 +1586,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A6",
     label: "Risk Reversal (Guarantee)",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl does not accept partial covenants. The Guarantee requires all four elements — Trigger Condition, Scope, Remedy, and Operator-Side Boundaries — because a guarantee missing any one element is not a genuine commitment. It is a gesture that looks like one.",
     purpose: "Define the contractual mechanism (guarantee, trial, or remedy) that reduces client risk. Must contain all four required elements or it is structurally incomplete.",
     fields: [
       {
@@ -1718,8 +1632,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A7",
     label: "Pricing Structure",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Muqsit governs the exchange: the client gives something real and receives something real. A price structured to obscure the true cost, or a value stack inflated to justify a price that does not reflect genuine PMV, violates Qist. Honest pricing means the client understands exactly what they are exchanging their resources for.",
     purpose: "Define the final price, payment terms, and financing — justified by the PMV in Asset 5 and transparent enough that the client knows exactly what is being exchanged.",
     fields: [
       {
@@ -1758,8 +1670,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "A8",
     label: "Proof Plan",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl sees the difference between a claim and a proven claim. The Proof Plan is the centralized repository of evidence. Every G1/G2 claim in the offer must have a named proof point here — or it is PROOF PENDING and prohibited from client-facing use.",
     purpose: "The centralized repository for all evidence, case studies, and verifiable metrics that substantiate Asset 1 (Promise) claims. Links proof assets to specific claims throughout the offer.",
     fields: [
       {
@@ -1793,8 +1703,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "V1",
     label: "Integrity Matrix (Feasibility & Amanah Gate)",
-    governingAttributes: ["Al-Adl"],
-    attrMeaning: "Al-Adl requires that only genuinely viable candidates proceed — not candidates the operator wishes were viable. The gate exists because the standard of justice does not bend to commercial hope.",
     purpose: "A pass/fail record of legal, regulatory, and geographic feasibility checks for all initial offer concepts — with specific flags for each candidate.",
     fields: [
       {
@@ -1828,8 +1736,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "V2",
     label: "Sustainable Impact Scoring (Pre-Asset Factory)",
-    governingAttributes: ["Al-Muqsit"],
-    attrMeaning: "Al-Muqsit ensures scoring is an act of equity — each candidate assessed against the same honest standard, not shaped by what the operator hopes to find.",
     purpose: "Score and select cleansed candidates based on market fit, strategic alignment, ethical viability, and sustainable impact — culminating in an Amanah Audit of the final selection.",
     fields: [
       {
@@ -1870,8 +1776,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OFR",
     subLevel: "FP03",
     label: "Compressed Cycle Sign-Off (FP-03)",
-    governingAttributes: ["Al-Adl","Al-Muqsit"],
-    attrMeaning: "Al-Adl does not bend to pipeline anxiety or the desire to appear more capable than one is. A compressed cycle is a bounded exception — not a precedent. All three entry conditions must be met, and the sign-off block must be complete before proceeding.",
     purpose: "Document the compressed cycle exception for time-constrained commercial decisions (48 hours or less). All three entry conditions and all substitutions must be verified and signed.",
     fields: [
       {
@@ -1928,8 +1832,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "S1",
     label: "Channel Landscape",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq governs channel selection: the operator chooses platforms from strategic clarity, not desperation. Channels are means taken with excellence while trusting the Source — not grasping for whichever platform seems most likely to relieve pipeline pressure.",
     purpose: "Map the outreach channel landscape — which platforms the target audience uses, where qualified conversations are most likely, and which channels the operator can sustain.",
     fields: [
       {
@@ -1963,8 +1865,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "S2",
     label: "Lead Pool Map",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq assures the operator that provision does not depend on the size of the lead pool but on the quality of the means taken. The Lead Pool Map identifies where genuine fit exists — not where the most volume can be generated.",
     purpose: "Map the available lead pool — sources, segments, and qualification filters that identify prospects who align with the Ideal Customer Profile from the OFR stage.",
     fields: [
       {
@@ -1998,8 +1898,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "S3",
     label: "Message Signal Research",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq governs the posture of this research: signals gathered from abundance find what genuinely resonates; signals gathered from anxiety find what might convert. Research conducted from tawakkul serves the prospect's real situation.",
     purpose: "Research the messaging signals that resonate with the target audience — language patterns, emotional triggers, and value propositions that invite rather than pressure.",
     fields: [
       {
@@ -2033,8 +1931,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "S4",
     label: "Objection Intelligence",
-    governingAttributes: ["As-Sittir"],
-    attrMeaning: "As-Sittir governs the posture toward objections: understanding them is preparation for serving more clearly — not for overcoming resistance. The operator who hears an objection as information rather than an obstacle meets the prospect's hesitation with dignity.",
     purpose: "Map the most common objections the target audience will raise — and prepare responses that serve clarity rather than manipulate toward conversion.",
     fields: [
       {
@@ -2061,8 +1957,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "S5",
     label: "Operator Outreach Constraints",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq frees the operator from attempting more outreach than they can sustain. Constraints are not limitations on provision — they are the boundary within which excellent means are taken.",
     purpose: "Document the operator's real outreach constraints — time, bandwidth, tool proficiency, and communication capacity — as hard stops for the outreach plan.",
     fields: [
       {
@@ -2096,8 +1990,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A1",
     label: "Channel Plan & Lead Criteria",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq governs the channel plan: platforms are chosen from strategic clarity, not from the anxiety of needing to be everywhere. The plan takes the means excellently while trusting the outcome to God.",
     purpose: "A detailed strategy outlining primary and secondary outreach platforms, rationale for selection, execution guidelines, Ideal Prospect Profile (IPP), and specific qualification filters.",
     fields: [
       {
@@ -2131,8 +2023,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A2",
     label: "Hook Library",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq governs the tone: a hook written from tawakkul invites; a hook written from scarcity anxiety grasps. Hooks are attention devices — they must not contain claims, guarantees, or unsubstantiated statements. The distinction begins in the operator's relationship with Ar-Razzaq.",
     purpose: "A comprehensive collection of diverse, compliant opening lines categorized by platform and prospect persona. Hooks invite attention — they do not make claims.",
     fields: [
       {
@@ -2166,8 +2056,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A3",
     label: "Message Library",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq ensures messages are invitations — not appeals born from pipeline anxiety. Every message must be grounded in the OFR Scope Map and contain only promises verified by the Asset Pack.",
     purpose: "A structured compendium of core outreach messages for initial connection — short, value-focused messages that transition from Hook to meaningful dialogue, aligned with the OFR Scope Map.",
     fields: [
       {
@@ -2201,8 +2089,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A4",
     label: "Follow-Up Sequence",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq frees the follow-up sequence from desperation — persistence without crossing into intrusion. As-Sittir governs the graceful close when a prospect goes silent.",
     purpose: "A pre-defined, multi-touch, multi-channel sequence with timing, content, and medium for subsequent messages — designed for optimal persistence without intrusion.",
     fields: [
       {
@@ -2236,8 +2122,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A5",
     label: "Appointment Setter & No-Fit Scripts",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "The Appointment Setter is built from Ar-Razzaq: it guides toward a discovery call without grasping. The No-Fit Script is an act of As-Sittir: closing the door in a way that leaves the prospect's sense of worth intact, their experience positive, and the possibility of a future relationship genuinely open.",
     purpose: "Two scripts: (1) Appointment Setter to guide engaged prospects toward booking a call with a singular CTA, and (2) No-Fit Script to respectfully disqualify leads while preserving dignity and relationship.",
     fields: [
       {
@@ -2271,8 +2155,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A6",
     label: "Objection Preparation & Handling Matrix",
-    governingAttributes: ["As-Sittir"],
-    attrMeaning: "As-Sittir governs objection handling: the operator meets hesitation with dignity, not with manipulation. Each response clarifies and serves — it does not weaponize the prospect's vulnerability.",
     purpose: "A matrix of the most common objections with pre-vetted responses designed to re-engage the prospect through clarity and service — not pressure.",
     fields: [
       {
@@ -2299,8 +2181,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "A7",
     label: "Content-to-DM Pipeline Map",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq governs the pipeline: content shared in outreach should serve genuinely, providing real value — not manufactured touchpoints designed to create false familiarity.",
     purpose: "A sequential map illustrating how existing or planned marketing content is leveraged as context or value-adds within direct message or email outreach threads.",
     fields: [
       {
@@ -2334,8 +2214,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OUT",
     subLevel: "IC",
     label: "Ihsan Baseline Checklist (IC-OUT / DRIFT-02)",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq and As-Sittir together ensure every outreach asset meets a baseline of genuine quality before it touches a prospect. Any asset failing 2 or more checks is NO-SHIP.",
     purpose: "Mandatory output gate for all outreach assets — emails, DMs, social posts. Five checks covering audience relevance, G-label compliance, CTA clarity, scarcity verification, and accessibility.",
     fields: [
       {
@@ -2374,13 +2252,11 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "SAL-S0",
-    stage: "SAL",
+    id: "SLS-S0",
+    stage: "SLS",
     subLevel: "S0",
     label: "Sales Stage Inputs Extractor",
-    governingAttributes: ["Ar-Razzaq","Al-Latif","As-Sittir"],
-    attrMeaning: "This is the foundational extraction step — Ar-Razzaq governs the posture: the operator summarizes what the Sales stage must implement from a position of trust in provision, not anxiety about conversion.",
-    purpose: "Summarize the offer and outreach context and extract what the Sales stage must implement. Run first before all other SAL research tasks.",
+    purpose: "Summarize the offer and outreach context and extract what the Sales stage must implement. Run first before all other SLS research tasks.",
     fields: [
       {
         id: "leadStates",
@@ -2416,12 +2292,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S1",
-    stage: "SAL",
+    id: "SLS-S1",
+    stage: "SLS",
     subLevel: "S1",
     label: "Qualification Form Deep-Dive",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq grounds the qualification criteria: these are not constraints on revenue — they are the form of tawakkul in this stage. The operator who trusts the Provider does not soften disqualifiers under pipeline pressure.",
     purpose: "Design 8-10 questions to qualify leads into hot/warm/cold segments. Include exactly 3 automatic disqualifiers (hard no-fit) with routing logic.",
     fields: [
       {
@@ -2451,12 +2325,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S2",
-    stage: "SAL",
+    id: "SLS-S2",
+    stage: "SLS",
     subLevel: "S2",
     label: "Lead Routing & Decision Tree Deep-Dive",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq ensures routing decisions are made from discernment, not desperation. As-Sittir governs the no-fit exit — every disqualified lead is routed out with dignity.",
     purpose: "Define hot/warm/cold paths with criteria, exits, and next actions. Include no-fit exit and waitlist/education path.",
     fields: [
       {
@@ -2493,12 +2365,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S3",
-    stage: "SAL",
+    id: "SLS-S3",
+    stage: "SLS",
     subLevel: "S3",
     label: "Fit Call Script Deep-Dive",
-    governingAttributes: ["Al-Latif"],
-    attrMeaning: "Al-Latif perceives the precise opening available to each person and moves through it with care. The Fit Call script provides structure — but the quality that determines whether it becomes a genuine discernment conversation is the operator's willingness to hear the prospect's actual situation rather than the one that would make the conversion easier.",
     purpose: "Create a 15-minute Fit Call structure: opening, agenda, qualification, problem framing, and next step. Include verbatim script and branches for hot/warm/cold.",
     fields: [
       {
@@ -2528,12 +2398,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S4",
-    stage: "SAL",
+    id: "SLS-S4",
+    stage: "SLS",
     subLevel: "S4",
     label: "Objection Library Deep-Dive",
-    governingAttributes: ["Al-Latif","As-Sittir"],
-    attrMeaning: "Al-Latif governs the quality of attention objections require: hearing the real hesitation beneath the stated objection. As-Sittir ensures the operator does not weaponize vulnerability — each response clarifies rather than pressures.",
     purpose: "List the top 10 objections for this offer and audience. For each: best response, proof asset reference, and a short one-liner reply.",
     fields: [
       {
@@ -2563,12 +2431,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S5",
-    stage: "SAL",
+    id: "SLS-S5",
+    stage: "SLS",
     subLevel: "S5",
     label: "Pre-Call Nurture Sequence Deep-Dive",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq governs the pre-call period: messages written from scarcity try to secure the show and the yes — prospects can feel the pressure beneath the helpfulness. Messages written from tawakkul serve genuinely, sharing proof because it is useful, not because it pre-closes.",
     purpose: "Write 3-5 messages to send before the call. Each message includes purpose, copy, and a proof asset (case study, screenshot, checklist, demo).",
     fields: [
       {
@@ -2591,12 +2457,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S6",
-    stage: "SAL",
+    id: "SLS-S6",
+    stage: "SLS",
     subLevel: "S6",
     label: "Show-Rate Reminders Deep-Dive",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq governs reminders: the question is not \"will this increase show rate?\" but \"would I send this if I already knew the outcome was good?\" Reminders serve the prospect, not the operator's anxiety.",
     purpose: "Write reminders for 24hr and 1hr before the call, plus a no-show follow-up. Include tone options (warm vs firm) and reschedule path.",
     fields: [
       {
@@ -2632,12 +2496,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-S7",
-    stage: "SAL",
+    id: "SLS-S7",
+    stage: "SLS",
     subLevel: "S7",
     label: "Post-Call Follow-Up Deep-Dive (Non-Closes)",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq frees the follow-up from desperation — the sequence serves rather than chases. As-Sittir governs the graceful close when the follow-up period ends without conversion.",
     purpose: "Write a 7-14 day follow-up sequence for prospects who did not close on the call. Include day-by-day message plan and triggers to stop when they book or close.",
     fields: [
       {
@@ -2667,13 +2529,11 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-A0",
-    stage: "SAL",
+    id: "SLS-A0",
+    stage: "SLS",
     subLevel: "A0",
     label: "Sales Asset Pack (Full Assembly)",
-    governingAttributes: ["Ar-Razzaq","Al-Latif","As-Sittir"],
-    attrMeaning: "The full Sales Asset Pack is assembled from discernment, not urgency. Ar-Razzaq, Al-Latif, and As-Sittir govern the complete output: provision is trusted, attention is genuine, and every closure preserves dignity.",
-    purpose: "Using only SAL canon and approved S-Outputs, generate the complete Sales Asset Pack in exact canon order. If required inputs are missing, output a NO-SHIP list instead of inventing information.",
+    purpose: "Using only SLS canon and approved S-Outputs, generate the complete Sales Asset Pack in exact canon order. If required inputs are missing, output a NO-SHIP list instead of inventing information.",
     fields: [
       {
         id: "assemblyStatus",
@@ -2701,12 +2561,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "SAL-A1",
-    stage: "SAL",
+    id: "SLS-A1",
+    stage: "SLS",
     subLevel: "A1",
     label: "Qualification Form (Ready-to-Build)",
-    governingAttributes: ["Ar-Razzaq"],
-    attrMeaning: "Ar-Razzaq ensures the qualification form is built from tawakkul: the three automatic disqualifiers exist because the system was built from trust in provision — not fear of empty pipeline. Softening a disqualifier under pressure is a failure of tawakkul.",
     purpose: "Ready-to-build qualification form template: intro, 8-10 questions with response options, exactly 3 auto-disqualifiers with rules and redirect messages, scoring/routing logic, and next-step messages for hot/warm/cold.",
     fields: [
       {
@@ -2750,12 +2608,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-A2",
-    stage: "SAL",
+    id: "SLS-A2",
+    stage: "SLS",
     subLevel: "A2",
     label: "DM Automation Flow Spec",
-    governingAttributes: ["Ar-Razzaq","Al-Latif"],
-    attrMeaning: "Ar-Razzaq governs the automation: flows should serve genuinely, not create manufactured urgency through automated pressure. Al-Latif requires the flow to respond to the prospect's actual engagement level — not force a predetermined path.",
     purpose: "ManyChat or GHL automation flow specification: triggers, step-by-step message flow, branching rules for hot/warm/cold, tags/fields to write, and operator notification/handoff rules.",
     fields: [
       {
@@ -2799,12 +2655,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-A3",
-    stage: "SAL",
+    id: "SLS-A3",
+    stage: "SLS",
     subLevel: "A3",
     label: "Decision Tree (Operational Routing)",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq governs the routing: decisions are made from discernment, not desperation. As-Sittir governs every exit — the no-fit exit, the waitlist path, and the \"book now\" path must all preserve the prospect's dignity.",
     purpose: "Operational routing logic: hot/warm/cold criteria definitions, if/then decision tree steps, and exit scripts for no-fit, waitlist, and \"book now\" paths.",
     fields: [
       {
@@ -2834,12 +2688,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-A4",
-    stage: "SAL",
+    id: "SLS-A4",
+    stage: "SLS",
     subLevel: "A4",
     label: "Fit Call Script (15 Minutes)",
-    governingAttributes: ["Al-Latif"],
-    attrMeaning: "Al-Latif perceives the precise opening available and moves through it with care. This script is built around genuine questions the operator actually wants answered — not questions designed to lead toward a predetermined yes. The quality of attention this call requires cannot be scripted, but it can be oriented toward.",
     purpose: "Complete 15-minute Fit Call script: minute-by-minute outline, verbatim script blocks, branch prompts for hot/warm/cold, and close options (book, deposit, follow-up, no-fit).",
     fields: [
       {
@@ -2875,12 +2727,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-A5",
-    stage: "SAL",
+    id: "SLS-A5",
+    stage: "SLS",
     subLevel: "A5",
     label: "Objection Library",
-    governingAttributes: ["Al-Latif","As-Sittir"],
-    attrMeaning: "Al-Latif governs the listening beneath the objection — hearing the real hesitation, not just the words. As-Sittir ensures responses clarify rather than weaponize the prospect's vulnerability.",
     purpose: "Complete objection library: each of the top 10 objections with headline, best response (short), expanded response, proof asset reference, and next question to ask.",
     fields: [
       {
@@ -2903,12 +2753,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "SAL-A6",
-    stage: "SAL",
+    id: "SLS-A6",
+    stage: "SLS",
     subLevel: "A6",
     label: "Nurture + Reminders + Follow-Up",
-    governingAttributes: ["Ar-Razzaq","As-Sittir"],
-    attrMeaning: "Ar-Razzaq governs every pre-call and post-call message: serve from abundance, not from the need to secure conversion. As-Sittir governs the stop conditions — when the sequence ends, it ends with dignity.",
     purpose: "Combined nurture, reminder, and follow-up asset: pre-call nurture (3-5 messages, channel-specific), show-rate reminders (24hr, 1hr, no-show), post-call follow-up (7-14 days for non-closes), and stop/escalation conditions.",
     fields: [
       {
@@ -2945,12 +2793,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "SAL-FP03",
-    stage: "SAL",
+    id: "SLS-FP03",
+    stage: "SLS",
     subLevel: "FP03",
     label: "Compressed Cycle Sign-Off (FP-03)",
-    governingAttributes: ["Ar-Razzaq","Al-Latif","As-Sittir"],
-    attrMeaning: "Ar-Razzaq governs the compressed decision: urgency does not override trust in provision. All three entry conditions and all substitutions must be met — the compressed cycle is a bounded exception, not a pattern.",
     purpose: "Document the compressed cycle exception for time-constrained Sales decisions (48 hours or less). Entry conditions, substitutions, and sign-off block must be completed before any commercial action.",
     fields: [
       {
@@ -3003,12 +2849,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "DLR-S0",
-    stage: "DLR",
+    id: "DEL-S0",
+    stage: "DEL",
     subLevel: "S0",
     label: "Fulfillment S-Outputs Generator",
-    governingAttributes: ["Al-Muhsin","Al-Wali","Ash-Shakur"],
-    attrMeaning: "Al-Wali reframes the risk map as proactive protection. Al-Muhsin marks where adequate and excellent diverge. Ash-Shakur ensures the retention seed is gratitude-first.",
     purpose: "Master prompt that generates FUL_S1–FUL_S5 from operator inputs. If any required input is missing, output NO-SHIP with a numbered list of missing items.",
     fields: [
       {
@@ -3062,12 +2906,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
   {
-    id: "DLR-S1",
-    stage: "DLR",
+    id: "DEL-S1",
+    stage: "DEL",
     subLevel: "S1",
     label: "Offer-to-Delivery Map",
-    governingAttributes: ["Al-Muhsin"],
-    attrMeaning: "Al-Muhsin perfects what He gives. The delivery map is where Ihsan becomes concrete — every phase, checkpoint, and timing decision is an opportunity to exceed what obligation requires.",
     purpose: "Maps the journey from signed offer to final delivery: phases, checkpoints, owner assignments, and timing. Every step traces back to the OFR scope/promise.",
     fields: [
       {
@@ -3104,12 +2946,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-S2",
-    stage: "DLR",
+    id: "DEL-S2",
+    stage: "DEL",
     subLevel: "S2",
     label: "Quality & Risk Map",
-    governingAttributes: ["Al-Wali"],
-    attrMeaning: "Al-Wali is the Protective Friend. The risk map is an act of wilayah — standing between the client and a gap they do not yet know exists. Every QC item is proactive protection, not liability management.",
     purpose: "Identifies failure modes, maps QC checks to each, and defines guarantee triggers. Reframes risk management as an act of protection for the client.",
     fields: [
       {
@@ -3146,12 +2986,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "DLR-S3",
-    stage: "DLR",
+    id: "DEL-S3",
+    stage: "DEL",
     subLevel: "S3",
     label: "Client Success Milestones",
-    governingAttributes: ["Al-Muhsin"],
-    attrMeaning: "Al-Muhsin does more than the bare minimum — He perfects what He gives. The question is not only \"Did we hit the checkpoint?\" but \"Did the client experience it as a moment of genuine progress?\"",
     purpose: "Defines 3–5 client success checkpoints with message intents. Each milestone is a moment of visible progress the client can feel, not just an internal tracking point.",
     fields: [
       {
@@ -3181,12 +3019,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-S4",
-    stage: "DLR",
+    id: "DEL-S4",
+    stage: "DEL",
     subLevel: "S4",
     label: "Proof Capture Plan",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "Ash-Shakur rewards even the smallest good deed. Proof capture is an act of gratitude for the client's trust — seeking consent with genuine appreciation, deploying their story with care.",
     purpose: "Defines what proof to capture, when, how, and with what consent. Built into the delivery process so proof collection is natural, not an afterthought.",
     fields: [
       {
@@ -3223,12 +3059,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["PROOF_PENDING"],
   },
   {
-    id: "DLR-S5",
-    stage: "DLR",
+    id: "DEL-S5",
+    stage: "DEL",
     subLevel: "S5",
     label: "Offboarding → Retention Handoff",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "Ash-Shakur is never indifferent to sincerity. The retention seed that follows from gratitude carries Barakah. The retention seed that precedes gratitude carries only strategy.",
     purpose: "Documents offboarding notes, the retention seed message, and next steps for RET stage handoff. The seed must be gratitude-first; any next-step framing follows from that.",
     fields: [
       {
@@ -3258,12 +3092,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-A1",
-    stage: "DLR",
+    id: "DEL-A1",
+    stage: "DEL",
     subLevel: "A1",
     label: "Onboarding Checklist",
-    governingAttributes: ["Al-Muhsin"],
-    attrMeaning: "Al-Muhsin does not simply fulfil obligation; He perfects what He gives. The onboarding checklist is where the first impression of care is set — payment to work-start steps with communication triggers.",
     purpose: "Step-by-step checklist from payment confirmation to work-start, including communication triggers at each transition point.",
     fields: [
       {
@@ -3292,12 +3124,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-A2",
-    stage: "DLR",
+    id: "DEL-A2",
+    stage: "DEL",
     subLevel: "A2",
     label: "Client Intake Form",
-    governingAttributes: ["Al-Wali"],
-    attrMeaning: "Al-Wali guards and protects. Capturing the client's constraints, access requirements, and preferences upfront prevents gaps the client should never have to experience.",
     purpose: "Captures client constraints, access requirements, preferences, and client success definition. Every data point collected must feed directly into the Execution SOP.",
     fields: [
       {
@@ -3334,12 +3164,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-A3",
-    stage: "DLR",
+    id: "DEL-A3",
+    stage: "DEL",
     subLevel: "A3",
     label: "Execution SOP",
-    governingAttributes: ["Al-Muhsin","Al-Wali"],
-    attrMeaning: "Al-Muhsin perfects what is given; Al-Wali protects before being asked. The SOP is where excellence and protection are operationalised — every step mapped to the OFR scope.",
     purpose: "Step-by-step delivery procedure mapped directly to the OFR scope. Includes purpose, when to use, owner/role, steps, templates, and edge-case notes.",
     fields: [
       {
@@ -3369,13 +3197,11 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-A4",
-    stage: "DLR",
+    id: "DEL-A4",
+    stage: "DEL",
     subLevel: "A4",
     label: "Quality Control Checklist",
-    governingAttributes: ["Al-Wali"],
-    attrMeaning: "The checklist is not a compliance gate. It asks: \"Can the client act on this without confusion?\" Proactively checking before they need to ask — that is what it means to be a Wali.",
-    purpose: "Pre-ship quality gate aligned to OFR outcome and guarantee conditions. Includes Ihsan Baseline Checklists (IC-OFR + IC-FUL) as mandatory sub-gates. Any asset failing 2+ checks requires revision.",
+    purpose: "Pre-ship quality gate aligned to OFR outcome and guarantee conditions. Includes Ihsan Baseline Checklists (IC-OFR + IC-DEL) as mandatory sub-gates. Any asset failing 2+ checks requires revision.",
     fields: [
       {
         id: "qcItems",
@@ -3399,10 +3225,10 @@ export const BBOS_TASK_DEFINITIONS = [
         rows: 4,
       },
       {
-        id: "icFulChecks",
+        id: "icDelChecks",
         type: "textarea",
-        label: "IC-FUL Checks (Onboarding Comms)",
-        placeholder: "IC-FUL-1 through IC-FUL-5 pass conditions...",
+        label: "IC-DEL Checks (Onboarding Comms)",
+        placeholder: "IC-DEL-1 through IC-DEL-5 pass conditions...",
         rows: 4,
       },
     ],
@@ -3411,12 +3237,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["CLAIM_UNVERIFIED"],
   },
   {
-    id: "DLR-A5",
-    stage: "DLR",
+    id: "DEL-A5",
+    stage: "DEL",
     subLevel: "A5",
     label: "Client Success Milestones (Asset)",
-    governingAttributes: ["Al-Muhsin"],
-    attrMeaning: "Al-Muhsin perfects what He gives. The milestone message templates are where care becomes visible — not just \"Did we hit the checkpoint?\" but \"Did the client experience it as genuine progress?\"",
     purpose: "Final assembled milestone asset with message templates for each checkpoint. 3–5 milestones with communication scripts ready for use.",
     fields: [
       {
@@ -3439,12 +3263,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
   {
-    id: "DLR-A6",
-    stage: "DLR",
+    id: "DEL-A6",
+    stage: "DEL",
     subLevel: "A6",
     label: "Proof Capture Protocol (Asset)",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "The client's story belongs to them before it belongs to the business. Capturing proof with Ash-Shakur means handling it as something sacred — seeking permission with genuine gratitude.",
     purpose: "Complete proof capture protocol with consent language, capture method at each milestone, and case study data collection templates.",
     fields: [
       {
@@ -3474,12 +3296,10 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["PROOF_PENDING"],
   },
   {
-    id: "DLR-A7",
-    stage: "DLR",
+    id: "DEL-A7",
+    stage: "DEL",
     subLevel: "A7",
     label: "Offboarding Sequence",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "Ash-Shakur rewards even the smallest good deed far beyond what it deserves. The offboarding sequence is a moment of genuine gratitude — not an administrative close or a setup for the next sale.",
     purpose: "Complete offboarding flow: close communication, retention seed message (gratitude-first), and RET stage handoff with all context needed for the next stage.",
     fields: [
       {
@@ -3513,8 +3333,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "S1",
     label: "Segment Map",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "Ash-Shakur begins from genuine appreciation. Each segment is a category of people who gave the operator something — attention, time, trust, or money. Begin from appreciation for what was given, not from a calculation of what might still be extracted.",
     purpose: "Defines Cold Lead, Past Client, Re-Activation (60+ day silent), and Warm Non-Convert segments. For each: entry criteria, primary objection, primary desire, and the single next-step CTA.",
     fields: [
       {
@@ -3555,8 +3373,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "S2",
     label: "Proof Inventory",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "The client's story belongs to them before it belongs to the business. Listing proof assets with Ash-Shakur means tagging each by segment relevance while honoring the person behind the proof.",
     purpose: "Lists all available proof assets and tags each by segment relevance and claim strength (G-label if used).",
     fields: [
       {
@@ -3590,8 +3406,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "S3",
     label: "Offer Continuation Map",
-    governingAttributes: ["Al-Wadud"],
-    attrMeaning: "Al-Wadud — the Loving — does not love conditionally. The upsell path is genuine care made concrete only when the next offer is truly the right next step for the client's progress, not the operator's growth goals.",
     purpose: "Defines the Upsell Path (next offer as natural continuation) and Ascension Framework (levels of ongoing value). Includes eligibility rules and trigger timing.",
     fields: [
       {
@@ -3632,8 +3446,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "S4",
     label: "Message Spine + Tone Rules",
-    governingAttributes: ["Ash-Shakur","Al-Wadud"],
-    attrMeaning: "Ash-Shakur ensures warmth over pushing. Al-Wadud ensures unhurried care. Together they define a tone that could be described to the person receiving it as genuine appreciation, not a conversion tactic.",
     purpose: "Defines the warming posture, non-pushy constraints, CTA standards, and 3–5 reusable message spines (pattern templates) for re-engagement.",
     fields: [
       {
@@ -3674,8 +3486,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "S5",
     label: "Deployment Logic",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "Ash-Shakur handles proof as something sacred. Deployment logic specifies which proof goes where with care for how it represents the human being behind it.",
     purpose: "Specifies which proof asset goes where in each sequence (mapped to touch # and message purpose). Includes channel assumptions and required variations.",
     fields: [
       {
@@ -3709,8 +3519,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "A1",
     label: "Cold Lead Re-Engagement Sequence",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "Ash-Shakur begins from genuine appreciation for the initial connection. The five touches must be warmer in character than they are in urgency — describable as \"we genuinely valued meeting you,\" not \"we noticed you hadn't converted.\"",
     purpose: "5-touch re-engagement sequence for cold leads. Warming not pushing. CTA on final message only. Each touch includes subject/opening, body, CTA, and optional proof insert.",
     fields: [
       {
@@ -3758,8 +3566,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "A2",
     label: "Past Client Nurture Sequence",
-    governingAttributes: ["Al-Wadud"],
-    attrMeaning: "Al-Wadud's love is tender, consistent, and entirely free of transaction. The nurture sequence reaches out because the operator genuinely values the relationship, not because the pipeline needs feeding.",
     purpose: "3-touch nurture sequence for past clients. Value-forward with upsell seed planted (no hard pitch).",
     fields: [
       {
@@ -3793,8 +3599,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "A3",
     label: "Re-Activation Campaign",
-    governingAttributes: ["Al-Wadud"],
-    attrMeaning: "Al-Wadud reaches out to a 60-day silent contact not because the system requires a touchpoint but because the operator genuinely wonders how that person is doing. That quality of care is what produces unprompted referrals.",
     purpose: "2-week campaign for 60+ day silent leads/clients. Includes cadence (days), message objectives, and 1–2 proof inserts.",
     fields: [
       {
@@ -3828,8 +3632,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "A4",
     label: "Upsell Path",
-    governingAttributes: ["Al-Wadud"],
-    attrMeaning: "Al-Wadud does not love in order to receive something in return. The upsell path frames the next offer as a natural continuation of the client's growth arc, not the operator's revenue arc. If the operator cannot articulate why this is the right next step for this client, the framing is not yet honest.",
     purpose: "Clear framing document: next offer as natural continuation. Includes eligibility rules and \"why now\" logic that is non-urgent and honest.",
     fields: [
       {
@@ -3863,8 +3665,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "A5",
     label: "Ascension Framework",
-    governingAttributes: ["Al-Wadud"],
-    attrMeaning: "Al-Wadud sustains love without transaction. The ascension framework maps ongoing value levels driven by the client's genuine needs, not the operator's growth targets.",
     purpose: "Maps ongoing value levels (Level 1 → Level N). Defines what each level includes, who it is for, and the progression triggers.",
     fields: [
       {
@@ -3898,8 +3698,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "RET",
     subLevel: "A6",
     label: "Proof Asset Deployment Map",
-    governingAttributes: ["Ash-Shakur"],
-    attrMeaning: "The client's story — their testimonial, their transformation — belongs to them before it belongs to the business. Proof deployed with Ash-Shakur is handled with care for the human being behind it. Never marketing asset first, person's story second.",
     purpose: "Table mapping: Segment → Sequence → Touch # → Proof asset → Claim → CTA. Ensures proof is deployed strategically and ethically across all retention sequences.",
     fields: [
       {
@@ -3933,8 +3731,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S1",
     label: "Metric Dashboard",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib is the Sufficient Reckoner — the One who takes perfect account of everything. The dashboard is an act of self-accounting (muhasaba). Report what is actually observed, not what would be comfortable to present.",
     purpose: "All four Canonical Metrics (CM-1 through CM-4) with current values, period-over-period comparison, trend interpretation, and anomaly notes. Includes BHI review (BHI-1 through BHI-5) and TVS review (TV-1, TV-2, TV-3).",
     fields: [
       {
@@ -3985,8 +3781,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S2",
     label: "Weakest Link Identification",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib misses nothing. Identifying the weakest link requires tracing the largest drop-off to a specific stage and asset — honest accounting, not comfortable narratives.",
     purpose: "Identifies the single weakest link in the system by tracing the largest drop-off to a specific stage and asset. Includes evidence summary and suspected failure modes.",
     fields: [
       {
@@ -4025,8 +3819,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S3",
     label: "Root Cause Hypotheses",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib sees the true value of every action. Hypotheses must be falsifiable and evidence-based — not comfortable stories about what might be happening.",
     purpose: "One testable hypothesis per underperforming metric. Each must be falsifiable, stage-scoped, and connected to a specific asset change.",
     fields: [
       {
@@ -4053,8 +3845,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S4",
     label: "Top 3 Optimization Actions",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib takes perfect account. Each action must be stage-scoped, asset-specific, and mapped to a hypothesis — no vague improvement initiatives.",
     purpose: "Top 3 optimization actions for this cycle. Each is stage-scoped, asset-specific, and mapped to a hypothesis with effort estimate and expected impact.",
     fields: [
       {
@@ -4088,8 +3878,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S5",
     label: "Hold List & Guardrails",
-    governingAttributes: ["As-Subbuh","Al-Quddus"],
-    attrMeaning: "As-Subbuh and Al-Quddus are the Names of absolute purity. The hold list protects system integrity — what must not change this cycle to avoid confounding results. If the Stewardship Score is below 7, the pause is an act of taqdis.",
     purpose: "Defines what must not change this cycle and why. Includes G7.2 check: if Stewardship Score < 7.0, run Constrained Proceed Protocol (FP-01) before any commercial action.",
     fields: [
       {
@@ -4122,8 +3910,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S6",
     label: "Next Cycle Test Plan",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib governs the honest reckoning that makes the next cycle test meaningful. A test built on aspirational data produces aspirational results — not real ones.",
     purpose: "One primary test for the next cycle with clear success criteria, scope, start/end dates, success metrics, stop conditions, and rollback plan.",
     fields: [
       {
@@ -4171,8 +3957,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "S7",
     label: "Team Vitality Check-In",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib sees the true state — including the team's. The TVS asks the team to report honestly on sustainability, clarity, and integrity comfort. Anonymous collection protects that honesty.",
     purpose: "Administer the Team Vitality Check-In (DRIFT-03). Aggregate TV-1, TV-2, TV-3 scores into the Team Vitality Score (TVS). Route per DRIFT-03 governance table. Minimum 2 respondents for validity.",
     fields: [
       {
@@ -4228,8 +4012,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "A1",
     label: "Stewardship Score (MG-01)",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib is the Sufficient Reckoner — the One who already knows the true value. The Stewardship Score is not a KPI. It is a structured invitation to sit before Al-Hasib and report honestly. Scoring from the aspirational band rather than the evidential one is self-concealment before the One from whom nothing is concealed.",
     purpose: "Behaviourally-anchored self-assessment across 5 dimensions: System Vitality, Ethical Integrity, Time Sovereignty, Trust vs. Scarcity, and Asset Clarity. Score is the band where the majority of evidence sits.",
     fields: [
       {
@@ -4285,8 +4067,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "A2",
     label: "Barakah Health Index (MG-03)",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib governs honest observation. The BHI asks for genuine noticing of what is actually present in the texture of the work — not a report of what is performing well. BHI-2 requires honest self-observation that is only possible when the operator is not performing for anyone.",
     purpose: "Five Barakah leading indicators: BHI-1 Unprompted Referral Rate, BHI-2 Post-Work Energy Rating, BHI-3 Right-Fit Client Ratio, BHI-4 Decision Clarity Rate, BHI-5 Asset Integrity Currency. Overall Reading: ALIGNED / MONITORING / INVESTIGATE.",
     fields: [
       {
@@ -4342,8 +4122,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "A3",
     label: "Constrained Proceed Protocol (FP-01)",
-    governingAttributes: ["As-Subbuh","Al-Quddus"],
-    attrMeaning: "As-Subbuh and Al-Quddus are the Names of divine purity. The Restoration Mandate is taqdis — making pure again what has been contaminated by overextension. The operator who rationalises past the Mandate is choosing contaminated output over genuine Barakah.",
     purpose: "Accountable exception path when Stewardship Score < 7.0 but a commercial opportunity cannot be deferred. Three stages: Honest Depletion Classification, Constrained Proceed Guardrails, and Operator Sign-Off.",
     fields: [
       {
@@ -4400,8 +4178,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "A4",
     label: "Document Version Log",
-    governingAttributes: ["Al-Hasib"],
-    attrMeaning: "Al-Hasib takes perfect account. The version log entry that documents a change made from genuine evidence carries a different quality than one made from wishful testing.",
     purpose: "Precise version-log entries for every document modified this cycle. Each entry: document name, version number, change summary, reason (what it protects), linked hypothesis/action.",
     fields: [
       {
@@ -4421,8 +4197,6 @@ export const BBOS_TASK_DEFINITIONS = [
     stage: "OPT",
     subLevel: "A5",
     label: "Optimization Pack Assembly",
-    governingAttributes: ["Al-Hasib","As-Subbuh"],
-    attrMeaning: "Al-Hasib governs the honest reckoning within every item. As-Subbuh governs the response when reckoning reveals depletion. Every item in the pack is a product of genuine self-accounting.",
     purpose: "Final assembled Optimization Pack in canon order: Metric Dashboard, Weakest Link, Root Cause Hypotheses, Top 3 Optimization Actions, Document Version Log, Hold List, Next Cycle Test Plan. NO-SHIP if any required input is missing.",
     fields: [
       {
@@ -4455,10 +4229,129 @@ export const BBOS_TASK_DEFINITIONS = [
     hasGLabel: false,
     hasAiDraft: true,
     validationFlags: [],
+  },
+
+  // ── Patch Plan sub-stage 00A (Input Integrity Gate, after IDY) ────────────
+  {
+    id: "IDY-PATCH-V1",
+    stage: "IDY",
+    subLevel: "PATCH-V1",
+    label: "Input Integrity Gate (00A)",
+    purpose: "Grade operator-supplied proof on a P0–P3 scale before the pipeline advances past Identity. P0 = no proof; P1 = self-attested; P2 = independent corroboration; P3 = audit-grade. Pipeline advancement past CRD requires P2 or higher on each Identity declaration.",
+    fields: [
+      {
+        id: "capitalProofTier",
+        type: "select",
+        label: "Capital declaration proof tier",
+        options: [
+          { value: "P0", label: "P0 — No proof submitted" },
+          { value: "P1", label: "P1 — Self-attested only" },
+          { value: "P2", label: "P2 — Independent corroboration" },
+          { value: "P3", label: "P3 — Audit-grade evidence" },
+        ],
+      },
+      {
+        id: "skillsProofTier",
+        type: "select",
+        label: "Skills declaration proof tier",
+        options: [
+          { value: "P0", label: "P0 — No proof submitted" },
+          { value: "P1", label: "P1 — Self-attested only" },
+          { value: "P2", label: "P2 — Independent corroboration" },
+          { value: "P3", label: "P3 — Audit-grade evidence" },
+        ],
+      },
+      {
+        id: "proofLinkAudit",
+        type: "textarea",
+        label: "Proof-link audit notes",
+        placeholder: "List each link from IDY-S1 'proofLinks' and the result of an independent fetch. Mark dead links, paywalled links, and links that do not substantiate the claim they accompany.",
+        rows: 4,
+      },
+      {
+        id: "constraintIntegrityNotes",
+        type: "textarea",
+        label: "Constraint integrity notes",
+        placeholder: "For each declared constraint, note whether it appears genuine (an honest limit) or aspirational (a target dressed as a constraint).",
+        rows: 3,
+      },
+      {
+        id: "regulatoryRedFlags",
+        type: "textarea",
+        label: "Regulatory red flags surfaced",
+        placeholder: "Any regulatory concerns flagged at intake that would warrant escalation before CRD.",
+        rows: 3,
+      },
+      {
+        id: "gateVerdict",
+        type: "select",
+        label: "Gate verdict",
+        options: [
+          { value: "PASS", label: "PASS — pipeline may proceed to CRD" },
+          { value: "HOLD", label: "HOLD — operator must supply additional proof before proceeding" },
+          { value: "FAIL", label: "FAIL — pipeline cannot proceed; operator should reconsider scope" },
+        ],
+      },
+    ],
+    hasGLabel: false,
+    hasAiDraft: false,
+    validationFlags: ["GATE_BLOCKED"],
+  },
+
+  // ── Patch Plan sub-stage 01B (Mechanism Factory, after STR) ───────────────
+  {
+    id: "STR-PATCH-V1",
+    stage: "STR",
+    subLevel: "PATCH-V1",
+    label: "Mechanism Factory (01B)",
+    purpose: "Bridge the strategy-to-offer gap. STR produces operational structure; OFR needs a priced, scoped offering. The Mechanism Factory translates STR outputs into the explicit mechanism by which value is exchanged — what the operator does, what the client receives, what the price covers. Without this bridge, OFR-S tasks have no source material.",
+    fields: [
+      {
+        id: "valueMechanism",
+        type: "textarea",
+        label: "Value mechanism (one paragraph)",
+        placeholder: "In plain language: what does the operator do, what does the client receive, and how does the value get delivered? This becomes the seed for OFR-S1.",
+        rows: 4,
+      },
+      {
+        id: "deliveryUnits",
+        type: "textarea",
+        label: "Discrete delivery units",
+        placeholder: "Break the mechanism into the discrete units of work that will be delivered (e.g., diagnostic, plan, implementation, retainer). Each unit is a candidate line item in the OFR Scope Map.",
+        rows: 4,
+      },
+      {
+        id: "operatorTimeMap",
+        type: "textarea",
+        label: "Operator time per delivery unit",
+        placeholder: "Honest hours-per-unit estimate, broken down by activity (synchronous, async review, prep, follow-up). Anchors the eventual price floor in OFR.",
+        rows: 3,
+      },
+      {
+        id: "structureTranslationCheck",
+        type: "textarea",
+        label: "STR → OFR translation check",
+        placeholder: "For each output of STR (team architecture, processes, capabilities), state whether it can be honored by the proposed mechanism. Flag any STR output that is structurally implied but operationally unsupported.",
+        rows: 4,
+      },
+      {
+        id: "bridgeVerdict",
+        type: "select",
+        label: "Bridge verdict",
+        options: [
+          { value: "READY", label: "READY — mechanism is coherent, OFR may proceed" },
+          { value: "GAP", label: "GAP — at least one STR output has no operational bridge to OFR" },
+          { value: "REWORK", label: "REWORK — mechanism does not yet match the strategy; STR needs revision" },
+        ],
+      },
+    ],
+    hasGLabel: false,
+    hasAiDraft: true,
+    validationFlags: ["GATE_BLOCKED"],
   }
 ];
 
-/** Look up a task definition by its ID (e.g. 'TRU-S1') */
+/** Look up a task definition by its ID (e.g. 'CRD-S1') */
 export function getBbosTaskDef(id) {
   return BBOS_TASK_DEFINITIONS.find((d) => d.id === id) || null;
 }
@@ -4469,7 +4362,7 @@ export function getBbosTaskDefsByStage(stageId) {
 }
 
 // Pipeline stage order for cross-stage dependency linking
-const STAGE_ORDER = ['FND', 'TRU', 'STR', 'OFR', 'OUT', 'SAL', 'DLR', 'RET', 'OPT'];
+const STAGE_ORDER = ['IDY', 'CRD', 'STR', 'OFR', 'OUT', 'SLS', 'DEL', 'RET', 'OPT'];
 
 /**
  * Derive upstream/downstream dependencies for a BBOS task.

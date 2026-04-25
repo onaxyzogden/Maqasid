@@ -18,6 +18,8 @@ export default function SourcesPage() {
 
   useEffect(() => {
     const tab = searchParams.get('tab');
+    // reason: sync local tab to URL search param when user navigates with deep link
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (tab && TABS.some((t) => t.id === tab)) setActiveTab(tab);
   }, [searchParams]);
 

@@ -8,7 +8,7 @@ import {
   getBbosTaskDefsByStage,
 } from '../../data/bbos/bbos-task-definitions';
 
-const STAGE_ORDER = ['FND', 'TRU', 'STR', 'OFR', 'OUT', 'SAL', 'DLR', 'RET', 'OPT'];
+const STAGE_ORDER = ['IDY', 'CRD', 'STR', 'OFR', 'OUT', 'SLS', 'DEL', 'RET', 'OPT'];
 
 // Max chars per field value for summarized (distant) stages
 const SUMMARY_CHAR_LIMIT = 200;

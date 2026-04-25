@@ -88,7 +88,7 @@ export default function ThresholdModal({ type }) {
   const moduleId = isOpening ? openingModuleId : closingModuleId;
   const isIslamic = valuesLayer === 'islamic';
 
-  // Detect BBOS stage ceremony keys (e.g. 'bbos:FND')
+  // Detect BBOS stage ceremony keys (e.g. 'bbos:IDY')
   const isBbosStage = moduleId?.startsWith('bbos:');
   const bbosStageId = isBbosStage ? moduleId.slice(5) : null;
   const bbosStageData = bbosStageId ? getBbosStageIslamic(bbosStageId) : null;

@@ -338,6 +338,8 @@ export default function PillarBoard({ pillarKey, pillarName, pillarColor, module
 
   useEffect(() => {
     ensureProjects();
+    // reason: ensureProjects is stable; mount-only call
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Load tasks for all three level boards so progress is always current

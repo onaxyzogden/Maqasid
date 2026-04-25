@@ -390,7 +390,7 @@ export default function Dashboard() {
           }
           progress[stage.id] = Math.round((done / defs.length) * 100);
         }
-        return { project: p, progress, activeStage: p.bbosStage || 'FND' };
+        return { project: p, progress, activeStage: p.bbosStage || 'IDY' };
       });
   }, [projects, tasksByProject]);
   const allTasks = useMemo(() => Object.values(tasksByProject).flat(), [tasksByProject]);

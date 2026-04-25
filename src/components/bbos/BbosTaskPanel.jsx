@@ -8,7 +8,8 @@ import {
 import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { getBbosTaskDef, getBbosTaskDeps, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
-import { getStage, BBOS_STAGES } from '@data/bbos/bbos-pipeline';
+import { BBOS_STAGES } from '@data/bbos/bbos-pipeline';
+import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '@services/bbos-template';
 import { useAppStore } from '../../store/app-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
@@ -82,7 +83,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
   }, [onClose]);
 
   const def = task?.bbosTaskType ? getBbosTaskDef(task.bbosTaskType) : null;
-  const stage = def ? getStage(def.stage) : null;
+  const stageAttrs = def ? (getBbosStageIslamic(def.stage)?.attrs || []) : [];
   const deps = def ? getBbosTaskDeps(def.id) : { upstream: [], downstream: [], requirements: '' };
 
   useEffect(() => {
@@ -97,6 +98,8 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         notes: task.notes || '',
       };
     }
+    // reason: hydrate panel only when taskId changes; live task object would refire
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId]);
 
   // Clean up debounced save on unmount — prevents stale writes after panel close
@@ -104,19 +107,28 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
     return () => clearTimeout(saveTimeout.current);
   }, []);
 
+  // Lock body scroll while the panel is mounted (mobile body-scroll leak fix)
+  useEffect(() => {
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = original; };
+  }, []);
+
   // Wire active BBOS task type for journal badge context
   useEffect(() => {
     if (def?.id) setActiveBbosTaskType(def.id);
     return () => clearActiveBbosTaskType();
+    // reason: store actions are stable; deliberately depend only on def.id
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [def?.id]);
 
-  // Runway date assignment — fires when TRU-S5 (Constraint Map) is marked complete
+  // Runway date assignment — fires when CRD-S5 (Constraint Map) is marked complete
   const prevCompletedAtRef = useRef(task?.completedAt);
   useEffect(() => {
     const wasComplete = prevCompletedAtRef.current;
     const isNowComplete = task?.completedAt;
     prevCompletedAtRef.current = isNowComplete;
-    if (wasComplete || !isNowComplete || def?.id !== 'TRU-S5') return;
+    if (wasComplete || !isNowComplete || def?.id !== 'CRD-S5') return;
 
     const runwayMonths = Number(task.bbosFieldData?.financialRunwayMonths);
     if (!runwayMonths || runwayMonths <= 0) return;
@@ -133,6 +145,8 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
 
     if (allTasks.length === 0) return;
     setRunwayModal({ allTasks, runwayMonths });
+    // reason: side-effect should only fire on completion edge of this specific task
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [task?.completedAt]);
 
   if (!task || !def) return null;
@@ -319,7 +333,6 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
   };
 
   const columns = project?.columns || [];
-  const stageColor = stage?.color || 'var(--accent)';
   const currentColumn = columns.find((c) => c.id === task.columnId);
 
   const STATUS_DOT_COLORS = {
@@ -401,11 +414,11 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
               </select>
             </div>
 
-            {def.governingAttributes.length > 0 && (
+            {stageAttrs.length > 0 && (
               <>
                 <span className="btp-meta-divider" />
                 <span className="btp-meta-item" style={{ color: 'var(--text3)', fontSize: '12px' }}>
-                  {def.governingAttributes.join(' · ')}
+                  {stageAttrs.map(a => a.name).join(' · ')}
                 </span>
               </>
             )}
@@ -435,7 +448,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         </div>
 
         {/* Bento grid: Dependencies + Template */}
-        {(hasDeps || true) && (
+        {(
           <div className="btp-bento">
             {/* Dependencies card */}
             <div className="btp-bento-card">
@@ -485,6 +498,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         )}
 
         {/* Rationale accordion */}
+
         <div className="btp-rationale-card">
           <button
             type="button"
@@ -498,8 +512,14 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
             </div>
             {rationaleOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
-          {rationaleOpen && (
-            <p className="btp-rationale-text">{def.attrMeaning}</p>
+          {rationaleOpen && stageAttrs.length > 0 && (
+            <div className="btp-rationale-text">
+              {stageAttrs.map((a) => (
+                <p key={a.name} style={{ marginBottom: '0.75em' }}>
+                  <strong>{a.name}</strong> ({a.title}) — {a.body}
+                </p>
+              ))}
+            </div>
           )}
         </div>
 

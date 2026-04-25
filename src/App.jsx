@@ -102,6 +102,8 @@ function ProjectTasks() {
   const { projectId } = useParams();
   const project = useProjectStore((s) => s.getProject(projectId));
   const loadTasks = useTaskStore((s) => s.loadTasks);
+  // reason: loadTasks is a stable store action; only react to projectId changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (projectId) loadTasks(projectId); }, [projectId]);
   if (!project) return null;
   return <ProjectBoard projectId={projectId} project={project} hideBbos />;

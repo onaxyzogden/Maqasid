@@ -11,7 +11,7 @@ import {
   FAMILY_LEVEL_ROUTES,
   FAMILY_STORAGE_KEY,
   FAMILY_ENSURE_PROJECTS,
-} from './FamilyLevelNavigator';
+} from './FamilyLevelNavigator-constants';
 
 const LEVEL_PATTERN = {
   core: 'dots',

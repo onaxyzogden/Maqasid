@@ -11,6 +11,7 @@ import {
 } from './prompt-patterns';
 import { getRegistryEntry } from './prompt-registry';
 import { gatherUpstreamContext } from './context-gatherer';
+import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 
 const PATTERN_FN = {
   MAPPING_TRANSFORM: mappingTransform,
@@ -105,7 +106,7 @@ This is an ASSET FACTORY task. You are generating a DRAFT for operator review. T
 }
 
 function buildScopeIntegrity(taskDef) {
-  const laterStages = ['OUT', 'SAL', 'DLR', 'RET', 'OPT'];
+  const laterStages = ['OUT', 'SLS', 'DEL', 'RET', 'OPT'];
   if (laterStages.includes(taskDef.stage)) {
     return `## Scope Integrity Constraint
 All references to the offering (features, deliverables, promises, guarantees, pricing) MUST match the frozen OFR Scope Map from the Offering stage. Do not introduce, imply, or reference anything not documented in the OFR scope. If the OFR scope data is not in the upstream context, flag it as [SCOPE_MISSING].`;
@@ -153,11 +154,10 @@ function buildTaskContext(taskDef) {
     `**Purpose:** ${taskDef.purpose}`,
   ];
 
-  if (taskDef.governingAttributes?.length > 0) {
-    parts.push(`**Governing Attributes:** ${taskDef.governingAttributes.join(', ')}`);
-  }
-  if (taskDef.attrMeaning) {
-    parts.push(`**Theological Framing:** ${taskDef.attrMeaning}`);
+  const stageIslamic = getBbosStageIslamic(taskDef.stage);
+  if (stageIslamic?.attrs?.length > 0) {
+    parts.push(`**Governing Attributes:** ${stageIslamic.attrs.map(a => a.name).join(', ')}`);
+    parts.push(`**Theological Framing:** ${stageIslamic.attrs.map(a => `${a.name} — ${a.body}`).join(' ')}`);
   }
 
   const flags = taskDef.validationFlags || [];

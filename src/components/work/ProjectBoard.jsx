@@ -47,12 +47,14 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [draggable, setDraggable] = useState(false);
   const [bbosFilter, setBbosFilter] = useState(
-    location.state?.stage || project?.bbosStage || 'FND'
+    location.state?.stage || project?.bbosStage || 'IDY'
   );
   const stageBundleUploadRef = useRef(null);
 
   useEffect(() => {
     if (projectId) loadTasks(projectId);
+    // reason: loadTasks is a stable store action; only re-fire on projectId change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectId]);
 
   // Auto-open task from URL ?task= param
@@ -63,11 +65,15 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       searchParams.delete('task');
       setSearchParams(searchParams, { replace: true });
     }
+    // reason: setSearchParams is stable; including it would cause redundant runs
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   useEffect(() => {
     if (project?.bbosEnabled) setActiveBbosStage(bbosFilter);
     return () => clearActiveBbosStage();
+    // reason: setActiveBbosStage / clearActiveBbosStage are stable store actions
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [project?.bbosEnabled, bbosFilter]);
 
   useEffect(() => {
@@ -86,9 +92,10 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   const doneCol = isBbos ? project?.columns?.find((c) => c.name === 'Done')?.id : null;
   const todoCol = isBbos ? project?.columns?.find((c) => c.name === 'To Do')?.id : null;
 
+  const projectTasks = taskStore.tasksByProject[projectId];
   const bbosPillarTasks = useMemo(() => {
     if (!isBbos) return null;
-    const tasks = taskStore.tasksByProject[projectId] || [];
+    const tasks = projectTasks || [];
     const result = {};
     for (const p of activePillars) {
       const validIds = new Set(getBbosTaskDefsByStage(p.id).map((d) => d.id));
@@ -97,11 +104,11 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         .sort((a, b) => (a.seedOrder ?? 999) - (b.seedOrder ?? 999));
     }
     return result;
-  }, [taskStore.tasksByProject[projectId], activePillars, isBbos]);
+  }, [projectTasks, activePillars, isBbos]);
 
   const pillarProgress = useMemo(() => {
     if (!isBbos) return null;
-    const tasks = taskStore.tasksByProject[projectId] || [];
+    const tasks = projectTasks || [];
     const result = {};
     for (const p of activePillars) {
       const stageDefs = getBbosTaskDefsByStage(p.id);
@@ -119,7 +126,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       result[p.id] = stageDefs.length > 0 ? Math.round((weighted / stageDefs.length) * 100) : 0;
     }
     return result;
-  }, [taskStore.tasksByProject[projectId], activePillars, isBbos, doneCol]);
+  }, [projectTasks, activePillars, isBbos, doneCol]);
 
   const gateIndicators = useMemo(() => {
     if (!isBbos) return null;
@@ -145,10 +152,10 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       setBbosFilter(next.id);
       setActiveBbosStage(next.id);
     } else {
-      if (confirm('All stages complete. Start a new BBOS cycle? This will reset the pipeline to Identity (FND).')) {
+      if (confirm('All stages complete. Start a new BBOS cycle? This will reset the pipeline to Identity (IDY).')) {
         startNewBbosCycle(projectId);
-        setBbosFilter('FND');
-        setActiveBbosStage('FND');
+        setBbosFilter('IDY');
+        setActiveBbosStage('IDY');
       }
     }
   }, [bbosFilter, projectId, advanceBbosStage, setBbosFilter, setActiveBbosStage, startNewBbosCycle]);
@@ -168,6 +175,31 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     if (hasProgress) return '#F59E0B';
     return 'var(--border2)';
   }, [doneCol, todoCol]);
+
+  // Two-layer cross-fade on view or BBOS stage swap. Hooks must run before any early return.
+  const contentKey = `${view}::${isBbos ? bbosFilter : 'x'}`;
+  const [prevContentKey, setPrevContentKey] = useState(null);
+  const prevViewRef = useRef(view);
+  const prevBbosRef = useRef(bbosFilter);
+  const prevTimerRef = useRef(null);
+  const trackedKeyRef = useRef(contentKey);
+  const lastViewRef = useRef(view);
+  const lastBbosRef = useRef(bbosFilter);
+  const hasTransitionedRef = useRef(false);
+  useLayoutEffect(() => {
+    if (trackedKeyRef.current === contentKey) return;
+    hasTransitionedRef.current = true;
+    prevViewRef.current = lastViewRef.current;
+    prevBbosRef.current = lastBbosRef.current;
+    setPrevContentKey(trackedKeyRef.current);
+    trackedKeyRef.current = contentKey;
+    lastViewRef.current = view;
+    lastBbosRef.current = bbosFilter;
+    clearTimeout(prevTimerRef.current);
+    prevTimerRef.current = setTimeout(() => setPrevContentKey(null), 320);
+    // No cleanup — strict-mode double-invoke would clear the timer and strand
+    // the outgoing layer. Setting state on an unmounted component is a no-op.
+  }, [contentKey, view, bbosFilter]);
 
   if (!project) return null;
 
@@ -215,31 +247,6 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     e.target.value = '';
   };
 
-  // Two-layer cross-fade on view or BBOS stage swap.
-  const contentKey = `${view}::${isBbos ? bbosFilter : 'x'}`;
-  const [prevContentKey, setPrevContentKey] = useState(null);
-  const prevViewRef = useRef(view);
-  const prevBbosRef = useRef(bbosFilter);
-  const prevTimerRef = useRef(null);
-  const trackedKeyRef = useRef(contentKey);
-  const lastViewRef = useRef(view);
-  const lastBbosRef = useRef(bbosFilter);
-  const hasTransitionedRef = useRef(false);
-  useLayoutEffect(() => {
-    if (trackedKeyRef.current === contentKey) return;
-    hasTransitionedRef.current = true;
-    prevViewRef.current = lastViewRef.current;
-    prevBbosRef.current = lastBbosRef.current;
-    setPrevContentKey(trackedKeyRef.current);
-    trackedKeyRef.current = contentKey;
-    lastViewRef.current = view;
-    lastBbosRef.current = bbosFilter;
-    clearTimeout(prevTimerRef.current);
-    prevTimerRef.current = setTimeout(() => setPrevContentKey(null), 320);
-    // No cleanup — strict-mode double-invoke would clear the timer and strand
-    // the outgoing layer. Setting state on an unmounted component is a no-op.
-  }, [contentKey, view, bbosFilter]);
-
   const renderView = (v, stage) => {
     const fm = isBbos ? { ...filters, bbosStage: stage } : hideBbos && project.bbosEnabled ? { ...filters, excludeBbos: true } : filters;
     if (v === 'dashboard') return <DashboardView project={project} bbosFilter={isBbos ? stage : null} onSelectTask={setSelectedTaskId} selectedTaskId={inlinePanel ? selectedTaskId : null} onStageAdvance={isBbos ? handleStageAdvance : undefined} onStageSelect={isBbos ? handleStageSelect : undefined} />;
@@ -247,12 +254,6 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     if (v === 'gantt')     return <GanttView project={project} onSelectTask={setSelectedTaskId} filters={fm} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? stage : null} />;
     return <ListView project={project} onSelectTask={setSelectedTaskId} filters={fm} bbosRole={project.bbosRole || 'all'} bbosFilter={isBbos ? stage : null} />;
   };
-
-  const mergedFilters = isBbos
-    ? { ...filters, bbosStage: bbosFilter }
-    : hideBbos && project.bbosEnabled
-      ? { ...filters, excludeBbos: true }
-      : filters;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
@@ -354,8 +355,8 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
                 <button
                   className="btn btn-ghost"
                   style={{ fontSize: '0.8rem', color: '#c9a05a', display: 'flex', alignItems: 'center', gap: 4 }}
-                  onClick={() => { if (confirm('Start a new BBOS cycle? This resets the pipeline to Foundation (FND).')) startNewBbosCycle(projectId); }}
-                  title="Complete this cycle and start a new one from Foundation"
+                  onClick={() => { if (confirm('Start a new BBOS cycle? This resets the pipeline to Identity (IDY).')) startNewBbosCycle(projectId); }}
+                  title="Complete this cycle and start a new one from Identity"
                 >
                   <RefreshCw size={14} /> New Cycle
                 </button>

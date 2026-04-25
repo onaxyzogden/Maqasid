@@ -6,8 +6,7 @@ import {
   Calendar, Tag, User, Flag, Columns3, ChevronRight,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
-import { useProjectStore } from '../../store/project-store';
-import { usePeopleStore, getInitials } from '../../store/people-store';
+import { usePeopleStore } from '../../store/people-store';
 import { PRIORITIES } from '../../data/modules';
 import { ICON_REGISTRY } from '../../data/icon-registry';
 // react-markdown + remark-gfm (~80 KB gz combined) lazy-loaded via LazyMarkdown
@@ -140,6 +139,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       setTitle(task.title);
       setNotes(task.notes || '');
     }
+    // reason: depend on the discrete fields, not the unstable task object reference
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId, task?.title, task?.notes]);
 
   // Close on Escape
@@ -191,11 +192,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
     }, 300);
   };
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-    autoSave('title', e.target.value);
-  };
-
   const handleNotesChange = (e) => {
     setNotes(e.target.value);
     autoSave('notes', e.target.value);
@@ -217,24 +213,13 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const headerLabel = project?.name || 'Project';
   const HeaderIcon = (project?.icon && ICON_MAP[project.icon]) || LayoutGrid;
 
-  const openDoc = () => { setSlideDir('forward'); setActiveSubtask(null); setDocOpen(true); };
   const closeDoc = () => { setSlideDir('back'); setDocOpen(false); };
   const openSubtask = (st) => { setSlideDir('forward'); setDocOpen(false); setActiveSubtask(st); setSourcesOpen(false); setHasScrolledToBottom(false); };
   const closeSubtask = () => { setSlideDir('back'); setActiveSubtask(null); setSourcesOpen(false); };
   const openSources = () => { setSlideDir('forward'); setSourcesOpen(true); };
   const closeSources = () => { setSlideDir('back'); setSourcesOpen(false); };
 
-  // ── Derive status from column ──
-  const currentCol = columns.find((c) => c.id === task.columnId);
-  const statusLabel = currentCol?.name || 'To Do';
-
-  // Assignee info
-  const assignee = employees.find((e) => e.id === task.assigneeId);
-
-  // Format due date for display and input
-  const dueDateDisplay = task.dueDate
-    ? new Date(task.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })
-    : null;
+  // Format due date for input
   const dueDateInput = task.dueDate ? task.dueDate.slice(0, 10) : '';
 
   /* ── Summary view (default) ── */

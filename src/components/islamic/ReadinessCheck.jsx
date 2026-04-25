@@ -4,7 +4,7 @@ import { useArabic } from '../../hooks/useArabic';
 import './ReadinessCheck.css';
 
 // ── Display-only paired rows ──
-function RCSection({ label, data, color }) {
+function RCSection({ data }) {
   if (!data) return null;
   const gov = data.governing || [];
   const nyt = data.notYet || [];

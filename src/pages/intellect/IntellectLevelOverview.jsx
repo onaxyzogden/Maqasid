@@ -11,7 +11,7 @@ import {
   INTELLECT_LEVEL_ROUTES,
   INTELLECT_STORAGE_KEY,
   INTELLECT_ENSURE_PROJECTS,
-} from './IntellectLevelNavigator';
+} from './IntellectLevelNavigator-constants';
 
 const LEVEL_PATTERN = {
   core: 'dots',

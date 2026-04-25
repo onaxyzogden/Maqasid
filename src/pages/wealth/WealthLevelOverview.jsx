@@ -11,7 +11,7 @@ import {
   WEALTH_LEVEL_ROUTES,
   WEALTH_STORAGE_KEY,
   WEALTH_ENSURE_PROJECTS,
-} from './WealthLevelNavigator';
+} from './WealthLevelNavigator-constants';
 
 const LEVEL_PATTERN = {
   core: 'dots',

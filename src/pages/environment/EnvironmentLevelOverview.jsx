@@ -11,7 +11,7 @@ import {
   ENVIRONMENT_LEVEL_ROUTES,
   ENVIRONMENT_STORAGE_KEY,
   ENVIRONMENT_ENSURE_PROJECTS,
-} from './EnvironmentLevelNavigator';
+} from './EnvironmentLevelNavigator-constants';
 
 const LEVEL_PATTERN = {
   core: 'dots',

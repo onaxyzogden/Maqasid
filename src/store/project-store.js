@@ -2,17 +2,14 @@ import { create } from 'zustand';
 import { safeGetJSON, safeSet, safeRemove } from '../services/storage';
 import { genProjectId, genColumnId, genTaskId, genSubtaskId } from '../services/id';
 import { DEFAULT_COLUMNS, PROJECT_COLORS } from '../data/modules';
-import { FAITH_SEED_TASKS } from '@data/seed-tasks/faith-seed-tasks';
-import { LIFE_SEED_TASKS } from '@data/seed-tasks/life-seed-tasks';
-import { INTELLECT_SEED_TASKS } from '@data/seed-tasks/intellect-seed-tasks';
-import { FAMILY_SEED_TASKS } from '@data/seed-tasks/family-seed-tasks';
-import { WEALTH_SEED_TASKS } from '@data/seed-tasks/wealth-seed-tasks';
-import { ENVIRONMENT_SEED_TASKS } from '@data/seed-tasks/environment-seed-tasks';
-import { UMMAH_SEED_TASKS } from '@data/seed-tasks/ummah-seed-tasks';
-import { PRAYER_SEED_TASKS } from '@data/seed-tasks/prayer-seed-tasks';
-import { WEEKLY_SEED_TASKS, WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
+import { preloadPillarSeeds, getBoardSeeds } from '../services/seed-hydrator';
+import { WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
+
+// Pillar seed files are loaded lazily via the seed-hydrator. Each
+// ensure*Projects awaits its pillar's preload; the strip-pass below also
+// loads only the pillars whose boards have data in localStorage.
 
 function persistProjects(projects) {
   safeSet('projects', projects);
@@ -48,8 +45,8 @@ function seedBbosTasks(projectId, todoColumnId) {
   return safeSet(storageKey, seeded);
 }
 
-function seedTasks(boardId, seedMap) {
-  const tasks = seedMap[boardId];
+function seedTasks(boardId) {
+  const tasks = getBoardSeeds(boardId);
   if (!tasks || tasks.length === 0) return;
   const storageKey = `tasks_${boardId}`;
   const existing = safeGetJSON(storageKey, []);
@@ -83,18 +80,26 @@ function seedTasks(boardId, seedMap) {
 // One-time migration flag prevents the strip-pass from running on every boot.
 const SEED_STRIP_FLAG_KEY = 'seed_strip_v2';
 
-function backfillAndStripSeeds() {
-  const ALL_SEEDS = {
-    ...FAITH_SEED_TASKS,
-    ...LIFE_SEED_TASKS,
-    ...INTELLECT_SEED_TASKS,
-    ...FAMILY_SEED_TASKS,
-    ...WEALTH_SEED_TASKS,
-    ...ENVIRONMENT_SEED_TASKS,
-    ...UMMAH_SEED_TASKS,
-    ...PRAYER_SEED_TASKS,
-    ...WEEKLY_SEED_TASKS,
-  };
+async function backfillAndStripSeeds() {
+  // Discover which pillars actually have stored boards, then load ONLY those
+  // pillar seeds. A fresh-install user with one pillar opened pays for one
+  // chunk, not all eight.
+  const projects = safeGetJSON('projects', []);
+  const storedPillars = new Set();
+  for (const p of projects) {
+    const i = p.id?.indexOf('_');
+    if (i > 0) storedPillars.add(p.id.slice(0, i));
+  }
+  if (storedPillars.size === 0) return;
+  await Promise.all([...storedPillars].map((pillar) => preloadPillarSeeds(pillar)));
+
+  // Build the merged seed map from whatever the hydrator now has cached.
+  const ALL_SEEDS = {};
+  for (const proj of projects) {
+    const seeds = getBoardSeeds(proj.id);
+    if (seeds) ALL_SEEDS[proj.id] = seeds;
+  }
+
   const firstRun = safeGetJSON(SEED_STRIP_FLAG_KEY, null) === null;
   let totalBefore = 0;
   let totalAfter = 0;
@@ -205,7 +210,13 @@ function backfillAndStripSeeds() {
     }
   }
 }
-backfillAndStripSeeds();
+// Defer to idle: this runs once per session (gated by SEED_STRIP_FLAG_KEY)
+// and now performs async dynamic imports, so it must not block module load.
+if (typeof window !== 'undefined') {
+  const runBackfill = () => { backfillAndStripSeeds().catch((e) => console.warn('[bbiz] seed backfill failed', e)); };
+  if ('requestIdleCallback' in window) window.requestIdleCallback(runBackfill);
+  else setTimeout(runBackfill, 100);
+}
 
 function backfillBbosOrder() {
   const bbosIndexMap = {};
@@ -450,7 +461,7 @@ function migrateDefaultViewToDashboard(projects) {
   return migrated;
 }
 
-// Remove BBOS tasks whose definitions no longer exist (e.g. FND-IFB-S1–S5)
+// Remove BBOS tasks whose definitions no longer exist (e.g. IDY-IFB-S1–S5)
 function migrateRemoveStaleBbosTasks(projects) {
   const validIds = new Set(BBOS_TASK_DEFINITIONS.map((d) => d.id));
   projects.forEach((p) => {
@@ -490,7 +501,7 @@ export const useProjectStore = create((set, get) => ({
       updatedAt: new Date().toISOString(),
       archived: false,
       bbosEnabled,
-      bbosStage: bbosEnabled ? 'FND' : null,
+      bbosStage: bbosEnabled ? 'IDY' : null,
       bbosCycle: bbosEnabled ? 1 : null,
       bbosRole: bbosEnabled ? 'all' : null,
       members: [],
@@ -574,8 +585,40 @@ export const useProjectStore = create((set, get) => ({
 
   advanceBbosStage: (projectId, stageId) => set((s) => {
     const projects = s.projects.map((p) =>
-      p.id === projectId && p.bbosEnabled
+      p.id === projectId && p.bbosEnabled && !p.rejectedAt
         ? { ...p, bbosStage: stageId, updatedAt: new Date().toISOString() }
+        : p
+    );
+    persistProjects(projects);
+    return { projects };
+  }),
+
+  rejectBbosPipeline: (projectId, reasonId, reviewer = null) => set((s) => {
+    const projects = s.projects.map((p) =>
+      p.id === projectId && p.bbosEnabled
+        ? {
+            ...p,
+            rejectedAt: new Date().toISOString(),
+            rejectionReason: reasonId,
+            rejectedBy: reviewer,
+            updatedAt: new Date().toISOString(),
+          }
+        : p
+    );
+    persistProjects(projects);
+    return { projects };
+  }),
+
+  unrejectBbosPipeline: (projectId) => set((s) => {
+    const projects = s.projects.map((p) =>
+      p.id === projectId && p.bbosEnabled
+        ? {
+            ...p,
+            rejectedAt: null,
+            rejectionReason: null,
+            rejectedBy: null,
+            updatedAt: new Date().toISOString(),
+          }
         : p
     );
     persistProjects(projects);
@@ -585,7 +628,7 @@ export const useProjectStore = create((set, get) => ({
   startNewBbosCycle: (projectId) => set((s) => {
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled
-        ? { ...p, bbosStage: 'FND', bbosCycle: (p.bbosCycle || 1) + 1, updatedAt: new Date().toISOString() }
+        ? { ...p, bbosStage: 'IDY', bbosCycle: (p.bbosCycle || 1) + 1, rejectedAt: null, rejectionReason: null, rejectedBy: null, updatedAt: new Date().toISOString() }
         : p
     );
     persistProjects(projects);
@@ -616,7 +659,8 @@ export const useProjectStore = create((set, get) => ({
   getActiveProjects: () => get().projects.filter((p) => !p.archived),
   getProjectsByModule: (moduleId) => get().projects.filter((p) => p.moduleId === moduleId),
 
-  ensureFaithProjects: () => {
+  ensureFaithProjects: async () => {
+    await preloadPillarSeeds('faith');
     const existing = get().projects;
     const missing = FAITH_BOARDS.filter(
       (fb) => !existing.some((p) => p.id === fb.id)
@@ -637,7 +681,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty faith boards (idempotent)
     for (const fb of FAITH_BOARDS) {
-      seedTasks(fb.id, FAITH_SEED_TASKS);
+      seedTasks(fb.id);
     }
 
     if (missing.length === 0) return;
@@ -669,7 +713,8 @@ export const useProjectStore = create((set, get) => ({
 
   },
 
-  ensurePrayerProjects: () => {
+  ensurePrayerProjects: async () => {
+    await preloadPillarSeeds('prayer');
     const existing = get().projects;
     const missing = PRAYER_BOARDS.filter(
       (pb) => !existing.some((p) => p.id === pb.id)
@@ -677,7 +722,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty prayer boards (idempotent).
     for (const pb of PRAYER_BOARDS) {
-      seedTasks(pb.id, PRAYER_SEED_TASKS);
+      seedTasks(pb.id);
     }
 
     if (missing.length === 0) return;
@@ -708,7 +753,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureWeeklyProjects: () => {
+  ensureWeeklyProjects: async () => {
+    await preloadPillarSeeds('weekly');
     const existing = get().projects;
     const missing = WEEKLY_BOARDS.filter(
       (wb) => !existing.some((p) => p.id === wb.id)
@@ -716,7 +762,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty weekly boards (idempotent).
     for (const wb of WEEKLY_BOARDS) {
-      seedTasks(wb.id, WEEKLY_SEED_TASKS);
+      seedTasks(wb.id);
     }
 
     if (missing.length === 0) return;
@@ -747,7 +793,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureLifeProjects: () => {
+  ensureLifeProjects: async () => {
+    await preloadPillarSeeds('life');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
@@ -769,7 +816,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty life boards (idempotent)
     for (const lb of LIFE_BOARDS) {
-      seedTasks(lb.id, LIFE_SEED_TASKS);
+      seedTasks(lb.id);
     }
 
     if (missing.length === 0) return;
@@ -800,7 +847,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureIntellectProjects: () => {
+  ensureIntellectProjects: async () => {
+    await preloadPillarSeeds('intellect');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
@@ -822,7 +870,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty intellect boards (idempotent)
     for (const ib of INTELLECT_BOARDS) {
-      seedTasks(ib.id, INTELLECT_SEED_TASKS);
+      seedTasks(ib.id);
     }
 
     if (missing.length === 0) return;
@@ -853,7 +901,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureFamilyProjects: () => {
+  ensureFamilyProjects: async () => {
+    await preloadPillarSeeds('family');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
@@ -875,7 +924,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty family boards (idempotent)
     for (const fb of FAMILY_BOARDS) {
-      seedTasks(fb.id, FAMILY_SEED_TASKS);
+      seedTasks(fb.id);
     }
 
     if (missing.length === 0) return;
@@ -906,7 +955,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureWealthProjects: () => {
+  ensureWealthProjects: async () => {
+    await preloadPillarSeeds('wealth');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
@@ -928,7 +978,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty wealth boards (idempotent)
     for (const wb of WEALTH_BOARDS) {
-      seedTasks(wb.id, WEALTH_SEED_TASKS);
+      seedTasks(wb.id);
     }
 
     if (missing.length === 0) return;
@@ -959,7 +1009,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureEnvironmentProjects: () => {
+  ensureEnvironmentProjects: async () => {
+    await preloadPillarSeeds('environment');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
@@ -981,7 +1032,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty environment boards (idempotent)
     for (const eb of ENVIRONMENT_BOARDS) {
-      seedTasks(eb.id, ENVIRONMENT_SEED_TASKS);
+      seedTasks(eb.id);
     }
 
     if (missing.length === 0) return;
@@ -1060,7 +1111,8 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureUmmahProjects: () => {
+  ensureUmmahProjects: async () => {
+    await preloadPillarSeeds('ummah');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
@@ -1082,7 +1134,7 @@ export const useProjectStore = create((set, get) => ({
 
     // Seed tasks for any empty ummah boards (idempotent)
     for (const ub of UMMAH_BOARDS) {
-      seedTasks(ub.id, UMMAH_SEED_TASKS);
+      seedTasks(ub.id);
     }
 
     if (missing.length === 0) return;

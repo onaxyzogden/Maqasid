@@ -29,12 +29,11 @@ export default function OnboardingChecklist() {
   const allDone = completedCount === total;
   const pct = (completedCount / total) * 100;
 
-  // If already dismissed (persisted via store), hide widget permanently
-  if (checklistDismissed) return null;
-
   // When all items complete, show celebration for 4 seconds then dismiss
   useEffect(() => {
     if (allDone && !showCelebration) {
+      // reason: trigger celebration overlay once when all items complete
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowCelebration(true);
       const timer = setTimeout(() => {
         dismissChecklist();
@@ -42,6 +41,9 @@ export default function OnboardingChecklist() {
       return () => clearTimeout(timer);
     }
   }, [allDone, showCelebration, dismissChecklist]);
+
+  // If already dismissed (persisted via store), hide widget permanently
+  if (checklistDismissed) return null;
 
   function isCompleted(id) {
     return checklistItems.find((i) => i.id === id)?.completed ?? false;

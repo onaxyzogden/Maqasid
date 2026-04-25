@@ -13,6 +13,8 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
   const allTasks = tasksByProject[project.id] || [];
   const filteredTasks = useMemo(
     () => getFilteredTasks(project.id, filters),
+    // reason: allTasks reference change is the cache key for getFilteredTasks output
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [allTasks, filters, project.id, getFilteredTasks]
   );
 

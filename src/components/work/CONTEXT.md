@@ -30,7 +30,7 @@ Project and task management with Kanban, List, and Gantt views. Uses dnd-kit for
 ## Architecture
 ```
 ProjectBoard
-├── BbosPipelineHeader (if BBOS enabled)
+├── LevelNavigator (if BBOS enabled, with `gateIndicators` for 00A/01B patch stages)
 ├── FilterBar
 ├── DashboardView (default overview)
 └── KanbanBoard | ListView | GanttView (switched by `view` state)

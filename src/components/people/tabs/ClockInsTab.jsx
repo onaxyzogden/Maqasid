@@ -38,6 +38,8 @@ export default function ClockInsTab({ contactId }) {
       setElapsed(0);
     }
     return () => clearInterval(timerRef.current);
+    // reason: depend only on active.id; full active object would re-fire on every parent render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active?.id]);
 
   // Compute averages

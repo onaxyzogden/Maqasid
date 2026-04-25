@@ -1,21 +1,10 @@
-import { MapPinned, Leaf, HousePlus } from 'lucide-react';
 import LevelNavigator from '@components/shared/LevelNavigator';
-
-export const MOONTRANCE_PILLARS = [
-  { id: 'moontrance-land',      label: 'Moontrance Land',      Icon: MapPinned, route: '/app/moontrance-land'      },
-  { id: 'moontrance-seasonal',  label: 'Moontrance Seasonal',  Icon: Leaf,      route: '/app/moontrance-seasonal'  },
-  { id: 'moontrance-residency', label: 'Moontrance Residency', Icon: HousePlus, route: '/app/moontrance-residency' },
-];
-
-export const MOONTRANCE_LEVEL_ROUTES = {
-  core:       '/app/pillar/moontrance',
-  growth:     '/app/pillar/moontrance',
-  excellence: '/app/pillar/moontrance',
-};
-
-export const MOONTRANCE_STORAGE_KEY = 'moontrance_active_tab';
-
-export const MOONTRANCE_ENSURE_PROJECTS = (s) => s.ensureUmmahProjects;
+import {
+  MOONTRANCE_PILLARS,
+  MOONTRANCE_LEVEL_ROUTES,
+  MOONTRANCE_STORAGE_KEY,
+  MOONTRANCE_ENSURE_PROJECTS,
+} from './MoontraceLevelNavigator-constants';
 
 export default function MoontraceLevelNavigator(props) {
   return (

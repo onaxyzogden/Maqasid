@@ -63,7 +63,6 @@ export default function LevelNavigator({
   pillars = [],
   storageKey,
   ensureProjects,
-  levelRoutes = {},
   controlledLevel,
   onLevelChange,
   currentPillarId,
@@ -71,7 +70,6 @@ export default function LevelNavigator({
   levelDescriptions,
   levels: customLevels,
   pillarTasks: externalPillarTasks,
-  pillarProgress,
   onSegmentClick,
   onSubsegClick,
   taskColorFn,
@@ -106,12 +104,18 @@ export default function LevelNavigator({
 
   const moduleIds = pillars.map((p) => p.id);
 
-  useEffect(() => { if (ensureProjects) ensureProjectsFn(); }, []);
+  useEffect(() => {
+    if (ensureProjects) ensureProjectsFn();
+    // reason: ensure projects exist on mount only — ensureProjectsFn is unstable selector wrapper
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (externalPillarTasks) return;
     const moduleProjects = projects.filter((p) => p.moduleId && moduleIds.includes(p.moduleId));
     for (const proj of moduleProjects) loadTasks(proj.id);
+    // reason: moduleIds is recomputed each render; including it would refire constantly
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects, loadTasks, externalPillarTasks]);
 
   const [slideDir, setSlideDir] = useState(null); // 'left' | 'right' | null
@@ -164,9 +168,6 @@ export default function LevelNavigator({
   const prev   = levels[activeIdx - 1] ?? null;
   const next   = levels[activeIdx + 1] ?? null;
 
-  const activeRoute = levelRoutes[active.key] ?? null;
-  const prevRoute   = prev ? (levelRoutes[prev.key] ?? null) : null;
-  const nextRoute   = next ? (levelRoutes[next.key] ?? null) : null;
 
   // Build per-pillar task lists for the active level
   const internalPillarTasks = {};

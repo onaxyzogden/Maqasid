@@ -35,7 +35,7 @@ export function exportBbosProject(project, tasks) {
       dueDate: t.dueDate,
     })),
     instructions: 'This JSON contains BBOS pipeline data for an Islamic business project. '
-      + 'Each task has a bbosTaskType (e.g. FND-S1) and bbosFieldData containing form field values. '
+      + 'Each task has a bbosTaskType (e.g. IDY-S1) and bbosFieldData containing form field values. '
       + 'To help the user fill in missing fields, review the task titles, descriptions, and existing field data, '
       + 'then suggest appropriate values for empty bbosFieldData entries.',
   };

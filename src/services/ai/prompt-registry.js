@@ -5,13 +5,13 @@
 
 // ── Stage Defaults ──
 const STAGE_DEFAULTS = {
-  FND: { pattern: 'MAPPING_TRANSFORM', contextDepth: 1 },
-  TRU: { pattern: 'RESEARCH_DISCOVERY', contextDepth: 'stage' },
+  IDY: { pattern: 'MAPPING_TRANSFORM', contextDepth: 1 },
+  CRD: { pattern: 'RESEARCH_DISCOVERY', contextDepth: 'stage' },
   STR: { pattern: 'RESEARCH_DISCOVERY', contextDepth: 'stage' },
   OFR: { pattern: 'RESEARCH_DISCOVERY', contextDepth: 'stage' },
   OUT: { pattern: 'RESEARCH_DISCOVERY', contextDepth: 'stage' },
-  SAL: { pattern: 'SCRIPT_GENERATION', contextDepth: 'stage' },
-  DLR: { pattern: 'MAPPING_TRANSFORM', contextDepth: 'stage' },
+  SLS: { pattern: 'SCRIPT_GENERATION', contextDepth: 'stage' },
+  DEL: { pattern: 'MAPPING_TRANSFORM', contextDepth: 'stage' },
   RET: { pattern: 'SCRIPT_GENERATION', contextDepth: 'stage' },
   OPT: { pattern: 'ASSEMBLY_GATE', contextDepth: 'stage' },
 };
@@ -20,55 +20,55 @@ const STAGE_DEFAULTS = {
 // Only tasks that deviate from their stage default need entries here.
 // taskInstructions provide task-specific guidance layered on top of the pattern.
 const TASK_OVERRIDES = {
-  // ─── FND ───
-  'FND-S1': {
+  // ─── IDY ───
+  'IDY-S1': {
     pattern: 'RESEARCH_DISCOVERY',
     contextDepth: 0,
     taskInstructions: 'This is the FIRST task — raw intake capture. Help the operator articulate their declarations honestly across the 6 intake fields (Capital, Skills, Proof, Constraints, Geography, Regulatory). Do not embellish or improve their language. Ask probing questions as placeholder text. If the operator has not provided intake data yet, generate structured prompts for each field that guide honest self-disclosure.',
   },
-  'FND-S2': {
-    taskInstructions: 'Map FND-S1 raw intake fields to their corresponding normalized BBOS fields. Each field maps 1:1 from the raw intake. Flag any ambiguities with [AMBIGUOUS] tags. The mappingFlags field should list every issue found across all fields.',
+  'IDY-S2': {
+    taskInstructions: 'Map IDY-S1 raw intake fields to their corresponding normalized BBOS fields. Each field maps 1:1 from the raw intake. Flag any ambiguities with [AMBIGUOUS] tags. The mappingFlags field should list every issue found across all fields.',
   },
-  'FND-S3': {
-    taskInstructions: 'Review the normalized intake packet (FND-S2) for gaps. Each gap must specify: what is missing, why it is required, and what information would resolve it. The gapSeverity select must reflect the worst gap found.',
+  'IDY-S3': {
+    taskInstructions: 'Review the normalized intake packet (IDY-S2) for gaps. Each gap must specify: what is missing, why it is required, and what information would resolve it. The gapSeverity select must reflect the worst gap found.',
   },
-  'FND-S4': {
-    taskInstructions: 'Based on FND-S2 (normalized packet) and FND-S3 (gap check): route to TRU if intake is sufficiently complete, NO-SHIP if gaps prevent valid routing, or Reject if disqualifying conditions exist. The routingBasis must cite specific field states.',
+  'IDY-S4': {
+    taskInstructions: 'Based on IDY-S2 (normalized packet) and IDY-S3 (gap check): route to CRD if intake is sufficiently complete, NO-SHIP if gaps prevent valid routing, or Reject if disqualifying conditions exist. The routingBasis must cite specific field states.',
   },
-  // ─── TRU ───
-  'TRU-V1': {
+  // ─── CRD ───
+  'CRD-V1': {
     pattern: 'ASSEMBLY_GATE',
     taskInstructions: 'Evaluate against the 4-gate integrity matrix: (1) Regulatory clearance, (2) Market fit evidence, (3) Competence proof, (4) Proven demand indicators. Each gate: PASS or FAIL with specific evidence. Overall: PROCEED only if all 4 gates pass.',
   },
-  'TRU-V2': {
+  'CRD-V2': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Log any niche candidates removed during the TRU stage with reason for removal and the specific gate that failed.',
+    taskInstructions: 'Log any niche candidates removed during the CRD stage with reason for removal and the specific gate that failed.',
   },
-  'TRU-V3': {
+  'CRD-V3': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Compile cleared niche candidates from TRU-V1 that passed all gates. Handoff packet must include: niche name, evidence summary, and gate pass status for each.',
+    taskInstructions: 'Compile cleared niche candidates from CRD-V1 that passed all gates. Handoff packet must include: niche name, evidence summary, and gate pass status for each.',
   },
-  'TRU-AF1': {
+  'CRD-AF1': {
     pattern: 'ASSEMBLY_GATE',
     taskInstructions: 'Match operator competencies to offer categories. Score each match on alignment with declared skills, proof evidence, and market demand.',
   },
-  'TRU-AF2': {
+  'CRD-AF2': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Score each niche candidate across the BBOS scoring dimensions. Use only verified data from TRU-S1 through TRU-S6.',
+    taskInstructions: 'Score each niche candidate across the BBOS scoring dimensions. Use only verified data from CRD-S1 through CRD-S6.',
   },
-  'TRU-AF3': {
+  'CRD-AF3': {
     pattern: 'ASSEMBLY_GATE',
     taskInstructions: 'Produce the niche scoring comparison matrix. Side-by-side scoring across all dimensions for all remaining candidates.',
   },
-  'TRU-AF4': {
+  'CRD-AF4': {
     pattern: 'RESEARCH_DISCOVERY',
     taskInstructions: 'Analyze scoring patterns across niche candidates. Identify which dimensions consistently score high/low and what that reveals about the operator\'s positioning.',
   },
-  'TRU-AF5': {
+  'CRD-AF5': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Definitive proof audit. For every G1/G2 claim in TRU outputs, verify the proof asset exists and is linked. Flag any claim lacking proof as PROOF_PENDING.',
+    taskInstructions: 'Definitive proof audit. For every G1/G2 claim in CRD outputs, verify the proof asset exists and is linked. Flag any claim lacking proof as PROOF_PENDING.',
   },
-  'TRU-FP02': {
+  'CRD-FP02': {
     pattern: 'COMPRESSED_CYCLE',
     taskInstructions: 'Amanah Intake Screening Rubric. Evaluate the 3 auto-disqualifiers for compressed cycle entry.',
   },
@@ -79,7 +79,7 @@ const TASK_OVERRIDES = {
   },
   'STR-AF1': {
     pattern: 'SCRIPT_GENERATION',
-    taskInstructions: 'Generate The Belief — the operator\'s core strategic contribution statement. Must be grounded in TRU competency proof and STR market research. One clear belief statement with supporting evidence chain.',
+    taskInstructions: 'Generate The Belief — the operator\'s core strategic contribution statement. Must be grounded in CRD competency proof and STR market research. One clear belief statement with supporting evidence chain.',
   },
   'STR-AF2': {
     pattern: 'SCRIPT_GENERATION',
@@ -99,7 +99,7 @@ const TASK_OVERRIDES = {
   },
   'STR-V1': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Strategy Integrity Matrix. Verify all STR S-outputs are internally consistent and grounded in upstream TRU data.',
+    taskInstructions: 'Strategy Integrity Matrix. Verify all STR S-outputs are internally consistent and grounded in upstream CRD data.',
   },
   'STR-V2': {
     pattern: 'ASSEMBLY_GATE',
@@ -190,50 +190,50 @@ const TASK_OVERRIDES = {
     taskInstructions: 'Ihsan Baseline Checklist (DRIFT-02). Evaluate 5 mandatory compliance checks for all outreach materials. Each check: PASS or FAIL with evidence.',
   },
 
-  // ─── SAL ���──
-  'SAL-S0': {
+  // ─── SLS ───
+  'SLS-S0': {
     pattern: 'RESEARCH_DISCOVERY',
-    taskInstructions: 'Sales Stage Inputs Extractor. Extract and organize all upstream data needed for the SAL stage: offer scope, ICP, pricing, hooks, messages, objections. This is a synthesis/extraction task, not script generation.',
+    taskInstructions: 'Sales Stage Inputs Extractor. Extract and organize all upstream data needed for the SLS stage: offer scope, ICP, pricing, hooks, messages, objections. This is a synthesis/extraction task, not script generation.',
   },
-  'SAL-A0': {
+  'SLS-A0': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Sales Asset Pack Full Assembly. Check all SAL S-outputs and A-outputs are complete. If any required input is missing, output NO-SHIP with specific missing items. If complete, compile the master pack.',
+    taskInstructions: 'Sales Asset Pack Full Assembly. Check all SLS S-outputs and A-outputs are complete. If any required input is missing, output NO-SHIP with specific missing items. If complete, compile the master pack.',
   },
-  'SAL-FP03': {
+  'SLS-FP03': {
     pattern: 'COMPRESSED_CYCLE',
-    taskInstructions: 'Compressed Cycle Sign-Off for SAL stage.',
+    taskInstructions: 'Compressed Cycle Sign-Off for SLS stage.',
   },
 
-  // ─── DLR ──��
-  'DLR-S0': {
+  // ─── DEL ───
+  'DEL-S0': {
     pattern: 'ASSEMBLY_GATE',
-    taskInstructions: 'Fulfillment S-Outputs Generator. Master prompt that checks OFR inputs and generates DLR-S1 through DLR-S5 framework. NO-SHIP if required OFR data is missing.',
+    taskInstructions: 'Fulfillment S-Outputs Generator. Master prompt that checks OFR inputs and generates DEL-S1 through DEL-S5 framework. NO-SHIP if required OFR data is missing.',
   },
-  'DLR-A1': {
+  'DEL-A1': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Onboarding Checklist. Step-by-step onboarding sequence aligned with OFR scope and mechanism.',
   },
-  'DLR-A2': {
+  'DEL-A2': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Client Intake Form. Fields needed to begin delivery, mapped from OFR-A2 (ICP) and OFR-A3 (Mechanism).',
   },
-  'DLR-A3': {
+  'DEL-A3': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Execution SOP. Standard operating procedure for delivering the offer. Step-by-step with quality checkpoints.',
   },
-  'DLR-A4': {
+  'DEL-A4': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Quality Control Checklist. Verification points at each delivery milestone. Must map to OFR promise claims.',
   },
-  'DLR-A5': {
+  'DEL-A5': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Client Success Milestones asset. Observable, measurable milestones the client will hit during delivery.',
   },
-  'DLR-A6': {
+  'DEL-A6': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Proof Capture Protocol. How and when to capture proof assets (testimonials, case studies, metrics) at each milestone.',
   },
-  'DLR-A7': {
+  'DEL-A7': {
     pattern: 'SCRIPT_GENERATION',
     taskInstructions: 'Generate Offboarding Sequence. Graceful exit sequence with: final deliverable handoff, feedback capture, retention handoff to RET stage.',
   },
@@ -245,7 +245,7 @@ const TASK_OVERRIDES = {
   },
   'RET-S2': {
     pattern: 'RESEARCH_DISCOVERY',
-    taskInstructions: 'Proof Inventory. Catalog all collected proof assets from DLR stage: testimonials, case studies, metrics, before/after data.',
+    taskInstructions: 'Proof Inventory. Catalog all collected proof assets from DEL stage: testimonials, case studies, metrics, before/after data.',
   },
   'RET-S3': {
     pattern: 'RESEARCH_DISCOVERY',
@@ -305,12 +305,12 @@ const TASK_OVERRIDES = {
 
 /**
  * Get the registry entry for a task, merging stage default with any task override.
- * @param {string} taskId - e.g. 'FND-S1'
- * @param {string} stage - e.g. 'FND'
+ * @param {string} taskId - e.g. 'IDY-S1'
+ * @param {string} stage - e.g. 'IDY'
  * @returns {{ pattern: string, contextDepth: number|string, taskInstructions: string|null }}
  */
 export function getRegistryEntry(taskId, stage) {
-  const stageDefault = STAGE_DEFAULTS[stage] || STAGE_DEFAULTS.FND;
+  const stageDefault = STAGE_DEFAULTS[stage] || STAGE_DEFAULTS.IDY;
   const override = TASK_OVERRIDES[taskId];
 
   return {

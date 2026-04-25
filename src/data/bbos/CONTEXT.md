@@ -6,7 +6,7 @@ BBOS pipeline configuration — stages, task definitions, role access, and Islam
 ## File Inventory
 | File | Role |
 |------|------|
-| bbos-pipeline.js | Stage definitions (INT through OPT) with metadata, order, and transitions |
+| bbos-pipeline.js | Stage definitions (IDY through OPT — 9 stages: IDY/CRD/STR/OFR/OUT/SLS/DEL/RET/OPT) with metadata, order, and transitions |
 | bbos-task-definitions.js | Task templates assigned to each pipeline stage |
 | bbos-role-access.js | Role-based access control per stage (who can view/edit/approve) |
 | bbos-stage-islamic.js | Islamic grounding per stage — ayat, hadith, and maqasid alignment references |

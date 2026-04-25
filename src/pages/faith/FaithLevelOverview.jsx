@@ -11,7 +11,7 @@ import {
   FAITH_LEVEL_ROUTES,
   FAITH_STORAGE_KEY,
   FAITH_ENSURE_PROJECTS,
-} from './FaithLevelNavigator';
+} from './FaithLevelNavigator-constants';
 
 // Augment Faith pillars with glossaryIds (used by IslamicTerm tooltips)
 const FAITH_OVERVIEW_PILLARS = FAITH_PILLARS.map((p) => ({

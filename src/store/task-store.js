@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
-import { hydrateTasks, stripSeedFields } from '../services/seed-hydrator';
+import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/seed-hydrator';
 import { MAQASID_PILLARS, getPillarForModule } from '../data/maqasid';
 import { useProjectStore } from './project-store';
 
@@ -48,7 +48,10 @@ export const useTaskStore = create((set, get) => ({
   // { [projectId]: Task[] }
   tasksByProject: {},
 
-  loadTasks: (projectId) => {
+  loadTasks: async (projectId) => {
+    // Lazy-load the pillar seeds before hydrating so SubtaskSources et al.
+    // see description/sources on first render. Cheap on cache hit.
+    await preloadBoardSeeds(projectId);
     const raw = safeGetJSON(`tasks_${projectId}`, []);
     const tasks = hydrateTasks(raw, projectId);
     set((s) => ({

@@ -180,6 +180,8 @@ export function usePrayerTimes() {
       // Refresh for today
       fetchTimings(coords.lat, coords.lng);
     }
+    // reason: mount-only initial load; fetchTimings is intentionally not in deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Memoized update — recalculates activePrayer and nextPrayer from current timings

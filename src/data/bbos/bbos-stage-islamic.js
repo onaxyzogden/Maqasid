@@ -4,7 +4,7 @@
 // Consumed by IslamicPanel and ThresholdModal when activeBbosStage is set.
 
 export const BBOS_STAGE_ISLAMIC = {
-  FND: {
+  IDY: {
     attrs: [
       {
         name: 'Al-Awwal',
@@ -87,7 +87,7 @@ export const BBOS_STAGE_ISLAMIC = {
     },
   },
 
-  TRU: {
+  CRD: {
     attrs: [
       {
         name: "Al-Mu'min",
@@ -419,7 +419,7 @@ export const BBOS_STAGE_ISLAMIC = {
     },
   },
 
-  SAL: {
+  SLS: {
     attrs: [
       {
         name: 'As-Sami',
@@ -502,7 +502,7 @@ export const BBOS_STAGE_ISLAMIC = {
     },
   },
 
-  DLR: {
+  DEL: {
     attrs: [
       {
         name: 'Al-Muhsin',

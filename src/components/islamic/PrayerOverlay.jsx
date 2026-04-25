@@ -38,7 +38,9 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, []); // intentionally stable — immune to re-renders and prop changes
+    // intentionally stable — immune to re-renders and prop changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Derived from real time — always accurate, no drift
   const beforePrayer = prayerTimeMs ? now < prayerTimeMs : false;

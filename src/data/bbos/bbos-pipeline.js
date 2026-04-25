@@ -1,22 +1,22 @@
 // BBOS Pipeline — 9-stage business cultivation system
 // Each project can opt into BBOS, getting these stages as Kanban columns
-// Three layers: Think (FND–OFR), Execute (OUT–RET), Reckon (OPT)
+// Three layers: Think (IDY–OFR), Execute (OUT–RET), Reckon (OPT)
 
 export const BBOS_LAYERS = [
-  { id: 'think',   label: 'Think',   color: '#c9a05a', stages: ['FND', 'TRU', 'STR', 'OFR'] },
-  { id: 'execute', label: 'Execute', color: '#4ab8a8', stages: ['OUT', 'SAL', 'DLR', 'RET'] },
+  { id: 'think',   label: 'Think',   color: '#c9a05a', stages: ['IDY', 'CRD', 'STR', 'OFR'] },
+  { id: 'execute', label: 'Execute', color: '#4ab8a8', stages: ['OUT', 'SLS', 'DEL', 'RET'] },
   { id: 'reckon',  label: 'Reckon',  color: '#6366f1', stages: ['OPT'] },
 ];
 
 export const BBOS_STAGES = [
   {
-    id: 'FND', order: 0, label: 'Identity', layer: 'think',
+    id: 'IDY', order: 0, label: 'Identity', layer: 'think',
     description: 'Establish the foundational identity, mission, and values of the business.',
     attrs: 'Al-Awwal · Al-Badi',
     color: 'var(--col-todo)',
   },
   {
-    id: 'TRU', order: 1, label: 'Credibility', layer: 'think',
+    id: 'CRD', order: 1, label: 'Credibility', layer: 'think',
     description: 'Build credibility and establish the trust infrastructure for your offering.',
     attrs: 'Al-Mu\'min · Al-Wakil',
     color: '#6366f1',
@@ -40,13 +40,13 @@ export const BBOS_STAGES = [
     color: '#22c55e',
   },
   {
-    id: 'SAL', order: 5, label: 'Convert', layer: 'execute',
+    id: 'SLS', order: 5, label: 'Convert', layer: 'execute',
     description: 'Convert interest into commitment through honest, consultative selling.',
     attrs: 'As-Sami · Al-Basir',
     color: '#3b82f6',
   },
   {
-    id: 'DLR', order: 6, label: 'Deliver', layer: 'execute',
+    id: 'DEL', order: 6, label: 'Deliver', layer: 'execute',
     description: 'Deliver the promised outcome with excellence and care.',
     attrs: 'Al-Muhsin · Al-Latif',
     color: '#4ab8a8',
@@ -65,6 +65,41 @@ export const BBOS_STAGES = [
   },
 ];
 
+// ── Amanah Proof Audit rejection reasons (protocol v2.4) ────────────────────
+
+export const BBOS_REJECTION_REASONS = [
+  {
+    id: 'riba',
+    label: 'Riba (interest-based mechanism)',
+    description: 'The business model relies on interest, debt-yield, or other riba structures.',
+  },
+  {
+    id: 'gharar',
+    label: 'Gharar (excessive uncertainty)',
+    description: 'The offering or transaction contains undefined elements the client cannot evaluate.',
+  },
+  {
+    id: 'capability_gap',
+    label: 'Capability gap',
+    description: 'The operator cannot honestly meet the claims required to proceed at this scale.',
+  },
+  {
+    id: 'regulatory',
+    label: 'Regulatory hard-stop',
+    description: 'A jurisdictional or compliance constraint blocks the pipeline from continuing.',
+  },
+  {
+    id: 'withdrawal',
+    label: 'Operator withdrawal',
+    description: 'The operator has chosen to exit the pipeline by their own discernment.',
+  },
+];
+
+/** Get rejection reason by ID */
+export function getBbosRejectionReason(reasonId) {
+  return BBOS_REJECTION_REASONS.find((r) => r.id === reasonId) || null;
+}
+
 // ── Patch Plan sub-stages (protocol v2.4) ────────────────────────────────────
 
 export const BBOS_PATCH_STAGES = [
@@ -72,7 +107,7 @@ export const BBOS_PATCH_STAGES = [
     id: '00A',
     label: 'Input Integrity Gate',
     description: 'Grades operator proof on a P0-P3 scale before pipeline entry.',
-    afterStage: 'FND',
+    afterStage: 'IDY',
     layer: 'think',
   },
   {

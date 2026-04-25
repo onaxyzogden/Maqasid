@@ -5,7 +5,7 @@
 /**
  * Pattern 1: MAPPING_TRANSFORM
  * Read completed upstream fields and reorganize into the current task's field structure.
- * Used by: FND-S2, FND-S3, FND-S4, and tasks that normalize/map upstream data.
+ * Used by: IDY-S2, IDY-S3, IDY-S4, and tasks that normalize/map upstream data.
  */
 export function mappingTransform() {
   return `## Your Role: Mapping & Transformation
@@ -24,7 +24,7 @@ You are performing a MAPPING task. Your job is to take the data from completed u
 /**
  * Pattern 2: RESEARCH_DISCOVERY
  * Generate research-grade analysis from the operator's context.
- * Used by: STR-S1-S5, OFR-S1-S5, OUT-S1-S5, TRU-S1-S6, and most S-prefixed research tasks.
+ * Used by: STR-S1-S5, OFR-S1-S5, OUT-S1-S5, CRD-S1-S6, and most S-prefixed research tasks.
  */
 export function researchDiscovery() {
   return `## Your Role: Research & Discovery
@@ -44,7 +44,7 @@ You are performing a RESEARCH task. Generate substantive, defensible analysis ba
 /**
  * Pattern 3: SCRIPT_GENERATION
  * Produce structured, ready-to-use scripts and sequences.
- * Used by: SAL-S3, SAL-A4, OUT-A5, RET-A1-A3, and tasks producing scripts/sequences.
+ * Used by: SLS-S3, SLS-A4, OUT-A5, RET-A1-A3, and tasks producing scripts/sequences.
  */
 export function scriptGeneration() {
   return `## Your Role: Script & Sequence Generation
@@ -65,7 +65,7 @@ You are generating READY-TO-USE scripts, sequences, or structured content the op
 /**
  * Pattern 4: ASSEMBLY_GATE
  * Check upstream completeness and produce PROCEED/NO-SHIP decision.
- * Used by: SAL-A0, DLR-S0, OPT-A5, and gate tasks with GATE_BLOCKED.
+ * Used by: SLS-A0, DEL-S0, OPT-A5, and gate tasks with GATE_BLOCKED.
  */
 export function assemblyGate() {
   return `## Your Role: Assembly & Gate Validation
@@ -108,7 +108,7 @@ Every substantive claim in your output MUST be tagged with an evidence grade:
 /**
  * Pattern 6: COMPRESSED_CYCLE
  * Validate 3 entry conditions for compressed cycle exception protocol.
- * Used by: OFR-FP03, SAL-FP03.
+ * Used by: OFR-FP03, SLS-FP03.
  */
 export function compressedCycle() {
   return `## Your Role: Compressed Cycle Gate (FP-03)

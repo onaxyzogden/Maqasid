@@ -26,7 +26,7 @@ import {
   MOONTRANCE_LEVEL_ROUTES,
   MOONTRANCE_STORAGE_KEY,
   MOONTRANCE_ENSURE_PROJECTS,
-} from './MoontraceLevelNavigator';
+} from './MoontraceLevelNavigator-constants';
 import '../ummah/UmmahDashboard.css';
 
 const LEVEL_PATTERN = {

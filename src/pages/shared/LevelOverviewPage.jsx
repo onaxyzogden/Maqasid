@@ -78,6 +78,8 @@ export default function LevelOverviewPage({
 
   useEffect(() => {
     ensureProjectsFn();
+    // reason: mount-only ensure; ensureProjectsFn is a stable store wrapper
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -87,6 +89,8 @@ export default function LevelOverviewPage({
         loadTasks(boardId);
       }
     }
+    // reason: pillars/boardPrefix are caller-stable for a given page; deps narrowed
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects, level, loadTasks]);
 
   const { progressMap } = useModulesProgress(moduleIds, level);
