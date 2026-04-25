@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | OLOS Atlas — §11 mobile tractor zones card (chicken / rabbit / pig)
+
+**Objective:** Close the §11 `chicken-rabbit-pig-tractor-zones` manifest item (P2, planned) with a presentation-layer card that identifies crop areas and zones suited for rotating mobile-tractor systems and recommends head capacity for a one-week rotation.
+
+**Shipped:**
+- New [atlas/apps/web/src/features/livestock/MobileTractorZonesCard.tsx](atlas/apps/web/src/features/livestock/MobileTractorZonesCard.tsx) (~354 lines):
+  - **Suitability rules** — three species, each matched to crop types and zone categories where its ecological role fits best. *Chicken*: orchard, food forest, market garden, row crop, garden bed, silvopasture. *Pig*: silvopasture, shelterbelt, windbreak; future-expansion zones. *Rabbit*: pollinator strip, garden bed; commons / buffer zones.
+  - **Conservative pig rule** — pig candidates exclude crop areas when the project already has any active grazing paddock. The assumption: where paddock-rotation is already running, that's the right tool; pigs are for areas without active rotation. Polygon-level intersection is a follow-on (turf-style spatial join not yet wired).
+  - **Head-count math** — chicken 1000 head/ha, rabbit 500 head/ha, pig 8 head/ha for a 7-day rotation. Each candidate carries name, type label, area in hectares, recommended head count, and a one-line rationale (e.g. "Surface-scratching helps control insects without damaging deep roots.").
+  - **Sort + display** — candidates per species sorted by area descending; top four shown per column; "+ N more" tail when needed.
+- New [MobileTractorZonesCard.module.css](atlas/apps/web/src/features/livestock/MobileTractorZonesCard.module.css) — ink-on-parchment palette consistent with the §10/§11/§18/§22 family. Three-column grid (chicken / rabbit / pig) collapses to single-column at 1100px. Per-species accent on the column's left edge: amber (chicken), green (rabbit), red (pig).
+- Mounted on `EcologicalDashboard.tsx` immediately after `MissionImpactRollupCard`, completing the cross-cutting heuristic-roll-up chain (AI synthesis → nutrient balance → mission impact → mobile tractors).
+- Manifest §11 line 302 `chicken-rabbit-pig-tractor-zones` flipped `planned → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` exits clean (full repo, exit 0).
+
+**Discipline:** Pure presentation — zero shared-package math, no map overlays, no new entity types. Densities are literature defaults; future iterations can add slider-based overrides and turf-style polygon overlap for paddock exclusion. Atlas commit `8aec5ff` — 4 files, 584 ins / 1 del.
+
+---
+
 ## [2026-04-25] session | MILOS — Faith pillar two-axis grounding migration complete
 
 **Objective:** Close Phase C.2 from the [[concurrent-nibbling-rabbit]] deferred-items plan — migrate Faith pillar's 212 legacy-string `sources` entries to the structured two-axis schema ([[2026-04-18-milos-grounding-two-axis]]) so the test ratchet decrements to zero.
