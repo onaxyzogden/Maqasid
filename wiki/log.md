@@ -15,6 +15,22 @@ type: log
 
 ---
 
+## [2026-04-25] session | Atlas §13 — Corridor & trench cost estimator card
+
+**Objective:** Manifest gap-fill iteration. Picked candidate 1 — `road-utility-corridor-cost-estimator` (mapped to existing manifest key `pedestrian-trail-vehicle-farm-lane`, §13 Access & Circulation, line 278, P2, partial → done). Build a per-meter cost rollup for paths + utility trenches + boundary crossings.
+
+**Shipped:**
+- `apps/web/src/features/access/CorridorCostEstimatorCard.tsx` (~290 lines) — three subtotals (paths by type via per-PathType $/m table; utility trenches with each utility flat-earth-routed to its nearest path × $40/m water / $30/m energy / $20/m other; boundary crossings via ray-cast point-in-polygon over Polygon/MultiPolygon × $1500). Top callout = mid total + low (×0.7) / high (×1.5) range with 3-tone split chip (paths / trench / crossings + % share). Inline flat-earth distance + point-to-segment helpers.
+- `apps/web/src/features/access/CorridorCostEstimatorCard.module.css` (~280 lines) — gold gradient on total block, per-category left-border on utility rows (water blue, energy gold, other neutral), tabular-num cost columns.
+- `AccessPanel.tsx` — mounted on the analysis tab after `<WayfindingPlanCard projectId={projectId} />`.
+- Manifest §13 line 278 `pedestrian-trail-vehicle-farm-lane` flipped `partial → done`.
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → exit 0. Preview not exercised in this session.
+
+**Discipline:** Presentation-only. Per-meter cost templates inline in the card (no new shared cost data added). Reuses `usePathStore` + `useUtilityStore` + `PATH_TYPE_CONFIG` + `UTILITY_TYPE_CONFIG` only — no new entity types, no map overlays. Atlas commit `e4335d0`. Submodule pointer bumped in MILOS parent.
+
+---
+
 ## [2026-04-25] session | Atlas §12 — Companion & rotation planner card
 
 **Objective:** Manifest gap-fill iteration. Picked candidate 1 — `crop-rotation-succession-planner` (mapped to existing manifest key `pollinator-strip-companion-zone-notes`, §12 Crops & Agroforestry, line 322, P2, partial → done). Build a deterministic 4-year rotation + companion-planting audit for annual crop areas.
