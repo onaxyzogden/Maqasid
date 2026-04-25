@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §6 — Seasonal shadow rollup card
+
+**Objective:** Manifest gap-fill iteration. Picked candidate 1 — `seasonal-light-shadow-modeling` (mapped to existing manifest key `structure-tree-shadow-casting`, §6 Climate Analysis, line 196, P2, partial → done). Build a per-month solar-noon shadow rollup that complements the existing solstice-only ShadowFootprintsCard by surfacing the seasonal arc and chronic-shade structures.
+
+**Shipped:**
+- `apps/web/src/features/climate/SeasonalShadowCard.tsx` (~230 lines) — 4-stat row (tallest structure, annual avg shadow, winter peak, count of months > 2× height), 12-col site-mean monthly shadow ratio bar chart (tone-coded summer/shoulder/winter), top-3 winter shadow casters with mini 12-month sparklines + chronic-shadow flag (≥6/12 months > 2×). Heuristic only: shadow length = height / tan(solar altitude) at solar noon, mid-month day-of-year, flat-ground; hemisphere-aware (winter months flip for southern lat). Reuses Spencer (1971) `computeSunPath` + `summarizeSunPath` from `@ogden/shared` and `estimateStructureHeightM` from `features/structures/footprints`.
+- `apps/web/src/features/climate/SeasonalShadowCard.module.css` (~225 lines) — ink-on-parchment palette consistent with adjacent climate cards.
+- `SolarClimateDashboard.tsx` — mounted as `SEASONAL SHADOW ROLLUP` section directly after `SHADOW FOOTPRINTS`.
+- Manifest §6 line 196 `structure-tree-shadow-casting` flipped `partial → done` (tree casting still deferred — needs a canopy entity).
+
+**Verification:** `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → exit 0. Preview not exercised in this session (existing `SolarClimateDashboard` route validated upstream; new card is presentation-only over already-loaded structure data).
+
+**Discipline:** Presentation-only addition — no shared-package math added (reused existing `computeSunPath`), no new entity types, no map overlays. Distinct from existing `ShadowFootprintsCard` which only shows winter/summer solstice noon — the new card surfaces the full 12-month arc and ranks winter shadow casters with chronic-shade flagging. Atlas commit `e7d18ec`. Submodule pointer bumped in MILOS parent.
+
+---
+
 ## [2026-04-25] session | MILOS — Life pillar two-axis grounding migration complete
 
 **Objective:** Third pillar pass. Migrate the 236 legacy-string `sources` entries in `life-seed-tasks.js` using the proven parser-copy approach.
