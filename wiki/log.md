@@ -3,6 +3,82 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas §17 — "why this suggestion?" expander
+
+Closed §17 `why-this-suggestion-was-made` (P3, planned → done).
+WhyExpander is a small click-to-expand inline component wrapped
+around every violation row in the three §-rollup cards that surface
+weighted siting violations. Reveals: rule id, category, base vs
+weight-adjusted severity (with the slider value that caused the
+shift), data source, full rule description, and a "needs site
+visit" pill when the rule needs ground-truthing.
+
+### Added
+- `apps/web/src/features/rules/WhyExpander.tsx` — pure presentation
+  wrapping a `WeightedViolation` from useSitingEvaluation. Native
+  `<details>`/`<summary>` element so the toggle is accessible by
+  default with zero React state.
+  - `baseEffective(severity)` projects `RuleSeverity` (error /
+    warning / info) onto the user-facing `EffectiveSeverity` axis
+    (blocking / warning / advisory). Mirrors the BASE_SEVERITY_MAP
+    in useSitingEvaluation.ts — kept inline rather than exported to
+    avoid expanding the hook's surface.
+  - `weightAdjustmentNote(base, effective, weight)` returns a
+    string like "escalated by high priority (weight 75)" when the
+    weight slider promoted/demoted the severity, else null.
+  - 5 definition rows: Rule (mono-tinted code chip), Category +
+    weight category, Severity (with arrow showing the base if
+    different from effective), Source (data layer), Why it matters
+    (full rule description).
+  - "Needs site visit" pill rendered only when the rule sets
+    `needsSiteVisit: true`.
+
+- `apps/web/src/features/rules/WhyExpander.module.css` — own module
+  rather than extending SitingWarningsCard.module.css. The expander
+  has its own grammar (caret, definition rows, code chip) that
+  doesn't belong in the shared rollup CSS. Visual tokens still
+  match (colors, font sizes, border-radii) so the expander reads as
+  a member of the same family.
+  - `.summary::before` uses ▸ (U+25B8) rotated to ▾ on `[open]`
+    via CSS transform, so no marker styling fight with browser
+    defaults.
+
+### Changed
+- `apps/web/src/features/rules/SitingWarningsCard.tsx` — imports
+  `WhyExpander`; renders `<WhyExpander v={v} />` after the
+  existing `.violationSuggest` line in each violation row.
+- `apps/web/src/features/rules/SpatialRelationshipsCard.tsx` —
+  same wiring.
+- `apps/web/src/features/rules/SetbackSlopeSolarCard.tsx` — same
+  wiring.
+
+- `packages/shared/src/featureManifest.ts` line 416:
+  `why-this-suggestion-was-made` planned → done.
+
+### Decisions
+- Native `<details>` over a custom expander. Built-in keyboard
+  support (Enter/Space toggles), screen-reader semantics, and zero
+  state — perfect for a "view source" affordance that doesn't need
+  cross-row coordination. No animation library needed.
+- Inline component, not a render-prop. The three rollup cards all
+  follow the same row markup; adding `<WhyExpander v={v} />` to
+  each `.violationBody` is one-line per card with no new abstraction.
+- Show severity arrow only when weight changed it. If base equals
+  effective, render "weight {n}" instead — keeps the row honest
+  about the slider's effect even when it didn't escalate.
+- Don't wire into `SitingPanel.tsx`'s `ViolationCard` (yet). That
+  card is a full per-violation detail view; the rationale already
+  lives there in expanded form. The rollup cards are where the
+  short-form list actively hides this metadata.
+
+### Verified
+- `cd atlas/apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx
+  tsc --noEmit` — clean (empty output).
+- All three rollup cards still render their existing content; the
+  expander appears collapsed by default (no layout shift).
+
+---
+
 ## [2026-04-25] session | Atlas §11 — livestock-land fit matrix
 
 Closed §11 `livestock-land-fit-enterprise-zone` (P3, planned → done).
