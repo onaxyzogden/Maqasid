@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | MILOS pre-test audit — Phase C (Tier-3 cleanup, session close)
+
+**Objective:** Close the pre-test audit with the Tier-3 inconsistency / drift backlog: dark-mode coverage, shimmer-keyframe consolidation, hard-coded hex → tokens, date-format canonical, threshold-store persistence-tier markers.
+
+**Shipped (Phase C):**
+- C.4 — Added persistence-tier comment block to [src/store/threshold-store.js](src/store/threshold-store.js) documenting the three storage tiers (PERSISTENT localStorage `thr_*`, SESSION sessionStorage `thr_opening_mid`/`thr_closing_mid`, EPHEMERAL in-memory). Zero behavior change.
+- C.3 — Created [src/lib/format-date.js](src/lib/format-date.js) (`formatDate(input, variant?, fallback?)` helper, canonical `MMM d, yyyy`). Filed [wiki/concepts/date-format-canonical.md](wiki/concepts/date-format-canonical.md). Migrated the one explicit `date-fns format()` site in [CompanyInfoTab.jsx:38-40](src/components/people/tabs/CompanyInfoTab.jsx). The audit's "50 sites" claim conflated `format()` (1 site) with locale-aware `toLocaleDateString` (~30 sites) — the locale-aware ones are correct as-is and were not migrated.
+- C.2 — Migrated 6 hard-coded hex values to tokens: PillarBoard.css `#4ab8a8` → `var(--primary)`, `#3da396` → `var(--primary-hover)`, `#8b5cf6` → `var(--mod-people)`; TaskDetailPanel.css `#2563eb` → `var(--col-progress)`, `#8b5cf630` → `color-mix(... var(--mod-people) 19% ...)`. **Shimmer-keyframe consolidation deferred — audit correction:** the 4 keyframes (`mcw-shimmer` SVG opacity pulse, `pp-chip-shimmer` translateX sweep, `pp-active-shimmer` + `skeleton-shimmer` background-position sweeps) animate different properties and aren't redundant; folding them would break SVG/transform animations.
+
+**Audit corrections (Phase C):**
+- C.1 — Dark-mode coverage **not** at 10%. The audit counted explicit `[data-theme="dark"]` selectors (5 files) but missed the token-driven mechanism: 100+ tokens remap under `[data-theme="dark"]` in [tokens.css:252-393](src/styles/tokens.css), and components consume `var(--bg)/--text/--border/--surface/--primary/...`. Verified live in dark-mode preview at `/app` and `/app/prophetic-path` — body (`rgb(15,17,23)`), TopBar (`rgb(26,29,36)` bg / `rgb(42,47,56)` border), Sidebar, Dashboard all flip correctly. The genuine gaps were the hard-coded hex sites (closed in C.2).
+
+**Decision record:** [[2026-04-25-milos-tier-3-cleanup]]
+
+**Verification:** `npm run build` exits 0, 2,765 modules transformed, only the pre-existing chunk-size warning. Dark-mode preview verified. Pre-test audit fully closed across [[2026-04-25-milos-pre-test-tier-1-fixes]], [[2026-04-25-milos-tier-2-polish]], and this Phase C record.
+
+**Session debrief:**
+- Completed: Three-phase pre-test audit (A: 5 Tier-1 blockers; B: 5 Tier-2 polish + 1 audit correction; C: 2 Tier-3 fixes + 2 audit corrections). 6 audit findings turned out incorrect on inspection — corrections are recorded in their respective decision records rather than churning code.
+- Deferred: 625-line lint backlog (Tier 4); LevelNavigator 4.7 MB chunk shrink (carryover); two-axis grounding migration; 8th-pillar `moontrance:` MODULE_ATTRS entry; dual-contact-stores unification (blocked on test framework).
+- Recommended next session: live click-through test, then either lint backlog or LevelNavigator chunk shrink depending on what the test surfaces.
+
+---
+
+## [2026-04-25] session | MILOS pre-test audit — Phase B (Tier-2 polish)
+
+**Objective:** Continuation of [[2026-04-25-milos-pre-test-tier-1-fixes]]. Address Tier-2 user-visible polish before live test: empty pillar wisdom/next-actions, prophetic-path prototype labeling, Suspense lazy-load failures, prayer-time silent degradation, storage quota surfacing, and chunk-size investigation.
+
+**Shipped (Phase B):**
+- B.1 — Replaced 23 `stub()` entries in [src/data/pillar-wisdom.js](src/data/pillar-wisdom.js) + [src/data/pillar-next-actions.js](src/data/pillar-next-actions.js) with curated Quranic-grounded content across Life/Intellect/Family/Wealth/Environment/Ummah. All Arabic + English fetched via quran.ai MCP — never composed (Amanah Gate). Moontrance + Ogden stubs preserved.
+- B.2 — **Audit correction.** Ummah seed-task citations were claimed missing; lint-grounding.mjs reports 0 missing across 525 subtasks, all in legacy-string Markdown format. The 2026-04-17 deferral was the two-axis migration, not citation authoring. No code changes.
+- B.3 — Graduated `/app/prophetic-path-test` → `/app/prophetic-path`. Created [src/pages/PropheticPathPage.jsx](src/pages/PropheticPathPage.jsx), removed `src/pages/prototypes/`, added redirect for old URL, dropped "(prototype)" tooltip from Sidebar, updated MobileNav + TodayFocusSection + TimelineIslamicContent + IslamicPanel link/active-detection.
+- B.4 — Created [src/components/shared/ChunkErrorBoundary.jsx](src/components/shared/ChunkErrorBoundary.jsx) (`getDerivedStateFromError` + Retry button → `window.location.reload()`). Wrapped App.jsx global Suspense + TaskDetailPanel SubtaskSources Suspense. Added prayer-times degraded banner to [src/components/islamic/PropheticPath.jsx](src/components/islamic/PropheticPath.jsx) (renders when `!timings && !loading`, calls `requestLocation` on Retry).
+- B.5 — Added `navigator.storage.estimate()` pre-probe in `safeSet()` for writes >200 KB (throttled 30s, fire-and-forget, dispatches existing `bbiz:storage-error` event at >90% usage). Lazy-split MoontraceLand/Seasonal/Residency routes in App.jsx — index chunk shrank ~322 KB. **Caveat:** LevelNavigator chunk still 4.7 MB; root cause is shared data hoisted into the named chunk, not the 3 page files. Filed as deferred (own session).
+
+**Decision record:** [[2026-04-25-milos-tier-2-polish]] (Phase B fixes, 5 work items + 1 audit correction)
+
+**Verification:** `npm run build` exits 0, 2,765 modules, only pre-existing chunk-size warning. Index chunk reduced from ~2,015 KB → ~1,694 KB. Build passes after every edit set.
+
+**Deferred:**
+- 8th-pillar (`moontrance:`) top-level MODULE_ATTRS entry
+- Two-axis grounding migration for legacy-string seed tasks
+- LevelNavigator 4.7 MB chunk shrink (Vite manual-chunks investigation)
+- Phase C (Tier-3 inconsistency cleanup): dark-mode CSS sweep, shimmer/token consolidation, date-format helper, threshold-store comment doc — pending Checkpoint 2 approval
+
+---
+
 ## [2026-04-25] session | BBOS pre-live-test hardening — stage canonicality alignment
 
 **Objective:** Resolve three-way stage-code drift between code (FND/TRU/SAL/DLR), marketing (INT/QAL/SAL/DLR), and the wiki canon claim (PRE/STR/OFR/OUT/SAL/FUL/RET/OPT) before live testing begins.
@@ -25,6 +71,80 @@ type: log
 **Verification (so far):** `Grep` for `'FND'|'TRU'|'SAL'|'DLR'|FND-|TRU-|SAL-|DLR-` across `src/` returns zero matches; remaining `SALAH` matches are the Islamic prayer term in module-board metadata, not stage codes. Marketing HTML rename, build/lint verification, and the Phase 3-5 fixes still pending.
 
 **Decision record on stage canonicality:** Filed inline in this log; the rename does not introduce a new architectural decision but resolves a documentation/naming drift, so no separate `wiki/decisions/` record was created.
+
+**Phase 2.7 — Marketing + vision-page consolidation:** Merged three vision pages (`bbos/vision/`, `bbos/solution/vision/`, `bbos/product/vision/`) into a single canonical `/bbos/vision/`; reconciled "covenant system AND workflow tool" vs. "Not a workflow tool" framing into "A covenant system, scaffolded by workflow" across `vision/index.html` and `index.html`; updated drawer + hero CTAs to point to `/bbos/solution/`; replaced hardcoded "Now · 88%" marker on `journey/index.html` with "Now · Live".
+
+**Phase 2.7c — Strip + delegate (attribute canon):** Removed 113 stale `governingAttributes` and 113 stale `attrMeaning` fields (~31KB) from `bbos-task-definitions.js`; refactored `BbosTaskPanel.jsx` and `services/ai/prompt-builder.js` to pull stage-scoped framing from `getBbosStageIslamic(taskDef.stage)`. Stage-level divine attributes are now the single source of truth (per-task attribution was overclaiming granularity).
+
+**Phase 3 — Tier-2 friction fixes:**
+- T2.1 mobile body-scroll lock added in `BbosTaskPanel.jsx` modal mount/unmount lifecycle
+- T2.2 Assembly Gate edge case fixed in `BbosFullDashboard.jsx:1782` — gate is N/A (cleared) when role has zero Research-task visibility
+- T2.3 audit was incorrect (code already marks all errors); skipped
+- T2.4 already resolved in prior session; skipped
+- T2.6 covenant/workflow framing reconciled (above)
+- T2.7 hardcoded marker replaced (above)
+
+**Phase 4 — Tier-3 stale doc cleanup:**
+- T3.5 — `src/components/bbos/CONTEXT.md` gotcha updated: "AI draft generation is placeholder" → describes real `streamCompletion` integration and stage-islamic delegation
+- T3.7 — Created `references/bbos-protocol.md` as the canonical protocol summary (9 stages, 3 layers, Two-Factory architecture, Assembly Gate, Amanah Proof Audit, G-Label tiers, evidence tier canon); added pointer to `references/CONTEXT.md`
+- T3.1 / T3.2 already covered in this session's Phase 2 wiki rewrite
+- T3.3 already resolved at `website/index.html:422` (mentions MTC, OLOS, BBOS)
+- T3.8 (00A/01B marketing callouts) deferred — copy decision better made by user
+
+**Pending:** Phase 5 (Q1 rejection flow + Q2 multi-pipeline + Q3 patch sub-stage tasks) and Phase 6 final verification. Q2 (multi-pipeline) is a large schema migration touching project-store, task-store, route definitions, and dashboard views — flagged for explicit scope confirmation before implementation.
+
+---
+
+## [2026-04-25] session | Atlas §12 — seasonal productivity multilayer
+
+Closed §12 `seasonal-productivity-multilayer` (P3, planned → done).
+The Planting Tool dashboard previously stopped at static yield estimates;
+this iteration surfaces the *seasonal arc* — when food actually arrives
+across placed crop areas — so the steward can spot lean months that
+warrant succession plantings, storage crops, or season extension.
+
+**Component:**
+- `SeasonalProductivityCard.tsx` (~270 lines) under
+  `apps/web/src/features/crops/`. Renders one 12-month productivity strip
+  per placed crop area plus an aggregate "All Zones" strip on top.
+  Strips are SVG (12 month-cells, opacity-modulated to encode 0–1
+  intensity; harvest-gold for aggregate, earth-green for per-zone).
+- Heuristic — the species catalog (`plantSpeciesData.ts`) carries no
+  harvest months, so each `CropAreaType` (orchard, market_garden, etc.)
+  gets a temperate-NH 12-element baseline vector. Per-area baseline is
+  *refined* by the placed species' category mix (tree/shrub/vine/
+  ground_cover) via a multiplicative blend capped at 50% — shrub-heavy
+  beds nudge productivity earlier (berry summer); tree-heavy plantings
+  sharpen the late-summer/fall peak; ground-cover broadens the shoulders.
+- Aggregate is area-weighted across zones, then peak-normalized so the
+  visual scale stays readable regardless of absolute yield.
+- Hemisphere flip via `turf.centroid(project.parcelBoundaryGeojson)` —
+  southern-hemisphere projects shift the vector by 6 months. Projects
+  with no boundary fall back to NH (default), labeled in the footnote.
+- Lean-month callout flags any aggregate month below 0.18 (across-
+  portfolio low) and suggests succession plantings or season extension.
+
+**Mount:**
+- `PlantingToolDashboard.tsx` adds the import and mounts
+  `<SeasonalProductivityCard project={project} />` directly after the
+  YIELD ESTIMATES section, before AI SITING SUPPORT — the natural
+  reading order: *what will it yield* → *when will it yield*.
+
+**Visual grammar:**
+- `SeasonalProductivityCard.module.css` matches the dashboard's existing
+  `.section`/`.sectionLabel`/`.aiCard` palette (Earth Green #15803D,
+  Harvest Gold #CA8A04, Pale Green #F0FDF4 via the shared CSS-variable
+  tokens). No new color tokens or font families introduced.
+
+**Honest framing in footnote:**
+- "Productivity vectors are heuristic — derived from each area's *type*
+  and refined by the *category mix* of placed species." Hemisphere mode
+  surfaced inline. Aggregate normalization noted ("peak = 100%") so the
+  reader doesn't read absolute kg into the bar intensities.
+
+**Verification:** filtered `tsc --noEmit` clean (no errors in the new
+files, the mount site, or the manifest flip). Atlas commit `9b39ede`
+on `feat/shared-scoring`; submodule pointer bumped from `7299c1c`.
 
 ---
 
