@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §21 Regulatory Risk Notes Card
+
+**Objective:** Continue manifest gap-fill audit. User picked candidate 2 (regulatory risk notes), mapped to manifest §21 `regulatory-risk-notes` (P2, planned).
+
+**Outcome:** Shipped `RegulatoryRiskNotesCard.tsx` + CSS module on `RegulatoryPanel` between the regulatory complexity score and the Zoning section. Surfaces seven canonical regulatory risk surfaces — zoning variance, conservation authority review, flood-zone permit, well water testing, septic approval, livestock setback / MDS bylaw, agritourism / event license — each with a derived likelihood (likely / possible / unlikely / n/a), a one-paragraph rationale grounded in existing project fields + designed entities (structures, paddocks, paths, utilities) + fetched site-data layers (zoning, wetlands_flood, soils), and a stewardship "next step". Distinct from the existing Permit Requirements section (application checklist) — this is the risk-surface scaffold a steward uses preparing a planner / Conservation Authority pre-consultation packet. Orientation only; preserves the panel's non-dismissable disclaimer. Pure derivation, no writes. Manifest §21 line 496 flipped planned → done. `tsc --noEmit` clean. Atlas commit `3b3c003` on `feat/shared-scoring`.
+
+**Carries forward:** §21 still has `access-water-ag-livestock-feasibility`, `hospitality-education-energy-feasibility`, `terrain-construction-difficulty`, `capital-intensity-operational-complexity`, `seasonal-vulnerability-phasing-realism`, `maintenance-complexity-score` planned. Three more fresh candidates to propose next.
+
+---
+
 ## [2026-04-25] session | Atlas — §21 Missing Information Checklist Card
 
 **Objective:** Continue manifest gap-fill audit. User picked candidate 2 (decision-readiness gates checklist), mapped to manifest §21 `feasibility-summary` (P2, partial) — specifically the "missing information checklist" half of that bundled item.
