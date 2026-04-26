@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §12 MaturityYieldCurveCard
+
+**Objective:** Surface the per-enterprise yield ramp behind §12 manifest item `year-to-maturity-yield-placeholder` (line 331, P3). User picked candidate 1 from the post-§16 BuildCostRevenueRanges slate. While `RevenueRampProjectionCard` already shows aggregate revenue over time, no card surfaces *each stream's* trajectory to maturity — when each enterprise crosses 25/50/75/100% of mature output, what the at-maturity revenue band looks like, and how confident the estimate is.
+
+**Outcome:** New `MaturityYieldCurveCard` (`apps/web/src/features/crops/`) reads `useFinancialModel(projectId)` and renders one subcard per `RevenueStream`: a 4-cell milestone row (Year reaching 25%/50%/75%/100% of mature), an 11-bar Y0–Y10 ramp visualization (gold for full-maturity years, faded for idle years), and a mature-revenue band footer with confidence badge. Pure derivation from existing `rampSchedule: Record<number, number>` — no shared math, no new entity types, no map overlay. ~210 LOC tsx + ~165 LOC CSS. Atlas commit `afff8b5` on `feat/shared-scoring`, pushed.
+
+**Mount-location pivot:** Card belongs on Planting Tool dashboard (native §12 home) or Economics revenue tab (financial twin). Both blocked by pre-existing infinite loop in sibling cards (`RevenueRampProjectionCard` on revenue tab throws "Maximum update depth exceeded" inside the panel ErrorBoundary; PlantingToolDashboard hits the same loop in its own ErrorBoundary). Mounting alongside either sibling caused the boundary to swallow the new card too. Relocated to **EconomicsPanel overview tab** (after the Detected Enterprises block) where no sibling crashes — DOM-text verified `Maturity & yield curve` header, `25%/100%` milestone labels, and `At maturity` footer all render cleanly. Both sibling-loop bugs flagged for separate sessions.
+
+**Carries forward:** Manifest line 331 was already flipped to `done` in HEAD by parallel session commit `6a721a0` (cross-referenced in §7 wiki entry below) — this round shipped implementation only, no manifest edit. tsc surfaced same 5 pre-existing errors in `QuietCirculationRouteCard.tsx:128-132` from commit `5fd07c7` — none touch round-7 files; still deferred. `preview_screenshot` hung at 30s again; verification fell back to DOM-text reads via `preview_eval`.
+
+---
+
 ## [2026-04-26] session | Atlas — §14 StageRevealNarrativeCard + Agroforestry render-loop fix
 
 **Objective:** Close §14 manifest item `stage-by-stage-reveal-narrative` (line 361, P2 partial → done). User picked candidate 1 from the post-§14-BeforeAfter slate. The before/after card showed the destination snapshot; this card needed to surface the *narrative arc* — what each phase adds along the way — to complete the §14 vision-comparison pair.
