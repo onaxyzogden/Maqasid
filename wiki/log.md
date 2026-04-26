@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §20 Stakeholder Review Mode Card
+
+**Objective:** Close §20 manifest item `stakeholder-community-review-mode` (P3 planned → done). Atlas had a public portal config panel and a view-only share link, but nothing scaffolded the *human* side of stakeholder review — what frame to give a CSRA member vs. a neighbor vs. a review board, what they're asked to look at, and what feedback prompts get useful answers. User picked candidate 1 from the portal slate.
+
+**Outcome:** New `StakeholderReviewModeCard` (`apps/web/src/features/portal/`) mounted on `PortalConfigPanel` after `ShareLinkReadinessCard`. Three audience archetype tabs (CSRA member / neighbor / review board) each pre-load their own framing copy, "what this audience sees" sky-blue note, and audience-aware email leading line. Gold-bordered review-pack preview composes from portalStore (heroTitle, heroSubtitle, missionStatement) + phaseStore (phasing arc with phase color dots and Done tags) + structure/zone/crop/livestock stores (acreage rounded to nearest 5 ac, planned-element count, phase-progress count). Six deterministic feedback prompts span vision / phasing / concerns / fit / support categories, each with category-coded border-left (sky-blue / gold / amber / sage / mauve). Copy-pasteable email body is deterministic and audience-aware: leading line varies, then vision quote, at-a-glance metrics, all six prompts. "What stakeholder review mode is *not*" callout with four disclaimers (not a comment thread — separate work item, not replacing the public portal, not edit access, not anonymous). Pure presentation; no shared-package math; no AI; ~347 LOC tsx + ~527 LOC CSS. Manifest `stakeholder-community-review-mode` planned → **done**. tsc clean. Atlas commit `37fa12f` on `feat/shared-scoring`, pushed.
+
+**Note on parallel over-revert (eighth time):** Pre-stage grep confirmed manifest line 484 had been reverted from `done` back to `planned` between the Edit and the `git add` step (parallel session). Re-Edit before staging is now routine. Also caught a JS apostrophe parser bug proactively — single-quoted strings with embedded `'` in the email body builder; replaced with `\u2019` Unicode escapes.
+
+**Carries forward:** §20 row count: now **9 done out of 13 features** in the collaboration/review section. Remaining §20 items: `inline-thread-comments-with-mentions`, `team-activity-feed` (partial), `export-comments-with-report`. The card composes from existing stores only — if portal taxonomy grows (more audience archetypes, longer hero copy), the card adapts without schema changes. Natural next directions: §22 `sensitivity-analysis-by-assumption`, §27 portal slots, §13 cost-sensitivity sliders, §10 access/road heuristics, mobile/field surfaces.
+
+---
+
 ## [2026-04-26] session | Atlas — §11 Welfare Access Audit Card
 
 **Objective:** Close §11 manifest item `water-shelter-shade-access` (P2 partial → done). Atlas had paddock geometry, structures, and utilities all entered separately, but nothing actually checked the steward-critical welfare relationship: does each paddock have shade, weather shelter, and a water point within reach of the animals on it? User picked candidate 1 from the slate. Pre-stage manifest grep flagged the proposed key `welfare-shade-shelter-water-checks` as nonexistent — pivoted transparently to the real key `water-shelter-shade-access` on line 301.
