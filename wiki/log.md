@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §19 SiteAssessmentExportPreviewCard
+
+**Objective:** Close §19 manifest item `pdf-site-assessment-export` (line 535, P2 partial → done). User picked candidate 1 from the corrected slate (after my first proposal `slope-aspect-tinting-elevation-bands` turned out to be a phantom — closest real keys were §2 line 111 `slope-aspect-heatmaps` and §3 line 130 `elevation-slope-aspect-curvature`, both already done). The Site Assessment PDF endpoint exists and `ReportingPanel`'s catalog row gates on a binary "ready / fetch site data layers first," but the steward had no way to see *which chapter populates from what* before generating.
+
+**Outcome:** New `SiteAssessmentExportPreviewCard` (`apps/web/src/features/reporting/`) mounted on `ReportingPanel` above `ClientHandoffPackageCard`. Mirrors the four `<h2>` sections in `apps/api/src/services/pdf/templates/siteAssessment.ts`: Property Overview (8 fields from `LocalProject` + `metadata.climateRegion/bioregion`), Assessment Scores (4 fields from `useAssessment(projectId)` overall_score / score_breakdown[] / confidence / needs_site_visit), Opportunities & Constraints (2 fields from `assessment.flags[]`), Data Sources (3 fields from `useSiteData(projectId).layers[]` complete count + isLive flag + attribution). Each chapter renders a pill (Ready / Partial / Thin / Empty) computed from filled-ratio thresholds, plus a 2-col field grid with ✓ / — markers. Verdict banner above the chapters summarises overall populated vs. placeholder counts. Live verification on test project showed CH 1 4/8 PARTIAL, CH 2 0/4 EMPTY (Tier-3 not run), CH 3 0/2 EMPTY (no flags), CH 4 3/3 READY (25 layers fetched live). ~190 LOC tsx + ~205 LOC CSS. Pure derivation — no new endpoint, no shared math, no map overlay. Atlas commit `b496e75` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Manifest line 535 partial → **done** in this commit (no parallel co-flip this round). tsc clean for round-7 files. Pre-existing 5 errors in `QuietCirculationRouteCard.tsx:128-132` (commit `5fd07c7`) still deferred; no new errors introduced. `preview_screenshot` continued to time out at 30s — verification fell back to DOM-text reads via `preview_eval`. ReportingPanel only mounts on Map View (sidebar's Reports & Export route shows "COMING SOON" placeholder); reached the panel by clicking MAP VIEW in the IconSidebar then the rail icon for reporting.
+
+---
+
 ## [2026-04-26] session | Atlas — §16 CommentsByFeatureCard
 
 **Objective:** Close §16 manifest item `commenting-on-map-and-features` (line 476, P3 partial → done). The CollaborationPanel comments tab already shipped a flat open/resolved thread with map-pin placement and per-comment fly-to, but no surface answered the reviewer-side question of *which parts of the design are getting the most conversation*. User picked candidate 1 (collab) from the fresh portal/mobile/wildcard slate.
