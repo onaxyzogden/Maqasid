@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | MILOS — Prophetic Path Sunnah-grounded transition nodes (Phase 1)
+
+**Objective:** User compared the timeline to the Productive Muslim "Daily Routine of Prophet Muhammad ﷺ" infographic and observed that several distinctively Sunnah waypoints between obligatory prayers were missing. Add the four highest-Sunnah-weight gaps as new timeline nodes, reusing the existing `NODE_TIMING` + `phaseMatchers` + `transition:*` plumbing (decisions 2026-04-21-prophetic-prayer-phase-tasks and 2026-04-21-prophetic-transition-phase-tasks).
+
+**Outcome:** Four new nodes added to PropheticPath: `duha` (Sunrise+20), `qaylulah` (Dhuhr−45), `after-asr` (Asr+30), `bedtime` (Isha+60). Spine cycle now has 12 nodes total: maghrib → isha → bedtime → tahajjud → fajr → duha → morning → qaylulah → dhuhr → midday-labor → asr → after-asr. Five files modified: PropheticPath.jsx (NODE_TIMING + 4 cards + 3 lucide imports), prophetic-path-submodules.js (4 TOD_SUBMODULES entries + NODE_TIMING_KEY + inferNodeFromHour ranges), TimelineIslamicContent.jsx (4 NODE_META labels — morning Arabic shifted الضحى→الصباح to free up "Duha" for the new node), time-based-content.js (4 intent-only TIME_CONTENT entries — no fabricated Arabic per file's Amanah Gate), prayer-seed-tasks.js (4 transition:* → board mappings in classifyTask). Offsets chosen to avoid ties with existing anchors. Verified end-to-end in preview at 06:20 local: 12 nodes render in correct chronological cycle, current=Morning, next=Qaylulah, no console errors. Lint chain clean (all 3 ratchets at 0); 40/40 tests pass.
+
+**Scope split:** Phase 1 only (node skeletons + routing). Phase 2 deferred per user agreement = full grounded subtask scaffolding across faith/life/family seed files with two-axis sources[]; may need NotebookLM Muslim Scholar for canonical sunnah.com numbering on Bukhari 247, 5216, 6320, and Tabarani Awsat.
+
+**Decision:** [[2026-04-26-prophetic-path-sunnah-nodes-phase-1]]
+
+---
+
 ## [2026-04-26] session | Atlas — §10 Service Access Continuity Card
 
 **Objective:** Close §10 manifest item `main-secondary-emergency-service-access` (line 277, P2 partial → done). The pathStore already classified the four vehicle-class path types (main_road, secondary_road, emergency_access, service_road), but no audit surface checked main-road continuity or emergency-vehicle reach to guest-facing structures. The previously-shipped §10 cards (AccessAnalysis, ArrivalSequence, PublicPrivateCirculation, RouteSlopeAudit, ParkingDelivery, etc.) covered slope, parking, public/private split, and arrival sequencing but never verified the network was actually connected or that EMS could reach the buildings. User picked candidate 1 from the post-§11 corridor slate.

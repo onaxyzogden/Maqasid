@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-25
+updated: 2026-04-26
 ---
 
 # Wiki Index
@@ -93,6 +93,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | [[2026-04-25-milos-grounding-gate-default]] | 2026-04-25 | Sealing action: `npm run lint` now chains `lint:eslint && lint:grounding-strict && audit:inline-refs`. Three monotonic ratchets — per-pillar legacy (all 0), empty-array (1, prayer optional sunnah), inline-refs (13, Phase 2 hadith pending). `lint:eslint` preserved for fast iteration. CLAUDE.md script table updated. Future seed-task contributions can't silently regress the grounding schema |
 | [[2026-04-25-milos-inline-refs-hadith-backfill]] | 2026-04-25 | Phase 2 closure: 13 hadith inline-cites backfilled from NotebookLM Muslim Scholar over two passes (ref-based + content-based). Faith(1)/family(1)/ummah(11). `RATCHET` decremented 13 → 0. 3 entries carry `ratNote` flags for sunnah.com canonical-numbering verification (Bukhari 5267, Tirmidhi 2007 ×2). `npm run lint` chain now exits 0 with all three ratchets at minimum (legacy 0, empty-array 1, inline-refs 0) |
 | [[2026-04-25-milos-prayer-empty-array-backfill]] | 2026-04-25 | Final ratchet to zero: optional 4-rakʿat before-Isha sunnah at `prayer_isha_during[0].subtasks[0]` backfilled with Sahih al-Bukhari 627 / Muslim 838 ("between every two adhans is a prayer") via NotebookLM Muslim Scholar. `allowEmptyArray: 1 → 0` in test + `ALLOW_EMPTY = 1 → 0` in lint script. All three monotonic grounding ratchets now at zero. Scholar-polish backlog: 4 ratNote'd entries pending sunnah.com verification |
+| [[2026-04-26-prophetic-path-sunnah-nodes-phase-1]] | 2026-04-26 | PropheticPath +4 Sunnah-grounded transition nodes — `duha` (Sunrise+20), `qaylulah` (Dhuhr−45), `after-asr` (Asr+30), `bedtime` (Isha+60). Spine now 12 nodes. Phase 1 = skeletons + `transition:*` routing + intent-only TIME_CONTENT. Phase 2 (grounded subtasks across faith/life/family) deferred. Lint + 40/40 tests + preview verified |
 | [[2026-04-25-prophetic-path-midday-labor-anchor-offset]] | 2026-04-25 | Bug fix: at 14:00 (post-Dhuhr `during` window) the timeline still showed Dhuhr `CURRENT` while the right rail correctly showed Midday Labor `LINGERING`. `dhuhr` and `midday-labor` anchored on the same `Dhuhr` key → tie in `computeActiveNodeId`, dhuhr won by iteration order. Added optional `offsetMin` field on `NODE_TIMING` and `effectiveAnchorMs` helper; midday-labor offset = 15min mirrors right rail's `PHASE_DURING_MIN`. Displayed time unchanged (only comparison math shifted) |
 
 ## Sources

@@ -486,6 +486,18 @@ function classifyTask(task) {
   if (hasTag(task, 'transition:end-of-morning')) {
     return ['prayer_dhuhr_before'];
   }
+  if (hasTag(task, 'transition:duha')) {
+    return ['prayer_fajr_after'];
+  }
+  if (hasTag(task, 'transition:qaylulah')) {
+    return ['prayer_dhuhr_before'];
+  }
+  if (hasTag(task, 'transition:after-asr')) {
+    return ['prayer_asr_after'];
+  }
+  if (hasTag(task, 'transition:bedtime')) {
+    return ['prayer_isha_after'];
+  }
 
   // Generic sunan — duplicate across all five daily prayers.
   const phase = hasBefore ? 'before' : 'after';

@@ -247,6 +247,85 @@ export const TOD_SUBMODULES = {
       ],
     },
   },
+  bedtime: {
+    submodules: ['faith-salah', 'life-physical', 'family-home'],
+    matchers: [
+      /\b(?:bedtime|sleep|pre-?sleep|before\s+sleep)\b/i,
+      /\b(?:sunan\s+al-?nawm|right\s+side|wudu\s+before\s+sleep)\b/i,
+      /\b(?:bismika\s+allahumma|allahumma\s+aslamtu\s+wajhi)\b/i,
+      /\b(?:ayat\s+al-?kursi|surah\s+al-?mulk|three\s+quls|al-?ikhlas|al-?falaq|an-?nas)\b/i,
+      /\btransition:bedtime\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:wudu|ablution|dust\s+bed|dust\s+off\s+bed)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:upon\s+(?:waking|rising)|alhamdulillah\s+alladhi\s+ahyana)\b/i,
+      ],
+    },
+  },
+  duha: {
+    submodules: ['faith-salah', 'life-physical', 'intellect-thinking'],
+    matchers: [
+      /\b(?:duha|ad-?duha|forenoon|chasht|ishraq)\b/i,
+      /\b(?:two\s+rak[ʿ']?ahs?|2\s+rak[ʿ']?ahs?)\b/i,
+      /\b(?:charity\s+of\s+every\s+joint|sadaqah.*joint)\b/i,
+      /\b(?:abu\s+hurayrah|abu\s+dharr).*(?:three|fasting|witr|duha)/i,
+      /\btransition:duha\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:wudu|ablution|niyyah)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+duha|post-?duha)\b/i,
+      ],
+    },
+  },
+  qaylulah: {
+    submodules: ['life-physical', 'life-mental'],
+    matchers: [
+      /\b(?:qaylulah|qayl|midday\s+nap|noon\s+nap|short\s+nap)\b/i,
+      /\b(?:rest|nap|siesta)\b/i,
+      /\b(?:strength.*night\s+prayer|prepare.*qiyam)\b/i,
+      /\btransition:qaylulah\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:wind-?down|prepare.*nap)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+(?:nap|qaylulah)|wake.*nap)\b/i,
+      ],
+    },
+  },
+  'after-asr': {
+    submodules: ['family-marriage', 'family-parenting', 'family-kinship', 'family-home'],
+    matchers: [
+      /\b(?:after\s+asr|post-?asr|return\s+home)\b/i,
+      /\b(?:family|spouse|wife|husband|child|children|parent|kin)\b/i,
+      /\b(?:home|household|domestic|tarbiyah)\b/i,
+      /\b(?:rotation\s+among\s+wives|visit\s+wives)\b/i,
+      /\btransition:after-asr\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:close.*work|wrap.*work|leave\s+work)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:before\s+maghrib|pre-?maghrib|sunset\s+approach)\b/i,
+      ],
+    },
+  },
   maghrib: {
     submodules: ['faith-salah', 'family-marriage', 'family-parenting', 'family-kinship', 'family-home'],
     matchers: [
@@ -319,12 +398,16 @@ export const MODULE_ID_TO_SUBMODULE_ID = {
 // without importing the timeline component.
 export const NODE_TIMING_KEY = {
   isha:           'Isha',
+  bedtime:        'Isha',
   tahajjud:       'Lastthird',
   fajr:           'Fajr',
+  duha:           'Sunrise',
   morning:        'Sunrise',
+  qaylulah:       'Dhuhr',
   dhuhr:          'Dhuhr',
   'midday-labor': 'Dhuhr',
   asr:            'Asr',
+  'after-asr':    'Asr',
   maghrib:        'Maghrib',
 };
 
@@ -361,15 +444,20 @@ export function inferPhaseForNode(nodeId, now = new Date(), timings = null) {
 // usePrayerTimes. Returns the PropheticPath node id.
 export function inferNodeFromHour(date = new Date()) {
   const h = date.getHours() + date.getMinutes() / 60;
+  if (h < 2) return 'bedtime';
   if (h < 4) return 'isha';
   if (h < 5.5) return 'tahajjud';
-  if (h < 7) return 'fajr';
-  if (h < 12) return 'morning';
-  if (h < 13) return 'dhuhr';
+  if (h < 6.5) return 'fajr';
+  if (h < 7.5) return 'duha';
+  if (h < 11.5) return 'morning';
+  if (h < 12.5) return 'qaylulah';
+  if (h < 13.5) return 'dhuhr';
   if (h < 15) return 'midday-labor';
-  if (h < 18) return 'asr';
+  if (h < 17) return 'asr';
+  if (h < 18.5) return 'after-asr';
   if (h < 20) return 'maghrib';
-  return 'isha';
+  if (h < 22) return 'isha';
+  return 'bedtime';
 }
 
 // Project id encodes Maqasid level via suffix. 1 = Daruriyyat, 2 = Hajiyyat, 3 = Tahsiniyyat.

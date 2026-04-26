@@ -107,6 +107,86 @@ export const TIME_CONTENT = {
       ),
     },
   },
+  duha: {
+    before: {
+      intent: intent(
+        'Wait for the Sun to Rise',
+        'Hold off until the karahah window has passed — about 15–20 minutes after sunrise — then perform wudu and set the niyyah for Salat ad-Duha.',
+      ),
+    },
+    during: {
+      intent: intent(
+        'Pray Two Rakʿahs',
+        'The charity of every joint. Two rakʿahs in the forenoon, with quiet presence — Abu Hurayrah\u2019s threefold counsel from the Prophet ﷺ.',
+      ),
+    },
+    after: {
+      intent: intent(
+        'Carry Duha into the Day',
+        'Let the lightness of these two rakʿahs accompany the start of work. Begin with Bismillah.',
+      ),
+    },
+  },
+  qaylulah: {
+    before: {
+      intent: intent(
+        'Wind Down for Qaylulah',
+        'A short pre-Dhuhr rest. The Prophet ﷺ rested before noon — strength stored for the labor and the night prayer that follow.',
+      ),
+    },
+    during: {
+      intent: intent(
+        'Rest Briefly',
+        'Twenty to forty minutes is enough. Lie on the right side; let the body release the morning before Dhuhr arrives.',
+      ),
+    },
+    after: {
+      intent: intent(
+        'Rise to Dhuhr',
+        'On waking, give thanks (alhamdulillah alladhi ahyana), make wudu, and move to the Dhuhr salah.',
+      ),
+    },
+  },
+  'after-asr': {
+    before: {
+      intent: intent(
+        'Close the Workday',
+        'Wrap loose ends. The Sunnah after Asr is to return home — finish what is in front of you and step away from the desk.',
+      ),
+    },
+    during: {
+      intent: intent(
+        'Be Present at Home',
+        'The Prophet ﷺ rotated his afternoons among his family. Sit with spouse and children — eye contact, listening, presence.',
+      ),
+    },
+    after: {
+      intent: intent(
+        'Approach Maghrib Together',
+        'Bring the household toward the sunset prayer. Adhkar of the evening begin as Maghrib nears.',
+      ),
+    },
+  },
+  bedtime: {
+    before: {
+      intent: intent(
+        'Wudu Before Sleep',
+        'Perform wudu, dust off the bed, and lie on the right side — the sunan al-nawm preserve the night and the soul (Bukhari 247, 6314).',
+      ),
+    },
+    during: {
+      intent: intent(
+        'Bismika Allahumma',
+        'Recite the dua before sleep — "In Your name, O Allah, I die and I live" (Bukhari 6320). Add Ayat al-Kursi and the three Quls if you can.',
+      ),
+    },
+    after: {
+      intent: intent(
+        'Carry the Adhkar Until Sleep',
+        'Let the last words on your tongue be dhikr. The Prophet ﷺ taught that the soul that sleeps in dhikr is in the keeping of Allah.',
+      ),
+    },
+  },
 };
 
 export function getTimeContent(nodeId, phase) {

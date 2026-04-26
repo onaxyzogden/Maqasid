@@ -12,6 +12,9 @@ import {
   ArrowRight,
   BookOpen,
   Play,
+  Bed,
+  BedDouble,
+  Home,
 } from 'lucide-react';
 import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
@@ -88,12 +91,16 @@ const DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' };
 // and never become active. 15 min mirrors PHASE_DURING_MIN in the right rail.
 const NODE_TIMING = {
   isha:           { key: 'Isha',      label: null },
+  bedtime:        { key: 'Isha',      label: 'Bedtime',  offsetMin: 60 },
   tahajjud:       { key: 'Lastthird', label: 'Last Third' },
   fajr:           { key: 'Fajr',      label: null },
-  morning:        { key: 'Sunrise',   label: 'Sunrise' },
+  duha:           { key: 'Sunrise',   label: 'Duha',     offsetMin: 20 },
+  morning:        { key: 'Sunrise',   label: 'Sunrise',  offsetMin: 60 },
+  qaylulah:       { key: 'Dhuhr',     label: 'Qaylulah', offsetMin: -45 },
   dhuhr:          { key: 'Dhuhr',     label: null },
   'midday-labor': { key: 'Dhuhr',     label: 'After Dhuhr', offsetMin: 15 },
   asr:            { key: 'Asr',       label: null },
+  'after-asr':    { key: 'Asr',       label: 'After Asr', offsetMin: 30 },
   maghrib:        { key: 'Maghrib',   label: null },
 };
 
@@ -252,6 +259,21 @@ const NODES = [
     markerTone: 'muted',
   },
   {
+    id: 'bedtime',
+    cardStyle: 'muted',
+    eyebrow: 'Bedtime',
+    eyebrowTone: 'variant',
+    title: 'Sunan al-Nawm',
+    titleTone: 'on-surface',
+    body: 'Wudu, dhikr, right side. Sealing the day in the way of the Prophet ﷺ.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Life', tone: 'secondary' },
+    ],
+    Icon: BedDouble,
+    markerTone: 'muted',
+  },
+  {
     id: 'tahajjud',
     cardStyle: 'divine',
     eyebrow: 'Divine Moment',
@@ -283,6 +305,21 @@ const NODES = [
     markerTone: 'primary',
   },
   {
+    id: 'duha',
+    cardStyle: 'subtle',
+    eyebrow: 'Duha',
+    eyebrowTone: 'secondary',
+    title: 'Salat ad-Duha',
+    titleTone: 'on-surface',
+    body: 'Two rakʿahs after the sun has risen — the charity of every joint, the Prophet\u2019s ﷺ enjoinment to Abu Hurayrah.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Life', tone: 'secondary' },
+    ],
+    Icon: Sun,
+    markerTone: 'secondary',
+  },
+  {
     id: 'morning',
     cardStyle: 'subtle',
     eyebrow: 'Morning',
@@ -295,6 +332,20 @@ const NODES = [
       { label: 'Wealth', tone: 'secondary' },
     ],
     Icon: Briefcase,
+    markerTone: 'secondary',
+  },
+  {
+    id: 'qaylulah',
+    cardStyle: 'subtle',
+    eyebrow: 'Qaylulah',
+    eyebrowTone: 'secondary',
+    title: 'Midday Rest',
+    titleTone: 'on-surface',
+    body: 'A short pre-Dhuhr nap. The Prophet ﷺ rested before noon — strength stored for the labor that follows.',
+    pillars: [
+      { label: 'Life', tone: 'secondary' },
+    ],
+    Icon: Bed,
     markerTone: 'secondary',
   },
   {
@@ -338,6 +389,20 @@ const NODES = [
     ],
     Icon: SunMedium,
     markerTone: 'primary',
+  },
+  {
+    id: 'after-asr',
+    cardStyle: 'subtle',
+    eyebrow: 'After Asr',
+    eyebrowTone: 'secondary',
+    title: 'Return to Family',
+    titleTone: 'on-surface',
+    body: 'The Prophet ﷺ returned home after Asr — quality time with spouse and children before sunset.',
+    pillars: [
+      { label: 'Family', tone: 'secondary' },
+    ],
+    Icon: Home,
+    markerTone: 'secondary',
   },
 ];
 

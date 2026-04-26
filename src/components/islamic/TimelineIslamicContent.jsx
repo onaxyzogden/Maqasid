@@ -16,12 +16,16 @@ import './TimelineIslamicContent.css';
 // Display metadata per timeline node — mirrors PropheticPath NODES but compact.
 const NODE_META = {
   isha:           { label: 'Isha & Rest',           ar: 'العشاء',    accent: '#8b5cf6' },
+  bedtime:        { label: 'Bedtime',               ar: 'النوم',     accent: '#7c3aed' },
   tahajjud:       { label: 'Tahajjud',              ar: 'تهجد',      accent: '#a78bfa' },
   fajr:           { label: 'Fajr',                  ar: 'الفجر',     accent: '#C8A96E' },
-  morning:        { label: 'Morning',               ar: 'الضحى',     accent: '#3b82f6' },
+  duha:           { label: 'Duha',                  ar: 'الضحى',     accent: '#eab308' },
+  morning:        { label: 'Morning',               ar: 'الصباح',    accent: '#3b82f6' },
+  qaylulah:       { label: 'Qaylulah',              ar: 'القيلولة',  accent: '#0ea5e9' },
   dhuhr:          { label: 'Dhuhr',                 ar: 'الظهر',     accent: '#C8A96E' },
   'midday-labor': { label: 'Midday Labor',          ar: 'السعي',     accent: '#22c55e' },
   asr:            { label: 'Asr',                   ar: 'العصر',     accent: '#C8A96E' },
+  'after-asr':    { label: 'After Asr',             ar: 'بعد العصر', accent: '#ec4899' },
   maghrib:        { label: 'Maghrib',               ar: 'المغرب',    accent: '#f472b6' },
 };
 
