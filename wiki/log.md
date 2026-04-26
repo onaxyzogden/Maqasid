@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §6 SeasonalWindBalanceCard
+
+**Objective:** Close §6 manifest item `windbreak-ventilation-corridors` (line 200, P2 partial → done). User picked candidate 1 (climate) from the §4-wildcard / §22-mobile / §18-portal slate. The dashboard already ships `WindCorridorAuditCard` (annual exposure scoring) and `WindbreakCandidatesCard` (placement perpendicular to *annual* prevailing wind), but neither answers the dual-season planning question: a windbreak sized to block winter cold winds may also kill the summer breeze a passive ventilation strategy depends on.
+
+**Outcome:** New `SeasonalWindBalanceCard` (`apps/web/src/features/climate/`) mounted on `SolarClimateDashboard` immediately after `WindCorridorAuditCard`. Reads `WindRoseData.seasonal` (DJF/JJA frequency arrays from the existing wind-rose layer), picks the peak bin per season as the prevailing direction, computes a three-bin arc share around it, and converts both to azimuth degrees. Angular separation between winter and summer peaks classifies the parcel: **complementary** (≥120° apart — windbreaks for cold-season shelter do not block summer cross-ventilation), **workable** (60-120° — partial conflict, tunable via height/density/gaps), or **conflict** (<60° — every winter windbreak costs summer cooling, prefer deciduous or louvered solutions). Renders side-by-side season blocks (cold-blue and warm-amber tinted) with prevailing direction + arc share + top-three bins, a verdict banner with separation-degree readout, and a guide block surfacing the recommended windbreak arc (±45° of winter peak) plus the keep-open arc (±45° of summer peak) and calm-fraction reference. ~250 LOC tsx + ~210 LOC CSS. Pure derivation — no map mutation, no entity writes, no shared-package math. Manifest line 200 partial → **done**. tsc clean (exit 0). Atlas commit `509ee68` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-stage `git diff packages/shared/src/featureManifest.ts` showed clean single-line flip — no parallel co-flip this round. Card gracefully handles the no-seasonal-data fallback (estimated wind roses from latitude model, no DJF/JJA bins) by rendering an empty state rather than misclassifying. Three-bin arc share captures concentration (e.g., 65% from W±1 means a tight prevailing arc; 35% means diffuse). The complementary/workable/conflict thresholds (120°/60°) are heuristic — refinable later if frequency thresholds (e.g., requiring >40% concentration before trusting the verdict) prove necessary. Natural next directions: §22 mobile candidates (P2 partial — fieldwork-side surfaces), §18 portal candidates (P4 partial — public-facing data masking), or §10 line 257 `earthship-cabin-yurt-pavilion-greenhouse-barn-workshop` (P2 partial — structure library detail rollup).
+
+---
+
 ## [2026-04-26] session | Atlas — §19 BestUseSummaryCard
 
 **Objective:** Close §19 manifest item `good-fit-poor-fit-best-use` (line 502, P2 partial → done). User picked candidate 3 (decision) from the §18-mobile / §4-wildcard / §19-decision slate. The Vision Fit Analysis block on `DecisionSupportPanel` already evaluates fit for the *currently selected* project type, but no surface answered the inverse question: which project types would this land actually support, and which should be avoided?
