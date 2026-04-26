@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §17 Needs-Site-Visit Flag Card
+
+**Objective:** Close the §17 manifest item `ai-needs-site-visit-flags` (P3 planned) by surfacing topics where the deterministic rule cascade is running below medium confidence and recommending a field walk before the dashboard's downstream readouts are trusted. Pairs naturally with the just-shipped §17 `AssumptionGapDetectorCard` (which audits implicit defaults and unanswered slots) and the §24 `FieldworkChecklistCard` (which lists the actions to take on-site).
+
+**Outcome:** New `NeedsSiteVisitCard` (`apps/web/src/features/ai-design-support/`) mounted in `EcologicalDashboard` directly beneath `AssumptionGapDetectorCard`. Six topic detectors — water, soil, slope, vegetation, structures, livestock — each producing zero or more flags with confidence band `none` (rust border, no grounding data at all) or `low` (amber border, layer present but key fields missing or contradicted by placed entities). Per-flag rules sample: water → no climate AND no hydrology = none, one missing = low, no water utilities (well_pump/water_tank/rain_catchment) placed = low; soil → no SSURGO = none, layer present but no organic_matter_pct/hydrologic_group = low; slope → no elevation = none, elevation but no mean_slope_deg = low; vegetation → no NLCD = none, crops with empty species[] = low; structures → all-empty notes = low, structures placed without elevation = low; livestock → paddocks with empty species = low, paddocks but no land cover = low. Each flag carries a Why line (the specific gap detected) and a Walk-for line (the concrete observations a steward should record on-site). Sorted by topic order then confidence (none before low). Four-block summary row at top (Flags, Topics affected, No confidence, Low confidence) with overall tone matching the worst confidence present. Pure presentation-layer — no shared math, no entity churn, no server endpoint. Marked `HEURISTIC` badge. Manifest `ai-needs-site-visit-flags` planned → **done**. tsc clean (one transient `useSiteData` returns `SiteData | null` narrowing fix). Atlas commit `45920fe` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** Manifest absorb-then-revert hit twice this run — parallel session reverted my `planned → done` edit on line 444 between staging attempts; caught both via pre-stage `grep` confirmation, re-applied each time, final commit clean with exactly the 4 intended files. Seven of the last eight ships have now landed clean.
+
+**Carries forward:** §17 remaining planned (post this ship): 13 items, including `ai-design-brief-investor-landowner-pitch`, `ai-alternative-layout-rationale`, `ai-educational-explanation-checklists`, `ai-vision-clarification-prompts`. Natural follow-on is `ai-alternative-layout-rationale` (P3) — surface a side-by-side "what would change if you flipped this assumption" panel that ties each AssumptionGap row to a concrete dashboard delta.
+
+---
+
 ## [2026-04-25] session | Atlas — §17 Assumption & Open-Question Detector Card
 
 **Objective:** Close the §17 manifest item `ai-assumptions-unanswered-questions-data-gap-detector` (P3 planned) by surfacing the implicit defaults the dashboards are running on alongside the slots the steward has not answered yet — a reasoning audit trail to complement the §26 `DataCompletenessCard` (which audits intake fields) and the §18 `AiSiteSynthesisCard` (which synthesizes constraints/opportunities).
