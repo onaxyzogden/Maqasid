@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §22 Overbuilt-for-Revenue Warning + Lean MVP Toggle
+
+**Objective:** Close the §22 manifest item `overbuilt-for-revenue-lean-mvp` (P3 planned) by flagging revenue streams whose placeholder gross relies on infrastructure that hasn't been placed on the map yet, and offering a Lean-MVP recompute view of the mature total.
+
+**Outcome:** New `OverbuiltForRevenueWarningCard` (`apps/web/src/features/economics/`) mounted in `EconomicsPanel` Revenue tab directly below `RevenueRampProjectionCard`. Reads the same `ogden-enterprise-revenue-mix-<projectId>` overrides the mix card writes plus the actual placed-entity counts from `useStructureStore` / `useLivestockStore` / `useCropStore`. Stream-by-stream support map: orchard ↔ orchard/food-forest crop areas, livestock ↔ paddocks, retreat ↔ retreat-type structures (cabin/yurt/tent_glamping/earthship/pavilion), education ↔ classroom structures, agritourism ↔ any retreat-type surface. A stream is "overbuilt" when its effective gross > 0 and the supporting count is 0. Renders three states: empty (no mix set), all-aligned (green check banner — every stream has supporting infrastructure), and overbuilt (severity-toned summary row showing `Mature → Lean MVP today` with the `−$X (Y%)` gap, a rust-tinted warning row per offending stream listing the specific missing entity type, and a Lean-MVP toggle persisted to `ogden-lean-mvp-toggle-<projectId>`). Severity tone: 0 overbuilt = good, 1–2 = fair, 3+ or any single stream >50% of mature = poor. Cross-tab `storage` event listener so mix-card edits update both the warning row and the recompute live. Pure presentation-layer — no shared math, no override store writes, no entity creation. Marked `HEURISTIC` badge. Manifest `overbuilt-for-revenue-lean-mvp` planned → **done**. tsc clean. Atlas commit `6f37b34` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene (clean run):** Selective `git add` succeeded with exactly the 4 intended files; commit absorbed no parallel-session work. Five of the last six ships have now landed clean — the manifest absorbing parallel edits remains the recurring failure mode and the pre-commit `git diff --cached packages/shared/src/featureManifest.ts` check continues to catch it before the commit fires.
+
+**Carries forward:** §22 remaining planned: `regional-cost-database` (P3), `cost-override-contractor-bid-import` (P3), `cost-sensitivity-hidden-costs-contingency` (P3), `grant-readiness-total-cost-of-ownership` (P3). Wealth half is now 4/6 of the §22 P3 cluster shipped (mix card + ramp + overbuilt warning + cashflow already-done). Natural follow-on is `grant-readiness-total-cost-of-ownership` — a single readiness card that pairs the existing cost lines with a structured grant checklist (entity coverage, vision/owner notes filled, parcel boundary present) and surfaces a TCO line for the operating-runway context.
+
+---
+
 ## [2026-04-25] session | Atlas — §22 Revenue Ramp Projection Card
 
 **Objective:** Close the §22 manifest item `enterprise-revenue-templates-ramp-timeline` (P3 planned) by projecting the steward's mature-year enterprise mix over a 5-year ramp curve, so the Economics Revenue tab shows the realistic phase-in shape — not just the steady-state gross.
