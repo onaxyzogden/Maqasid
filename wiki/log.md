@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §14 StageRevealNarrativeCard + Agroforestry render-loop fix
+
+**Objective:** Close §14 manifest item `stage-by-stage-reveal-narrative` (line 361, P2 partial → done). User picked candidate 1 from the post-§14-BeforeAfter slate. The before/after card showed the destination snapshot; this card needed to surface the *narrative arc* — what each phase adds along the way — to complete the §14 vision-comparison pair.
+
+**Outcome:** New `StageRevealNarrativeCard` (`apps/web/src/features/vision/`) mounted on `PhasingDashboard` immediately after `BeforeAfterMasterplanCard`. Reads `usePhaseStore` (ordered phases) plus crop / livestock / structure / utility stores scoped to project, and produces a vertical timeline (rail + dot + connecting line) with one stage per phase. Each stage renders a generated narrative sentence (`"Adds 3 structures (cabin, barn, and greenhouse)."` style, with top-3 type frequency + joinList helper for English serial commas). Click-to-expand reveals a per-stage detail block listing the actual placed-feature names (sliced 0..6 with "+ N more" indicator) across four columns: crops / paddocks / structures / utilities. Steward note from `visionStore` pulled by mapping `phase.order → PhaseKey ('year1' | 'years2to3' | 'years4plus')` with `getVisionData(projectId)?.phaseNotes.find(...)?.notes`. Completed phases get sage-tinted name + filled dot. ~330 LOC tsx + ~245 LOC CSS. Pure presentation rollup — no shared math, no new entity types, no map overlay.
+
+**Side fix — Agroforestry render loop:** Preview verification surfaced "Maximum update depth exceeded" tracing to `AgroforestryPatternAuditCard.tsx:54` — Zustand selectors with inline `.filter()` returning new array refs every render → forceStoreRerender cascade. Patched by hoisting raw `cropAreas` / `paddocks` subscriptions and filtering in `useMemo([allCropAreas, projectId])`. Card now renders cleanly on CropsAgroforestry dashboard. (Sibling `ClimateShiftScenarioCard.tsx:107` has the same pattern — flagged for separate session, not blocking.)
+
+**Carries forward:** Manifest line 361 was already flipped to `done` in HEAD (likely absorbed into commit `76b5831` or a parallel session) — this round shipped only the implementation + bugfix, no manifest edit. Pre-staged file list: 4 files (StageRevealNarrative tsx + css, PhasingDashboard mount, Agroforestry bugfix). tsc surfaced 5 pre-existing errors in `QuietCirculationRouteCard.tsx:128-132` from a parallel session — none touch round-6 files; deferred. Atlas commit `844a3e5` on `feat/shared-scoring`, pushed. Preview verification fell back to `preview_eval` DOM-text reads after `preview_screenshot` hung at 30s — both cards confirmed rendering (StageReveal showed "STAGE 1 / Phase 1 / Year 0-1 / Adds 3 structures (cabin, barn, and greenhouse)"; BeforeAfter showed full 6-row metric table with "Baseline: Phase 1 only").
+
+---
+
 ## [2026-04-26] session | Atlas — §7 ServiceExpansionPreservationCard
 
 **Objective:** Close §7 manifest item `service-maintenance-expansion-preservation` (line 243, P2 partial → done). ZonePanel analysis tab already surfaced intent-aware portfolio balance (ZoneAllocationBalanceCard) and raw per-category totals, but had no dedicated audit for the *non-program* zones — service/access spine, future expansion held-back acreage, and intentional preservation. User said "your call" after my original wildcard candidate (`zone-edge-conflict-detection`) turned out to be a phantom Grep miss.
