@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §17 Site Visit Report Card
+
+**Objective:** Close §17 manifest item `site-visit-report-generation` (P4 planned → done). Atlas had rich fieldwork capture (notes, GPS, photo, voice memo, walk routes, punch-list verification) and a print-mode field-note export, but nothing composed those fragments into a shareable site-visit report — the artifact a steward actually hands to an owner or files for the team after walking the land. User picked candidate 2 from the slate.
+
+**Outcome:** New `SiteVisitReportCard` (`apps/web/src/features/fieldwork/`) mounted on `FieldworkPanel` after the existing `FieldNoteExport` button on the notes tab. Two audience archetypes (steward-internal / owner-facing) with shared structure but divergent tone: internal mode emits a blunt markdown list with GPS coordinates, verification flags, follow-up checkboxes (`- [ ] ...`) for issues + questions, and an ISO-timestamped footer; owner-facing mode emits a narrative ("Visit on April 26, 2026. Sharing what came up while walking the land."), softens type labels (`Issue` → `Item flagged`, `Soil sample` → `Soil reading`), drops GPS and counts, and ends with "Happy to walk through any of this together." Four time windows (today / last 7 days / last 30 days / all), with the 7-day default as the canonical "this visit" proxy. Stats strip surfaces {entries, routes, distance walked}. Report regenerates deterministically in a `useMemo` from the current entries + audience + window — every audience flip or window change is a fresh recomposition. Copy-pasteable markdown textarea with char count and clipboard-API copy button (sage success state for 2s). Empty-window state when nothing logged. Pure presentation; reads only fieldworkStore (entries + walkRoutes); no upload, no PDF, no email send; ~360 LOC tsx + ~226 LOC CSS. Manifest `site-visit-report-generation` planned → **done**. tsc clean. Atlas commit `a7c0197` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** §17 row count: now **5 done out of 7 features** (offline-field-mode-sync planned, soil-water-structure-issue-logging planned, walk-route-quick-annotation planned, on-site-measurement-logging planned, site-visit-report-generation **done** ✓, punch-list-site-verification done, as-built-update-mode planned). The card is store-only — no walk-route map snapshot, no photo embeds in the markdown (data URLs are too large for a copy-paste flow). Natural follow-on: a separate "embed photos" toggle that switches to HTML output for richer reports, or a markdown-to-PDF export. The FieldworkPanel notes tab is getting heavy (note capture form + entries list + FieldNoteExport + new report card + checklist tab content above) — may want to graduate the report into its own tab if it grows.
+
+**Note on parallel state:** Pre-stage grep on line 562 was clean this iteration — no over-flip or revert. Eight-iteration parallel-session pattern may have stabilized, but the pre-stage step stays load-bearing.
+
+---
+
 ## [2026-04-26] session | Atlas — §20 Stakeholder Review Mode Card
 
 **Objective:** Close §20 manifest item `stakeholder-community-review-mode` (P3 planned → done). Atlas had a public portal config panel and a view-only share link, but nothing scaffolded the *human* side of stakeholder review — what frame to give a CSRA member vs. a neighbor vs. a review board, what they're asked to look at, and what feedback prompts get useful answers. User picked candidate 1 from the portal slate.
