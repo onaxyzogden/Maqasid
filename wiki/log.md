@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §7 ServiceExpansionPreservationCard
+
+**Objective:** Close §7 manifest item `service-maintenance-expansion-preservation` (line 243, P2 partial → done). ZonePanel analysis tab already surfaced intent-aware portfolio balance (ZoneAllocationBalanceCard) and raw per-category totals, but had no dedicated audit for the *non-program* zones — service/access spine, future expansion held-back acreage, and intentional preservation. User said "your call" after my original wildcard candidate (`zone-edge-conflict-detection`) turned out to be a phantom Grep miss.
+
+**Outcome:** New `ServiceExpansionPreservationCard` (`apps/web/src/features/zones/`) mounted on ZonePanel analysis tab between `ZoneAllocationBalanceCard` and `ZoneSizingCalculator`. Reads project zones via the existing `zones` prop (no new store hook). Groups categories into three planning buckets — service & access (infrastructure + access), future expansion (future_expansion), preservation (conservation + buffer) — and ranks each: **MISSING** when bucket count is 0, **LOW** when service or preservation is under 5% of allocated, **OK** otherwise. Future-expansion has no minimum because stewards can legitimately allocate everything to active program. 4-stat header (zones drawn, allocated acres, % of parcel, flag count). Per bucket: 3-metric grid (Zones / Area / Of allocated), per-zone detail row with category swatch + icon + label + acres + primary-use subtitle. Empty-bucket helper text spells out *why* each bucket matters. ~250 LOC tsx + ~250 LOC CSS. Pure presentation rollup — no shared math, no new entity types, no map overlay. Manifest line 243 partial → **done**. tsc clean (exit 0). Atlas commit `6a721a0` on `feat/shared-scoring`, pushed.
+
+**Note on parallel-session co-flip:** Pre-stage `git diff --cached` was empty, but `git diff` showed line 331 `year-to-maturity-yield-placeholder` (§12 P3) had also flipped partial → done from a parallel session. Absorbed per the standard pattern — both flips committed together with cross-reference in the body. The §12 yield-placeholder flip belongs to whatever §12 surface a parallel agent shipped; this commit just rides it through.
+
+**Carries forward:** The 5% minimum is a heuristic prompt; dense urban or single-purpose retreat sites may legitimately fall below it. Future revision could let the steward suppress the LOW flag per project. The card uses the existing zones-as-prop pattern from sibling cards rather than reading useZoneStore directly — keeps ZonePanel as the single mount point for zone state. Natural next directions: §7 `habitation-food-livestock-commons-planning` (line 237 P1 partial — companion 4-quadrant program-side rollup), §7 `guest-retreat-education-event-parking` (line 240 P2 partial — guest-program zone composition), or rotate to portal/mobile slate.
+
+---
+
 ## [2026-04-26] session | Atlas — §11 BrowsePressureRiskCard
 
 **Objective:** Close §11 manifest item `browse-pressure-overgrazing-risk` (line 306, P3 partial → done). HerdRotationDashboard already surfaced a single-line "high stocking pressure on X, Y, Z" alert via existing livestockAnalysis helpers, but no dashboard ranked *which* paddocks were being pushed and by how much. User picked candidate 1 (browse-pressure) from the post-§10 quiet-circulation slate.
@@ -6497,3 +6509,40 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Deferred:** None — both user requests fully addressed.
 - **Recommended next:** Continue working through the pre-test audit / grounding follow-ons. The Phase 2 hadith ratchet sits at 0; the empty-array ratchet at 1 (the optional Isha sunnah subtask) is the only outstanding grounding signal.
 
+
+---
+
+## 2026-04-26 — MILOS sunnah.com canonical-numbering sweep + CLAUDE.md drift fix
+
+**Context:** [[2026-04-26-prophetic-path-sunnah-nodes-phase-2]] left an 8-entry hadith backlog of unverified sunnah.com canonical numbers — 4 flagged via `ratNote`, 4 buried in `rationale` text. CLAUDE.md lines 24+27 also still claimed `audit:inline-refs` ratchets at 13 (actual: 0 since [[2026-04-25-milos-inline-refs-hadith-backfill]]).
+
+**Decision record:** [[2026-04-26-milos-sunnah-canonical-sweep]]
+
+**Pivot:** NotebookLM Muslim Scholar (`1c17b03b-3537-4fde-b5ba-562dbe0c1aab`) returned alternating rate-limit and timeout errors throughout the session — even minimal probe queries failed. Switched to direct WebFetch against sunnah.com, which is the authoritative source for canonical-numbering questions anyway.
+
+**Outcomes (9 file entries, 8 unique hadiths):**
+- 1 ref change: Bukhari 6320 → **6324** ([faith:5090](src/data/seed-tasks/faith-seed-tasks.js)) — Hudhayfah's `Bismika Allahumma amutu wa ahya` is canonically 6324; 6320 is Abu Hurayra's `Bismika Rabbi wada'tu janbi` (different dua, same chapter).
+- 3 content corrections (translation/arabic mismatched the cited ref):
+  - Bukhari 5267 ([family:1281](src/data/seed-tasks/family-seed-tasks.js)) — replaced translation with the actual honey-incident narration (Aishah + Hafsa + Zainab); prior text described Bukhari 5191 (Umar attic-room).
+  - Tirmidhi 2007 ×2 ([ummah:3771](src/data/seed-tasks/ummah-seed-tasks.js), [ummah:10587](src/data/seed-tasks/ummah-seed-tasks.js)) — replaced arabic+translation with actual "Do not be a people without will…" content; prior fields had been auto-paired with the Bukhari 6018/Muslim 47 'should not hurt his neighbor' hadith. Adjusted provenanceTier Bayyinah → Qarina + grade Hasan.
+- 4 verifications: Bukhari 627 + Muslim 838 ([prayer:290](src/data/seed-tasks/prayer-seed-tasks.js)) — Muslim 838 = USC-MSA Book 4 Hadith 1822 (older numbering); Bukhari 247 ([faith:5008](src/data/seed-tasks/faith-seed-tasks.js)); Bukhari 5216 ×2 ([family:1612](src/data/seed-tasks/family-seed-tasks.js), [family:1637](src/data/seed-tasks/family-seed-tasks.js)) — 5268 is a related extended narration, not a variant.
+- 1 doc-only ([life:1408](src/data/seed-tasks/life-seed-tasks.js)) — Tabarani al-Mu'jam al-Awsat 5662 is not indexed on sunnah.com; al-Albani's grading in `Sahih al-Jami al-Saghir 4431` remains the standard secondary canonical anchor.
+
+**CLAUDE.md drift:** Lines 24 + 27 corrected from "ratchet at 13 / pending" to "ratchet at 0 / closed via [[2026-04-25-milos-inline-refs-hadith-backfill]]".
+
+**Verification:**
+- `npm test` — 40/40 ✓
+- `npm run lint` — all 3 ratchets at 0 (legacy 0/8, empty-array 0, inline-refs 0/77 detected)
+- `Grep "verification (pending|recommended)" src/data/seed-tasks/` — 0 matches; full backlog cleared
+
+**Carries forward:**
+- Tabarani al-Awsat hadiths cannot be canonically verified on sunnah.com; future Awsat citations should anchor to a secondary collection or accept Qarina tier with explicit ratNote.
+- Bukhari 5267↔5191 honey/Umar-attic confusion is a recurring cluster — both narrations sit in the same divorce/marriage chapters. Future authoring touching that cluster should explicitly cross-check ref↔content.
+- For canonical-numbering questions, default to sunnah.com WebFetch over NotebookLM going forward.
+
+**Pages touched:** [[2026-04-26-milos-sunnah-canonical-sweep]] (new), wiki/index.md, wiki/log.md (this entry), [CLAUDE.md](CLAUDE.md) lines 24+27, 5 seed-task files.
+
+### Session Debrief
+- **Completed:** Closed 8-entry hadith canonical-numbering backlog via direct sunnah.com WebFetch; fixed CLAUDE.md ratchet-13 drift to 0. All ratchets stay at minimum.
+- **Deferred:** None of the two requests; the wider scholar-polish backlog is now empty.
+- **Recommended next:** Either (a) extend grounding to the next-priority pillar gap (intellect/wealth still have the highest legacy seed-task density), or (b) move on to the next PropheticPath spine extension (currently 12 fully-routed grounded transition nodes).
