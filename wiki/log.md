@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §3 FieldObservationsLegalCard
+
+**Objective:** Close manifest §3 line 89 `field-observations-legal` (P1 partial). The intake wizard's Step 4 (`StepNotes.tsx`) captures `metadata.fieldObservations` (steward walk-through narrative, up to 5000 chars) and `metadata.legalDescription` (county-recorder language, up to 2000 chars), but neither field had any read-back surface in the project view — values existed in the store and on the wire but were invisible to the steward outside an edit pass on the wizard. User picked candidate 1 from a §3-site-data / §7-structures / §10-access slate.
+
+**Outcome:** New `FieldObservationsLegalCard` (`apps/web/src/features/project/`) mounted on `ProjectDashboard` directly above `DataCompletenessWidget`. Reads `project.metadata` and renders both free-text fields with structural signals: per-field tier band (Detailed · Outline · Sparse · Empty) by word count using independent thresholds (60/15 for narrative, 40/10 for legal); structural-cue detection on legal text via six regex patterns (Lot/Block, Township/Range/Section, Concession, Plan/Parcel #, metes-and-bounds verbs, Acres/Hectares); parcelId cross-reference checking whether the recorded `project.parcelId` actually appears inside the legal text (normalised — strips spaces/hyphens/underscores). Supporting-jurisdiction grid surfaces parcelId, county, provinceState, country, and a presence indicator for restrictionsCovenants. Aggregate band (Documented / Outlined / Sparse / Not recorded) computed from per-field tiers. ~250 LOC tsx + ~280 LOC CSS, parchment palette with sage / amber / clay tone-coded tier pills and structural-cue chips. Pure presentation: reads `project` only, no entity writes, no shared math, no map overlays. tsc clean. Atlas commit `100dc1f` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Manifest co-flip absorbed this round — line 237 `habitation-food-livestock-commons-planning` (§6 P1 partial → done) had been flipped by a parallel session before my commit; kept in the staged diff and acknowledged in the commit message. No mid-cycle tsc fixes needed (clean first pass on the new files). Recently-touched sections to vary away from next round: §1 intake, §3 site-data, §6 spiritual zoning, §11 livestock, §14 vision, §17 rules, §18 ai-design, §20 collab, §21 decision, §22 economic, §24 mobile. Natural next directions: §3 line 90 `zoning-utility-notes` and line 91 `restrictions-covenants` (both P1 partial — sibling intake fields), §7 structures (line 257 `earthship-cabin-yurt-pavilion-greenhouse-barn-workshop`), §10 access-circulation partials, §15 timeline-phasing partials, §19 education-interpretive partials.
+
+---
+
 ## [2026-04-26] session | Atlas — §6 PrayerZoneReadinessCard
 
 **Objective:** Close manifest §6 line 238 `prayer-spiritual-zone-planning` (MT partial). The Spiritual panel already carried structure-level prayer alignment (`PrayerSpaceAlignment`, qibla bearing) and project-wide noise-vs-prayer rollups (`ContemplationZonesCard`, `QuietZonePlanning`), but no per-spiritual-zone *readiness* audit existed — i.e., for each zone tagged spiritual, is it actually ready to serve as a place of prayer? User picked candidate 1 from a §6-prayer / §21-blockers / §3-tier2 slate.
@@ -6876,3 +6886,32 @@ Decision: [2026-04-26-prophetic-path-eid-variants.md](decisions/2026-04-26-proph
 - **Completed:** Eid spine variants + fasting-state store. Spine now branches on day-of-week (Friday) AND day-of-Hijri-year (Ramadan, Eid Fitr, Eid Adha, Tashreeq). 3 new spine nodes (maghrib-iftar, isha-taraweeh, eid-prayer). 4 new parent tasks (Ramadan structure, Fitr Sunan, Adha Sunan — Tashreeq folded into Adha takbir-muqayyad subtask). 11 new Bayyinah-tier subtasks total across the 3 phases.
 - **Deferred:** Settings UI for `setUserOverride` toggle (store + derivation ship; UI mount awaits Faith pillar settings spot). Travel-mode spine variant (qasr). Hijri-only non-prayer overlays (Mawlid, Isra wal-Mi'raj). Calendar widget for upcoming Sunnah fasts.
 - **Recommended next:** Either (a) ship the `userOverride` settings toggle so Mon/Thu/Ayyam al-Bid/Arafah/Ashura sunnah fasts can flip the spine outside Ramadan, or (b) tackle travel-mode (qasr salah) as the next spine variant class.
+
+## 2026-04-26 — Travel-Mode Store (Phase 1 of 3)
+
+New Zustand store `src/store/travel-store.js` with `{ active, startedAt, endedAt, expiresAt }`, `setTravel(days)` / `clearTravel()` / `getIsTraveling()` (auto-clears past `expiresAt` on read). Manual toggle + auto-expire per design decision (1c — no geolocation). Persists to `bbiz_travel_state` via `safeSet`. Phase 1 is plumbing — no spine changes yet.
+
+`npm test` 40/40, `npm run lint` 3 ratchets at 0.
+
+Decision: [2026-04-26-travel-mode-store.md](decisions/2026-04-26-travel-mode-store.md)
+
+## 2026-04-26 — Travel-Mode Qasr Content + Jumuʿah Filter Inversion (Phase 2 of 3)
+
+`TRAVELER_NOTES` map in `time-based-content.js` surfaces qasr / jam' / fast-deferral framing on the during-phase of dhuhr/asr/isha/sahari/maghrib-iftar/maghrib. `getTimeContent(nodeId, phase, opts)` accepts `{ isTraveling }`; `TimelineIslamicContent.jsx` renders a "Traveler's Allowance" section. `PropheticPath.jsx` adds `TRAVEL_HIDE_NODE_IDS = {jumuah}`; Friday filter inverts when traveling so dhuhr returns and jumuah hides. Citations: Bukhari 1102 + Muslim 685 (qasr), Bukhari 1107 (jam'), Q 2:184 (fast deferral).
+
+`npm test` 40/40, `npm run lint` 3 ratchets at 0; preview verified.
+
+Decision: [2026-04-26-travel-mode-qasr-content.md](decisions/2026-04-26-travel-mode-qasr-content.md)
+
+## 2026-04-26 — Travel-Mode Event Nodes (Phase 3 of 3)
+
+New ephemeral-event-node concept rendered in a separate `.pp-spine--events` row above the time-anchored spine, gated by a 60-minute window keyed on store timestamps: `traveler-departure` (`now - startedAt < 60min`) and `traveler-arrival` (`now - endedAt < 60min` after `clearTravel()`). New parent task "Travel with the Prophet's ﷺ structure" appended to `faith_salah_growth` with 5 Bayyinah subtasks: travel du'a (Muslim 1342), takbir/tasbih on terrain (Bukhari 2993), qasr (Bukhari 1102 + Muslim 685), jam' (Bukhari 1107), arrival du'a + masjid-before-home (Bukhari 1797 + Muslim 1345 + Bukhari 443).
+
+`npm test` 40/40, `npm run lint` 3 ratchets at 0 (after one inline-refs patch — Bukhari 443 added to arrival sources); preview verified for both departure and arrival event rows.
+
+Decision: [2026-04-26-travel-mode-event-nodes.md](decisions/2026-04-26-travel-mode-event-nodes.md)
+
+### Session Debrief
+- **Completed:** Travel-mode (qasr salah) spine variant in 3 phases — store with manual toggle + auto-expire, qasr/jam' content + Friday filter inversion (dhuhr returns, jumuah hides while traveling), and ephemeral departure/arrival event nodes (60-min trigger window above the time-anchored spine). 1 new parent task with 5 Bayyinah-tier subtasks under `faith_salah_growth`. Spine now branches on day-of-week + Hijri date + travel state.
+- **Deferred:** Settings UI to mount `setTravel(days)` / `clearTravel()` toggles (store + auto-expire ship; UI mount could share the spot with future fasting `userOverride` toggle). Per-pair jam' framing (Dhuhr+Asr vs Maghrib+Isha — currently single shared note). Classical-fiqh distance/duration validation prompt (no auto-detection per (1c)).
+- **Recommended next:** Either (a) ship the unified Settings panel mounting both fasting `userOverride` and travel `setTravel` toggles, or (b) tackle Hijri-only non-prayer overlays (Mawlid, Isra wal-Mi'raj) as a separate overlay class.
