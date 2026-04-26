@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §12 Orchard Guild Suggestions Card
+
+**Objective:** Close the §12 manifest item `orchard-row-garden-foodforest-placement` (P2 partial) by shipping the perennial-side complement to the existing `CompanionRotationPlannerCard` — which only covers annuals (row_crop, garden_bed, market_garden) via 4-year rotation. Perennials (orchard, food_forest, silvopasture) need guild matching, not rotation, so a dedicated card was the right shape.
+
+**Outcome:** New `OrchardGuildSuggestionsCard` (`apps/web/src/features/crops/`) mounted in `PlantingToolDashboard` directly after `CompanionRotationPlannerCard`. Filters cropAreas to perennials only, then for each species[] entry runs a case-insensitive substring match against a 10-anchor static guild library: Apple, Pear, Peach/Plum/Cherry, Walnut/Hickory, Chestnut, Fig, Blueberry, Elderberry/Currant/Berry shrub, Hazel/Filbert, Mulberry. Each anchor carries the canonical 5-role guild — n-fixer, dynamic accumulator, pest-deterrent, ground cover, pollinator — with 2-4 plant options per role drawn from the standard permaculture canon (Hemenway, Jacke, Toensmeier). Per-area output: matched anchor cards each with a "Filled" chip row (roles already represented by sibling species, leading-word match so "Comfrey" hits "Russian comfrey") and a missing-roles list (each missing role shows the canonical role label, a one-line blurb explaining why the role matters, and 3 substitution chips). Areas with no recognized anchor surface the unmatched species in an italic note pointing back to the library v1 scope. Header badge tallies `{N} anchors · {F} filled · {M} suggested`. Pure presentation-layer — no shared math, no entity changes, no map overlays. Static lookup only, transparent "Suggestion library v1" footnote framing. Manifest `orchard-row-garden-foodforest-placement` partial → **done**. tsc clean. Atlas commit `c713198` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** Clean run — no parallel-session manifest revert this time. Single intended manifest line + 2 new files + 1 mount edit = 4 files staged, 4 files committed. Nine of the last ten ships have now landed clean.
+
+**Carries forward:** §12 remaining partial: `agroforestry-windbreak-shelterbelt-silvopasture` (P2), `tree-spacing-calculator` (P2), and ~10 P3/P4 items. Natural follow-on is `tree-spacing-calculator` (P2) — a per-CropArea card that takes species[] mature canopy diameter and area dimensions and reports recommended row × in-row spacing, total tree count, and overcrowding/sparseness diagnostics.
+
+---
+
 ## [2026-04-25] session | Atlas — §24 Walk Checklist (Site-Checklist Mode)
 
 **Objective:** Close the §24 manifest item `voice-memo-site-checklist` (P2 planned) by shipping the **site-checklist-mode** half of the spec — the voice-memo half is already in the existing `FieldNotesTab`. Surface the §17 `NeedsSiteVisit` findings as a tap-friendly walking list the steward can carry on-site, with persistent check state per project so a walk can span sessions or devices.
