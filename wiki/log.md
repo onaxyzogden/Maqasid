@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §17 RulesLayerOverviewCard
+
+**Objective:** Close §17 manifest item `rules-layer-siting-logic` (line 418, P3 partial → done; the entry was flipped done in HEAD by a parallel session before my commit landed, so this card closes the *surface* gap behind that claim rather than the manifest gap). User picked candidate 1 from a corrected slate after a §16 `layout-option-a-b-c-comparison` phantom (HEAD already showed `done`) was surfaced and replaced. The Siting panel already carried Alerts (violations), Weights (sliders), Catalog (rule definitions), and the recently-shipped `ConflictDensityRollupCard` (per-feature conflict density) — but nothing surfaced the *configuration* of the rules layer itself: how many rules sit under each weight bucket, how the steward's slider position translates into evaluation tone, and how the current weights compare to the seven defined presets.
+
+**Outcome:** New `RulesLayerOverviewCard` (`apps/web/src/features/rules/`) mounted on `SitingPanel` between `ConflictDensityRollupCard` and the Alerts/Weights/Catalog tab bar. Reads `RULE_CATALOG` (static rule inventory, ~26 entries) plus the live weight map from `useSitingWeightStore`. Per weight bucket (ecological, hydrological, structural, agricultural, experiential, spiritual): rule count, default-severity counts (blocking/warning/advisory chips), current weight on a 50-anchored meter, delta from neutral (`+N` / `-N` / `±0`), and a tone pill — Escalate (≥70, gold), Default (other non-50, parchment), Neutral (50, muted), De-escalate (≤30, blue). Header strip computes closest preset via sum-of-squared-differences against the seven `PRESETS` (conservation, regenerative_farm, retreat_center, moontrance, homestead, educational_farm, multi_enterprise) and bands the fit (exact / close / drift / custom) by per-category RMS distance. Stats row surfaces Rules / Buckets / Data sources / Escalated / De-escalated counts. Empty-state row note for the Ecological bucket (reserved — no rules registered yet). ~361 LOC tsx + ~365 LOC CSS, parchment palette matching the sibling `ConflictDensityRollupCard`. Pure presentation — no engine evaluation, no entity writes, no shared math, no map overlays. tsc clean for new files (full repo `tsc --noEmit` exit 0). Preview-verified via DOM snapshot: card renders all 6 rows with correct rule counts (Hydrological 5, Structural 11, Agricultural 2, Experiential 3, Spiritual 5, Ecological 0), severity chips, and "Multi-enterprise / 9.6-pt drift" preset detection on the test project. Atlas commit `2c47b68` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Manifest §17 line 418 was flipped to done in HEAD by a parallel session before my commit — same race pattern as the §1 climate-bioregion-county and §20 multi-user-rbac rounds; my edit became a no-op and was acknowledged in the commit message. Pre-existing TS2322 cluster in `QuietCirculationRouteCard.tsx` and TS2339 in `ScenarioPhasingAlternativesCard.tsx` remain as Round-6 technical debt — out of scope. `featureManifest.ts.rej` artifact still in working tree from earlier `path-modes-fastest-lowest-cost-regen-investor` flip attempt — also untouched. Recently-touched sections to vary away from next round: §1 intake, §11 livestock, §14 vision, §17 rules, §18 ai-design, §20 collab, §22 economic, §24 mobile. Natural next directions: §3 site-data-layers partials, §6 zoning partials (line 238 `prayer-spiritual-zone-planning` MT), §15 timeline-phasing partials, §21 decision-feasibility line 503 `what-must-be-solved-first`, §10 access-circulation partials.
+
+---
+
 ## [2026-04-26] session | Atlas — §1 RestorePreviewCard
 
 **Objective:** Close §1 manifest item `restore-previous` (line 96, P2 partial → done). User picked candidate 1 from a §1-intake / §22-economic / §3-site-data slate. The existing `VersionHistory` list lets the steward click Restore on any snapshot, but that overwrites the project state immediately — there is no preview of what would actually change. For a Phase-1 partial item, the missing surface is the audit before commit: which fields revert, and to what values.
@@ -6817,3 +6827,32 @@ Decision: [2026-04-26-prophetic-path-qiyam-rest-node.md](decisions/2026-04-26-pr
 Spine 14 → 15 nodes: added `sahari` between tahajjud and fajr, anchored on Aladhan `Imsak` key (first use of Imsak in spine). Six-file pattern. Citations: Bukhari 1923 (barakah), Bukhari 1921 (~50-ayat gap), Muslim 1096a (distinction-from-People-of-Book). Tests + ratchets green; preview verified.
 
 Decision: [2026-04-26-prophetic-path-sahari-node.md](decisions/2026-04-26-prophetic-path-sahari-node.md)
+
+## 2026-04-26 — Hijri Date Infrastructure (Phase 1 of 3-phase Eid + Fasting Extension)
+
+Surfaced Hijri date from `usePrayerTimes` (`data.date.hijri` was discarded prior). Added pure predicate exports in `prophetic-path-submodules.js`: `isRamadan`, `isEidFitr`, `isEidAdha`, `isTashreeq`, `isArafah`, `isLastTenNights`. No spine-node changes — Phase 1 is plumbing only.
+
+`npm test` 40/40, `npm run lint` 3 ratchets at 0.
+
+Decision: [2026-04-26-hijri-date-infrastructure.md](decisions/2026-04-26-hijri-date-infrastructure.md)
+
+## 2026-04-26 — Fasting-State Store + Ramadan Spine Content (Phase 2 of 3)
+
+New Zustand store `fasting-store.js` with `isFasting = !isTashreeq(hijri) && (isRamadan(hijri) || userOverride)`. Two new spine nodes: `maghrib-iftar` (fasting-only) + `isha-taraweeh` (Ramadan-only). Sahari copy now state-driven. Three new subtasks under `faith_siyam_core` parent "Observe Ramadan with the Prophet's ﷺ structure": iftar du'a (Abu Dawud 2358, Hasan), taraweeh (Bukhari 37 + Tirmidhi 806, Sahih), Laylat al-Qadr du'a (Tirmidhi 3513, Sahih).
+
+`npm test` 40/40, `npm run lint` 3 ratchets at 0.
+
+Decision: [2026-04-26-prophetic-path-fasting-store-ramadan.md](decisions/2026-04-26-prophetic-path-fasting-store-ramadan.md)
+
+## 2026-04-26 — PropheticPath Eid Spine Variants (Phase 3 of 3)
+
+Spine gains Hijri awareness for Eid al-Fitr (1 Shawwal), Eid al-Adha (10 Dhul-Hijjah), and Tashreeq (11–13 Dhul-Hijjah). Single `eid-prayer` node anchored Sunrise+30 replaces `duha` on both Eids; `EID_ONLY_NODE_IDS` + `NON_EID_HIDE_ON_EID` mirror the Friday filter pattern. Distinct Fitr / Adha behavior surfaced via content branching + three new parent tasks in `faith_siyam_core`: Fitr Sunan (4 subtasks: Bukhari 1503 Zakat al-Fitr, Bukhari 953 odd dates, Bukhari 970 takbir, Bukhari 986 + Tirmidhi 541 different route), Adha Sunan (3 subtasks: Tirmidhi 542 delay-eating, Bukhari 5545 + 5573 udhiyyah, Q 2:203 + Muslim 1141 takbir muqayyad through Tashreeq). Tashreeq fasting-prohibition handled by Phase 2 store guard.
+
+`npm test` 40/40 (after fixing one schema-relevance value + one missing arabic field), `npm run lint` 3 ratchets at 0.
+
+Decision: [2026-04-26-prophetic-path-eid-variants.md](decisions/2026-04-26-prophetic-path-eid-variants.md)
+
+### Session Debrief
+- **Completed:** Eid spine variants + fasting-state store. Spine now branches on day-of-week (Friday) AND day-of-Hijri-year (Ramadan, Eid Fitr, Eid Adha, Tashreeq). 3 new spine nodes (maghrib-iftar, isha-taraweeh, eid-prayer). 4 new parent tasks (Ramadan structure, Fitr Sunan, Adha Sunan — Tashreeq folded into Adha takbir-muqayyad subtask). 11 new Bayyinah-tier subtasks total across the 3 phases.
+- **Deferred:** Settings UI for `setUserOverride` toggle (store + derivation ship; UI mount awaits Faith pillar settings spot). Travel-mode spine variant (qasr). Hijri-only non-prayer overlays (Mawlid, Isra wal-Mi'raj). Calendar widget for upcoming Sunnah fasts.
+- **Recommended next:** Either (a) ship the `userOverride` settings toggle so Mon/Thu/Ayyam al-Bid/Arafah/Ashura sunnah fasts can flip the spine outside Ramadan, or (b) tackle travel-mode (qasr salah) as the next spine variant class.
