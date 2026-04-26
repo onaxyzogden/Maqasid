@@ -13,6 +13,16 @@ type: log
 
 ---
 
+## [2026-04-26] session | Atlas — §14 toggle-current-vs-vision manifest sync
+
+**Objective:** Reconcile manifest line 359 `toggle-current-vs-vision` (P2) for §14 Moontrance Vision. User picked candidate A from a §13-vision / §17-rules / §1-intake slate, but on inspection the `CurrentVsVisionToggleCard` was already shipped in a prior session (apps/web/src/features/vision/CurrentVsVisionToggleCard.tsx, mounted on PhasingDashboard line 460) and its own header explicitly declares "Closes manifest §14 toggle-current-vs-vision (P2) partial -> done." The card just never had its manifest entry flipped. User chose Sync (1-line accounting) over Pivot (rebuild on a different candidate).
+
+**Outcome:** Manifest line 359 partial → **done**. No new code. Commit message records the prior-session card path and the absorption of a parallel co-flip on line 92 `climate-bioregion-county` partial → done (not mine, kept as-is). Honest accounting commit, not a presentation ship. Atlas commit `14e8b6a` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-existing `featureManifest.ts.rej` still in working tree from prior parallel-session patch attempt — not mine, not staged. Lesson reinforced: before proposing a candidate, verify the feature directory doesn't already contain a card whose header claims to close that manifest key — saves a wasted iteration. Recently-touched sections to vary away from next round: §18 portal, §24 mobile, §6 climate, §19 decision, §14 vision. Natural next directions: §17 admin/rules, §1 intake (`restore-previous`), §15 reports, or fresh sections like §3 entities, §10 design-rules.
+
+---
+
 ## [2026-04-26] session | Atlas — §18 PublicMaskingPreviewCard
 
 **Objective:** Close §18 manifest item `public-safe-data-masking` (line 626, P4 partial → done). User picked candidate 1 from a §18-portal / §17-admin / §14-portal slate. Distinct from the existing §20 `InternalVsPublicViewCard`, which lists *which* fields the public-portal redaction filter strips (address, internal notes, per-entity rows, completeness score, AI-DRAFT badges) — that card answers "what does the filter do?". This card answers the next question: of the fields that *survive* the filter (project name, vision, description), are there free-text leaks that field-level redaction cannot catch?
