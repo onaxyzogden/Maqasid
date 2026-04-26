@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §24 Walk Checklist (Site-Checklist Mode)
+
+**Objective:** Close the §24 manifest item `voice-memo-site-checklist` (P2 planned) by shipping the **site-checklist-mode** half of the spec — the voice-memo half is already in the existing `FieldNotesTab`. Surface the §17 `NeedsSiteVisit` findings as a tap-friendly walking list the steward can carry on-site, with persistent check state per project so a walk can span sessions or devices.
+
+**Outcome:** New `WalkChecklistCard` (`apps/web/src/features/fieldwork/`) mounted in `FieldworkPanel`'s "Checklist" tab directly above the existing `FieldworkChecklistCard` and the static `SiteChecklist` template. Re-runs the same six-topic detection cascade `NeedsSiteVisitCard` uses (water / soil / slope / vegetation / structures / livestock — `none` and `low` confidence rows only) and renders each finding as a checkbox row with the topic-specific Walk-for line front-and-center. Tapping a row marks it observed, attempts an optional `navigator.geolocation` capture as a seed note (non-blocking), and collapses the Why-line to keep the active checklist scannable. Each observed row exposes an inline note input. Persists to `ogden-walk-checklist-<projectId>` (Record<flagId, { observedAt, note }>); reload-safe and cross-tab-synced via the `storage` event. Four-block summary row (Items / Observed / Remaining / Reset button) with overall tone matching state (good when all observed or no flags, fair mid-walk, muted when nothing observed yet). Pure presentation-layer — no shared math, no entity churn, no server endpoint. Marked `HEURISTIC` badge. Manifest `voice-memo-site-checklist` planned → **done**. tsc clean — caught one pre-existing `SiteData | null` narrowing error in §11 `PredatorRiskHotspotsCard` (line 168, from a parallel-session ship that didn't apply the now-standard ternary guard) and fixed it inline as part of this commit; my own card type-checks clean. Atlas commit `d79a8b3` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** Five files staged this run (4 ship + 1 inherited tsc fix). Pre-stage `grep` confirmed manifest line still set to `done`; no parallel-session revert this round. Eight of the last nine ships have now landed clean; the one pre-existing tsc error inherited from a sibling session was easier to fix than to route around. Some duplication between `WalkChecklistCard` and `NeedsSiteVisitCard` for the detection cascade — accepted to keep the file count low and avoid touching the `ai-design-support` directory under parallel-session pressure; a follow-on extraction to a shared `needsSiteVisitRules.ts` is a clean future refactor.
+
+**Carries forward:** §24 remaining planned: `offline-field-mode-sync` (P2), `soil-water-structure-issue-logging` (P4), `walk-route-quick-annotation` (P4), `on-site-measurement-logging` (P4), `site-visit-report-generation` (P4), `punch-list-site-verification` (P4), `as-built-update-mode` (P4). Natural follow-on is `site-visit-report-generation` — a single export card that bundles WalkChecklist observed-state + FieldworkChecklistCard punch list + active FieldNotes into a printable site-visit report (markdown or HTML).
+
+---
+
 ## [2026-04-25] session | Atlas — §17 Needs-Site-Visit Flag Card
 
 **Objective:** Close the §17 manifest item `ai-needs-site-visit-flags` (P3 planned) by surfacing topics where the deterministic rule cascade is running below medium confidence and recommending a field walk before the dashboard's downstream readouts are trusted. Pairs naturally with the just-shipped §17 `AssumptionGapDetectorCard` (which audits implicit defaults and unanswered slots) and the §24 `FieldworkChecklistCard` (which lists the actions to take on-site).
