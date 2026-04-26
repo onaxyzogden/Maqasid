@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | preview_screenshot timeout root-cause diagnosed
+
+**Objective:** Diagnose why `preview_screenshot` keeps timing out at 30s on this Windows env while `preview_eval`, `preview_inspect`, `preview_console_logs`, and `preview_resize` all work fine — a friction point that forced DOM-read fallback verification through the entire 2026-04-25 BBOS/MILOS/home hero alignment session.
+
+**Outcome:** Root cause is **the headless Chromium backing the Claude Preview MCP runs the page in a permanently `hidden` visibility state** on this Windows setup. Confirmed via `preview_eval`: `document.hidden: true`, `visibilityState: "hidden"`, `hasFocus: false`, `outerWidth: 0`, `screenY: 0`. Chromium throttles the rAF/compositor pipeline in hidden tabs, so the screenshot path (which needs a fresh GPU frame) never produces output and times out. `preview_eval`/`preview_inspect` work because they only need V8/DOM, not a rendered frame. **Two red herrings disproven during the diagnosis:** (1) Google Fonts external fetch hypothesis — `document.fonts.status === "loaded"`, no pending resource entries, page fully quiet; (2) entry-animation throttling — all 6 hero animations did sit at `currentTime: 0` with `playState: "running"` (a *symptom* of the hidden state, not the cause), but force-finishing them via the Web Animations API (`a.finish()` on `document.getAnimations()`) did not unblock the screenshot. Issue is renderer-level, not page-level.
+
+**Carries forward:** Continue using DOM/inspect verification as the QA fallback on this env (proven reliable through 2026-04-25 work). If screenshots become essential, two out-of-band paths: (a) restart Claude Code itself — the headless Chromium is owned by the MCP host process, and a host-level restart sometimes reinitializes with `visibilityState: "visible"`; (b) bypass the MCP entirely with `chrome --headless --screenshot=out.png --window-size=1440,900 http://localhost:8080/`. No site-side fix needed — the marketing pages render correctly; this is purely a tooling/environment issue specific to the preview MCP's Chromium on this Windows install.
+
+---
+
 ## [2026-04-26] session | Atlas — §12 Shade Succession Forecast Card
 
 **Objective:** Close §12 manifest item `shade-succession-forecasting` (P3 planned → done). PlantingToolDashboard already had `CanopyMaturityCard` (per-tree mature footprint) and `ClimateShiftScenarioCard` (suitability under +1°C/+2°C/+3°C) but nothing showed how a perennial cluster *evolves* across decades — pioneers senesce by Y30, climax species don't peak until Y50+, and a steward picking only fast-growers risks a shade collapse around Y25-30. User picked candidate 3 (wildcard) from the slate.
