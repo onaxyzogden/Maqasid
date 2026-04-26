@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §14 CurrentVsVisionToggleCard implementation
+
+**Objective:** Ship the actual `CurrentVsVisionToggleCard` for §14 manifest line 359 `toggle-current-vs-vision` (P2). A prior "manifest sync" commit (`14e8b6a`) had flipped this entry partial → done on the assumption that the card was already in the tree, but `git status` showed the `.tsx` and `.module.css` files were untracked — the implementation existed in working copy only and had never been committed. This round lands the code so the manifest claim has a real surface behind it.
+
+**Outcome:** New `CurrentVsVisionToggleCard` (`apps/web/src/features/vision/`) mounted on `PhasingDashboard` immediately before `BeforeAfterMasterplanCard`. Quantifies the gap between "current land" (Phase 1 only) and "full vision" (all phases): three headline stats (`builtPct`% of vision is current, items still to come, phases empty), two scope blocks (sage Current / gold Vision) breaking down crops · structures · utilities · paddocks counts, a phase-coverage chip strip (`used` vs `empty` per phase), a vision-authored row (count of phase notes from `visionStore.getVisionData`), and a toggle button mirroring the `VisionPanel` overlay write to `mapStore.activePhaseFilter` (`'all'` ↔ `phase1Name`). Pure presentation — derives entirely from phaseStore + the four entity stores + visionStore. Hoist+useMemo Zustand pattern throughout. ~274 LOC tsx + ~326 LOC CSS, parchment palette. tsc clean. Preview-verified: card renders all sections, toggle button wired to the same proven setter `VisionPanel` uses. Atlas commit `fe845fc` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Round 11's `LayoutOptionABCComparisonCard` and Round 12's vision card both shipped — manifest flips for those (line 359 + line 407) had already been done by parallel sessions before my commits landed, so this round is a code-catch-up rather than a status flip. `featureManifest.ts.rej` artifact in working tree is from an unrelated `path-modes-fastest-lowest-cost-regen-investor` flip attempt — out of scope, left as-is. Variety pool for next round: §3 access-circulation, §17 design-rules conflict explainer, §22 economic-modeling partials, §24 mobile-fieldwork.
+
+---
+
 ## [2026-04-26] session | MILOS — PropheticPath Jumu'ah Friday variant (Phase 4 of 4 — closes plan)
 
 **Objective:** Bring the full Friday cluster (Jumu'ah, Kahf, salawat, istijabah hour) into the spine. Day-of-week branching was greenfield infrastructure — zero day-of-week logic existed anywhere before this phase.
