@@ -55,8 +55,8 @@ const _PILLAR_ACCENT_BY_KEY = (() => {
     if (p.sidebarLabel) out[p.sidebarLabel.toLowerCase()] = p.accentColor;
     if (p.universalLabel) out[p.universalLabel.toLowerCase()] = p.accentColor;
   }
-  // "Ummah" is used in NODES even though the canonical sidebarLabel is
-  // "Community". Alias it here for parity with the rest of the codebase.
+  // Legacy "Ummah" label may persist in seed data or saved state — alias
+  // back to the canonical "Community" accent so chips still resolve a colour.
   out['ummah'] = out['community'] || null;
   return out;
 })();
@@ -319,7 +319,7 @@ const NODES = [
     body: 'The post-Dhuhr execution window. Earning rizq with ihsan and serving the community that surrounds the work.',
     pillars: [
       { label: 'Wealth', tone: 'secondary' },
-      { label: 'Ummah', tone: 'secondary' },
+      { label: 'Community', tone: 'secondary' },
     ],
     Icon: HardHat,
     markerTone: 'secondary',

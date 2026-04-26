@@ -108,7 +108,7 @@ export default function Sidebar() {
         {!collapsed && (
           <Link to="/app" className="sidebar-logo">
             <div className="logo-icon"><Moon size={14} /></div>
-            <span>MAQASID</span>
+            <span>MILOS</span>
           </Link>
         )}
         <button className="sidebar-toggle" onClick={toggleSidebar} title={collapsed ? 'Expand' : 'Collapse'} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>

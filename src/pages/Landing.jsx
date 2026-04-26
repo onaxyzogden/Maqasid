@@ -154,7 +154,7 @@ const DASHBOARD_CHIPS = [
   { label: 'Family',      color: '#AD6E9E' },
   { label: 'Wealth',      color: '#8EAD6E' },
   { label: 'Environment', color: '#6EADAD' },
-  { label: 'Ummah',       color: '#AD8E6E' },
+  { label: 'Community',   color: '#AD8E6E' },
 ];
 
 function Slide1Content() {

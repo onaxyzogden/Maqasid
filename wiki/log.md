@@ -5637,3 +5637,35 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 
 **Pages touched:** [[milos]] (no current-state change required — UI bug fix), this log entry, [[2026-04-25-prophetic-path-midday-labor-anchor-offset]] decision record, wiki index.
 
+
+## 2026-04-25 — Sidebar MILOS rename + pillar display label "Ummah" → "Community"
+
+**Brief:** User asked to rename the sidebar logo from `MAQASID` to `MILOS`. Then noticed the Prophetic Path midday-labor card chip read "Ummah" while the right-rail pp-mirror tab read "Community" — asked to canonicalize on "Community" since a *submodule* inside the pillar is also called "Ummah" (the `collective` submodule), and the doubled name was confusing.
+
+**Changes:**
+- **Sidebar logo** ([src/components/layout/Sidebar.jsx:111](src/components/layout/Sidebar.jsx)). `<span>MAQASID</span>` → `<span>MILOS</span>`.
+- **Pillar display label drift fix** — canonical [src/data/maqasid.js](src/data/maqasid.js) was *already* set to `sidebarLabel: 'Community'` for the `ummah` pillar; three display sites had drifted and still hardcoded `'Ummah'`:
+  - [src/components/islamic/PropheticPath.jsx:322](src/components/islamic/PropheticPath.jsx) — `NODES['midday-labor'].pillars` chip
+  - [src/pages/Landing.jsx:157](src/pages/Landing.jsx) — `DASHBOARD_CHIPS` demo carousel
+  - [src/pages/modules/Work.jsx:16](src/pages/modules/Work.jsx) — `PILLAR_OPTIONS` New Project dropdown
+- **Comment tighten** ([src/components/islamic/PropheticPath.jsx:58-60](src/components/islamic/PropheticPath.jsx)). The legacy `out['ummah'] = out['community']` accent alias is kept as a safety net for any persisted seed/state still carrying the old label, but the comment no longer claims `'Ummah'` is the in-codebase NODES spelling.
+
+**Deliberately left alone:**
+- Pillar **id** `'ummah'` everywhere — routes, localStorage keys, `moduleId`s, seed-task pillar keys, `submodule-registry.js` `PILLAR_ALIASES` (`community → ummah`).
+- The **submodule labelled "Ummah"** ([src/data/maqasid.js](src/data/maqasid.js) `SUBMODULE_LABEL_OVERRIDES.collective = 'Ummah'`, [src/data/module-overviews/community-overview.js](src/data/module-overviews/community-overview.js), [src/data/modules.js:481](src/data/modules.js)). This is the `collective` child of the pillar — the whole point of the rename is to disambiguate **pillar = Community** from **submodule = Ummah**.
+- Arabic glossary ([src/data/islamic/islamic-glossary.js:149](src/data/islamic/islamic-glossary.js)) — الأُمَّة as Islamic concept, not a UI label.
+- Wiki decision records and prior log entries — historical audit trail, not retroactively edited.
+- [[milos]] entity page — current-state paragraph doesn't mention this granularity; pillar id unchanged.
+
+**Verification:**
+- Sidebar logo at desktop width: `document.querySelector('a.sidebar-logo span').textContent === 'MILOS'` ✓
+- Prophetic Path timeline chips at 14:00: midday-labor pillar chip set is `['Wealth', 'Community']` — no stale "Ummah" remaining among 14 timeline chips ✓
+- `preview_screenshot` continued to be unresponsive; eval-based verification accepted per the in-repo convention this week.
+
+**Pages touched:** this log entry only. No decision record (small enough that the log entry suffices). No index update — log-only entries don't get index rows by convention.
+
+### Session Debrief
+- **Completed:** (1) Prophetic Path midday-labor anchor-offset bug fix (committed earlier this session as `d84451c`, pushed; decision record `[[2026-04-25-prophetic-path-midday-labor-anchor-offset]]`). (2) Sidebar MAQASID → MILOS rename. (3) Pillar display label `Ummah` → `Community` across three drifted display sites + comment tighten.
+- **Deferred:** None — both user requests fully addressed.
+- **Recommended next:** Continue working through the pre-test audit / grounding follow-ons. The Phase 2 hadith ratchet sits at 0; the empty-array ratchet at 1 (the optional Isha sunnah subtask) is the only outstanding grounding signal.
+

@@ -13,7 +13,7 @@ const PILLAR_OPTIONS = [
   { id: 'family',      label: 'Family' },
   { id: 'wealth',      label: 'Wealth' },
   { id: 'environment', label: 'Environment' },
-  { id: 'ummah',       label: 'Ummah' },
+  { id: 'ummah',       label: 'Community' },
 ];
 
 export default function Work() {
