@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §22 Revenue Ramp Projection Card
+
+**Objective:** Close the §22 manifest item `enterprise-revenue-templates-ramp-timeline` (P3 planned) by projecting the steward's mature-year enterprise mix over a 5-year ramp curve, so the Economics Revenue tab shows the realistic phase-in shape — not just the steady-state gross.
+
+**Outcome:** New `RevenueRampProjectionCard` (`apps/web/src/features/economics/`) mounted in `EconomicsPanel` Revenue tab directly below `EnterpriseRevenueMixCard`. Reads the steward's mature mix from the same `ogden-enterprise-revenue-mix-<projectId>` localStorage key the mix card writes (with entity-derived fallback when no override exists). Applies hard-coded per-stream ramp curves: orchard 10/30/60/90/100%, livestock 40/80/100/100/100%, retreat 50/80/100/100/100%, education 30/60/90/100/100%, agritourism 50/100/100/100/100%. Renders inline SVG stacked-area chart (320×140 viewBox, color-coded by stream matching the mix-card palette), summary row (Y1, Y5, catch-up gap = sum of (mature − projected) over Y1–Y4, Y1 % of mature), legend row, and per-stream year table with totals. Cross-tab `storage` event listener so mix-card edits update the projection live in another tab. Pure presentation-layer — no shared math, no override store writes. Marked `HEURISTIC` badge. Manifest `enterprise-revenue-templates-ramp-timeline` planned → **done**. tsc clean. Atlas commit `70636a1` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** Caught a parallel-session manifest line absorption pre-commit (`sun-trap-dry-wet-erosion-compaction` partial→done from a different session bled into the staged manifest diff); reset the file, re-applied only my line, re-staged. Final commit was clean — exactly the 4 intended files. Four of the last five ships have now landed clean.
+
+**Carries forward:** §22 remaining planned: `regional-cost-database` (P3), `cost-override-contractor-bid-import` (P3), `cost-sensitivity-hidden-costs-contingency` (P3), `overbuilt-for-revenue-lean-mvp` (P3), `grant-readiness-total-cost-of-ownership` (P3). Natural revenue-side follow-on is `overbuilt-for-revenue-lean-mvp` — flag when projected gross relies on infrastructure that hasn't been placed yet (e.g., projected retreat revenue with zero retreat structures), and offer a Lean MVP filter that recomputes assuming only entities currently on the map.
+
+---
+
 ## [2026-04-25] session | Atlas — §22 Enterprise Revenue Mix Card
 
 **Objective:** Close the §22 manifest item `enterprise-revenue-placeholders` (P2 planned) by giving stewards a place to enter their own annual gross revenue per enterprise on the Economics panel — distinct from the auto-detected revenue streams the financial engine produces.
