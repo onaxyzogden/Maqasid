@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §11 BrowsePressureRiskCard
+
+**Objective:** Close §11 manifest item `browse-pressure-overgrazing-risk` (line 306, P3 partial → done). HerdRotationDashboard already surfaced a single-line "high stocking pressure on X, Y, Z" alert via existing livestockAnalysis helpers, but no dashboard ranked *which* paddocks were being pushed and by how much. User picked candidate 1 (browse-pressure) from the post-§10 quiet-circulation slate.
+
+**Outcome:** New `BrowsePressureRiskCard` (`apps/web/src/features/livestock/`) mounted on `HerdRotationDashboard` after `AnimalCorridorGrazingRouteCard`. Reads `useLivestockStore` (paddocks scoped to project) + `useSiteData` (climate.growing_season_days, elevation.mean_slope_deg) and wraps the existing `computeForageQuality` / `computeRecommendedStocking` / `computeOvergrazingRisk` / `computeRecoveryStatus` helpers into a per-paddock combined tier: **HIGH** when overgrazing.high OR (overgrazing.moderate AND recovery.overdue), **ELEVATED** for either signal alone, otherwise **OK**. 4-stat header (paddock count / high / elevated / overdue rest), per-row 4-metric grid (Forage quality / Recommended hd/ha / Actual hd/ha / Recovery N/M days), stocking-pressure ratio bar with tone-coded fill (ok ≤100% / moderate 100-120% / high >120%) and a 100%-of-recommended reference mark. Sorted high → elevated → ok then by overgrazing ratio desc. Empty-state, no-stocking info line, heuristic footnote. ~285 LOC tsx + ~280 LOC CSS. Pure presentation rollup — uses existing helpers as-is, no new shared math, no new entity types, no map overlay. Manifest line 306 partial → **done**. tsc clean (one round-trip on `Record<Tier, string>` with css module strict-index null guard via `?? ''`). Atlas commit `f299e23` on `feat/shared-scoring`, pushed.
+
+**Note on clean shipment:** Single-commit ship, four files staged together. Pre-stage `git diff --cached packages/shared/src/featureManifest.ts` showed clean line-306 flip with no parallel-session co-flip contamination. The card composes naturally beside the existing corridor/grazing-route audit on HerdRotationDashboard — both surface paddock-scoped audits the steward can act on directly. Forage assumptions (2% organic matter, 20% canopy) are documented in the heuristic footnote so the user understands the tier is a planning prompt, not a yield prediction.
+
+**Carries forward:** Forage quality currently uses fixed assumptions for organic matter and canopy because no soil-test or canopy entity exists yet — when those land, the card can read real values. The combined tier could later expose a "show only HIGH" filter for large herds. Natural next directions: §11 `species-human-conflict-warnings` companion (line 308 already done — could be enriched), other §11 partials, or rotate to a fresh portal/mobile/wildcard slate.
+
+---
+
 ## [2026-04-26] session | Atlas — §14 Before/After Masterplan Overlay Card
 
 **Objective:** Close §14 manifest item `before-after-concept-masterplan-overlay` (line 360, P2 partial → done). The §14 Moontrance Vision section already shipped a concept-overlay map toggle and three timeline phase notes (year1, years2to3, years4plus) on VisionPanel, but no surface synthesized the cross-store delta — what the property looks like *today* (features in completed phases) vs. the *full vision* (every placed feature). User picked candidate 1 from post-§12 agroforestry slate after context-compaction recovery.
