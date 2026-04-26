@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §17 Assumption & Open-Question Detector Card
+
+**Objective:** Close the §17 manifest item `ai-assumptions-unanswered-questions-data-gap-detector` (P3 planned) by surfacing the implicit defaults the dashboards are running on alongside the slots the steward has not answered yet — a reasoning audit trail to complement the §26 `DataCompletenessCard` (which audits intake fields) and the §18 `AiSiteSynthesisCard` (which synthesizes constraints/opportunities).
+
+**Outcome:** New `AssumptionGapDetectorCard` (`apps/web/src/features/ai-design-support/`) mounted in `EcologicalDashboard` directly beneath `AiSiteSynthesisCard`. Deterministic rule cascade over project fields (`useProjectStore`), site-data layers (`useSiteData` + `getLayer` for climate / soil / hydrology / landcover / elevation), entity stores (`useStructureStore` / `useUtilityStore` / `useZoneStore` / `useCropStore` / `useLivestockStore`), and the financial store (region, missionWeights, costOverrides, revenueOverrides). Each finding is tagged either **ASSUMPTION** (a default being treated as fact — e.g., midline cost band with no override, equal-12 monthly distribution because no climate layer fetched, mission weights still at the seeded 40/25/20/15) or **OPEN QUESTION** (no answer recorded — e.g., no parcel boundary, no acreage, no vision statement, zero entities of kind X, crop areas missing species). Severity-toned: high (blocks downstream analysis — no boundary, no acreage), medium (meaningful default in play), low (stylistic). Grouped by domain (Project basics / Site data / Placed entities / Economics / Vision & narrative) with a four-block summary row at the top (Findings, High severity, Assumptions, Open questions) and an overall tone matching the worst severity present. Footnote explicitly notes the engine is deterministic; the `AI DRAFT` badge tracks the §17 spec language only. Pure read-side — no shared math, no entity churn, no server endpoint. Manifest `ai-assumptions-unanswered-questions-data-gap-detector` planned → **done**. tsc clean (one transient `useSiteData` returns `SiteData | null` narrowing fix on a single line). Atlas commit `594f692` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** Ran into the recurring manifest-absorb mode again — between writing the edit and the first `git add`, a parallel session reverted my single-line manifest change back to `planned`. Caught it in `git diff --cached` (the staged set showed only 3 files instead of 4), re-applied the edit, re-staged, and the final commit was clean — exactly the 4 intended files. Six of the last seven ships have now landed clean; the manifest absorb-then-revert pattern is the consistent failure mode and the pre-commit `git diff --cached` check continues to catch it.
+
+**Carries forward:** §17 still has 14 planned AI-design items (most heuristic synthesis surfaces — `ai-design-brief-investor-landowner-pitch`, `ai-needs-site-visit-flags`, `ai-alternative-layout-rationale`, `ai-educational-explanation-checklists`, etc.). Next presentation-tier candidate from §17 is `ai-needs-site-visit-flags` (P3) — surfacing rows where the rule cascade can't ground a finding in adequate data and explicitly recommends a field walk before trusting the dashboard. Pairs naturally with the §24 `FieldworkChecklistCard` already shipped.
+
+---
+
 ## [2026-04-25] session | Atlas — §22 Overbuilt-for-Revenue Warning + Lean MVP Toggle
 
 **Objective:** Close the §22 manifest item `overbuilt-for-revenue-lean-mvp` (P3 planned) by flagging revenue streams whose placeholder gross relies on infrastructure that hasn't been placed on the map yet, and offering a Lean-MVP recompute view of the mature total.
