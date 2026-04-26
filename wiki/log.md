@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §19 TimelineYearModeCard
+
+**Objective:** Close §19 manifest item `timeline-slider-year-modes` (line 380, P2 partial → done). User picked candidate 1 from the post-§14 ServiceStewardshipFraming slate. PhasingDashboard already let the steward toggle phase visibility on the map and inspect per-phase rollups, but had no scrubber answering the "if I freeze the calendar at Year 1, what does this property actually look like?" question.
+
+**Outcome:** New `TimelineYearModeCard` (`apps/web/src/features/phasing/`) mounted on `PhasingDashboard` immediately after `StageRevealNarrativeCard`. Five-button scrubber (Year 0 / Year 1 / Year 3 / Year 5 / Full Vision) drives a `useState<YearMode>` cutoff. Each phase\u2019s `timeframe` string is parsed via `parseUpperYear()` regex (handles "Year 0-1", "Year 1-3", "Year 5+", "Year N" forms; falls through to `Infinity` so unparseable phases stay in the vision bucket rather than vanishing). Phases with `upper <= cutoff` are *live*; later phases are *queued*. Five-stat row (Crops / Paddocks / Structures / Utilities / Zones) shows `live / vision` counts at intermediate cutoffs and the bare live total at Full Vision. Per-phase chip list with color dot, name, timeframe, status badge (BUILT / LIVE / QUEUED), and per-bucket counts \u2014 queued phases dim to 0.55 opacity, live phases pick up a sage tint. Zones are counted only at Full Vision since they don\u2019t carry a phase field on every project; intermediate cutoffs treat the zoning baseline as in-place. ~270 LOC tsx + ~225 LOC CSS. Pure local UI state \u2014 no map mutation, no shared math, no entity edits. Manifest line 380 partial → **done**. tsc clean (exit 0).
+
+**Carries forward:** Atlas commit `fa805a9` on `feat/shared-scoring`, pushed (rebased above `b496e75` from a parallel session). Pre-stage `git diff` showed clean single-line manifest flip. Verified scrubber in preview: Full Vision shows `4 phases live, 0 queued`; Year 1 correctly flips Phase 1 → LIVE and Phases 2-4 → QUEUED, structure stat `3 / 3`, zones stat `0 / 4`. Entities are matched against the phase by `entity.phase === phase.name` (string match, established pattern from `BeforeAfterMasterplanCard`). Natural next directions: §19 `scenario-phasing-alternatives` (line 387 P3 partial \u2014 sibling phase-alternative ranker), §22 mobile candidates (P4 partial \u2014 fieldwork-side surfaces), or §14 `feature-explanations-tied-to-purpose` (line 365 MT planned \u2014 companion purpose card for non-portal dashboards).
+
+---
+
 ## [2026-04-26] session | Atlas — §19 SiteAssessmentExportPreviewCard
 
 **Objective:** Close §19 manifest item `pdf-site-assessment-export` (line 535, P2 partial → done). User picked candidate 1 from the corrected slate (after my first proposal `slope-aspect-tinting-elevation-bands` turned out to be a phantom — closest real keys were §2 line 111 `slope-aspect-heatmaps` and §3 line 130 `elevation-slope-aspect-curvature`, both already done). The Site Assessment PDF endpoint exists and `ReportingPanel`'s catalog row gates on a binary "ready / fetch site data layers first," but the steward had no way to see *which chapter populates from what* before generating.
