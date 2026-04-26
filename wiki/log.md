@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §16 CommentsByFeatureCard
+
+**Objective:** Close §16 manifest item `commenting-on-map-and-features` (line 476, P3 partial → done). The CollaborationPanel comments tab already shipped a flat open/resolved thread with map-pin placement and per-comment fly-to, but no surface answered the reviewer-side question of *which parts of the design are getting the most conversation*. User picked candidate 1 (collab) from the fresh portal/mobile/wildcard slate.
+
+**Outcome:** New `CommentsByFeatureCard` (`apps/web/src/features/collaboration/`) mounted on CollaborationPanel comments tab between the "Add Comment to Map" button and the existing "Open" thread — only when at least one comment exists. Reads `useCommentStore` and filters by project. Classifies each comment's `featureType` into seven buckets (zone, paddock, structure, utility, crop_area, path, "map pin" for location-only comments without an attached feature, plus "other" fallback). Per bucket: open/resolved chip pair plus a per-feature breakdown listing the specific featureId, its open count, total, and most-recent activity (relative time, e.g. "3h ago"). 4-stat header (total / open / resolved / unique features) with the Open stat tone-coded amber when > 0. Sorted open-desc within each bucket and across buckets so reviewers can scan straight to where unresolved feedback is concentrated. Read-only by design — the existing thread below remains the action surface for resolve / delete / fly-to. ~265 LOC tsx + ~245 LOC CSS. Pure presentation rollup — no shared math, no new entity types, no map mutation. Manifest line 476 partial → **done**. tsc clean (exit 0). Atlas commit `c3e810f` on `feat/shared-scoring`, pushed.
+
+**Note on clean shipment:** Single-commit ship, four files staged together. Pre-stage `git diff --cached` was empty; `git diff` showed exactly the line-476 flip with no parallel-session co-flip contamination. Map-pin classification uses location coords as a synthetic featureId so multiple comments dropped at the same spot fold into a single thread row — keeps the rollup compact even on busy parcels. The `relativeTime` helper deliberately tops out at "Xw ago" before falling back to a localized date so the rollup stays scannable instead of turning into a wall of timestamps.
+
+**Carries forward:** Featurewise classification is keyword-based on `featureType` strings; new entity types added later will fall into "other" until the classifier is extended. The reverse lookup (featureId → human-readable feature name) isn't done because comments only store the ID, not a denormalized name — a future revision could cross-reference against zoneStore / paddockStore / structureStore to surface the actual zone or paddock name beside the truncated ID. Natural next directions: §16 `multi-user-rbac` (line 475 P3 partial — RBAC role rollup), §16 `team-activity-feed` (line 481 P3 partial — already has activity tab but no per-author rollup), §16 `version-compare-changelog-snapshots` (line 478 P3 planned — heavier lift), or rotate to portal/mobile/wildcard slate.
+
+---
+
 ## [2026-04-26] session | Atlas — §14 ServiceStewardshipFramingCard + two portal render-loop fixes
 
 **Objective:** Close §14 manifest item `service-stewardship-framing-panels` (line 364, MT partial → done). User picked candidate 1 from the post-§14-StageReveal slate. The portal-side surfaces (PortalConfigPanel, share snapshot, internal-vs-public, stakeholder review mode) covered the *what-is-shown* axis; nothing yet carried the *why each section earns its place* axis — the service-to-visitor / stewardship-of-land reframing that keeps the public portal from drifting into a marketing brochure.
@@ -6582,3 +6594,20 @@ Closed the dashboard-facing layer on `native-pollinator-biodiversity` using only
 - **Completed:** Closed 8-entry hadith canonical-numbering backlog via direct sunnah.com WebFetch; fixed CLAUDE.md ratchet-13 drift to 0. All ratchets stay at minimum.
 - **Deferred:** None of the two requests; the wider scholar-polish backlog is now empty.
 - **Recommended next:** Either (a) extend grounding to the next-priority pillar gap (intellect/wealth still have the highest legacy seed-task density), or (b) move on to the next PropheticPath spine extension (currently 12 fully-routed grounded transition nodes).
+
+## 2026-04-26 — PropheticPath Witr Node (13th spine node)
+
+Extended the PropheticPath spine from 12 → 13 grounded transition nodes by adding `witr` between isha (Isha+0) and bedtime (Isha+60), anchored at Isha+45.
+
+Six files touched: PropheticPath.jsx (Star icon + NODES entry), prophetic-path-submodules.js (TOD_SUBMODULES + NODE_TIMING_KEY + inferNodeFromHour split), TimelineIslamicContent.jsx (NODE_META), time-based-content.js (TIME_CONTENT phases), prayer-seed-tasks.js (classifyTask routing), faith-seed-tasks.js (parent task + 4 grounded subtasks).
+
+All citations all-Sahih all-Bayyinah: Bukhari 998, Muslim 751a, Abu Dawud 1422, Muslim 755a, Abu Dawud 1425. Rejected Abu Dawud 1418 + Tirmidhi 452 (red-camels) as Da'if per al-Albani.
+
+`npm test` 40/40, `npm run lint` all 3 ratchets at 0.
+
+Decision: [2026-04-26-prophetic-path-witr-node.md](decisions/2026-04-26-prophetic-path-witr-node.md)
+
+### Session Debrief
+- **Completed:** Witr node fully integrated — spine card, sidebar metadata, time-based content, task routing, and 4 Bayyinah-tier subtasks in faith pillar. All ratchets hold at 0.
+- **Deferred:** Optional post-witr "rest before tahajjud" node — that's sleep territory, not prayer.
+- **Recommended next:** Continue spine extension — candidate nodes include adhan-response (between any prayer's pre-window and start), sahari pre-Fajr eating window for fasting days, or jumu'ah-specific Friday spine variant.
