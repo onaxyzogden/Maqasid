@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-25] session | Atlas — §22 Enterprise Revenue Mix Card
+
+**Objective:** Close the §22 manifest item `enterprise-revenue-placeholders` (P2 planned) by giving stewards a place to enter their own annual gross revenue per enterprise on the Economics panel — distinct from the auto-detected revenue streams the financial engine produces.
+
+**Outcome:** New `EnterpriseRevenueMixCard` (`apps/web/src/features/economics/`) mounted in `EconomicsPanel` Revenue tab, above the existing auto-detected stream list. Five enterprise placeholders (orchard / livestock / retreat / education / agritourism), each with a numeric annual-gross input. Defaults are scaled from placed entities — orchard / food-forest crop areas × $20k, paddock count × $5k, retreat-type structures (`cabin` / `yurt` / `tent_glamping` / `earthship` / `pavilion`) × $25k, classroom structures × $15k, flat $10k agritourism when any retreat-type surface exists. Steward overrides persist to localStorage (`ogden-enterprise-revenue-mix-<projectId>`) per-stream; per-row Reset button restores the entity-derived default; global "Reset all (N)" button when any overrides exist. Stacked-bar mix above the list (color-coded swatches per stream) plus a per-row "%" share. Marked `UI PRESET` in the heuristic badge. Pure presentation-layer — independent of the financial engine's `useFinancialModel` revenue detection (no double-counting; the auto-detected streams render below as before). Manifest `enterprise-revenue-placeholders` planned → **done**. tsc clean. Atlas commit `9bcdcd1` on `feat/shared-scoring`, pushed.
+
+**Note on commit hygiene:** Selective `git add` succeeded with exactly the 4 intended files; the commit was clean (no parallel-session absorption). Three of the last four ships have now landed clean.
+
+**Carries forward:** §22 still has the heaviest planned cluster in the project — `regional-cost-database` (P3), `cost-override-contractor-bid-import` (P3), `cost-sensitivity-hidden-costs-contingency` (P3), `enterprise-revenue-templates-ramp-timeline` (P3), `overbuilt-for-revenue-lean-mvp` (P3), `grant-readiness-total-cost-of-ownership` (P3). The natural next slice on the revenue half is `enterprise-revenue-templates-ramp-timeline` — pick a template (e.g., orchard ramps slowly, livestock ramps fast) and project the placeholder gross over a 5-year ramp curve.
+
+---
+
 ## [2026-04-25] session | Atlas — §26 Data Completeness Card (closes incomplete-data-warnings)
 
 **Objective:** Close the §26 manifest item `incomplete-data-warnings` (P2 partial) by surfacing a per-section intake audit on the existing assessment surface, so the steward can see which slices of project intake are dragging the headline assessment scores down.
