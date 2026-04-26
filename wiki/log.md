@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | MILOS — PropheticPath adhan-response (Phase 3 of 4)
+
+**Objective:** Bring the post-adhan dua (Bukhari 614, shafa'ah promise) into the spine on every prayer node.
+
+**Outcome:** No new spine node — content enrichment via `PRAYER_NODE_TEMPLATE.before.adhanResponse`, auto-propagated to fajr/dhuhr/asr/maghrib/isha. Three files touched: `time-based-content.js` (`ADHAN_RESPONSE` constant + template field), `TimelineIslamicContent.jsx` (new render block before dhikr), `faith-seed-tasks.js` (parent task + 2 grounded subtasks: Muslim 384 repeat-after-muezzin, Bukhari 614 post-adhan dua). All Bayyinah/Sahih, sunnah.com-verified 2026-04-26. `npm test` 40/40, lint ratchets at 0 (one no-useless-escape on `shafa'ah` fixed). Decision filed at `wiki/decisions/2026-04-26-prophetic-path-adhan-response.md`.
+
+**Carries forward:** Phase 4 — Jumu'ah Friday spine variant (largest scope, day-of-week branching is greenfield).
+
+---
+
 ## [2026-04-26] session | Atlas — §11 GuestSafeBufferAuditCard
 
 **Objective:** Close §11 manifest item `guest-safe-livestock-buffer` (line 309, MT partial → done). User picked candidate 2 from a §5-windbreak / §11-guest / §13-vision slate after first proposing a phantom §7 candidate (`path-utility-corridor-overlap` doesn't exist). Pre-flight grep confirmed real partials and surfaced the right one.
@@ -10,6 +20,16 @@ type: log
 **Outcome:** New `GuestSafeBufferAuditCard` (`apps/web/src/features/livestock/`) mounted on `LivestockDashboard` between `BiosecurityBufferCard` and `PastureUtilizationCard`. Per paddock, computes paddock centroid → nearest polygon-edge distance to each guest-adjacent zone (categories: `retreat`, `education`, `spiritual`, `commons`), surfaces the nearest one with a status pill (Ready / Marginal / Below buffer). Standard threshold: ready ≥ 50 m, marginal 25-50 m, thin < 25 m. Paddocks with `guestSafeBuffer === true` use stricter thresholds: ready ≥ 75 m, marginal 50-75 m, thin < 50 m, and surface a `FLAGGED ≥75m` chip in the row head. Verdict banner aggregates to one of four tones (ready / partial / thin / empty) with rationale text. Two empty-state paths covered: no paddocks drawn, no guest-adjacent zones drawn. Equirectangular projection for distance (<0.5% accurate at planning distances). ~289 LOC tsx + ~185 LOC CSS. Pure presentation — no shared math, no entity writes. Atlas commit `1c36a68` on `feat/shared-scoring`, pushed.
 
 **Carries forward:** Manifest line 309 was already flipped to `done` in HEAD by a parallel session before this commit landed — my redundant edit was a no-op, but the actual implementation now backs the flip (previously the manifest claimed done while only the storage flag `Paddock.guestSafeBuffer` existed without an audit surface). Verification was non-trivial: TanStack Router runs in browser-mode not hash-mode, and the dashboard sidebar accordion routes through `useUIStore.activeDashboardSection` rather than URL — so navigating via hash hash silently lands on the wrong section. Workaround: write `activeDashboardSection: 'livestock-inventory'` directly to `ogden-ui` localStorage + reload at the right pathname. Then seeded a temporary retreat-zone polygon ~30m east of the first paddock centroid to exercise both the empty-state branch and the populated row branch (1 BELOW BUFFER, 3 READY) before cleanup. Pre-existing tsc errors in `QuietCirculationRouteCard` and `ScenarioPhasingAlternativesCard:165` confirmed unrelated. BiosecurityBufferCard handles structure-level human setbacks at 50m generic; this card is the complementary zone-level guest-comfort lens — distinct concern (odor / sound / insect pressure / retreat tranquillity vs. zoonotic disease vectors). Natural next directions: §5 windbreak-ventilation-corridors (P2 partial), §13 toggle-current-vs-vision (P2 partial), or shift to §22 mobile / §18 portal partials.
+
+---
+
+## [2026-04-26] session | Atlas — §22 LandownerPartnershipCard
+
+**Objective:** Close §22 manifest item `investor-summary-landowner-partnership` (line 524, P3 partial → done). User picked candidate 3 from a §22-mobile / §18-portal / §22-wildcard slate. The InvestorSummaryExport modal already covers the investor-facing pitch (totalInvestment, breakEven, ROI), but the *landowner partnership* half of the manifest entry was never surfaced — there's no view that frames "if a landowner brings the land and a capital partner brings the money, who funds what, who carries what risk, who reaps which revenue stream?"
+
+**Outcome:** New `LandownerPartnershipCard` (`apps/web/src/features/economics/`) mounted on `EconomicsPanel` immediately after `TotalCostOfOwnershipCard`. Classifies each `CostLineItem` by category (Land Preparation → landowner, Structures/Agricultural → investor, Infrastructure → shared) and each `RevenueStream` by enterprise (carbon/grants/education → landowner-aligned mission income; livestock/orchard/market_garden/retreat/agritourism → investor-aligned commercial income). Renders two stacked-bar splits (capital outlay, annual revenue at maturity) with per-side dollar legends, an early-stage risk callout reading the cumulative-cashflow trough year + peak deficit out of the existing `FinancialModel.cashflow`, and a rule-pill list explaining the heuristic. ~245 LOC tsx + ~250 LOC CSS. Pure presentation rollup — no shared math, no entity edits, no new partnership data model. Sage/gold/blue swatches map landowner/investor/shared per the standard tone palette. Manifest line 524 partial → **done**. tsc clean (exit 0). Atlas commit `de62c14` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-stage `git diff packages/shared/src/featureManifest.ts` showed clean single-line flip — no parallel co-flip. A separate parallel session landed `1c36a68` (§11 GuestSafeBufferAuditCard) between my §19 push and this §22 push — fast-forward push succeeded without rebase. JSX em-dash discipline applied from the start (used `{'\u2014'}` in all text nodes, no rendering glitches). The landowner/investor classifier sets are intentionally heuristic and presentational; this is a framing tool for partnership conversations, not a legal allocation. Edge case: if `costLineItems` and `revenueStreams` are both empty the card renders an explicit empty state rather than 0%/0%/0% bars. Natural next directions: §22 mobile candidates (`mobile-friendly-map-gps` line 555 partial — fieldwork rollup), §18 portal candidates (`public-safe-data-masking` line 626 partial — public-facing data masking), or §16 scenarios candidates (line 407 `layout-option-a-b-c-comparison` P3 partial — alternate layout A/B/C).
 
 ---
 
@@ -6681,3 +6701,9 @@ Citations: Nasa'i 1787 (Sahih), Bukhari 1142, Bukhari 1145 — all sunnah.com-ve
 `npm test` 40/40, `npm run lint` all ratchets at 0, preview verified.
 
 Decision: [2026-04-26-prophetic-path-qiyam-rest-node.md](decisions/2026-04-26-prophetic-path-qiyam-rest-node.md)
+
+## 2026-04-26 — PropheticPath Sahari Node (Phase 2 of 4)
+
+Spine 14 → 15 nodes: added `sahari` between tahajjud and fajr, anchored on Aladhan `Imsak` key (first use of Imsak in spine). Six-file pattern. Citations: Bukhari 1923 (barakah), Bukhari 1921 (~50-ayat gap), Muslim 1096a (distinction-from-People-of-Book). Tests + ratchets green; preview verified.
+
+Decision: [2026-04-26-prophetic-path-sahari-node.md](decisions/2026-04-26-prophetic-path-sahari-node.md)
