@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | MILOS — PropheticPath Jumu'ah Friday variant (Phase 4 of 4 — closes plan)
+
+**Objective:** Bring the full Friday cluster (Jumu'ah, Kahf, salawat, istijabah hour) into the spine. Day-of-week branching was greenfield infrastructure — zero day-of-week logic existed anywhere before this phase.
+
+**Outcome:** Spine now branches on `isFriday(date)` (single helper exported from `prophetic-path-submodules.js`). Two new spine nodes: `jumuah` (Dhuhr key, replaces `dhuhr` on Fridays) and `istijabah-hour` (Maghrib key, offsetMin: −60, Friday-only). Six files touched; filtering is data-driven via `FRIDAY_ONLY_NODE_IDS` / `NON_FRIDAY_HIDE_ON_FRIDAY` sets, applied symmetrically to `NODE_TIMING` (active/next math) and `NODES` (UI rendering). `inferNodeFromHour(date)` routes the dhuhr- and after-asr-hour bands to their Friday variants. `time-based-content.js` carries Bukhari 880 (ghusl/miswak/perfume), Mishkat 2175 (Kahf, Hasan), Bukhari 934 (khutbah silence), Bukhari 881 (early arrival), Abu Dawud 1047 (salawat), Bukhari 935 + Muslim 852a (istijabah hour). New parent task "Honor the Friday Sunan" with 6 grounded subtasks appended to `faith_salah_growth`. All Bayyinah-tier; sunnah.com-verified 2026-04-26. `npm test` 40/40, lint ratchets at 0 (one no-useless-escape on `muezzin's` fixed). Decision filed at `wiki/decisions/2026-04-26-prophetic-path-jumuah-variant.md`. Spine count 13 → 16 nodes. **Closes the 4-phase Sunnah-extension plan.**
+
+**Carries forward:** Eid spine variants (Fitr / Adha) — Friday establishes the day-of-week pattern; travel-mode (qasr) variant; fasting-state store for Ramadan content gating. Friday-mock preview test deferred to a session that lands on a real Friday or uses a `getDay` override.
+
+---
+
+## [2026-04-26] session | Atlas — §18 AiSiteSummaryCard
+
+**Objective:** Close §18 manifest item `ai-site-summary` (line 436, P3 partial → done). User picked candidate 3 from a §5-windbreak / §13-vision-toggle / §18-summary slate. Distinct from the existing `AiSiteSynthesisCard` which already covers `ai-constraint-opportunity-summaries` (line 437) — that card produces two-column constraint/opportunity findings, this one is the spec-language "AI site summary with data source attribution and confidence level": a narrative parcel descriptor with per-claim attribution and an aggregate confidence band.
+
+**Outcome:** New `AiSiteSummaryCard` (`apps/web/src/features/ai-design-support/`) mounted on `EcologicalDashboard` immediately after `AiSiteSynthesisCard`. Reads the seven Tier-1 site-data layers via `useSiteData(project.id)` + typed `getLayerSummary<T>` (climate, elevation, soils, watershed, wetlands_flood, land_cover, zoning) and renders five short attributed paragraphs: Climate, Terrain, Soil & hydrology, Vegetation & cover, Regulatory. Each sentence carries the layer's `attribution` as an inline italic chip — a steward can trace every claim back to its source (USDA NRCS, FEMA NFHL, NOAA, USGS, NLCD, etc.). Confidence band aggregates per-layer `confidence` weights (high=3, medium=2, low=1) over completed-fetch layers: HIGH if ≥6 layers complete and weighted avg ≥2.5, MEDIUM if ≥4 complete and avg ≥1.8, LOW otherwise. Meta row shows the band pill + "X/7 layers complete" + LIVE chip when any layer is from a real adapter call. Empty state when site data has not yet been fetched, with copy pointing the steward to Site Intelligence. ~372 LOC tsx + ~170 LOC CSS, parchment palette matching sibling AI cards. Pure presentation — no shared math, no fetches, no entity writes. The "AI" framing is spec language; the engine is a deterministic rule cascade over typed `LayerSummary` discriminated-union variants. Manifest line 436 partial → **done**. tsc clean (pre-existing access/QuietCirculation errors not mine). Atlas commit `6ce0b7a` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-existing `featureManifest.ts.rej` left in working tree from a prior parallel-session patch attempt against `path-modes-fastest-lowest-cost-regen-investor` — not mine, not staged. Recently-touched sections to vary away from next round: §11 livestock, §18 ai-design-support, §24 mobile-fieldwork. Natural next directions: §5 climate (`windbreak-ventilation-corridors`), §13 vision (`toggle-current-vs-vision`), §17 admin audit, or fresh sections like §1 dashboard / §3 entities / §15 reports.
+
+---
+
 ## [2026-04-26] session | Atlas — §24 GPSFieldStatusCard
 
 **Objective:** Close §24 manifest item `mobile-friendly-map-gps` (line 555, P2 partial → done). User picked candidate 1 (mobile) from the §22-mobile / §18-portal / §17-admin slate. The toolbar `GPSTracker` button toggles a pulsing dot on the map and surfaces a single accuracy chip — fine for "where am I?" but blind to the questions that actually matter when a surveyor is standing in a wet pasture in mediocre signal: am I inside the parcel, how far am I from the boundary I drew, how precise is this fix, when was the last update, and how many existing field entries sit within walking distance?
