@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §12 pattern grid polish
+
+**Objective:** Tighten the §12 TreeSpacingCalculatorCard "Pattern density comparison" subsection. The block surfaces three patterns (square, triangular, quincunx) but reused the 4-column `.headlineGrid` class from the top stat row, leaving an empty 4th column and unbalanced card widths.
+
+**Outcome:** Added a dedicated `.patternGrid` class (3 cols, repeat(3, 1fr), 8px gap) in `TreeSpacingCalculatorCard.module.css` and switched the pattern comparison div to use it. 9 lines added, 1 line changed. No manifest flip (§12 already `done` from commit `8e515e2`). tsc clean (exit 0). Atlas commit `5bcbaf6` on `feat/shared-scoring`, pushed.
+
+**Note:** This is a style-only follow-up to the parallel-session §12 ship; PlantingToolDashboard hits a pre-existing `Maximum update depth exceeded` runtime error sourced in `ClimateShiftScenarioCard.tsx:107` (`getSnapshot should be cached`) which prevented live render verification of the polish — flagged as separate, unrelated to this commit.
+
+---
+
 ## [2026-04-26] session | Atlas — §24 Offline Sync Status Card
 
 **Objective:** Close §24 manifest item `offline-field-mode-sync` (P2 planned → done, line 558). The FieldworkPanel header carried small Online/Offline + "N pending" badges and the connectivityStore already exposed `isOnline`, `lastSyncedAt`, `pendingChanges`, and `syncStatus` — the underlying offline-first plumbing was in place. What was missing was an explicit, scannable surface for the steward halfway through a site visit: which entry types are queued, how old is the oldest entry waiting to upload, when did we last successfully reach the server, and is the sync engine in `idle` / `syncing` / `error`? A 14px badge in the header doesn't answer those four questions. User picked candidate 2 (mobile/field).
