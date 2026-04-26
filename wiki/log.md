@@ -13,6 +13,16 @@ type: log
 
 ---
 
+## [2026-04-26] session | Atlas — §18 PublicMaskingPreviewCard
+
+**Objective:** Close §18 manifest item `public-safe-data-masking` (line 626, P4 partial → done). User picked candidate 1 from a §18-portal / §17-admin / §14-portal slate. Distinct from the existing §20 `InternalVsPublicViewCard`, which lists *which* fields the public-portal redaction filter strips (address, internal notes, per-entity rows, completeness score, AI-DRAFT badges) — that card answers "what does the filter do?". This card answers the next question: of the fields that *survive* the filter (project name, vision, description), are there free-text leaks that field-level redaction cannot catch?
+
+**Outcome:** New `PublicMaskingPreviewCard` (`apps/web/src/features/portal/`) mounted on `PortalConfigPanel` between `InternalVsPublicViewCard` and `ShareLinkReadinessCard`. Sweeps the three public-facing free-text fields with five regex patterns: emails (`\b[\w.+-]+@…\b`), phone numbers (international + NANP), decimal lat/lng pairs (4+ decimal digits), dollar amounts (`$1.2k`/`$500`/`$10M`), and raw `https?://` URLs. Each pattern carries a severity (high for email/phone/coords, medium for money/URL) and a recommendation pointing the steward to the correct portal field (e.g. emails → portal Inquiry email, URLs → portal Donation URL). Output: per-pattern hit list with sample snippet (clipped to 60 chars in monospace), the field labels where it was found, and the human-readable recommendation. Aggregate risk band — Clean (0 hits) / Minor exposure (1-2 hits, no high-severity) / Leaks present (≥3 hits or any high-severity) — surfaced as a colored pill in the header alongside total hit count and a scope row showing exposed-field count and free-text character total. Empty state when no public copy is set yet; clean state with checkmark when scan returns zero. ~210 LOC tsx + ~230 LOC CSS, parchment palette with sage/amber/clay severity tones. Pure presentation — no shared math, no fetches, no entity writes. HEURISTIC badge in title since regexes are intentionally narrow to keep false positives low. Manifest line 626 partial → **done**. tsc clean for new files. Atlas commit `e08e09b` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-existing `featureManifest.ts.rej` still in working tree from prior parallel-session patch attempt — not mine, not staged. Recently-touched sections to vary away from next round: §18 portal, §24 mobile, §6 climate, §19 decision. Natural next directions: §17 admin audit, §11 livestock, §13 vision (`toggle-current-vs-vision`), §15 reports, or fresh sections like §1 dashboard, §3 entities, §10 design-rules.
+
+---
+
 ## [2026-04-26] session | Atlas — §18 AiSiteSummaryCard
 
 **Objective:** Close §18 manifest item `ai-site-summary` (line 436, P3 partial → done). User picked candidate 3 from a §5-windbreak / §13-vision-toggle / §18-summary slate. Distinct from the existing `AiSiteSynthesisCard` which already covers `ai-constraint-opportunity-summaries` (line 437) — that card produces two-column constraint/opportunity findings, this one is the spec-language "AI site summary with data source attribution and confidence level": a narrative parcel descriptor with per-claim attribution and an aggregate confidence band.
