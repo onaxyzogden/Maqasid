@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §7 StructureArchetypeAuditCard
+
+**Objective:** Close manifest §7 line 257 `earthship-cabin-yurt-pavilion-greenhouse-barn-workshop` (P2 partial). Twenty `StructureType` archetypes ship in `structureStore`, but no surface cross-references the placed mix against the project's stated intent — a retreat with no cabin, a farm with no barn, an educational project with no classroom would all reach the feasibility report unflagged. User picked candidate 1 from a §7-structures / §20-collab / §21-decision-style slate.
+
+**Outcome:** New `StructureArchetypeAuditCard` (`apps/web/src/features/structures/`) mounted on `EducationalAtlasDashboard` immediately after `BuildOrderCard`. Hoist+useMemo against `useStructureStore` for the placed mix; computes per-type counts, per-cluster totals (habitation · worship · production · gathering · support), and a `NEEDS_BY_INTENT` join against `project.projectType` (regenerative_farm · retreat_center · homestead · educational_farm · conservation), with each need typed `core` / `expected` / `nice`. Verdict pill tones four states: `unknown` (no projectType set), `block` (any core gap), `work` (expected gaps only), `done` (core+expected covered). Renders 4-stat headline (placed · archetypes · core gaps · expected gaps), 5-cluster strip with blurbs, sorted placed-archetypes grid, and a per-need list with met/gap badges and rationale. ~320 LOC tsx + ~300 LOC CSS. Pure derivation — no entity writes, no map overlays, no shared math. tsc clean against new files (pre-existing `QuietCirculationRouteCard` and `ProgramCoverageCard` errors out of scope). Atlas commit `05aa972` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Clean first pass, no mid-cycle fixes. Manifest single-line flip on line 257; no parallel-session co-flips this round. Recently-touched sections to vary away from next round: §1 intake, §3 site-data, §6 spiritual zoning, §7 structures, §11 livestock, §14 vision, §17 rules, §18 ai-design, §20 collab, §21 decision, §22 economic, §24 mobile. Natural next directions: §10 access-circulation partials, §15 timeline-phasing partials, §19 education-interpretive partials, §16 scenarios siblings, §4 climate / §5 zoning partials.
+
+---
+
 ## [2026-04-26] session | Atlas — §3 FieldObservationsLegalCard
 
 **Objective:** Close manifest §3 line 89 `field-observations-legal` (P1 partial). The intake wizard's Step 4 (`StepNotes.tsx`) captures `metadata.fieldObservations` (steward walk-through narrative, up to 5000 chars) and `metadata.legalDescription` (county-recorder language, up to 2000 chars), but neither field had any read-back surface in the project view — values existed in the store and on the wire but were invisible to the steward outside an edit pass on the wizard. User picked candidate 1 from a §3-site-data / §7-structures / §10-access slate.
