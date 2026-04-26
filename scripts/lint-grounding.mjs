@@ -241,10 +241,9 @@ async function main() {
       const empty = (allRecords[pid] || []).filter((r) => Array.isArray(r) ? false : (r.shape === 'array' && r.errors.some((e) => /empty/.test(e)))).length;
       totalEmpty += empty;
     }
-    // Ratchet: 1 known empty-array (prayer_isha_during[0].subtasks[0] — optional
-    // 4-rakʿat sunnah pending NotebookLM Muslim Scholar citation). Mirrors the
-    // `allowEmptyArray: 1` ratchet in grounding.test.js. Decrement to 0 when fixed.
-    const ALLOW_EMPTY = 1;
+    // Ratchet 0 — the optional 4-rakʿat before-Isha sunnah was backfilled with
+    // Sahih al-Bukhari 627 / Muslim 838 via NotebookLM Muslim Scholar.
+    const ALLOW_EMPTY = 0;
     const nonEmptyErrors = totalErrors - Math.min(totalEmpty, ALLOW_EMPTY);
     if (totalLegacy > 0 || nonEmptyErrors > 0) {
       console.error(`\n[STRICT] Failed: ${totalLegacy} legacy-string entries, ${nonEmptyErrors} unexpected schema errors (${totalEmpty} empty-array, ratchet allows ${ALLOW_EMPTY}).`);

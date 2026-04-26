@@ -284,7 +284,18 @@ const PRAYER_GUIDE = {
         amanahRationale: "The four rakʿat before Isha are not among the twelve muʾakkadah rawātib; they are a meritorious but not confirmed sunnah \u2014 hence T3 (Niyyah) rather than T1/T2.",
         why: "Four rakʿat before Isha do not carry the muʾakkadah weight of Fajr's 2 or Dhuhr's 4+2. They are for the one whose schedule and energy allow a richer entry into the night's fard.",
         how: "If time and energy permit, pray four rakʿat in two sets of two before the Isha iqāmah. Skip without concern when tired or pressed for time \u2014 the fard and its two confirmed rawātib are the priority.",
-        sources: []
+        sources: [
+          {
+            kind: "hadith",
+            ref: "Sahih al-Bukhari 627",
+            arabic: "بَيْنَ كُلِّ أَذَانَيْنِ صَلاَةٌ، بَيْنَ كُلِّ أَذَانَيْنِ صَلاَةٌ، ثُمَّ قَالَ فِي الثَّالِثَةِ: لِمَنْ شَاءَ",
+            translation: "There is a prayer between the two Adhans (Adhan and Iqama). [The Prophet said this thrice, then on the third he added:] For the one who wants to pray.",
+            relevance: "direct",
+            provenanceTier: "Bayyinah",
+            hadithGrade: "Sahih (agreed upon — Bukhari and Muslim)",
+            rationale: "The canonical anchor for any optional pre-fard nafl. Establishes that praying between the adhan and iqama for any salah — including Isha — is a meritorious sunnah open to whoever wishes; grounds the optional 4 rakʿat before Isha as a non-muʾakkadah but prophetically encouraged practice. NotebookLM Muslim Scholar canonical-text retrieval; modern sunnah.com numbering Bukhari 627 / Muslim 838 (Muslim Scholar PDF used an older edition listing the same narration under Bukhari 597/600 and Muslim 1822) — sunnah.com cross-reference verification recommended in scholar polish."
+          }
+        ]
       },
       {
         kind: 'Farḍ',

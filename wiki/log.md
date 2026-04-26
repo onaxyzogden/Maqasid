@@ -73,6 +73,16 @@ type: log
 
 ---
 
+## [2026-04-25] session | MILOS — Prayer empty-array backfilled (final ratchet → 0)
+
+**Objective:** Close the last open ratchet — the optional 4-rakʿat before-Isha sunnah at `prayer_isha_during[0].subtasks[0]`, held under `allowEmptyArray: 1` since the grounding gate sealed.
+
+**Outcome:** Retrieved Sahih al-Bukhari 627 / Muslim 838 ("between every two adhans is a prayer") canonical Arabic + English from NotebookLM Muslim Scholar (1c17b03b) — the prophetic anchor for any optional pre-fard nafl. Inserted as Bayyinah/direct/Sahih structured entry; sources `[]` → 1. Decremented `allowEmptyArray: 1 → 0` in `grounding.test.js` and `ALLOW_EMPTY = 1 → 0` in `lint-grounding.mjs`. `npm test` 40/40; `npm run lint` exit 0 — all three monotonic ratchets now at minimum (per-pillar legacy 0, empty-array 0, inline-refs 0). Muslim Scholar PDF used older edition numbering (Bukhari 597/600, Muslim 1822); modern sunnah.com numbering carried in ref + ratNote. Filed [[2026-04-25-milos-prayer-empty-array-backfill]].
+
+**Carries forward:** Scholar polish backlog now 4 entries (Bukhari 5267, Tirmidhi 2007 ×2, Bukhari 627) — all carry `ratNote` flags for sunnah.com canonical-numbering verification.
+
+---
+
 ## [2026-04-25] session | MILOS — Inline-refs Phase 2 hadith backfill (ratchet → 0)
 
 **Objective:** Close the 13 inline-cited hadith refs missing from structured `sources[]` — the Phase 2 follow-up to the Quran backfill.

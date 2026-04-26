@@ -29,10 +29,10 @@ const PILLARS = [
   { id: 'wealth',      data: WEALTH_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'environment', data: ENVIRONMENT_SEED_TASKS, expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'ummah',       data: UMMAH_SEED_TASKS,       expectedLegacy: 0,   allowEmptyArray: 0 },
-  // Prayer is fully structured. The 1 allowEmptyArray is the optional 4-rakʿat
-  // before-Isha sunnah (T3/Niyyah) at prayer_isha_during[0].subtasks[0] —
-  // pending NotebookLM Muslim Scholar citation for "between adhan and iqamah".
-  { id: 'prayer',      data: PRAYER_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 1 },
+  // Prayer is fully structured. The optional 4-rakʿat before-Isha sunnah was
+  // backfilled with Sahih al-Bukhari 627 / Muslim 838 ("between every two
+  // adhans is a prayer") via NotebookLM Muslim Scholar — empty-array ratchet 0.
+  { id: 'prayer',      data: PRAYER_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },
 ];
 
 function walkSubtasks(pillarId, data) {
