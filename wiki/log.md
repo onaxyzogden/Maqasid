@@ -13,6 +13,16 @@ type: log
 
 ---
 
+## [2026-04-26] session | Atlas — §1 RegionalContextCard
+
+**Objective:** Close §1 manifest item `climate-bioregion-county` (line 92, P1 partial → done; pre-existing flipped to done in HEAD by a parallel session before my commit, so this card closes the surface gap rather than the manifest gap). User picked candidate 1 from a §1-regional / §16-layout-compare / §17-rule-conflicts slate. The intake wizard's `StepNotes` already collects free-text `climateRegion` / `bioregion` / `county` into `projects.metadata` jsonb (validated by `ProjectMetadata` zod schema in `packages/shared/src/schemas/project.schema.ts`), but nothing surfaced those fields back to the steward post-creation, and nothing cross-referenced them against the values that the Tier-1 site-data adapters can derive.
+
+**Outcome:** New `RegionalContextCard` (`apps/web/src/features/project/`) mounted on `CartographicDashboard` immediately above the coordinate-info card. Reads `project.metadata` (entered values from the wizard) and `useSiteData(project.id)` (adapter results), runs three deterministic comparisons, renders rows with a five-tone status pill: MATCH (entered ≈ derived, case-insensitive contains), MISMATCH (both present but differ), ENTERED ONLY, DERIVED ONLY (suggestion to copy in), MISSING. Derivations: `climateRegion` from `climate.koppen_label` / `koppen_classification` + `hardiness_zone` (NOAA / NASA POWER); `bioregion` from `landCover.primary_class` · `watershed.watershed_name` (proxy — no true ecoregion adapter yet); `county` from `zoning.county_name`. Plus a context chip row for hardiness zone, watershed, land cover, and municipality. Empty-data notice when no layers have been fetched. ~238 LOC tsx + ~249 LOC CSS, parchment palette matching sibling cards. Pure presentation — no entity writes (the steward goes back to the wizard to commit a derived value). tsc clean. Atlas commit `abba92f` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** `CartographicDashboard.tsx` still has hardcoded `LAYERS` and `SURVEYS` mock arrays unrelated to my work — out of scope, not touched. Zoning adapter does populate `county_name` for US (FCC Block API) and southern-Ontario coverage; INTL projects hit the empty-derived path, which the card's MISSING / ENTERED ONLY tones surface gracefully. Recently-touched sections to vary away from next round: §1 project-intake, §11 livestock, §18 ai-design-support, §24 mobile-fieldwork. Natural next directions: §16 simulation-scenarios (`layout-option-a-b-c-comparison`), §17 design-rules (`rule-scoring-conflict-alerts-explainable-recommendations`), §15 timeline-phasing partials, or §22 economic-modeling partials.
+
+---
+
 ## [2026-04-26] session | Atlas — §14 toggle-current-vs-vision manifest sync
 
 **Objective:** Reconcile manifest line 359 `toggle-current-vs-vision` (P2) for §14 Moontrance Vision. User picked candidate A from a §13-vision / §17-rules / §1-intake slate, but on inspection the `CurrentVsVisionToggleCard` was already shipped in a prior session (apps/web/src/features/vision/CurrentVsVisionToggleCard.tsx, mounted on PhasingDashboard line 460) and its own header explicitly declares "Closes manifest §14 toggle-current-vs-vision (P2) partial -> done." The card just never had its manifest entry flipped. User chose Sync (1-line accounting) over Pivot (rebuild on a different candidate).
