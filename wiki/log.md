@@ -63,6 +63,16 @@ type: log
 
 ---
 
+## [2026-04-26] session | Atlas — §16 LayoutOptionABCComparisonCard
+
+**Objective:** Close §16 manifest item `layout-option-a-b-c-comparison` (line 407, P3 partial → done). User picked candidate 3 from a §22-mobile / §18-portal / §16-scenarios slate. ScenarioPanel already ships `BestBaseWorstCaseCard` (numerical bands over one plan) and `BuildCostRevenueRangesCard` (year-by-year envelope), but neither answers the design-philosophy question: "what would my plan look like under three different framings — current, lean, phased-light?"
+
+**Outcome:** New `LayoutOptionABCComparisonCard` (`apps/web/src/features/scenarios/`) mounted on `ScenarioPanel` immediately after `BuildCostRevenueRangesCard`. Three derived variants computed as filters over `FinancialModel.costLineItems`: **Option A (Current)** = the plan as placed; **Option B (Lean)** = drops items in the highest-cost category (typically Structures, surfaced dynamically per project); **Option C (Phased-Light)** = keeps only items in phase 1 and phase 2 (defers phase 3+). Per option: capex mid + low/high range, item count, phases used, `delta-vs-A` percent, and the filter rule shown explicitly. Three-column grid (gold/sage/blue tinted per the standard tone palette) with a footnote pointing the steward to the existing scenario-save flow for committing a variant. ~210 LOC tsx + ~190 LOC CSS. Pure derivation — no shared math, no entity edits, no new variant data model. Manifest line 407 partial → **done**. tsc clean (exit 0). Atlas commit `2f09ae7` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-stage `git diff packages/shared/src/featureManifest.ts` showed clean single-line flip — no parallel co-flip. JSX em-dash discipline applied via `{'\u2014'}` from the start. **One render glitch caught and fixed mid-flight:** initially used `${fmtK(opt.capexMid)}` in JSX expecting `fmtK` to return a bare number, but `fmtK` already prepends `$` → rendered as `$$26K`. Stripped the literal `$` from three call sites and re-verified. Heuristic-tag pinned in the header (`HEURISTIC` badge) plus a footnote making it clear that real layout iteration (reshaping zones, swapping structure types, repositioning paddocks) happens on the map, not in this card. Edge cases handled: empty `costLineItems` renders an explicit empty state; if Option B has nothing left to drop, `dropCat` is null and the rule shows "No category to drop". Natural next directions: §22 mobile candidates (`mobile-friendly-map-gps` line 555 partial — fieldwork rollup), §18 portal candidates (`public-safe-data-masking` line 626 partial — public masking posture view), or §13 line 359 `toggle-current-vs-vision` (P2 partial — current-land vs vision toggle).
+
+---
+
 ## [2026-04-26] session | Atlas — §22 LandownerPartnershipCard
 
 **Objective:** Close §22 manifest item `investor-summary-landowner-partnership` (line 524, P3 partial → done). User picked candidate 3 from a §22-mobile / §18-portal / §22-wildcard slate. The InvestorSummaryExport modal already covers the investor-facing pitch (totalInvestment, breakEven, ROI), but the *landowner partnership* half of the manifest entry was never surfaced — there's no view that frames "if a landowner brings the land and a capital partner brings the money, who funds what, who carries what risk, who reaps which revenue stream?"
