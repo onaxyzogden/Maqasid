@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §19 BestUseSummaryCard
+
+**Objective:** Close §19 manifest item `good-fit-poor-fit-best-use` (line 502, P2 partial → done). User picked candidate 3 (decision) from the §18-mobile / §4-wildcard / §19-decision slate. The Vision Fit Analysis block on `DecisionSupportPanel` already evaluates fit for the *currently selected* project type, but no surface answered the inverse question: which project types would this land actually support, and which should be avoided?
+
+**Outcome:** New `BestUseSummaryCard` (`apps/web/src/features/decision/`) mounted on `DecisionSupportPanel` immediately after `DomainFeasibilityCard`. Iterates the seven exported `PROJECT_TYPES` (regenerative_farm, retreat_center, homestead, educational_farm, conservation, multi_enterprise, moontrance), runs `computeVisionFit` against the live assessment scores for each, then collapses each type's per-requirement results into a weighted 0-100 fit score (critical=3 / important=2 / supportive=1 weight × strong=1 / moderate=0.5 / challenge=0 status). Types are bucketed: **best uses** (score ≥ 65 with zero unmet critical thresholds), **workable with adjustments** (middle), **not recommended** (score < 40 or two-plus unmet critical thresholds regardless of total). Current-direction banner above the bands tags the project's selected type with its own band tone (sage / amber / clay). Per-row meta surfaces top strength (✓), top gap (✗), and a critical-gap counter. ~265 LOC tsx + ~205 LOC CSS. Pure derivation — `useSiteData` + `computeAssessmentScores` + `computeVisionFit`; no writes, no shared-package math, no map overlays. Manifest line 502 partial → **done**. tsc clean (exit 0). Atlas commit `a272966` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-stage `git diff packages/shared/src/featureManifest.ts` showed clean single-line flip — no parallel co-flip this round. `BandBlock` sub-component reused across all three bands; `topStrength`/`topGap` resolution prefers higher-weighted requirements when ties exist on status. `bandFor()` heuristic guards against the failure mode where a type clears the score threshold despite missing two critical requirements (e.g., a moontrance vision on land that fails both Buildability and Water Resilience but coasts on supportive scores). Natural next directions: §19 line 503 `what-must-be-solved-first` (sibling P2 partial — narrative wrapping of existing blocking/advisory lists), §22 mobile candidates (P4 partial), or §18 portal candidates.
+
+---
+
 ## [2026-04-26] session | Atlas — §19 TimelineYearModeCard
 
 **Objective:** Close §19 manifest item `timeline-slider-year-modes` (line 380, P2 partial → done). User picked candidate 1 from the post-§14 ServiceStewardshipFraming slate. PhasingDashboard already let the steward toggle phase visibility on the map and inspect per-phase rollups, but had no scrubber answering the "if I freeze the calendar at Year 1, what does this property actually look like?" question.
