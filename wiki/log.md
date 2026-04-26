@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-26] session | Atlas — §19 ScenarioPhasingAlternativesCard
+
+**Objective:** Close §19 manifest item `scenario-phasing-alternatives` (line 387, P3 partial → done). User picked candidate 1 from a §19-portal / §22-mobile / §19-wildcard slate. PathModesCard already covers single-phase reordering by lens, but it doesn't answer the dual-axis question: "given my current full-build phase plan, where does each strategic lens's signal first land — and is the deferral intentional?"
+
+**Outcome:** New `ScenarioPhasingAlternativesCard` (`apps/web/src/features/phasing/`) mounted on `PhasingDashboard` immediately after `TimelineYearModeCard`. Three lenses (revenue-first, regen-first, habitation-first), each with a hardcoded `classifySignal(scenario, kind, type)` over crops/structures/utilities. Per scenario: count of signal-bearing entities placed in each phase, first phase carrying the signal, total items, phases-carrying ratio. UI is tab-switched lens picker → tagline + signal description → 3-stat row (first-signal phase / items in lens / phases carrying it) → per-phase chip strip with `FIRST` badge on the originating phase → one of three nudge variants: `nudgeOk` (sage, signal lands early), `nudgeLate` (gold, first signal in second half of build), `nudgeMissing` (rose, no items match this lens). ~322 LOC tsx + ~270 LOC CSS. Pure presentation rollup over phaseStore + cropStore + structureStore + utilityStore; paddocks excluded (no `type` field on the entity). No shared math, no entity writes, no reordering. Manifest line 387 partial → **done**. tsc clean for the new file (pre-existing §10 sibling errors unrelated). Atlas commit `8043689` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Pre-stage `git diff` showed clean single-line manifest flip — no parallel co-flip this round. JSX unicode pitfall hit again on three em-dash text nodes (`\u2014` literals leaked through as raw escape sequences in the rendered DOM); fixed by wrapping in `{'\u2014'}` expressions per the standard JSX-text rule. Preview verification confirmed all three tabs re-render the result panel correctly (Revenue → first @ Phase 1, 2 items, nudgeOk; Regen → no signal, nudgeMissing; Habitation → first @ Phase 1). Threshold for `nudgeLate` is `firstPhase.phaseOrder > Math.ceil(totalPhases / 2)` — heuristic, refinable. The classifier type-string sets are intentionally loose (lowercased exact-match) to absorb future entity-type drift without breaking. Natural next directions: §22 mobile candidates (P2 partial — fieldwork-side surfaces), §18 portal candidates (P4 partial — public-facing data masking), or §16 scenarios candidates (P3 partial — sibling decision/scenarios surfaces).
+
+---
+
 ## [2026-04-26] session | Atlas — §6 SeasonalWindBalanceCard
 
 **Objective:** Close §6 manifest item `windbreak-ventilation-corridors` (line 200, P2 partial → done). User picked candidate 1 (climate) from the §4-wildcard / §22-mobile / §18-portal slate. The dashboard already ships `WindCorridorAuditCard` (annual exposure scoring) and `WindbreakCandidatesCard` (placement perpendicular to *annual* prevailing wind), but neither answers the dual-season planning question: a windbreak sized to block winter cold winds may also kill the summer breeze a passive ventilation strategy depends on.
@@ -6651,3 +6661,13 @@ Decision: [2026-04-26-prophetic-path-witr-node.md](decisions/2026-04-26-propheti
 - **Completed:** Witr node fully integrated — spine card, sidebar metadata, time-based content, task routing, and 4 Bayyinah-tier subtasks in faith pillar. All ratchets hold at 0.
 - **Deferred:** Optional post-witr "rest before tahajjud" node — that's sleep territory, not prayer.
 - **Recommended next:** Continue spine extension — candidate nodes include adhan-response (between any prayer's pre-window and start), sahari pre-Fajr eating window for fasting days, or jumu'ah-specific Friday spine variant.
+
+## 2026-04-26 — PropheticPath Qiyam-Rest Node (Phase 1 of 4-Phase Sunnah Extension)
+
+Spine 13 → 14 nodes: added `qiyam-rest` between bedtime and tahajjud (anchored Lastthird−90min). Six-file pattern (spine card + routing + sidebar + content + classifyTask + parent task with 3 Bayyinah/Sahih subtasks).
+
+Citations: Nasa'i 1787 (Sahih), Bukhari 1142, Bukhari 1145 — all sunnah.com-verified.
+
+`npm test` 40/40, `npm run lint` all ratchets at 0, preview verified.
+
+Decision: [2026-04-26-prophetic-path-qiyam-rest-node.md](decisions/2026-04-26-prophetic-path-qiyam-rest-node.md)
