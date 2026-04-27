@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §22 RevenueStreamTaggingCard
+
+**Objective:** Close manifest §22 line 515 `revenue-stream-tagging-enterprise-mapping` (P2 partial). User picked candidate 1 from this round's slate. Pre-flight: manifest line had been pre-flipped to `done` by parallel commit `8bfd46e` ("manifest truth-up" entry below) — but the actual `RevenueStreamTaggingCard` did not exist in the tree at HEAD. Parallel session had logged the flip as if the card were already shipped; in reality the manifest was truth-up'd ahead of code. This round filled the code-stale gap.
+
+**Outcome:** New `RevenueStreamTaggingCard` (`apps/web/src/features/economics/`, ~383 LOC tsx + ~351 LOC CSS) mounted on `EconomicsPanel.tsx` Revenue tab as the first card before `EnterpriseRevenueMixCard`. Reads `useFinancialModel(project.id)` and audits the join between priced revenue streams (`model.revenueStreams`) and tagged enterprise types (`model.enterprises`). Card body: 4-state verdict pill (Diversified / Concentrated / Thin / Gaps / Empty — keyed off untagged-enterprises, intent-gaps, top-tag share ≥0.8, and total tags ≤2), 6-stat headline (tags / streams / untagged enterprises / intent gaps / top-tag share / mid total/yr), per-tag rows grouped by `EnterpriseType` showing share-coloured pill (sage low / amber mid / clay high), expected-from-intent pill where applicable, and stream-level rows with confidence tag, plus an "Open gaps" block separating "detected on map, no priced stream" warn chips from "project-intent implies but absent" muted chips. ENTERPRISE_LABEL/BLURB maps cover all 8 `EnterpriseType` values; EXPECTED_BY_TYPE per `ProjectType` (regenerative_farm → livestock/market_garden/orchard, retreat_center → retreat/agritourism, etc.). tsc clean (exit 0). Atlas commit `7740d4c` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Manifest line 515 was pre-flipped by `8bfd46e` before card existed — the inverse of the §8 round 1 contamination (which dropped the manifest stage from a card commit). Both failure modes confirm the discipline: pre-flight must check **both** `git show HEAD:packages/shared/src/featureManifest.ts | grep <id>` *and* `find apps/web/src -name '<CardName>*'` before committing to a build, because manifest-stale and code-stale can each land independently. Recently-touched sections to vary away from next round: §1 / §3 / §5 / §6 / §7 / §8 (×2) / §9 / §11 / §13 / §14 / §15 / §16 / §17 (×2) / §18 / §19 / §20 / §21 / §22 (×2 — truth-up + this round) / §23 / §24 / §25 / §26 (×2) / §27 / §29. Natural next directions: §28 MT partials (line 657/664/669), §10 / §12 P1 partials, §13 P1 partials.
+
+**Preview verification:** Skipped — preview server not running this round; tsc clean and pure-presentation card reading existing financial-model selectors plus the standard `model || empty-state` guard. Logic risk bounded by direct reuse of `useFinancialModel` patterns from sibling cards (`EnterpriseRevenueMixCard`).
+
+---
+
 ## [2026-04-27] session | Atlas — §22 manifest truth-up
 
 **Objective:** Close manifest §22 line 515 `revenue-stream-tagging-enterprise-mapping` (P2 partial). Pre-flight discovered the card was already shipped at HEAD — `apps/web/src/features/economics/RevenueStreamTaggingCard.tsx` exists, mounted on `EconomicsPanel.tsx:476`, and its own docblock states "Closes manifest §22 … partial → done". The manifest flip never landed in the same commit as the card. User confirmed the chore-commit recommendation rather than rebuilding a duplicate card.
