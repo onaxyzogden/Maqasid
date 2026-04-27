@@ -18,7 +18,7 @@ Six images were delivered (`qiyam`, `takbir`, `ruku`, `itidal`, `sujud`, `seated
 2. **Component shape:** Each `<Posture>.jsx` is now a thin wrapper rendering an `<img>` inside a `.posture-tile` element. The `color` prop is dropped — images are pre-rendered.
 3. **Always-dark backdrop:** A `.posture-tile` wraps each image with `background: #000`, `aspect-ratio: 4 / 3`, `border-radius: 12px`. This preserves the glow aesthetic regardless of the surrounding theme. CSS lives in `src/components/islamic/postures/postures.css`, imported once from `postures/index.js`.
 4. **`postureMap` API unchanged:** The named exports and the keys of `postureMap` are byte-identical to the prior implementation, so [PrayerHeroDuring.jsx](../../src/components/islamic/PrayerHeroDuring.jsx), [prayer-sequences.js](../../src/data/prayer-sequences.js), [fajr-during.js](../../src/data/fajr-during.js), and [isha-during.js](../../src/data/isha-during.js) needed no edits. The now-inert `color` prop still passed by `PrayerHeroDuring` is silently ignored by the new components.
-5. **`takbir.png` is currently orphaned** — no `takbir` slot exists in `postureMap`. Kept on disk as a deliberate reservation for a future opening-takbir step if we want to distinguish it from steady Qiyam.
+5. **`takbir.png` is wired to a new `takbir` posture slot** — `postureMap.takbir` renders the hands-raised image. Used for takbiratul-ihram only: rakah 1 of each prayer is split into a `r1-takbir` step (just the `Allāhu akbar` recitation) followed by `r1-qiyam` (thana through surah). Subsequent rakah qiyams stay as plain `qiyam` since the hands-raised gesture isn't repeated in non-opening qiyams. POSTURES_PER_RAKAH[1] bumped from 6 → 7 in both [fajr-during.js](../../src/data/fajr-during.js) and [isha-during.js](../../src/data/isha-during.js).
 
 ## Why
 
@@ -44,3 +44,5 @@ Six images were delivered (`qiyam`, `takbir`, `ruku`, `itidal`, `sujud`, `seated
 - `src/components/islamic/postures/postures.css` — new
 - `src/components/islamic/postures/index.js` — imports `postures.css`
 - `src/components/islamic/postures/{Qiyam,Ruku,Itidal,Sujud,Jalsah,Tashahhud,Salam}.jsx` — rewritten as `<img>` wrappers
+- `src/components/islamic/postures/Takbir.jsx` — new component for the opening takbiratul-ihram pose
+- `src/data/fajr-during.js`, `src/data/isha-during.js` — split rakah-1 opening qiyam into `r1-takbir` + `r1-qiyam`; bumped `POSTURES_PER_RAKAH[1]` accordingly

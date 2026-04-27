@@ -13,10 +13,10 @@
 export const ISHA_STEPS = [
   // ── Rakah 1 ─────────────────────────────────────────────────────────
   {
-    id: "r1-qiyam",
+    id: "r1-takbir",
     rakah: 1,
-    posture: "qiyam",
-    label: { ar: "القيام", en: "Standing" },
+    posture: "takbir",
+    label: { ar: "تكبيرة الإحرام", en: "Opening takbīr" },
     recitations: [
       {
         key: "takbir",
@@ -24,6 +24,15 @@ export const ISHA_STEPS = [
         translit: "Allāhu akbar",
         meaning: "God is greater",
       },
+    ],
+    note: "Raise both hands to the level of the ears (or shoulders), then lower them and fold right over left on the chest to enter qiyam.",
+  },
+  {
+    id: "r1-qiyam",
+    rakah: 1,
+    posture: "qiyam",
+    label: { ar: "القيام", en: "Standing" },
+    recitations: [
       {
         key: "thana",
         ar: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَهَ غَيْرُك",
@@ -53,7 +62,7 @@ export const ISHA_STEPS = [
         meaning: "Any additional surah after al-Fātiḥah in the first two rakʿāt.",
       },
     ],
-    note: "Raise hands to the ears at takbīr, then fold right over left on the chest.",
+    note: "Hands folded right over left on the chest.",
   },
   {
     id: "r1-ruku",
@@ -251,4 +260,4 @@ export const ISHA_STEPS = [
 export const ISHA_TOTAL_STEPS = ISHA_STEPS.length;
 
 // Posture count per rakah — used by the dot indicator.
-export const POSTURES_PER_RAKAH = { 1: 6, 2: 7, 3: 6, 4: 8 };
+export const POSTURES_PER_RAKAH = { 1: 7, 2: 7, 3: 6, 4: 8 };

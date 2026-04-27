@@ -1,5 +1,6 @@
 import "./postures.css";
 import Qiyam from "./Qiyam";
+import Takbir from "./Takbir";
 import Ruku from "./Ruku";
 import Itidal from "./Itidal";
 import Sujud from "./Sujud";
@@ -9,6 +10,7 @@ import Salam from "./Salam";
 
 export const postureMap = {
   qiyam: Qiyam,
+  takbir: Takbir,
   ruku: Ruku,
   itidal: Itidal,
   sujud: Sujud,
@@ -17,4 +19,4 @@ export const postureMap = {
   salam: Salam,
 };
 
-export { Qiyam, Ruku, Itidal, Sujud, Jalsah, Tashahhud, Salam };
+export { Qiyam, Takbir, Ruku, Itidal, Sujud, Jalsah, Tashahhud, Salam };

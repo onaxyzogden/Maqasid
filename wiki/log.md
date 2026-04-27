@@ -7360,3 +7360,16 @@ Decision: [2026-04-27-prayer-posture-glow-images.md](decisions/2026-04-27-prayer
 - **Completed:** Prayer-posture asset swap; 7 components rewritten; co-located CSS; decision doc filed.
 - **Deferred:** Open question on whether opening-takbir deserves its own posture slot distinct from steady Qiyam (`takbir.png` is on disk, awaiting that decision).
 - **Recommended next:** Decide on takbir slot, OR resume the Hijri-only non-prayer overlay brainstorm (Q1 frame choice still pending from prior session).
+
+## 2026-04-27 — MILOS — Wire takbir.png as opening takbiratul-ihram step
+
+Follow-up to the posture image swap: `takbir` is now a first-class posture slot. Added [Takbir.jsx](../src/components/islamic/postures/Takbir.jsx) using `takbir.png` and registered `postureMap.takbir`. Split the rakah-1 opening qiyam in both [fajr-during.js](../src/data/fajr-during.js) and [isha-during.js](../src/data/isha-during.js): a new `r1-takbir` step holds just the `Allāhu akbar` recitation with a note about raising hands to the ears, and `r1-qiyam` keeps thana → surah with an updated note (no longer mentions raising hands). Subsequent rakah qiyams unchanged — the hands-raised gesture isn't repeated. `POSTURES_PER_RAKAH[1]` bumped 6 → 7 in both prayers.
+
+Verification: `postureMap` keys now `[qiyam, takbir, ruku, itidal, sujud, jalsah, tashahhud, salam]`; Fajr first step `r1-takbir` (posture=takbir), second `r1-qiyam` (posture=qiyam, 4 recitations); takbir image loads at 1448×1086 from `/src/assets/postures/takbir.png` in dev preview.
+
+Decision: amended [2026-04-27-prayer-posture-glow-images.md](decisions/2026-04-27-prayer-posture-glow-images.md)
+
+### Session Debrief
+- **Completed:** Takbir wired as a dedicated opening step in Fajr and Isha sequences; decision doc + log updated.
+- **Deferred:** None for this thread.
+- **Recommended next:** Resume the Hijri-only non-prayer overlay brainstorm (Q1 frame choice still pending from prior session).
