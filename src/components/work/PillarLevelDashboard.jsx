@@ -1,13 +1,13 @@
 import { useMemo, useState } from 'react';
 import {
   AlertTriangle, CheckCircle, Star, Activity, TrendingUp,
-  LayoutDashboard, ChevronDown,
+  LayoutDashboard,
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { PRIORITIES } from '../../data/modules';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
-import InlineTaskDetail from './InlineTaskDetail';
 import ChartTooltip from '../shared/ChartTooltip';
+import { statusFromColumnId, statusLabel, formatDue } from './dashboard-card-helpers';
 import './PillarLevelDashboard.css';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -36,54 +36,6 @@ function detectPillarLevel(projectId) {
   if (!projectId) return null;
   const m = projectId.match(/_(core|growth|excellence)$/);
   return m ? m[1] : null;
-}
-
-function formatDue(dateStr) {
-  if (!dateStr) return null;
-  const d = new Date(dateStr);
-  const now = new Date();
-  const diff = d - now;
-  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  if (days < 0)  return { text: 'Overdue', colorVar: 'var(--danger)' };
-  if (days === 0) return { text: 'Today',  colorVar: 'var(--warning)' };
-  if (days <= 3)  return { text: `${days}d`, colorVar: 'var(--warning)' };
-  return { text: d.toLocaleDateString('en', { month: 'short', day: 'numeric' }), colorVar: 'var(--text3)' };
-}
-
-// ── Pillar card helper ────────────────────────────────────────────────────────
-
-function statusLabel(s) {
-  return s === 'done' ? 'Done' : s === 'in-progress' ? 'In Progress' : 'To Do';
-}
-
-function PillarTaskCard({ task, index, span, status, levelColor, onSelectTask }) {
-  const priority = PRIORITIES.find((p) => p.id === task.priority);
-  const hasBody = (task.subtasks?.length > 0) || task.dueDate || (task.tags?.slice(1).length > 0);
-  const subtaskTotal = task.subtasks?.length || 0;
-  const subtaskDone = subtaskTotal > 0 ? task.subtasks.filter((s) => s.done).length : 0;
-
-  return (
-    <DashboardTaskCard
-      taskId={task.id}
-      index={index}
-      title={task.title}
-      span={span}
-      status={status}
-      accentColor={levelColor}
-      statusTint={status === 'in-progress'
-        ? { background: `color-mix(in srgb, #F59E0B 12%, var(--surface))` }
-        : undefined}
-      onSelectTask={onSelectTask}
-      chips={[
-        { label: statusLabel(status), className: `dtc__chip dtc__chip--status-${status}` },
-        ...(priority ? [{ label: priority.label, className: 'dtc__chip dtc__chip--priority', style: { background: priority.bg, color: priority.color } }] : []),
-      ]}
-      subtasks={subtaskTotal > 0 ? { done: subtaskDone, total: subtaskTotal, color: levelColor } : undefined}
-      dueDate={formatDue(task.dueDate)}
-      tags={task.tags?.slice(1)}
-      emptyMessage={!hasBody ? 'No subtasks or due date yet.' : undefined}
-    />
-  );
 }
 
 // ── Stars helper ──────────────────────────────────────────────────────────────
@@ -361,13 +313,6 @@ function MasteryRing({ percent, pillarColor, pillarKey, doneCount, totalCount })
 
 export default function PillarLevelDashboard({ project, onSelectTask, selectedTaskId }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
-  const [collapsedCols, setCollapsedCols] = useState(new Set());
-  const toggleCol = (status) =>
-    setCollapsedCols((prev) => {
-      const next = new Set(prev);
-      next.has(status) ? next.delete(status) : next.add(status);
-      return next;
-    });
 
   const level      = detectPillarLevel(project.id);
   const levelColor = LEVEL_COLORS[level] || '#64748b';
@@ -376,7 +321,7 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
   const doneColId     = columns.find((c) => c.id.endsWith('_done'))?.id ?? null;
   const progressColId = columns.find((c) => c.id.endsWith('_progress'))?.id ?? null;
 
-  const { tasks, statusGroups, metrics } = useMemo(() => {
+  const { tasks, metrics } = useMemo(() => {
     const tasks = tasksByProject[project.id] || [];
 
     // Tag grouping
@@ -393,15 +338,6 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
     const tagGroups = [...grouped.entries()]
       .map(([tag, items]) => ({ tag, tasks: [...items].sort(byPriority) }))
       .sort((a, b) => b.tasks.length - a.tasks.length);
-
-    // Status groups (for 3-column kanban layout)
-    const statusGroups = { todo: [], 'in-progress': [], done: [] };
-    for (const task of tasks) {
-      if (task.columnId === doneColId)          statusGroups['done'].push(task);
-      else if (task.columnId === progressColId) statusGroups['in-progress'].push(task);
-      else                                       statusGroups['todo'].push(task);
-    }
-    for (const arr of Object.values(statusGroups)) arr.sort(byPriority);
 
     // Metrics
     const doneTasks     = tasks.filter((t) => t.columnId === doneColId);
@@ -425,7 +361,6 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
     return {
       tasks,
       tagGroups,
-      statusGroups,
       metrics: {
         total, completedPct, doneTasks, inProgress, urgentTasks, urgentDone,
         criticalGaps, totalSubs, doneSubs, subtaskPct, recentlyDone, masteryCandidates,
@@ -452,64 +387,39 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
 
   return (
     <div className="pld">
-      {/* 3-Column Kanban */}
-      <div className="pld__kanban">
-        {['todo', 'in-progress', 'done'].map((status) => {
-          const colTasks = statusGroups[status];
-          const colLabel = status === 'todo' ? 'To Do'
-                         : status === 'in-progress' ? 'In Progress' : 'Done';
-          return (
-            <div key={status} className={`pld__col pld__col--${status}`}>
-              <div
-                className="pld__col-head"
-                role="button"
-                tabIndex={0}
-                aria-expanded={!collapsedCols.has(status)}
-                onClick={() => toggleCol(status)}
-                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleCol(status)}
-              >
-                <span className="pld__col-head-label">{colLabel}</span>
-                <div className="pld__col-head-right">
-                  <span className="pld__col-head-count">{colTasks.length}</span>
-                  <ChevronDown
-                    size={14}
-                    className={`pld__col-chevron${collapsedCols.has(status) ? ' pld__col-chevron--collapsed' : ''}`}
-                  />
-                </div>
-              </div>
-              <div className={`pld__col-body-wrap${collapsedCols.has(status) ? ' pld__col-body-wrap--collapsed' : ''}`}>
-                <div className="pld__col-body">
-                  {colTasks.map((task, i) =>
-                    selectedTaskId === task.id ? (
-                      <InlineTaskDetail
-                        key={task.id}
-                        project={project}
-                        projectId={project.id}
-                        taskId={task.id}
-                        levelColor={levelColor}
-                        onClose={() => onSelectTask(null)}
-                      />
-                    ) : (
-                      <PillarTaskCard
-                        key={task.id}
-                        task={task}
-                        index={i}
-                        span={12}
-                        status={status}
-                        levelColor={levelColor}
-                        onSelectTask={onSelectTask}
-                      />
-                    )
-                  )}
-                  {colTasks.length === 0 && (
-                    <div className="pld__col-empty">No tasks</div>
-                  )}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+      <div className="pld__list">
+        {[...tasks]
+          .sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order))
+          .map((task, i) => {
+            const status = statusFromColumnId(task.columnId);
+            const priority = PRIORITIES.find((p) => p.id === task.priority);
+            const subtaskTotal = task.subtasks?.length || 0;
+            const subtaskDone = subtaskTotal > 0 ? task.subtasks.filter((s) => s.done).length : 0;
+            return (
+              <DashboardTaskCard
+                key={task.id}
+                taskId={task.id}
+                index={i}
+                title={task.title}
+                status={status}
+                accentColor={levelColor}
+                statusTint={status === 'in-progress'
+                  ? { background: 'color-mix(in srgb, #F59E0B 12%, var(--surface))' }
+                  : undefined}
+                onSelectTask={onSelectTask}
+                isSelected={selectedTaskId === task.id}
+                chips={[
+                  { label: statusLabel(status), className: `dtc__chip dtc__chip--status-${status}` },
+                  ...(priority ? [{ label: priority.label, className: 'dtc__chip dtc__chip--priority', style: { background: priority.bg, color: priority.color } }] : []),
+                ]}
+                subtasks={subtaskTotal > 0 ? { done: subtaskDone, total: subtaskTotal, color: levelColor } : undefined}
+                dueDate={formatDue(task.dueDate)}
+                tags={task.tags?.slice(1)}
+              />
+            );
+          })}
       </div>
+
 
       {/* Level-specific insight panel */}
       {InsightCard && (

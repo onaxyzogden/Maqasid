@@ -487,6 +487,11 @@
   appearance: none;
 }
 
+.btp-status-select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
 /* ── AI Draft section ── */
 .btp-draft-section {
   display: flex;

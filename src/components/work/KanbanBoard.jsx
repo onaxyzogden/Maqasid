@@ -6,6 +6,7 @@ import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
 import ScopeGate from '../shared/ScopeGate';
 import KanbanColumn from './KanbanColumn';
 import KanbanCard from './KanbanCard';
+import { statusFromColumnId } from './dashboard-card-helpers';
 import './KanbanBoard.css';
 
 export default function KanbanBoard({ project, onSelectTask, selectedTaskId, filters, bbosFilter, bbosRole, draggable }) {
@@ -14,6 +15,14 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
   const moveTask = useTaskStore((s) => s.moveTask);
   const { createTask } = useTaskActions(project.id);
   const [activeTask, setActiveTask] = useState(null);
+  const [collapsedCols, setCollapsedCols] = useState(() => new Set());
+
+  const toggleColumn = (columnId) =>
+    setCollapsedCols((prev) => {
+      const next = new Set(prev);
+      next.has(columnId) ? next.delete(columnId) : next.add(columnId);
+      return next;
+    });
 
   const allTasks = tasksByProject[project.id] || [];
   const filteredTasks = useMemo(
@@ -29,9 +38,9 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
   }, [filteredTasks, bbosRole]);
 
   const getTasksByColumn = (columnId) =>
-    tasks.filter((t) => t.columnId === columnId).sort((a, b) =>
-      draggable ? a.order - b.order : (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order)
-    );
+    tasks
+      .filter((t) => t.columnId === columnId)
+      .sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order));
 
   const handleAddTask = (columnId) => {
     const opts = bbosFilter ? { bbosStage: bbosFilter } : {};
@@ -77,6 +86,8 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
         onAddTask={() => handleAddTask(col.id)}
         bbosRole={bbosRole}
         draggable={draggable}
+        collapsed={collapsedCols.has(col.id)}
+        onToggleCollapsed={() => toggleColumn(col.id)}
       />
     );
   });
@@ -103,6 +114,8 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
             bbosRole={bbosRole}
             draggable={false}
             isOverlay
+            index={Math.max(0, getTasksByColumn(activeTask.columnId).findIndex((t) => t.id === activeTask.id))}
+            status={statusFromColumnId(activeTask.columnId)}
           />
         )}
       </DragOverlay>

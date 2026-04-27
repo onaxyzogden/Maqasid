@@ -102,7 +102,15 @@
 
 /* Card styles moved to shared/DashboardTaskCard.css */
 
-/* ── 3-Column Kanban layout ── */
+/* ── Single-column task list ── */
+.pld__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* ── 3-Column Kanban layout (legacy, no longer used) ── */
 .pld__kanban {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

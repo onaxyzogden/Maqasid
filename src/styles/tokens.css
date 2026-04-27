@@ -36,8 +36,8 @@
   /* Kanban columns */
   --col-todo: #8b95a2;
   --col-todo-bg: #f1f3f5;
-  --col-progress: #3b82f6;
-  --col-progress-bg: rgba(59, 130, 246, 0.08);
+  --col-progress: #f59e0b;
+  --col-progress-bg: rgba(245, 158, 11, 0.08);
   --col-review: #f59e0b;
   --col-review-bg: rgba(245, 158, 11, 0.08);
   --col-done: #22c55e;

@@ -7327,3 +7327,21 @@ Decision: [2026-04-27-milos-life-to-health-rename.md](decisions/2026-04-27-milos
 - **Completed:** Full Life→Health rename with persisted-state migration, all gates green, dev preview verified.
 - **Deferred:** Stale `src/graphify-out/cache/` entries still reference legacy ids — regenerated next time graphify runs, no action needed.
 - **Recommended next:** Resume Hijri-only non-prayer overlay brainstorm (Q1 frame choice still pending from prior session).
+
+
+## 2026-04-27 — MILOS — Kanban visual unification + pillar full-width list
+
+Two-part UI refinement to the work surface:
+
+**Part 1 — Kanban adopts PillarLevelDashboard card style.** Extracted `statusFromColumnId`, `statusLabel`, `formatDue` from PLD into shared `src/components/work/dashboard-card-helpers.js`. Rewrote `KanbanCard` to delegate to `DashboardTaskCard` (numbered badges, status+priority chips, subtask progress bar, BBOS stage chip, V/E role badge). Made `KanbanColumn` collapsible with `ChevronDown`, count pill, and `--col-color` per-column tinting via `color-mix(in srgb, var(--col-color) 9%, var(--surface))`. Centered the board (`justify-content: center`) with fixed-width 320px columns. Changed `--col-progress` from blue `#3b82f6` to amber `#f59e0b`. Fixed dropdown option contrast in dark mode (`.btp-status-select option`).
+
+**Part 2 — Pillar pages render as a single full-width list.** Initial implementation swapped PLD's 3-col grid for `<KanbanBoard>` — user clarified pillar pages should be one full-width column, not three. Replaced with `.pld__list` (flex-column, gap, width: 100%) iterating `DashboardTaskCard` per task in seedOrder. Status surfaces via per-card chip. Insight panel (FoundationHealth / GrowthMomentum / MasteryDepth) preserved below.
+
+**Other:** Pinned Kanban sort to `seedOrder ?? order` unconditionally (drag mode no longer reorders display, only column).
+
+Verification: `npm run lint:eslint` clean, `npm test` 40/40, preview confirmed via DOM at `/app/faith-shahada` (1 `.pld__list`, 6 `.dtc__card`s, no `.kanban-board`, insight wrap intact) and BBOS project board view (KanbanBoard unchanged).
+
+### Session Debrief
+- **Completed:** Kanban / PLD visual unification, pillar pages full-width list, seed-order pin.
+- **Deferred:** BBOS-equivalent insight card (Foundation Health analogue) — awaiting design direction.
+- **Recommended next:** Design the BBOS insight card metrics (Pipeline Health vs Stage Momentum) and implement above the BBOS KanbanBoard.
