@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §3 ZoningAccessUtilityCard
+
+**Objective:** Close manifest §3 line 90 `zoning-utility-notes` (P1 partial) — the last remaining intake-text partial. The wizard captures three governance / infrastructure free-text fields on `LocalProject` root (`zoningNotes`, `accessNotes`, `waterRightsNotes`) but the project view had no read-back surface for them as an *operating-envelope* picture (what the parcel is allowed to become, how it's reached, what services feed it). Sibling cards `FieldObservationsLegalCard` and `RestrictionsCovenantsCard` already roll up the other intake-text dimensions; this completes the §3 intake-text trilogy.
+
+**Outcome:** New `ZoningAccessUtilityCard` (`apps/web/src/features/project/`) mounted on `ProjectDashboard` directly below `RestrictionsCovenantsCard`. Three field rows (zoning · access · utility) with topical-cue regex sweeps scoped per surface — 8 cues each: zoning runs permitted/conditional/prohibited use, zoning-code shape (A/R/C/I/RR/AG/RU + digit), setback rule, lot coverage / FAR, variance, agritourism; access runs municipal/county/township road, private lane, gravel/unpaved, seasonal closure, emergency access, lane-length pattern, easement / right-of-way, bridge/culvert; utility runs well, septic, cistern, surface water, permit / regulated, grid hookup, off-grid, internet/cell. Per-row tier (Detailed · Outline · Sparse · Empty) by word count with ≥2-cue promotion (a short-but-targeted note hitting two topical cues earns one tier bump). Aggregate band: Documented (all three detailed) / Outlined (all three filled, mixed tiers) / Sparse (one or two filled) / Not recorded. Cross-reference grid pulls `parcelId`, `metadata.legalDescription` word count, `provinceState`, `country` so the steward can confirm what links the three text fields to the recorded parcel. ~250 LOC tsx + ~280 LOC CSS, parchment palette with sage / amber / clay tone-coded tier pills and sage-tinted cue chips. Pure presentation: reads `project` only, no entity writes, no shared math, no map overlays. tsc clean. Atlas commit `b2c3bca` on `feat/shared-scoring`, pushed (new files were swept into parallel chrome-refactor commit `8977b5d`; my commit is the single-line manifest flip).
+
+**Carries forward:** Single-line manifest flip this round (clean — no parallel-session co-flips on the manifest). New tsx/css and ProjectDashboard mount edits were absorbed by an in-flight chrome refactor commit before mine landed — branch state is consistent, but worth noting the file-attribution divergence (commit hash will not surface this round's work in `git log -- ZoningAccessUtilityCard.tsx`). Pre-existing `ProgramCoverageCard:70` runtime error still surfaces (out of §3 scope, traced to `ZonePanel`). §3 intake-text trilogy now complete: lines 89 / 90 / 91 (`field-observations-legal`, `zoning-utility-notes`, `restrictions-covenants`) all `done`. Recently-touched sections to vary away from next round: §1 intake, §3 site-data (×4), §5 zoning, §6 spiritual zoning, §7 chrome, §8 zoning, §11 livestock, §14 vision, §17 rules, §18 ai-design, §20 collab, §21 decision, §22 economic, §24 mobile. Natural next directions: §7 line 256 `structure-type-footprint-library` (P2 partial), §10 access-circulation partials, §13 ecological dashboard partials, §15 timeline-phasing partials, §19 education-interpretive partials, §22 line 514 `cost-estimate-by-feature-phase` (P2 partial).
+
+---
+
 ## [2026-04-27] session | MILOS — rename Life pillar to Health
 
 **Objective:** Rename the second Maqasid pillar from "Life" to "Health" across the MILOS codebase. Pillar id `'life'` → `'health'`, board IDs `life_*` → `health_*`, files/dirs `Life*`/`life-*`/`pages/life/` → `Health*`/`health-*`/`pages/health/`, CSS vars `--pillar-life*` → `--pillar-health*`, sidebar label "Life" → "Health", plus a `migrateLifeToHealth(projects)` localStorage migration. Preserve classical Islamic framing (`Hifz al-Nafs`, `Vitality`, `arabicRootAr`) and the historical `wiki/decisions/2026-04-25-milos-life-grounding-complete.md`.
@@ -7078,3 +7088,18 @@ Brainstorm initiated for Mawlid (12 Rabi al-Awwal), Isra wal-Miraj (27 Rajab), 1
 - **Completed:** Sunnah Mode Settings UI mount closing the carry-forward from both Phase 2 fasting store and Phase 1 travel store decisions. Single-file edit; both spine variants now end-to-end user-controllable.
 - **Deferred:** Hijri-only non-prayer overlays brainstorm (Q1 unanswered — frame choice between commemoration / sirah-reflection / hybrid). Per-pair jam' framing. Geolocation auto-detect (out of scope per design decision 1c).
 - **Recommended next:** Resume the Hijri-overlay brainstorm by answering Q1 (which frame), then continue through scope (which dates make the cut, sahih-grounding bar, render shape).
+
+## 2026-04-27 — MILOS — Rename pillar "Life" → "Health"
+
+Five-phase mechanical rename of the Maqasid pillar id `life` → `health` across ~50 files: data + canonical lists, store + persisted-state migration, pages/components/routes (incl. dir renames `src/pages/life/` → `src/pages/health/` and `src/components/life/` → `src/components/health/`), CSS tokens, and scripts/stages/wiki. `universalLabel: 'Vitality'`, `stewardshipLabel: 'Vitality Stewardship'`, and `arabicRoot: 'Hifz al-Nafs'` preserved by design — sidebar reads "Health" but universal/classical contexts retain the broader nafs framing.
+
+Added `migrateLifeToHealth(projects)` to the migration chain in `project-store.js` so existing users' `life_*` boards (and their `bbiz_tasks_life_*` task arrays) migrate to `health_*` on next load. Smoke-tested via DevTools: seeded `life_physical_core` with `_lifeModule: true` → reload → became `health_physical_core` with `_healthModule: true`.
+
+Verification: `npm run lint` (eslint + lint:grounding-strict + audit:inline-refs), `npm test` (40/40), preview routes `/app/health-core`, `/app/health-physical`, `/app/pillar/health` all load, residual grep clean except for intentional migration code in `project-store.js` and stale graphify cache.
+
+Decision: [2026-04-27-milos-life-to-health-rename.md](decisions/2026-04-27-milos-life-to-health-rename.md)
+
+### Session Debrief
+- **Completed:** Full Life→Health rename with persisted-state migration, all gates green, dev preview verified.
+- **Deferred:** Stale `src/graphify-out/cache/` entries still reference legacy ids — regenerated next time graphify runs, no action needed.
+- **Recommended next:** Resume Hijri-only non-prayer overlay brainstorm (Q1 frame choice still pending from prior session).
