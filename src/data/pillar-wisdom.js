@@ -22,7 +22,7 @@ const stub = (label) => ({
 });
 
 export const PILLAR_WISDOM = {
-  life: {
+  health: {
     physical: {
       arabic: 'وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ',
       english: '"And do not throw [yourselves] with your [own] hands into destruction."',

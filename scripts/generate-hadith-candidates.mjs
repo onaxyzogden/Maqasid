@@ -24,7 +24,7 @@ const OUT_JSON = resolve(ROOT, 'stages/hadith-enrichment-candidates.json');
 
 const PILLARS = [
   { id: 'faith',       label: 'Faith',       file: 'faith-seed-tasks.js',       exportName: 'FAITH_SEED_TASKS' },
-  { id: 'life',        label: 'Life',        file: 'life-seed-tasks.js',        exportName: 'LIFE_SEED_TASKS' },
+  { id: 'health',        label: 'Health',        file: 'health-seed-tasks.js',        exportName: 'HEALTH_SEED_TASKS' },
   { id: 'intellect',   label: 'Intellect',   file: 'intellect-seed-tasks.js',   exportName: 'INTELLECT_SEED_TASKS' },
   { id: 'family',      label: 'Family',      file: 'family-seed-tasks.js',      exportName: 'FAMILY_SEED_TASKS' },
   { id: 'wealth',      label: 'Wealth',      file: 'wealth-seed-tasks.js',      exportName: 'WEALTH_SEED_TASKS' },

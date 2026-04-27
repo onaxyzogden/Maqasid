@@ -34,7 +34,7 @@ export const PILLAR_CONTENT = {
 
   life: [
     {
-      subModuleId: 'life-physical',
+      subModuleId: 'health-physical',
       label: 'Physical Health & Nutrition',
       necessities: [
         'Ensure all food/drink is Halal and meets basic caloric/nutritional requirements',
@@ -53,7 +53,7 @@ export const PILLAR_CONTENT = {
       ],
     },
     {
-      subModuleId: 'life-mental',
+      subModuleId: 'health-mental',
       label: 'Mental & Emotional Well-being',
       necessities: [
         'Proactively seek Tayyib (wholesome) environments and habits',
@@ -72,7 +72,7 @@ export const PILLAR_CONTENT = {
       ],
     },
     {
-      subModuleId: 'life-safety',
+      subModuleId: 'health-safety',
       label: 'Safety & Security',
       necessities: [
         'Secure basic housing, clothing, and access to emergency medical care',
@@ -91,7 +91,7 @@ export const PILLAR_CONTENT = {
       ],
     },
     {
-      subModuleId: 'life-social',
+      subModuleId: 'health-social',
       label: 'Social Presence & Character',
       necessities: [
         'Uphold foundational manners (Adab)',

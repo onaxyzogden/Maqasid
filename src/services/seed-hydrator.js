@@ -12,7 +12,7 @@
 
 const PILLAR_LOADERS = {
   faith:       () => import('@data/seed-tasks/faith-seed-tasks').then((m) => m.FAITH_SEED_TASKS),
-  life:        () => import('@data/seed-tasks/life-seed-tasks').then((m) => m.LIFE_SEED_TASKS),
+  health:      () => import('@data/seed-tasks/health-seed-tasks').then((m) => m.HEALTH_SEED_TASKS),
   intellect:   () => import('@data/seed-tasks/intellect-seed-tasks').then((m) => m.INTELLECT_SEED_TASKS),
   family:      () => import('@data/seed-tasks/family-seed-tasks').then((m) => m.FAMILY_SEED_TASKS),
   wealth:      () => import('@data/seed-tasks/wealth-seed-tasks').then((m) => m.WEALTH_SEED_TASKS),

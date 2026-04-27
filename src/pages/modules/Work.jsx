@@ -8,7 +8,7 @@ import { getPillarSubmoduleIds, getSubmoduleDisplayLabel } from '@data/submodule
 const PILLAR_OPTIONS = [
   { id: '',            label: 'Unassigned' },
   { id: 'faith',       label: 'Faith' },
-  { id: 'life',        label: 'Life' },
+  { id: 'health',      label: 'Health' },
   { id: 'intellect',   label: 'Intellect' },
   { id: 'family',      label: 'Family' },
   { id: 'wealth',      label: 'Wealth' },
@@ -35,7 +35,7 @@ export default function Work() {
   // to wealth-tagged projects so it matches the "Wealth / Projects" context.
   const PILLAR_CONTEXT = 'wealth';
   const wealthSubs = new Set(getPillarSubmoduleIds(PILLAR_CONTEXT));
-  const isSeedBoard = (p) => p._faithModule || p._lifeModule || p._intellectModule || p._familyModule || p._wealthModule || p._environmentModule || p._ummahModule || p._prayerModule || p._weeklyModule;
+  const isSeedBoard = (p) => p._faithModule || p._healthModule || p._intellectModule || p._familyModule || p._wealthModule || p._environmentModule || p._ummahModule || p._prayerModule || p._weeklyModule;
   const inPillarScope = (p) => p.moduleId === PILLAR_CONTEXT || wealthSubs.has(p.moduleId);
   const active = projects.filter((p) => !p.archived && !isSeedBoard(p) && inPillarScope(p));
   const archived = projects.filter((p) => p.archived && !isSeedBoard(p) && inPillarScope(p));

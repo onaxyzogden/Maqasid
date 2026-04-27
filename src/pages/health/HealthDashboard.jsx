@@ -13,7 +13,7 @@ import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { useModulesProgress } from '@hooks/useModuleProgress';
 import IslamicTerm from '@components/shared/IslamicTerm';
-import './LifeDashboard.css';
+import './HealthDashboard.css';
 
 const HERO_IMG =
   'https://png.pngtree.com/thumb_back/fh260/background/20250227/pngtree-an-artistic-representation-of-the-human-body-made-entirely-from-fruits-image_17021515.jpg';
@@ -21,10 +21,10 @@ const HERO_IMG =
 const MODULE_IDS = ['physical', 'mental', 'safety', 'social'];
 
 const SUBMODULE_ROUTES = {
-  physical: '/app/life-physical',
-  mental: '/app/life-mental',
-  safety: '/app/life-safety',
-  social: '/app/life-social',
+  physical: '/app/health-physical',
+  mental: '/app/health-mental',
+  safety: '/app/health-safety',
+  social: '/app/health-social',
 };
 
 const PILLARS = [
@@ -34,13 +34,13 @@ const PILLARS = [
   { id: 'social', label: 'Social Character', Icon: Sparkles },
 ];
 
-export default function LifeDashboard() {
+export default function HealthDashboard() {
   const navigate = useNavigate();
-  const ensureLifeProjects = useProjectStore((s) => s.ensureLifeProjects);
+  const ensureHealthProjects = useProjectStore((s) => s.ensureHealthProjects);
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
 
-  useEffect(() => { ensureLifeProjects(); }, [ensureLifeProjects]);
+  useEffect(() => { ensureHealthProjects(); }, [ensureHealthProjects]);
 
   useEffect(() => {
     const moduleProjects = projects.filter((p) => p.moduleId && MODULE_IDS.includes(p.moduleId));
@@ -59,7 +59,7 @@ export default function LifeDashboard() {
       <header className="life-header">
         <div className="life-header__left">
           <span className="life-badge life-badge--module">MODULE II</span>
-          <h1 className="life-header__title">Life (<IslamicTerm id="nafs">Nafs</IslamicTerm>)</h1>
+          <h1 className="life-header__title">Health (<IslamicTerm id="nafs">Nafs</IslamicTerm>)</h1>
           <blockquote className="life-header__verse">
             <p>
               "O children of Adam... eat and drink, but be not excessive. Indeed,
@@ -221,7 +221,7 @@ export default function LifeDashboard() {
         <div className="life-footer__text">
           <span>Modern Manuscript &copy; 2024</span>
           <div className="life-footer__dot" />
-          <span>Life Module Details</span>
+          <span>Health Module Details</span>
         </div>
         <div className="life-footer__icons">
           <ScrollText size={20} />

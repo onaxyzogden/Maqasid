@@ -13,7 +13,7 @@ const FILE_MAP = {
   // ayat/ (14 files)
   'readiness-ayat-router': 'ayat',
   'faith-readiness-ayat': 'ayat',
-  'life-readiness-ayat': 'ayat',
+  'health-readiness-ayat': 'ayat',
   'intellect-readiness-ayat': 'ayat',
   'wealth-readiness-ayat': 'ayat',
   'environment-readiness-ayat': 'ayat',

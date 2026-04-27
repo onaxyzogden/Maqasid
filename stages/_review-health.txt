@@ -1,6 +1,6 @@
-# Life — Source Audit
+# Health (formerly Life) — Source Audit
 # Status: COMPLETE (2026-04-17) — all A:- and H:- gaps filled. See wiki/log.md for session details.
-# Below is the original audit snapshot (A:-/H:- entries now have sources in life-seed-tasks.js).
+# Below is the original audit snapshot (A:-/H:- entries now have sources in health-seed-tasks.js).
 
 [physical>Core] Calculate your ideal bedtime based on local Fajr time and 7-8 hour target
   A: 18:12

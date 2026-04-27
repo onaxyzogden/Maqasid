@@ -51,9 +51,9 @@ function taskColor(task) {
  *
  * Props:
  *   pillars        — array of { id, label, route }
- *   storageKey     — localStorage key for persisting active tab (e.g. 'life_active_tab')
- *   ensureProjects — fn from useProjectStore (e.g. s.ensureLifeProjects)
- *   levelRoutes    — object mapping level key → full route (e.g. { core: '/app/life-core', ... })
+ *   storageKey     — localStorage key for persisting active tab (e.g. 'health_active_tab')
+ *   ensureProjects — fn from useProjectStore (e.g. s.ensureHealthProjects)
+ *   levelRoutes    — object mapping level key → full route (e.g. { core: '/app/health-core', ... })
  *   controlledLevel — optional, when parent controls active level
  *   onLevelChange  — optional, callback(levelKey) when level changes
  *   currentPillarId — optional, pillar id to highlight as active (for pillar pages)

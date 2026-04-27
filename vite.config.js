@@ -29,7 +29,7 @@ export default defineConfig({
         // when the matching pillar surface is visited.
         manualChunks(id) {
           if (id.includes('/seed-tasks/faith-seed-tasks'))       return 'seed-faith';
-          if (id.includes('/seed-tasks/life-seed-tasks'))        return 'seed-life';
+          if (id.includes('/seed-tasks/health-seed-tasks'))      return 'seed-health';
           if (id.includes('/seed-tasks/intellect-seed-tasks'))   return 'seed-intellect';
           if (id.includes('/seed-tasks/family-seed-tasks'))      return 'seed-family';
           if (id.includes('/seed-tasks/wealth-seed-tasks'))      return 'seed-wealth';

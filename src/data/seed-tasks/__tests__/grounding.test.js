@@ -8,7 +8,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { FAITH_SEED_TASKS } from '../faith-seed-tasks';
-import { LIFE_SEED_TASKS } from '../life-seed-tasks';
+import { HEALTH_SEED_TASKS } from '../health-seed-tasks';
 import { INTELLECT_SEED_TASKS } from '../intellect-seed-tasks';
 import { FAMILY_SEED_TASKS } from '../family-seed-tasks';
 import { WEALTH_SEED_TASKS } from '../wealth-seed-tasks';
@@ -23,7 +23,7 @@ const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 // Source of truth: `node scripts/lint-grounding.mjs` (shape = legacy string).
 const PILLARS = [
   { id: 'faith',       data: FAITH_SEED_TASKS,       expectedLegacy: 0,   allowEmptyArray: 0 },
-  { id: 'life',        data: LIFE_SEED_TASKS,        expectedLegacy: 0,   allowEmptyArray: 0 },
+  { id: 'health',      data: HEALTH_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'intellect',   data: INTELLECT_SEED_TASKS,   expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'family',      data: FAMILY_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },
   { id: 'wealth',      data: WEALTH_SEED_TASKS,      expectedLegacy: 0,   allowEmptyArray: 0 },

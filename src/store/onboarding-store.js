@@ -79,7 +79,7 @@ export const useOnboardingStore = create((set) => {
     },
 
     disableOnboarding: () => {
-      const ALL_PILLARS = ['faith', 'life', 'intellect', 'family', 'wealth', 'environment', 'ummah'];
+      const ALL_PILLARS = ['faith', 'health', 'intellect', 'family', 'wealth', 'environment', 'ummah'];
       safeSet('onboarding_tour_completed', 'true');
       safeSet('onboarding_checklist_dismissed', 'true');
       safeSet('onboarding_seen_pillars', ALL_PILLARS);

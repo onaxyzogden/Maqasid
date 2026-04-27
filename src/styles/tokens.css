@@ -225,9 +225,9 @@
   --pillar-faith: #C8A96E;
   --pillar-faith-bg: rgba(200, 169, 110, 0.08);
   --pillar-faith-border: rgba(200, 169, 110, 0.25);
-  --pillar-life: #6EAD8A;
-  --pillar-life-bg: rgba(110, 173, 138, 0.08);
-  --pillar-life-border: rgba(110, 173, 138, 0.25);
+  --pillar-health: #6EAD8A;
+  --pillar-health-bg: rgba(110, 173, 138, 0.08);
+  --pillar-health-border: rgba(110, 173, 138, 0.25);
   --pillar-intellect: #6E8EAD;
   --pillar-intellect-bg: rgba(110, 142, 173, 0.08);
   --pillar-intellect-border: rgba(110, 142, 173, 0.25);
@@ -313,9 +313,9 @@
   --pillar-faith: #D4B87A;
   --pillar-faith-bg: rgba(212, 184, 122, 0.1);
   --pillar-faith-border: rgba(212, 184, 122, 0.25);
-  --pillar-life: #7EBD9A;
-  --pillar-life-bg: rgba(126, 189, 154, 0.1);
-  --pillar-life-border: rgba(126, 189, 154, 0.25);
+  --pillar-health: #7EBD9A;
+  --pillar-health-bg: rgba(126, 189, 154, 0.1);
+  --pillar-health-border: rgba(126, 189, 154, 0.25);
   --pillar-intellect: #7E9EBD;
   --pillar-intellect-bg: rgba(126, 158, 189, 0.1);
   --pillar-intellect-border: rgba(126, 158, 189, 0.25);

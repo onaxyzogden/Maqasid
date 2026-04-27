@@ -15,7 +15,7 @@ const ROOT = resolve(__dirname, '..');
 
 const PILLARS = [
   { id: 'faith',       file: 'faith-seed-tasks.js',       exportName: 'FAITH_SEED_TASKS' },
-  { id: 'life',        file: 'life-seed-tasks.js',        exportName: 'LIFE_SEED_TASKS' },
+  { id: 'health',      file: 'health-seed-tasks.js',      exportName: 'HEALTH_SEED_TASKS' },
   { id: 'intellect',   file: 'intellect-seed-tasks.js',   exportName: 'INTELLECT_SEED_TASKS' },
   { id: 'family',      file: 'family-seed-tasks.js',      exportName: 'FAMILY_SEED_TASKS' },
   { id: 'wealth',      file: 'wealth-seed-tasks.js',      exportName: 'WEALTH_SEED_TASKS' },

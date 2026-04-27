@@ -10,7 +10,7 @@ import './ContextWidgetSlot.css';
 const WIDGETS = {
   'faith-salah': PrayerCountdownWidget,
   'intellect-learning': PomodoroWidget,
-  'life-physical': HydrateWidget,
+  'health-physical': HydrateWidget,
   'wealth-earning': PriorityProjectWidget,
   work: PriorityProjectWidget,
 };

@@ -42,7 +42,7 @@ From either, extract:
 | Prefix | Seed file |
 |--------|-----------|
 | `faith_` | `src/data/seed-tasks/faith-seed-tasks.js` |
-| `life_` | `src/data/seed-tasks/life-seed-tasks.js` |
+| `health_` | `src/data/seed-tasks/health-seed-tasks.js` |
 | `intellect_` | `src/data/seed-tasks/intellect-seed-tasks.js` |
 | `family_` | `src/data/seed-tasks/family-seed-tasks.js` |
 | `wealth_` | `src/data/seed-tasks/wealth-seed-tasks.js` |

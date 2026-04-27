@@ -14,7 +14,7 @@ const ROOT = path.resolve(__dirname, '..');
 
 const PILLARS = [
   ['faith', 'FAITH_SEED_TASKS'],
-  ['life', 'LIFE_SEED_TASKS'],
+  ['health', 'HEALTH_SEED_TASKS'],
   ['intellect', 'INTELLECT_SEED_TASKS'],
   ['family', 'FAMILY_SEED_TASKS'],
   ['wealth', 'WEALTH_SEED_TASKS'],

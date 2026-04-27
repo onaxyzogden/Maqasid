@@ -20,9 +20,9 @@ const LEVEL_COLORS = { core: '#C8A96E', growth: '#4ab8a8', excellence: '#8b5cf6'
  *   pillarModuleMap — maps pillarKey → moduleId for navigator highlight
  *                    e.g. { physical: 'physical', mental: 'mental', ... }
  *                    For Faith: { salah: 'salat', zakah: 'zakat', ... }
- *   boardPrefix    — e.g. 'life', 'intellect', 'faith'
- *   storageKey     — localStorage key, e.g. 'life_active_tab'
- *   ensureProjects — Zustand selector fn, e.g. (s) => s.ensureLifeProjects
+ *   boardPrefix    — e.g. 'health', 'intellect', 'faith'
+ *   storageKey     — localStorage key, e.g. 'health_active_tab'
+ *   ensureProjects — Zustand selector fn, e.g. (s) => s.ensureHealthProjects
  *   pillars        — array of { id, label, route } passed to LevelNavigator
  *   levelRoutes    — { core: '/app/...', growth: '...', excellence: '...' }
  */

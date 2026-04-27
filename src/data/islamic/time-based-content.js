@@ -110,7 +110,7 @@ export const TIME_CONTENT = {
       ),
     },
     during: {
-      ayah: ayahDua('life_mental', 'Ayah for the Working Hours'),
+      ayah: ayahDua('health_mental', 'Ayah for the Working Hours'),
       dhikr: ONGOING_DUA,
     },
     after: {

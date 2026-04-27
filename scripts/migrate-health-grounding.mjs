@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Phase C.4 — Life pillar two-axis grounding migration.
+// Phase C.4 — Health (formerly Life) pillar two-axis grounding migration.
 // Same parser as scripts/migrate-faith-grounding.mjs — file path swap only.
 
 import fs from 'node:fs';
@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const FILE = path.resolve(__dirname, '..', 'src', 'data', 'seed-tasks', 'life-seed-tasks.js');
+const FILE = path.resolve(__dirname, '..', 'src', 'data', 'seed-tasks', 'health-seed-tasks.js');
 
 const src = fs.readFileSync(FILE, 'utf8');
 

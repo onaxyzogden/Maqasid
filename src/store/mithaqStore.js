@@ -1,5 +1,5 @@
 // Mithaq (covenant) activation store.
-// Tracks daily "renewal of the covenant" per Maqasid domain (faith / life / ...).
+// Tracks daily "renewal of the covenant" per Maqasid domain (faith / health / ...).
 // Activation persists via localStorage and expires at the next 5am local (Fajr proxy).
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';

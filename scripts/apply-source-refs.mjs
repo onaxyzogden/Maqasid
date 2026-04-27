@@ -20,7 +20,7 @@ import { spawnSync } from 'node:child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const PILLARS = ['faith','family','life','wealth','ummah','intellect','environment'];
+const PILLARS = ['faith','family','health','wealth','ummah','intellect','environment'];
 
 const args = Object.fromEntries(
   process.argv.slice(2).map(a => {

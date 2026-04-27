@@ -29,7 +29,7 @@ const BLOCKS_FILE = getArg('--blocks');
 
 const PILLARS = [
   { id: 'faith',       file: 'faith-seed-tasks.js' },
-  { id: 'life',        file: 'life-seed-tasks.js' },
+  { id: 'health',        file: 'health-seed-tasks.js' },
   { id: 'intellect',   file: 'intellect-seed-tasks.js' },
   { id: 'family',      file: 'family-seed-tasks.js' },
   { id: 'wealth',      file: 'wealth-seed-tasks.js' },

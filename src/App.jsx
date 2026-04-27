@@ -24,9 +24,9 @@ const SourcesPage = lazy(() => import('@pages/islamic/SourcesPage'));
 import FaithCorePage from '@pages/faith/FaithCorePage';
 import FaithGrowthPage from '@pages/faith/FaithGrowthPage';
 import FaithExcellencePage from '@pages/faith/FaithExcellencePage';
-import LifeCorePage from '@pages/life/LifeCorePage';
-import LifeGrowthPage from '@pages/life/LifeGrowthPage';
-import LifeExcellencePage from '@pages/life/LifeExcellencePage';
+import HealthCorePage from '@pages/health/HealthCorePage';
+import HealthGrowthPage from '@pages/health/HealthGrowthPage';
+import HealthExcellencePage from '@pages/health/HealthExcellencePage';
 import IntellectCorePage from '@pages/intellect/IntellectCorePage';
 import IntellectGrowthPage from '@pages/intellect/IntellectGrowthPage';
 import IntellectExcellencePage from '@pages/intellect/IntellectExcellencePage';
@@ -41,10 +41,10 @@ import FaithSalahPage from '@pages/faith/FaithSalahPage';
 import FaithZakahPage from '@pages/faith/FaithZakahPage';
 import FaithSiyamPage from '@pages/faith/FaithSiyamPage';
 import FaithHajjPage from '@pages/faith/FaithHajjPage';
-import LifePhysicalPage from '@pages/life/LifePhysicalPage';
-import LifeMentalPage from '@pages/life/LifeMentalPage';
-import LifeSafetyPage from '@pages/life/LifeSafetyPage';
-import LifeSocialPage from '@pages/life/LifeSocialPage';
+import HealthPhysicalPage from '@pages/health/HealthPhysicalPage';
+import HealthMentalPage from '@pages/health/HealthMentalPage';
+import HealthSafetyPage from '@pages/health/HealthSafetyPage';
+import HealthSocialPage from '@pages/health/HealthSocialPage';
 import IntellectLearningPage from '@pages/intellect/IntellectLearningPage';
 import IntellectThinkingPage from '@pages/intellect/IntellectThinkingPage';
 import IntellectCognitivePage from '@pages/intellect/IntellectCognitivePage';
@@ -79,7 +79,7 @@ import OgdenAtlasPage from '@pages/ogden/OgdenAtlasPage';
 import OgdenPresentationPage from '@pages/ogden/OgdenPresentationPage';
 import PillarDashboard from '@pages/PillarDashboard';
 import FaithDashboard from '@pages/faith/FaithDashboard';
-import LifeDashboard from '@pages/life/LifeDashboard';
+import HealthDashboard from '@pages/health/HealthDashboard';
 import IntellectDashboard from '@pages/intellect/IntellectDashboard';
 import FamilyDashboard from '@pages/family/FamilyDashboard';
 import EnvironmentDashboard from '@pages/environment/EnvironmentDashboard';
@@ -177,9 +177,9 @@ export default function App() {
         <Route path="faith-core" element={<CeremonyGuard moduleId="faith-core" isLevel1><FaithCorePage /></CeremonyGuard>} />
         <Route path="faith-growth" element={<CeremonyGuard moduleId="faith-growth" isLevel23><FaithGrowthPage /></CeremonyGuard>} />
         <Route path="faith-excellence" element={<CeremonyGuard moduleId="faith-excellence" isLevel23><FaithExcellencePage /></CeremonyGuard>} />
-        <Route path="life-core" element={<CeremonyGuard moduleId="life-core" isLevel1><LifeCorePage /></CeremonyGuard>} />
-        <Route path="life-growth" element={<CeremonyGuard moduleId="life-growth" isLevel23><LifeGrowthPage /></CeremonyGuard>} />
-        <Route path="life-excellence" element={<CeremonyGuard moduleId="life-excellence" isLevel23><LifeExcellencePage /></CeremonyGuard>} />
+        <Route path="health-core" element={<CeremonyGuard moduleId="health-core" isLevel1><HealthCorePage /></CeremonyGuard>} />
+        <Route path="health-growth" element={<CeremonyGuard moduleId="health-growth" isLevel23><HealthGrowthPage /></CeremonyGuard>} />
+        <Route path="health-excellence" element={<CeremonyGuard moduleId="health-excellence" isLevel23><HealthExcellencePage /></CeremonyGuard>} />
         <Route path="intellect-core" element={<CeremonyGuard moduleId="intellect-core" isLevel1><IntellectCorePage /></CeremonyGuard>} />
         <Route path="intellect-growth" element={<CeremonyGuard moduleId="intellect-growth" isLevel23><IntellectGrowthPage /></CeremonyGuard>} />
         <Route path="intellect-excellence" element={<CeremonyGuard moduleId="intellect-excellence" isLevel23><IntellectExcellencePage /></CeremonyGuard>} />
@@ -194,10 +194,10 @@ export default function App() {
         <Route path="faith-zakah" element={<CeremonyGuard moduleId="faith-zakah"><FaithZakahPage /></CeremonyGuard>} />
         <Route path="faith-siyam" element={<CeremonyGuard moduleId="faith-siyam"><FaithSiyamPage /></CeremonyGuard>} />
         <Route path="faith-hajj" element={<CeremonyGuard moduleId="faith-hajj"><FaithHajjPage /></CeremonyGuard>} />
-        <Route path="life-physical" element={<CeremonyGuard moduleId="life-physical"><LifePhysicalPage /></CeremonyGuard>} />
-        <Route path="life-mental" element={<CeremonyGuard moduleId="life-mental"><LifeMentalPage /></CeremonyGuard>} />
-        <Route path="life-safety" element={<CeremonyGuard moduleId="life-safety"><LifeSafetyPage /></CeremonyGuard>} />
-        <Route path="life-social" element={<CeremonyGuard moduleId="life-social"><LifeSocialPage /></CeremonyGuard>} />
+        <Route path="health-physical" element={<CeremonyGuard moduleId="health-physical"><HealthPhysicalPage /></CeremonyGuard>} />
+        <Route path="health-mental" element={<CeremonyGuard moduleId="health-mental"><HealthMentalPage /></CeremonyGuard>} />
+        <Route path="health-safety" element={<CeremonyGuard moduleId="health-safety"><HealthSafetyPage /></CeremonyGuard>} />
+        <Route path="health-social" element={<CeremonyGuard moduleId="health-social"><HealthSocialPage /></CeremonyGuard>} />
         <Route path="intellect-learning" element={<CeremonyGuard moduleId="intellect-learning"><IntellectLearningPage /></CeremonyGuard>} />
         <Route path="intellect-thinking" element={<CeremonyGuard moduleId="intellect-thinking"><IntellectThinkingPage /></CeremonyGuard>} />
         <Route path="intellect-cognitive" element={<CeremonyGuard moduleId="intellect-cognitive"><IntellectCognitivePage /></CeremonyGuard>} />
@@ -229,7 +229,7 @@ export default function App() {
         <Route path="ogden-milos" element={<OgdenMilosPage />} />
         <Route path="ogden-atlas" element={<OgdenAtlasPage />} />
         <Route path="pillar/faith" element={<CeremonyGuard moduleId="faith-core" isLevel1><FaithCorePage /></CeremonyGuard>} />
-        <Route path="pillar/life" element={<CeremonyGuard moduleId="life-core" isLevel1><LifeCorePage /></CeremonyGuard>} />
+        <Route path="pillar/health" element={<CeremonyGuard moduleId="health-core" isLevel1><HealthCorePage /></CeremonyGuard>} />
         <Route path="pillar/intellect" element={<CeremonyGuard moduleId="intellect-core" isLevel1><IntellectCorePage /></CeremonyGuard>} />
         <Route path="pillar/family" element={<CeremonyGuard moduleId="family-core" isLevel1><FamilyCorePage /></CeremonyGuard>} />
         <Route path="pillar/wealth" element={<CeremonyGuard moduleId="wealth-core" isLevel1><WealthCorePage /></CeremonyGuard>} />

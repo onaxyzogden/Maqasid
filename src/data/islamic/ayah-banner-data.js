@@ -2,8 +2,8 @@
  * AYAH_BANNER_DATA — contextual Quran ayah / Hadith for every module & submodule page.
  *
  * Key convention:
- *   PillarLevelPage  → `${boardPrefix}_${pillarKey}`   e.g. "faith_salah", "life_physical"
- *   LevelOverviewPage → `${boardPrefix}_${level}`      e.g. "life_core", "environment_excellence"
+ *   PillarLevelPage  → `${boardPrefix}_${pillarKey}`   e.g. "faith_salah", "health_physical"
+ *   LevelOverviewPage → `${boardPrefix}_${level}`      e.g. "health_core", "environment_excellence"
  *   PillarBoard      → `${modulePrefix}_${pillarKey}`  e.g. "wealth_earning"
  *   Ummah pages      → injected directly as "ummah_*"
  *
@@ -65,7 +65,7 @@ export const AYAH_BANNER_DATA = {
 
   // ── Life: dimension pages (PillarLevelPage) ──────────────────────────────
 
-  life_physical: {
+  health_physical: {
     // Hadith: Sahih al-Bukhari 5199 (hadith of Salman advising Abu al-Darda)
     arabic: 'إِنَّ لِجَسَدِكَ عَلَيْكَ حَقًّا',
     translation: 'Verily, your body has a right over you.',
@@ -73,21 +73,21 @@ export const AYAH_BANNER_DATA = {
     color: LIFE,
   },
 
-  life_mental: {
+  health_mental: {
     arabic: 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
     translation: 'Truly it is in the remembrance of God that hearts find peace.',
     source: 'Quran 13:28',
     color: LIFE,
   },
 
-  life_safety: {
+  health_safety: {
     arabic: 'مَن قَتَلَ نَفْسًا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍ فِي الْأَرْضِ فَكَأَنَّمَا قَتَلَ النَّاسَ جَمِيعًا وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا النَّاسَ جَمِيعًا',
     translation: 'If anyone kills a person, it is as if he kills all mankind, while if any saves a life it is as if he saves the lives of all mankind.',
     source: 'Quran 5:32',
     color: LIFE,
   },
 
-  life_social: {
+  health_social: {
     arabic: 'إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ',
     translation: 'The believers are brothers, so make peace between your two brothers and be mindful of God.',
     source: 'Quran 49:10',
@@ -210,21 +210,21 @@ export const AYAH_BANNER_DATA = {
 
   // ── Life: level overview pages (LevelOverviewPage) ───────────────────────
 
-  life_core: {
+  health_core: {
     arabic: 'وَأَنفِقُوا فِي سَبِيلِ اللَّهِ وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ ۛ وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ',
     translation: 'Spend in God\'s cause: do not contribute to your destruction with your own hands, but do good, for God loves those who do good.',
     source: 'Quran 2:195',
     color: LIFE,
   },
 
-  life_growth: {
+  health_growth: {
     arabic: 'وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ وَحَمَلْنَاهُمْ فِي الْبَرِّ وَالْبَحْرِ وَرَزَقْنَاهُم مِّنَ الطَّيِّبَاتِ وَفَضَّلْنَاهُمْ عَلَىٰ كَثِيرٍ مِّمَّنْ خَلَقْنَا تَفْضِيلًا',
     translation: 'We have honoured the children of Adam and carried them by land and sea; We have provided good sustenance for them and favoured them specially above many of those We have created.',
     source: 'Quran 17:70',
     color: LIFE,
   },
 
-  life_excellence: {
+  health_excellence: {
     arabic: 'لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا',
     translation: 'God does not burden any soul with more than it can bear.',
     source: 'Quran 2:286',

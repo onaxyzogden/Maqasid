@@ -9,7 +9,7 @@
  */
 
 import { READINESS_AYAT_FAITH }        from './faith-readiness-ayat';
-import { READINESS_AYAT_LIFE }         from './life-readiness-ayat';
+import { READINESS_AYAT_HEALTH }       from './health-readiness-ayat';
 import { READINESS_AYAT_INTELLECT }    from './intellect-readiness-ayat';
 import { READINESS_AYAT_PEOPLE }       from './people-readiness-ayat';
 import { READINESS_AYAT_WEALTH }       from './wealth-readiness-ayat';
@@ -26,7 +26,7 @@ import { READINESS_AYAT_LEARNING }     from './learning-readiness-ayat';
 const REGISTRIES = {
   // Maqasid pillar registries (new)
   faith:       READINESS_AYAT_FAITH,
-  life:        READINESS_AYAT_LIFE,
+  health:      READINESS_AYAT_HEALTH,
   intellect:   READINESS_AYAT_INTELLECT,
   people:      READINESS_AYAT_PEOPLE,
   wealth:      READINESS_AYAT_WEALTH,
@@ -45,7 +45,7 @@ const REGISTRIES = {
  * Look up an ayah from the correct registry by readinessAyatKey and 6-bit binary key.
  * Returns null if the key is '111111' (all YES), the registry is unknown, or no entry found.
  *
- * @param {string} readinessAyatKey - e.g. 'faith', 'life', 'wealth', 'work'
+ * @param {string} readinessAyatKey - e.g. 'faith', 'health', 'wealth', 'work'
  * @param {string} binaryKey - 6-character binary string e.g. '100010'
  * @returns {object|null}
  */

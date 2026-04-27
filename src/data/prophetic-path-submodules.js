@@ -4,7 +4,7 @@
 //
 // Canonical submodule ids follow MAQASID_PILLARS.subModuleIds in src/data/maqasid.js:
 //   faith-shahada | faith-salah | faith-zakah | faith-siyam | faith-hajj
-//   life-physical | life-mental | life-safety | life-social
+//   health-physical | health-mental | health-safety | health-social
 //   intellect-learning | intellect-thinking | intellect-cognitive | intellect-professional
 //   family-marriage | family-parenting | family-kinship | family-home | family-office
 //   wealth-earning | wealth-financial | wealth-ownership | wealth-circulation
@@ -32,7 +32,7 @@
 // Matchers below are drafted from each node's descriptive text. Iterate freely.
 export const TOD_SUBMODULES = {
   isha: {
-    submodules: ['faith-salah', 'faith-siyam', 'life-mental', 'family-home'],
+    submodules: ['faith-salah', 'faith-siyam', 'health-mental', 'family-home'],
     matchers: [
       /\bnight\b/i,
       /\b(?:evening|bedtime|sleep|before\s+sleep)\b/i,
@@ -98,7 +98,7 @@ export const TOD_SUBMODULES = {
     },
   },
   fajr: {
-    submodules: ['faith-shahada', 'faith-salah', 'life-physical'],
+    submodules: ['faith-shahada', 'faith-salah', 'health-physical'],
     matchers: [
       /\b(?:fajr|dawn|sunrise|pre-?dawn)\b/i,
       /\bmorning\s+(?:routine|adhkar|supplication)/i,
@@ -195,7 +195,7 @@ export const TOD_SUBMODULES = {
     },
   },
   dhuhr: {
-    submodules: ['faith-salah', 'life-social', 'people'],
+    submodules: ['faith-salah', 'health-social', 'people'],
     matchers: [
       /\b(?:dhuhr|zuhr|midday|noon)\b/i,
       /\b(?:reset|realign|refocus|recenter|pause|break)\b/i,
@@ -267,7 +267,7 @@ export const TOD_SUBMODULES = {
     },
   },
   bedtime: {
-    submodules: ['faith-salah', 'life-physical', 'family-home'],
+    submodules: ['faith-salah', 'health-physical', 'family-home'],
     matchers: [
       /\b(?:bedtime|sleep|pre-?sleep|before\s+sleep)\b/i,
       /\b(?:sunan\s+al-?nawm|right\s+side|wudu\s+before\s+sleep)\b/i,
@@ -287,7 +287,7 @@ export const TOD_SUBMODULES = {
     },
   },
   'qiyam-rest': {
-    submodules: ['faith-salah', 'life-physical'],
+    submodules: ['faith-salah', 'health-physical'],
     matchers: [
       /\b(?:qiyam[- ]rest|sleep\s+with\s+niyyah|niyyah\s+(?:for|to\s+rise|to\s+pray\s+at\s+night))\b/i,
       /\b(?:rise\s+for\s+(?:tahajjud|qiyam)|wake\s+for\s+(?:tahajjud|qiyam))\b/i,
@@ -306,7 +306,7 @@ export const TOD_SUBMODULES = {
     },
   },
   sahari: {
-    submodules: ['faith-siyam', 'life-physical'],
+    submodules: ['faith-siyam', 'health-physical'],
     matchers: [
       /\b(?:sahari|sahur|suhur|suhoor|pre-?dawn\s+meal|predawn)\b/i,
       /\b(?:imsak|barakah\s+in\s+suhur|distinguish.*fasting.*book)\b/i,
@@ -324,7 +324,7 @@ export const TOD_SUBMODULES = {
     },
   },
   duha: {
-    submodules: ['faith-salah', 'life-physical', 'intellect-thinking'],
+    submodules: ['faith-salah', 'health-physical', 'intellect-thinking'],
     matchers: [
       /\b(?:duha|ad-?duha|forenoon|chasht|ishraq)\b/i,
       /\b(?:two\s+rak[ʿ']?ahs?|2\s+rak[ʿ']?ahs?)\b/i,
@@ -344,7 +344,7 @@ export const TOD_SUBMODULES = {
     },
   },
   qaylulah: {
-    submodules: ['life-physical', 'life-mental'],
+    submodules: ['health-physical', 'health-mental'],
     matchers: [
       /\b(?:qaylulah|qayl|midday\s+nap|noon\s+nap|short\s+nap)\b/i,
       /\b(?:rest|nap|siesta)\b/i,
@@ -536,10 +536,10 @@ export const MODULE_ID_TO_SUBMODULE_ID = {
   siyam: 'faith-siyam',
   hajj: 'faith-hajj',
   // Life
-  physical: 'life-physical',
-  mental: 'life-mental',
-  safety: 'life-safety',
-  social: 'life-social',
+  physical: 'health-physical',
+  mental: 'health-mental',
+  safety: 'health-safety',
+  social: 'health-social',
   // Intellect
   learning: 'intellect-learning',
   thinking: 'intellect-thinking',
@@ -736,7 +736,7 @@ export function getModuleGroups(nodeId) {
 // project-store.js) are flagged with one of these keys. They are not shown
 // in the prophetic-path Action list — only real user projects appear there.
 const SEEDED_PILLAR_FLAGS = [
-  '_faithModule', '_lifeModule', '_intellectModule', '_familyModule',
+  '_faithModule', '_healthModule', '_intellectModule', '_familyModule',
   '_wealthModule', '_environmentModule', '_ummahModule',
   '_weeklyModule', '_prayerModule',
 ];
@@ -750,7 +750,7 @@ function isSeededPillarBoard(p) {
 // Community/etc.). Weekly planning will later narrow further.
 const PILLAR_TO_SUBMODULES = {
   faith:       ['faith-shahada', 'faith-salah', 'faith-zakah', 'faith-siyam', 'faith-hajj'],
-  life:        ['life-physical', 'life-mental', 'life-safety', 'life-social'],
+  life:        ['health-physical', 'health-mental', 'health-safety', 'health-social'],
   intellect:   ['intellect-learning', 'intellect-thinking', 'intellect-cognitive', 'intellect-professional'],
   family:      ['family-marriage', 'family-parenting', 'family-kinship', 'family-home'],
   wealth:      ['wealth-earning', 'wealth-financial', 'wealth-ownership', 'wealth-circulation'],

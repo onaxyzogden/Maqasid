@@ -8,7 +8,7 @@ Readiness ayat — Quranic verse lookups keyed to binary readiness strings per p
 |------|------|
 | readiness-ayat-router.js | Central lookup — resolves pillar + readiness string to the correct ayah entry |
 | faith-readiness-ayat.js | Ayat for Faith (Din) readiness states |
-| life-readiness-ayat.js | Ayat for Life (Nafs) readiness states |
+| health-readiness-ayat.js | Ayat for Health (Nafs) readiness states |
 | intellect-readiness-ayat.js | Ayat for Intellect (Aql) readiness states |
 | wealth-readiness-ayat.js | Ayat for Wealth (Mal) readiness states |
 | environment-readiness-ayat.js | Ayat for Environment readiness states |

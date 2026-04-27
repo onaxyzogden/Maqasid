@@ -25,7 +25,7 @@ const CARDS = [
   },
 ];
 
-export default function LifePathToExcellenceCards() {
+export default function HealthPathToExcellenceCards() {
   return (
     <div className="pte-card">
       <h2 className="pte-title">Path to Excellence: Closing the Gap</h2>

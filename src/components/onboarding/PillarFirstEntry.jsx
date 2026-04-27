@@ -10,7 +10,7 @@ const ICON_MAP = ICON_REGISTRY;
 // ── Pillar descriptions ──
 const PILLAR_DESCRIPTIONS = {
   faith:       "This pillar protects your relationship with the Divine and keeps your spiritual practice consistent. It encompasses your Five Pillars and access to Quranic and Hadith sources.",
-  life:        "This pillar protects your physical and mental wellbeing as a sacred trust. It covers health, safety, mental clarity, and your social connections.",
+  health:      "This pillar protects your physical and mental wellbeing as a sacred trust. It covers health, safety, mental clarity, and your social connections.",
   intellect:   "This pillar protects the clarity and integrity of your mind. It covers learning, critical thinking, cognitive habits, and professional development.",
   family:      "This pillar protects the continuation of your lineage and the strength of your relationships. It covers marriage, parenting, kinship, home, and family office.",
   wealth:      "This pillar governs how wealth flows through your life in a halal and purposeful way. It covers earning, financial management, ownership, and your business operations.",
@@ -32,7 +32,7 @@ const ID_LABEL_OVERRIDES = {
 const WEALTH_SEGMENTS = new Set(['work', 'money', 'people', 'office', 'tech']);
 const UMMAH_SEGMENTS  = new Set(['neighbors', 'community', 'collective']);
 const NULL_SEGMENTS   = new Set(['sources', 'settings']);
-const PILLAR_IDS      = new Set(['faith', 'life', 'intellect', 'family', 'wealth', 'environment', 'ummah']);
+const PILLAR_IDS      = new Set(['faith', 'health', 'intellect', 'family', 'wealth', 'environment', 'ummah']);
 
 /**
  * Derive the active pillar ID from a pathname like /app/faith-shahada.
@@ -48,7 +48,7 @@ function getPillarFromPath(pathname) {
   const first = parts[0];
   const second = parts[1] ?? '';
 
-  // Handle /app/pillar/faith, /app/pillar/life, etc.
+  // Handle /app/pillar/faith, /app/pillar/health, etc.
   if (first === 'pillar' && PILLAR_IDS.has(second)) return second;
 
   // Handle env-* routes (env-resource, env-waste, etc. → environment)
@@ -66,7 +66,7 @@ function getPillarFromPath(pathname) {
 
 /**
  * Convert a submodule ID to a human-readable label.
- * e.g. 'faith-shahada' → 'Shahada', 'life-physical' → 'Physical'
+ * e.g. 'faith-shahada' → 'Shahada', 'health-physical' → 'Physical'
  */
 function submoduleLabel(id, pillarId) {
   if (ID_LABEL_OVERRIDES[id]) return ID_LABEL_OVERRIDES[id];

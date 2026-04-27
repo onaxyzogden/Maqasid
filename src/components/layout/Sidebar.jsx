@@ -36,11 +36,11 @@ const MODULE_ROUTES = {
   'faith-zakah': '/app/faith-zakah',
   'faith-siyam': '/app/faith-siyam',
   'faith-hajj': '/app/faith-hajj',
-  // Life
-  'life-physical': '/app/life-physical',
-  'life-mental': '/app/life-mental',
-  'life-safety': '/app/life-safety',
-  'life-social': '/app/life-social',
+  // Health
+  'health-physical': '/app/health-physical',
+  'health-mental': '/app/health-mental',
+  'health-safety': '/app/health-safety',
+  'health-social': '/app/health-social',
   // Intellect
   'intellect-learning': '/app/intellect-learning',
   'intellect-thinking': '/app/intellect-thinking',

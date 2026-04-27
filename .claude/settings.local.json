@@ -27,7 +27,11 @@
       "Bash(npx --yes acorn --ecma2020 --module src/components/work/PillarLevelDashboard.jsx)",
       "Bash(py -m notebooklm use 1c17b03b)",
       "Bash(py -m notebooklm ask \"When a Muslim is about to pray salah but feels not yet ready — distracted, burdened by worldly concerns, lacking khushu — what does Islamic scholarship say about: \\(1\\) Whether it is permissible to delay salah past its time due to lack of inner readiness or khushu? \\(2\\) What the Prophet \\(ﷺ\\) or the Companions said about standing up to pray even when the heart is not fully present? \\(3\\) What practical guidance or du'a is recommended for someone in this state, to help them cross the threshold into prayer? \\(4\\) What are the boundaries of the waqt \\(prayer time\\) for Fajr, Dhuhr, Asr, Maghrib, and Isha — specifically what constitutes delay versus on-time? Cite hadith and Quranic sources where possible.\")",
-      "Bash(notebooklm ask *)"
+      "Bash(notebooklm ask *)",
+      "Bash(npm test *)",
+      "mcp__10afb233-9de4-49d5-805d-a5accd4d0b2b__fetch_quran",
+      "mcp__10afb233-9de4-49d5-805d-a5accd4d0b2b__fetch_translation",
+      "Bash(notebooklm use *)"
     ]
   },
   "mcpServers": {

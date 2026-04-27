@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// Audit: round-trip 10 random Life subtasks against pre-migration markdown.
+// Audit: round-trip 10 random Health (formerly Life) subtasks against pre-migration markdown.
 
-const { LIFE_SEED_TASKS } = await import(
-  new URL('../src/data/seed-tasks/life-seed-tasks.js', import.meta.url).href,
+const { HEALTH_SEED_TASKS } = await import(
+  new URL('../src/data/seed-tasks/health-seed-tasks.js', import.meta.url).href,
 );
 const legacyMod = await import(
   new URL('../tmp/life-original.js', import.meta.url).href,
@@ -24,7 +24,7 @@ function flatten(data) {
   return items;
 }
 
-const cur = flatten(LIFE_SEED_TASKS);
+const cur = flatten(HEALTH_SEED_TASKS);
 const old = flatten(LEGACY);
 const oldByKey = new Map();
 for (const x of old) oldByKey.set(`${x.board}::${x.parent.title}::${x.sub.title}`, x);

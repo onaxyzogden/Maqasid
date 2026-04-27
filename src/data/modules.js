@@ -236,9 +236,9 @@ export const MODULES = [
   },
 
 
-  // ── Life pillar — submodule pages ──
+  // ── Health pillar — submodule pages ──
   {
-    id: 'life-physical',
+    id: 'health-physical',
     name: 'Physical Health',
     description: 'Physical Health & Nutrition — Survival, Vitality, Peak Performance',
     icon: 'Activity',
@@ -249,7 +249,7 @@ export const MODULES = [
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
   {
-    id: 'life-mental',
+    id: 'health-mental',
     name: 'Mental Well-being',
     description: 'Mental & Emotional Well-being — Sanity, Resilience, Mastery',
     icon: 'BrainCircuit',
@@ -260,7 +260,7 @@ export const MODULES = [
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
   {
-    id: 'life-safety',
+    id: 'health-safety',
     name: 'Safety & Security',
     description: 'Safety & Security — Protection, Stability, Altruistic Safety',
     icon: 'Shield',
@@ -271,7 +271,7 @@ export const MODULES = [
     features: ['Kanban boards', 'Task management', 'Due dates & priorities', 'Multiple views'],
   },
   {
-    id: 'life-social',
+    id: 'health-social',
     name: 'Social Character',
     description: 'Social Presence & Character — Adab, Integrity, Exemplary Representation',
     icon: 'Sparkles',

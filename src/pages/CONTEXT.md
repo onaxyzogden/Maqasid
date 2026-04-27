@@ -8,7 +8,7 @@
 | Subdirectory | Content | CONTEXT.md |
 |---|---|---|
 | `faith/` | FaithDashboard + 8 sub-pages | `faith/CONTEXT.md` |
-| `life/` | LifeDashboard + 4 sub-pages | `life/CONTEXT.md` |
+| `health/` | HealthDashboard + 4 sub-pages | `health/CONTEXT.md` |
 | `intellect/` | IntellectDashboard + 4 sub-pages | `intellect/CONTEXT.md` |
 | `family/` | FamilyDashboard + 4 sub-pages | `family/CONTEXT.md` |
 | `wealth/` | WealthDashboard + 4 sub-pages | `wealth/CONTEXT.md` |
@@ -29,8 +29,8 @@
 
 ## Routing (defined in App.jsx)
 - All app routes nested under `/app` (wrapped in AppShell + ProtectedRoute)
-- Pillar dashboards: `/app/pillar/faith`, `/app/pillar/life`, … `/app/pillar/ummah`, `/app/pillar/moontrance`
-- Sub-page routes: `/app/faith-salah`, `/app/life-physical`, etc.
+- Pillar dashboards: `/app/pillar/faith`, `/app/pillar/health`, … `/app/pillar/ummah`, `/app/pillar/moontrance`
+- Sub-page routes: `/app/faith-salah`, `/app/health-physical`, etc.
 - Business modules: `/app/work`, `/app/money`, `/app/people`, `/app/office`, `/app/tech`
 - Project sub-routes: `/app/work/:projectId` with nested tabs
 - Catch-all: `/app/pillar/:pillarId` → PillarDashboard

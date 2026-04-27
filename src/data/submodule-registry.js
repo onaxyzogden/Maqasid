@@ -9,9 +9,9 @@ import {
   WEALTH_ENSURE_PROJECTS, WEALTH_LEVEL_DESCRIPTIONS,
 } from '@pages/wealth/WealthCorePage-constants';
 import {
-  LIFE_PILLARS, LIFE_LEVEL_ROUTES, LIFE_STORAGE_KEY,
-  LIFE_ENSURE_PROJECTS, LIFE_LEVEL_DESCRIPTIONS,
-} from '@pages/life/LifeCorePage-constants';
+  HEALTH_PILLARS, HEALTH_LEVEL_ROUTES, HEALTH_STORAGE_KEY,
+  HEALTH_ENSURE_PROJECTS, HEALTH_LEVEL_DESCRIPTIONS,
+} from '@pages/health/HealthCorePage-constants';
 import {
   INTELLECT_PILLARS, INTELLECT_LEVEL_ROUTES, INTELLECT_STORAGE_KEY,
   INTELLECT_ENSURE_PROJECTS, INTELLECT_LEVEL_DESCRIPTIONS,
@@ -51,13 +51,13 @@ const PILLAR_CONFIGS = {
     ensureProjects: WEALTH_ENSURE_PROJECTS,
     levelDescriptions: WEALTH_LEVEL_DESCRIPTIONS,
   },
-  life: {
-    boardPrefix: 'life',
-    pillars: LIFE_PILLARS,
-    levelRoutes: LIFE_LEVEL_ROUTES,
-    storageKey: LIFE_STORAGE_KEY,
-    ensureProjects: LIFE_ENSURE_PROJECTS,
-    levelDescriptions: LIFE_LEVEL_DESCRIPTIONS,
+  health: {
+    boardPrefix: 'health',
+    pillars: HEALTH_PILLARS,
+    levelRoutes: HEALTH_LEVEL_ROUTES,
+    storageKey: HEALTH_STORAGE_KEY,
+    ensureProjects: HEALTH_ENSURE_PROJECTS,
+    levelDescriptions: HEALTH_LEVEL_DESCRIPTIONS,
   },
   intellect: {
     boardPrefix: 'intellect',
@@ -108,11 +108,11 @@ const PILLAR_SUBMODULES = {
     ['wealth-ownership',   'ownership'],
     ['wealth-circulation', 'circulation'],
   ],
-  life: [
-    ['life-physical', 'physical'],
-    ['life-mental',   'mental'],
-    ['life-safety',   'safety'],
-    ['life-social',   'social'],
+  health: [
+    ['health-physical', 'physical'],
+    ['health-mental',   'mental'],
+    ['health-safety',   'safety'],
+    ['health-social',   'social'],
   ],
   intellect: [
     ['intellect-learning',     'learning'],

@@ -17,7 +17,7 @@ const stub = (label) => ({
 });
 
 export const PILLAR_NEXT_ACTIONS = {
-  life: {
+  health: {
     physical: {
       core:       'Tend the body as a trust — eat, sleep, move',
       growth:     'Build a sustainable rhythm of rest and movement',

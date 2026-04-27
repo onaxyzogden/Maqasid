@@ -198,6 +198,16 @@ function formatTime12(raw) {
   return `${h12}:${String(mm).padStart(2, '0')} ${period}`;
 }
 
+function formatMs12(ms) {
+  if (ms == null) return '';
+  const d = new Date(ms);
+  const hh = d.getHours();
+  const mm = d.getMinutes();
+  const period = hh >= 12 ? 'PM' : 'AM';
+  const h12 = ((hh + 11) % 12) + 1;
+  return `${h12}:${String(mm).padStart(2, '0')} ${period}`;
+}
+
 function timeToMs(raw, today) {
   const clean = stripTz(raw);
   if (!/^\d{1,2}:\d{2}/.test(clean)) return null;
@@ -260,10 +270,9 @@ function computeNextNodeId(timings, opts = {}) {
 function deriveNodeTiming(nodeId, timings, activeNodeId, nextNodeId) {
   const spec = NODE_TIMING[nodeId];
   if (!spec || !timings) return { time: '', label: spec?.label || null, state: null };
-  const raw = timings[spec.key];
-  const time = formatTime12(raw);
   const today = new Date();
   const anchorMs = effectiveAnchorMs(spec, timings, today);
+  const time = spec.offsetMin ? formatMs12(anchorMs) : formatTime12(timings[spec.key]);
 
   let state = null;
   if (nodeId === activeNodeId) {
@@ -328,7 +337,7 @@ const NODES = [
     body: 'The thirst is gone, the veins are moistened, and the reward is fixed if Allah wills — the iftar moment carries an answered du\u02bba.',
     pillars: [
       { label: 'Faith', tone: 'secondary' },
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: Soup,
     markerTone: 'secondary',
@@ -382,7 +391,7 @@ const NODES = [
     body: 'Wudu, dhikr, right side. Sealing the day in the way of the Prophet ﷺ.',
     pillars: [
       { label: 'Faith', tone: 'secondary' },
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: BedDouble,
     markerTone: 'muted',
@@ -425,7 +434,7 @@ const NODES = [
     body: 'There is barakah in suhur — and the meal before dawn distinguishes our fast from those before us.',
     pillars: [
       { label: 'Faith', tone: 'secondary' },
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: UtensilsCrossed,
     markerTone: 'secondary',
@@ -440,7 +449,7 @@ const NODES = [
     body: 'The start of the spiritual day. Greeting the light with remembrance.',
     pillars: [
       { label: 'Faith', tone: 'primary' },
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: Sunrise,
     markerTone: 'primary',
@@ -455,7 +464,7 @@ const NODES = [
     body: 'Two rakʿahs after the sun has risen — the charity of every joint, the Prophet\u2019s ﷺ enjoinment to Abu Hurayrah.',
     pillars: [
       { label: 'Faith', tone: 'secondary' },
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: Sun,
     markerTone: 'secondary',
@@ -499,7 +508,7 @@ const NODES = [
     titleTone: 'on-surface',
     body: 'A short pre-Dhuhr nap. The Prophet ﷺ rested before noon — strength stored for the labor that follows.',
     pillars: [
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: Bed,
     markerTone: 'secondary',
@@ -556,7 +565,7 @@ const NODES = [
     body: 'Continued focus and wrapping up daily worldly duties.',
     pillars: [
       { label: 'Faith', tone: 'primary' },
-      { label: 'Life', tone: 'secondary' },
+      { label: 'Health', tone: 'secondary' },
     ],
     Icon: SunMedium,
     markerTone: 'primary',

@@ -49,9 +49,9 @@ function MasteryRing({ percent, color, id, muted }) {
  *   levelColor     — hex color for this level (e.g. '#C8A96E')
  *   pillars        — array of { id, label, Icon, glossaryId?, route }
  *   storageKey     — localStorage key for active tab (passed to LevelNavigator)
- *   ensureProjects — Zustand selector fn, e.g. (s) => s.ensureLifeProjects
+ *   ensureProjects — Zustand selector fn, e.g. (s) => s.ensureHealthProjects
  *   levelRoutes    — { core: '/app/...', growth: '/app/...', excellence: '/app/...' }
- *   boardPrefix    — string, e.g. 'life' → board IDs like 'life_physical_core'
+ *   boardPrefix    — string, e.g. 'health' → board IDs like 'health_physical_core'
  */
 export default function LevelOverviewPage({
   level,

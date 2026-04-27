@@ -1866,7 +1866,7 @@ export const MODULE_ATTRS = {
     },
   },
 
-  'life-physical': {
+  'health-physical': {
     attrs: [
       {
         name: 'Al-Muhyi',
@@ -1981,7 +1981,7 @@ export const MODULE_ATTRS = {
     },
   },
 
-  'life-mental': {
+  'health-mental': {
     attrs: [
       {
         name: 'As-Salam',
@@ -2096,7 +2096,7 @@ export const MODULE_ATTRS = {
     },
   },
 
-  'life-safety': {
+  'health-safety': {
     attrs: [
       {
         name: 'Al-Muhaymin',
@@ -2211,7 +2211,7 @@ export const MODULE_ATTRS = {
     },
   },
 
-  'life-social': {
+  'health-social': {
     attrs: [
       {
         name: 'Al-Wadud',

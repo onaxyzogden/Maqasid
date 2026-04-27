@@ -7,7 +7,7 @@ Initial task templates seeded when a pillar project is created. Each file export
 | File | Role |
 |------|------|
 | faith-seed-tasks.js | Starter tasks for Faith (Din) pillar projects |
-| life-seed-tasks.js | Starter tasks for Life (Nafs) pillar projects |
+| health-seed-tasks.js | Starter tasks for Health (Nafs) pillar projects |
 | family-seed-tasks.js | Starter tasks for Family (Nasl) pillar projects |
 | intellect-seed-tasks.js | Starter tasks for Intellect (Aql) pillar projects |
 | wealth-seed-tasks.js | Starter tasks for Wealth (Mal) pillar projects |

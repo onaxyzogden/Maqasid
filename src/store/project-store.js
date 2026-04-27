@@ -266,23 +266,23 @@ export const FAITH_BOARDS = [
   { id: 'faith_hajj_excellence', name: 'HAJJ — EXCELLENCE', color: '#7b2d8e', icon: 'Landmark', description: 'Hajj: Excellence (Tahsiniyyat)', moduleId: 'hajj' },
 ];
 
-export const LIFE_BOARDS = [
+export const HEALTH_BOARDS = [
   // Physical Health — Core / Growth / Excellence
-  { id: 'life_physical_core',       name: 'PHYSICAL HEALTH — CORE',       color: '#4ade80', icon: 'Activity',      description: 'Physical Health: Necessities (Daruriyyat)', moduleId: 'physical' },
-  { id: 'life_physical_growth',     name: 'PHYSICAL HEALTH — GROWTH',     color: '#4ade80', icon: 'Activity',      description: 'Physical Health: Needs (Hajiyyat)', moduleId: 'physical' },
-  { id: 'life_physical_excellence', name: 'PHYSICAL HEALTH — EXCELLENCE', color: '#4ade80', icon: 'Activity',      description: 'Physical Health: Excellence (Tahsiniyyat)', moduleId: 'physical' },
+  { id: 'health_physical_core',       name: 'PHYSICAL HEALTH — CORE',       color: '#4ade80', icon: 'Activity',      description: 'Physical Health: Necessities (Daruriyyat)', moduleId: 'physical' },
+  { id: 'health_physical_growth',     name: 'PHYSICAL HEALTH — GROWTH',     color: '#4ade80', icon: 'Activity',      description: 'Physical Health: Needs (Hajiyyat)', moduleId: 'physical' },
+  { id: 'health_physical_excellence', name: 'PHYSICAL HEALTH — EXCELLENCE', color: '#4ade80', icon: 'Activity',      description: 'Physical Health: Excellence (Tahsiniyyat)', moduleId: 'physical' },
   // Mental Well-being — Core / Growth / Excellence
-  { id: 'life_mental_core',       name: 'MENTAL WELL-BEING — CORE',       color: '#60a5fa', icon: 'BrainCircuit', description: 'Mental Well-being: Necessities (Daruriyyat)', moduleId: 'mental' },
-  { id: 'life_mental_growth',     name: 'MENTAL WELL-BEING — GROWTH',     color: '#60a5fa', icon: 'BrainCircuit', description: 'Mental Well-being: Needs (Hajiyyat)', moduleId: 'mental' },
-  { id: 'life_mental_excellence', name: 'MENTAL WELL-BEING — EXCELLENCE', color: '#60a5fa', icon: 'BrainCircuit', description: 'Mental Well-being: Excellence (Tahsiniyyat)', moduleId: 'mental' },
+  { id: 'health_mental_core',       name: 'MENTAL WELL-BEING — CORE',       color: '#60a5fa', icon: 'BrainCircuit', description: 'Mental Well-being: Necessities (Daruriyyat)', moduleId: 'mental' },
+  { id: 'health_mental_growth',     name: 'MENTAL WELL-BEING — GROWTH',     color: '#60a5fa', icon: 'BrainCircuit', description: 'Mental Well-being: Needs (Hajiyyat)', moduleId: 'mental' },
+  { id: 'health_mental_excellence', name: 'MENTAL WELL-BEING — EXCELLENCE', color: '#60a5fa', icon: 'BrainCircuit', description: 'Mental Well-being: Excellence (Tahsiniyyat)', moduleId: 'mental' },
   // Safety & Security — Core / Growth / Excellence
-  { id: 'life_safety_core',       name: 'SAFETY — CORE',       color: '#f59e0b', icon: 'Shield',       description: 'Safety & Security: Necessities (Daruriyyat)', moduleId: 'safety' },
-  { id: 'life_safety_growth',     name: 'SAFETY — GROWTH',     color: '#f59e0b', icon: 'Shield',       description: 'Safety & Security: Needs (Hajiyyat)', moduleId: 'safety' },
-  { id: 'life_safety_excellence', name: 'SAFETY — EXCELLENCE', color: '#f59e0b', icon: 'Shield',       description: 'Safety & Security: Excellence (Tahsiniyyat)', moduleId: 'safety' },
+  { id: 'health_safety_core',       name: 'SAFETY — CORE',       color: '#f59e0b', icon: 'Shield',       description: 'Safety & Security: Necessities (Daruriyyat)', moduleId: 'safety' },
+  { id: 'health_safety_growth',     name: 'SAFETY — GROWTH',     color: '#f59e0b', icon: 'Shield',       description: 'Safety & Security: Needs (Hajiyyat)', moduleId: 'safety' },
+  { id: 'health_safety_excellence', name: 'SAFETY — EXCELLENCE', color: '#f59e0b', icon: 'Shield',       description: 'Safety & Security: Excellence (Tahsiniyyat)', moduleId: 'safety' },
   // Social Character — Core / Growth / Excellence
-  { id: 'life_social_core',       name: 'SOCIAL CHARACTER — CORE',       color: '#c084fc', icon: 'Sparkles',     description: 'Social Character: Necessities (Daruriyyat)', moduleId: 'social' },
-  { id: 'life_social_growth',     name: 'SOCIAL CHARACTER — GROWTH',     color: '#c084fc', icon: 'Sparkles',     description: 'Social Character: Needs (Hajiyyat)', moduleId: 'social' },
-  { id: 'life_social_excellence', name: 'SOCIAL CHARACTER — EXCELLENCE', color: '#c084fc', icon: 'Sparkles',     description: 'Social Character: Excellence (Tahsiniyyat)', moduleId: 'social' },
+  { id: 'health_social_core',       name: 'SOCIAL CHARACTER — CORE',       color: '#c084fc', icon: 'Sparkles',     description: 'Social Character: Necessities (Daruriyyat)', moduleId: 'social' },
+  { id: 'health_social_growth',     name: 'SOCIAL CHARACTER — GROWTH',     color: '#c084fc', icon: 'Sparkles',     description: 'Social Character: Needs (Hajiyyat)', moduleId: 'social' },
+  { id: 'health_social_excellence', name: 'SOCIAL CHARACTER — EXCELLENCE', color: '#c084fc', icon: 'Sparkles',     description: 'Social Character: Excellence (Tahsiniyyat)', moduleId: 'social' },
 ];
 
 export const INTELLECT_BOARDS = [
@@ -461,6 +461,39 @@ function migrateDefaultViewToDashboard(projects) {
   return migrated;
 }
 
+// Migrate any existing Life-pillar projects to the renamed Health prefix.
+// Rewrites board ids `life_*` → `health_*` and the internal flag
+// `_lifeModule` → `_healthModule`. Persisted task storage keys are
+// `tasks_<projectId>` so renaming the project id automatically orphans the
+// old task list — to keep tasks attached, we also migrate the storage key.
+function migrateLifeToHealth(projects) {
+  let changed = false;
+  const migrated = projects.map((p) => {
+    let next = p;
+    if (typeof p.id === 'string' && p.id.startsWith('life_')) {
+      const newId = 'health_' + p.id.slice('life_'.length);
+      // Migrate per-project task storage key as well
+      const oldTasksKey = `tasks_${p.id}`;
+      const newTasksKey = `tasks_${newId}`;
+      const oldTasks = safeGetJSON(oldTasksKey, null);
+      if (oldTasks !== null) {
+        safeSet(newTasksKey, oldTasks);
+        safeRemove(oldTasksKey);
+      }
+      next = { ...next, id: newId };
+      changed = true;
+    }
+    if (next._lifeModule) {
+      const { _lifeModule, ...rest } = next;
+      next = { ...rest, _healthModule: true };
+      changed = true;
+    }
+    return next;
+  });
+  if (changed) safeSet('projects', migrated);
+  return migrated;
+}
+
 // Remove BBOS tasks whose definitions no longer exist (e.g. IDY-IFB-S1–S5)
 function migrateRemoveStaleBbosTasks(projects) {
   const validIds = new Set(BBOS_TASK_DEFINITIONS.map((d) => d.id));
@@ -479,7 +512,7 @@ function migrateRemoveStaleBbosTasks(projects) {
 }
 
 export const useProjectStore = create((set, get) => ({
-  projects: migrateRemoveStaleBbosTasks(migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', []))))),
+  projects: migrateLifeToHealth(migrateRemoveStaleBbosTasks(migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', [])))))),
 
   createProject: ({ name, description = '', color, icon = 'Folder', moduleId = null, bbosEnabled = false }) => {
     const columns = DEFAULT_COLUMNS.map((col) => ({
@@ -793,12 +826,12 @@ export const useProjectStore = create((set, get) => ({
     });
   },
 
-  ensureLifeProjects: async () => {
-    await preloadPillarSeeds('life');
+  ensureHealthProjects: async () => {
+    await preloadPillarSeeds('health');
     const existing = get().projects;
 
     // Backfill moduleId for existing projects that lack it
-    const moduleIdMap = Object.fromEntries(LIFE_BOARDS.filter((lb) => lb.moduleId).map((lb) => [lb.id, lb.moduleId]));
+    const moduleIdMap = Object.fromEntries(HEALTH_BOARDS.filter((lb) => lb.moduleId).map((lb) => [lb.id, lb.moduleId]));
     const needsPatch = existing.some((p) => moduleIdMap[p.id] && !p.moduleId);
     if (needsPatch) {
       set((s) => {
@@ -810,12 +843,12 @@ export const useProjectStore = create((set, get) => ({
       });
     }
 
-    const missing = LIFE_BOARDS.filter(
+    const missing = HEALTH_BOARDS.filter(
       (lb) => !existing.some((p) => p.id === lb.id)
     );
 
-    // Seed tasks for any empty life boards (idempotent)
-    for (const lb of LIFE_BOARDS) {
+    // Seed tasks for any empty health boards (idempotent)
+    for (const lb of HEALTH_BOARDS) {
       seedTasks(lb.id);
     }
 
@@ -837,7 +870,7 @@ export const useProjectStore = create((set, get) => ({
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false,
-      _lifeModule: true,
+      _healthModule: true,
     }));
 
     set((s) => {

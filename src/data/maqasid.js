@@ -23,9 +23,9 @@ export const MAQASID_PILLARS = [
     readinessAyatKey: 'faith',
   },
   {
-    id: 'life',
+    id: 'health',
     order: 2,
-    sidebarLabel: 'Life',
+    sidebarLabel: 'Health',
     universalLabel: 'Vitality',
     stewardshipLabel: 'Vitality Stewardship',
     universalStewardship: 'Vitality Management',
@@ -34,10 +34,10 @@ export const MAQASID_PILLARS = [
     rootAction: 'Nurturing',
     accentColor: '#6EAD8A',
     icon: 'HeartPulse',
-    subModuleIds: ['life-physical', 'life-mental', 'life-safety', 'life-social'],
+    subModuleIds: ['health-physical', 'health-mental', 'health-safety', 'health-social'],
     status: 'active',
     relationship: 'reserved-active',
-    readinessAyatKey: 'life',
+    readinessAyatKey: 'health',
   },
   {
     id: 'intellect',
@@ -180,7 +180,7 @@ const FAITH_ID_LABELS = FIVE_PILLARS.reduce((acc, p) => {
 /**
  * Resolve a submodule id to a human-readable display label.
  * Handles:
- *   - prefixed ids  ('faith-salah', 'life-physical')  → strips prefix and title-cases
+ *   - prefixed ids  ('faith-salah', 'health-physical') → strips prefix and title-cases
  *   - faith ids     ('faith-shahada' → 'Shahada')     → via FIVE_PILLARS.name
  *   - module ids    ('work', 'money', 'people', ...)  → via MODULES[].name
  *   - overrides     ('sources', 'collective')
