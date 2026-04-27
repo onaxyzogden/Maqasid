@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §8 ZoneNamingCoverageCard
+
+**Objective:** Close manifest §8 line 232 `draw-custom-zones-naming-color` (P1 partial). ZonePanel's Zones tab lets stewards draw + name + colour-tag polygons, but no read-back surface graded the resulting naming hygiene — "Zone 1" placeholders, one-word labels, and colour collisions across category-default fills could ship to a presentation unflagged. User picked candidate 1 from this round's slate.
+
+**Outcome:** New `ZoneNamingCoverageCard` (`apps/web/src/features/zones/`) mounted on `ZonePanel` Analysis tab immediately after `ZoneAllocationSummary`. Pure derivation from `useZoneStore` filtered by `projectId`. Per-zone classification by name tier — **Descriptive** (3+ words, ≥6 chars), **Thin** (1-2 words or short), **Generic** (matches a 15-token list of placeholder words like "zone / area / plot / parcel / tract / land / block / section / lot" or pure numeric / "Zone 1" patterns), **Unnamed** (empty after trim). Each zone also tested for colour collision (count of other zones sharing the exact same hex) and category-default-colour status. Card body: header verdict pill (4-state Documented / Outlined / Sparse / No zones — sage / amber / clay / muted) driven by descriptive ratio ≥0.7 + thin ≤1 → documented, ≥0.4 → outlined, else sparse. 6-stat grid (zones drawn / descriptive / thin+generic / unnamed / colour collisions / unique colours). Per-zone list with colour swatch, name (or "(unnamed)"), tier pill, meta line (category / word count / char count / collision count or "category default colour" hint), and red flag chips for Unnamed / Generic name / One-word name / Color shared. Footnote explains why naming hygiene matters for export legibility. ~244 LOC tsx + ~234 LOC CSS, parchment palette with gold AUDIT badge. tsc clean. Atlas commit `c44a39f` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Single-line manifest diff (line 232). My selective add absorbed parallel `TeamActivityDigestCard` files (collaboration) into the same commit — sweep contamination, but harmless since both are pure-presentation new files. Recently-touched sections to vary away from next round: §1 intake, §3 site-data (×5), §5 zoning, §6 spiritual zoning, §7 chrome, §8 zoning (this round), §9 structures, §11 livestock, §14 vision, §15 access, §16 emergency, §17 rules (×2), §18 ai-design, §20 collab (parallel), §21 decision, §22 economic, §23 reporting, §24 mobile, §25 templates, §26 admin. Natural next directions: §8 line 233 `zone-categories-primary-secondary` (P1 partial — the only remaining §8 leaf), §14 line 363 `spiritual-educational-storytelling-layer` (MT partial), §22 line 515 `revenue-stream-tagging-enterprise-mapping` (P2 partial), §18/§23 export partials, §28 MT viewpoint partials.
+
+**Preview verification:** Console error filter clean (only pre-existing zustand migrate warnings unrelated to the new card). Dev server (port 5200) running; full visual verification needs a project + drawn zones — pattern risk bounded by reuse of the §17 family-coverage card layout.
+
+---
+
 ## [2026-04-27] session | Atlas — §26 MetadataManagementCard
 
 **Objective:** Close manifest §26 line 610 `metadata-management` (P2 partial). The intake wizard captures a wide spread of structured metadata (project basics, site context legals, field observations, vision, soil sub-fields) split across the `LocalProject` root columns, the `metadata` jsonb (`ProjectMetadata` zod), and the `metadata.soilNotes` sub-object — but no single read-back surface answered "what metadata is on this project, what's missing, where does it live". User picked candidate 1 from this round's slate.
