@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-26
+updated: 2026-04-27
 
 ---
 
@@ -38,6 +38,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Date | Summary |
 |---|---|---|
+| [[2026-04-27-prayer-posture-glow-images]] | 2026-04-27 | Replaced 7 SVG stick-figure posture components with `<img>` wrappers around 6 glow-effect PNGs in `src/assets/postures/`. Jalsah/Tashahhud/Salam share `seated.png`. `postureMap` API unchanged; consumers untouched. `takbir.png` orphaned pending opening-takbir slot decision |
 | [[2026-04-09-merge-ogden-hub-subtree]] | 2026-04-09 | Merged ogden-hub website into monorepo via git subtree at website/ |
 | [[2026-04-09-atlas-as-submodule]] | 2026-04-09 | Linked OLOS as git submodule (too complex for subtree merge) |
 | [[2026-04-09-bootstrap-llm-wiki]] | 2026-04-09 | Bootstrapped LLM Wiki to replace NotebookLM as authoritative context source |

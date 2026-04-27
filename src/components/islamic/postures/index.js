@@ -1,3 +1,4 @@
+import "./postures.css";
 import Qiyam from "./Qiyam";
 import Ruku from "./Ruku";
 import Itidal from "./Itidal";

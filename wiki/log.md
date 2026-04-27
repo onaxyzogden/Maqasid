@@ -7345,3 +7345,18 @@ Verification: `npm run lint:eslint` clean, `npm test` 40/40, preview confirmed v
 - **Completed:** Kanban / PLD visual unification, pillar pages full-width list, seed-order pin.
 - **Deferred:** BBOS-equivalent insight card (Foundation Health analogue) — awaiting design direction.
 - **Recommended next:** Design the BBOS insight card metrics (Pipeline Health vs Stage Momentum) and implement above the BBOS KanbanBoard.
+
+## 2026-04-27 — MILOS — Prayer postures: stick figures → glow image set
+
+Replaced the seven inline-SVG salah posture components in `src/components/islamic/postures/` with `<img>`-based wrappers that render new white-on-black silhouette artworks (glow + chromatic-aberration treatment) supplied by Yousef. Six PNGs landed in `src/assets/postures/` (`qiyam`, `takbir`, `ruku`, `itidal`, `sujud`, `seated`); the three seated postures (Jalsah, Tashahhud, Salam) intentionally share `seated.png` since the silhouettes are visually identical. `takbir.png` is currently unused — reserved for a future opening-takbir slot if added.
+
+Each component now renders inside a `.posture-tile` (dark `#000` backdrop, `aspect-ratio: 4 / 3`, 12px radius) so the glow aesthetic survives any surrounding theme. CSS lives at [src/components/islamic/postures/postures.css](../src/components/islamic/postures/postures.css), imported once from `postures/index.js`. The `postureMap` API and named exports are byte-identical to the prior version, so [PrayerHeroDuring.jsx](../src/components/islamic/PrayerHeroDuring.jsx), [prayer-sequences.js](../src/data/prayer-sequences.js), and the per-prayer step lists needed no changes — the now-inert `color` prop is silently ignored.
+
+Verification: dev preview at `localhost:5173` — all 6 PNGs serve 200/image/png; all 7 components render with images loaded (1448×1086 native); `postureMap` keys preserved.
+
+Decision: [2026-04-27-prayer-posture-glow-images.md](decisions/2026-04-27-prayer-posture-glow-images.md)
+
+### Session Debrief
+- **Completed:** Prayer-posture asset swap; 7 components rewritten; co-located CSS; decision doc filed.
+- **Deferred:** Open question on whether opening-takbir deserves its own posture slot distinct from steady Qiyam (`takbir.png` is on disk, awaiting that decision).
+- **Recommended next:** Decide on takbir slot, OR resume the Hijri-only non-prayer overlay brainstorm (Q1 frame choice still pending from prior session).
