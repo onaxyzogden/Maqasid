@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §25 TemplateGovernanceCard
+
+**Objective:** Close manifest §25 line 581 `template-duplication-locking-governance` (P3 partial). User picked candidate 2 from this round's slate. Pre-flight: `templateStore` already exposes `isBuiltIn` on each `ProjectTemplate` (built-ins are excluded from `deleteTemplate` → effectively locked) and `projectStore.duplicateProject` wires the duplicate path; what was missing was a surface that verdicts the registry's governance posture — locked-vs-custom split, per-category coverage, and integrity of the custom set.
+
+**Outcome:** New `TemplateGovernanceCard` (`apps/web/src/features/templates/`, ~250 LOC tsx + ~282 LOC CSS) mounted on `TemplatePanel` immediately after `RuleHotspotCostBundlesCard`, gated on `!selected` like its siblings. Reads `BUILT_IN_TEMPLATES` plus `useTemplateStore(s => s.customTemplates)` — no project-scoped data needed (note: card takes no props). Card body: 4-state verdict pill (Locked & governed / Locked + custom / Custom-heavy / Empty registry — keyed off `lockedRatio` ≥0.6 mixed, all-locked governed, otherwise custom-heavy), 6-stat headline (total / locked / custom / locked share / categories / newest custom relative-time), category-split rollup with per-category locked + custom chip pair, integrity-gap block flagging custom templates that fail any of: ≥3 zones, ≥2 structures, ≥2 phases, valid cost range (lo>0 ∧ hi>lo), named, described. Clean state shows a sage cleanNote when all customs pass; integrity-gap block only renders when issues exist. tsc clean (exit 0). Manifest line 581 flipped partial→done in the same commit. Atlas commit `797b9c5` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Third clean round in a row — manifest stale at HEAD, sibling readiness-card pattern reusable, action paths (`isBuiltIn` lock semantics + `duplicateProject` clone path) already in stores so the card's only job is to *verdict* them. The card takes no props (project-independent, registry-only) which broke the standard `<Card project={project} />` pattern — confirmed by tsc that the prop-less call site compiles cleanly. Recently-touched sections to vary away from next round: §1 / §3 / §5 / §6 / §7 / §8 (×2) / §9 / §11 / §13 / §14 / §15 / §16 / §17 (×2) / §18 / §19 (×2) / §20 / §21 / §22 (×2) / §23 (×2) / §24 / §25 (×2 — sibling + this round) / §26 (×2) / §27 / §29. Natural next directions: §14 line 363 `spiritual-educational-storytelling-layer` (MT partial), §28 lines 657 / 664 / 669 (MT partials — prayer-pavilion siting, staged-vision raw-to-heaven, dawn-sunset viewpoints), §26 lines 592 / 593 / 594 (P1 partials — user / workspace / organization management).
+
+**Preview verification:** Atlas dev server running on port 5200; console-error filter shows only pre-existing noise (axe contrast/landmark complaints from unrelated cards, an unrelated Vite HMR failure on `MobileProjectShell.tsx`). No errors mentioning `TemplateGovernanceCard`. tsc exit 0; pure-presentation card with no new entities, shared math, or map overlays.
+
+---
+
 ## [2026-04-27] session | Atlas — §23 ImageExportReadinessCard
 
 **Objective:** Close manifest §23 line 540 `image-export-screenshot` (P3 partial). User picked candidate 2 from this round's slate. Pre-flight: the "Map Screenshot" button on `ReportingPanel.tsx` already wires `canvas.toDataURL → PNG` download (lines 760-776), but no surface verdicted whether the resulting PNG would actually read cleanly — boundary, feature count, naming coverage, and branding inputs were all unaudited. The leaf was partial because the action existed but the readiness gate was missing.
