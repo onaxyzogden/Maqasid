@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §23 ImageExportReadinessCard
+
+**Objective:** Close manifest §23 line 540 `image-export-screenshot` (P3 partial). User picked candidate 2 from this round's slate. Pre-flight: the "Map Screenshot" button on `ReportingPanel.tsx` already wires `canvas.toDataURL → PNG` download (lines 760-776), but no surface verdicted whether the resulting PNG would actually read cleanly — boundary, feature count, naming coverage, and branding inputs were all unaudited. The leaf was partial because the action existed but the readiness gate was missing.
+
+**Outcome:** New `ImageExportReadinessCard` (`apps/web/src/features/reporting/`, ~303 LOC tsx + ~291 LOC CSS) mounted on `ReportingPanel` immediately after `GisExportReadinessCard` in the Local Exports rollup. Pure derivation reading `project` + zone / structure / path / utility stores filtered by `project.id`. Card body: 4-state verdict pill (Export-ready / Presentable / Too sparse / Nothing to capture — keyed off boundary present + feature count ≥READY_FEATURE_MIN=8 + naming ratio ≥READY_NAMING_RATIO=0.7 + project title set), 6-stat headline (features / named / unnamed / naming % / branding x/3 / updated relative-time), per-layer canvas rollup (zones / structures / paths / utilities → count + named-share pill keyed sage/amber/clay), and a 5-row caption-and-branding block (project title / site address / vision statement / parcel boundary / edit freshness with a 7-day fresh threshold) each with on/off/stale pill. tsc clean (exit 0). Manifest line 540 flipped partial→done in the same commit. Atlas commit `87c269d` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Second clean round in a row — manifest stale at HEAD with no parallel pre-flip, sibling readiness-card pattern (`GisExportReadinessCard` from §18) directly reusable as a template. The discipline of grepping for the existing action *before* designing the audit pays off — the screenshot button was already wired in `ReportingPanel.tsx:613-623`, so the audit only had to verdict the *inputs* that determine whether that action produces a presentable PNG, not re-implement capture logic. Recently-touched sections to vary away from next round: §1 / §3 / §5 / §6 / §7 / §8 (×2) / §9 / §11 / §13 / §14 / §15 / §16 / §17 (×2) / §18 / §19 (×2) / §20 / §21 / §22 (×2) / §23 (×2 — design-brief + this round) / §24 / §25 / §26 (×2) / §27 / §29. Natural next directions: §14 line 363 `spiritual-educational-storytelling-layer` (MT partial), §25 line 581 `template-duplication-locking-governance` (P3 partial), §28 lines 657 / 664 / 669 (MT partials — prayer-pavilion siting, staged-vision raw-to-heaven, dawn-sunset viewpoints).
+
+**Preview verification:** Atlas dev server running on port 5200; console-error filter shows only pre-existing noise (axe contrast/landmark complaints from unrelated cards, an unrelated Vite HMR failure on `MobileProjectShell.tsx`). No errors mentioning `ImageExportReadinessCard`. tsc exit 0; pure-presentation card with no new entities, shared math, or map overlays.
+
+---
+
 ## [2026-04-27] session | Atlas — §19 ScriptDeckReadinessCard
 
 **Objective:** Close manifest §19 line 462 `voiceover-script-slide-export` (P4 partial). User picked candidate 2 from this round's revised slate. Pre-flight grep showed both halves of the leaf already shipped as separate cards — `WalkingTourScriptCard` (5-stop voiceover script along the longest path) and `SlideExportPreviewCard` (one slide per placed feature) — but no surface verdicted whether the *combined* export was ready today. The line was partial because the pieces existed but the readiness gate was missing.
