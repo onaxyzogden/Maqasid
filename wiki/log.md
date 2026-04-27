@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §19 ScriptDeckReadinessCard
+
+**Objective:** Close manifest §19 line 462 `voiceover-script-slide-export` (P4 partial). User picked candidate 2 from this round's revised slate. Pre-flight grep showed both halves of the leaf already shipped as separate cards — `WalkingTourScriptCard` (5-stop voiceover script along the longest path) and `SlideExportPreviewCard` (one slide per placed feature) — but no surface verdicted whether the *combined* export was ready today. The line was partial because the pieces existed but the readiness gate was missing.
+
+**Outcome:** New `ScriptDeckReadinessCard` (`apps/web/src/features/education/`, ~276 LOC tsx + ~262 LOC CSS) mounted on `EducationalAtlasDashboard` immediately after `SlideExportPreviewCard`. Pure derivation reading structure / zone / utility / path stores filtered by `project.id`. Card body: 4-state verdict pill (Export-ready / Presentable / Too thin / Not started — keyed off slide count vs READY_SLIDE_MIN=8, naming ratio vs NAMING_READY_RATIO=0.7, and longest-path qualifying length ≥10 m with ≥2 vertices), 6-stat headline (slides / named / unnamed / tour stops / deck runtime / tour runtime — fixed at SLIDE_SECONDS=30 and TOUR_STOP_SECONDS=60 to match sibling cards), and a two-column halves grid pricing the deck and tour separately with own pill (Ready / Presentable / Thin / Empty / No paths / Path too short) and a four-row metric list each. tsc clean (exit 0). Manifest line 462 flipped partial→done in the same commit. Atlas commit `310af64` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** This round was the cleanest pre-flight pattern yet — manifest stale at HEAD (no parallel pre-flip), no shipped-but-untracked card, both sibling surfaces already in-tree pointing exactly at the missing audit. The fresh-slate proposal was misframed twice in one round (line numbers cited didn't match section content) — for next round, before proposing candidates, *verify the cited line in the manifest is a feature-level entry and that its status is actually `partial`*, not just that the section status is `partial`. Recently-touched sections to vary away from next round: §1 / §3 / §5 / §6 / §7 / §8 (×2) / §9 / §11 / §13 / §14 / §15 / §16 / §17 (×2) / §18 / §19 (×2) / §20 / §21 / §22 (×2) / §23 / §24 / §25 / §26 (×2) / §27 / §29. Natural next directions: §14 line 363 `spiritual-educational-storytelling-layer` (MT partial), §28 lines 657 / 664 / 669 (MT partials — prayer-pavilion siting, staged-vision raw-to-heaven, dawn-sunset viewpoints), §23 line 540 `image-export-screenshot` (P3 partial), §25 line 581 `template-duplication-locking-governance` (P3 partial).
+
+**Preview verification:** Atlas dev server running on port 5200; console-error filter shows only pre-existing noise (storage-migration warnings, axe contrast/landmark complaints from unrelated cards, an unrelated Vite HMR failure on `MobileProjectShell.tsx`). No errors mentioning `ScriptDeckReadinessCard`. tsc exit 0; pure-presentation card with no new entities, shared math, or map overlays.
+
+---
+
 ## [2026-04-27] session | Atlas — §22 RevenueStreamTaggingCard
 
 **Objective:** Close manifest §22 line 515 `revenue-stream-tagging-enterprise-mapping` (P2 partial). User picked candidate 1 from this round's slate. Pre-flight: manifest line had been pre-flipped to `done` by parallel commit `8bfd46e` ("manifest truth-up" entry below) — but the actual `RevenueStreamTaggingCard` did not exist in the tree at HEAD. Parallel session had logged the flip as if the card were already shipped; in reality the manifest was truth-up'd ahead of code. This round filled the code-stale gap.
