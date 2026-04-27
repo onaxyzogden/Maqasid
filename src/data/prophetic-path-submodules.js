@@ -247,6 +247,25 @@ export const TOD_SUBMODULES = {
       ],
     },
   },
+  witr: {
+    submodules: ['faith-salah'],
+    matchers: [
+      /\b(?:witr|al-?witr|salat\s+al-?witr|witr\s+prayer)\b/i,
+      /\b(?:odd\s+rak[ʿ']?ah|seal\s+the\s+night|last\s+prayer\s+(?:of|at)\s+(?:the\s+)?night)\b/i,
+      /\b(?:qunut|du[ʿ']?a\s+al-?qunut|qunoot)\b/i,
+      /\btransition:witr\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:wudu|ablution|niyyah\s+for\s+witr|prepare\s+(?:for\s+)?witr)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+witr|post-?witr|seal(?:ed)?\s+the\s+night)\b/i,
+      ],
+    },
+  },
   bedtime: {
     submodules: ['faith-salah', 'life-physical', 'family-home'],
     matchers: [
@@ -264,6 +283,43 @@ export const TOD_SUBMODULES = {
       after: [
         /\bphase:after\b/i,
         /\b(?:upon\s+(?:waking|rising)|alhamdulillah\s+alladhi\s+ahyana)\b/i,
+      ],
+    },
+  },
+  'qiyam-rest': {
+    submodules: ['faith-salah', 'life-physical'],
+    matchers: [
+      /\b(?:qiyam[- ]rest|sleep\s+with\s+niyyah|niyyah\s+(?:for|to\s+rise|to\s+pray\s+at\s+night))\b/i,
+      /\b(?:rise\s+for\s+(?:tahajjud|qiyam)|wake\s+for\s+(?:tahajjud|qiyam))\b/i,
+      /\b(?:satan.*knot|three\s+knots|knots.*head)\b/i,
+      /\btransition:qiyam-rest\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:set\s+(?:alarm|niyyah)\s+(?:for|to\s+rise))\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:upon\s+waking|first\s+words\s+on\s+waking)\b/i,
+      ],
+    },
+  },
+  sahari: {
+    submodules: ['faith-siyam', 'life-physical'],
+    matchers: [
+      /\b(?:sahari|sahur|suhur|suhoor|pre-?dawn\s+meal|predawn)\b/i,
+      /\b(?:imsak|barakah\s+in\s+suhur|distinguish.*fasting.*book)\b/i,
+      /\btransition:sahari\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:prepare\s+suhur|wake\s+for\s+suhur)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+suhur|fajr\s+(?:approach|arrival))\b/i,
       ],
     },
   },
@@ -323,6 +379,121 @@ export const TOD_SUBMODULES = {
       after: [
         /\bphase:after\b/i,
         /\b(?:before\s+maghrib|pre-?maghrib|sunset\s+approach)\b/i,
+      ],
+    },
+  },
+  jumuah: {
+    submodules: ['faith-salah', 'community', 'collective', 'people'],
+    matchers: [
+      /\b(?:jumu[a']?ah|friday\s+prayer|congregational\s+prayer)\b/i,
+      /\b(?:ghusl|miswak|perfume|white\s+clothes|walk\s+to\s+(?:the\s+)?masjid)\b/i,
+      /\b(?:surah\s+al-?kahf|kahf|al-?kahf)\b/i,
+      /\b(?:salawat|salat\s+ala\s+an-?nabi|invoke\s+blessings\s+on\s+(?:the\s+)?prophet)\b/i,
+      /\b(?:khutbah|sermon)\b/i,
+      /\btransition:jumuah\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:ghusl|miswak|perfume|prepare.*jumu|walk.*masjid|recite.*kahf)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+jumu|post-?jumu|salawat)\b/i,
+      ],
+    },
+  },
+  'maghrib-iftar': {
+    submodules: ['faith-salah', 'faith-siyam'],
+    matchers: [
+      /\biftar\b/i,
+      /\b(?:break.*fast|breaking.*fast)\b/i,
+      /\b(?:dhahaba\s+al-?zama|allahumma\s+laka\s+sumtu|iftar\s+du[ʿ']?a)\b/i,
+      /\btransition:maghrib-iftar\b/i,
+    ],
+    phaseMatchers: {
+      before: [/\bphase:before\b/i, /\b(?:prepare.*iftar|niyyah.*fast)\b/i],
+      after:  [/\bphase:after\b/i,  /\b(?:after\s+iftar|post-?iftar)\b/i],
+    },
+  },
+  'isha-taraweeh': {
+    submodules: ['faith-salah', 'faith-siyam'],
+    matchers: [
+      /\btaraweeh\b/i,
+      /\bqiyam\s+ramadan\b/i,
+      /\b(?:stand.*night.*ramadan|night\s+prayer.*ramadan)\b/i,
+      /\btransition:isha-taraweeh\b/i,
+    ],
+    phaseMatchers: {
+      before: [/\bphase:before\b/i, /\b(?:prepare.*taraweeh|wudu.*taraweeh)\b/i],
+      after:  [/\bphase:after\b/i,  /\b(?:after\s+taraweeh|post-?taraweeh|witr.*ramadan)\b/i],
+    },
+  },
+  'traveler-departure': {
+    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    matchers: [
+      /\b(?:travel|safar|journey|depart|trip)\b/i,
+      /\b(?:qasr|shorten.*prayer|jam[\u02bb']?|combin.*prayer)\b/i,
+      /\b(?:dua.*travel|travel.*dua|safar.*dua)\b/i,
+      /\b(?:mount|conveyance|vehicle|board.*flight)\b/i,
+      /\btransition:traveler-departure\b/i,
+    ],
+    phaseMatchers: {
+      before: [/\bphase:before\b/i, /\b(?:niyyah.*travel|prepare.*journey)\b/i],
+      after:  [/\bphase:after\b/i,  /\b(?:after\s+departure|en\s+route)\b/i],
+    },
+  },
+  'traveler-arrival': {
+    submodules: ['faith-salah', 'family-home', 'ummah-community'],
+    matchers: [
+      /\b(?:arrival|return|home(?:coming)?|aibun|ta\u02beibun)\b/i,
+      /\b(?:enter.*home|return.*journey)\b/i,
+      /\btransition:traveler-arrival\b/i,
+    ],
+    phaseMatchers: {
+      before: [/\bphase:before\b/i, /\b(?:approach.*home|takbir.*ascent)\b/i],
+      after:  [/\bphase:after\b/i,  /\b(?:after\s+return|resume.*resident)\b/i],
+    },
+  },
+  'eid-prayer': {
+    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    matchers: [
+      /\beid\b/i,
+      /\b(?:salat\s+al-?[ʿ']?id|[ʿ']?id\s+prayer|musalla)\b/i,
+      /\b(?:takbir|takbeer|takbirat)\b/i,
+      /\b(?:zakat\s+al-?fitr|fitrana)\b/i,
+      /\b(?:udhiyyah|qurbani|sacrifice)\b/i,
+      /\btransition:eid-prayer\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:before\s+eid|odd\s+dates|ghusl.*eid|best\s+clothes)\b/i,
+        /\bzakat\s+al-?fitr\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+eid|return.*different\s+route|udhiyyah|qurbani)\b/i,
+      ],
+    },
+  },
+  'istijabah-hour': {
+    submodules: ['faith-salah', 'faith-shahada'],
+    matchers: [
+      /\bistijabah\b/i,
+      /\b(?:hour\s+of\s+(?:istijabah|acceptance)|sa['ʿ]?ah\s+of\s+istijabah)\b/i,
+      /\b(?:last\s+hour\s+(?:before|of)\s+(?:maghrib|friday)|friday.*last\s+hour)\b/i,
+      /\b(?:du[ʿ']?a.*friday|friday.*du[ʿ']?a)\b/i,
+      /\btransition:istijabah-hour\b/i,
+    ],
+    phaseMatchers: {
+      before: [
+        /\bphase:before\b/i,
+        /\b(?:prepare.*du|niyyah.*istijabah)\b/i,
+      ],
+      after: [
+        /\bphase:after\b/i,
+        /\b(?:after\s+istijabah|post-?istijabah)\b/i,
       ],
     },
   },
@@ -398,18 +569,72 @@ export const MODULE_ID_TO_SUBMODULE_ID = {
 // without importing the timeline component.
 export const NODE_TIMING_KEY = {
   isha:           'Isha',
+  witr:           'Isha',
   bedtime:        'Isha',
+  'qiyam-rest':   'Lastthird',
   tahajjud:       'Lastthird',
+  sahari:         'Imsak',
   fajr:           'Fajr',
   duha:           'Sunrise',
   morning:        'Sunrise',
   qaylulah:       'Dhuhr',
   dhuhr:          'Dhuhr',
+  jumuah:         'Dhuhr',
   'midday-labor': 'Dhuhr',
   asr:            'Asr',
   'after-asr':    'Asr',
+  'istijabah-hour': 'Maghrib',
   maghrib:        'Maghrib',
+  'maghrib-iftar': 'Maghrib',
+  'isha-taraweeh': 'Isha',
+  'eid-prayer':   'Sunrise',
 };
+
+// Friday is the only day-of-week branch in the spine. On Fridays jumuah
+// replaces dhuhr and the last hour before Maghrib surfaces as istijabah-hour.
+export function isFriday(date = new Date()) {
+  return date.getDay() === 5;
+}
+
+// Hijri-date helpers. Aladhan returns hijri = { day, month: { number }, year, ... }.
+// All helpers accept this shape (or null) and return false when hijri is unavailable.
+function hijriParts(hijri) {
+  if (!hijri) return null;
+  const day = Number(hijri.day);
+  const month = Number(hijri.month?.number ?? hijri.month);
+  if (!Number.isFinite(day) || !Number.isFinite(month)) return null;
+  return { day, month };
+}
+
+export function isRamadan(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 9;
+}
+
+export function isEidFitr(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 10 && p.day === 1;
+}
+
+export function isEidAdha(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 12 && p.day === 10;
+}
+
+export function isTashreeq(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 12 && p.day >= 11 && p.day <= 13;
+}
+
+export function isArafah(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 12 && p.day === 9;
+}
+
+export function isLastTenNights(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 9 && p.day >= 21;
+}
 
 // Phase-window minutes around a node anchor.
 // before: [-BEFORE_MIN, anchor)   during: [anchor, anchor+DURING_MIN)   after: rest
@@ -444,19 +669,22 @@ export function inferPhaseForNode(nodeId, now = new Date(), timings = null) {
 // usePrayerTimes. Returns the PropheticPath node id.
 export function inferNodeFromHour(date = new Date()) {
   const h = date.getHours() + date.getMinutes() / 60;
+  const friday = isFriday(date);
   if (h < 2) return 'bedtime';
-  if (h < 4) return 'isha';
-  if (h < 5.5) return 'tahajjud';
+  if (h < 4) return 'qiyam-rest';
+  if (h < 5) return 'tahajjud';
+  if (h < 5.5) return 'sahari';
   if (h < 6.5) return 'fajr';
   if (h < 7.5) return 'duha';
   if (h < 11.5) return 'morning';
   if (h < 12.5) return 'qaylulah';
-  if (h < 13.5) return 'dhuhr';
+  if (h < 13.5) return friday ? 'jumuah' : 'dhuhr';
   if (h < 15) return 'midday-labor';
   if (h < 17) return 'asr';
-  if (h < 18.5) return 'after-asr';
+  if (h < 18.5) return friday ? 'istijabah-hour' : 'after-asr';
   if (h < 20) return 'maghrib';
-  if (h < 22) return 'isha';
+  if (h < 21) return 'isha';
+  if (h < 22) return 'witr';
   return 'bedtime';
 }
 

@@ -21,10 +21,10 @@ npm run preview                 # Preview production build
 npm test                        # Vitest — schema/grounding conformance tests
 npm run lint:grounding          # Informational pillar-level grounding report
 npm run lint:grounding-strict   # Fails on legacy-string sources or schema errors
-npm run audit:inline-refs       # Fails when description prose cites a ref missing from sources[] (ratchet at 13)
+npm run audit:inline-refs       # Fails when description prose cites a ref missing from sources[] (ratchet at 0)
 ```
 
-Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` as a structured array `[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]` (per [wiki/decisions/2026-04-18-milos-grounding-two-axis.md](wiki/decisions/2026-04-18-milos-grounding-two-axis.md)). All 8 pillars are migrated; legacy-string entries are forbidden going forward. The grounding test in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) ratchets per-pillar legacy counts at 0; the inline-refs auditor in [scripts/audit-inline-refs.mjs](scripts/audit-inline-refs.mjs) ratchets at 13 (Phase 2 hadith backfill pending). Run `npm test` and `npm run lint` after any seed-task edit.
+Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` as a structured array `[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]` (per [wiki/decisions/2026-04-18-milos-grounding-two-axis.md](wiki/decisions/2026-04-18-milos-grounding-two-axis.md)). All 8 pillars are migrated; legacy-string entries are forbidden going forward. The grounding test in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) ratchets per-pillar legacy counts at 0; the inline-refs auditor in [scripts/audit-inline-refs.mjs](scripts/audit-inline-refs.mjs) ratchets at 0 (closed via [wiki/decisions/2026-04-25-milos-inline-refs-hadith-backfill.md](wiki/decisions/2026-04-25-milos-inline-refs-hadith-backfill.md)). Run `npm test` and `npm run lint` after any seed-task edit.
 
 ## MANDATORY: Context-First Protocol
 STOP. Before you read, modify, or explore ANY source file, you MUST complete these steps in order:

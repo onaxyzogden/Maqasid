@@ -19,7 +19,7 @@ export const INTELLECT_SEED_TASKS = {
               translation: "Read! In the name of your Lord who created: He created man from a clinging form. Read! Your Lord is the Most Bountiful One who taught by [means of] the pen, who taught man what he did not know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to recite and the pen\'s exaltation in Quran 96:1-5 establish learning letters as the mandatory foundation for achieving sacred literacy and knowledge. [1], [2],.',
             },
             {
               kind: "quran",
@@ -28,7 +28,7 @@ export const INTELLECT_SEED_TASKS = {
               translation: "Say, \"Lord, increase me in knowledge!\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek increased knowledge in Quran 20:114 grounds learning letters as the essential first step toward achieving sacred literacy and understanding revelation..',
             },
             {
               kind: "hadith",
@@ -37,7 +37,7 @@ export const INTELLECT_SEED_TASKS = {
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle exalting those who learn the Quran establishes mastering Arabic letters as the mandatory foundation for achieving that divinely prioritized excellence.',
             },
           ],
           description: `**Why?**
@@ -73,7 +73,7 @@ Arabic is a cursive script — every letter changes shape depending on its posit
               translation: "And recite the Quran with measured recitation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to recite the Quran with measured recitation establishes studying tajweed rules as the mandatory framework for achieving slow, distinct, and proper Prophetic pronunciation. [1], [2],.',
             },
           ],
           description: `**Why?**
@@ -113,7 +113,7 @@ Tajweed is not optional ornamentation — it is the science of reciting the Qura
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle identifying learners of the Quran as the best of people establishes guided reading from Juz Amma as the essential step toward excellence. [1],.',
             },
           ],
           description: `**Why?**
@@ -150,7 +150,7 @@ Juz Amma (the 30th part of the Quran) contains shorter surahs that are recited i
               translation: "Recite what has been revealed to you of the Book.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to recite the revealed Book in Quran 29:45 grounds daily recitation from the mushaf as the mandatory foundation for internalizing divine guidance..',
             },
           ],
           description: `**Why?**
@@ -195,7 +195,7 @@ Transliteration (writing Arabic sounds in English letters) is a crutch that prev
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that reciters are the best of people establishes comparing one’s recitation against qualified masters as the essential method for achieving that excellence..',
             },
             {
               kind: "hadith",
@@ -204,7 +204,7 @@ Transliteration (writing Arabic sounds in English letters) is a crutch that prev
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of seeking expert verification to ascertain the truth grounds recording and comparing one’s recitation against qualified masters as the method for validation..',
             },
           ],
           description: `**Why?**
@@ -254,7 +254,7 @@ Self-assessment is notoriously unreliable in recitation — you often cannot hea
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle promising Paradise for seeking knowledge establishes identifying professional skills as a meritorious first step in that divinely rewarded spiritual journey.',
             },
           ],
           description: `**Why?**
@@ -291,7 +291,7 @@ You cannot close gaps you have not identified. Without a concrete inventory of r
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek increased knowledge in Quran 20:114 grounds honest self-rating as the mandatory foundation for identifying deficiencies to facilitate that divine increase. [1], [2],.',
             },
             {
               kind: "quran",
@@ -300,7 +300,7 @@ You cannot close gaps you have not identified. Without a concrete inventory of r
               translation: "Say, \"Are those who know equal to those who do not know?\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that the knowledgeable and ignorant are not equal in Quran 39:9 establishes honest self-rating as the prerequisite for attaining that prioritized excellence..',
             },
             {
               kind: "hadith",
@@ -309,7 +309,7 @@ You cannot close gaps you have not identified. Without a concrete inventory of r
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is mandatory establishes honest self-rating as the essential prerequisite for identifying deficiencies to fulfill that divinely prioritized obligation.',
             },
           ],
           description: `**Why?**
@@ -352,7 +352,7 @@ Self-honesty (sidq) is a core Islamic virtue. Rating yourself honestly on each c
               translation: "Say, \"Are those who know equal to those who do not know?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that the knowledgeable and ignorant are unequal in Quran 39:9 establishes identifying high-impact gaps as the mandatory prerequisite for achieving superior effectiveness. [1]',
             },
           ],
           description: `**Why?**
@@ -391,7 +391,7 @@ Not all gaps are equally important. A rating of 2 in a peripheral skill matters 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that religious understanding signifies divine favor grounds researching educational resources as the essential pursuit for attaining that prioritized spiritual goodness. [1], [2]',
             },
           ],
           description: `**Why?**
@@ -434,7 +434,7 @@ Identifying a gap without identifying a remedy leaves you stuck in awareness wit
               translation: "And say, \"My Lord, increase me in knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek an increase in knowledge establishes specific milestones as the mandatory framework for organizing and verifying that divinely prioritized growth. [1]',
             },
           ],
           description: `**Why?**
@@ -491,7 +491,7 @@ A plan without milestones is just a wish. The 90-day horizon is long enough to a
               translation: "Read! In the name of your Lord who created.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to read establishes choosing a book and daily schedule as the mandatory method for securing the knowledge prioritized in the first revelation. [1], [2], [3], [4]',
             },
             {
               kind: "quran",
@@ -500,7 +500,7 @@ A plan without milestones is just a wish. The 90-day horizon is long enough to a
               translation: "Say, \"How can those who know be equal to those who do not know?\" Only those who have understanding will take heed.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that the knowledgeable are superior to the ignorant establishes scheduled reading as the mandatory method for attaining that divinely prioritized understanding. [1], [2]',
             },
             {
               kind: "hadith",
@@ -509,7 +509,7 @@ A plan without milestones is just a wish. The 90-day horizon is long enough to a
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that pursuing knowledge eases the way to Paradise establishes selecting a book and scheduling reading as the practical initiation of that journey.',
             },
           ],
           description: `**Why?**
@@ -544,7 +544,7 @@ Decision fatigue is the enemy of habit formation. If you wake up each day wonder
               translation: "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the Most Generous, Who taught by the pen, taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to read establishes designating a distraction-free space as mirroring the prophetic seclusion of Hira, essential for absorbing divinely taught knowledge. [1-3]',
             },
           ],
           description: `**Why?**
@@ -580,7 +580,7 @@ Deep reading and shallow scrolling require opposite mental states. If you read i
               translation: "Read in the name of your Lord who created — created man from a clinging substance. Read, and your Lord is the Most Generous — who taught by the pen — taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to read establishes tracking a daily streak as the essential discipline for securing the consistent pursuit of divinely prioritized knowledge. [1, 2]',
             },
             {
               kind: "hadith",
@@ -589,7 +589,7 @@ Deep reading and shallow scrolling require opposite mental states. If you read i
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that religious understanding signifies divine favor grounds tracking reading streaks as the essential discipline for securing that prioritized spiritual goodness. [1]',
             },
           ],
           description: `**Why?**
@@ -629,7 +629,7 @@ Research on habit formation consistently shows that tracking creates commitment.
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise that striving secures guidance establishes writing reflections as the essential exertion for identifying the various ways to attain Allah’s pleasure [1, 2].',
             },
             {
               kind: "quran",
@@ -638,7 +638,7 @@ Research on habit formation consistently shows that tracking creates commitment.
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that wisdom constitutes supreme good establishes writing reflections as the mandatory method for capturing and internalizing that divinely granted understanding. [1, 2]',
             },
             {
               kind: "hadith",
@@ -647,7 +647,7 @@ Research on habit formation consistently shows that tracking creates commitment.
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise grounds writing reflections as the mandatory exertion for securing that prioritized spiritual reward. [1], [2]',
             },
           ],
           description: `**Why?**
@@ -686,7 +686,7 @@ Reading without reflection is consumption without digestion. The Quran repeatedl
               translation: "(This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine enjoining of Surahs containing manifest proofs grounds studying the first revelation as essential for understanding those sent down signs. [1, 2]',
             },
             {
               kind: "quran",
@@ -695,7 +695,7 @@ Reading without reflection is consumption without digestion. The Quran repeatedl
               translation: "This is how We explain Our revelations in various ways- though they will say, ‘You [Muhammad] have been studying’- to make them clear for those who know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that studying clarifies revelations for those who know establishes studying Al-Alaq as essential for mastering the message\'s primary meanings [1, 2].',
             },
           ],
           description: `**Why?**
@@ -734,7 +734,7 @@ The very first words Allah chose to reveal to humanity through His final Messeng
               translation: "Say, \"Lord, increase me in knowledge!\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to pray for increased knowledge grounds reading hadiths on its virtues as the mandatory pursuit for achieving that divinely prioritized spiritual growth. [1]',
             },
             {
               kind: "quran",
@@ -743,7 +743,7 @@ The very first words Allah chose to reveal to humanity through His final Messeng
               translation: "Say, \"How can those who know be equal to those who do not know?\" Only those who have understanding will take heed.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that the knowledgeable and ignorant are unequal grounds reading hadith collections as the mandatory pursuit for attaining that divinely prioritized understanding [1], [2].',
             },
             {
               kind: "hadith",
@@ -752,7 +752,7 @@ The very first words Allah chose to reveal to humanity through His final Messeng
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation grounds reading hadith collections as the mandatory fulfillment of this divinely sanctioned individual duty.',
             },
             {
               kind: "hadith",
@@ -761,7 +761,7 @@ The very first words Allah chose to reveal to humanity through His final Messeng
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise grounds reading hadith collections as the essential pursuit for securing that prioritized spiritual reward.',
             },
           ],
           description: `**Why?**
@@ -803,7 +803,7 @@ The Quran establishes the principle; the ahadith elaborate the details, incentiv
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic distinction between individual and communal obligations establishes learning this categorization as mandatory for prioritizing foundational religious duties over specialized technical pursuits.',
             },
             {
               kind: "quran",
@@ -812,7 +812,7 @@ The Quran establishes the principle; the ahadith elaborate the details, incentiv
               translation: "And it is not for the believers to go forth all at once. Of every troop of them, a party only should go forth, that they may gain understanding in the religion.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command for a party to seek religious understanding establishes the distinction between individual duties and communal obligations for mastering specialized knowledge [1].',
             },
           ],
           description: `**Why?**
@@ -850,7 +850,7 @@ Not all knowledge carries the same obligation. Fard ayn (individually obligatory
               translation: "Allah will raise those who have believed among you and those who were given knowledge, by degrees.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise that knowledge earns higher degrees establishes personal reflection as the mandatory practice for identifying one’s learning as sacred worship. [1], [2]',
             },
             {
               kind: "quran",
@@ -859,7 +859,7 @@ Not all knowledge carries the same obligation. Fard ayn (individually obligatory
               translation: "Only those fear Allah, from among His servants, who have knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that knowledge produces true fear of Allah establishes personal reflection as the mandatory practice for identifying one’s learning journey as sacred worship [1].',
             },
             {
               kind: "hadith",
@@ -868,7 +868,7 @@ Not all knowledge carries the same obligation. Fard ayn (individually obligatory
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation grounds personal reflection as the mandatory practice for identifying learning as sacred worship [1, 2].',
             },
           ],
           description: `**Why?**
@@ -916,7 +916,7 @@ Knowledge in Islam becomes ibadah (worship) through intention (niyyah). Without 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that religious understanding signifies divine favor establishes researching reputable institutes as the mandatory path for securing that prioritized spiritual goodness [1].',
             },
           ],
           description: `**Why?**
@@ -961,7 +961,7 @@ The Islamic knowledge landscape is vast and uneven — there are excellent insti
               translation: "Of every troop of them, a party only should go forth, that they may gain understanding in the religion and warn their people when they return to them.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command for a party to gain religious understanding establishes selecting a subject as the essential first step for mastering knowledge to effectively guide others. [1, 2]',
             },
           ],
           description: `**Why?**
@@ -996,7 +996,7 @@ Trying to study all three subjects simultaneously at a foundational level typica
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise establishes a weekly schedule as the mandatory path for securing that spiritual reward.',
             },
           ],
           description: `**Why?**
@@ -1041,7 +1041,7 @@ Enrolment without scheduled study time is just wishful thinking. The difference 
               translation: "And it is not for the believers to go forth all at once. For there should separate from every division of them a group to obtain understanding in the religion and warn their people when they return to them that they might be cautious.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to obtain religious understanding establishes completing assessments as mandatory for securing the proficiency required to successfully warn and guide one’s people. [1]',
             },
             {
               kind: "hadith",
@@ -1050,7 +1050,7 @@ Enrolment without scheduled study time is just wishful thinking. The difference 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that religious understanding signifies divine favor establishes completing assessments as mandatory for validating the comprehension necessary to secure that spiritual goodness. [1]',
             },
           ],
           description: `**Why?**
@@ -1092,7 +1092,7 @@ Passive consumption — watching lectures without doing the work — creates an 
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise that striving secures guidance establishes summarising lessons as the mandatory exertion for identifying and recording the various ways to attain Allah’s favor. [1], [2]',
             },
           ],
           description: `**Why?**
@@ -1144,7 +1144,7 @@ The Islamic scholarly tradition has always centred on note-taking, summarisation
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that creation contains signs establishes a multi-disciplinary reading list as mandatory for identifying the diverse evidence of Allah’s wisdom. [1], [2]',
             },
           ],
           description: `**Why?**
@@ -1190,7 +1190,7 @@ A reading list is a curriculum you design for yourself. Without one, you will gr
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise grounds monthly targets and reminders as mandatory for securing that prioritized spiritual reward. [1]',
             },
           ],
           description: `**Why?**
@@ -1228,7 +1228,7 @@ A reading list is a curriculum you design for yourself. Without one, you will gr
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to reflect on signs establishes writing summaries as the mandatory practice for identifying and internalizing the diverse evidence of Allah’s wisdom. [1, 2]',
             },
             {
               kind: "hadith",
@@ -1237,7 +1237,7 @@ A reading list is a curriculum you design for yourself. Without one, you will gr
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seekers of knowledge are in Allah’s path establishes writing summaries as mandatory for capturing and preserving those sacred, prioritized insights.',
             },
           ],
           description: `**Why?**
@@ -1286,7 +1286,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
               translation: "By time, indeed, mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to advise each other to truth grounds sharing insights as the mandatory practice for securing the success required to escape mankind\'s loss. [1]',
             },
             {
               kind: "hadith",
@@ -1295,7 +1295,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise establishes sharing insights as mandatory for securing that prioritized spiritual reward.',
             },
           ],
           description: `**Why?**
@@ -1342,7 +1342,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek increased knowledge establishes clarifying one’s mission and skills as the mandatory pursuit for attaining that divinely prioritized understanding.',
             },
             {
               kind: "quran",
@@ -1351,7 +1351,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
               translation: "For indeed, with hardship comes ease. Indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that ease accompanies hardship grounds mission clarification as mandatory for identifying the skills needed to successfully navigate life\'s prioritized spiritual trials [1].',
             },
             {
               kind: "hadith",
@@ -1360,7 +1360,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise grounds mission clarification as mandatory for identifying the specific skills required for spiritual success.',
             },
           ],
           description: `**Why?**
@@ -1402,7 +1402,7 @@ A course without mission alignment is a distraction disguised as productivity. Y
               translation: "Say, \"Are those who know equal to those who do not know?\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that the knowledgeable and ignorant are not equal in Quran 39:9 establishes researching educational programs as the prerequisite for attaining that excellence..',
             },
             {
               kind: "hadith",
@@ -1411,7 +1411,7 @@ A course without mission alignment is a distraction disguised as productivity. Y
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation establishes researching educational programs as the essential prerequisite for fulfilling that divinely prioritized duty.',
             },
           ],
           description: `**Why?**
@@ -1456,7 +1456,7 @@ Comparing multiple options prevents the common mistake of enrolling in the first
               translation: "Say, \"Lord, increase me in knowledge!\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek an increase in knowledge establishes evaluating educational options as the mandatory foundation for identifying effective, sustainable, and Islamically compatible growth..',
             },
             {
               kind: "quran",
@@ -1465,7 +1465,7 @@ Comparing multiple options prevents the common mistake of enrolling in the first
               translation: "Who taught by [means of] the pen, who taught man what he did not know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of teaching via the pen establishes evaluating educational options as the mandatory method for securing efficient, valuable, and Islamically compatible growth.',
             },
             {
               kind: "hadith",
@@ -1474,7 +1474,7 @@ Comparing multiple options prevents the common mistake of enrolling in the first
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle identifying Quranic learners as the best people establishes evaluating programs as the necessary method for identifying efficient and Islamically compatible growth.',
             },
           ],
           description: `**Why?**
@@ -1522,7 +1522,7 @@ Education is an investment, and like any investment, it requires cost-benefit an
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to strive for God establishes scheduling study time as the essential effort for attaining those divinely prioritized ways to His good pleasure. [1],.',
             },
             {
               kind: "hadith",
@@ -1531,7 +1531,7 @@ Education is an investment, and like any investment, it requires cost-benefit an
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that pursuing knowledge eases the way to Paradise establishes scheduling study time as the practical initiation of that divinely rewarded journey.',
             },
           ],
           description: `**Why?**
@@ -1575,7 +1575,7 @@ The gap between "I plan to enrol" and "I am enrolled with study time blocked" is
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that wisdom is much good establishes completing courses and documenting lessons as the essential method for preserving that divinely granted spiritual excellence..',
             },
             {
               kind: "hadith",
@@ -1584,7 +1584,7 @@ The gap between "I plan to enrol" and "I am enrolled with study time blocked" is
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that religious understanding signifies divine favor grounds documenting course lessons as the essential method for solidifying that prioritized spiritual goodness..',
             },
           ],
           description: `**Why?**
@@ -1641,7 +1641,7 @@ Completion is where most people fail — online course completion rates average 
               translation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine intent for peoples to know one another in Quran 49:13 grounds language selection as the practical mechanism for achieving this mandated connection.',
             },
           ],
           description: `**Why?**
@@ -1687,7 +1687,7 @@ Completion is where most people fail — online course completion rates average 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle identifying Quranic learners as the best establishes selecting a primary method as the Sunnah approach to acquiring knowledge..',
             },
           ],
           description: `**Why?**
@@ -1728,7 +1728,7 @@ Language acquisition research clearly shows that not all methods are equally eff
               translation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine intent for people to know one another establishes daily practice as the mandatory discipline for mastering communication tools required for that connection.',
             },
             {
               kind: "quran",
@@ -1737,7 +1737,7 @@ Language acquisition research clearly shows that not all methods are equally eff
               translation: "And We did not send any messenger except in the language of his people to make clear to them.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that messengers speak their people\'s language for clarity establishes daily practice as mandatory for mastering communication tools needed to understand revelation.',
             },
             {
               kind: "hadith",
@@ -1746,7 +1746,7 @@ Language acquisition research clearly shows that not all methods are equally eff
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The command to read establishes daily practice as the essential discipline for acquiring the linguistic and religious knowledge prioritized in the first divine revelation.',
             },
           ],
           description: `**Why?**
@@ -1788,7 +1788,7 @@ Language acquisition is governed by one fundamental law: frequency beats intensi
               translation: "And We made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine intent for peoples to know one another grounds finding a conversation partner as the practical mechanism for achieving this mandated intercultural connection. [1-3]',
             },
             {
               kind: "hadith",
@@ -1797,7 +1797,7 @@ Language acquisition is governed by one fundamental law: frequency beats intensi
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is a sacred path establishes finding a language partner as a merit-earning step on that divinely sanctioned journey.',
             },
           ],
           description: `**Why?**
@@ -1839,7 +1839,7 @@ You cannot reach intermediate level without speaking. Textbooks and apps build k
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek increased knowledge in Quran 20:114 establishes milestone testing as the mandatory method for measuring and verifying that divinely prioritized growth.',
             },
             {
               kind: "hadith",
@@ -1848,7 +1848,7 @@ You cannot reach intermediate level without speaking. Textbooks and apps build k
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that pursuing knowledge eases the way to Paradise establishes milestone testing as the essential method for measuring and verifying that rewarded journey.',
             },
           ],
           description: `**Why?**
@@ -1903,7 +1903,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
               translation: "Verily, those who disbelieved in the Reminder (i.e. the Qur’ân) when it came to them (shall receive the punishment). And verily, it is an honourable well-fortified respected Book (because it is Allâh’s Speech, and He has protected it from corruption. (See V.15:9)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that the Quran is an honourable and well-fortified Reminder establishes listing essential Islamic texts as the prerequisite for accessing its divinely preserved guidance..',
             },
             {
               kind: "quran",
@@ -1912,7 +1912,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
               translation: "If anyone desires a religion other than Islam (submission to Allah), never will it be accepted of him; and in the Hereafter He will be in the ranks of those who have lost (All spiritual good).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that only Islam is acceptable establishes listing essential books as mandatory for identifying the path to securing spiritual success in the Hereafter [1].',
             },
             {
               kind: "hadith",
@@ -1921,7 +1921,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The command to "Read" in the first revelation establishes listing essential books as the mandatory path for identifying the sources of divinely prioritized knowledge. [1], [2], [3]',
             },
             {
               kind: "hadith",
@@ -1930,7 +1930,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The mandate for genuine comprehension over blind transmission establishes listing essential books as the mandatory path for identifying the verified sources of religious knowledge. [1]',
             },
           ],
           description: `**Why?**
@@ -1969,7 +1969,7 @@ Your Islamic library is the intellectual foundation of your faith. Owning and en
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that religious understanding signifies divine favor establishes listing professional books as mandatory for attaining specialized knowledge that serves the Ummah’s welfare. [1]',
             },
           ],
           description: `**Why?**
@@ -2016,7 +2016,7 @@ Professional excellence (itqan) requires deep knowledge of your field. A curated
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding — who remember Allah while standing, sitting, and on their sides, and reflect upon the creation of the heavens and the earth.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to reflect upon creation establishes listing books on science and history as mandatory for identifying signs of Allah’s wisdom within the universe [1, 2].',
             },
           ],
           description: `**Why?**
@@ -2054,7 +2054,7 @@ A person who only reads within their faith and profession becomes intellectually
               translation: "Read in the name of your Lord who created — created man from a clinging substance. Read, and your Lord is the Most Generous — who taught by the pen — taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to read establishes acquiring books as the mandatory path for securing the knowledge that Allah graciously taught mankind by the pen. [1-3]',
             },
             {
               kind: "hadith",
@@ -2063,7 +2063,7 @@ A person who only reads within their faith and profession becomes intellectually
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise grounds acquiring books as the mandatory path for securing that prioritized spiritual reward. [1]',
             },
           ],
           description: `**Why?**
@@ -2104,7 +2104,7 @@ A list of books you intend to buy "someday" is not a library — it is a wish li
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that wisdom signifies supreme good establishes alternating reading categories as mandatory for synthesizing the diverse knowledge required to attain that spiritual insight. [1, 2]',
             },
             {
               kind: "hadith",
@@ -2113,7 +2113,7 @@ A list of books you intend to buy "someday" is not a library — it is a wish li
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation establishes alternating reading categories as mandatory for securing the diverse proficiency required for spiritual success.',
             },
           ],
           description: `**Why?**
@@ -2173,7 +2173,7 @@ Reading three Islamic books in a row, then five professional books, then four wo
               translation: "The Most Merciful, taught the Quran, created man, and taught him eloquence.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that Allah granted man eloquence establishes defining a thesis as the mandatory application of lucidity to communicate divinely taught knowledge with precision. [1]',
             },
           ],
           description: `**Why?**
@@ -2210,7 +2210,7 @@ Writing without a clear thesis is meandering, not authoring. The thesis is the b
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise grounds detailed outlines as the mandatory method for structuring and mastering prioritized written insights.',
             },
           ],
           description: `**Why?**
@@ -2264,7 +2264,7 @@ An outline is architectural planning for your writing. Just as a building constr
               translation: "Read, and your Lord is the Most Generous — who taught by the pen — taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The principle that Allah taught by the pen establishes drafting as the mandatory method for capturing the prioritized, divinely-taught knowledge He graciously bestows mankind. [1]',
             },
             {
               kind: "quran",

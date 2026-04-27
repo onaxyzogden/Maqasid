@@ -1279,11 +1279,12 @@ The habit of shared learning is more valuable than any single book. Completing o
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5267",
-              translation: "Umar ibn al-Khattab narrated visiting the Prophet (ﷺ) during his withdrawal from his wives in an attic room. He saw the Prophet lying on a mat that left marks on his side. The Prophet had taken an oath to stay away from his wives for one month, but had not divorced them. When Umar wept at the Prophet's austerity compared to the Persians and Romans, the Prophet replied: \"Are you not satisfied that they have the world and we have the Hereafter?\" The narration illustrates the Prophet's patience, justice, and refusal to retaliate harshly during marital disagreements.",
+              translation: "Aishah (RA) narrated the honey incident: the Prophet (SAW) used to drink honey at the home of Zainab bint Jahsh and stay with her. Aishah and Hafsa, jealous of his prolonged stay, agreed to tell him on his return that they detected the smell of Maghafir (a pungent gum) on him. When confronted, the Prophet declared he would never drink that honey again, prompting the Quranic revelation in Surah at-Tahrim concerning the wives' conspiracy.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Hadith cited inline in this subtask's description; backfilled into structured sources via NotebookLM Muslim Scholar canonical-text retrieval. NotebookLM Muslim Scholar identifies the matching content under canonical sunnah.com numbering (Bukhari 5191) — sunnah.com cross-reference verification recommended in scholar polish.",
+              ratNote: "Verified against sunnah.com 2026-04-26 — ref 5267 confirmed as the honey incident; translation field corrected to match (prior text inadvertently rendered the Umar/attic-room narration which is canonically Bukhari 5191).",
+              rationale: "The honey-incident narration directly illustrates the Prophet's patience and dignified handling of jealousy and conspiracy among his wives — concrete evidence for studying his marital conduct rather than an idealised abstraction.",
             },
           ],
           description: `**Why?**
@@ -1582,6 +1583,120 @@ Effort without feedback is guesswork. After two weeks of intentional love-langua
 4. Ask for specific feedback: "What would make you feel even more appreciated? Is there something I'm missing?"
 5. Adjust your approach based on what you learn and continue the daily practice — this is a permanent shift in how you love, not a two-week experiment.`,
         },
+      ],
+    },
+    {
+      title: "Return to family after Asr — restore the prophetic evening presence",
+      priority: "high", tags: ["marriage", "parenting", "sunnah", "transition:after-asr"],
+      description: "The Prophet (SAW) had a daily routine of visiting each of his wives after Asr. He inquired about their state, ate with them, and was fully present — not as a transactional check-in but as a deliberate transition from public work to family life. Recovering this rhythm is the single highest-leverage move available for marriages and parent-child relationships in an attention-fragmented age.",
+      subtasks: [
+        { title: "Block your calendar for family presence every weekday after Asr", done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari directly describes the Prophet's daily after-Asr visit to each wife as established practice, providing explicit prophetic proof for this core scheduling subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 30:21",
+              arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
+              translation: "Another of His signs is that He created spouses from among yourselves for you to live with in tranquillity: He ordained love and kindness between you. There truly are signs in this for those who reflect.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Allah names mawaddah and rahmah as designed-in features of the marriage bond — sustained daily presence is the irreplaceable mechanism by which those qualities are cultivated.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5216",
+              translation: "Aishah (RA) reported: The Messenger of Allah (SAW) used to visit all his wives every day after Asr and inquire after them. When he reached the one whose night it was, he would stay with her.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 5216 confirmed as canonical reference for the after-Asr wife-visitation practice; the closely-related extended honey-incident narration appears at Bukhari 5268.",
+              rationale: "Direct prophetic practice of after-Asr family visitation as a daily fixed rhythm — the operative ground for blocking this time.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) did not "make time" for his family — he scheduled them. Every day, after Asr, he visited each wife. He inquired about her state. He was present. The window between Asr and Maghrib is short, biological (energy is winding down), and almost universally underutilised in modern professional life.
+
+**How?**
+
+1. Open your calendar. Block 16:00-18:00 (or your local Asr-to-Maghrib window) every weekday as "Family — protected".
+2. Treat this block as inviolable as a meeting with your most senior client.
+3. If a meeting must spill into it, end the meeting, do not end the family time.
+4. Benchmark: 4 of 5 weekdays held for two consecutive weeks.` },
+        { title: "Visit each family member individually with a kind word", done: false,
+          tier: "T1",
+          amanahRationale: "The cited hadith describes the Prophet's daily after-Asr visit to each wife with inquiry as the core practice; extending this to all family members in the household is direct application of the prophetic pattern.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5216",
+              translation: "Aishah (RA) reported: The Messenger of Allah (SAW) used to visit all his wives every day after Asr and inquire after them.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 5216 confirmed as canonical reference for the after-Asr wife-visitation practice; the closely-related extended honey-incident narration appears at Bukhari 5268.",
+              rationale: "The hadith specifies inquiry of each wife individually, naming the rotation pattern itself as the sunnah — applicable to spouse-and-children rotation in the modern household.",
+            },
+          ],
+          description: `**Why?**
+
+Group presence is not the same as individual presence. A father who is in the same room as four children while answering email is not present with any of them. The Prophet's after-Asr practice was specifically a rotation — one person at a time, with full attention. This is what produces the felt sense of being seen, which is what builds attachment.
+
+**How?**
+
+1. List every member of your household.
+2. Each weekday after Asr, visit each one individually for 3-5 minutes — find them where they are, ask one specific question, listen to the answer.
+3. Touch on something specific to them, not a generic "how was your day".
+4. Benchmark: every household member receives an individual visit on 4 of 5 weekdays for two weeks.` },
+        { title: "Take a short walk together or share a small task", done: false,
+          tier: "T2",
+          amanahRationale: "The cited ayah on mawaddah and rahmah grounds the cultivation of family bonds; shoulder-to-shoulder activities are contextual application that builds the bond named in the verse.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 30:21",
+              arabic: "وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
+              translation: "He ordained love and kindness between you.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "Mawaddah and rahmah are cultivated through shared embodied activity — walks and small joint tasks instantiate the bond the ayah describes.",
+            },
+          ],
+          description: `**Why?**
+
+Therapists call it "shoulder-to-shoulder vs face-to-face" time. Direct eye contact triggers evaluation; side-by-side activity creates closeness without pressure. A 15-minute walk after Asr accomplishes more relational work than a 60-minute scheduled "talk".
+
+**How?**
+
+1. Pick one shoulder-to-shoulder activity that fits your context — walk to the local masjid for Maghrib, prepare iftar together in Ramadan, water the garden together, fold laundry side by side.
+2. Do not put this on a phone calendar — let it be embedded in the after-Asr block.
+3. No screens during the activity. The whole point is undivided embodied presence.
+4. Benchmark: 3 of 5 weekdays for two consecutive weeks.` },
+        { title: "Establish a phones-down protocol during the after-Asr family window", done: false,
+          tier: "T1",
+          amanahRationale: "The cited ayah names mawaddah and rahmah as designed features of the family bond; contemporary application requires removing the most pervasive attentional intruder for the bond to be cultivated as designed.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 30:21",
+              arabic: "لِّتَسْكُنُوا إِلَيْهَا",
+              translation: "For you to live with in tranquillity.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "Sakinah cannot coexist with the constant micro-disruptions of an active phone in the room; honouring the ayah's purpose requires removing the disruption.",
+            },
+          ],
+          description: `**Why?**
+
+Sakinah is the Quranic word for the calm presence Allah designed marriage to produce. A phone face-up on the table cuts that sakinah by half before a single notification arrives — the brain monitors the device for change. Removing it is the single highest-leverage gesture in modern marriage.
+
+**How?**
+
+1. Pick a physical "phone parking" location outside the main living space — a basket on a high shelf, a drawer in the hallway.
+2. From the moment Asr is prayed until Maghrib, both spouses (and ideally older children) park their phones there.
+3. If you must check something work-critical, walk to the parking location to do it — do not bring the phone back into the family space.
+4. Benchmark: 4 of 5 weekdays for two consecutive weeks. Expect the first 3 days to feel uncomfortable.` },
       ],
     },
   ],

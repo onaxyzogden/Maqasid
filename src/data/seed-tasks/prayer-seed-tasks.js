@@ -293,7 +293,8 @@ const PRAYER_GUIDE = {
             relevance: "direct",
             provenanceTier: "Bayyinah",
             hadithGrade: "Sahih (agreed upon — Bukhari and Muslim)",
-            rationale: "The canonical anchor for any optional pre-fard nafl. Establishes that praying between the adhan and iqama for any salah — including Isha — is a meritorious sunnah open to whoever wishes; grounds the optional 4 rakʿat before Isha as a non-muʾakkadah but prophetically encouraged practice. NotebookLM Muslim Scholar canonical-text retrieval; modern sunnah.com numbering Bukhari 627 / Muslim 838 (Muslim Scholar PDF used an older edition listing the same narration under Bukhari 597/600 and Muslim 1822) — sunnah.com cross-reference verification recommended in scholar polish."
+            rationale: "The canonical anchor for any optional pre-fard nafl. Establishes that praying between the adhan and iqama for any salah — including Isha — is a meritorious sunnah open to whoever wishes; grounds the optional 4 rakʿat before Isha as a non-muʾakkadah but prophetically encouraged practice.",
+            ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 627 and Muslim 838 both confirmed (Muslim 838 = USC-MSA Book 4 Hadith 1822, same narration under older edition numbering). Earlier PDF references to Bukhari 597/600 reflect the same narration in pre-Fath edition numbering."
           }
         ]
       },
@@ -497,6 +498,39 @@ function classifyTask(task) {
   }
   if (hasTag(task, 'transition:bedtime')) {
     return ['prayer_isha_after'];
+  }
+  if (hasTag(task, 'transition:witr')) {
+    return ['prayer_isha_after'];
+  }
+  if (hasTag(task, 'transition:qiyam-rest')) {
+    return ['prayer_isha_after'];
+  }
+  if (hasTag(task, 'transition:sahari')) {
+    return ['prayer_fajr_before'];
+  }
+  if (hasTag(task, 'transition:jumuah')) {
+    return ['prayer_dhuhr_before'];
+  }
+  if (hasTag(task, 'transition:istijabah-hour')) {
+    return ['prayer_maghrib_before'];
+  }
+  if (hasTag(task, 'transition:maghrib-iftar')) {
+    return ['prayer_maghrib_before'];
+  }
+  if (hasTag(task, 'transition:isha-taraweeh')) {
+    return ['prayer_isha_after'];
+  }
+  if (hasTag(task, 'transition:laylat-al-qadr')) {
+    return ['prayer_tahajjud_before'];
+  }
+  if (hasTag(task, 'transition:eid-prayer')) {
+    return ['prayer_fajr_after'];
+  }
+  if (hasTag(task, 'transition:traveler-departure')) {
+    return ['prayer_dhuhr_before'];
+  }
+  if (hasTag(task, 'transition:traveler-arrival')) {
+    return ['prayer_maghrib_after'];
   }
 
   // Generic sunan — duplicate across all five daily prayers.

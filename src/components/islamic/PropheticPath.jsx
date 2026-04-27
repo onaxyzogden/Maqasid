@@ -15,11 +15,21 @@ import {
   Bed,
   BedDouble,
   Home,
+  Star,
+  MoonStar,
+  UtensilsCrossed,
+  Users,
+  HandHeart,
+  Soup,
+  Plane,
+  MapPin,
 } from 'lucide-react';
 import { useSettingsStore } from '@store/settings-store';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
+import { useFastingStore } from '@store/fasting-store';
+import { useTravelStore } from '@store/travel-store';
 import { usePrayerTimes } from '@hooks/usePrayerTimes';
 import { MODULES, PRIORITIES } from '@data/modules';
 import { MAQASID_PILLARS } from '@data/maqasid';
@@ -31,6 +41,9 @@ import {
   submodulesForNode,
   LEVEL_LABEL,
   LEVEL_FULL_LABEL,
+  isRamadan as isHijriRamadan,
+  isEidFitr,
+  isEidAdha,
 } from '@data/prophetic-path-submodules';
 import {
   getSubmoduleDisplayLabel,
@@ -91,18 +104,77 @@ const DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' };
 // and never become active. 15 min mirrors PHASE_DURING_MIN in the right rail.
 const NODE_TIMING = {
   isha:           { key: 'Isha',      label: null },
+  witr:           { key: 'Isha',      label: 'Witr',     offsetMin: 45 },
   bedtime:        { key: 'Isha',      label: 'Bedtime',  offsetMin: 60 },
+  'qiyam-rest':   { key: 'Lastthird', label: 'Qiyam Rest', offsetMin: -90 },
   tahajjud:       { key: 'Lastthird', label: 'Last Third' },
+  sahari:         { key: 'Imsak',     label: 'Sahari' },
   fajr:           { key: 'Fajr',      label: null },
   duha:           { key: 'Sunrise',   label: 'Duha',     offsetMin: 20 },
+  'eid-prayer':   { key: 'Sunrise',   label: 'Eid Prayer', offsetMin: 30 },
   morning:        { key: 'Sunrise',   label: 'Sunrise',  offsetMin: 60 },
   qaylulah:       { key: 'Dhuhr',     label: 'Qaylulah', offsetMin: -45 },
   dhuhr:          { key: 'Dhuhr',     label: null },
+  jumuah:         { key: 'Dhuhr',     label: 'Jumu\u02bbah' },
   'midday-labor': { key: 'Dhuhr',     label: 'After Dhuhr', offsetMin: 15 },
   asr:            { key: 'Asr',       label: null },
   'after-asr':    { key: 'Asr',       label: 'After Asr', offsetMin: 30 },
+  'istijabah-hour': { key: 'Maghrib', label: 'Hour of Istijabah', offsetMin: -60 },
   maghrib:        { key: 'Maghrib',   label: null },
+  'maghrib-iftar': { key: 'Maghrib',  label: 'Iftar' },
+  'isha-taraweeh': { key: 'Isha',     label: 'Taraweeh', offsetMin: 30 },
 };
+
+// Day-of-week branching: Fridays render `jumuah` + `istijabah-hour` and hide
+// `dhuhr` (jumuah replaces it). Non-Fridays render `dhuhr` and hide both
+// Friday-only nodes. This is the only day-of-week split in the spine.
+function isFriday(date = new Date()) {
+  return date.getDay() === 5;
+}
+
+const FRIDAY_ONLY_NODE_IDS = new Set(['jumuah', 'istijabah-hour']);
+const NON_FRIDAY_HIDE_ON_FRIDAY = new Set(['dhuhr']);
+
+// Fasting-state branching: when isFasting, surface iftar at maghrib + sahari
+// stays. When isRamadan, surface taraweeh after isha. (sahari already exists
+// in the spine as an unconditional barakah moment.)
+const FASTING_ONLY_NODE_IDS = new Set(['maghrib-iftar']);
+const RAMADAN_ONLY_NODE_IDS = new Set(['isha-taraweeh']);
+
+// Eid branching: on Eid al-Fitr (1 Shawwal) or Eid al-Adha (10 Dhul-Hijjah),
+// `eid-prayer` replaces the duha slot. Tashreeq (11–13 Dhul-Hijjah) does NOT
+// re-render eid-prayer — its takbir + dhikr content overlays via TIME_CONTENT.
+const EID_ONLY_NODE_IDS = new Set(['eid-prayer']);
+const NON_EID_HIDE_ON_EID = new Set(['duha']);
+
+// Travel branching: on travel days `jumuah` is not obligatory — the traveler
+// prays Dhuhr (qasr) instead. So when traveling on a Friday, suppress jumuah
+// and surface dhuhr; istijabah-hour still applies. Qasr framing for the four-
+// rakʿat prayers is content-only (see TIME_CONTENT TRAVELER_NOTES).
+const TRAVEL_HIDE_NODE_IDS = new Set(['jumuah']);
+
+function getActiveNodeTiming(date = new Date(), {
+  isFasting = false,
+  isRamadan: ramadan = false,
+  isEid = false,
+  isTraveling = false,
+} = {}) {
+  const friday = isFriday(date);
+  const out = {};
+  for (const [id, spec] of Object.entries(NODE_TIMING)) {
+    // Friday/travel inversion: when traveling on Friday, dhuhr returns and
+    // jumuah hides — overrides the default Friday filter for these two ids.
+    if (friday && !isTraveling && NON_FRIDAY_HIDE_ON_FRIDAY.has(id)) continue;
+    if (!friday && FRIDAY_ONLY_NODE_IDS.has(id)) continue;
+    if (friday && isTraveling && TRAVEL_HIDE_NODE_IDS.has(id)) continue;
+    if (FASTING_ONLY_NODE_IDS.has(id) && !isFasting) continue;
+    if (RAMADAN_ONLY_NODE_IDS.has(id) && !ramadan) continue;
+    if (EID_ONLY_NODE_IDS.has(id) && !isEid) continue;
+    if (isEid && NON_EID_HIDE_ON_EID.has(id)) continue;
+    out[id] = spec;
+  }
+  return out;
+}
 
 function effectiveAnchorMs(spec, timings, today) {
   const ms = timeToMs(timings[spec.key], today);
@@ -141,14 +213,14 @@ function timeToMs(raw, today) {
 // Compute the node whose anchor is the most-recent past anchor — i.e. now
 // sits inside [thisNodeAnchor, nextNodeAnchor). Applies to all 8 nodes so
 // Tahajjud / Morning / Midday-Labor can be 'active' during their window.
-function computeActiveNodeId(timings) {
+function computeActiveNodeId(timings, opts = {}) {
   if (!timings) return null;
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const ONE_DAY = 24 * 60 * 60 * 1000;
   let bestId = null;
   let bestDiff = Infinity;
-  for (const [nodeId, spec] of Object.entries(NODE_TIMING)) {
+  for (const [nodeId, spec] of Object.entries(getActiveNodeTiming(now, opts))) {
     const ms = effectiveAnchorMs(spec, timings, today);
     if (ms == null) continue;
     let diff = now.getTime() - ms;
@@ -161,14 +233,14 @@ function computeActiveNodeId(timings) {
   return bestId;
 }
 
-function computeNextNodeId(timings) {
+function computeNextNodeId(timings, opts = {}) {
   if (!timings) return null;
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const ONE_DAY = 24 * 60 * 60 * 1000;
   let bestId = null;
   let bestDiff = Infinity;
-  for (const [nodeId, spec] of Object.entries(NODE_TIMING)) {
+  for (const [nodeId, spec] of Object.entries(getActiveNodeTiming(now, opts))) {
     const ms = effectiveAnchorMs(spec, timings, today);
     if (ms == null) continue;
     let diff = ms - now.getTime();
@@ -247,6 +319,21 @@ const NODES = [
     markerTone: 'primary',
   },
   {
+    id: 'maghrib-iftar',
+    cardStyle: 'subtle',
+    eyebrow: 'Iftar',
+    eyebrowTone: 'secondary',
+    title: 'Break the Fast',
+    titleTone: 'on-surface',
+    body: 'The thirst is gone, the veins are moistened, and the reward is fixed if Allah wills — the iftar moment carries an answered du\u02bba.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Life', tone: 'secondary' },
+    ],
+    Icon: Soup,
+    markerTone: 'secondary',
+  },
+  {
     id: 'isha',
     cardStyle: 'muted',
     eyebrow: 'Late Night',
@@ -257,6 +344,33 @@ const NODES = [
     pillars: [{ label: 'Faith', tone: 'secondary' }],
     Icon: Moon,
     markerTone: 'muted',
+  },
+  {
+    id: 'isha-taraweeh',
+    cardStyle: 'subtle',
+    eyebrow: 'Taraweeh',
+    eyebrowTone: 'secondary',
+    title: 'Stand the Night in Ramadan',
+    titleTone: 'on-surface',
+    body: 'Whoever stands the nights of Ramadan in faith, seeking reward, has all prior sins forgiven — the night prayer of this month.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Community', tone: 'secondary' },
+    ],
+    Icon: BookOpen,
+    markerTone: 'secondary',
+  },
+  {
+    id: 'witr',
+    cardStyle: 'subtle',
+    eyebrow: 'Witr',
+    eyebrowTone: 'secondary',
+    title: 'Salat al-Witr',
+    titleTone: 'on-surface',
+    body: 'Seal the night with the odd prayer the Prophet \uFDFA never abandoned in residence or travel.',
+    pillars: [{ label: 'Faith', tone: 'secondary' }],
+    Icon: Star,
+    markerTone: 'secondary',
   },
   {
     id: 'bedtime',
@@ -274,6 +388,18 @@ const NODES = [
     markerTone: 'muted',
   },
   {
+    id: 'qiyam-rest',
+    cardStyle: 'subtle',
+    eyebrow: 'Qiyam Rest',
+    eyebrowTone: 'secondary',
+    title: 'Sleep with Niyyah',
+    titleTone: 'on-surface',
+    body: 'The deliberate sleep aimed at rising for tahajjud — even if you do not wake, the niyyah is recorded as charity.',
+    pillars: [{ label: 'Faith', tone: 'secondary' }],
+    Icon: MoonStar,
+    markerTone: 'secondary',
+  },
+  {
     id: 'tahajjud',
     cardStyle: 'divine',
     eyebrow: 'Divine Moment',
@@ -288,6 +414,21 @@ const NODES = [
     Icon: Sparkles,
     markerTone: 'tertiary',
     pulse: true,
+  },
+  {
+    id: 'sahari',
+    cardStyle: 'subtle',
+    eyebrow: 'Sahari',
+    eyebrowTone: 'secondary',
+    title: 'Pre-Dawn Meal',
+    titleTone: 'on-surface',
+    body: 'There is barakah in suhur — and the meal before dawn distinguishes our fast from those before us.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Life', tone: 'secondary' },
+    ],
+    Icon: UtensilsCrossed,
+    markerTone: 'secondary',
   },
   {
     id: 'fajr',
@@ -318,6 +459,21 @@ const NODES = [
     ],
     Icon: Sun,
     markerTone: 'secondary',
+  },
+  {
+    id: 'eid-prayer',
+    cardStyle: 'primary',
+    eyebrow: 'Eid',
+    eyebrowTone: 'primary',
+    title: 'Salat al-\u02bb\u012Bd',
+    titleTone: 'on-surface',
+    body: 'The two rak\u02bbahs of the festival prayer — sunan mu\u02bbakkadah of Ramadan\u2019s seal and the day of sacrifice. The takbir continues.',
+    pillars: [
+      { label: 'Faith', tone: 'primary' },
+      { label: 'Community', tone: 'secondary' },
+    ],
+    Icon: Sparkles,
+    markerTone: 'primary',
   },
   {
     id: 'morning',
@@ -358,6 +514,21 @@ const NODES = [
     body: 'A spiritual reset amidst the hustle. Realignment with primary purpose.',
     pillars: [{ label: 'Faith', tone: 'primary' }],
     Icon: Sun,
+    markerTone: 'primary',
+  },
+  {
+    id: 'jumuah',
+    cardStyle: 'primary',
+    eyebrow: 'Friday',
+    eyebrowTone: 'primary',
+    title: "Jumu\u02bbah",
+    titleTone: 'on-surface',
+    body: 'The weekly congregation — ghusl, white clothes, miswak, surah al-Kahf, abundant salawat. Jumu\u02bbah replaces dhuhr today.',
+    pillars: [
+      { label: 'Faith', tone: 'primary' },
+      { label: 'Community', tone: 'secondary' },
+    ],
+    Icon: Users,
     markerTone: 'primary',
   },
   {
@@ -402,6 +573,55 @@ const NODES = [
       { label: 'Family', tone: 'secondary' },
     ],
     Icon: Home,
+    markerTone: 'secondary',
+  },
+  {
+    id: 'istijabah-hour',
+    cardStyle: 'subtle',
+    eyebrow: 'Istijabah',
+    eyebrowTone: 'secondary',
+    title: 'Hour of Acceptance',
+    titleTone: 'on-surface',
+    body: 'The last hour before Maghrib on Friday — the hour in which no Muslim asks Allah for good but it is granted.',
+    pillars: [{ label: 'Faith', tone: 'secondary' }],
+    Icon: HandHeart,
+    markerTone: 'secondary',
+  },
+];
+
+// Ephemeral event nodes — not time-anchored, surface for a 60-minute window
+// after a travel toggle flip. Rendered above the regular spine row.
+const EVENT_TRIGGER_WINDOW_MS = 60 * 60 * 1000;
+
+const EVENT_NODES = [
+  {
+    id: 'traveler-departure',
+    cardStyle: 'subtle',
+    eyebrow: 'Departure',
+    eyebrowTone: 'secondary',
+    title: 'Begin the Journey',
+    titleTone: 'on-surface',
+    body: 'On mounting the conveyance, the Prophet \uFDFA said takbir three times and recited the du\u02bba\u02bb of travel. Begin with His name; on Him alone you rely.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Ummah', tone: 'secondary' },
+    ],
+    Icon: Plane,
+    markerTone: 'secondary',
+  },
+  {
+    id: 'traveler-arrival',
+    cardStyle: 'subtle',
+    eyebrow: 'Arrival',
+    eyebrowTone: 'secondary',
+    title: 'Return Home',
+    titleTone: 'on-surface',
+    body: 'Returning, the Prophet \uFDFA said: \u201C\u02bbA\u02beibun, ta\u02beibun, \u02bbabidun, li-rabbina hamidun\u201D — turning back, repenting, worshipping, praising our Lord.',
+    pillars: [
+      { label: 'Faith', tone: 'secondary' },
+      { label: 'Family', tone: 'secondary' },
+    ],
+    Icon: MapPin,
     markerTone: 'secondary',
   },
 ];
@@ -582,10 +802,6 @@ function MirrorCard({
           ))}
         </div>
       ))}
-      <Link to="/app/work" className="pp-mirror-footer">
-        <span>View all in Work</span>
-        <ArrowRight size={14} strokeWidth={2} />
-      </Link>
     </aside>
   );
 }
@@ -784,18 +1000,86 @@ export default function PropheticPath({ variant }) {
         .filter(Boolean),
     [niyyahFocus]
   );
-  const { timings, cityName, loading: prayerLoading, error: prayerError, requestLocation } = usePrayerTimes();
+  const { timings, hijri, cityName, loading: prayerLoading, error: prayerError, requestLocation } = usePrayerTimes();
+  const userOverride = useFastingStore((s) => s.userOverride);
+  const computeIsFasting = useFastingStore((s) => s.computeIsFasting);
+  const travelActive = useTravelStore((s) => s.active);
+  const travelStartedAt = useTravelStore((s) => s.startedAt);
+  const travelEndedAt = useTravelStore((s) => s.endedAt);
+  const getIsTraveling = useTravelStore((s) => s.getIsTraveling);
+  const ramadan = isHijriRamadan(hijri);
+  // userOverride subscription keeps fasting reactive when the user toggles
+  // the manual sunnah-fast switch outside Ramadan. travelActive/startedAt/
+  // endedAt likewise force re-renders on travel toggle for qasr filters and
+  // event-node trigger windows.
+  void userOverride; void travelActive; void travelStartedAt; void travelEndedAt;
+  const fasting = computeIsFasting(hijri);
+  const eid = isEidFitr(hijri) || isEidAdha(hijri);
+  const traveling = getIsTraveling();
+  // Stable shallow object keyed by primitives — reused across memos so each
+  // recomputes only when a flag flips, not on every render.
+  const dayFlags = useMemo(
+    () => ({ isFasting: fasting, isRamadan: ramadan, isEid: eid, isTraveling: traveling }),
+    [fasting, ramadan, eid, traveling]
+  );
   const prayerDegraded = !timings && !prayerLoading;
-  const nextNodeId = useMemo(() => computeNextNodeId(timings), [timings]);
-  const activeNodeId = useMemo(() => computeActiveNodeId(timings), [timings]);
+  const nextNodeId = useMemo(() => computeNextNodeId(timings, dayFlags), [timings, dayFlags]);
+  const activeNodeId = useMemo(() => computeActiveNodeId(timings, dayFlags), [timings, dayFlags]);
+  const dayNodes = useMemo(() => {
+    const friday = isFriday(new Date());
+    return NODES.filter((n) => {
+      if (friday && !traveling && NON_FRIDAY_HIDE_ON_FRIDAY.has(n.id)) return false;
+      if (!friday && FRIDAY_ONLY_NODE_IDS.has(n.id)) return false;
+      if (friday && traveling && TRAVEL_HIDE_NODE_IDS.has(n.id)) return false;
+      if (FASTING_ONLY_NODE_IDS.has(n.id) && !fasting) return false;
+      if (RAMADAN_ONLY_NODE_IDS.has(n.id) && !ramadan) return false;
+      if (EID_ONLY_NODE_IDS.has(n.id) && !eid) return false;
+      if (eid && NON_EID_HIDE_ON_EID.has(n.id)) return false;
+      return true;
+    });
+  }, [fasting, ramadan, eid, traveling]);
   const orderedNodes = useMemo(() => {
-    const idx = NODES.findIndex((n) => n.id === activeNodeId);
-    if (idx <= 0) return NODES;
-    return [...NODES.slice(idx), ...NODES.slice(0, idx)];
-  }, [activeNodeId]);
+    const idx = dayNodes.findIndex((n) => n.id === activeNodeId);
+    if (idx <= 0) return dayNodes;
+    return [...dayNodes.slice(idx), ...dayNodes.slice(0, idx)];
+  }, [activeNodeId, dayNodes]);
+
+  // Ephemeral event-node tick — re-renders once a minute while a travel
+  // toggle window is potentially active so the departure/arrival cards
+  // disappear when the 60-minute window closes.
+  const [eventTick, setEventTick] = useState(0);
+  useEffect(() => {
+    const inWindow = (ts) => Number.isFinite(ts) && Date.now() - ts < EVENT_TRIGGER_WINDOW_MS;
+    if (!inWindow(travelStartedAt) && !inWindow(travelEndedAt)) return undefined;
+    const id = setInterval(() => setEventTick((t) => t + 1), 60_000);
+    return () => clearInterval(id);
+  }, [travelStartedAt, travelEndedAt]);
+
+  const eventNodes = useMemo(() => {
+    void eventTick;
+    const out = [];
+    const now = Date.now();
+    if (
+      traveling
+      && Number.isFinite(travelStartedAt)
+      && now - travelStartedAt < EVENT_TRIGGER_WINDOW_MS
+    ) {
+      const n = EVENT_NODES.find((x) => x.id === 'traveler-departure');
+      if (n) out.push(n);
+    }
+    if (
+      !traveling
+      && Number.isFinite(travelEndedAt)
+      && now - travelEndedAt < EVENT_TRIGGER_WINDOW_MS
+    ) {
+      const n = EVENT_NODES.find((x) => x.id === 'traveler-arrival');
+      if (n) out.push(n);
+    }
+    return out;
+  }, [traveling, travelStartedAt, travelEndedAt, eventTick]);
   const activeNode = useMemo(
-    () => NODES.find((n) => n.id === activeNodeId) || null,
-    [activeNodeId]
+    () => dayNodes.find((n) => n.id === activeNodeId) || null,
+    [activeNodeId, dayNodes]
   );
   const bookends = useMemo(() => {
     if (!timings) return null;
@@ -941,6 +1225,26 @@ export default function PropheticPath({ variant }) {
               </div>
             )}
 
+            {eventNodes.length > 0 && (
+              <div className="pp-spine pp-spine--events">
+                {eventNodes.map((node) => (
+                  <TimelineNode
+                    key={node.id}
+                    node={node}
+                    expandedSlot={expanded && expanded.nodeId === node.id ? expanded.slot : null}
+                    onToggle={toggleNode}
+                    projects={projects}
+                    tasksByProject={tasksByProject}
+                    submoduleNameById={submoduleNameById}
+                    onSelectTask={openTask}
+                    onSelectProject={setSlideUpProjectId}
+                    onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
+                    onOpenPrayer={setSlideUpPrayerNodeId}
+                    timing={null}
+                  />
+                ))}
+              </div>
+            )}
             <div className="pp-spine">
               {orderedNodes.map((node) => (
                 <TimelineNode

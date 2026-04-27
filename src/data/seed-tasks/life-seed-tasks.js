@@ -1380,6 +1380,118 @@ Medications expire, bandages degrade, and supplies get used without being replac
 Set a recurring calendar reminder every six months — a good anchor is the start of Ramadan and six months after. When the reminder fires, open the kit and check every item: discard expired medications and replace them, restock any used bandages or supplies, and verify the emergency contacts card is current. The entire check takes less than 15 minutes.` },
       ],
     },
+    {
+      title: "Qaylulah — implement the prophetic midday rest",
+      priority: "medium", tags: ["rest", "sleep", "sunnah", "transition:qaylulah"],
+      description: "Qaylulah is the brief midday rest the Prophet (SAW) and his companions practised before Dhuhr. Allah names sleep among His signs, and a short midday pause restores afternoon alertness and offsets the sleep debt that night-prayer practice accumulates. The companions treated qaylulah as fuel for ibadah, not an alternative to it.",
+      subtasks: [
+        { title: "Schedule a 15-30 minute midday rest 5 days this week", done: false,
+          tier: "T1",
+          amanahRationale: "The Quranic ayah identifies daytime sleep as among Allah's signs, and the cited hasan hadith from al-Tabarani's al-Mu'jam al-Awsat directly recommends qaylulah; together they ground the core establishment subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 30:23",
+              arabic: "وَمِنْ آيَاتِهِ مَنَامُكُم بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُم مِّن فَضْلِهِ ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَسْمَعُونَ",
+              translation: "Among His signs are your sleep, by night and by day, and your seeking His bounty. There truly are signs in this for those who can hear.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Allah explicitly names daytime sleep among His signs alongside night-sleep — direct Quranic affirmation of qaylulah as a designed-into-creation pattern.",
+            },
+            {
+              kind: "hadith",
+              ref: "al-Tabarani al-Mu'jam al-Awsat 5662",
+              translation: "The Prophet (SAW) said: \"Take a midday nap, for the shayateen do not take a midday nap.\"",
+              relevance: "direct",
+              provenanceTier: "Qarina",
+              hadithGrade: "Hasan",
+              ratNote: "Verified 2026-04-26 — al-Tabarani al-Mu'jam al-Awsat 5662 is not indexed on sunnah.com (sunnah.com hosts Adab al-Mufrad 1239–1240 on qaylulah but not Tabarani's Awsat collection); the qaylulah hadith 'qilu fa-inna al-shayatina la taqilu' is graded hasan by al-Albani in Sahih al-Jami al-Saghir 4431, which is the standard secondary canonical anchor.",
+              rationale: "Direct prophetic recommendation of qaylulah, framed as a sunnah that distinguishes the believer's rhythm from shaytan's — the operative ground for establishing the practice.",
+            },
+          ],
+          description: `**Why?**
+
+Qaylulah is one of the rare practices where prophetic guidance and modern sleep science converge entirely. The Prophet (SAW) recommended it; nap research consistently shows 15-30 minute midday naps improve cognitive performance, mood, and afternoon alertness without disrupting nighttime sleep.
+
+**How?**
+
+1. Block 15-30 minutes between 12:00 and 13:30 in your calendar — title it "Qaylulah".
+2. The window must close before Dhuhr so qaylulah does not eat into prayer time.
+3. Use a sleep mask or dim the room. Set an alarm. Lie on your right side.
+4. If you cannot sleep, lie quietly with eyes closed — the rest itself is the sunnah.
+5. Benchmark: 5 of 7 days for two consecutive weeks.` },
+        { title: "Use qaylulah strategically to enable qiyam al-layl", done: false,
+          tier: "T2",
+          amanahRationale: "The cited ayah praises those who remember Allah lying down across day and night; qaylulah's classical function is to offset the sleep debt that night prayer creates — contextual, not direct, application.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 3:190-191",
+              arabic: "إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ ۝ الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ",
+              translation: "There truly are signs in the creation of the heavens and earth, and in the alternation of night and day, for those with understanding, who remember God standing, sitting, and lying down.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "The Quran praises those whose dhikr spans every posture across day and night — qaylulah is the sleep that makes lying-down dhikr in the last third of the night sustainable.",
+            },
+          ],
+          description: `**Why?**
+
+Tahajjud is biologically expensive. The classical scholars treated qaylulah as the engine that funds it: a 20-minute midday rest offsets enough sleep debt to make 2-3am wakings sustainable for years rather than weeks. If you have ever started qiyam strong and burnt out by month 2, the missing piece was almost certainly the daytime nap.
+
+**How?**
+
+1. If you currently pray tahajjud, log your wake-time and energy on days you nap vs. days you do not.
+2. If you do not yet pray tahajjud, install qaylulah first for one month, then start tahajjud — you will compound the habit much more reliably.
+3. Treat qaylulah as a fixed input, not a luxury you cut on busy days. Busy days are when you need it most.
+4. Benchmark: tahajjud sustained 4+ nights/week with qaylulah on the same days, for one full month.` },
+        { title: "Optimise the qaylulah environment — dark, quiet, brief", done: false,
+          tier: "T2",
+          amanahRationale: "Sleep-quality optimisation is contextual application of the broader Quranic framing of sleep as a sign and mercy; the specific environmental controls do not appear in revelation but follow from treating the rest as ibadah.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 25:47",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
+              translation: "It is He who made the night a garment for you, and sleep a rest, and made the day like a resurrection.",
+              relevance: "thematic",
+              provenanceTier: "Bayyinah",
+              rationale: "The Quran identifies sleep as a designed mercy of rest — environmental controls are contextual application that honours the design.",
+            },
+          ],
+          description: `**Why?**
+
+A 20-minute nap in a noisy, bright room delivers maybe 5 minutes of actual restorative rest. The same 20 minutes in a dark, cool, quiet space delivers near the full benefit. The cost of optimising the environment once is paid back every day for the rest of your career.
+
+**How?**
+
+1. Choose the same location every day — a couch, a bedroom, even a parked car at lunch.
+2. Block light: blackout curtains, sleep mask, or a hoodie pulled over your eyes.
+3. Block sound: foam earplugs cost $5 and remove the highest disruptor.
+4. Cap duration at 30 minutes — beyond that you enter deep sleep and wake groggy.
+5. Benchmark: you wake refreshed without needing the alarm 4 of 5 nap days.` },
+        { title: "Set the niyyah — qaylulah as ibadah, not laziness", done: false,
+          tier: "T2",
+          amanahRationale: "The foundational hadith of niyyah governs every action — naming qaylulah as a sunnah enacted in obedience is direct application of the universal rule.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1",
+              translation: "Umar ibn al-Khattab (RA) reported: The Messenger of Allah (SAW) said: \"Actions are but by intentions, and every man shall have only that which he intended.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "The foundational hadith of niyyah governs every action — qaylulah without intention is rest; with intention it becomes a sunnah enacted in obedience.",
+            },
+          ],
+          description: `**Why?**
+
+The hadith of niyyah is the universal lever — it transforms the same 20 minutes of horizontal stillness into either nothing or worship. Without the intention, qaylulah is a habit you may eventually feel guilty about. With it, qaylulah is a daily act of obedience to a sunnah of the Prophet (SAW).
+
+**How?**
+
+Before lying down, silently say: "Ya Allah, I take this rest as a sunnah of Your Messenger (SAW), and to fuel my qiyam tonight." Keep the formula short so it survives drowsiness. After two weeks the niyyah becomes automatic.` },
+      ],
+    },
   ],
   life_physical_excellence: [
     {

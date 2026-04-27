@@ -69,6 +69,7 @@ function getNextPrayer(timings) {
 
 export function usePrayerTimes() {
   const [timings, setTimings] = useState(safeGetJSON('prayer_timings', null));
+  const [hijri, setHijri] = useState(safeGetJSON('prayer_hijri', null));
   const [nextPrayer, setNextPrayer] = useState(null);
   const [activePrayer, setActivePrayer] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -88,11 +89,16 @@ export function usePrayerTimes() {
       if (!res.ok) throw new Error('Failed to fetch prayer times');
       const data = await res.json();
       const t = data?.data?.timings;
+      const h = data?.data?.date?.hijri;
       if (t) {
         setTimings(t);
         safeSet('prayer_timings', t);
         safeSet('prayer_date', `${yyyy}-${mm}-${dd}`);
         safeSet('prayer_coords', { lat, lng });
+      }
+      if (h) {
+        setHijri(h);
+        safeSet('prayer_hijri', h);
       }
       // Reverse geocode for city name (Nominatim, free, no key)
       try {
@@ -169,6 +175,7 @@ export function usePrayerTimes() {
     const cachedDate = safeGetJSON('prayer_date', null);
     const coords = safeGetJSON('prayer_coords', null);
     const cachedCity = safeGetJSON('prayer_city', null);
+    const cachedHijri = safeGetJSON('prayer_hijri', null);
     const today = new Date();
     const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
@@ -176,6 +183,7 @@ export function usePrayerTimes() {
 
     if (cached && cachedDate === todayStr) {
       setTimings(cached);
+      if (cachedHijri) setHijri(cachedHijri);
     } else if (coords) {
       // Refresh for today
       fetchTimings(coords.lat, coords.lng);
@@ -221,6 +229,7 @@ export function usePrayerTimes() {
 
   return {
     timings,
+    hijri,
     nextPrayer,
     activePrayer,
     loading,

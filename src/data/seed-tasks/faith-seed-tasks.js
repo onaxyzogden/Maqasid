@@ -4861,6 +4861,841 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
         },
       ],
     },
+    {
+      title: "Salat ad-Duha — establish the post-sunrise charity of the joints",
+      priority: "high", tags: ["salah", "sunnah", "transition:duha"],
+      description: "Salat ad-Duha is the prophetic morning prayer offered after the sun has fully risen. The Prophet (SAW) taught that two rak'at of Duha discharge a sadaqah owed by every joint in the body, making it the most efficient daily voluntary act of worship for the body Allah has entrusted to you.",
+      subtasks: [
+        { title: "Pray 2 rak'at of Duha at least 5 days this week", done: false,
+          tier: "T1",
+          amanahRationale: "Sahih Muslim explicitly fixes two rak'ahs of Duha as the sufficient discharge of the sadaqah owed by every joint, providing direct prophetic proof for the core establishment subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 93:1-5",
+              arabic: "وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ ۝ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ۝ وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ ۝ وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",
+              translation: "By the morning brightness, and by the night when it grows still, your Lord has not forsaken you, nor does He hate you, and the future will be better for you than the past; your Lord is sure to give you so much that you will be well satisfied.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Allah's oath upon the morning brightness in Surah ad-Duha sanctifies this hour as a window of nearness, naming the time the prayer takes its name from.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 720",
+              translation: "The Prophet (SAW) said: \"In the morning charity is due from every bone in the body of every one of you. Every utterance of glorification of Allah is an act of charity. Every utterance of praise of Him is an act of charity, every utterance of profession of His Oneness is an act of charity, every utterance of profession of His Greatness is an act of charity, enjoining good is an act of charity, forbidding evil is an act of charity, and two rak'ahs which one prays in the forenoon will suffice.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Direct prophetic decree that two rak'ahs of Duha discharge the sadaqah owed by every joint — the operative reason this subtask is the core establishment unit.",
+            },
+          ],
+          description: `**Why?**
+
+Two rak'at of Duha is not extra credit — it is the prophetic minimum that satisfies a daily obligation owed by your 360 joints. Establishing 5 days a week proves you have crossed from intention into habit.
+
+**How?**
+
+1. Identify your local sunrise time using a prayer app and add 20 minutes — this is when the Duha window opens.
+2. Set a recurring alarm labelled "Sadaqah of joints — 2 rak'at".
+3. When the alarm fires, make wudu if needed and pray two short rak'at with any short surahs after Al-Fatihah.
+4. Track completion daily for one week. Aim for 5 of 7 days.
+5. Benchmark: complete when you hit 5+ days for two consecutive weeks without external reminder.` },
+        { title: "Set the intention before each Duha as sadaqah for every joint", done: false,
+          tier: "T2",
+          amanahRationale: "The cited hadith ties the act of Duha specifically to the daily sadaqah owed by the joints; naming this intention before salah is direct application of the hadith's framing.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 720",
+              translation: "The Prophet (SAW) said: \"...and two rak'ahs which one prays in the forenoon will suffice.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "The hadith names the function of these two rak'ahs explicitly — making the intention conscious aligns the heart with what the body is doing.",
+            },
+          ],
+          description: `**Why?**
+
+Niyyah is the difference between a routine and an act of worship. Without the conscious framing, two rak'at of Duha can become a habit you sleepwalk through. Naming the intention transforms each Duha into an active act of gratitude on behalf of every limb Allah lends you.
+
+**How?**
+
+Before saying Allahu Akbar, pause and silently say: "Ya Allah, I pray these two rak'at as sadaqah for every bone and joint You have given me — accept them from me." Keep the formula simple so it survives sleepiness. Practise for one full week before moving on.` },
+        { title: "Build toward 4 rak'at of Duha consistently", done: false,
+          tier: "T2",
+          amanahRationale: "The cited hadith from Jami at-Tirmidhi explicitly promises that whoever prays four rak'ahs in the forenoon, Allah will suffice him in the rest of his day — direct prophetic proof for the intermediate-tier ramp.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Jami at-Tirmidhi 475",
+              translation: "Abu Darda and Abu Dharr (RA) reported the Messenger of Allah (SAW) as saying: \"Allah, the Mighty and Magnificent, says: O son of Adam, perform four rak'ahs for Me in the early part of the day; I shall suffice you for the rest of it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Promise of divine sufficiency for the day attached specifically to four rak'ahs of Duha — the operative reason for the four-rak'at ramp.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) reported a divine promise: four rak'at of Duha buys Allah's sufficiency for the rest of your day. Two rak'at discharges the sadaqah of joints; four rak'at adds barakah over the entire workday that follows.
+
+**How?**
+
+1. Once 2 rak'at is steady (5+ days/week for two weeks), begin praying 4 rak'at — two sets of two with a salam, or four continuous depending on your school's preference.
+2. Recite slightly longer surahs in the second pair to differentiate it from the obligatory.
+3. If the longer block causes you to skip altogether, drop back to 2 rak'at and rebuild.
+4. Benchmark: 4 rak'at on 4 of 7 days for two consecutive weeks.` },
+        { title: "Anchor Duha to a fixed time block in your daily schedule", done: false,
+          tier: "T2",
+          amanahRationale: "The cited Quranic ayat establish the morning hours as a sanctified window; selecting a fixed time within that window is contextual application aimed at consistency.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 93:1",
+              arabic: "وَالضُّحَىٰ",
+              translation: "By the morning brightness.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Allah swears by the Duha hour, marking the time itself as worthy of dedicated worship.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 93:11",
+              arabic: "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",
+              translation: "Talk about the blessings of your Lord.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "The closing command of Surah ad-Duha frames the morning as a time to publicly enact gratitude — a fixed daily anchor makes that enactment visible.",
+            },
+          ],
+          description: `**Why?**
+
+Time-anchored habits stick; floating intentions do not. The Duha window is roughly 90-180 minutes wide; without picking a fixed time you will drift to "I'll do it later" until later becomes Dhuhr.
+
+**How?**
+
+1. Pick one daily anchor that already happens between sunrise+20min and Dhuhr−15min — e.g. "after I finish breakfast" or "before the first work meeting".
+2. Place a visible cue at that anchor (prayer mat already laid out; phone reminder).
+3. Pray immediately at the cue — do not negotiate. The negotiation is what kills the habit.
+4. Benchmark: the cue triggers Duha automatically without internal debate for 10 of 14 consecutive days.` },
+      ],
+    },
+    {
+      title: "Sunan al-Nawm — observe the prophetic etiquette of sleep",
+      priority: "high", tags: ["sunnah", "adhkar", "transition:bedtime"],
+      description: "The Prophet (SAW) treated sleep as a meaningful spiritual transition rather than mere unconsciousness. He prescribed wudu, dhikr, and specific recitations before sleeping so that the believer surrenders the night to Allah in the same state of remembrance they would want to die in.",
+      subtasks: [
+        { title: "Make wudu before getting into bed", done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari directly instructs the believer to perform wudu before sleeping and to lie on the right side, providing explicit prophetic proof for this core subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 25:47",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
+              translation: "It is He who made the night a garment for you, and sleep a rest, and made the day like a resurrection.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "Allah frames sleep as a small death and waking as resurrection — entering this transition in a state of purity matches the gravity the Quran ascribes to it.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 247",
+              translation: "Al-Bara' bin 'Azib (RA) reported: The Prophet (SAW) said: \"When you go to bed, perform wudu as you do for prayer, then lie down on your right side and say: O Allah, I submit my face to You, entrust my affair to You, and turn my back to You out of hope and fear of You. There is no refuge nor escape from You except to You. I believe in Your Book which You revealed and in Your Prophet whom You sent. If you die that night, you will die upon the fitrah.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 247 confirmed (al-Bara ibn Azib, wudu-before-sleep + the surrender dua).",
+              rationale: "Direct prophetic instruction prescribing wudu before sleep, with the explicit promise that one who dies that night dies upon the fitrah.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) said one who sleeps in wudu after the prescribed dhikr dies — if they die — upon the fitrah. Sleep is a small death; entering it in purity is how you would want to meet your Lord. There is no act of worship more efficient than turning a routine you already do (sleep) into the day's final ibadah.
+
+**How?**
+
+1. Make wudu in the bathroom right before bed — the same wudu you would make for salah.
+2. Walk straight to bed without breaking it (don't stop to scroll, don't drink, don't eat).
+3. Lie on your right side with your right palm under your right cheek.
+4. Benchmark: 5 of 7 nights for two weeks. The friction is highest on the first 3 nights — push through.` },
+        { title: "Recite Ayat al-Kursi as the last thing said before sleep", done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari names Ayat al-Kursi explicitly as the recitation that secures a guardian from Allah and protection from shaytan throughout the night, providing direct prophetic proof for this core subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:255",
+              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+              translation: "God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Ayat al-Kursi is the verse the prophetic guarantee of nightly protection is attached to — its inclusion is required because the subtask names it directly.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5010",
+              translation: "Abu Hurayrah (RA) reported: The Prophet (SAW) said about Ayat al-Kursi: \"Whoever recites it when he goes to bed, Allah will appoint a guardian over him, and shaytan will not come near him until morning.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Direct prophetic promise of all-night protection conditional on reciting Ayat al-Kursi at sleep — the operative reward for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) promised a guardian from Allah over anyone who recites Ayat al-Kursi as their last action before sleep, with shaytan kept away until morning. Eight to ten seconds of speech buys eight hours of guardianship.
+
+**How?**
+
+1. Memorise Ayat al-Kursi (Quran 2:255) if you have not already — it is one ayah.
+2. After lying down on your right side, recite it audibly enough that you can hear yourself.
+3. Do not speak after it. If something interrupts, recite again before sleeping.
+4. Benchmark: 7 of 7 nights for one week before declaring this subtask habituated.` },
+        { title: "Recite Surah al-Mulk before sleep on at least 4 nights this week", done: false,
+          tier: "T2",
+          amanahRationale: "Jami at-Tirmidhi explicitly attributes nightly recitation of Surah al-Mulk to protection from the punishment of the grave, providing direct prophetic proof for this intermediate-tier subtask.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Jami at-Tirmidhi 2891",
+              translation: "Abdullah ibn Mas'ud (RA) said: \"Whoever recites Tabarakalladhi biyadihil mulk [Surah al-Mulk] every night, Allah will protect him from the punishment of the grave. We used to call it al-mani'ah (the protector) at the time of the Messenger of Allah (SAW). It is a surah which, for one who recites it every night, is plentiful and good.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Hasan",
+              rationale: "Direct prophetic-companion narration naming Surah al-Mulk as al-mani'ah — the protector against the punishment of the grave when recited nightly.",
+            },
+          ],
+          description: `**Why?**
+
+The Sahabah called Surah al-Mulk al-mani'ah — the protector — because of its promise of safety from the punishment of the grave for those who recite it every night. Thirty ayat. Five to seven minutes. There is almost no other practice with this leverage on the akhirah.
+
+**How?**
+
+1. Save Surah al-Mulk on your phone or have a small mushaf next to your bed.
+2. Recite after wudu and before lying down.
+3. Start with 4 nights this week. Over time, build to all 7.
+4. Benchmark: 4 of 7 nights for two consecutive weeks.` },
+        { title: "Sleep on the right side and recite the dua of sleeping", done: false,
+          tier: "T2",
+          amanahRationale: "Sahih al-Bukhari names the specific dua the Prophet (SAW) recited on lying down, providing explicit prophetic proof for this subtask.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6324",
+              translation: "Hudhayfah (RA) reported: When the Prophet (SAW) went to bed at night, he would say: \"Bismika Allahumma amutu wa ahya — In Your name, O Allah, I die and I live.\" And when he woke up, he would say: \"Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur — All praise is for Allah who gave us life after He took it from us, and unto Him is the resurrection.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Updated 2026-04-26 from Bukhari 6320 to canonical sunnah.com Bukhari 6324 — prior ref pointed to Abu Hurayra's 'Bismika Rabbi wada\u02bbtu janbi' dua, while this subtask cites Hudhayfah's 'Bismika Allahumma amutu wa ahya' which is canonically Bukhari 6324.",
+              rationale: "Direct prophetic verbal sunnah for sleeping and waking — pairs the right-side posture with the explicit dua at the moment of transition.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) tied his last conscious words each night to Allah's name. Saying "In Your name, O Allah, I die and I live" surrenders the night and reframes sleep as something Allah does to you, not something you do to yourself.
+
+**How?**
+
+1. After Ayat al-Kursi, lie on your right side with your right palm under your right cheek.
+2. Quietly say: "Bismika Allahumma amutu wa ahya."
+3. Do not turn to the left side until morning if you can help it.
+4. Benchmark: the dua is automatic on lying down for 10 of 14 nights.` },
+      ],
+    },
+    {
+      title: 'Salat al-Witr — seal the night with the odd prayer',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'transition:witr'],
+      description: 'Witr is the odd-numbered prayer the Prophet (SAW) never abandoned in residence or travel. Pray it after Isha and before Fajr — one, three, or five rak\'ahs — making it the last prayer of your night.',
+      subtasks: [
+        { title: 'Pray witr every night between Isha and Fajr', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly commanded that witr be the last prayer of the night, establishing direct prophetic instruction for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 998',
+              arabic: 'اجْعَلُوا آخِرَ صَلاَتِكُمْ بِاللَّيْلِ وِتْرًا',
+              translation: 'Ibn Umar (RA) reported: The Prophet (SAW) said: "Make the last of your night prayer witr."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 998 confirmed as the canonical witr-as-final-prayer command.',
+              rationale: 'Direct prophetic verbal command: witr seals the night-prayer cycle. The wording places witr structurally last among night prayers.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 751a',
+              translation: 'Ibn Umar (RA) reported: The Prophet (SAW) said: "Night prayer is two by two. When one of you fears the dawn, he should pray one rak\'ah which makes what he has prayed witr."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 751a confirmed.',
+              rationale: 'Reinforces witr as the closing odd rak\'ah of the night-prayer set, with the dawn as the natural cutoff.',
+            },
+          ],
+          description: `**Why?**
+
+Witr is the prayer the Prophet (SAW) never left — not at home, not on journey. Making it your last prayer each night seals the day with an odd-numbered submission and protects the night-prayer rhythm.
+
+**How?**
+
+1. After Isha (and any tahajjud), pray witr before the dawn breaks.
+2. If unsure you'll wake for tahajjud, pray witr now.
+3. If confident of waking, defer witr to after tahajjud.
+4. Benchmark: witr is the last prayer of your night for 12 of 14 nights.` },
+        { title: 'Choose 1, 3, or 5 rak\'ahs of witr based on time and energy', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly authorized witr in 1, 3, 5, 7, or 9 rak\'ah configurations, providing direct prophetic permission for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sunan Abi Dawud 1422',
+              translation: 'Abu Ayyub al-Ansari (RA) reported: The Prophet (SAW) said: "Witr is a duty for every Muslim. Whoever wishes to pray witr with five, let him do so; whoever wishes to pray with three, let him do so; and whoever wishes to pray with one, let him do so."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Abu Dawud 1422 confirmed; graded Sahih by al-Albani.',
+              rationale: 'Explicit prophetic authorization of 1, 3, or 5 rak\'ah witr — supports flexibility based on time and energy without compromising the sunnah.',
+            },
+          ],
+          description: `**Why?**
+
+Witr scales. The Prophet (SAW) named one, three, and five as valid — so a tired night still gets a true witr, and a strong night gets a fuller one.
+
+**How?**
+
+1. Tired or short on time → 1 rak'ah witr.
+2. Standard night → 3 rak'ahs (most common in the sunnah).
+3. Strong night with energy → 5 rak'ahs (one tasleem at the end).
+4. Benchmark: pick a count consciously each night for 14 days.` },
+        { title: 'Decide whether to pray witr now or defer it to tahajjud', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) gave explicit guidance that confidence in waking determines whether witr is prayed early or late, providing direct prophetic proof for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 755a',
+              translation: 'Jabir (RA) reported: The Prophet (SAW) said: "Whoever fears that he will not wake at the end of the night, let him pray witr at the beginning of it. And whoever is hopeful of waking at the end of the night, let him pray witr at the end of it — for prayer at the end of the night is witnessed, and that is better."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 755a confirmed.',
+              rationale: 'Direct prophetic decision rule: confidence in waking determines timing. Pairs the witr decision with self-knowledge of one\'s sleep reliability.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) said the late-night prayer is witnessed. But a deferred witr that never happens is worse than an early one that did. Be honest with yourself.
+
+**How?**
+
+1. Before sleep, ask: "Am I likely to wake for tahajjud?"
+2. If unsure or doubtful → pray witr now, after Isha.
+3. If confident (alarm set, slept early, woken before regularly) → defer to tahajjud.
+4. Benchmark: zero "missed witr" nights for 14 days running.` },
+        { title: 'Add the qunut dua taught by the Prophet (SAW) to Hasan ibn Ali', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) explicitly taught the qunut dua to his grandson Hasan to recite in witr, providing direct prophetic instruction for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sunan Abi Dawud 1425',
+              arabic: 'اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ، وَعَافِنِي فِيمَنْ عَافَيْتَ، وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ، وَبَارِكْ لِي فِيمَا أَعْطَيْتَ، وَقِنِي شَرَّ مَا قَضَيْتَ، فَإِنَّكَ تَقْضِي وَلاَ يُقْضَى عَلَيْكَ، وَإِنَّهُ لاَ يَذِلُّ مَنْ وَالَيْتَ، تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ',
+              translation: 'Hasan ibn Ali (RA) reported: The Messenger of Allah (SAW) taught me words to say in witr: "O Allah, guide me among those You have guided, grant me well-being among those You have granted well-being, take me into Your care among those You have taken into Your care, bless me in what You have given me, protect me from the evil You have decreed — for You decree and none decrees against You, and the one You support is never humiliated. Blessed are You, our Lord, and Exalted."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Abu Dawud 1425 confirmed; graded Sahih by al-Albani.',
+              rationale: 'Direct prophetic verbal teaching: the qunut text was given by the Prophet (SAW) himself to Hasan. Recited in the final rak\'ah of witr before or after ruku.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) taught these exact words to his grandson — a transmission of trust. Reciting them in witr links your night to that hand-on-shoulder moment.
+
+**How?**
+
+1. In the last rak'ah of witr, after Fatihah and surah, raise your hands.
+2. Recite the qunut text taught to Hasan ibn Ali (RA).
+3. Conclude with salawat on the Prophet (SAW).
+4. Benchmark: qunut from memory in 10 of 14 witr prayers.` },
+      ],
+    },
+    {
+      title: 'Sleep with niyyah to rise for tahajjud',
+      priority: 'high',
+      tags: ['sunnah', 'qiyam', 'transition:qiyam-rest'],
+      description: 'The deliberate sleep aimed at rising for tahajjud. Even if you do not wake, the niyyah is recorded as charity from your Lord.',
+      subtasks: [
+        { title: 'Set the niyyah to rise for qiyam before sleeping', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly stated that sleep with the intention to pray is recorded as the prayer itself, providing direct prophetic instruction for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sunan an-Nasa\u2019i 1787',
+              arabic: 'مَنْ أَتَى فِرَاشَهُ وَهُوَ يَنْوِي أَنْ يَقُومَ يُصَلِّي مِنَ اللَّيْلِ فَغَلَبَتْهُ عَيْنَاهُ حَتَّى أَصْبَحَ كُتِبَ لَهُ مَا نَوَى وَكَانَ نَوْمُهُ صَدَقَةً عَلَيْهِ مِنْ رَبِّهِ عَزَّ وَجَلَّ',
+              translation: 'Abu Ad-Darda (RA) reported: The Prophet (SAW) said: "Whoever goes to his bed intending to get up and pray qiyam at night, then sleep overwhelms him until morning, will have recorded that which he intended, and his sleep is a charity given to him by his Lord, the Mighty and Sublime."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Nasa\u2019i 1787 confirmed; graded Sahih by Darussalam.',
+              rationale: 'Direct prophetic verbal teaching: niyyah-to-rise is itself recorded; the sleep that follows is charity. Removes the all-or-nothing pressure around tahajjud.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) lifted the burden: even an unfulfilled niyyah is rewarded. This frees you from "I might not wake, so why bother" — the niyyah itself is the act.
+
+**How?**
+
+1. After bedtime adhkar, before sleep takes you, silently say: "I intend to rise for tahajjud tonight, in sha Allah."
+2. Set an alarm appropriate to the last third of your night.
+3. If you wake — pray. If you don't — your niyyah was recorded.
+4. Benchmark: niyyah set on 14 of 14 nights, regardless of wake outcome.` },
+        { title: 'Untie the three knots of Satan on waking', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly described Satan tying three knots and the three actions that untie them, providing direct prophetic proof for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1142',
+              arabic: 'يَعْقِدُ الشَّيْطَانُ عَلَى قَافِيَةِ رَأْسِ أَحَدِكُمْ إِذَا هُوَ نَامَ ثَلاَثَ عُقَدٍ',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "Satan ties three knots at the back of the head of any of you when he sleeps, sealing each knot with the words: \'The night is long, so sleep on.\' If he wakes and remembers Allah, one knot is undone. If he performs ablution, the second is undone. If he prays, the third is undone, and he wakes up energetic and good-hearted; otherwise he wakes up lazy and ill-hearted."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1142 confirmed.',
+              rationale: 'Three-step prophetic protocol on waking: dhikr → wudu → prayer. Each stage explicitly named as undoing one of Satan\'s knots.',
+            },
+          ],
+          description: `**Why?**
+
+Three knots, three undoings. The Prophet (SAW) named the exact sequence — and the cost of stopping short is named too: a lazy, ill-hearted morning.
+
+**How?**
+
+1. On waking — even before standing — make dhikr (Alhamdulillah, La ilaha illa Allah). Knot one: undone.
+2. Make wudu before doing anything else. Knot two: undone.
+3. Pray at minimum two rak'ahs. Knot three: undone.
+4. Benchmark: full three-knot sequence completed on 10 of 14 wake-ups.` },
+        { title: 'Receive Allah\u2019s descent in the last third of the night', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) explicitly described Allah\'s descent in the last third of the night and the open invitation to invoke and ask, providing direct prophetic ground for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1145',
+              arabic: 'يَنْزِلُ رَبُّنَا تَبَارَكَ وَتَعَالَى كُلَّ لَيْلَةٍ إِلَى السَّمَاءِ الدُّنْيَا حِينَ يَبْقَى ثُلُثُ اللَّيْلِ الآخِرُ',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "Our Lord, the Blessed, the Exalted, descends every night to the lowest heaven when the last third of the night remains, saying: \'Who is calling upon Me, that I may answer him? Who is asking of Me, that I may give him? Who is seeking My forgiveness, that I may forgive him?\'"',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1145 confirmed.',
+              rationale: 'Direct prophetic disclosure of the metaphysical reality of the last third: an open invitation to dua, request, and istighfar. Frames the rest-with-niyyah as preparation for an audience.',
+            },
+          ],
+          description: `**Why?**
+
+Knowing what is happening in the last third changes how you sleep toward it. The descent is real, the invitation is named, and your dua is heard differently in that hour.
+
+**How?**
+
+1. Before sleep, name in your heart the three asks you would bring at the descent: a dua, a request, and an istighfar.
+2. On waking in the last third, speak those three immediately — before any other speech.
+3. Then proceed to wudu and tahajjud.
+4. Benchmark: three named asks brought on 10 of 14 wake-ups.` },
+      ],
+    },
+    {
+      title: 'Respond to every adhan with the prophetic dua',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'adhan'],
+      description: 'The Prophet (SAW) named the post-adhan dua as the key to his shafa\'ah on the Day of Resurrection. Train the response into every call.',
+      subtasks: [
+        { title: 'Repeat after the muezzin as he calls', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly commanded the listener to repeat what the muezzin says, providing direct prophetic instruction for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 384',
+              arabic: 'إِذَا سَمِعْتُمُ الْمُؤَذِّنَ فَقُولُوا مِثْلَ مَا يَقُولُ',
+              translation: 'Abdullah ibn \u02BBAmr (RA) reported: The Prophet (SAW) said: "When you hear the muezzin, say the like of what he says, then send blessings upon me, for whoever sends one blessing upon me, Allah will send ten blessings upon him. Then ask Allah for al-Wasilah for me…"',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 384 confirmed.',
+              rationale: 'Direct prophetic command: echo the adhan phrase by phrase, then pivot to salawat and the Wasilah dua. Establishes the three-step response.',
+            },
+          ],
+          description: `**Why?**
+
+The adhan is not background noise — the Prophet (SAW) made it a moment of active response. Repeating after the muezzin trains the heart to face the prayer before the body does.
+
+**How?**
+
+1. When you hear adhan, pause whatever you are doing.
+2. Repeat each phrase after the muezzin (for hayya 'alas-salah / hayya 'alal-falah, say "la hawla wa la quwwata illa billah").
+3. Then send salawat on the Prophet (SAW).
+4. Benchmark: full repetition on every adhan you hear for 7 days.` },
+        { title: 'Recite the post-adhan dua to earn the Prophet\u2019s shafa\u02bbah', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly promised his shafa\'ah for whoever recites this exact dua after the adhan, providing direct prophetic ground for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 614',
+              arabic: 'اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلاَةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ',
+              translation: 'Jabir ibn \u02BBAbdullah (RA) reported: The Messenger of Allah (SAW) said: "Whoever says when he hears the call to prayer: \'O Allah, Lord of this perfect call and of the prayer to be established, grant Muhammad al-Wasilah and al-Fadilah, and raise him to the Praised Station which You promised him\' — my intercession will be permitted for him on the Day of Resurrection."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 614 confirmed.',
+              rationale: 'Direct prophetic verbal teaching with named reward: shafa\'ah on the Day of Resurrection. Five times daily — the most accessible of named rewards.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) tied his own shafa'ah to this exact text. Five adhans per day — five named opportunities for intercession on the Day of Resurrection.
+
+**How?**
+
+1. After the muezzin completes adhan, recite the dua from memory.
+2. If learning, read it aloud from a card until memorized.
+3. Pair it with the salawat and the request for al-Wasilah.
+4. Benchmark: dua from memory on every adhan for 30 days.` },
+      ],
+    },
+    {
+      title: 'Honor the Friday Sunan — Jumu\u02bbah is the eid of the week',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah'],
+      description: 'Jumu\u02bbah carries a complete cluster of sunan: ghusl, miswak, perfume, walking early, Surah al-Kahf, attentive listening to the khutbah, abundant salawat, and du\u02bba\u02bb in the hour of istijabah. Build the day around them.',
+      subtasks: [
+        { title: 'Make ghusl, use miswak, and apply perfume before Jumu\u02bbah', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) bundled ghusl, miswak, and perfume as the standard Friday preparation in a single hadith — direct prophetic command anchors all three.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 880',
+              arabic: 'غُسْلُ يَوْمِ الْجُمُعَةِ وَاجِبٌ عَلَى كُلِّ مُحْتَلِمٍ، وَأَنْ يَسْتَنَّ، وَأَنْ يَمَسَّ طِيبًا إِنْ وَجَدَ',
+              translation: 'Abu Sa\u02bbid al-Khudri (RA) reported: The Prophet (SAW) said: "The taking of a bath on Friday is compulsory for every male Muslim who has attained the age of puberty, and (also) the cleaning of his teeth with siwak, and the using of perfume if it is available."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 880 confirmed.',
+              rationale: 'Direct prophetic instruction bundling the three weekly preparation acts. The "wajib" framing is taken by the majority as strong sunnah mu\u02bbakkadah; either way, the practice is unambiguous.',
+            },
+          ],
+          description: `**Why?**
+
+Jumu\u02bbah is a public weekly gathering. The Prophet (SAW) treated it as the eid of the believers and required the body, breath, and clothing be prepared for it.
+
+**How?**
+
+1. Make full ghusl on Friday morning (or at minimum before heading to the masjid).
+2. Use miswak before leaving — clean teeth, fresh breath.
+3. Apply perfume if available; wear your best clean clothes.
+4. Benchmark: ghusl + miswak + perfume on every Friday for 4 weeks.` },
+        { title: 'Walk to the masjid in the earliest hour', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) named explicit reward gradients for arrival time on Friday — direct prophetic teaching on early arrival as worship.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 881',
+              arabic: 'مَنِ اغْتَسَلَ يَوْمَ الْجُمُعَةِ غُسْلَ الْجَنَابَةِ ثُمَّ رَاحَ فَكَأَنَّمَا قَرَّبَ بَدَنَةً',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "Whoever takes a bath on Friday like the ghusl of janabah, then goes (early) to the prayer, it is as if he sacrificed a camel; whoever goes in the second hour, as if he sacrificed a cow; in the third hour, a ram; in the fourth hour, a hen; in the fifth hour, an egg. When the Imam comes out, the angels close their registers and listen to the khutbah."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 881 confirmed.',
+              rationale: 'Direct prophetic gradient: each hour of delay scales the reward down. Establishes punctuality at Jumu\u02bbah as itself an act of worship.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) named the difference between camels and eggs by hour of arrival. Showing up "on time" is the lowest tier; arriving early earns the camel.
+
+**How?**
+
+1. Anchor your Friday schedule around Jumu\u02bbah, not the other way around.
+2. Aim to arrive at the masjid before the muezzin's first call.
+3. Read Quran or sit in dhikr until the khutbah begins.
+4. Benchmark: arrive in the first hour for 4 consecutive Fridays.` },
+        { title: 'Recite Surah al-Kahf on Friday', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) named a specific weekly reward — light from one Friday to the next — for reciting Surah al-Kahf, providing direct prophetic ground.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Mishkat al-Masabih 2175',
+              arabic: 'مَنْ قَرَأَ سُورَةَ الْكَهْفِ فِي يَوْمِ الْجُمُعَةِ أَضَاءَ لَهُ النُّورُ مَا بَيْنَ الْجُمُعَتَيْنِ',
+              translation: 'Abu Sa\u02bbid al-Khudri (RA) reported: The Prophet (SAW) said: "Whoever recites Surah al-Kahf on Friday, light shines for him between the two Fridays."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Hasan',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Mishkat 2175 (transmitted by al-Bayhaqi in al-Da\u02bbawat al-kabir, graded Hasan by al-Albani; corroborated by al-Hakim al-Mustadrak with Sahih grading).',
+              rationale: 'Named, time-bound reward attached to a specific surah on a specific day. Multiple chains converge on the same matn — the tradition is well-established despite mixed grading.',
+            },
+          ],
+          description: `**Why?**
+
+Surah al-Kahf is the weekly anchor — its themes (the cave, knowledge, wealth, power, temptation) cycle through every life. The Prophet (SAW) named light between the two Fridays as the reward.
+
+**How?**
+
+1. Schedule Kahf reading on Friday morning or Thursday after Maghrib.
+2. Read with translation if Arabic is still being learned.
+3. Pause on the four trial-stories (cave, garden, Musa-Khidr, Dhul-Qarnayn) and reflect.
+4. Benchmark: full Kahf recitation every Friday for 4 weeks.` },
+        { title: 'Listen attentively to the khutbah — no speaking', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly named even telling someone to "be quiet" during the khutbah as a wrong act — direct prophetic boundary.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 934',
+              arabic: 'إِذَا قُلْتَ لِصَاحِبِكَ يَوْمَ الْجُمُعَةِ أَنْصِتْ، وَالإِمَامُ يَخْطُبُ، فَقَدْ لَغَوْتَ',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "If you (even) tell your companion to be quiet on Friday while the Imam is delivering the khutbah, you have committed laghw (idle/foolish speech)."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 934 confirmed.',
+              rationale: 'Direct prophetic prohibition — the bar is so high that even a corrective whisper invalidates the sitting. Establishes total attentiveness as the standard.',
+            },
+          ],
+          description: `**Why?**
+
+The khutbah is not a waiting period for the salah — it is part of the worship. The Prophet (SAW) closed even well-intentioned speech inside it.
+
+**How?**
+
+1. Sit where you can see and hear the imam clearly.
+2. Phone on silent and out of reach; no scrolling.
+3. If a child or neighbor speaks, gesture without words.
+4. Benchmark: zero spoken words from start of khutbah to start of salah for 4 weeks.` },
+        { title: 'Increase salawat on the Prophet \uFDFA on Friday', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) gave Friday a specific instruction to increase salawat on him — direct prophetic command on a named day.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sunan Abi Dawud 1047',
+              arabic: 'إِنَّ مِنْ أَفْضَلِ أَيَّامِكُمْ يَوْمَ الْجُمُعَةِ، فِيهِ خُلِقَ آدَمُ، وَفِيهِ قُبِضَ، وَفِيهِ النَّفْخَةُ، وَفِيهِ الصَّعْقَةُ، فَأَكْثِرُوا عَلَىَّ مِنَ الصَّلاَةِ فِيهِ، فَإِنَّ صَلاَتَكُمْ مَعْرُوضَةٌ عَلَىَّ',
+              translation: 'Aws ibn Aws (RA) reported: The Messenger of Allah (SAW) said: "Among the most excellent of your days is Friday — on it Adam was created, on it he died, on it the trumpet will be blown, and on it people will be struck unconscious. So invoke many blessings on me on this day, for your blessings will be presented to me."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Abu Dawud 1047 confirmed.',
+              rationale: 'Direct prophetic command tying Friday to abundant salawat with a unique mechanism: the salawat is presented to him personally. Ground for an explicit weekly count.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) named Friday and instructed abundant salawat with a unique reason: it is presented to him. Make it a tangible weekly act, not a passive intention.
+
+**How?**
+
+1. Set a Friday salawat target (e.g., 100, 300, 500).
+2. Distribute across the day: morning adhkar, walk to masjid, after Jumu\u02bbah, last hour.
+3. Use a counter or fingers — the act is meant to be tracked.
+4. Benchmark: 300 salawat each Friday for 4 weeks.` },
+        { title: 'Make du\u02bba\u02bb in the last hour before Maghrib on Friday', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) named a specific hour on Friday in which du\u02bba\u02bb is answered — direct prophetic teaching with a named, time-bound promise.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 935',
+              arabic: 'فِيهِ سَاعَةٌ لاَ يُوَافِقُهَا عَبْدٌ مُسْلِمٌ، وَهُوَ قَائِمٌ يُصَلِّي، يَسْأَلُ اللَّهَ تَعَالَى شَيْئًا، إِلاَّ أَعْطَاهُ إِيَّاهُ',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW), speaking of Friday, said: "There is an hour on it during which no Muslim servant — while standing in prayer and asking Allah for something — but Allah will give it to him." And he gestured with his hand to indicate its brevity.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 935 confirmed; corroborated by Sahih Muslim 852a.',
+              rationale: 'Named promise of acceptance. Many of the salaf and later scholars (Ibn al-Qayyim, al-Albani) place the hour in the final segment before Maghrib — this subtask anchors the practice at that window.',
+            },
+          ],
+          description: `**Why?**
+
+Friday carries an hour where no good asked is refused. The Prophet (SAW) gestured to show its brevity — short, sharp, and easy to miss. Multiple narrations point to the last hour before Maghrib.
+
+**How?**
+
+1. After Asr on Friday, wind down work and prepare a written list of du\u02bba\u02bb.
+2. Sit in dhikr from roughly one hour before Maghrib until adhan.
+3. Bring the same du\u02bba\u02bb across weeks until they are answered.
+4. Benchmark: full last-hour du\u02bba\u02bb sitting for 4 consecutive Fridays.` },
+      ],
+    },
+    {
+      title: 'Travel with the Prophet\u2019s \uFDFA structure',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure', 'transition:traveler-arrival'],
+      description: 'Travel has its own prophetic shape: a named du\u02bba\u02bb on departure, takbir at every ascent and tasbih at every descent, qasr (shorten) for the four-rakʿat prayers, permission to combine when needed, and a named du\u02bba\u02bb on return.',
+      subtasks: [
+        { title: 'Recite the du\u02bba\u02bb of travel on mounting the conveyance', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) taught a complete du\u02bba\u02bb to be said on mounting any conveyance — three takbirs, the verse of subjugation, then a fixed petition. Direct prophetic transmission.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 1342',
+              arabic: 'سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى',
+              translation: 'Ibn \u02bbUmar (RA) reported: When the Messenger of Allah (SAW) settled himself on his camel to set out on a journey, he would say takbir three times, then say: "Subhana alladhi sakhkhara lana hadha wa ma kunna lahu muqrinin, wa inna ila rabbina la-munqalibun. Allahumma inna nas\u02beluka fi safarina hadha al-birra wa al-taqwa\u2026" — "Glory to Him who has subjected this to us, and we ourselves were not capable of it; surely to our Lord we are returning. O Allah, we ask You on this journey of ours righteousness and piety\u2026"',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 1342 confirmed.',
+              rationale: 'The full prophetic departure du\u02bba\u02bb — takbir + Qur\u02beanic verse of subjugation (Q 43:13\u201314) + named petitions for righteousness, piety, and protection on the journey.',
+            },
+          ],
+          description: `**Why?**
+
+Travel is restless and exposing. The Prophet (SAW) did not begin a journey without naming Allah and asking for His protection.
+
+**How?**
+
+1. Memorize the du\u02bba\u02bb from a card before your next trip.
+2. Recite it on mounting the vehicle / boarding the flight, audibly enough that companions hear.
+3. Repeat it across multi-leg journeys.
+4. Benchmark: travel du\u02bba\u02bb recited at the start of every trip.` },
+        { title: 'Say takbir at every ascent and tasbih at every descent', done: false,
+          tier: 'T2',
+          amanahRationale: 'Jabir (RA) narrated the practice as the companions\u2019 own habit while traveling with the Prophet (SAW) — a direct transmission of how the body of the journey is to be ordered.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 2993',
+              translation: 'Jabir ibn \u02bbAbdullah (RA) reported: "When we ascended, we would say \u2018Allahu akbar,\u2019 and when we descended, we would say \u2018Subhan Allah.\u2019"',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 2993 confirmed.',
+              rationale: 'Embodies a continuous remembrance throughout the contours of the journey — height belongs to His greatness, descent to His transcendence.',
+            },
+          ],
+          description: `**Why?**
+
+The terrain itself becomes a prompt for dhikr — every climb a takbir, every drop a tasbih. The journey is converted from idle motion into worship.
+
+**How?**
+
+1. Note the topography or aircraft phase (takeoff/landing) and pair it with the matching dhikr.
+2. Teach traveling companions and children — turn the journey into shared remembrance.
+3. Benchmark: takbir/tasbih kept across at least one full trip per year.` },
+        { title: 'Shorten Dhuhr / Asr / Isha to two rakʿat (qasr)', done: false,
+          tier: 'T1',
+          amanahRationale: 'Qasr is established by the Qur\u02bean (Q 4:101) and confirmed by the practice of the Prophet (SAW) and the companions in safe and fearful travel alike. Direct primary-source ground.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1102',
+              translation: 'Ibn \u02bbAbbas (RA) reported: "The Prophet (SAW) stayed in Mecca for nineteen days [during the conquest], praying two rakʿat for the four-rakʿat prayers."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1102 confirmed.',
+              rationale: 'Establishes both the practice and a duration boundary — qasr held throughout the nineteen-day stay, contradicting the claim that any settled stay revokes traveler status.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 685',
+              translation: '\u02bbUmar ibn al-Khattab (RA) reported: "The prayer of the traveler is two rakʿat, and the prayer of \u02bb\u012ad al-Adha is two rakʿat, and the prayer of \u02bb\u012ad al-Fitr is two rakʿat, and the prayer of Jumu\u02bbah is two rakʿat — complete, not shortened — on the tongue of your Prophet (SAW)."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 685 confirmed.',
+              rationale: 'Names the traveler\u2019s two rakʿat as a complete prayer, not a deficient version of four — the form, not the count, is the sunnah.',
+            },
+          ],
+          description: `**Why?**
+
+Qasr is not a discount. It is the prophetic form of the prayer in travel — to refuse it is to disagree with the Prophet (SAW) about how the prayer is shaped.
+
+**How?**
+
+1. On crossing the threshold of safar, pray Dhuhr / Asr / Isha as 2 rakʿat. Maghrib stays at 3.
+2. Drop the rawatib of the four-rakʿat prayers; keep the witr and the 2 sunan of Fajr.
+3. Resume four rakʿat on returning home.
+4. Benchmark: qasr observed on every qualifying journey.` },
+        { title: 'Combine prayers (jam\u02bb) when the journey requires it', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) combined Dhuhr with Asr and Maghrib with Isha while traveling. Direct prophetic practice with multiple primary-source narrations.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1107',
+              translation: 'Anas ibn Malik (RA) reported: "When the Prophet (SAW) set out before the sun had passed the meridian, he would delay Dhuhr until the time of Asr and combine them; if the sun had passed the meridian, he would pray Dhuhr and then ride."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1107 confirmed.',
+              rationale: 'Establishes both forms of jam\u02bb (taqdim and ta\u02bekhir) and grounds the practice in the contour of the journey itself.',
+            },
+          ],
+          description: `**Why?**
+
+Jam\u02bb is the prophetic mercy that lets the journey continue without breaking the prayer\u2019s priority. Used when stopping for two separate prayers would create real hardship.
+
+**How?**
+
+1. Decide jam\u02bb taqdim (pray Asr early with Dhuhr, or Isha early with Maghrib) or jam\u02bb ta\u02bekhir (delay Dhuhr to Asr time, or Maghrib to Isha time) based on travel logistics.
+2. Pair with qasr — Dhuhr+Asr together = 2+2 rakʿat, Maghrib+Isha together = 3+2 rakʿat.
+3. Benchmark: jam\u02bb used appropriately on at least one qualifying journey per year.` },
+        { title: 'Recite the du\u02bba\u02bb of return on coming home', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) said this du\u02bba\u02bb whenever he returned from a journey — a single, named formula for arrival. Direct prophetic transmission.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1797',
+              arabic: 'آيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ',
+              translation: 'Ibn \u02bbUmar (RA) reported: When the Prophet (SAW) returned from a military expedition, Hajj, or \u02bbUmrah, he would say takbir three times on every elevation, then say: "La ilaha illa Allah, wahdahu la sharika lah\u2026 \u02bbA\u02beibun, ta\u02beibun, \u02bbabidun, li-rabbina hamidun" — "We are returning, repenting, worshipping, praising our Lord."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1797 confirmed.',
+              rationale: 'Anchors the moment of arrival in repentance and praise — the journey closed with the same names of Allah it opened with.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 1345',
+              translation: 'Ibn \u02bbUmar (RA) reported the same return practice — narrated through Muslim with the full takbir-and-arrival formula.',
+              relevance: 'thematic',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 1345 confirmed.',
+              rationale: 'Independent collection of the same arrival du\u02bba\u02bb — strengthens the sunnah\u2019s standing as a fixed practice.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 443',
+              translation: 'Ka\u02bbb ibn Malik (RA) reported: When the Prophet (SAW) returned from a journey, he would first head to the masjid and pray two rakʿat there before going to his home.',
+              relevance: 'thematic',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 443 confirmed.',
+              rationale: 'Establishes the prophetic order of return — masjid first, then home — anchoring the arrival in worship before reunion.',
+            },
+          ],
+          description: `**Why?**
+
+The arrival du\u02bba\u02bb names what the journey was for — repentance, worship, praise — and seals the safar with that orientation, not with idle relief.
+
+**How?**
+
+1. Recite "\u02bbA\u02beibun, ta\u02beibun, \u02bbabidun, li-rabbina hamidun" on entering your city or stepping off your transport.
+2. Pray two rakʿat in the masjid before entering the home (Bukhari 443) when feasible.
+3. Greet the family with peace, not exhaustion-talk.
+4. Benchmark: arrival du\u02bba\u02bb recited on every return.` },
+      ],
+    },
   ],
   faith_salah_excellence: [
     {
@@ -7245,6 +8080,409 @@ Visible progress sustains motivation over what may be a months-long journey. Com
 **How?**
 
 Use a simple tally, spreadsheet, or app to count down your remaining fasts. Mark each completed fast. Celebrate milestones (halfway, last ten, final fast) to maintain momentum. When done, offer thanks to Allah for enabling you to fulfil the debt.` },
+      ],
+    },
+    {
+      title: 'Take suhur — the pre-dawn meal of barakah',
+      priority: 'high',
+      tags: ['siyam', 'sunnah', 'transition:sahari'],
+      description: 'The Prophet (SAW) commanded the predawn meal: there is barakah in suhur, and it is the very thing that distinguishes our fast from those before us.',
+      subtasks: [
+        { title: 'Wake before Imsak and eat suhur even if only with a sip of water', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly commanded suhur and named the barakah within it, providing direct prophetic instruction for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1923',
+              arabic: 'تَسَحَّرُوا فَإِنَّ فِي السَّحُورِ بَرَكَةً',
+              translation: 'Anas ibn Malik (RA) reported: The Prophet (SAW) said: "Take suhur, for in suhur there is barakah."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1923 confirmed.',
+              rationale: 'Direct prophetic command: suhur is named as the locus of barakah for the fasting day. Even a sip of water counts in the wider sunnah.',
+            },
+          ],
+          description: `**Why?**
+
+Even a sip of water counts. The barakah is in the act of waking and eating with niyyah, not in the volume. Skipping suhur strips the day of named blessing.
+
+**How?**
+
+1. Set an alarm for 30–45 minutes before Fajr.
+2. Eat what you have — dates, water, leftover food, anything halal.
+3. Make niyyah for the fast in your heart before stopping.
+4. Benchmark: suhur taken on every fasting day this month.` },
+        { title: 'Stop suhur with enough time before Fajr to recite ~50 ayat', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) explicitly modeled the gap between suhur and Fajr as the time to recite about fifty ayat, providing direct prophetic measure for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1921',
+              arabic: 'تَسَحَّرْنَا مَعَ النَّبِيِّ صلى الله عليه وسلم ثُمَّ قَامَ إِلَى الصَّلاَةِ ... قَدْرُ خَمْسِينَ آيَةً',
+              translation: 'Zayd ibn Thabit (RA) reported: "We took suhur with the Prophet (SAW), then he stood for the prayer." When asked the interval between them, he said: "It was the duration of reciting fifty ayat."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1921 confirmed.',
+              rationale: 'Direct prophetic timing: ~50 ayat (a few minutes) between suhur and Fajr. Pairs the meal with adequate room for wudu and approach to prayer.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) did not finish suhur at the adhan — he left enough room for wudu and stillness. This protects Fajr from being a rushed transition from food.
+
+**How?**
+
+1. Aim to finish eating ~5–10 minutes before Imsak/Fajr.
+2. Use the gap for wudu and quiet dhikr.
+3. Stand for Fajr clean, settled, and not chewing.
+4. Benchmark: zero last-bite-at-adhan finishes this month.` },
+        { title: 'Hold suhur as the mark that distinguishes our fast', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) explicitly identified suhur as the distinguishing mark of Muslim fasting versus people of the Book, providing direct prophetic ground for this subtask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 1096a',
+              arabic: 'فَصْلُ مَا بَيْنَ صِيَامِنَا وَصِيَامِ أَهْلِ الْكِتَابِ أَكْلَةُ السَّحَرِ',
+              translation: '\u02BBAmr ibn al-\u02BBAs (RA) reported: The Messenger of Allah (SAW) said: "The difference between our fasting and the fasting of the people of the Book is the meal of suhur."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 1096a confirmed.',
+              rationale: 'Direct prophetic identification: suhur is not optional in the spirit of the sunnah — it is the very mark that sets our fast apart. Pairs suhur with a sense of identity, not just nutrition.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) framed suhur as identity, not just food. Skipping it without need quietly aligns the fast with traditions that did not eat before dawn.
+
+**How?**
+
+1. Treat suhur as part of fasting, not separate from it.
+2. Even on travel or short nights, take something — water and dates if nothing else.
+3. Teach the household: suhur is part of the practice, not optional ballast.
+4. Benchmark: family suhur preserved on every fasting day in Ramadan.` },
+      ],
+    },
+    {
+      title: 'Observe Ramadan with the Prophet\u2019s \uFDFA structure',
+      priority: 'high',
+      tags: ['siyam', 'sunnah', 'ramadan', 'transition:maghrib-iftar', 'transition:isha-taraweeh', 'transition:laylat-al-qadr'],
+      description: 'Ramadan is not only fasting from food — it is a complete daily structure: niyyah at suhur, the iftar du\u02bba\u02bb at sunset, taraweeh after Isha, and the search for Laylat al-Qadr in the last ten nights.',
+      subtasks: [
+        { title: 'Make the iftar du\u02bba\u02bb at the moment of breaking the fast', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) taught a specific du\u02bba\u02bb to recite at the moment of breaking the fast, with named meanings (thirst gone, veins moistened, reward fixed) — direct prophetic transmission.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sunan Abi Dawud 2358',
+              arabic: 'ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ',
+              translation: 'Ibn \u02BBUmar (RA) reported: The Messenger of Allah (SAW), when he broke his fast, would say: "Dhahaba al-zama\u02bbu, wa abtallat al-\u02bburuq, wa thabata al-ajru in sha\u02bba Allah" — "The thirst is gone, the veins are moistened, and the reward is fixed if Allah wills."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Hasan',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Abu Dawud 2358 confirmed.',
+              rationale: 'Direct prophetic transmission of the iftar du\u02bba\u02bb with full Arabic. The narration ties the moment of breaking fast to a fixed reward, anchoring the act with a named outcome.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) named the moment of iftar with a specific du\u02bba\u02bb — the fasting person has a du\u02bba\u02bb that is not rejected. Pair the act with the words.
+
+**How?**
+
+1. Memorize the du\u02bba\u02bb from a card by Ramadan day 3.
+2. Hold the niyyah firm in the last minutes — that is when du\u02bba\u02bb is most powerful.
+3. Recite the du\u02bba\u02bb on the first sip or first date.
+4. Benchmark: iftar du\u02bba\u02bb on every fast for the full month.` },
+        { title: 'Stand the night with taraweeh in faith and seeking reward', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) tied a named, sweeping reward — forgiveness of all prior sins — to standing the nights of Ramadan in faith and reckoning. Direct prophetic ground.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 37',
+              arabic: 'مَنْ قَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "Whoever stands (in prayer) the nights of Ramadan in faith and seeking reward, his prior sins are forgiven."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 37 confirmed.',
+              rationale: 'The reward is conditional on iman + ihtisab (faith + reckoning), not just attendance. Anchors taraweeh as a sincerity-driven nightly practice for the whole month.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Jami\u02bb at-Tirmidhi 806',
+              translation: '\u02bbAbdullah ibn Qays / Abu Dharr (RA) reported: The Prophet (SAW) said: "Whoever prays qiyam with the imam until he leaves, the reward of standing the entire night is written for him."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Tirmidhi 806 confirmed.',
+              rationale: 'Practical incentive: completing taraweeh with the congregation is reckoned as a full-night standing, even though it ends well before fajr.',
+            },
+          ],
+          description: `**Why?**
+
+Taraweeh is the named night-prayer of Ramadan. The Prophet (SAW) attached complete forgiveness to it and equated finishing with the imam to a full night of standing.
+
+**How?**
+
+1. Pick a masjid early in Ramadan and commit to it for the month.
+2. Stay until the imam concludes — do not leave after a few rak\u02bbahs.
+3. Use the recitation as an opportunity for tadabbur, not endurance.
+4. Benchmark: taraweeh with the imam until the end on every Ramadan night.` },
+        { title: 'Seek Laylat al-Qadr in the last ten nights with the Prophet\u2019s \uFDFA du\u02bba\u02bb', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) taught \u02bb\u0100\u02beishah a specific du\u02bba\u02bb to make if she found Laylat al-Qadr — direct prophetic transmission of a named, single-night du\u02bba\u02bb.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Jami\u02bb at-Tirmidhi 3513',
+              arabic: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
+              translation: '\u02bb\u0100\u02beishah (RA) said: "I asked: O Messenger of Allah, if I knew which night was Laylat al-Qadr, what should I say in it?" He (SAW) said: "Say: Allahumma innaka \u02bbafuwwun tu\u1e25ibbu al-\u02bbafwa fa\u02bbfu \u02bbann\u012b — O Allah, You are Pardoning, You love to pardon, so pardon me."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Tirmidhi 3513 confirmed (graded Sahih by al-Albani).',
+              rationale: 'The unique \u02bb\u0100\u02beishah-narration with a question-and-answer structure: the most concentrated single du\u02bba\u02bb the Prophet (SAW) prescribed for the most concentrated single night of the year.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) taught one du\u02bba\u02bb for the night that is better than a thousand months. The act it asks for is pardon — not a long list of worldly needs.
+
+**How?**
+
+1. From night 21 onward, repeat the du\u02bba\u02bb in tahajjud and after each rak\u02bbah of taraweeh.
+2. Pair it with i\u02bbtikaf or extended sittings on odd nights (21, 23, 25, 27, 29).
+3. Make it the dominant du\u02bba\u02bb of the last ten nights.
+4. Benchmark: this du\u02bba\u02bb said in qiyam on every odd night of the last ten.` },
+      ],
+    },
+    {
+      title: 'Keep the Sunan of \u02bb\u012ad al-Fitr',
+      priority: 'high',
+      tags: ['siyam', 'sunnah', 'eid', 'eid-fitr', 'transition:eid-prayer'],
+      description: '\u02bb\u012ad al-Fitr closes Ramadan with a fixed prophetic structure: Zakat al-Fitr before the prayer, an odd number of dates before going out, takbir on the road, and return home by a different route.',
+      subtasks: [
+        { title: 'Pay Zakat al-Fitr before the \u02bb\u012ad prayer', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) commanded Zakat al-Fitr be paid before the \u02bb\u012ad prayer; if delayed past it, it counts as ordinary sadaqah, not the named obligation. Direct prophetic command.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1503',
+              translation: 'Ibn \u02bbUmar (RA) reported: The Messenger of Allah (SAW) made Zakat al-Fitr obligatory — a sa\u02bb of dates or a sa\u02bb of barley — on every Muslim, slave or free, male or female, young or old, and ordered that it be paid before the people went out to the prayer.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1503 confirmed.',
+              rationale: 'Establishes both the obligation and the timing window: before the \u02bb\u012ad prayer, not after.',
+            },
+          ],
+          description: `**Why?**
+
+The fitrah is a purification for the fasting person and food for the poor on \u02bb\u012ad day. Paid after the prayer, it loses its name.
+
+**How?**
+
+1. Calculate one sa\u02bb (~2.5 kg staple food) per household member by night 27 of Ramadan.
+2. Deliver — cash equivalent or food — to a recipient who can use it before \u02bb\u012ad morning.
+3. Confirm settlement before walking to the musalla.
+4. Benchmark: Zakat al-Fitr settled for every household member, every \u02bb\u012ad al-Fitr.` },
+        { title: 'Eat an odd number of dates before going out to the prayer', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) would not go out on \u02bb\u012ad al-Fitr until he ate dates, and ate them in odd number — direct prophetic practice marking the end of the fast.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 953',
+              translation: 'Anas ibn Malik (RA) reported: The Messenger of Allah (SAW) would not go out on the morning of \u02bb\u012ad al-Fitr until he had eaten some dates — and he would eat them in odd number.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 953 confirmed.',
+              rationale: 'Marks the public, embodied transition from fasting to feasting — eating before the prayer signals Ramadan is closed.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) made the body itself testify to the end of the fast — eating before the prayer on Fitr (and after it on Adha) is part of the named structure of each \u02bb\u012ad.
+
+**How?**
+
+1. Keep dates ready the night before \u02bb\u012ad.
+2. Eat 1, 3, 5, or 7 before leaving for the musalla.
+3. Teach the children the practice — they remember the food before the prayer.
+4. Benchmark: dates eaten before the prayer on every \u02bb\u012ad al-Fitr.` },
+        { title: 'Raise the takbir from Maghrib of the eve through the prayer', done: false,
+          tier: 'T2',
+          amanahRationale: 'Ibn \u02bbUmar (RA) — the closest companion to the Prophet (SAW) in transmitting his routine acts — would raise the takbir audibly on \u02bb\u012ad days. Companion practice modeling prophetic norm.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 970',
+              translation: 'Nafi\u02bb reported: Ibn \u02bbUmar (RA) used to raise his voice with the takbir on the day of \u02bb\u012ad — going out to the musalla and even in the marketplace — and the people would raise the takbir with him.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari (chapter on takbir on the days of Mina and going to \u02bbArafah) confirmed.',
+              rationale: 'Establishes the takbir mutlaq as a public, audible \u02bb\u012ad-day practice — not a silent personal dhikr but a community signal.',
+            },
+          ],
+          description: `**Why?**
+
+The takbir on \u02bb\u012ad is a public proclamation that the One who let us complete the fast is greater than every other concern. Ibn \u02bbUmar raised it in the marketplace.
+
+**How?**
+
+1. Begin the takbir at Maghrib of the last day of Ramadan and continue until the imam begins the \u02bb\u012ad prayer.
+2. Raise it audibly on the road to the musalla.
+3. Use the standard form: "Allahu akbar, Allahu akbar, la ilaha illa Allah, wa Allahu akbar, Allahu akbar, wa lillahi al-hamd."
+4. Benchmark: takbir raised on every \u02bb\u012ad al-Fitr eve and morning.` },
+        { title: 'Return home by a different route from the one you took', done: false,
+          tier: 'T2',
+          amanahRationale: 'The Prophet (SAW) varied his route on \u02bb\u012ad — going by one path and returning by another. Direct prophetic practice with named bayyinah-tier transmission.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 986',
+              translation: 'Jabir ibn \u02bbAbdullah (RA) reported: On the day of \u02bb\u012ad, the Prophet (SAW) used to vary his route.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 986 confirmed.',
+              rationale: 'Anchors the practice in primary collection — Jabir narrating the Prophet\u2019s own movement on \u02bb\u012ad.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Jami\u02bb at-Tirmidhi 541',
+              translation: 'Abu Hurayrah (RA) reported: When the Prophet (SAW) went out on the day of \u02bb\u012ad by one route, he would return by a different route.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Tirmidhi 541 confirmed.',
+              rationale: 'Independent companion narration of the same practice — strengthens the sunnah\u2019s standing.',
+            },
+          ],
+          description: `**Why?**
+
+The earth bears witness on the Day of Judgement to what passes over it. By varying the route, the Prophet (SAW) made more of the earth a witness to \u02bb\u012ad.
+
+**How?**
+
+1. Note the path taken to the musalla.
+2. Return home by an intentionally different street or route.
+3. Walk both ways if able — the takbir lasts longer on foot.
+4. Benchmark: route varied on every \u02bb\u012ad you attend in person.` },
+      ],
+    },
+    {
+      title: 'Keep the Sunan of \u02bb\u012ad al-Adha',
+      priority: 'high',
+      tags: ['siyam', 'sunnah', 'eid', 'eid-adha', 'udhiyyah', 'transition:eid-prayer'],
+      description: '\u02bb\u012ad al-Adha follows Hajj with its own prophetic structure: delay the first meal until after the prayer, offer the udhiyyah, and continue the takbir muqayyad through the days of Tashreeq.',
+      subtasks: [
+        { title: 'Delay the first meal until after the \u02bb\u012ad prayer', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) used to eat after the \u02bb\u012ad al-Adha prayer (from the udhiyyah meat), not before — direct prophetic practice contrasted explicitly with \u02bb\u012ad al-Fitr.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Jami\u02bb at-Tirmidhi 542',
+              translation: 'Buraydah (RA) reported: The Prophet (SAW) would not go out on \u02bb\u012ad al-Fitr until he ate, and would not eat on \u02bb\u012ad al-Adha until he returned (from the prayer).',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Tirmidhi 542 confirmed.',
+              rationale: 'Two-day contrast in a single narration: Fitr eats before, Adha eats after. Establishes the inverted timing as a deliberate sunnah, not coincidence.',
+            },
+          ],
+          description: `**Why?**
+
+The first meal of \u02bb\u012ad al-Adha is meant to be from the udhiyyah — eating before the prayer breaks the named structure of the day.
+
+**How?**
+
+1. Drink water if needed before going out, but do not take a meal.
+2. Pray \u02bb\u012ad with the congregation; offer the udhiyyah after.
+3. Open the meal with meat from the sacrifice once it is prepared.
+4. Benchmark: first \u02bb\u012ad al-Adha meal taken after the prayer every year.` },
+        { title: 'Offer the udhiyyah (qurbani) after the \u02bb\u012ad prayer', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) sacrificed two horned rams himself and stipulated that the slaughter must come after the prayer to count as udhiyyah. Direct prophetic practice + named ruling.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 5545',
+              translation: 'Anas ibn Malik (RA) reported: The Prophet (SAW) sacrificed two horned rams, white in colour with black markings — he slaughtered them with his own hand, said "Bismillah" and "Allahu akbar," and placed his foot on their sides.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 5545 confirmed.',
+              rationale: 'Embodied prophetic practice of udhiyyah, with the takbir at slaughter and the personal involvement in the act.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 5573',
+              translation: 'Al-Bara\u02bb ibn \u02bbAzib (RA) reported: The Prophet (SAW) said: "Whoever slaughters before the prayer, his sacrifice is only meat for his family — it is not udhiyyah; whoever slaughters after the prayer has completed the rite and matched the practice of the Muslims."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 5573 confirmed.',
+              rationale: 'Establishes the timing rule that distinguishes valid udhiyyah from ordinary slaughter — slaughter must follow the prayer.',
+            },
+          ],
+          description: `**Why?**
+
+Udhiyyah is a named act of \u02bb\u012ad al-Adha — sacrifice and distribution of meat to family, neighbours, and the poor. The timing window is strict.
+
+**How?**
+
+1. Arrange the sacrifice — locally if possible, with proper niyyah and tasmiyah — for the days 10\u201312 of Dhul-Hijjah.
+2. Ensure slaughter occurs after the \u02bb\u012ad prayer, not before.
+3. Distribute roughly one-third to family, one-third to neighbours, one-third to the poor.
+4. Benchmark: udhiyyah offered every year for those upon whom it is binding.` },
+        { title: 'Keep the takbir muqayyad through the days of Tashreeq', done: false,
+          tier: 'T2',
+          amanahRationale: 'The companions raised the takbir audibly after every fard salah from Fajr of \u02bbArafah through \u02bbAsr of the 13th of Dhul-Hijjah. Established companion practice rooted in Quranic command.',
+          sources: [
+            {
+              kind: 'quran',
+              ref: 'Q 2:203',
+              arabic: 'وَاذْكُرُوا اللَّهَ فِي أَيَّامٍ مَّعْدُودَاتٍ',
+              translation: '"And remember Allah during [specific] numbered days." — the days of Tashreeq.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              ratNote: 'Verified against quran.com 2026-04-26 — 2:203 confirmed.',
+              rationale: 'Quranic ground for sustained dhikr through Tashreeq — the named "ayyam ma\u02bbdudat" understood by the companions as 11\u201313 Dhul-Hijjah.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih Muslim 1141',
+              translation: 'Nubayshah al-Hudhali (RA) reported: The Messenger of Allah (SAW) said: "The days of Tashreeq are days of eating, drinking, and remembrance of Allah."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Muslim 1141 confirmed.',
+              rationale: 'Defines the character of Tashreeq: feasting and dhikr are paired, not alternatives. Also implicitly forbids fasting these days.',
+            },
+          ],
+          description: `**Why?**
+
+The takbir muqayyad after every fard salah marks Tashreeq as a continuation of \u02bb\u012ad — not three ordinary days after a feast, but a named four-day arc of dhikr.
+
+**How?**
+
+1. Begin the takbir muqayyad after Fajr on \u02bbArafah (9 Dhul-Hijjah) and continue after every fard salah through \u02bbAsr of 13 Dhul-Hijjah.
+2. Use the standard formula audibly after the post-salah adhkar.
+3. Eat well, share meat, and do not fast Tashreeq — it is forbidden.
+4. Benchmark: takbir kept after every fard salah across the four-day arc, every year.` },
       ],
     },
   ],
