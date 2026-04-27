@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-27] session | Atlas — §22 manifest truth-up
+
+**Objective:** Close manifest §22 line 515 `revenue-stream-tagging-enterprise-mapping` (P2 partial). Pre-flight discovered the card was already shipped at HEAD — `apps/web/src/features/economics/RevenueStreamTaggingCard.tsx` exists, mounted on `EconomicsPanel.tsx:476`, and its own docblock states "Closes manifest §22 … partial → done". The manifest flip never landed in the same commit as the card. User confirmed the chore-commit recommendation rather than rebuilding a duplicate card.
+
+**Outcome:** One-line manifest flip, line 515 partial→done. No new code. Atlas commit `8bfd46e` on `feat/shared-scoring`, pushed.
+
+**Carries forward:** Adds a fourth instance to this iteration's parallel-session-collision pattern — three rounds where my own edit raced an earlier flip (§3 owner-stakeholder, §27 audit-log absorbed via §8 round, §26 audit-log this morning) and now one where a card *itself* shipped without its manifest flip. Going forward, the pre-flight protocol should grow a "is the named card already mounted" grep-check before card design begins, not just `git show HEAD:` on the manifest line — manifest-stale and code-stale fail in opposite directions. Recently-touched sections to vary away from next round: §1 / §3 / §5 / §6 / §7 / §8 (×2) / §9 / §11 / §13 / §14 / §15 / §16 / §17 (×2) / §18 / §19 / §20 / §21 / §22 (this round) / §23 / §24 / §25 / §26 (×2) / §27 / §29. Natural next directions: §28 MT partials (line 657/664/669 staged-vision / event-prompts / phased-build), §10 / §12 P1 partials (need pre-flight to find a leaf that's actually open), §13 P1 partials.
+
+**Preview verification:** N/A — manifest-only change, no browser surface.
+
+---
+
 ## [2026-04-27] session | Atlas — §26 AuditLogCard
 
 **Objective:** Close manifest §26 line 598 `audit-log` (P1 partial — oldest unflipped P1). The Admin & Governance section of the feature spec calls for an "audit log" surface; nothing in the project view answered "what governance-sensitive actions have happened on this project, by whom, when". User picked candidate 1 from this round's slate.
