@@ -355,6 +355,7 @@ function HeroWheel() {
         }))}
         onSegmentSelect={(seg) => seg?.id && setTappedId(seg.id)}
         onHoverChange={setHoverId}
+        showNextCard={false}
       />
       {activePillar && (
         <div

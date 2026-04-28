@@ -65,6 +65,7 @@ export default function MaqasidComparisonWheel({
   centerLabelOverride = null,
   onSegmentSelect = null,
   onHoverChange = null,
+  showNextCard = true,
 }) {
   const navigate = useNavigate();
   const handleActivate = (seg) => {
@@ -592,7 +593,7 @@ export default function MaqasidComparisonWheel({
           )}
         </g>
         {/* Sector-adjacent pop-out: "Next" action for the hovered pillar */}
-        {cardPos && nextCardText && !isDormant && (
+        {showNextCard && cardPos && nextCardText && !isDormant && (
           <MaqasidNextActionCard
             x={cardPos.x}
             y={cardPos.y}
