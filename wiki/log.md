@@ -7446,3 +7446,19 @@ Content-only follow-up to commit 3a63979 — adds `categoryDetails` for Soil and
 - **Completed:** Soil + Climate drill-down content; coverage now 4/7 categories.
 - **Deferred:** Regulatory, Ecology, Infrastructure remain "Detail soon" (no tagged insights either).
 - **Recommended next:** Backfill the remaining three categories (small content task, no code) OR move to "Open on map" wiring in the drawer footer.
+
+## 2026-04-28 — Atlas — Diagnose drill-down: backfill remaining 3 (Regulatory + Ecology + Infrastructure)
+
+Completes drill-down coverage for all 7 land-brief categories on `/v3/project/:id/diagnose`. Content-only change in [mockProject.ts](../atlas/apps/web/src/v3/data/mockProject.ts) — atlas commit `476a334`.
+
+- **Insight tagging:** `r2` (wetland setback) → `regulatory`, `o2` (hedgerows shelter belts) → `ecology`, `l2` (cell coverage weak) → `infrastructure`. Each new drawer auto-pulls its scoped insight.
+- **Regulatory:** CA jurisdiction (14%), 30 m wetland buffer, current barn 22 m offset, 8–14 wk variance lead time. Recommends shift-or-file-variance.
+- **Ecology:** 1.4 km hedgerow, 2 SAR species (Bobolink, Eastern Meadowlark), mid-May → late-July nesting window. Recommends staggered rotation or 4 ha refuge.
+- **Infrastructure:** 3-phase power 200 m out, paved west frontage, no on-parcel septic, weak cell in south basin. Recommends servicing in year-1 capital + fixed-wireless backhaul.
+
+**Verification (`/v3/project/mtc/diagnose`, DOM eval):** all 7 cards now show enabled `View →`. Each new drawer renders 3 narrative sections + 4 metric cards + 1 scoped insight + map hint. tsc clean.
+
+### Session Debrief
+- **Completed:** Drill-down coverage now 7/7. Phase 5 Diagnose UI is content-complete.
+- **Deferred:** "Open on map" wiring in the drawer footer (still parked for v3.3); URL-shareable deep links to a specific drawer.
+- **Recommended next:** Either move to Design Studio entry (the `Open Design Studio` action on the StageHero is currently a no-op) or wire the drawer's map hint into a click-to-fly behavior.
