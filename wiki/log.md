@@ -7501,3 +7501,17 @@ User reported: moving the homestead did not move the zones rings (sun arcs appea
 - **Completed:** Overlay anchor-tracking now correct across all four overlays.
 - **Deferred:** "Download Brief" implementation (was about to land — pre-empted by this regression report); spotlight pulse on fly-to.
 - **Recommended next:** Resume "Download Brief" markdown export, then spotlight pulse.
+
+## 2026-04-28 — Atlas — Diagnose "Download Brief" markdown export wired
+
+The StageHero secondary action on /v3/project/:id/diagnose now generates a self-contained markdown Land Brief and triggers a browser Blob download. Atlas commit `3202663`. New file [exportDiagnoseBrief.ts](../atlas/apps/web/src/v3/lib/exportDiagnoseBrief.ts), wiring in [DiagnosePage.tsx](../atlas/apps/web/src/v3/pages/DiagnosePage.tsx).
+
+- **Renderer:** `renderDiagnoseBriefMarkdown(project)` walks `project.diagnose` — verdict header, 7 category sections (with whatsHappening/whatsWrong/whatNext + supporting metrics + map hint when `categoryDetails[id]` is authored), then Risks/Opportunities/Limitations. Falls back to a minimal "no land brief available" doc when `diagnose` is undefined.
+- **Download:** `downloadDiagnoseBrief(project)` blobs the markdown (`text/markdown;charset=utf-8`), creates a transient `<a download>` element, clicks it, revokes the object URL after 1s. Filename: `<shortLabel>-land-brief.md` (falls back to `id`).
+- **Verification (`/v3/project/mtc/diagnose`, DOM eval):** clicking "Download Brief" produced an 11.5 KB blob, filename `MTC-land-brief.md`, sections present (Categories / Risks / Opportunities / Limitations / Water drill-down). tsc clean.
+- **No unit test:** the renderer is pure data-shaping with one falsy branch, both confirmed by the live run; a snapshot test against `mockProject` is the better follow-up if/when the export grows beyond markdown.
+
+### Session Debrief
+- **Completed:** Download Brief now functional.
+- **Deferred:** Spotlight pulse on the fly-to target; PDF or styled export; snapshot test for the renderer.
+- **Recommended next:** Spotlight pulse on the focused feature after click-to-fly.
