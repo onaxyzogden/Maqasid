@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-28] session | Atlas Diagnose — water overlay (streams + surface water)
+
+**Objective:** Pivot to the next Diagnose pillar after wind climatology. Topography only carries the contour layer; the parcel's hydrology read needs the *existing* water as a counterpart to the *implied* slope/watershed read. Add a Water matrix toggle that paints surface water and watercourses from MapTiler's OpenMapTiles `v3` vector tileset.
+
+**Outcome (atlas commit `aa88c3e` on `feat/atlas-permaculture`, pushed):**
+- new `OPENMAPTILES_TILES_URL` in `apps/web/src/lib/maplibre.ts` (sibling to `CONTOUR_TILES_URL` and the unused `TERRAIN_DEM_URL`).
+- `matrixTogglesStore` v5 → v6 with `water: boolean`, `setAll` covers it, migrate seeds `false` so existing users don't get a surprise overlay on first load.
+- new `WaterOverlay` mirrors `TopographyOverlay`'s idempotent ensure pattern — style-ready gating via `styledata`, source/layer add-once, visibility toggled via `setLayoutProperty`. Two layers off one source: `water` polygon fill (cyan, 0.35 opacity) + `waterway` line (slightly stronger cyan, line-width interpolated 0.6→2.4 across zoom 10–17).
+- `MatrixTogglesPopover` Water row · `DiagnoseMap` legend swatch (cyan, "streams · surface water") · `anyOn` includes water.
+- wired in `DiagnoseOverlays` directly under topography in z-order so water reads beneath sectors/zones/wind.
+
+**Verification:** tsc clean for all touched files. DOM legend toggles correctly (verified via `localStorage` write + reload — legend renders/hides "Water (streams · surface water)" in lockstep with the store). Visual screenshot deferred — preview screenshot tool timed out twice; layer code path is identical to the verified topography overlay.
+
+**Carries forward:**
+- Optional Phase 3: hillshade beneath topography contours via `TERRAIN_DEM_URL` raster-dem source — not done; deferred to keep this change scoped to one Diagnose pillar.
+- Open-Meteo proxy adapter for server-side wind (still queued from prior sessions).
+
+---
+
 ## [2026-04-28] session | Sidebar satellite section + Moontrance demoted from Maqasid
 
 **Objective:** Three small but semantically related cleanups in MILOS V2.1 chrome:
