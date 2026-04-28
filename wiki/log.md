@@ -7432,3 +7432,17 @@ First Diagnose category drill-down lands as a right-side drawer triggered from t
 - **Completed:** Drawer drill-down for Water + Terrain; insight tagging schema; `View →` honesty (disabled-with-label) for un-authored categories.
 - **Deferred:** Five remaining categories' detail content; "Open on map" footer button (parked for v3.3 once the click-to-fly behavior is designed); URL-shareable deep link to a specific drawer (current state is component-local).
 - **Recommended next:** Either author Soil + Climate detail (cheap content win, no new code) or move to "Open on map" wiring so the drawer can drive the map (e.g. fly-to + spotlight the relevant feature when its drawer opens).
+
+## 2026-04-28 — Atlas — Diagnose drill-down: backfill Soil + Climate
+
+Content-only follow-up to commit 3a63979 — adds `categoryDetails` for Soil and Climate, lifting the drill-down coverage from 2/7 (Water + Terrain) to 4/7 categories. No code changes; just two new entries in [mockProject.ts](../atlas/apps/web/src/v3/data/mockProject.ts).
+
+- **Soil:** narrative covers the Guelph-loam plateau (62%) + Burford sandy-loam northern band; metrics for dominant/secondary soil, pH range (6.4–6.9), organic matter (4.1%). No tagged insights yet — drawer correctly hides the insights section when none match.
+- **Climate:** USDA 5b, 165 growing days, 870 mm/yr precip, late-frost risk on the lower south slope. The frost insight (`r3`) was already tagged with `["terrain", "climate"]` in the prior commit, so the drawer pulls it in automatically without further changes.
+
+**Verification (`/v3/project/mtc/diagnose`, DOM eval):** card grid now shows 4 enabled `View →` (Soil, Water, Terrain, Climate) + 3 disabled "Detail soon" (Regulatory, Ecology, Infrastructure). Soil drawer renders 4 metric cards + map hint, no insight section. Climate drawer renders 4 metric cards + 1 scoped insight ("Late-spring frost on south slope") + map hint. tsc clean.
+
+### Session Debrief
+- **Completed:** Soil + Climate drill-down content; coverage now 4/7 categories.
+- **Deferred:** Regulatory, Ecology, Infrastructure remain "Detail soon" (no tagged insights either).
+- **Recommended next:** Backfill the remaining three categories (small content task, no code) OR move to "Open on map" wiring in the drawer footer.
