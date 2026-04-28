@@ -42,8 +42,8 @@ export default function TodayFocusSection({ pillarSummary = [], primaryPillarId 
           <div className="tfs-hero__title">Begin today with intention</div>
           <div className="tfs-hero__sub">
             {isIslamic
-              ? 'Choose the pillar(s) you will direct your energy toward — then the day ignites.'
-              : 'Choose the pillar(s) you will direct your energy toward today.'}
+              ? 'Choose the higher objective(s) you will direct your energy toward — then the day ignites.'
+              : 'Choose the higher objective(s) you will direct your energy toward today.'}
           </div>
         </div>
         <div className="tfs-hero__cta-chip" aria-hidden="true">Set focus →</div>

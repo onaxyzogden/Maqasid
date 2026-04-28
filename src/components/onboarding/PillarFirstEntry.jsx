@@ -9,13 +9,13 @@ const ICON_MAP = ICON_REGISTRY;
 
 // ── Pillar descriptions ──
 const PILLAR_DESCRIPTIONS = {
-  faith:       "This pillar protects your relationship with the Divine and keeps your spiritual practice consistent. It encompasses your Five Pillars and access to Quranic and Hadith sources.",
-  health:      "This pillar protects your physical and mental wellbeing as a sacred trust. It covers health, safety, mental clarity, and your social connections.",
-  intellect:   "This pillar protects the clarity and integrity of your mind. It covers learning, critical thinking, cognitive habits, and professional development.",
-  family:      "This pillar protects the continuation of your lineage and the strength of your relationships. It covers marriage, parenting, kinship, home, and family office.",
-  wealth:      "This pillar governs how wealth flows through your life in a halal and purposeful way. It covers earning, financial management, ownership, and your business operations.",
-  environment: "This pillar protects your stewardship of the earth as a divine trust. It covers resource consumption, waste reduction, ecosystem health, and ethical sourcing.",
-  ummah:       "This pillar protects the collective wellbeing of your community and the Muslim world. It covers community service, neighbor relations, and land stewardship.",
+  faith:       "This higher objective protects your relationship with the Divine and keeps your spiritual practice consistent. It encompasses your Five Pillars and access to Quranic and Hadith sources.",
+  health:      "This higher objective protects your physical and mental wellbeing as a sacred trust. It covers health, safety, mental clarity, and your social connections.",
+  intellect:   "This higher objective protects the clarity and integrity of your mind. It covers learning, critical thinking, cognitive habits, and professional development.",
+  family:      "This higher objective protects the continuation of your lineage and the strength of your relationships. It covers marriage, parenting, kinship, home, and family office.",
+  wealth:      "This higher objective governs how wealth flows through your life in a halal and purposeful way. It covers earning, financial management, ownership, and your business operations.",
+  environment: "This higher objective protects your stewardship of the earth as a divine trust. It covers resource consumption, waste reduction, ecosystem health, and ethical sourcing.",
+  ummah:       "This higher objective protects the collective wellbeing of your community and the Muslim world. It covers community service, neighbor relations, and land stewardship.",
 };
 
 // ── Special ID label overrides ──

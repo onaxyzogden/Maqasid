@@ -320,7 +320,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
                 {feeling && (
                   <>
                     <div className="niyyah-adlib-line">
-                      I want to honor my pillar of{' '}
+                      I want to honor my higher objective of{' '}
                       <button
                         type="button"
                         className={`niyyah-feeling-word${primaryPillar ? ' niyyah-feeling-word--filled' : ''}`}
@@ -331,7 +331,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
                       >
                         {primaryPillar
                           ? getPillarLabel(primaryPillar, isIslamic ? 'islamic' : 'universal')
-                          : 'a pillar'}
+                          : 'a higher objective'}
                       </button>
                       {primaryPillar && submodule && (
                         <>
@@ -365,7 +365,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
                       {'.'}
                     </div>
                     {pillarPillsOpen && (
-                      <div className="niyyah-feeling-pills" role="radiogroup" aria-label="Which pillar?">
+                      <div className="niyyah-feeling-pills" role="radiogroup" aria-label="Which higher objective?">
                         {pillarOptions.map((o) => {
                           const sel = primaryPillarId === o.id;
                           return (
@@ -390,7 +390,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
                       </div>
                     )}
                     {primaryPillar && submodulePillsOpen && (
-                      <div className="niyyah-feeling-pills" role="radiogroup" aria-label="Which focus within the pillar?">
+                      <div className="niyyah-feeling-pills" role="radiogroup" aria-label="Which focus within the higher objective?">
                         {submoduleOptions.map((o) => {
                           const sel = submodule === o.id;
                           return (

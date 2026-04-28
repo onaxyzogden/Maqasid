@@ -13,7 +13,7 @@ const LEVELS = [
     key:      'core',
     label:    'LEVEL 1',
     subtitle: '(DARURIYYAT)',
-    title:    'Core Pillars',
+    title:    'Core Higher Objectives',
     desc:     'Foundational obligations — the essential duties that must be established before all else.',
     color:    '#C8A96E',
     routeSuffix: 'core',

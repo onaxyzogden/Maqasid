@@ -99,7 +99,7 @@ export default function MaqasidBalanceRadar({
       <div className="mbr__header">
         <div className="mbr__title-group">
           <span className="mbr__title">
-            {isIslamic ? 'Maqasid Balance' : 'Pillar Balance'}
+            {isIslamic ? 'Maqasid Balance' : 'Higher Objective Balance'}
           </span>
           {isIslamic && <span className="mbr__title-ar">توازن المقاصد</span>}
         </div>
@@ -244,7 +244,7 @@ export default function MaqasidBalanceRadar({
         <p className="mbr__empty-hint">
           {isIslamic
             ? 'Seven axes unfold as your practice accumulates — quality and harmony, not just quantity.'
-            : 'The shape of your balance emerges as you complete tasks across pillars.'}
+            : 'The shape of your balance emerges as you complete tasks across higher objectives.'}
         </p>
       )}
     </div>

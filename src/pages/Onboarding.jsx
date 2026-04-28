@@ -17,7 +17,7 @@ import '../styles/landing.css';
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
 // Steps: 0=Welcome, 1=Profile+Intent, 2=Pillar Focus, 3=Values Framing, 4=First Action
-const STEPS = ['Welcome', 'Profile', 'Pillars', 'Values', 'Begin'];
+const STEPS = ['Welcome', 'Profile', 'Higher Objectives', 'Values', 'Begin'];
 
 const INTENT_OPTIONS = [
   { id: 'personal', emoji: '🕌', label: 'Personal & Spiritual' },
@@ -272,13 +272,13 @@ export default function Onboarding() {
           {/* ── Step 2: Pillar Focus ── */}
           {step === 2 && (
             <div className="fade-in">
-              <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your pillars</h2>
+              <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your higher objectives</h2>
               <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
                 Select the areas of life you want to focus on. You can change this later.
               </p>
               {selectedPillars.length > 3 && (
                 <p style={{ fontSize: '0.8rem', color: 'var(--warning, #D97706)', marginBottom: 'var(--space-3)' }}>
-                  {selectedPillars.length} pillars selected — consider narrowing your focus.
+                  {selectedPillars.length} higher objectives selected — consider narrowing your focus.
                 </p>
               )}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-3)', marginBottom: 'var(--space-2)' }}>
@@ -376,7 +376,7 @@ export default function Onboarding() {
               <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)' }}>
                 {"Here's what the "}
                 <strong>{firstPillar?.sidebarLabel}</strong>
-                {" pillar contains. Tap one to start there."}
+                {" higher objective contains. Tap one to start there."}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', marginBottom: 'var(--space-4)' }}>

@@ -7,7 +7,7 @@ const CHECKLIST_ITEMS = [
   { id: 'profile',       label: 'Set up your profile',           href: null }, // auto-completed in wizard; no route needed
   { id: 'first-task',    label: 'Complete your first task',       href: '/app/work' },
   { id: 'sources',       label: 'Explore the Sources',           href: '/app/sources' },
-  { id: 'second-pillar', label: 'Add a second pillar',           href: '/app/settings' },
+  { id: 'second-pillar', label: 'Add a second higher objective',           href: '/app/settings' },
   { id: 'weekly-review', label: 'Review your weekly alignment',  href: '/app' },
 ];
 

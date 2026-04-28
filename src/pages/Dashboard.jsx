@@ -29,7 +29,7 @@ import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
 
 const TOUR_STEPS = [
-  { target: 'sidebar-nav', title: 'Your seven domains', description: 'Each pillar of the Maqasid — Faith, Life, Intellect, and more — lives here. Click any to explore.' },
+  { target: 'sidebar-nav', title: 'Your seven domains', description: 'Each higher objective of the Maqasid — Faith, Life, Intellect, and more — lives here. Click any to explore.' },
   { target: 'dashboard-main', title: 'Your command center', description: 'Tasks, priorities, and your Barakah score — everything you need at a glance.' },
   { target: 'onboarding-checklist', title: 'Your getting started guide', description: 'Complete these five steps to unlock the full power of MILOS.' },
 ];
@@ -564,7 +564,7 @@ export default function Dashboard() {
           <p className="insight-empty__text">
             {isIslamic
               ? 'Set your daily Niyyah or create your first project to begin your Maqasid journey.'
-              : 'Create your first project or explore the pillars below to organise your work.'}
+              : 'Create your first project or explore the higher objectives below to organise your work.'}
           </p>
           <div className="insight-empty__actions">
             <Link to="/app/work" className="insight-action-btn">+ Create Project</Link>

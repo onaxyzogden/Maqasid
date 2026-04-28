@@ -5,7 +5,7 @@ export default function FaithCorePage() {
     <FaithLevelOverview
       level="core"
       levelLabel="LEVEL 1 · NECESSITIES (DARURIYYAT)"
-      levelTitle="Core Pillars"
+      levelTitle="Core Higher Objectives"
       levelDesc="Foundational obligations — the essential duties that must be established before all else."
       levelColor="#C8A96E"
     />

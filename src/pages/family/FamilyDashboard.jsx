@@ -235,7 +235,7 @@ export default function FamilyDashboard() {
           </div>
           <div className="family-tarbiyah-bridge__condition">
             <span className="family-tarbiyah-bridge__dot" />
-            <span>Ummah pillar milestones include community formation</span>
+            <span>Ummah higher objective milestones include community formation</span>
           </div>
           <div className="family-tarbiyah-bridge__condition">
             <span className="family-tarbiyah-bridge__dot" />

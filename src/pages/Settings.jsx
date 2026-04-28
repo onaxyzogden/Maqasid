@@ -514,7 +514,7 @@ export default function Settings() {
           <div style={{ fontSize: '0.85rem', color: 'var(--text2)', lineHeight: 1.5 }}>
             {onboardingDisabled
               ? 'All onboarding hints are hidden. Reset to experience them again.'
-              : 'Guided tour, Dashboard checklist, and pillar intro modals are active.'}
+              : 'Guided tour, Dashboard checklist, and higher objective intro modals are active.'}
           </div>
           <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
             <button

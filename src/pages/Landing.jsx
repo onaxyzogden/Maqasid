@@ -76,11 +76,11 @@ const PILLAR_FEATURES = {
 
 const FAQS = [
   { q: 'What is MILOS?', a: "MILOS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of the Shari\u2019ah." },
-  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven pillars form the organizing structure of everything in MILOS." },
+  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven higher objectives form the organizing structure of everything in MILOS." },
   { q: 'Is MILOS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
-  { q: 'What can I actually track?', a: 'Each pillar has dedicated sub-modules with Kanban boards, task management, and progress tracking. Examples: prayer consistency, health goals, learning plans, family commitments, budgets and expenses, environmental footprint, and community engagement.' },
+  { q: 'What can I actually track?', a: 'Each higher objective has dedicated sub-modules with Kanban boards, task management, and progress tracking. Examples: prayer consistency, health goals, learning plans, family commitments, budgets and expenses, environmental footprint, and community engagement.' },
   { q: 'Is my data private?', a: 'Yes. All data is stored locally on your device. Nothing is sent to external servers. You can export your full dataset as JSON at any time from Settings.' },
-  { q: 'Is it free?', a: 'Yes. MILOS is completely free to use with full access to all seven pillars and every sub-module. No paywalls, no premium tiers.' },
+  { q: 'Is it free?', a: 'Yes. MILOS is completely free to use with full access to all seven higher objectives and every sub-module. No paywalls, no premium tiers.' },
 ];
 
 const PILLAR_MOCK_TASKS = {
@@ -167,7 +167,7 @@ function Slide1Content() {
         <span className="demo-slide-topbar-title">MAQASID Dashboard</span>
       </div>
       <div className="demo-slide-body">
-        <p className="demo-slide-eyebrow" style={{ color: '#4ab8a8' }}>Your Pillars</p>
+        <p className="demo-slide-eyebrow" style={{ color: '#4ab8a8' }}>Your Higher Objectives</p>
         <div className="demo-chip-grid">
           {DASHBOARD_CHIPS.map((c) => (
             <div key={c.label} className="demo-chip" style={{ borderColor: c.color + '50', color: c.color }}>
@@ -196,7 +196,7 @@ function Slide2Content() {
         <span className="demo-slide-topbar-title">Wealth · Hifz al-Mal</span>
       </div>
       <div className="demo-slide-body demo-slide-body--padded">
-        <p className="demo-slide-eyebrow" style={{ color: '#C8A96E' }}>Pillar Deep Dive</p>
+        <p className="demo-slide-eyebrow" style={{ color: '#C8A96E' }}>Higher Objective Deep Dive</p>
         {wealthPillar && <PillarMockup pillar={wealthPillar} />}
       </div>
     </div>
@@ -205,7 +205,7 @@ function Slide2Content() {
 
 const TASK_CHECKS = [
   { done: true,  text: 'Pull bank statement export' },
-  { done: true,  text: 'Categorise expenses by pillar' },
+  { done: true,  text: 'Categorise expenses by higher objective' },
   { done: false, text: 'Verify zakah threshold' },
   { done: false, text: 'Share summary with spouse' },
 ];
@@ -250,8 +250,8 @@ function Slide3Content() {
 }
 
 const DEMO_SLIDES = [
-  { step: '01', title: 'The Dashboard',    subtitle: 'All seven pillars, one unified view.',      accent: '#4ab8a8', Content: Slide1Content },
-  { step: '02', title: 'Pillar Deep Dive', subtitle: 'Each pillar has its own Kanban board.',      accent: '#C8A96E', Content: Slide2Content },
+  { step: '01', title: 'The Dashboard',    subtitle: 'All seven higher objectives, one unified view.',      accent: '#4ab8a8', Content: Slide1Content },
+  { step: '02', title: 'Higher Objective Deep Dive', subtitle: 'Each higher objective has its own Kanban board.',      accent: '#C8A96E', Content: Slide2Content },
   { step: '03', title: 'Task in Focus',    subtitle: 'Every task fully tracked, with context.',    accent: '#8b5cf6', Content: Slide3Content },
 ];
 
@@ -324,7 +324,7 @@ function DemoCarousel() {
 
 const HOW_IT_WORKS = [
   { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences.', icon: ICON_REGISTRY.Compass },
-  { step: '02', title: 'Explore Your Pillars', desc: 'Each of the Seven Maqasid has its own dashboard with sub-modules, Kanban boards, and readiness checks.', icon: BookOpen },
+  { step: '02', title: 'Explore Your Higher Objectives', desc: 'Each of the Seven Maqasid has its own dashboard with sub-modules, Kanban boards, and readiness checks.', icon: BookOpen },
   { step: '03', title: 'Track Your Growth', desc: 'Work through three tiers \u2014 Necessities, Needs, and Excellence \u2014 across every dimension of your life.', icon: Sparkles },
 ];
 
@@ -365,7 +365,7 @@ export default function Landing() {
           MAQASID
         </Link>
         <ul className="landing-nav-links">
-          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#pillars">Higher Objectives</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -460,7 +460,7 @@ export default function Landing() {
           <Link to="/get-started" className="btn btn-primary btn-lg">
             Begin Your Path <ArrowRight size={18} />
           </Link>
-          <a href="#pillars" className="btn btn-secondary btn-lg">Explore the Pillars</a>
+          <a href="#pillars" className="btn btn-secondary btn-lg">Explore the Higher Objectives</a>
         </div>
         <div className="hero-marquee" aria-hidden="true">
           <div className="hero-marquee-track">
@@ -469,7 +469,7 @@ export default function Landing() {
                 <span className="hero-marquee-item">Grounded in the Maqasid al-Shari'ah</span>
                 <span className="hero-marquee-item">Local-first · your data stays with you</span>
                 <span className="hero-marquee-item">Zero tracking · zero ads</span>
-                <span className="hero-marquee-item">Seven pillars · one rhythm</span>
+                <span className="hero-marquee-item">Seven higher objectives · one rhythm</span>
                 <span className="hero-marquee-item">Free forever</span>
                 <span className="hero-marquee-item">Built with tawakkul</span>
               </div>
@@ -521,7 +521,7 @@ export default function Landing() {
         <p className="section-label">The Seven Maqasid</p>
         <h2 className="section-title">One system for every dimension of your life</h2>
         <p className="section-subtitle">
-          The Maqasid al-Shariah — the higher objectives of Islamic law — provide the framework. Each pillar has its own dashboard, sub-modules, and growth tiers.
+          The Maqasid al-Shariah — the higher objectives of Islamic law — provide the framework. Each higher objective has its own dashboard, sub-modules, and growth tiers.
         </p>
 
         <div className="feature-tabs">
@@ -658,7 +658,7 @@ export default function Landing() {
           <div className="footer-col">
             <h6>Product</h6>
             <ul>
-              <li><a href="#pillars">Pillars</a></li>
+              <li><a href="#pillars">Higher Objectives</a></li>
               <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#faq">FAQ</a></li>
             </ul>
