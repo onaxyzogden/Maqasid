@@ -20,7 +20,7 @@ const PILLAR_FEATURES = {
       { title: 'Three-Tier Growth', desc: 'Progress through Necessities, Needs, and Excellence in your faith journey' },
     ],
   },
-  life: {
+  health: {
     description: 'Protect and develop your physical health, mental well-being, personal safety, and social character.',
     items: [
       { title: 'Physical Health', desc: 'Track nutrition, exercise, and vitality goals across three growth tiers' },
