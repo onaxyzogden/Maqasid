@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../data/maqasid';
-import { ICON_REGISTRY } from '../data/icon-registry';
+import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
+import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
 import '../styles/landing.css';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
@@ -75,7 +76,7 @@ const PILLAR_FEATURES = {
 };
 
 const FAQS = [
-  { q: 'What is MILOS?', a: "MILOS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of the Shari\u2019ah." },
+  { q: 'What is MILOS?', a: "MILOS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of Islamic Law." },
   { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven higher objectives form the organizing structure of everything in MILOS." },
   { q: 'Is MILOS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
   { q: 'What can I actually track?', a: 'Each higher objective has dedicated sub-modules with Kanban boards, task management, and progress tracking. Examples: prayer consistency, health goals, learning plans, family commitments, budgets and expenses, environmental footprint, and community engagement.' },
@@ -454,7 +455,7 @@ export default function Landing() {
           Align your daily rhythm with <span className="highlight">what truly matters</span>
         </h1>
         <p className="hero-subtitle">
-          One system for <span className="tag">faith</span>, <span className="tag">health</span>, <span className="tag">intellect</span>, <span className="tag">family</span>, <span className="tag">wealth</span>, <span className="tag">environment</span>, and <span className="tag">community</span> — grounded in the higher objectives of the Shari'ah.
+          One system for <span className="tag">faith</span>, <span className="tag">health</span>, <span className="tag">intellect</span>, <span className="tag">family</span>, <span className="tag">wealth</span>, <span className="tag">environment</span>, and <span className="tag">community</span> — grounded in the higher objectives of Islamic Law.
         </p>
         <div className="hero-cta">
           <Link to="/get-started" className="btn btn-primary btn-lg">
@@ -476,43 +477,36 @@ export default function Landing() {
             ))}
           </div>
         </div>
-        <div className="hero-bento">
-          {MAQASID_CORE_PILLARS.map((pillar) => {
-            const Icon = PILLAR_ICON_MAP[pillar.icon];
-            const desc = PILLAR_FEATURES[pillar.id]?.description;
-            const circ = 2 * Math.PI * 12;
-            return (
-              <div
-                key={pillar.id}
-                className="hero-bento-card"
-                style={{ '--card-accent': pillar.accentColor }}
-                tabIndex={0}
+        <div className="hero-wheel">
+          <MaqasidComparisonWheel
+            centerLabel="MAQASID"
+            levelColor="#C8A96E"
+            level="core"
+            levelPattern="dots"
+            segments={MAQASID_CORE_PILLARS.map((p, i) => ({
+              id: p.id,
+              label: p.sidebarLabel,
+              Icon: getIcon(p.icon),
+              accentColor: p.accentColor,
+              current: [72, 58, 64, 80, 55, 48, 68][i] ?? 60,
+              tooltipLabel: p.sidebarLabel,
+              tooltipText: PILLAR_FEATURES[p.id]?.description,
+              tooltipWidth: 280,
+              tooltipHeight: 140,
+            }))}
+          />
+          <div className="hero-wheel-legend" aria-hidden="true">
+            {MAQASID_CORE_PILLARS.map((p) => (
+              <span
+                key={p.id}
+                className="hero-wheel-legend-item"
+                style={{ '--card-accent': p.accentColor }}
               >
-                <div className="hero-bento-head">
-                  <span className="hero-bento-icon">
-                    {Icon && <Icon size={18} />}
-                  </span>
-                  <div>
-                    <div className="hero-bento-name">{pillar.sidebarLabel}</div>
-                    <div className="hero-bento-ar">{pillar.arabicRootAr}</div>
-                  </div>
-                  <span className="hero-bento-ring" aria-label="0% mastery">
-                    <svg viewBox="0 0 28 28">
-                      <circle className="hero-bento-ring-track" cx="14" cy="14" r="12" fill="none" strokeWidth="2" />
-                      <circle
-                        className="hero-bento-ring-fill"
-                        cx="14" cy="14" r="12" fill="none" strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeDasharray={circ}
-                        strokeDashoffset={circ}
-                      />
-                    </svg>
-                  </span>
-                </div>
-                {desc && <div className="hero-bento-desc">{desc}</div>}
-              </div>
-            );
-          })}
+                <span className="hero-wheel-legend-name">{p.sidebarLabel}</span>
+                <span className="hero-wheel-legend-ar">{p.arabicRootAr}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
