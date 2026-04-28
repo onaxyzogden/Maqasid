@@ -7515,3 +7515,17 @@ The StageHero secondary action on /v3/project/:id/diagnose now generates a self-
 - **Completed:** Download Brief now functional.
 - **Deferred:** Spotlight pulse on the fly-to target; PDF or styled export; snapshot test for the renderer.
 - **Recommended next:** Spotlight pulse on the focused feature after click-to-fly.
+
+## 2026-04-28 — Atlas — Diagnose spotlight pulse on click-to-fly target
+
+The drawer "Open on map" action now flies the map and drops a transient gold pulse marker at the target so the eye lands on the focused feature. Atlas commit `3e75870`. New files [SpotlightPulse.tsx](../atlas/apps/web/src/v3/components/overlays/SpotlightPulse.tsx) + [SpotlightPulse.module.css](../atlas/apps/web/src/v3/components/overlays/SpotlightPulse.module.css); wiring in [DiagnosePage.tsx](../atlas/apps/web/src/v3/pages/DiagnosePage.tsx).
+
+- **Marker:** plain DOM element mounted via `new maplibregl.Marker({ element, anchor: "center" })` — two staggered expanding gold rings (CSS `spotlight-ring` keyframe, scale 0.4 → 3.6, 2.4s) + a 10 px gold center dot. Self-removes after 2.5 s; cleanup also clears on unmount.
+- **State / re-fire:** `DiagnosePage` holds `pulse: { point, key }` state, sets it with `Date.now()` key on every "Open on map" click (right after `flyTo`). React re-mounts via `key={pulse.key}` so the same target re-pulses.
+- **Reduced-motion:** the keyframe duration collapses to ~0 under `prefers-reduced-motion: reduce` — the dot is visible but the rings do not animate.
+- **Verification (`/v3/project/mtc/diagnose`, DOM eval):** Open Water → "Open on map" mounted 2 rings + 1 dot; after 2.5 s `ringsAfterTimeout: 0`; re-firing produced 2 fresh rings (`ringsAfterRefire: 2`) confirming the key bump remount. tsc exit 0.
+
+### Session Debrief
+- **Completed:** Spotlight pulse on the click-to-fly target.
+- **Deferred:** PDF or styled brief export; snapshot test for `renderDiagnoseBriefMarkdown`; persisting last fly-to target across drawer close.
+- **Recommended next:** snapshot test for the brief renderer, or moving on to the next Diagnose polish item (sticky last-target highlight, or bringing wind-climatology WIP through to merge).
