@@ -7410,3 +7410,25 @@ Verification (Diagnose page at `/v3/project/mtc/diagnose`): map now reports `dia
 - **Completed:** Parcel-boundary outline + fitBounds now actually paint on the Diagnose map; root cause was the style-readiness gate, not the boundary code itself.
 - **Deferred:** Real cadastral fetch is still v3.2 (the MTC polygon is hand-drawn). Same gate pattern should be applied if/when other overlay effects are added that depend on `addSource`/`addLayer` — `isStyleLoaded()` is unreliable with raster styles.
 - **Recommended next:** Pick up next Diagnose tile (water/terrain category drill-downs) or move to v3.3 zones authoring.
+
+## 2026-04-28 — Atlas — Diagnose drill-down drawer (Water + Terrain)
+
+First Diagnose category drill-down lands as a right-side drawer triggered from the `View →` button on each `CategoryCard`. v3.2 scope: only **Water** and **Terrain** are authored — the two highest-signal categories where the drill-down has a real story (water is the load-bearing risk for MTC; terrain has slope/aspect data that pairs with the topography overlay). The other five categories (Regulatory, Soil, Ecology, Climate, Infrastructure) render their `View →` button disabled with the label "Detail soon" so the affordance is honest about scope rather than dead.
+
+**Data shape ([types.ts](../atlas/apps/web/src/v3/types.ts)):**
+- New `CategoryDetail` interface — `whatsHappening`, `whatsWrong`, `whatNext` narrative slots plus optional `metrics: CategoryMetric[]` and `mapHint`. Exactly mirrors the brief's "what's happening / what's wrong / what next" rule for Diagnose cards.
+- New `Insight.categoryIds?: DiagnoseCategoryId[]` — optional tagging so the drawer can pull only the risks/opps/limits relevant to the open category. Untagged insights still render in the existing R/O/L row at the bottom of the page.
+- `DiagnoseBrief.categoryDetails?: Partial<Record<DiagnoseCategoryId, CategoryDetail>>` — sparse map; presence drives whether `View →` is enabled.
+
+**Content ([mockProject.ts](../atlas/apps/web/src/v3/data/mockProject.ts)):** authored Water (4 metrics: well yield, herd requirement, surface storage, annual precip) and Terrain (4 metrics: plateau slope, south slope, aspect, frost-risk band). Tagged the matching MTC insights — water carries r1/o3/l1, terrain carries r3/o1/l3.
+
+**UI ([DiagnoseCategoryDrawer.tsx](../atlas/apps/web/src/v3/components/DiagnoseCategoryDrawer.tsx)):** right-slide panel ~480px wide, scrim backdrop, role="dialog" + aria-modal, ESC + backdrop + close-button all dismiss, close button autofocused on open. Sections: status pill, three narrative blocks (whatsWrong gets a warning border; whatNext gets a gold action border), 2-col metric grid, scoped insights (color-coded by kind), map-hint callout, footer with disabled "Open on map" placeholder for v3.3.
+
+**Wiring ([DiagnosePage.tsx](../atlas/apps/web/src/v3/pages/DiagnosePage.tsx)):** `useState<DiagnoseCategoryId | null>` for open category; `CategoryCard` gets `hasDetail={!!categoryDetails[c.id]}` and a real `onView` handler. Drawer is rendered conditionally after the R/O/L section, lifted above page scroll via `position: fixed`.
+
+**Verification (`/v3/project/mtc/diagnose`, DOM eval):** 7 cards render — Water + Terrain enabled (`View →`), the other 5 disabled (`Detail soon`). Clicking Water opens a `[role=dialog][aria-label="Water detail"]` with all five expected sections, 4 metric cards, 3 scoped insights (Water yield insufficient / Conservation programs cosign / No on-parcel potable supply), and the map-hint copy. ESC dismisses. Terrain opens with its own three insights (frost / orchard+solar / east two-track). tsc clean; new test [DiagnoseCategoryDrawer.test.tsx](../atlas/apps/web/src/v3/components/__tests__/DiagnoseCategoryDrawer.test.tsx) (5/5 pass) covers render + ESC + backdrop + inside-click + close-button. Sidebar test still 6/6. Browser screenshot blocked (preview window hidden); DOM-level verification is recorded in this entry.
+
+### Session Debrief
+- **Completed:** Drawer drill-down for Water + Terrain; insight tagging schema; `View →` honesty (disabled-with-label) for un-authored categories.
+- **Deferred:** Five remaining categories' detail content; "Open on map" footer button (parked for v3.3 once the click-to-fly behavior is designed); URL-shareable deep link to a specific drawer (current state is component-local).
+- **Recommended next:** Either author Soil + Climate detail (cheap content win, no new code) or move to "Open on map" wiring so the drawer can drive the map (e.g. fly-to + spotlight the relevant feature when its drawer opens).
