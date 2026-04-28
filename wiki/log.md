@@ -7474,3 +7474,17 @@ The Land Brief's primary StageHero action is no longer a no-op — it now naviga
 - **Completed:** Diagnose → Design hand-off works end-to-end.
 - **Deferred:** "Download Brief" secondary action still a no-op; drawer "Open on map" wiring still parked.
 - **Recommended next:** Either implement "Download Brief" (PDF/markdown export of the Land Brief) or move to "Open on map" click-to-fly from drawer map hints.
+
+## 2026-04-28 — Atlas — Diagnose drawer "Open on map" click-to-fly wired
+
+The drawer's footer "Open on map" action is no longer disabled — it flies the MapLibre instance to a per-category target and closes the drawer. Atlas commit `776042e`. Files: [types.ts](../atlas/apps/web/src/v3/types.ts), [mockProject.ts](../atlas/apps/web/src/v3/data/mockProject.ts), [DiagnoseCategoryDrawer.tsx](../atlas/apps/web/src/v3/components/DiagnoseCategoryDrawer.tsx), [DiagnosePage.tsx](../atlas/apps/web/src/v3/pages/DiagnosePage.tsx).
+
+- **Schema:** `CategoryDetail.mapTarget?: { center: [lng, lat]; zoom?: number }`. Zoom defaults to 16.
+- **Authoring:** All 7 categories now carry `mapTarget`. Coordinates pinned within the MTC parcel (lng [-78.211, -78.189], lat [44.4965, 44.5035]) — Water → east stream, Terrain/Climate → south slope, Soil → loam-band edge, Regulatory → south marsh + barn, Ecology → north hedgerow, Infrastructure → west road frontage.
+- **Wiring:** `DiagnosePage` keeps a `useRef<MaplibreMap>` and assigns it inside the `DiagnoseMap` render-prop callback (`mapRef.current = map`). The drawer receives `onOpenOnMap?: () => void`; when present it calls `map.flyTo({ center, zoom, essential: true })` then `setOpenCategoryId(null)`. Drawer renders the button disabled if `onOpenOnMap` is undefined.
+- **Verification (`/v3/project/mtc/diagnose`, DOM eval):** Water + Terrain drawers' "Open on map" button is enabled; click closes the drawer (drawerClosed=true, canvas still present). tsc clean.
+
+### Session Debrief
+- **Completed:** Drawer click-to-fly works for all 7 categories.
+- **Deferred:** "Download Brief" StageHero secondary action still a no-op; spotlight/highlight effect on the focused feature after fly is not yet implemented (just a fly-to, no marker pulse).
+- **Recommended next:** Implement "Download Brief" export, or add a spotlight pulse on the fly-to target so the user sees what they were directed to.
