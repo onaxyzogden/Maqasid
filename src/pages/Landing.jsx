@@ -86,7 +86,7 @@ const FAQS = [
 
 const PILLAR_MOCK_TASKS = {
   faith:       { col1: ['Study conditions of Shahada', 'Memorise hadith of Jibril'], col2: ['Establish 5 daily prayers on time', 'Learn rules of zakah'], col3: ['Calculate nisab', 'Ramadan fasting intention'] },
-  life:        { col1: ['Morning exercise routine', 'Sleep hygiene check'], col2: ['Weekly reflection journal', 'Reduce screen time 1hr'], col3: ['Meal prep Sunday', 'Gratitude practice'] },
+  health:      { col1: ['Morning exercise routine', 'Sleep hygiene check'], col2: ['Weekly reflection journal', 'Reduce screen time 1hr'], col3: ['Meal prep Sunday', 'Gratitude practice'] },
   intellect:   { col1: ['Read 20 pages/day', 'Deep work block (2hr)'], col2: ['Critical analysis journal', 'Learn Arabic vocabulary'], col3: ['Finish online course', 'Summarise key learnings'] },
   family:      { col1: ['Weekly family check-in', 'Read to children (30min)'], col2: ['Call extended family', 'Plan family outing'], col3: ['Home maintenance list', 'Mealtime without devices'] },
   wealth:      { col1: ['Review monthly budget', 'Track halal income streams'], col2: ['Calculate annual zakah', 'Update financial statement'], col3: ['Invoice client #3', 'Review investment halal status'] },
