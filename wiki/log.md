@@ -7462,3 +7462,15 @@ Completes drill-down coverage for all 7 land-brief categories on `/v3/project/:i
 - **Completed:** Drill-down coverage now 7/7. Phase 5 Diagnose UI is content-complete.
 - **Deferred:** "Open on map" wiring in the drawer footer (still parked for v3.3); URL-shareable deep links to a specific drawer.
 - **Recommended next:** Either move to Design Studio entry (the `Open Design Studio` action on the StageHero is currently a no-op) or wire the drawer's map hint into a click-to-fly behavior.
+
+## 2026-04-28 — Atlas — Diagnose StageHero "Open Design Studio" wired
+
+The Land Brief's primary StageHero action is no longer a no-op — it now navigates to the project's Design Studio via TanStack Router. Atlas commit `5115e63`, [DiagnosePage.tsx](../atlas/apps/web/src/v3/pages/DiagnosePage.tsx).
+
+- Added `useNavigate` from `@tanstack/react-router` and call `navigate({ to: "/v3/project/$projectId/design", params: { projectId: project.id } })` in the action's `onClick`.
+- Verified live: `/v3/project/mtc/diagnose` → click "Open Design Studio" → lands on `/v3/project/mtc/design` (Phase 9 "Place Elements" page). tsc clean.
+
+### Session Debrief
+- **Completed:** Diagnose → Design hand-off works end-to-end.
+- **Deferred:** "Download Brief" secondary action still a no-op; drawer "Open on map" wiring still parked.
+- **Recommended next:** Either implement "Download Brief" (PDF/markdown export of the Land Brief) or move to "Open on map" click-to-fly from drawer map hints.
