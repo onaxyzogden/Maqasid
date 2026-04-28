@@ -8,7 +8,6 @@ import MaqasidTable from '@components/shared/MaqasidTable';
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
-import { MODULE_PALETTE } from '@data/module-palette';
 import {
   OVERVIEW as LAND_OVERVIEW,
   MAQASID as LAND_MAQASID,
@@ -105,7 +104,6 @@ export default function MoontranceLevelOverview({ level, levelColor }) {
           onReach100,
           pillarWisdom: PILLAR_WISDOM.moontrance,
           nextActions: PILLAR_NEXT_ACTIONS.moontrance,
-          themeColor: MODULE_PALETTE.moontrance.theme,
         }}
         ComparisonWheelComponent={MaqasidComparisonWheel}
         ExcellenceCardsComponent={MoontrancePathToExcellenceCards}

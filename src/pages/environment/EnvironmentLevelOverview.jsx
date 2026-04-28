@@ -5,7 +5,6 @@ import EnvironmentPathToExcellenceCards from '@components/environment/Environmen
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
-import { MODULE_PALETTE } from '@data/module-palette';
 import {
   ENVIRONMENT_PILLARS,
   ENVIRONMENT_LEVEL_ROUTES,
@@ -50,7 +49,6 @@ export default function EnvironmentLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: PILLAR_WISDOM.environment,
         nextActions: PILLAR_NEXT_ACTIONS.environment,
-        themeColor: MODULE_PALETTE.environment.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={EnvironmentPathToExcellenceCards}

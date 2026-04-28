@@ -5,7 +5,6 @@ import WealthPathToExcellenceCards from '@components/wealth/WealthPathToExcellen
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
-import { MODULE_PALETTE } from '@data/module-palette';
 import {
   WEALTH_PILLARS,
   WEALTH_LEVEL_ROUTES,
@@ -50,7 +49,6 @@ export default function WealthLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: PILLAR_WISDOM.wealth,
         nextActions: PILLAR_NEXT_ACTIONS.wealth,
-        themeColor: MODULE_PALETTE.wealth.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={WealthPathToExcellenceCards}

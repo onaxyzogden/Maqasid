@@ -2,10 +2,17 @@
 title: "Wheel two-axis color model + Wealth submodule icon canon"
 type: decision
 date: 2026-04-22
-status: accepted
+status: partially-superseded
+supersededBy: 2026-04-28-wheel-band-color-unification
 ---
 
 # Wheel two-axis color model + Wealth submodule icon canon
+
+> **2026-04-28 update.** The "two-axis" half of this decision is reversed by
+> [2026-04-28-wheel-band-color-unification](2026-04-28-wheel-band-color-unification.md):
+> the wheel band now derives from `levelColor` like every other painted element,
+> and the `themeColor` prop has been removed from `MaqasidComparisonWheel`. The
+> Wealth submodule icon canon (Earning↔Circulation swap, etc.) remains in force.
 
 ## Context
 

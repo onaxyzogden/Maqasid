@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import MaqasidComparisonWheel from '@components/faith/MaqasidComparisonWheel';
 import { OGDEN_SUB_PILLARS, OGDEN_ACCENT } from '@data/ogden-ecosystem';
-import { MODULE_PALETTE } from '@data/module-palette';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
 import './EcosystemPresentationFrame.css';
@@ -116,7 +115,6 @@ export default function EcosystemPresentationFrame() {
           centerLabel="OGDEN"
           centerLabelOverride="MOONTRANCE"
           levelColor={OGDEN_ACCENT}
-          themeColor={MODULE_PALETTE.ogden?.theme || OGDEN_ACCENT}
           levelPattern="stripes"
           level="growth"
           segments={segments}

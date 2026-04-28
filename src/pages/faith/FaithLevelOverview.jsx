@@ -5,7 +5,6 @@ import PathToExcellenceCards from '@components/faith/PathToExcellenceCards';
 import { useToastStore } from '@store/toastStore';
 import { FAITH_PILLAR_WISDOM } from '@data/faith-pillar-wisdom';
 import { FAITH_NEXT_ACTIONS } from '@data/faith-next-actions';
-import { MODULE_PALETTE } from '@data/module-palette';
 import {
   FAITH_PILLARS,
   FAITH_LEVEL_ROUTES,
@@ -56,7 +55,6 @@ export default function FaithLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: FAITH_PILLAR_WISDOM,
         nextActions: FAITH_NEXT_ACTIONS,
-        themeColor: MODULE_PALETTE.faith.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={PathToExcellenceCards}

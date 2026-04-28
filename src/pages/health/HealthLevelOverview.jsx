@@ -5,7 +5,6 @@ import HealthPathToExcellenceCards from '@components/health/HealthPathToExcellen
 import { useToastStore } from '@store/toastStore';
 import { PILLAR_WISDOM } from '@data/pillar-wisdom';
 import { PILLAR_NEXT_ACTIONS } from '@data/pillar-next-actions';
-import { MODULE_PALETTE } from '@data/module-palette';
 import {
   HEALTH_PILLARS,
   HEALTH_LEVEL_ROUTES,
@@ -50,7 +49,6 @@ export default function HealthLevelOverview({ level, levelColor }) {
         onReach100,
         pillarWisdom: PILLAR_WISDOM.life,
         nextActions: PILLAR_NEXT_ACTIONS.life,
-        themeColor: MODULE_PALETTE.life.theme,
       }}
       ComparisonWheelComponent={MaqasidComparisonWheel}
       ExcellenceCardsComponent={HealthPathToExcellenceCards}
