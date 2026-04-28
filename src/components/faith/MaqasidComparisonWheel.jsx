@@ -63,9 +63,12 @@ export default function MaqasidComparisonWheel({
   forceHover = null,
   forceConverged = false,
   centerLabelOverride = null,
+  onSegmentSelect = null,
+  onHoverChange = null,
 }) {
   const navigate = useNavigate();
   const handleActivate = (seg) => {
+    if (onSegmentSelect) { onSegmentSelect(seg); return; }
     if (seg?.route) navigate(seg.route, { viewTransition: true });
   };
   const [hovered, setHovered] = useState(null);
@@ -152,6 +155,10 @@ export default function MaqasidComparisonWheel({
   const effectiveHover = forceHover || hovered || externalHover;
   const hoveredIndex = effectiveHover ? segments.findIndex((s) => s.id === effectiveHover) : -1;
   const hoveredSeg = hoveredIndex >= 0 ? segments[hoveredIndex] : null;
+
+  useEffect(() => {
+    if (onHoverChange) onHoverChange(effectiveHover || null);
+  }, [effectiveHover, onHoverChange]);
 
   // Needle angle — midangle of hovered sector, rotated so 0° points up.
   // `lastAngle` is a "last known" fallback so the needle fades in place

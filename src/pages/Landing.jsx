@@ -329,6 +329,64 @@ const HOW_IT_WORKS = [
   { step: '03', title: 'Track Your Growth', desc: 'Work through three tiers \u2014 Necessities, Needs, and Excellence \u2014 across every dimension of your life.', icon: Sparkles },
 ];
 
+function HeroWheel() {
+  const [tappedId, setTappedId] = useState(MAQASID_CORE_PILLARS[0].id);
+  const [hoverId, setHoverId] = useState(null);
+  const activeId = hoverId || tappedId;
+  const activePillar = MAQASID_CORE_PILLARS.find((p) => p.id === activeId);
+  const activeDesc = PILLAR_FEATURES[activeId]?.description;
+  return (
+    <div className="hero-wheel">
+      <MaqasidComparisonWheel
+        centerLabel="MAQASID"
+        levelColor="#C8A96E"
+        level="core"
+        levelPattern="dots"
+        segments={MAQASID_CORE_PILLARS.map((p, i) => ({
+          id: p.id,
+          label: p.sidebarLabel,
+          Icon: getIcon(p.icon),
+          accentColor: p.accentColor,
+          current: [72, 58, 64, 80, 55, 48, 68][i] ?? 60,
+          tooltipLabel: p.sidebarLabel,
+          tooltipText: PILLAR_FEATURES[p.id]?.description,
+          tooltipWidth: 280,
+          tooltipHeight: 140,
+        }))}
+        onSegmentSelect={(seg) => seg?.id && setTappedId(seg.id)}
+        onHoverChange={setHoverId}
+      />
+      {activePillar && (
+        <div
+          className="hero-wheel-detail"
+          style={{ '--card-accent': activePillar.accentColor }}
+          aria-live="polite"
+        >
+          <div className="hero-wheel-detail-head">
+            <span className="hero-wheel-detail-name">{activePillar.sidebarLabel}</span>
+            <span className="hero-wheel-detail-ar">{activePillar.arabicRootAr}</span>
+          </div>
+          {activeDesc && <p className="hero-wheel-detail-desc">{activeDesc}</p>}
+        </div>
+      )}
+      <div className="hero-wheel-legend">
+        {MAQASID_CORE_PILLARS.map((p) => (
+          <button
+            key={p.id}
+            type="button"
+            className={`hero-wheel-legend-item${p.id === activeId ? ' is-active' : ''}`}
+            style={{ '--card-accent': p.accentColor }}
+            onClick={() => setTappedId(p.id)}
+          >
+            <span className="hero-wheel-legend-name">{p.sidebarLabel}</span>
+            <span className="hero-wheel-legend-ar">{p.arabicRootAr}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Landing() {
   const navigate = useNavigate();
   const user = useAuthStore((s) => s.user);
@@ -477,37 +535,7 @@ export default function Landing() {
             ))}
           </div>
         </div>
-        <div className="hero-wheel">
-          <MaqasidComparisonWheel
-            centerLabel="MAQASID"
-            levelColor="#C8A96E"
-            level="core"
-            levelPattern="dots"
-            segments={MAQASID_CORE_PILLARS.map((p, i) => ({
-              id: p.id,
-              label: p.sidebarLabel,
-              Icon: getIcon(p.icon),
-              accentColor: p.accentColor,
-              current: [72, 58, 64, 80, 55, 48, 68][i] ?? 60,
-              tooltipLabel: p.sidebarLabel,
-              tooltipText: PILLAR_FEATURES[p.id]?.description,
-              tooltipWidth: 280,
-              tooltipHeight: 140,
-            }))}
-          />
-          <div className="hero-wheel-legend" aria-hidden="true">
-            {MAQASID_CORE_PILLARS.map((p) => (
-              <span
-                key={p.id}
-                className="hero-wheel-legend-item"
-                style={{ '--card-accent': p.accentColor }}
-              >
-                <span className="hero-wheel-legend-name">{p.sidebarLabel}</span>
-                <span className="hero-wheel-legend-ar">{p.arabicRootAr}</span>
-              </span>
-            ))}
-          </div>
-        </div>
+        <HeroWheel />
       </section>
 
       {/* Seven Pillars */}

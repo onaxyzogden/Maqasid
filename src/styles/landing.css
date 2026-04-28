@@ -126,6 +126,49 @@
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--card-accent) 35%, transparent);
   background: color-mix(in srgb, var(--card-accent) 8%, transparent);
+  cursor: pointer;
+  font: inherit;
+  transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease);
+}
+.hero-wheel-legend-item:hover,
+.hero-wheel-legend-item.is-active {
+  background: color-mix(in srgb, var(--card-accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--card-accent) 65%, transparent);
+}
+
+.hero-wheel-detail {
+  --card-accent: var(--primary);
+  width: 100%;
+  max-width: 480px;
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 30%, var(--border));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px -22px color-mix(in srgb, var(--card-accent) 60%, transparent);
+  text-align: left;
+}
+.hero-wheel-detail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+.hero-wheel-detail-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--card-accent) 90%, var(--text));
+}
+.hero-wheel-detail-ar {
+  font-family: 'Amiri Quran', serif;
+  font-size: 0.85rem;
+  color: var(--text3);
+}
+.hero-wheel-detail-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text2);
 }
 .hero-wheel-legend-name {
   font-weight: 600;
