@@ -7488,3 +7488,16 @@ The drawer's footer "Open on map" action is no longer disabled — it flies the 
 - **Completed:** Drawer click-to-fly works for all 7 categories.
 - **Deferred:** "Download Brief" StageHero secondary action still a no-op; spotlight/highlight effect on the focused feature after fly is not yet implemented (just a fly-to, no marker pulse).
 - **Recommended next:** Implement "Download Brief" export, or add a spotlight pulse on the fly-to target so the user sees what they were directed to.
+
+## 2026-04-28 — Atlas — Diagnose overlays follow homestead on update (styledata gate fix)
+
+User reported: moving the homestead did not move the zones rings (sun arcs appeared to track, zones did not). Atlas commit `44e7cc6` ([SectorsOverlay.tsx](../atlas/apps/web/src/v3/components/overlays/SectorsOverlay.tsx), [ZonesOverlay.tsx](../atlas/apps/web/src/v3/components/overlays/ZonesOverlay.tsx), [TopographyOverlay.tsx](../atlas/apps/web/src/v3/components/overlays/TopographyOverlay.tsx), [WindSectorsOverlay.tsx](../atlas/apps/web/src/v3/components/overlays/WindSectorsOverlay.tsx)).
+
+- **Root cause:** All four overlays gated their `setData` behind `if (map.isStyleLoaded()) ensure(); else map.once("load", ensure);` — the same raster-style pitfall that already bit DiagnoseMap (logged earlier). On re-renders triggered by an anchor change, `isStyleLoaded()` can return false even though the style is fully loaded; the `once("load")` handler attaches but `load` already fired, and the data update is silently dropped.
+- **Fix:** Replaced with the synchronous `getStyle().layers.length > 0` check + `styledata` subscription pattern already in DiagnoseMap.
+- **Verification (`/v3/project/mtc/diagnose`, DOM eval):** Initial zones source `zone-0` disc at the prior homestead. After firing a synthetic map click at `[-78.205, 44.502]` in placement mode, the `zone-0` disc center moved to `[-78.20500, 44.50200]` — exactly the new anchor. tsc clean.
+
+### Session Debrief
+- **Completed:** Overlay anchor-tracking now correct across all four overlays.
+- **Deferred:** "Download Brief" implementation (was about to land — pre-empted by this regression report); spotlight pulse on fly-to.
+- **Recommended next:** Resume "Download Brief" markdown export, then spotlight pulse.
