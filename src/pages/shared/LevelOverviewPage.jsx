@@ -147,7 +147,14 @@ export default function LevelOverviewPage({
         </section>
       )}
 
-      {/* Bento grid */}
+      {/* Optional: path-to-excellence cards (per-pillar opt-in) */}
+      {ExcellenceCardsComponent && (
+        <div className="flo__excellence">
+          <ExcellenceCardsComponent />
+        </div>
+      )}
+
+      {/* Bento grid — moved to bottom of page per layout decision */}
       <div
         className={`flo__grid${pillars.some((p) => (progressMap[p.id]?.pct ?? 0) > 0) ? ' flo__grid--has-progress' : ''}`}
       >
@@ -182,13 +189,6 @@ export default function LevelOverviewPage({
           );
         })}
       </div>
-
-      {/* Optional: path-to-excellence cards (per-pillar opt-in) */}
-      {ExcellenceCardsComponent && (
-        <div className="flo__excellence">
-          <ExcellenceCardsComponent />
-        </div>
-      )}
 
       {/* Milestone toast host — singleton, reads from useToastStore */}
       <IstiqamahToast />

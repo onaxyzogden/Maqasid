@@ -11,7 +11,7 @@ import { useSettingsStore } from '../store/settings-store';
 import { useThresholdStore } from '../store/threshold-store';
 import { useOfficeStore } from '../store/office-store';
 import { MAQASID_PILLARS } from '../data/maqasid';
-import PillarProgressStrip from '../components/dashboard/PillarProgressStrip';
+import MaqasidLevelOverview from '../components/dashboard/MaqasidLevelOverview';
 import DailyMithaq from '../components/dashboard/DailyMithaq';
 import FocusTaskList from '../components/dashboard/FocusTaskList';
 import ContextWidgetSlot from '../components/dashboard/ContextWidgetSlot';
@@ -579,9 +579,8 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* ── Maqasid Progress Strip ── */}
-      <div className="insight-section-label">Maqasid al-Shari&apos;ah</div>
-      <PillarProgressStrip valuesLayer={valuesLayer} focusPillarIds={niyyahFocus} />
+      {/* ── Maqasid Level Overview (LevelNav + Wheel) ── */}
+      <MaqasidLevelOverview />
 
       {/* ── BBOS Pipeline · Now + Next ── */}
       {bbosProjects.length > 0 && bbosProjects.map(({ project: bp, progress, activeStage }) => {

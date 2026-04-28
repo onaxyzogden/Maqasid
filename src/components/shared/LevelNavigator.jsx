@@ -5,6 +5,7 @@ import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { useWheelHoverStore } from '@store/wheelHoverStore';
 import { safeSet } from '@services/storage';
+import IslamicTerm from '@components/shared/IslamicTerm';
 import './LevelNavigator.css';
 
 const LEVELS = [
@@ -235,7 +236,7 @@ export default function LevelNavigator({
 
         {/* Segmented progress bar — subdivided per task */}
         <div className="fln__segments" ref={segmentsRef}>
-          {pillars.map(({ id, label, route }) => {
+          {pillars.map(({ id, label, route, glossaryId }) => {
             const tasks = finalPillarTasks[id] || [];
             const isCurrent = currentPillarId === id;
             const handleSegClick = () => {
@@ -284,7 +285,11 @@ export default function LevelNavigator({
                       handleSegClick();
                     }}
                   >
-                    {label}
+                    {glossaryId ? (
+                      <IslamicTerm id={glossaryId}>{label}</IslamicTerm>
+                    ) : (
+                      label
+                    )}
                   </button>
 
                 </div>
