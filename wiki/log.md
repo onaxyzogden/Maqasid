@@ -7545,3 +7545,16 @@ The Diagnose wind rose now reads from real ERA5 reanalysis data instead of hand-
 - **Completed:** Live wind climatology end-to-end (binning, cache, fetcher, hook, page wiring, tests, ADR).
 - **Deferred:** Server-side proxy adapter; multi-year rolling window; live/fallback provenance chip in legend; speed-weighted (Beaufort) petal coloring.
 - **Recommended next:** Surface the live/fallback provenance in the sectors legend, or pivot to the next Diagnose pillar (water/topography overlays).
+
+## 2026-04-28 — Atlas — Wind climatology provenance chip in legend
+
+The Diagnose sectors legend now shows a small chip on the Wind row signalling whether the rose is driven by Live ERA5 data or pedagogical defaults. Atlas commit `1beb6f5` on `feat/atlas-permaculture`.
+
+- **Wiring:** `useWindClimatology` was lifted from `DiagnoseOverlays` up to `DiagnosePageMap` so its `status` field reaches `DiagnoseMap`. Anchor was lifted with it (computed via `getEffectiveAnchor` at the parent) and `liveWindFreqs` + `windSource` are now props on `DiagnoseOverlays` rather than internal state.
+- **Chip:** New `WindStatusChip` subcomponent in `DiagnoseMap.tsx` renders a 9px pill with three variants — `live` (green, "Live ERA5"), `fallback` (amber, "Defaults"), `loading` (muted, "Loading…"). Tooltip attribute carries the long-form provenance ("Open-Meteo ERA5 reanalysis for this anchor", etc.). CSS module gains `.windChip` + `.windChip_live` / `.windChip_fallback` / `.windChip_loading`.
+- **Verification (`/v3/project/mtc/diagnose`, MTC anchor `[-78.198, 44.502]`):** chip rendered in DOM at `x=420, y=690`, green tone (`rgb(169, 216, 177)` on `rgba(110,168,119,0.22)`), text "Live ERA5", tooltip "Open-Meteo ERA5 reanalysis for this anchor". Vitest wind suites 26/26 pass; pre-existing `computeScores.test.ts` failures unrelated. tsc errors all in pre-existing files (FiltersBar, SpotlightPulse, rails, polygonBounds) — none in wind-touched code.
+
+### Session Debrief
+- **Completed:** Provenance chip surfaced in the Diagnose legend with three status states.
+- **Deferred:** In-browser fallback verification (would need to stub fetch across reload — code path is straightforward and the live + style hooks were verified separately); brief-renderer snapshot test; multi-year wind window; Beaufort-shaded petals; server-side proxy adapter.
+- **Recommended next:** Either pivot to next Diagnose pillar (water/topography overlays beyond the existing topography contour layer) or chip away at the deferred polish list.
