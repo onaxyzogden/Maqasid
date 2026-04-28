@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLocation, NavLink, Link } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import { SunMoon, Menu, MoonStar, Compass, Clock, PenLine, MessageCircle, MessageCircleOff, MessagesSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
@@ -89,7 +89,6 @@ export default function TopBar() {
 
   const projectBase = getProjectBase(location.pathname);
   const showWorkTabs = !!projectBase;
-  const isFaithRoute = location.pathname.startsWith('/app/faith') || location.pathname === '/app/pillar/faith';
 
   useEffect(() => {
     const el = bannerRef.current;
@@ -119,11 +118,6 @@ export default function TopBar() {
             <button className="topbar-btn" onClick={toggleSidebar} title={tip('Menu')} aria-label="Toggle sidebar">
               <Menu size={20} />
             </button>
-          )}
-          {isFaithRoute && !mobile && (
-            <Link to="/app/faith-core" className="faith-badge faith-badge--module topbar-faith-badge topbar-faith-badge--link">
-              OBJECTIVE I
-            </Link>
           )}
           <span className="topbar-breadcrumb">{getBreadcrumb(location.pathname, projects)}</span>
         </div>
