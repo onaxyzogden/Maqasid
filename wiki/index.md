@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-27
+updated: 2026-04-28
 
 ---
 
@@ -38,6 +38,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Date | Summary |
 |---|---|---|
+| [[2026-04-28-atlas-wind-climatology-live]] | 2026-04-28 | Atlas Diagnose wind rose now driven by live Open-Meteo ERA5 hourly data keyed off the effective anchor (homestead → centroid). 0.1° quantized cache (30-day TTL), 0.5 m/s calm filter, most-recent complete calendar year, silent fallback to pedagogical W/NW defaults. Hook re-fires only on quantum change |
 | [[2026-04-27-prayer-posture-glow-images]] | 2026-04-27 | Replaced 7 SVG stick-figure posture components with `<img>` wrappers around 6 glow-effect PNGs in `src/assets/postures/`. Jalsah/Tashahhud/Salam share `seated.png`. `postureMap` API unchanged; consumers untouched. `takbir.png` orphaned pending opening-takbir slot decision |
 | [[2026-04-09-merge-ogden-hub-subtree]] | 2026-04-09 | Merged ogden-hub website into monorepo via git subtree at website/ |
 | [[2026-04-09-atlas-as-submodule]] | 2026-04-09 | Linked OLOS as git submodule (too complex for subtree merge) |

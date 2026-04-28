@@ -7529,3 +7529,19 @@ The drawer "Open on map" action now flies the map and drops a transient gold pul
 - **Completed:** Spotlight pulse on the click-to-fly target.
 - **Deferred:** PDF or styled brief export; snapshot test for `renderDiagnoseBriefMarkdown`; persisting last fly-to target across drawer close.
 - **Recommended next:** snapshot test for the brief renderer, or moving on to the next Diagnose polish item (sticky last-target highlight, or bringing wind-climatology WIP through to merge).
+
+## 2026-04-28 — Atlas — Live wind climatology (Open-Meteo ERA5)
+
+The Diagnose wind rose now reads from real ERA5 reanalysis data instead of hand-tuned defaults. Atlas commit `aca86a6` on `feat/atlas-permaculture`. ADR: [[2026-04-28-atlas-wind-climatology-live]].
+
+- **Source:** Open-Meteo Archive API (`archive-api.open-meteo.com/v1/archive`) — keyless, CORS-enabled, ERA5 hourly `wind_direction_10m` + `wind_speed_10m`. Most-recent complete calendar year (~8760 samples). Web-side fetch (no server proxy) — promotion to `apps/api` adapter is a deferred polish item.
+- **Pipeline:** `quantizeAnchor` (0.1° ≈ 11 km grid) → `getCached` (localStorage `ogden-atlas-wind-clim-v1:` prefix, 30-day TTL) → on miss, `fetchOpenMeteoWind` (15 s timeout, single retry on 5xx, silent null on failure) → `binHourlyToFrequencies` (8-bin compass with 0.5 m/s calm filter) → `computeWindSectors(anchor, { frequencies, sourceLabel })`.
+- **Fallback policy:** Mirrors `apps/api/.../nasaPowerFetch.ts` — return null on any failure. `useWindClimatology` returns `status: 'fallback'` and the page calls `computeWindSectors(anchor)` (no override), reverting to the pedagogical Eastern-Ontario W/NW defaults. No banner, no toast — provenance string on `sources[].provenance` is the only signal.
+- **Hook re-fire discipline:** `useEffect` deps are the *quantized* lng/lat, so a designer dragging the homestead within an 11 km cell does NOT trigger a refetch. AbortController cleans up in-flight requests on unmount or quantum change.
+- **Provenance:** `ComputeWindSectorsOptions` gains an optional `sourceLabel`. Live: "Open-Meteo ERA5 (hourly, most recent complete year)". Default: "Eastern Ontario pedagogical climatology — W/NW prevailing (mock)".
+- **Verification (`/v3/project/mtc/diagnose`, MTC anchor `[-78.198, 44.502]`):** Cache entry written at key `ogden-atlas-wind-clim-v1:-78.20:44.50` with live frequencies — W=0.217, NW=0.203, SW=0.138, S=0.115, E=0.098, NE=0.080, SE=0.076, N=0.073. Westerlies dominant (matches Eastern-Ontario pedagogical expectation). vitest 72/72 pass (was 46; +18 helper tests + 8 fetcher tests). vite build clean in 41.31 s.
+
+### Session Debrief
+- **Completed:** Live wind climatology end-to-end (binning, cache, fetcher, hook, page wiring, tests, ADR).
+- **Deferred:** Server-side proxy adapter; multi-year rolling window; live/fallback provenance chip in legend; speed-weighted (Beaufort) petal coloring.
+- **Recommended next:** Surface the live/fallback provenance in the sectors legend, or pivot to the next Diagnose pillar (water/topography overlays).
