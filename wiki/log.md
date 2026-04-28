@@ -7397,3 +7397,16 @@ Decision: amended [2026-04-27-prayer-posture-glow-images.md](decisions/2026-04-2
 - **Completed:** Takbir wired as a dedicated opening step in Fajr and Isha sequences; decision doc + log updated.
 - **Deferred:** None for this thread.
 - **Recommended next:** Resume the Hijri-only non-prayer overlay brainstorm (Q1 frame choice still pending from prior session).
+
+## 2026-04-28 — Atlas — DiagnoseMap boundary paints reliably (styledata gate fix)
+
+Follow-up to commit 4aa5139 (`feat(diagnose): live solar sectors overlay`) which bundled the parcel-boundary plumbing (`ProjectLocation.boundary`, MTC polygon, `DiagnoseMap.fitBounds` + outline). In preview the boundary outline + fill never appeared: the effect's `if (map.isStyleLoaded()) ensure(); else map.once("load", ensure)` gate failed both ways — `isStyleLoaded()` stays false until raster tile sources finish (MapTiler raster keeps it pending for a long time), and the `load` event had already fired before the React effect mounted, so `once("load")` never re-fired. Net effect: `ensure()` was never called and the boundary layers stayed unregistered.
+
+Fix in [DiagnoseMap.tsx](../atlas/apps/web/src/v3/components/DiagnoseMap.tsx): switched to a `styledata`-based gate. Check `map.getStyle()?.layers?.length > 0` synchronously, and if not yet ready, subscribe to `styledata` and run `ensure()` (then unsubscribe) the first time layers exist. `styledata` fires as soon as the style spec is parsed — which is all that's needed to call `addSource`/`addLayer` — without waiting on tile network.
+
+Verification (Diagnose page at `/v3/project/mtc/diagnose`): map now reports `diagnose-parcel-boundary-fill` + `diagnose-parcel-boundary-line` layers present, source `diagnose-parcel-boundary` registered, and zoom advances from the default 14 → 14.176 from `fitBounds(polygonBounds(boundary), { padding: 48 })`. tsc clean; sidebar test 6/6 still pass.
+
+### Session Debrief
+- **Completed:** Parcel-boundary outline + fitBounds now actually paint on the Diagnose map; root cause was the style-readiness gate, not the boundary code itself.
+- **Deferred:** Real cadastral fetch is still v3.2 (the MTC polygon is hand-drawn). Same gate pattern should be applied if/when other overlay effects are added that depend on `addSource`/`addLayer` — `isStyleLoaded()` is unreliable with raster styles.
+- **Recommended next:** Pick up next Diagnose tile (water/terrain category drill-downs) or move to v3.3 zones authoring.
