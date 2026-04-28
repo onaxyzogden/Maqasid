@@ -3,6 +3,19 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-28] session | Atlas Diagnose — hillshade beneath contours
+
+**Objective:** Activate the previously-unused `TERRAIN_DEM_URL` (MapTiler `terrain-rgb-v2`) by adding a raster-dem hillshade layer beneath the existing topography contour lines. Tied to the existing `topography` toggle so designers get relief shading "for free" alongside contours — no new toggle.
+
+**Outcome (atlas commit `e72cc94` on `feat/atlas-permaculture`, pushed):**
+- `TopographyOverlay`: DEM source + hillshade layer added first inside `ensure()` so contour lines/labels paint on top. `hillshade-exaggeration` flips between 0.6 (visible) and 0 (hidden) alongside the standard visibility toggle. Custom shadow/highlight/accent colours match the wiki's earth-tone palette.
+- `DiagnoseMap` legend now reads "Topography (contours + hillshade)".
+- `MatrixTogglesPopover` row description "Contours + hillshade relief".
+
+**Verification:** tsc clean for all touched files. Preview screenshot at `/v3/project/mtc/diagnose` shows visible terrain relief across the parcel — slope, ridge form, and drainage are immediately legible alongside the existing contours, water polygons, and boundary outline. (Earlier session's screenshot timeout has cleared on a fresh preview server.)
+
+---
+
 ## [2026-04-28] session | Atlas Diagnose — water overlay (streams + surface water)
 
 **Objective:** Pivot to the next Diagnose pillar after wind climatology. Topography only carries the contour layer; the parcel's hydrology read needs the *existing* water as a counterpart to the *implied* slope/watershed read. Add a Water matrix toggle that paints surface water and watercourses from MapTiler's OpenMapTiles `v3` vector tileset.
