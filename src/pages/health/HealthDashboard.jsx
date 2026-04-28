@@ -58,7 +58,7 @@ export default function HealthDashboard() {
       {/* ── Header ── */}
       <header className="life-header">
         <div className="life-header__left">
-          <span className="life-badge life-badge--module">MODULE II</span>
+          <span className="life-badge life-badge--module">OBJECTIVE II</span>
           <h1 className="life-header__title">Health (<IslamicTerm id="nafs">Nafs</IslamicTerm>)</h1>
           <blockquote className="life-header__verse">
             <p>
@@ -221,7 +221,7 @@ export default function HealthDashboard() {
         <div className="life-footer__text">
           <span>Modern Manuscript &copy; 2024</span>
           <div className="life-footer__dot" />
-          <span>Health Module Details</span>
+          <span>Health Objective Details</span>
         </div>
         <div className="life-footer__icons">
           <ScrollText size={20} />

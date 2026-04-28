@@ -743,7 +743,7 @@ function MirrorCard({
         <h4 className="pp-mirror-title">{node.title}</h4>
         <div className="pp-mirror-toggles">
           {moduleGroups && moduleGroups.length > 1 && (
-            <div className="pp-pill-switch" role="tablist" aria-label="Module">
+            <div className="pp-pill-switch" role="tablist" aria-label="Objective">
               {moduleGroups.map((g) => (
                 <button
                   key={g.id}

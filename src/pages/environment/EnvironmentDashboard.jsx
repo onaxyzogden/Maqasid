@@ -57,7 +57,7 @@ export default function EnvironmentDashboard() {
       {/* ── Header ── */}
       <header className="env-header">
         <div className="env-header__left">
-          <span className="env-badge env-badge--module">MODULE VI</span>
+          <span className="env-badge env-badge--module">OBJECTIVE VI</span>
           <h1 className="env-header__title">Environment (Bi&rsquo;ah)</h1>
           <blockquote className="env-header__verse">
             <p>
@@ -219,7 +219,7 @@ export default function EnvironmentDashboard() {
         <div className="env-footer__text">
           <span>Modern Manuscript &copy; 2024</span>
           <div className="env-footer__dot" />
-          <span>Environment Module Details</span>
+          <span>Environment Objective Details</span>
         </div>
         <div className="env-footer__icons">
           <ScrollText size={20} />

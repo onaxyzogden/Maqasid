@@ -14,9 +14,9 @@ export default function ModulePlaceholder() {
   if (!mod) {
     return (
       <div style={{ padding: 'var(--space-8)', textAlign: 'center' }}>
-        <h2 style={{ color: 'var(--text)' }}>Module not found</h2>
+        <h2 style={{ color: 'var(--text)' }}>Objective not found</h2>
         <p style={{ color: 'var(--text2)', marginTop: 'var(--space-2)' }}>
-          The requested module does not exist.
+          The requested objective does not exist.
         </p>
       </div>
     );

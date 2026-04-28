@@ -244,7 +244,7 @@ export default function ThresholdModal({ type }) {
 
             <div className="thr-header">
               <div>
-                <span className="thr-module-badge">{mod?.name || 'Module'}</span>
+                <span className="thr-module-badge">{mod?.name || 'Objective'}</span>
                 <h2 className="thr-title" id="threshold-modal-title">
                   {isOpening ? 'Opening Threshold' : 'Closing Threshold'}
                 </h2>

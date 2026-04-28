@@ -57,7 +57,7 @@ export default function WealthDashboard() {
       {/* ── Header ── */}
       <header className="wealth-header">
         <div className="wealth-header__left">
-          <span className="wealth-badge wealth-badge--module">MODULE V</span>
+          <span className="wealth-badge wealth-badge--module">OBJECTIVE V</span>
           <h1 className="wealth-header__title">Wealth (Mal)</h1>
           <blockquote className="wealth-header__verse">
             <p>
@@ -219,7 +219,7 @@ export default function WealthDashboard() {
         <div className="wealth-footer__text">
           <span>Modern Manuscript &copy; 2024</span>
           <div className="wealth-footer__dot" />
-          <span>Wealth Module Details</span>
+          <span>Wealth Objective Details</span>
         </div>
         <div className="wealth-footer__icons">
           <ScrollText size={20} />

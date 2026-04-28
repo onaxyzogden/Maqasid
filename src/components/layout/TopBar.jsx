@@ -122,7 +122,7 @@ export default function TopBar() {
           )}
           {isFaithRoute && !mobile && (
             <Link to="/app/faith-core" className="faith-badge faith-badge--module topbar-faith-badge topbar-faith-badge--link">
-              MODULE I
+              OBJECTIVE I
             </Link>
           )}
           <span className="topbar-breadcrumb">{getBreadcrumb(location.pathname, projects)}</span>

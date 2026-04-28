@@ -58,7 +58,7 @@ export default function IntellectDashboard() {
       {/* ── Header ── */}
       <header className="intellect-header">
         <div className="intellect-header__left">
-          <span className="intellect-badge intellect-badge--module">MODULE III</span>
+          <span className="intellect-badge intellect-badge--module">OBJECTIVE III</span>
           <h1 className="intellect-header__title">Intellect (<IslamicTerm id="aql">Aql</IslamicTerm>)</h1>
           <blockquote className="intellect-header__verse">
             <p>
@@ -220,7 +220,7 @@ export default function IntellectDashboard() {
         <div className="intellect-footer__text">
           <span>Modern Manuscript &copy; 2024</span>
           <div className="intellect-footer__dot" />
-          <span>Intellect Module Details</span>
+          <span>Intellect Objective Details</span>
         </div>
         <div className="intellect-footer__icons">
           <ScrollText size={20} />

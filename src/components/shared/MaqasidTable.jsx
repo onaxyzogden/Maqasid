@@ -9,7 +9,7 @@ import '../../pages/PillarDashboard.css';
  */
 export default function MaqasidTable({ data, moduleColor }) {
   const {
-    label = 'Module',
+    label = 'Objective',
     necessities = [],
     needs = [],
     embelishments = [],

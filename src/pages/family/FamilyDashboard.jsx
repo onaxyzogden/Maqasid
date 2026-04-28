@@ -58,7 +58,7 @@ export default function FamilyDashboard() {
       {/* ── Header ── */}
       <header className="family-header">
         <div className="family-header__left">
-          <span className="family-badge family-badge--module">MODULE IV</span>
+          <span className="family-badge family-badge--module">OBJECTIVE IV</span>
           <h1 className="family-header__title">Family (Nasl)</h1>
           <blockquote className="family-header__verse">
             <p>
@@ -255,7 +255,7 @@ export default function FamilyDashboard() {
         <div className="family-footer__text">
           <span>Modern Manuscript &copy; 2024</span>
           <div className="family-footer__dot" />
-          <span>Family Module Details</span>
+          <span>Family Objective Details</span>
         </div>
         <div className="family-footer__icons">
           <ScrollText size={20} />

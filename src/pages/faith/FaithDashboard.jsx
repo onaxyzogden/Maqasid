@@ -14,7 +14,7 @@ export default function FaithDashboard() {
         <div className="faith-footer__text">
           <span>The Modern Manuscript &copy; 2024</span>
           <div className="faith-footer__dot" />
-          <span>Faith Module Details</span>
+          <span>Faith Objective Details</span>
         </div>
         <div className="faith-footer__icons">
           <Leaf size={20} />
