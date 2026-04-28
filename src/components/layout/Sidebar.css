@@ -108,6 +108,16 @@
   display: flex; flex-direction: column; gap: 2px;
 }
 
+/* Satellite groups (Moontrance + OGDEN Ecosystem) — pinned to the bottom of
+   the nav so they sit flush above Notifications/Settings rather than
+   floating mid-list under the seven Maqasid. */
+.sidebar-nav__satellite {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .sidebar-item {
   display: flex; align-items: center; gap: var(--space-3);
   padding: var(--space-2) var(--space-3);

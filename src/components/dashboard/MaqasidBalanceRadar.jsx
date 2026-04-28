@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MAQASID_PILLARS } from '../../data/maqasid';
+import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../../data/maqasid';
 import './MaqasidBalanceRadar.css';
 
 /**
@@ -45,11 +45,11 @@ export default function MaqasidBalanceRadar({
     cutoff.setDate(cutoff.getDate() - days);
     cutoff.setHours(0, 0, 0, 0);
     const out = {};
-    for (const p of MAQASID_PILLARS) out[p.id] = 0;
+    for (const p of MAQASID_CORE_PILLARS) out[p.id] = 0;
     for (const project of projects) {
       if (project.archived) continue;
       const pid = getPillarId(project);
-      if (!pid) continue;
+      if (!pid || out[pid] === undefined) continue;
       const tasks = tasksByProject[project.id] || [];
       for (const t of tasks) {
         if (!t.completedAt) continue;
@@ -60,12 +60,12 @@ export default function MaqasidBalanceRadar({
     return out;
   }, [projects, tasksByProject, days]);
 
-  const maxCount = Math.max(1, ...MAQASID_PILLARS.map((p) => counts[p.id]));
-  const total = MAQASID_PILLARS.reduce((s, p) => s + counts[p.id], 0);
+  const maxCount = Math.max(1, ...MAQASID_CORE_PILLARS.map((p) => counts[p.id]));
+  const total = MAQASID_CORE_PILLARS.reduce((s, p) => s + counts[p.id], 0);
   const hasData = total > 0;
 
   // Geometry — 7-axis radar. Center at (0,0), radius 100 (viewBox 260 wide for labels).
-  const N = MAQASID_PILLARS.length;
+  const N = MAQASID_CORE_PILLARS.length;
   const R = 100;
   const VB = 280;
   const cx = VB / 2;
@@ -75,7 +75,7 @@ export default function MaqasidBalanceRadar({
   const PAD_X = 60;
 
   // Start angle: top of circle (−π/2) so first pillar appears at 12 o'clock.
-  const axes = MAQASID_PILLARS.map((p, i) => {
+  const axes = MAQASID_CORE_PILLARS.map((p, i) => {
     const angle = -Math.PI / 2 + (i * 2 * Math.PI) / N;
     return { pillar: p, angle, cos: Math.cos(angle), sin: Math.sin(angle) };
   });
@@ -219,7 +219,7 @@ export default function MaqasidBalanceRadar({
       {/* Legend — subtle chip row so users can connect pillar → vertex */}
       {hasData ? (
         <div className="mbr__legend">
-          {MAQASID_PILLARS.map((p) => {
+          {MAQASID_CORE_PILLARS.map((p) => {
             const n = counts[p.id];
             const neglected = n === 0;
             return (

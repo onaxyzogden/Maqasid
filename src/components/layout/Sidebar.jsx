@@ -99,6 +99,84 @@ export default function Sidebar() {
 
   if (mobile && !sidebarOpen) return null;
 
+  const renderPillarGroup = (pillar) => {
+    const PillarIcon = PILLAR_ICON_MAP[pillar.icon];
+    const subModules = pillar.subModuleIds.map((id) => modulesById[id]).filter(Boolean);
+    const hasActiveChild = subModules.some((m) => {
+      const r = MODULE_ROUTES[m.id];
+      return r && (location.pathname === r || location.pathname.startsWith(r + '/'));
+    });
+    const isExpanded = expandedPillars[pillar.id] || hasActiveChild;
+    const isScaffold = pillar.status === 'scaffold';
+    const label = getPillarLabel(pillar, valuesLayer);
+    const isPillarActive = location.pathname === `/app/pillar/${pillar.id}`;
+
+    return (
+      <div key={pillar.id} className="pillar-group">
+        <button
+          className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
+          style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
+          aria-expanded={isExpanded}
+          onClick={() => {
+            if (collapsed) {
+              toggleSidebar();
+              navigate(`/app/pillar/${pillar.id}`);
+              if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
+              return;
+            }
+            navigate(`/app/pillar/${pillar.id}`);
+            if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
+            else togglePillar(pillar.id);
+          }}
+          title={label}
+        >
+          {PillarIcon && <PillarIcon size={16} style={{ color: `var(--pillar-${pillar.id})` }} />}
+          {!collapsed && (
+            <>
+              <span className="pillar-label">{label}</span>
+              {isScaffold && <span className="sidebar-badge">Soon</span>}
+              <ChevronDown
+                size={14}
+                className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
+                  else togglePillar(pillar.id);
+                }}
+              />
+            </>
+          )}
+        </button>
+
+        {!collapsed && isExpanded && (
+          <div className="pillar-children">
+            {isScaffold ? (
+              <span className="pillar-scaffold">Coming soon</span>
+            ) : (
+              subModules.map((mod) => {
+                const Icon = ICON_MAP[mod.icon];
+                const route = MODULE_ROUTES[mod.id];
+                const isActive = location.pathname === route || location.pathname.startsWith(route + '/');
+                return (
+                  <Link
+                    key={mod.id}
+                    to={route}
+                    className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
+                    onClick={() => { setActiveModule(mod.id); handleNavClick(); }}
+                    title={mod.name}
+                  >
+                    {Icon && <Icon size={16} style={isActive ? { color: mod.color } : undefined} />}
+                    <span>{mod.name}</span>
+                  </Link>
+                );
+              })
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <>
       {mobile && <div className="sidebar-overlay" onClick={toggleSidebar} />}
@@ -153,87 +231,18 @@ export default function Sidebar() {
 
         <div className="sidebar-divider" />
 
-        {MAQASID_PILLARS.map((pillar) => {
-          const PillarIcon = PILLAR_ICON_MAP[pillar.icon];
-          const subModules = pillar.subModuleIds.map((id) => modulesById[id]).filter(Boolean);
-          const hasActiveChild = subModules.some((m) => {
-            const r = MODULE_ROUTES[m.id];
-            return r && (location.pathname === r || location.pathname.startsWith(r + '/'));
-          });
-          const isExpanded = expandedPillars[pillar.id] || hasActiveChild;
-          const isScaffold = pillar.status === 'scaffold';
-          const label = getPillarLabel(pillar, valuesLayer);
+        {MAQASID_PILLARS.filter((p) => p.id !== 'moontrance').map((pillar) => renderPillarGroup(pillar))}
 
-          const isPillarActive = location.pathname === `/app/pillar/${pillar.id}`;
+        <div className="sidebar-nav__satellite">
+          <div className="sidebar-divider" />
 
-          return (
-            <div key={pillar.id} className="pillar-group">
-              <button
-                className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
-                style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
-                aria-expanded={isExpanded}
-                onClick={() => {
-                  if (collapsed) {
-                    toggleSidebar();
-                    navigate(`/app/pillar/${pillar.id}`);
-                    if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
-                    return;
-                  }
-                  navigate(`/app/pillar/${pillar.id}`);
-                  if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
-                  else togglePillar(pillar.id);
-                }}
-                title={label}
-              >
-                {PillarIcon && <PillarIcon size={16} style={{ color: `var(--pillar-${pillar.id})` }} />}
-                {!collapsed && (
-                  <>
-                    <span className="pillar-label">{label}</span>
-                    {isScaffold && <span className="sidebar-badge">Soon</span>}
-                    <ChevronDown
-                      size={14}
-                      className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
-                        else togglePillar(pillar.id);
-                      }}
-                    />
-                  </>
-                )}
-              </button>
+          {(() => {
+            const moontrance = MAQASID_PILLARS.find((p) => p.id === 'moontrance');
+            return moontrance ? renderPillarGroup(moontrance) : null;
+          })()}
 
-              {!collapsed && isExpanded && (
-                <div className="pillar-children">
-                  {isScaffold ? (
-                    <span className="pillar-scaffold">Coming soon</span>
-                  ) : (
-                    subModules.map((mod) => {
-                      const Icon = ICON_MAP[mod.icon];
-                      const route = MODULE_ROUTES[mod.id];
-                      const isActive = location.pathname === route || location.pathname.startsWith(route + '/');
-                      return (
-                        <Link
-                          key={mod.id}
-                          to={route}
-                          className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
-                          onClick={() => { setActiveModule(mod.id); handleNavClick(); }}
-                          title={mod.name}
-                        >
-                          {Icon && <Icon size={16} style={isActive ? { color: mod.color } : undefined} />}
-                          <span>{mod.name}</span>
-                        </Link>
-                      );
-                    })
-                  )}
-                </div>
-              )}
-            </div>
-          );
-        })}
-
-        {(() => {
-          const OgdenIcon = ICON_MAP.Orbit;
+          {(() => {
+            const OgdenIcon = ICON_MAP.Orbit;
           const ogdenRoute = '/app/ogden-foundation';
           const hasActiveChild = OGDEN_SIDEBAR_CHILDREN.some((c) => {
             const r = MODULE_ROUTES[c.id];
@@ -302,6 +311,7 @@ export default function Sidebar() {
             </div>
           );
         })()}
+        </div>
       </nav>
 
       {/* Projects list removed from sidebar — accessible via Work module page */}

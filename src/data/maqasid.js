@@ -143,6 +143,15 @@ export const MAQASID_PILLARS = [
   },
 ];
 
+/**
+ * The seven canonical Maqasid al-Shari'ah pillars. Excludes Moontrance, which
+ * lives inside MAQASID_PILLARS for sidebar/routing convenience but is NOT one
+ * of the Maqasid — it's a separate venture/module. Use this list anywhere the
+ * UI claims to render "the Seven Maqasid" (dashboard bento, landing page,
+ * balance radar, etc.).
+ */
+export const MAQASID_CORE_PILLARS = MAQASID_PILLARS.filter((p) => p.id !== 'moontrance');
+
 /** Find a pillar by its own ID */
 export function getPillarById(id) {
   return MAQASID_PILLARS.find((p) => p.id === id) || null;

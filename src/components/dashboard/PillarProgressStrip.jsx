@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
-import { MAQASID_PILLARS } from '../../data/maqasid';
+import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../../data/maqasid';
 
 /**
  * Resolve which pillar a project belongs to.
@@ -119,7 +119,7 @@ export default function PillarProgressStrip({ valuesLayer, focusPillarIds = null
     const days = buildDayKeys();
     const dayIndex = Object.fromEntries(days.map((d, i) => [d.key, i]));
     const stats = {};
-    for (const pillar of MAQASID_PILLARS) {
+    for (const pillar of MAQASID_CORE_PILLARS) {
       stats[pillar.id] = {
         completed: 0,
         inProgress: 0,
@@ -130,7 +130,7 @@ export default function PillarProgressStrip({ valuesLayer, focusPillarIds = null
     for (const project of projects) {
       if (project.archived) continue;
       const pillarId = getPillarId(project);
-      if (!pillarId) continue;
+      if (!pillarId || !stats[pillarId]) continue;
       const tasks = tasksByProject[project.id] || [];
       for (const task of tasks) {
         if (isTaskDone(task)) {
@@ -153,7 +153,7 @@ export default function PillarProgressStrip({ valuesLayer, focusPillarIds = null
 
   return (
     <div className="mbento" role="list">
-      {MAQASID_PILLARS.map((pillar) => {
+      {MAQASID_CORE_PILLARS.map((pillar) => {
         const { completed, inProgress, todo, daily } = pillarStats[pillar.id];
         const total = completed + inProgress + todo;
         const pct = total > 0 ? Math.round((completed / total) * 100) : null;

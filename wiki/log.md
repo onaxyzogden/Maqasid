@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-28] session | Sidebar satellite section + Moontrance demoted from Maqasid
+
+**Objective:** Three small but semantically related cleanups in MILOS V2.1 chrome:
+1. Move Moontrance + OGDEN Ecosystem out of the main pillar list into a "satellite" block at the bottom of the sidebar (above Notifications/Settings).
+2. Stop treating Moontrance as one of the Maqasid al-Shari'ah on the home dashboard, the Landing page, and the Maqasid Balance Radar — it is a venture/module, not a Maqasid.
+3. Pin the satellite block flush to the bottom of `.sidebar-nav` so the demotion reads visually, not just in source order.
+
+**Outcome:**
+- New `MAQASID_CORE_PILLARS = MAQASID_PILLARS.filter(p => p.id !== 'moontrance')` exported from [src/data/maqasid.js](src/data/maqasid.js). This is the canonical "the Seven Maqasid" list for any UI rendering them as such; `MAQASID_PILLARS` (still 8 entries) remains the source of truth for sidebar/routing.
+- [src/components/dashboard/PillarProgressStrip.jsx](src/components/dashboard/PillarProgressStrip.jsx) — bento card grid initializes stats from and renders `MAQASID_CORE_PILLARS`. Added a `!stats[pillarId]` guard so a stray Moontrance-flagged project doesn't crash the stat aggregator.
+- [src/components/dashboard/MaqasidBalanceRadar.jsx](src/components/dashboard/MaqasidBalanceRadar.jsx) — radar axes (`N`), counts init, total, max, and legend chips all use `MAQASID_CORE_PILLARS`. The 7-axis radar is now genuinely 7-axis (was rendering 8 with Moontrance).
+- [src/pages/Landing.jsx](src/pages/Landing.jsx) — hero bento, feature tabs, footer "Seven Maqasid" list all iterate `MAQASID_CORE_PILLARS`. (`DASHBOARD_CHIPS` was already 7-only.)
+- [src/components/layout/Sidebar.jsx](src/components/layout/Sidebar.jsx) — extracted a local `renderPillarGroup(pillar)` helper to avoid duplicating ~70 lines of pillar-group JSX. Main map now filters Moontrance; a new `<div className="sidebar-nav__satellite">` wraps the Moontrance pillar-group + the existing OGDEN IIFE under a divider.
+- [src/components/layout/Sidebar.css](src/components/layout/Sidebar.css) — `.sidebar-nav__satellite { margin-top: auto }` pins the block to the bottom of the flex-column nav, flush above `.sidebar-bottom`.
+
+**Carries forward:**
+- BBOS Board → 3-column kanban + Layer LevelNavigator plan was *written* to the plan file then *deleted* (user wanted the chat-clarification path before re-planning). When that conversation resumes, the design notes are preserved in pre-compaction context: BBOS_LEVEL_NAV_LEVELS adapter, KanbanBoard `bbosLayerFilter` prop, ProjectBoard wrap with stage→layer auto-switch and `bbos_layer_${project.id}` localStorage. Not started.
+- Open question that triggered this session's pivot: whether the BBOS Board page should stay a flat task pool, become a 3-column kanban, or stay a single column. NotebookLM "Modern UI/UX Design Scholar" (995a59d1) was rate-limited across 6 retries — couldn't get a cited verdict. Keep the question open for next session.
+- Moontrance still appears in `MAQASID_PILLARS` (so its routes, sidebar group, color tokens all keep working). Future cleanup: rename `MAQASID_PILLARS` to `SIDEBAR_PILLARS` and elevate `MAQASID_CORE_PILLARS` to the default name — not done now to keep this change small.
+
+**Preview verification:** Lint clean (`npm run lint:eslint`). Snapshot via `preview_snapshot` confirmed Landing hero bento + feature tabs render only the seven core pillars. Sidebar nav now reads: Prophetic Path → Dashboard → divider → Faith / Health / Intellect / Family / Wealth / Environment / Community → (margin-auto gap) → divider → Moontrance → OGDEN Ecosystem → Notifications/Settings.
+
+---
+
 ## [2026-04-27] session | Atlas — §26 OrganizationSettingsReadinessCard
 
 **Objective:** Close manifest §26 line 594 `organization-settings` (P1 partial) — the last open §26 P1 leaf, completing the §26 P1 trio (user-management / workspace-management / organization-settings all now done). User picked candidate 1 from this round's slate. Pre-flight clean: line 594 `partial` at HEAD with no parallel pre-flip, no orphan CSS or `.tsx` in tree (different from the workspace round which had a CSS orphan).

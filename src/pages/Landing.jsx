@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
-import { MAQASID_PILLARS } from '../data/maqasid';
+import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY } from '../data/icon-registry';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
@@ -477,7 +477,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="hero-bento">
-          {MAQASID_PILLARS.map((pillar) => {
+          {MAQASID_CORE_PILLARS.map((pillar) => {
             const Icon = PILLAR_ICON_MAP[pillar.icon];
             const desc = PILLAR_FEATURES[pillar.id]?.description;
             const circ = 2 * Math.PI * 12;
@@ -525,7 +525,7 @@ export default function Landing() {
         </p>
 
         <div className="feature-tabs">
-          {MAQASID_PILLARS.map((pillar) => {
+          {MAQASID_CORE_PILLARS.map((pillar) => {
             const Icon = PILLAR_ICON_MAP[pillar.icon];
             return (
               <button
@@ -666,7 +666,7 @@ export default function Landing() {
           <div className="footer-col">
             <h6>The Seven Maqasid</h6>
             <ul>
-              {MAQASID_PILLARS.map((p) => (
+              {MAQASID_CORE_PILLARS.map((p) => (
                 <li key={p.id}><a href="#pillars">{p.sidebarLabel}</a></li>
               ))}
             </ul>
