@@ -636,6 +636,143 @@ export function isLastTenNights(hijri) {
   return !!p && p.month === 9 && p.day >= 21;
 }
 
+// Sunnah-fast predicates. These auto-light the iftar/sahari nodes outside
+// Ramadan so the user is invited into the optional fast on the days the
+// Prophet ﷺ singled out, without needing to flip the manual override.
+export function isMondayOrThursday(date = new Date()) {
+  const d = date.getDay();
+  return d === 1 || d === 4;
+}
+
+export function isAyyamAlBid(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.day >= 13 && p.day <= 15;
+}
+
+// 9 + 10 Muharram (Tasua + Ashura). Muslim 1162; the Prophet ﷺ resolved to
+// pair the 9th with the 10th to distinguish from the People of the Book.
+export function isAshuraOrTasua(hijri) {
+  const p = hijriParts(hijri);
+  return !!p && p.month === 1 && (p.day === 9 || p.day === 10);
+}
+
+// True on any day a Sunnah fast is recommended outside Ramadan. Excludes
+// the two Eids and the three Tashreeq days where fasting is prohibited.
+export function isOptionalFastDay({ date = new Date(), hijri = null } = {}) {
+  if (isTashreeq(hijri)) return false;
+  if (isEidFitr(hijri) || isEidAdha(hijri)) return false;
+  return (
+    isMondayOrThursday(date) ||
+    isAyyamAlBid(hijri) ||
+    isArafah(hijri) ||
+    isAshuraOrTasua(hijri)
+  );
+}
+
+// Composite: "today is a day where iftar/sahari nodes should surface."
+// Ramadan fast is mandatory; optional-fast days surface the same UI even
+// when the user has not toggled the manual override.
+export function isFastableDay({ date = new Date(), hijri = null } = {}) {
+  return isRamadan(hijri) || isOptionalFastDay({ date, hijri });
+}
+
+// Single-headline resolver for the special-day banner at the top of the
+// Prophetic Path. Returns the highest-priority active event or null.
+// Priority is monotone: earlier entries win over later ones.
+const SPECIAL_DAY_RESOLVERS = [
+  {
+    id: 'eid-fitr',
+    label: 'Eid al-Fitr Mubarak',
+    description: 'The seal of Ramadan — gather, give, take the different route home.',
+    accentColor: '#C8A96E',
+    test: ({ hijri }) => isEidFitr(hijri),
+  },
+  {
+    id: 'eid-adha',
+    label: 'Eid al-Adha Mubarak',
+    description: 'The day of sacrifice — udhiyyah, takbir, prayer in the open.',
+    accentColor: '#C8A96E',
+    test: ({ hijri }) => isEidAdha(hijri),
+  },
+  {
+    id: 'arafah',
+    label: 'Day of Arafah',
+    description: 'For the non-pilgrim, fasting today expiates two years of sins (Muslim 1162).',
+    accentColor: '#8b5cf6',
+    test: ({ hijri }) => isArafah(hijri),
+  },
+  {
+    id: 'tashreeq',
+    label: 'Days of Tashreeq',
+    description: 'Eat, drink, remember Allah — no fasting today (Muslim 1141).',
+    accentColor: '#C8A96E',
+    test: ({ hijri }) => isTashreeq(hijri),
+  },
+  {
+    id: 'laylat-al-qadr',
+    label: 'Laylat al-Qadr likely tonight',
+    description: 'An odd night in the last ten — pray, repent, recite "Allahumma innaka ʻafuwwun…".',
+    accentColor: '#8b5cf6',
+    test: ({ hijri }) => {
+      const p = hijriParts(hijri);
+      if (!p || p.month !== 9 || p.day < 21) return false;
+      return p.day % 2 === 1; // odd nights of the last ten
+    },
+  },
+  {
+    id: 'last-ten-nights',
+    label: 'Last 10 Nights of Ramadan',
+    description: 'Iʼtikaf, qiyam, duʼa — the night of decree is hidden among these.',
+    accentColor: '#8b5cf6',
+    test: ({ hijri }) => isLastTenNights(hijri),
+  },
+  {
+    id: 'ramadan',
+    label: 'Ramadan',
+    description: 'The month of the Qurʼan — fast the day, stand the night, increase in giving.',
+    accentColor: '#4ab8a8',
+    test: ({ hijri }) => isRamadan(hijri),
+  },
+  {
+    id: 'ashura-tasua',
+    label: 'Ashura / Tasua',
+    description: 'Fasting today expiates the prior year (Muslim 1162).',
+    accentColor: '#4ab8a8',
+    test: ({ hijri }) => isAshuraOrTasua(hijri),
+  },
+  {
+    id: 'jumuah',
+    label: 'Jumuʻah',
+    description: 'Ghusl, white clothes, miswak, surah al-Kahf, abundant salawat.',
+    accentColor: '#C8A96E',
+    test: ({ date }) => isFriday(date),
+  },
+  {
+    id: 'ayyam-al-bid',
+    label: 'Ayyam al-Bid',
+    description: 'The three white days — fast 13/14/15 of every lunar month (Tirmidhi 761).',
+    accentColor: '#4ab8a8',
+    test: ({ hijri }) => isAyyamAlBid(hijri),
+  },
+  {
+    id: 'mon-thu',
+    label: ({ date }) => (date.getDay() === 1 ? 'Sunnah Fast Day — Monday' : 'Sunnah Fast Day — Thursday'),
+    description: 'Deeds are presented to Allah on Mondays and Thursdays — the Prophet ﷺ loved his deeds presented while he was fasting.',
+    accentColor: '#4ab8a8',
+    test: ({ date }) => isMondayOrThursday(date),
+  },
+];
+
+export function getSpecialDayHeadline({ date = new Date(), hijri = null } = {}) {
+  for (const r of SPECIAL_DAY_RESOLVERS) {
+    if (r.test({ date, hijri })) {
+      const label = typeof r.label === 'function' ? r.label({ date, hijri }) : r.label;
+      return { id: r.id, label, description: r.description, accentColor: r.accentColor };
+    }
+  }
+  return null;
+}
+
 // Phase-window minutes around a node anchor.
 // before: [-BEFORE_MIN, anchor)   during: [anchor, anchor+DURING_MIN)   after: rest
 const PHASE_BEFORE_MIN = 25;

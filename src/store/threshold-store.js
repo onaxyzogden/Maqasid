@@ -203,6 +203,22 @@ export const useThresholdStore = create((set, get) => ({
     set({ completedOpening: updated });
   },
 
+  // Maghrib daily-reset: clear opening + closing ceremony completion for the
+  // given module ids so the next Islamic day's prayers/transitions start
+  // from a clean state. Untouched module ids persist (e.g. weekly modules).
+  resetDailyCeremonies: (moduleIds = []) => {
+    const ids = new Set(moduleIds);
+    const opening = { ...get().completedOpening };
+    const closing = { ...get().completedClosing };
+    let changed = false;
+    for (const k of Object.keys(opening)) if (ids.has(k)) { delete opening[k]; changed = true; }
+    for (const k of Object.keys(closing)) if (ids.has(k)) { delete closing[k]; changed = true; }
+    if (!changed) return;
+    safeSet('thr_open', opening);
+    safeSet('thr_close', closing);
+    set({ completedOpening: opening, completedClosing: closing });
+  },
+
   // Presence actions
   triggerResume: (moduleId) => set({ resumeModuleId: moduleId }),
   dismissResume: () => set({ resumeModuleId: null }),

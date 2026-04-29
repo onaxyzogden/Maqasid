@@ -194,6 +194,13 @@ export default function ThresholdModal({ type }) {
     }, 200);
   };
 
+  const handleSkip = () => {
+    const label = isOpening ? 'Opening Threshold' : 'Closing Threshold';
+    if (window.confirm(`Skip the ${label} ceremony? It will be marked complete without going through the steps.`)) {
+      complete();
+    }
+  };
+
   const next = () => { if (step < steps.length - 1) setStep(step + 1); };
   const prev = () => {
     if (step > 0) {
@@ -273,6 +280,11 @@ export default function ThresholdModal({ type }) {
                   }
                 </button>
               ))}
+              {currentStepName !== 'Pause' && (
+                <button className="thr-step thr-step-skip" onClick={handleSkip} title="Skip ceremony">
+                  Skip
+                </button>
+              )}
             </div>
 
             <div className="thr-body">

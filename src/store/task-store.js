@@ -556,4 +556,46 @@ export const useTaskStore = create((set, get) => ({
       return true;
     });
   },
+
+  // Maghrib daily-reset: clear subtask checkboxes + revert any Done-column
+  // tasks back to the project's first non-Done column. A task is "daily
+  // cadence" if (a) its tags include 'daily-cadence', (b) `cadence === 'daily'`,
+  // or (c) its projectId matches a daily-rhythm board pattern (faith_salah_*,
+  // faith_siyam_*, prayer_*). Pattern-matching avoids tagging hundreds of
+  // pre-existing seed tasks individually.
+  resetDailyCadenceTasks: () => set((s) => {
+    const isDailyProject = (pid) =>
+      /^faith_salah_/.test(pid) || /^faith_siyam_/.test(pid) || /^prayer_/.test(pid);
+    const isDailyTask = (t, pid) =>
+      t.cadence === 'daily' || (t.tags || []).includes('daily-cadence') || isDailyProject(pid);
+
+    const projects = useProjectStore.getState().projects;
+    const next = { ...s.tasksByProject };
+    for (const [projectId, tasks] of Object.entries(s.tasksByProject)) {
+      const project = projects.find((p) => p.id === projectId);
+      const columns = project?.columns || [];
+      const doneCol = columns.find((c) => c.name === 'Done' || c.id?.endsWith('_done'));
+      const todoCol = columns.find((c) => c !== doneCol) || null;
+      let touched = false;
+      const updated = tasks.map((t) => {
+        if (!isDailyTask(t, projectId)) return t;
+        const subtasks = (t.subtasks || []).map((st) => (st.done ? { ...st, done: false } : st));
+        const subtasksChanged = subtasks.some((st, i) => st !== t.subtasks[i]);
+        const inDone = doneCol && t.columnId === doneCol.id;
+        if (!subtasksChanged && !inDone) return t;
+        touched = true;
+        return {
+          ...t,
+          subtasks,
+          ...(inDone && todoCol ? { columnId: todoCol.id, completedAt: null, order: 0 } : {}),
+          updatedAt: new Date().toISOString(),
+        };
+      });
+      if (touched) {
+        persistTasks(projectId, updated);
+        next[projectId] = updated;
+      }
+    }
+    return { tasksByProject: next };
+  }),
 }));

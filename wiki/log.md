@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-29] session | MILOS — Prophetic Path: Maghrib reset + banner + universal Threshold
+
+**Objective:** Close four Prophetic Path gaps in one pass — daily prayer
+state resets at Maghrib (not UTC midnight), optional-fasting nodes only
+surface on Sunnah-fast days, special days are headlined above the spine,
+and Before/After buttons trigger the Threshold ceremony for every spine
+node.
+
+**Outcome (milos, `main`):**
+- New `src/store/islamic-day-store.js` with pure
+  `currentIslamicDayKey(now, maghribMs)` + idempotent
+  `rolloverIfMaghribCrossed`. Hooks: `task-store.resetDailyCadenceTasks`
+  (project-id pattern match: `faith_salah_*`, `faith_siyam_*`, `prayer_*`)
+  + `threshold-store.resetDailyCeremonies(['faith-salah','faith-siyam',
+  'work','health-physical'])`. Wired in `PropheticPath.jsx` with a 60s
+  ticker against `timings.Maghrib`. Niyyah rollover stays UTC-midnight by
+  design.
+- `prophetic-path-submodules.js`: `isMondayOrThursday`, `isAyyamAlBid`,
+  `isAshuraOrTasua`, `isOptionalFastDay` (Eid/Tashreeq forbidden gates),
+  `isFastableDay`, plus priority-ordered `getSpecialDayHeadline` resolver
+  (Eid Fitr → … → Mon/Thu).
+- `fasting-store.js` adds `computeIsFastableDay`; `computeIsFasting`
+  untouched so iftar copy stays gated on actual fast.
+- `PropheticPath.jsx`: `FASTING_ONLY_NODE_IDS` → `FASTABLE_DAY_NODE_IDS`,
+  `THRESHOLD_TRIGGER_NODES` Set → `THRESHOLD_MODULE_BY_NODE` covering all
+  20 nodes (prayers → faith-salah, sahari/iftar/taraweeh → faith-siyam,
+  bedtime/qiyam-rest/qaylulah → health-physical, morning/midday-labor →
+  work).
+- New `PropheticPathBanner.{jsx,css}` mounted above spine — `null` on
+  ordinary days, chip with accent on special days.
+- `ThresholdModal.{jsx,css}`: added **Skip** button inside `.thr-steps`,
+  right-aligned, opacity 0.6→1 on hover, hidden during Pause step,
+  prompts `window.confirm` before calling `complete()`.
+
+**Verification:** `npm run lint` clean (grounding-strict + inline-refs at
+ratchet 0 across all 8 pillars). `npm test`: 56/56 (40 grounding + 16 new
+helper cases — predicates, forbidden-day gates, headline priority, Maghrib
+key boundary). Preview snapshot at `/app/prophetic-path` confirmed banner
++ full spine + Threshold modal Skip rail with no console errors.
+`preview_screenshot` still hangs on Windows (known, see preview-fixes
+decision).
+
+**Decision filed:** [2026-04-29-prophetic-path-maghrib-reset-and-banner](decisions/2026-04-29-prophetic-path-maghrib-reset-and-banner.md).
+
+---
+
 ## [2026-04-29] session | Atlas — Land-Brief snapshot lock
 
 **Objective:** Pin `renderDiagnoseBriefMarkdown` output before further

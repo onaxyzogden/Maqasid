@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
-import { isRamadan, isTashreeq } from '../data/prophetic-path-submodules';
+import { isRamadan, isTashreeq, isFastableDay } from '../data/prophetic-path-submodules';
 
 // `userOverride` toggles sunnah-fasting days (Mon/Thu, Ayyam al-Bid, Arafah,
 // Ashura) — the user signals "I am fasting today" outside Ramadan. The
@@ -24,4 +24,10 @@ export const useFastingStore = create((set, get) => ({
     if (isRamadan(hijri)) return true;
     return !!get().userOverride;
   },
+
+  // True on every day a Sunnah/obligatory fast is recommended — used to
+  // light up iftar/sahari spine nodes even when the user has not toggled
+  // the manual override. Distinct from `computeIsFasting` so iftar copy
+  // (which addresses someone who actually fasted) only fires when fasting.
+  computeIsFastableDay: (hijri, date = new Date()) => isFastableDay({ date, hijri }),
 }));

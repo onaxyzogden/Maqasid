@@ -30,6 +30,7 @@ import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
 import { useFastingStore } from '@store/fasting-store';
 import { useTravelStore } from '@store/travel-store';
+import { useIslamicDayStore, DAILY_CEREMONY_MODULES } from '@store/islamic-day-store';
 import { usePrayerTimes } from '@hooks/usePrayerTimes';
 import { MODULES, PRIORITIES } from '@data/modules';
 import { MAQASID_PILLARS } from '@data/maqasid';
@@ -55,6 +56,7 @@ import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import ProjectSlideUp from '@components/work/ProjectSlideUp';
 import SubmoduleSlideUp from './SubmoduleSlideUp';
 import PrayerSlideUp from './PrayerSlideUp';
+import PropheticPathBanner from './PropheticPathBanner';
 import './PropheticPath.css';
 
 // Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
@@ -86,13 +88,38 @@ function resolvePillarAccent(label) {
 // "all prayer-like nodes" decision, even though it lacks a standard window.
 const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tahajjud']);
 
-// Nodes whose Before/After satellites trigger the opening/closing Threshold
-// modal instead of expanding the inline MirrorCard. The weekly-cadence tasks
-// that used to surface here live in the new `weekly_{moduleId}` boards
-// (see ensureWeeklyProjects in project-store.js).
-const THRESHOLD_TRIGGER_NODES = new Set(['midday-labor', 'morning']);
-// Morning has no moduleGroups; default to the `work` ceremony module.
-const DEFAULT_THRESHOLD_MODULE_BY_NODE = { morning: 'work' };
+// Every spine node's Before/After satellite opens the opening/closing
+// Threshold ceremony. Each node maps to the module whose ceremony it
+// triggers — prayer nodes route to `faith-salah`, fasting nodes to
+// `faith-siyam`, transitional rest nodes to `health-physical`, work
+// transitions to `work`. Inline satellite expansion still fires alongside
+// the modal so the task surface remains visible behind the ceremony.
+const THRESHOLD_MODULE_BY_NODE = {
+  fajr: 'faith-salah',
+  dhuhr: 'faith-salah',
+  asr: 'faith-salah',
+  maghrib: 'faith-salah',
+  isha: 'faith-salah',
+  tahajjud: 'faith-salah',
+  witr: 'faith-salah',
+  duha: 'faith-salah',
+  jumuah: 'faith-salah',
+  'eid-prayer': 'faith-salah',
+  'after-asr': 'faith-salah',
+  'istijabah-hour': 'faith-salah',
+  sahari: 'faith-siyam',
+  'maghrib-iftar': 'faith-siyam',
+  'isha-taraweeh': 'faith-siyam',
+  bedtime: 'health-physical',
+  'qiyam-rest': 'health-physical',
+  qaylulah: 'health-physical',
+  morning: 'work',
+  'midday-labor': 'work',
+};
+// Backwards-compat: any node id present as a key in THRESHOLD_MODULE_BY_NODE
+// is a threshold trigger — both prayer + non-prayer.
+const isThresholdTriggerNode = (nodeId) =>
+  Object.prototype.hasOwnProperty.call(THRESHOLD_MODULE_BY_NODE, nodeId);
 
 // Map each timeline node to the Aladhan `timings` key it anchors on.
 // Aladhan returns Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha, Imsak,
@@ -135,10 +162,12 @@ function isFriday(date = new Date()) {
 const FRIDAY_ONLY_NODE_IDS = new Set(['jumuah', 'istijabah-hour']);
 const NON_FRIDAY_HIDE_ON_FRIDAY = new Set(['dhuhr']);
 
-// Fasting-state branching: when isFasting, surface iftar at maghrib + sahari
-// stays. When isRamadan, surface taraweeh after isha. (sahari already exists
-// in the spine as an unconditional barakah moment.)
-const FASTING_ONLY_NODE_IDS = new Set(['maghrib-iftar']);
+// Fasting-state branching: when today is a fastable day (Ramadan OR Sunnah-
+// fast day per isFastableDay), surface iftar at maghrib. When isRamadan,
+// surface taraweeh after isha. The iftar node lights up on Mon/Thu, Ayyam
+// al-Bid, Arafah, Ashura/Tasua even without flipping the manual override —
+// the user is invited into the optional fast.
+const FASTABLE_DAY_NODE_IDS = new Set(['maghrib-iftar']);
 const RAMADAN_ONLY_NODE_IDS = new Set(['isha-taraweeh']);
 
 // Eid branching: on Eid al-Fitr (1 Shawwal) or Eid al-Adha (10 Dhul-Hijjah),
@@ -154,7 +183,7 @@ const NON_EID_HIDE_ON_EID = new Set(['duha']);
 const TRAVEL_HIDE_NODE_IDS = new Set(['jumuah']);
 
 function getActiveNodeTiming(date = new Date(), {
-  isFasting = false,
+  isFastableDay: fastableDay = false,
   isRamadan: ramadan = false,
   isEid = false,
   isTraveling = false,
@@ -167,7 +196,7 @@ function getActiveNodeTiming(date = new Date(), {
     if (friday && !isTraveling && NON_FRIDAY_HIDE_ON_FRIDAY.has(id)) continue;
     if (!friday && FRIDAY_ONLY_NODE_IDS.has(id)) continue;
     if (friday && isTraveling && TRAVEL_HIDE_NODE_IDS.has(id)) continue;
-    if (FASTING_ONLY_NODE_IDS.has(id) && !isFasting) continue;
+    if (FASTABLE_DAY_NODE_IDS.has(id) && !fastableDay) continue;
     if (RAMADAN_ONLY_NODE_IDS.has(id) && !ramadan) continue;
     if (EID_ONLY_NODE_IDS.has(id) && !isEid) continue;
     if (isEid && NON_EID_HIDE_ON_EID.has(id)) continue;
@@ -839,16 +868,23 @@ function TimelineNode({
 
   const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
   const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
-  const isThresholdNode = THRESHOLD_TRIGGER_NODES.has(node.id);
-  const thresholdModuleId = moduleId || DEFAULT_THRESHOLD_MODULE_BY_NODE[node.id] || 'work';
+  const isThresholdNode = isThresholdTriggerNode(node.id);
+  // Prefer the per-node canonical module (faith-salah for prayer nodes etc.)
+  // over the user-selected moduleGroup so the ceremony content matches the
+  // node's covenant — moduleGroups still steer the inline task list.
+  const thresholdModuleId = THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work';
 
+  // Universal Before/After ceremony: every spine node now opens the Threshold
+  // modal (opening on Before, closing on After). For non-prayer nodes the
+  // inline phase-filtered task list also expands behind the modal, so when
+  // the user dismisses the ceremony the relevant tasks are already visible.
   const handleBeforeClick = () => {
     if (isThresholdNode) setOpeningModuleId(thresholdModuleId);
-    else onToggle(node.id, 'before');
+    if (!isPrayerNode) onToggle(node.id, 'before');
   };
   const handleAfterClick = () => {
     if (isThresholdNode) setClosingModuleId(thresholdModuleId);
-    else onToggle(node.id, 'after');
+    if (!isPrayerNode) onToggle(node.id, 'after');
   };
 
   const phaseTasks = useMemo(() => {
@@ -903,19 +939,19 @@ function TimelineNode({
         <Icon className="pp-marker-icon" size={12} strokeWidth={2.25} />
       </div>
       <div className="pp-node-stack">
-        {!isPrayerNode && (
+        {(isThresholdNode || !isPrayerNode) && (
           <>
             <button
               type="button"
               className="pp-satellite"
               data-slot="before"
-              aria-expanded={!isThresholdNode && expandedSlot === 'before'}
-              aria-controls={isThresholdNode ? undefined : mirrorId}
+              aria-expanded={!isPrayerNode && expandedSlot === 'before'}
+              aria-controls={isPrayerNode ? undefined : mirrorId}
               onClick={handleBeforeClick}
             >
               Before
             </button>
-            {!isThresholdNode && expandedSlot === 'before' && mirror}
+            {!isPrayerNode && expandedSlot === 'before' && mirror}
           </>
         )}
         <button
@@ -967,19 +1003,19 @@ function TimelineNode({
           </div>
         </button>
         {!isPrayerNode && expandedSlot === 'main' && mirror}
-        {!isPrayerNode && (
+        {(isThresholdNode || !isPrayerNode) && (
           <>
             <button
               type="button"
               className="pp-satellite"
               data-slot="after"
-              aria-expanded={!isThresholdNode && expandedSlot === 'after'}
-              aria-controls={isThresholdNode ? undefined : mirrorId}
+              aria-expanded={!isPrayerNode && expandedSlot === 'after'}
+              aria-controls={isPrayerNode ? undefined : mirrorId}
               onClick={handleAfterClick}
             >
               After
             </button>
-            {!isThresholdNode && expandedSlot === 'after' && mirror}
+            {!isPrayerNode && expandedSlot === 'after' && mirror}
           </>
         )}
       </div>
@@ -1012,6 +1048,7 @@ export default function PropheticPath({ variant }) {
   const { timings, hijri, cityName, loading: prayerLoading, error: prayerError, requestLocation } = usePrayerTimes();
   const userOverride = useFastingStore((s) => s.userOverride);
   const computeIsFasting = useFastingStore((s) => s.computeIsFasting);
+  const computeIsFastableDay = useFastingStore((s) => s.computeIsFastableDay);
   const travelActive = useTravelStore((s) => s.active);
   const travelStartedAt = useTravelStore((s) => s.startedAt);
   const travelEndedAt = useTravelStore((s) => s.endedAt);
@@ -1023,13 +1060,14 @@ export default function PropheticPath({ variant }) {
   // event-node trigger windows.
   void userOverride; void travelActive; void travelStartedAt; void travelEndedAt;
   const fasting = computeIsFasting(hijri);
+  const fastableDay = computeIsFastableDay(hijri);
   const eid = isEidFitr(hijri) || isEidAdha(hijri);
   const traveling = getIsTraveling();
   // Stable shallow object keyed by primitives — reused across memos so each
   // recomputes only when a flag flips, not on every render.
   const dayFlags = useMemo(
-    () => ({ isFasting: fasting, isRamadan: ramadan, isEid: eid, isTraveling: traveling }),
-    [fasting, ramadan, eid, traveling]
+    () => ({ isFasting: fasting, isFastableDay: fastableDay, isRamadan: ramadan, isEid: eid, isTraveling: traveling }),
+    [fasting, fastableDay, ramadan, eid, traveling]
   );
   const prayerDegraded = !timings && !prayerLoading;
   const nextNodeId = useMemo(() => computeNextNodeId(timings, dayFlags), [timings, dayFlags]);
@@ -1040,13 +1078,13 @@ export default function PropheticPath({ variant }) {
       if (friday && !traveling && NON_FRIDAY_HIDE_ON_FRIDAY.has(n.id)) return false;
       if (!friday && FRIDAY_ONLY_NODE_IDS.has(n.id)) return false;
       if (friday && traveling && TRAVEL_HIDE_NODE_IDS.has(n.id)) return false;
-      if (FASTING_ONLY_NODE_IDS.has(n.id) && !fasting) return false;
+      if (FASTABLE_DAY_NODE_IDS.has(n.id) && !fastableDay) return false;
       if (RAMADAN_ONLY_NODE_IDS.has(n.id) && !ramadan) return false;
       if (EID_ONLY_NODE_IDS.has(n.id) && !eid) return false;
       if (eid && NON_EID_HIDE_ON_EID.has(n.id)) return false;
       return true;
     });
-  }, [fasting, ramadan, eid, traveling]);
+  }, [fastableDay, ramadan, eid, traveling]);
   const orderedNodes = useMemo(() => {
     const idx = dayNodes.findIndex((n) => n.id === activeNodeId);
     if (idx <= 0) return dayNodes;
@@ -1063,6 +1101,31 @@ export default function PropheticPath({ variant }) {
     const id = setInterval(() => setEventTick((t) => t + 1), 60_000);
     return () => clearInterval(id);
   }, [travelStartedAt, travelEndedAt]);
+
+  // Maghrib daily-reset: when the Islamic day flips (Maghrib crosses), clear
+  // daily-cadence task state + ceremony completion so the new day begins
+  // fresh. Idempotent — the store no-ops if the key has not changed.
+  const rolloverIfMaghribCrossed = useIslamicDayStore((s) => s.rolloverIfMaghribCrossed);
+  useEffect(() => {
+    if (!timings?.Maghrib) return undefined;
+    const compute = () => {
+      const today = new Date();
+      const day = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      const maghribMs = timeToMs(timings.Maghrib, day);
+      if (maghribMs == null) return;
+      rolloverIfMaghribCrossed({
+        maghribMs,
+        now: Date.now(),
+        hooks: [
+          () => useTaskStore.getState().resetDailyCadenceTasks(),
+          () => useThresholdStore.getState().resetDailyCeremonies(DAILY_CEREMONY_MODULES),
+        ],
+      });
+    };
+    compute();
+    const id = setInterval(compute, 60_000);
+    return () => clearInterval(id);
+  }, [timings?.Maghrib, rolloverIfMaghribCrossed]);
 
   const eventNodes = useMemo(() => {
     void eventTick;
@@ -1193,6 +1256,7 @@ export default function PropheticPath({ variant }) {
                 </button>
               </div>
             )}
+            <PropheticPathBanner hijri={hijri} />
             {(cityName || activeNode || bookends || niyyahPillars.length > 0) && (
               <div className="pp-intro">
                 {(cityName || activeNode || bookends) && (

@@ -1,0 +1,50 @@
+.pp-special-day-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  margin: 0 auto 16px;
+  max-width: 920px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklch, var(--banner-accent) 28%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--banner-accent) 12%, transparent),
+    color-mix(in oklch, var(--banner-accent) 4%, transparent)
+  );
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--banner-accent) 8%, transparent) inset;
+}
+
+.pp-special-day-banner__icon {
+  color: var(--banner-accent);
+  flex: 0 0 auto;
+}
+
+.pp-special-day-banner__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pp-special-day-banner__label {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text1);
+  line-height: 1.2;
+}
+
+.pp-special-day-banner__desc {
+  font-size: 0.825rem;
+  color: var(--text2);
+  line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+  .pp-special-day-banner {
+    flex-wrap: wrap;
+    margin-inline: 12px;
+  }
+}
