@@ -3,6 +3,56 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-29] session | OLOS — Schedule A AU picker + dashboard inventory breakdown
+
+**Objective:** Land the Manitoba Schedule A subcategory picker for per-
+species AU computation, then surface that breakdown in the herd dashboard
+so users can see how each subcategory contributes to total Animal Units.
+
+**Outcome (atlas, `feat/atlas-permaculture`):**
+- New `apps/web/src/features/livestock/scheduleA.ts` — 28-entry
+  Manitoba Schedule A catalog covering all 9 species with AU factors to
+  3 decimals, plus `getScheduleAOptions`, `getSubcategoryById`,
+  `auFactorFor`, and `DEFAULT_SUBCATEGORY_BY_SPECIES`. Defaults match
+  legacy `AU_FACTORS[species]` to within rounding for back-compat.
+- `livestockStore.ts` — `Paddock.scheduleASubcategoryBySpecies?:
+  Partial<Record<LivestockSpecies, string>>` (optional, no migration).
+- `livestockAnalysis.ts` — `InventoryEntry.bySubcategory?` populated by
+  `computeInventorySummary` via a per-species `Map<subcategoryId, head>`,
+  sorted desc by head count.
+- `speciesData.ts` — `computeAnimalUnits` accepts optional
+  `subcategoryId` per row and routes through `auFactorFor`.
+- `LivestockPanel.tsx` — per-species `<select>` Schedule A picker
+  rendered inside the stocking-info hint box (only when subcategories
+  exist for that species); persists `scheduleASubcategoryBySpecies` only
+  when at least one species has a non-empty pick.
+- `HerdRotationDashboard.tsx` — new "Livestock Inventory" card above
+  Recovery Tracking. Each species row shows total head/birds/hives,
+  paddock count, total AU; rows with subcategory tags expand to indented
+  `label · head × factor = AU` lines. Untagged remainder renders as
+  italic "Unassigned (default)" so totals always reconcile.
+
+**Verification:** `npx tsc --noEmit` clean across both commits. Manual:
+draw a paddock with sheep + cattle, pick Schedule A subcategories, save
+— dashboard inventory card shows the breakdown with correct AU math.
+
+**Commits:** `6ca7961` (picker + store + analysis), `f8a05d0`
+(dashboard inventory card). Earlier in session: `b4ef184` (v3 strict-
+null TS sweep + market-garden bed-length override).
+
+**Deferred:**
+- ET0 / climate-driven water adjustment for orchards (option C from the
+  three-concerns plan, intentionally not chosen).
+- Per-row Schedule A picker on a multi-species paddock UI variant —
+  current flow tags one subcategory per species per paddock, which is
+  the 80% case.
+
+**Recommended next session:** Wire `bySubcategory` into a new
+manure/nutrient export card (uses Manitoba's regulatory framing) so the
+Schedule A work pays off beyond pure AU display.
+
+---
+
 ## [2026-04-29] session | MILOS — Prophetic Path: Maghrib reset + banner + universal Threshold
 
 **Objective:** Close four Prophetic Path gaps in one pass — daily prayer
