@@ -59,6 +59,13 @@ posture and keep the binning policy centralized.
 - Web client: `api.climateAnalysis.windRose(lat, lng, signal)` in
   `apps/web/src/lib/apiClient.ts`. The browser-side fetcher and binner
   files were deleted; only `quantizeAnchor.ts` + `cache.ts` remain web-side.
+- Redis cache: `apps/api/src/services/climate/windRoseCache.ts` — key
+  prefix `wind-rose:v1:${qLat}:${qLng}` with anchor quantized to 0.1° to
+  match the web-side cache, 30-day TTL via `setex`, 200 ms timeout +
+  silent-error wrapper so a degraded Redis never fails the request. The
+  route writes the cache fire-and-forget after the upstream fetch so the
+  response never blocks on Redis. Response envelope adds
+  `meta.cached: boolean` for ops visibility.
 
 ### Window: most-recent complete calendar year
 
@@ -148,6 +155,5 @@ Atlas (`feat/atlas-permaculture` commit `aca86a6`):
   earlier (commit `1beb6f5`).
 - Speed-weighted petals (currently frequency only — Beaufort-shaded petals
   would tell water/wind designers more).
-- Server-side cache (Redis) for the wind-rose adapter — the browser still
-  hits localStorage with a 30-day TTL; the API has no cache yet, so two
-  designers hitting the same anchor each trigger their own Open-Meteo fetch.
+- ~~Server-side cache (Redis) for the wind-rose adapter~~ — **shipped
+  2026-04-28**, see "Redis cache" bullet under "Server-side proxy" above.

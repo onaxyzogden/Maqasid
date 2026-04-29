@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-28] session | Atlas Diagnose — Redis cache for wind-rose endpoint
+
+**Objective:** Add a Redis cache in front of the new `/api/v1/climate-analysis/wind-rose` endpoint so distinct designers hitting the same ~11 km anchor share one Open-Meteo fetch.
+
+**Outcome (atlas: feat/atlas-permaculture, MILOS: main, both pushed):**
+- New `apps/api/src/services/climate/windRoseCache.ts` — key prefix `wind-rose:v1:${qLat}:${qLng}` with anchor quantized to 0.1° (matches web-side localStorage policy), 30-day TTL via `setex`, 200 ms timeout + try/catch on every Redis call so a degraded Redis never fails the request.
+- Route in `apps/api/src/routes/climate-analysis/index.ts` now: cache-get → on miss call `fetchOpenMeteoWind` → fire-and-forget cache-write (`void setCachedWindRose(...)`) so the response never blocks on Redis. Envelope adds `meta.cached: boolean`.
+- Established Redis-cache pattern in this codebase (Redis was previously pub/sub-only).
+- ADR `wiki/decisions/2026-04-28-atlas-wind-climatology-live.md` — added "Redis cache" bullet under "Server-side proxy"; struck through deferred cache item.
+
+**Verification:**
+- `vitest src/tests/windRoseCache.test.ts` — 9/9 (key shape + quantization + sub-quantum drift hits same key + Redis-down silent-skip on read and write + malformed-JSON null).
+- `tsc --noEmit` clean.
+- Live curl `lat=44.50&lng=-78.20`: first call `meta.cached:false`, second call `meta.cached:true`, both with identical W=0.217 NW=0.203 frequencies.
+- Sub-quantum drift `lat=44.504&lng=-78.198` → `meta.cached:true` confirms the 0.1° quantization round-trips through Redis end-to-end.
+
+---
+
 ## [2026-04-28] session | Atlas Diagnose — server-side Open-Meteo wind-rose proxy
 
 **Objective:** Promote the live wind-rose fetch from a browser-side call to `archive-api.open-meteo.com` to a Fastify-side adapter. Removes the dependency on Open-Meteo's CORS posture, centralizes the binning policy, and shrinks the web payload from ~1 MB/yr to ~200 B (binned frequencies only).
