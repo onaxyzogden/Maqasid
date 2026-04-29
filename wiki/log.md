@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-28] session | Atlas Diagnose — server-side Open-Meteo wind-rose proxy
+
+**Objective:** Promote the live wind-rose fetch from a browser-side call to `archive-api.open-meteo.com` to a Fastify-side adapter. Removes the dependency on Open-Meteo's CORS posture, centralizes the binning policy, and shrinks the web payload from ~1 MB/yr to ~200 B (binned frequencies only).
+
+**Outcome (atlas: feat/atlas-permaculture, MILOS: main, both pushed):**
+- New adapter `apps/api/src/services/climate/openMeteoWindFetch.ts` mirrors `nasaPowerFetch.ts`: pino logger, 12 s timeout, single 5xx retry, silent null. Ports binning + calm-filter (0.5 m/s) + most-recent-complete-year window from the deleted browser fetcher.
+- New route `GET /api/v1/climate-analysis/wind-rose?lat=..&lng=..` — unauthenticated, gated by `requirePhase('P1')` + global rate limit. 400 INVALID_LAT/INVALID_LNG on out-of-range; 502 + `WIND_ROSE_UNAVAILABLE` on upstream silent-fail.
+- `api.climateAnalysis.windRose(lat, lng, signal)` added to `apiClient.ts` — maps the 502/WIND_ROSE_UNAVAILABLE envelope to `null` so the hook still surfaces `status: 'fallback'` cleanly.
+- `useWindClimatology` now calls the API client; deleted `apps/web/src/lib/wind-climatology/fetchOpenMeteoWind.ts` + its test, deleted `binHourlyToFrequencies.ts`. Trimmed `helpers.test.ts` to keep only `quantizeAnchor` + cache tests.
+- Updated ADR `wiki/decisions/2026-04-28-atlas-wind-climatology-live.md` — "Web-side fetch" subsection rewritten as "Server-side proxy"; deferred "promote to server adapter" item struck through.
+
+**Verification:**
+- `vitest` adapter test: 6/6 (happy path with W-prevailing payload, 5xx retry, repeated 5xx → null, all-calm → null, query-param assertion).
+- `tsc --noEmit` clean for both api and web (web with `--max-old-space-size=8192`).
+- `web/__tests__/helpers.test.ts` 9/9 after trim.
+- `curl http://localhost:3001/api/v1/climate-analysis/wind-rose?lat=44.50&lng=-78.20` → `{"data":{"frequencies":{"N":0.073,"NE":0.080,"E":0.098,"SE":0.076,"S":0.115,"SW":0.138,"W":0.217,"NW":0.203},"source":"Open-Meteo ERA5 (hourly, most recent complete year)","windowYear":2025,"sampleCount":8760},"error":null}` — W/NW prevailing, full year, matches expected Eastern-Ontario climatology.
+- `curl …?lat=999&lng=…` → 400 `INVALID_LAT`.
+- Browser preview at `/v3/project/mtc/diagnose` with wind toggle on: legend chip reads "Live ERA5"; preview_network shows the request hitting `/api/v1/climate-analysis/wind-rose?lat=44.5000&lng=-79.2000 → 200 OK` and zero direct calls to `archive-api.open-meteo.com`.
+
+---
+
 ## [2026-04-28] session | Atlas Diagnose — hillshade beneath contours
 
 **Objective:** Activate the previously-unused `TERRAIN_DEM_URL` (MapTiler `terrain-rgb-v2`) by adding a raster-dem hillshade layer beneath the existing topography contour lines. Tied to the existing `topography` toggle so designers get relief shading "for free" alongside contours — no new toggle.

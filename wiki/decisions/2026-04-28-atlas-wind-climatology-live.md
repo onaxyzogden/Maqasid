@@ -38,14 +38,27 @@ Picked over NASA POWER (already used server-side for solar) because:
 2. CORS-enabled — no Fastify proxy required for v3.4.
 3. Free, no auth, no quota gate.
 
-### Web-side fetch (vs server proxy) — deferred polish
+### Server-side proxy (promoted from web-side fetch on 2026-04-28)
 
-Fetch lives in [apps/web/src/lib/wind-climatology/fetchOpenMeteoWind.ts](../atlas/apps/web/src/lib/wind-climatology/fetchOpenMeteoWind.ts),
-called directly from a React hook. Rationale: Open-Meteo is CORS-enabled,
-keyless, and the response is small (~1 MB / yr). Promoting to a server
-adapter (`apps/api/.../openMeteoWindFetch.ts`) is a deferred polish item —
-defer until either (a) we want to share the cache server-side, or (b)
-client-side payload becomes a pain.
+Initially landed as a browser-side fetcher (`apps/web/src/lib/wind-climatology/fetchOpenMeteoWind.ts`)
+called directly from `useWindClimatology`. Promoted to a Fastify adapter on
+the same day to remove the dependency on archive-api.open-meteo.com's CORS
+posture and keep the binning policy centralized.
+
+- Adapter: [apps/api/src/services/climate/openMeteoWindFetch.ts](../atlas/apps/api/src/services/climate/openMeteoWindFetch.ts)
+  mirrors the `nasaPowerFetch.ts` pattern (pino logger, 12 s timeout, single
+  5xx retry, silent null on any failure). Binning + calm-filter (0.5 m/s) +
+  most-recent-complete-year window-selection live here.
+- Route: `GET /api/v1/climate-analysis/wind-rose?lat=..&lng=..` —
+  unauthenticated, gated by `requirePhase('P1')` and global rate limit.
+  Validates lat ∈ [-90, 90] / lng ∈ [-180, 180] (400 INVALID_LAT / INVALID_LNG).
+  Returns 502 + `WIND_ROSE_UNAVAILABLE` on adapter null; web client maps
+  that to `null` so the hook surfaces `status: 'fallback'`.
+- Payload: server returns binned `WindFrequencies` (~200 B) instead of raw
+  hourly samples (~1 MB). Web payload is now tiny.
+- Web client: `api.climateAnalysis.windRose(lat, lng, signal)` in
+  `apps/web/src/lib/apiClient.ts`. The browser-side fetcher and binner
+  files were deleted; only `quantizeAnchor.ts` + `cache.ts` remain web-side.
 
 ### Window: most-recent complete calendar year
 
@@ -128,10 +141,13 @@ Atlas (`feat/atlas-permaculture` commit `aca86a6`):
 
 ## Deferred
 
-- Promote fetcher to a server adapter (`apps/api/.../openMeteoWindFetch.ts`)
-  if we ever need shared cache or larger payloads.
+- ~~Promote fetcher to a server adapter~~ — **shipped 2026-04-28**, see
+  "Server-side proxy" section above.
 - Multi-year (3 yr or 5 yr) rolling window for smoother rose.
-- Surface "Live ERA5 / Fallback (mock)" provenance chip in the sectors
-  legend so designers know which they are reading.
+- ~~Surface "Live ERA5 / Fallback (mock)" provenance chip~~ — shipped
+  earlier (commit `1beb6f5`).
 - Speed-weighted petals (currently frequency only — Beaufort-shaded petals
   would tell water/wind designers more).
+- Server-side cache (Redis) for the wind-rose adapter — the browser still
+  hits localStorage with a 30-day TTL; the API has no cache yet, so two
+  designers hitting the same anchor each trigger their own Open-Meteo fetch.
