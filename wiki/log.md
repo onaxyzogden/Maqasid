@@ -3,6 +3,29 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-29] session | Atlas — Land-Brief snapshot lock
+
+**Objective:** Pin `renderDiagnoseBriefMarkdown` output before further
+Diagnose iteration so schema/fixture drift requires an explicit
+snapshot update.
+
+**Outcome (atlas, `feat/atlas-permaculture` `594d472`):**
+- New `apps/web/src/v3/lib/__tests__/exportDiagnoseBrief.test.ts` with
+  8 cases: full markdown snapshot of `MTC_PROJECT` (date footer
+  stripped for stability), H1 + dated-footer shape, one section per
+  category in fixture order, R/O/L section presence, missing-diagnose
+  stub, missing-categoryDetails fallback, kind-with-no-items section
+  omission, and `downloadDiagnoseBrief` blob/filename/revoke behavior.
+- Test runs under `@vitest-environment happy-dom` (already a web
+  devDep) so the download path can use real Blob/URL/anchor.
+- Snapshot file 153 lines — full 7-category brief with what's-happening
+  / what's-wrong / what next + supporting metrics + Risks /
+  Opportunities / Limitations sections.
+
+8/8 vitest green. MILOS submodule bump `33da881`.
+
+---
+
 ## [2026-04-29] session | Atlas — Beaufort-shaded wind rose petals
 
 **Objective:** Tint Diagnose wind-rose petals by per-bin mean speed so
