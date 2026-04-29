@@ -3,6 +3,49 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-29] session | Atlas Diagnose — 3-yr rolling wind window
+
+**Objective:** Promote the Open-Meteo wind-rose adapter from a 1-year window
+to a 3-year rolling window so the rose smooths year-to-year jet-stream noise
+without sacrificing locality.
+
+**Outcome (atlas, feat/atlas-permaculture):**
+- `apps/api/src/services/climate/openMeteoWindFetch.ts`: replaced
+  `mostRecentCompleteYear` → `mostRecentCompleteYears(n=3, now)` returning
+  `{ startYear, endYear, start, end }`. `OpenMeteoWindResult.windowYear:
+  number` → `windowYears: { start: number; end: number }`. Source label
+  `"Open-Meteo ERA5 (hourly, 3 most recent complete years)"`. `WINDOW_YEARS = 3`
+  constant, easy to retune.
+- Cache invalidation: bumped both prefixes to `v2` so 1-yr payloads can't
+  satisfy 3-yr requests — `apps/api/src/services/climate/windRoseCache.ts`
+  (`wind-rose:v1` → `wind-rose:v2`) and
+  `apps/web/src/lib/wind-climatology/cache.ts`
+  (`ogden-atlas-wind-clim-v1:` → `v2:`).
+- Cleanup: deleted dead `OPEN_METEO_SOURCE_LABEL` re-export from
+  `apps/web/src/v3/data/useWindClimatology.ts` — the hook trusts
+  `result.source` from the server, the const had no readers.
+- Tests retuned: `openMeteoWindFetch.test.ts` (`mostRecentCompleteYears`
+  block: default 3-yr + explicit n=1 fallback), `windRoseCache.test.ts`
+  (expected keys `wind-rose:v2:…`, SAMPLE shape `windowYears` +
+  sampleCount 26 280), `helpers.test.ts` (localStorage prefix `v2:`).
+
+**Verification:**
+- vitest api: 16/16 green (7 adapter + 9 cache).
+- vitest web: 9/9 green (helpers).
+- `tsc --noEmit` clean for api; web wind-climatology code zero errors
+  (pre-existing rail/sparkline tsc errors unrelated).
+- Live curl `lat=44.5&lng=-78.2`: `windowYears: { start: 2023, end: 2025 }`,
+  sampleCount 26 304 (~3×8760 + leap), source label correct, frequencies
+  W=0.214, NW=0.194, SW=0.133 (smoother distribution than the 1-yr W=0.217,
+  NW=0.203, SW=0.138; same W/NW-prevailing regime). Redis was offline in
+  this dev env so the cache silently no-op'd; round-trip path is covered
+  by stub-Redis tests.
+
+**Deferred:** 5-yr rolling window if 3-yr proves still too noisy in
+non-temperate regimes; speed-weighted (Beaufort-shaded) petals.
+
+---
+
 ## [2026-04-28] session | Atlas — Estate palette migration + per-project Dashboard polish + a11y sweep
 
 **Objective:** Repaint the entire Atlas chrome from warm-brown ("revolting" per user) to the estate palette in the reference mock — dark green-on-gold, sage active, parchment text, Cormorant Garamond display serif — across both `data-theme="dark"` and `data-theme="light"`. Polish the per-project Dashboard Overview at `/v3/project/:projectId/home` to mirror the mock. Fix the white-on-gold button contrast finding flagged by axe.

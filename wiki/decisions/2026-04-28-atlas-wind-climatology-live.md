@@ -67,12 +67,22 @@ posture and keep the binning policy centralized.
   response never blocks on Redis. Response envelope adds
   `meta.cached: boolean` for ops visibility.
 
-### Window: most-recent complete calendar year
+### Window: 3 most-recent complete calendar years (rolling)
 
-`mostRecentCompleteYear(now)` returns `{ year: now.getUTCFullYear() - 1,
-start: "${y}-01-01", end: "${y}-12-31" }`. ~8760 hourly samples is enough
-for a stable 8-bin rose without making the payload heavy. Multi-year
-averaging (3 or 5 yr rolling) is a deferred upgrade.
+`mostRecentCompleteYears(n=3, now)` returns `{ startYear: y-2, endYear: y,
+start: "${y-2}-01-01", end: "${y}-12-31" }` where `y = now.getUTCFullYear() - 1`.
+~26 280 hourly samples (~3× one year) smooths year-to-year jet-stream noise
+so the rose reflects climatology, not the latest anomalous year. Single fetch
+to Open-Meteo — payload is still small and well under the 12 s timeout.
+
+Promoted from 1-yr to 3-yr on 2026-04-29. Verified live at MTC anchor
+`[-78.2, 44.5]`: `windowYears: { start: 2023, end: 2025 }`, sampleCount
+26 304, frequencies W=0.214, NW=0.194, SW=0.133, S=0.098, E=0.103 (vs.
+the 1-yr W=0.217, NW=0.203, SW=0.138 — smoother distribution, same
+W/NW-prevailing regime). Bumped both cache prefixes to `v2` so stale
+1-yr payloads don't get served (server: `wind-rose:v2:…`; web localStorage:
+`ogden-atlas-wind-clim-v2:…`). 5-yr rolling is a further deferred upgrade
+if ever needed.
 
 ### Quantization: 0.1° (~11 km) cache key
 
@@ -150,7 +160,9 @@ Atlas (`feat/atlas-permaculture` commit `aca86a6`):
 
 - ~~Promote fetcher to a server adapter~~ — **shipped 2026-04-28**, see
   "Server-side proxy" section above.
-- Multi-year (3 yr or 5 yr) rolling window for smoother rose.
+- ~~Multi-year (3 yr) rolling window for smoother rose~~ — **shipped
+  2026-04-29**, see "Window: 3 most-recent complete calendar years"
+  section above. 5-yr rolling still deferred.
 - ~~Surface "Live ERA5 / Fallback (mock)" provenance chip~~ — shipped
   earlier (commit `1beb6f5`).
 - Speed-weighted petals (currently frequency only — Beaufort-shaded petals
