@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-29] session | Atlas estate palette — TS mirror + portal chrome alignment
+
+**Objective:** Bring `apps/web/src/lib/tokens.ts` into sync with the new
+estate CSS palette, then decide on portal-section visual treatment.
+
+**Outcome (atlas, feat/atlas-permaculture):**
+- **TS palette mirror (`apps/web/src/lib/tokens.ts`):** `semantic.*` retuned to
+  estate light-mode (primary `#b08a3a`, accent `#5a8a5a`, bg `#f6f4ee`,
+  sidebarActive `#d4af5f`, textSubtle `#7d7864`). `chart.grid` →
+  `rgba(82,72,52,0.18)`, `chart.muted` → `#7d7864`. `map.popupBg` →
+  `#0b0e0c`, `map.boundary` preserved at `#7d6140` per UX-Scholar 2026-04-23
+  biophilic-data rule. Earth/sage/water/zone/structure/path/utility/crop
+  palettes deliberately untouched.
+- **Portal chrome alignment (Option B):** `portalStore.ts` `brandColor`
+  default `group.livestock` (`#c4a265`) → `#d4af5f`; `loadFromShareToken`
+  fallback `'#c4a265'` → `'#d4af5f'`. Across 6 portal section files
+  (HeroSection, StageRevealStory, BeforeAfterSlider, InteractiveMapView,
+  NarrativeSections, SupportCTA), 17 hits: `rgba(196,162,101,α)` →
+  `rgba(212, 175, 95, α)` and stale `#6b5b4a` → `#7d7864`. Two
+  `group.livestock` chrome usages in InteractiveMapView label and SupportCTA
+  CTA text re-bound to `semantic.sidebarActive`. **Cinematic gradients
+  preserved** (`#1a1611`, `#2a2117`, `rgba(26,22,17,0.7)` label backgrounds,
+  SVG fallback art, dark-ink-on-brand patterns) for atmospheric continuity.
+- **Verification:** `tsc --noEmit` clean (Phase 1 baseline + Phase 3 sweep,
+  both 8GB heap).
+
 ## [2026-04-29] session | Atlas Diagnose — 3-yr rolling wind window
 
 **Objective:** Promote the Open-Meteo wind-rose adapter from a 1-year window
