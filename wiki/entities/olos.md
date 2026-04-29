@@ -2,7 +2,7 @@
 title: "OLOS"
 type: entity
 created: 2026-04-09
-updated: 2026-04-24
+updated: 2026-04-29
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
 ---
@@ -26,6 +26,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 ## Current Status
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
+
+**2026-04-28:** Estate palette migration — entire Atlas chrome repainted from warm-brown to dark-estate green/gold/sage in both `data-theme="dark"` and `data-theme="light"`, plus per-project Dashboard Overview restyled to the reference mock (serif Cormorant Garamond display, translucent gold-bordered panels, sage active state, circular-icon lifecycle sidebar). Introduced `--color-on-primary` (`#2a2018`) / `--color-on-accent` (`#1a2418`) tokens to fix the white-on-gold button contrast (axe finding 2.23:1 → 8.5:1). 35 files touched; map polygon palettes and earth-tokens preserved per the biophilic-data rule. See [[2026-04-28-atlas-estate-palette-migration]].
 
 **2026-04-24:** First real end-to-end Tier-3 verification against a Canadian site (Milton, ON) passed. Four latent CA-path defects surfaced and fixed: CA-1 NRCan HRDEM STAC queryable (`datetime` not `properties.datetime`), CA-2 ECCC `data_period` label breaking Postgres date binding, CA-3 HRDEM CRS mismatch (COGs are EPSG:3979 — pixel-window math treated lon/lat as projected metres → `validCount=0` → spurious "numeric field overflow"), CA-4 writer-vs-layers race where `site_assessments` was written before `project_layers.microclimate` was visible. Milton overall score 73.0, parity delta 0.000. See [[2026-04-24-atlas-ca-tier3-verification-crs-and-race-fixes]].
 

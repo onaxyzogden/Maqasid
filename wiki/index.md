@@ -38,6 +38,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Date | Summary |
 |---|---|---|
+| [[2026-04-28-atlas-estate-palette-migration]] | 2026-04-28 | Atlas chrome repainted warm-brown → dark estate green/gold/sage across both themes. New `--color-on-primary` / `--color-on-accent` tokens fix white-on-gold contrast (2.23:1 → 8.5:1). Per-project Dashboard Overview restyled to reference mock (Cormorant Garamond serif, translucent gold-bordered panels, sage active state). Map polygon palettes + earth-tokens preserved per biophilic-data rule |
 | [[2026-04-28-atlas-wind-climatology-live]] | 2026-04-28 | Atlas Diagnose wind rose now driven by live Open-Meteo ERA5 hourly data keyed off the effective anchor (homestead → centroid). 0.1° quantized cache (30-day TTL), 0.5 m/s calm filter, most-recent complete calendar year, silent fallback to pedagogical W/NW defaults. Hook re-fires only on quantum change |
 | [[2026-04-27-prayer-posture-glow-images]] | 2026-04-27 | Replaced 7 SVG stick-figure posture components with `<img>` wrappers around 6 glow-effect PNGs in `src/assets/postures/`. Jalsah/Tashahhud/Salam share `seated.png`. `postureMap` API unchanged; consumers untouched. `takbir.png` orphaned pending opening-takbir slot decision |
 | [[2026-04-09-merge-ogden-hub-subtree]] | 2026-04-09 | Merged ogden-hub website into monorepo via git subtree at website/ |

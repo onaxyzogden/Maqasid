@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-28] session | Atlas — Estate palette migration + per-project Dashboard polish + a11y sweep
+
+**Objective:** Repaint the entire Atlas chrome from warm-brown ("revolting" per user) to the estate palette in the reference mock — dark green-on-gold, sage active, parchment text, Cormorant Garamond display serif — across both `data-theme="dark"` and `data-theme="light"`. Polish the per-project Dashboard Overview at `/v3/project/:projectId/home` to mirror the mock. Fix the white-on-gold button contrast finding flagged by axe.
+
+**Outcome (atlas: 35 files, ~700 lines net diff, not yet pushed):**
+- Token foundation rewritten: `apps/web/src/styles/tokens.css` retuned to estate palette (light mode: stone-cool `#f6f4ee` bg, `#b08a3a` primary, `#5a8a5a` accent, `#1f231e` ink) + Cormorant Garamond added to Google Fonts import + new `--color-on-primary` (`#2a2018`) / `--color-on-accent` (`#1a2418`) tokens.
+- `apps/web/src/styles/dark-mode.css` — full rewrite of both `[data-theme="dark"]` block and `@media (prefers-color-scheme: dark)` block; OKLCH `@supports` branch kept in sync. Estate gold `#d4af5f`, sage active `#8fc89a`, parchment `#f3ecd7`, near-black-green `#0b0e0c`.
+- Per-project Dashboard Overview polished: `v3/pages/HomePage.module.css` got radial-gradient ambient texture + serif `--font-display` headings (34/22/18/32px) + `--color-panel-card` translucent surfaces with `backdrop-filter: blur(4px)` + `border-radius: 14px`. `V3LifecycleSidebar.module.css` active state moved from gold inset shadow to sage-tinted pill. `HomeHero.module.css` palette-locked the ring text to the dark-mode parchment scale (since the photo backdrop is always dark regardless of theme).
+- a11y fix: `Button.module.css` `.primary` and `.accent` foreground pinned to `var(--color-on-primary)` / `var(--color-on-accent)`. White-on-gold went from **2.23:1** → **8.5:1** (verified via live `getComputedStyle` on the Continue Project CTA: `rgb(42,32,24)` on `rgb(212,175,95)`). Same swap applied to DiagnoseMap toolBtn active state and the four collaboration / template / structure-properties primary CTAs.
+- Sweep — Category B (9 visible-chrome hardcoded hexes): MapLoadingIndicator, GroupingToggle, TerrainControls, OsmVectorOverlay, DomainFloatingToolbar.module.css, MembersTab, CollaborationPanel, TemplateMarketplace, StructurePropertiesModal — all repainted from `#c4a265` / `#1f1d1a` / `#3d3328` / `#e8dcc8` to estate tokens.
+- Sweep — Category A (20 files, 36 replacements via context-aware Python script with explicit UTF-8 read/write — first pass via PowerShell introduced BOM + cp1252 mojibake on em-dashes; reverted and redone): brown `#7d6140` / `#6a5236` / `#5a452e` primary fallbacks → estate gold scale; brown text/border fallbacks → estate equivalents.
+- ADR: `wiki/decisions/2026-04-28-atlas-estate-palette-migration.md` filed with the full rationale, token table, skipped-set, and verification.
+
+**Skipped intentionally** (UX-Scholar 2026-04-23 biophilic-data rule): `--color-earth-*` consumers, `lib/sectors/*`, `lib/tokens.ts`, `store/portalStore.ts`, `features/portal/sections/*`, `DiagnoseMap.tsx` map paint, `DomainFloatingToolbar.tsx` `DOMAIN_TINTS`, all map polygon overlays.
+
+**Verification:**
+- `tsc --noEmit` with `NODE_OPTIONS=--max-old-space-size=8192` (default heap OOMs on this monorepo) — six pre-existing errors in `OperateRail.tsx` / `ProveRail.tsx` / `v3/components/Sparkline.tsx`; **zero** new errors from this work.
+- Live DOM probe — Continue Project CTA `getComputedStyle`: `rgb(42,32,24)` on `rgb(212,175,95)` ≈ 8.5:1 ✓ AA.
+- axe-core errors: white-on-gold (2.23:1) finding no longer present. Remaining `#6e5326` text on `#060807` is a pre-existing earth-token consumer warning — earth palette stays warm per the biophilic-data rule.
+
+**Deferred:** `lib/tokens.ts` TS palette mirror, portal/sections, `portalStore.brandColor` seed.
+
+---
+
 ## [2026-04-28] session | Atlas Diagnose — Redis cache for wind-rose endpoint
 
 **Objective:** Add a Redis cache in front of the new `/api/v1/climate-analysis/wind-rose` endpoint so distinct designers hitting the same ~11 km anchor share one Open-Meteo fetch.
