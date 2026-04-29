@@ -12,7 +12,10 @@
   grid-row: 2;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 var(--space-6);
+  /* Balance the left chrome (sidebar + edge) on the right when no right panel
+     is open, so the content column reads as visually centered in the viewport.
+     Falls back to 0 (mobile / right panel open). */
+  padding: 0 calc(var(--space-6) + var(--main-balance-end, 0px)) 0 var(--space-6);
   background: var(--bg);
   animation: fadeIn var(--duration-lg) var(--ease);
 }

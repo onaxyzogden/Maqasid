@@ -1,6 +1,15 @@
 /* BBOS-Biz Global Styles */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
 html { font-size: var(--text-md); -webkit-text-size-adjust: 100%; }
 
 textarea { overflow: hidden; resize: none; }

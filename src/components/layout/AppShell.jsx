@@ -287,7 +287,17 @@ export default function AppShell() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <div className={`app-shell${isDragging || isRightDragging ? ' app-shell--dragging' : ''}`} style={{ gridTemplateColumns: gridCols }}>
+      <div
+        className={`app-shell${isDragging || isRightDragging ? ' app-shell--dragging' : ''}`}
+        style={{
+          gridTemplateColumns: gridCols,
+          // Mirror left chrome (sidebar + edge) on the right when no right
+          // panel is open, so .app-main visually centers in the viewport.
+          '--main-balance-end': mobile || islamicPanelOpen
+            ? '0px'
+            : `calc(${sidebarPx} + ${edgePx})`,
+        }}
+      >
         <TopBar />
         <Sidebar />
         {!mobile && (

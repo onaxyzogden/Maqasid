@@ -6,7 +6,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  width: 100%;
   max-width: 1200px;
+  margin-inline: auto;
   overflow-x: hidden;
 }
 
@@ -21,38 +23,11 @@
   border-radius: var(--radius-xl, 16px);
   isolation: isolate;
 }
-.dash-tier::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0.55;
-  pointer-events: none;
-}
-.dash-tier--qalb::before {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 8%, transparent) 0%,
-    color-mix(in srgb, var(--accent) 2%, transparent) 60%,
-    transparent 100%
-  );
-}
-.dash-tier--amal::before {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--bg3) 45%, transparent) 0%,
-    transparent 100%
-  );
-}
-.dash-tier--barakah::before {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--success) 7%, transparent) 0%,
-    color-mix(in srgb, var(--success) 2%, transparent) 60%,
-    transparent 100%
-  );
-}
+/* Tier sections are pure structural containers — no painted background.
+   The eyebrow tone alone signals which tier (Qalb / Amal / Barakah) the
+   user is in, so the dashboard reads as one continuous surface rather
+   than three stacked panels. */
+.dash-tier::before { content: none; }
 
 .dash-tier__eyebrow {
   display: flex;
