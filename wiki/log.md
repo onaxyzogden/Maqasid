@@ -3,6 +3,37 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-29] session | Atlas — Beaufort-shaded wind rose petals
+
+**Objective:** Tint Diagnose wind-rose petals by per-bin mean speed so
+water/wind designers see intensity alongside frequency.
+
+**Outcome (atlas, `feat/atlas-permaculture`):**
+- **Adapter:** `binHourlyToFrequencies` now returns `{ frequencies, meanSpeedsMs }`;
+  `OpenMeteoWindResult.meanSpeedsMs` threaded through route + cache. Server payload
+  verified live at MTC: bins 2.7-3.8 m/s.
+- **Web wiring:** `WindRoseResponse.meanSpeedsMs?` (also fixed latent
+  `windowYear` → `windowYears` mismatch from the 3-yr change),
+  `CacheEntry.meanSpeedsMs?` (forward-compatible on v2),
+  `useWindClimatology` surfaces `meanSpeedsMs`, `DiagnosePage` threads to
+  `computeWindSectors`.
+- **Sectors:** new `beaufortColor(meanSpeedMs)` with bands at 3.4 / 5.4 /
+  7.9 m/s (Beaufort boundaries) → estate-aligned ramp light teal `#7aa3b8` →
+  mid teal `#5b7a8a` → estate gold `#b08a3a` → fired clay `#8a4f3a`. Missing
+  speed falls back to neutral mid teal so a no-data petal matches the prior
+  single-color rose.
+- **Tests:** adapter +2 cases (W=5 m/s; mixed W=4 / E=8 independent means),
+  sectors +8 cases (per-band color assertions, missing fallback, meta).
+- **Verification:** vitest 9/9 (api adapter), 18/18 (web sectors); tsc clean
+  for wind-climatology + sectors paths; live curl confirms `meanSpeedsMs`
+  payload; preview `/v3/project/mtc/diagnose` renders Beaufort-tinted rose
+  with "Live ERA5" badge.
+
+ADR appended: `wiki/decisions/2026-04-28-atlas-wind-climatology-live.md` —
+new "Beaufort-shaded petals" section + struck the deferred bullet.
+
+---
+
 ## [2026-04-29] session | Atlas estate palette — TS mirror + portal chrome alignment
 
 **Objective:** Bring `apps/web/src/lib/tokens.ts` into sync with the new

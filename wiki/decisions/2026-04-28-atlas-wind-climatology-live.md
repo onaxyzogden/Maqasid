@@ -123,6 +123,45 @@ sub-quantum drags (e.g., dragging the homestead 200 m around) do NOT
 re-fire the fetch. AbortController cleans up in-flight requests on
 unmount or quantum change.
 
+### Beaufort-shaded petals (added 2026-04-29)
+
+Promoted petals from a single-color rose to a Beaufort-tinted ramp keyed by
+per-bin mean wind speed (m/s). Length is still frequency-driven; color now
+reads intensity. Adapter already pulled `wind_speed_10m`, so we threaded
+mean-speed-per-bin through the existing payload pipeline.
+
+- Adapter: `binHourlyToFrequencies` now returns `{ frequencies, meanSpeedsMs }`
+  where `meanSpeedsMs[code] = sum(speed in bin) / count(bin)` and is `null`
+  for bins with zero non-calm samples (lets renderers fall back to neutral
+  instead of mis-coloring with the lowest band).
+- Payload: `OpenMeteoWindResult.meanSpeedsMs: WindMeanSpeeds` (new field;
+  optional on the wire/cache shape so v2 entries pre-Beaufort still render).
+- Web type: `WindRoseResponse.meanSpeedsMs?` in `apiClient.ts` (also fixed
+  a latent `windowYear: number` → `windowYears: { start, end }` mismatch
+  from the 3-yr-window change).
+- Web cache: `CacheEntry.meanSpeedsMs?` on the localStorage shape; same v2
+  prefix (forward-compatible — old v2 entries simply lack the field).
+- Hook: `useWindClimatology` surfaces `meanSpeedsMs: WindMeanSpeeds | undefined`
+  alongside `frequencies`.
+- Sectors: new `beaufortColor(meanSpeedMs)` lookup with bands at 3.4 / 5.4 /
+  7.9 m/s (Beaufort boundaries → light air, gentle, moderate, fresh+).
+  Estate-aligned colors: `#7aa3b8` (light teal) → `#5b7a8a` (mid teal) →
+  `#b08a3a` (estate gold) → `#8a4f3a` (fired clay). `null` / missing speed
+  falls back to the neutral mid teal so a missing-data petal looks the same
+  as the prior single-color rose. `computeWindSectors(anchor, { meanSpeedsMs })`
+  threads the per-bin lookup; `wedge.color` is the Beaufort tint and
+  `wedge.meta.meanSpeedMs` is exposed for any future legend.
+- DiagnosePage: hook → `liveWindMeanSpeedsMs` → `computeWindSectors` opts.
+- Tests: `openMeteoWindFetch.test.ts` adds two cases (W=5 m/s / others null;
+  mixed W=4 + E=8 with independent per-bin means). `wind.test.ts` adds 8
+  cases (per-band color assertions, missing-speed fallback, meta threading).
+
+Live verified at MTC anchor `[-78.2, 44.5]`: all 8 bins land in the 2.7-3.8
+m/s range — 10 m anemometer height for E. Ontario sits squarely in light /
+gentle breeze territory, so the rose reads in two close teal shades. Higher
+sites (coastal, ridge-top, taller anemometer) will exercise the gold and
+fired-clay bands.
+
 ### Provenance: `sourceLabel` on `ComputeWindSectorsOptions`
 
 `computeWindSectors(anchor, { frequencies, sourceLabel })` now stamps
@@ -165,7 +204,8 @@ Atlas (`feat/atlas-permaculture` commit `aca86a6`):
   section above. 5-yr rolling still deferred.
 - ~~Surface "Live ERA5 / Fallback (mock)" provenance chip~~ — shipped
   earlier (commit `1beb6f5`).
-- Speed-weighted petals (currently frequency only — Beaufort-shaded petals
-  would tell water/wind designers more).
+- ~~Speed-weighted petals (currently frequency only — Beaufort-shaded petals
+  would tell water/wind designers more).~~ — **shipped 2026-04-29**, see
+  "Beaufort-shaded petals" section above.
 - ~~Server-side cache (Redis) for the wind-rose adapter~~ — **shipped
   2026-04-28**, see "Redis cache" bullet under "Server-side proxy" above.
