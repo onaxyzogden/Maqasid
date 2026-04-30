@@ -400,6 +400,25 @@ non-temperate regimes; speed-weighted (Beaufort-shaded) petals.
 
 ---
 
+## [2026-04-30] session | ui-components package dev-mode fix + preview restore
+
+**Objective:** Load a live preview of MILOS at the `/app` Maqasid dashboard.
+
+**Problem encountered:** The `@ogden/ui-components` package (extracted in 71cba17) had never been built. The main app re-exports `LevelNavigator` and `MaqasidComparisonWheel` from it, so the dev server threw `[plugin:vite:import-analysis]` errors and React never mounted — the `#root` was silently empty.
+
+**Root causes fixed (see [decision](decisions/2026-04-30-ui-components-package-dev-fixes.md)):**
+1. Vite aliases added in `vite.config.js` for all `@ogden/ui-components/*` subpaths → package source files (no build step needed)
+2. `LevelNavigator.jsx` + `MaqasidComparisonWheel.jsx`: relative paths were one `../` too deep (`../../../` → `../../`)
+3. `IslamicTerm.jsx` + `useArabic.js`: cross-boundary imports rewritten to `@store/` and `@/` aliases
+4. `wheel/index.js`: `wheelColor.js` re-exported as `default` but only has named export → fixed to `{ deriveWheelPalette }`
+5. `IslamicTerm.css` missing from package → copied from `src/components/shared/`
+
+**Outcome:** Preview running on latest code (71cba17) in dark mode. Dashboard displays Niyyah intent card, Level 1 Core Higher Objectives strip (all 7 Maqasid), LevelNavigator, and Maqasid Comparison Wheel.
+
+**Carries forward:** `packages/ui-components/vite.config.js` standalone build is still broken (same path issues in its own config). Deferred — not needed while Vite aliases serve it in dev.
+
+---
+
 ## [2026-04-28] session | Sidebar satellite section + Moontrance demoted from Maqasid
 
 **Objective:** Three small but semantically related cleanups in MILOS V2.1 chrome:
