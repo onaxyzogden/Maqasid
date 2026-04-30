@@ -6,6 +6,7 @@ import { preloadPillarSeeds, getBoardSeeds } from '../services/seed-hydrator';
 import { WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
+import { seedBbosTasks as buildBbosSeedTasks } from '@ogden/ui-components/bbos';
 
 // Pillar seed files are loaded lazily via the seed-hydrator. Each
 // ensure*Projects awaits its pillar's preload; the strip-pass below also
@@ -16,32 +17,11 @@ function persistProjects(projects) {
 }
 
 /** Returns true if seeding succeeded (or was skipped), false on storage failure. */
-function seedBbosTasks(projectId, todoColumnId) {
+function seedBbosTasks(projectId, columns) {
   const storageKey = `tasks_${projectId}`;
   const existing = safeGetJSON(storageKey, []);
   if (existing.length > 0) return true;
-  const now = new Date().toISOString();
-  const seeded = BBOS_TASK_DEFINITIONS.map((def, i) => ({
-    id: genTaskId(),
-    projectId,
-    columnId: todoColumnId,
-    title: `${def.id} · ${def.label}`,
-    description: '',
-    priority: 'medium',
-    dueDate: null,
-    tags: [def.stage],
-    subtasks: [],
-    checklist: [],
-    attachments: [],
-    order: i,
-    seedOrder: i,
-    createdAt: now,
-    updatedAt: now,
-    completedAt: null,
-    bbosTaskType: def.id,
-    bbosStage: def.stage,
-    bbosFieldData: {},
-  }));
+  const seeded = buildBbosSeedTasks({ projectId, makeId: genTaskId, columns });
   return safeSet(storageKey, seeded);
 }
 
@@ -541,7 +521,7 @@ export const useProjectStore = create((set, get) => ({
     };
     // For BBOS projects, seed tasks first — only persist project if seeding succeeds
     if (bbosEnabled) {
-      const seeded = seedBbosTasks(project.id, project.columns[0].id);
+      const seeded = seedBbosTasks(project.id, project.columns);
       if (!seeded) {
         // Task seeding failed (likely quota) — don't save orphaned project
         return null;

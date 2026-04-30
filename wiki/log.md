@@ -3,6 +3,106 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-30] session | @ogden/ui-components v0.2.0 — BBOS extraction with callback + render-prop pattern
+
+**Objective:** Add the BBOS Project template surface (creation dialog +
+full dashboard) to `@ogden/ui-components`, ship as v0.2.0, and adopt in
+MILOS via thin wrappers without disturbing the ~60 BBOS-related import
+sites that already exist.
+
+**Outcome:**
+
+- **Package shipped (`onaxyzogden/ogden-ui-components` v0.2.0):**
+  Subpath import surface introduced — `@ogden/ui-components/bbos`
+  becomes its own entry alongside the existing `.` (maqasid) export.
+  Vite library mode rebuilt for multi-entry; `package.json` `exports`
+  field gates resolution; per-entry CSS bundles (`ogden-ui-components.css`
+  + `ogden-ui-components-bbos.css`) emitted via `cssCodeSplit`.
+- **Package contents added:**
+  - 5 components: `BbosFullDashboard`, `BbosTaskPanel`, `BbosRolePicker`,
+    `BbosRoleBadge`, `BbosProjectTemplatePicker` (the modal carved out of
+    `Work.jsx` lines 208-322).
+  - 6 data/service files re-exported pure: `bbos-pipeline`,
+    `bbos-task-definitions` (189 KB on its own), `bbos-role-access`,
+    `bbos-stage-islamic`, `bbos-template`, `bbos-export`.
+  - 1 helper: `seedBbosTasks({ projectId, makeId, columns })` lifted
+    from MILOS's `project-store.js`.
+- **Coupling stripped via callback + render-prop patterns:**
+  - 5 Zustand stores removed from `BbosTaskPanel` (`useTaskStore`,
+    `useAuthStore`, `useAppStore`, `usePeopleStore`, `useProjectStore`)
+    — replaced by `task` / `tasks` / `user` / `employees` / `members` /
+    `assignee` props plus `onUpdateTask` / `onFieldUpdate` / `onMoveTask` /
+    `onAddProjectMember` mutation callbacks.
+  - 4 AI service imports removed (`ai-client`, `ai-settings`,
+    `prompt-builder`, `response-parser`) — replaced by single
+    `onRequestAiDraft({ taskDef, projectId, signal, onDelta, onComplete,
+    onError })` callback.
+  - `DashboardTaskCard`, `GLabelBadge`, `GLabelPicker` accepted as
+    render-props (`renderTaskCard`, `renderGLabelBadge`,
+    `renderGLabelPicker`) with minimal package fallbacks.
+  - `ScopeGate` internalized via inline `RoleGate` helper using a
+    `userRole` prop.
+  - `ErrorBoundary` shipped as a tiny built-in (not configurable).
+- **MILOS wired via wrappers (zero call-site churn):**
+  - `BbosFullDashboard.jsx` — wrapper reads `useTaskStore` +
+    `useProjectStore`, derives the `tasks` array, passes
+    `rejectBbosPipeline` / `unrejectBbosPipeline` straight through as
+    `onRejectStage` / `onUnrejectStage` callbacks; injects
+    `DashboardTaskCard` and `GLabelBadge` via render-props.
+  - `BbosTaskPanel.jsx` — wrapper reads all 5 stores, pre-resolves
+    `members` / `assignee`, binds `onRequestAiDraft` to MILOS's existing
+    `streamCompletion + buildPrompt + parseAiResponse + getAiConfig`
+    chain; injects MILOS's `GLabelPicker` via render-prop.
+  - `Work.jsx` modal replaced with `<BbosProjectTemplatePicker />` (~115
+    LOC removed); dropped `Workflow` icon + `PILLAR_OPTIONS` constant +
+    4 modal-state fields.
+  - `seedBbosTasks` in `project-store.js` delegates to
+    `buildBbosSeedTasks` from the package (~30 LOC delta); call site
+    updated `seedBbosTasks(project.id, project.columns)` (was
+    `project.columns[0].id`).
+  - 6 data/service files + 2 small components collapsed to one-line
+    re-exports (`export * from '@ogden/ui-components/bbos';`).
+- **Package + MILOS install:** dependency pin bumped to
+  `github:onaxyzogden/ogden-ui-components#v0.2.0`. `npm install`
+  resolved cleanly. CSS import added to `src/main.jsx`.
+
+**Verification:** `npm run build` (1.47s, no errors); `npm run lint`
+chain passed (ESLint + grounding-strict + audit:inline-refs all 0);
+`npm test` 56/56. Browser smoke at `/app/work`: BbosProjectTemplatePicker
+modal opened with name/pillar/submodule/type controls; created
+"Smoke Test BBOS" → redirected to `proj_3Ep1vahMBlah`; BbosFullDashboard
+rendered all 9 stages with IDY's 5 task cards visible; clicked IDY-S1 →
+BbosTaskPanel opened in `tdp-overlay` portal; edited
+`btp-field-capitalDeclaration` textarea; localStorage
+`bbiz_tasks_proj_3Ep1vahMBlah` confirmed `bbosFieldData.capitalDeclaration`
+persisted; IDY-S1 card rerendered as "1/6 17%". Reject/unreject store
+wiring verified by code review (passthrough callback). Screenshot tool
+unresponsive (30s timeout twice) — proof captured via `preview_snapshot`
+text accessibility tree instead.
+
+**Decisions filed:**
+[[2026-04-30-bbos-extraction-callback-pattern]] — subpath import
+rationale, callback-vs-store mutation pattern, callback-vs-package AI
+client, render-prop pattern for shared MILOS UI, `seedBbosTasks` lifted
+out of `project-store`.
+
+**Carry-forward:**
+- Atlas + Moontrance adoption deferred until a concrete BBOS surface
+  exists in those apps (e.g., per-paddock BBOS pipeline for OLOS).
+- The package's render-prop fallbacks are intentionally minimal —
+  Atlas/Moontrance will likely supply their own polished render-props
+  when they adopt.
+- `BbosProjectTemplatePicker` accepts `pillarOptions` /
+  `submoduleOptionsForPillar` / `getSubmoduleDisplayLabel` as props with
+  defaults — Atlas/Moontrance can ship their own taxonomies without
+  modifying the package.
+
+**Recommended next session:** Commit MILOS-side wrapper + wiki changes,
+or take an Atlas BBOS-mounting spike to pressure-test the callback-
+based prop surface against a real second consumer.
+
+---
+
 ## [2026-04-30] session | @ogden/ui-components — GitHub release + MILOS wrapper adoption
 
 **Objective:** Ship the prior-session-extracted `@ogden/ui-components`

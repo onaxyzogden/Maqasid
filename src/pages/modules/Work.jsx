@@ -1,20 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Plus, Folder, Archive, MoreHorizontal, Trash2, Workflow } from 'lucide-react';
+import { Plus, Folder, Archive, MoreHorizontal, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { useProjectStore } from '@store/project-store';
 import PillarHeader from '@components/shared/PillarHeader';
 import { getPillarSubmoduleIds, getSubmoduleDisplayLabel } from '@data/submodule-registry';
-
-const PILLAR_OPTIONS = [
-  { id: '',            label: 'Unassigned' },
-  { id: 'faith',       label: 'Faith' },
-  { id: 'health',      label: 'Health' },
-  { id: 'intellect',   label: 'Intellect' },
-  { id: 'family',      label: 'Family' },
-  { id: 'wealth',      label: 'Wealth' },
-  { id: 'environment', label: 'Environment' },
-  { id: 'ummah',       label: 'Community' },
-];
+import { BbosProjectTemplatePicker } from '@ogden/ui-components/bbos';
 
 export default function Work() {
   const navigate = useNavigate();
@@ -25,10 +15,6 @@ export default function Work() {
   const [showArchived, setShowArchived] = useState(false);
   const [menuOpen, setMenuOpen] = useState(null);
   const [showNewDialog, setShowNewDialog] = useState(false);
-  const [newProjectName, setNewProjectName] = useState('');
-  const [newProjectType, setNewProjectType] = useState('standard');
-  const [newProjectPillar, setNewProjectPillar] = useState('');
-  const [newProjectSubmodule, setNewProjectSubmodule] = useState('');
 
   // Work is a shared module that currently only appears under the Wealth pillar
   // in the sidebar (see MAQASID_PILLARS in src/data/maqasid.js). Scope the list
@@ -42,26 +28,14 @@ export default function Work() {
   const displayed = showArchived ? archived : active;
 
   const handleNew = () => {
-    setNewProjectName('');
-    setNewProjectType('standard');
-    setNewProjectPillar(PILLAR_CONTEXT);
-    setNewProjectSubmodule('');
     setShowNewDialog(true);
   };
 
-  const handleCreateProject = () => {
-    const name = newProjectName.trim() || 'New Project';
-    const moduleId = newProjectSubmodule || newProjectPillar || null;
-    const project = createProject({
-      name,
-      bbosEnabled: newProjectType === 'bbos',
-      moduleId,
-    });
+  const handleCreateProject = ({ name, bbosEnabled, moduleId }) => {
+    const project = createProject({ name, bbosEnabled, moduleId });
     setShowNewDialog(false);
     navigate(`/app/work/${project.id}`);
   };
-
-  const submoduleOptions = newProjectPillar ? getPillarSubmoduleIds(newProjectPillar) : [];
 
   return (
     <div style={{ maxWidth: 900 }}>
@@ -205,122 +179,14 @@ export default function Work() {
         </div>
       )}
 
-      {/* New Project Dialog */}
-      {showNewDialog && (
-        <div
-          style={{
-            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000,
-          }}
-          onClick={() => setShowNewDialog(false)}
-        >
-          <div
-            style={{
-              background: 'var(--surface)', border: '1px solid var(--border)',
-              borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)',
-              width: 420, maxWidth: '90vw',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 style={{ marginBottom: 'var(--space-4)' }}>New Project</h3>
-            <input
-              value={newProjectName}
-              onChange={(e) => setNewProjectName(e.target.value)}
-              placeholder="Project name"
-              autoFocus
-              onKeyDown={(e) => { if (e.key === 'Enter') handleCreateProject(); }}
-              style={{
-                width: '100%', padding: 'var(--space-2) var(--space-3)',
-                borderRadius: 'var(--radius)', border: '1px solid var(--border)',
-                background: 'var(--bg)', color: 'var(--text)', fontSize: '0.95rem',
-                marginBottom: 'var(--space-4)',
-              }}
-            />
-            <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
-              Pillar
-            </p>
-            <select
-              value={newProjectPillar}
-              onChange={(e) => { setNewProjectPillar(e.target.value); setNewProjectSubmodule(''); }}
-              style={{
-                width: '100%', padding: 'var(--space-2) var(--space-3)',
-                borderRadius: 'var(--radius)', border: '1px solid var(--border)',
-                background: 'var(--bg)', color: 'var(--text)', fontSize: '0.9rem',
-                marginBottom: 'var(--space-3)',
-              }}
-            >
-              {PILLAR_OPTIONS.map((opt) => (
-                <option key={opt.id} value={opt.id}>{opt.label}</option>
-              ))}
-            </select>
-            {submoduleOptions.length > 0 && (
-              <>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
-                  Submodule
-                </p>
-                <select
-                  value={newProjectSubmodule}
-                  onChange={(e) => setNewProjectSubmodule(e.target.value)}
-                  style={{
-                    width: '100%', padding: 'var(--space-2) var(--space-3)',
-                    borderRadius: 'var(--radius)', border: '1px solid var(--border)',
-                    background: 'var(--bg)', color: 'var(--text)', fontSize: '0.9rem',
-                    marginBottom: 'var(--space-3)',
-                  }}
-                >
-                  <option value="">Any submodule</option>
-                  {submoduleOptions.map((id) => (
-                    <option key={id} value={id}>{getSubmoduleDisplayLabel(id, id)}</option>
-                  ))}
-                </select>
-              </>
-            )}
-            <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
-              Project Type
-            </p>
-            <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-5)' }}>
-              <button
-                onClick={() => setNewProjectType('standard')}
-                style={{
-                  flex: 1, padding: 'var(--space-3)', borderRadius: 'var(--radius)',
-                  border: `2px solid ${newProjectType === 'standard' ? 'var(--primary)' : 'var(--border)'}`,
-                  background: newProjectType === 'standard' ? 'color-mix(in srgb, var(--primary) 8%, transparent)' : 'var(--bg)',
-                  cursor: 'pointer', textAlign: 'left', color: 'var(--text)',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
-                  <Folder size={16} />
-                  <strong style={{ fontSize: '0.85rem' }}>Standard</strong>
-                </div>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text2)', margin: 0 }}>
-                  3-column Kanban board (To Do, In Progress, Done)
-                </p>
-              </button>
-              <button
-                onClick={() => setNewProjectType('bbos')}
-                style={{
-                  flex: 1, padding: 'var(--space-3)', borderRadius: 'var(--radius)',
-                  border: `2px solid ${newProjectType === 'bbos' ? '#c9a05a' : 'var(--border)'}`,
-                  background: newProjectType === 'bbos' ? 'color-mix(in srgb, #c9a05a 8%, transparent)' : 'var(--bg)',
-                  cursor: 'pointer', textAlign: 'left', color: 'var(--text)',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
-                  <Workflow size={16} style={{ color: '#c9a05a' }} />
-                  <strong style={{ fontSize: '0.85rem' }}>BBOS Pipeline</strong>
-                </div>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text2)', margin: 0 }}>
-                  9-stage business cultivation pipeline (Think / Execute / Reckon)
-                </p>
-              </button>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 'var(--space-2)' }}>
-              <button className="btn btn-ghost" onClick={() => setShowNewDialog(false)}>Cancel</button>
-              <button className="btn btn-primary" onClick={handleCreateProject}>Create</button>
-            </div>
-          </div>
-        </div>
-      )}
+      <BbosProjectTemplatePicker
+        open={showNewDialog}
+        onClose={() => setShowNewDialog(false)}
+        defaultPillar={PILLAR_CONTEXT}
+        submoduleOptionsForPillar={getPillarSubmoduleIds}
+        getSubmoduleDisplayLabel={getSubmoduleDisplayLabel}
+        onCreate={handleCreateProject}
+      />
     </div>
   );
 }
