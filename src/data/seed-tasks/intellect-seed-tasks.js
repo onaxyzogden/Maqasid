@@ -2273,7 +2273,7 @@ An outline is architectural planning for your writing. Just as a building constr
               translation: "The Most Merciful — taught the Quran — created man — taught him eloquence.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine sequence establishes that imparting the message precedes teaching eloquence, validating the subtask of getting the ideas down before editing [1].',
             },
             {
               kind: "hadith",
@@ -2282,7 +2282,7 @@ An outline is architectural planning for your writing. Just as a building constr
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey even a single sentence validates getting core ideas down immediately without waiting for a polished, comprehensive text [1].',
             },
           ],
           description: `**Why?**
@@ -2327,7 +2327,7 @@ Perfectionism kills more books, articles, and papers than lack of talent ever wi
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate information validates seeking feedback from knowledgeable reviewers to ensure accuracy and prevent acting out of ignorance [1].',
             },
           ],
           description: `**Why?**
@@ -2368,7 +2368,7 @@ You are too close to your own work to see its flaws. Blind spots in argument, un
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of ongoing rewards for introducing good practices validates revising and publishing beneficial work so others can act upon it [1].',
             },
           ],
           description: `**Why?**
@@ -2433,7 +2433,7 @@ A work that remains unpublished benefits no one but you. Publishing — whether 
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to cooperate in righteousness validates identifying an eager mentee, as sharing your strengths fulfills the obligation of mutual piety [1].',
             },
             {
               kind: "hadith",
@@ -2442,7 +2442,7 @@ A work that remains unpublished benefits no one but you. Publishing — whether 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle elevating those who teach what they learn validates identifying a mentee eager to grow in your area of strength.',
             },
           ],
           description: `**Why?**
@@ -2486,7 +2486,7 @@ Not every student is ready for mentorship, and not every willing person is the r
               translation: "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to mutually advise each other to truth and patience validates establishing a regular meeting cadence to facilitate ongoing guidance and support.',
             },
             {
               kind: "hadith",
@@ -2495,7 +2495,7 @@ Not every student is ready for mentorship, and not every willing person is the r
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of shared rewards for guiding someone to good validates establishing a regular meeting cadence to consistently provide such beneficial guidance.',
             },
           ],
           description: `**Why?**
@@ -2541,7 +2541,7 @@ Mentorship without regular meetings is just occasional advice — it lacks the c
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to seek increased knowledge validates defining clear learning goals to purposefully focus and measure one\'s ongoing intellectual development [1].',
             },
             {
               kind: "hadith",
@@ -2550,7 +2550,7 @@ Mentorship without regular meetings is just occasional advice — it lacks the c
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle elevating those who learn and teach validates defining clear learning goals to purposefully structure your ongoing mastery of knowledge over time.',
             },
           ],
           description: `**Why?**
@@ -2598,7 +2598,7 @@ Mentorship without goals is just a pleasant conversation. Defined goals give the
               translation: "Allah will raise those who have believed among you and those who were given knowledge, by degrees.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that Allah elevates those given knowledge validates sharing resources, providing feedback, and challenging mentees to actively facilitate their intellectual growth.',
             },
             {
               kind: "hadith",
@@ -2607,7 +2607,7 @@ Mentorship without goals is just a pleasant conversation. Defined goals give the
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of shared rewards for guiding someone to good validates sharing resources, providing feedback on their work, and challenging them to succeed.',
             },
           ],
           description: `**Why?**
@@ -2653,7 +2653,7 @@ A mentor who only provides encouragement without challenge is a cheerleader, not
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle equating wisdom with immense good validates reviewing progress and setting next steps as an exercise of thoughtful, reflective judgment [1].',
             },
             {
               kind: "hadith",
@@ -2662,7 +2662,7 @@ A mentor who only provides encouragement without challenge is a cheerleader, not
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that one remains in Allah\'s path until returning validates reviewing progress at the period\'s end and setting next steps.',
             },
           ],
           description: `**Why?**
@@ -2719,7 +2719,7 @@ A mentorship without a formal review is a relationship that drifts rather than c
               translation: "And let there be arising from you a nation inviting to all that is good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to invite to all that is good validates defining the target audience and their starting knowledge level to communicate the message effectively [1].',
             },
           ],
           description: `**Why?**
@@ -2762,7 +2762,7 @@ A curriculum designed for "everyone" serves no one. The most effective education
               translation: "from which those who wish to be taught should learn,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine focus on what willing students should learn validates mapping learning outcomes to define exactly what a graduate must be able to do.',
             },
             {
               kind: "hadith",
@@ -2771,7 +2771,7 @@ A curriculum designed for "everyone" serves no one. The most effective education
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle defining knowledge as a path to Paradise validates mapping learning outcomes to clearly establish the ultimate destination of the student\'s journey.',
             },
           ],
           description: `**Why?**
@@ -2813,7 +2813,7 @@ Learning outcomes are the promise your curriculum makes to the learner: "If you 
               translation: "Invite to the way of your Lord with wisdom and good instruction.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to invite with wisdom and good instruction validates structuring the curriculum into modules with clear progression to facilitate effective learning.',
             },
             {
               kind: "quran",
@@ -2822,7 +2822,7 @@ Learning outcomes are the promise your curriculum makes to the learner: "If you 
               translation: "For there should separate from every division of them a group to obtain understanding in the religion.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to obtain understanding in the religion validates structuring the curriculum into modules with clear progression to facilitate systematic learning [1].',
             },
             {
               kind: "hadith",
@@ -2831,7 +2831,7 @@ Learning outcomes are the promise your curriculum makes to the learner: "If you 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle elevating those who learn and teach validates structuring the curriculum into modules with clear progression to facilitate systematic learning.',
             },
           ],
           description: `**Why?**
@@ -2878,7 +2878,7 @@ A curriculum is not a list of topics — it is a carefully sequenced journey fro
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle elevating those who learn and teach validates creating or curating learning materials for each module as a form of perpetual teaching.',
             },
           ],
           description: `**Why?**
@@ -2927,7 +2927,7 @@ A curriculum without materials is just a table of contents. The learning materia
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of ongoing rewards for introducing good practices validates piloting the curriculum with a small group and iterating based on feedback.',
             },
           ],
           description: `**Why?**
@@ -2976,7 +2976,7 @@ No curriculum survives first contact with real learners unchanged. What seems cl
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to cooperate in righteousness validates publishing your work and making it accessible to facilitate mutual piety within the community [1].',
             },
             {
               kind: "hadith",
@@ -2985,7 +2985,7 @@ No curriculum survives first contact with real learners unchanged. What seems cl
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The command to convey the Prophet\'s teachings, even a single verse, validates publishing your work and making it accessible to the community.',
             },
           ],
           description: `**Why?**
@@ -3053,7 +3053,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
               translation: "And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight, and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prohibition against pursuing that of which you have no knowledge grounds the personal rule to never share anything you haven\'t verified [1].',
             },
             {
               kind: "quran",
@@ -3062,7 +3062,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate information lest you harm people out of ignorance grounds the personal rule to never share anything you haven\'t verified [1].',
             },
             {
               kind: "hadith",
@@ -3071,7 +3071,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that narrating everything one hears equates to a lie grounds the personal rule to never share anything you haven\'t verified.',
             },
           ],
           description: `**Why?**
@@ -3099,7 +3099,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate questionable information validates learning to identify common red flags in unverified content to prevent harming people out of ignorance [1].',
             },
             {
               kind: "hadith",
@@ -3108,7 +3108,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that narrating everything one hears equates to a lie validates identifying common red flags in unverified content to prevent spreading falsehoods.',
             },
           ],
           description: `**Why?**
@@ -3142,7 +3142,7 @@ Misinformation thrives on emotional triggers and cognitive shortcuts. Recognisin
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate questionable information validates bookmarking reliable fact-checking resources to readily verify claims and prevent harming people out of ignorance [1].',
             },
           ],
           description: `**Why?**
@@ -3176,7 +3176,7 @@ Having verification tools at your fingertips removes the friction from fact-chec
               translation: "And do not pursue that of which you have no knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to not pursue unverified knowledge validates practicing the rule for 30 days to actively note how often you catch yourself [1].',
             },
             {
               kind: "quran",
@@ -3185,7 +3185,7 @@ Having verification tools at your fingertips removes the friction from fact-chec
               translation: "If there comes to you a disobedient one with information, investigate.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate questionable information validates practicing the rule for 30 days to actively note how often you catch yourself.',
             },
             {
               kind: "hadith",
@@ -3194,7 +3194,7 @@ Having verification tools at your fingertips removes the friction from fact-chec
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that narrating everything constitutes a lie validates practicing the rule for 30 days to note how often you catch yourself.',
             },
           ],
           description: `**Why?**
@@ -3229,7 +3229,7 @@ Habits form through consistent repetition and self-monitoring. The 30-day practi
               translation: "Destroyed are the misinformers",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning that misinformers are destroyed validates deleting or correcting any previously shared misinformation to avoid being counted among the condemned.',
             },
             {
               kind: "hadith",
@@ -3238,7 +3238,7 @@ Habits form through consistent repetition and self-monitoring. The 30-day practi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle to say what is good or remain silent validates deleting or correcting any previously shared misinformation to uphold righteous speech.',
             },
           ],
           description: `**Why?**
@@ -3278,7 +3278,7 @@ Tawbah (repentance) includes rectifying past wrongs where possible. If you have 
               translation: "And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prohibition against pursuing that of which you have no knowledge validates studying definitive and speculative definitions to accurately distinguish certainty from assumption [1].',
             },
           ],
           description: `**Why?**
@@ -3310,7 +3310,7 @@ The qat'i/dhanni distinction is one of the most important intellectual tools in 
               translation: "And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight, and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prohibition against pursuing that of which you have no knowledge validates learning hadith authentication categories to ensure reliance on verified prophetic traditions.',
             },
             {
               kind: "quran",
@@ -3319,7 +3319,7 @@ The qat'i/dhanni distinction is one of the most important intellectual tools in 
               translation: "And if they had referred it back to the Messenger or to those of authority among them, then the ones who can draw correct conclusions from it would have known about it.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to refer information back to the Messenger or authorities for correct conclusions validates learning hadith authentication categories to verify prophetic traditions [1].',
             },
             {
               kind: "hadith",
@@ -3328,7 +3328,7 @@ The qat'i/dhanni distinction is one of the most important intellectual tools in 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah grants religious comprehension to those He favors validates learning hadith authentication categories to verify one\'s understanding [1].',
             },
           ],
           description: `**Why?**
@@ -3364,7 +3364,7 @@ Hadith are the second source of Islamic law and guidance after the Quran. The sc
               translation: "And if you disagree over anything, refer it back to Allah and the Messenger.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to refer disagreements back to God and His Messenger validates understanding how scholars derive rulings from texts of different certainty levels [1].',
             },
           ],
           description: `**Why?**
@@ -3398,7 +3398,7 @@ Knowing the categories of certainty is only useful if you understand how scholar
               translation: "Those who listen to speech and then follow the best of it. Those are the ones Allah has guided, and those are people of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine praise for those who listen and follow the best speech validates applying this framework to evaluate qat\'i and dhanni in contemporary debates.',
             },
           ],
           description: `**Why?**
@@ -3442,7 +3442,7 @@ Theory without application remains abstract. By applying the qat'i/dhanni framew
               translation: "And if you obey most of those upon the earth, they will mislead you from the way of Allah. They follow nothing but assumption.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning that the majority follows mere assumption validates studying common logical fallacies to avoid being misled by widespread flawed reasoning [1].',
             },
             {
               kind: "quran",
@@ -3451,7 +3451,7 @@ Theory without application remains abstract. By applying the qat'i/dhanni framew
               translation: "Indeed, assumption avails not against the truth at all.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that assumption avails not against the truth validates studying common logical fallacies to effectively distinguish objective facts from flawed reasoning [1].',
             },
             {
               kind: "hadith",
@@ -3460,7 +3460,7 @@ Theory without application remains abstract. By applying the qat'i/dhanni framew
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that suspicion is the most false of speech validates studying common logical fallacies to avoid drawing conclusions from flawed reasoning.',
             },
           ],
           description: `**Why?**
@@ -3503,7 +3503,7 @@ Logical fallacies are the intellectual equivalent of optical illusions — they 
               translation: "O you who have believed, avoid much assumption. Indeed, some assumption is sin.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to avoid much assumption validates identifying one fallacy per day to actively train the mind against adopting sinful speculation [1].',
             },
             {
               kind: "hadith",
@@ -3512,7 +3512,7 @@ Logical fallacies are the intellectual equivalent of optical illusions — they 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that suspicion is the most false of speech validates identifying one fallacy daily to actively guard against internalizing deceptive, speculative reasoning.',
             },
           ],
           description: `**Why?**
@@ -3551,7 +3551,7 @@ Knowing fallacies in theory is different from spotting them in the wild. Real-wo
               translation: "They said, “By God, you are still in your old fallacy!”",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The critique of persisting in an old fallacy validates reviewing your own recent arguments to avoid clinging to fallacious reasoning [1].',
             },
             {
               kind: "hadith",
@@ -3560,7 +3560,7 @@ Knowing fallacies in theory is different from spotting them in the wild. Real-wo
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that true strength is controlling oneself in anger validates reviewing your own recent arguments to identify emotionally driven, fallacious reasoning.',
             },
           ],
           description: `**Why?**
@@ -3595,7 +3595,7 @@ It is easy to spot fallacies in others and much harder to see them in yourself. 
               translation: "Say, \"Produce your proof, if you should be truthful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to produce proof if one is truthful validates practicing the construction of valid syllogisms to logically substantiate everyday claims [1].',
             },
           ],
           description: `**Why?**
@@ -3647,7 +3647,7 @@ A syllogism is the basic unit of deductive reasoning — two premises leading to
               translation: "O you who have believed, be persistently standing firm in justice, witnesses for Allah, even if it be against yourselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to stand firm in justice even against yourselves validates choosing a position you currently disagree with to objectively challenge personal biases [1].',
             },
             {
               kind: "quran",
@@ -3656,7 +3656,7 @@ A syllogism is the basic unit of deductive reasoning — two premises leading to
               translation: "And do not let the hatred of a people prevent you from being just. Be just; that is nearer to righteousness.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to be just despite hatred validates choosing a position you currently disagree with to objectively evaluate it without prejudice [1].',
             },
           ],
           description: `**Why?**
@@ -3685,7 +3685,7 @@ Growth happens at the boundary of your comfort zone. Selecting a position you ge
               translation: "Believers, if a troublemaker brings you news, check it first, in case you wrong others unwittingly and later regret what you have done.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate information validates researching the strongest arguments for a position from its best advocates to avoid unwittingly wronging others through misrepresentation [1].',
             },
             {
               kind: "quran",
@@ -3694,7 +3694,7 @@ Growth happens at the boundary of your comfort zone. Selecting a position you ge
               translation: "Do not follow blindly what you do not know to be true: ears, eyes, and heart, you will be questioned about all these.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prohibition against pursuing what you do not know validates researching a position\'s strongest arguments from its best advocates to objectively verify truth [1].',
             },
             {
               kind: "hadith",
@@ -3703,7 +3703,7 @@ Growth happens at the boundary of your comfort zone. Selecting a position you ge
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that ignorant leaders lead people astray validates researching the strongest arguments for a position from its best scholarly advocates [1].',
             },
           ],
           description: `**Why?**
@@ -3735,7 +3735,7 @@ Most people only encounter opposing views through their critics — which guaran
               translation: "O you who have believed, be persistently standing firm for Allah, witnesses in justice, and do not let the hatred of a people prevent you from being just. Be just; that is nearer to righteousness.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to be just despite hatred validates writing a defence of an opposing position to practice fair, unbiased representation of contrary views [1].',
             },
             {
               kind: "quran",
@@ -3744,7 +3744,7 @@ Most people only encounter opposing views through their critics — which guaran
               translation: "Be persistently standing firm in justice, witnesses for Allah, even if it be against yourselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to persistently stand firm in justice even against yourselves validates writing a defence of an opposing position to actively overcome personal bias [1].',
             },
           ],
           description: `**Why?**
@@ -3773,7 +3773,7 @@ Writing a defence of a position you disagree with is one of the most powerful ex
               translation: "O you who have believed, be persistently standing firm for Allah, witnesses in justice, and do not let the hatred of a people prevent you from being just. Be just; that is nearer to righteousness.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to be just despite hatred validates writing your critique by fairly acknowledging which parts of the opposing steelman remain strong [1].',
             },
           ],
           description: `**Why?**
@@ -3802,7 +3802,7 @@ A critique written after genuine steelmanning is fundamentally different from on
               translation: "Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to argue in the best way validates repeating this exercise monthly to consistently cultivate the wisdom needed for effective discourse [1].',
             },
             {
               kind: "hadith",
@@ -3811,7 +3811,7 @@ A critique written after genuine steelmanning is fundamentally different from on
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that suspicion is the most false of speech validates repeating this exercise monthly to consistently maintain vigilance against deceptive, speculative reasoning.',
             },
           ],
           description: `**Why?**
@@ -3854,7 +3854,7 @@ A single steelmanning exercise is illuminating. A monthly practice transforms th
               translation: "And do not pursue that of which you have no knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prohibition against pursuing what you do not know validates listing your regular media sources to actively audit the reliability of your information intake [1].',
             },
             {
               kind: "quran",
@@ -3863,7 +3863,7 @@ A single steelmanning exercise is illuminating. A monthly practice transforms th
               translation: "If there comes to you a disobedient one with information, investigate.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate information validates listing your regular media sources to actively audit the reliability of your information intake [1].',
             },
           ],
           description: `**Why?**
@@ -3899,7 +3899,7 @@ You cannot evaluate what you have not identified. Most people vastly underestima
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate information validates rating each source on factual reliability and ideological lean to avoid harming people out of ignorance [1].',
             },
             {
               kind: "quran",
@@ -3908,7 +3908,7 @@ You cannot evaluate what you have not identified. Most people vastly underestima
               translation: "Indeed, assumption avails not against the truth at all.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that assumption avails not against the truth validates rating each source\'s factual reliability and ideological lean to filter out biased speculation [1].',
             },
           ],
           description: `**Why?**
@@ -3944,7 +3944,7 @@ Every source has a reliability level and a perspective. Neither fact alone is di
               translation: "Who listen to speech and follow the best of it. Those are the ones Allah has guided, and those are people of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine praise for those who listen to speech and follow the best of it validates identifying missing perspectives to evaluate all available wisdom [1].',
             },
             {
               kind: "quran",
@@ -3953,7 +3953,7 @@ Every source has a reliability level and a perspective. Neither fact alone is di
               translation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine design of creating diverse peoples to know one another validates identifying missing perspectives to actively learn from other regions and disciplines [1].',
             },
           ],
           description: `**Why?**
@@ -3985,7 +3985,7 @@ An information diet that only reinforces your existing views creates an echo cha
               translation: "Who listen to speech and follow the best of it. Those are the ones Allah has guided.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine praise for those who listen to speech and follow the best of it validates adding high-quality sources to balance your current diet.',
             },
             {
               kind: "hadith",
@@ -3994,7 +3994,7 @@ An information diet that only reinforces your existing views creates an echo cha
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that narrating everything you hear equates to lying validates adding high-quality sources to balance your diet and ensure reliable information intake.',
             },
           ],
           description: `**Why?**
@@ -4027,7 +4027,7 @@ Identifying gaps is pointless without filling them. Adding a small number of hig
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become regretful over what you have done.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The command to investigate information from a disobedient one validates reducing consumption of consistently unreliable sources to avoid harming people out of ignorance [1].',
             },
           ],
           description: `**Why?**
@@ -4073,7 +4073,7 @@ Your attention is an amana (trust). Spending it on sources that consistently mis
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine affirmation that creation holds signs for those of understanding validates choosing foundational philosophical texts to systematically train the intellect [1].',
             },
             {
               kind: "hadith",
@@ -4120,7 +4120,7 @@ The choice of text determines the lens through which you will develop your logic
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and day are signs for those of understanding — who remember Allah while standing, sitting, and lying on their sides, and give thought to the creation of the heavens and the earth.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine praise for those of understanding who give thought to creation validates finding a commentary to actively enrich reflection on the primary text [1, 2].',
             },
             {
               kind: "hadith",
@@ -4129,7 +4129,7 @@ The choice of text determines the lens through which you will develop your logic
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise that Allah facilitates Paradise for seekers of knowledge validates finding a commentary to systematically master the primary text.',
             },
           ],
           description: `**Why?**
@@ -4167,7 +4167,7 @@ Foundational texts in logic and philosophy were written for audiences with diffe
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise that Allah facilitates Paradise for seekers of knowledge validates reading one chapter weekly and writing notes to summarise key arguments.',
             },
           ],
           description: `**Why?**
@@ -4205,7 +4205,7 @@ Deep reading requires deliberate pacing and active engagement. One chapter per w
               translation: "Allah will raise those who have believed among you and those who were given knowledge, by degrees.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise that God raises those given knowledge by degrees validates discussing the text in a reading circle to collaboratively elevate your understanding [1].',
             },
             {
               kind: "hadith",
@@ -4214,7 +4214,7 @@ Deep reading requires deliberate pacing and active engagement. One chapter per w
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic declaration that going out to seek knowledge is Allah\'s path validates discussing the text with a study partner to pursue collaborative learning.',
             },
           ],
           description: `**Why?**
@@ -4257,7 +4257,7 @@ The Islamic intellectual tradition was built on halaqat (study circles), not sol
               translation: "Say, \"Are those who know equal to those who do not know?\" Only they will remember who are people of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine distinction between those who know and those who do not validates writing a final reflection to articulate your refined thinking [1].',
             },
           ],
           description: `**Why?**
@@ -4301,7 +4301,7 @@ The purpose of studying a foundational text is not to finish it but to be change
               translation: "And whose affair is determined by consultation among themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that affairs are determined by consultation validates identifying your next major decision as a clear question to seek effective counsel [1].',
             },
             {
               kind: "quran",
@@ -4310,7 +4310,7 @@ The purpose of studying a foundational text is not to finish it but to be change
               translation: "And consult them in the matter. And when you have decided, then rely upon Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to consult others in the matter validates identifying your next major decision as a clear question to facilitate effective counsel [1].',
             },
             {
               kind: "hadith",
@@ -4319,7 +4319,7 @@ The purpose of studying a foundational text is not to finish it but to be change
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic practice of teaching istikhara for all matters validates identifying your next major decision as a clear question to seek divine guidance [1].',
             },
           ],
           description: `**Why?**
@@ -4358,7 +4358,7 @@ A poorly defined question leads to a confused decision process. Many people agon
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine affirmation that wisdom brings much good validates conducting a rational analysis to systematically weigh pros, cons, risks, and second-order effects [1].',
             },
             {
               kind: "quran",
@@ -4367,7 +4367,7 @@ A poorly defined question leads to a confused decision process. Many people agon
               translation: "And whoever fears Allah — He will make for him a way out and will provide for him from where he does not expect.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise of unexpected provision validates conducting a rational analysis to weigh foreseeable risks while trusting God to manage unforeseen second-order effects [1, 2].',
             },
           ],
           description: `**Why?**
@@ -4413,7 +4413,7 @@ The Quran repeatedly calls on believers to use their intellect (aql) and to refl
               translation: "And whose affair is determined by consultation among themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that affairs are determined by consultation validates consulting trusted advisors and documenting their perspectives to harness collective wisdom [1].',
             },
             {
               kind: "quran",
@@ -4422,7 +4422,7 @@ The Quran repeatedly calls on believers to use their intellect (aql) and to refl
               translation: "And consult them in the matter.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to consult others in the matter validates consulting trusted advisors and documenting their perspectives to harness collective wisdom [1].',
             },
             {
               kind: "hadith",
@@ -4431,7 +4431,7 @@ The Quran repeatedly calls on believers to use their intellect (aql) and to refl
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic practice of consulting companions on matters not revealed by Allah validates consulting trusted advisors and documenting their perspectives to harness collective wisdom.',
             },
           ],
           description: `**Why?**
@@ -4476,7 +4476,7 @@ Shura (consultation) is a Quranic principle (42:38) and a Prophetic practice. Th
               translation: "(They are) those who are patient, those who are true (in Faith, words, and deeds), and obedient with sincere devotion in worship to Allâh. Those who spend [give the Zakât and alms in the Way of Allâh] and those who pray and beg Allâh’s Pardon in the last hours of the night.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine praise for those demonstrating sincere devotion and seeking forgiveness before dawn validates praying istikharah with sincerity and an open heart [1].',
             },
             {
               kind: "quran",
@@ -4485,7 +4485,7 @@ Shura (consultation) is a Quranic principle (42:38) and a Prophetic practice. Th
               translation: "So I ask about a person whose heart Allah has opened up for Islam, and consequently he proceeds in a light from his Lord. (Can he be equal to the one whose heart is hardened?) So, woe to those whose hearts are too hard to remember Allah. Those are wandering in open error.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine contrast between a heart expanded to God\'s light and a hardened one validates praying istikharah with sincerity and an open heart [1].',
             },
             {
               kind: "hadith",
@@ -4494,7 +4494,7 @@ Shura (consultation) is a Quranic principle (42:38) and a Prophetic practice. Th
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic practice of teaching istikhara for all matters like the Quran validates praying it with sincerity and an open heart [1].',
             },
           ],
           description: `**Why?**
@@ -4534,7 +4534,7 @@ Istikharah is the spiritual dimension of decision-making — acknowledging that 
               translation: "And when you have decided, then rely upon Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to decide and rely upon God validates making the decision, documenting your reasoning, and reviewing the outcome after 90 days [1].',
             },
             {
               kind: "hadith",
@@ -4543,7 +4543,7 @@ Istikharah is the spiritual dimension of decision-making — acknowledging that 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic practice of seeking divine guidance and ability validates making the decision, documenting your reasoning, and reviewing the outcome to discern God\'s will.',
             },
           ],
           description: `**Why?**
@@ -4595,7 +4595,7 @@ A decision without documentation teaches you nothing for the future. By recordin
               translation: "O you who have believed, avoid much assumption. Indeed, some assumption is sin.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to avoid much assumption validates picking a strongly held belief and asking what evidence would change your mind [1].',
             },
             {
               kind: "quran",
@@ -4604,7 +4604,7 @@ A decision without documentation teaches you nothing for the future. By recordin
               translation: "Indeed, assumption avails not against the truth at all.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that assumption avails not against the truth validates picking a strongly held belief and asking what evidence would change your mind [1].',
             },
             {
               kind: "hadith",
@@ -4613,7 +4613,7 @@ A decision without documentation teaches you nothing for the future. By recordin
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning to beware of suspicion validates picking a strongly held belief and asking what evidence would change your mind.',
             },
           ],
           description: `**Why?**
@@ -4652,7 +4652,7 @@ A belief that cannot be tested against evidence is not a reasoned conviction —
               translation: "And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against pursuing that of which you have no knowledge validates researching the strongest counter-arguments to rigorously verify your beliefs.',
             },
           ],
           description: `**Why?**
@@ -4695,7 +4695,7 @@ Seeking counter-arguments is the intellectual equivalent of physical training �
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning to beware of suspicion validates writing an honest assessment to rigorously examine if your belief survives scrutiny or needs refinement.',
             },
           ],
           description: `**Why?**
@@ -4741,7 +4741,7 @@ The purpose of adversarial thinking is not to destroy your beliefs but to refine
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to consider what one puts forth for tomorrow validates scheduling this exercise as a monthly calendar event to ensure consistent self-accountability.',
             },
           ],
           description: `**Why?**
@@ -4792,7 +4792,7 @@ Adversarial thinking is most valuable as a habit, not a one-time exercise. Month
               translation: "Do you order righteousness of the people and forget yourselves while you recite the Scripture? Then will you not reason?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to reason and not forget oneself validates reading about cognitive biases to expose your own psychological blind spots [1].',
             },
           ],
           description: `**Why?**
@@ -4834,7 +4834,7 @@ Daniel Kahneman's work on cognitive biases earned a Nobel Prize and fundamentall
               translation: "And if you obey most of those upon the earth, they will mislead you from the way of Allah. They follow nothing but assumption.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning that the majority follows mere assumption validates creating a personal list of biases to consciously avoid being misled [1].',
             },
             {
               kind: "quran",
@@ -4843,7 +4843,7 @@ Daniel Kahneman's work on cognitive biases earned a Nobel Prize and fundamentall
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to examine what one puts forth for tomorrow validates creating a personal list of biases to proactively safeguard your future decisions.',
             },
             {
               kind: "hadith",
@@ -4852,7 +4852,7 @@ Daniel Kahneman's work on cognitive biases earned a Nobel Prize and fundamentall
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning to beware of suspicion validates creating a personal list of biases to systematically identify and correct false internal assumptions.',
             },
           ],
           description: `**Why?**
@@ -4893,7 +4893,7 @@ Knowing that biases exist in general is far less useful than knowing which speci
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to consider what one puts forth validates writing a real example from your own experience to expose personal biases [1].',
             },
             {
               kind: "hadith",
@@ -4902,7 +4902,7 @@ Knowing that biases exist in general is far less useful than knowing which speci
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of holding oneself accountable validates writing a real example from your own experience to practically expose and correct personal biases.',
             },
           ],
           description: `**Why?**
@@ -4943,7 +4943,7 @@ Abstract knowledge becomes actionable only when connected to personal experience
               translation: "And whose affair is determined by consultation among themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that affairs are determined by consultation validates developing a personal checklist to review before making important decisions to ensure thorough deliberation.',
             },
             {
               kind: "hadith",
@@ -4952,7 +4952,7 @@ Abstract knowledge becomes actionable only when connected to personal experience
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of rewarding those who try their best to decide correctly validates developing a personal checklist to review before making important decisions.',
             },
           ],
           description: `**Why?**
@@ -4997,7 +4997,7 @@ Knowing your biases is necessary but not sufficient — you need a systematic wa
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge eases the path to Paradise validates sharing findings with a study partner to multiply benefits through mutual accountability.',
             },
           ],
           description: `**Why?**
@@ -5051,7 +5051,7 @@ Bias is, by definition, something you cannot fully see in yourself. Having an ac
               translation: "Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to invite with wisdom and argue in the best way validates selecting a genuinely complex issue requiring thoughtful, nuanced engagement [1].',
             },
           ],
           description: `**Why?**
@@ -5092,7 +5092,7 @@ Excellence in thinking is demonstrated not by solving easy problems but by engag
               translation: "Those who remember Allah standing, sitting, and on their sides, and reflect upon the creation of the heavens and the earth.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to give thought to creation validates researching the issue from at least three disciplinary perspectives to achieve a comprehensive understanding [1].',
             },
           ],
           description: `**Why?**
@@ -5136,7 +5136,7 @@ Complex problems exist at the intersection of multiple fields. Studying them fro
               translation: "Say, \"Produce your proof, if you should be truthful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to produce proof for one\'s claims validates drafting a structured analysis with a clear thesis, evidence, and conclusions [1].',
             },
           ],
           description: `**Why?**
@@ -5191,7 +5191,7 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
               translation: "And of mankind is one who argues about Allah without knowledge or guidance or an illuminating scripture,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning against arguing without knowledge or an illuminating scripture validates including an Islamic ethical lens to apply the Shariah framework [1].',
             },
             {
               kind: "quran",
@@ -5200,7 +5200,7 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
               translation: "Can he whose breast Allah has opened up for Islam and who is thus (moving along a Path) illumined by a light from Allah (be likened to him who derives no lesson from what he observes)? Woe, then, to those whose hearts were further hardened after Allah's admonition. Such are indeed in obvious error.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine blessing of being illumined by a light from Allah validates including an Islamic ethical lens to discover what the Shariah framework illuminates.',
             },
             {
               kind: "quran",
@@ -5209,7 +5209,7 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
               translation: "Verily, those who believe [in the Oneness of Allâh, and in His Messenger Muhammad صلى الله عليه وسلم) including all obligations ordered by Islâm] and do righteous good deeds, they are the best of creatures.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that believers who do righteous deeds are the best of creatures validates including an Islamic ethical lens utilizing the Shariah framework [1].',
             },
             {
               kind: "hadith",
@@ -5259,7 +5259,7 @@ The maqasid al-Shariah (objectives of Islamic law) provide a comprehensive ethic
               translation: "And advised each other to truth and advised each other to patience.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to advise each other to truth validates seeking peer review from someone in a different discipline to objectively verify your findings.',
             },
             {
               kind: "quran",
@@ -5268,7 +5268,7 @@ The maqasid al-Shariah (objectives of Islamic law) provide a comprehensive ethic
               translation: "Who listen to speech and follow the best of it.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of listening to speech and following the best of it validates seeking peer review from someone in a different discipline [1].',
             },
             {
               kind: "hadith",
@@ -5277,7 +5277,7 @@ The maqasid al-Shariah (objectives of Islamic law) provide a comprehensive ethic
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge leads to Paradise validates seeking peer review from someone in a different discipline to gain new insights.',
             },
           ],
           description: `**Why?**
@@ -5320,7 +5320,7 @@ Self-review is limited by the same blind spots that produced the original work. 
               translation: "The Most Merciful — taught the Quran — created man — taught him eloquence.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine gift of eloquence validates publishing or presenting your analysis to effectively communicate and share your knowledge with others.',
             },
             {
               kind: "hadith",
@@ -5329,7 +5329,7 @@ Self-review is limited by the same blind spots that produced the original work. 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey knowledge validates publishing or presenting your analysis to share your findings with others.',
             },
             {
               kind: "hadith",
@@ -5338,7 +5338,7 @@ Self-review is limited by the same blind spots that produced the original work. 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey teachings to the people validates publishing or presenting your analysis to share your knowledge with the public [1].',
             },
           ],
           description: `**Why?**
@@ -5392,7 +5392,7 @@ Knowledge that remains in your notebook benefits only you. Publishing or present
               translation: "Invite to the way of your Lord with wisdom and good instruction.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to invite with wisdom and good instruction validates choosing a topic you are qualified to discuss that benefits your community [1].',
             },
           ],
           description: `**Why?**
@@ -5435,7 +5435,7 @@ The Islamic tradition emphasises speaking with knowledge, not mere opinion. Choo
               translation: "Say, \"Produce your proof, if you should be truthful.\" Preparing evidence and anticipating objections is the Quranic standard for discourse.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to produce proof validates preparing a structured presentation with a thesis, evidence, and anticipated objections to substantiate truthful claims [1].',
             },
           ],
           description: `**Why?**
@@ -5486,7 +5486,7 @@ The difference between a valuable intellectual contribution and a rambling opini
               translation: "Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to invite with wisdom and argue in the best way validates inviting participants and setting ground rules for respectful discourse [1].',
             },
             {
               kind: "quran",
@@ -5495,7 +5495,7 @@ The difference between a valuable intellectual contribution and a rambling opini
               translation: "And do not argue with the People of the Scripture except in a way that is best.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to argue only in a way that is best validates inviting participants and setting ground rules for respectful discourse [1].',
             },
           ],
           description: `**Why?**
@@ -5541,7 +5541,7 @@ The quality of a discussion depends as much on the environment as on the content
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey teachings validates delivering the presentation and engaging with challenges as an act of worship requiring sincerity and preparation [1].',
             },
           ],
           description: `**Why?**
@@ -5585,7 +5585,7 @@ Preparation without delivery is incomplete. The act of presenting your ideas pub
               translation: "you are (involved) in a contradictory discussion.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine acknowledgment of contradictory discussions validates writing a post-event reflection to analyze differing perspectives and synthesize what you learned from the discussion.',
             },
             {
               kind: "hadith",
@@ -5651,7 +5651,7 @@ The event itself is only half the learning. The reflection is where you consolid
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to cooperate in righteousness and piety validates identifying a persistent community problem to facilitate collective solutions and mutual support [1].',
             },
             {
               kind: "quran",
@@ -5660,7 +5660,7 @@ The event itself is only half the learning. The reflection is where you consolid
               translation: "You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine duty to enjoin right and forbid wrong validates identifying a persistent community problem to fulfill this role as the best nation [1].',
             },
             {
               kind: "hadith",
@@ -5669,7 +5669,7 @@ The event itself is only half the learning. The reflection is where you consolid
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to actively change any observed wrong validates identifying a persistent community problem so that it can be effectively addressed.',
             },
           ],
           description: `**Why?**
@@ -5710,7 +5710,7 @@ The highest expression of Hifz al-Aql (preservation of intellect) is using your 
               translation: "And do not pursue that of which you have no knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against pursuing that of which you have no knowledge validates conducting original research to accurately understand root causes [1].',
             },
             {
               kind: "hadith",
@@ -5719,7 +5719,7 @@ The highest expression of Hifz al-Aql (preservation of intellect) is using your 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that taking a path in search of knowledge leads to Paradise validates conducting original research to thoroughly understand root causes.',
             },
           ],
           description: `**Why?**
@@ -5768,7 +5768,7 @@ Most community problems persist not because no one cares but because no one has 
               translation: "And cooperate in righteousness and piety, but do not cooperate in sin and aggression.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to cooperate in righteousness and piety validates developing a proposed solution grounded in evidence and Islamic principles. [1]',
             },
           ],
           description: `**Why?**
@@ -5820,7 +5820,7 @@ A solution grounded in evidence has credibility. A solution grounded in Islamic 
               translation: "And whose affair is determined by consultation among themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that affairs are determined by consultation validates presenting the solution to community leaders or stakeholders for feedback [1].',
             },
           ],
           description: `**Why?**
@@ -5866,7 +5866,7 @@ Even the best solution fails without stakeholder buy-in. Presenting your solutio
               translation: "And give full measure when you measure, and weigh with an even [i.e., honest] balance. That is the best [way] and best in result.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to give full measure and weigh honestly validates implementing the solution and accurately measuring results to ensure the best outcome [1].',
             },
             {
               kind: "hadith",
@@ -5937,7 +5937,7 @@ Implementation is where intellectual work becomes real-world impact. Many brilli
               translation: "Eat and drink, but be not excessive. Indeed, He likes not those who commit excess.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against committing excess validates tracking your screen time and categorizing apps by value to prevent digital overconsumption [1].',
             },
             {
               kind: "quran",
@@ -5946,7 +5946,7 @@ Implementation is where intellectual work becomes real-world impact. Many brilli
               translation: "And those who do not witness falsehood, and when they pass near ill speech, they pass with dignity.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of avoiding falsehood and ill speech validates tracking your screen time to categorise every app and site by value.',
             },
             {
               kind: "hadith",
@@ -5955,7 +5955,7 @@ Implementation is where intellectual work becomes real-world impact. Many brilli
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of leaving what does not concern you validates tracking your screen time to categorise every app and site by value.',
             },
           ],
           description: `**Why?**
@@ -5979,7 +5979,7 @@ You cannot change what you do not measure. Most people vastly underestimate how 
               translation: "And those who do not witness falsehood, and when they pass near ill speech, they pass with dignity.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of avoiding falsehood and ill speech validates identifying the top 3 time-wasting or mind-dulling inputs to preserve your dignity.',
             },
             {
               kind: "quran",
@@ -5988,7 +5988,7 @@ You cannot change what you do not measure. Most people vastly underestimate how 
               translation: "And they who turn away from ill speech.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of turning away from ill speech validates identifying the top 3 time-wasting or mind-dulling inputs to effectively avoid them [1].',
             },
             {
               kind: "hadith",
@@ -5997,7 +5997,7 @@ You cannot change what you do not measure. Most people vastly underestimate how 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of leaving what does not concern you validates identifying the top 3 time-wasting or mind-dulling inputs to eliminate them.',
             },
           ],
           description: `**Why?**
@@ -6020,7 +6020,7 @@ The Pareto principle applies to cognitive pollution — a small number of inputs
               translation: "And be not excessive. Indeed, He likes not those who commit excess.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against committing excess validates deleting, blocking, or setting strict time limits on each to prevent digital overconsumption [1].',
             },
             {
               kind: "hadith",
@@ -6029,7 +6029,7 @@ The Pareto principle applies to cognitive pollution — a small number of inputs
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of leaving what does not concern you validates deleting, blocking, or setting strict time limits on each to eliminate digital distractions.',
             },
           ],
           description: `**Why?**
@@ -6052,7 +6052,7 @@ The Pareto principle applies to cognitive pollution — a small number of inputs
               translation: "Indeed, Allah will not change the condition of a people until they change what is in themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that Allah changes a people\'s condition only when they change themselves validates replacing freed time with intentional alternatives.',
             },
             {
               kind: "quran",
@@ -6061,7 +6061,7 @@ The Pareto principle applies to cognitive pollution — a small number of inputs
               translation: "O mankind, eat from whatever is on earth that is lawful and good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to consume what is lawful and good validates replacing freed time with intentional alternatives to ensure your inputs remain wholesome [1].',
             },
             {
               kind: "hadith",
@@ -6070,7 +6070,7 @@ The Pareto principle applies to cognitive pollution — a small number of inputs
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that taking a path in search of knowledge leads to Paradise validates replacing freed time with intentional alternatives like learning.',
             },
           ],
           description: `**Why?**
@@ -6096,7 +6096,7 @@ The nafs (self) abhors a vacuum — if you remove harmful inputs without replaci
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to look to what you have put forth for tomorrow validates reviewing and adjusting after 30 days to ensure continuous self-correction.',
             },
             {
               kind: "hadith",
@@ -6105,7 +6105,7 @@ The nafs (self) abhors a vacuum — if you remove harmful inputs without replaci
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of holding oneself accountable validates reviewing and adjusting after 30 days to ensure continuous self-correction.',
             },
           ],
           description: `**Why?**
@@ -6137,7 +6137,7 @@ Behaviour change requires feedback loops. A 30-day review lets you assess what i
               translation: "O you who wraps himself — arise during the night, except for a little — half of it, or subtract from it a little, or add to it, and recite the Quran with measured recitation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to arise during the night for measured recitation validates setting your phone to airplane mode to ensure undisturbed rest [1].',
             },
             {
               kind: "hadith",
@@ -6146,7 +6146,7 @@ Behaviour change requires feedback loops. A 30-day review lets you assess what i
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic teaching that Allah descends to answer prayers in the last third of the night validates using airplane mode for undisturbed rest.',
             },
           ],
           description: `**Why?**
@@ -6169,7 +6169,7 @@ The battle for your morning begins the night before. If your phone is active whe
               translation: "And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to remember your Lord every morning validates designing a morning protocol prioritizing Fajr, adhkar, and Quran before any screen time.',
             },
             {
               kind: "quran",
@@ -6178,7 +6178,7 @@ The battle for your morning begins the night before. If your phone is active whe
               translation: "So glorify Allâh [above all that (evil) they associate with Him (O believers)] when you come up to the evening [i.e. offer the (Maghrib ) sunset and (‘Ishâ’) night prayers], and when you enter the morning [i.e. offer the (Fajr) morning prayer].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to glorify Allah when entering the morning establishes the necessity of a protocol prioritizing Fajr, adhkar, and Quran before screens.',
             },
             {
               kind: "quran",
@@ -6187,7 +6187,7 @@ The battle for your morning begins the night before. If your phone is active whe
               translation: "And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to exalt God morning and afternoon validates designing a morning protocol prioritizing Fajr and adhkar before any screen time [1].',
             },
             {
               kind: "hadith",
@@ -6196,7 +6196,7 @@ The battle for your morning begins the night before. If your phone is active whe
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The practice of hastening to catch the Fajr prayer validates designing a morning protocol prioritizing foundational worship before any screen time [1].',
             },
           ],
           description: `**Why?**
@@ -6223,7 +6223,7 @@ A structured morning protocol ensures that your freshest cognitive hours are dev
               translation: "O you who wraps himself — arise during the night, except for a little.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to arise during the night validates placing your phone in a different room overnight to ensure undisturbed rest for worship. [1]',
             },
             {
               kind: "hadith",
@@ -6232,7 +6232,7 @@ A structured morning protocol ensures that your freshest cognitive hours are dev
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of leaving what does not concern you validates placing your phone in a different room overnight to eliminate digital distractions.',
             },
           ],
           description: `**Why?**
@@ -6255,7 +6255,7 @@ Physical distance is the most reliable form of discipline. If your phone is with
               translation: "Certainly will the believers have succeeded: they who are during their prayer humbly submissive, and they who turn away from ill speech.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that successful believers consistently turn away from ill speech validates tracking adherence for 21 days to build the habit [1].',
             },
             {
               kind: "hadith",
@@ -6264,7 +6264,7 @@ Physical distance is the most reliable form of discipline. If your phone is with
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that believers must speak good or remain silent validates tracking adherence for 21 days to build the habit.',
             },
           ],
           description: `**Why?**
@@ -6294,7 +6294,7 @@ Consistency transforms intention into habit. Tracking your adherence for 21 cons
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that believers must speak good or remain silent validates designating a 30-60 minute daily window of complete silence to practice restraint.',
             },
           ],
           description: `**Why?**
@@ -6318,7 +6318,7 @@ Your mind is constantly processing inputs — conversations, notifications, medi
               translation: "And give thought to the creation of the heavens and the earth, saying, \"Our Lord, You did not create this aimlessly.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to give thought to creation validates using this time for tafakkur, journaling, or simply sitting with your thoughts [1].',
             },
             {
               kind: "hadith",
@@ -6327,7 +6327,7 @@ Your mind is constantly processing inputs — conversations, notifications, medi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that believers must speak good or remain silent validates using this time for tafakkur, journaling, or simply sitting with your thoughts.',
             },
           ],
           description: `**Why?**
@@ -6353,7 +6353,7 @@ Silence without direction can become restlessness. The Islamic practice of tafak
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that creation contains signs for those of understanding validates the practice of noticing what arises in silence and writing it down. [1]',
             },
             {
               kind: "hadith",
@@ -6362,7 +6362,7 @@ Silence without direction can become restlessness. The Islamic practice of tafak
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle to speak good or remain silent validates embracing stillness to notice and write down the insights, anxieties, and ideas that arise.',
             },
           ],
           description: `**Why?**
@@ -6386,7 +6386,7 @@ Silence surfaces what noise buries. Anxieties you have been avoiding, creative i
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that believers must speak good or remain silent validates gradually extending periods of silence to deepen the practice of this sunnah.',
             },
           ],
           description: `**Why?**
@@ -6418,7 +6418,7 @@ Like any capacity, your tolerance for silence and depth of contemplation grow wi
               translation: "Thus We explain variously the Verses so that they (the disbelievers) may say: \"You have studied (the Books of the people of the Scripture and brought this Qur’ân from that)\" and that We may make the matter clear for the people who have knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine emphasis on clarifying verses for people of knowledge establishes the necessity of studying scripture thoroughly to avoid speaking without true understanding [1].',
             },
             {
               kind: "quran",
@@ -6427,7 +6427,7 @@ Like any capacity, your tolerance for silence and depth of contemplation grow wi
               translation: "And fight in the Way of Allâh those who fight you, but transgress not the limits. Truly, Allâh likes not the transgressors. [This Verse is the first one that was revealed in connection with Jihâd, but it was supplemented by another (9:36)].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to not transgress limits validates studying verses on not speaking without knowledge, as speaking ignorantly is a clear transgression [1].',
             },
             {
               kind: "hadith",
@@ -6436,7 +6436,7 @@ Like any capacity, your tolerance for silence and depth of contemplation grow wi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that ignorant people will lead others astray by giving verdicts without knowledge validates studying verses to avoid speaking without understanding [1].',
             },
           ],
           description: `**Why?**
@@ -6460,7 +6460,7 @@ These verses establish a divine command for intellectual rigour. Surah Al-Isra 1
               translation: "And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight, and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against pursuing that of which you have no knowledge validates practicing categorising your statements into knowledge, opinion, or speculation [1].',
             },
             {
               kind: "quran",
@@ -6469,7 +6469,7 @@ These verses establish a divine command for intellectual rigour. Surah Al-Isra 1
               translation: "Indeed, assumption avails not against the truth at all.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that assumption avails not against the truth validates the practice of categorising your statements into knowledge, opinion, or speculation [1].',
             },
           ],
           description: `**Why?**
@@ -6493,7 +6493,7 @@ Most people conflate what they know, what they believe, and what they are guessi
               translation: "Say, \"Produce your proof, if you should be truthful.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to produce proof establishes that claims require evidence, validating the habit of saying "I don\'t know" when lacking certainty [1].',
             },
             {
               kind: "hadith",
@@ -6502,7 +6502,7 @@ Most people conflate what they know, what they believe, and what they are guessi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah gives understanding of the religion to those He wants good for validates the habit of saying "I don\'t know" [1].',
             },
           ],
           description: `**Why?**
@@ -6526,7 +6526,7 @@ Imam Malik was once asked forty questions and answered "I don't know" to the maj
               translation: "And do not pursue that of which you have no knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against pursuing that of which you have no knowledge validates asking for evidence before sharing any opinion publicly [1].',
             },
             {
               kind: "quran",
@@ -6535,7 +6535,7 @@ Imam Malik was once asked forty questions and answered "I don't know" to the maj
               translation: "Say, \"Produce your proof, if you should be truthful.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to produce proof establishes that claims require evidence, validating the practice of asking for evidence before sharing any opinion publicly [1].',
             },
             {
               kind: "hadith",
@@ -6544,7 +6544,7 @@ Imam Malik was once asked forty questions and answered "I don't know" to the maj
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that narrating everything one hears equates to lying validates asking for evidence before sharing any opinion publicly.',
             },
           ],
           description: `**Why?**
@@ -6568,7 +6568,7 @@ Public statements carry weight and responsibility. The Quran warns against sprea
               translation: "And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against pursuing that of which you have no knowledge validates reviewing one week of social media posts for unfounded claims.',
             },
           ],
           description: `**Why?**
@@ -6600,7 +6600,7 @@ Self-audit is the practical application of muhasabah (self-accountability). Revi
               translation: "And the Day the wrongdoer will bite on his hands saying, \"Oh, I wish I had taken with the Messenger a way. Oh, woe to me! I wish I had not taken that one as a friend.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning about a wrongdoer\'s regret over bad companions validates listing the ten people you spend the most time with.',
             },
             {
               kind: "hadith",
@@ -6609,7 +6609,7 @@ Self-audit is the practical application of muhasabah (self-accountability). Revi
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that a man follows the religion of his close friend validates listing the ten people you spend the most time with.',
             },
           ],
           description: `**Why?**
@@ -6631,7 +6631,7 @@ You are the average of the people you spend the most time with — this is not j
               translation: "Oh, woe to me! I wish I had not taken that one as a friend. He led me away from the remembrance after it had come to me.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning that a friend can lead one away from remembrance validates honestly assessing whether each person elevates, maintains, or drains your thinking [1].',
             },
             {
               kind: "hadith",
@@ -6640,7 +6640,7 @@ You are the average of the people you spend the most time with — this is not j
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that a man follows his friend\'s religion validates honestly assessing whether each person elevates, maintains, or drains your thinking.',
             },
           ],
           description: `**Why?**
@@ -6665,7 +6665,7 @@ Not every relationship is harmful or beneficial in the same way. Some people act
               translation: "And keep yourself patient with those who call upon their Lord in the morning and the evening, seeking His countenance.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to keep yourself patient with those seeking their Lord validates increasing time with people who elevate and challenge you intellectually [1].',
             },
             {
               kind: "hadith",
@@ -6674,7 +6674,7 @@ Not every relationship is harmful or beneficial in the same way. Some people act
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle comparing a good companion to a musk seller validates increasing time with those who elevate and challenge you intellectually [1].',
             },
           ],
           description: `**Why?**
@@ -6698,7 +6698,7 @@ Identifying who elevates you is only useful if you act on it. The scholars of th
               translation: "You will not find a people who believe in Allah and the Last Day having affection for those who oppose Allah and His Messenger.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that true believers withhold affection from God\'s opponents validates setting boundaries with those who consistently drain your cognitive energy [1, 2].',
             },
             {
               kind: "hadith",
@@ -6707,7 +6707,7 @@ Identifying who elevates you is only useful if you act on it. The scholars of th
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that a man follows his close friend\'s religion validates setting boundaries with those who consistently drain your cognitive energy.',
             },
           ],
           description: `**Why?**
@@ -6733,7 +6733,7 @@ Setting boundaries is not about being unkind — it is about stewardship of the 
               translation: "And keep yourself patient with those who call upon their Lord in the morning and the evening, seeking His countenance.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to keep yourself patient with those seeking their Lord validates seeking out one new relationship with someone whose intellect you admire. [1]',
             },
             {
               kind: "hadith",
@@ -6742,7 +6742,7 @@ Setting boundaries is not about being unkind — it is about stewardship of the 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle comparing a good companion to a musk seller validates seeking out one new relationship with someone whose intellect you admire [1].',
             },
           ],
           description: `**Why?**
@@ -6777,7 +6777,7 @@ Growth requires exposure to people who are ahead of you. The Islamic tradition o
               translation: "And those who turn away from ill speech (vain talk).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine characteristic of turning away from vain talk validates blocking deep work sessions to protect your time and focus from frivolous distractions [1].',
             },
           ],
           description: `**Why?**
@@ -6801,7 +6801,7 @@ What is not scheduled does not happen. Deep work requires protected time — if 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic pattern of beginning important activities with purification and niyyah validates creating a pre-session ritual of making wudu and setting intentions.',
             },
           ],
           description: `**Why?**
@@ -6828,7 +6828,7 @@ Rituals signal to your brain that a specific mode of operation is beginning. Mak
               translation: "For indeed, with hardship comes ease. Indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine reassurance that ease accompanies hardship validates choosing one single task per session to alleviate the overwhelming burden of multitasking [1].',
             },
             {
               kind: "quran",
@@ -6837,7 +6837,7 @@ Rituals signal to your brain that a specific mode of operation is beginning. Mak
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise to guide those who strive for Him validates choosing one single task per session to ensure focused effort without multitasking [1].',
             },
             {
               kind: "hadith",
@@ -6846,7 +6846,7 @@ Rituals signal to your brain that a specific mode of operation is beginning. Mak
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the most beloved deeds are those done consistently, even if small, validates choosing one single task per session without multitasking.',
             },
           ],
           description: `**Why?**
@@ -6870,7 +6870,7 @@ Multitasking is a myth — what actually happens is rapid task-switching, which 
               translation: "Say, \"Are those who know equal to those who do not know?\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine distinction between those who know and those who do not validates tracking your output to build evidence of the practice\'s value [1].',
             },
             {
               kind: "hadith",
@@ -6879,7 +6879,7 @@ Multitasking is a myth — what actually happens is rapid task-switching, which 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that beloved deeds are done consistently validates tracking what you produce in each session to build evidence of the practice\'s value.',
             },
           ],
           description: `**Why?**
@@ -6903,7 +6903,7 @@ Tracking output serves two purposes: it provides accountability (you can see whe
               translation: "So when you have finished your duties, then stand up for worship. The principle of increasing devotion in one's work applies to deepening one's focus practice.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to stand up for worship after finishing duties validates increasing devotion, grounding the gradual increase to five sessions per week [1].',
             },
           ],
           description: `**Why?**
@@ -6935,7 +6935,7 @@ Three sessions per week is the minimum effective dose, but five sessions — rou
               translation: "I am commanded to recite the Quran.’ Whoever chooses to follow the right path does so for his own good. Say to whoever deviates from it, ‘I am only here to warn.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to recite the Quran for personal benefit validates choosing a specific memorisation focus like Quran surahs or professional material [1].',
             },
             {
               kind: "hadith",
@@ -6944,7 +6944,7 @@ Three sessions per week is the minimum effective dose, but five sessions — rou
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the Imam is appointed to be followed validates choosing a specific memorisation focus to strictly guide your learning.',
             },
             {
               kind: "hadith",
@@ -6953,7 +6953,7 @@ Three sessions per week is the minimum effective dose, but five sessions — rou
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The companion\'s meticulous preservation of specific prophetic details validates choosing a targeted memorisation focus to master valuable religious or professional material [1].',
             },
             {
               kind: "hadith",
@@ -6962,7 +6962,7 @@ Three sessions per week is the minimum effective dose, but five sessions — rou
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the Imam must be followed validates choosing a targeted memorisation focus to strictly guide your learning.',
             },
           ],
           description: `**Why?**
@@ -6987,7 +6987,7 @@ Starting without a clear focus leads to scattered effort and abandonment. Choosi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic analogy comparing Quran memorization to tending hobbled camels validates setting a daily 30-minute memorisation window to ensure consistent practice for retention.',
             },
           ],
           description: `**Why?**
@@ -7010,7 +7010,7 @@ Starting without a clear focus leads to scattered effort and abandonment. Choosi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning that the Quran escapes memory faster than released camels validates using spaced repetition to review previous material before adding new content.',
             },
           ],
           description: `**Why?**
@@ -7035,7 +7035,7 @@ The forgetting curve is ruthless — without systematic review, you lose most of
               translation: "Indeed, upon Us is its collection and its recitation. So when We have recited it, then follow its recitation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to follow Gabriel\'s recitation validates finding a memorisation partner or teacher for accountability and correction [1].',
             },
             {
               kind: "quran",
@@ -7044,7 +7044,7 @@ The forgetting curve is ruthless — without systematic review, you lose most of
               translation: "Rather, it is distinct verses preserved within the breasts of those who have been given knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that verses are preserved within the breasts of the knowledgeable validates finding a memorisation partner or teacher for accountability and correction [1].',
             },
             {
               kind: "hadith",
@@ -7053,7 +7053,7 @@ The forgetting curve is ruthless — without systematic review, you lose most of
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the best of people learn and teach the Quran validates finding a memorisation partner or teacher for accountability and correction.',
             },
           ],
           description: `**Why?**
@@ -7077,7 +7077,7 @@ Solo memorisation is prone to two failures: errors that go uncorrected and motiv
               translation: "And We have certainly made the Quran easy for remembrance, so is there any who will remember?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine assurance that the Quran is made easy for remembrance grounds testing yourself weekly and tracking cumulative progress to ensure active retention [1].',
             },
             {
               kind: "hadith",
@@ -7086,7 +7086,7 @@ Solo memorisation is prone to two failures: errors that go uncorrected and motiv
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic ideal of learning and teaching the Quran necessitates testing yourself weekly and tracking cumulative progress to guarantee mastery before instructing others.',
             },
           ],
           description: `**Why?**
@@ -7118,7 +7118,7 @@ Testing is not just assessment — it is one of the most powerful learning techn
               translation: "Eat and drink, but be not excessive.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against excess validates choosing one cognitive rest day per week to prevent mental overexertion and maintain balanced productivity [1].',
             },
             {
               kind: "quran",
@@ -7127,7 +7127,7 @@ Testing is not just assessment — it is one of the most powerful learning techn
               translation: "He knew that you would not be able to do it and has turned to you in forgiveness, so recite what is easy of the Quran.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine acknowledgment of human limitations and the concession to do what is easy validates choosing one cognitive rest day per week.',
             },
             {
               kind: "hadith",
@@ -7136,7 +7136,7 @@ Testing is not just assessment — it is one of the most powerful learning techn
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that beloved deeds are done consistently validates choosing one cognitive rest day per week to prevent burnout and maintain sustainable habits.',
             },
           ],
           description: `**Why?**
@@ -7160,7 +7160,7 @@ Without a designated day, rest becomes accidental — and accidental rest is usu
               translation: "And Allāh has made for you from your homes a place of rest and made for you from the hides of the animals tents which you find light on your day of travel and your day of encampment; and from their wool, fur and hair is furnishing and enjoyment [i.e., provision] for a time.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine provision of the home as a place of rest and enjoyment validates planning restful activities for adequate physical and mental recovery [1].',
             },
             {
               kind: "hadith",
@@ -7169,7 +7169,7 @@ Without a designated day, rest becomes accidental — and accidental rest is usu
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic practice of taking a midday nap validates planning restful activities to ensure adequate physical and mental recovery.',
             },
           ],
           description: `**Why?**
@@ -7198,7 +7198,7 @@ Rest does not mean doing nothing — it means doing things that restore rather t
               translation: "And be not excessive. Indeed, He likes not those who commit excess.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against excess validates committing to no screens, no news, and no work-related reading to prevent mental overexertion [1].',
             },
             {
               kind: "hadith",
@@ -7207,7 +7207,7 @@ Rest does not mean doing nothing — it means doing things that restore rather t
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of consistency validates committing to no screens or work-related reading to safeguard mental rest and sustain long-term productive habits.',
             },
           ],
           description: `**Why?**
@@ -7231,7 +7231,7 @@ Screens and news are cognitive stimulants — they demand attention, trigger emo
               translation: "For indeed, with hardship comes ease. Indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine assurance of ease with hardship validates noticing the difference in your energy and clarity as the promised relief following disciplined exertion [1].',
             },
             {
               kind: "hadith",
@@ -7240,7 +7240,7 @@ Screens and news are cognitive stimulants — they demand attention, trigger emo
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of consistency validates noticing the difference in your energy and clarity to sustain the small, regular deeds beloved to Allah.',
             },
           ],
           description: `**Why?**
@@ -7274,7 +7274,7 @@ The proof of rest's value is in the day that follows. If you have rested properl
               translation: "Indeed, Allah will not change the condition of a people until they change what is in themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that Allah requires internal change before altering one\'s condition validates reading evidence-based resources to systematically understand and reform your habits.',
             },
             {
               kind: "hadith",
@@ -7283,7 +7283,7 @@ The proof of rest's value is in the day that follows. If you have rested properl
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that beloved deeds are small and consistent validates reading evidence-based resources like "Atomic Habits" to master sustainable habit formation.',
             },
           ],
           description: `**Why?**
@@ -7309,7 +7309,7 @@ Understanding the mechanics of habit formation — cue, craving, response, rewar
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah eases the path to Paradise for knowledge seekers validates auditing your physical workspace to intentionally support deep focus.',
             },
           ],
           description: `**Why?**
@@ -7336,7 +7336,7 @@ Your physical environment is a silent partner in every intellectual task. A clut
               translation: "And those who turn away from ill speech (vain talk). Removing distractions and adding cues for learning reflects the Quranic principle of turning away from what does not benefit.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of turning away from vain talk validates redesigning your workspace to remove distractions and add cues for learning and focus.',
             },
           ],
           description: `**Why?**
@@ -7366,7 +7366,7 @@ Knowing what is wrong is not the same as fixing it. This step is about taking ph
               translation: "And be not excessive. Indeed, He does not like those who commit excess. Auditing digital consumption for excess is an act of moderation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against excess validates auditing your digital environment to cultivate moderation regarding notifications, app layout, and default browser tabs [1].',
             },
           ],
           description: `**Why?**
@@ -7396,7 +7396,7 @@ Your digital environment is as influential as your physical one — perhaps more
               translation: "Indeed, Allah will not change the condition of a people until they change what is in themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle requiring personal change before God alters one\'s condition validates implementing specific environment changes and tracking their impact over thirty days [1].',
             },
             {
               kind: "quran",
@@ -7405,7 +7405,7 @@ Your digital environment is as influential as your physical one — perhaps more
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise of guidance for those who strive validates implementing 3 specific environment changes and tracking their impact over 30 days.',
             },
             {
               kind: "hadith",
@@ -7414,7 +7414,7 @@ Your digital environment is as influential as your physical one — perhaps more
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that beloved deeds are small and consistent validates implementing 3 specific environment changes and tracking their impact over 30 days.',
             },
           ],
           description: `**Why?**
@@ -7455,7 +7455,7 @@ Knowledge without application is a tree without fruit — as Imam Al-Ghazali tau
               translation: "For indeed, with hardship comes ease. Indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that ease accompanies hardship grounds tracking flow experiences to discover which specific challenging tasks trigger your periods of effortless focus [1].',
             },
           ],
           description: `**Why?**
@@ -7479,7 +7479,7 @@ Flow is not random — it has consistent preconditions, but they differ from per
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise of guidance for those who strive validates identifying patterns in time, energy, and environment to discover optimal ways of working.',
             },
             {
               kind: "quran",
@@ -7488,7 +7488,7 @@ Flow is not random — it has consistent preconditions, but they differ from per
               translation: "For indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that ease accompanies hardship validates identifying patterns of time, energy, and environment to discover the optimal conditions for effortless focus.',
             },
             {
               kind: "hadith",
@@ -7497,7 +7497,7 @@ Flow is not random — it has consistent preconditions, but they differ from per
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of consistency validates identifying patterns in time, energy, and environment to discover optimal conditions for sustaining small, regular deeds [1, 2].',
             },
           ],
           description: `**Why?**
@@ -7524,7 +7524,7 @@ The raw data from your flow log is only valuable once you extract patterns. You 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of consistency validates designing a flow protocol to establish a reliable sequence of conditions maximizing your chance of entering flow.',
             },
           ],
           description: `**Why?**
@@ -7552,7 +7552,7 @@ A flow protocol transforms random inspiration into a reliable system. Just as yo
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the strong believer is better validates deliberately testing and refining your protocol to build your capacity for deep work.',
             },
           ],
           description: `**Why?**
@@ -7584,7 +7584,7 @@ No protocol is perfect on the first draft. Testing it deliberately — following
               translation: "Read, and your Lord is the Most Generous — who taught by the pen — taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of teaching by the pen validates writing a personal flow manual to document and share your acquired insights [1].',
             },
             {
               kind: "hadith",
@@ -7593,7 +7593,7 @@ No protocol is perfect on the first draft. Testing it deliberately — following
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey knowledge, even a single verse, validates writing and sharing a personal flow manual to distribute acquired insights.',
             },
           ],
           description: `**Why?**
@@ -7628,7 +7628,7 @@ A written manual crystallises your hard-won self-knowledge into a durable, share
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine bestowal of wisdom validates identifying gaps in existing frameworks to critically discern where current human thinking falls short [1].',
             },
             {
               kind: "quran",
@@ -7637,7 +7637,7 @@ A written manual crystallises your hard-won self-knowledge into a durable, share
               translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that creation contains signs for those of understanding validates identifying gaps in existing frameworks to discern where current thinking falls short [1, 2].',
             },
             {
               kind: "hadith",
@@ -7646,7 +7646,7 @@ A written manual crystallises your hard-won self-knowledge into a durable, share
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah eases the path to Paradise for knowledge seekers validates identifying gaps in existing frameworks where current thinking falls short.',
             },
           ],
           description: `**Why?**
@@ -7673,7 +7673,7 @@ Original contribution begins with seeing what others have missed. Every great fr
               translation: "Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to enjoin what is right and forbid what is wrong necessitates grounding your model in foundational Islamic principles [1].',
             },
             {
               kind: "hadith",
@@ -7682,7 +7682,7 @@ Original contribution begins with seeing what others have missed. Every great fr
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning of severe punishment for withheld dues necessitates grounding your model in Islamic principles to ensure alignment with foundational maqasid and usul [1].',
             },
           ],
           description: `**Why?**
@@ -7708,7 +7708,7 @@ An Islamic intellectual framework is not a secular framework with Quranic quotes
               translation: "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine bestowal of wisdom validates drafting the framework with clear definitions, components, and relationships to properly organize and manifest this immense good [1].',
             },
           ],
           description: `**Why?**
@@ -7734,7 +7734,7 @@ An idea in your head is not a framework — it becomes one when it is articulate
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah bestows understanding of religion validates testing the framework against real scenarios to actively deepen that very understanding.',
             },
           ],
           description: `**Why?**
@@ -7763,7 +7763,7 @@ A framework that only works in theory is not a framework — it is a hypothesis.
               translation: "Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine affirmation that learned scholars recognize the truth validates seeking critique from both Islamic scholars and domain experts [1].',
             },
             {
               kind: "quran",
@@ -7772,7 +7772,7 @@ A framework that only works in theory is not a framework — it is a hypothesis.
               translation: "If anyone seeks a religion other than [islam] complete devotion to God, it will not be accepted from him: he will be one of the losers in the Hereafter.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine warning that no religion other than Islam is accepted validates seeking critique from Islamic scholars and domain experts to ensure strict alignment [1].',
             },
             {
               kind: "hadith",
@@ -7781,7 +7781,7 @@ A framework that only works in theory is not a framework — it is a hypothesis.
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The divine permission to integrate worldly commerce with religious observance validates seeking critique from both Islamic scholars and domain experts.',
             },
             {
               kind: "hadith",
@@ -7790,7 +7790,7 @@ A framework that only works in theory is not a framework — it is a hypothesis.
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The divine permission to integrate worldly commerce with religious observance validates seeking critique from both Islamic scholars and domain experts [1].',
             },
           ],
           description: `**Why?**
@@ -7817,7 +7817,7 @@ Self-assessment has blind spots. Islamic scholars can evaluate whether your fram
               translation: "The Most Merciful — taught the Quran — created man — taught him eloquence.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine bestowal of eloquence validates refining and publishing the framework to articulate its insights clearly and effectively for others.',
             },
             {
               kind: "hadith",
@@ -7826,7 +7826,7 @@ Self-assessment has blind spots. Islamic scholars can evaluate whether your fram
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey knowledge, even a single verse, validates refining and publishing the framework to properly share its insights with others.',
             },
           ],
           description: `**Why?**
@@ -7860,7 +7860,7 @@ Knowledge that remains in your notebook benefits only you. Publishing your frame
               translation: "And We have certainly honoured the children of Adam. Using one's cognitive gifts for a major work honours the trust of intellect.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine honoring of the children of Adam validates clearly defining a project to effectively utilize one\'s cognitive gifts for a major work [1, 2].',
             },
           ],
           description: `**Why?**
@@ -7887,7 +7887,7 @@ A major work without clear definition becomes a source of perpetual guilt rather
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of consistency validates breaking the project into 15-20 hour milestones to establish a steady, manageable rhythm of small, regular deeds.',
             },
           ],
           description: `**Why?**
@@ -7913,7 +7913,7 @@ A 90-hour project is overwhelming as a single block — but five 18-hour phases 
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise to guide those who strive validates scheduling and ruthlessly protecting dedicated deep work sessions to concentrate your utmost effort [1].',
             },
             {
               kind: "quran",
@@ -7922,7 +7922,7 @@ A 90-hour project is overwhelming as a single block — but five 18-hour phases 
               translation: "Say, \"Are those who know equal to those who do not know?\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine elevation of those who know validates scheduling dedicated deep work sessions and protecting them ruthlessly to cultivate such distinguished understanding [1].',
             },
             {
               kind: "hadith",
@@ -7931,7 +7931,7 @@ A 90-hour project is overwhelming as a single block — but five 18-hour phases 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah loves consistent deeds validates scheduling dedicated deep work sessions and protecting them ruthlessly to ensure steady progress.',
             },
           ],
           description: `**Why?**
@@ -7955,7 +7955,7 @@ A 90-hour project at five deep work sessions per week (7.5 hours) takes approxim
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to look to what one has put forth for tomorrow validates tracking your hours and output to maintain strict personal accountability.',
             },
           ],
           description: `**Why?**
@@ -7980,7 +7980,7 @@ Tracking hours and output serves as both an accountability mechanism and a motiv
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to cooperate in righteousness validates completing the project and sharing it with your intended audience for collective benefit [1].',
             },
             {
               kind: "hadith",
@@ -7989,7 +7989,7 @@ Tracking hours and output serves as both an accountability mechanism and a motiv
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey teachings to the people validates completing the project and sharing it with your intended audience [1].',
             },
           ],
           description: `**Why?**
@@ -8016,7 +8016,7 @@ Completion is the threshold between a hobby and a contribution. Many talented pe
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to look to what one has put forth for tomorrow requires writing a retrospective to evaluate your own cognitive capacity [1].',
             },
             {
               kind: "hadith",
@@ -8025,7 +8025,7 @@ Completion is the threshold between a hobby and a contribution. Many talented pe
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of holding oneself accountable validates writing a retrospective to evaluate what the process taught you about your own cognitive capacity.',
             },
           ],
           description: `**Why?**
@@ -8066,7 +8066,7 @@ The project itself is valuable, but the self-knowledge gained from completing it
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah loves excellence validates listing every certification, licence, or registration your profession requires to ensure your work embodies true itqan.',
             },
           ],
           description: `**Why?**
@@ -8092,7 +8092,7 @@ You cannot verify what you haven't identified. Many professionals operate with a
               translation: "Indeed, Allah commands you to render trusts to those to whom they are due. Maintaining current credentials is fulfilling a trust to those you serve.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to render trusts to whom they are due validates verifying that each is current and not expired [1].',
             },
           ],
           description: `**Why?**
@@ -8118,7 +8118,7 @@ An expired credential is functionally the same as having no credential. Continui
               translation: "Indeed, Allah commands you to render trusts to whom they are due.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to render trusts to whom they are due validates identifying missing credentials to ensure you are fully equipped for your role [1].',
             },
             {
               kind: "quran",
@@ -8127,7 +8127,7 @@ An expired credential is functionally the same as having no credential. Continui
               translation: "And fulfill every commitment. Indeed, the commitment is ever that about which one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to fulfill every commitment validates identifying any missing credentials to ensure you can properly uphold your professional obligations [1].',
             },
             {
               kind: "hadith",
@@ -8136,7 +8136,7 @@ An expired credential is functionally the same as having no credential. Continui
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah loves excellence validates identifying missing credentials to ensure your professional work embodies true itqan.',
             },
           ],
           description: `**Why?**
@@ -8162,7 +8162,7 @@ Gaps in your credentials may mean you are operating outside your qualified scope
               translation: "Indeed, Allah commands you to render trusts to whom they are due.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to render trusts to whom they are due validates creating a renewal calendar so nothing lapses in your professional obligations [1].',
             },
             {
               kind: "hadith",
@@ -8171,7 +8171,7 @@ Gaps in your credentials may mean you are operating outside your qualified scope
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah has prescribed excellence in all things validates creating a renewal calendar so nothing lapses.',
             },
           ],
           description: `**Why?**
@@ -8197,7 +8197,7 @@ Credentials lapse not because professionals are negligent, but because renewal d
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to seek an increase in knowledge validates beginning the process for any missing or expired credentials to advance your professional expertise.',
             },
             {
               kind: "hadith",
@@ -8206,7 +8206,7 @@ Credentials lapse not because professionals are negligent, but because renewal d
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation validates beginning the process for missing credentials to fulfill your duty of continuous professional growth.',
             },
           ],
           description: `**Why?**
@@ -8239,7 +8239,7 @@ Identifying gaps means nothing if you do not act on them. Every day you practise
               translation: "And I did not create the jinn and mankind except to worship Me.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that mankind was created solely to worship validates reflecting on why you chose your profession to ensure it serves this purpose.',
             },
             {
               kind: "quran",
@@ -8248,7 +8248,7 @@ Identifying gaps means nothing if you do not act on them. Every day you practise
               translation: "Say, \"Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that your living and dying are for God validates reflecting on your profession to ensure it serves this ultimate purpose [1].',
             },
             {
               kind: "hadith",
@@ -8257,7 +8257,7 @@ Identifying gaps means nothing if you do not act on them. Every day you practise
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that actions are only by intentions validates reflecting on why you chose or entered your current profession to ensure sincere motives.',
             },
           ],
           description: `**Why?**
@@ -8283,7 +8283,7 @@ Understanding the origin of your professional path reveals whether you are where
               translation: "He produced you from the earth and settled you in it [to develop it].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to develop the earth validates identifying the specific ways your work benefits others to fulfill this constructive stewardship.',
             },
             {
               kind: "quran",
@@ -8292,7 +8292,7 @@ Understanding the origin of your professional path reveals whether you are where
               translation: "Indeed, I will make upon the earth a successive authority [khalifah].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine designation of humanity as successive authorities on earth validates identifying the specific ways your work benefits others to fulfill this stewardship [1].',
             },
             {
               kind: "hadith",
@@ -8301,7 +8301,7 @@ Understanding the origin of your professional path reveals whether you are where
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that actions are only by intentions validates identifying the specific ways your work benefits others to cultivate sincere, altruistic motives.',
             },
           ],
           description: `**Why?**
@@ -8326,7 +8326,7 @@ Every halal profession serves people in some way — directly or indirectly. Ide
               translation: "and associate him with me in my mission,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prophetic model of sharing a task to exalt God validates writing a professional mission statement connecting your work to a higher purpose [1].',
             },
             {
               kind: "hadith",
@@ -8335,7 +8335,7 @@ Every halal profession serves people in some way — directly or indirectly. Ide
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that actions depend upon intentions validates writing a professional mission statement connecting your work to a higher purpose [1].',
             },
           ],
           description: `**Why?**
@@ -8361,7 +8361,7 @@ A mission statement crystallises your niyyah (intention) into words you can retu
               translation: "Say, \"Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration that your living and dying are for God validates testing if the statement guides real decisions about projects, clients, and priorities [1].',
             },
             {
               kind: "hadith",
@@ -8370,7 +8370,7 @@ A mission statement crystallises your niyyah (intention) into words you can retu
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle tying actions to intentions requires testing if the statement genuinely guides real decisions about projects, clients, and priorities [1].',
             },
           ],
           description: `**Why?**
@@ -8396,7 +8396,7 @@ A mission statement that cannot be applied is just decoration. The true test of 
               translation: "and Hell is there for all to see,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine reality that Hellfire is exposed for all to see validates displaying it where you will see it daily to maintain awareness [1].',
             },
             {
               kind: "hadith",
@@ -8438,7 +8438,7 @@ The purpose of displaying your mission statement is not vanity — it is remembr
               translation: "And whose affair is determined by consultation among themselves. Seeking honest feedback from colleagues is a form of shura.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of determining affairs by consultation validates seeking honest feedback from colleagues on your weaknesses as a practical form of *shura* [1].',
             },
           ],
           description: `**Why?**
@@ -8464,7 +8464,7 @@ Self-assessment is unreliable because we are blind to our own blind spots. The p
               translation: "Say, \"Are those who know equal to those who do not know?\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle elevating those who know validates ranking skill gaps by impact to prioritize the knowledge that most improves your work.',
             },
             {
               kind: "hadith",
@@ -8473,7 +8473,7 @@ Self-assessment is unreliable because we are blind to our own blind spots. The p
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah has prescribed excellence in all things validates ranking skill gaps by impact to prioritize what most improves your work.',
             },
           ],
           description: `**Why?**
@@ -8499,7 +8499,7 @@ Not all skill gaps are equal. Some gaps are inconveniences; others are bottlenec
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to seek an increase in knowledge validates identifying the best learning resources to effectively close your top skill gaps [1].',
             },
             {
               kind: "hadith",
@@ -8508,7 +8508,7 @@ Not all skill gaps are equal. Some gaps are inconveniences; others are bottlenec
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation validates identifying the best learning resources to actively resolve your top three skill gaps.',
             },
           ],
           description: `**Why?**
@@ -8534,7 +8534,7 @@ The quality of your learning resource determines the speed and depth of your imp
               translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise to guide those who strive validates creating a 90-day plan with weekly learning targets to actively build each skill [1].',
             },
             {
               kind: "hadith",
@@ -8543,7 +8543,7 @@ The quality of your learning resource determines the speed and depth of your imp
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah eases the path to Paradise for knowledge seekers validates creating a 90-day plan with weekly targets for each skill.',
             },
           ],
           description: `**Why?**
@@ -8569,7 +8569,7 @@ A goal without a plan is a wish. Breaking your skill development into weekly tar
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to strive for what benefits you validates measuring improvement through a concrete assessment to ensure your efforts produce tangible growth.',
             },
           ],
           description: `**Why?**
@@ -8602,7 +8602,7 @@ Without measurement, you cannot distinguish genuine improvement from the illusio
               translation: "Allah has permitted trade and has forbidden interest (riba).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration permitting trade and forbidding interest validates reviewing your employment contract or business model to eliminate any haram elements [1].',
             },
             {
               kind: "quran",
@@ -8611,7 +8611,7 @@ Without measurement, you cannot distinguish genuine improvement from the illusio
               translation: "And do not consume one another's wealth unjustly.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against consuming wealth unjustly validates reviewing your employment contract or business model to eliminate any haram elements. [1]',
             },
             {
               kind: "hadith",
@@ -8620,7 +8620,7 @@ Without measurement, you cannot distinguish genuine improvement from the illusio
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic warning about future indifference to haram income validates reviewing your employment contract or business model to ensure your earnings remain strictly halal [1].',
             },
           ],
           description: `**Why?**
@@ -8646,7 +8646,7 @@ Your employment contract or business model is the foundation of your income. If 
               translation: "And do not consume one another's wealth unjustly.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against consuming wealth unjustly validates auditing your client list to ensure you do not profit from impermissible industries [1].',
             },
           ],
           description: `**Why?**
@@ -8672,7 +8672,7 @@ Even if your own work is halal in nature, providing services to clients whose co
               translation: "Allah has permitted trade and has forbidden interest (riba).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine declaration permitting trade and forbidding interest validates checking your investment and savings vehicles to eliminate any interest-based components [1].',
             },
           ],
           description: `**Why?**
@@ -8698,7 +8698,7 @@ Many professionals have savings accounts, pension funds, or investment portfolio
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of giving one\'s best effort to decide correctly validates consulting a knowledgeable scholar if any grey areas arise.',
             },
           ],
           description: `**Why?**
@@ -8724,7 +8724,7 @@ Not every financial question has a clear-cut answer. Islamic commercial law (fiq
               translation: "O you who have believed, fear Allah and give up what remains of interest, if you should be believers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to give up what remains of interest validates creating a plan to transition away from any problematic income sources [1].',
             },
             {
               kind: "hadith",
@@ -8733,7 +8733,7 @@ Not every financial question has a clear-cut answer. Islamic commercial law (fiq
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic curse upon all parties involved in interest validates creating a plan to transition away from any problematic income sources [1].',
             },
           ],
           description: `**Why?**
@@ -8766,7 +8766,7 @@ Identifying haram income sources is only valuable if you act on the findings. Th
               translation: "Is the reward for good anything but good?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise that the reward for good is nothing but good validates gathering your best professional work to showcase your tangible excellence [1].',
             },
             {
               kind: "hadith",
@@ -8775,7 +8775,7 @@ Identifying haram income sources is only valuable if you act on the findings. Th
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah has prescribed excellence in all things validates gathering your best pieces of professional work to showcase your tangible *ihsan*.',
             },
           ],
           description: `**Why?**
@@ -8801,7 +8801,7 @@ Your portfolio is only as strong as the work it showcases. Gathering your best p
               translation: "Read, and your Lord is the Most Generous — who taught by the pen — taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine emphasis on teaching by the pen validates writing a brief description of your problem, approach, and outcome to document acquired knowledge [1].',
             },
             {
               kind: "hadith",
@@ -8810,7 +8810,7 @@ Your portfolio is only as strong as the work it showcases. Gathering your best p
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah has prescribed excellence in all things validates describing the problem, approach, and outcome to document your professional *ihsan*.',
             },
           ],
           description: `**Why?**
@@ -8839,7 +8839,7 @@ Raw work samples without context are difficult to evaluate. A hiring manager, cl
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah loves excellence validates organizing your best work in a format appropriate to your field to reflect tangible *itqan*.',
             },
           ],
           description: `**Why?**
@@ -8865,7 +8865,7 @@ The format of your portfolio affects how seriously it is received. A software de
               translation: "And whose affair is determined by consultation among themselves. Getting feedback on your portfolio is consultation (shura) in professional life.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle that believers determine their affairs by consultation validates getting feedback on your portfolio from a trusted colleague [1].',
             },
           ],
           description: `**Why?**
@@ -8891,7 +8891,7 @@ You are too close to your own work to evaluate your portfolio objectively. A tru
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah most loves consistent deeds, even small ones, validates updating your portfolio quarterly to steadily document your ongoing professional excellence.',
             },
           ],
           description: `**Why?**
@@ -8927,7 +8927,7 @@ A stale portfolio suggests stagnation. If your most recent work is from two year
               translation: "And say, \"My Lord, increase me in knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to seek an increase in knowledge validates researching advanced qualifications or specialisations available in your field to continuously elevate your expertise [1].',
             },
           ],
           description: `**Why?**
@@ -8953,7 +8953,7 @@ The landscape of professional qualifications is vast and not all credentials car
               translation: "Allah will raise those who have believed among you and those who were given knowledge, by degrees.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine promise that Allah elevates those given knowledge by degrees validates evaluating which specialisation best aligns with your mission and market need.',
             },
             {
               kind: "hadith",
@@ -8962,7 +8962,7 @@ The landscape of professional qualifications is vast and not all credentials car
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise to ease the path to Paradise for knowledge seekers validates evaluating which specialisation best aligns with your mission and market need.',
             },
           ],
           description: `**Why?**
@@ -8990,7 +8990,7 @@ The best specialisation sits at the intersection of three circles: what you are 
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to seek an increase in knowledge validates calculating the time, cost, and opportunity cost of pursuing it to ensure sustainable growth [1].',
             },
             {
               kind: "quran",
@@ -8999,7 +8999,7 @@ The best specialisation sits at the intersection of three circles: what you are 
               translation: "He gives wisdom to whom He wills.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine gift of wisdom validates calculating the time, cost, and opportunity cost of pursuing it to ensure your decisions reflect sound judgment [1].',
             },
             {
               kind: "hadith",
@@ -9008,7 +9008,7 @@ The best specialisation sits at the intersection of three circles: what you are 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is an obligation validates calculating the time, cost, and opportunity cost of pursuing it to ensure responsible fulfillment.',
             },
           ],
           description: `**Why?**
@@ -9034,7 +9034,7 @@ Every investment has a cost — not just in money, but in time and what you give
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the most beloved deeds are consistent, even if small, validates creating a study schedule that respects your other obligations [1].',
             },
           ],
           description: `**Why?**
@@ -9060,7 +9060,7 @@ Enrolment without a structured study plan is a recipe for falling behind, crammi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to strive for what benefits you validates completing the qualification and updating your professional profiles to become a stronger believer.',
             },
           ],
           description: `**Why?**
@@ -9093,7 +9093,7 @@ Completing a qualification is an achievement, but its value is only realised whe
               translation: "So ask the people of knowledge if you do not know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to ask the people of knowledge validates defining specifically what you want mentorship in to address what you do not know.',
             },
             {
               kind: "hadith",
@@ -9102,7 +9102,7 @@ Completing a qualification is an achievement, but its value is only realised whe
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to carefully choose your companions validates defining specifically what you want mentorship in to ensure you select the right guide.',
             },
           ],
           description: `**Why?**
@@ -9128,7 +9128,7 @@ A vague request for mentorship burdens the mentor and wastes both your time. The
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that the best among you learn and teach validates identifying potential mentors to uphold the *sunnah* method of learning.',
             },
           ],
           description: `**Why?**
@@ -9154,7 +9154,7 @@ Having multiple candidates increases your chances of finding a good fit and prev
               translation: "So ask the people of knowledge if you do not know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to ask the people of knowledge validates approaching your top choice with a clear, respectful ask addressing what you need.',
             },
             {
               kind: "hadith",
@@ -9163,7 +9163,7 @@ Having multiple candidates increases your chances of finding a good fit and prev
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of leaving what does not concern you validates approaching your top choice with a clear ask stripped of irrelevant details.',
             },
           ],
           description: `**Why?**
@@ -9194,7 +9194,7 @@ How you approach a potential mentor determines whether they say yes or no. A vag
               translation: "Moses said to him, \"May I follow you on the condition that you teach me from what you have been taught of sound judgement?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The prophetic example of setting a clear condition for learning validates proposing a specific structure, topics, and defined duration for your mentorship.',
             },
           ],
           description: `**Why?**
@@ -9220,7 +9220,7 @@ Unstructured mentorship relationships tend to fizzle. Without agreed frequency, 
               translation: "Indeed, Allah commands you to render trusts to whom they are due.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to render trusts to whom they are due validates preparing thoroughly for each meeting to never waste your mentor\'s time [1].',
             },
             {
               kind: "hadith",
@@ -9229,7 +9229,7 @@ Unstructured mentorship relationships tend to fizzle. Without agreed frequency, 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that Allah has prescribed excellence in all things validates preparing thoroughly for each meeting to never waste your mentor\'s time.',
             },
           ],
           description: `**Why?**
@@ -9262,7 +9262,7 @@ Your mentor is giving you their most valuable resource: time and attention. Arri
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise to ease the path to Paradise for knowledge seekers validates researching the most respected conferences and seminars in your field.',
             },
           ],
           description: `**Why?**
@@ -9288,7 +9288,7 @@ Not all conferences are created equal. Some are transformative experiences that 
               translation: "Those who listen to speech and then follow the best of it. Those are the ones Allah has guided.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of following the best of speech validates selecting two events that align with your current learning priorities [1].',
             },
           ],
           description: `**Why?**
@@ -9314,7 +9314,7 @@ Selecting events that align with your current learning priorities ensures that c
               translation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine purpose that peoples and tribes know one another validates budgeting for registration, travel, and time off well in advance for networking [1].',
             },
             {
               kind: "hadith",
@@ -9323,7 +9323,7 @@ Selecting events that align with your current learning priorities ensures that c
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that seeking knowledge is a journey in Allah\'s path validates budgeting for registration, travel, and time off well in advance.',
             },
           ],
           description: `**Why?**
@@ -9349,7 +9349,7 @@ Financial and logistical barriers are the most common reasons professionals skip
               translation: "And say, \"My Lord, increase me in knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to seek an increase in knowledge validates setting specific goals for each event to ensure focused and intentional learning.',
             },
             {
               kind: "hadith",
@@ -9358,7 +9358,7 @@ Financial and logistical barriers are the most common reasons professionals skip
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise to ease the path to Paradise for knowledge seekers validates setting specific goals for each event to ensure a purposeful journey.',
             },
           ],
           description: `**Why?**
@@ -9384,7 +9384,7 @@ Walking into a conference without goals is like walking into a library without k
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of Muslim brotherhood validates following up with new contacts within one week of the event to maintain beneficial ties [1].',
             },
           ],
           description: `**Why?**
@@ -9417,7 +9417,7 @@ The value of conference networking is almost entirely in the follow-up. Without 
               translation: "And whose affair is determined by consultation among themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of determining affairs by consultation validates identifying people whose professional judgement you deeply respect to seek sound advice [1].',
             },
             {
               kind: "quran",
@@ -9426,7 +9426,7 @@ The value of conference networking is almost entirely in the follow-up. Without 
               translation: "And consult them in the matter.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to consult others in the matter validates identifying 3-5 people whose professional judgement you deeply respect to seek sound counsel. [1]',
             },
             {
               kind: "hadith",
@@ -9435,7 +9435,7 @@ The value of conference networking is almost entirely in the follow-up. Without 
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic practice of consulting companions on matters not revealed by Allah validates identifying 3-5 people whose professional judgement you deeply respect.',
             },
           ],
           description: `**Why?**
@@ -9461,7 +9461,7 @@ The quality of advice you receive is determined entirely by the quality of the p
               translation: "O mankind, We have created you from male and female and made you peoples and tribes that you may know one another. Diversity in one's advisors reflects the Quranic value of cross-cultural understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine purpose that peoples and tribes know one another validates ensuring diversity in your advisors across different industries, perspectives, strengths, and backgrounds [1].',
             },
           ],
           description: `**Why?**
@@ -9487,7 +9487,7 @@ A board of advisors who all think alike is an echo chamber, not a shura council.
               translation: "And whose affair is determined by consultation among themselves.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of determining affairs by consultation validates inviting each with a clear explanation of what you\'re building and what you\'re asking [1].',
             },
             {
               kind: "hadith",
@@ -9496,7 +9496,7 @@ A board of advisors who all think alike is an echo chamber, not a shura council.
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of reward for guiding to good validates inviting each with a clear explanation of what you\'re building and what you\'re asking.',
             },
           ],
           description: `**Why?**
@@ -9526,7 +9526,7 @@ People cannot help you effectively if they do not understand what you are asking
               translation: "And whose affair is determined by consultation among themselves. Quarterly check-ins with candid feedback are the practice of shura in professional life.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of determining affairs by consultation validates scheduling quarterly check-ins with candid feedback as the practice of shura in professional life [1].',
             },
           ],
           description: `**Why?**
@@ -9552,7 +9552,7 @@ The structure of regular check-ins transforms an informal advisory relationship 
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to cooperate in righteousness and piety validates reciprocating by offering your own expertise and perspective to each advisor [1].',
             },
             {
               kind: "hadith",
@@ -9561,7 +9561,7 @@ The structure of regular check-ins transforms an informal advisory relationship 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of reward for guiding someone to good validates reciprocating by offering your own expertise and perspective to each advisor.',
             },
           ],
           description: `**Why?**
@@ -9596,7 +9596,7 @@ A one-sided advisory relationship becomes a burden. Even if your advisors are mo
               translation: "Read, and your Lord is the Most Generous, Who taught by the pen, taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine reminder that Allah taught man what he knew not validates identifying a novel insight, solution, or finding from your professional work [1].',
             },
           ],
           description: `**Why?**
@@ -9622,7 +9622,7 @@ Every professional accumulates unique insights through their work, but few take 
               translation: "And do not pursue that of which you have no knowledge. Confirming originality through literature review upholds this Quranic standard.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine prohibition against pursuing that of which you have no knowledge validates researching existing literature to confirm your contribution is genuinely original [1].',
             },
           ],
           description: `**Why?**
@@ -9648,7 +9648,7 @@ Publishing something that already exists wastes your time and damages your credi
               translation: "The Most Merciful — taught the Quran — created man — taught him eloquence.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine reminder that Allah taught man eloquence validates writing the piece in a format appropriate for your field to ensure clear communication [1].',
             },
             {
               kind: "quran",
@@ -9657,7 +9657,7 @@ Publishing something that already exists wastes your time and damages your credi
               translation: "Read, and your Lord is the Most Generous — who taught by the pen.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine reminder that Allah taught by the pen validates writing the piece in a format appropriate for your field. [1]',
             },
             {
               kind: "hadith",
@@ -9666,7 +9666,7 @@ Publishing something that already exists wastes your time and damages your credi
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey knowledge, even a single verse, validates writing the piece in a format appropriate for your field.',
             },
           ],
           description: `**Why?**
@@ -9695,7 +9695,7 @@ The format of your publication must match the norms of your field and the expect
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic command to convey knowledge, even a single verse, validates submitting to a reputable publication, conference, or platform.',
             },
           ],
           description: `**Why?**
@@ -9721,7 +9721,7 @@ A piece of writing sitting on your hard drive benefits no one. Submitting to a r
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle that introducing a good practice yields ongoing rewards validates promoting the work through your professional network to extend its beneficial impact [1].',
             },
           ],
           description: `**Why?**
@@ -9754,7 +9754,7 @@ Publication alone does not guarantee that your work reaches the people who need 
               translation: "Indeed, Allah commands you to render trusts to those to whom they are due. Leadership is an amanah (trust) that must be sought with the intention to serve.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to render trusts validates identifying leadership opportunities in your organisation, professional body, or community to fulfill the amanah of service [1].',
             },
           ],
           description: `**Why?**
@@ -9780,7 +9780,7 @@ Leadership opportunities rarely announce themselves to those who are not looking
               translation: "Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to render trusts validates assessing your readiness to ensure you have the skills, time, and support to lead well [1].',
             },
             {
               kind: "hadith",
@@ -9789,7 +9789,7 @@ Leadership opportunities rarely announce themselves to those who are not looking
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of being a responsible shepherd validates assessing your readiness to ensure you have the skills, time, and support to lead well.',
             },
           ],
           description: `**Why?**
@@ -9814,7 +9814,7 @@ Taking on a leadership role you are not ready for harms both you and the people 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of being a responsible shepherd validates expressing your interest or applying for the role to embrace the weight of this responsibility.',
             },
           ],
           description: `**Why?**
@@ -9840,7 +9840,7 @@ Many qualified professionals never lead because they wait to be asked. Expressin
               translation: "So by mercy from Allah, you were lenient with them. And if you had been rude and harsh in heart, they would have disbanded from about you.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine principle of lenient leadership validates establishing clear goals for your tenure in the first 30 days to prevent the team from disbanding [1].',
             },
             {
               kind: "hadith",
@@ -9849,7 +9849,7 @@ Many qualified professionals never lead because they wait to be asked. Expressin
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic principle of being a responsible shepherd validates establishing clear goals for your tenure in the first 30 days to guide your flock.',
             },
           ],
           description: `**Why?**
@@ -9875,7 +9875,7 @@ The first 30 days of any leadership role set the tone for your entire tenure. Le
               translation: "And of the people of Mûsâ (Moses) there is a community who lead (the men) with truth and establish justice therewith (i.e. judge among men with truth and justice).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine example of a community guiding by truth and establishing justice validates leading with the principles of shura, adl, and ihsan [1].',
             },
             {
               kind: "hadith",
@@ -9884,7 +9884,7 @@ The first 30 days of any leadership role set the tone for your entire tenure. Le
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of divine shade for a just ruler validates leading with the principles of shura, adl, and ihsan [1, 2].',
             },
           ],
           description: `**Why?**
@@ -9917,7 +9917,7 @@ Islamic leadership is servant leadership: you are there to serve those you lead,
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic praise for those who teach validates identifying skill gaps among junior professionals as among the highest forms of teaching.',
             },
           ],
           description: `**Why?**
@@ -9943,7 +9943,7 @@ The most impactful training programmes address real, widespread needs — not wh
               translation: "Invite to the way of your Lord with wisdom and good instruction.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to invite with wisdom and good instruction validates designing a curriculum that addresses this gap with clear learning outcomes.',
             },
             {
               kind: "quran",
@@ -9952,7 +9952,7 @@ The most impactful training programmes address real, widespread needs — not wh
               translation: "For there should separate from every division of them a group to obtain understanding in the religion.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to obtain understanding in the religion validates designing a curriculum that addresses this gap with clear learning outcomes [1].',
             },
             {
               kind: "hadith",
@@ -9961,7 +9961,7 @@ The most impactful training programmes address real, widespread needs — not wh
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic declaration that the best of people are those who teach validates designing a curriculum that addresses this gap with clear learning outcomes.',
             },
           ],
           description: `**Why?**
@@ -9990,7 +9990,7 @@ A curriculum without clear learning outcomes is a collection of topics, not a pr
               translation: "The Most Merciful, taught the Quran, created man, and taught him eloquence. Creating teaching materials reflects the divine gift of bayan (clear expression).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine reminder that Allah taught man eloquence validates creating teaching materials to reflect the divine gift of clear expression.',
             },
           ],
           description: `**Why?**
@@ -10020,7 +10020,7 @@ Materials are the tangible delivery mechanism for your curriculum. High-quality 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of reward for introducing a good practice validates piloting the programme with a small cohort to refine it before wider adoption.',
             },
           ],
           description: `**Why?**
@@ -10046,7 +10046,7 @@ A training programme that has not been tested is a theory, not a product. Piloti
               translation: "And let there be arising from you a nation inviting to all that is good, enjoining what is right.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to invite to all that is good validates iterating based on feedback to successfully deliver to a larger audience [1].',
             },
           ],
           description: `**Why?**
@@ -10072,7 +10072,7 @@ The gap between a pilot and a polished programme is closed by iteration. Taking 
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: 'The divine command to cooperate in righteousness and piety validates making materials available as a lasting resource for shared communal benefit [1].',
             },
             {
               kind: "hadith",
@@ -10081,7 +10081,7 @@ The gap between a pilot and a polished programme is closed by iteration. Taking 
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: 'The prophetic promise of reward for guiding others to good validates making materials available as a lasting resource to continuously benefit the community.',
             },
           ],
           description: `**Why?**

@@ -30,7 +30,7 @@ const limit = args.limit ? parseInt(args.limit, 10) : Infinity;
 const resume = !!args.resume;
 if (!pillar) { console.error('Usage: --pillar=<id> [--limit=N] [--resume]'); process.exit(2); }
 
-const NOTEBOOK = '1c17b03b-3537-4fde-b5ba-562dbe0c1aab';
+const NOTEBOOK = process.env.MILOS_MS_ID || 'be921648-2088-4860-bdd8-283a5e7301f3'; // Muslim Scholar backup (high-rate-limit copy); primary 1c17b03b
 const PER_CALL_TIMEOUT_MS = 60_000;
 const MAX_RETRIES = 2;
 
