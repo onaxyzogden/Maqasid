@@ -3,6 +3,89 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-30] session | @ogden/ui-components — GitHub release + MILOS wrapper adoption
+
+**Objective:** Ship the prior-session-extracted `@ogden/ui-components`
+package (LevelNavigator, MaqasidComparisonWheel, IslamicTerm + 9
+satellites) as a tagged GitHub release, then adopt it in MILOS via thin
+wrappers that preserve all ~60 existing import sites unchanged.
+
+**Outcome:**
+
+- **Package shipped (`onaxyzogden/ogden-ui-components`):** `.gitignore`
+  un-ignored `dist/`, npm publish workflow deleted, `dist/` rebuilt
+  (33 kB ESM / 24 kB CJS / 20 kB CSS), README install instructions
+  rewritten for GitHub-pin form. `git init` → initial commit → push to
+  GitHub `main` → `v0.1.0` tag pushed.
+- **MILOS installed:** added
+  `"@ogden/ui-components": "github:onaxyzogden/ogden-ui-components#v0.1.0"`
+  to `package.json`; `npm install` resolved the tag and wrote a
+  git-style entry to `package-lock.json`. Smoke import confirmed all 12
+  named exports resolve. CSS import added to `src/main.jsx`.
+- **MILOS wired via wrappers (zero call-site churn):**
+  - `src/components/shared/LevelNavigator.jsx` — converted to wrapper.
+    Imports `useProjectStore` + `useTaskStore`, derives `pillarTasks`
+    for the active level (matches PillarLevelDashboard ordering: tag-
+    group desc → priority asc), maps `pillar.glossaryId` →
+    `pillar.glossaryEntry`, decorates `onSegmentClick` to preserve the
+    BBOS gate scrollIntoView side effect, runs the package in
+    controlled mode always.
+  - `src/components/shared/IslamicTerm.jsx` — wrapper looks up
+    `entry` via `getGlossaryEntry(id)` and reads `tooltipsEnabled` +
+    `showDiacritics` from `useSettingsStore`.
+  - `src/components/faith/MaqasidComparisonWheel.jsx` — wrapper
+    injects `showDiacritics` only.
+- **Singleton stores re-exported:**
+  `src/store/wheelHoverStore.js`, `src/store/mithaqStore.js`,
+  `src/hooks/useMilestoneWatcher.js`, `src/hooks/useMithaqHold.js`
+  collapsed to one-line re-exports from `@ogden/ui-components` so MILOS
+  and the package resolve to the same module instance (else hover sync
+  + covenant ritual silently desync).
+- **Critical Vite fix:** runtime errors after install ("Invalid hook
+  call" + null `useContext`) traced to Vite pre-bundling the package
+  with externalized React/RR resolving to null. Added
+  `optimizeDeps.exclude: ['@ogden/ui-components']` to `vite.config.js`,
+  cleared `node_modules/.vite`, restarted server — clean.
+- **Files deleted in MILOS (superseded by package):**
+  `MaqasidComparisonWheel.css`, `MaqasidNextActionCard.{jsx,css}`,
+  `WheelWisdomTooltip.{jsx,css}`, `wheelColor.js`, `IslamicTerm.css`,
+  `LevelNavigator.css`.
+
+**Verification:** `npm run build` (1.75s, no errors), `npm run lint`
+(grounding chain — 8 pillars conformant, 3 ratchets at 0), `npm test`
+(56/56 pass). Browser smoke at `/app`: wheel + LevelNavigator render
+together, hovering Faith sector lights only Faith segment in
+LevelNavigator (singleton wheelHoverStore working across package
+boundary), no console errors. Screenshot captured.
+
+**Decisions filed:**
+[[2026-04-30-ogden-ui-components-github-direct]] — GitHub vs npm,
+commit-`dist/`, wrapper pattern, singleton re-export gotcha, Vite
+optimizeDeps.exclude requirement, persist-key delta.
+
+**Carry-forward:**
+- Atlas + Moontrance to adopt the same package via their own wrappers
+  in dedicated sessions.
+- Persist key changed from `bbiz_milos-mithaq` to `bbiz_ogden-mithaq`;
+  pre-existing activations expire at next Fajr (5 AM) — accepted.
+
+**Atlas adoption check (deferred):** End of session, asked to plan
+Atlas adoption. Orientation found: (1) zero existing imports of any
+package component across `atlas/apps/`; (2) Atlas uses
+`@tanstack/react-router`, not `react-router-dom` — package's router
+peer would be a phantom dep; (3) the wheel + LevelNavigator are
+maqasid-pillar-shaped and Atlas's dashboards are geospatial (paddocks,
+soil overlays, biodiversity corridors) with no obvious slot for them.
+**Decision: defer Atlas adoption** until a concrete Atlas surface
+needs one of the components. Package is published; Atlas can pull it
+in when a real consumer appears. `IslamicTerm`-only minimal adoption
+remains an option if Atlas later cites Islamic terms in copy.
+
+**Recommended next session:** Any unrelated MILOS feature work, or
+Atlas adoption when a concrete consumer surface is identified.
+
+---
+
 ## [2026-04-29] session | OLOS — Schedule A AU picker + dashboard inventory breakdown
 
 **Objective:** Land the Manitoba Schedule A subcategory picker for per-

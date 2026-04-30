@@ -1,44 +1,6 @@
-// Mithaq (covenant) activation store.
-// Tracks daily "renewal of the covenant" per Maqasid domain (faith / health / ...).
-// Activation persists via localStorage and expires at the next 5am local (Fajr proxy).
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-
-function isStillValid(activatedAt) {
-  if (!activatedAt) return false;
-  const activated = new Date(activatedAt);
-  if (Number.isNaN(activated.getTime())) return false;
-  // Expiry = the NEXT 5am local strictly after activation.
-  const expiry = new Date(activated);
-  expiry.setHours(5, 0, 0, 0);
-  if (activated.getHours() >= 5) {
-    expiry.setDate(expiry.getDate() + 1);
-  }
-  return new Date() < expiry;
-}
-
-export const useMithaqStore = create(
-  persist(
-    (set, get) => ({
-      activations: {}, // { [domain]: { activatedAt: ISOString } }
-      activate: (domain) =>
-        set((s) => ({
-          activations: {
-            ...s.activations,
-            [domain]: { activatedAt: new Date().toISOString() },
-          },
-        })),
-      reset: (domain) =>
-        set((s) => {
-          const next = { ...s.activations };
-          delete next[domain];
-          return { activations: next };
-        }),
-      isActivated: (domain) => {
-        const entry = get().activations[domain];
-        return isStillValid(entry?.activatedAt);
-      },
-    }),
-    { name: 'milos-mithaq' }
-  )
-);
+// Re-exported from @ogden/ui-components so the MILOS wheel wrapper and the
+// package wheel resolve to the same singleton. The package's persist key is
+// "ogden-mithaq" (not "milos-mithaq"), so any pre-existing activations from
+// before this migration will not carry over — they expire at next Fajr (5am)
+// anyway, so the impact is at most one extra press-and-hold.
+export { useMithaqStore } from '@ogden/ui-components';

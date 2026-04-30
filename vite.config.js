@@ -21,6 +21,14 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, 'src/styles'),
     },
   },
+  optimizeDeps: {
+    // Don't pre-bundle @ogden/ui-components — it's a Vite library build with
+    // react / react-router-dom externalized. Pre-bundling fragments those
+    // peer references and causes "Invalid hook call" + null useContext at
+    // runtime (two React instances). Excluding it makes Vite serve the
+    // package's ESM directly so externals resolve to MILOS's React/RR.
+    exclude: ['@ogden/ui-components'],
+  },
   build: {
     rollupOptions: {
       output: {
