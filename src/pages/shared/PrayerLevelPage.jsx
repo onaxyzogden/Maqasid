@@ -13,7 +13,6 @@ import {
   PRAYER_BOARD_PREFIX,
 } from '@data/prayer-pillars';
 import { usePrayerTimes } from '@hooks/usePrayerTimes';
-import './PillarLevelPage.css';
 
 const VALID_LEVELS = PRAYER_PHASE_KEYS; // ['before','during','after']
 const PRIORITY_ORDER = { urgent: 0, high: 1, medium: 2, low: 3 };

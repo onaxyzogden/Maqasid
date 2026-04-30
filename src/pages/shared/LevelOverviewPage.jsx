@@ -8,7 +8,6 @@ import LevelNavigator from '@components/shared/LevelNavigator';
 import IstiqamahToast from '@components/shared/IstiqamahToast';
 import { useAyahBanner } from '@hooks/useAyahBanner';
 import { MAQASID_PILLARS } from '@data/maqasid';
-import './LevelOverviewPage.css';
 
 function MasteryRing({ percent, color, id, muted }) {
   const r = 42;

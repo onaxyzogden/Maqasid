@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-04-30] session | @ogden/ui-components v0.3.0 — educational layout templates extraction
+
+**Objective:** Extract `MaqasidLevelOverview` (dashboard Maqasid wheel widget) and `PillarLevelPage` (generic pillar submodule layout) from MILOS into `@ogden/ui-components` as prop-driven components, making them reusable by Atlas and Moontrance as the standard Maqasid educational layout template.
+
+**Outcome:**
+
+- **Package v0.3.0 shipped (`onaxyzogden/ogden-ui-components` v0.3.0):**
+  Two new exports added to the main `.` entry (no new subpath — these are general Maqasid educational UI, not BBOS-specific). Package `dist/index.es.js` grew from ~33 KB to 38.32 KB; `ogden-ui-components.css` grew from ~6 KB to 26.64 KB with the `.flo*` + `.fpb-*` namespaces.
+- **Components added:**
+  - `MaqasidLevelOverview` — prop-driven version of the dashboard widget. Accepts `pillars`, `pillarTasks`, `progressMap`, controlled/uncontrolled `level` state, `onLevelChange`, `onSegmentClick`, `onSubsegClick`, `onReach100`, `storageKey`, `taskColorFn`.
+  - `PillarLevelPage` — layout template with render-props replacing `ProjectBoard`, `TaskDetailPanel`, and the `useAyahBanner` side-effect. All original animation logic preserved (cross-fade, `prevProject`, 320ms timer, `slideDir` tracking).
+- **Coupling stripped:** `useAyahBanner` lifecycle preserved via `renderAyahEffect?({ boardPrefix, pillarKey }) → ReactNode` render-prop slot — MILOS wrapper provides a null-rendering `<AyahBannerEffect>` component that calls the hook in its own lifecycle. `localStorage` access inlined in package (no `@services/storage` dep).
+- **CSS migrated:** `.flo*` (417 lines) and `.fpb-*` (60 lines) moved into the package's `ogden-ui-components.css`. Local CSS imports removed from `LevelOverviewPage.jsx` and `PrayerLevelPage.jsx`.
+- **MILOS adoption:** `MaqasidLevelOverview.jsx` and `PillarLevelPage.jsx` converted to thin wrappers. Pin bumped to `#v0.3.0`. `npm install` force-refreshed (Vite `.vite` cache cleared to pick up new package dist). Build 2.12s ✓, lint (3 ratchets) ✓, 56/56 tests ✓.
+- **Browser smoke:** Dashboard `/app` — Maqasid wheel + LevelNavigator + 7 pillar segments rendering, no console errors. Pillar page `/app/health-physical` — LevelNavigator (Level 1 / Core Wellbeing / 4 pillar buttons) + Kanban board (Physical Health tasks) rendering correctly.
+- See [[2026-04-30-educational-layout-templates-extraction]].
+
 ## [2026-04-30] session | @ogden/ui-components v0.2.0 — BBOS extraction with callback + render-prop pattern
 
 **Objective:** Add the BBOS Project template surface (creation dialog +
