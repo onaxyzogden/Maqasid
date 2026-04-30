@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { getGlossaryEntry } from '@data/islamic/islamic-glossary';
-import { useSettingsStore } from '../../store/settings-store';
+import { useSettingsStore } from '@store/settings-store';
 import { useArabic } from '../../hooks/useArabic';
 import './IslamicTerm.css';
 

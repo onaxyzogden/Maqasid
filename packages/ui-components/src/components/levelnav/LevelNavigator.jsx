@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback, Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useWheelHoverStore } from '../../../stores/wheelHoverStore';
-import { safeSet } from '../../../services/storage';
+import { useWheelHoverStore } from '../../stores/wheelHoverStore';
+import { safeSet } from '../../services/storage';
 import IslamicTerm from './IslamicTerm';
 import './LevelNavigator.css';
 

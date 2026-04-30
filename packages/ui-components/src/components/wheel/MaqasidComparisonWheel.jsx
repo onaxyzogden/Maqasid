@@ -4,10 +4,10 @@
 // so every module can plug in its own curated corpus (or stubs, or null).
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useMilestoneWatcher from '../../../hooks/useMilestoneWatcher';
-import useMithaqHold from '../../../hooks/useMithaqHold';
-import { useWheelHoverStore } from '../../../stores/wheelHoverStore';
-import { useMithaqStore } from '../../../stores/mithaqStore';
+import useMilestoneWatcher from '../../hooks/useMilestoneWatcher';
+import useMithaqHold from '../../hooks/useMithaqHold';
+import { useWheelHoverStore } from '../../stores/wheelHoverStore';
+import { useMithaqStore } from '../../stores/mithaqStore';
 import { deriveWheelPalette } from './wheelColor';
 import WheelWisdomTooltip from './WheelWisdomTooltip';
 import MaqasidNextActionCard from './MaqasidNextActionCard';

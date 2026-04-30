@@ -19,6 +19,12 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@services': path.resolve(__dirname, 'src/services'),
       '@styles': path.resolve(__dirname, 'src/styles'),
+      // Resolve workspace package subpaths to source (no dist build needed in dev)
+      '@ogden/ui-components/levelnav': path.resolve(__dirname, 'packages/ui-components/src/components/levelnav/index.js'),
+      '@ogden/ui-components/wheel': path.resolve(__dirname, 'packages/ui-components/src/components/wheel/index.js'),
+      '@ogden/ui-components/hooks': path.resolve(__dirname, 'packages/ui-components/src/hooks/index.js'),
+      '@ogden/ui-components/stores': path.resolve(__dirname, 'packages/ui-components/src/stores/index.js'),
+      '@ogden/ui-components': path.resolve(__dirname, 'packages/ui-components/src/index.js'),
     },
   },
   build: {
