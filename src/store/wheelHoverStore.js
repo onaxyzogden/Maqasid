@@ -1,9 +1,5 @@
-// Tiny Zustand slice for cross-component hover sync between the
-// Maqasid Comparison Wheel and the LevelNavigator segment columns.
-// Writing `null` clears any stale highlight (e.g., on unmount / route change).
-import { create } from 'zustand';
-
-export const useWheelHoverStore = create((set) => ({
-  hoveredPillar: null, // e.g., 'shahada' | 'salat' | ... | null
-  setHoveredPillar: (id) => set({ hoveredPillar: id }),
-}));
+// Re-exported from @ogden/ui-components so MILOS code and the package's
+// LevelNavigator/MaqasidComparisonWheel resolve to the same singleton —
+// required for cross-component hover sync to work (two module copies would
+// hold separate state).
+export { useWheelHoverStore } from '@ogden/ui-components';

@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-29
+updated: 2026-04-30
 
 ---
 
@@ -38,6 +38,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Date | Summary |
 |---|---|---|
+| [[2026-04-30-ogden-ui-components-github-direct]] | 2026-04-30 | `@ogden/ui-components` package shipped as GitHub-pinned dependency (`github:onaxyzogden/ogden-ui-components#v0.1.0`), not npm. `dist/` committed so consumers run no build step. MILOS adopts via thin wrappers at the original three component paths (LevelNavigator/IslamicTerm/MaqasidComparisonWheel) — zero churn at ~60 call sites. Singleton stores (wheelHoverStore/mithaqStore) and hooks (useMithaqHold/useMilestoneWatcher) collapsed to one-line re-exports to preserve module-instance identity. Critical Vite gotcha: must add `optimizeDeps.exclude: ['@ogden/ui-components']` (else pre-bundling fragments externalized React → "Invalid hook call") |
 | [[2026-04-29-milos-preview-and-dashboard-centering]] | 2026-04-29 | Three recurring Windows/preview/layout root-causes resolved together. `.claude/launch.json` pinned to `npm.cmd` so the preview UI button works without a shell. UA sniff (`Claude/`) adds a `.reduce-motion` class that collapses all animation durations under the preview window, fixing the `preview_screenshot` hang caused by the `hero-marquee` infinite animation. New `--main-balance-end` CSS var on `.app-shell` mirrors the sidebar+edge as right padding on `.app-main` (centers the column); `.insight` gets `width:100%; margin-inline:auto;`; `.dash-tier::before` panels removed so the dashboard reads as one continuous surface |
 | [[2026-04-28-atlas-estate-palette-migration]] | 2026-04-28 | Atlas chrome repainted warm-brown → dark estate green/gold/sage across both themes. New `--color-on-primary` / `--color-on-accent` tokens fix white-on-gold contrast (2.23:1 → 8.5:1). Per-project Dashboard Overview restyled to reference mock (Cormorant Garamond serif, translucent gold-bordered panels, sage active state). Map polygon palettes + earth-tokens preserved per biophilic-data rule |
 | [[2026-04-28-atlas-wind-climatology-live]] | 2026-04-28 | Atlas Diagnose wind rose now driven by live Open-Meteo ERA5 hourly data keyed off the effective anchor (homestead → centroid). 0.1° quantized cache (30-day TTL), 0.5 m/s calm filter, most-recent complete calendar year, silent fallback to pedagogical W/NW defaults. Hook re-fires only on quantum change |

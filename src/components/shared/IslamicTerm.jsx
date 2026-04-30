@@ -1,84 +1,26 @@
-import { useState, useRef, useCallback } from 'react';
-import { createPortal } from 'react-dom';
+// MILOS-side wrapper around @ogden/ui-components' IslamicTerm.
+// The package component is "pure": it takes an `entry` object plus
+// `tooltipsEnabled` / `showDiacritics` flags as props. This wrapper preserves
+// the MILOS call signature — `<IslamicTerm id="niyyah">label</IslamicTerm>` —
+// by looking up the entry via getGlossaryEntry(id) and pulling the toggles
+// from the settings store.
+import { IslamicTerm as PkgIslamicTerm } from '@ogden/ui-components';
 import { getGlossaryEntry } from '@data/islamic/islamic-glossary';
 import { useSettingsStore } from '../../store/settings-store';
-import { useArabic } from '../../hooks/useArabic';
-import './IslamicTerm.css';
 
-const TOOLTIP_W = 252;
-const GAP = 10;
-const MIN_ABOVE = 180;
-
-/**
- * IslamicTerm — wraps an Islamic/Arabic term with a hover tooltip definition.
- * Tooltip renders via portal to escape overflow:hidden ancestors.
- */
-export default function IslamicTerm({ id, children }) {
+export default function IslamicTerm({ id, children, ...rest }) {
   const tooltipsEnabled = useSettingsStore((s) => s.tooltipsEnabled);
-  const fmt = useArabic();
-  const [visible, setVisible] = useState(false);
-  const [pos, setPos] = useState({ top: undefined, bottom: undefined, left: 0, flipped: false });
-  const triggerRef = useRef(null);
+  const showDiacritics = useSettingsStore((s) => s.showDiacritics);
   const entry = getGlossaryEntry(id);
-
-  const show = useCallback(() => {
-    if (!triggerRef.current) return;
-    const r = triggerRef.current.getBoundingClientRect();
-    const flipped = r.top < MIN_ABOVE;
-    const top = flipped ? r.bottom + GAP : undefined;
-    const bottom = flipped ? undefined : window.innerHeight - r.top + GAP;
-    let left = r.left + r.width / 2 - TOOLTIP_W / 2;
-    left = Math.max(8, Math.min(left, window.innerWidth - TOOLTIP_W - 8));
-    setPos({ top, bottom, left, flipped });
-    setVisible(true);
-  }, []);
-
-  const hide = useCallback(() => setVisible(false), []);
-
   if (!entry) return children ?? null;
-
-  const tooltipId = `islamic-tooltip-${id}`;
-
   return (
-    <span
-      ref={triggerRef}
-      className="islamic-term"
-      onMouseEnter={show}
-      onMouseLeave={hide}
-      onFocus={show}
-      onBlur={hide}
-      tabIndex={0}
-      role="note"
-      aria-describedby={visible ? tooltipId : undefined}
+    <PkgIslamicTerm
+      entry={entry}
+      tooltipsEnabled={tooltipsEnabled}
+      showDiacritics={showDiacritics}
+      {...rest}
     >
-      {children ?? entry.term}
-
-      {visible && tooltipsEnabled && createPortal(
-        <span
-          id={tooltipId}
-          className={`islamic-term__tooltip${pos.flipped ? ' islamic-term__tooltip--below' : ''}`}
-          role="tooltip"
-          style={{ top: pos.top, bottom: pos.bottom, left: pos.left }}
-        >
-          <span className="islamic-term__header">
-            <span className="islamic-term__name">{entry.term}</span>
-            {entry.arabic && (
-              <span className="islamic-term__arabic">{fmt(entry.arabic)}</span>
-            )}
-          </span>
-
-          {entry.transliteration && (
-            <span className="islamic-term__trans">{entry.transliteration}</span>
-          )}
-
-          <span className="islamic-term__meaning">{entry.meaning}</span>
-
-          {entry.source && (
-            <span className="islamic-term__source">{entry.source}</span>
-          )}
-        </span>,
-        document.body
-      )}
-    </span>
+      {children}
+    </PkgIslamicTerm>
   );
 }
