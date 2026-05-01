@@ -1,5 +1,5 @@
-import UmmahPillarPage from './UmmahPillarPage';
+import MoontrancePillarPage from './MoontrancePillarPage';
 
 export default function MoontranceSeasonalPage() {
-  return <UmmahPillarPage pillarKey="moontrance-seasonal" />;
+  return <MoontrancePillarPage pillarKey="moontrance-seasonal" />;
 }

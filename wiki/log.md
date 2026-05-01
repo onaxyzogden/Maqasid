@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-01] session | MILOS — Moontrance Pillar Page split from Ummah wrapper
+
+**Objective:** Fix the Moontrance LevelNavigator on `/app/moontrance-{land,seasonal,residency}` — it was rendering the Ummah submodule navigator (Ummah / Neighbors / Community) instead of the Moontrance one (Land / Seasonal / Residency).
+
+**Outcome:**
+
+- Root cause: the three Moontrance sub-page wrappers in `src/pages/ummah/` all delegated to `UmmahPillarPage`, which hard-codes `UMMAH_PILLARS` into the shared `PillarLevelPage`.
+- New `MoontrancePillarPage` wrapper added at `src/pages/ummah/MoontrancePillarPage.jsx` feeds the existing Moontrance constants into `PillarLevelPage`. `boardPrefix="ummah"` preserved so the `ummah_moontrance-*_*` Kanban boards stay attached.
+- Land/Seasonal/Residency page wrappers re-pointed to the new wrapper. `UMMAH_PILLAR_MODULE_MAP` trimmed of three now-orphaned `moontrance-*` entries.
+- Segment labels in `MOONTRANCE_PILLARS` shortened from `"Moontrance Land/Seasonal/Residency"` to `"Land/Seasonal/Residency"` (topbar already supplies the Moontrance prefix).
+- Verified live in preview after re-installing deps in this worktree (no `node_modules` initially); dev server restart resolved a stale Vite resolution cache for `@ogden/ui-components/style.css`.
+- `npm run lint` clean; `npm test` 56/56; ratchets remain at 0.
+
+**Decision:** [[2026-05-01-moontrance-pillar-page-split]]
+
 ## [2026-05-01] session | Atlas — builtin "351 House" sample project
 
 **Objective:** Surface a read-only sample project on every account (and to
