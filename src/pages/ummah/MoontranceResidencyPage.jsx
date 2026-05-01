@@ -1,5 +1,5 @@
-import UmmahPillarPage from './UmmahPillarPage';
+import MoontrancePillarPage from './MoontrancePillarPage';
 
 export default function MoontranceResidencyPage() {
-  return <UmmahPillarPage pillarKey="moontrance-residency" />;
+  return <MoontrancePillarPage pillarKey="moontrance-residency" />;
 }
