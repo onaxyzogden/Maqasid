@@ -3,6 +3,70 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-01] session | Atlas — builtin "351 House" sample project
+
+**Objective:** Surface a read-only sample project on every account (and to
+unauthenticated visitors) that demonstrates Stage 1 (Roots & Diagnosis)
+end-to-end, works offline, and requires zero setup.
+
+**Outcome:**
+
+- **DB (migration 017):** new `is_builtin` column + sentinel UUID
+  `00000000-0000-0000-0000-0000005a3791`. Seeded 1 system user, 1 project
+  (Halton Hills 5-point polygon), 6 `project_layers`, 1 `terrain_analysis`
+  (240.1–268.4 m, 4.2° mean slope), 1 `site_assessment` (overall_score 84),
+  10 `design_features`, 2 `spiritual_zones`, 4 `regeneration_events`,
+  6 `project_relationships`. Tripped over the dropped per-axis score columns
+  from migration 009 — fixed by writing only `overall_score` + `score_breakdown`.
+- **API:** `GET /projects` and `GET /projects/:id` widened to `OR p.is_builtin
+  = true`; new unauthenticated `GET /projects/builtins` returning
+  `ProjectSummary` + `parcel_boundary_geojson`. RBAC short-circuits builtin
+  rows to viewer; `refuseIfBuiltin` blocks `PATCH` / `DELETE` / boundary
+  `POST` with 403.
+- **Frontend:** `hydrateBuiltins` fetches `/builtins` and falls back to a
+  hard-coded `LOCAL_BUILTIN_FALLBACK` (same UUID + boundary) so the home
+  page works with the API stopped. `applyBuiltinsToStore` writes one
+  `LocalProject` per builtin row, spreads `BUILTIN_PROJECT_NARRATIVE`
+  (ownerNotes/zoningNotes/accessNotes/waterRightsNotes/visionStatement),
+  caches the boundary GeoJSON to IndexedDB, and seeds the local Zustand
+  stores via `seedBuiltinObserveData`.
+- **Stage 1 hydration:** new `apps/web/src/data/builtinSampleObserveData.ts`
+  populates 7 stores — vision (steward + 3 phase notes), externalForces
+  (3 hazards + 4 sectors), topography (1 transect, 11-point profile),
+  soilSample (2 samples), ecology (4 observations + succession 'mid'),
+  swot (1 per bucket), and siteData (synthesized `climate` + `elevation`
+  layers mirroring migration 017's numbers). All idempotent on the local
+  project id.
+- **Pre-existing bug fixed in same change-set:** ObserveHub typed
+  `getLayerSummary` reads as camelCase but the canonical `LayerSummaryMap`
+  is snake_case — the four Macroclimate/Topography numeric rows
+  (Hardiness zone, Annual precip, Mean slope, Elevation range) had been
+  silently rendering `—` for every project. Fixed by switching to
+  `hardiness_zone` / `annual_precip_mm` / `min_elevation_m` /
+  `max_elevation_m` / `mean_slope_deg`.
+- **Verification:** offline reload → 351 House card visible, all six
+  Stage 1 modules populated, the four previously broken numeric rows show
+  6a / 875 mm / 4.2° / 240–268 m. `pnpm --filter @ogden/web exec tsc
+  --noEmit` clean.
+
+ADR: [[2026-05-01-atlas-builtin-sample-project]].
+
+### Session Debrief
+- **Completed:** Builtin sample landed end-to-end (DB → API → frontend stores
+  → ObserveHub render). Field-name mismatch on the four numeric rows
+  resolved as a bonus. Fallback path makes the home page work with the API
+  stopped and the visitor signed-out.
+- **Deferred:** Authenticated `/projects/:id/layers` endpoint that would
+  populate `useSiteDataStore` from real `project_layers` rows (the seed is
+  currently the only source of those values for the builtin); same
+  camelCase/snake_case audit on the groundwater `getLayerSummary` cast in
+  ObserveHub line ~196; surfacing `design_features` / `spiritual_zones` /
+  `regeneration_events` on the Design Map / Intelligence tabs for
+  unauthenticated visitors.
+- **Recommended next:** Wire `/projects/:id/layers` so the synthesized
+  fixture can be retired, then audit the remaining ObserveHub
+  `getLayerSummary` casts for the snake_case fix.
+
 ## [2026-04-30] session | @ogden/ui-components — GitHub release + MILOS wrapper adoption
 
 **Objective:** Ship the prior-session-extracted `@ogden/ui-components`

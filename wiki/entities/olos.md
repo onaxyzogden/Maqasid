@@ -2,7 +2,7 @@
 title: "OLOS"
 type: entity
 created: 2026-04-09
-updated: 2026-04-29
+updated: 2026-05-01
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
 ---
@@ -26,6 +26,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 ## Current Status
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
+
+**2026-05-01:** Builtin "351 House — Atlas Sample" project landed. New `is_builtin` column + sentinel UUID `00000000-0000-0000-0000-0000005a3791`; migration 017 seeds 1 project + 6 `project_layers` + `terrain_analysis` + `site_assessment` + `design_features` / `spiritual_zones` / `regeneration_events` / `project_relationships`. RBAC short-circuits builtins to viewer; `refuseIfBuiltin` blocks mutations. New unauthenticated `GET /projects/builtins` (with `parcel_boundary_geojson`) plus a hard-coded `LOCAL_BUILTIN_FALLBACK` so the home page works offline / signed-out. Frontend `seedBuiltinObserveData` hydrates 7 Zustand stores (vision, externalForces, topography, soilSample, ecology, swot, siteData) keyed to the local UUID — every Stage 1 module renders real content without auth. Same change-set fixed a pre-existing camelCase/snake_case mismatch in `ObserveHub.tsx`'s `getLayerSummary` casts that had been silently breaking the four Macroclimate/Topography numeric rows for every project. ADR: [[2026-05-01-atlas-builtin-sample-project]].
 
 **2026-04-28:** Estate palette migration — entire Atlas chrome repainted from warm-brown to dark-estate green/gold/sage in both `data-theme="dark"` and `data-theme="light"`, plus per-project Dashboard Overview restyled to the reference mock (serif Cormorant Garamond display, translucent gold-bordered panels, sage active state, circular-icon lifecycle sidebar). Introduced `--color-on-primary` (`#2a2018`) / `--color-on-accent` (`#1a2418`) tokens to fix the white-on-gold button contrast (axe finding 2.23:1 → 8.5:1). 35 files touched; map polygon palettes and earth-tokens preserved per the biophilic-data rule. See [[2026-04-28-atlas-estate-palette-migration]].
 
