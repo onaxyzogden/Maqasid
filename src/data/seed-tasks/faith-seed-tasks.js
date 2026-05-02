@@ -2852,12 +2852,14 @@ Study the fard acts according to your madhab. Hanafi fard: wash face, wash arms 
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih Muslim 604",
-              translation: "A'isha reported:The Messenger of Allah (ﷺ) said: Ten are the acts according to fitra: clipping the moustache, letting the beard grow, using the tooth-stick, snuffing water in the nose, cutting the nails, washing the finger joints, plucking the hair under the armpits, shaving the pubes and cleaning one's private parts with water. The narrator said: I have forgotten the tenth, but it may have been rinsing the mouth",
+              ref: "Sahih Muslim 261a",
+              arabic: "عَنْ عَائِشَةَ، قَالَتْ قَالَ رَسُولُ اللَّهِ ﷺ \"عَشْرٌ مِنَ الْفِطْرَةِ قَصُّ الشَّارِبِ وَإِعْفَاءُ اللِّحْيَةِ وَالسِّوَاكُ وَاسْتِنْشَاقُ الْمَاءِ وَقَصُّ الأَظْفَارِ وَغَسْلُ الْبَرَاجِمِ وَنَتْفُ الإِبْطِ وَحَلْقُ الْعَانَةِ وَانْتِقَاصُ الْمَاءِ\"",
+              translation: "'A'isha (RA) reported: The Messenger of Allah ﷺ said, \"Ten are the acts according to fitra: clipping the moustache, letting the beard grow, using the tooth-stick (miswak), snuffing water in the nose, cutting the nails, washing the finger joints, plucking the hair under the armpits, shaving the pubes, and cleaning one's private parts with water.\" The narrator said: I have forgotten the tenth, but it may have been rinsing the mouth.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih Muslim 604 (mis-numbered) to canonical Sahih Muslim 261a — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02. Matn (Ten Acts of Fitrah) unchanged.",
+              rationale: "Direct prophetic enumeration of fitrah acts including miswak, rinsing nose, and washing finger joints — the explicit textual basis for the wudu sunan in this subtask.",
             },
           ],
           description: `**Why?**
@@ -3149,12 +3151,14 @@ Take each adhkar you have memorised (opening du'a, Tashahhud, Salawat, du'a befo
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih al-Bukhari 1767",
-              translation: "Narrated Nafi`:Ibn `Umar used to spend the night at Dhi-Tuwa in between the two Thaniyas and then he would enter Mecca through the Thaniya which is at the higher region of Mecca, and whenever he came to Mecca for Hajj or `Umra, he never made his she camel kneel down except near the gate of the Masjid (Sacred Mosque) and then he would enter (it) and go to the Black (stone) Corner and start from there circumambulating the Ka`ba seven times: hastening in the first three rounds (Ramal) and walking in the last four. On finishing, he would offer two rak`at prayer and set out to perform Tawaf between Safa and Marwa before returning to his dwelling place. On returning (to Medina) from Hajj or `Umra, he used to make his camel kneel down at Al-Batha which is at Dhul-Hulaifa, the place where the Prophet used to make his camel kneel down",
+              ref: "Sahih al-Bukhari 647",
+              arabic: "عَنْ أَبِي هُرَيْرَةَ، قَالَ قَالَ رَسُولُ اللَّهِ ﷺ \"صَلاَةُ الرَّجُلِ فِي الْجَمَاعَةِ تُضَعَّفُ عَلَى صَلاَتِهِ فِي بَيْتِهِ وَفِي سُوقِهِ خَمْسًا وَعِشْرِينَ ضِعْفًا، وَذَلِكَ أَنَّهُ إِذَا تَوَضَّأَ فَأَحْسَنَ الْوُضُوءَ ثُمَّ خَرَجَ إِلَى الْمَسْجِدِ، لاَ يُخْرِجُهُ إِلاَّ الصَّلاَةُ، لَمْ يَخْطُ خَطْوَةً إِلاَّ رُفِعَتْ لَهُ بِهَا دَرَجَةٌ، وَحُطَّ عَنْهُ بِهَا خَطِيئَةٌ\"",
+              translation: "Abu Hurayra (RA) reported: The Messenger of Allah ﷺ said, \"The prayer offered in congregation is twenty-five times more rewarding than the prayer offered alone in one's house or marketplace, because when a person performs ablution well and then proceeds to the mosque with the sole intention of praying, then for each step he takes towards the mosque he is raised one degree in reward and one of his sins is forgiven.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih al-Bukhari 1767 (an unrelated narration about Ibn ʿUmar's Hajj routes) to Sahih al-Bukhari 647 — the canonical hadith of 25× congregational reward and the steps-toward-the-masjid promise — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02.",
+              rationale: "Direct prophetic basis for valuing the masjid-going habit: 25× reward and per-step elevation make identifying the nearest masjid and its times a high-leverage logistical sunan.",
             },
           ],
           description: `**Why?**
@@ -3219,12 +3223,14 @@ Choose the prayer that is most feasible for you to attend at the masjid -- Fajr 
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih al-Bukhari 1572",
-              translation: "Ibn 'Abbas said that he has been asked regarding Hajj-at-Tamattu' on which he said:\"The Muhajirin and the Ansar and the wives of the Prophet (ﷺ) and we did the same. When we reached Makkah, Allah's Messenger (ﷺ) said, \"Give up your intention of doing the Hajj (at this moment) and perform 'Umra, except the one who had garlanded the Hady.\" So, we performed Tawaf round the Ka'bah and [Sa'y] between As-safa and Al-MArwa, slept with our wives and wore ordinary (stitched) clothes. The Prophet (ﷺ) added, \"Whoever has garlanded his Hady is not allowed to finish the Ihram till the Hady has reached its destination (has been sacrificed)\". Then on the night of Tarwiya (8th Dhul Hijjah, in the afternoon) he ordered us to assume Ihram for Hajj and when we had performed all the ceremonies of Hajj, we came and performed Tawaf round the Ka'bah and (Sa'y) between As-Safa and Al-Marwa, and then our Hajj was complete, and we had to sacrifice a Hady according to the statement of Allah: \"... He must slaughter a Hady such as he can afford, but if he cannot afford it, he should observe Saum (fasts) three days during the Hajj and seven days after his return (to his home)….\" (V. 2:196). And the sacrifice of the sheep is sufficient. So, the Prophet (ﷺ) and his Companions joined the two religious deeds, (i.e. Hajj and 'Umra) in one year, for Allah revealed (the permissibility) of such practice in His book and in the Sunna (legal ways) of His Prophet (ﷺ) and rendered it permissible for all the people except those living in Makkah. Allah says: \"This is for him whose family is not present at the Al-Masjid-Al-Haram, (i.e. non resident of Makkah).\" The months of Hajj which Allah mentioned in His book are: Shawwal, Dhul-Qa'da and Dhul-Hijjah. Whoever performed Hajj-at-Tamattu' in those months, then slaughtering or fasting is compulsory for him. The words: 1. Ar-Rafatha means sexual intercourse. 2. Al-Fasuq means all kinds of sin, and 3. Al-Jidal means to dispute",
+              ref: "Sahih al-Bukhari 667",
+              arabic: "عَنْ مَحْمُودِ بْنِ الرَّبِيعِ الأَنْصَارِيِّ، أَنَّ عِتْبَانَ بْنَ مَالِكٍ ـ أَنَّهُ أَتَى رَسُولَ اللَّهِ ﷺ فَقَالَ يَا رَسُولَ اللَّهِ قَدْ أَنْكَرْتُ بَصَرِي، وَأَنَا أُصَلِّي لِقَوْمِي، فَإِذَا كَانَتِ الأَمْطَارُ سَالَ الْوَادِي الَّذِي بَيْنِي وَبَيْنَهُمْ، لَمْ أَسْتَطِعْ أَنْ آتِيَ مَسْجِدَهُمْ فَأُصَلِّيَ بِهِمْ، وَوَدِدْتُ يَا رَسُولَ اللَّهِ أَنَّكَ تَأْتِينِي فَتُصَلِّيَ فِي بَيْتِي، فَأَتَّخِذَهُ مُصَلًّى. قَالَ فَقَالَ لَهُ رَسُولُ اللَّهِ ﷺ \"سَأَفْعَلُ إِنْ شَاءَ اللَّهُ\"",
+              translation: "ʿItban bin Malik (RA), who was a blind man, said to the Messenger of Allah ﷺ, \"O Messenger of Allah, my eyesight has weakened, and I lead my people in prayer; but when the rains come, the valley between me and them floods and I cannot reach their masjid to lead them. I wish, O Messenger of Allah, that you would come to my house and pray, so I could take that spot as a place of prayer.\" The Messenger of Allah ﷺ said, \"I will do so, if Allah wills.\" (He later came and prayed with him in two rakʿah congregational prayer at Itban's house.)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih al-Bukhari 1572 (an unrelated narration about Hajj-at-Tamattuʿ) to Sahih al-Bukhari 667 — the canonical hadith of the Prophet ﷺ establishing congregational prayer at Itban bin Malik's home when reaching the masjid was infeasible — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02.",
+              rationale: "Direct prophetic precedent for praying jamaʿah at home when reaching the masjid is impractical — the exact scenario this subtask addresses.",
             },
           ],
           description: `**Why?**
@@ -3512,13 +3518,14 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
           title: "Recite the tasbih of 33/33/34 (Subhan Allah, Alhamdulillah, Allahu Akbar)",
           done: false,
           tier: "T2",
-          amanahRationale: "Sahih Muslim 597 preserves both the counts and the foam-of-the-sea sin-erasure promise tied to this post-prayer dhikr.",
+          amanahRationale: "Sahih Muslim 597a preserves both the counts and the foam-of-the-sea sin-erasure promise tied to this post-prayer dhikr.",
           why: "This dhikr, done after every fard, erases sins like the foam of the sea \u2014 a promise of enormous mercy tied to two minutes of practice. It is the prophetic bridge between the salam and the next act of the day.",
           how: "Sit in your prayer place; count on your fingers or use the knuckles of your right hand (prophetic method). Say SubhanAllah \u00d733, Alhamdulillah \u00d733, Allahu Akbar \u00d733 \u2014 then complete the hundredth with 'La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, wa huwa \u02bbala kulli shay\u02bbin qadir.'",
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih Muslim 597",
+              ref: "Sahih Muslim 597a",
+              ratNote: "Updated 2026-05-02 from 'Sahih Muslim 597' to canonical 'Sahih Muslim 597a' — Muslim 597a is the Abu Hurayra narration with the 33/33/33 + complete-100 + foam-of-the-sea forgiveness matn (matching this entry); Muslim 596 is a different Ka'b ibn Ujrah narration with 33/33/34 and no sea-foam phrase. Verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02.",
               arabic: "مَنْ سَبَّحَ اللَّهَ فِي دُبُرِ كُلِّ صَلاَةٍ ثَلاَثًا وَثَلاَثِينَ، وَحَمِدَ اللَّهَ ثَلاَثًا وَثَلاَثِينَ، وَكَبَّرَ اللَّهَ ثَلاَثًا وَثَلاَثِينَ، فَتِلْكَ تِسْعَةٌ وَتِسْعُونَ، وَقَالَ تَمَامَ الْمِائَةِ: لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ \u2014 غُفِرَتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ.",
               translation: "Abu Hurayra (RA) reported: The Messenger of Allah \uFDFA said, \"Whoever glorifies Allah after every prayer thirty-three times, praises Allah thirty-three times, and exalts Allah thirty-three times \u2014 that is ninety-nine \u2014 and says to complete the hundred: 'La ilaha illa Allah, wahdahu la sharika lah, lahul-mulku wa lahul-hamd, wa huwa ala kulli shay'in qadir' (There is no god but Allah, alone, without partner; to Him belongs sovereignty and to Him is praise due, and He is Potent over everything) \u2014 his sins will be forgiven even if they were like the foam of the sea.\"",
               relevance: "direct",
@@ -4512,12 +4519,14 @@ Study a word-by-word translation of Al-Fatihah. Then read the hadith qudsi in Sa
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih Muslim 867",
-              translation: "Abu Salama reported:Abu Huraira led prayer for them and recited takbir when he bent and raised himself (in ruku' and sujud) and after completing (the prayer) he said: By Allah I say prayer which has the best resemblance with the prayer of the Prophet (ﷺ) amongst you",
+              ref: "Sahih Muslim 487",
+              arabic: "عَنْ عَائِشَةَ، أَنَّ رَسُولَ اللَّهِ ﷺ كَانَ يَقُولُ فِي رُكُوعِهِ وَسُجُودِهِ ‏\"‏ سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلاَئِكَةِ وَالرُّوحِ ‏\"‏",
+              translation: "'A'isha (RA) reported that the Messenger of Allah (ﷺ) used to pronounce while bowing and prostrating himself: \"Subbuhun Quddusun Rabbu'l-mala'ikati wa'r-ruh\" (All Glorious, All Holy, Lord of the Angels and the Spirit).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih Muslim 867 (which is about saying takbir when transitioning) to Sahih Muslim 487 — the actual hadith of the adhkar recited IN ruku/sujud — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02.",
+              rationale: "Direct prophetic formula recited in ruku and sujud — the operative dhikr text whose meaning the subtask asks the user to learn.",
             },
           ],
           description: `**Why?**
@@ -8103,6 +8112,17 @@ Use a simple tally, spreadsheet, or app to count down your remaining fasts. Mark
               ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 1923 confirmed.',
               rationale: 'Direct prophetic command: suhur is named as the locus of barakah for the fasting day. Even a sip of water counts in the wider sunnah.',
             },
+            {
+              kind: 'hadith',
+              ref: 'Mishkat al-Masabih 1996',
+              arabic: 'عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «السَّحُورُ كُلُّهُ بَرَكَةٌ فَلَا تَدَعُوهُ وَلَوْ أَنْ يَجْرَعَ أَحَدُكُمْ جُرْعَةً مِنْ مَاءٍ فَإِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى الْمُتَسَحِّرِينَ»',
+              translation: 'Abu Saʿid al-Khudri (RA) reported: The Messenger of Allah ﷺ said, "Suhur is entirely a blessing, so do not abandon it, even if one of you only takes a sip of water. For Allah and His angels send blessings upon those who take suhur."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Hasan',
+              ratNote: 'Added 2026-05-02 as a second corroborating source — this hadith specifically names "a sip of water" matching the subtask wording exactly. Verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02. Promotes the entry from single-source to multi-source.',
+              rationale: 'Direct match for the operative phrase "even a sip of water" in this subtask\'s title — strengthens the single Bukhari 1923 source with an explicit corroborating narration.',
+            },
           ],
           description: `**Why?**
 
@@ -8326,13 +8346,13 @@ The Prophet (SAW) made the body itself testify to the end of the fast — eating
           sources: [
             {
               kind: 'hadith',
-              ref: 'Sahih al-Bukhari 970',
+              ref: "Sahih al-Bukhari (mu'allaq, Kitab al-ʻIdayn, chapter heading preceding hadith 971)",
               translation: 'Nafi\u02bb reported: Ibn \u02bbUmar (RA) used to raise his voice with the takbir on the day of \u02bb\u012ad — going out to the musalla and even in the marketplace — and the people would raise the takbir with him.',
-              relevance: 'direct',
-              provenanceTier: 'Bayyinah',
-              hadithGrade: 'Sahih',
-              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari (chapter on takbir on the days of Mina and going to \u02bbArafah) confirmed.',
-              rationale: 'Establishes the takbir mutlaq as a public, audible \u02bb\u012ad-day practice — not a silent personal dhikr but a community signal.',
+              relevance: 'contextual',
+              provenanceTier: 'Qarina',
+              hadithGrade: 'Hasan',
+              ratNote: 'Re-verified 2026-05-02 against NotebookLM Muslim Scholar: this narration is a mu\u02bballaq (suspended) report appearing in the chapter heading of Kitab al-\u02bbIdayn, not a numbered hadith. Sahih al-Bukhari 970 (the previously cited number) is unrelated — it concerns women attending the \u02bb\u012ad prayer. Provenance downgraded from Bayyinah to Qarina; grade marked Hasan pending isnad audit.',
+              rationale: 'Companion practice (Ibn \u02bbUmar) modeling audible takbir as a public \u02bb\u012ad-day signal. Treated as supporting evidence rather than a primary canonical proof given the suspended chain.',
             },
           ],
           description: `**Why?**
@@ -8829,11 +8849,12 @@ Memorize the du'a: "Dhahaba al-dhama', wabtallat al-uruq, wa thabata al-ajr in s
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1915",
-              translation: "Narrated Al-Bara:It was the custom among the companions of Muhammad that if any of them was fasting and the food was presented (for breaking his fast), but he slept before eating, he would not eat that night and the following day till sunset. Qais bin Sirma-al-Ansari was fasting and came to his wife at the time of Iftar (breaking one's fast) and asked her whether she had anything to eat. She replied, \"No, but I would go and bring some for you.\" He used to do hard work during the day, so he was overwhelmed by sleep and slept. When his wife came and saw him, she said, \"Disappointment for you.\" When it was midday on the following day, he fainted and the Prophet (ﷺ) was informed about the whole matter and the following verses were revealed: \"You are permitted To go to your wives (for sexual relation) At the night of fasting.\" So, they were overjoyed by it. And then Allah also revealed: \"And eat and drink Until the white thread Of dawn appears to you Distinct from the black thread (of the night)",
-              relevance: "direct",
+              translation: "Narrated Al-Bara: It was the custom among the companions of Muhammad ﷺ that if any of them was fasting and the food was presented (for breaking his fast), but he slept before eating, he would not eat that night and the following day till sunset... and then Allah revealed: \"And eat and drink until the white thread of dawn appears to you distinct from the black thread of the night.\"",
+              relevance: "contextual",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Re-tagged 2026-05-02 from `direct` to `contextual` after NotebookLM Muslim Scholar (backup notebook) flagged the matn as topically WEAK for this subtask: Bukhari 1915 establishes the timing of suhur/iftar via the revelation of Quran 2:187, but does not list specific foods the Prophet ate. The matn supports the underlying timing of the meals (contextual to 'what the Prophet ate') rather than directly enumerating his menu.",
+              rationale: "Establishes the prophetic-era practice and Quranic authorization of eating until the dawn-thread becomes visible — the temporal framing the subtask builds on, even though it does not enumerate the specific foods.",
             },
           ],
           description: `**Why?**
@@ -8929,12 +8950,14 @@ Arafah is the 9th of Dhul Hijjah; Ashura is the 10th of Muharram. At the start o
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih al-Bukhari 4521",
-              translation: "Narrated Ibn `Abbas:A man who wants to perform the Hajj (from Mecca) can perform the Tawaf around the Ka`ba as long as he is not in the state of Ihram till he assumes the Ihram for Hajj. Then, if he rides and proceeds to `Arafat, he should take a Hadi (i.e. animal for sacrifice), either a camel or a cow or a sheep, whatever he can afford; but if he cannot afford it, he should fast for three days during the Hajj before the day of `Arafat, but if the third day of his fasting happens to be the day of `Arafat (i.e. 9th of Dhul-Hijja) then it is no sin for him (to fast on it). Then he should proceed to `Arafat and stay there from the time of the `Asr prayer till darkness falls. Then the pilgrims should proceed from `Arafat, and when they have departed from it, they reach Jam' (i.e. Al-Muzdalifa) where they ask Allah to help them to be righteous and dutiful to Him, and there they remember Allah greatly or say Takbir (i.e. Allah is Greater) and Tahlil (i.e. None has the right to be worshipped but Allah) repeatedly before dawn breaks. Then, after offering the morning (Fajr) prayer you should pass on (to Mina) for the people used to do so and Allah said:-- \"Then depart from the place whence all the people depart. And ask for Allah's Forgiveness. Truly! Allah is Oft-Forgiving, Most Merciful.\" (2.199) Then you should go on doing so till you throw pebbles over the Jamra",
+              ref: "Sahih Muslim 1162",
+              arabic: "وَسُئِلَ عَنْ صَوْمِ يَوْمِ عَرَفَةَ فَقَالَ \"يُكَفِّرُ السَّنَةَ الْمَاضِيَةَ وَالْبَاقِيَةَ\"",
+              translation: "He (the Prophet ﷺ) was asked about fasting on the day of Arafah and said: \"It expiates the sins of the preceding year and the coming year.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih al-Bukhari 4521 (which is about pilgrims' compensatory fast during Hajj) to Sahih Muslim 1162 — the canonical hadith of the day-of-Arafah fast for non-pilgrims expiating two years — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02.",
+              rationale: "Direct prophetic statement on the recommended day-of-Arafah fast for non-pilgrims and its two-year sin-expiation reward.",
             },
           ],
           description: `**Why?**
@@ -8998,12 +9021,14 @@ Identify the 9th and 10th of Muharram on your Hijri calendar. Fast both days if 
             },
             {
               kind: "hadith",
-              ref: "Sahih Muslim 2758",
-              translation: "Narrated Abu Ayyub al-Ansari: The Messenger of Allah (ﷺ) said, \"He who fasts during Ramadan and follows it up with six (fasts) of Shawwal, it is as if he fasted perpetually.\"",
+              ref: "Sahih Muslim 1164",
+              arabic: "عَنْ أَبِي أَيُّوبَ الأَنْصَارِيِّ، أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ \"مَنْ صَامَ رَمَضَانَ ثُمَّ أَتْبَعَهُ سِتًّا مِنْ شَوَّالٍ كَانَ كَصِيَامِ الدَّهْرِ\"",
+              translation: "Abu Ayyub al-Ansari (RA) reported: The Messenger of Allah ﷺ said, \"Whoever fasts Ramadan and then follows it with six (fasts) of Shawwal, it is as if he fasted the whole year.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih Muslim 2758 (mis-numbered) to canonical Sahih Muslim 1164 — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02 with chapter citation 'Excellence of observing fast for six days in Shawwal after Ramadan'.",
+              rationale: "Direct prophetic narration on the six-fasts-of-Shawwal sunnah and its perpetual-fasting reward.",
             },
           ],
           description: `**Why?**
@@ -9020,12 +9045,14 @@ You can fast the six days consecutively starting from 2nd Shawwal, or spread the
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih Muslim 2758",
-              translation: "Abu Ayyub al-Ansari (Allah be pleased with him) reported Allah's Messenger (ﷺ) as saying:He who observed the fast of Ramadan and then followed it with six (fasts) of Shawwal. it would be as if he fasted perpetually",
+              ref: "Sahih Muslim 1164",
+              arabic: "عَنْ أَبِي أَيُّوبَ الأَنْصَارِيِّ، أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ \"مَنْ صَامَ رَمَضَانَ ثُمَّ أَتْبَعَهُ سِتًّا مِنْ شَوَّالٍ كَانَ كَصِيَامِ الدَّهْرِ\"",
+              translation: "Abu Ayyub al-Ansari (RA) reported: The Messenger of Allah ﷺ said, \"Whoever fasts Ramadan and then follows it with six (fasts) of Shawwal, it is as if he fasted the whole year.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              ratNote: "Updated 2026-05-02 from Sahih Muslim 2758 (mis-numbered) to canonical Sahih Muslim 1164 — verified via NotebookLM Muslim Scholar (backup notebook) on 2026-05-02.",
+              rationale: "Direct prophetic narration on the six-fasts-of-Shawwal sunnah and its perpetual-fasting reward.",
             },
           ],
           description: `**Why?**

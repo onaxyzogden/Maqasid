@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-02] session | MILOS — Faith pillar launch-readiness grounding review
+
+**Objective:** Re-verify the Faith pillar's targeted weak grounding entries (43 ratNote + 61 single-source subtasks) against NotebookLM Muslim Scholar and fix every defect inline.
+
+**Outcome:**
+
+- 69 unique entries probed across 15 NotebookLM batches (one ref per probe in parallel via PowerShell + `notebooklm ask --json`, on backup notebook `be921648-...` since canonical was unreachable).
+- 9 reference defects fixed inline in `src/data/seed-tasks/faith-seed-tasks.js`: Muslim 867→487, Bukhari 4521→Muslim 1162, Muslim 2758→1164 (×2), Muslim 604→261a, Bukhari 1767→647, Bukhari 1572→667, Muslim 597→597a.
+- 1 entry promoted single→multi-source (suhur "sip of water" + Mishkat 1996).
+- 1 entry honestly downgraded: Bukhari 970 ʻId-takbir was actually a *muʻallaq* (suspended) chapter heading, not a numbered hadith. Ref rewritten, relevance direct→contextual, provenance Bayyinah→Qarina, grade Sahih→Hasan, ratNote explains.
+- 15 WEAK relevance flags from NotebookLM documented as advisory; one (Bukhari 1915 / suhur foods) retagged direct→contextual.
+- Tests 56/56; lint clean (per-pillar legacy 0, empty-array 1, inline-refs 0).
+
+**ADR:** [[2026-05-02-milos-faith-launch-readiness-review]]
+
+**Next:** Apply same protocol to the Ummah pillar (largest entry count at 525).
+
+---
+
 ## [2026-05-01] session | MILOS — Moontrance Pillar Page split from Ummah wrapper
 
 **Objective:** Fix the Moontrance LevelNavigator on `/app/moontrance-{land,seasonal,residency}` — it was rendering the Ummah submodule navigator (Ummah / Neighbors / Community) instead of the Moontrance one (Land / Seasonal / Residency).
