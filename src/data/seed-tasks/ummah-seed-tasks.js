@@ -18327,12 +18327,12 @@ Not every interested family is a good fit for a founding cohort, and that is not
           sources: [
             {
               kind: "hadith",
-              ref: "Sahih al-Bukhari 2533",
-              translation: "The Prophet (peace be upon him) paired each Muhajir with an Ansari upon arriving in Madinah, establishing a model of mutual discernment and support between newcomers and hosts. The vetting process follows this Prophetic precedent.",
-              relevance: "direct",
+              ref: "Sahih al-Bukhari 3937",
+              translation: "When the emigrants arrived in Madinah, the Prophet (peace be upon him) established a bond of fraternity between the Muhajirun and the Ansar — pairing each newcomer with a host who would share resources and discernment. The vetting process follows this Prophetic precedent of mutual matching.",
+              relevance: "contextual",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Prophetic precedent of structured Muhajir/Ansar pairing as a model for mutual discernment between prospective and existing members. Re-verified 2026-05-02 against NotebookLM Muslim Scholar — original ref Sahih al-Bukhari 2533 was incorrect (that hadith concerns mudabbar slave emancipation, unrelated to vetting); corrected to Bukhari 3937 which matches the translation text.",
             },
           ],
           description: `**Why?**

@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-02] session | MILOS — Ummah pillar launch-readiness grounding review
+
+**Objective:** Apply the Faith protocol to Ummah — re-verify weak grounding entries (2 ratNote + 81 single-source) against NotebookLM Muslim Scholar and fix defects inline.
+
+**Outcome:**
+
+- 83 unique entries in scope, covering 54 unique refs across 89 ref-instances. 24 refs verified directly (top-frequency + 8 long-tail samples).
+- 23/24 confirmed accurate (~96%). One defect found and fixed: settling submodule "Design the vetting process" cited Sahih al-Bukhari **2533** (mudabbar slave-emancipation, unrelated) — the translation field actually described Bukhari **3937** (Muhajir/Ansar fraternity). Corrected ref number, relevance downgraded direct→contextual, rationale annotated.
+- 5 advisory relevance retags (direct→thematic) suggested by NotebookLM but preserved as operator judgment per Faith protocol.
+- Defect rate ~4% (Faith was ~10%) — Ummah grounding materially cleaner.
+- Tests 56/56; lint clean; all 3 ratchets at minimum.
+
+**ADR:** [[2026-05-02-milos-ummah-launch-readiness-review]]
+
+**Recommended next session:** Apply same protocol to Life pillar, or batch the 5 remaining smaller pillars (Life, Intellect, Family, Wealth, Environment) together.
+
+---
+
 ## [2026-05-02] session | MILOS — Faith pillar launch-readiness grounding review
 
 **Objective:** Re-verify the Faith pillar's targeted weak grounding entries (43 ratNote + 61 single-source subtasks) against NotebookLM Muslim Scholar and fix every defect inline.
