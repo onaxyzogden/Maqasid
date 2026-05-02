@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-04-30
+updated: 2026-05-02
 
 ---
 
@@ -38,6 +38,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Date | Summary |
 |---|---|---|
+| [[2026-05-02-prophetic-path-landing-preview]] | 2026-05-02 | Landing page replaces 3D `DemoCarousel` with a dedicated `PropheticPathPreview` (phone frame, 12 frozen prayer/Sunnah nodes, sticky-pinned scrubber, click-sticky selection). Standalone component — no real `PropheticPath` mount, no Zustand reads — to keep the bundle small and the demo identical for every visitor. Scholar-driven motion: time-travel sweep entrance, breathing gold pulse on active node, satellite cross-fade |
 | [[2026-05-01-moontrance-pillar-page-split]] | 2026-05-01 | Moontrance sub-pages stop borrowing `UmmahPillarPage`; new `MoontrancePillarPage` wrapper feeds Moontrance constants into the shared `PillarLevelPage` so the Land/Seasonal/Residency LevelNavigator finally renders correctly. `boardPrefix="ummah"` retained to preserve existing Kanban board IDs; segment labels shortened (topbar already supplies the "Moontrance" prefix) |
 | [[2026-04-30-ogden-ui-components-github-direct]] | 2026-04-30 | `@ogden/ui-components` package shipped as GitHub-pinned dependency (`github:onaxyzogden/ogden-ui-components#v0.1.0`), not npm. `dist/` committed so consumers run no build step. MILOS adopts via thin wrappers at the original three component paths (LevelNavigator/IslamicTerm/MaqasidComparisonWheel) — zero churn at ~60 call sites. Singleton stores (wheelHoverStore/mithaqStore) and hooks (useMithaqHold/useMilestoneWatcher) collapsed to one-line re-exports to preserve module-instance identity. Critical Vite gotcha: must add `optimizeDeps.exclude: ['@ogden/ui-components']` (else pre-bundling fragments externalized React → "Invalid hook call") |
 | [[2026-04-30-ui-components-package-dev-fixes]] | 2026-04-30 | Fix @ogden/ui-components dev-mode resolution — Vite aliases + 5 package import bugs, preview restored |
