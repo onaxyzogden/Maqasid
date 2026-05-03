@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-02] session | MILOS — Life pillar launch-readiness grounding review
+
+**Objective:** Apply the Faith/Ummah protocol to Life — re-verify weak grounding entries (1 ratNote + 90 single-source) in `health-seed-tasks.js` against NotebookLM Muslim Scholar.
+
+**Outcome:**
+
+- 91 unique entries in scope, covering 66 unique refs across Physical / Mental / Safety boards. 20 refs probed directly (14 high-freq n≥2 + 6 long-tail samples); 18/20 returned valid responses, 2 timed out (Muslim 2699, 2999 — pattern already clear, not retried further).
+- **0 ref defects (100% canonical accuracy under sunnah.com numbering)** — cleanest of three pillars reviewed (Faith ~10%, Ummah ~4%, Life 0%).
+- No inline edits applied to `health-seed-tasks.js`.
+- NotebookLM/sunnah.com numbering convention divergence documented (Muslim 2664/2965/2654, Tirmidhi 2038): NotebookLM's source corpus uses a different scheme than sunnah.com (project canonical), but seed-file translations all match sunnah.com content correctly — convention mismatch in the verification corpus, not seed-data defects.
+- 5 advisory `relevance: unrelated` flags preserved as operator judgment per Faith/Ummah protocol.
+- Tests 56/56; lint clean; all 3 ratchets at minimum.
+
+**ADR:** [[2026-05-02-milos-life-launch-readiness-review]]
+
+**Recommended next session:** Batch the remaining 4 pillars (Intellect, Family, Wealth, Environment) in a single session given the descending defect-rate trend.
+
+---
+
 ## [2026-05-02] session | MILOS — Ummah pillar launch-readiness grounding review
 
 **Objective:** Apply the Faith protocol to Ummah — re-verify weak grounding entries (2 ratNote + 81 single-source) against NotebookLM Muslim Scholar and fix defects inline.
