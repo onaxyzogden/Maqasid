@@ -235,7 +235,7 @@ export default function App() {
         <Route path="pillar/wealth" element={<CeremonyGuard moduleId="wealth-core" isLevel1><WealthCorePage /></CeremonyGuard>} />
         <Route path="pillar/environment" element={<CeremonyGuard moduleId="environment-core" isLevel1><EnvironmentCorePage /></CeremonyGuard>} />
         <Route path="pillar/ummah" element={<CeremonyGuard moduleId="ummah"><UmmahDashboard /></CeremonyGuard>} />
-        <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
+        <Route path="pillar/moontrance" element={<CeremonyGuard moduleId="moontrance"><MoontraceDashboard /></CeremonyGuard>} />
         <Route path="pillar/:pillarId" element={<CeremonyGuardDynamic paramKey="pillarId"><PillarDashboard /></CeremonyGuardDynamic>} />
         <Route path="settings" element={<Settings />} />
         <Route path="prophetic-path" element={<PropheticPathPage />} />

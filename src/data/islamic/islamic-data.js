@@ -3911,6 +3911,128 @@ export const MODULE_ATTRS = {
     },
   },
 
+  moontrance: {
+    attrs: [
+      {
+        name: 'Mālik al-Mulk',
+        name_ar: 'مَالِكَ الْمُلْكِ',
+        title: 'Owner of Sovereignty',
+        body: 'Allah owns every parcel of land, every season, and every household. He gives sovereignty to whom He wills and takes it back whenever He wills — no human owner has more than a temporary lease.\n\nMoontrance operates inside that lease. The acres MTC acquires, the seasons it plants into, and the residencies it forms are never property to be accumulated; they are an amānah held under Mālik al-Mulk for as long as He grants it. The absence of this name shows up as the entrepreneurial frame that treats land, season, or settlement as one’s own project — to optimize, to monetize, to leave when more attractive opportunities open.\n\nSource: Quran 3:26 — "Say: O Allah, Owner of Sovereignty (Mālika l-Mulk), You give sovereignty to whom You will and take it from whom You will."',
+      },
+      {
+        name: 'Al-Wāriṯ',
+        name_ar: 'الْوَارِث',
+        title: 'The Inheritor',
+        body: 'Allah inherits the earth and everyone on it. Whatever a steward builds — a parcel, a planting, a residency — eventually returns to Him; He alone remains.\n\nAl-Wāriṯ frames Moontrance as work undertaken between origination and return. Every land contract, seasonal cycle, and residency covenant is designed for the generation that inherits it, not for the founder’s lifetime. The absence of this name is the project that dies with its founder because nothing was built to be inherited — soil mined for one operator’s yield, residencies engineered around a single charismatic family, intentions never written down for the next steward to receive.\n\nSource: Quran 19:40 — "Indeed, it is We who will inherit the earth and whoever is upon it, and to Us they will be returned."',
+      },
+    ],
+    dua: {
+      title: 'Before Moontrance Stewardship',
+      resumeTitle: 'Before Returning to Moontrance Stewardship',
+      arabic: 'هُوَ أَنشَأَكُم مِّنَ الْأَرْضِ وَاسْتَعْمَرَكُمْ فِيهَا فَاسْتَغْفِرُوهُ ثُمَّ تُوبُوا إِلَيْهِ ۚ إِنَّ رَبِّي قَرِيبٌ مُّجِيبٌ',
+      trans: "Huwa anshaʾakum mina l-arḍi wa-staʿmarakum fīhā fa-staghfirūhu thumma tūbū ilayhi, inna rabbī qarībun mujīb",
+      meaning: 'It is He who brought you forth from the earth and settled you upon it to develop it (istaʿmara), so seek His forgiveness and turn to Him in repentance — indeed my Lord is Near, Responsive.',
+      source: 'Surah Hūd 11:61',
+    },
+    closingDua: {
+      title: 'After Moontrance Stewardship',
+      arabic: 'إِنَّا نَحْنُ نَرِثُ الْأَرْضَ وَمَنْ عَلَيْهَا وَإِلَيْنَا يُرْجَعُونَ',
+      trans: "Innā naḥnu narithu l-arḍa wa man ʿalayhā wa ilaynā yurjaʿūn",
+      meaning: 'Indeed, it is We who will inherit the earth and whoever is upon it, and to Us they will be returned.',
+      source: 'Surah Maryam 19:40',
+    },
+    readiness: {
+      frame: 'Mālik al-Mulk asks: am I holding land, season, and residency as a temporary trust under His sovereignty, or as a project I own?',
+      yesLabel: 'I am holding the trust when',
+      notYetLabel: 'I am claiming ownership when',
+      rows: [
+        {
+          id: 'MM1', attr: 'Mālik al-Mulk', attr_ar: 'مَالِكَ الْمُلْكِ', attrTitle: 'Owner of Sovereignty',
+          attrFrame: 'Am I treating this work as an amānah He has loaned, or as an asset I have acquired?',
+          yesLabel: 'I am treating it as amānah when',
+          notYetLabel: 'I am treating it as asset when',
+          governing: 'I am entering this Moontrance work knowing every acre, season, and household is His — my role is khalīfah, not proprietor.',
+          notYet: 'I am framing acquired land or formed community as something I built and therefore something I own.',
+        },
+        {
+          id: 'MM2', attr: 'Mālik al-Mulk',
+          governing: 'I am holding the integration of land, season, and residency as one indivisible covenant — none of the three can be optimized in isolation from the others.',
+          notYet: 'I am willing to maximize one limb (yield, programming, or occupancy) at the expense of the other two when it suits the operator.',
+        },
+        {
+          id: 'MM3', attr: 'Mālik al-Mulk',
+          governing: 'I am refusing speculative or extractive structures — no land flip, no extractive lease, no residency engineered for founder benefit.',
+          notYet: 'I am leaving the door open for monetization paths that would treat what He owns as private upside.',
+        },
+        {
+          id: 'WR1', attr: 'Al-Wāriṯ', attr_ar: 'الْوَارِث', attrTitle: 'The Inheritor',
+          attrFrame: 'Am I building so that what I steward today is inheritable by the next generation, or am I building for my own tenure?',
+          yesLabel: 'I am building for inheritance when',
+          notYetLabel: 'I am building for tenure when',
+          governing: 'I am structuring waqf, tenure, and governance so this work outlasts me — the Moontrance covenant survives my death or departure.',
+          notYet: 'I am running this work on my own presence and have not built the durable structures to pass it on.',
+        },
+        {
+          id: 'WR2', attr: 'Al-Wāriṯ',
+          governing: 'I am writing down intentions, decisions, and covenants so the next steward can receive them — the record itself is part of the inheritance.',
+          notYet: 'I am holding key context only in my head, leaving the next steward to reconstruct it after I am gone.',
+        },
+        {
+          id: 'WR3', attr: 'Al-Wāriṯ',
+          governing: 'I am treating tarbiyah of children and arriving families as the primary deliverable — they are the actual inheritors of land, season, and community.',
+          notYet: 'I am treating the next generation as dependents of the present project rather than as the people who will carry it forward.',
+        },
+      ],
+      governing: [
+        'I am entering this Moontrance work knowing every acre, season, and household is His — my role is khalīfah, not proprietor.',
+        'I am holding the integration of land, season, and residency as one indivisible covenant — none of the three can be optimized in isolation from the others.',
+        'I am refusing speculative or extractive structures — no land flip, no extractive lease, no residency engineered for founder benefit.',
+        'I am structuring waqf, tenure, and governance so this work outlasts me — the Moontrance covenant survives my death or departure.',
+        'I am writing down intentions, decisions, and covenants so the next steward can receive them — the record itself is part of the inheritance.',
+        'I am treating tarbiyah of children and arriving families as the primary deliverable — they are the actual inheritors of land, season, and community.',
+      ],
+      notYet: [
+        'I am framing acquired land or formed community as something I built and therefore something I own.',
+        'I am willing to maximize one limb (yield, programming, or occupancy) at the expense of the other two when it suits the operator.',
+        'I am leaving the door open for monetization paths that would treat what He owns as private upside.',
+        'I am running this work on my own presence and have not built the durable structures to pass it on.',
+        'I am holding key context only in my head, leaving the next steward to reconstruct it after I am gone.',
+        'I am treating the next generation as dependents of the present project rather than as the people who will carry it forward.',
+      ],
+    },
+    reflection: {
+      frame: 'Mālik al-Mulk witnessed whether I held this work as His trust. Al-Wāriṯ witnessed whether I built anything inheritable.',
+      yesLabel: 'The trust was honored when',
+      notYetLabel: 'The trust was thinned when',
+      rows: [
+        {
+          id: 'RMM1', attr: 'Mālik al-Mulk', attr_ar: 'مَالِكَ الْمُلْكِ', attrTitle: 'Owner of Sovereignty',
+          attrFrame: 'Did I act as khalīfah today, or as proprietor?',
+          yesLabel: 'I acted as khalīfah when',
+          notYetLabel: 'I acted as proprietor when',
+          governing: 'I made a Moontrance decision today that put the integrated covenant (land + season + community) ahead of any one limb’s metrics.',
+          notYet: 'I made a Moontrance decision today that prioritized one limb’s number at clear cost to the others.',
+        },
+        {
+          id: 'RWR1', attr: 'Al-Wāriṯ', attr_ar: 'الْوَارِث', attrTitle: 'The Inheritor',
+          attrFrame: 'Did I build something inheritable today?',
+          yesLabel: 'I built for inheritance when',
+          notYetLabel: 'I built only for myself when',
+          governing: 'I put time today into a structure — waqf, document, tarbiyah, written covenant — whose benefit is for the steward who comes after me.',
+          notYet: 'I spent today only on what advances the present project and deferred the durable structures again.',
+        },
+      ],
+      governing: [
+        'I made a Moontrance decision today that put the integrated covenant (land + season + community) ahead of any one limb’s metrics.',
+        'I put time today into a structure — waqf, document, tarbiyah, written covenant — whose benefit is for the steward who comes after me.',
+      ],
+      notYet: [
+        'I made a Moontrance decision today that prioritized one limb’s number at clear cost to the others.',
+        'I spent today only on what advances the present project and deferred the durable structures again.',
+      ],
+    },
+  },
+
   'moontrance-land': {
     attrs: [
       {

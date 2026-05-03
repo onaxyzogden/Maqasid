@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-03] session | MILOS — Moontrance MODULE_ATTRS authored, /pillar/moontrance placed under CeremonyGuard
+
+**Objective:** Close the last structural gap from [[2026-04-25-milos-pre-test-tier-1-fixes]] — author the top-level `MODULE_ATTRS['moontrance']` block and wrap the `/pillar/moontrance` route in CeremonyGuard so all eight pillar dashboards share the same naming-and-frame ceremony surface.
+
+**Outcome:**
+
+- Authored top-level `moontrance:` block in `src/data/islamic/islamic-data.js` (~120 lines, full schema parity with `ummah:` block): two attrs — **Mālik al-Mulk** (Quran 3:26) and **Al-Wāriṯ** (Quran 19:40); opening dua Surah Hūd 11:61 (the istaʿmara verse); closing dua Surah Maryam 19:40; readiness with 6 rows + governing/notYet arrays; reflection with 2 rows + governing/notYet arrays.
+- Every attribute and dua carries a canonical Quran `Source:` citation — Amanah Gate satisfied with deterministic chapter:verse refs.
+- Wrapped `src/App.jsx:238` in `<CeremonyGuard moduleId="moontrance">` (matches the `/pillar/ummah` pattern — composite pillar, no `isLevel1` prop).
+- Tests 56/56; lint clean; all 3 ratchets at minimum; module transform clean (the pre-existing `@ogden/ui-components/style.css` build failure is unrelated and exists at parent main).
+- All eight pillar dashboard routes now uniformly CeremonyGuarded.
+
+**ADR:** [[2026-05-03-milos-moontrance-module-attrs-authored]]
+
+**Recommended next session:** Optional Moontrance seed-task authoring + grounding pass (the MODULE_ATTRS authoring closes the *guard* surface; a seed-task pass would extend the *grounding* surface to match the seven other pillars).
+
+---
+
 ## [2026-05-02] session | MILOS — Batch-4 pillars (Intellect/Family/Wealth/Environment) launch-readiness review
 
 **Objective:** Apply the Faith/Ummah/Life protocol to the four remaining non-Moontrance pillars in a single batch session, per the descending defect-rate trend.
