@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-02] session | MILOS — Prophetic Path live-demo preview on landing page
+
+**Objective:** Show a live-demo of the Prophetic Path on the marketing landing page so visitors see the time-anchored vertical spine before signing up.
+
+**Outcome:**
+
+- New self-contained `PropheticPathPreview` component (`src/components/landing/PropheticPathPreview.jsx` + `.css`) — 12 frozen prayer/Sunnah nodes (Fajr→Tahajjud) on a CSS phone frame, no Zustand reads, no router, no real `PropheticPath` mount.
+- Sticky-pinned section over ~180vh; active node walks the spine on scroll. Click-sticky selection layered on top: clicking a node selects it and it stays selected until another is clicked (hover does **not** change the active node — would flicker on touch devices and conflict with sticky selection).
+- Replaced the 3D `DemoCarousel` section entirely. Removed `Slide{1,2,3}Content`, `TASK_CHECKS`, `DEMO_SLIDES`, `DASHBOARD_CHIPS`, and the carousel header — all now orphaned. `PillarMockup` retained (still used for active pillar features).
+- Motion guidance pulled from a NotebookLM consult (Smooth Scroll / Motion notebook — UI/UX Scholar 995a59d1 was unreachable; Windows `notebooklm history` UTF-8 crash worked around with `--json` + `PYTHONIOENCODING=utf-8`): time-travel sweep entrance, phone frame, breathing gold pulse on active, anti-pattern: never literal-clock-time node spacing.
+- `npm run lint` clean; `npm test` 56/56; ratchets remain at 0.
+
+**Decision:** [[2026-05-02-prophetic-path-landing-preview]]
+
 ## [2026-05-01] session | MILOS — Moontrance Pillar Page split from Ummah wrapper
 
 **Objective:** Fix the Moontrance LevelNavigator on `/app/moontrance-{land,seasonal,residency}` — it was rendering the Ummah submodule navigator (Ummah / Neighbors / Community) instead of the Moontrance one (Land / Seasonal / Residency).

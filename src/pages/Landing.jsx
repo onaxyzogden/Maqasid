@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../data/maqasid';
@@ -6,6 +6,7 @@ import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
 import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
+import PropheticPathPreview from '../components/landing/PropheticPathPreview';
 import '../styles/landing.css';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
@@ -146,182 +147,6 @@ function PillarMockup({ pillar }) {
   );
 }
 
-// ── Carousel slide sub-components ────────────────────────────────────────────
-
-const DASHBOARD_CHIPS = [
-  { label: 'Faith',       color: '#C8A96E' },
-  { label: 'Life',        color: '#6EAD8A' },
-  { label: 'Intellect',   color: '#6E8EAD' },
-  { label: 'Family',      color: '#AD6E9E' },
-  { label: 'Wealth',      color: '#8EAD6E' },
-  { label: 'Environment', color: '#6EADAD' },
-  { label: 'Community',   color: '#AD8E6E' },
-];
-
-function Slide1Content() {
-  return (
-    <div className="demo-slide-inner">
-      <div className="demo-slide-topbar">
-        <span className="demo-slide-dot" style={{ background: '#ef4444' }} />
-        <span className="demo-slide-dot" style={{ background: '#f59e0b' }} />
-        <span className="demo-slide-dot" style={{ background: '#22c55e' }} />
-        <span className="demo-slide-topbar-title">MAQASID Dashboard</span>
-      </div>
-      <div className="demo-slide-body">
-        <p className="demo-slide-eyebrow" style={{ color: '#4ab8a8' }}>Your Higher Objectives</p>
-        <div className="demo-chip-grid">
-          {DASHBOARD_CHIPS.map((c) => (
-            <div key={c.label} className="demo-chip" style={{ borderColor: c.color + '50', color: c.color }}>
-              <span className="demo-chip-dot" style={{ background: c.color }} />
-              {c.label}
-            </div>
-          ))}
-        </div>
-        <div className="demo-slide-progress-row">
-          <div className="demo-slide-progress-bar" style={{ '--bar-color': '#4ab8a8', '--bar-pct': '62%' }} />
-          <span className="demo-slide-progress-label">62% weekly goals met</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Slide2Content() {
-  const wealthPillar = MAQASID_PILLARS.find((p) => p.id === 'wealth');
-  return (
-    <div className="demo-slide-inner">
-      <div className="demo-slide-topbar">
-        <span className="demo-slide-dot" style={{ background: '#ef4444' }} />
-        <span className="demo-slide-dot" style={{ background: '#f59e0b' }} />
-        <span className="demo-slide-dot" style={{ background: '#22c55e' }} />
-        <span className="demo-slide-topbar-title">Wealth · Hifz al-Mal</span>
-      </div>
-      <div className="demo-slide-body demo-slide-body--padded">
-        <p className="demo-slide-eyebrow" style={{ color: '#C8A96E' }}>Higher Objective Deep Dive</p>
-        {wealthPillar && <PillarMockup pillar={wealthPillar} />}
-      </div>
-    </div>
-  );
-}
-
-const TASK_CHECKS = [
-  { done: true,  text: 'Pull bank statement export' },
-  { done: true,  text: 'Categorise expenses by higher objective' },
-  { done: false, text: 'Verify zakah threshold' },
-  { done: false, text: 'Share summary with spouse' },
-];
-
-function Slide3Content() {
-  return (
-    <div className="demo-slide-inner">
-      <div className="demo-slide-topbar">
-        <span className="demo-slide-dot" style={{ background: '#ef4444' }} />
-        <span className="demo-slide-dot" style={{ background: '#f59e0b' }} />
-        <span className="demo-slide-dot" style={{ background: '#22c55e' }} />
-        <span className="demo-slide-topbar-title">Task Detail</span>
-      </div>
-      <div className="demo-slide-body demo-slide-body--padded">
-        <p className="demo-slide-eyebrow" style={{ color: '#8b5cf6' }}>Task in Focus</p>
-        <div className="demo-task-modal">
-          <div className="demo-task-title">Review monthly budget</div>
-          <div className="demo-task-meta">
-            <span className="demo-task-badge" style={{ background: 'rgba(139,92,246,0.12)', color: '#8b5cf6' }}>Wealth</span>
-            <span className="demo-task-badge" style={{ background: 'rgba(245,158,11,0.12)', color: '#f59e0b' }}>In Progress</span>
-            <span className="demo-task-badge" style={{ background: 'rgba(239,68,68,0.12)', color: '#ef4444' }}>High Priority</span>
-          </div>
-          <div className="demo-task-section-label">Description</div>
-          <div className="demo-task-desc">Cross-check expense categories against the halal income statement. Flag any spending above nisab threshold.</div>
-          <div className="demo-task-section-label">Subtasks</div>
-          <div className="demo-task-checklist">
-            {TASK_CHECKS.map((item, i) => (
-              <div key={i} className="demo-task-check-item">
-                <span className="demo-task-check-box" style={item.done ? { background: '#8b5cf6', borderColor: '#8b5cf6' } : {}}>
-                  {item.done && <Check size={14} color="#fff" />}
-                </span>
-                <span style={{ textDecoration: item.done ? 'line-through' : 'none', color: item.done ? 'var(--text3)' : 'var(--text2)' }}>
-                  {item.text}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const DEMO_SLIDES = [
-  { step: '01', title: 'The Dashboard',    subtitle: 'All seven higher objectives, one unified view.',      accent: '#4ab8a8', Content: Slide1Content },
-  { step: '02', title: 'Higher Objective Deep Dive', subtitle: 'Each higher objective has its own Kanban board.',      accent: '#C8A96E', Content: Slide2Content },
-  { step: '03', title: 'Task in Focus',    subtitle: 'Every task fully tracked, with context.',    accent: '#8b5cf6', Content: Slide3Content },
-];
-
-function DemoCarousel() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const COUNT = DEMO_SLIDES.length;
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => setActiveSlide((s) => (s + 1) % COUNT), 3500);
-    return () => clearInterval(id);
-    // reason: COUNT is module-constant; intentionally not a dep
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused]);
-
-  const prev = () => setActiveSlide((s) => (s - 1 + COUNT) % COUNT);
-  const next = () => setActiveSlide((s) => (s + 1) % COUNT);
-
-  return (
-    <div
-      className="carousel-scene"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <div
-        className="carousel-ring"
-        style={{ transform: `rotateY(${-activeSlide * 120}deg)` }}
-      >
-        {DEMO_SLIDES.map((slide, i) => {
-          const SlideContent = slide.Content;
-          return (
-            <div
-              key={i}
-              className={`carousel-card ${activeSlide === i ? 'is-active' : ''}`}
-              style={{ transform: `rotateY(${i * 120}deg) translateZ(220px)`, '--card-accent': slide.accent }}
-              onClick={() => setActiveSlide(i)}
-            >
-              <div className="carousel-card-step" style={{ color: slide.accent }}>STEP {slide.step}</div>
-              <div className="carousel-card-header">
-                <h4 className="carousel-card-title">{slide.title}</h4>
-                <p className="carousel-card-subtitle">{slide.subtitle}</p>
-              </div>
-              <div className="carousel-card-preview">
-                <SlideContent />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="carousel-controls">
-        <button className="carousel-btn" onClick={prev} aria-label="Previous slide">&#8249;</button>
-        <div className="carousel-dots">
-          {DEMO_SLIDES.map((slide, i) => (
-            <button
-              key={i}
-              className={`carousel-dot ${activeSlide === i ? 'is-active' : ''}`}
-              style={activeSlide === i ? { background: slide.accent } : {}}
-              onClick={() => setActiveSlide(i)}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-        <button className="carousel-btn" onClick={next} aria-label="Next slide">&#8250;</button>
-      </div>
-    </div>
-  );
-}
 
 const HOW_IT_WORKS = [
   { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences.', icon: ICON_REGISTRY.Compass },
@@ -598,14 +423,19 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Demo Carousel */}
-      <section className="carousel-section" id="demo">
-        <p className="section-label">See It in Action</p>
-        <h2 className="section-title">A system that actually works</h2>
-        <p className="section-subtitle">
-          Three moments from your daily workflow — organized, purposeful, and always aligned.
-        </p>
-        <DemoCarousel />
+      {/* Prophetic Path live-demo preview */}
+      <section className="prophetic-preview-section" id="prophetic-path">
+        <div className="prophetic-preview-sticky">
+          <div className="prophetic-preview-copy">
+            <p className="section-label">Prophetic Path</p>
+            <h2 className="section-title">Your day, mapped to the Sunnah.</h2>
+            <p className="section-subtitle">
+              From Fajr to Tahajjud — every prayer, every Sunnah moment, in one vertical spine.
+              Scroll to walk the day; the active node moves with you.
+            </p>
+          </div>
+          <PropheticPathPreview />
+        </div>
       </section>
 
       {/* How It Works */}
