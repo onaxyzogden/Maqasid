@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-03] session | MILOS — `@ogden/ui-components` install repaired; production build restored
+
+**Objective:** Resolve the recurring `Rolldown failed to resolve import "@ogden/ui-components/style.css"` build error blocking `npm run build` in worktrees.
+
+**Outcome:**
+
+- Diagnosed: upstream package at `v0.1.0` is correct (declares `./style.css` export, ships `dist/ogden-ui-components.css`). The local install at `node_modules/@ogden/ui-components/` was corrupt — only an empty `src/styles/` subdir, no `package.json`, no `dist/`. Earlier hypothesis (missing upstream export) was wrong.
+- Fix: `rm -rf node_modules/@ogden && npm install` from project root. No source changes, no version bump.
+- Verified: `npm run build` succeeds; `npm test` 61/61; `npm run lint` `[STRICT] OK`.
+
+**ADR:** [[2026-05-03-milos-ui-components-install-repair]]
+
+**Recommended next session:** Pillar-by-pillar grounding parity sweep — Faith is launch-ready (per [[2026-05-02-milos-faith-launch-readiness-review]]); Batch-4 (Intellect/Family/Wealth/Environment) done; Moontrance done ([[2026-05-03-milos-moontrance-pillar-hard-split-and-grounding-pass]]). Remaining: Ummah (300 subtasks post-split), Health/Life, Prayer.
+
+---
+
 ## [2026-05-03] session | MILOS — Moontrance MODULE_ATTRS authored, /pillar/moontrance placed under CeremonyGuard
 
 **Objective:** Close the last structural gap from [[2026-04-25-milos-pre-test-tier-1-fixes]] — author the top-level `MODULE_ATTRS['moontrance']` block and wrap the `/pillar/moontrance` route in CeremonyGuard so all eight pillar dashboards share the same naming-and-frame ceremony surface.
