@@ -98,10 +98,11 @@ const PRAYER_GUIDE = {
             ref: 'Sahih Muslim 728a',
             arabic: 'عَنْ أُمِّ حَبِيبَةَ قَالَتْ قَالَ رَسُولُ اللَّهِ ﷺ \u201Cمَنْ صَلَّى اثْنَتَىْ عَشْرَةَ رَكْعَةً فِي يَوْمٍ وَلَيْلَةٍ بُنِيَ لَهُ بِهِنَّ بَيْتٌ فِي الْجَنَّةِ\u201D. قَالَتْ أُمُّ حَبِيبَةَ: فَمَا تَرَكْتُهُنَّ مُنْذُ سَمِعْتُهُنَّ مِنْ رَسُولِ اللَّهِ ﷺ.',
             translation: "Umm Habiba (RA) reported: The Messenger of Allah \uFDFA said, \"Whoever prays twelve rakʿat during the day and night, a house in Paradise will be built for him because of them.\" Umm Habiba said: I never abandoned them after I heard this from the Messenger of Allah \uFDFA.",
-            relevance: 'direct',
+            relevance: 'contextual',
             provenanceTier: 'Bayyinah',
             hadithGrade: 'Sahih',
-            rationale: "Establishes the twelve daily rawātib \u2014 including the 4 before Dhuhr \u2014 as the set the Prophet \uFDFA promised a house in Paradise for."
+            rationale: "Anchors the 4-before-Dhuhr inside the twelve-rakʿat rawātib promise. The matn names the count (12 rakʿat = a house in Paradise) but does not enumerate the breakdown; the 4-before-Dhuhr inclusion is by inference from the broader rawātib corpus, hence contextual rather than direct.",
+            ratNote: "Relevance downgraded direct \u2014> contextual on 2026-05-03 per the launch-readiness review. The cited matn establishes the operative ruling on the twelve-rakʿat promise, not on the 4-before-Dhuhr decomposition specifically. See [[2026-05-03-milos-prayer-launch-readiness-review]]."
           }
         ]
       },
@@ -110,13 +111,13 @@ const PRAYER_GUIDE = {
         count: 4,
         note: 'Silent recitation.',
         tier: 'T1',
-        amanahRationale: "Khabbab ibn al-Aratt in Sahih al-Bukhari 759 reports that the companions knew the Prophet \uFDFA's recitation in Dhuhr and Asr only by the movement of his beard \u2014 the silent recitation is directly prophetic.",
-        why: "Dhuhr's fard is silent because its inward khushūʿ is the work. The tongue does not lead; the heart does. Bukhari 759 shows the companions inferring the Prophet's \uFDFA recitation only from the motion of his beard.",
+        amanahRationale: "Khabbab ibn al-Aratt in Sahih al-Bukhari 760 reports that the companions knew the Prophet \uFDFA's recitation in Dhuhr and Asr only by the movement of his beard \u2014 the silent recitation is directly prophetic.",
+        why: "Dhuhr's fard is silent because its inward khushūʿ is the work. The tongue does not lead; the heart does. Bukhari 760 shows the companions inferring the Prophet's \uFDFA recitation only from the motion of his beard.",
         how: "Recite al-Fatihah and a surah silently in both of the first two rakʿat. Recite al-Fatihah alone in the last two. Do not move your lips loudly enough for others to hear \u2014 internal presence is the standard.",
         sources: [
           {
             kind: 'hadith',
-            ref: 'Sahih al-Bukhari 759',
+            ref: 'Sahih al-Bukhari 760',
             arabic: 'عَنْ خَبَّابٍ قَالَ كُنَّا نَعْرِفُ قِرَاءَةَ النَّبِيِّ ﷺ فِي الظُّهْرِ وَالْعَصْرِ بِاضْطِرَابِ لِحْيَتِهِ.',
             translation: "Khabbab (RA) reported: We used to recognise the recitation of the Prophet \uFDFA in Dhuhr and Asr by the movement of his beard.",
             relevance: 'direct',
@@ -140,10 +141,11 @@ const PRAYER_GUIDE = {
             ref: 'Sahih Muslim 728a',
             arabic: 'عَنْ أُمِّ حَبِيبَةَ قَالَتْ قَالَ رَسُولُ اللَّهِ ﷺ \u201Cمَنْ صَلَّى اثْنَتَىْ عَشْرَةَ رَكْعَةً فِي يَوْمٍ وَلَيْلَةٍ بُنِيَ لَهُ بِهِنَّ بَيْتٌ فِي الْجَنَّةِ\u201D.',
             translation: "Umm Habiba (RA) reported: The Messenger of Allah \uFDFA said, \"Whoever prays twelve rakʿat during the day and night, a house in Paradise will be built for him because of them.\"",
-            relevance: 'direct',
+            relevance: 'contextual',
             provenanceTier: 'Bayyinah',
             hadithGrade: 'Sahih',
-            rationale: "The two rakʿat after Dhuhr sit inside the twelve-rakʿat rawātib promise \u2014 same hadith anchors the after-count as the before-count."
+            rationale: "The two rakʿat after Dhuhr sit inside the twelve-rakʿat rawātib promise. The matn names the count (12 rakʿat) but does not enumerate the after-Dhuhr 2-rakʿah specifically; the inclusion is by inference from the broader rawātib corpus, hence contextual.",
+            ratNote: "Relevance downgraded direct \u2014> contextual on 2026-05-03 per the launch-readiness review (same reasoning as the 4-before-Dhuhr cite of this hadith). See [[2026-05-03-milos-prayer-launch-readiness-review]]."
           }
         ]
       },
@@ -181,13 +183,13 @@ const PRAYER_GUIDE = {
         count: 4,
         note: 'Silent recitation.',
         tier: 'T1',
-        amanahRationale: "Khabbab ibn al-Aratt in Sahih al-Bukhari 759 testifies that the Prophet \uFDFA's recitation in Dhuhr and Asr was silent \u2014 the same hadith grounding Dhuhr's fard applies here.",
+        amanahRationale: "Khabbab ibn al-Aratt in Sahih al-Bukhari 760 testifies that the Prophet \uFDFA's recitation in Dhuhr and Asr was silent \u2014 the same hadith grounding Dhuhr's fard applies here.",
         why: "Asr is the \"middle prayer\" guarded by Allah's own command (Quran 2:238). Its fard is silent because its work is inward \u2014 the heart's attentiveness at the turning of the day.",
         how: "Recite al-Fatihah and a surah silently in both of the first two rakʿat. Recite al-Fatihah alone in the last two. Pray it while the sun is still strong-white, before it yellows.",
         sources: [
           {
             kind: 'hadith',
-            ref: 'Sahih al-Bukhari 759',
+            ref: 'Sahih al-Bukhari 760',
             arabic: 'عَنْ خَبَّابٍ قَالَ كُنَّا نَعْرِفُ قِرَاءَةَ النَّبِيِّ ﷺ فِي الظُّهْرِ وَالْعَصْرِ بِاضْطِرَابِ لِحْيَتِهِ.',
             translation: "Khabbab (RA) reported: We used to recognise the recitation of the Prophet \uFDFA in Dhuhr and Asr by the movement of his beard.",
             relevance: 'direct',
@@ -229,10 +231,11 @@ const PRAYER_GUIDE = {
             ref: 'Sahih al-Bukhari 765',
             arabic: 'عَنْ جُبَيْرِ بْنِ مُطْعِمٍ قَالَ سَمِعْتُ النَّبِيَّ ﷺ يَقْرَأُ فِي الْمَغْرِبِ بِالطُّورِ.',
             translation: "Jubayr ibn Mutʿim (RA) reported: I heard the Prophet \uFDFA reciting Surat at-Tur in the Maghrib prayer.",
-            relevance: 'direct',
+            relevance: 'contextual',
             provenanceTier: 'Bayyinah',
             hadithGrade: 'Sahih',
-            rationale: "Direct prophetic example of aloud recitation in Maghrib \u2014 and of choosing a mid-length surah rather than the shortest available."
+            rationale: "Prophetic example of reciting Surat at-Tur aloud in Maghrib. The matn names the surah choice and the aloud quality of recitation but does not name the broader operative ruling that Maghrib's first two rakʿat are aloud and the third silent \u2014 that ruling is mutawatir from the wider sunnah corpus, hence contextual rather than direct.",
+            ratNote: "Relevance downgraded direct \u2014> contextual on 2026-05-03 per the launch-readiness review. The cited matn names a single instance (Surat at-Tur in Maghrib) rather than the operative aloud/silent ruling itself. See [[2026-05-03-milos-prayer-launch-readiness-review]]."
           }
         ]
       },
@@ -290,11 +293,11 @@ const PRAYER_GUIDE = {
             ref: "Sahih al-Bukhari 627",
             arabic: "بَيْنَ كُلِّ أَذَانَيْنِ صَلاَةٌ، بَيْنَ كُلِّ أَذَانَيْنِ صَلاَةٌ، ثُمَّ قَالَ فِي الثَّالِثَةِ: لِمَنْ شَاءَ",
             translation: "There is a prayer between the two Adhans (Adhan and Iqama). [The Prophet said this thrice, then on the third he added:] For the one who wants to pray.",
-            relevance: "direct",
+            relevance: "contextual",
             provenanceTier: "Bayyinah",
             hadithGrade: "Sahih (agreed upon — Bukhari and Muslim)",
-            rationale: "The canonical anchor for any optional pre-fard nafl. Establishes that praying between the adhan and iqama for any salah — including Isha — is a meritorious sunnah open to whoever wishes; grounds the optional 4 rakʿat before Isha as a non-muʾakkadah but prophetically encouraged practice.",
-            ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 627 and Muslim 838 both confirmed (Muslim 838 = USC-MSA Book 4 Hadith 1822, same narration under older edition numbering). Earlier PDF references to Bukhari 597/600 reflect the same narration in pre-Fath edition numbering."
+            rationale: "The canonical anchor for any optional pre-fard nafl. Establishes that praying between the adhan and iqama for any salah — including Isha — is a meritorious sunnah open to whoever wishes; grounds the optional 4 rakʿat before Isha as a non-muʾakkadah but prophetically encouraged practice. Marked contextual rather than direct because the matn names the general adhan/iqama window, not the Isha-specific 4-rakʿat practice.",
+            ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 627 and Muslim 838 both confirmed (Muslim 838 = USC-MSA Book 4 Hadith 1822, same narration under older edition numbering). Earlier PDF references to Bukhari 597/600 reflect the same narration in pre-Fath edition numbering. Relevance further downgraded direct —> contextual on 2026-05-03 per the launch-readiness review — the matn names the general window, not the Isha-specific count. See [[2026-05-03-milos-prayer-launch-readiness-review]]."
           }
         ]
       },
@@ -312,10 +315,11 @@ const PRAYER_GUIDE = {
             ref: 'Sahih al-Bukhari 657',
             arabic: 'عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ ﷺ \u201Cلَيْسَ صَلَاةٌ أَثْقَلَ عَلَى الْمُنَافِقِينَ مِنَ الْفَجْرِ وَالْعِشَاءِ، وَلَوْ يَعْلَمُونَ مَا فِيهِمَا لَأَتَوْهُمَا وَلَوْ حَبْوًا\u201D.',
             translation: "Abu Hurayra (RA) reported: The Messenger of Allah \uFDFA said, \"No prayer is heavier on the hypocrites than Fajr and Isha; if they knew what reward lies in them, they would come to them even crawling.\"",
-            relevance: 'direct',
+            relevance: 'contextual',
             provenanceTier: 'Bayyinah',
             hadithGrade: 'Sahih',
-            rationale: "Prophetic diagnostic: Isha's congregation is one of two live tests of sincerity \u2014 raising its covenantal weight above ordinary fard."
+            rationale: "Prophetic diagnostic on the covenantal weight of Isha (and Fajr) congregational attendance. The matn names the diagnostic, not the four-rakʿah aloud/silent structural ruling itself \u2014 which is mutawatir from the wider sunnah corpus. Hence contextual: same topic (Isha fard), by inference rather than naming the operative ruling.",
+            ratNote: "Relevance downgraded direct \u2014> contextual on 2026-05-03 per the launch-readiness review. The cited matn anchors Isha's covenantal weight, not its operative recitation/rakʿah structure. See [[2026-05-03-milos-prayer-launch-readiness-review]]."
           }
         ]
       },
@@ -333,10 +337,11 @@ const PRAYER_GUIDE = {
             ref: 'Sahih Muslim 728a',
             arabic: 'عَنْ أُمِّ حَبِيبَةَ قَالَتْ قَالَ رَسُولُ اللَّهِ ﷺ \u201Cمَنْ صَلَّى اثْنَتَىْ عَشْرَةَ رَكْعَةً فِي يَوْمٍ وَلَيْلَةٍ بُنِيَ لَهُ بِهِنَّ بَيْتٌ فِي الْجَنَّةِ\u201D.',
             translation: "Umm Habiba (RA) reported: The Messenger of Allah \uFDFA said, \"Whoever prays twelve rakʿat during the day and night, a house in Paradise will be built for him because of them.\"",
-            relevance: 'direct',
+            relevance: 'contextual',
             provenanceTier: 'Bayyinah',
             hadithGrade: 'Sahih',
-            rationale: "The two rakʿat after Isha sit inside the twelve-rakʿat rawātib promise \u2014 direct textual basis for their muʾakkadah status."
+            rationale: "The two rakʿat after Isha sit inside the twelve-rakʿat rawātib promise. The matn names the count (12 rakʿat = a house in Paradise) but does not enumerate the after-Isha 2-rakʿah specifically; the inclusion is by inference from the broader rawātib corpus, hence contextual.",
+            ratNote: "Relevance downgraded direct \u2014> contextual on 2026-05-03 per the launch-readiness review (same reasoning as the other Muslim 728a cites in this file). See [[2026-05-03-milos-prayer-launch-readiness-review]]."
           }
         ]
       },

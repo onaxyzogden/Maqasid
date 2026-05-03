@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-03] session | MILOS — Prayer pillar launch-readiness grounding review (ALL 9 PILLARS DONE)
+
+**Objective:** Bring the Prayer pillar (87 subtasks across 9 prayer-time boards) to launch-readiness — the last pillar in the per-pillar grounding pass.
+
+**Outcome:**
+
+- Worklist: 0 ratNote, 38 single-source. Cross-pillar dedup left **10 truly novel-ref entries** to probe.
+- WebFetch-to-sunnah.com adopted as primary verification tool (NotebookLM disclaimed corpus coverage on prayer-fiqh hadiths). 8 parallel WebFetches.
+- 10 inline patches across 7 subtasks: 7 `direct → contextual` relevance downgrades on Muslim 728a / Bukhari 627 / Bukhari 657 / Bukhari 765 cites where the matn names a broader ruling and the seed cited it for a narrower application; **1 ref-number defect** — Bukhari 759 is the wrong number for the Khabbab "movement of beard" matn (correct: Bukhari 760), renumbered in both Dhuhr and Asr Farḍ entries plus prose.
+- Tooling: `scripts/prayer-fixes.mjs` byte-level patch script — adopted because `Edit` cannot reliably match strings combining literal `—` JS escapes with actual UTF-8 ā/ʿ characters on the same line. Pattern documented in ADR for future replays.
+- Tests 61/61, lint `[STRICT] OK`. **All 9 pillars now launch-ready.** The grounding migration arc that began with the two-axis schema decision on 2026-04-18 is complete.
+
+**ADR:** [[2026-05-03-milos-prayer-launch-readiness-review]]
+
+**Recommended next session:** Move out of grounding-readiness work entirely — the migration arc is closed. Likely candidates: launch checklist (DNS / hosting / share-link surface area), or a UX pass on the new social-pillar boards Moontrance created.
+
+---
+
 ## [2026-05-03] session | MILOS — Ummah pillar launch-readiness grounding review
 
 **Objective:** Bring the Ummah pillar (300 subtasks post-Moontrance split) to launch-readiness via the dedup-first NotebookLM protocol established by Moontrance.
