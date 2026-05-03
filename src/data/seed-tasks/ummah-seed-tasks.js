@@ -3250,12 +3250,13 @@ A visit without practical support is warmth without substance. When a neighbor i
 6. If the neighbor is non-Muslim, you can still pray for their wellbeing and recovery in your own words.
 7. Completion indicator: you have made du'a at the bedside of a sick neighbor and included them by name in your personal salah at least three times during their illness.` },
         { title: "Continue checking on a neighbor after they recover — the relationship should outlast the illness", done: false,
+          ratNote: "Updated 2026-05-03: relevance downgraded direct → contextual after NotebookLM Muslim Scholar grounding pass. Tirmidhi 1944 names the operative ruling (excellence to one's neighbor) but does not specifically name this application (continued check-ins after recovery), which follows by inference from the general principle.",
           sources: [
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 1944",
-              translation: "The Prophet (peace be upon him) said: \"The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor.\" Continuing to check on a neighbor after recovery demonstrates sustained, excellent neighborliness.",
-              relevance: "direct",
+              translation: "The Prophet (peace be upon him) said: \"The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor.\" Continued check-ins after recovery follow by inference from the general principle of excellence in neighborliness.",
+              relevance: "contextual",
               provenanceTier: "Bayyinah",
               hadithGrade: "Hasan Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",

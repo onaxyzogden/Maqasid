@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-03] session | MILOS — Ummah pillar launch-readiness grounding review
+
+**Objective:** Bring the Ummah pillar (300 subtasks post-Moontrance split) to launch-readiness via the dedup-first NotebookLM protocol established by Moontrance.
+
+**Outcome:**
+
+- Worklist: 0 ratNote, 9 single-source. Cross-pillar dedup left **3 truly novel-ref entries** to probe.
+- NotebookLM verdicts: Bukhari 6014 ✅, Bukhari 6017 ✅, Tirmidhi 1944 ⚠ (NotebookLM contradicted itself across two probe turns; ground-truthed via WebFetch to sunnah.com).
+- 1 fix applied: Tirmidhi 1944 cite at `ummah_neighbors_growth[1].subtasks[3]` ("Continue checking on a neighbor after they recover") — relevance downgraded `direct → contextual` since the matn names the operative ruling (excellence in neighborliness) but not this specific application; full `ratNote` documenting the change.
+- Surfaced reusable mitigation: when NotebookLM disclaims "not in source corpus," always cross-check sunnah.com via WebFetch before acting.
+- Tests 61/61, lint `[STRICT] OK`. **8 of 9 pillars now launch-ready** — only Prayer remains.
+
+**ADR:** [[2026-05-03-milos-ummah-launch-readiness-review]]
+
+**Recommended next session:** Prayer pillar grounding pass (last remaining), same protocol.
+
+---
+
 ## [2026-05-03] session | MILOS — `@ogden/ui-components` install repaired; production build restored
 
 **Objective:** Resolve the recurring `Rolldown failed to resolve import "@ogden/ui-components/style.css"` build error blocking `npm run build` in worktrees.
