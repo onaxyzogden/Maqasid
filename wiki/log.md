@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-02] session | MILOS — Batch-4 pillars (Intellect/Family/Wealth/Environment) launch-readiness review
+
+**Objective:** Apply the Faith/Ummah/Life protocol to the four remaining non-Moontrance pillars in a single batch session, per the descending defect-rate trend.
+
+**Outcome:**
+
+- Combined scope: 935 subtasks, 455 weak entries, 243 unique refs across 4 seed files.
+- 45 unique refs probed (top-frequency unverified-by-prior-pillars + long-tail samples; cross-pillar dedup skipped refs already verified in Faith/Ummah/Life).
+- After retry of 13 first-pass timeouts: **21 OK**, 6 advisory `relevance: unrelated` (preserved as operator judgment), **15 NotebookLM corpus-coverage gaps** (ref_ok=false / "not found" for well-known canonical hadith refs — all spot-checked canonically against sunnah.com), 3 still-failing (Quran 2:282, 3:92 deterministic; Muslim 1955 canonical via spot-check).
+- **0/21 verified refs defective (0%) — matches Life.** No inline edits applied to any of the 4 seed files.
+- Tests 56/56; lint clean; all 3 ratchets at minimum.
+- **Seven non-Moontrance pillars now launch-ready** (Faith, Ummah, Life, Intellect, Family, Wealth, Environment). Remaining gap: Moontrance (deferred pending top-level `MODULE_ATTRS['moontrance']` + Amanah Gate citation pass).
+
+**ADR:** [[2026-05-02-milos-batch4-launch-readiness-review]]
+
+**Recommended next session:** Moontrance grounding pass (lower priority — core seven launch-ready milestone now achieved), or live click-through preview verification of one launch-ready submodule per pillar to confirm `SubtaskSources` panel renders correctly across all seven.
+
+---
+
 ## [2026-05-02] session | MILOS — Life pillar launch-readiness grounding review
 
 **Objective:** Apply the Faith/Ummah protocol to Life — re-verify weak grounding entries (1 ratNote + 90 single-source) in `health-seed-tasks.js` against NotebookLM Muslim Scholar.
