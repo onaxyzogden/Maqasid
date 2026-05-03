@@ -38,11 +38,15 @@ entry at `/app/pillar/moontrance`.
 The pillar accent is applied via `--pillar-moontrance` from `src/styles/tokens.css`.
 
 ## Dependencies
-- Stores: `useProjectStore` (via MoontraceLevelNavigator → ensureUmmahProjects; boards seeded with ummah_ prefix, resolved by moduleId)
+- Stores: `useProjectStore` (via MoontraceLevelNavigator → `ensureMoontranceProjects`; boards seeded from `MOONTRANCE_BOARDS` with `moontrance_` prefix)
 - Components: `src/components/shared/` (OverviewCards, MaqasidTable, LevelNavigator)
 - Data: `src/data/module-overviews/` (moontrance-land, moontrance-seasonal, moontrance-residency)
+- Seeds: `src/data/seed-tasks/moontrance-seed-tasks.js` (225 subtasks, 9 boards — hard-split from ummah-seed-tasks.js on 2026-05-03)
 
 ## Board ID Note
-Moontrance Kanban boards (`UMMAH_BOARDS` in project-store.js) have IDs prefixed `ummah_moontrance-*`.
-Pillar resolution in Dashboard.jsx and PillarProgressStrip.jsx is fixed to prefer `moduleId` over id prefix,
-so these boards correctly attribute to the Moontrance pillar.
+Moontrance Kanban boards (`MOONTRANCE_BOARDS` in `src/store/project-store.js`) use IDs prefixed
+`moontrance_<sub>_<level>` (e.g. `moontrance_land_core`). Existing-user localStorage from before the
+2026-05-03 hard-split is migrated by `migrateMoontranceBoardIds_v1` (idempotent, gated on the
+`bbiz_moontrance_id_migrated_v1` sentinel), which renames `ummah_moontrance-*` → `moontrance_*`,
+moves the `tasks_<id>` storage keys, and flips `_ummahModule` → `_moontranceModule` so downstream
+filters (Work.jsx, SEEDED_PILLAR_FLAGS, seed-hydrator's `pillarOf`) attribute correctly.

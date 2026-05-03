@@ -26,13 +26,14 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
-const PILLARS = ['faith','family','health','wealth','ummah','intellect','environment'];
+const PILLARS = ['faith','family','health','wealth','ummah','moontrance','intellect','environment'];
 const EXPORT_NAMES = {
   faith: 'FAITH_SEED_TASKS',
   family: 'FAMILY_SEED_TASKS',
   health: 'HEALTH_SEED_TASKS',
   wealth: 'WEALTH_SEED_TASKS',
   ummah: 'UMMAH_SEED_TASKS',
+  moontrance: 'MOONTRANCE_SEED_TASKS',
   intellect: 'INTELLECT_SEED_TASKS',
   environment: 'ENVIRONMENT_SEED_TASKS',
 };

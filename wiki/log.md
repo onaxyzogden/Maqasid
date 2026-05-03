@@ -8160,3 +8160,22 @@ Three recurring Windows / preview / layout root-causes that the operator had hit
 - **Completed:** Three Windows/preview/layout root-causes the operator had hit repeatedly across past sessions, all resolved in one pass. Wiki + ADR landed.
 - **Deferred:** None directly tied to this session. The hard-coded UA sniff for `Claude/` should ideally be replaced by an `automation`-detection signal if the Claude Code team ever surfaces one.
 - **Recommended next:** Resume the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries) — the parser is now copy-paste-per-pillar and tooling is fully in place. Pre-existing dirty files in the working tree (`scripts/rationale-enrich.mjs`, `scripts/.rationale-work/`, `intellect-seed-tasks.js`, `atlas` submodule pointer) belong to that thread and were intentionally not commit-staged this session.
+
+## 2026-05-03 — MILOS — Moontrance pillar hard-split + grounding pass
+
+Last pillar without launch-readiness verification. Full ADR: [[2026-05-03-milos-moontrance-pillar-hard-split-and-grounding-pass]].
+
+- **Discovery:** Moontrance was not stubbed — 225 subtasks across 9 boards already lived inside `ummah-seed-tasks.js` under the soft-split prefix `ummah_moontrance-*`, with pillar resolution patched at runtime via a `moduleId`-over-prefix workaround in Dashboard.jsx and PillarProgressStrip.jsx.
+- **Hard-split (option B2):** Extracted 225 subtasks into new `src/data/seed-tasks/moontrance-seed-tasks.js`, renaming all 9 board keys to `moontrance_<sub>_<level>`. Ummah shrank 525→300; Moontrance file now holds 225. Total preserved at 2072 across 9 pillars.
+- **Wiring (10 files):** New `MOONTRANCE_BOARDS` + `ensureMoontranceProjects` in project-store.js; `_moontranceModule` flag added to Work.jsx isSeedBoard and SEEDED_PILLAR_FLAGS; moontrance pillar registered across grounding.test.js, lint-grounding.mjs, audit-inline-refs.mjs, audit-source-refs.mjs, extract-subtask-matrix.mjs; PILLAR_LOADERS gained moontrance entry in seed-hydrator.js. Tests grew 56→61 (5 new = moontrance grounding suite).
+- **Migration shim:** `migrateMoontranceBoardIds_v1` in project-store.js (idempotent on `bbiz_moontrance_id_migrated_v1` sentinel). Renames `ummah_moontrance-*` projects to `moontrance_*`, moves `tasks_<id>` storage keys, flips `_ummahModule` → `_moontranceModule`. Pattern modeled on `migrateLifeToHealth`.
+- **Grounding pass:** Worklist scan (`scripts/moontrance-worklist.mjs`) found 0 ratNote-flagged + 72 single-source. After cross-pillar dedup against the seven verified pillars: only **13 truly novel single-source subtasks**. NotebookLM Muslim Scholar verified all 5 unique Quran refs canonical and 2 of 5 hadith refs canonical. Three hadith refs corrected:
+  - `Sahih Muslim 2900` → `Musnad Ahmad 12902` (sapling hadith — 3 occurrences)
+  - `Sahih al-Bukhari 2587` → `Sahih al-Bukhari 69` (yassiru wa la tu'assiru)
+  - `Sahih al-Bukhari 2321` → `Shu'ab al-Iman al-Bayhaqi 5313` (itqan; grade simplified to Hasan)
+- **Verification:** Tests 61/61. Lint `[STRICT] OK` — 2072 subtasks across 9 pillars, all three ratchets at minimum (per-pillar legacy 0, empty-array 0, inline-refs 0). Build error pre-existing (`@ogden/ui-components/style.css`, logged earlier).
+
+### Session Debrief
+- **Completed:** Moontrance hard-split into a first-class pillar with full structural parity (seed file, store action, route wiring, lint, tests, audit), localStorage migration shim with idempotency sentinel, NotebookLM grounding pass on 13 novel-ref entries with 3 corrected hadith refs, ADR + wiki updates.
+- **Deferred:** Live-preview screenshot verification (build error blocks production preview; dev preview would require resolving the pre-existing `@ogden/ui-components` workspace issue first — that's its own session). The discardable extraction script (`scripts/split-moontrance-from-ummah.mjs`) and the worklist generator (`scripts/moontrance-worklist.mjs`) are kept in-tree for replay value but neither is wired to npm scripts.
+- **Recommended next:** Resolve the `@ogden/ui-components` dev-mode workspace error so production builds work in the worktree (already partially addressed per the 2026-04-29 wiki entry — the residual is the build-time resolution path for `style.css`). After that: cycle the existing Faith ratNote re-verification plan (43 entries, the original Phase 2/3 of the prior plan) since NotebookLM is reachable and the dedup-first probe pattern is now proven highly efficient.

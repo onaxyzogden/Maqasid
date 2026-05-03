@@ -18,6 +18,7 @@ const PILLARS = [
   { id: 'wealth',      label: 'Wealth',      file: 'wealth-seed-tasks.js',      exportName: 'WEALTH_SEED_TASKS' },
   { id: 'environment', label: 'Environment', file: 'environment-seed-tasks.js', exportName: 'ENVIRONMENT_SEED_TASKS' },
   { id: 'ummah',       label: 'Ummah',       file: 'ummah-seed-tasks.js',       exportName: 'UMMAH_SEED_TASKS' },
+  { id: 'moontrance',  label: 'Moontrance',  file: 'moontrance-seed-tasks.js',  exportName: 'MOONTRANCE_SEED_TASKS' },
 ];
 
 const LEVEL_ORDER = ['core', 'growth', 'excellence'];

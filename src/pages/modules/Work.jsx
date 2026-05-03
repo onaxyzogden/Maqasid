@@ -35,7 +35,7 @@ export default function Work() {
   // to wealth-tagged projects so it matches the "Wealth / Projects" context.
   const PILLAR_CONTEXT = 'wealth';
   const wealthSubs = new Set(getPillarSubmoduleIds(PILLAR_CONTEXT));
-  const isSeedBoard = (p) => p._faithModule || p._healthModule || p._intellectModule || p._familyModule || p._wealthModule || p._environmentModule || p._ummahModule || p._prayerModule || p._weeklyModule;
+  const isSeedBoard = (p) => p._faithModule || p._healthModule || p._intellectModule || p._familyModule || p._wealthModule || p._environmentModule || p._ummahModule || p._moontranceModule || p._prayerModule || p._weeklyModule;
   const inPillarScope = (p) => p.moduleId === PILLAR_CONTEXT || wealthSubs.has(p.moduleId);
   const active = projects.filter((p) => !p.archived && !isSeedBoard(p) && inPillarScope(p));
   const archived = projects.filter((p) => p.archived && !isSeedBoard(p) && inPillarScope(p));

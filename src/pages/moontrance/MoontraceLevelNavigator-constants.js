@@ -14,4 +14,4 @@ export const MOONTRANCE_LEVEL_ROUTES = {
 
 export const MOONTRANCE_STORAGE_KEY = 'moontrance_active_tab';
 
-export const MOONTRANCE_ENSURE_PROJECTS = (s) => s.ensureUmmahProjects;
+export const MOONTRANCE_ENSURE_PROJECTS = (s) => s.ensureMoontranceProjects;

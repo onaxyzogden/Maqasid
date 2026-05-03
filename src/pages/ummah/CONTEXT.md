@@ -7,6 +7,11 @@ and shows the three social sub-modules: Collective, Neighbors, Community. The Mo
 after the Ummah→Moontrance split (2026-04-19); their routes and pillar are now under the Moontrance pillar.
 The Moontrance pillar dashboard itself is at `src/pages/moontrance/`.
 
+> **2026-05-03 update:** Moontrance was hard-split into its own pillar — board IDs renamed
+> `ummah_moontrance-*` → `moontrance_*`, seeds extracted to `src/data/seed-tasks/moontrance-seed-tasks.js`
+> (225 subtasks), and Ummah's seed file shrank from 525 → 300 subtasks across 9 social-pillar boards.
+> Existing-user data is migrated by `migrateMoontranceBoardIds_v1` in project-store.js.
+
 ## File Inventory
 
 ### Ummah (pillar 7 — active scope)

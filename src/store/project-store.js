@@ -374,18 +374,24 @@ export const UMMAH_BOARDS = [
   { id: 'ummah_community_core',       name: 'COMMUNITY — CORE',       color: '#6E8EAD', icon: 'Shapes', description: 'Community: Necessities (Daruriyyat)', moduleId: 'community' },
   { id: 'ummah_community_growth',     name: 'COMMUNITY — GROWTH',     color: '#6E8EAD', icon: 'Shapes', description: 'Community: Needs (Hajiyyat)', moduleId: 'community' },
   { id: 'ummah_community_excellence', name: 'COMMUNITY — EXCELLENCE', color: '#6E8EAD', icon: 'Shapes', description: 'Community: Excellence (Tahsiniyyat)', moduleId: 'community' },
+];
+
+// Moontrance hard-split from Ummah on 2026-05-03. Board IDs renamed
+// `ummah_moontrance-<sub>_<level>` → `moontrance_<sub>_<level>`. Existing-user
+// localStorage is migrated by `migrateMoontranceBoardIds_v1` (below).
+export const MOONTRANCE_BOARDS = [
   // Land — Core / Growth / Excellence
-  { id: 'ummah_moontrance-land_core',       name: 'MOONTRANCE LAND — CORE',       color: '#6E8E5B', icon: 'Mountain', description: 'Land: Necessities (Daruriyyat)', moduleId: 'moontrance-land' },
-  { id: 'ummah_moontrance-land_growth',     name: 'MOONTRANCE LAND — GROWTH',     color: '#6E8E5B', icon: 'Mountain', description: 'Land: Needs (Hajiyyat)', moduleId: 'moontrance-land' },
-  { id: 'ummah_moontrance-land_excellence', name: 'MOONTRANCE LAND — EXCELLENCE', color: '#6E8E5B', icon: 'Mountain', description: 'Land: Excellence (Tahsiniyyat)', moduleId: 'moontrance-land' },
+  { id: 'moontrance_land_core',       name: 'MOONTRANCE LAND — CORE',       color: '#6E8E5B', icon: 'Mountain', description: 'Land: Necessities (Daruriyyat)', moduleId: 'moontrance-land' },
+  { id: 'moontrance_land_growth',     name: 'MOONTRANCE LAND — GROWTH',     color: '#6E8E5B', icon: 'Mountain', description: 'Land: Needs (Hajiyyat)', moduleId: 'moontrance-land' },
+  { id: 'moontrance_land_excellence', name: 'MOONTRANCE LAND — EXCELLENCE', color: '#6E8E5B', icon: 'Mountain', description: 'Land: Excellence (Tahsiniyyat)', moduleId: 'moontrance-land' },
   // Seasonal — Core / Growth / Excellence
-  { id: 'ummah_moontrance-seasonal_core',       name: 'MOONTRANCE SEASONAL — CORE',       color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Necessities (Daruriyyat)', moduleId: 'moontrance-seasonal' },
-  { id: 'ummah_moontrance-seasonal_growth',     name: 'MOONTRANCE SEASONAL — GROWTH',     color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Needs (Hajiyyat)', moduleId: 'moontrance-seasonal' },
-  { id: 'ummah_moontrance-seasonal_excellence', name: 'MOONTRANCE SEASONAL — EXCELLENCE', color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Excellence (Tahsiniyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'moontrance_seasonal_core',       name: 'MOONTRANCE SEASONAL — CORE',       color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Necessities (Daruriyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'moontrance_seasonal_growth',     name: 'MOONTRANCE SEASONAL — GROWTH',     color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Needs (Hajiyyat)', moduleId: 'moontrance-seasonal' },
+  { id: 'moontrance_seasonal_excellence', name: 'MOONTRANCE SEASONAL — EXCELLENCE', color: '#8E9E5B', icon: 'Leaf', description: 'Seasonal: Excellence (Tahsiniyyat)', moduleId: 'moontrance-seasonal' },
   // Residency — Core / Growth / Excellence
-  { id: 'ummah_moontrance-residency_core',       name: 'MOONTRANCE RESIDENCY — CORE',       color: '#5B6E8E', icon: 'Building', description: 'Residency: Necessities (Daruriyyat)', moduleId: 'moontrance-residency' },
-  { id: 'ummah_moontrance-residency_growth',     name: 'MOONTRANCE RESIDENCY — GROWTH',     color: '#5B6E8E', icon: 'Building', description: 'Residency: Needs (Hajiyyat)', moduleId: 'moontrance-residency' },
-  { id: 'ummah_moontrance-residency_excellence', name: 'MOONTRANCE RESIDENCY — EXCELLENCE', color: '#5B6E8E', icon: 'Building', description: 'Residency: Excellence (Tahsiniyyat)', moduleId: 'moontrance-residency' },
+  { id: 'moontrance_residency_core',       name: 'MOONTRANCE RESIDENCY — CORE',       color: '#5B6E8E', icon: 'Building', description: 'Residency: Necessities (Daruriyyat)', moduleId: 'moontrance-residency' },
+  { id: 'moontrance_residency_growth',     name: 'MOONTRANCE RESIDENCY — GROWTH',     color: '#5B6E8E', icon: 'Building', description: 'Residency: Needs (Hajiyyat)', moduleId: 'moontrance-residency' },
+  { id: 'moontrance_residency_excellence', name: 'MOONTRANCE RESIDENCY — EXCELLENCE', color: '#5B6E8E', icon: 'Building', description: 'Residency: Excellence (Tahsiniyyat)', moduleId: 'moontrance-residency' },
 ];
 
 export const OGDEN_BOARDS = [
@@ -494,6 +500,41 @@ function migrateLifeToHealth(projects) {
   return migrated;
 }
 
+// Migrate any existing Moontrance projects from the old `ummah_moontrance-*`
+// board IDs to the new top-level `moontrance_*` IDs (Moontrance hard-split,
+// 2026-05-03). Also flip the `_ummahModule` flag → `_moontranceModule` so
+// downstream filters (Work.jsx isSeedBoard, SEEDED_PILLAR_FLAGS, etc.) treat
+// the project as Moontrance, not Ummah. Idempotent: gated on a localStorage
+// sentinel so repeated boots are no-ops.
+function migrateMoontranceBoardIds_v1(projects) {
+  if (safeGetJSON('moontrance_id_migrated_v1', null) === true) return projects;
+  let changed = false;
+  const migrated = projects.map((p) => {
+    let next = p;
+    if (typeof p.id === 'string' && p.id.startsWith('ummah_moontrance-')) {
+      const newId = 'moontrance_' + p.id.slice('ummah_moontrance-'.length);
+      const oldTasksKey = `tasks_${p.id}`;
+      const newTasksKey = `tasks_${newId}`;
+      const oldTasks = safeGetJSON(oldTasksKey, null);
+      if (oldTasks !== null) {
+        const written = safeSet(newTasksKey, oldTasks);
+        if (written) safeRemove(oldTasksKey);
+      }
+      next = { ...next, id: newId };
+      changed = true;
+    }
+    if (next._ummahModule && typeof next.id === 'string' && next.id.startsWith('moontrance_')) {
+      const { _ummahModule, ...rest } = next;
+      next = { ...rest, _moontranceModule: true };
+      changed = true;
+    }
+    return next;
+  });
+  if (changed) safeSet('projects', migrated);
+  safeSet('moontrance_id_migrated_v1', true);
+  return migrated;
+}
+
 // Remove BBOS tasks whose definitions no longer exist (e.g. IDY-IFB-S1–S5)
 function migrateRemoveStaleBbosTasks(projects) {
   const validIds = new Set(BBOS_TASK_DEFINITIONS.map((d) => d.id));
@@ -512,7 +553,7 @@ function migrateRemoveStaleBbosTasks(projects) {
 }
 
 export const useProjectStore = create((set, get) => ({
-  projects: migrateLifeToHealth(migrateRemoveStaleBbosTasks(migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', [])))))),
+  projects: migrateMoontranceBoardIds_v1(migrateLifeToHealth(migrateRemoveStaleBbosTasks(migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', []))))))),
 
   createProject: ({ name, description = '', color, icon = 'Folder', moduleId = null, bbosEnabled = false }) => {
     const columns = DEFAULT_COLUMNS.map((col) => ({
@@ -1189,6 +1230,58 @@ export const useProjectStore = create((set, get) => ({
       updatedAt: new Date().toISOString(),
       archived: false,
       _ummahModule: true,
+    }));
+
+    set((s) => {
+      const projects = [...s.projects, ...newProjects];
+      persistProjects(projects);
+      return { projects };
+    });
+  },
+
+  ensureMoontranceProjects: async () => {
+    await preloadPillarSeeds('moontrance');
+    const existing = get().projects;
+
+    const moduleIdMap = Object.fromEntries(MOONTRANCE_BOARDS.filter((mb) => mb.moduleId).map((mb) => [mb.id, mb.moduleId]));
+    const needsPatch = existing.some((p) => moduleIdMap[p.id] && !p.moduleId);
+    if (needsPatch) {
+      set((s) => {
+        const projects = s.projects.map((p) =>
+          moduleIdMap[p.id] && !p.moduleId ? { ...p, moduleId: moduleIdMap[p.id] } : p
+        );
+        persistProjects(projects);
+        return { projects };
+      });
+    }
+
+    const missing = MOONTRANCE_BOARDS.filter(
+      (mb) => !existing.some((p) => p.id === mb.id)
+    );
+
+    for (const mb of MOONTRANCE_BOARDS) {
+      seedTasks(mb.id);
+    }
+
+    if (missing.length === 0) return;
+
+    const newProjects = missing.map((mb) => ({
+      id: mb.id,
+      name: mb.name,
+      description: mb.description,
+      color: mb.color,
+      icon: mb.icon,
+      moduleId: mb.moduleId || null,
+      columns: DEFAULT_COLUMNS.map((col) => ({
+        id: `col_${mb.id}_${col.name.toLowerCase().replace(/\s+/g, '_')}`,
+        name: col.name,
+        color: col.color,
+      })),
+      defaultView: 'dashboard',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      archived: false,
+      _moontranceModule: true,
     }));
 
     set((s) => {

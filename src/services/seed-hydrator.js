@@ -18,6 +18,7 @@ const PILLAR_LOADERS = {
   wealth:      () => import('@data/seed-tasks/wealth-seed-tasks').then((m) => m.WEALTH_SEED_TASKS),
   environment: () => import('@data/seed-tasks/environment-seed-tasks').then((m) => m.ENVIRONMENT_SEED_TASKS),
   ummah:       () => import('@data/seed-tasks/ummah-seed-tasks').then((m) => m.UMMAH_SEED_TASKS),
+  moontrance:  () => import('@data/seed-tasks/moontrance-seed-tasks').then((m) => m.MOONTRANCE_SEED_TASKS),
   prayer:      () => import('@data/seed-tasks/prayer-seed-tasks').then((m) => m.PRAYER_SEED_TASKS),
   weekly:      () => import('@data/seed-tasks/weekly-seed-tasks').then((m) => m.WEEKLY_SEED_TASKS),
 };

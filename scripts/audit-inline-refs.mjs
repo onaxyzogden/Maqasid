@@ -20,6 +20,7 @@ const PILLARS = [
   ['wealth', 'WEALTH_SEED_TASKS'],
   ['environment', 'ENVIRONMENT_SEED_TASKS'],
   ['ummah', 'UMMAH_SEED_TASKS'],
+  ['moontrance', 'MOONTRANCE_SEED_TASKS'],
   ['prayer', 'PRAYER_SEED_TASKS'],
 ];
 

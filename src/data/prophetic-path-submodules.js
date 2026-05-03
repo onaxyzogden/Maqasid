@@ -874,7 +874,7 @@ export function getModuleGroups(nodeId) {
 // in the prophetic-path Action list — only real user projects appear there.
 const SEEDED_PILLAR_FLAGS = [
   '_faithModule', '_healthModule', '_intellectModule', '_familyModule',
-  '_wealthModule', '_environmentModule', '_ummahModule',
+  '_wealthModule', '_environmentModule', '_ummahModule', '_moontranceModule',
   '_weeklyModule', '_prayerModule',
 ];
 function isSeededPillarBoard(p) {
