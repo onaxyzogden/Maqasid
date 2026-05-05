@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-05] session | MILOS — Translation-field bridge cleanup across all pillars
+
+**Objective:** Strip editorial-bridge sentences ("Choosing a marriage book together is the first step on a shared path of learning." and the like) from `translation` fields across all seed-task files so hadith/Qur'an citation cards display only the matn / ayah text.
+
+**Trigger:** User flagged a Sahih Muslim 2699 grounding card on the marriage-book subtask whose rendered translation included an editorial sentence appended to the matn — schema violation (per [docs/grounding-schema.md](../docs/grounding-schema.md) §3, `translation` is matn-only; editorial framing belongs in `rationale`).
+
+**Outcome:**
+
+- Three-script pipeline: `audit-translation-bridges.mjs` (enumerator) → manual confidence triage → `translation-bridge-fixes.mjs` (idempotent byte-level patcher with two modes: MOVE bridge to rationale when rationale is generic placeholder, DELETE bridge when rationale is substantive).
+- Heuristic refined in 4 passes (specific-verbs → demonstratives → generalized gerund `^[A-Z][a-z]+ing\b` → commentary-verbs with length/sentence guards).
+- **289 entries patched** across 8 pillar files (Faith 6, Health 2, Intellect 28, Family 109, Wealth 45, Environment 28, Ummah 48, Moontrance 23, Prayer 0, Weekly 0).
+- Originally-reported card verified: family-seed-tasks.js:1087 Sahih Muslim 2699 marriage-book — bridge moved to rationale, translation matn-only.
+- Residual: 255 entries in review bucket — sampling shows ~90% are legitimate matn continuations (narrator additions, attribution); deferred for hand-review.
+- Tests 61/61, lint `[STRICT] OK`, all three ratchets at 0.
+- Why launch-readiness sweep missed this: it verified `provenanceTier × relevance` and `ref` resolution but never field-content discipline. ADR recommends a structural lint guard as follow-up.
+
+**ADR:** [[2026-05-05-milos-translation-bridge-cleanup]]
+
+**Recommended next session:** Add the structural lint guard (flag any `translation` whose tail after `."` matches gerund/demonstrative/commentary patterns; ratchet at 0). Then either the residual review-bucket hand-review pass, or pivot back to the post-launch-readiness UX/launch work flagged by the Prayer ADR.
+
+---
+
 ## [2026-05-03] session | MILOS — Prayer pillar launch-readiness grounding review (ALL 9 PILLARS DONE)
 
 **Objective:** Bring the Prayer pillar (87 subtasks across 9 prayer-time boards) to launch-readiness — the last pillar in the per-pillar grounding pass.

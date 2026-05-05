@@ -217,11 +217,11 @@ Assessment without a plan is diagnosis without treatment. The soil lab results a
             {
               kind: "hadith",
               ref: "Musnad Ahmad 12902",
-              translation: "The Prophet (peace be upon him) said: \"Even if the Hour is about to be established and one of you has a sapling in his hand, let him plant it.\" This hadith affirms the virtue of cultivating the earth and monitoring its health even in the face of uncertainty.",
+              translation: "The Prophet (peace be upon him) said: \"Even if the Hour is about to be established and one of you has a sapling in his hand, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This hadith affirms the virtue of cultivating the earth and monitoring its health even in the face of uncertainty.",
             },
           ],
           description: `**Why?**
@@ -964,11 +964,11 @@ This is the moment where planning becomes reality and the first sadaqah jariyah 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1914",
-              translation: "The Prophet (peace be upon him) said: \"Whoever removes a worldly hardship from a believer, Allah will remove from him one of the hardships of the Day of Resurrection.\" Building safe access paths removes physical hardship from the community.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever removes a worldly hardship from a believer, Allah will remove from him one of the hardships of the Day of Resurrection.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building safe access paths removes physical hardship from the community.",
             },
           ],
           description: `**Why?**
@@ -1164,11 +1164,11 @@ A three-bay system (fresh, active, cured) is the backbone of serious composting 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6502",
-              translation: "The Prophet (peace be upon him) said: \"The best of people are those who are most beneficial to people.\" Training community members in composting multiplies benefit across the whole community.",
+              translation: "The Prophet (peace be upon him) said: \"The best of people are those who are most beneficial to people.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan per al-Albani",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Training community members in composting multiplies benefit across the whole community.",
             },
             {
               kind: "hadith",
@@ -1389,11 +1389,11 @@ Food forest trees are long-term commitments — a walnut tree may produce for 20
             {
               kind: "hadith",
               ref: "Sahih Muslim 1552",
-              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift (sadaqah) for him.\" Planting trees is ongoing charity.",
+              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift (sadaqah) for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Planting trees is ongoing charity.",
             },
           ],
           description: `**Why?**
@@ -1911,11 +1911,11 @@ Water is the most critical limiting factor for wildlife. Even a small pond drama
             {
               kind: "hadith",
               ref: "Sahih Muslim 1365",
-              translation: "The Prophet (peace be upon him) declared Madinah a sanctuary and said: \"Its trees are not to be cut and its game is not to be hunted.\" This establishes the prophetic precedent for wildlife sanctuaries.",
+              translation: "The Prophet (peace be upon him) declared Madinah a sanctuary and said: \"Its trees are not to be cut and its game is not to be hunted.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This establishes the prophetic precedent for wildlife sanctuaries.",
             },
           ],
           description: `**Why?**
@@ -2660,11 +2660,11 @@ Raw experience is not transferable — methodology is. A step-by-step framework 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him.\" Teaching others to steward land is beneficial knowledge that outlives its teacher.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Teaching others to steward land is beneficial knowledge that outlives its teacher.",
             },
           ],
           description: `**Why?**
@@ -3474,11 +3474,11 @@ Each season demands different tools, supplies, and human capacity. Without a mas
             {
               kind: "hadith",
               ref: "Musnad Ahmad 12902",
-              translation: "The Prophet (peace be upon him) said: \"Even if the Hour is about to be established and one of you has a sapling in his hand, let him plant it.\" Selecting and planting seeds is among the noblest acts of hope.",
+              translation: "The Prophet (peace be upon him) said: \"Even if the Hour is about to be established and one of you has a sapling in his hand, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Selecting and planting seeds is among the noblest acts of hope.",
             },
           ],
           description: `**Why?**
@@ -3785,11 +3785,11 @@ Ri'ayah is not just about crop care — it is about cultivating people alongside
             {
               kind: "hadith",
               ref: "Sahih Muslim 1552",
-              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift for him.\" Careful crop monitoring protects this ongoing charity.",
+              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Careful crop monitoring protects this ongoing charity.",
             },
           ],
           description: `**Why?**
@@ -3886,11 +3886,11 @@ Seed-saving closes the agricultural cycle — what was planted in spring returns
             {
               kind: "hadith",
               ref: "Sahih Muslim 1552",
-              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift for him.\" Preservation extends the charity of the harvest.",
+              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, but it is regarded as a charitable gift for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Preservation extends the charity of the harvest.",
             },
           ],
           description: `**Why?**
@@ -4033,11 +4033,11 @@ Winter is the season of deep learning — when hands rest from the soil, minds a
             {
               kind: "hadith",
               ref: "Shu'ab al-Iman al-Bayhaqi 5313",
-              translation: "The Prophet (peace be upon him) said: \"Allah loves that when one of you does a job, he does it with excellence (itqan).\" Winterising infrastructure is itqan — caring for tools and structures in their season of rest.",
+              translation: "The Prophet (peace be upon him) said: \"Allah loves that when one of you does a job, he does it with excellence (itqan).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Winterising infrastructure is itqan — caring for tools and structures in their season of rest.",
             },
           ],
           description: `**Why?**
@@ -4379,11 +4379,11 @@ Children of different ages learn differently — a 5-year-old engages through se
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 495",
-              translation: "The Prophet (peace be upon him) said: \"Command your children to pray at the age of seven and discipline them for it at the age of ten.\" Hands-on learning stations cultivate responsibility and practical devotion in children.",
+              translation: "The Prophet (peace be upon him) said: \"Command your children to pray at the age of seven and discipline them for it at the age of ten.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Hasan Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Hands-on learning stations cultivate responsibility and practical devotion in children.",
             },
           ],
           description: `**Why?**
@@ -4405,11 +4405,11 @@ Children learn by doing, not watching. A dedicated learning station — a small 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path in pursuit of knowledge, Allah will make easy for him a path to Paradise.\" Training parent-volunteers as facilitators multiplies the paths of knowledge in the community.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path in pursuit of knowledge, Allah will make easy for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Training parent-volunteers as facilitators multiplies the paths of knowledge in the community.",
             },
           ],
           description: `**Why?**
@@ -4456,11 +4456,11 @@ Children thrive on recognition and ritual. Marking their progress through the se
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Documenting children's programme outcomes preserves beneficial knowledge for replication.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting children's programme outcomes preserves beneficial knowledge for replication.",
             },
           ],
           description: `**Why?**
@@ -4541,11 +4541,11 @@ Heirloom varieties carry cultural memory — a Palestinian tomato, a Yemeni melo
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path in pursuit of knowledge, Allah will make easy for him a path to Paradise.\" Training community members in seed-saving techniques is a path of beneficial knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path in pursuit of knowledge, Allah will make easy for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Training community members in seed-saving techniques is a path of beneficial knowledge.",
             },
           ],
           description: `**Why?**
@@ -4610,11 +4610,11 @@ No single garden can maintain the full diversity of varieties a region needs. A 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Documenting seed-saving heritage for publication preserves beneficial knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting seed-saving heritage for publication preserves beneficial knowledge.",
             },
           ],
           description: `**Why?**
@@ -4919,11 +4919,11 @@ Volunteers who only do repetitive unskilled tasks lose motivation over time. Ski
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6026",
-              translation: "The Prophet (peace be upon him) said: \"He who does not thank people does not thank Allah.\" A volunteer recognition programme embodies this principle of gratitude.",
+              translation: "The Prophet (peace be upon him) said: \"He who does not thank people does not thank Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A volunteer recognition programme embodies this principle of gratitude.",
             },
           ],
           description: `**Why?**
@@ -5025,11 +5025,11 @@ A replicable model must distinguish between principles (universal) and practices
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Writing a framework guide for external audiences is the dissemination of beneficial knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Writing a framework guide for external audiences is the dissemination of beneficial knowledge.",
             },
           ],
           description: `**Why?**
@@ -5533,11 +5533,11 @@ Without clear protocols, surplus distribution is ad hoc — sometimes food reach
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6011",
-              translation: "The Prophet (peace be upon him) said: \"The parable of the believers in their affection, mercy, and compassion for each other is that of a body. When any limb aches, the whole body responds with sleeplessness and fever.\" Partnering with Islamic food relief organisations extends the body's care.",
+              translation: "The Prophet (peace be upon him) said: \"The parable of the believers in their affection, mercy, and compassion for each other is that of a body. When any limb aches, the whole body responds with sleeplessness and fever.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Partnering with Islamic food relief organisations extends the body's care.",
             },
           ],
           description: `**Why?**
@@ -5784,11 +5784,11 @@ Curriculum development embeds the MTC model in educational institutions, reachin
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Archiving the complete documentation in accessible public formats is the ultimate preservation of beneficial knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Archiving the complete documentation in accessible public formats is the ultimate preservation of beneficial knowledge.",
             },
           ],
           description: `**Why?**
@@ -7164,11 +7164,11 @@ Most community conflicts do not begin as dramatic confrontations — they begin 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Documenting resolved conflicts as case studies preserves beneficial knowledge for the community.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting resolved conflicts as case studies preserves beneficial knowledge for the community.",
             },
           ],
           description: `**Why?**
@@ -7509,11 +7509,11 @@ The community's land is its greatest classroom. Children who grow up farming, bu
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5090",
-              translation: "The Prophet (peace be upon him) said: \"The best of you are those who are best to their families.\" A youth mentorship programme pairing teenagers with skilled elders extends the meaning of family to the community.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you are those who are best to their families.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A youth mentorship programme pairing teenagers with skilled elders extends the meaning of family to the community.",
             },
             {
               kind: "quran",
@@ -7877,11 +7877,11 @@ A waqf that exists only as a community agreement without legal registration is v
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2737",
-              translation: "Umar ibn al-Khattab acquired land at Khaybar and the Prophet (peace be upon him) advised: \"If you wish, you may hold the property as waqf and give its produce as charity.\" Seeding the endowment with founding contributions follows the Prophetic waqf model.",
+              translation: "Umar ibn al-Khattab acquired land at Khaybar and the Prophet (peace be upon him) advised: \"If you wish, you may hold the property as waqf and give its produce as charity.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Seeding the endowment with founding contributions follows the Prophetic waqf model.",
             },
           ],
           description: `**Why?**
@@ -7979,11 +7979,11 @@ Waqf surplus is the ultimate marker of financial maturity for an Islamic communi
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Documenting the founding process in actionable detail is the creation of beneficial knowledge for future communities.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting the founding process in actionable detail is the creation of beneficial knowledge for future communities.",
             },
           ],
           description: `**Why?**

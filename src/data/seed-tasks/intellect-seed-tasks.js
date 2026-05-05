@@ -1683,7 +1683,7 @@ Completion is where most people fail — online course completion rates average 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\" Learning through a structured method with a qualified teacher is the sunnah approach to acquiring knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2206,7 +2206,7 @@ Writing without a clear thesis is meandering, not authoring. The thesis is the b
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\" Structuring knowledge through writing is among the highest forms of this path.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2874,7 +2874,7 @@ A curriculum is not a list of topics — it is a carefully sequenced journey fro
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\" Creating learning materials is a form of perpetual teaching.",
+              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2923,7 +2923,7 @@ A curriculum without materials is just a table of contents. The learning materia
             {
               kind: "hadith",
               ref: "Sahih Muslim 1017",
-              translation: "The Prophet (peace be upon him) said: \"Whoever introduces a good practice in Islam will have its reward and the reward of those who act upon it after him.\" Piloting and iterating a curriculum is how good practices are refined.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever introduces a good practice in Islam will have its reward and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -4993,7 +4993,7 @@ Knowing your biases is necessary but not sufficient — you need a systematic wa
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\" Sharing knowledge with accountability partners multiplies the benefit.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5432,7 +5432,7 @@ The Islamic tradition emphasises speaking with knowledge, not mere opinion. Choo
               kind: "quran",
               ref: "Quran 2:111",
               arabic: "قُلْ هَاتُوا بُرْهَانَكُمْ إِن كُنتُمْ صَادِقِينَ",
-              translation: "Say, \"Produce your proof, if you should be truthful.\" Preparing evidence and anticipating objections is the Quranic standard for discourse.",
+              translation: "Say, \"Produce your proof, if you should be truthful.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: 'The divine command to produce proof validates preparing a structured presentation with a thesis, evidence, and anticipated objections to substantiate truthful claims [1].',
@@ -5537,7 +5537,7 @@ The quality of a discussion depends as much on the environment as on the content
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 67",
-              translation: "The Prophet (peace be upon him) said: \"Convey from me, even if it is one verse.\" Public presentation of knowledge is an act of worship when done with sincerity and preparation.",
+              translation: "The Prophet (peace be upon him) said: \"Convey from me, even if it is one verse.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -6382,7 +6382,7 @@ Silence surfaces what noise buries. Anxieties you have been avoiding, creative i
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6018",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him speak good or remain silent.\" Gradually extending periods of silence deepens the practice of this sunnah.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him speak good or remain silent.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7006,7 +7006,7 @@ Starting without a clear focus leads to scattered effort and abandonment. Choosi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5009",
-              translation: "The Prophet (peace be upon him) said: \"Keep on reciting the Quran, for by Him in Whose Hand my soul is, the Quran runs away faster than camels that are released from their tying ropes.\" Reviewing previous material before adding new content is the prophetic method of retention.",
+              translation: "The Prophet (peace be upon him) said: \"Keep on reciting the Quran, for by Him in Whose Hand my soul is, the Quran runs away faster than camels that are released from their tying ropes.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7305,7 +7305,7 @@ Understanding the mechanics of habit formation — cue, craving, response, rewar
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\" Designing one's physical space to support learning is part of taking that path.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7520,7 +7520,7 @@ The raw data from your flow log is only valuable once you extract patterns. You 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\" Designing a consistent protocol for entering flow follows this principle.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7548,7 +7548,7 @@ A flow protocol transforms random inspiration into a reliable system. Just as yo
             {
               kind: "hadith",
               ref: "Sahih Muslim 2664",
-              translation: "The Prophet (peace be upon him) said: \"The strong believer is better and more beloved to Allah than the weak believer, while there is good in both.\" Deliberately refining one's capacity for deep work is an act of becoming stronger.",
+              translation: "The Prophet (peace be upon him) said: \"The strong believer is better and more beloved to Allah than the weak believer, while there is good in both.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7730,7 +7730,7 @@ An idea in your head is not a framework — it becomes one when it is articulate
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 71",
-              translation: "The Prophet (peace be upon him) said: \"When Allah wishes good for someone, He bestows upon him understanding of the religion.\" Testing a framework against real scenarios is how understanding is deepened.",
+              translation: "The Prophet (peace be upon him) said: \"When Allah wishes good for someone, He bestows upon him understanding of the religion.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7883,7 +7883,7 @@ A major work without clear definition becomes a source of perpetual guilt rather
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\" Breaking a large project into steady milestones follows this principle.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -8062,7 +8062,7 @@ The project itself is valuable, but the self-knowledge gained from completing it
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6496",
-              translation: "The Prophet (peace be upon him) said: \"Allah loves that when one of you does a job, he does it with excellence (itqan).\" Obtaining proper credentials is part of doing one's work with itqan.",
+              translation: "The Prophet (peace be upon him) said: \"Allah loves that when one of you does a job, he does it with excellence (itqan).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -8565,7 +8565,7 @@ A goal without a plan is a wish. Breaking your skill development into weekly tar
             {
               kind: "hadith",
               ref: "Sahih Muslim 2664",
-              translation: "The Prophet (peace be upon him) said: \"The strong believer is better and more beloved to Allah than the weak believer, while there is good in both. Strive for that which will benefit you.\" Measuring improvement through concrete assessment is striving for benefit.",
+              translation: "The Prophet (peace be upon him) said: \"The strong believer is better and more beloved to Allah than the weak believer, while there is good in both. Strive for that which will benefit you.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -8694,7 +8694,7 @@ Many professionals have savings accounts, pension funds, or investment portfolio
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7352",
-              translation: "The Prophet (peace be upon him) said: \"If a judge gives a ruling, having tried his best to decide correctly and is right, he will receive a double reward.\" Consulting scholars when grey areas arise is how one gives one's best effort in matters of halal and haram.",
+              translation: "The Prophet (peace be upon him) said: \"If a judge gives a ruling, having tried his best to decide correctly and is right, he will receive a double reward.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -8835,7 +8835,7 @@ Raw work samples without context are difficult to evaluate. A hiring manager, cl
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6496",
-              translation: "The Prophet (peace be upon him) said: \"Allah loves that when one of you does a job, he does it with excellence (itqan).\" Organising one's best work in a presentable format reflects itqan.",
+              translation: "The Prophet (peace be upon him) said: \"Allah loves that when one of you does a job, he does it with excellence (itqan).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -8887,7 +8887,7 @@ You are too close to your own work to evaluate your portfolio objectively. A tru
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\" Updating your portfolio quarterly is the kind of small, consistent action beloved to Allah.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9030,7 +9030,7 @@ Every investment has a cost — not just in money, but in time and what you give
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\" Creating a study schedule that respects other obligations is the path of consistency.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved of deeds to Allah are those that are most consistent, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9124,7 +9124,7 @@ A vague request for mentorship burdens the mentor and wastes both your time. The
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\" Finding a mentor is the sunnah method of learning — the Companions learned directly from the Prophet.",
+              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9258,7 +9258,7 @@ Your mentor is giving you their most valuable resource: time and attention. Arri
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\" Attending conferences and professional gatherings is a means of seeking knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will make easy for him the path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9380,7 +9380,7 @@ Walking into a conference without goals is like walking into a library without k
             {
               kind: "hadith",
               ref: "Sahih Muslim 2626",
-              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim.\" Following up with new professional contacts to maintain beneficial ties is a form of maintaining brotherhood.",
+              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9691,7 +9691,7 @@ The format of your publication must match the norms of your field and the expect
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 67",
-              translation: "The Prophet (peace be upon him) said: \"Convey from me, even if it is one verse.\" Submitting one's work to reputable venues is a form of conveying beneficial knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"Convey from me, even if it is one verse.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9717,7 +9717,7 @@ A piece of writing sitting on your hard drive benefits no one. Submitting to a r
             {
               kind: "hadith",
               ref: "Sahih Muslim 1017",
-              translation: "The Prophet (peace be upon him) said: \"Whoever introduces a good practice in Islam will have its reward and the reward of those who act upon it after him.\" Promoting beneficial work extends its impact.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever introduces a good practice in Islam will have its reward and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9810,7 +9810,7 @@ Taking on a leadership role you are not ready for harms both you and the people 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1825",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" Expressing interest in a leadership role carries the weight of this responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -9913,7 +9913,7 @@ Islamic leadership is servant leadership: you are there to serve those you lead,
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\" Identifying skill gaps in others and designing training to address them is among the highest forms of teaching.",
+              translation: "The Prophet (peace be upon him) said: \"The best among you are those who learn the Quran and teach it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -10016,7 +10016,7 @@ Materials are the tangible delivery mechanism for your curriculum. High-quality 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1017",
-              translation: "The Prophet (peace be upon him) said: \"Whoever introduces a good practice in Islam will have its reward and the reward of those who act upon it after him.\" Piloting with a small cohort refines the practice before wider adoption.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever introduces a good practice in Islam will have its reward and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",

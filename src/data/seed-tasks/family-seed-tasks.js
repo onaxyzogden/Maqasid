@@ -18,11 +18,11 @@ export const FAMILY_SEED_TASKS = {
             {
               kind: "hadith",
               ref: "Sahih Muslim 1418a",
-              translation: "The Prophet (peace be upon him) said: \"There is no marriage except with a wali (guardian).\" This establishes the requirement of a guardian in the marriage contract.",
+              translation: "The Prophet (peace be upon him) said: \"There is no marriage except with a wali (guardian).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This establishes the requirement of a guardian in the marriage contract.",
             },
           ],
           description: `**Why?**
@@ -82,11 +82,11 @@ The wali (guardian) is a pillar of the nikah in the majority of scholarly opinio
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 1101",
-              translation: "The Prophet (peace be upon him) said: \"There is no marriage except with a wali and two just witnesses.\" Two adult Muslim male witnesses are a pillar of the valid nikah contract.",
+              translation: "The Prophet (peace be upon him) said: \"There is no marriage except with a wali and two just witnesses.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Two adult Muslim male witnesses are a pillar of the valid nikah contract.",
             },
           ],
           description: `**Why?**
@@ -200,11 +200,11 @@ Living in a marriage whose validity is uncertain is a serious matter in Islam �
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 3895",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\" Choosing a consistent daily time for connection is an act of ihsan.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Choosing a consistent daily time for connection is an act of ihsan.",
             },
           ],
           description: `**Why?**
@@ -295,11 +295,11 @@ Without structure, daily check-ins often devolve into logistics ("Did you pay th
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6029",
-              translation: "The Prophet (peace be upon him) said: \"The best of you are the best to their families, and I am the best of you to my family.\" Tracking daily check-in consistency for 30 days builds a lasting habit of spousal connection.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you are the best to their families, and I am the best of you to my family.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Tracking daily check-in consistency for 30 days builds a lasting habit of spousal connection.",
             },
           ],
           description: `**Why?**
@@ -520,11 +520,11 @@ These two ayat are foundational to understanding the Quranic vision of marriage.
             {
               kind: "hadith",
               ref: "Sahih Muslim 1218 (Farewell Sermon)",
-              translation: "The Prophet (peace be upon him) said: \"Fear Allah regarding women, for you have taken them as a trust from Allah.\" Discussing mutual rights as a couple and identifying areas for improvement is an act of fulfilling this trust.",
+              translation: "The Prophet (peace be upon him) said: \"Fear Allah regarding women, for you have taken them as a trust from Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Discussing mutual rights as a couple and identifying areas for improvement is an act of fulfilling this trust.",
             },
           ],
           description: `**Why?**
@@ -610,11 +610,11 @@ Nafaqah is not a favour — it is a legal and spiritual obligation upon the husb
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5186",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\" Directly asking your spouse whether they feel emotionally supported is an act of genuine care.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Directly asking your spouse whether they feel emotionally supported is an act of genuine care.",
             },
           ],
           description: `**Why?**
@@ -719,11 +719,11 @@ Awareness without action is negligence. Once you have identified that a need is 
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 2142",
-              translation: "The Prophet (peace be upon him) said: \"Do not strike the female servants of Allah.\" Honestly assessing whether one has engaged in shouting, belittling, or threats is the first step toward repentance and reform.",
+              translation: "The Prophet (peace be upon him) said: \"Do not strike the female servants of Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Honestly assessing whether one has engaged in shouting, belittling, or threats is the first step toward repentance and reform.",
             },
           ],
           description: `**Why?**
@@ -744,11 +744,11 @@ Awareness without action is negligence. Once you have identified that a need is 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2328",
-              translation: "Aisha reported: \"The Prophet (peace be upon him) never struck anything with his hand, neither a woman nor a servant.\" Creating a safe setting for your spouse to share if they have felt afraid or demeaned follows the Prophetic model of gentleness.",
+              translation: "Aisha reported: \"The Prophet (peace be upon him) never struck anything with his hand, neither a woman nor a servant.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Creating a safe setting for your spouse to share if they have felt afraid or demeaned follows the Prophetic model of gentleness.",
             },
           ],
           description: `**Why?**
@@ -880,11 +880,11 @@ The Prophet (peace be upon him) is our ultimate role model in all things, includ
             {
               kind: "hadith",
               ref: "Sahih Muslim 2328",
-              translation: "Aisha reported: \"The Prophet (peace be upon him) never struck anything with his hand, neither a woman nor a servant.\" Establishing a zero-tolerance household agreement and revisiting it monthly builds accountability.",
+              translation: "Aisha reported: \"The Prophet (peace be upon him) never struck anything with his hand, neither a woman nor a servant.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Establishing a zero-tolerance household agreement and revisiting it monthly builds accountability.",
             },
           ],
           description: `**Why?**
@@ -955,11 +955,11 @@ A weekly marriage meeting only works if it actually happens consistently. The mo
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 3895",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\" A marriage meeting agenda that includes gratitude, concerns, logistics, and du'a together strengthens the bond.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A marriage meeting agenda that includes gratitude, concerns, logistics, and du'a together strengthens the bond.",
             },
           ],
           description: `**Why?**
@@ -987,11 +987,11 @@ Without an agenda, marriage meetings drift into complaint sessions or logistical
             {
               kind: "hadith",
               ref: "Sahih Muslim 2588",
-              translation: "The Prophet (peace be upon him) said: \"He who does not thank people, does not thank Allah.\" Each spouse sharing at least two things they appreciated about the other is a practice of gratitude that strengthens the marriage.",
+              translation: "The Prophet (peace be upon him) said: \"He who does not thank people, does not thank Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Each spouse sharing at least two things they appreciated about the other is a practice of gratitude that strengthens the marriage.",
             },
           ],
           description: `**Why?**
@@ -1080,11 +1080,11 @@ Du'a is the weapon of the believer, and a du'a made together as a couple carries
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Choosing a marriage book together is the first step on a shared path of learning.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Choosing a marriage book together is the first step on a shared path of learning.",
             },
           ],
           description: `**Why?**
@@ -1121,11 +1121,11 @@ The book you choose sets the tone for weeks of shared conversation. Choosing it 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Studying together strengthens both the marriage and one's deen.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Studying together strengthens both the marriage and one's deen.",
             },
           ],
           description: `**Why?**
@@ -1149,11 +1149,11 @@ The goal is not to finish the book quickly but to absorb and discuss it deeply. 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Discussing each chapter as a couple transforms reading into shared growth.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Discussing each chapter as a couple transforms reading into shared growth.",
             },
           ],
           description: `**Why?**
@@ -1208,11 +1208,11 @@ Knowledge without action is the most dangerous kind of learning — it creates t
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Completing one book and choosing the next builds a lifelong habit of joint learning.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Completing one book and choosing the next builds a lifelong habit of joint learning.",
             },
           ],
           description: `**Why?**
@@ -1308,11 +1308,11 @@ The Prophet's marriage was not conflict-free — his wives disagreed with him, e
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 4782",
-              translation: "The Prophet (peace be upon him) said: \"If one of you becomes angry, let him be silent.\" Agreeing on a conflict protocol -- such as taking wudu, separating briefly, and returning to talk calmly -- operationalises the Sunnah of anger management.",
+              translation: "The Prophet (peace be upon him) said: \"If one of you becomes angry, let him be silent.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Agreeing on a conflict protocol -- such as taking wudu, separating briefly, and returning to talk calmly -- operationalises the Sunnah of anger management.",
             },
           ],
           description: `**Why?**
@@ -1334,11 +1334,11 @@ In the heat of an argument, you cannot think clearly enough to invent a strategy
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 2142",
-              translation: "The Prophet (peace be upon him) said: \"Do not strike the female servants of Allah.\" The Sunnah of never letting the sun set on unresolved anger extends to the marital bed -- reconcile before sleep even if the issue remains. **II. Quran**",
+              translation: "The Prophet (peace be upon him) said: \"Do not strike the female servants of Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "The Sunnah of never letting the sun set on unresolved anger extends to the marital bed -- reconcile before sleep even if the issue remains. **II. Quran**",
             },
             {
               kind: "quran",
@@ -1425,11 +1425,11 @@ Researcher John Gottman identified four communication patterns — criticism, co
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 4782",
-              translation: "The Prophet (peace be upon him) said: \"If one of you becomes angry, let him be silent.\" Role-playing a past disagreement using the new protocol helps build muscle memory for calm conflict resolution.",
+              translation: "The Prophet (peace be upon him) said: \"If one of you becomes angry, let him be silent.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Role-playing a past disagreement using the new protocol helps build muscle memory for calm conflict resolution.",
             },
           ],
           description: `**Why?**
@@ -1493,11 +1493,11 @@ Most people express love in the language they prefer to receive it — but their
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5189",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\" Understanding your spouse's love language is an expression of ihsan in the marriage.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Understanding your spouse's love language is an expression of ihsan in the marriage.",
             },
           ],
           description: `**Why?**
@@ -1530,11 +1530,11 @@ Knowing the concept of love languages is useless without knowing the specifics f
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5189",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\" One intentional act per day in your spouse's primary love language is an expression of mawaddah (affection).",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "One intentional act per day in your spouse's primary love language is an expression of mawaddah (affection).",
             },
           ],
           description: `**Why?**
@@ -1724,11 +1724,11 @@ Sakinah is the Quranic word for the calm presence Allah designed marriage to pro
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" A joint spiritual project is an act of seeking nearness to Allah together.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A joint spiritual project is an act of seeking nearness to Allah together.",
             },
           ],
           description: `**Why?**
@@ -1793,11 +1793,11 @@ Grand spiritual goals without structure become abandoned aspirations. Breaking t
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Scheduling regular joint sessions -- reading, planning, and serving together -- builds shared spiritual momentum.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Scheduling regular joint sessions -- reading, planning, and serving together -- builds shared spiritual momentum.",
             },
           ],
           description: `**Why?**
@@ -1821,11 +1821,11 @@ The "joint" element is what distinguishes this from individual worship. Reading 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\" Documenting the journey -- journal entries, photos, reflections -- creates a shared memory and preserves lessons for others.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting the journey -- journal entries, photos, reflections -- creates a shared memory and preserves lessons for others.",
             },
           ],
           description: `**Why?**
@@ -2038,11 +2038,11 @@ A vision statement filed away in a drawer is a forgotten promise. Displaying it 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\" Identifying an engaged or newly married couple to mentor is an act of sadaqah.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Identifying an engaged or newly married couple to mentor is an act of sadaqah.",
             },
           ],
           description: `**Why?**
@@ -2066,11 +2066,11 @@ You cannot mentor in the abstract — you need a specific couple in front of you
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\" Mentoring a young couple in marriage is an act of sadaqah jariyah.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Mentoring a young couple in marriage is an act of sadaqah jariyah.",
             },
           ],
           description: `**Why?**
@@ -2094,11 +2094,11 @@ Young couples are wary of unsolicited advice — especially from older couples w
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\" Meeting regularly to discuss challenges and share experiences fulfils the duty of nasiha (sincere counsel). **II. Quran**",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Meeting regularly to discuss challenges and share experiences fulfils the duty of nasiha (sincere counsel). **II. Quran**",
             },
             {
               kind: "quran",
@@ -2135,11 +2135,11 @@ A single conversation is advice; regular meetings are mentorship. Consistency bu
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Sharing books, courses, and scholars that helped your own marriage is a form of beneficial knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing books, courses, and scholars that helped your own marriage is a form of beneficial knowledge.",
             },
           ],
           description: `**Why?**
@@ -2188,11 +2188,11 @@ Your personal recommendations carry weight that generic advice does not. When yo
             {
               kind: "hadith",
               ref: "Sahih Muslim 1015",
-              translation: "The Prophet (peace be upon him) said: \"Allah is good and accepts only that which is good.\" Auditing income sources to confirm all provision for children comes from halal earnings is a fundamental parental duty.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is good and accepts only that which is good.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Auditing income sources to confirm all provision for children comes from halal earnings is a fundamental parental duty.",
             },
           ],
           description: `**Why?**
@@ -2312,11 +2312,11 @@ Protecting life (hifz al-nafs) is one of the five essential objectives of the Sh
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" A monthly provision checklist ensures nothing falls through the cracks in fulfilling this responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A monthly provision checklist ensures nothing falls through the cracks in fulfilling this responsibility.",
             },
           ],
           description: `**Why?**
@@ -2356,11 +2356,11 @@ Consistency is the hallmark of trustworthy stewardship. A monthly checklist tran
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5010",
-              translation: "The Prophet (peace be upon him) said: \"When you go to your bed, recite Ayat al-Kursi, for there will be a guard from Allah who will protect you all night long, and Satan will not be able to come near you until dawn.\" Displaying the sleeping du'as and Ayat al-Kursi near each child's bed implements this Sunnah.",
+              translation: "The Prophet (peace be upon him) said: \"When you go to your bed, recite Ayat al-Kursi, for there will be a guard from Allah who will protect you all night long, and Satan will not be able to come near you until dawn.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Displaying the sleeping du'as and Ayat al-Kursi near each child's bed implements this Sunnah.",
             },
           ],
           description: `**Why?**
@@ -2423,11 +2423,11 @@ Children are wired for stories. The seerah of the Prophet ﷺ is the richest sou
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 495",
-              translation: "The Prophet (peace be upon him) said: \"Command your children to pray at the age of seven, and discipline them for it at the age of ten, and separate them in their beds.\" Establishing a fixed bedtime that allows 10-15 minutes for the routine ensures the habit is formed without rushing.",
+              translation: "The Prophet (peace be upon him) said: \"Command your children to pray at the age of seven, and discipline them for it at the age of ten, and separate them in their beds.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Establishing a fixed bedtime that allows 10-15 minutes for the routine ensures the habit is formed without rushing.",
             },
           ],
           description: `**Why?**
@@ -2452,11 +2452,11 @@ Rushed worship teaches children that Allah comes last — that He gets whatever 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Rotating the bedtime routine between parents ensures both build this connection and share the responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Rotating the bedtime routine between parents ensures both build this connection and share the responsibility.",
             },
           ],
           description: `**Why?**
@@ -2480,11 +2480,11 @@ When only one parent handles bedtime, children bond with that parent around fait
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\" Tracking bedtime routine consistency for 30 days solidifies it as a lasting habit.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Tracking bedtime routine consistency for 30 days solidifies it as a lasting habit.",
             },
           ],
           description: `**Why?**
@@ -2544,11 +2544,11 @@ You cannot teach effectively without knowing your starting point. Children absor
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1296",
-              translation: "The Prophet (peace be upon him) said: \"Every child is born upon the fitrah (natural disposition). Then his parents make him a Jew, a Christian, or a Zoroastrian.\" Early tarbiyah with visual aids and stories preserves the child's fitrah.",
+              translation: "The Prophet (peace be upon him) said: \"Every child is born upon the fitrah (natural disposition). Then his parents make him a Jew, a Christian, or a Zoroastrian.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Early tarbiyah with visual aids and stories preserves the child's fitrah.",
             },
           ],
           description: `**Why?**
@@ -2673,11 +2673,11 @@ Pre-teens and teenagers begin asking "why" — why do we pray this way, why does
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 2516",
-              translation: "The Prophet (peace be upon him) said: \"Teach your children, and be gentle with them.\" Quizzing gently and making it conversational rather than exam-like follows the spirit of gentle tarbiyah.",
+              translation: "The Prophet (peace be upon him) said: \"Teach your children, and be gentle with them.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Quizzing gently and making it conversational rather than exam-like follows the spirit of gentle tarbiyah.",
             },
           ],
           description: `**Why?**
@@ -2718,11 +2718,11 @@ Knowledge that is never recalled fades. Regular, gentle review ensures that what
             {
               kind: "hadith",
               ref: "Sahih Muslim 2276",
-              translation: "The Prophet (peace be upon him) said: \"I was sent to perfect good character.\" Identifying the top 5 character traits you want your children to embody begins with the Prophetic model.",
+              translation: "The Prophet (peace be upon him) said: \"I was sent to perfect good character.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Identifying the top 5 character traits you want your children to embody begins with the Prophetic model.",
             },
           ],
           description: `**Why?**
@@ -2832,11 +2832,11 @@ Children observe your actions but do not always understand your motives. When yo
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5186",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\" Asking your spouse for honest feedback on what your children are learning from your behaviour shows humility and commitment to growth.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Asking your spouse for honest feedback on what your children are learning from your behaviour shows humility and commitment to growth.",
             },
           ],
           description: `**Why?**
@@ -2877,11 +2877,11 @@ Self-assessment has blind spots. Your spouse sees you in moments you may not rem
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 495",
-              translation: "The Prophet (peace be upon him) said: \"Command your children to pray at the age of seven.\" Defining 5-7 non-negotiable household rules -- such as no lying, respectful speech, and salah on time -- creates a clear framework.",
+              translation: "The Prophet (peace be upon him) said: \"Command your children to pray at the age of seven.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Defining 5-7 non-negotiable household rules -- such as no lying, respectful speech, and salah on time -- creates a clear framework.",
             },
           ],
           description: `**Why?**
@@ -2904,11 +2904,11 @@ A home without clear rules is a home where children are constantly guessing what
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Communicating household rules clearly to all children in a family meeting is part of responsible stewardship.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Communicating household rules clearly to all children in a family meeting is part of responsible stewardship.",
             },
           ],
           description: `**Why?**
@@ -2933,11 +2933,11 @@ Rules that exist only in the parents' minds are invisible to children. A family 
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 4478",
-              translation: "The Prophet (peace be upon him) said: \"Teach and make things easy, do not make them difficult.\" Agreeing with your spouse on consequences that are consistent, proportional, and never physical follows the principle of gentle correction.",
+              translation: "The Prophet (peace be upon him) said: \"Teach and make things easy, do not make them difficult.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Agreeing with your spouse on consequences that are consistent, proportional, and never physical follows the principle of gentle correction.",
             },
           ],
           description: `**Why?**
@@ -2991,11 +2991,11 @@ Visibility creates accountability — for children and parents alike. When rules
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\" Reviewing and adjusting boundaries every 6 months as children mature ensures the framework grows with the family.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Reviewing and adjusting boundaries every 6 months as children mature ensures the framework grows with the family.",
             },
           ],
           description: `**Why?**
@@ -3066,11 +3066,11 @@ Every child is at a different stage with the Quran — one may read fluently but
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (peace be upon him) said: \"The best of you are those who learn the Quran and teach it.\" Setting age-appropriate memorisation goals is an investment in both worlds.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you are those who learn the Quran and teach it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting age-appropriate memorisation goals is an investment in both worlds.",
             },
           ],
           description: `**Why?**
@@ -3283,11 +3283,11 @@ Parenting is one of the most consequential responsibilities you will ever hold, 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Reading one chapter per week and taking notes on applicable principles builds deep understanding.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Reading one chapter per week and taking notes on applicable principles builds deep understanding.",
             },
           ],
           description: `**Why?**
@@ -3324,11 +3324,11 @@ Knowledge without application is like rain that falls on rock — it runs off wi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5186",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\" Studying parenting guidance together is an act of ihsan toward the family.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Studying parenting guidance together is an act of ihsan toward the family.",
             },
           ],
           description: `**Why?**
@@ -3488,11 +3488,11 @@ Closed questions ("Was school good?" "Did you pray?") get one-word answers and s
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6009",
-              translation: "The Prophet (peace be upon him) said: \"He who does not show mercy to our young ones and does not acknowledge the rights of our elders is not one of us.\" Resisting the urge to lecture -- listening, validating, then gently guiding -- is an expression of mercy toward children.",
+              translation: "The Prophet (peace be upon him) said: \"He who does not show mercy to our young ones and does not acknowledge the rights of our elders is not one of us.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Resisting the urge to lecture -- listening, validating, then gently guiding -- is an expression of mercy toward children.",
             },
           ],
           description: `**Why?**
@@ -3517,11 +3517,11 @@ The fastest way to shut down a child's honesty is to lecture them every time the
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Keeping a private journal noting each child's concerns, growth, and emerging interests is part of attentive shepherding.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Keeping a private journal noting each child's concerns, growth, and emerging interests is part of attentive shepherding.",
             },
           ],
           description: `**Why?**
@@ -3553,11 +3553,11 @@ Memory is unreliable, especially when you are parenting multiple children. A pri
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Listing age-appropriate life skills for each child is the first step in fulfilling this parental responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Listing age-appropriate life skills for each child is the first step in fulfilling this parental responsibility.",
             },
           ],
           description: `**Why?**
@@ -3655,11 +3655,11 @@ When a life skill is connected to an Islamic value, it transforms from a mundane
             {
               kind: "hadith",
               ref: "Sahih Muslim 223",
-              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\" Giving children real responsibility -- a weekly chore, a small budget to manage, a meal to plan -- connects practical life skills to Islamic values of stewardship.",
+              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Giving children real responsibility -- a weekly chore, a small budget to manage, a meal to plan -- connects practical life skills to Islamic values of stewardship.",
             },
           ],
           description: `**Why?**
@@ -3684,11 +3684,11 @@ Responsibility is the bridge between learning a skill and owning it. When a chil
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6009",
-              translation: "The Prophet (peace be upon him) said: \"He who does not show mercy to our young ones and does not acknowledge the rights of our elders is not one of us.\" Praising effort and building confidence is an expression of mercy.",
+              translation: "The Prophet (peace be upon him) said: \"He who does not show mercy to our young ones and does not acknowledge the rights of our elders is not one of us.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Praising effort and building confidence is an expression of mercy.",
             },
           ],
           description: `**Why?**
@@ -3752,11 +3752,11 @@ The Prophet ﷺ tailored his guidance to each individual — he gave different a
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (peace be upon him) said: \"The best of you are those who learn the Quran and teach it.\" Identifying each child's strengths allows you to channel their gifts toward beneficial ends.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you are those who learn the Quran and teach it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Identifying each child's strengths allows you to channel their gifts toward beneficial ends.",
             },
           ],
           description: `**Why?**
@@ -3965,11 +3965,11 @@ Service that is forced feels like punishment. Service that is chosen feels like 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\" Participating alongside your child in service -- not delegating it -- models the Prophetic example.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Participating alongside your child in service -- not delegating it -- models the Prophetic example.",
             },
           ],
           description: `**Why?**
@@ -4037,11 +4037,11 @@ Experience without reflection is just activity. The debrief is where the service
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\" Making service a regular family activity -- monthly or quarterly -- builds a lasting habit of giving.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Making service a regular family activity -- monthly or quarterly -- builds a lasting habit of giving.",
             },
           ],
           description: `**Why?**
@@ -4123,11 +4123,11 @@ Knowing that your parent makes du'a for you by name is one of the most emotional
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Sharing lessons from your own life -- mistakes, turning points, moments of gratitude -- is transmitting beneficial knowledge to your children.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing lessons from your own life -- mistakes, turning points, moments of gratitude -- is transmitting beneficial knowledge to your children.",
             },
           ],
           description: `**Why?**
@@ -4186,11 +4186,11 @@ Generic praise ("You're such a good kid") washes over children without landing. 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Storing the letters safely and planning to give them at a milestone -- graduation, marriage, or parenthood -- ensures the knowledge endures.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Storing the letters safely and planning to give them at a milestone -- graduation, marriage, or parenthood -- ensures the knowledge endures.",
             },
           ],
           description: `**Why?**
@@ -4233,11 +4233,11 @@ The timing of receiving a letter matters as much as its content. A letter given 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5985",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him maintain the bonds of kinship.\" Listing all close relatives and their preferred contact method is the first step toward systematic silat al-rahim.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him maintain the bonds of kinship.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Listing all close relatives and their preferred contact method is the first step toward systematic silat al-rahim.",
             },
           ],
           description: `**Why?**
@@ -4260,11 +4260,11 @@ You cannot maintain ties you haven't mapped. Many people lose touch with relativ
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5985",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him maintain the bonds of kinship.\" Setting a weekly recurring reminder to call parents -- call is better than text -- operationalises this command. **II. Quran**",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him maintain the bonds of kinship.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting a weekly recurring reminder to call parents -- call is better than text -- operationalises this command. **II. Quran**",
             },
             {
               kind: "quran",
@@ -4296,11 +4296,11 @@ The Prophet (peace be upon him) emphasised that the best of deeds are those done
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\" Rotating through close relatives so none go more than 2-3 weeks without contact fulfils the spirit of this hadith.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Rotating through close relatives so none go more than 2-3 weeks without contact fulfils the spirit of this hadith.",
             },
           ],
           description: `**Why?**
@@ -4392,11 +4392,11 @@ Physical presence carries a weight that no phone call or message can replicate. 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\" Listing all relatives you have not spoken to in 6+ months is the first step toward repair.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Listing all relatives you have not spoken to in 6+ months is the first step toward repair.",
             },
           ],
           description: `**Why?**
@@ -4446,11 +4446,11 @@ The remedy for neglect is different from the remedy for estrangement. If you sim
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\" Determining the minimum step to reconnect -- a message, a call, a visit -- begins the process of restoration.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Determining the minimum step to reconnect -- a message, a call, a visit -- begins the process of restoration.",
             },
           ],
           description: `**Why?**
@@ -4473,11 +4473,11 @@ Reconciliation does not require a grand gesture — it requires the right gestur
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2692",
-              translation: "The Prophet (peace be upon him) said: \"Shall I not inform you of something better in degree than fasting, prayer, and charity? It is reconciling people.\" Taking the first step this week -- even if you were the wronged party -- earns the greater reward. **II. Quran**",
+              translation: "The Prophet (peace be upon him) said: \"Shall I not inform you of something better in degree than fasting, prayer, and charity? It is reconciling people.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Taking the first step this week -- even if you were the wronged party -- earns the greater reward. **II. Quran**",
             },
             {
               kind: "quran",
@@ -4977,11 +4977,11 @@ The Quran does not merely prohibit shouting at parents — it prohibits even the
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5985",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him maintain the bonds of kinship.\" Keeping a family events calendar -- birthdays, anniversaries, and important dates -- is a practical tool for consistent kinship care.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him maintain the bonds of kinship.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Keeping a family events calendar -- birthdays, anniversaries, and important dates -- is a practical tool for consistent kinship care.",
             },
           ],
           description: `**Why?**
@@ -5049,11 +5049,11 @@ The Prophet (peace be upon him) identified specific rights Muslims have over one
             {
               kind: "hadith",
               ref: "Sahih Muslim 2568",
-              translation: "The Prophet (peace be upon him) said: \"The rights of a Muslim over another Muslim are five: returning the greeting, visiting the sick, following the funeral, accepting invitations, and saying 'yarhamukallah' when he sneezes.\" Visiting a sick relative promptly and asking how to help practically fulfils this obligation.",
+              translation: "The Prophet (peace be upon him) said: \"The rights of a Muslim over another Muslim are five: returning the greeting, visiting the sick, following the funeral, accepting invitations, and saying 'yarhamukallah' when he sneezes.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Visiting a sick relative promptly and asking how to help practically fulfils this obligation.",
             },
           ],
           description: `**Why?**
@@ -5084,11 +5084,11 @@ The Prophet (peace be upon him) identified specific rights Muslims have over one
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates.\" If distance prevents attendance at a family event, sending a meaningful gift or heartfelt message the same day maintains the bond.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "If distance prevents attendance at a family event, sending a meaningful gift or heartfelt message the same day maintains the bond.",
             },
           ],
           description: `**Why?**
@@ -5121,11 +5121,11 @@ Geography is a real constraint, but it is not an excuse for silence. When you ca
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\" Surveying family members on preferred gathering format is the first step toward proactive kinship maintenance.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Surveying family members on preferred gathering format is the first step toward proactive kinship maintenance.",
             },
           ],
           description: `**Why?**
@@ -5315,11 +5315,11 @@ Many relatives suffer in silence because they are too proud to ask for help. Ide
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1461",
-              translation: "The Prophet (peace be upon him) said: \"Charity given to the poor is charity, and charity given to a relative is two things: charity and maintaining ties of kinship.\" Proposing a monthly family fund is a practical means of fulfilling both obligations.",
+              translation: "The Prophet (peace be upon him) said: \"Charity given to the poor is charity, and charity given to a relative is two things: charity and maintaining ties of kinship.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Proposing a monthly family fund is a practical means of fulfilling both obligations.",
             },
           ],
           description: `**Why?**
@@ -5342,11 +5342,11 @@ Individual charity is good, but collective family giving is transformative. When
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1461",
-              translation: "The Prophet (peace be upon him) said: \"Charity given to the poor is charity, and charity given to a relative is two things: charity and maintaining ties of kinship.\" Setting clear guidelines for a family fund ensures justice and transparency.",
+              translation: "The Prophet (peace be upon him) said: \"Charity given to the poor is charity, and charity given to a relative is two things: charity and maintaining ties of kinship.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting clear guidelines for a family fund ensures justice and transparency.",
             },
           ],
           description: `**Why?**
@@ -5492,11 +5492,11 @@ A family tree transforms abstract knowledge into a visual map that everyone can 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Recording migration stories, hardships, and moments of divine provision preserves beneficial knowledge for future generations.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Recording migration stories, hardships, and moments of divine provision preserves beneficial knowledge for future generations.",
             },
           ],
           description: `**Why?**
@@ -5519,11 +5519,11 @@ Every family has moments where Allah's provision was unmistakable — a door tha
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Preserving old photographs, letters, and documents in a family archive safeguards beneficial knowledge and the legacy of past generations.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Preserving old photographs, letters, and documents in a family archive safeguards beneficial knowledge and the legacy of past generations.",
             },
           ],
           description: `**Why?**
@@ -5553,11 +5553,11 @@ Physical artefacts — photographs, handwritten letters, old documents — carry
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5186",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\" Initiating regular contact with in-laws independently -- not only through your spouse -- demonstrates genuine care. **II. Quran**",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Initiating regular contact with in-laws independently -- not only through your spouse -- demonstrates genuine care. **II. Quran**",
             },
             {
               kind: "quran",
@@ -5633,11 +5633,11 @@ When you only interact with your in-laws through your spouse, the relationship r
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5186",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\" Speaking well of your in-laws to your spouse and children strengthens the entire family structure.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Speaking well of your in-laws to your spouse and children strengthens the entire family structure.",
             },
           ],
           description: `**Why?**
@@ -5660,11 +5660,11 @@ Words shape perception. If you regularly complain about your in-laws to your spo
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5186",
-              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\" Being generous with in-laws and addressing conflict directly (not through proxies) follows the Prophetic model.",
+              translation: "The Prophet (peace be upon him) said: \"The best of you is the one who is best to his wife, and I am the best of you to my wives.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Being generous with in-laws and addressing conflict directly (not through proxies) follows the Prophetic model.",
             },
           ],
           description: `**Why?**
@@ -5697,11 +5697,11 @@ Using your spouse as a go-between for in-law conflicts puts them in an impossibl
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Compiling all existing family history materials is the first step in preserving beneficial knowledge for future generations.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Compiling all existing family history materials is the first step in preserving beneficial knowledge for future generations.",
             },
           ],
           description: `**Why?**
@@ -5751,11 +5751,11 @@ Every family has implicit values — principles that have guided decisions acros
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\" Creating a digital archive accessible to all family members ensures beneficial knowledge endures across generations.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Creating a digital archive accessible to all family members ensures beneficial knowledge endures across generations.",
             },
           ],
           description: `**Why?**
@@ -5823,11 +5823,11 @@ For Muslim families, faith is not a footnote — it is the central thread that e
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Designating a family historian to maintain and update the archive ensures continuity of stewardship.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Designating a family historian to maintain and update the archive ensures continuity of stewardship.",
             },
           ],
           description: `**Why?**
@@ -5929,11 +5929,11 @@ A waqf without a clear scope is a waqf that drifts. Defining the focus ensures t
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him.\" Calculating an initial contribution and inviting family members to co-invest in a family waqf is the essence of sadaqah jariyah.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Calculating an initial contribution and inviting family members to co-invest in a family waqf is the essence of sadaqah jariyah.",
             },
           ],
           description: `**Why?**
@@ -5991,11 +5991,11 @@ The waqf deed is the governing document that determines how the endowment operat
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity.\" Dedicating the waqf to deceased family members so they benefit from the ongoing reward follows the spirit of Nuh's du'a.",
+              translation: "The Prophet (peace be upon him) said: \"When a human being dies, his deeds come to an end except for three: ongoing charity.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Dedicating the waqf to deceased family members so they benefit from the ongoing reward follows the spirit of Nuh's du'a.",
             },
           ],
           description: `**Why?**
@@ -6053,11 +6053,11 @@ A waqf is meant to last forever — but its management is handled by mortal huma
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\" Taking on the role of family unifier is the highest form of silat al-rahim.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Taking on the role of family unifier is the highest form of silat al-rahim.",
             },
             {
               kind: "quran",
@@ -6089,11 +6089,11 @@ Most people who end up as the family coordinator do so by accident — they are 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5984",
-              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\" Creating a system for regular check-ins with all branches of the family is the highest expression of proactive kinship.",
+              translation: "The Prophet (peace be upon him) said: \"The one who maintains ties of kinship is not the one who reciprocates. Rather, the one who maintains ties is the one who, when his relatives cut him off, still maintains ties with them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Creating a system for regular check-ins with all branches of the family is the highest expression of proactive kinship.",
             },
           ],
           description: `**Why?**
@@ -6179,11 +6179,11 @@ Monthly gatherings maintain close ties, but annual events bring the entire exten
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\" Mentoring younger family members to eventually share or take over the coordination role ensures the legacy of family unity continues.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like that of the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Mentoring younger family members to eventually share or take over the coordination role ensures the legacy of family unity continues.",
             },
           ],
           description: `**Why?**
@@ -6214,11 +6214,11 @@ A family coordinator who does not train a successor is building on sand. You wil
             {
               kind: "hadith",
               ref: "Sahih Muslim 780",
-              translation: "The Prophet (peace be upon him) said: \"Do not turn your houses into graves. Indeed, Shaytan flees from a house in which Surah al-Baqarah is recited.\" Identifying the qibla direction in your home is the foundational step for establishing a prayer space.",
+              translation: "The Prophet (peace be upon him) said: \"Do not turn your houses into graves. Indeed, Shaytan flees from a house in which Surah al-Baqarah is recited.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Identifying the qibla direction in your home is the foundational step for establishing a prayer space.",
             },
           ],
           description: `**Why?**
@@ -6238,11 +6238,11 @@ Facing the qibla is a condition for the validity of salah — praying in the wro
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 731",
-              translation: "The Prophet (peace be upon him) said: \"Prayer in the mosque is twenty-seven times greater in reward than prayer at home, except for the voluntary prayers for which the house is better.\" Designating a clean, quiet corner or room as the household prayer area for voluntary prayers follows the Sunnah.",
+              translation: "The Prophet (peace be upon him) said: \"Prayer in the mosque is twenty-seven times greater in reward than prayer at home, except for the voluntary prayers for which the house is better.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Designating a clean, quiet corner or room as the household prayer area for voluntary prayers follows the Sunnah.",
             },
             {
               kind: "hadith",
@@ -6433,11 +6433,11 @@ You cannot purify what you have not identified. A systematic audit of your home 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2108",
-              translation: "The Prophet (peace be upon him) said: \"The angels do not enter a house in which there is an image.\" Removing wall art depicting animate beings and replacing with calligraphy or nature imagery welcomes angelic presence.",
+              translation: "The Prophet (peace be upon him) said: \"The angels do not enter a house in which there is an image.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Removing wall art depicting animate beings and replacing with calligraphy or nature imagery welcomes angelic presence.",
             },
             {
               kind: "hadith",
@@ -6490,11 +6490,11 @@ The Prophet (peace be upon him) cursed ten people in relation to alcohol — inc
             {
               kind: "hadith",
               ref: "Sahih Muslim 2108",
-              translation: "The Prophet (peace be upon him) said: \"The angels do not enter a house in which there is an image.\" Auditing media and removing haram content aligns the home with angelic presence.",
+              translation: "The Prophet (peace be upon him) said: \"The angels do not enter a house in which there is an image.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Auditing media and removing haram content aligns the home with angelic presence.",
             },
           ],
           description: `**Why?**
@@ -6551,11 +6551,11 @@ Islam does not seek to create a barren, joyless home. The Prophet's (peace be up
             {
               kind: "hadith",
               ref: "Sahih Muslim 223",
-              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith (iman).\" Establishing a daily cleaning routine is a direct implementation of this prophetic guidance.",
+              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith (iman).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Establishing a daily cleaning routine is a direct implementation of this prophetic guidance.",
             },
           ],
           description: `**Why?**
@@ -6579,11 +6579,11 @@ Islam does not seek to create a barren, joyless home. The Prophet's (peace be up
             {
               kind: "hadith",
               ref: "Sahih Muslim 223",
-              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\" Decluttering one room per week until the entire home is simplified is a systematic approach to maintaining a dignified space.",
+              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Decluttering one room per week until the entire home is simplified is a systematic approach to maintaining a dignified space.",
             },
           ],
           description: `**Why?**
@@ -6606,11 +6606,11 @@ Excess possessions create visual noise, decision fatigue, and attachment to the 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Assigning age-appropriate cleaning tasks to each family member teaches shared responsibility and stewardship.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Assigning age-appropriate cleaning tasks to each family member teaches shared responsibility and stewardship.",
             },
           ],
           description: `**Why?**
@@ -6662,11 +6662,11 @@ Daily tidying maintains surfaces, but deep cleaning addresses what accumulates b
             {
               kind: "hadith",
               ref: "Sahih Muslim 2107",
-              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\" Maintaining an \"everything has a place\" system makes tidying fast and effortless, reflecting an orderly and intentional approach to the home.",
+              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Maintaining an \"everything has a place\" system makes tidying fast and effortless, reflecting an orderly and intentional approach to the home.",
             },
           ],
           description: `**Why?**
@@ -6722,11 +6722,11 @@ Visibility drives consistency. When the adhkar are printed and placed where the 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2691",
-              translation: "The Prophet (peace be upon him) said: \"The comparison of the one who remembers Allah and the one who does not is like the comparison of the living and the dead.\" Setting a consistent time for family adhkar -- after Fajr and after Asr or Maghrib -- brings life to the household.",
+              translation: "The Prophet (peace be upon him) said: \"The comparison of the one who remembers Allah and the one who does not is like the comparison of the living and the dead.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting a consistent time for family adhkar -- after Fajr and after Asr or Maghrib -- brings life to the household.",
             },
           ],
           description: `**Why?**
@@ -6816,11 +6816,11 @@ Children learn language, tone, and habit through immersion — not instruction. 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\" Using an adhkar app or book to track consistency for the first 40 days builds the habit of daily remembrance.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Using an adhkar app or book to track consistency for the first 40 days builds the habit of daily remembrance.",
             },
           ],
           description: `**Why?**
@@ -6904,11 +6904,11 @@ Unrestricted screen time is linked to attention problems, sleep disruption, beha
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6019",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\" Defining guest etiquette -- how the family welcomes, hosts, and farewells visitors -- implements this Prophetic guidance.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Defining guest etiquette -- how the family welcomes, hosts, and farewells visitors -- implements this Prophetic guidance.",
             },
           ],
           description: `**Why?**
@@ -6930,11 +6930,11 @@ Hospitality is a distinguishing quality of the believers. Children who grow up i
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Assigning shared household responsibilities teaches accountability and stewardship.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Assigning shared household responsibilities teaches accountability and stewardship.",
             },
           ],
           description: `**Why?**
@@ -6954,11 +6954,11 @@ A chore chart is not merely an organisational tool — it is a training programm
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\" Reviewing and updating household rules every 6 months in a family meeting ensures the framework stays relevant as children grow.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Reviewing and updating household rules every 6 months in a family meeting ensures the framework stays relevant as children grow.",
             },
           ],
           description: `**Why?**
@@ -6992,11 +6992,11 @@ Families evolve — children grow, circumstances change, and rules that were app
             {
               kind: "hadith",
               ref: "Sahih Muslim 2108",
-              translation: "The Prophet (peace be upon him) said: \"The angels do not enter a house in which there is an image.\" Removing or replacing distracting, cluttered, or un-Islamic decor from common areas creates space for angelic presence and spiritual calm.",
+              translation: "The Prophet (peace be upon him) said: \"The angels do not enter a house in which there is an image.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Removing or replacing distracting, cluttered, or un-Islamic decor from common areas creates space for angelic presence and spiritual calm.",
             },
           ],
           description: `**Why?**
@@ -7056,11 +7056,11 @@ Islamic calligraphy does more than decorate — it places the words of Allah in 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2107",
-              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\" Introducing natural elements -- plants, natural light, wood textures -- for warmth and calm reflects the divine love of beauty.",
+              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Introducing natural elements -- plants, natural light, wood textures -- for warmth and calm reflects the divine love of beauty.",
             },
           ],
           description: `**Why?**
@@ -7190,11 +7190,11 @@ Children lack the maturity to self-regulate their media consumption and the know
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Establishing a device curfew -- all screens off and charged outside bedrooms by a set time -- is responsible shepherding over the household.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Establishing a device curfew -- all screens off and charged outside bedrooms by a set time -- is responsible shepherding over the household.",
             },
           ],
           description: `**Why?**
@@ -7214,11 +7214,11 @@ Screens in bedrooms at night are the single most common pathway to haram content
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Curating approved content is an act of responsible shepherding over the family.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Curating approved content is an act of responsible shepherding over the family.",
             },
           ],
           description: `**Why?**
@@ -7339,11 +7339,11 @@ A Muslim home without Islamic books is like a garden without seeds — nothing w
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Providing diverse educational resources opens paths of learning for the entire family.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Providing diverse educational resources opens paths of learning for the entire family.",
             },
           ],
           description: `**Why?**
@@ -7367,11 +7367,11 @@ Islam does not separate "religious" knowledge from "worldly" knowledge — all b
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Making the learning space comfortable -- good lighting, a small desk or floor cushions, minimal distractions -- removes barriers to seeking knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Making the learning space comfortable -- good lighting, a small desk or floor cushions, minimal distractions -- removes barriers to seeking knowledge.",
             },
           ],
           description: `**Why?**
@@ -7428,11 +7428,11 @@ A static bookshelf becomes invisible over time — the same spines facing out ev
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6019",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\" Hosting monthly gatherings is a regular practice of the Sunnah of hospitality.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Hosting monthly gatherings is a regular practice of the Sunnah of hospitality.",
             },
           ],
           description: `**Why?**
@@ -7456,11 +7456,11 @@ Good intentions without a schedule produce nothing. Many Muslims value hospitali
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6019",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\" Inviting a mix of friends, neighbours, and new community members each time expands the circle of hospitality. **II. Quran**",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Inviting a mix of friends, neighbours, and new community members each time expands the circle of hospitality. **II. Quran**",
             },
             {
               kind: "quran",
@@ -7488,11 +7488,11 @@ Good intentions without a schedule produce nothing. Many Muslims value hospitali
             {
               kind: "hadith",
               ref: "Sahih Muslim 2052",
-              translation: "The Prophet (peace be upon him) said: \"The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight.\" Cooking generously follows the Prophetic model of abundance in hospitality.",
+              translation: "The Prophet (peace be upon him) said: \"The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Cooking generously follows the Prophetic model of abundance in hospitality.",
             },
           ],
           description: `**Why?**
@@ -7511,11 +7511,11 @@ Good intentions without a schedule produce nothing. Many Muslims value hospitali
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 893",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\" Including children in hosting duties -- greeting guests, serving food, cleaning up -- trains them in the Sunnah of hospitality from a young age.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Including children in hosting duties -- greeting guests, serving food, cleaning up -- trains them in the Sunnah of hospitality from a young age.",
             },
           ],
           description: `**Why?**
@@ -7604,11 +7604,11 @@ A gathering without any remembrance of Allah is described in hadith as one that 
             {
               kind: "hadith",
               ref: "Sahih Muslim 780",
-              translation: "The Prophet (peace be upon him) said: \"Do not turn your houses into graves.\" Transforming the home into a community hub through halaqahs and gatherings brings life and barakah to the household.",
+              translation: "The Prophet (peace be upon him) said: \"Do not turn your houses into graves.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Transforming the home into a community hub through halaqahs and gatherings brings life and barakah to the household.",
             },
           ],
           description: `**Why?**
@@ -7631,11 +7631,11 @@ The home of Arqam ibn Abi al-Arqam was the first Islamic learning centre — a p
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\" Partnering with a knowledgeable person -- imam, teacher, or skilled community member -- to lead sessions ensures the programme has substance.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever takes a path in search of knowledge, Allah will ease for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Partnering with a knowledgeable person -- imam, teacher, or skilled community member -- to lead sessions ensures the programme has substance.",
             },
           ],
           description: `**Why?**
@@ -7658,11 +7658,11 @@ Hosting a programme is an act of service; leading it requires competence. The Qu
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6019",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\" Preparing the space comfortably for gatherings is an expression of generous hospitality.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him be generous to his guest.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Preparing the space comfortably for gatherings is an expression of generous hospitality.",
             },
           ],
           description: `**Why?**
@@ -7747,11 +7747,11 @@ A programme that depends on one person is fragile; a programme that is a family 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2107",
-              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\" Walking through each room and defining its primary purpose -- prayer, study, rest, gathering -- is an act of intentional design aligned with Islamic values.",
+              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Walking through each room and defining its primary purpose -- prayer, study, rest, gathering -- is an act of intentional design aligned with Islamic values.",
             },
           ],
           description: `**Why?**
@@ -7777,11 +7777,11 @@ Most homes evolve haphazardly — a room becomes a dumping ground, a study doubl
             {
               kind: "hadith",
               ref: "Sahih Muslim 780",
-              translation: "The Prophet (peace be upon him) said: \"Do not turn your houses into graves.\" Removing anything that contradicts a room's purpose -- e.g., no screens in the prayer space -- ensures each space serves its intended function.",
+              translation: "The Prophet (peace be upon him) said: \"Do not turn your houses into graves.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Removing anything that contradicts a room's purpose -- e.g., no screens in the prayer space -- ensures each space serves its intended function.",
             },
           ],
           description: `**Why?**
@@ -7808,11 +7808,11 @@ A room filled with items that contradict its purpose creates cognitive dissonanc
             {
               kind: "hadith",
               ref: "Sahih Muslim 2107",
-              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\" Optimising each room for its function with intention reflects ihsan in one's living environment.",
+              translation: "The Prophet (peace be upon him) said: \"Indeed, Allah is beautiful and loves beauty.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Optimising each room for its function with intention reflects ihsan in one's living environment.",
             },
           ],
           description: `**Why?**
@@ -8055,11 +8055,11 @@ A charter stored in a drawer is a dead document. Displaying it prominently keeps
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6464",
-              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\" Updating the Home Charter as children grow and family circumstances change ensures it remains a living document.",
+              translation: "The Prophet (peace be upon him) said: \"The most beloved deeds to Allah are those that are done consistently, even if they are small.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Updating the Home Charter as children grow and family circumstances change ensures it remains a living document.",
             },
           ],
           description: `**Why?**

@@ -888,11 +888,11 @@ Completion indicator: a sincere, specific repentance performed with all conditio
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7152",
-              translation: "The Prophet (peace be upon him) said: \"Every one of you is a shepherd and is responsible for his flock.\" Seeking counsel from scholars on matters of religion is part of that responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Every one of you is a shepherd and is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Seeking counsel from scholars on matters of religion is part of that responsibility.",
             },
           ],
           description: `**Why?**
@@ -925,11 +925,11 @@ Completion indicator: a documented scholarly ruling on the disposal method for y
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2218",
-              translation: "The Prophet (peace be upon him) said: \"Every one of you is a guardian and is responsible for his ward: the ruler is a guardian and is responsible for his subjects; the man is a guardian of his family and responsible for his ward; a woman is a guardian and is responsible for the house of her husband and she is responsible for her ward; the servant is a guardian of the property of his master and is responsible for his ward.\" Guarding your wealth from impurity by disposing of the haram portion is part of this stewardship responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Every one of you is a guardian and is responsible for his ward: the ruler is a guardian and is responsible for his subjects; the man is a guardian of his family and responsible for his ward; a woman is a guardian and is responsible for the house of her husband and she is responsible for her ward; the servant is a guardian of the property of his master and is responsible for his ward.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Guarding your wealth from impurity by disposing of the haram portion is part of this stewardship responsibility.",
             },
           ],
           description: `**Why?**
@@ -995,11 +995,11 @@ Completion indicator: a complete, securely stored record of the entire wealth pu
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2072",
-              translation: "The Prophet (peace be upon him) said: \"The upper hand (the giving hand) is better than the lower hand (the receiving hand).\" Developing skills to earn abundantly enables a believer to be among those who give.",
+              translation: "The Prophet (peace be upon him) said: \"The upper hand (the giving hand) is better than the lower hand (the receiving hand).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Developing skills to earn abundantly enables a believer to be among those who give.",
             },
             {
               kind: "hadith",
@@ -1286,11 +1286,11 @@ Completion indicator: a one-page business plan for your selected secondary incom
             {
               kind: "hadith",
               ref: "Sunan Ibn Majah 2144",
-              translation: "The Prophet (peace be upon him) said: \"The truthful, trustworthy merchant is with the Prophets, the Siddiqin, and the Shuhada.\" Taking decisive action in halal enterprise is encouraged.",
+              translation: "The Prophet (peace be upon him) said: \"The truthful, trustworthy merchant is with the Prophets, the Siddiqin, and the Shuhada.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Taking decisive action in halal enterprise is encouraged.",
             },
           ],
           description: `**Why?**
@@ -1362,11 +1362,11 @@ Completion indicator: a monthly tracking system in place with at least one month
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6503",
-              translation: "The Prophet (peace be upon him) said: \"Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death.\" Establishing a halal-aware budget is how a Muslim takes advantage of wealth before it is gone.",
+              translation: "The Prophet (peace be upon him) said: \"Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Establishing a halal-aware budget is how a Muslim takes advantage of wealth before it is gone.",
             },
           ],
           description: `**Why?**
@@ -1485,11 +1485,11 @@ Completion indicator: a complete month of actual income and expenses entered int
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7310",
-              translation: "The Prophet (peace be upon him) said: \"Allah has hated for you idle talk, asking too many questions, and wasting of wealth.\" Regular financial review prevents waste.",
+              translation: "The Prophet (peace be upon him) said: \"Allah has hated for you idle talk, asking too many questions, and wasting of wealth.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Regular financial review prevents waste.",
             },
           ],
           description: `**Why?**
@@ -1602,11 +1602,11 @@ Completion indicator: a documented salary benchmark for your role with data from
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2140",
-              translation: "The Prophet (peace be upon him) said: \"May Allah have mercy on a man who is generous when he buys, when he sells, and when he asks for payment.\" Documenting accomplishments helps make a just case for fair compensation.",
+              translation: "The Prophet (peace be upon him) said: \"May Allah have mercy on a man who is generous when he buys, when he sells, and when he asks for payment.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting accomplishments helps make a just case for fair compensation.",
             },
           ],
           description: `**Why?**
@@ -1699,11 +1699,11 @@ Completion indicator: the negotiation conversation conducted, with outcome docum
             {
               kind: "hadith",
               ref: "Sunan Ibn Majah 2443",
-              translation: "The Prophet (peace be upon him) said: \"Give the worker his wages before his sweat dries.\" Creating ethical employment means paying promptly, treating workers justly, and providing fair terms.",
+              translation: "The Prophet (peace be upon him) said: \"Give the worker his wages before his sweat dries.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Creating ethical employment means paying promptly, treating workers justly, and providing fair terms.",
             },
           ],
           description: `**Why?**
@@ -1810,11 +1810,11 @@ Completion indicator: a suitable candidate hired through a fair, structured proc
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7152",
-              translation: "The Prophet (peace be upon him) said: \"Every one of you is a shepherd and is responsible for his flock.\" Mentoring employees is part of that shepherding responsibility.",
+              translation: "The Prophet (peace be upon him) said: \"Every one of you is a shepherd and is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Mentoring employees is part of that shepherding responsibility.",
             },
             {
               kind: "hadith",
@@ -1969,11 +1969,11 @@ Completion indicator: a documented halal compliance audit covering revenue, mark
             {
               kind: "hadith",
               ref: "Sahih Muslim 2588",
-              translation: "The Prophet (peace be upon him) said: \"Allah will aid a servant so long as the servant aids his brother.\" Building community benefit is a hallmark of prophetic commerce.",
+              translation: "The Prophet (peace be upon him) said: \"Allah will aid a servant so long as the servant aids his brother.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building community benefit is a hallmark of prophetic commerce.",
             },
           ],
           description: `**Why?**
@@ -2207,11 +2207,11 @@ Completion indicator: one piece of content published or presented to an audience
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like the one who does it.\" Mentoring others in halal earning multiplies reward.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like the one who does it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Mentoring others in halal earning multiplies reward.",
             },
           ],
           description: `**Why?**
@@ -2567,11 +2567,11 @@ The avalanche method — paying minimums on all debts while directing every extr
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2140",
-              translation: "The Prophet (peace be upon him) said: \"May Allah have mercy on a man who is generous when he buys, when he sells, and when he asks for payment.\" Negotiating rate reductions with creditors is consistent with this prophetic encouragement of ease in financial dealings.",
+              translation: "The Prophet (peace be upon him) said: \"May Allah have mercy on a man who is generous when he buys, when he sells, and when he asks for payment.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Negotiating rate reductions with creditors is consistent with this prophetic encouragement of ease in financial dealings.",
             },
           ],
           description: `**Why?**
@@ -2757,11 +2757,11 @@ Zakah is not optional charity — it is a pillar of Islam, a right that the poor
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1427",
-              translation: "The Prophet (peace be upon him) said: \"The upper hand is better than the lower hand. The upper hand is the one that gives and the lower hand is the one that takes.\" Saving consistently enables one to be among the givers.",
+              translation: "The Prophet (peace be upon him) said: \"The upper hand is better than the lower hand. The upper hand is the one that gives and the lower hand is the one that takes.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Saving consistently enables one to be among the givers.",
             },
           ],
           description: `**Why?**
@@ -3077,11 +3077,11 @@ Theory without application is incomplete. Comparing real Islamic financial produ
             {
               kind: "hadith",
               ref: "Sahih Muslim 996",
-              translation: "The Prophet (peace be upon him) said: \"It is sufficient sin for a man to neglect those whom he is responsible to feed.\" Building an emergency fund is a practical means of fulfilling this obligation.",
+              translation: "The Prophet (peace be upon him) said: \"It is sufficient sin for a man to neglect those whom he is responsible to feed.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building an emergency fund is a practical means of fulfilling this obligation.",
             },
           ],
           description: `**Why?**
@@ -3118,11 +3118,11 @@ You cannot build a meaningful emergency fund without knowing precisely what "one
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1427",
-              translation: "The Prophet (peace be upon him) said: \"The upper hand is better than the lower hand. The upper hand is the one that gives and the lower hand is the one that takes.\" Building savings enables you to be among the givers.",
+              translation: "The Prophet (peace be upon him) said: \"The upper hand is better than the lower hand. The upper hand is the one that gives and the lower hand is the one that takes.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building savings enables you to be among the givers.",
             },
           ],
           description: `**Why?**
@@ -3222,10 +3222,10 @@ An emergency fund that gets raided for non-emergencies is not an emergency fund 
               kind: "quran",
               ref: "Quran 12:47-48",
               arabic: "قَالَ تَزْرَعُونَ سَبْعَ سِنِينَ دَأَبًا فَمَا حَصَدتُّمْ فَذَرُوهُ فِي سُنبُلِهِ إِلَّا قَلِيلًا مِّمَّا تَأْكُلُونَ",
-              translation: "[Yusuf] said, \"You will plant for seven years consecutively; and what you harvest leave in its spikes, except a little from which you will eat.\" Planning for scarcity is a Prophetic practice.",
+              translation: "[Yusuf] said, \"You will plant for seven years consecutively; and what you harvest leave in its spikes, except a little from which you will eat.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: "Planning for scarcity is a Prophetic practice.",
             },
           ],
           description: `**Why?**
@@ -3324,11 +3324,11 @@ Building a six-month fund is a marathon, not a sprint — it may take 12-24 mont
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1469",
-              translation: "The Prophet (peace be upon him) said: \"The upper hand is better than the lower hand.\" Consistently tracking and adjusting savings ensures one remains financially capable of giving rather than needing.",
+              translation: "The Prophet (peace be upon him) said: \"The upper hand is better than the lower hand.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Consistently tracking and adjusting savings ensures one remains financially capable of giving rather than needing.",
             },
           ],
           description: `**Why?**
@@ -3365,11 +3365,11 @@ A plan without monitoring is a plan without accountability. Monthly tracking rev
             {
               kind: "hadith",
               ref: "Sahih Muslim 2664",
-              translation: "The Prophet (peace be upon him) said: \"Be keen on what benefits you, seek help from Allah, and do not feel helpless.\" Celebrating milestones sustains motivation in building financial security.",
+              translation: "The Prophet (peace be upon him) said: \"Be keen on what benefits you, seek help from Allah, and do not feel helpless.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Celebrating milestones sustains motivation in building financial security.",
             },
           ],
           description: `**Why?**
@@ -3712,11 +3712,11 @@ Ten-year goals transcend personal comfort and enter the realm of legacy — what
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6502",
-              translation: "The Prophet (peace be upon him) said: \"Take on deeds that you can manage, for Allah does not get tired (of giving reward) until you get tired.\" Breaking goals into quarterly milestones ensures sustainable progress.",
+              translation: "The Prophet (peace be upon him) said: \"Take on deeds that you can manage, for Allah does not get tired (of giving reward) until you get tired.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Breaking goals into quarterly milestones ensures sustainable progress.",
             },
           ],
           description: `**Why?**
@@ -3792,11 +3792,11 @@ No financial plan survives contact with reality unchanged. Income fluctuates, ex
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 79",
-              translation: "The Prophet (peace be upon him) said: \"If Allah wants to do good to a person, He makes him comprehend the religion. I am just a distributor, but the grant is from Allah. And remember that this nation (true Muslims) will keep on following Allah's teachings strictly and they will not be harmed by any one going on a different path till Allah's order (Day of Judgment) is established.\" Seeking Islamic financial knowledge fulfils the command to comprehend the deen.",
+              translation: "The Prophet (peace be upon him) said: \"If Allah wants to do good to a person, He makes him comprehend the religion. I am just a distributor, but the grant is from Allah. And remember that this nation (true Muslims) will keep on following Allah's teachings strictly and they will not be harmed by any one going on a different path till Allah's order (Day of Judgment) is established.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Seeking Islamic financial knowledge fulfils the command to comprehend the deen.",
             },
           ],
           description: `**Why?**
@@ -3831,11 +3831,11 @@ The world's best personal finance wisdom is largely found in books written outsi
             {
               kind: "hadith",
               ref: "Sahih Muslim 1015",
-              translation: "The Prophet (peace be upon him) said: \"Allah is Good and accepts only that which is good.\" This principle extends to financial knowledge - accept what is halal and filter out what contradicts Islamic principles.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is Good and accepts only that which is good.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This principle extends to financial knowledge - accept what is halal and filter out what contradicts Islamic principles.",
             },
           ],
           description: `**Why?**
@@ -3902,11 +3902,11 @@ Identifying conflicts is only half the work — finding halal alternatives compl
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 3461",
-              translation: "The Prophet (peace be upon him) said: \"The best of people are those of my generation, then those who follow them, then those who follow them.\" Transmitting beneficial knowledge — including Islamic financial wisdom — from generation to generation is part of what made those generations the best.",
+              translation: "The Prophet (peace be upon him) said: \"The best of people are those of my generation, then those who follow them, then those who follow them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Transmitting beneficial knowledge — including Islamic financial wisdom — from generation to generation is part of what made those generations the best.",
             },
           ],
           description: `**Why?**
@@ -3991,11 +3991,11 @@ As your wealth grows beyond basic budgeting and emergency savings into complex t
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 25",
-              translation: "The Prophet (peace be upon him) said: \"I have been ordered to fight the people until they say 'None has the right to be worshipped but Allah,' and whoever says it, then his life and wealth are saved from me.\" This establishes the Islamic principle that verification protects one's rights — including the right to entrust wealth only to those confirmed as trustworthy and qualified.",
+              translation: "The Prophet (peace be upon him) said: \"I have been ordered to fight the people until they say 'None has the right to be worshipped but Allah,' and whoever says it, then his life and wealth are saved from me.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This establishes the Islamic principle that verification protects one's rights — including the right to entrust wealth only to those confirmed as trustworthy and qualified.",
             },
           ],
           description: `**Why?**
@@ -4055,11 +4055,11 @@ An advisor can only help you if they understand where you are starting from. A w
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1",
-              translation: "The Prophet (peace be upon him) said: \"Actions are judged by intentions, and each person will be rewarded according to their intention.\" Consulting experts with sincere niyyah for halal outcomes maximises benefit.",
+              translation: "The Prophet (peace be upon him) said: \"Actions are judged by intentions, and each person will be rewarded according to their intention.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Consulting experts with sincere niyyah for halal outcomes maximises benefit.",
             },
           ],
           description: `**Why?**
@@ -4261,11 +4261,11 @@ Over time, different asset classes grow at different rates, causing your portfol
             {
               kind: "hadith",
               ref: "Sahih Muslim 1015",
-              translation: "The Prophet (peace be upon him) said: \"Allah is Good and accepts only that which is good.\" Ongoing Shariah compliance monitoring ensures that assets remain purified.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is Good and accepts only that which is good.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Ongoing Shariah compliance monitoring ensures that assets remain purified.",
             },
           ],
           description: `**Why?**
@@ -4382,11 +4382,11 @@ Knowing your FI number without knowing when you will reach it is like knowing th
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path to seek knowledge, Allah will make easy for him a path to Paradise.\" Building passive income streams is a form of strategic provision.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path to seek knowledge, Allah will make easy for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building passive income streams is a form of strategic provision.",
             },
           ],
           description: `**Why?**
@@ -4414,11 +4414,11 @@ Financial independence is sustained by passive income — money that flows to yo
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7405",
-              translation: "The Prophet (peace be upon him) narrated that Allah says: \"I am as My servant thinks of Me.\" Planning with trust in Allah while taking practical precautions reflects tawakkul.",
+              translation: "The Prophet (peace be upon him) narrated that Allah says: \"I am as My servant thinks of Me.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Planning with trust in Allah while taking practical precautions reflects tawakkul.",
             },
           ],
           description: `**Why?**
@@ -4936,11 +4936,11 @@ Islamic law recognises categories of property that belong to the community and c
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1403",
-              translation: "Abu Dharr (may Allah be pleased with him) reported that the Prophet (peace be upon him) said: \"There is no owner of camels, cattle or sheep who does not pay their zakat except that they will be made to stand in front of them on the Day of Resurrection as they were at their fattest and they will trample and butt him with their horns.\" Refusing to pay zakah on wealth is the essence of the condemned hoarding.",
+              translation: "Abu Dharr (may Allah be pleased with him) reported that the Prophet (peace be upon him) said: \"There is no owner of camels, cattle or sheep who does not pay their zakat except that they will be made to stand in front of them on the Day of Resurrection as they were at their fattest and they will trample and butt him with their horns.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Refusing to pay zakah on wealth is the essence of the condemned hoarding.",
             },
           ],
           description: `**Why?**
@@ -6100,11 +6100,11 @@ A multi-generational estate plan sits at the intersection of Islamic law and sec
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 100",
-              translation: "The Prophet (peace be upon him) said: \"Allah does not take away knowledge by taking it out of the hearts of the people, but takes it away by the death of the religious scholars till none of the scholars remain. People will then take ignorant men as their leaders who, when consulted, will give their verdict without knowledge. So they will go astray and will lead the people astray.\" Consulting living scholars of Islamic law is the prophetic safeguard against uninformed decisions about complex matters like trust structures.",
+              translation: "The Prophet (peace be upon him) said: \"Allah does not take away knowledge by taking it out of the hearts of the people, but takes it away by the death of the religious scholars till none of the scholars remain. People will then take ignorant men as their leaders who, when consulted, will give their verdict without knowledge. So they will go astray and will lead the people astray.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Consulting living scholars of Islamic law is the prophetic safeguard against uninformed decisions about complex matters like trust structures.",
             },
           ],
           description: `**Why?**
@@ -6169,11 +6169,11 @@ A trust without clear objectives is a legal shell without purpose. The objective
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2274",
-              translation: "The Prophet (peace be upon him) said: \"The one who is entrusted with something must fulfil the trust (amanah), and there should be no betrayal of trust.\" A trust document that is drafted with both legal and Shariah integrity is the fullest expression of amanah in wealth planning.",
+              translation: "The Prophet (peace be upon him) said: \"The one who is entrusted with something must fulfil the trust (amanah), and there should be no betrayal of trust.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A trust document that is drafted with both legal and Shariah integrity is the fullest expression of amanah in wealth planning.",
             },
           ],
           description: `**Why?**
@@ -6236,11 +6236,11 @@ A trust document that is signed but unfunded is a legal fiction — it governs n
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2742",
-              translation: "The Prophet (peace be upon him) said to Sa'd ibn Abi Waqqas: \"It is better for you to leave your heirs rich than to leave them poor, begging from people.\" Periodic review of family trusts ensures this prophetic wisdom is upheld.",
+              translation: "The Prophet (peace be upon him) said to Sa'd ibn Abi Waqqas: \"It is better for you to leave your heirs rich than to leave them poor, begging from people.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Periodic review of family trusts ensures this prophetic wisdom is upheld.",
             },
           ],
           description: `**Why?**
@@ -6492,10 +6492,10 @@ The choice of asset determines the waqf's viability, income potential, and longe
               kind: "quran",
               ref: "Quran 76:8-9",
               arabic: "وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا ﴿٨﴾ إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا",
-              translation: "And they give food in spite of love for it to the needy, the orphan, and the captive, [saying], \"We feed you only for the face [i.e., approval] of Allah. We wish not from you reward or gratitude.\" Defining beneficiaries and purpose for a waqf embodies this spirit.",
+              translation: "And they give food in spite of love for it to the needy, the orphan, and the captive, [saying], \"We feed you only for the face [i.e., approval] of Allah. We wish not from you reward or gratitude.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
+              rationale: "Defining beneficiaries and purpose for a waqf embodies this spirit.",
             },
           ],
           description: `**Why?**
@@ -7066,11 +7066,11 @@ Each missed year carries its own independent zakah obligation — you cannot sim
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7152",
-              translation: "The Prophet (peace be upon him) said: \"Every one of you is a shepherd and is responsible for his flock.\" Consulting a scholar when records are incomplete is part of responsibly fulfilling the zakah obligation.",
+              translation: "The Prophet (peace be upon him) said: \"Every one of you is a shepherd and is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Consulting a scholar when records are incomplete is part of responsibly fulfilling the zakah obligation.",
             },
           ],
           description: `**Why?**
@@ -7263,11 +7263,11 @@ Paying the full zakah amount in one lump sum at the hawl date can feel financial
             {
               kind: "hadith",
               ref: "Sahih Muslim 2588",
-              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\" Separating and earmarking zakah funds ensures that the obligation is met without confusion with personal savings.",
+              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Separating and earmarking zakah funds ensures that the obligation is met without confusion with personal savings.",
             },
           ],
           description: `**Why?**
@@ -7391,11 +7391,11 @@ Zakah is most impactful when it reaches people you can see, know, and follow up 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2588",
-              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humbles himself for the sake of Allah except that Allah raises his status.\" Distributing through verified organisations magnifies impact.",
+              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humbles himself for the sake of Allah except that Allah raises his status.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Distributing through verified organisations magnifies impact.",
             },
           ],
           description: `**Why?**
@@ -7612,11 +7612,11 @@ Automation removes the single biggest threat to consistent charity: forgetfulnes
             {
               kind: "hadith",
               ref: "Sahih Muslim 1014",
-              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\" Increasing sadaqah annually as income grows reflects trust in this promise.",
+              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Increasing sadaqah annually as income grows reflects trust in this promise.",
             },
           ],
           description: `**Why?**
@@ -7649,11 +7649,11 @@ A sadaqah habit that never grows stagnates spiritually and practically. As Allah
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship of the Day of Resurrection.\" Supporting local Muslim businesses relieves economic hardship.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship of the Day of Resurrection.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Supporting local Muslim businesses relieves economic hardship.",
             },
           ],
           description: `**Why?**
@@ -7688,11 +7688,11 @@ Every purchase is a vote for the kind of economy you want to exist. When Muslim 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2072",
-              translation: "The Prophet (peace be upon him) said: \"A truthful and trustworthy merchant will be on the Day of Resurrection with the Prophets, the truthful and the martyrs.\" Supporting honest, halal Muslim vendors strengthens the community of those who trade with integrity.",
+              translation: "The Prophet (peace be upon him) said: \"A truthful and trustworthy merchant will be on the Day of Resurrection with the Prophets, the truthful and the martyrs.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Supporting honest, halal Muslim vendors strengthens the community of those who trade with integrity.",
             },
           ],
           description: `**Why?**
@@ -7882,11 +7882,11 @@ Qard hasan is an act of immense virtue, but it must not come at the expense of y
             {
               kind: "hadith",
               ref: "Sunan Ibn Majah 2430",
-              translation: "The Prophet (peace be upon him) said: \"Every loan is a sadaqah.\" An interest-free loan (qard hasan) to someone in genuine need is itself an act of charity.",
+              translation: "The Prophet (peace be upon him) said: \"Every loan is a sadaqah.\"",
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "An interest-free loan (qard hasan) to someone in genuine need is itself an act of charity.",
             },
           ],
           description: `**Why?**
@@ -7992,11 +7992,11 @@ The manner of giving is as important as the gift itself. A qard hasan delivered 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1563",
-              translation: "The Prophet (peace be upon him) said: \"Whoever gives respite to one in difficulty or forgives his debt, Allah will shade him on the Day when there is no shade except His.\" Forgiving a debtor's obligation when they face hardship is highly virtuous.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever gives respite to one in difficulty or forgives his debt, Allah will shade him on the Day when there is no shade except His.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Forgiving a debtor's obligation when they face hardship is highly virtuous.",
             },
           ],
           description: `**Why?**
@@ -8059,11 +8059,11 @@ Sadaqah jariyah — ongoing charity — is unique among good deeds because its r
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a person dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him.\" Evaluating project credibility ensures that your sadaqah jariyah actually endures.",
+              translation: "The Prophet (peace be upon him) said: \"When a person dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Evaluating project credibility ensures that your sadaqah jariyah actually endures.",
             },
           ],
           description: `**Why?**
@@ -8151,11 +8151,11 @@ Seeing your sadaqah jariyah in action — the well being dug, the school walls r
             {
               kind: "hadith",
               ref: "Sahih Muslim 1017",
-              translation: "The Prophet (peace be upon him) said: \"Whoever sets a good precedent in Islam will have its reward and the reward of those who act upon it after him, without diminishing their rewards in any way.\" Sharing a sadaqah jariyah opportunity with others multiplies the impact and reward.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever sets a good precedent in Islam will have its reward and the reward of those who act upon it after him, without diminishing their rewards in any way.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing a sadaqah jariyah opportunity with others multiplies the impact and reward.",
             },
           ],
           description: `**Why?**
@@ -8488,11 +8488,11 @@ Regularity transforms a one-time idea into an embedded family practice. Without 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1006",
-              translation: "The Prophet (peace be upon him) said: \"Protect yourselves from the Fire even if with half a date given in charity.\" Family-level giving builds a culture of generosity.",
+              translation: "The Prophet (peace be upon him) said: \"Protect yourselves from the Fire even if with half a date given in charity.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Family-level giving builds a culture of generosity.",
             },
           ],
           description: `**Why?**
@@ -8529,11 +8529,11 @@ The distribution meeting is where the family sadaqah fund comes alive. It is not
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1418",
-              translation: "The Prophet (peace be upon him) said: \"The one who looks after a widow or a poor person is like a mujahid who fights for the cause of Allah.\" Teaching children this ethic early builds a household of mujahidin in generosity.",
+              translation: "The Prophet (peace be upon him) said: \"The one who looks after a widow or a poor person is like a mujahid who fights for the cause of Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Teaching children this ethic early builds a household of mujahidin in generosity.",
             },
           ],
           description: `**Why?**
@@ -8768,11 +8768,11 @@ A truly comprehensive legacy strategy goes beyond distributing wealth after deat
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2742",
-              translation: "The Prophet (peace be upon him) said: \"It is better for you to leave your heirs rich than to leave them poor, begging from people.\" Documenting the legacy wealth strategy and discussing it with family ensures clarity and buy-in.",
+              translation: "The Prophet (peace be upon him) said: \"It is better for you to leave your heirs rich than to leave them poor, begging from people.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting the legacy wealth strategy and discussing it with family ensures clarity and buy-in.",
             },
           ],
           description: `**Why?**

@@ -127,11 +127,11 @@ Linguistically, the Shahada isn't just a statement of existence; it is a stateme
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 9",
-              translation: "The Prophet ﷺ said: \"Faith (Iman) has over sixty branches... and the least of which is removing a harmful object from the road.\" This shows that the Shahada must manifest in the smallest daily actions.",
+              translation: "The Prophet ﷺ said: \"Faith (Iman) has over sixty branches... and the least of which is removing a harmful object from the road.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This shows that the Shahada must manifest in the smallest daily actions.",
             },
           ],
           description: `**Why?**
@@ -6972,11 +6972,11 @@ Pick a date you can remember and commit to -- 1st Ramadan is popular for its bar
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1454",
-              translation: "The Prophet (SAW) said: \"There is no zakah on less than five awsuq of dates, no zakah on less than five awqiyyah of silver, and no zakah on less than five camels.\" Setting a consistent annual date (hawl) ensures timely calculation.",
+              translation: "The Prophet (SAW) said: \"There is no zakah on less than five awsuq of dates, no zakah on less than five awqiyyah of silver, and no zakah on less than five camels.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting a consistent annual date (hawl) ensures timely calculation.",
             },
           ],
           description: `**Why?**
@@ -7076,11 +7076,11 @@ Research at least 2 established international zakah organisations. Look for thos
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1458",
-              translation: "The Prophet (SAW) instructed Mu'adh: \"Inform them that Allah has made zakah obligatory on their wealth — taken from the rich and given to the poor.\" Verifying that organisations comply with Sharia distribution is essential to fulfilling this trust.",
+              translation: "The Prophet (SAW) instructed Mu'adh: \"Inform them that Allah has made zakah obligatory on their wealth — taken from the rich and given to the poor.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Verifying that organisations comply with Sharia distribution is essential to fulfilling this trust.",
             },
           ],
           description: `**Why?**
@@ -7630,11 +7630,11 @@ Sit down together (in person or virtually) and go through each step: list all za
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1458",
-              translation: "The Prophet (SAW) said to Mu'adh: \"Inform them that Allah has made zakah obligatory — taken from the rich among them and given to the poor among them.\" Helping others identify appropriate recipients fulfils this prophetic mission.",
+              translation: "The Prophet (SAW) said to Mu'adh: \"Inform them that Allah has made zakah obligatory — taken from the rich among them and given to the poor among them.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Helping others identify appropriate recipients fulfils this prophetic mission.",
             },
             {
               kind: "quran",
@@ -9179,11 +9179,11 @@ Prioritise those who may not have community connections \u2014 new Muslims, inte
             {
               kind: "hadith",
               ref: "Sahih Muslim 2586",
-              translation: "The Prophet (SAW) said: \"None of you truly believes until he loves for his brother what he loves for himself.\" Sharing iftar strengthens bonds of brotherhood.",
+              translation: "The Prophet (SAW) said: \"None of you truly believes until he loves for his brother what he loves for himself.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing iftar strengthens bonds of brotherhood.",
             },
           ],
           description: `**Why?**
@@ -10500,11 +10500,11 @@ Host a Hajj preparation session at your local masjid or with family. Share what 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1773",
-              translation: "The Prophet (SAW) said: \"Hajj Mabrur has no reward except Paradise.\" Sharing preparation resources helps future pilgrims achieve a Hajj accepted by Allah.",
+              translation: "The Prophet (SAW) said: \"Hajj Mabrur has no reward except Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing preparation resources helps future pilgrims achieve a Hajj accepted by Allah.",
             },
           ],
           description: `**Why?**

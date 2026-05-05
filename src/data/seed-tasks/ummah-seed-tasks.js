@@ -2262,11 +2262,11 @@ The Quran forbids self-destruction. Romantic visions of "going to help" cause be
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6763",
-              translation: "The Prophet (peace be upon him) said: \"When you give any matter to someone who is not qualified for it, expect the Hour.\" Competence in service is itself an Islamic obligation.",
+              translation: "The Prophet (peace be upon him) said: \"When you give any matter to someone who is not qualified for it, expect the Hour.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Competence in service is itself an Islamic obligation.",
             },
           ],
           description: `**Why?**
@@ -2951,11 +2951,11 @@ One bridge, however durable, reaches only one front of the ummah. The ummah has 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6017",
-              translation: "The Prophet (peace be upon him) said: \"O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep.\" Sharing food from regular cooking, however humble, fulfills the right of the neighbor.",
+              translation: "The Prophet (peace be upon him) said: \"O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing food from regular cooking, however humble, fulfills the right of the neighbor.",
             },
             {
               kind: "hadith",
@@ -2996,11 +2996,11 @@ The hadith "increase the water in your broth and share with your neighbors" (Mus
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6017",
-              translation: "The Prophet (peace be upon him) said: \"O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep.\" On Eid, generosity should extend to all neighbors, including non-Muslims.",
+              translation: "The Prophet (peace be upon him) said: \"O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "On Eid, generosity should extend to all neighbors, including non-Muslims.",
             },
             {
               kind: "quran",
@@ -3100,11 +3100,11 @@ In Arab and Islamic tradition, good news is shared with neighbors through food �
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6017",
-              translation: "The Prophet (peace be upon him) said: \"O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep.\" Learning neighbors' dietary preferences ensures your gifts are thoughtful and truly beneficial.",
+              translation: "The Prophet (peace be upon him) said: \"O Muslim women, do not belittle any gift from your neighbor, even if it is the hoof of a sheep.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Learning neighbors' dietary preferences ensures your gifts are thoughtful and truly beneficial.",
             },
           ],
           description: `**Why?**
@@ -3176,20 +3176,20 @@ Thoughtful giving is the difference between a gesture and genuine care. If your 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2568",
-              translation: "The Prophet (peace be upon him) said: \"Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection.\" Providing practical support during a neighbor's illness is direct relief of hardship.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Providing practical support during a neighbor's illness is direct relief of hardship.",
             },
             {
               kind: "hadith",
               ref: "Sahih Muslim 2569",
-              translation: "The Prophet (peace be upon him) said: \"Visit the sick, feed the hungry, and free the captives.\" Practical care during illness fulfills this Prophetic command.",
+              translation: "The Prophet (peace be upon him) said: \"Visit the sick, feed the hungry, and free the captives.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Practical care during illness fulfills this Prophetic command.",
             },
           ],
           description: `**Why?**
@@ -3479,11 +3479,11 @@ The Quran commands: "O you who believe, avoid much suspicion — indeed some sus
             {
               kind: "hadith",
               ref: "Sahih Muslim 2589",
-              translation: "The Prophet (peace be upon him) said: \"Do you know what backbiting is? It is mentioning your brother in a way he would dislike.\" Using group chats or social media to complain about neighbors is a modern form of ghiba.",
+              translation: "The Prophet (peace be upon him) said: \"Do you know what backbiting is? It is mentioning your brother in a way he would dislike.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Using group chats or social media to complain about neighbors is a modern form of ghiba.",
             },
           ],
           description: `**Why?**
@@ -3625,11 +3625,11 @@ Availability is the currency of trust. If a neighbor calls and you never answer,
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 1944",
-              translation: "The Prophet (peace be upon him) said: \"The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor.\" Consistency in neighborly conduct, regardless of mood, is the mark of the best neighbor.",
+              translation: "The Prophet (peace be upon him) said: \"The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Hasan Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Consistency in neighborly conduct, regardless of mood, is the mark of the best neighbor.",
             },
             {
               kind: "quran",
@@ -3912,11 +3912,11 @@ The Prophet (peace be upon him) used to pray for people who were hostile to him 
             {
               kind: "hadith",
               ref: "Sunan al-Tirmidhi 1944",
-              translation: "The Prophet (peace be upon him) said: \"The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor.\" Setting this as an explicit personal goal aligns your life with this Prophetic standard.",
+              translation: "The Prophet (peace be upon him) said: \"The best companion in the sight of Allah is the best to his companion, and the best neighbor in the sight of Allah is the best to his neighbor.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Hasan Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting this as an explicit personal goal aligns your life with this Prophetic standard.",
             },
             {
               kind: "hadith",
@@ -4093,11 +4093,11 @@ Individual acts of kindness are powerful, but traditions create sustained commun
             {
               kind: "hadith",
               ref: "Sahih Muslim 2625",
-              translation: "The Prophet (peace be upon him) said: \"The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight.\" Organising a shared neighborhood meal embodies this spirit of communal generosity.",
+              translation: "The Prophet (peace be upon him) said: \"The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Organising a shared neighborhood meal embodies this spirit of communal generosity.",
             },
             {
               kind: "quran",
@@ -4232,11 +4232,11 @@ The Ansar of Madinah did not just welcome the Muhajirun with words — they shar
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\" Publicly acknowledging neighbors' contributions strengthens the culture of mutual aid.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Publicly acknowledging neighbors' contributions strengthens the culture of mutual aid.",
             },
             {
               kind: "quran",
@@ -4472,11 +4472,11 @@ The Prophet (peace be upon him) maintained deep, genuine relationships with peop
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\" Mapping neighborhood skills and resources is the foundation of structured mutual aid.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Mapping neighborhood skills and resources is the foundation of structured mutual aid.",
             },
           ],
           description: `**Why?**
@@ -4585,11 +4585,11 @@ Good intentions without structure lead to inconsistency. Some people will help e
             {
               kind: "hadith",
               ref: "Sahih Muslim 2568",
-              translation: "The Prophet (peace be upon him) said: \"Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection.\" A neighborhood fund for crisis support is organized relief of hardship.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A neighborhood fund for crisis support is organized relief of hardship.",
             },
             {
               kind: "hadith",
@@ -4621,11 +4621,11 @@ The Prophet (peace be upon him) described the believers as one body (Bukhari 601
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\" Onboarding new neighbors and celebrating milestones sustains the good practice across time.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Onboarding new neighbors and celebrating milestones sustains the good practice across time.",
             },
           ],
           description: `**Why?**
@@ -5216,11 +5216,11 @@ Transparency is a requirement of amanah (trust). When community members cannot s
             {
               kind: "hadith",
               ref: "Sahih Muslim 2564",
-              translation: "The Prophet (peace be upon him) said: \"None of you truly believes until he loves for his brother what he loves for himself.\" This principle extends to ensuring every community member has a voice in raising concerns.",
+              translation: "The Prophet (peace be upon him) said: \"None of you truly believes until he loves for his brother what he loves for himself.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This principle extends to ensuring every community member has a voice in raising concerns.",
             },
           ],
           description: `**Why?**
@@ -5407,11 +5407,11 @@ The Prophet (peace be upon him) said: "He is not a believer whose stomach is fil
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\" Building a skills directory enables believers to serve one another through their God-given talents.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building a skills directory enables believers to serve one another through their God-given talents.",
             },
           ],
           description: `**Why?**
@@ -5442,11 +5442,11 @@ The Prophet (peace be upon him) encouraged believers to benefit one another: "Th
             {
               kind: "hadith",
               ref: "Sahih Muslim 2586",
-              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim. He does not oppress him, nor does he leave him at the mercy of others.\" Supporting converts and isolated individuals fulfills this obligation.",
+              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim. He does not oppress him, nor does he leave him at the mercy of others.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Supporting converts and isolated individuals fulfills this obligation.",
             },
           ],
           description: `**Why?**
@@ -6600,11 +6600,11 @@ Many Muslims avoid janazah prayers because they do not know the format and feel 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2569",
-              translation: "The Prophet (peace be upon him) said: \"The rights of a Muslim upon another Muslim are five: returning the greeting, visiting the sick, following the funeral, accepting the invitation, and saying yarhamukallah when he sneezes.\" Following the janazah is a communal obligation.",
+              translation: "The Prophet (peace be upon him) said: \"The rights of a Muslim upon another Muslim are five: returning the greeting, visiting the sick, following the funeral, accepting the invitation, and saying yarhamukallah when he sneezes.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Following the janazah is a communal obligation.",
             },
             {
               kind: "hadith",
@@ -7057,11 +7057,11 @@ The Prophet (peace be upon him) said, "The believers in their mutual kindness, c
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 3641",
-              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets.\" Recruiting qualified teachers is essential to preserving and transmitting sacred knowledge. **II. Hadith**",
+              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Recruiting qualified teachers is essential to preserving and transmitting sacred knowledge. **II. Hadith**",
             },
             {
               kind: "hadith",
@@ -7429,11 +7429,11 @@ Many Muslim communities either do no outreach at all or conduct it in an ad-hoc,
             {
               kind: "hadith",
               ref: "Sahih Muslim 1893",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like the one who did it.\" Training dawah ambassadors multiplies the community's capacity for good.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like the one who did it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Training dawah ambassadors multiplies the community's capacity for good.",
             },
           ],
           description: `**Why?**
@@ -7618,11 +7618,11 @@ The Prophet (peace be upon him) understood the specific concerns of each age gro
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 4943",
-              translation: "The Prophet (peace be upon him) said: \"No one of you is a true believer until he loves for his brother what he loves for himself.\" Mentoring youth is an act of loving for the next generation what we value for ourselves.",
+              translation: "The Prophet (peace be upon him) said: \"No one of you is a true believer until he loves for his brother what he loves for himself.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Mentoring youth is an act of loving for the next generation what we value for ourselves.",
             },
             {
               kind: "quran",
@@ -7688,11 +7688,11 @@ The Prophet (peace be upon him) held gatherings where Companions could ask quest
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6026",
-              translation: "The Prophet (peace be upon him) said: \"Allah is kind and loves kindness in all affairs.\" Integrating sports and creative outlets reflects the Prophetic balance of nurturing body, mind, and soul.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is kind and loves kindness in all affairs.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Integrating sports and creative outlets reflects the Prophetic balance of nurturing body, mind, and soul.",
             },
             {
               kind: "hadith",
@@ -7731,11 +7731,11 @@ The Prophet (peace be upon him) held gatherings where Companions could ask quest
             {
               kind: "hadith",
               ref: "Sahih Muslim 1920",
-              translation: "The Prophet (peace be upon him) said: \"A group of my Ummah will remain victorious upon the truth.\" Developing young leaders ensures that the community continues to uphold and champion the truth.",
+              translation: "The Prophet (peace be upon him) said: \"A group of my Ummah will remain victorious upon the truth.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Developing young leaders ensures that the community continues to uphold and champion the truth.",
             },
           ],
           description: `**Why?**
@@ -7773,11 +7773,11 @@ The Prophet (peace be upon him) appointed Usama ibn Zayd to lead an army at age 
             {
               kind: "hadith",
               ref: "Sahih Muslim 1015",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him.\" Sound financial auditing protects community endowments.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: sadaqah jariyah, beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sound financial auditing protects community endowments.",
             },
           ],
           description: `**Why?**
@@ -7808,11 +7808,11 @@ The Quran commands: "O you who believe, when you contract a debt for a specified
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\" Establishing separate funds for operations, emergency aid, and development ensures structured mutual support.",
+              translation: "The Prophet (peace be upon him) said: \"Allah is in the aid of a servant so long as the servant is in the aid of his brother.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Establishing separate funds for operations, emergency aid, and development ensures structured mutual support.",
             },
             {
               kind: "quran",
@@ -8016,11 +8016,11 @@ Effective education addresses real needs, not assumed ones. Many community progr
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 3641",
-              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge.\" Recruiting qualified teachers ensures this prophetic inheritance is transmitted.",
+              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Recruiting qualified teachers ensures this prophetic inheritance is transmitted.",
             },
             {
               kind: "hadith",
@@ -8051,11 +8051,11 @@ Knowledge in Islam has a chain (isnad) — it is transmitted from teacher to stu
             {
               kind: "hadith",
               ref: "Sahih Muslim 1893",
-              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like the one who did it.\" Securing a consistent venue and schedule removes barriers to accessing knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever guides someone to goodness will have a reward like the one who did it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Securing a consistent venue and schedule removes barriers to accessing knowledge.",
             },
             {
               kind: "quran",
@@ -8095,11 +8095,11 @@ Consistency is what transforms a one-off event into an institution. The Prophet'
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 79",
-              translation: "The Prophet (peace be upon him) said: \"If Allah wants to do good to a person, He makes him comprehend the religion.\" Launching a structured learning environment opens the door to this divine favour. **II. Hadith**",
+              translation: "The Prophet (peace be upon him) said: \"If Allah wants to do good to a person, He makes him comprehend the religion.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Launching a structured learning environment opens the door to this divine favour. **II. Hadith**",
             },
             {
               kind: "hadith",
@@ -8190,11 +8190,11 @@ No programme survives contact with reality unchanged. What looked good on paper 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7138",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" Identifying youth who need mentorship is the first act of shepherding the next generation. **II. Hadith**",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Identifying youth who need mentorship is the first act of shepherding the next generation. **II. Hadith**",
             },
             {
               kind: "hadith",
@@ -8269,11 +8269,11 @@ A single mentor can only offer one perspective. Youth benefit from exposure to m
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\" A structured mentorship framework ensures the good practice is repeatable and scalable.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A structured mentorship framework ensures the good practice is repeatable and scalable.",
             },
           ],
           description: `**Why?**
@@ -8504,11 +8504,11 @@ A dispute resolution process only works if the community knows it exists and tru
             {
               kind: "hadith",
               ref: "Sahih Muslim 2605",
-              translation: "The Prophet (peace be upon him) said: \"He who makes peace between people by conveying good information or saying good things is not a liar.\" Learning from the first dispute refines the community's capacity for justice.",
+              translation: "The Prophet (peace be upon him) said: \"He who makes peace between people by conveying good information or saying good things is not a liar.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Learning from the first dispute refines the community's capacity for justice.",
             },
           ],
           description: `**Why?**
@@ -8738,11 +8738,11 @@ In many communities, women's contributions are invisible — they cook for event
             {
               kind: "hadith",
               ref: "Sahih Muslim 442",
-              translation: "The Prophet (peace be upon him) said: \"Do not prevent the female servants of Allah from attending the mosques of Allah.\" Ensuring the women's section is clean, comfortable, and dignified fulfills this Prophetic directive.",
+              translation: "The Prophet (peace be upon him) said: \"Do not prevent the female servants of Allah from attending the mosques of Allah.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Ensuring the women's section is clean, comfortable, and dignified fulfills this Prophetic directive.",
             },
             {
               kind: "quran",
@@ -8815,11 +8815,11 @@ Waqf is a sophisticated Islamic financial instrument with over 1,400 years of ju
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 7138",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" A waqf committee with diverse representation ensures trust is properly stewarded.",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A waqf committee with diverse representation ensures trust is properly stewarded.",
             },
           ],
           description: `**Why?**
@@ -8885,11 +8885,11 @@ The waqf deed is the founding document that governs the endowment in perpetuity.
             {
               kind: "hadith",
               ref: "Sahih Muslim 1006",
-              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\" Fundraising to seed a waqf is an investment in multiplied reward.",
+              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Fundraising to seed a waqf is an investment in multiplied reward.",
             },
           ],
           description: `**Why?**
@@ -9019,11 +9019,11 @@ A model cannot be replicated if it is not documented. Most community operations 
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\" Building a replicable model is a form of sadaqah jariyah.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building a replicable model is a form of sadaqah jariyah.",
             },
           ],
           description: `**Why?**
@@ -9306,11 +9306,11 @@ The Prophet (peace be upon him) said: "Help your brother whether he is an oppres
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6011",
-              translation: "The Prophet (peace be upon him) said: \"The believers in their mutual kindness, compassion, and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever.\" Supporting refugees fulfills this communal obligation.",
+              translation: "The Prophet (peace be upon him) said: \"The believers in their mutual kindness, compassion, and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Supporting refugees fulfills this communal obligation.",
             },
           ],
           description: `**Why?**
@@ -9374,11 +9374,11 @@ The Prophet (peace be upon him) made qunut al-nazilah (supplication during calam
             {
               kind: "hadith",
               ref: "Sahih Muslim 1015",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him.\" Acquiring a permanent community property is among the greatest forms of ongoing charity.",
+              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Acquiring a permanent community property is among the greatest forms of ongoing charity.",
             },
             {
               kind: "quran",
@@ -9496,11 +9496,11 @@ The Prophet (peace be upon him) said: "If a Muslim plants a tree or cultivates a
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 3641",
-              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge. Whoever acquires it has acquired an abundant share.\" A community library preserves and spreads this inherited knowledge.",
+              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge. Whoever acquires it has acquired an abundant share.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A community library preserves and spreads this inherited knowledge.",
             },
             {
               kind: "quran",
@@ -9626,11 +9626,11 @@ The Prophet (peace be upon him) said: "Each of you is a shepherd and each of you
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 59",
-              translation: "The Prophet (peace be upon him) said: \"When the trust is lost, then wait for the Hour.\" When someone asked how trust would be lost, he said: \"When authority is given to those who do not deserve it.\" Institutionalising roles prevents trust from being lost.",
+              translation: "The Prophet (peace be upon him) said: \"When the trust is lost, then wait for the Hour.\" When someone asked how trust would be lost, he said: \"When authority is given to those who do not deserve it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Institutionalising roles prevents trust from being lost.",
             },
           ],
           description: `**Why?**
@@ -9985,11 +9985,11 @@ The Prophet (peace be upon him) said: "Actions are judged by intentions" (Bukhar
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6014",
-              translation: "The Prophet (peace be upon him) said: \"Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance.\" Knowing your neighbors by name is the first step in fulfilling this weighty right.",
+              translation: "The Prophet (peace be upon him) said: \"Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Knowing your neighbors by name is the first step in fulfilling this weighty right.",
             },
           ],
           description: `**Why?**
@@ -10122,11 +10122,11 @@ The rights of the neighbor in Islam begin with awareness. The Quran commands ihs
             {
               kind: "hadith",
               ref: "Sahih Muslim 46",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him not harm his neighbor.\" Eliminating noise disturbances and clearing shared spaces is the practical application of this command.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him not harm his neighbor.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Eliminating noise disturbances and clearing shared spaces is the practical application of this command.",
             },
             {
               kind: "hadith",
@@ -10372,11 +10372,11 @@ The neighborly relationship must have practical infrastructure, not just goodwil
             {
               kind: "hadith",
               ref: "Sahih Muslim 49",
-              translation: "The Prophet (peace be upon him) said: \"Faith has over seventy branches, the highest of which is the declaration that there is no god but Allah, and the lowest of which is removing something harmful from the road.\" Auditing shared spaces for hazards fulfills this branch of faith.",
+              translation: "The Prophet (peace be upon him) said: \"Faith has over seventy branches, the highest of which is the declaration that there is no god but Allah, and the lowest of which is removing something harmful from the road.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Auditing shared spaces for hazards fulfills this branch of faith.",
             },
             {
               kind: "hadith",
@@ -10442,20 +10442,20 @@ Identifying problems without acting is observation without ihsan. If litter is o
             {
               kind: "hadith",
               ref: "Sahih Muslim 46",
-              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him not harm his neighbor.\" Leaving personal items in shared spaces is a form of harm that violates this Prophetic command.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever believes in Allah and the Last Day, let him not harm his neighbor.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Leaving personal items in shared spaces is a form of harm that violates this Prophetic command.",
             },
             {
               kind: "hadith",
               ref: "Sahih Muslim 49",
-              translation: "The Prophet (peace be upon him) said: \"Removing something harmful from the road is charity.\" Keeping shared spaces clear of personal items is an act of ongoing sadaqah.",
+              translation: "The Prophet (peace be upon him) said: \"Removing something harmful from the road is charity.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Keeping shared spaces clear of personal items is an act of ongoing sadaqah.",
             },
           ],
           description: `**Why?**
@@ -10658,11 +10658,11 @@ The Quran says, "Repel evil with that which is better, and thereupon the one bet
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6014",
-              translation: "The Prophet (peace be upon him) said: \"Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance.\" Enduring minor annoyances with sabr honors this trust.",
+              translation: "The Prophet (peace be upon him) said: \"Jibril kept recommending treating neighbors with kindness until I thought he would assign them a share of the inheritance.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Enduring minor annoyances with sabr honors this trust.",
             },
           ],
           description: `**Why?**
@@ -10759,11 +10759,11 @@ The Quran instructs: "If two parties among the believers fall into a dispute, ma
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6011",
-              translation: "The Prophet (peace be upon him) said: \"The believers in their mutual kindness, compassion, and sympathy are just like one body. When one limb suffers, the whole body responds with wakefulness and fever.\" Identifying vulnerable neighbors is the first step toward fulfilling this communal body's duty.",
+              translation: "The Prophet (peace be upon him) said: \"The believers in their mutual kindness, compassion, and sympathy are just like one body. When one limb suffers, the whole body responds with wakefulness and fever.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Identifying vulnerable neighbors is the first step toward fulfilling this communal body's duty.",
             },
             {
               kind: "quran",
@@ -11654,11 +11654,11 @@ Not everything your community does is equally replicable or valuable. Some pract
             {
               kind: "hadith",
               ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him, without their rewards being diminished.\" Thorough documentation enables replication, multiplying reward.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him, without their rewards being diminished.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Thorough documentation enables replication, multiplying reward.",
             },
             {
               kind: "quran",
@@ -11959,11 +11959,11 @@ Communities without archives have no institutional memory. When the founders pas
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 3641",
-              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge.\" A living library programme ensures this prophetic inheritance flows between generations.",
+              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets. The Prophets did not leave behind dinars or dirhams; rather they left behind knowledge.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A living library programme ensures this prophetic inheritance flows between generations.",
             },
             {
               kind: "quran",

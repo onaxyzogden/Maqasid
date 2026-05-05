@@ -266,11 +266,11 @@ Moving from a running tap to a container transforms wudu from an unconscious rou
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 29",
-              translation: "The Prophet (peace be upon him) passed by Sa‘d while he was performing wudu and said: \"What is this extravagance, O Sa‘d?\" He said: \"Yes, even if you are at a flowing river.\" This establishes the Sunnah of conserving water even when it is abundant.",
+              translation: "The Prophet (peace be upon him) passed by Sa‘d while he was performing wudu and said: \"What is this extravagance, O Sa‘d?\" He said: \"Yes, even if you are at a flowing river.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "This establishes the Sunnah of conserving water even when it is abundant.",
             },
           ],
           description: `**Why?**
@@ -978,11 +978,11 @@ This is the execution step where planning converts to real energy savings. Each 
             {
               kind: "hadith",
               ref: "Sunan Ibn Majah 3245",
-              translation: "The Prophet (peace be upon him) said: \"There is no Muslim who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, except that it is regarded as charity for him.\" Proper disposal prevents harm to creation.",
+              translation: "The Prophet (peace be upon him) said: \"There is no Muslim who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, except that it is regarded as charity for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Proper disposal prevents harm to creation.",
             },
           ],
           description: `**Why?**
@@ -1592,11 +1592,11 @@ The payback period tells you when your solar investment transitions from cost to
             {
               kind: "hadith",
               ref: "Sahih Muslim 1955",
-              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it.\" Acting for the earth’s benefit even at the end of time.",
+              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Acting for the earth’s benefit even at the end of time.",
             },
           ],
           description: `**Why?**
@@ -1823,11 +1823,11 @@ After implementing the efficiency measures and renewable energy upgrades from ea
             {
               kind: "hadith",
               ref: "Sahih Muslim 1955",
-              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it.\" Tree planting and carbon offsetting embody this prophetic spirit.",
+              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Tree planting and carbon offsetting embody this prophetic spirit.",
             },
           ],
           description: `**Why?**
@@ -1938,11 +1938,11 @@ Knowledge that remains private benefits only the knower. Sharing your net-zero j
             {
               kind: "hadith",
               ref: "Sahih Muslim 223",
-              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\" Maintaining cleanliness through proper waste sorting and recycling is an expression of iman.",
+              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Maintaining cleanliness through proper waste sorting and recycling is an expression of iman.",
             },
           ],
           description: `**Why?**
@@ -2107,11 +2107,11 @@ A recycling system only works if every person in the household participates corr
             {
               kind: "hadith",
               ref: "Sahih Muslim 1914",
-              translation: "The Prophet (peace be upon him) said: \"Removing harmful objects from the road is an act of charity.\" Safely disposing of toxic materials extends this principle of removing harm from the community.",
+              translation: "The Prophet (peace be upon him) said: \"Removing harmful objects from the road is an act of charity.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Safely disposing of toxic materials extends this principle of removing harm from the community.",
             },
           ],
           description: `**Why?**
@@ -2633,11 +2633,11 @@ Impulse grocery shopping is one of the largest drivers of household food waste �
             {
               kind: "hadith",
               ref: "Sunan Ibn Majah 3322",
-              translation: "The Prophet (peace be upon him) said: \"The son of Adam does not fill any vessel worse than his stomach. It is sufficient for the son of Adam to eat a few morsels to keep him alive.\" Preventing food waste begins with taking only what one needs.",
+              translation: "The Prophet (peace be upon him) said: \"The son of Adam does not fill any vessel worse than his stomach. It is sufficient for the son of Adam to eat a few morsels to keep him alive.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Preventing food waste begins with taking only what one needs.",
             },
           ],
           description: `**Why?**
@@ -2686,11 +2686,11 @@ Without a system, newer purchases get placed in front of older ones, and the old
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5393",
-              translation: "The Prophet (peace be upon him) said: \"The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight.\" Using leftovers creatively prevents waste and feeds more people.",
+              translation: "The Prophet (peace be upon him) said: \"The food of one person is sufficient for two, and the food of two is sufficient for four, and the food of four is sufficient for eight.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Using leftovers creatively prevents waste and feeds more people.",
             },
           ],
           description: `**Why?**
@@ -2923,11 +2923,11 @@ Cling wrap (plastic film) is one of the most insidious single-use plastics — i
             {
               kind: "hadith",
               ref: "Sahih Muslim 1955",
-              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it.\" Composting nourishes the soil and supports the cycle of growth that the Prophet encouraged.",
+              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Composting nourishes the soil and supports the cycle of growth that the Prophet encouraged.",
             },
           ],
           description: `**Why?**
@@ -3153,11 +3153,11 @@ A cheap appliance that breaks after one year generates waste and requires replac
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6416",
-              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\" A traveler does not accumulate needlessly — buying durable, repairable goods aligns with this prophetic counsel.",
+              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "A traveler does not accumulate needlessly — buying durable, repairable goods aligns with this prophetic counsel.",
             },
           ],
           description: `**Why?**
@@ -3336,11 +3336,11 @@ Some items — quality furniture, working electronics, sports equipment, musical
             {
               kind: "hadith",
               ref: "Sahih Muslim 2199",
-              translation: "The Prophet (peace be upon him) said: \"Give gifts and you will love one another.\" Donating usable items strengthens community bonds and prevents waste.",
+              translation: "The Prophet (peace be upon him) said: \"Give gifts and you will love one another.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Donating usable items strengthens community bonds and prevents waste.",
             },
             {
               kind: "quran",
@@ -3550,11 +3550,11 @@ Your near-zero waste journey — including the struggles, failures, and creative
             {
               kind: "hadith",
               ref: "Sahih Muslim 223",
-              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\" Ensuring proper waste management in communal spaces like the masjid is a collective responsibility of the ummah.",
+              translation: "The Prophet (peace be upon him) said: \"Cleanliness is half of faith.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Ensuring proper waste management in communal spaces like the masjid is a collective responsibility of the ummah.",
             },
           ],
           description: `**Why?**
@@ -3676,11 +3676,11 @@ Proposals without implementation champions often stall — committees approve id
             {
               kind: "hadith",
               ref: "Sahih Muslim 49",
-              translation: "The Prophet (peace be upon him) said: \"Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith.\" Reporting results demonstrates active engagement against environmental harm.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Reporting results demonstrates active engagement against environmental harm.",
             },
           ],
           description: `**Why?**
@@ -3789,11 +3789,11 @@ A clean-up event with five volunteers has limited impact; the same event with fi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5670",
-              translation: "The Prophet (peace be upon him) said: \"Make things easy and do not make them difficult, and give glad tidings and do not make people run away.\" Providing supplies and coordinating well ensures volunteers have a positive experience.",
+              translation: "The Prophet (peace be upon him) said: \"Make things easy and do not make them difficult, and give glad tidings and do not make people run away.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Providing supplies and coordinating well ensures volunteers have a positive experience.",
             },
           ],
           description: `**Why?**
@@ -3816,11 +3816,11 @@ A well-organised event where volunteers arrive to find gloves, bags, and clear i
             {
               kind: "hadith",
               ref: "Sahih Muslim 1017",
-              translation: "The Prophet (peace be upon him) said: \"Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him.\" Documenting the effort inspires others and multiplies the reward.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Documenting the effort inspires others and multiplies the reward.",
             },
           ],
           description: `**Why?**
@@ -4339,11 +4339,11 @@ Planting a tree that is not suited to your local climate and soil is an act of g
             {
               kind: "hadith",
               ref: "Sahih Muslim 1955",
-              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it.\" Choosing species that support wildlife follows the prophetic emphasis on planting for life.",
+              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Choosing species that support wildlife follows the prophetic emphasis on planting for life.",
             },
             {
               kind: "hadith",
@@ -4822,11 +4822,11 @@ The global souvenir trade drives enormous ecological damage. Coral reefs — whi
             {
               kind: "hadith",
               ref: "Sahih Muslim 49",
-              translation: "The Prophet (peace be upon him) said: \"Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart.\" Reporting illegal wildlife trade is changing evil with one’s tongue and hand.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Reporting illegal wildlife trade is changing evil with one’s tongue and hand.",
             },
           ],
           description: `**Why?**
@@ -4858,11 +4858,11 @@ The illegal wildlife trade is the fourth largest criminal enterprise globally, w
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2320",
-              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him.\" Planting native species is sadaqah jariyah.",
+              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Planting native species is sadaqah jariyah.",
             },
           ],
           description: `**Why?**
@@ -5640,11 +5640,11 @@ As a Muslim, your contribution is not merely a financial transaction — it is a
             {
               kind: "hadith",
               ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a person dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him.\" Recurring contributions to land rehabilitation are sadaqah jariyah.",
+              translation: "The Prophet (peace be upon him) said: \"When a person dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Recurring contributions to land rehabilitation are sadaqah jariyah.",
             },
             {
               kind: "hadith",
@@ -6301,11 +6301,11 @@ Benchmark: Every brand on your purchase list should be classified as clear, flag
             {
               kind: "hadith",
               ref: "Sahih Muslim 2564",
-              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim. He neither oppresses him nor does he let him down.\" Choosing ethical alternatives means refusing to fund the oppression of workers.",
+              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim. He neither oppresses him nor does he let him down.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Choosing ethical alternatives means refusing to fund the oppression of workers.",
             },
           ],
           description: `**Why?**
@@ -6491,11 +6491,11 @@ Benchmark: At least your top 3-5 most consumed dirty dozen items should be sourc
             {
               kind: "hadith",
               ref: "Sahih Muslim 1955",
-              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it.\" Visiting halal farms and seeing conditions firsthand connects you to the earth and the food cycle.",
+              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, let him plant it.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Visiting halal farms and seeing conditions firsthand connects you to the earth and the food cycle.",
             },
           ],
           description: `**Why?**
@@ -7022,11 +7022,11 @@ Benchmark: One full month of using all three ethical alternatives, with a docume
             {
               kind: "hadith",
               ref: "Sahih Muslim 2564",
-              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim. He neither oppresses him nor does he let him down.\" Supporting fair-trade and ethical suppliers upholds the rights of producers and workers.",
+              translation: "The Prophet (peace be upon him) said: \"A Muslim is the brother of a Muslim. He neither oppresses him nor does he let him down.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Supporting fair-trade and ethical suppliers upholds the rights of producers and workers.",
             },
           ],
           description: `**Why?**
@@ -7187,11 +7187,11 @@ Benchmark: Consistently purchasing at least 50% of fresh produce from local sour
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2320",
-              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him.\" Building relationships with farmers connects you to the chain of provision Allah established.",
+              translation: "The Prophet (peace be upon him) said: \"There is none amongst the Muslims who plants a tree or sows seeds, and then a bird, or a person or an animal eats from it, but is regarded as a charitable gift for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Building relationships with farmers connects you to the chain of provision Allah established.",
             },
             {
               kind: "hadith",
@@ -7559,11 +7559,11 @@ Benchmark: Every replacement piece in your capsule should be sourced from an eth
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6416",
-              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\" The \"one in, one out\" rule reflects the traveler’s discipline of carrying only what is needed.",
+              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "The \"one in, one out\" rule reflects the traveler’s discipline of carrying only what is needed.",
             },
           ],
           description: `**Why?**
@@ -7593,11 +7593,11 @@ Benchmark: Six consecutive months of maintaining the one-in-one-out rule with no
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6416",
-              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\" Repairing rather than replacing reflects the simplicity and resourcefulness of a traveler.",
+              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Repairing rather than replacing reflects the simplicity and resourcefulness of a traveler.",
             },
           ],
           description: `**Why?**
@@ -7879,11 +7879,11 @@ Benchmark: Active membership or engagement with at least one circular economy ne
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2072",
-              translation: "The Prophet (peace be upon him) said: \"The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs on the Day of Judgement.\" Validating a business concept before investing reflects trustworthy commercial practice.",
+              translation: "The Prophet (peace be upon him) said: \"The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs on the Day of Judgement.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Validating a business concept before investing reflects trustworthy commercial practice.",
             },
           ],
           description: `**Why?**
@@ -8025,11 +8025,11 @@ Benchmark: Confirmed agreements with 3-5 ethical suppliers across at least 2 pro
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2072",
-              translation: "The Prophet (peace be upon him) said: \"The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs.\" Setting up transparent ordering and distribution systems reflects the prophetic standard of trustworthy commerce.",
+              translation: "The Prophet (peace be upon him) said: \"The truthful, trustworthy merchant will be with the prophets, the truthful, and the martyrs.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Setting up transparent ordering and distribution systems reflects the prophetic standard of trustworthy commerce.",
             },
             {
               kind: "hadith",
@@ -8099,11 +8099,11 @@ Benchmark: One complete pilot order cycle executed, with documented feedback fro
             {
               kind: "hadith",
               ref: "Sahih Muslim 1017",
-              translation: "The Prophet (peace be upon him) said: \"Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him.\" Scaling a purchasing collective gradually creates a lasting precedent of ethical consumption.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever sets a good precedent in Islam will have the reward of it and the reward of those who act upon it after him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Scaling a purchasing collective gradually creates a lasting precedent of ethical consumption.",
             },
           ],
           description: `**Why?**

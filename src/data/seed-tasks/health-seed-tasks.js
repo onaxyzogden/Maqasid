@@ -4577,11 +4577,11 @@ Read a clear comparison article or watch a short lecture on takaful vs. conventi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2076",
-              translation: "The Prophet (peace be upon him) said: \"The truthful and trustworthy merchant is with the prophets, the truthful, and the martyrs.\" Choosing ethical and Islamic financial providers follows this spirit of halal commerce.",
+              translation: "The Prophet (peace be upon him) said: \"The truthful and trustworthy merchant is with the prophets, the truthful, and the martyrs.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Choosing ethical and Islamic financial providers follows this spirit of halal commerce.",
             },
           ],
           description: `**Why?**
@@ -6861,11 +6861,11 @@ In your early conversations, ask open-ended questions: "What are you working tow
             {
               kind: "hadith",
               ref: "Sahih Muslim 2699",
-              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path in pursuit of knowledge, Allah will make easy for him a path to Paradise.\" Sharing knowledge and experience with others is among the most valuable paths.",
+              translation: "The Prophet (peace be upon him) said: \"Whoever follows a path in pursuit of knowledge, Allah will make easy for him a path to Paradise.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Sharing knowledge and experience with others is among the most valuable paths.",
             },
           ],
           description: `**Why?**
