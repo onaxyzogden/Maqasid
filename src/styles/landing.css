@@ -989,3 +989,62 @@
 .onboarding-fade-up {
   animation: onboardingFadeUp var(--duration, 0.25s) ease both;
 }
+
+/* Prophetic Path live-demo preview section */
+.prophetic-preview-section {
+  position: relative;
+  height: 180vh;
+  background: linear-gradient(180deg, #050608 0%, #0a0c10 50%, #050608 100%);
+  border-top: 1px solid rgba(184, 144, 80, 0.08);
+  border-bottom: 1px solid rgba(184, 144, 80, 0.08);
+}
+
+.prophetic-preview-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 6vw, 80px);
+  padding: 0 clamp(24px, 6vw, 96px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.prophetic-preview-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.prophetic-preview-copy .section-label {
+  color: #b89050;
+}
+
+.prophetic-preview-copy .section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.prophetic-preview-copy .section-subtitle {
+  max-width: 46ch;
+  margin: 0;
+  color: rgba(232, 227, 214, 0.7);
+}
+
+@media (max-width: 768px) {
+  .prophetic-preview-section { height: 160vh; }
+  .prophetic-preview-sticky {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+    padding: 32px 20px;
+    align-items: start;
+    justify-items: center;
+  }
+  .prophetic-preview-copy { text-align: center; align-items: center; }
+}

@@ -196,6 +196,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <li><a href="#threshold"  data-sec="threshold">Threshold</a></li>
     <li><a href="#solution"   data-sec="solution">Solution</a></li>
     <li><a href="#pillars"    data-sec="pillars">Pillars</a></li>
+    <li><a href="#path"       data-sec="path">Path</a></li>
     <li><a href="#connect"    data-sec="connect">Connect</a></li>
   </ul>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open navigation menu">
@@ -210,6 +211,7 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
     <li><a href="#threshold">Threshold</a></li>
     <li><a href="#solution">Solution</a></li>
     <li><a href="#pillars">Pillars</a></li>
+    <li><a href="#path">Path</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
   <a href="/milos/journey/" class="nav-drawer-cta">View the Journey &rarr;</a>
@@ -382,6 +384,23 @@ body{animation:body-fade-in 0.5s ease 0.05s both;}
   </div>
 </section>
 
+<!-- ══ PROPHETIC PATH ══ -->
+<div class="sep" aria-hidden="true"></div>
+<section class="section" id="path" aria-labelledby="path-h">
+  <div class="section-inner">
+    <p class="sec-eyebrow reveal">The rhythm beneath the structure</p>
+    <div class="sec-rule reveal" aria-hidden="true"></div>
+    <h2 class="sec-headline reveal" id="path-h">
+      Your day, mapped to <em>the Sunnah.</em>
+    </h2>
+    <p class="sec-body reveal">
+      The seven pillars give your life its shape. The Prophetic Path gives your day its rhythm &mdash;
+      from Fajr to Tahajjud, every prayer and every Sunnah moment in one vertical spine.
+      MILOS walks the day with you; the active node moves as the time does.
+    </p>
+  </div>
+</section>
+
 <!-- ══ CROSS-LINK ══ -->
 <div class="crosslink">
   <div class="crosslink-inner">
@@ -472,7 +491,7 @@ const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(!e.isIntersecting)return
 document.querySelectorAll('.reveal,.num-item').forEach(el=>obs.observe(el));
 
 const secObs=new IntersectionObserver(e=>{e.forEach(e=>{const l=document.querySelector(`.nav-sections a[data-sec="${e.target.id}"]`);if(l)l.classList.toggle('sec-active',e.isIntersecting);});},{threshold:0.3});
-['purpose','threshold','solution','pillars','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el);});
+['purpose','threshold','solution','pillars','path','connect'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el);});
 </script>
 
 <script>
