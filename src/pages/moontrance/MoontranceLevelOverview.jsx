@@ -118,7 +118,7 @@ export default function MoontranceLevelOverview({ level, levelColor }) {
             MTC Milestones
           </h2>
           <p className="ummah-section-desc">
-            Islamic eco-village development &mdash; CSRA offer architecture and Waqf-based governance.
+            Islamic eco-village development &mdash; Waqf-based governance and membership-led capital architecture.
           </p>
           <div className="ummah-milestones">
             {MILESTONES.map((ms, i) => (

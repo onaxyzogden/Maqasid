@@ -3,6 +3,149 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-04] session | MTC — CSRA model erased; founding-member covenant drafted
+
+**Objective:** Two-part work: (a) draft the founding-member covenant
+that operationalizes the governance design's pre-land window; (b) on
+user direction during the same session, **erase the CSRA
+(Community-Supported Regenerative Agriculture) capital model** from
+the entire MTC architecture on fiqh grounds.
+
+**Fiqh ground for the erasure:** *Bayʿ mā laysa ʿindak* — Islam does
+not permit the sale of what one does not yet possess. The classical
+exception (salam, Sahih al-Bukhari Book 35 Nos. 443 & 445) requires a
+counterparty capable of delivering at maturity, which the pre-land MTC
+does not have. User decided that even post-acquisition, MTC will not
+offer salam-style advance-purchase as a public capital channel; a
+future yield-share will be designed as a **membership benefit**
+(entitlement as a benefit of belonging, not a return on
+advance-purchase) under fresh Scholar Council review when the corpus
+exists.
+
+**Outcome:**
+
+- **Founding-member covenant** — `stages/design-mtc-founding-member-covenant-review.md`
+  drafted (10 sections), self-review pass clean, then revised in same
+  session to remove all CSRA / salam capital-form language.
+- **Governance design doc** — `stages/design-mtc-waqf-governance-review.md`
+  swept: §6.4 rewritten ("Permitted capital channels" replacing
+  "CSRA — which entity holds it?"); §7.2, §7.5, §10.1, decisions
+  block, scope guardrails, stakeholder map, flows diagram, glossary
+  updated; `bayʿ mā laysa ʿindak` glossary entry added; Salam glossary
+  entry preserved as scriptural reference only.
+- **Grounding companion doc** —
+  `stages/scholar-review-mtc-waqf-governance-grounding-review.md`
+  prefixed with deprecation banner: salam scriptural research preserved,
+  but its application to a public MTC capital channel is superseded.
+- **Wiki concept** — `wiki/concepts/covenant-architecture.md:29`
+  rewritten to reflect the erasure and name the permitted capital
+  channels.
+- **Website sweep** — removed CSRA Pre-sales channel card from
+  `website/mtc/journey/index.html`; reframed "Direct Investment"
+  channel as "Aligned Capital Partners" (qard ḥasan / charitable
+  contributions); swept remaining "investor" framing across
+  `website/mtc/collective/index.html`, `vision/index.html`,
+  `collective/solution/index.html`, `collective/solution/vision/index.html`
+  to "capital partners & allies" / "capital partners and allies."
+- **Source data** — `src/data/module-overviews/collective-overview.js:162`
+  and `src/data/islamic/pillar-content.js:597` updated from CSRA
+  embellishment line to membership-architecture framing;
+  `src/pages/moontrance/MoontranceLevelOverview.jsx:121` updated;
+  `src/data/seed-tasks/ummah-seed-tasks.js:15218` updated.
+- **Wiki entity** — `wiki/entities/ogden-ecosystem.md:35` Atlas row
+  updated from "CSRA readiness" to "parcel readiness."
+- **Global CLAUDE.md** — preferred-term line replaced with the CSRA
+  erasure rule + permitted-channels list, so future sessions inherit
+  the new framing.
+
+**Status:** Both stages docs remain at status `review`. Founding-member
+covenant has open questions for Yousef pending response. Governance doc
+is unchanged in its external-review surface — still pending live scholar
++ Ontario counsel review on the unresolved `[scholar review]` /
+`[lawyer review]` items. The CSRA erasure does **not** require external
+review to be locked in (it is a covenant-discipline decision the user
+made directly), but the *future membership-benefit yield-share design*
+will need Scholar Council review when MTC has corpus.
+
+**Deferred:**
+
+- `wiki/entities/mtc-waqf.md` and dated ADR — still gated on external
+  review of the governance design doc.
+- Future post-acquisition yield-share *membership benefit* design.
+
+---
+
+## [2026-05-02] session | MTC — Waqf-framed organizational structure design + scholar grounding
+
+**Objective:** Close the gap between the one-line Waqf claim in
+`wiki/concepts/covenant-architecture.md:29` and an actual organizational
+structure design that names entities, roles, decision rights, capital
+flows, and scriptural grounding.
+
+**Outcome:**
+
+- **Design doc** — `stages/design-mtc-waqf-governance-review.md` created
+  (status: `review`). 13 sections covering: foundational frame (why
+  Waqf vs. corp/charity/co-op), 12-actor stakeholder map, roles &
+  decision rights with a 14-row RACI matrix, shūrā process, the
+  **tri-entity legal stack** (Holdings + Operating + Charitable, with
+  the Waqf instrument as the covenant sitting *above* all three),
+  asset/capital posture, OGDEN relationship, lifecycle, open questions,
+  appendix with MILOS literacy paths and glossary.
+- **Scholar grounding pass** — `stages/scholar-review-mtc-waqf-governance-grounding-review.md`
+  created (status: `review`). Three queries to the NotebookLM Muslim
+  Scholar corpus (Qur'an + Sahihayn) ground:
+  - Waqf itself: Khaybar hadith (Bukhari 50:895) verbatim, sadaqah
+    jāriyah (Muslim 13:4005), beneficiary verses (51:19, 2:177, 2:215,
+    9:60, 4:58).
+  - Trustee conduct: amānah (8:27, 4:58, 33:72), qawī+amīn (Al-Qaṣaṣ
+    28:26 + the "honesty lost / unfit appointed" hadith), removal
+    precedent (ʿUmar dismissing Saʿd in Kufa), shūrā (42:38 + the
+    ʿĀʾisha-slander consultation), shepherd hadith.
+  - Commerce: riba prohibitions (2:275–279, riba al-faḍl categories,
+    cursing of recorder/witnesses), gharar (sale of unripened fruit
+    and unborn offspring), salam permission with strict conditions
+    (Bukhari 35:443/445), anti-hīlah (Sabbath-breakers + melted-fat
+    hadith), Al-Baqarah 2:282 documentation mandate.
+  - Part 4 catalogues what the corpus *cannot* resolve (madhhab
+    differences, cash-waqf, AAOIFI ijārah, trustee removal procedure)
+    and must go to a live faqīh.
+- **Eight design-doc edits** folded back from the grounding pass:
+  Khaybar hadith verbatim in §2; qawī+amīn in §4.1; ʿUmar/Saʿd in §4.1
+  removal; shepherd hadith as §4.1 accountability anchor; 42:38 +
+  slander-consultation in §5; 2:282 in §5.4; salam constraint in §6.4;
+  riba-recorder accountability + anti-hīlah annual review in §7.5.
+- **Eight Yousef-level decisions resolved 2026-05-02** and folded into
+  body sections: OGDEN role with deed-bound transition trigger; five
+  trustees with three-year staggered terms (renewable once, max six);
+  hybrid surplus floors (≥30% Charitable / ≥20% corpus / ≥10% reserve)
+  with shūrā-set actuals above; 2/3-of-seated quorum with appointment
+  exception; founding-member vs. resident as distinct tracks with gated
+  pathway; CSRA naming locked; Charitable timing pre-acquisition default
+  pending counsel; tri-entity confirmed (single-entity rejected on
+  liability-isolation grounds).
+- **Wiki touch-up:** `wiki/concepts/covenant-architecture.md:29`
+  expanded from a one-line claim into a full pointer to the two stages
+  docs, with the load-bearing structural choices summarized.
+
+**What remains before promotion to `approved`:**
+
+- `[scholar review]` items (ijārah structure, financing instruments,
+  salam-as-CSRA, trustee-removal procedural form, cash-waqf posture)
+  go to a fiqh-competent scholar with the grounding doc as the brief.
+- `[lawyer review]` items (Ontario-law deed wrapper, registrability of
+  deed restrictions on title, Operating entity form, CRA scrutiny on
+  inter-entity flows, charity-registration timing) go to charity /
+  trust / agricultural-land counsel.
+- On both returns, create `wiki/entities/mtc-waqf.md` and a dated ADR.
+
+**NotebookLM correction noted:** Old Muslim Scholar ID `1c17b03b-...`
+returned `RPC GET_NOTEBOOK failed`; switched to backup
+`be921648-2088-4860-bdd8-283a5e7301f3`. Corpus has only 6 sources
+(Qur'an + Sahihayn + 99 Names) — no fiqh works, hence the live-scholar
+gap is structural, not closeable by another query pass. Memory
+(`reference_notebooklm_grounding.md`) updated.
+
 ## [2026-05-01] session | MILOS — Moontrance Pillar Page split from Ummah wrapper
 
 **Objective:** Fix the Moontrance LevelNavigator on `/app/moontrance-{land,seasonal,residency}` — it was rendering the Ummah submodule navigator (Ummah / Neighbors / Community) instead of the Moontrance one (Land / Seasonal / Residency).
