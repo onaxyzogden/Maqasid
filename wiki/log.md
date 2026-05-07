@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-07] session | Atlas — Observe toolbar viewport fix + module selection + color drain
+
+**Objective:** After splitting the Sun/wind wedge tool into 8 type-specific buttons (sectors-zones now has 9 buttons in a 3-col grid), the left tool rail outgrew mid-height viewports and the document started scrolling — pushing the bottom module rail and part of the map below the fold. Fix the viewport cap so only the toolbar scrolls internally, and while in there, make the toolbar do double duty as a module selector.
+
+**Outcome:**
+
+- Root cause: `V3ProjectLayout .frame { min-height: 100% }` allowed the column to grow past `.main`'s `overflow: hidden` cap; the AppShell `100vh + overflow:hidden` cap stopped propagating at the frame. Switched to `height: 100%; min-height: 0` — one-property fix unlocked all the pre-existing `min-height: 0` + `overflow: auto` declarations down the chain.
+- Themed scrollbar (`scrollbar-width: thin`, `scrollbar-color: var(--color-border) transparent`, 6px webkit thumb) applied to `.left` (the actual scrolling element — `.toolbox` filled to its full intrinsic height inside `.left`) and to `.toolbox` as defensive.
+- Whole-box module selection: each `<section>` in `ObserveTools` is now a `role="button"` with `tabIndex=0`, keyboard handler (Enter/Space), and `aria-pressed`. Clicking an inactive section navigates to that OBSERVE module via the same `handleSelectModule` the bottom `ObserveModuleBar` uses; clicking the active section deselects (URL → `/observe`). Tool buttons inside `stopPropagation` so picking a draw tool stays scoped to the tool.
+- Color drain on inactive sections (`filter: saturate(0.18); opacity: 0.62`) with hover restoring partial color (`saturate(0.85); opacity: 0.92`) as an affordance; active section opts out via `.groupActive { filter: none; opacity: 1 }` and gets a tinted border + 1px ring keyed to its `--group-dot`. Active+hover deepens the ring as the deselect affordance.
+- TypeScript prop widened from `(module: ObserveModule) => void` to `(module: ObserveModule | null) => void` to allow the deselect path. `corepack pnpm --filter "@ogden/web" typecheck` clean.
+- Verified live at `/v3/project/<id>/observe/sectors-zones` at 1280×800 and 1024×768: header + map + right checklist + bottom module rail all viewport-pinned; left rail shows themed scrollbar and reveals all 9 sector buttons + SWOT. Module switching from the toolbar mirrors the bottom rail. Inactive sections drained, active section pops.
+
+Files: `apps/web/src/v3/V3ProjectLayout.module.css`, `apps/web/src/v3/observe/ObserveLayout.{tsx,module.css}`, `apps/web/src/v3/observe/tools/ObserveTools.{tsx,module.css}` (+ pre-compaction Sun/wind 8-button split touching `ObserveDrawHost.tsx` / `SunWindWedgeTool.tsx` / `useMapToolStore.ts` / `annotationExport.ts`).
+
 ## [2026-05-02] session | MILOS — Prophetic Path live-demo preview on landing page
 
 **Objective:** Show a live-demo of the Prophetic Path on the marketing landing page so visitors see the time-anchored vertical spine before signing up.

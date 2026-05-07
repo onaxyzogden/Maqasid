@@ -2,7 +2,7 @@
 title: "OLOS"
 type: entity
 created: 2026-04-09
-updated: 2026-05-01
+updated: 2026-05-07
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
 ---
@@ -26,6 +26,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 ## Current Status
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
+
+**2026-05-07:** Observe page polish — split the single Sun/wind wedge tool into 8 type-specific buttons under `sectors-zones` (sun-summer / sun-winter / wind-prevailing / wind-storm / fire / noise / wildlife / view), bringing that group to 9 buttons and outgrowing mid-height viewports. Fixed the resulting viewport-cap break by switching `V3ProjectLayout .frame` from `min-height: 100%` to `height: 100%; min-height: 0` so the AppShell `100vh + overflow:hidden` cap finally propagates through `.outletHost` → `ObserveLayout .layout` → `.body` → `.left`; the long left rail now scrolls internally while header / map / right checklist / bottom module rail all stay viewport-pinned. Added themed thin scrollbar (`--color-border` thumb on transparent track, 6px) to `.left` and `.toolbox` to match the rest of the platform. Promoted each toolbar group to a whole-box click target — sections are `role="button"` with keyboard (Enter/Space) handlers and `aria-pressed`; clicking an inactive section navigates to that OBSERVE module, clicking the active one deselects (URL → `/observe` with no module). Tool buttons inside each section `stopPropagation` so picking a draw tool doesn't also navigate. Added a color-drain layer (`filter: saturate(0.18); opacity: 0.62`) on inactive sections with hover restoring partial color as affordance, and the active section opting out via `.groupActive`. Touched: `apps/web/src/v3/V3ProjectLayout.module.css`, `apps/web/src/v3/observe/ObserveLayout.{tsx,module.css}`, `apps/web/src/v3/observe/tools/ObserveTools.{tsx,module.css}`. Preview verified at 1280×800 and 1024×768.
 
 **2026-05-01:** Builtin "351 House — Atlas Sample" project landed. New `is_builtin` column + sentinel UUID `00000000-0000-0000-0000-0000005a3791`; migration 017 seeds 1 project + 6 `project_layers` + `terrain_analysis` + `site_assessment` + `design_features` / `spiritual_zones` / `regeneration_events` / `project_relationships`. RBAC short-circuits builtins to viewer; `refuseIfBuiltin` blocks mutations. New unauthenticated `GET /projects/builtins` (with `parcel_boundary_geojson`) plus a hard-coded `LOCAL_BUILTIN_FALLBACK` so the home page works offline / signed-out. Frontend `seedBuiltinObserveData` hydrates 7 Zustand stores (vision, externalForces, topography, soilSample, ecology, swot, siteData) keyed to the local UUID — every Stage 1 module renders real content without auth. Same change-set fixed a pre-existing camelCase/snake_case mismatch in `ObserveHub.tsx`'s `getLayerSummary` casts that had been silently breaking the four Macroclimate/Topography numeric rows for every project. ADR: [[2026-05-01-atlas-builtin-sample-project]].
 
