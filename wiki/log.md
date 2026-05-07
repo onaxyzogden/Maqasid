@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-07] session | Atlas — Auto-scroll Observe left rail to active module
+
+**Objective:** Close the deferred UX gap left by the viewport-cap fix. After the rail-as-module-selector change, switching modules from the bottom `ObserveModuleBar` while the left rail was scrolled away from the new active section meant the steward had to hunt for the matching tool group manually. Conversely, deep-linking to `/observe/swot-synthesis` landed with SWOT off-screen at the bottom of the rail.
+
+**Outcome:**
+
+- 28-line edit to `apps/web/src/v3/observe/tools/ObserveTools.tsx`: `useRef<HTMLElement>` on the toolbox `<aside>`, `useEffect` keyed on `activeModule` that runs `root.querySelector('[data-module="${activeModule}"]').scrollIntoView({ block: 'nearest', inline: 'nearest', behavior })` where `behavior` is `'auto'` when `prefers-reduced-motion: reduce` is matched, `'smooth'` otherwise.
+- `block: 'nearest'` is the key — no-ops when the section is already in view (no jitter on already-visible picks); minimal-distance scroll otherwise (top-edge if section is above the viewport, bottom-edge if below). Native scroll-anchor walks the ancestor chain, so it scrolls whichever of `.left` / `.toolbox` is the actual scroll container without code knowing.
+- Single ref on the toolbox aside instead of per-section refs — `OBSERVE_MODULES` already renders unconditionally with `data-module={mod}`, so `querySelector` is enough.
+- Deselect path (`activeModule === null`) early-returns; scroll position is preserved when stewards click the active section to clear it.
+- Verified live at 1280×800: rail at scrollTop=375, click human-context → smoothly scrolls to 0; rail at scrollTop=0, click swot-synthesis → scrolls to 375 (bottom-aligned, sub-pixel exact); already-visible topography click → scrollTop stays 0; deselect leaves scroll unchanged. typecheck clean (no new errors); console clean apart from the pre-existing `validateDOMNesting` warning in `ObserveModuleBar`.
+
+Files: `apps/web/src/v3/observe/tools/ObserveTools.tsx`. Atlas commit `2e19f66`; parent submodule bump `98e0a6f`.
+
 ## [2026-05-07] session | Atlas — Observe toolbar viewport fix + module selection + color drain
 
 **Objective:** After splitting the Sun/wind wedge tool into 8 type-specific buttons (sectors-zones now has 9 buttons in a 3-col grid), the left tool rail outgrew mid-height viewports and the document started scrolling — pushing the bottom module rail and part of the map below the fold. Fix the viewport cap so only the toolbar scrolls internally, and while in there, make the toolbar do double duty as a module selector.
