@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-08] session | Atlas — Act stage tools rail (Harvest pilot) + LivestockYieldCard
+
+**Objective:** Replace the "Tools coming soon" placeholder on the Act-stage left rail. Establish the Act-tool framework (map-first gesture against existing Plan/Observe features, no new geometry — Act is execution, not authoring), ship the Harvest module fully as the pilot, and surface livestock yields in a dedicated slide-up.
+
+**Outcome:**
+
+- **Tool framework + ID enum.** Added `act.harvest.log-entry` to `MapToolId` (apps/web/src/v3/observe/components/measure/useMapToolStore.ts). New `ActDrawHost` switchboard mirrors `PlanDrawHost`; mounted inside `ActLayout` alongside `<InlineFeaturePopover>`. Reuses the shared `ObserveDrawHost.module.css` dock styling.
+- **HarvestLogTool (apps/web/src/v3/act/draw/tools/HarvestLogTool.tsx).** Imperative `map.on('click')` handler — *not* a geometry draw tool. Hit-tests via `turf.booleanPointInPolygon` against `useCropStore.cropAreas` first, falls through to `useLivestockStore.paddocks`. Crop hit wins on overlap (dedicated crop yields are usually the steward's intent). Persist-first pattern: skeleton `HarvestEntry` created on click with the matched `cropAreaId` or `paddockId`; popover patches fields; ESC/Cancel calls `removeEntry(id)` for true rollback. Reuses `useInlineFormStore` from Plan.
+- **harvestLogStore v2 (apps/web/src/store/harvestLogStore.ts).** Schema bumped: `sourceKind: 'crop' | 'livestock'` discriminator + optional `paddockId`. v1→v2 `migrate()` stamps legacy entries as `'crop'` so persisted data survives. `cropAreaId` kept as a non-optional string (empty when livestock) so HarvestLogCard's existing per-cropArea grouping keeps working.
+- **ActDataLayers (apps/web/src/v3/act/layers/ActDataLayers.tsx).** Renders harvest markers at the source feature's centroid. Joins by `sourceKind` — crop entries to `cropStore.cropAreas`, livestock entries to `livestockStore.paddocks`. Recency: estate gold `#c4a265` if ≤30 days, muted clay `#8a6a4a` otherwise. Single source `act-data-harvest`; circle layer + symbol label at minzoom 16. Lifecycle prefix-cleanup on unmount.
+- **ActTools rewrite (apps/web/src/v3/act/ActTools.tsx + ActTools.module.css).** Replaces the placeholder with PlanTools-shape: section per `ACT_MODULE` with clickable header → `onSelectModule`. Harvest section renders the "Log harvest" tool button bound to `act.harvest.log-entry`. Other 5 modules render an honest "Open module" fallback (FolderOpen icon) — replaces "Tools coming soon" until their tooling lands. CSS module copied from PlanTools.module.css with the act module dot palette.
+- **HarvestLogCard scoped to crop (apps/web/src/features/act/HarvestLogCard.tsx).** Now filters to `(e.sourceKind ?? 'crop') === 'crop'` (undefined treated as crop for v1-loaded entries) so livestock entries don't double-list once their card ships. `commit()` stamps `sourceKind: 'crop'` on new entries.
+- **LivestockYieldCard slide-up (apps/web/src/features/act/LivestockYieldCard.tsx).** Mirrors HarvestLogCard structure but anchored on paddocks: filters to `sourceKind === 'livestock'`, groups by `paddockId`, joins names from `useLivestockStore`, defaults the form unit to `count` (eggs/head/fleece). Wired into `MODULE_CARDS.livestock` in apps/web/src/v3/act/types.ts as `{ label: 'Yield log', sectionId: 'act-livestock-yield' }` at the front so it's the default tab; lazy-imported and switched in `ActModuleSlideUp`.
+- **Verification.** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` clean from apps/web. Preview a11y snapshot at `/v3/project/mtc/act/livestock` confirms the Livestock slide-up tab row leads with "Yield log" and the form ("Add yield" button) renders without console errors. Screenshot tool unresponsive on the verification pass — flagged rather than asserted.
+
+**Commits:**
+- atlas `61c62ed` — `atlas/act: map-first Harvest tool + LivestockYieldCard slide-up` (11 files, +850/-109; pushed to `feat/atlas-permaculture`).
+- Note: prior portion of session (tool ID enum addition, ActLayout mount, ActTools shell) was already in HEAD via earlier mid-session commits before the context compaction.
+
+### Session Debrief
+- **Completed:** Act-stage tool framework live; Harvest module fully tooled (map gesture + persist-first popover + centroid markers); livestock yields no longer map-only — they have their own paddock-grouped table as the default Livestock module tab.
+- **Deferred:** Build / Maintain / Review / Network map-first tools — Open-module fallback only this pass. Card de-dup between HarvestLogCard and LivestockYieldCard (small enough that abstraction would be premature). Cross-link from a harvest map marker back to its row (wait until ≥2 modules need a selection bridge). Livestock-specific quality grades. Pre-existing dirty files in the working tree (V3LifecycleSidebar, ActChecklistAside, GuildRingsCanvas, observe-port.css, planSelectionStore, act/ops, observe/modules/built-environment) belong to other threads and were intentionally not staged.
+- **Recommended next:** Pick the next Act module to convert from "Open module" fallback to a map-first tool — Maintain (click an irrigation feature → log a maintenance event) or Review (click a hazard → log an incident) are the cleanest next pilots, both reusing the persist-first popover pattern that's now proven.
+
 ## [2026-05-08] session | Atlas — Built Environment OBSERVE module + Option B wind sectors
 
 **Objective:** (a) Resolve the duplicated wind-rose visual on Observe by making steward-drawn wind sectors render with proportional intensity wedges + per-sector compass/intensity labels (Option B), then remove the climatology-driven `WindSectorsOverlay` from Observe; (b) add a new OBSERVE module "Built Environment" with 8 tools for existing on-site infrastructure (buildings, wells, septic, power lines, buried utilities, fences, gates, driveways).
