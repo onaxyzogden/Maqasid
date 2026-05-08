@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-08] session | Atlas — Maintain pilot (map-first maintenance event log)
+
+**Objective:** Convert the Act > Maintain module from "Open module" fallback to a map-first tool, mirroring the Harvest pilot pattern. Click an existing irrigation feature → log a maintenance event with date / action / minutes / notes.
+
+**Outcome:**
+
+- **Tool ID + framework slot.** Added `act.maintain.log-event` to `MapToolId` (apps/web/src/v3/observe/components/measure/useMapToolStore.ts). New case in `ActDrawHost` mounts `MaintenanceLogTool` for that ID.
+- **MaintenanceLogTool (apps/web/src/v3/act/draw/tools/MaintenanceLogTool.tsx).** Imperative `map.on('click')` handler. Two source kinds, hit-tested in priority order: (1) earthworks (lines: swale / diversion / french_drain) via `turf.nearestPointOnLine` with a 12 m tolerance; (2) storage infra (cisterns / ponds / rain gardens) via `turf.distance` with a 15 m radius. Earthwork wins on overlap because line-features are the most common maintenance target. Persist-first pattern: skeleton `MaintenanceEvent` created on click; popover patches fields (date / action / minutes / who / notes); ESC/Cancel calls `removeEvent(id)` for true rollback. Reuses `useInlineFormStore` from Plan.
+- **maintenanceLogStore (apps/web/src/store/maintenanceLogStore.ts).** New store distinct from the existing `maintenanceStore` (which is the *schedule* of recurring tasks). Schema: `{ id, projectId, sourceKind: 'earthwork' | 'storage', sourceId, date, action, durationMin?, who?, notes? }`. Action enum: `inspect | clear | repair | replace | flush`. Persist v1 with rehydrate. Keeps the schedule/log split clean — schedule says what should happen; log records what was done.
+- **ActDataLayers extension.** New `act-data-maintenance` source + circle layer at 5 px (visually smaller than 6 px harvest circles to differentiate). Earthwork events anchor at the line's midpoint coordinate; storage events at the source `center`. Recency-shaded: estate gold `#c4a265` ≤30 days, muted clay `#8a6a4a` otherwise (same scheme as harvest). Symbol label shows the action name at minzoom 16. Lifecycle prefix-cleanup already covers the new source/layers.
+- **MaintenanceLogCard slide-up (apps/web/src/features/act/MaintenanceLogCard.tsx).** Mirrors HarvestLogCard structure but anchored on irrigation features. Form: feature kind (earthwork / storage) → feature select → date / action / minutes / who / notes. Grouped table by source key (`${sourceKind}::${sourceId}`); per-group "Total time" row sums `durationMin`. Reuses `./actCard.module.css` — no new styles.
+- **types.ts wiring.** Added `{ label: 'Event log', sectionId: 'act-maintenance-events' }` at the front of `MODULE_CARDS.maintain` so it's the default tab when the Maintain module opens. Existing 3 cards (schedule / irrigation / waste-routing) stay.
+- **ActModuleSlideUp.** Lazy import `MaintenanceLogCard` + render case for `act-maintenance-events`.
+- **ActLayout fix.** ActTools was mounted without `onOpenSlideUp`, so QuickLog clicks selected the module but never opened the slide-up. Added the prop. Verified via preview that `Log water check` now both activates the tool and opens the Maintain slide-up.
+- **Verification.** `tsc --noEmit` clean. Preview a11y check at `/v3/project/mtc/act/maintain`: clicking the "Log water check" QuickLog button mounts the tool dock (cursor=crosshair) AND opens the Maintain slide-up with tabs `Event log · Maintenance schedule · Irrigation manager · Waste routing`, "Event log" active by default. Form renders all 7 fields with an "Add event" submit. Pre-existing console errors (`plan-data-point` missing layer in PlanDataLayers; button-in-button DOM warning in ObserveModuleBar) are unrelated to this change.
+
+**Commits:**
+- atlas `2ac25ad` — `atlas/act: map-first Maintenance log tool (Maintain pilot)` (10 files, +598/-3; pushed to `feat/atlas-permaculture`).
+
+### Session Debrief
+- **Completed:** Maintain pilot fully tooled following the Harvest pattern. Three Act modules now have map-first event logging (Harvest, Livestock-yield via Harvest tool, Maintain).
+- **Deferred:** Build / Review / Network module-specific map-first tools (Build = click a structure-under-construction; Review = click a hazard zone; Network = no map gesture planned). Visual differentiation between harvest and maintenance markers is currently size-only — could move to icon-based symbol layers if marker overlap becomes an issue. The wider unrelated working-tree drift (V3LifecycleSidebar, ActChecklistAside, GuildRingsCanvas, observe-port.css, planSelectionStore, act/ops/, observe/modules/built-environment/) was again intentionally left unstaged — it belongs to other threads.
+- **Recommended next:** Review pilot — click a hazard zone or sector → log an incident (e.g., wildlife encroachment, frost damage). Reuses the same persist-first popover pattern; new `incidentLogStore` keyed off either `useHazardZoneStore` or the SWOT artefact store.
+
 ## [2026-05-08] session | Atlas — Act stage tools rail (Harvest pilot) + LivestockYieldCard
 
 **Objective:** Replace the "Tools coming soon" placeholder on the Act-stage left rail. Establish the Act-tool framework (map-first gesture against existing Plan/Observe features, no new geometry — Act is execution, not authoring), ship the Harvest module fully as the pilot, and surface livestock yields in a dedicated slide-up.
