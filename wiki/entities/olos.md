@@ -2,7 +2,7 @@
 title: "OLOS"
 type: entity
 created: 2026-04-09
-updated: 2026-05-07
+updated: 2026-05-08
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
 ---
@@ -26,6 +26,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 ## Current Status
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
+
+**2026-05-08:** New OBSERVE module **Built Environment** shipped (8 tools — Building/Well/Septic/PowerLine/BuriedUtility/Fence/Gate/ExistingDriveway) with its own namespace store (`builtEnvironmentStore`, persist+temporal), `MatrixToggleKey` (`builtEnvironment`, default off, persist v9 migrate), legend row, render layers (palette gated `toggleKey: 'builtEnvironment'`), TOOL_GROUPS palette, ModuleSlideUp panel, and MODULE_GUIDANCE/dot entries. Module slotted between `human-context` and `macroclimate-hazards`. Same session: **Option B** wind-sector visual parity — steward-drawn wind sectors now scale radius by `SectorIntensity` and emit a sibling Point feature mid-arc carrying `"${compass} · ${intensity}"` via a new symbol layer (geometry-type filtered); the climatology-driven `WindSectorsOverlay` is removed from Observe and now lives only in Plan/Act. `ObserveModuleBar.module.css` `.tiles` grid widened to `repeat(7, 1fr)` so all seven Observe modules fit a single row at full width. Typecheck clean.
 
 **2026-05-07:** Observe page polish — split the single Sun/wind wedge tool into 8 type-specific buttons under `sectors-zones` (sun-summer / sun-winter / wind-prevailing / wind-storm / fire / noise / wildlife / view), bringing that group to 9 buttons and outgrowing mid-height viewports. Fixed the resulting viewport-cap break by switching `V3ProjectLayout .frame` from `min-height: 100%` to `height: 100%; min-height: 0` so the AppShell `100vh + overflow:hidden` cap finally propagates through `.outletHost` → `ObserveLayout .layout` → `.body` → `.left`; the long left rail now scrolls internally while header / map / right checklist / bottom module rail all stay viewport-pinned. Added themed thin scrollbar (`--color-border` thumb on transparent track, 6px) to `.left` and `.toolbox` to match the rest of the platform. Promoted each toolbar group to a whole-box click target — sections are `role="button"` with keyboard (Enter/Space) handlers and `aria-pressed`; clicking an inactive section navigates to that OBSERVE module, clicking the active one deselects (URL → `/observe` with no module). Tool buttons inside each section `stopPropagation` so picking a draw tool doesn't also navigate. Added a color-drain layer (`filter: saturate(0.18); opacity: 0.62`) on inactive sections with hover restoring partial color as affordance, and the active section opting out via `.groupActive`. Touched: `apps/web/src/v3/V3ProjectLayout.module.css`, `apps/web/src/v3/observe/ObserveLayout.{tsx,module.css}`, `apps/web/src/v3/observe/tools/ObserveTools.{tsx,module.css}`. Preview verified at 1280×800 and 1024×768.
 
