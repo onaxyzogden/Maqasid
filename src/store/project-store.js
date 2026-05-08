@@ -394,9 +394,9 @@ export const OGDEN_BOARDS = [
   { id: 'ogden_bbos_growth',     name: 'BBOS \u2014 INTEGRATION',  color: '#7E6EAD', icon: 'Briefcase', description: 'BBOS: Integration', moduleId: 'bbos' },
   { id: 'ogden_bbos_excellence', name: 'BBOS \u2014 REALIZATION',  color: '#7E6EAD', icon: 'Briefcase', description: 'BBOS: Realization', moduleId: 'bbos' },
   // MILOS
-  { id: 'ogden_milos_core',       name: 'MILOS \u2014 FOUNDATION',   color: '#7E6EAD', icon: 'Compass', description: 'MILOS: Foundation', moduleId: 'milos' },
-  { id: 'ogden_milos_growth',     name: 'MILOS \u2014 INTEGRATION',  color: '#7E6EAD', icon: 'Compass', description: 'MILOS: Integration', moduleId: 'milos' },
-  { id: 'ogden_milos_excellence', name: 'MILOS \u2014 REALIZATION',  color: '#7E6EAD', icon: 'Compass', description: 'MILOS: Realization', moduleId: 'milos' },
+  { id: 'ogden_milos_core',       name: 'MIOS \u2014 FOUNDATION',    color: '#7E6EAD', icon: 'Compass', description: 'MIOS: Foundation', moduleId: 'milos' },
+  { id: 'ogden_milos_growth',     name: 'MIOS \u2014 INTEGRATION',   color: '#7E6EAD', icon: 'Compass', description: 'MIOS: Integration', moduleId: 'milos' },
+  { id: 'ogden_milos_excellence', name: 'MIOS \u2014 REALIZATION',   color: '#7E6EAD', icon: 'Compass', description: 'MIOS: Realization', moduleId: 'milos' },
   // Atlas (OLOS)
   { id: 'ogden_atlas_core',       name: 'ATLAS \u2014 FOUNDATION',   color: '#7E6EAD', icon: 'Globe2', description: 'Atlas: Foundation', moduleId: 'atlas' },
   { id: 'ogden_atlas_growth',     name: 'ATLAS \u2014 INTEGRATION',  color: '#7E6EAD', icon: 'Globe2', description: 'Atlas: Integration', moduleId: 'atlas' },

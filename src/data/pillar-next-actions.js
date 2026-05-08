@@ -151,7 +151,7 @@ export const PILLAR_NEXT_ACTIONS = {
   },
   ogden: {
     bbos:    stub('BBOS'),
-    milos:   stub('MILOS'),
+    milos:   stub('MIOS'),
     atlas:   stub('Atlas'),
   },
 };

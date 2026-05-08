@@ -76,7 +76,7 @@ const MODULE_ROUTES = {
 
 const OGDEN_SIDEBAR_CHILDREN = [
   { id: 'ogden-bbos',    name: 'BBOS',    icon: 'Briefcase' },
-  { id: 'ogden-milos',   name: 'MILOS',   icon: 'Compass' },
+  { id: 'ogden-milos',   name: 'MIOS',    icon: 'Compass' },
   { id: 'ogden-atlas',   name: 'Atlas',   icon: 'Globe2' },
 ];
 const OGDEN_ACCENT = '#7E6EAD';
@@ -186,7 +186,7 @@ export default function Sidebar() {
         {!collapsed && (
           <Link to="/app" className="sidebar-logo">
             <div className="logo-icon"><Moon size={14} /></div>
-            <span>MILOS</span>
+            <span>MIOS</span>
           </Link>
         )}
         <button className="sidebar-toggle" onClick={toggleSidebar} title={collapsed ? 'Expand' : 'Collapse'} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>

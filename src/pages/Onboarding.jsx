@@ -10,14 +10,13 @@ import { useOnboardingStore } from '../store/onboarding-store';
 import { useThresholdStore } from '../store/threshold-store';
 import { genUserId } from '../services/id';
 import { MAQASID_PILLARS } from '../data/maqasid';
-import { MODULES } from '../data/modules';
 import { ICON_REGISTRY } from '../data/icon-registry';
 import '../styles/landing.css';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
-// Steps: 0=Welcome, 1=Profile+Intent, 2=Pillar Focus, 3=Values Framing, 4=First Action
-const STEPS = ['Welcome', 'Profile', 'Higher Objectives', 'Values', 'Begin'];
+// Steps: 0=Welcome, 1=Profile+Intent, 2=Values Framing
+const STEPS = ['Welcome', 'Profile', 'Values'];
 
 const INTENT_OPTIONS = [
   { id: 'personal', emoji: '🕌', label: 'Personal & Spiritual' },
@@ -29,75 +28,35 @@ export default function Onboarding() {
   const navigate = useNavigate();
   const login = useAuthStore((s) => s.login);
   const setValuesLayer = useSettingsStore((s) => s.setValuesLayer);
-  const { setWizardIntent, setFirstSubmodule, recordFirstLogin } = useOnboardingStore();
-  const completeNiyyah = useThresholdStore((s) => s.completeNiyyah);
+  const { setWizardIntent, recordFirstLogin } = useOnboardingStore();
   const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
 
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
   const [org, setOrg] = useState('');
   const [intent, setIntent] = useState(null);
-  const [selectedPillars, setSelectedPillars] = useState([]);
   const [values, setValues] = useState('islamic');
-  const [selectedSubmodule, setSelectedSubmodule] = useState(null);
-
-  const togglePillar = (id) => {
-    setSelectedPillars((prev) =>
-      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]
-    );
-  };
 
   const canNext = () => {
     if (step === 1) return name.trim().length > 0;
     return true;
   };
 
-  // For Step 4: get first selected pillar's submodules
-  const firstPillar = selectedPillars.length > 0
-    ? MAQASID_PILLARS.find((p) => p.id === selectedPillars[0])
-    : MAQASID_PILLARS[0];
-
-  const pillarSubmodules = firstPillar
-    ? MODULES.filter(
-        (m) => {
-          // Exclude category-level nav nodes (core/growth/excellence) that aren't meaningful submodule entry points
-          return (
-            firstPillar.subModuleIds.includes(m.id) &&
-            m.id !== 'sources' &&
-            !m.id.startsWith('faith-core') &&
-            !m.id.startsWith('faith-growth') &&
-            !m.id.startsWith('faith-excellence')
-          );
-        }
-      ).slice(0, 6)
-    : [];
-
   const finish = () => {
     if (intent) setWizardIntent(intent);
-    if (selectedSubmodule) setFirstSubmodule(selectedSubmodule);
     recordFirstLogin();
     login({
       id: genUserId(),
       name: name.trim(),
       org: org.trim(),
-      modules: selectedPillars,
+      modules: [],
       valuesLayer: values,
       createdAt: new Date().toISOString(),
     });
     setValuesLayer(values);
-    // Seed today's Niyyah Act from onboarding selections so the user doesn't
-    // hit a second ceremony immediately on first dashboard visit. Carries
-    // pillar focus + first submodule forward; falls back to a skipped marker
-    // if the user finished without picking anything (Skip for now path).
-    if (selectedPillars.length > 0) {
-      completeNiyyah({
-        pillars: selectedPillars,
-        submodule: selectedSubmodule || null,
-        level: 'core',
-      });
-    } else {
-      skipNiyyah();
-    }
+    // No pillar selection in onboarding — mark Niyyah as skipped so user
+    // isn't blocked by a second ceremony on first dashboard visit.
+    skipNiyyah();
     navigate('/app');
   };
 
@@ -127,7 +86,7 @@ export default function Onboarding() {
           {/* Progress bar — hidden on step 0 */}
           {showProgress && (
             <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-8)' }}>
-              {[0, 1, 2, 3].map((i) => (
+              {[0, 1].map((i) => (
                 <div key={i} style={{
                   flex: 1, height: 4, borderRadius: 2,
                   background: i < step ? 'var(--primary)' : 'var(--bg4)',
@@ -269,57 +228,8 @@ export default function Onboarding() {
             </div>
           )}
 
-          {/* ── Step 2: Pillar Focus ── */}
+          {/* ── Step 2: Values Framing ── */}
           {step === 2 && (
-            <div className="fade-in">
-              <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your higher objectives</h2>
-              <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
-                Select the areas of life you want to focus on. You can change this later.
-              </p>
-              {selectedPillars.length > 3 && (
-                <p style={{ fontSize: '0.8rem', color: 'var(--warning, #D97706)', marginBottom: 'var(--space-3)' }}>
-                  {selectedPillars.length} higher objectives selected — consider narrowing your focus.
-                </p>
-              )}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-3)', marginBottom: 'var(--space-2)' }}>
-                {MAQASID_PILLARS.map((pillar) => {
-                  const Icon = PILLAR_ICON_MAP[pillar.icon];
-                  const selected = selectedPillars.includes(pillar.id);
-                  return (
-                    <button
-                      key={pillar.id}
-                      onClick={() => togglePillar(pillar.id)}
-                      style={{
-                        flex: '1 1 calc(33.33% - var(--space-2, 8px))',
-                        minWidth: 140,
-                        padding: 'var(--space-4)',
-                        borderRadius: 'var(--radius-lg)',
-                        background: `${pillar.accentColor}1A`,
-                        border: `1px solid ${selected ? pillar.accentColor + '80' : 'var(--border)'}`,
-                        boxShadow: selected ? `0 0 0 2px ${pillar.accentColor}40` : 'none',
-                        cursor: 'pointer', textAlign: 'left',
-                        transition: 'all var(--duration) var(--ease)',
-                      }}
-                    >
-                      {Icon && <Icon size={24} style={{ color: pillar.accentColor, marginBottom: 'var(--space-2)' }} />}
-                      <div style={{ fontWeight: 600, fontSize: '0.95rem', marginBottom: 2 }}>
-                        {pillar.sidebarLabel}
-                      </div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text3)', marginBottom: 2, textAlign: 'right' }}>
-                        {pillar.arabicRootAr}
-                      </div>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text3)' }}>
-                        {pillar.rootAction} · {pillar.universalLabel}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 3: Values Framing ── */}
-          {step === 3 && (
             <div className="fade-in">
               <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your path</h2>
               <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)' }}>
@@ -369,78 +279,8 @@ export default function Onboarding() {
             </div>
           )}
 
-          {/* ── Step 4: First Action ── */}
-          {step === 4 && (
-            <div className="fade-in">
-              <h2 style={{ marginBottom: 'var(--space-2)' }}>Where would you like to begin?</h2>
-              <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)' }}>
-                {"Here's what the "}
-                <strong>{firstPillar?.sidebarLabel}</strong>
-                {" higher objective contains. Tap one to start there."}
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', marginBottom: 'var(--space-4)' }}>
-                {pillarSubmodules.map((mod) => {
-                  const selected = selectedSubmodule === mod.id;
-                  return (
-                    <button
-                      key={mod.id}
-                      onClick={() => setSelectedSubmodule(mod.id)}
-                      style={{
-                        position: 'relative',
-                        display: 'flex', alignItems: 'center', gap: 'var(--space-3)',
-                        padding: 'var(--space-3) var(--space-4)',
-                        border: `1px solid ${selected ? 'var(--primary)' : 'var(--border)'}`,
-                        borderRadius: 'var(--radius)',
-                        background: selected ? 'var(--primary-bg)' : 'var(--bg)',
-                        cursor: 'pointer', textAlign: 'left',
-                        transition: 'all var(--duration) var(--ease)',
-                      }}
-                    >
-                      {/* Left accent strip */}
-                      <div style={{
-                        width: 3, alignSelf: 'stretch', borderRadius: 2,
-                        background: firstPillar?.accentColor || 'var(--primary)',
-                        flexShrink: 0,
-                      }} />
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{mod.name}</div>
-                        {mod.description && (
-                          <div style={{
-                            fontSize: '0.8rem', color: 'var(--text2)',
-                            whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                          }}>
-                            {mod.description}
-                          </div>
-                        )}
-                      </div>
-                      {selected && (
-                        <span style={{
-                          fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)',
-                          background: 'var(--primary-bg)', border: '1px solid var(--primary)',
-                          borderRadius: 'var(--radius-xs, 4px)',
-                          padding: '2px 6px', flexShrink: 0,
-                        }}>
-                          ✓
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <button
-                className="btn btn-ghost"
-                style={{ width: '100%', justifyContent: 'center' }}
-                onClick={finish}
-              >
-                Skip for now
-              </button>
-            </div>
-          )}
-
           {/* ── Navigation ── */}
-          {step > 0 && step < 4 && (
+          {step > 0 && (
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               marginTop: 'var(--space-8)', gap: 'var(--space-3)',
@@ -449,7 +289,15 @@ export default function Onboarding() {
                 <ArrowLeft size={16} /> Back
               </button>
 
-              {step < STEPS.length - 1 ? (
+              {step === STEPS.length - 1 ? (
+                <button
+                  className="btn btn-primary btn-lg"
+                  onClick={finish}
+                  disabled={!canNext()}
+                >
+                  Launch MAQASID <ArrowRight size={18} />
+                </button>
+              ) : (
                 <button
                   className="btn btn-primary"
                   onClick={handleNext}
@@ -457,27 +305,7 @@ export default function Onboarding() {
                 >
                   Continue <ArrowRight size={16} />
                 </button>
-              ) : null}
-            </div>
-          )}
-
-          {/* ── Step 4 navigation ── */}
-          {step === 4 && (
-            <div style={{
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              marginTop: 'var(--space-6)', gap: 'var(--space-3)',
-            }}>
-              <button className="btn btn-ghost" onClick={() => setStep(step - 1)}>
-                <ArrowLeft size={16} /> Back
-              </button>
-              <button
-                className="btn btn-primary btn-lg"
-                onClick={finish}
-                disabled={!selectedSubmodule}
-                style={{ opacity: selectedSubmodule ? 1 : 0.6 }}
-              >
-                Launch MAQASID <ArrowRight size={18} />
-              </button>
+              )}
             </div>
           )}
         </div>

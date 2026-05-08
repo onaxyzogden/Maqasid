@@ -11,7 +11,7 @@ export const OGDEN_ACCENT = '#7E6EAD';
 
 export const OGDEN_SUB_PILLARS = [
   { id: 'bbos',    label: 'BBOS',    Icon: Briefcase, route: '/app/ogden-bbos',    glossaryId: 'ogden-bbos' },
-  { id: 'milos',   label: 'MILOS',   Icon: Compass,   route: '/app/ogden-milos',   glossaryId: 'ogden-milos' },
+  { id: 'milos',   label: 'MIOS',    Icon: Compass,   route: '/app/ogden-milos',   glossaryId: 'ogden-milos' },
   { id: 'atlas',   label: 'Atlas',   Icon: Globe2,    route: '/app/ogden-atlas',   glossaryId: 'ogden-atlas' },
 ];
 
@@ -35,7 +35,7 @@ export const OGDEN_LEVELS = {
     label:    'LEVEL 1',
     subtitle: '(FOUNDATION)',
     title:    'Foundation',
-    desc:     'Each system stood up on its own \u2014 BBOS, MILOS, Atlas operating independently.',
+    desc:     'Each system stood up on its own \u2014 BBOS, MIOS, Atlas operating independently.',
     color:    OGDEN_ACCENT,
   },
   growth: {

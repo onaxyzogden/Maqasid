@@ -77,12 +77,12 @@ const PILLAR_FEATURES = {
 };
 
 const FAQS = [
-  { q: 'What is MILOS?', a: "MILOS is an Islamic Life Operating System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of Islamic Law." },
-  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven higher objectives form the organizing structure of everything in MILOS." },
-  { q: 'Is MILOS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
+  { q: 'What is MIOS?', a: "MIOS is the Maqasid Islam Orienting System \u2014 a single platform to manage every dimension of your life across the Seven Maqasid: Faith, Life, Intellect, Family, Wealth, Environment, and Ummah. It replaces scattered apps with one purposeful system grounded in the higher objectives of Islamic Law." },
+  { q: 'What are the Seven Maqasid?', a: "The Maqasid al-Shari\u2019ah are the higher objectives of Islamic law: preserving and developing Faith (Din), Life (Nafs), Intellect (\u2018Aql), Family (Nasl), Wealth (Mal), Environment (Bi\u2019ah), and Ummah (community). These seven higher objectives form the organizing structure of everything in MIOS." },
+  { q: 'Is MIOS only for Muslims?', a: 'The system is built on Islamic principles, but during onboarding you can choose between an Islamic values layer and a universal ethics path. The core tools \u2014 task management, goal tracking, financial planning \u2014 work identically either way.' },
   { q: 'What can I actually track?', a: 'Each higher objective has dedicated sub-modules with Kanban boards, task management, and progress tracking. Examples: prayer consistency, health goals, learning plans, family commitments, budgets and expenses, environmental footprint, and community engagement.' },
   { q: 'Is my data private?', a: 'Yes. All data is stored locally on your device. Nothing is sent to external servers. You can export your full dataset as JSON at any time from Settings.' },
-  { q: 'Is it free?', a: 'Yes. MILOS is completely free to use with full access to all seven higher objectives and every sub-module. No paywalls, no premium tiers.' },
+  { q: 'Is it free?', a: 'Yes. MIOS is completely free to use with full access to all seven higher objectives and every sub-module. No paywalls, no premium tiers.' },
 ];
 
 const PILLAR_MOCK_TASKS = {
@@ -305,47 +305,25 @@ export default function Landing() {
 
       {/* Hero */}
       <section className="hero-section">
-        {/* Break-the-box Faith ring */}
-        <div className="hero-ring" aria-hidden="true">
-          <svg viewBox="0 0 360 360">
-            <defs>
-              <linearGradient id="hrShimmerGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#C8A96E" stopOpacity="0" />
-                <stop offset="50%" stopColor="#C8A96E" stopOpacity="1" />
-                <stop offset="100%" stopColor="#C8A96E" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <circle className="hr-track" cx="180" cy="180" r="160" fill="none" strokeWidth="2" />
-            <circle
-              className="hr-shimmer"
-              cx="180" cy="180" r="160" fill="none" strokeWidth="3"
-              strokeDasharray="250 1005"
-              transform="rotate(-90 180 180)"
-            />
-          </svg>
-          <div className="hero-ring-label">
-            {(() => {
-              const Compass = PILLAR_ICON_MAP.Compass;
-              return Compass ? <Compass size={40} strokeWidth={1.25} /> : null;
-            })()}
-            <span className="hero-ring-label-name">Faith</span>
-            <span className="hero-ring-label-ar">حفظ الدين</span>
+        <div className="hero-grid">
+          <div className="hero-text">
+            <div className="hero-badge">
+              <Star size={14} /> Islam Orienting System
+            </div>
+            <h1 className="hero-title">
+              Align your daily rhythm with <span className="highlight">what truly matters</span>
+            </h1>
+            <p className="hero-subtitle">
+              One system for <span className="tag">faith</span>, <span className="tag">health</span>, <span className="tag">intellect</span>, <span className="tag">family</span>, <span className="tag">wealth</span>, <span className="tag">environment</span>, and <span className="tag">community</span> — grounded in the higher objectives of Islamic Law.
+            </p>
+            <div className="hero-cta">
+              <Link to="/get-started" className="btn btn-primary btn-lg">
+                Begin Your Path <ArrowRight size={18} />
+              </Link>
+              <a href="#pillars" className="btn btn-secondary btn-lg">Explore the Higher Objectives</a>
+            </div>
           </div>
-        </div>
-        <div className="hero-badge">
-          <Star size={14} /> Islamic Life Operating System
-        </div>
-        <h1 className="hero-title">
-          Align your daily rhythm with <span className="highlight">what truly matters</span>
-        </h1>
-        <p className="hero-subtitle">
-          One system for <span className="tag">faith</span>, <span className="tag">health</span>, <span className="tag">intellect</span>, <span className="tag">family</span>, <span className="tag">wealth</span>, <span className="tag">environment</span>, and <span className="tag">community</span> — grounded in the higher objectives of Islamic Law.
-        </p>
-        <div className="hero-cta">
-          <Link to="/get-started" className="btn btn-primary btn-lg">
-            Begin Your Path <ArrowRight size={18} />
-          </Link>
-          <a href="#pillars" className="btn btn-secondary btn-lg">Explore the Higher Objectives</a>
+          <HeroWheel />
         </div>
         <div className="hero-marquee" aria-hidden="true">
           <div className="hero-marquee-track">
@@ -361,7 +339,6 @@ export default function Landing() {
             ))}
           </div>
         </div>
-        <HeroWheel />
       </section>
 
       {/* Seven Pillars */}
@@ -506,7 +483,7 @@ export default function Landing() {
               <div className="logo-icon"><Moon size={16} /></div>
               MAQASID
             </div>
-            <p>Islamic Life Operating System.<br />Built with tawakkul.</p>
+            <p>Islam Orienting System.<br />Built with tawakkul.</p>
           </div>
           <div className="footer-col">
             <h6>Product</h6>
