@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas Plan — deferred-items triage (no-op confirmation)
+
+**Objective:** Resolve three deferred items carried into plan mode: (1) Esc-to-clear plan selection, (2) selected-guild inspector chip near the highlighted point, (3) `/plan` route crash from missing `livestock` module guidance in `PlanChecklistAside.tsx`.
+
+**Outcome — all three already shipped by sibling sessions:**
+
+- **Esc-to-clear:** Confirmed installed in `PlanSelectionFloater.tsx` lines 109–120 (keydown listener with input/textarea/select guard).
+- **Livestock crash:** `PlanChecklistAside.tsx` lines 69–76 carry the full `livestock` entry in `PLAN_MODULE_GUIDANCE`; livestock card suite (LandFit, MultiSpeciesPlanner, PaddockCellDesign, Fencing, AnimalTractorZones, Welfare, Biosecurity) is wired through `PlanModuleSlideUp`.
+- **Guild floater enrichment:** Sibling commit `95029f8 atlas/web: Plan selection — open Guild Builder for guild items` already added `onOpenGuildBuilder` prop, `usePolycultureStore` lookup for `{name} · N member(s)` label, and Trees-icon "Open Guild Builder" button between Edit-vertices and Delete in `PlanSelectionFloater.tsx`. `PlanLayout.tsx` line 184 wires the callback to `handleSelectModule('plant-systems')` + `setSlideUpOpen(true)`. My in-session edits produced an empty diff against HEAD — feature was already on disk.
+
+**Verification:** `cd apps/web && npx tsc --noEmit` → clean.
+
+**Deferred:**
+
+- Auto-scroll the slide-up to the `plan-guild-builder` section anchor when the user clicks "Open Guild Builder" — currently lands at the top of the plant-systems module and the steward must scroll. Needs a target-section-id store or a `scrollIntoView` ref handoff.
+
+**Process note:** Pre-flight gap — when entering plan mode for "carried deferred items," the orientation step should `git log --oneline` for sibling commits whose subjects mention the same surface area before launching Explore agents. This session ran the discovery via Explore + Read instead, costing ~5 minutes of tool calls before realising the work was committed. Adding to feedback log.
+
+**Files touched:** none (zero diff vs. HEAD).
+
+---
+
 ## [2026-05-08] session | Atlas — BuiltEnvironment dashboard population (ADDENDUM 10)
 
 **Objective:** Replace the 12-line placeholder `BuiltEnvironmentPanel` with a real Dashboard mirroring the Topography gold-standard — KPI grid + synthesis + annotation list + sidebar — driven entirely by `builtEnvironmentStore`.
