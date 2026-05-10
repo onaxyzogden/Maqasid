@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas Plan — Wells inline-edit (Phase 2 templating begins)
+
+**Objective:** Ship the Wells inline-edit popover using `buildBuildingEditSchema` as the template, proving the pattern generalises to point-geometry built-environment kinds.
+
+**Approach:** Wells are Point geometries — no footprint regeneration needed, just metadata. Added `buildWellEditSchema(w: BuiltEnvironmentEntity)` in `inlineEditSchemas.ts` with 5 fields (label, kind, depthM, flowLpm, notes) mirroring the legacy Observe slide-up's `well` field-schema so Plan and Observe forms stay 1:1. Routing branch added in `PlanObserveSelectionHandler.tsx` keyed on `observe-anno-be-wells-*` → resolve V2 entity by `featureId` + `kind === 'well'` → `openInline({ ...schema, anchor })`.
+
+**Files touched (atlas commit `ff57f9a`):**
+- `apps/web/src/v3/plan/layers/inlineEditSchemas.ts` — `buildWellEditSchema` + `WELL_KIND_OPTIONS` (drinking / irrigation / unknown, matching V1 `WellKind`)
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` — import update + Wells routing branch parallel to Buildings
+
+**Verification:** `tsc --noEmit` exit 0.
+
+**Pattern observations for the remaining 6 kinds:**
+- Wells confirm the Buildings template generalises cleanly. Point kinds are simpler (no `createFootprintPolygon`); LineString kinds (PowerLines, BuriedUtilities, Fences, Driveways) will likewise skip footprint regen but may want `lengthM` re-derivation; the only kind needing footprint logic is Buildings (Polygon with rotation/dims).
+- The kind-to-V2-subtype mapping is the per-kind subtlety: Wells use `existing.subtype` for kind enum; Septics will do the same; Power-lines use `existing.placement`; Buried-utilities use `existing.subtype`; Fences use `existing.subtype`; Driveways use `existing.surface`.
+
+**Deferred:** Septics next (same Point/`subtype` pattern), then PowerLines / BuriedUtilities / Fences / Gates / Driveways. V1 store shim deletion still pending. 8GB heap typecheck script flag still pending.
+
+**Recommended next session:** Ship Septics inline-edit + at least one LineString kind (PowerLines is highest steward value) to validate the LineString path.
+
+---
+
 ## [2026-05-10] session | Atlas Plan — Phase 2 tsc cleanup (structure-drag undo + V2 facade follow-ups)
 
 **Objective:** Close the three residual tsc errors left over from the Phase 2 V1→V2 facade work — `PhaseKey` typo in `builtEnvironmentAdapters.test.ts`, `serverId` rejection on `CreateBuiltEnvironmentInput` in `structureStore.ts`, and `TemporalAccess` mismatch in `PlanDataLayers.tsx` where `useStructureStore` no longer carries zundo middleware.
