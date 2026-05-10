@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-08] session | Atlas — BuiltEnvironment dashboard population (ADDENDUM 10)
+
+**Objective:** Replace the 12-line placeholder `BuiltEnvironmentPanel` with a real Dashboard mirroring the Topography gold-standard — KPI grid + synthesis + annotation list + sidebar — driven entirely by `builtEnvironmentStore`.
+
+**Outcome:**
+
+- **`modules/built-environment/derivations.ts` (new, ~325 LOC).** Pure helpers: `featureCounts`, `dominantKind<T>`, `totalLengthM`, `totalAreaM2`, `formatLength` (m vs km switch at 1000 m), `formatArea` (m² vs ha switch at 10,000 m²), `builtEnvironmentKpis` (returns 8 `BuiltKpiItem` tiles — one per entity type, tone rotates green/gold/blue/dim, pill shows dominant kind/subtype/placement/surface, note carries breakdown summary), `moduleHealthPct` (fraction of populated entity types out of 8), `healthLabel` (Empty / Forming / Good at 70%).
+- **`modules/built-environment/BuiltEnvironmentDashboard.tsx` (new, ~332 LOC).** Mirrors `TopographyDashboard` structure: Header (module-number badge "2", title, subtitle), 8-tile metric grid via `SurfaceCard` + lucide ICON_MAP (Home/Droplet/Recycle/Zap/Cable/Fence/DoorOpen/Route), Synthesis card with 3 articles (Water & utilities, Access & circulation, Hazards & easements — each conditioned on what's drawn), `AnnotationListCard` for the 8 BE kinds, Sidebar (4 SurfaceCards: Design implications, Detected built features, Recommended next actions, Module health with `ProgressRing`).
+- **`modules/BuiltEnvironmentPanel.tsx`.** Rewritten — imports the new Dashboard, drops the placeholder paragraph copy.
+- **`styles/observe-port.css`.** Appended `.built-environment-*` block (~245 LOC) mirroring `.topography-*` patterns: page/layout/metric-grid/metric-card/synthesis/sidebar/side-card classes. 4-col grid at full width, collapses to 2-col at 1100 px.
+- **Typecheck.** `corepack pnpm --filter "@ogden/web" typecheck` exits 0.
+
+**Debrief:**
+
+- **Completed:** Dashboard populated end-to-end; counts/lengths/areas/dominant-kind pills update live; module-health ring derives from populated-entity-type fraction.
+- **Deferred:** Per-entity detail pages (Building detail, Well detail, etc.) — `details: {}` stays empty; sidebar actions are advisory text only. Hero-illustration asset for the module header. Wiring buried-utility lines as a hard veto on Plan-stage earthworks (separate change).
+- **Recommended next:** Hard-wire buried-utility veto into Plan-stage earthworks tool, OR ship per-entity detail pages on demand.
+
+---
+
 ## [2026-05-08] session | Atlas — Maintain pilot (map-first maintenance event log)
 
 **Objective:** Convert the Act > Maintain module from "Open module" fallback to a map-first tool, mirroring the Harvest pilot pattern. Click an existing irrigation feature → log a maintenance event with date / action / minutes / notes.
