@@ -3,6 +3,28 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas Plan — Phase 2 BE V2 inline-edit closeout (6 kinds + dispatch dedup)
+
+**Objective:** Ship inline-edit popovers for the remaining 6 Built-Environment kinds (Septics, Power lines, Buried utilities, Fences, Gates, Driveways) on the Plan stage, following the Buildings+Wells template, and confirm a clean tsc on the unified branch.
+
+**Approach:** Added six `buildXEditSchema(entity)` builders in `inlineEditSchemas.ts` mirroring each kind's V2 metadata slot — Septics/BuriedUtilities/Fences use `existing.subtype`; Power lines use the typed `existing.placement` enum; Driveways use the typed `existing.surface` enum; Gates carry only label+notes. Initially seven router branches were added parallel to Buildings/Wells in `PlanObserveSelectionHandler.tsx`. A parallel agent then refactored all eight if-blocks into a single `BE_INLINE_EDIT_DISPATCH: readonly { prefix, kind, build }[]` table (atlas `36f5ab3 feat(plan): Module 7 Broiler Product Map + BE V2 inline-edit dedup`), keeping all 8 kinds wired with one loop. My edits were preserved through the refactor.
+
+**Files touched (atlas commits `411d88d` Septics+PowerLines, then folded into `36f5ab3` dispatch table, plus `fd275c3` tsc fix):**
+- `apps/web/src/v3/plan/layers/inlineEditSchemas.ts` — `buildSepticEditSchema`, `buildPowerLineEditSchema`, `buildBuriedUtilityEditSchema`, `buildFenceEditSchema`, `buildGateEditSchema`, `buildDrivewayEditSchema`
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` — `BE_INLINE_EDIT_DISPATCH` table dispatches all 8 BE kinds; replaces eight near-identical if-blocks (Phase 4.3 dedup)
+- `apps/web/src/features/agribusiness/MarketDistributionCard.tsx` — narrow slaughter-point coordinate tuple to `[number, number]` to satisfy `noUncheckedIndexedAccess`
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `fd275c3 fix(plan): narrow slaughter point coords for tsc strict mode`.
+
+**Deferred:**
+- V1 `builtEnvironmentStore` shim deletion once a release ships clean V2-only operation
+- Promote 8GB heap `typecheck` script into `apps/web/package.json`
+- Parallel utility-conflict WIP (observe ObserveLayout / SelectionFloater / AnnotationVertexEditHandler / annotationFieldSchemas / PlanVertexEditHandler / builtEnvironmentKinds, plus untracked `v3/builtEnvironment/handlers` and `v3/builtEnvironment/inline` trees) still uncommitted on atlas — not this session's scope
+
+**Recommended next session:** Land the parallel utility-conflict feature + V1 shim deletion as a single Phase 6 close commit; or extend inline-edit to the remaining six Observe modules (human-context, macroclimate-hazards, topography, earth-water-ecology, sectors-zones, swot-synthesis) using the dispatch-table pattern now in place.
+
+---
+
 ## [2026-05-10] session | Atlas Plan — Wells inline-edit (Phase 2 templating begins)
 
 **Objective:** Ship the Wells inline-edit popover using `buildBuildingEditSchema` as the template, proving the pattern generalises to point-geometry built-environment kinds.
