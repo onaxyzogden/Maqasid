@@ -3,6 +3,41 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas Plan — Observe→Plan integration Phase 1 (link popover)
+
+**Objective:** Make Observe-stage features (buildings, sectors, soil samples, hazards, contours, etc.) clickable on the Plan Current-Land map so a steward can deep-link back to the Observe module that owns them. Editing remains in Observe (single source of truth).
+
+**Approach (Phase 1, link-only Current Land):**
+
+- New zustand singleton `observeLinkPopoverStore.ts` typed by canonical `ObserveModule`.
+- New `ObserveLinkPopover.tsx` — anchor-tracking + auto-flip popover (mirrors `InlineFeaturePopover`); single button "Edit in Observe →" using TanStack `useNavigate` to `/v3/project/$projectId/observe/$module`. ESC + click-outside dismiss with `[role=toolbar][aria-label="Plan selection actions"]` allow-list.
+- New `PlanObserveSelectionHandler.tsx` — headless `mousedown` handler. Walks `map.getStyle().layers` for live `observe-anno-*` layers, calls `queryRenderedFeatures`, resolves topmost feature's `layer.id` against a prefix→module routing table (sorted by prefix length desc). Calls `e.preventDefault()` + `stopPropagation()` to keep Plan-stage handlers from firing on the same click.
+- `PlanLayout.tsx` — mounts both new components inside the non-vision DiagnoseMap branch beside `ObserveAnnotationLayers` and `InlineFeaturePopover`. Phase 1 is naturally scoped to Current-Land because Vision/phase/3D render `VisionLayoutCanvas`.
+
+**Routing table (prefix → ObserveModule):** `be-*` → `built-environment`; `human-*` → `human-context`; `hazards` → `macroclimate-hazards`; `topography-*` → `topography`; `water` / `soil` / `ecology` → `earth-water-ecology`; `sectors` → `sectors-zones`; `swot` → `swot-synthesis`.
+
+**Verification:** `cd apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → clean (after fixing two `noUncheckedIndexedAccess` guards and a `satisfies LayerPrefixEntry[]` annotation to preserve module literal types through `.sort()`). ESLint clean (no new errors).
+
+**Process note — tsc OOM recurrence:** `npx tsc --noEmit` in `apps/web` consistently hits the V8 4GB heap limit ("Ineffective mark-compacts near heap limit"). Workaround: prefix with `NODE_OPTIONS=--max-old-space-size=8192`. Worth promoting to a documented script in `apps/web/package.json` (e.g. `typecheck` script) so future sessions skip the diagnosis loop. Adding to deferred ideas.
+
+**Deferred:**
+
+- **Phase 2** — inline-edit popovers for Observe features in Vision/phase-1/phase-2/terrain3d views. Requires ~30 schema builders extending `inlineEditSchemas.ts` plus per-layer click handlers writing back to the canonical Observe stores (`builtEnvironmentStore`, `topographyStore`, etc.). Tagged "edit anywhere, write to Observe."
+- **Phase 3** — "Observed" subsections in `PlanModuleSlideUp` for each module that surfaces Observe data. Lets stewards bulk-edit observed inventory from the Plan stage without leaving the slide-up.
+- **Phase 1 tail** — extend `PlanSelectionKind` in `planSelectionStore.ts` with `observe-*` kinds when selection-floater integration begins. Skipped here because the link-only popover doesn't go through `planSelectionStore`.
+- Promote a `typecheck` script to `apps/web/package.json` with the 8GB heap flag baked in.
+
+**Files touched (atlas commit `5877643`):**
+
+- `apps/web/src/v3/plan/PlanLayout.tsx` (modified, +4 lines)
+- `apps/web/src/v3/plan/draw/observeLinkPopoverStore.ts` (new)
+- `apps/web/src/v3/plan/draw/ObserveLinkPopover.tsx` (new)
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` (new)
+
+**Recommended next session:** Phase 2 — pick the highest-value module (likely `built-environment`, since Buildings have the richest schema and most steward interaction) and ship one end-to-end inline-edit popover that writes to `builtEnvironmentStore`. Use it as the template for the remaining six modules.
+
+---
+
 ## [2026-05-10] session | Atlas Plan — deferred-items triage (no-op confirmation)
 
 **Objective:** Resolve three deferred items carried into plan mode: (1) Esc-to-clear plan selection, (2) selected-guild inspector chip near the highlighted point, (3) `/plan` route crash from missing `livestock` module guidance in `PlanChecklistAside.tsx`.
