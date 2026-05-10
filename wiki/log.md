@@ -3,6 +3,50 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas Plan — Observe→Plan integration Phase 2 (Buildings inline-edit + V1→V2 facade)
+
+**Objective:** Build the end-to-end inline-edit pattern for Observe Buildings — click a Building footprint on any Plan view, open an anchored popover, edit all 8 fields, persist to the canonical store, regenerate the footprint polygon on rotation/dim changes. Scope-expanded mid-session: flip the V1 `builtEnvironmentStore` to be a V2-derived facade so the V1/V2 split tracked by ADR `2026-05-10-atlas-built-environment-unification.md` ends in the same PR.
+
+**Approach (Part A — inline-edit pipeline):**
+
+- Extend the inline-form DSL with `'textarea'` (`FieldKind` union in `inlineFormStore.ts`; matching render branch in `InlineFeaturePopover.tsx`). Backwards-compatible.
+- New `buildBuildingEditSchema(b: BuiltEnvironmentEntity)` in `inlineEditSchemas.ts` — 8 fields (label/subtype/phase/rotationDeg/widthM/depthM/heightM/notes). `onSave` calls V2's `updateMetadata` (label, notes, existing.subtype, proposed.{phase, rotationDeg, widthM, depthM, heightM}) and, when rotation or dims change, `updateGeometry` with a fresh `createFootprintPolygon` around the existing centroid.
+- `PlanObserveSelectionHandler` branches: clicks on `observe-anno-be-buildings-*` resolve the V2 entity by `featureId` and open `useInlineFormStore` with the building schema. All other Observe kinds keep going through `ObserveLinkPopover` until their Phase 2 PRs.
+- `VisionLayoutCanvas` mounts the full Observe interaction stack (`ObserveAnnotationLayers`, `PlanObserveSelectionHandler`, `InlineFeaturePopover`, `ObserveLinkPopover`) so vision / phase-1 / phase-2 / terrain3d views all get the inline editor — not just Current Land.
+
+**Approach (Part B — V1→V2 bridge, pivoted from hard cutover):**
+
+Plan started as a hard cutover (rewrite all V1 reader/writer sites to V2). After grepping the surface (~1500 lines across 5 files) I pivoted to a **bridge facade**: rewrite `builtEnvironmentStore.ts` so it has zero persistence + zero zundo (V2 owns those) and its 8 slice arrays are projected from V2's `entities[]` on every V2 mutation. All `add*/update*/remove*` triples delegate to V2's `create / updateMetadata / updateGeometry / delete` via kind-specific V1→V2 shape mappers (building, well, septic, power-line, buried-utility, fence, gate, driveway). Existing call-sites compile and behave unchanged. The V2 migration shim already reads the legacy `ogden-built-environment` localStorage key, so no data is lost on the cutover.
+
+This achieves the ADR's end-state (V2 is the sole source of truth) with one file changed instead of five — at the cost of keeping `builtEnvironmentStore.ts` on disk for one release as a deprecation shim. Follow-up commit deletes it.
+
+**Verification:**
+
+- `cd apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → exit 0
+- `npx vitest --run` (apps/web) → **41 files / 641 tests passing**
+
+**Deferred:**
+
+- Delete `builtEnvironmentStore.ts` outright after one release on the facade. Drop the `BUILT_ENV_V2` flag in `packages/shared/src/constants/flags.ts` at the same time.
+- Inline-edit pipelines for the other 7 built-env kinds (Wells, Septics, Power lines, Buried utilities, Fences, Gates, Driveways). Each is one `buildXEditSchema` + one handler-routing line away — Buildings is the template.
+- Inline-edit pipelines for the other 6 Observe modules (human-context, macroclimate-hazards, topography, earth-water-ecology, sectors-zones, swot-synthesis).
+- "Observed" subsections in `PlanModuleSlideUp` (Phase 3 of the broader Observe→Plan integration).
+- Selection-floater integration for Observe features (extends `PlanSelectionKind`).
+- Promote `typecheck` script with 8GB heap flag to `apps/web/package.json` (carried from Phase 1).
+
+**Files touched (atlas commit `ac3804f`):**
+
+- `apps/web/src/store/builtEnvironmentStore.ts` (rewritten as V2-derived facade)
+- `apps/web/src/v3/plan/draw/inlineFormStore.ts` (FieldKind +textarea)
+- `apps/web/src/v3/plan/draw/InlineFeaturePopover.tsx` (textarea render branch)
+- `apps/web/src/v3/plan/layers/inlineEditSchemas.ts` (+buildBuildingEditSchema)
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` (building→inline routing)
+- `apps/web/src/v3/plan/canvas/VisionLayoutCanvas.tsx` (mount Observe stack across non-Current views)
+
+**Recommended next session:** Template the remaining seven built-env kinds (each ~30 lines: `buildWellEditSchema`, `buildSepticEditSchema`, …) then start a new Observe module (likely `topography` since contour clicks are common). Alternatively, ship the V1 deletion follow-up after one release of the bridge.
+
+---
+
 ## [2026-05-10] session | Atlas Plan — Observe→Plan integration Phase 1 (link popover)
 
 **Objective:** Make Observe-stage features (buildings, sectors, soil samples, hazards, contours, etc.) clickable on the Plan Current-Land map so a steward can deep-link back to the Observe module that owns them. Editing remains in Observe (single source of truth).
