@@ -3,6 +3,27 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas Plan — Phase 2 tsc cleanup (structure-drag undo + V2 facade follow-ups)
+
+**Objective:** Close the three residual tsc errors left over from the Phase 2 V1→V2 facade work — `PhaseKey` typo in `builtEnvironmentAdapters.test.ts`, `serverId` rejection on `CreateBuiltEnvironmentInput` in `structureStore.ts`, and `TemporalAccess` mismatch in `PlanDataLayers.tsx` where `useStructureStore` no longer carries zundo middleware.
+
+**Resolution:**
+- Two of the three errors were already fixed in parallel commit `cfd97dd` (refactor(stores): Phase 3 — V2 facades for Built Environment unification): the test now uses `'buildings'` and `structureStore.addStructure` patches `serverId` via a follow-up `updateMetadata` after V2 mints the canonical id.
+- `PlanDataLayers.tsx` drag undo for structures now routes through `useBuiltEnvironmentStoreV2` (which still owns the zundo `temporal` middleware) rather than the V2-derived `useStructureStore` facade. Atlas commit `caba624 fix(plan): route structure drag undo through V2 store`. Parent submodule bump `41a18b4`.
+- Parallel utility-conflict WIP in the atlas working tree (waterSystemsStore, PlanLayout, VisionLayoutCanvas, elementCatalog, WaterSinkTool, WaterSwaleTool, untracked UtilityConflictDialog/Store + ADR draft) was stashed during the fix and restored cleanly — uncommitted, untouched.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output.
+
+**Deferred:**
+- Wells + Septics inline-edit pipelines (next-highest-value built-env kinds, pattern set by Buildings)
+- V1 `builtEnvironmentStore` shim deletion once a release ships clean V2-only operation
+- Promote 8GB heap `typecheck` script into `apps/web/package.json`
+- Parallel agent's utility-conflict feature (UtilityConflictDialog + ADR `2026-05-10-plan-earthwork-utility-veto.md`) still uncommitted on the atlas working tree — not this session's scope to land
+
+**Recommended next session:** Ship Wells inline-edit using `buildBuildingEditSchema` as the template; same router branch in `PlanObserveSelectionHandler` keyed on `observe-anno-be-wells-*`.
+
+---
+
 ## [2026-05-10] session | Atlas Plan — Observe→Plan integration Phase 2 (Buildings inline-edit + V1→V2 facade)
 
 **Objective:** Build the end-to-end inline-edit pattern for Observe Buildings — click a Building footprint on any Plan view, open an anchored popover, edit all 8 fields, persist to the canonical store, regenerate the footprint polygon on rotation/dim changes. Scope-expanded mid-session: flip the V1 `builtEnvironmentStore` to be a V2-derived facade so the V1/V2 split tracked by ADR `2026-05-10-atlas-built-environment-unification.md` ends in the same PR.
