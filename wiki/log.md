@@ -3,6 +3,29 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas plan — Module 7 folded into Livestock Product Chain + planned-move chips + gold accent
+
+**Objective:** Land the queued plan-stage work that was sitting as parallel WIP — fold the broiler "Plan Module 7" into Livestock as the Product Chain sub-section, add Edit/dismiss chips to planned-move rows on the rotation card, and apply a gold accent ribbon to Product Chain tabs.
+
+**Files (atlas commits, all pushed, head now `f7e8462`):**
+- `e1ebb38 atlas(plan): fold broiler module into Livestock as Product Chain` — Module 7's three tools (`SlaughterPointTool` / `ColdChainUnitTool` / `MarketNodeTool`) and three diagnostic cards (`SlaughterThroughputCard` / `ColdChainCoverageCard` / `MarketDistributionCard`) now hang under the Livestock module's Product Chain sub-section. Wiped the standalone `broiler-product-map` plan-module entry from `planModuleArtifactPresence.ts`, `planModulePalette.ts`, `types.ts`, `PlanChecklistAside.tsx`, `PlanModuleSlideUp.{tsx,module.css}`, `PlanTools.tsx`, `PlanDrawHost.tsx`, `useMapToolStore.ts`. Atlas-side wiki ADR `wiki/decisions/2026-05-10-atlas-plan-module7-broiler-product-map.md` records the fold.
+- `a2725c3 atlas(livestock): plan editing — Edit + dismiss chips on Planned line` — the "Planned: <date>" line on `RotationScheduleCard` rows now exposes inline **Edit** and **×** chips. Edit rehydrates the same compact in-row form against the existing plan; × deletes the plan via `scheduledLivestockMoveStore.deletePlan(id)`.
+- `6034f42 wiki: plan editing closed (a2725c3) — Edit + x chips on Planned line` — atlas-side wiki log + ADR addendum for `2026-05-10-atlas-livestock-move-event-v3.md`.
+- `f7e8462 atlas(plan): gold accent ribbon on Product Chain tabs` — the Product Chain sub-section tabs now carry a thin gold accent ribbon to distinguish them visually from the Livestock parent tabs.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` (apps/web) → exit 0 on each of the four commits. All pushed; parent submodule pointer bumped `364b70a → f7e8462`.
+
+**Stash hygiene (carried from prior session):** The two `phase5-2b-*` atlas stashes were investigated in detail this turn — confirmed stale on every file. Stash@{0} holds the pre-rename Module 7 design (now superseded by `e1ebb38`) plus an early Phase 5.3 BeV2ExistingTool refactor (now superseded on disk). Stash@{1} holds the same pre-rename churn plus an abandoned dashboard-retirement implementation (the ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` is on disk; the patch never landed). Both can be `git stash drop`-ed safely; left in place this session pending explicit go-ahead.
+
+**Deferred:**
+- Drop `stash@{0}` + `stash@{1}` after a final visual diff.
+- **Dashboard retirement — clean reimplementation** against current HEAD per the on-disk ADR: 9 files (taxonomy, DashboardRouter/Sidebar/View/Metrics, AdaptiveDecisionRail, lifecycle, uiStore v2→v3 migration, delete SiteIntelligenceDashboard.tsx). Plan-mode scoping done this session; implementation deferred to a focused next session.
+- Working-tree uncommitted files (`RotationScheduleCard.tsx` + `scheduledLivestockMoveStore.ts`) — parallel agent's in-progress livestock plan-editing follow-up; not ours to commit.
+
+**Recommended next session:** Reimplement dashboard retirement clean against HEAD (the ADR is concrete; ~9 file edits + 1 delete + persist-version bump). Drop the two stale stashes alongside.
+
+---
+
 ## [2026-05-10] session | Atlas livestock — S2 OPTIONS dedup + forward-looking variance on rotation card
 
 **Objective:** Close the two deferred follow-ups from `2026-05-10-atlas-livestock-move-event-v3.md` — (1) the last duplicated `DIRECTION_OPTIONS` / `SPECIES_OPTIONS` site (`LivestockMoveTool`), and (2) the "forward-looking variance" feature on the rotation card.
