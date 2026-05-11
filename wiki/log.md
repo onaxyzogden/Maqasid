@@ -3,6 +3,33 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas dashboard — site-intelligence section retired per ADR
+
+**Objective:** Close out the deferred dashboard retirement from the prior session's recommended-next-session list. The ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` had been on disk since the BE-unification close-out but the implementation never landed. The page file itself (`SiteIntelligenceDashboard.tsx`) was incidentally removed by a parallel agent in `b06ee21 atlas(agribusiness): unit-lock the Module 7 peak-week formula` earlier today; this commit removes the surrounding route, sidebar entry, taxonomy nav item, and the verdict-hero / next-actions hosts that only fired for `section === 'site-intelligence'`.
+
+**Approach:** Clean reimplementation against current HEAD (preferred over cherry-picking the stale `phase5-2b-unrelated-wip-2` stash, which held an abandoned implementation against an older base). Stash-isolated unrelated WIP (agribusiness cards, livestock rotation card, v3/act + v3/observe + v3/plan layouts) before committing, then popped to restore.
+
+**Files (atlas `2086855 atlas(dashboard): retire site-intelligence section per ADR`):**
+- `features/navigation/taxonomy.ts` — drop the `'site-intelligence'` NAV_ITEMS entry (the only S1/P1 item that pointed to a dashboard rather than a map view)
+- `features/dashboard/DashboardRouter.tsx` — drop the lazy import + `case 'site-intelligence'` branch
+- `features/dashboard/DashboardSidebar.tsx` — drop the concentric-circles SVG icon branch
+- `features/dashboard/DashboardView.tsx` — drop the verdict-hero block (`LandVerdictCard` / `CriticalConstraintAlert` / `DecisionTriad`) + the `showVerdictHero` derivation; `onGenerateBrief` retained on the props interface for caller compatibility
+- `features/dashboard/DashboardMetrics.tsx` — drop `NextBestActionsPanel` import + the `showNextActions` branch; `onGenerateBrief` / `onSwitchToMap` retained on the props interface
+- `features/land-os/AdaptiveDecisionRail.tsx` + `features/land-os/lifecycle.ts` — `openCompare` and `LIFECYCLE_STAGES[discover].section` now point to `'map-layers'` (closest valid Observe-stage section after the removal)
+- `store/uiStore.ts` — default `activeDashboardSection` → `'map-layers'`; persist version `2 → 3` with a migration that rewrites stored `'site-intelligence'` → `'map-layers'` for returning users; also fixes the prior `fromVersion < 2` branch to rebind `persistedState` so cumulative migrations stack
+
+The `SiteIntelligencePanel` component (separate from the dashboard page) is kept on disk — it still has consumers in `MapView` / `DecisionRail`.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `2086855` (parent submodule pointer bumped this commit; parallel agent's `88ded4c atlas(livestock): plan-editing parity for structure-destination plans` pushed alongside).
+
+**Deferred:**
+- Two stale `phase5-2b-*` atlas stashes (stash@{0} + stash@{1}) remain on the stack — both confirmed superseded on every file. Drop denied by sandbox this session; user can `git stash drop` directly when convenient.
+- Parallel agent's in-flight livestock follow-up still in working tree (`ColdChainCoverageCard.tsx`, `MarketDistributionCard.tsx`, `agribusinessStore.ts` — restored on stash pop) — not ours to commit.
+
+**Recommended next session:** Either drop the two stale atlas stashes, or pick up whatever the parallel agent's in-flight livestock work resolves to.
+
+---
+
 ## [2026-05-10] session | Atlas plan — Module 7 folded into Livestock Product Chain + planned-move chips + gold accent
 
 **Objective:** Land the queued plan-stage work that was sitting as parallel WIP — fold the broiler "Plan Module 7" into Livestock as the Product Chain sub-section, add Edit/dismiss chips to planned-move rows on the rotation card, and apply a gold accent ribbon to Product Chain tabs.
