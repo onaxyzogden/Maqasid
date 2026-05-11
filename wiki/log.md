@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas livestock — S2 OPTIONS dedup + forward-looking variance on rotation card
+
+**Objective:** Close the two deferred follow-ups from `2026-05-10-atlas-livestock-move-event-v3.md` — (1) the last duplicated `DIRECTION_OPTIONS` / `SPECIES_OPTIONS` site (`LivestockMoveTool`), and (2) the "forward-looking variance" feature on the rotation card.
+
+**Files (atlas commits, both already pushed):**
+- `e248105 atlas(livestock): S2 third-site cleanup — LivestockMoveTool imports canonical OPTIONS` — `LivestockMoveTool.tsx` now imports `DIRECTION_OPTIONS` / `SPECIES_OPTIONS` from `livestockMoveLogStore` in line with the other three call-sites. Local `SPECIES_VALUES` / `DIRECTION_VALUES` / `isDirection` / `isSpecies` guards retained as tool-local utilities.
+- `12d72b6 atlas(livestock): forward-looking variance on rotation card` — new `scheduledLivestockMoveStore.ts` (Zustand, persist key `ogden-scheduled-livestock-moves`, version 1) holds `ScheduledLivestockMove` objects (`toPaddockId`, `plannedDate`, `species`, `direction`, `headCount`, optional `fromPaddockId` / `notes` / `who`, `fulfilledByEventId`, `createdAt`); exports `plansByPaddock()` and `nextUnfulfilledPlan()`. Kept separate from `livestockMoveLogStore` so existing read helpers stay plan-agnostic. `RotationScheduleCard` refactored: `openFormFor: string | null` → `openForm: { paddockId, mode: 'actual' | 'planned' } | null`; new "Schedule…" per-row button alongside "+ Log move"; new "Planned: <date>" line under `.rowFoot` when an unfulfilled plan exists, with a variance pill comparing `plannedDate` against `today + daysUntilReady` (reuses Gap C's `.variancePositive` / `.varianceTolerant` / `.varianceNegative` classes); auto-fulfilment `useEffect` clears the plan when an actual event lands within ±7 days of `plannedDate` (same projectId + toPaddockId + species).
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` (apps/web) → exit 0. Atlas head: `12d72b6` (pushed); parent submodule pointer bumped to match.
+
+**Deferred:**
+- Two `phase5-2b-*` atlas stashes still on the stack — diff inspection confirms they hold content that has since diverged from disk (parallel agent rewrote the same files). Reconciliation deferred to next session.
+- Plan Module 7 → Livestock Product Chain collapse — still in working tree (~15 files `M`)
+- Dashboard refactor + Site Intelligence retirement — ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` is on disk but the implementation files are still uncommitted
+
+**Recommended next session:** Reconcile the two `phase5-2b-*` stashes (likely `git stash drop` after final diff). Then land either the Plan Module 7 collapse or the dashboard retirement, depending on whichever is closest to tsc-clean.
+
+---
+
 ## [2026-05-10] session | Atlas BE — Phase 5.2.B landed (BeV2GenericLayer + generic edit fallback)
 
 **Objective:** Close the BE-unification end-state by making every BE registry kind (31 total) clickable on the Observe map and editable via the floating popover. The code for this was already written on the atlas working tree (generic builder previously committed at `inlineEditSchemas.ts:1498`; the layer + dispatch wiring sat uncommitted mixed with several parallel WIPs).
