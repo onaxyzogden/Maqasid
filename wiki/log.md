@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas BE — Phase 4.3 + 4.4 landed (shared vertex handler + Observe floating popover)
+
+**Objective:** Land the pending BE-unification consolidation that was sitting uncommitted on the atlas working tree (mis-labeled as "utility-conflict" in the prior debrief — utility-conflict had already shipped as atlas `76341d4`).
+
+**Approach:** Reviewed the parallel WIP, ran a full tsc against it (exit 0), and committed it as one cohesive Phase 4.3 + 4.4 ship since the three parts (shared vertex handler, Observe floating popover for BE, existing-state BE drawing tool) interlock. Stashed two unrelated parallel WIPs (RotationScheduleCard, dashboard/land-os/taxonomy) before committing — RotationScheduleCard was committed by a parallel agent during the session as atlas `306e182`+`0f34a35`; dashboard WIP restored on stash-pop and left for its own session.
+
+**Files (atlas `d364b23 feat(be): Phase 4.3 + 4.4 — shared vertex handler + Observe BE floating popover`):**
+- New: `v3/builtEnvironment/handlers/SharedVertexEditHandler.tsx` — owns the MapboxDraw direct_select lifecycle for both Plan and Observe; consumers supply a `VertexEditDispatch` table
+- New: `v3/builtEnvironment/inline/openBeInlineEdit.ts` — single helper that maps Observe's legacy `AnnotationKind` to V2 kind and opens the floating popover
+- New: `v3/observe/components/draw/BeV2ExistingTool.tsx` — tool for placing existing-state BE entities (paired with `defaultStates: ['existing', 'proposed']` on 8 polygon-footprint kinds)
+- Rewrites: `PlanVertexEditHandler.tsx` (177→120 LOC) and `AnnotationVertexEditHandler.tsx` (142→75 LOC) as thin compositions delegating to `SharedVertexEditHandler`
+- Wiring: `SelectionFloater.onEdit` intercepts BE kinds via `openBeInlineEditByObserveKind`; `ObserveLayout` mounts `<InlineFeaturePopover>`; `annotationFieldSchemas` marks the 8 BE entries as create-mode-only
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `d364b23`.
+
+**Deferred:**
+- Phase 5.2.B (generic BE edit schema fallback for the 23 registry kinds without bespoke forms) — partial WIP visible on `openBeInlineEdit.ts` post-commit (`buildGenericBeEditSchema` import + `pickBuilder` fallback) but `buildGenericBeEditSchema` not yet exported by `inlineEditSchemas.ts`; left for the next session
+- Dashboard / land-os / taxonomy WIP — uncommitted on atlas working tree, scope unclear from diff stat, left for its own session
+- V1 `builtEnvironmentStore` shim deletion still pending one clean release
+
+**Recommended next session:** Either finish Phase 5.2.B (write `buildGenericBeEditSchema`, wire `pickBuilder` into `openBeInlineEditByObserveKind`, expand `OBSERVE_KIND_TO_V2`) or land the dashboard WIP after reading its diff for intent.
+
+---
+
 ## [2026-05-10] session | Atlas Plan — Phase 2 BE V2 inline-edit closeout (6 kinds + dispatch dedup)
 
 **Objective:** Ship inline-edit popovers for the remaining 6 Built-Environment kinds (Septics, Power lines, Buried utilities, Fences, Gates, Driveways) on the Plan stage, following the Buildings+Wells template, and confirm a clean tsc on the unified branch.
