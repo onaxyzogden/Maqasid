@@ -13,7 +13,7 @@ import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import { MODULES } from '../../data/modules';
 import { MAQASID_PILLARS } from '../../data/maqasid';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Sidebar from './Sidebar';
+import Sidebar, { MODULE_ROUTES } from './Sidebar';
 import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 import SearchPalette from '../shared/SearchPalette';
@@ -28,6 +28,17 @@ import DiscussionPanel from '../discussion/DiscussionPanel';
 import Toast from '../shared/Toast';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
 import './AppShell.css';
+
+// Set of every known module id — '/app/{id}' is the route convention for
+// virtually every module page. Used by the URL→activeModule sync effect
+// below to validate the URL segment before writing to the store, so non-
+// module pages and unknown routes never clobber it with a bogus id.
+// (MODULE_ROUTES is a subset and notably omits *-core/*-growth/*-excellence
+// pillar pages, so it can't be the source of truth here.)
+const MODULE_IDS = new Set(MODULES.map((m) => m.id));
+// Routes whose URL segment differs from the module id, or which carry
+// project sub-paths like /app/work/:projectId/tasks — match by prefix.
+const PREFIX_ROUTES = Object.entries(MODULE_ROUTES);
 
 export default function AppShell() {
   const sidebarOpen = useAppStore((s) => s.sidebarOpen);
@@ -97,26 +108,47 @@ export default function AppShell() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
-  // Sync activeModule with current URL — covers all navigation paths (back/forward, in-page links, pillar headers)
-  // that don't go through the sidebar submodule onClick handler.
+  // Sync activeModule with current URL — single authoritative writer.
+  // Validates the URL segment against MODULE_ROUTES before writing so
+  // non-module pages (sources, settings, calendar, etc.) and unknown
+  // routes never clobber the store with a bogus id. This makes the
+  // panel display identical whether navigation came from the Sidebar,
+  // a Dashboard card, a project board link, or a deep link.
   useEffect(() => {
-    const parts = location.pathname.replace(/^\/app\/?/, '').split('/');
+    const path = location.pathname;
+    const parts = path.replace(/^\/app\/?/, '').split('/');
     const segment = parts[0];
-    if (!segment || segment === 'settings') return;
+    if (!segment) return; // /app index — preserve previous module
+
+    // 1. Direct module id match — '/app/{moduleId}' is the route convention
+    //    for almost every module page (work, faith-zakah, wealth-core, ...).
+    if (MODULE_IDS.has(segment)) { setActiveModule(segment); return; }
+
+    // 2. Pillar pages: /app/pillar/{id} → {id}-core (or first submodule)
     if (segment === 'pillar') {
       const pillarId = parts[1];
       if (!pillarId) return;
       const coreId = `${pillarId}-core`;
-      if (MODULES.some((m) => m.id === coreId)) {
-        setActiveModule(coreId);
-        return;
-      }
+      if (MODULE_IDS.has(coreId)) { setActiveModule(coreId); return; }
       const pillar = MAQASID_PILLARS.find((p) => p.id === pillarId);
       const fallback = pillar?.subModuleIds?.[0];
       if (fallback) setActiveModule(fallback);
       return;
     }
-    setActiveModule(segment);
+
+    // 3. Sub-routes via MODULE_ROUTES prefix
+    //    (e.g. /app/work/abc123/tasks → 'work'). Catches anything where the
+    //    URL doesn't equal the module id directly but has a registered route.
+    for (const [modId, route] of PREFIX_ROUTES) {
+      if (path === route || path.startsWith(route + '/')) {
+        setActiveModule(modId);
+        return;
+      }
+    }
+
+    // 4. Unknown / non-module segment (settings, calendar, profile, ...) —
+    //    leave activeModule alone so the panel keeps the user's last module
+    //    instead of blanking out. Never write a bogus id.
     // reason: setActiveModule is a stable store action; only react to URL changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);

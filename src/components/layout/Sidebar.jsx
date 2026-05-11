@@ -17,7 +17,7 @@ import './Sidebar.css';
 const ICON_MAP = ICON_REGISTRY;
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
-const MODULE_ROUTES = {
+export const MODULE_ROUTES = {
   work: '/app/work',
   money: '/app/money',
   people: '/app/people',
@@ -87,7 +87,7 @@ export default function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const mobile = useMobile();
-  const { sidebarOpen, toggleSidebar, setActiveModule, expandedPillars, togglePillar, collapseAllPillars, setSearchOpen } = useAppStore();
+  const { sidebarOpen, toggleSidebar, expandedPillars, togglePillar, collapseAllPillars, setSearchOpen } = useAppStore();
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const [notifOpen, setNotifOpen] = useState(false);
 
@@ -162,7 +162,7 @@ export default function Sidebar() {
                     key={mod.id}
                     to={route}
                     className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
-                    onClick={() => { setActiveModule(mod.id); handleNavClick(); }}
+                    onClick={handleNavClick}
                     title={mod.name}
                   >
                     {Icon && <Icon size={16} style={isActive ? { color: mod.color } : undefined} />}
@@ -298,7 +298,7 @@ export default function Sidebar() {
                         key={child.id}
                         to={route}
                         className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
-                        onClick={() => { setActiveModule(child.id); handleNavClick(); }}
+                        onClick={handleNavClick}
                         title={child.name}
                       >
                         {Icon && <Icon size={16} style={isActive ? { color: OGDEN_ACCENT } : undefined} />}
