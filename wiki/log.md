@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-10] session | Atlas BE — Phase 5.2.B landed (BeV2GenericLayer + generic edit fallback)
+
+**Objective:** Close the BE-unification end-state by making every BE registry kind (31 total) clickable on the Observe map and editable via the floating popover. The code for this was already written on the atlas working tree (generic builder previously committed at `inlineEditSchemas.ts:1498`; the layer + dispatch wiring sat uncommitted mixed with several parallel WIPs).
+
+**Approach:** Pure packaging exercise — stash-isolate the 4 Phase 5.2.B files (1 new + 3 modified) from a much larger working-tree set, re-verify tsc against the isolated set, commit + push. Two named stashes (`phase5-2b-unrelated-wip` and `phase5-2b-unrelated-wip-2`) held the unrelated parallel WIPs during the commit.
+
+**Files (atlas `c1360fd feat(be): Phase 5.2.B — BeV2GenericLayer + generic edit fallback`):**
+- New: `v3/builtEnvironment/layers/BeV2GenericLayer.tsx` — 2D top-down fallback layer subscribed to `useBuiltEnvironmentStoreV2`; filters out `LEGACY_OBSERVE_BE_KINDS`; paints polygon/line/circle from `getBuiltEnvironmentKind(kind).color`; click → `openBeInlineEditById(id, [lng, lat])`
+- `v3/builtEnvironment/inline/openBeInlineEdit.ts` — adds `pickBuilder(kind)` fallback resolver (`SCHEMA_BUILDERS[kind] ?? buildGenericBeEditSchema`); new `openBeInlineEditById(id, fallbackAnchor?)` entrypoint for V2-id-keyed callers; existing `openBeInlineEditByObserveKind` also switched to `pickBuilder` so legacy callers benefit too
+- `v3/builtEnvironment/layers/index.ts` — adds `BeV2GenericLayer` to the barrel
+- `v3/observe/ObserveLayout.tsx` — mounts `<BeV2GenericLayer map projectId stateFilter="existing"/>` alongside the existing 3D `DesignElement{Glb,Extrusion}Layer` block
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `c1360fd`.
+
+**Deferred:**
+- Two named stashes (`phase5-2b-unrelated-wip` and `phase5-2b-unrelated-wip-2`) remain on the atlas stash stack. The parallel agent has since written new content to `PlanLayout.tsx` / `BaseMapCard.module.css` / `VisionLayoutCanvas.tsx` that conflicts with the stashed copies — left for the next session to reconcile, since the parallel agent's most-recent content is likely the correct base.
+- Per-kind subtype enrichment for any of the 23 generic kinds (additive)
+- Plan Module 7 → Livestock Product Chain collapse (parallel WIP)
+- Dashboard refactor + Site Intelligence retirement (parallel WIP, includes a new ADR)
+- Phase 5.3 — BeV2ExistingTool `state` prop for Plan-side composers (already started by parallel agent)
+- V1 `builtEnvironmentStore` shim deletion (gated on a clean release)
+
+**Recommended next session:** Reconcile the two atlas stashes against current HEAD — likely `git stash drop` after confirming the parallel agent's commits already cover the same ground. Then either land the Plan Module 7 collapse (largest pending WIP, ~14 files touched) or the dashboard retirement (smaller, has an ADR ready).
+
+---
+
 ## [2026-05-10] session | Atlas BE — Phase 4.3 + 4.4 landed (shared vertex handler + Observe floating popover)
 
 **Objective:** Land the pending BE-unification consolidation that was sitting uncommitted on the atlas working tree (mis-labeled as "utility-conflict" in the prior debrief — utility-conflict had already shipped as atlas `76341d4`).
