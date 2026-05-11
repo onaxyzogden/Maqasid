@@ -8529,3 +8529,22 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Completed:** IslamicPanel module-sync bug fixed. All four navigation entry paths (sidebar, dashboard card / deep link, project sub-route, non-module page) now render the panel consistently. AppShell's URL-sync effect is now the single authoritative writer; Sidebar no longer races it.
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
+
+## 2026-05-11 — MIOS — MODULE_ROUTES consolidation + non-Faith pillar level backfill
+
+Two related cleanups from prior session's deferred list.
+
+### MODULE_ROUTES consolidation (`a9d8bb5`)
+- Removed dead `MODULE_ROUTES` constant (10 entries, lines 19-30) from [src/components/dashboard/PillarCard.jsx](src/components/dashboard/PillarCard.jsx). Grep-verified it was declaration-only — never referenced. PillarCard navigates via `/app/pillar/${pillar.id}` and does not consume the table.
+- [src/components/layout/Sidebar.jsx:20](src/components/layout/Sidebar.jsx:20) `export const MODULE_ROUTES` is now the single source of truth, consumed by [AppShell.jsx](src/components/layout/AppShell.jsx) for URL-sync. Pillar dashboards (`HealthDashboard`, `IntellectDashboard`, etc.) retain their own `SUBMODULE_ROUTES` constants — different concept (pillar-internal submodule paths), no overlap.
+
+### Non-Faith pillar level backfill (`fcc41b8`)
+- Added 15 new `MODULES[]` entries to [src/data/modules.js](src/data/modules.js): 5 pillars (health, intellect, family, wealth, environment) × 3 levels (core / growth / excellence). Each mirrors the Faith pattern: `Shield` / `TrendingUp` / `Star` icons by level, level-paired Asma (`Al-Muhyi · Al-Qayyum` / `Al-Rafi · Al-Fattah` / `Al-Muhsin · Al-Jamil`), same three Path-to-Excellence colors (`#C8A96E` / `#4ab8a8` / `#8b5cf6`). Descriptions follow the form `"{Universal label} {Level} — Level N: {Tier} ({Arabic})"`.
+- **Effect.** AppShell's URL-sync already validates against `MODULE_IDS = new Set(MODULES.map(m => m.id))`, so URLs like `/app/health-core` / `/app/wealth-growth` / `/app/environment-excellence` previously fell through to subModuleIds[0] (or were "leave alone". They now resolve directly, and the Islamic right-rail panel renders the structured module badge (name, attrs, icon) on those level pages.
+- **Ummah skipped.** No `ummah-core/growth/excellence` routes exist in App.jsx — UmmahDashboard renders Collective / Neighbors / Community directly.
+- **Tests:** 62/62 pass. ESLint clean.
+
+### Session Debrief
+- **Completed:** PillarCard's dead `MODULE_ROUTES` removed (Sidebar's export is sole authority). 15 level-submodule entries added for health/intellect/family/wealth/environment so the Islamic panel renders structured badges on `/app/{pillar}-{level}` URLs.
+- **Deferred:** Optionally hand-curate per-pillar Asma for the level entries (currently use Faith's level-paired Asma as a sensible default); add `*-core/-growth/-excellence` ids to each pillar's `subModuleIds[]` in [src/data/maqasid.js](src/data/maqasid.js) so `getPillarForModule()` resolves them (currently null for level ids, mirroring Faith's existing behavior). Other modified files in working tree (PropheticPath, prophetic-path-submodules, atlas submodule pointer) — provenance unclear, intentionally left untouched.
+- **Recommended next:** Either the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries) or per-pillar Asma curation for the new level entries.
