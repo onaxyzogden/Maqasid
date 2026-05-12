@@ -77,6 +77,7 @@ Phase 1 (Site Intelligence) in active development. Submodule linked into the [[m
 
 | Date | Event |
 |---|---|
+| 2026-05-12 | BE V2 unification Phase 6.B — all production code off the `useDesignElementsStore` V1 facade. Non-structure kinds (paddock/pond/swale/orchard/path/road/gate/bridge/turnaround) extracted to `landDesignStore.ts`. Selector library (`builtEnvironmentSelectors.ts`) now hosts both reader hooks (`useDesignElementsForProject`, `getDesignElementsForProject`) and writer helpers (`addDesignElement`, `removeDesignElement`, `updateDesignElement`, `findDesignElementGlobal`) — merging V2 structure-class projections with `useLandDesignStore` directly. Facade body + adapter tests remain temporarily; final deletion sweep is the only step left. See [[2026-05-10-atlas-built-environment-unification]]. |
 | 2026-04-24 | §7 biodiversity corridor (LCP) overlay — pure Dijkstra in `@ogden/shared`, 12 passing tests, toggleable overlay with 50 m buffered corridor band + polyline + anchors. Parity delta 0. |
 | 2026-04-24 | Map UI: chrome/biophilic token separation, perimeter tool layout, split-pane icon switcher relocated to avoid `.floatingControls` overlap, divider drag no longer selects page text. |
 | 2026-04-24 | End-to-end Tier-3 verification on Milton, ON (CA). CA-1/CA-2/CA-3/CA-4 fixed. Parity PASS (delta 0.000). |
