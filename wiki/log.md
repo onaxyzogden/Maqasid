@@ -49,6 +49,21 @@ ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
 
 ---
 
+## [2026-05-12] session | Atlas — FertilityColocationCard resilience signal
+
+**Objective:** Add a closed-loop resilience read on the FertilityColocationCard so the steward sees fragility the forward (nearest-unit) view can't surface — a guild served by a single composter looks tight in the bucket view, but the loop collapses the moment that one unit fails.
+
+**Commits (feat/atlas-permaculture):**
+- `0314b250` atlas(plan): FertilityColocationCard — resilience signal. Per placed guild (any guild with a centroid), count fertility units within ≤ 75 m and split into redundant (≥ 2 units), single-served (1 unit — at risk), and placed-but-no-fertility (0 units). Surfaced two ways: (a) new "Redundantly served (≥ 2 units, ≤ 75 m): X / Y" stat row in the existing Overall section, (b) new "Resilience" section between the bucket sections and By-fertility-unit, with % redundant pill, three count rows, and an at-risk list naming each single-served guild plus its only-unit-in-reach type. Empty-state copy when no guilds are single-served. Unplaced guilds excluded — they're handled by the bucket sections above.
+
+**Shape:** `GuildRow` extended with `servingUnitCount: number` and `servingUnitTypes: FertilityInfraType[]`; the `rows` useMemo now tallies units within `BUCKET_MEDIUM_M` (≤ 75 m) in the same pass as the nearest-unit search — no second iteration over `placedFertility`. New `resilience` useMemo derives `{ placedTotal, redundantCount, singleServed, unservedCount, placedPct }` from `rows` and feeds both surface points. Lede updated to document the new section.
+
+**Why ≤ 75 m and binary ≥ 2:** Matches the existing bucket framing (Zone-2 reach = "weekly hauls feasible") so the resilience read uses the same proximity discipline as everything else on the card. Binary (redundant / single / unserved) keeps the cognitive load low; tunable thresholds for "well-buffered ≥ 3" deferred until the steward asks.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean.
+
+---
+
 ## [2026-05-12] session | Atlas — layerFetcher.ts haversine tuple migration (geo extraction arc closed)
 
 **Objective:** Finish the `lib/geo.ts` extraction arc started in the prior session by migrating the last caller, `apps/web/src/lib/layerFetcher.ts`, off its local scalar `haversineKm(lat1, lng1, lat2, lng2)` adapter and onto the shared tuple API directly. After this commit `lib/geo.ts` is the single source of truth for haversine math with one canonical signature.
