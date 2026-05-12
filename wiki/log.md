@@ -3,6 +3,29 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas BE V2 unification — V1 design-elements facade deleted (Phase 6 complete)
+
+**Objective:** Final deletion sweep. Slim `designElementsStore.ts` to a type-only module exporting `DesignElement`; remove the adapter test cases that exercised the facade; audit for any straggling imports the prior production-grep didn't catch.
+
+**Commits (feat/atlas-permaculture):**
+- `e00f497a` refactor(atlas): delete `useDesignElementsStore` V1 facade. `designElementsStore.ts` shrinks from ~300 lines to a 65-line type module. Deletions: the `useDesignElementsStore` `create<>()` definition + `DesignElementsState` interface; the local `STRUCTURE_CLASS_KINDS` set + `isStructureClass` helper (duplicate now lives only in `builtEnvironmentSelectors.ts`); `projectV2StructureElements` + `mergeByProject` helpers (the selector library's `projectV2StructureDesignElements` is the replacement); `initialMerged` constant; `recomputeMerged` + both V2 / landDesign subscribe handlers + the `useBuiltEnvironmentStoreV2.persist.rehydrate()` re-merge dance. Adapter test (`builtEnvironmentAdapters.test.ts`) drops the entire `describe('useDesignElementsStore facade', …)` block (78 lines, 5 tests + the `makeEl` helper + the `DesignElement` type import that block held), the facade-side calls in `resetAll()` (replaced with `useLandDesignStore.setState({ byProject: {} })`), and section #3 of the top-of-file JSDoc.
+
+**Audit:** `rg "useDesignElementsStore" apps/web/src --type ts` returns only doc-comment prose in `builtEnvironmentSelectors.ts`, `designElementsStore.ts`, and `landDesignStore.ts` — all narrating the historical migration, no code dependency. `rg "DesignElementsState"` returns zero matches. The 5 type-only `DesignElement` importers (`noiseSectorOverlap.ts`, `DesignElementLayers.tsx`, `DesignToolRail.tsx`, `landDesignStore.ts`, `builtEnvironmentSelectors.ts`) continue to resolve to the slimmed module.
+
+**State of BE V2 unification:** Phase 6 closes. Public surface is now:
+- `builtEnvironmentStoreV2` — the V2 entity store (writes + persist + zundo temporal).
+- `builtEnvironmentSelectors.ts` — readers (`use{Buildings,Wells,…,DesignElements}ForProject` + matching `get*` non-React variants) and DesignElement writers (`addDesignElement`, `removeDesignElement`, `updateDesignElement`, `findDesignElementGlobal`).
+- `landDesignStore` — non-structure design elements (paddock / pond / swale / orchard / path / road / gate / bridge / turnaround) on persist key `ogden-atlas-design-elements`.
+- `designElementsStore.ts` — type-only module exporting `DesignElement`.
+
+Remaining V1 facade in the BE family: `useStructureStore` (~70 consumer sites). Gated by `Structure → ProjectedStructure` narrowing collapse; tracked separately, independent of the design-elements arc.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` clean; `vitest run builtEnvironmentAdapters` 11/11 passing (was 16; the 5 facade tests went with the facade).
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
 ## [2026-05-12] session | Atlas BE V2 unification — writer call sites off V1 facade
 
 **Objective:** Wire V2 + `useLandDesignStore` writers through the selector library so the remaining `useDesignElementsStore` writer call sites can migrate. After this slice no production code imports the V1 facade.
