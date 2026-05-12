@@ -8679,6 +8679,14 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
 
+## 2026-05-12 — Atlas — Plan: fold guild establishment into CumulativeInvestmentCard (`91615a6`)
+
+Closes the deferral from `b46990b`. `CumulativeInvestmentCard` now reads `polycultureStore.guilds`, buckets `establishmentCostUSD`/`establishmentLaborHrs` by `guild.phase`, and adds the per-phase contribution to both the phase's `incHrs`/`incUSD` totals and specifically to the Vegetation slice of the Yeomans `byTier` strip (Keyline order preserved). Phase share bars, cumulative running totals, and the stacked tier strip all reflect guild contribution automatically. Unassigned guilds (no phase) and unestimated guilds surface in the Project total section as separate stat rows — they can't be placed on the curve without a phase anchor, but the steward needs to see the count to act.
+
+Both Phasing/Budgeting cards (`LaborBudgetSummaryCard`, `CumulativeInvestmentCard`) now share one aggregation pattern: task totals from `phaseStore` ∪ guild totals from `polycultureStore`, bucketed by `BuildPhase.id`. No schema changes — the `establishmentCostUSD`/`establishmentLaborHrs` fields landed in `b46990b`.
+
+tsc clean. Pushed.
+
 ## 2026-05-12 — Atlas — Phase 6.A: retire dead BUILT_ENV_V2 feature flag (`ca03d1d`)
 
 Audit on 2026-05-12 confirmed `FLAGS.BUILT_ENV_V2` (env: `ATLAS_BUILT_ENV_V2`) was never wired into branching logic — only referenced in JSDoc. The V1 facades (`useBuiltEnvironmentStore`, `useStructureStore`, `useDesignElementsStore`) unconditionally project from V2 regardless of flag state. Removed the flag from `packages/shared/src/constants/flags.ts`; updated stale JSDoc in `builtEnvironmentProjection.ts` and `apps/web/src/store/builtEnvironmentStoreV2.ts` with the retirement date.
