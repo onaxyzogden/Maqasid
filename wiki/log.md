@@ -8687,6 +8687,29 @@ Both Phasing/Budgeting cards (`LaborBudgetSummaryCard`, `CumulativeInvestmentCar
 
 tsc clean. Pushed.
 
+## 2026-05-12 — Atlas — Phase 6.B (proof-of-shape): V2 selector library + utilityConflicts migration (`3ad7d89`)
+
+Introduced `apps/web/src/store/builtEnvironmentSelectors.ts` — the React+Zustand surface that lets consumers migrate off the V1 `useBuiltEnvironmentStore` facade one file at a time. Two parallel flavours per Observe slice (Building / Well / Septic / PowerLine / BuriedUtility / Fence / Gate / ExistingDriveway):
+
+- `getXxxForProject(projectId)` — non-React one-shot read via `useBuiltEnvironmentStoreV2.getState()`. Use inside pure helpers, event handlers.
+- `useXxxForProject(projectId)` — React hook subscribing to `entities` and memoizing the projection + projectId filter.
+
+The projection functions themselves already live in `@ogden/shared`'s `builtEnvironmentProjection.ts` (`projectToBuildings`, `projectToBuriedUtilities`, etc.); this file is just the app-side wrapper.
+
+Proof-of-shape migration: `apps/web/src/v3/plan/utils/utilityConflicts.ts` (the one-shot pure helper that runs the soft-veto check against buried-utility lines per ADR `2026-05-10-plan-earthwork-utility-veto.md`) now reads via `getBuriedUtilitiesForProject()`. Local copy of the V1 `BuriedUtilityKind` enum (`water_main | gas | fibre | sewer | other`) + narrowing helper preserved so `UtilityConflictDialog`'s `KIND_LABEL` map keeps compiling once the V1 facade is deleted.
+
+`tsc --noEmit` clean.
+
+Next call-site migrations (Phase 6.B continued):
+- `BuiltEnvironmentDashboard.tsx` — drops 8 V1 facade reads.
+- `ObserveAnnotationLayers.tsx` — drops 8 V1 facade reads.
+- `AnnotationRegistry.ts` — replaces the 8-case `useAnnotationsForKinds` switch's V1 reads.
+- `annotationGeometryRegistry.ts` — drops V1 read.
+
+Once those four land, the V1 Observe facade has zero read callers; pivot to `useDesignElementsStore` (6 sites) then `useStructureStore` (40+).
+
+---
+
 ## 2026-05-12 — Atlas — Phase 6.A: retire dead BUILT_ENV_V2 feature flag (`ca03d1d`)
 
 Audit on 2026-05-12 confirmed `FLAGS.BUILT_ENV_V2` (env: `ATLAS_BUILT_ENV_V2`) was never wired into branching logic — only referenced in JSDoc. The V1 facades (`useBuiltEnvironmentStore`, `useStructureStore`, `useDesignElementsStore`) unconditionally project from V2 regardless of flag state. Removed the flag from `packages/shared/src/constants/flags.ts`; updated stale JSDoc in `builtEnvironmentProjection.ts` and `apps/web/src/store/builtEnvironmentStoreV2.ts` with the retirement date.
