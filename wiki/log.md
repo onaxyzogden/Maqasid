@@ -8698,6 +8698,23 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
 
+## 2026-05-12 — Atlas — `lib/geo.ts` extraction (haversine, 4 duplicates → 1) (`af0790a`)
+
+Centralised haversine math previously inlined four places:
+`layerFetcher.ts` (km, scalar), `GPSFieldStatusCard.tsx` (m, scalar),
+`ArrivalSequenceDesignCard.tsx` + `FertilityColocationCard.tsx` (m,
+tuple). New `apps/web/src/lib/geo.ts` exports `haversineM(a, b)` and
+`haversineKm(a, b)`, both `[lng, lat]` tuples (Mapbox / GeoJSON
+convention — matches every spatial store).
+
+Two of the four callers adopt the tuple API outright (zero callsite
+changes; same shape). `GPSFieldStatusCard` rewrites 3 scalar
+callsites to tuples with care for `[lng, lat]` order. `layerFetcher.ts`
+keeps a thin local scalar adapter that delegates to the tuple form —
+math centralised, but transposing 24 remote-data integration points
+silently is the kind of mistake that ships into production, so we
+don't. tsc clean.
+
 ## 2026-05-12 — Atlas — Plan: FertilityColocationCard + guild-cost totals chip (`895a61f`, `7c8a1dc`)
 
 Two follow-ups from the prior debrief.
