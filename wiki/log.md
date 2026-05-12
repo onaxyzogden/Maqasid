@@ -3,6 +3,122 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas plan — CanopySuccessionCard contributing-pick cap
+
+**Objective:** Resolve the picker-list-vs-scrubber asymmetry surfaced in the Plants module design conversation. CanopySuccessionCard is picks-driven, not guild-driven on its face — but a steward's palette includes species *intended for* phased guilds (Year-5 windbreaks, Year-3 fertility layer, etc.), so showing all picks on a Year-1 view misleads about what will actually be growing at the active build phase.
+
+**Cap discipline (two-axis rule, formalised in the card doc-comment):**
+- **Succession scrubber** (Year 1 / 5 / 10 / 20 / 30+) — **uncapped.** Once a species set is fixed, its maturation arc is its own. The scrubber answers "what does this set look like at age X," which is orthogonal to "which set is in scope today."
+- **Contributing species set** — **capped via visible-guild membership.** A pick contributes iff (a) it appears as anchor or member of a guild visible at the active Plan view (`usePhaseStoreCappedEntities` on project guilds), OR (b) it is an *orphan* pick (not used in any project guild yet). Orphan picks pass through uncapped — same precedent as the Unassigned bucket in `PlantEstablishmentSequenceCard`.
+
+**Files (atlas `287e64ac atlas(plan): cap CanopySuccessionCard contributing-picks via visible-guild membership`):**
+- `v3/plan/cards/plant-systems/CanopySuccessionCard.tsx` — added adapter import; derived `visibleGuilds`, `visibleSpeciesIds`, `guildedSpeciesIds`, and `contributingPicks`; rewired `layerCounts`, the empty-state guard, and the root-zone schematic to consume `contributingPicks`. Stat row "Picked species across layers" → "Contributing picks at this view (X / Y)" so the cap is legible. Lede + empty-state copy refreshed.
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B postscript.** Plants module phase-axis is now fully wired: the readout layer (`PlantEstablishmentSequenceCard`, `858441ec`) and the succession card both honour the active view. Registration cards (`PlantDatabaseSiteMatchCard`, `GuildSpatialBuilderCard`) remain uncapped. No new ADR.
+
+**Recommended next session:** (a) wire guild establishment costs into the Phasing/Budgeting module (the only remaining unfinished thread from the original Plants design conversation), or (b) pivot to a fresh Plan-module backlog item.
+
+---
+
+## [2026-05-12] session | Atlas plan — PlantEstablishmentSequenceCard closes Phase B cross-module sweep
+
+**Objective:** Give the Yeomans cap something to bite on in Plan Module 4 (Plant Systems). `polycultureStore.Guild.phase?: string` already existed (line 60, with a docstring naming PLAN-stage Module 9 / phaseStore as the intended consumer), but no card surfaced that axis as a readout, so Year 1 / Year 5 chips were invisible in this module.
+
+**Files (atlas `858441ec atlas(plan): add PlantEstablishmentSequenceCard -- phase-capped readout for guild sequencing`):**
+- **New** `v3/plan/cards/plant-systems/PlantEstablishmentSequenceCard.tsx` — readout. Groups project guilds by their `BuildPhase` (phaseStore `order`-sorted) and surfaces per-phase placed/unplaced counts plus per-guild anchor / member count / layer-coverage (n/7). Includes an "Unassigned" bucket for guilds with no `phase` yet, distinct from the cap-removed set.
+- `v3/plan/types.ts` — manifest entry under `'plant-systems'` (`label: 'Establishment sequence'`, `sectionId: 'plan-plant-establishment-sequence'`).
+- `v3/plan/PlanModuleSlideUp.tsx` — lazy import + switch case.
+
+**Asymmetric cap discipline (consistent with the rule formalised for Principles):** the new card's guild slice flows through `usePhaseStoreCappedEntities`. On `phase-1` / `phase-2` views, guilds whose BuildPhase's `yeomansCap` exceeds the active view cap drop out entirely (not re-bucketed into Unassigned — that distinction is documented in the card's doc-comment). The three pre-existing plant cards (`PlantDatabaseSiteMatchCard`, `GuildSpatialBuilderCard`, `CanopySuccessionCard`) stay **uncapped** as registration / picker surfaces.
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B status — closed.** The adapter is now operational in every Plan module that needs it:
+- Water — `ccfac9cf`
+- Livestock — `9fe28c2b`
+- Soil-Fertility — `dc3e4f7a`
+- Principles (cross-cutting readout layer) — `6338ab45`
+- Plants — `858441ec`
+
+No new ADR. Mechanical extension of `2026-05-12-plan-phasestore-yeomans-adapter.md`.
+
+**Recommended next session:** Either (a) `CanopySuccessionCard` filtering its guild *list* (not scrubber) by the active phase view — natural follow-up that uses the same hook; (b) wire guild establishment costs from the new sequence card into the Phasing/Budgeting module; or (c) move on to a different Plan-module backlog item.
+
+---
+
+## [2026-05-12] session | Atlas plan — Principles readout cards capped via shared evidence-visibility hook
+
+**Objective:** With the phaseStore→Yeomans adapter operational across Water (`ccfac9cf`), Livestock (`9fe28c2b`), and Soil-Fertility (`dc3e4f7a`), retrofit Plan Module 8 (Principle Verification) readout cards so principle "evidence depth" honestly reflects features visible at the active Plan view — without disturbing the registration path.
+
+**Asymmetric cap rule established for Principles Module 8** (consistent with the `WaterStorageCard` overflow-target precedent): the **registration** card (`HolmgrenChecklistCard`'s feature picker) stays **uncapped** — a steward must be able to link a Year-5 paddock as P11 "edges" evidence even from a Year-1 view; that's a planning act, not a readout. The **readout** cards (`ThreeEthicsRollupCard`, `PrincipleCoverageMatrixCard`) **cap** — evidence depth, coverage counts, and the radar polygon all reflect evidence visible at the active view.
+
+**Files (atlas `6338ab45 atlas(plan): cap Principles readout cards via usePrincipleEvidenceVisibleIds`):**
+- **New** `v3/plan/cards/principle-verification/usePrincipleEvidenceVisibleIds.ts` — shared hook that reads the nine spatial stores referenced by the principle-check feature picker (zones, paths, structures, transects, guilds, earthworks, crops, fertility, ecology), scopes each to the active project, and runs each slice through `usePhaseStoreCappedEntities`. Returns `{ visibleIds: Set<string>, idToKind: Map<string, FeatureKind> }`. Stores whose entities lack a `phase?` field pass through unchanged (zones / paths / structures / transects / guilds / crops / ecology); the cap bites only on phase-tagged entities (water nodes/earthworks, paddocks, fertility infra).
+- `PrincipleCoverageMatrixCard.tsx` — collapsed 9 store reads + the local `idToKind` useMemo into a single `usePrincipleEvidenceVisibleIds(project.id)` call; refreshed the lede.
+- `ThreeEthicsRollupCard.tsx` — filtered each row's `linkCount` through `visibleIds.has(id)` so per-principle "linked" counters and per-ethic "evidence depth" lines collapse honestly on Year 1 / Year 5; refreshed the lede.
+
+`HolmgrenChecklistCard` intentionally left untouched (it is the registration/picker card).
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B status:** Adapter is now operational across all four Plan modules that need it — three with phase-tagged entities (Water / Livestock / Soil-Fertility) plus the cross-cutting Principles readout layer. No new ADR; mechanical extension of `2026-05-12-plan-phasestore-yeomans-adapter.md`.
+
+**Recommended next session:** Either (a) extend the same evidence-visibility hook into a Principles "radar" card if one is added, or (b) move to the next Plan module backlog item — plants / polyculture phase-axis design needs a product-design discussion before code.
+
+---
+
+## [2026-05-12] session | Atlas plan — Soil-Fertility retrofit closes Phase B for phase-tagged modules
+
+**Objective:** Mirror the Water (`ccfac9cf`) and Livestock (`9fe28c2b`) wiring through the Soil Fertility module so its Year 1 / Year 5 chips become honest filters rather than decorative labels.
+
+**Audit:** Of the four cards under `v3/plan/cards/soil-fertility/`, only **one** entity in the whole module carries a `phase: string` field — `FertilityInfra` in `closedLoopStore.ts` (line 81). Consumed by exactly one card: `ClosedLoopGraphCard.tsx`. The other three (`SoilBuildingPlanCard`, `SoilBaselineCard`, `SoilResourcesCard`) operate on `SoilTest`, `SoilSample`, `WasteVector`, and a compost-inventory K/V map — no phase fields, correctly skipped.
+
+**Files (atlas `dc3e4f7a atlas(plan): wire phaseStore->Yeomans adapter through Soil-Fertility card`):**
+- `v3/plan/cards/soil-fertility/ClosedLoopGraphCard.tsx` — same-shape hoist as `AnimalTractorZonesCard`. Hoisted `fertilityRaw` out of the inner `nodes/vectors` useMemo, wrapped with `usePhaseStoreCappedEntities` → `fertility`, and consumed the capped array inside the inner useMemo.
+
+Zones, structures, crops, and vectors stay uncapped — caps are presentational, dangling edges from capped-out fertility nodes are accepted (matches the principle established for `WaterStorageCard` overflow targets).
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B status:** Closes Phase B for the three Plan modules that currently have phase-tagged entities — Water (`ccfac9cf`), Livestock (`9fe28c2b`), Soil (`dc3e4f7a`). No new ADR; mechanical follow-up to `2026-05-12-plan-phasestore-yeomans-adapter.md`.
+
+**Recommended next session:** Either (a) audit `SoilTest` / `SoilSample` for whether stewards want phased soil testing schedules (would require adding a `phase` field to the relevant store), or (b) re-design the Principles rollup card now that the adapter is in place across three modules.
+
+---
+
+## [2026-05-11] session | Atlas plan — Livestock retrofit on phaseStore→Yeomans adapter
+
+**Objective:** Follow-up to ccfac9cf (Water cards + Phasing UI). Wire `usePhaseStoreCappedEntities` through the Livestock module cards so Year 1 / Year 5 Plan views honestly drop/show paddocks based on each Paddock's assigned BuildPhase + that phase's `yeomansCap`.
+
+**Audit:** `livestockStore.ts` carries `Paddock.phase: string` (line 54) and `FenceLine.phase: string` (line 83), both phaseStore BuildPhase ids — compatible with the adapter's `PhaseStoreCappable` contract. No store changes required.
+
+**Files (atlas `9fe28c2b atlas(plan): wire phaseStore->Yeomans adapter through Livestock cards`):**
+- `features/livestock/MultiSpeciesPlannerCard.tsx`
+- `features/livestock/PaddockCellDesignCard.tsx`
+- `features/livestock/FencingLayoutCard.tsx`
+- `features/livestock/LivestockWelfarePhasingCard.tsx`
+- `features/livestock/AnimalTractorZonesCard.tsx` (hoisted paddock filter out of the inner `groups` useMemo so the hook could wrap it — rules-of-hooks compliance)
+
+Standard pattern across all five:
+
+```ts
+const paddocksRaw = useMemo(
+  () => allPaddocks.filter((p) => p.projectId === projectId),
+  [allPaddocks, projectId],
+);
+const paddocks = usePhaseStoreCappedEntities(paddocksRaw);
+```
+
+Skipped (don't read paddocks/fences): `LivestockLandFitCard`, `BiosecurityBufferCard`.
+
+**Verification:** `npx tsc --noEmit` clean (the two pre-existing `Plan3DSelectionHandler` TS18048 errors are unrelated and present in HEAD). Commit pushed to `feat/atlas-permaculture`.
+
+**Recommended next session:** Soil-Building plan retrofit — audit soil stores for a phase field, then mirror this pattern. Principles rollup re-design also still pending now that the adapter is in place across two modules.
+
+---
+
 ## [2026-05-10] session | Atlas dashboard — site-intelligence section retired per ADR
 
 **Objective:** Close out the deferred dashboard retirement from the prior session's recommended-next-session list. The ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` had been on disk since the BE-unification close-out but the implementation never landed. The page file itself (`SiteIntelligenceDashboard.tsx`) was incidentally removed by a parallel agent in `b06ee21 atlas(agribusiness): unit-lock the Module 7 peak-week formula` earlier today; this commit removes the surrounding route, sidebar entry, taxonomy nav item, and the verdict-hero / next-actions hosts that only fired for `section === 'site-intelligence'`.
@@ -8529,6 +8645,18 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Completed:** IslamicPanel module-sync bug fixed. All four navigation entry paths (sidebar, dashboard card / deep link, project sub-route, non-module page) now render the panel consistently. AppShell's URL-sync effect is now the single authoritative writer; Sidebar no longer races it.
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
+
+## 2026-05-12 — Atlas — Phase 5.3: StructureTool labels via BE V2 registry (`4c9ef30`)
+
+Migrated `StructureTool.tsx` (apps/web) to derive its 20-entry `TYPE_OPTIONS` label list from `BUILT_ENVIRONMENT_KINDS` via `getBuiltEnvironmentKind`. The registry's alias map (`prayer_space → prayer-pavilion`, `storage → shed`, `compost_station → compost`, `water_pump_house → water-pump-house`, `tent_glamping → tent-glamping`, `animal_shelter → animal-shelter`, `solar_array → solar-array`, `water_tank → water-tank`, `fire_circle → fire-circle`) is now the single source of truth for human-facing labels on the Plan structure popover.
+
+Scope kept tight: `STRUCTURE_TEMPLATES` continues to own dimensions (widthM/depthM), `costRange`, and `infrastructureReqs` — these are app-specific and not yet promoted into the shared registry spec. `StructureType` (snake_case union) stays as-is so the `structureStore` V2 facade keeps its V1-shape public API. Falls back to `STRUCTURE_TEMPLATES[type].label` if a kind ever lands in the local table without a registry counterpart.
+
+Next BE V2 phases:
+- Phase 5.4 — widen dashboard derivations from the 8 legacy kinds to all 31.
+- Phase 6 — flip `ATLAS_BUILT_ENV_V2` flag default-on; delete `structureStore.ts`, `designElementsStore.ts`, and V1 `builtEnvironmentStore.ts`; tsc/test/lint sweep.
+
+---
 
 ## 2026-05-11 — MIOS — MODULE_ROUTES consolidation + non-Faith pillar level backfill
 
