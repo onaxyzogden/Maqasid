@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas BE V2 unification — Phase 6.B continued (DesignElement readers onto selector name)
+
+**Objective:** Stabilize the import surface for Plan-stage DesignElement reads so consumer call sites don't need a second migration when the V1 facade eventually retires.
+
+**Commits (feat/atlas-permaculture):**
+- `bf2c4e21` atlas(plan): Phase 6.B — Structure + DesignElement selectors + machinery cards. Added `useStructuresForProject` / `getStructuresForProject` and `useDesignElementsForProject` / `getDesignElementsForProject` to `builtEnvironmentSelectors.ts`. Both wrap the V1 facades for now — not because the wrap reduces surface area, but because (a) `useStructureStore` returns narrowed `Structure[]` with `type: StructureType` (the projection returns `type: string`; un-wrapping forces every consumer to widen narrowing) and (b) `useDesignElementsStore` merges V2 structure-class entities with a module-private `useNonStructureStore` for paddock / pond / swale / road kinds that haven't migrated into V2's registry. Reading direct from V2 would silently drop the non-structure half. The facades retire when (i) Structure narrowing collapses into a shared `ProjectedStructure` and (ii) non-structure kinds extract into a dedicated `landDesignStore` (per the ADR doc-comment on `designElementsStore.ts`). Proof-of-shape migration: `MachineryAccessFitCard.tsx` + `MachineryHousingFuelCard.tsx` — both read non-structure kinds (`turnaround`, `path`, `road`, `gate`, `fuel-station`, `machinery-shed`), so a V2-direct selector would have lost half their data.
+- `0bfc120a` atlas(plan): Phase 6.B — DesignElement readers off V1 facade name. Swapped 4 more call sites onto `useDesignElementsForProject` / `getDesignElementsForProject`: `DesignToolRail.tsx`, `useDesignElementDrawTool.ts`, `DesignElementLayers.tsx`, `PlanSelectionFloater.tsx::designElementGeometryType`. Each consumer keeps the V1 facade import for writers (add / remove / update) where applicable; only read paths shift to the new selector name. Existing per-file `EMPTY_ELEMENTS` module constants dropped — the selector manages the stable empty-array reference internally.
+
+**Strategic note:** The remaining `useStructureStore` consumer migration (~70 call sites) is mechanical and was considered, but `useStructureStore` is already a thin V2 facade with no semantic merge — migrating 70 sites doesn't shrink V1 surface area meaningfully because the facade is ~80 lines that retire trivially with the V1 store. The real wins are in readers that do meaningful aggregation (which Observe completed earlier today, and DesignElement closed in this slice). Defer Structure consumer migration until the V1 store deletion sweep.
+
+**Remaining V1 facade readers:** `PlanVertexEditHandler.findDesignElement` scans all projects for a global id lookup (not project-filtered, stays on V1 facade until selector library grows a global-find helper). All writer call sites in `AnnotationRegistry.ts`, `annotationGeometryRegistry.ts`, `annotationFieldSchemas.ts` stay on V1 facades — they migrate when V2 grows equivalent writers.
+
+**Next:** Either (a) migrate non-structure design-element kinds (paddock / pond / swale / road) into a dedicated `landDesignStore` to unblock `useDesignElementsStore` deletion, or (b) tackle the V1 writer call sites by wiring equivalent V2 writers through `builtEnvironmentSelectors.ts`. Both are scoped phase-6 architectural pieces.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean after each commit.
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
 ## [2026-05-12] session | Atlas BE V2 unification — Phase 6.B continued (Observe readers off V1 facade)
 
 **Objective:** Close the Observe-side reader migration off the V1 BuiltEnvironment facade by swapping the three remaining pure-read consumers — `BuiltEnvironmentDashboard.tsx`, `ObserveAnnotationLayers.tsx`, `AnnotationRegistry.ts` — onto the V2 selector library introduced in Phase 6.B proof-of-shape.
