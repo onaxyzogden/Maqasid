@@ -3,6 +3,39 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas plan — guild establishment costs wired into Labor & Budget rollup
+
+**Objective:** Close the last unfinished thread from the Plants module phase-axis design conversation. The Plant Establishment Sequence card surfaces *what* is sequenced and the cap shows what's in scope at the active view, but the Phasing/Budgeting module (`LaborBudgetSummaryCard`) was task-only and didn't see plant costs.
+
+**Schema (polycultureStore.ts):**
+- `Guild.establishmentCostUSD?: number` — one-time cash for nursery stock, mulch, irrigation tie-ins, initial labour cash-cost. Optional.
+- `Guild.establishmentLaborHrs?: number` — one-time labour hours for site prep, planting, mulching, staking, initial watering. Optional.
+
+**Deliberately not derived from the plant database.** Atlas does not assert species-level horticulture costs because regional price variance (nursery stock $8 vs $80 for the same Latin name, hourly labour $20–$80) makes any default a lie. The steward sets per-guild figures from local quotes. Same posture as `FertilityInfra.scaleNote`; documented in the schema doc-comment.
+
+**UI (GuildSpatialBuilderCard.tsx):** two number inputs in the existing guild-header grid (alongside name / switch / template), persisting via `updateGuild` — consistent with the card's no-save-gate pattern.
+
+**Aggregation (LaborBudgetSummaryCard.tsx):**
+- New "Plant establishment (guilds)" section: per-phase guild cost + labour bucketed by `Guild.phase`. Surfaces "unestimated" count per phase and an Unassigned row for guilds without a phase.
+- Totals row sums tasks + guilds; flags unestimated guild count.
+- By-phase rows collapse task + guild totals per phase with both counts in the meta.
+- Yeomans Vegetation tier absorbs guild costs + labour (canonical vegetation cost source; vegetation-tagged PhaseTasks typically cover follow-on maintenance, so both stay visible in the row).
+- 5-year horizon adds guild costs into each phase's contribution before cumulating.
+- Empty-state condition widened: card no longer empty if guilds exist without tasks.
+
+**Files (atlas `b46990be atlas(plan): wire guild establishment costs into Labor & Budget rollup`):**
+- `store/polycultureStore.ts`
+- `v3/plan/cards/plant-systems/GuildSpatialBuilderCard.tsx`
+- `features/plan/LaborBudgetSummaryCard.tsx`
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Deferred:** `CumulativeInvestmentCard.tsx` left untouched — the stacked-bar visualisation needs more careful treatment of the additional cost source and is a natural follow-up. The new aggregation pattern (`guildRollup.perPhase` map + `combinedPerPhase`) is reusable when that card's wired.
+
+**Recommended next session:** Either (a) extend the same aggregation pattern through `CumulativeInvestmentCard` so the stacked phase bars include guild costs, or (b) pivot to a fresh Plan-module backlog item — Plants is now structurally complete: registration → sequencing → cost rollup → cap discipline are all in place.
+
+---
+
 ## [2026-05-12] session | Atlas plan — CanopySuccessionCard contributing-pick cap
 
 **Objective:** Resolve the picker-list-vs-scrubber asymmetry surfaced in the Plants module design conversation. CanopySuccessionCard is picks-driven, not guild-driven on its face — but a steward's palette includes species *intended for* phased guilds (Year-5 windbreaks, Year-3 fertility layer, etc.), so showing all picks on a Year-1 view misleads about what will actually be growing at the active build phase.
@@ -8645,6 +8678,26 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Completed:** IslamicPanel module-sync bug fixed. All four navigation entry paths (sidebar, dashboard card / deep link, project sub-route, non-module page) now render the panel consistently. AppShell's URL-sync effect is now the single authoritative writer; Sidebar no longer races it.
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
+
+## 2026-05-12 — Atlas — Phase 6.A: retire dead BUILT_ENV_V2 feature flag (`ca03d1d`)
+
+Audit on 2026-05-12 confirmed `FLAGS.BUILT_ENV_V2` (env: `ATLAS_BUILT_ENV_V2`) was never wired into branching logic — only referenced in JSDoc. The V1 facades (`useBuiltEnvironmentStore`, `useStructureStore`, `useDesignElementsStore`) unconditionally project from V2 regardless of flag state. Removed the flag from `packages/shared/src/constants/flags.ts`; updated stale JSDoc in `builtEnvironmentProjection.ts` and `apps/web/src/store/builtEnvironmentStoreV2.ts` with the retirement date.
+
+Phase 5.5 (AnnotationRegistry KIND_LABELS + switch widening to V2 kinds) was considered and **deferred**: expanding `AnnotationKind` discriminator with 23 new variants plus per-kind field schemas duplicates the registry-as-schema thrust and gets thrown away by Phase 6's eventual switch-statement deletion. Better to skip the bridge and tackle the call sites holistically.
+
+Phase 6 readiness audit (Explore agent, this session) sized the legacy-store deletion at ~50 reader/writer sites:
+- `useStructureStore` — 40+ Plan/Act/Features call sites
+- `useDesignElementsStore` — 6 Plan call sites
+- `useBuiltEnvironmentStore` (V1) — 4 Observe call sites including the `AnnotationRegistry` 8-case switch
+- 2 store-adapter test files (`builtEnvironmentAdapters.test.ts`, `builtEnvironmentStoreV2.test.ts`) — currently green; will need post-deletion replacement
+
+Next BE V2 phases (Phase 6.B+ — separate session(s)):
+- Migrate reader sites to direct `useBuiltEnvironmentStoreV2` selectors via a small set of projection helpers.
+- Migrate mutator sites (`ActStructurePopover`, `cascadeDelete`, `cascadeClone`, `PlanVertexEditHandler`) to V2 `create / updateMetadata / updateGeometry / delete` directly.
+- Delete `structureStore.ts`, `designElementsStore.ts`, `builtEnvironmentStore.ts` (V1).
+- Retire `builtEnvironmentAdapters.test.ts` once no consumers remain.
+
+---
 
 ## 2026-05-12 — Atlas — Phase 5.4: feed V2 BE entities into module health bar (`ca67843`)
 
