@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas BE V2 unification — Phase 6.B continued (Observe readers off V1 facade)
+
+**Objective:** Close the Observe-side reader migration off the V1 BuiltEnvironment facade by swapping the three remaining pure-read consumers — `BuiltEnvironmentDashboard.tsx`, `ObserveAnnotationLayers.tsx`, `AnnotationRegistry.ts` — onto the V2 selector library introduced in Phase 6.B proof-of-shape.
+
+**Commits (feat/atlas-permaculture):**
+- `5caab65` atlas(observe): Phase 6.B — derivations.ts onto Projected* types. Swapped `BuiltKpiArgs` field types from V1 narrow unions (`Building` / `Well` / `Septic` / etc. from `builtEnvironmentStore.ts`) onto the `Projected*` shapes from `@ogden/shared`. The helper bodies (`featureCounts`, `builtEnvironmentKpis`, `dominantKind`, `totalLengthM`, `totalAreaM2`) only read fields that exist on both V1 and Projected shapes; the only difference is subtype/kind narrowing, which the helpers don't depend on. This closed the `BuiltEnvironmentDashboard.tsx` hook-swap landed in the prior commit (the dashboard's 8 `useXxxForProject` reads were blocked on this type compat).
+- `6708cccc` atlas(observe): Phase 6.B — ObserveAnnotationLayers off V1 BE facade. Swapped 8 BE subscriptions onto project-filtered hooks; the existing `inProject(...)` filter in the layerSpecs `useMemo` becomes a no-op for those 8 arrays but stays in place (helper is shared with ~10 other store reads).
+- `81a53b30` atlas(observe): Phase 6.B — AnnotationRegistry readers off V1 BE facade. Swapped 8 `rowsForKind` cases onto `get*ForProject()` non-React selectors and 8 re-render subscriptions onto `useXxxForProject` hooks. Writers (`removeBuilding` etc.) and single-record `getRow .find()` lookups remain on V1 facade — they migrate at the end of Phase 6 once the V1 store is the final reader.
+
+**Outcome:** Observe-side V1 BE facade now has zero pure-read consumers for the 8 legacy slices. Only writer and single-record lookup call sites remain on the V1 facade in `AnnotationRegistry.ts`, `annotationGeometryRegistry.ts`, and `annotationFieldSchemas.ts` — those are the final-mile call sites that migrate when the V2 store grows equivalent writers and the V1 facade can be deleted.
+
+**Next:** pivot to V1 readers in the Plan stage — `useDesignElementsStore` (6 sites), then `useStructureStore` (40+ sites). Finale: delete `structureStore.ts`, `designElementsStore.ts`, V1 `builtEnvironmentStore.ts`; retire `builtEnvironmentAdapters.test.ts`.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean after each commit (only unrelated `FertilityColocationCard` errors from parallel-agent WIP remain).
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
 ## [2026-05-12] session | Atlas plan — guild establishment costs wired into Labor & Budget rollup
 
 **Objective:** Close the last unfinished thread from the Plants module phase-axis design conversation. The Plant Establishment Sequence card surfaces *what* is sequenced and the cap shows what's in scope at the active view, but the Phasing/Budgeting module (`LaborBudgetSummaryCard`) was task-only and didn't see plant costs.
