@@ -8718,6 +8718,10 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
 
+## 2026-05-12 — Atlas — Plan: FertilityColocationCard reverse view (`19cb8e5`)
+
+Added a "By fertility unit" section to `FertilityColocationCard`. The forward view (guild → nearest fertility) catches gaps; the reverse view (fertility → guilds in Zone-2 reach, ≤ 75 m) catches over-resourced units (zero guilds in range) and single-point-of-failure units (serving every guild). Each unit shows a tone-pilled count and its served guilds with distance pills, sorted nearest first. Uses the same `haversineM` over `[lng, lat]` tuples; both stores still capped via `usePhaseStoreCappedEntities`. tsc clean.
+
 ## 2026-05-12 — Atlas — `lib/geo.ts` extraction (haversine, 4 duplicates → 1) (`af0790a`)
 
 Centralised haversine math previously inlined four places:
