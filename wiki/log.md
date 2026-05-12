@@ -8679,6 +8679,16 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
 
+## 2026-05-12 — Atlas — Plan: FertilityColocationCard + guild-cost totals chip (`895a61f`, `7c8a1dc`)
+
+Two follow-ups from the prior debrief.
+
+**`FertilityColocationCard`** (new readout under soil-fertility, 7th section). Pairs `polycultureStore.guilds` with `closedLoopStore.fertilityInfra` by haversine distance, buckets into Close (≤ 25 m, Zone 1) / Medium (25–75 m, Zone 2) / Far (> 75 m) / Unplaced-or-unpaired. Per-guild row shows the type of the nearest fertility unit; overall section surfaces Zone-1 placement %, fertility-unit count at this view, median nearest-distance, unpaired count. Both stores routed through `usePhaseStoreCappedEntities` so Year 1 / Year 5 views reflect only Scale-of-Permanence-in-scope entities. Inline `haversineM` (4th duplicate in the codebase — a shared `lib/geo.ts` extraction is now overdue).
+
+**Guild-cost totals chip on `GuildSpatialBuilderCard`** — inline "Project guild totals" section between hero and Active Guild, with guild count, summed `establishmentCostUSD` / `establishmentLaborHrs`, and count of guilds without estimates. Closes the loop on `b46990b` — steward no longer has to leave the builder to see roll-ups. Inline `fmtUSD` mirrors `CumulativeInvestmentCard`.
+
+tsc clean. Both pushed.
+
 ## 2026-05-12 — Atlas — Plan: fold guild establishment into CumulativeInvestmentCard (`91615a6`)
 
 Closes the deferral from `b46990b`. `CumulativeInvestmentCard` now reads `polycultureStore.guilds`, buckets `establishmentCostUSD`/`establishmentLaborHrs` by `guild.phase`, and adds the per-phase contribution to both the phase's `incHrs`/`incUSD` totals and specifically to the Vegetation slice of the Yeomans `byTier` strip (Keyline order preserved). Phase share bars, cumulative running totals, and the stacked tier strip all reflect guild contribution automatically. Unassigned guilds (no phase) and unestimated guilds surface in the Project total section as separate stat rows — they can't be placed on the curve without a phase anchor, but the steward needs to see the count to act.
