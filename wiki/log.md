@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — per-project zone thresholds + FertilityColocation tune-zones UI
+
+**Objective:** Make the FertilityColocationCard's Zone-1 / Zone-2 bucket boundaries tunable per project (deferred twice in prior debriefs), framed as project-level design metadata rather than a card-level UI preference. Zone reach is a property of the land + the steward's body + the cart they actually use — a steep hillside has a different Zone-1 than flat ground.
+
+**Commits (feat/atlas-permaculture):**
+- `3d76a7fd` atlas(plan): per-project zone thresholds + FertilityColocation tune-zones UI. New optional field `LocalProject.zoneThresholds?: { closeM, mediumM }` plus `DEFAULT_ZONE_THRESHOLDS = { closeM: 25, mediumM: 75 }` and canonical accessor `getZoneThresholds(project)`. New store actions `setZoneThresholds` / `clearZoneThresholds`. Persist version bumped v3 → v4 with a deliberate no-op migration block: existing projects stay `undefined` and read defaults via the selector, so future default changes propagate to unmigrated projects rather than freezing them. `createProject` defaults intentionally do not set the field.
+- FertilityColocationCard rewired: module-level `BUCKET_CLOSE_M` / `BUCKET_MEDIUM_M` constants and the static `BUCKET_LABEL` record removed. `bucketFor` now takes `closeM` / `mediumM` as arguments. `rows`, `byFertility`, and `resilience` useMemos read live values and include them in dep arrays. Bucket labels render via a new `bucketLabelFor(key, closeM, mediumM)` helper. Lede, Overall stat-row labels (Zone-1 walking radius, Redundantly served), Resilience-section paragraph, and By-fertility-unit paragraph all use template-literal interpolation of the live thresholds.
+
+**Tune-zones disclosure:** New `<details>` block at the top of the card body. Summary line shows the effective Zone-1 / Zone-2 limits plus a "custom" / "defaults" marker. Body has two number inputs (Zone-1 max, Zone-2 max) bound to local draft state synced to the persisted values via `useEffect`. Live validation: `closeM ∈ (1, 500]`, `mediumM > closeM`, `mediumM ≤ 500`; invalid drafts show inline red error copy and the store is not written (bucketing stays on the last valid pair). "Reset to defaults" button calls `clearZoneThresholds` and is disabled when already at defaults. Hint copy explains the framing — steep terrain favours smaller zones, flat ground favours larger.
+
+**Why project-level not card-level:** Three options were considered (new micro-store / slice on closedLoopStore / field on LocalProject). Landed on LocalProject because zones aren't a fertility-card concept — water reach, guest-path Zone-1, paddock walking radius all share the same framing. Putting the canonical answer on the project means future readouts opt in to one truth via `getZoneThresholds` instead of growing parallel knobs that drift. `LocalProject` already carries design metadata (visionStatement, metadata, build phases) so the addition fits the shape.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean. Grep `BUCKET_CLOSE_M\|BUCKET_MEDIUM_M` in the colocation card → zero matches. Unrelated `BUCKET_LABEL` consts in SwotJournal / SwotDashboard / SiteNarrativeSummaryCard / CommentsByFeatureCard are different domains, untouched.
+
+---
+
 ## [2026-05-12] session | Atlas BE V2 unification — V1 design-elements facade deleted (Phase 6 complete)
 
 **Objective:** Final deletion sweep. Slim `designElementsStore.ts` to a type-only module exporting `DesignElement`; remove the adapter test cases that exercised the facade; audit for any straggling imports the prior production-grep didn't catch.
