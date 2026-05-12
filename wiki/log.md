@@ -3,6 +3,38 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas BE V2 unification — selector library bypasses V1 facade for reads
+
+**Objective:** Close the read-side path to V1 facade deletion. `useDesignElementsForProject` / `getDesignElementsForProject` now bypass `useDesignElementsStore` entirely, merging V2 structure-class projections with non-structure entries direct from `useLandDesignStore`.
+
+**Commits (feat/atlas-permaculture):**
+- `dfb20b85` refactor(atlas): selector library reads non-structure kinds direct from `landDesignStore`. Added local `projectV2StructureDesignElements` helper (mirrors the projection the V1 facade does internally) and reworked both `getDesignElementsForProject` and `useDesignElementsForProject` to merge `projectToDesignElementsByProject(v2Entities)` with `useLandDesignStore.byProject[projectId]`. Same merge order as the V1 facade (non-structure first, V2 appended). The React hook subscribes to both `useBuiltEnvironmentStoreV2.entities` and `useLandDesignStore.byProject[projectId]` so updates from either side flow through; the `useMemo` keyed on both refs keeps result identity stable when nothing changed. Removed the `useDesignElementsStore` import.
+
+**State of V1 facades:**
+- Reader path: every reader call site that uses `useDesignElementsForProject` / `getDesignElementsForProject` (machinery cards, DesignToolRail, useDesignElementDrawTool, DesignElementLayers, PlanSelectionFloater) is now fully off the V1 facade for reads.
+- Writer path: `useDesignElementsStore` is still imported by writer call sites — `AnnotationRegistry.ts`, `annotationGeometryRegistry.ts`, `annotationFieldSchemas.ts`, plus writers each reader file still imports for `add`/`remove`/`update`. The facade body itself can be slimmed (it has no pure-read consumers via the selector library now) but cannot be deleted until those writers route through V2 + `useLandDesignStore` directly.
+
+**Next:** Wire equivalent writers through `builtEnvironmentSelectors.ts` (or a sibling writer module) so writer call sites can migrate off `useDesignElementsStore.getState().{add,remove,update,clear,setHiddenInView}`. Structure narrowing (Structure → ProjectedStructure) remains the gating piece for the parallel ~70-site `useStructureStore` consumer migration.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean.
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas — layerFetcher.ts haversine tuple migration (geo extraction arc closed)
+
+**Objective:** Finish the `lib/geo.ts` extraction arc started in the prior session by migrating the last caller, `apps/web/src/lib/layerFetcher.ts`, off its local scalar `haversineKm(lat1, lng1, lat2, lng2)` adapter and onto the shared tuple API directly. After this commit `lib/geo.ts` is the single source of truth for haversine math with one canonical signature.
+
+**Commits (feat/atlas-permaculture):**
+- `9c274668` atlas: complete layerFetcher.ts haversine tuple migration. Dropped the local scalar adapter (`haversineKm(lat1, lng1, lat2, lng2) → haversineKmTuple([lng1, lat1], [lng2, lat2])`) and the aliased import (`haversineKm as haversineKmTuple`), replaced with a direct `import { haversineKm } from './geo.js'`. Rewrote all 22 callsites from scalar `(lat, lng, lat2, lng2)` to tuple `([lng, lat], [lng2, lat2])` form. Every callsite is a remote-data integration point (USGS wells, EPA UST, FCSI/LIO brownfields, NWIS climate stations, Overpass POIs, hardcoded city centroids for Toronto/Hamilton/Ottawa, ArcGIS feature services); per-callsite audit table preserved in the plan file so the lat↔lng transpose risk was diff-checked rather than blind. tsc clean. Math identical (already delegating to shared `haversineM`); commit is argument-shape only.
+
+**Why now:** The previous session left this file with a thin shim because transposing 24 callsites silently is the kind of mistake that ships into production. With a full per-callsite audit in hand the migration is no longer blind, and finishing it lets `lib/geo.ts` stand alone — every haversine call in the codebase now uses the same `[lng, lat]` Mapbox/GeoJSON tuple convention.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean. Post-migration grep `haversineKm(lat,` → zero matches; `function haversineKm` in `layerFetcher.ts` → zero matches; `haversineKm(` count → 22 (all tuple form).
+
+---
+
 ## [2026-05-12] session | Atlas BE V2 unification — landDesignStore extracted
 
 **Objective:** Move the module-private `useNonStructureStore` out of `designElementsStore.ts` into a dedicated top-level `landDesignStore.ts` — the first of the two preconditions for deleting the `useDesignElementsStore` V1 facade noted in the previous entry's "Next" item.
