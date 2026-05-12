@@ -8646,6 +8646,18 @@ The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module 
 - **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
 - **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
 
+## 2026-05-12 — Atlas — Phase 5.4: feed V2 BE entities into module health bar (`ca67843`)
+
+Widened `moduleHealthPct()` in `apps/web/src/v3/observe/modules/built-environment/derivations.ts` so projects that placed only V2-class entities (cabin, greenhouse, water-tank, machinery-shed, fire-circle, etc.) no longer read as 0% health. Added an optional second arg `v2: { entityCount, kindsPresent }`; legacy contribution unchanged, V2 contribution mirrors the same per-entity (×8) + per-slot-present (×4) weighting where each occupied registry category counts as one slot. `BuiltEnvironmentDashboard.tsx` derives the V2 inputs from the already-exported `builtV2Counts()` helper.
+
+Scope kept tight: did **not** touch `AnnotationRegistry.ts`'s `KIND_LABELS` / dispatch switches (Phase 5.5 candidate — would unblock the right-rail annotation list for V2 kinds) or `AnnotationListCard.tsx`'s hard-coded 8-kind array. Per the Phase-5.4 map: the V2 KPI strip and the V2 generic layer were already in place from prior phases; the health bar was the lone aggregator still capped at the legacy-8 set.
+
+Next BE V2 phases:
+- Phase 5.5 (optional bridge) — extend `AnnotationRegistry.KIND_LABELS` + `useAnnotationsForKinds` / `getAnnotationById` / `removeAnnotation` switches to dispatch V2 kinds through `builtEnvironmentStoreV2`.
+- Phase 6 — flip `ATLAS_BUILT_ENV_V2` flag default-on; delete `structureStore.ts`, `designElementsStore.ts`, and V1 `builtEnvironmentStore.ts`; tsc/test/lint sweep.
+
+---
+
 ## 2026-05-12 — Atlas — Phase 5.3: StructureTool labels via BE V2 registry (`4c9ef30`)
 
 Migrated `StructureTool.tsx` (apps/web) to derive its 20-entry `TYPE_OPTIONS` label list from `BUILT_ENVIRONMENT_KINDS` via `getBuiltEnvironmentKind`. The registry's alias map (`prayer_space → prayer-pavilion`, `storage → shed`, `compost_station → compost`, `water_pump_house → water-pump-house`, `tent_glamping → tent-glamping`, `animal_shelter → animal-shelter`, `solar_array → solar-array`, `water_tank → water-tank`, `fire_circle → fire-circle`) is now the single source of truth for human-facing labels on the Plan structure popover.
