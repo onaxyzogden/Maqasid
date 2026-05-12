@@ -3,6 +3,33 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas BE V2 unification — writer call sites off V1 facade
+
+**Objective:** Wire V2 + `useLandDesignStore` writers through the selector library so the remaining `useDesignElementsStore` writer call sites can migrate. After this slice no production code imports the V1 facade.
+
+**Commits (feat/atlas-permaculture):**
+- `1ce0ce9c` refactor(atlas): writer call sites off `useDesignElementsStore` facade. Four new helpers in `builtEnvironmentSelectors.ts`:
+  - `addDesignElement(projectId, el)` — replicates the V1 facade's routing: structure-class kinds call `useBuiltEnvironmentStoreV2.create({ state: 'proposed', ... })` with `proposed.phase` carried through; everything else goes to `useLandDesignStore.add`.
+  - `removeDesignElement(projectId, id)` — V2 entity check first; falls through to `useLandDesignStore.remove`.
+  - `updateDesignElement(projectId, id, patch)` — `useLandDesignStore.update` only. V2 structure-class kinds are owned by V2 and edited through it directly. Matches the V1 facade's behavior (the facade's `update` was non-structure-only too).
+  - `findDesignElementGlobal(id)` — searches V2 (via the projection helper) then `useLandDesignStore.byProject` for a globally-unique id. Replaces the per-file `useDesignElementsStore.getState().byProject` scan in `PlanVertexEditHandler`.
+  
+  Migrated 4 production writer call sites:
+  - `PlanSelectionFloater.tsx` — `.remove` → `removeDesignElement`. Dropped the `useDesignElementsStore` import.
+  - `useDesignElementDrawTool.ts` — `useDesignElementsStore((s) => s.add)` subscription → top-level `addDesignElement` call. Dropped the `add` dep from the `useCallback` deps array.
+  - `DesignToolRail.tsx` — same `.add` swap.
+  - `PlanVertexEditHandler.tsx` — `findDesignElement` helper now delegates to `findDesignElementGlobal`; the `useDesignElementsStore.update` write site swaps to `updateDesignElement`. Drops the `useDesignElementsStore` import.
+
+**Status of the V1 facade:** `useDesignElementsStore` is now referenced only by (a) its own definition in `designElementsStore.ts`, (b) the `landDesignStore.ts` doc-comment narrating its history, and (c) the adapter tests in `builtEnvironmentAdapters.test.ts`. Production code is fully migrated. The facade body and its adapter tests can be deleted in the next sweep — that final sweep also collapses the merge subscriptions and removes the `useBuiltEnvironmentStoreV2.persist.rehydrate()` re-merge dance that exists only to keep the facade's `byProject` up to date.
+
+**Strategic check:** A direct facade deletion now would only need to (1) drop ~150 lines from `designElementsStore.ts` leaving the `DesignElement` type export, (2) drop 4 test cases in `builtEnvironmentAdapters.test.ts`. The `Structure` narrowing question (which gates the ~70-site `useStructureStore` migration) is independent and unchanged by this slice.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` clean. `vitest run builtEnvironmentAdapters` 16/16 passing (facade still in place, all tests green).
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
 ## [2026-05-12] session | Atlas BE V2 unification — selector library bypasses V1 facade for reads
 
 **Objective:** Close the read-side path to V1 facade deletion. `useDesignElementsForProject` / `getDesignElementsForProject` now bypass `useDesignElementsStore` entirely, merging V2 structure-class projections with non-structure entries direct from `useLandDesignStore`.
