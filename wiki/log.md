@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas BE V2 unification — landDesignStore extracted
+
+**Objective:** Move the module-private `useNonStructureStore` out of `designElementsStore.ts` into a dedicated top-level `landDesignStore.ts` — the first of the two preconditions for deleting the `useDesignElementsStore` V1 facade noted in the previous entry's "Next" item.
+
+**Commits (feat/atlas-permaculture):**
+- `294c001c` refactor(atlas): extract non-structure design elements into `landDesignStore`. New file `apps/web/src/store/landDesignStore.ts` exports `useLandDesignStore` with the identical shape (byProject + add/remove/clear/update) the V1 facade was already delegating to. Persist key (`ogden-atlas-design-elements`) and version (2, with the v1→v2 `view: 'current'` backfill migration) preserved verbatim so existing project data rehydrates unchanged. `designElementsStore.ts` updated: dropped the `persist` import + the 72-line module-private store definition, added `import { useLandDesignStore } from './landDesignStore.js'`, renamed all 8 in-body references to the new symbol. Facade behavior identical; consumer call sites untouched.
+
+**Why now:** Consumers that already migrated to `useDesignElementsForProject` (selector library) keep working. New consumers that only need non-structure kinds (paddock/pond/swale/orchard/path/road/gate/bridge/turnaround) can now import `useLandDesignStore` directly without routing through the merge-aware facade. Selector library can also be updated in a later slice to merge V2 structure-class + `useLandDesignStore` directly, bypassing the facade — unblocking facade deletion.
+
+**Next:** Either (a) update `useDesignElementsForProject` / `getDesignElementsForProject` in `builtEnvironmentSelectors.ts` to source non-structure kinds directly from `useLandDesignStore` (closing the path to V1 facade deletion for reads), or (b) tackle V1 writer call sites by wiring equivalent V2 writers through the selector library. Structure narrowing (Structure → ProjectedStructure) remains the other gating piece for the ~70-site `useStructureStore` migration.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean.
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
 ## [2026-05-12] session | Atlas BE V2 unification — Phase 6.B continued (DesignElement readers onto selector name)
 
 **Objective:** Stabilize the import surface for Plan-stage DesignElement reads so consumer call sites don't need a second migration when the V1 facade eventually retires.
