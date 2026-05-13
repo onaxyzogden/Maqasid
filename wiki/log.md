@@ -9625,3 +9625,78 @@ the DesignElementLayers diff is bundled but logically independent):
   basemap render (eliminates z-fight). Or extend to non-building
   basemap features (e.g. adopt rendered roads as access-road
   LineString entities).
+
+## 2026-05-13 — Rec #3 Highest-potential water router v1 ships
+**Project:** OGDEN Atlas · Plan stage · Module 2 (Water)
+**Branch:** `feat/atlas-permaculture`
+
+Pivoted off Rec #4 (Edge & Connectivity, shipped 2026-05-12) into Rec #3
+from the permaculture-alignment backlog. P1, ~1-sprint scope. Atlas
+surface: scoring engine. Holmgren P2 — Catch & store energy.
+
+**Scholar framing (2026-04-28):** "Water represents potential energy, and
+the primary rule of permaculture water design is to keep water in its
+place of highest potential (up high) so gravity can do the work."
+
+**v1 elevation model — aspect-projected heuristic.** Atlas does not expose
+a per-point DEM sampler today; what exists is `siteDataStore`'s elevation
+summary (`min_elevation_m`, `max_elevation_m`, `predominant_aspect`,
+`mean_slope_deg`) plus per-transect profiles in `topographyStore`. The
+v1 util (`waterRouterMath.ts`) projects each candidate centroid onto the
+uphill axis (`aspect + 180°`) within the parcel bbox, normalises the
+projection to `t ∈ [0,1]`, and estimates elevation as `min + t·(max−min)`.
+Same granularity as MicroclimatePocketCard's archetype placement; the
+`estimateElevationM` signature is the v2 swap point when a real DEM
+sampler (Mapbox `queryTerrainElevation` or a server raster route) lands.
+
+**Tier thresholds:** `excellent` head lost < 0.5 m, `adequate` 0.5–2 m,
+`low-potential` ≥ 2 m. "Head lost" is metres of gravity head the steward
+would gain by moving the element to the centroid of the parcel's upper
+third (`t = 5/6`). Suggested coordinate is the same upper-third centroid
+projected back into lat/lng — v1 is bbox-aligned, not polygon-clipped.
+
+**Element scope:** `water-tank` (point), `pond` (polygon centroid), and
+`swale` (line midpoint), sourced from `landDesignStore.byProject` filtered
+to `category === 'water'`. `cistern` is in the backlog rec but not in
+`elementCatalog.ts` today — ship without; v2 catalog work picks it up.
+
+**UI surface:** New 4th tab "Highest-potential router" in the Plan →
+Water module slide-up (`section_id = 'plan-water-router'`). Standard
+hero/lede/per-row pattern; site rollup section surfaces elevation range,
+aspect, scored count, flagged count, mean head lost, and per-tier
+distribution. Flagged rows render the Scholar's directional prompt with
+the suggested coordinate inline. Three distinct gated states: missing
+parcel boundary, missing elevation summary, missing predominant aspect —
+each names the specific input rather than a generic empty state.
+
+**Files:**
+- created `atlas/apps/web/src/v3/plan/cards/water-management/waterRouterMath.ts`
+- created `atlas/apps/web/src/v3/plan/cards/water-management/WaterRouterCard.tsx`
+- edited  `atlas/apps/web/src/v3/plan/types.ts` (4th entry under water-management)
+- edited  `atlas/apps/web/src/v3/plan/PlanModuleSlideUp.tsx` (lazy import + case)
+- annotated `atlas/tasks/permaculture-alignment-backlog.md` (Rec #3 v1 SHIPPED)
+
+**tsc:** clean — no new errors introduced. The pre-existing
+`DesignElementLayers.tsx(433,51)` MultiPoint error persists (out of
+scope; tracked separately).
+
+**v1 deferred (v2 candidates):**
+- Map-canvas overlay (uphill arrow + suggested-coord pin) — text-only v1.
+- True DEM sample (Mapbox terrain or server raster) — math util's swap point.
+- Flow-path vector drawing from highest points (rec's first bullet — v1
+  ships the scoring half only).
+- One-click "move to suggested coord" action.
+- Wiring head-lost into a principle score store (Holmgren P2).
+
+**Permaculture-alignment backlog status after this session:**
+- Rec #1 (Needs & Yields) — open (P0, ADR exists)
+- Rec #2 (Temporal slider) — open (P0, ADR exists)
+- Rec #3 (Water router) — v1 shipped 2026-05-13 ← this entry
+- Rec #4 (Edge & connectivity) — v1 shipped 2026-05-12
+- Rec #5 (Substitution calculator) — open (P2)
+- Rec #6 (Social nodes) — open (P2)
+
+**Recommended next:** Rec #6 (Social nodes, ~0.5 sprint, simplest of the
+remainder) for a quick win, or Rec #5 (Substitution calculator, gated on
+catalog research). Re-evaluation cadence note: after Rec #1 + #2 land,
+re-run the Permaculture Scholar dialogue — verdict gates may shift.
