@@ -10006,3 +10006,64 @@ once both P0 surfaces are in place.
 
 **Recommended next:** Rec #2 (Temporal slider) — the last open P0
 of the permaculture-alignment review.
+
+## 2026-05-13 — Atlas Permaculture Scholar re-evaluation Round 1 (scaffolding)
+
+**Objective:** Per `atlas/tasks/permaculture-alignment-backlog.md`
+line 301 ("Re-evaluation cadence — after Rec #1 + #2 ship, re-run
+the Permaculture Scholar dialogue"), the user elected to re-run
+**twice** — once now (Round 1, post Rec #1/#3/#4/#5/#6 sweep) and
+again after Rec #2 ships (Round 2 — deferred). Round 1 also runs
+**both threading modes**: a continued conversation against the
+original 2026-04-28 thread (`-c 48a34396-…`) for delta-from-prior
+framing, and a fresh thread for cold-read baseline. Three rounds
+(R1.A re-audit / R1.B gap-verification / R1.C fresh-recs) × two
+threads = 6 dialogue turns to fire.
+
+**Phases 1-2 shipped offline.** Under
+`atlas/tasks/scholar-reevaluation/`:
+- `2026-05-13-round1-description.md` — canonical ~1100-word
+  updated Atlas description (5 shipped recs each with surface
+  name, gap addressed, v2 deferrals; Rec #2 open-P0 caveat;
+  structural-ceiling acknowledgement preserved from 2026-04-28).
+- `2026-05-13-round1A-reaudit.md` — ethics + 12-principle re-audit
+  with delta markers (`↑` / `↓` / `=` / `—`).
+- `2026-05-13-round1B-gap-verification.md` — per-rec closed /
+  partial / open verdict with explicit false-closure-risk column.
+- `2026-05-13-round1C-fresh-recs.md` — ranked 3-5 fresh recs with
+  PDC source citation per rec; explicitly excludes re-proposing
+  Rec #2.
+- `run-round.sh` — wrapper concatenating description + round
+  prompt; supports `fresh` / `continued` / `<conv-id>` modes.
+- `HANDOFF.md` — exact unblock recipe + 6-call firing sequence
+  chaining R1.A-continued's `conversation_id` into B/C-continued.
+
+**Phase 3 blocked on auth.** First call to `python C:/Temp/ask.py`
+returned `ValueError: Authentication expired` — Scholar-account
+NotebookLM session (`~/.notebooklm/storage_state.json`) was last
+refreshed 2026-04-28 on the original dialogue day. Per the global
+CLAUDE.md note, the Scholar notebook lives on a separate Google
+account; re-auth requires interactive `notebooklm login` that
+cannot be driven from this context. HANDOFF.md names the one
+command needed to unblock and the exact 6-call sequence to fire
+afterward.
+
+**Phases 4-6 deferred** until the 6 JSON outputs exist. The
+digest's verdict-diff table, the new
+`2026-05-13-scholar-reevaluation-round1.md` ADR, the conditional
+`permaculture-alignment-backlog-v2.md`, the
+`wiki/concepts/permaculture-alignment.md` append, and the parent
+submodule bump for the dialogue artifacts are all gated on the
+Scholar's actual answers — pre-writing them with placeholders
+would be misleading.
+
+**Commits.**
+- Atlas: `777dfe99` on `feat/atlas-permaculture` (scaffolding only).
+- Parent: this submodule bump + log entry.
+
+**Recommended next session:** Run `notebooklm login` against the
+Scholar Google account (or set `NOTEBOOKLM_HOME` to a Scholar-
+account profile and login there), then `bash
+atlas/tasks/scholar-reevaluation/run-round.sh 1A fresh` to
+smoke-test the pipeline; follow HANDOFF.md for the remaining
+five calls; resume the plan at Phase 4 (digest).
