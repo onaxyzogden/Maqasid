@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-13] session | Atlas — DesignStatusChip / allowOrphanOutputs spot-check
+
+**Objective:** Verify the Rec #1 DesignStatusChip + `allowOrphanOutputs`
+toggle behaviour in the running Plan canvas per
+`plans/cursor-needs-to-change-mossy-willow.md`.
+
+**Result:** All four plan steps pass — chip mounts on `/plan` showing
+`Status · Draft`; chip click opens the Needs & Yields slide-up; toggling
+"Allow orphan outputs" ON surfaces the `⚠ Orphans allowed` warning
+sibling; toggling OFF removes it.
+
+**Inline fixes (not in original plan, made under work-without-stopping
+override):**
+
+| Commit | File | Description |
+|---|---|---|
+| `428048e6` | `apps/web/src/lib/relationships/useAllPlacedEntities.ts` | Null-safe `paddock.species` / `geometry` — previously crashed Needs & Yields module at mount. Probe also extracted into a child component behind a local error boundary so future upstream crashes are contained to the audit card. |
+| `67176654` | `apps/web/src/store/projectStore.ts` | Added `'metadata'` to the builtin-project `updateProject` allowlist. Every Rec #1 metadata write (`designStatus`, `allowOrphanOutputs`, `designHorizonYears`, zone thresholds) was being silently dropped on builtin sample projects (e.g. "351 House — Atlas Sample"). |
+
+**Deferred follow-ups:**
+- The `'mtc'` fallback project route can never persist `updateProject`
+  writes since no project with id `'mtc'` exists in the store. Out of
+  scope for this audit; needs its own ticket.
+- Worth a unit test on `updateProject`'s builtin allowlist (regression
+  guard for the metadata path).
+
 ## [2026-05-12] session | Atlas — useStructureStore facade retired (Phases 4–5)
 
 **Objective:** Complete the BE V2 unification per the 2026-05-10 ADR
