@@ -9930,3 +9930,79 @@ re-evaluation cadence once #1 + #2 ship.
 **Recommended next:** either (a) Rec #1 / Rec #2 (the two open P0s)
 or (b) the Scholar re-evaluation pass against the updated Atlas
 description once P0s land.
+
+## 2026-05-13 — Atlas Plan Rec #1 v3 Plan-stage surface (Needs & Yields audit)
+
+**Objective:** Promote the existing Needs & Yields dependency-graph
+audit (Rec #1, ADR `2026-04-28-needs-yields-dependency-graph.md`)
+from the legacy MapView floating `RelationshipsRail` (gated by
+`FEATURE_RELATIONSHIPS`) into the v3 Plan-stage slide-up idiom used
+by Recs #3 / #4 / #5 / #6. The math, catalog, edge store, and
+integration-score weight (0.10 of overall score) have been live
+since the ADR shipped 2026-04-28; what was missing was a Plan-stage
+card surfacing the same audit next to the Holmgren checklist + Three
+Ethics + Coverage matrix.
+
+**Card:** `NeedsYieldsAuditCard` under
+`apps/web/src/v3/plan/cards/principle-verification/`, sectionId
+`plan-needs-yields`, mounted as the 4th tab of the
+`principle-verification` module. Renders unconditionally — the
+underlying data has been stable for two weeks of branch work without
+regressions, and the legacy rail's `FEATURE_RELATIONSHIPS` flag is
+purely a canvas-UX gate, not a math-stability gate.
+
+**Implementation.**
+- Reads `useAllPlacedEntities` (structures + utilities + crop areas
+  + paddocks expanded per species) and
+  `useRelationshipsStore.edgesByProject[projectId]`.
+- Calls the existing `@ogden/shared/relationships` algorithms
+  directly: `integrationScoreFromEdges`, `orphanOutputs`,
+  `unmetInputs`, `closedLoops`. Zero math added on the Plan side.
+- Site rollup: entity count, declared outputs / inputs, edges
+  routed, integration percentage with tier pill (WEB INTEGRATED
+  ≥ 0.66 / PARTIAL ≥ 0.33 / LINEAR < 0.33), orphan + unmet counts,
+  closed-loop count with CYCLING badge, integrated vs. flagged.
+- Per-entity audit list sorts flagged-first then by name; renders
+  orphan outputs and unmet inputs as italic resource chips with
+  colour swatches (browns/ambers for animal+fire flows, greens for
+  soil+plant, blues for water, violet for pollination — picked to
+  read on the Atlas dark panel).
+- Closed-loop section renders the cycle as `A → B → C → A` using
+  the resolved entity names from `placedById`.
+- Skips entities with zero declared outputs and zero declared
+  inputs (passive shelter / storage) so the audit doesn't drown in
+  yurts and tool storage rows.
+
+**Scholar framing (2026-04-28):** "A permaculture system's strength
+is defined by the web of connections between its elements, where
+waste must become food and nutrients must be cycled rather than
+mined." Holmgren P6 — Produce no waste; P8 — Integrate rather than
+segregate.
+
+**Files.**
+- `apps/web/src/v3/plan/cards/principle-verification/NeedsYieldsAuditCard.tsx` (new)
+- `apps/web/src/v3/plan/types.ts` — appended `plan-needs-yields` to
+  `MODULE_CARDS['principle-verification']`.
+- `apps/web/src/v3/plan/PlanModuleSlideUp.tsx` — lazy import + case.
+- `wiki/decisions/2026-04-28-needs-yields-dependency-graph.md` —
+  status line annotated with "v3 Plan-stage surface added 2026-05-13".
+
+**Verification.** `NODE_OPTIONS="--max-old-space-size=8192"
+npx tsc --noEmit` returns only the pre-existing
+`DesignElementLayers.tsx(433,51)` MultiPoint error (out of scope,
+confirmed across every prior session on this branch). Atlas commit
+`b2dc9411` pushed to `feat/atlas-permaculture`.
+
+**v2 deferrals.** Inline edge-editing UX inside the Plan slide-up
+(currently authored on the legacy canvas socket flow). Decision
+whether to retire the floating `RelationshipsRail` on MapView once
+Plan-stage editing is wired. Expanded resource catalog beyond the
+v1 13-resource set.
+
+**Branch:** `feat/atlas-permaculture`. This closes Rec #1 in the v3
+Plan idiom. Remaining permaculture-alignment work: Rec #2 (Temporal
+slider, the second open P0) and the Scholar re-evaluation cadence
+once both P0 surfaces are in place.
+
+**Recommended next:** Rec #2 (Temporal slider) — the last open P0
+of the permaculture-alignment review.
