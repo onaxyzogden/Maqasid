@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — verified principle-cap todo already shipped
+
+**Objective:** Carry-over todo from a pre-compaction list (create `usePrincipleEvidenceVisibleIds` helper; cap `PrincipleCoverageMatrixCard` + `ThreeEthicsRollupCard` via it). Verify still relevant before doing the work.
+
+**Finding:** Already shipped in commit `6338ab45` (merged 2026-05-12 00:31, before this session began). Helper exists at `apps/web/src/v3/plan/cards/principle-verification/usePrincipleEvidenceVisibleIds.ts` — reads nine spatial stores (zones, paths, structures, transects, guilds, earthworks, crops, fertility, ecology), runs each project-scoped slice through `usePhaseStoreCappedEntities`, returns `{ visibleIds: Set, idToKind: Map }`. Both readouts consume it: `PrincipleCoverageMatrixCard` (line 70, via `idToKind`); `ThreeEthicsRollupCard` (line 73, via `visibleIds`). The asymmetric rule is preserved — `HolmgrenChecklistCard` (registration) intentionally does not cap.
+
+**Action:** No code changes. Stale todo list cleared. Logging the verification so future sessions don't re-tread.
+
+---
+
 ## [2026-05-12] session | Atlas — opt SpiritualCommunal + ArrivalSequence cards into `zoneThresholds`
 
 **Objective:** Per the prior session's deferred sweep, survey other readouts hardcoding reach distances and migrate the qualifying ones to the canonical `getZoneThresholds(project)` selector — so the new project-level field earns its keep beyond a single reader and future cards have precedent for both `closeM` (Zone-1) and `mediumM` (Zone-2) opt-ins.
