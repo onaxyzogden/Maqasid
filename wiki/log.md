@@ -3,6 +3,81 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — narrowed ProjectedStructure.type and added structure selectors
+
+**Objective:** Begin retiring the V1 `useStructureStore` facade (the last
+of three V1 stores in the BE V2 unification ADR 2026-05-10). The facade's
+only structural reason to exist was a single `as StructureType` cast in
+`projectV2ToStructures` — `Structure` and `ProjectedStructure` were
+otherwise byte-identical except for `Structure.type: StructureType`
+narrowing `ProjectedStructure.type: string`.
+
+**Decision:** chose option (b) — narrow `ProjectedStructure.type` to
+`StructureType` in shared rather than widening the 6 production
+narrowing sites. The narrow union already lived at
+`packages/shared/src/demand/structureDemand.ts:13` (driving the
+`STRUCTURE_WATER_GAL_PER_DAY` + `STRUCTURE_KWH_PER_DAY` Record tables),
+so the "move" was structurally a no-op — just two type-tightening edits.
+
+**Phase 1 — Narrow ProjectedStructure.type (shared):**
+- Imported `StructureType` from `./demand/structureDemand.js` into
+  `builtEnvironmentProjection.ts`.
+- `ProjectedStructure.type: string` → `type: StructureType`.
+- `KIND_TO_LEGACY_STRUCTURE_TYPE: Readonly<Record<string, string>>` →
+  `Readonly<Record<string, StructureType>>`.
+- Added `structureDemand` exports to `packages/shared/src/index.ts` so
+  apps can import `StructureType` from the shared root (required by
+  Phase 2's re-export from `structureStore.ts`).
+
+**Phase 2 — Collapse `Structure` to `ProjectedStructure` alias:**
+- Replaced the 20-line `StructureType` duplicate in `structureStore.ts`
+  with `export type { StructureType } from '@ogden/shared'`.
+- Replaced the `Structure` interface body with
+  `export type Structure = ProjectedStructure`.
+- Deleted `projectV2ToStructures` cast helper (no longer needed —
+  `projectToStructures` now returns the narrow type directly). Facade
+  subscription + rehydrate dance now calls `projectToStructures`
+  directly.
+- Facade writers + `placementMode` slice untouched — consumer call
+  sites continue to work unchanged through the upcoming Phase 4 sweep.
+
+**Phase 3 — Structure selector helpers (Phase 6.C of the ADR):**
+- `builtEnvironmentSelectors.ts` gains the matching helpers for the
+  DesignElement pattern: `useStructuresForProject`,
+  `getStructuresForProject`, `findStructureGlobal`, `addStructure`,
+  `updateStructure`, `removeStructure`.
+- Reads bypass the V1 facade entirely (direct `projectToStructures`
+  call on the V2 entities slice + project filter + stable empty-array
+  for the no-hit case).
+- Writers replicate the facade's V1 → V2 kind translation logic
+  (`canonicalizeKind` + snake-to-kebab fallback) and `ProposedMetadata`
+  builder. Single source-of-truth pattern matches the DesignElement
+  writers added on 2026-05-12.
+- 7 new adapter tests (add/update/remove/find round-trip, empty-state
+  stability, cross-project isolation, unknown-id null). 18/18 passing.
+
+**Verification:** `tsc --noEmit` clean across both `@ogden/shared` and
+`apps/web` (zero new errors; baseline 2 unrelated errors in
+ObserveLayout / PlanLayout pre-existed). `vitest run
+builtEnvironmentAdapters.test.ts` — 18/18.
+
+**Commit:** `51df97b0` —
+*refactor(atlas): narrow ProjectedStructure.type and add structure selectors*
+
+**Scope discovery:** the planned 144-site consumer sweep (Phase 4) was
+estimated by the user at "~70 sites." Actual count from
+`grep -l useStructureStore`: 144 files. 47 reference `StructureType`
+(mostly as type annotations); only 6 files perform literal-string
+narrowing. Phase 4 (Pattern A read-only subscriptions, Pattern B
+writer calls, Pattern C `placementMode` extraction) plus Phase 5
+(facade deletion) deferred to a follow-up slice.
+
+**Plan record:**
+`C:\Users\MY OWN AXIS\.claude\plans\revert-observe-stage-module-squishy-hippo.md`
+(approved 2026-05-12).
+
+---
+
 ## [2026-05-12] session | Atlas — smoke-tested zoneThresholds wiring in preview
 
 **Objective:** Confirm the per-project zoneThresholds plumbing (field + selector + store actions + persist v4 + card wiring across FertilityColocation / SpiritualCommunal / ArrivalSequence) actually behaves correctly at runtime, not just at compile-time.
