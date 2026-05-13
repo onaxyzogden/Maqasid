@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-13] session | Atlas — DiagnoseMap toolbar overlap fix + Steward/Household unification ADR addendum
+
+**Objective:** Resolve the overlap between the standalone "Place / Move
+homestead" toolbar (DiagnoseMap, `_toolbar_1fqi3_33`) and the
+`DesignToolRail` (`_rail_1d95c_1`) on the Observe canvas. The steward
+also noticed the Steward/household tool in `ObserveTools` was
+conceptually redundant with the toolbar.
+
+**Approach:** A parallel session had already retired the toolbar in
+atlas commits `469b8865` (unify Steward / household pin as Zone 0
+anchor surface) + `c4697d54` (household-pin fallback + derived-anchor
+hint + sync homestead on pin delete) — collapsing the two surfaces
+into one and routing household pin save through to `homesteadStore`.
+This session's contribution is the ADR addendum on
+`wiki/decisions/2026-05-13-atlas-residence-zone0-derivation.md`
+documenting the new precedence chain (explicit homesteadStore → single
+household annotation → single residence BE entity → none) so the
+canonical decision file reflects the as-shipped behavior.
+
+**Completed:**
+
+- atlas `7366a848` (push: `c4697d54..7366a848`): wiki ADR addendum on
+  the residence Zone-0 derivation file describing the
+  Steward/Household unification, the new precedence chain, and the
+  retired toolbar.
+- Parent submodule bumped to `7366a848`.
+
+**Deferred:**
+
+- Scholar re-evaluation Round 1 Phases 3–6 — still blocked on
+  `notebooklm login` re-auth on the Scholar-owning Google account
+  (see `atlas/tasks/scholar-reevaluation/HANDOFF.md`). Once auth
+  lands, the 6-call dialogue + digest + ADR + conditional backlog-v2
+  resume from offline scaffolding.
+- Scholar re-evaluation Round 2 — gated on Rec #2 (Temporal slider)
+  ship.
+- Rec #2 ship (Temporal slider) — work-in-progress in a separate
+  session (`TemporalScrubSlider.tsx`, `temporalScrubStore.ts`,
+  `TemporalCoherenceCard.tsx`, `packages/shared/src/succession/`).
+
+**Recommended Next Session:** Either re-attempt `notebooklm login`
+to unblock the Scholar re-eval pipeline, or pick up the Rec #2
+Temporal slider ship from its current in-flight state.
+
+---
+
 ## [2026-05-13] session | Atlas — MTC fallback persistence gap closed
 
 **Objective:** Close the `'mtc'` fallback persistence gap surfaced by
