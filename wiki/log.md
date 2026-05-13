@@ -9443,3 +9443,38 @@ the DesignElementLayers diff is bundled but logically independent):
   take on the bigger `PlantingToolDashboard` migration (8 tiered
   good/caution constants — closeM/mediumM × 4 supply types: nursery,
   compost, irrigation, harvest).
+
+## 2026-05-12 — Atlas — QuietCirculationRouteCard joins the zoneThresholds family
+
+- **Goal.** Migrate the 6th zoneThresholds card. Constants today:
+  `NOISY_NEAR_M=10`, `COMPROMISED_M=25`, `QUIET_M=50`.
+- **Mapping.** `COMPROMISED_M` → `closeM` (default 25 — exact match;
+  "audible road noise" = Zone-1 reach). `QUIET_M` → `mediumM`
+  (default 75, looser by 25 m; "quiet enough for retreat circulation"
+  = Zone-2 reach). `NOISY_NEAR_M=10` stays literal — acoustic-presence
+  constant, not a steward-walk band (same treatment as `LOUD_BUFFER_M`
+  in PrayerZoneReadinessCard).
+- **Honest default change.** The `excellent` / `good` tier boundary
+  shifts 50→75 m. At defaults, fewer routes earn `excellent` without
+  tuning, but the `good` band absorbs them. Stewards who want the old
+  behavior tune `mediumM` to 50 via the FertilityColocationCard
+  disclosure.
+- **Edit shape.** `rowFor` was a module-level function referencing the
+  two old constants, so it now takes `compromisedM, quietM` as
+  parameters. The component body does the per-project lookup (same
+  pattern as ContemplationZonesCard since the component receives
+  `projectId: string`, not the full project), passes the two values
+  into `rowFor`, and renames them to `COMPROMISED_M` / `QUIET_M` via
+  destructuring so all 9 downstream usages stay untouched. Dep array
+  for the `data` useMemo gained both values.
+- **Verification.** `npx tsc --noEmit` on `apps/web` → exit 0.
+- **zoneThresholds family roster (6 cards).** FertilityColocationCard
+  (controller), SpiritualCommunalCard, ArrivalSequenceDesignCard,
+  ContemplationZonesCard, PrayerZoneReadinessCard,
+  **QuietCirculationRouteCard** (new). Six cards, one tunable.
+- **Recommended next.** `PlantingToolDashboard.tsx` (8 tiered
+  good/caution constants across 4 supply types — nursery, compost,
+  irrigation, harvest). 2-axis migration that needs design thought
+  before edits: are `_GOOD_M` and `_CAUTION_M` the same closeM/mediumM
+  bands the family uses, or is each supply type its own bespoke
+  reach? Likely the former, but worth confirming before the edit.
