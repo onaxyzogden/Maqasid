@@ -3,6 +3,53 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — preview smoke-test of the zoneThresholds cascade
+
+**Objective:** Exercise the FertilityColocation Tune-zones disclosure end
+to end against the seeded sample project, then verify the cascade
+propagates to SpiritualCommunal and ArrivalSequence via
+`getZoneThresholds(project)`. No code changes — observation + tightening
+backlog only.
+
+**Tooling:** `mcp__Claude_Preview__*` MCP toolchain against `:5200`.
+`preview_screenshot` consistently timed out at 30 s on the Plan canvas
+(MapboxGL/3D rasterisation hang), so evidence is DOM/store-level reads
+via `preview_eval` and `preview_inspect` — the more accurate path per the
+tool docs anyway.
+
+**Run notes (chronological):**
+- Seeded with `window.__ogdenSeedFertilitySample()` → `{ ok: true, inserted: { structures: 4, paths: 2, guilds: 3, fertility: 3 } }`. Hard-refresh; rehydration confirmed in `useBuiltEnvironmentStoreV2` (5 entities including the pre-existing builtin "building"), `useStructureStore` (4 proposed), `usePathStore` (2), `usePolycultureStore` (3), `useClosedLoopStore` (3).
+- Defaults: disclosure summary `Tune zones (advanced) — currently Zone-1 ≤ 25 m, Zone-2 25–75 m · defaults`; buckets `Close 3 / Medium 0 / Far 0 / Unplaced 0`; Resilience `100% redundant`; Reset disabled. ✅
+- Set closeM=18: summary `· custom`; buckets reflow to `Close 2 / Medium 1`; store persists; Reset enabled. ✅
+- Invalid pair (closeM=80, mediumM=60): inline error `Zone-2 max must be greater than Zone-1 max. The bucketing below still uses the last valid pair.`; store unchanged at last valid; summary unchanged. ✅
+- Reset to defaults: store clears immediately; inputs/summary catch up after ~one React tick (500 ms read shows full restore). **Minor optical lag** — not a correctness bug, filed as polish.
+- SpiritualCommunal cascade at mediumM=50: nearest bathhouse computed at 59.9 m from prayer_space → advisory fires (`59.9 > 50`). ✅ Verified by computation rather than navigating to the mount surface (Educational Atlas / StructuresBuildingsPage not reachable from current Plan route).
+- ArrivalSequence cascade at closeM=50: tier shifts `single-reveal` (2 milestones at default) → `curated` (3 milestones: prayer_space@10m, pavilion@10m, lookout@50m). ✅
+- Idempotency: re-running the seed returns `{ ok: false, reason: 'project … already has placed entities (4 structures / 2 paths / 3 guilds / 3 fertility) — refusing to seed; clear them first or pass a different projectId' }`. ✅
+
+**Findings + tightening decisions:** see
+`notes/scratch/2026-05-12-zonethresholds-smoke-test.md` for the full
+table. Disclosure + cascade ship as-is. Two non-blocking polish items
+filed in `tasks/zonethresholds-tightening-2026-05-12.md`:
+
+1. **Reset optical lag** — store clears synchronously but the controlled
+   inputs + summary update one tick later; consider `flushSync` or input
+   re-key on Reset.
+2. **Soil module default sub-card** — opens to the designer, not the
+   colocation readout; reaching the disclosure costs an extra click and a
+   slide-up close/reopen.
+
+**Verdict:** zoneThresholds cascade is correct and stable. The two polish
+items are deferred; next session moves on to the next Plan-stage readout
+(candidates: ContemplationZonesCard — also reads adjacency thresholds —
+or one of the unmigrated `v3/plan/cards/` cards with hard-coded
+constants).
+
+**Commit:** documentation-only — no app code changed; `apps/web` is at
+`b3baddb0` from the prior session.
+
+---
+
 ## [2026-05-12] session | Atlas — seedFertilitySample dev helper for zoneThresholds smoke-test
 
 **Objective:** Unblock manual smoke-testing of the FertilityColocation
