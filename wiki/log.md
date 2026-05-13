@@ -9528,3 +9528,100 @@ the DesignElementLayers diff is bundled but logically independent):
 - **Recommended next.** Open. The Plan-stage zoneThresholds arc and
   its polish backlog are both closed. Pick from the broader
   permaculture roadmap.
+
+## 2026-05-12 — Atlas — Rec #4 Edge & Connectivity Evaluator v1 ships
+
+- **Goal.** First pick off the permaculture-alignment backlog
+  (`atlas/tasks/permaculture-alignment-backlog.md`). Rec #4 was the
+  simplest P1 — pure geometry on existing polygons, no new data, no
+  new dependency. The Scholar's framing: "Homogenized layers lack the
+  edge necessary to create niches for diverse species and predator/prey
+  relationships that keep pests in check."
+- **Metric.** Polsby-Popper compactness (PP = 4π·area ÷ perimeter²) per
+  polygon. Dimensionless 0..1; 1.0 = perfect circle (maximally
+  homogenized), values near 0 = highly indented / edge-rich. Picked over
+  raw P/A ratio because PP is scale-invariant — a 1-ha and a 4-ha
+  square score identically. Standard compactness metric in landscape
+  ecology. One-line formula, no new dependency.
+- **Tier thresholds.** `excellent` PP < 0.4 (green pillMet);
+  `adequate` 0.4–0.7 (neutral pillIncon); `homogenized` ≥ 0.7 (red
+  pillUnmet, textual prompt rendered). Polygons under 2 000 m² skip
+  the audit — diversity-penalty framing doesn't apply to small
+  feature plantings.
+- **Polygon source.** `landDesignStore.byProject[projectId]` filtered
+  to planting-class `kind` ∈ {orchard, silvopasture, pasture-mix,
+  paddock}. Guilds (polycultureStore) are points, not polygons —
+  out of scope for an edge-to-area metric.
+- **UI surface.** New 5th sub-card under Plan plant-systems module
+  (`Edge & connectivity`, sectionId `plan-edge-connectivity`). Slots
+  after Establishment sequence as a readout. Same shape as the other
+  4 sibling cards; reuses `_shared/stageCard/stageCard.module.css`
+  primitives (hero, section, list, pillMet/Partial/Unmet). Zero new
+  CSS modules.
+- **v1 scope.** Textual prompt only ("Carve out edges, peninsulas, or
+  marginal borders for companion plants…"). Shape-variant generators
+  (peninsula / scalloped / keyhole) deferred — backlog flagged them
+  as the "biggest unknown"; isolating them kept v1 inside the 0.5-
+  sprint estimate. Holmgren P10 wiring into `principleCheckStore`
+  also deferred — depends on broader scoring-pipeline work.
+- **Files.** Created `apps/web/src/v3/plan/cards/plant-systems/EdgeConnectivityCard.tsx`;
+  edited `apps/web/src/v3/plan/types.ts` (add card to MODULE_CARDS)
+  and `apps/web/src/v3/plan/PlanModuleSlideUp.tsx` (lazy import +
+  renderPlanCard case).
+- **Pattern note.** Card holds its own copies of `polygonAreaM2` /
+  `polygonPerimeterM` (also present in `v3/data/useDesignMetrics.ts`
+  as file-private helpers). Per-card geometry math is the codebase's
+  established pattern (cf. QuietCirculationRouteCard, FertilityColocationCard);
+  a shared `polygonGeometry.ts` util can come later as a refactor if a
+  4th copy appears.
+- **Recommended next.** Continue down the permaculture-alignment
+  backlog: Rec #3 (Highest-potential water router, P1, ~1 sprint),
+  Rec #6 (Nets in the flow social nodes, P2, ~0.5 sprint), or
+  Rec #5 (Substitution calculator, P2, ~1 sprint with the catalog
+  unknown). Or: ship v2 of Rec #4 — the three shape-variant
+  generators and Holmgren P10 wiring.
+
+## 2026-05-12 — Atlas — Adopt basemap 3D buildings as Built Environment features (`25ef7dd4`)
+
+- **Goal.** Stewards working in built-up areas wanted to capture
+  pre-rendered 3D building extrusions (OpenMapTiles `building`
+  source-layer in MapTiler Street/Topo/Hybrid styles) as real
+  project entities instead of redrawing footprints by hand.
+- **UX.** New "Adopt from map" button in a dedicated "From map"
+  sub-group at the top of the Observe → Built Environment rail
+  (peer of the BUILDINGS / WATER & UTILITIES / etc. groups).
+  Clicking activates a one-shot click tool: cursor → crosshair,
+  popover hint shown. Next map click runs `queryRenderedFeatures`
+  against any style layer whose `source-layer === 'building'`,
+  copies the hit's Polygon geometry + `render_height` / `height`
+  property into a fresh V2 entity, opens the inline edit form
+  anchored at the click point, and auto-clears the active tool.
+- **Schema fit.** Adopted entities are `state: 'existing'`,
+  `kind: 'building'`. Footprint geometry → `geometry`;
+  `turf.area(polygon)` → `existing.areaM2`; basemap height →
+  `proposed.heightM` (the `existing` metadata block has no height
+  slot in the V2 schema, but `DesignElementExtrusionLayer` reads
+  `heightM` from `proposed`, so the adopted footprint extrudes
+  correctly). Both metadata blocks are independently optional in
+  the schema, so this is well-formed.
+- **Failure modes handled.** Satellite/no-building-layer style →
+  toast warns to switch basemaps, tool stays armed. Click misses
+  any building → toast prompts to click on a footprint, tool stays
+  armed. MultiPolygon footprints → first ring kept (best-effort
+  v1). Geometry types we can't coerce → error toast.
+- **Files.** New `apps/web/src/v3/observe/components/draw/AdoptBasemapBuildingTool.tsx`.
+  Edited `useMapToolStore.ts` (add `'observe.built-environment.adopt-basemap'`
+  tool id), `ObserveDrawHost.tsx` (dispatch case → mount the tool),
+  `ObserveTools.tsx` (new "From map" sub-group with `MousePointer`
+  icon, rendered above the existing BE_TOOL_GROUPS inside a
+  fragment).
+- **Out of scope.** Hiding the underlying basemap extrusion after
+  adoption (slight z-fight remains — both extrusions paint, but the
+  project's fill colour distinguishes the adopted entity). Bulk
+  adopt (drag-select multiple). Adopting non-building features
+  (POIs, roads).
+- **Recommended next.** v2 polish — filter the basemap building
+  layer by `feature-state` to hide adopted footprints from the
+  basemap render (eliminates z-fight). Or extend to non-building
+  basemap features (e.g. adopt rendered roads as access-road
+  LineString entities).
