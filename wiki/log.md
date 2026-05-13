@@ -9700,3 +9700,82 @@ scope; tracked separately).
 remainder) for a quick win, or Rec #5 (Substitution calculator, gated on
 catalog research). Re-evaluation cadence note: after Rec #1 + #2 land,
 re-run the Permaculture Scholar dialogue — verdict gates may shift.
+
+## 2026-05-13 — Rec #6 Social node generator v1 ships
+**Project:** OGDEN Atlas · Plan stage · Module 3 (Zone & Circulation)
+**Branch:** `feat/atlas-permaculture`
+
+Third permaculture-alignment rec to land in two days. P2, ~0.5-sprint
+scope (matches the backlog estimate). Atlas surface: design canvas
+(scoring half — canvas-pin overlay deferred to v2).
+
+**Scholar framing (2026-04-28):** "Human movement flows like water, and
+placing 'nets in the flow' (like benches or public spaces) slows people
+down to foster necessary community relationships." Holmgren P8 —
+Integrate rather than segregate; People Care ethic.
+
+**Algorithm.** Pull every `path` LineString from `landDesignStore`
+(category `access`, kind `path`). Compute all pairwise segment
+intersections in planar lat/lng (standard 2D parametric form, endpoint-
+touching counted). Filter intersections to those inside a `zoneStore`
+polygon with `permacultureZone ∈ {1, 2}` (ray-casting point-in-polygon).
+For each survivor, scan all amenity points and report the nearest within
+`COVERED_RADIUS_M = 12 m` as the "cover" — present ⇒ tier `served`,
+absent ⇒ tier `opportunity` with the Scholar prompt.
+
+**Catalog scope (v1).** Coverage counts existing amenity kinds
+`prayer-pavilion` and `fire-circle` — the two amenity points in
+`elementCatalog.ts` today. Bench, picnic table, shaded seat, signage
+post, gathering pavilion are flagged in the backlog as a v2 catalog
+dependency; the card's lede points stewards at the v2 promise. Adding
+those new kinds touches `elementCatalog.ts`, COLORS, icon imports, and
+the BE V2 store extraction — a separate session.
+
+**Density metric.** `socialNodeDensity = covered / total`. Tier cuts:
+`served` ≥ 0.66, `partial` 0.33–0.66, `unserved` < 0.33. Single-line
+constants alongside `COVERED_RADIUS_M` in the math util.
+
+**UI surface.** 5th sub-card in the Plan → Zone & Circulation module
+slide-up (`sectionId = 'plan-social-nodes'`). Same hero/lede/site-rollup
+/per-row pattern as Rec #3/#4. Empty states for (a) fewer than two paths
+and (b) no Z1/Z2 zones, each naming the missing input.
+
+**Files:**
+- created `atlas/apps/web/src/v3/plan/cards/zone-circulation/socialNodesMath.ts`
+- created `atlas/apps/web/src/v3/plan/cards/zone-circulation/SocialNodesCard.tsx`
+- edited  `atlas/apps/web/src/v3/plan/types.ts` (5th entry under zone-circulation)
+- edited  `atlas/apps/web/src/v3/plan/PlanModuleSlideUp.tsx` (lazy import + case)
+- annotated `atlas/tasks/permaculture-alignment-backlog.md` (Rec #6 v1 SHIPPED)
+
+**tsc:** clean — no new errors. Pre-existing `DesignElementLayers.tsx(433,51)`
+MultiPoint error persists (out of scope; tracked separately).
+
+**v1 deferred (v2 candidates):**
+- Map-canvas pin at each opportunity intersection.
+- Bench / picnic table / shaded seat / signage post / gathering pavilion
+  kinds in `elementCatalog.ts` (with COLORS + icons + BE V2 store work).
+- One-click "place bench / place gathering area / dismiss" interaction.
+- Wiring `socialNodeDensity` into People-Care principle score.
+
+**Permaculture-alignment backlog status after this session:**
+- Rec #1 (Needs & Yields) — open (P0, ADR exists)
+- Rec #2 (Temporal slider) — open (P0, ADR exists)
+- Rec #3 (Water router) — v1 shipped 2026-05-13
+- Rec #4 (Edge & connectivity) — v1 shipped 2026-05-12
+- Rec #5 (Substitution calculator) — open (P2)
+- Rec #6 (Social nodes) — v1 shipped 2026-05-13 ← this entry
+
+**Pattern note.** All three v1 shipments (#3, #4, #6) follow the same
+shape: a `*Math.ts` pure-helper sibling next to a `*Card.tsx` readout in
+the right module folder, lazy-mounted from `PlanModuleSlideUp.tsx`, with
+a backlog file annotation and a "v2 deferred" list. The readout-only
+discipline kept all three inside their estimated 0.5–1-sprint envelope.
+
+**Recommended next:** Rec #5 (Substitution calculator) is the last P2 on
+the backlog; gated on building a 10-15 item substitution catalog
+(metal-fence → living willow, plastic pipe → bamboo conduit, gravel path
+→ living mulch). Catalog research dominates the timeline. After Rec #5
+ships, re-run the Permaculture Scholar dialogue per the backlog's
+re-evaluation cadence — with #3/#4/#6 in place, verdict gates may shift
+and surface new gaps. The P0 recs (#1 Needs & Yields, #2 Temporal slider)
+remain the largest open items.
