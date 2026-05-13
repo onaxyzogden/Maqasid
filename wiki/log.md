@@ -3,6 +3,44 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-13] session | Atlas — MTC fallback persistence gap closed
+
+**Objective:** Close the `'mtc'` fallback persistence gap surfaced by
+the earlier DesignStatusChip spot-check. The Plan and Act routes
+`/v3/project/mtc/...` use a hardcoded slug `'mtc'` as `projectId`,
+but no project with that id existed in the persisted store —
+`updateProject('mtc', …)` was silently a no-op, so every write to
+the MTC demo (parcel boundary, audit-state metadata, sector radii,
+zone thresholds) was lost on reload.
+
+**Approach:** Seed MTC as an `isBuiltin` row keyed by `id: 'mtc'`
+at store-hydrate time, *before* `hydrateBuiltins()`. The builtin
+write allowlist landed in commit `67176654` (metadata) already
+routes the audit-state writes correctly. Duplicated `MTC_FALLBACK`
+definitions in `PlanLayout.tsx` and `ActLayout.tsx` deleted; both
+now import the exported `MTC_SEED` as their pre-hydration
+fallback.
+
+**Commits (already on `feat/atlas-permaculture`, pushed):**
+
+| Commit | Files | Description |
+|---|---|---|
+| `8f585e4f` | 3 | Seed MTC demo + preserve metadata across builtin re-seed. |
+| `e9a7db71` | — | Follow-up: stable selector for `OrphanCountProbe` edges. |
+
+**Verification result:** Toggle "Allow orphan outputs" on
+`/v3/project/mtc/plan/principle-verification` now persists through a
+full page reload — confirmed in preview MCP. `⚠ Orphans allowed`
+chip mounts; `metadata.allowOrphanOutputs` round-trips through
+localStorage. Real project `ec5ed028-…` unaffected.
+
+**Deferred follow-ups:**
+- Unit test on `updateProject`'s builtin allowlist
+  (`parcelBoundaryGeojson`, `hasParcelBoundary`, `metadata`).
+- `pnpm typecheck` / `pnpm lint` blocked by local pnpm binary
+  outage (`spawnSync … ENOENT pnpm v10.32.1`) — runtime smoke was
+  clean (Vite HMR + console). Re-run statically when pnpm is fixed.
+
 ## [2026-05-13] session | Atlas — DesignStatusChip / allowOrphanOutputs spot-check
 
 **Objective:** Verify the Rec #1 DesignStatusChip + `allowOrphanOutputs`
