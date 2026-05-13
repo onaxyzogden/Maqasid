@@ -3,6 +3,49 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — ContemplationZonesCard joins the zoneThresholds family
+
+**Objective:** Migrate the fourth Plan-stage card with a hard-coded
+adjacency constant — `ContemplationZonesCard.NEARBY_RADIUS_M = 100` —
+to consume `getZoneThresholds(project)` so the steward's tune-zones
+choice cascades to §8 Quiet Contemplation Zone Planning alongside the
+three already-migrated readouts.
+
+**Change** (`apps/web/src/features/zones/ContemplationZonesCard.tsx`):
+- Imported `useProjectStore`, `getZoneThresholds`, `DEFAULT_ZONE_THRESHOLDS` from `projectStore.js`.
+- Inline project fetch via `useProjectStore((s) => s.projects.find((p) => p.id === projectId))` (same pattern as ArrivalSequenceDesignCard's prior migration — preserves the card's `projectId: string` prop signature, no caller ripple).
+- `const NEARBY_RADIUS_M = 100` → `const NEARBY_RADIUS_M = (project ? getZoneThresholds(project).mediumM : DEFAULT_ZONE_THRESHOLDS.mediumM) * 2;`
+- Updated the inline comment to document the cascade. JSX templates (`{NEARBY_RADIUS_M}` in hint copy, tile blurbs, and footnote) re-evaluate per render, so they automatically reflect the dynamic value.
+
+**Honest behaviour change:** default radius shifts 100 m → 150 m
+(2 × mediumM=75). The original comment said "doubled SpiritualCommunal
+adjacency" — when that adjacency moved from 50 → 75 in the prior
+session, the doubled value should move 100 → 150 to preserve the
+relationship. More contemplation zones may register as "noise nearby"
+at defaults; stewards who preferred the tighter 100 m bound can set
+`mediumM` to 50 via the disclosure and round-trip back.
+
+**Verification:** `tsc --noEmit` clean.
+
+**Cascade family now covers four cards:**
+| Card | Threshold consumed |
+|---|---|
+| FertilityColocationCard | closeM + mediumM (bucket bounds) |
+| SpiritualCommunalCard | mediumM (adjacency advisory) |
+| ArrivalSequenceDesignCard | closeM (milestone radius) |
+| ContemplationZonesCard | 2 × mediumM (nearby radius) |
+
+**Commit:** `ebe16a0a` on `feat/atlas-permaculture` — pushed.
+
+**Deferred:** preview smoke-test of the contemplation cascade against
+the seeded sample project. The seed currently produces 0 contemplation
+zones (no `category === 'spiritual'` zones, no keyword-tagged zones),
+so the card renders the empty state. A follow-up could extend
+`seedFertilitySample.ts` with a spiritual zone or two to exercise the
+new tile counts and per-zone analysis rows.
+
+---
+
 ## [2026-05-12] session | Atlas — preview smoke-test of the zoneThresholds cascade
 
 **Objective:** Exercise the FertilityColocation Tune-zones disclosure end
