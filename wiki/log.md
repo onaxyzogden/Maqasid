@@ -9779,3 +9779,56 @@ ships, re-run the Permaculture Scholar dialogue per the backlog's
 re-evaluation cadence — with #3/#4/#6 in place, verdict gates may shift
 and surface new gaps. The P0 recs (#1 Needs & Yields, #2 Temporal slider)
 remain the largest open items.
+
+## 2026-05-13 — Atlas — Plan polygon-fill (hex) tree stamping v1 ships
+
+Built on top of the spacing-snap shipped 2026-05-12 / 2026-05-13.
+Stewards can now arm Oak / Pine / Apple / Shrub, switch the floating
+mode picker from `•` to `▦`, draw a polygon over the orchard plot, and
+have the system stamp trees on a quincunx grid at `defaultSpacingM`,
+clipping to the parcel and skipping any cell within an existing
+same-category tree's drip line. A toast reports
+"Stamped N, skipped M".
+
+**Files:**
+- new `v3/plan/canvas/stampModeStore.ts` — `'free' | 'fill'` atom.
+- new `v3/plan/canvas/StampModePicker.tsx` — bottom-centre two-chip
+  strip; gated on `spec.drawMode === 'draw_point'` && `defaultSpacingM`.
+- modified `v3/plan/canvas/draw/useDesignElementDrawTool.ts` —
+  exported `validatePlacement`; added `stampHexFill` helper
+  (`cellSide = defaultSpacingM / sqrt(3)` → centroid spacing ≈ user
+  spacing); branched hook body on `useStampModeStore.mode`.
+- new bulk insert path: `landDesignStore.addMany`,
+  `builtEnvironmentStoreV2.createMany`,
+  `builtEnvironmentSelectors.addDesignElements` — single `set()` per
+  category vs N single inserts.
+- renamed `TreeRejectionToast` → `PlanStampToast` — handles both
+  `plan:tree-rejected` (fired-clay) and `plan:tree-stamp-summary`
+  (estate-gold) events.
+- `PlanLayout.tsx` — mounts `<PlanStampToast />` + `<StampModePicker />`
+  in the canvas overlay.
+
+**ADR:** [2026-05-13-atlas-plan-polygon-fill-stamp.md](decisions/2026-05-13-atlas-plan-polygon-fill-stamp.md)
+
+**Verification:**
+- `tsc --noEmit` clean modulo the pre-existing
+  `DesignElementLayers.tsx:433` `Geometry` width error.
+- Browser pre-flight: picker mounts when Oak is armed; chip toggle
+  flips `useStampModeStore.mode` and `aria-pressed`. Picker hides for
+  non-eligible kinds (paddock, swale, road).
+- Manual polygon-draw end-to-end is a steward task — synthetic pointer
+  events don't reach MapLibre's draw lifecycle in the preview
+  environment.
+
+**v1 deferred (v2 candidates):**
+- Row stamp (line input → `turf.lineChunk`).
+- Square grid as alternative pattern.
+- Soft-snap to neighbour boundaries.
+- Per-stamp spacing override UI.
+- Cross-kind asymmetric spacing.
+- Stamp ghost preview before commit (polygon-finish IS the commit for v1).
+
+**Recommended next:** manual polygon-fill draw smoke test in the
+steward's hand, then either (a) Rec #5 Substitution calculator (last P2
+on the Permaculture-alignment backlog) or (b) Rec #1 Needs & Yields /
+Rec #2 Temporal slider (the two open P0s).
