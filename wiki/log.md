@@ -9237,3 +9237,79 @@ Two related cleanups from prior session's deferred list.
 - **Completed:** PillarCard's dead `MODULE_ROUTES` removed (Sidebar's export is sole authority). 15 level-submodule entries added for health/intellect/family/wealth/environment so the Islamic panel renders structured badges on `/app/{pillar}-{level}` URLs.
 - **Deferred:** Optionally hand-curate per-pillar Asma for the level entries (currently use Faith's level-paired Asma as a sensible default); add `*-core/-growth/-excellence` ids to each pillar's `subModuleIds[]` in [src/data/maqasid.js](src/data/maqasid.js) so `getPillarForModule()` resolves them (currently null for level ids, mirroring Faith's existing behavior). Other modified files in working tree (PropheticPath, prophetic-path-submodules, atlas submodule pointer) — provenance unclear, intentionally left untouched.
 - **Recommended next:** Either the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries) or per-pillar Asma curation for the new level entries.
+
+---
+
+## [2026-05-12] session | Atlas — fix "previously drawn features don't appear until I draw a new one"
+
+**Objective:** Persisted design elements (paddocks, ponds, swales, structures,
+etc.) were absent from the Plan map on initial load; the moment the steward
+drew any new design element, all previously persisted ones snapped into view
+alongside it.
+
+**Root cause.** A startup race in `DesignElementLayers.tsx`:
+
+- `DiagnoseMap` renders children as soon as it calls `setMap(m)` — before
+  the initial MapLibre style has finished loading.
+- The original `apply()` bailed when the style's `layers.length === 0` and
+  relied on `map.on('style.load', …)` to retry — known unreliable in some
+  F5/setStyle interleavings (see ADDENDUM 7 in DiagnoseMap).
+- `map.isStyleLoaded()` (the obvious replacement) flips back to `false`
+  during tile loads and basemap initial paints, so a `styledata` listener
+  alone wasn't enough either — a single bail window with no follow-up
+  retry would leave `design-el-*` sources/layers permanently missing.
+- The bug became visible after commit `e00f497a` deleted the V1
+  `useDesignElementsStore` facade — its rehydrate re-merge had been
+  fortuitously triggering a redundant layer-effect re-run that masked
+  the race.
+
+**Fix** (committed in `147948a2` alongside Phase 4-B writer migration —
+the DesignElementLayers diff is bundled but logically independent):
+
+1. Drop the `isStyleLoaded()` gate. Gate only on `map.getStyle()` being
+   truthy (style initialised at all).
+2. Wrap `addSource` / `addLayer` calls in `try/catch`. If MapLibre throws
+   mid-style-transition, the failure re-arms a one-shot `idle` retry
+   instead of crashing the component.
+3. Provide an `armIdleRetry()` helper, deduped via `idleRetryArmed`,
+   called on every bail path. Guarantees a follow-up apply once the
+   map quiets down — not just at mount.
+4. Keep the existing `style.load` / `load` / `styledata` listeners; they
+   remain idempotent because `ensureSource` / `ensureLayer` short-circuit
+   on existing ids.
+
+**Verification.**
+
+- Probed the live preview on project `ec5ed028-…` (which has persisted
+  design elements): 7 `design-el-*` layers mount, `design-el-poly` source
+  contains the persisted paddock on first paint without any draw action.
+  `isStyleLoaded()` reported `false` mid-paint — confirming the bug
+  the original gate would have hit; the new logic handled it cleanly.
+- Probed project `00000000-…` (which the user was testing on): same 7
+  layers mount, but feature counts are 0. localStorage inspection
+  confirmed `ogden-atlas-design-elements` and `ogden-built-environment-v2`
+  contain entries only under `mtc` and `ec5ed028-…` — that project ID
+  genuinely has no persisted state. Layer pipeline is correct;
+  user was testing on an empty project.
+
+### Session Debrief
+
+- **Completed.** Style-load race in `DesignElementLayers` fixed; verified
+  the persistent layer renders on first paint for projects with data.
+  Diagnostic console.debug from previous session cleaned up.
+- **Deferred.**
+  - User reported "draw works but disappears after double-click" on
+    project `00000000-…`. Distinct from the load race — likely the
+    draw-complete handler writing under the wrong `projectId` or the
+    BE-V2 vs land-design routing fork dropping the new entity. Worth
+    re-testing on `ec5ed028-…` (known-good render) before chasing.
+  - Other map layers using the same fragile `style.load` pattern
+    (ObserveAnnotationLayers, BeV2GenericLayer, DesignElementExtrusionLayer,
+    Terrain3DController, ActDataLayers) are scoped out per the original
+    plan — apply the same `armIdleRetry` pattern if the symptom recurs.
+  - Working tree has unstaged Phase 4-C changes (DesignToolsPanel,
+    LandOsShell, MapCanvas, structurePlacementStore) — unrelated to this
+    session, left untouched.
+- **Recommended next.** Verify draw-commit persistence on a populated
+  v3 project, then sweep the remaining `style.load`-only layers if the
+  pattern proves out.
