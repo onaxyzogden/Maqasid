@@ -3,6 +3,25 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — smoke-tested zoneThresholds wiring in preview
+
+**Objective:** Confirm the per-project zoneThresholds plumbing (field + selector + store actions + persist v4 + card wiring across FertilityColocation / SpiritualCommunal / ArrivalSequence) actually behaves correctly at runtime, not just at compile-time.
+
+**Action:** Ran the dev server (already up at localhost:5200), navigated `/v3/project/mtc/plan/soil`, clicked the active Soil tile to open the slide-up, switched to the Fertility colocation tab. Then drove the project store directly via the exposed `window.__ogdenProjectStore` handle.
+
+**Verified end-to-end:**
+- Existing project loads with `zoneThresholds === undefined` — selector path resolves to defaults.
+- `setZoneThresholds(pid, { closeM: 18, mediumM: 60 })` writes the field as expected.
+- `clearZoneThresholds(pid)` removes the key cleanly (not just sets to undefined — confirmed by JSON-stringifying the persisted state and checking `'zoneThresholds' in p` is false).
+- `localStorage['ogden-projects'].version === 4` — the v3 → v4 persist bump landed.
+- Zero console errors mentioning `zoneThresholds`, `FertilityColocation`, `SpiritualCommunal`, `ArrivalSequence`, or `getZoneThresholds`.
+
+**Card UX observation:** FertilityColocationCard renders its header + lede correctly (the lede references the disclosure: "tunable per project via *Tune zones* below"), but on this project the `<details>` Tune-zones disclosure is gated behind `!emptyAll` and the project has no placed guilds or fertility infrastructure, so the card falls through to its empty-state copy. That's the right call — no tuning knob until there's data to tune against. SpiritualCommunal + ArrivalSequence cards similarly require their own placed structures/paths to render their advisory copy. End-user interaction with the disclosure inputs (validation errors, Reset enable/disable) needs a project with real fertility data to exercise; deferred to a future session when that data exists.
+
+**No code changes.** Wiki entry only.
+
+---
+
 ## [2026-05-12] session | Atlas — verified principle-cap todo already shipped
 
 **Objective:** Carry-over todo from a pre-compaction list (create `usePrincipleEvidenceVisibleIds` helper; cap `PrincipleCoverageMatrixCard` + `ThreeEthicsRollupCard` via it). Verify still relevant before doing the work.
