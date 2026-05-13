@@ -5,24 +5,29 @@ Plan-stage zoneThresholds cascade (see
 `notes/scratch/2026-05-12-zonethresholds-smoke-test.md`). The disclosure
 ships as-is; these are quality-of-life follow-ups.
 
-## 1. Reset click → optical lag (~1 React tick)
+## 1. ~~Reset click → optical lag (~1 React tick)~~ — RETRACTED 2026-05-12
 
-**Repro:** Open FertilityColocationCard Tune-zones disclosure. Type
-`80`/`60` into Zone-1/Zone-2. Click "Reset to defaults".
+**Original observation:** synchronous DOM read after `preview_click` on
+Reset showed stale 80/60 inputs and `· custom` summary for ~one tick
+before catching up.
 
-**Observed:** Store clears immediately (`zoneThresholds` becomes
-`undefined`), but the controlled inputs continue to show `80`/`60` and
-the summary continues to read `· custom` for ~one render cycle before
-catching up. A user could read this as "Reset did nothing" and click
-again.
+**Re-investigation:** the Reset handler in
+`FertilityColocationCard.tsx` (lines 195–199) already does the right
+thing — it clears the store *and* resets both local draft states in
+the same synchronous handler:
 
-**Suggested fix:** in `FertilityColocationCard.tsx` Reset handler, wrap
-the store-clear in `flushSync` (already-imported in `react-dom`?), OR
-key the draft inputs by `JSON.stringify(zoneThresholds)` so they
-re-mount on Reset, OR explicitly set the local input draft state back
-to default values in the same handler that clears the store.
+```ts
+function handleResetThresholds(): void {
+  clearZoneThresholds(project.id);
+  setCloseDraft(String(DEFAULT_ZONE_THRESHOLDS.closeM));
+  setMediumDraft(String(DEFAULT_ZONE_THRESHOLDS.mediumM));
+}
+```
 
-**File:** `apps/web/src/v3/plan/cards/soil-fertility/FertilityColocationCard.tsx` (Reset handler near line 450).
+The "lag" observed in the smoke-test was a measurement artifact of
+reading the DOM *synchronously after* `preview_click` fires —
+before React commits the state updates. A real user clicking sees the
+commit cycle, not the immediate post-click DOM. **No fix needed.**
 
 ## 2. Soil module default sub-card is "Soil fertility designer", not "Fertility colocation"
 
@@ -56,5 +61,6 @@ module).
 
 ---
 
-**Triage:** both are polish, not correctness. Defer until a session is
-explicitly about Plan-stage navigation UX.
+**Triage:** Item 1 retracted (measurement artifact). Item 2 is polish,
+not correctness — defer until a session is explicitly about
+Plan-stage navigation UX.

@@ -9373,3 +9373,73 @@ the DesignElementLayers diff is bundled but logically independent):
 - **Recommended next.** Verify draw-commit persistence on a populated
   v3 project, then sweep the remaining `style.load`-only layers if the
   pattern proves out.
+
+## 2026-05-12 — Atlas — PrayerZoneReadinessCard joins the zoneThresholds family (`eeb76133`)
+
+- **Goal.** Pick the next zoneThresholds migration target after
+  ContemplationZonesCard, then make the edit.
+- **Survey.** Grepped `apps/web/src/v3/plan/cards/` (27 .tsx files) for
+  hard-coded `_M = \d+` constants. Honest finding: none of them are
+  natural zone-walk candidates — most are SVG layout numbers (`VB_W`,
+  `RING_SPACING`), sub-domain physics (acoustic `REACH_M=200`, density
+  `DENSITY_KG_PER_M3=200`), sector half-widths in **degrees**, or
+  machinery clearance widths. The "walking-distance / steward-reach"
+  semantic lives in `features/`, not `v3/plan/cards/`. Extended the
+  grep to `features/` — rich harvest including `PrayerZoneReadinessCard`
+  (`NEARBY_M=60`, `WUDU_WALK_M=35`), `QuietCirculationRouteCard`
+  (tiered `NOISY_NEAR_M / COMPROMISED_M / QUIET_M`), and
+  `PlantingToolDashboard` (8 tiered good/caution constants).
+- **Pick.** `PrayerZoneReadinessCard.tsx`. Three reasons: (1) it is a
+  spiritual-readiness sibling of the already-migrated
+  `SpiritualCommunalCard` — `WUDU_WALK_M=35` and
+  `ADJACENCY_THRESHOLD_M = getZoneThresholds(project).mediumM` encode
+  the same intuition with different magnitudes, so two cards in the
+  same family currently disagree; (2) scoped — three constants in one
+  file, one mount surface; (3) the card already encodes a 2-tier walk
+  hierarchy (`WUDU_WALK < NEARBY`) that mirrors `closeM < mediumM`
+  exactly.
+- **Mapping.** `WUDU_WALK_M` (was 35) → `closeM` (default 25, tighter
+  by 10 m — comment said "tighter (ablution before prayer)" and Zone-1
+  is the daily-repetition reach). `NEARBY_M` (was 60) → `mediumM`
+  (default 75, looser by 15 m — comment said "comfortable indoor-shoes
+  walk" and SpiritualCommunalCard already uses `mediumM` for the
+  bathhouse→prayer adjacency). `LOUD_BUFFER_M=30` and
+  `LIVESTOCK_BUFFER_M` left literal — different domains (acoustic
+  setback / regulatory purity buffer, not steward-walk).
+- **Edit.** Added `getZoneThresholds` import; replaced the two module
+  constants with an explanatory block comment; added a single
+  destructuring line at the top of the component body
+  (`const { closeM: WUDU_WALK_M, mediumM: NEARBY_M } = getZoneThresholds(project);`)
+  so all 8 downstream usages stay untouched; added the two values to
+  the `readiness` useMemo dep array; updated the file's top docstring
+  to point at `project.zoneThresholds.{closeM,mediumM}`. Since the
+  component already receives `project: LocalProject` as a prop, no
+  store lookup or detached-preview fallback was needed — cleaner than
+  the ContemplationZonesCard migration.
+- **Honest behavior change.** At defaults: wudu check tightens (35→25
+  m); prayer-space check loosens (60→75 m). Both now tunable via the
+  `FertilityColocationCard` "Tune zones (advanced)" disclosure, in
+  lockstep with the rest of the family.
+- **Verification.** `npx tsc --noEmit` on `apps/web` → exit 0.
+- **Bonus correction.** While scoping a "fix" for item #1 of
+  `tasks/zonethresholds-tightening-2026-05-12.md` (the "Reset click →
+  optical lag" smoke-test finding), I re-read the FertilityColocation
+  Reset handler (lines 195–199) and found it already does the right
+  thing — it clears the store *and* resets both local draft states in
+  the same synchronous handler. The "~1-tick lag" was a measurement
+  artifact of reading the DOM immediately after `preview_click` fires,
+  before React commits state. Retracted item #1 in the backlog rather
+  than fixing working code.
+- **zoneThresholds family roster (5 cards).** FertilityColocationCard
+  (controller), SpiritualCommunalCard, ArrivalSequenceDesignCard,
+  ContemplationZonesCard, **PrayerZoneReadinessCard** (new). Five
+  cards, one tunable.
+- **Commit shape.** Atlas migration landed on `feat/atlas-permaculture`
+  bundled into commit `eeb76133` alongside an unrelated 68-file
+  `@ogden/shared` Structure-type retarget refactor.
+- **Recommended next.** Either (a) keep migrating the spiritual-walk
+  family — `QuietCirculationRouteCard` (`NOISY_NEAR_M=10`,
+  `COMPROMISED_M=25`, `QUIET_M=50`) is a tidy 3-bucket fit, or (b)
+  take on the bigger `PlantingToolDashboard` migration (8 tiered
+  good/caution constants — closeM/mediumM × 4 supply types: nursery,
+  compost, irrigation, harvest).
