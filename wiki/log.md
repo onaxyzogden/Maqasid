@@ -9832,3 +9832,101 @@ same-category tree's drip line. A toast reports
 steward's hand, then either (a) Rec #5 Substitution calculator (last P2
 on the Permaculture-alignment backlog) or (b) Rec #1 Needs & Yields /
 Rec #2 Temporal slider (the two open P0s).
+
+---
+
+## 2026-05-13 — Atlas Plan Rec #5 v1 (Material substitution calculator)
+
+**Objective:** Ship Rec #5 of the Permaculture Scholar review
+2026-04-28 (the last P2 in `tasks/permaculture-alignment-backlog.md`).
+Surface biological alternatives for each conventional infrastructure
+cost line item; let the steward toggle the substitution write-through
+to the financial model so total investment / cashflow / break-even /
+mission score recompute live.
+
+**Scholar's framing (2026-04-28):** "Permaculture prioritizes using
+local, natural materials and replacing imported hardware with living
+systems, such as growing trees specifically to serve as living fence
+posts." Holmgren P5 — Use & value renewable resources & services;
+P9 — Use small & slow solutions.
+
+**Architecture — write-through, zero engine changes.** The financial
+engine already exposes the exact primitive needed: `setCostOverride`
+on `financialStore` plus `applyOverrides` inside `costEngine.ts`
+(`useFinancialModel.ts` calls it at line 131). So applying a
+substitution is *writing a scaled `CostRange` into
+`costOverrides[itemId]`*; the recompute orchestration takes care of
+itself. The one tiny addition: a `clearCostOverride(itemId)` action
+(per-item clear vs. the existing bulk `clearOverrides()`).
+
+**Catalog discipline.** 8 cited pairs, each anchored to a real
+bibliographic source — no placeholder rows:
+
+| # | Original | Alternative | Source |
+|---|---|---|---|
+| 1 | Woven-wire fence | Hawthorn/blackthorn hedge | Mollison Designer's Manual pp. 84–86; Crawford 2010 p. 132 |
+| 2 | Post-wire perimeter | Multi-row shelterbelt | Mollison p. 86; Woodland Trust 2019 |
+| 3 | Pedestrian / service walkway | Wood-chip path + groundcover | Holzer 2011 p. 102; Stamets 2005 pp. 195–198 |
+| 4 | Farm lane (compacted) | Keyline native-grass track | Yeomans 1981; Mollison ch. 7 |
+| 5 | Garden bed (plastic mulch) | Comfrey chop-and-drop | Coleman 2018 pp. 142–146; Bowles et al. *Agronomy Journal* 109(4) 2017 |
+| 6 | Row crop (synthetic N) | N-fixing cover crop rotation | Drinkwater et al. *Nature* 396 (1998); Coleman ch. 8 |
+| 7 | Manufactured windbreak | NRCS-380 living shelterbelt | USDA NRCS CPS-380 (2010 baseline) |
+| 8 | Concrete water tank | Earthen pond + roof catchment | Mollison ch. 7; Lancaster vol. 2 (2008) ch. 4 |
+
+**Files (created):**
+- `apps/web/src/v3/plan/cards/phasing-budgeting/substitutionCatalog.ts` —
+  the 8 cited entries, `Citation`/`Substitution` types, matcher
+  helpers (`matchSubstitution`, `appliedCostRange`). `costMultiplier`
+  is fractional `CostRange` so the alternative scales with whatever
+  the steward draws.
+- `apps/web/src/v3/plan/cards/phasing-budgeting/MaterialSubstitutionsCard.tsx`
+  — readout. Pulls `useFinancialModel(projectId).costLineItems`,
+  builds a `sourceId → primitive` map across paddocks / paths /
+  utilities / crops, resolves the catalog match, renders one row per
+  substitutable item with toggle, citation tags, principle tags, and
+  applied-savings chip. Site rollup carries substitutable / applied
+  counts plus cost savings, pending establishment-months, and
+  pending mission-uplift.
+
+**Files (edited):**
+- `apps/web/src/store/financialStore.ts` — added `clearCostOverride(itemId)`
+  action + type entry; keeps bulk `clearOverrides()` intact.
+- `apps/web/src/v3/plan/types.ts` — appended `Material substitutions`
+  (sectionId `plan-material-substitutions`) to `MODULE_CARDS['phasing-budgeting']`.
+- `apps/web/src/v3/plan/PlanModuleSlideUp.tsx` — lazy import +
+  switch case.
+
+**v1 informational-only axes:** establishment-months (years-to-function
+delta) and mission-uplift are displayed per-row and summed in the
+rollup but do not yet feed into `cashflowEngine.ts` phase scheduling
+or `missionScoring.ts`. Lede explicitly flags this as v2.
+
+**Verification:**
+- `npx tsc --noEmit` (with `--max-old-space-size=8192`) clean modulo
+  the pre-existing `DesignElementLayers.tsx:433` MultiPoint width
+  error.
+- Card renders the empty-state when the project has no cost line
+  items; switches to the per-item audit once paddocks / paths /
+  utilities / crops are drawn.
+- Toggle wiring: `setCostOverride(itemId, appliedCostRange)` ON;
+  `clearCostOverride(itemId)` OFF. The `applyOverrides` call inside
+  `useFinancialModel` re-merges on the next render so total
+  investment shifts immediately.
+
+**Deferred to v2 (in card lede + backlog file):**
+- Establishment-time → cashflow phase-shift wiring.
+- Mission-uplift → `missionScoring.ts` wiring (decision on which
+  mission component receives the bump is v2).
+- Catalog expansion past 8 pairs to the rec's 10–15 target.
+- Per-region cost-multiplier split by `CostRegion`.
+- Map-canvas affordance (green tint on substituted elements).
+
+**Branch:** `feat/atlas-permaculture` (cut from `feat/atlas-3.0`,
+2026-05-12). This closes the P2 tier of the Permaculture-alignment
+backlog. Remaining work: the two open P0s — Rec #1 (Needs & Yields
+dependency graph) and Rec #2 (Temporal slider) — and the Scholar
+re-evaluation cadence once #1 + #2 ship.
+
+**Recommended next:** either (a) Rec #1 / Rec #2 (the two open P0s)
+or (b) the Scholar re-evaluation pass against the updated Atlas
+description once P0s land.
