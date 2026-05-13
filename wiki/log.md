@@ -3,6 +3,59 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — useStructureStore facade retired (Phases 4–5)
+
+**Objective:** Complete the BE V2 unification per the 2026-05-10 ADR
+by retiring the V1 `useStructureStore` facade. Phases 1–3 (narrow
+`ProjectedStructure.type` to `StructureType`, collapse `Structure` to
+a `ProjectedStructure` alias, add Structure selector-library helpers)
+landed earlier in commit `51df97b0`. This session covered the
+148-file consumer sweep + facade body deletion.
+
+**Scope discovery:** initial estimate was ~70 consumer sites; actual
+was 148 files (483 occurrences across `useStructureStore` +
+`StructureType`). Sites fell into three patterns: ~125 read-only
+subscribers, ~15 writer calls, ~5 `placementMode` UI-state readers,
+plus a `useStructureStore.subscribe` in `syncService.ts`.
+
+**Commits (all on `feat/atlas-permaculture`):**
+
+| Phase | Commit | Files | Description |
+|---|---|---|---|
+| 4-A | `084afa89` | 138 | Pattern A — read-only subscribers → `useAllStructures()` / `getAllStructures()`. syncService subscribe path migrated to `useBuiltEnvironmentStoreV2.subscribe`. |
+| 4-B | `147948a2` | 19  | Pattern B — writers (`addStructure`/`updateStructure`/`removeStructure`) migrated. Hook-bound action subscribers folded into module-level imports. `cascadeClone` / `cascadeDelete` `setState` pokes replaced with action calls. |
+| 4-C | `5629c722` | 3   | Extracted `placementMode` UI state into a new `structurePlacementStore.ts` (Zustand, no persist). Migrated DesignToolsPanel + MapCanvas. |
+| 5   | `b57c33ed` | 3   | Facade body deleted: `structureStore.ts` slimmed to a type-only re-export of `Structure` + `StructureType` from `@ogden/shared`. Adapter test's facade describe block removed; syncService.test.ts mock retargeted at the V2 store. |
+
+**Long-term decisions made under autonomy:**
+
+1. Added `useAllStructures()` / `getAllStructures()` helpers (sibling to
+   `*ForProject`) rather than collapsing every call site to the
+   project-filtered form. Preserved compound predicates
+   (`GUEST_FACING.has(s.type)`, …) without per-site analysis.
+2. Migrated `syncService.subscribe` directly to
+   `useBuiltEnvironmentStoreV2` rather than deferring — Phase 5 was
+   going to delete the facade either way.
+3. Slimmed `structureStore.ts` to a type-only module (~65 type
+   imports still point at it) instead of retargeting all consumers at
+   `@ogden/shared` in this session — same pattern used for
+   `designElementsStore.ts` on the same day; cheap follow-up later.
+
+**Verification per phase:**
+- `tsc --noEmit` (apps/web): clean after every phase.
+- `vitest run builtEnvironmentAdapters.test.ts`: 13 selector + 9
+  observe-facade tests = 22/22 passing (down from 18+ after Phase 5
+  retired the V1 facade describe block).
+- `vitest run syncService.test.ts`: 9/9 passing after mock retarget.
+
+**Carry-over (out of scope):**
+- Retarget the ~65 type-only imports from `structureStore.js` to
+  `@ogden/shared` and delete `structureStore.ts` outright.
+- Renaming the snake_case `StructureType` members to kebab-case kinds
+  (separate domain decision).
+- Dev-preview smoke-test of Plan canvas (draw cabin, drag vertex,
+  edit via floater).
+
 ## [2026-05-12] session | Atlas — ContemplationZonesCard joins the zoneThresholds family
 
 **Objective:** Migrate the fourth Plan-stage card with a hard-coded
