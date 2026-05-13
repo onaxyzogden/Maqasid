@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — opt SpiritualCommunal + ArrivalSequence cards into `zoneThresholds`
+
+**Objective:** Per the prior session's deferred sweep, survey other readouts hardcoding reach distances and migrate the qualifying ones to the canonical `getZoneThresholds(project)` selector — so the new project-level field earns its keep beyond a single reader and future cards have precedent for both `closeM` (Zone-1) and `mediumM` (Zone-2) opt-ins.
+
+**Commits (feat/atlas-permaculture):**
+- `eaf240d1` atlas(plan): opt SpiritualCommunal + ArrivalSequence cards into zoneThresholds.
+
+**SpiritualCommunalCard** (`features/structures/SpiritualCommunalCard.tsx`): `ADJACENCY_THRESHOLD_M = 50` (bathhouse-to-prayer-space "comfortable wudu-walk" advisory) now binds to `getZoneThresholds(project).mediumM`. Direct Zone-2 framing — the inline comment is updated to name the connection explicitly. Card already took `project: LocalProject`, so the migration was a one-line constant rewrite plus the import.
+
+**ArrivalSequenceDesignCard** (`features/access/ArrivalSequenceDesignCard.tsx`): `MILESTONE_RADIUS_M = 30` (guest-facing structures counted as reveal milestones along arrival paths) now binds to `getZoneThresholds(project).closeM` — Zone-1 framing. The card takes `projectId: string`, so the project gets resolved inside the component via `useProjectStore((s) => s.projects.find((p) => p.id === projectId))`; if the project is somehow missing the readout falls back to `DEFAULT_ZONE_THRESHOLDS.closeM` rather than crashing. `milestoneRadiusM` is added to the `rows` useMemo dep list and substituted into the lede, the linear-march caution copy, and the assumption footnote (which now names the framing: "project Zone-1 reach").
+
+**Survey verdict:** Of the candidates grepped for `< 25` / `<= 75` / similar near `haversine` callsites, only these two had genuine Zone-1 / Zone-2 semantics. ArrivalSequenceDesignCard's tier rule `lengthM > 100 && straightness > 0.85` stays hardcoded (those are march-detection thresholds, not zone reach). Other distance constants in the codebase (e.g., noise sector radii, sun-shadow ray lengths) are physical-process boundaries, not steward-walking-radius boundaries — out of scope.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean (exit 0).
+
+---
+
 ## [2026-05-12] session | Atlas — per-project zone thresholds + FertilityColocation tune-zones UI
 
 **Objective:** Make the FertilityColocationCard's Zone-1 / Zone-2 bucket boundaries tunable per project (deferred twice in prior debriefs), framed as project-level design metadata rather than a card-level UI preference. Zone reach is a property of the land + the steward's body + the cart they actually use — a steep hillside has a different Zone-1 than flat ground.
