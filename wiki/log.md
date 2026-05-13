@@ -9478,3 +9478,53 @@ the DesignElementLayers diff is bundled but logically independent):
   before edits: are `_GOOD_M` and `_CAUTION_M` the same closeM/mediumM
   bands the family uses, or is each supply type its own bespoke
   reach? Likely the former, but worth confirming before the edit.
+
+## 2026-05-12 — Atlas — zoneThresholds family declared complete; Soil module default sub-card flipped
+
+- **Family declared complete at 6 cards.** Surveyed
+  `PlantingToolDashboard.tsx` in plan mode: its 8 tiered
+  `_GOOD_M` / `_CAUTION_M` constants are tiered by **load class**
+  (nursery tray-carry 150/400, compost wheelbarrow 100/300,
+  irrigation pipe-run 80/250, harvest truck/wagon 50/150), not by
+  steward walk. None align to closeM=25/mediumM=75 even at the order
+  of magnitude; the author's own comments document the load-class
+  rationale. Domain mismatch — same reason `NOISY_NEAR_M`,
+  `LOUD_BUFFER_M`, and `LIVESTOCK_BUFFER_M` stay literal. Skipped.
+  Family roster: FertilityColocationCard (controller),
+  SpiritualCommunalCard, ArrivalSequenceDesignCard,
+  ContemplationZonesCard, PrayerZoneReadinessCard,
+  QuietCirculationRouteCard. **Done.**
+- **Pivot.** Item #2 from
+  `tasks/zonethresholds-tightening-2026-05-12.md` — Soil tile
+  cold-opens onto **Soil fertility designer** (a placement surface)
+  instead of **Fertility colocation** (the readout that hosts the
+  Tune-zones disclosure now governing the whole family). Every
+  consumer card points stewards back to FertilityColocation, but the
+  fastest path to reach it required tabbing through 6 other sub-cards.
+- **Investigation.** The shared `ModuleSlideUp.tsx` (lines 57–69)
+  hard-resets `activeSectionId` to `cards[0]?.sectionId` on every
+  reopen and cards-identity change — there's no per-module override
+  hook. `handleSelectModule` in PlanLayout always closes the
+  slide-up on navigation, so re-opens always re-enter the
+  reset-to-cards[0] path. PlanChecklistAside guidance cards select
+  *modules*, not sub-cards. The fix surface is just `cards[0]`.
+- **Fix.** Reordered `MODULE_CARDS['soil-fertility']` in
+  `apps/web/src/v3/plan/types.ts` so `'Fertility colocation'` is
+  index 0; designer drops to index 1. Tab strip visible order
+  becomes colocation → designer → vectors → closed-loop → baseline
+  → greens & browns → soil-building. Designer is one click away;
+  the Tune-zones disclosure now opens by default.
+- **Why option C over (a) per-module last-viewed memory or (b)
+  rewrite `handleSelectModule`.** (a) touches a 3-stage shared
+  component (Plan/Act/Observe) for a small UX nudge —
+  over-engineered. (b) doesn't change the cold-open default that the
+  smoke-test actually flagged. (c) is one entry-move in one file,
+  surgical, no API surface changes.
+- **Verification.** `npx tsc --noEmit` on `apps/web` → exit 0.
+- **Closes.** Item #2 in
+  `tasks/zonethresholds-tightening-2026-05-12.md`. Both backlog
+  items now resolved (item #1 retracted earlier as a measurement
+  artifact).
+- **Recommended next.** Open. The Plan-stage zoneThresholds arc and
+  its polish backlog are both closed. Pick from the broader
+  permaculture roadmap.
