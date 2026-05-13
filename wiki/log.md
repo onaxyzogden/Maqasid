@@ -48,9 +48,16 @@ plus a `useStructureStore.subscribe` in `syncService.ts`.
   retired the V1 facade describe block).
 - `vitest run syncService.test.ts`: 9/9 passing after mock retarget.
 
-**Carry-over (out of scope):**
-- Retarget the ~65 type-only imports from `structureStore.js` to
-  `@ogden/shared` and delete `structureStore.ts` outright.
+**Follow-up (same day, commit `eeb76133`):** carry-over closed. 68 files
+retargeted from `'.../structureStore.js'` → `'@ogden/shared'` (using
+`type { ProjectedStructure as Structure, StructureType }`), and
+`apps/web/src/store/structureStore.ts` deleted outright. The
+`useStructureStore` retirement is now complete end-to-end — zero
+production references remain (one docstring comment in
+`harvestLogStore.ts:35` left intact). Verified `tsc --noEmit` clean,
+adapter tests 13/13.
+
+**Carry-over (still out of scope):**
 - Renaming the snake_case `StructureType` members to kebab-case kinds
   (separate domain decision).
 - Dev-preview smoke-test of Plan canvas (draw cabin, drag vertex,
