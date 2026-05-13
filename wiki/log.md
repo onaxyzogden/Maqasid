@@ -3,6 +3,60 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-12] session | Atlas — seedFertilitySample dev helper for zoneThresholds smoke-test
+
+**Objective:** Unblock manual smoke-testing of the FertilityColocation
+Tune-zones disclosure + cascading SpiritualCommunal / ArrivalSequence
+behaviour. The builtin "351 House — Atlas Sample" ships with the PLAN
+stage empty by design (per `builtinSampleObserveData.ts:4-9`), and the
+`<details>` disclosure is gated behind `!emptyAll` — so without seeded
+data the cascade UX can't be exercised.
+
+**Approach:** dev-only console helper, no UI surface. Matches the
+existing `__ogden*` debug-handle pattern from `projectStore.ts:706` and
+`zoneStore.ts:235`.
+
+**Files:**
+- Added `apps/web/src/dev/seedFertilitySample.ts` (~310 lines). Exports
+  `seedFertilitySample(projectId?)` and attaches
+  `window.__ogdenSeedFertilitySample` on module load. Drops a
+  deterministic 12-entity payload (4 structures, 3 fertility units,
+  3 guilds, 2 paths) anchored at the parcel centroid via
+  `turf.centroid` with cosine-corrected metre offsets (matches the
+  inline helper in `SpiritualCommunalCard.tsx:90-98`). Idempotent —
+  refuses with `{ ok: false, reason: 'project already populated...' }`
+  if any entity exists in any of the four stores for the target id.
+- Edited `apps/web/src/main.tsx` — one side-effect import line.
+
+**Entity layout (relative to parcel centroid, metres N/E):**
+- Structures: prayer_space (0,0); bathhouse (0,+60); pavilion (-50,0);
+  lookout (-80,+30).
+- Fertility: composter (+15,0); worm_bin (+40,+30); hugelkultur (+90,0).
+- Guilds: tomato-basil (+10,0); stone-fruit (+20,-20); berry-hedgerow
+  (+100,0).
+- Paths: arrival_sequence "Main approach" (-100,-30 → -40,0 → -10,0);
+  pedestrian_path "Kitchen-garden loop" (+5,+5 → +20,+20).
+
+**Cascade the seed enables:**
+- Drop `mediumM` 75→50: bathhouse (60 m from prayer_space) falls
+  beyond Zone-2 reach → SpiritualCommunal wudu-walk advisory fires.
+- Raise `closeM` 25→50: pavilion + lookout both come into arrival
+  milestone range → tier shifts toward curated.
+- Reset round-trip restores defaults.
+
+**Verification:** `tsc --noEmit` clean. Preview smoke-test deferred to
+the next session — the helper is a function reference, no auto-run.
+
+**Commit:** `b3baddb0` on `feat/atlas-permaculture` — pushed.
+
+**Deferred:**
+- URL-param trigger (`?seedSample=fertility`) — console handle suffices.
+- `clearFertilitySample` complement — entity stores already have
+  remove* actions; a console one-liner suffices.
+- Wiring into automated tests — manual smoke-test aid, not a fixture.
+
+---
+
 ## [2026-05-12] session | Atlas — narrowed ProjectedStructure.type and added structure selectors
 
 **Objective:** Begin retiring the V1 `useStructureStore` facade (the last
