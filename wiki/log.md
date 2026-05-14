@@ -3,6 +3,47 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-14] session | Atlas — Goal Compass: project-type templates + Act calendar auto-schedule
+
+**Objective:** Two same-day follow-ups to the shipped 4-tab Goal
+Compass: (1) replace the blank-slate goal-tree editor with project-type
+templates to cut decision fatigue, and (2) auto-schedule generated
+tasks onto the Act calendar with role-based access tags so stewards
+see "this week's work" the moment a proposal is generated.
+
+**Approach:**
+(1) `goalTreeTemplates.ts` — one `GoalTree` per `PlanProjectTypeKey`
+(6 archetypes). Homestead reuses existing seed; the other five
+hand-authored against Mollison/Yeomans canon.
+`goalTreeStore.ensureDefault` now takes `projectType`; new
+`switchTemplate` action swaps the tree after a UI confirm.
+`GoalTreeTab` default UI exposes only `target` / `deadlineYear`
+edits; description, add/remove, and sub-goal-title edits live behind
+an Advanced `<details>` collapse.
+(2) `PhaseTask` extended with `scheduledStart` / `scheduledEnd` /
+`roleAccess`; `LocalProject` gains `startDate`. New
+`scheduleTasksToCalendar(phases, tasks, projectStartDate)` distributes
+tasks across 90-day season windows (year offset = `phase.order - 1`,
+even spread within each (phase, season) bucket, duration =
+`ceil(laborHrs / 8)` days). Every task tagged with all four
+`ProjectRole` values for forward-compat. New 5th tab `DevelopPlanTab`
+carries the start-date input and a `Re-schedule tasks` button.
+`useEventAggregator` adds a 6th source `'phaseTask'` (label "Plan
+tasks") so Act → Schedule → Event calendar surfaces the proposal.
+
+**Verification:** `tsc --noEmit` exits 0. On the Moontrance Creek
+fixture, Generate proposal populates 13 tasks across 6 phases; every
+task has `scheduledStart`, `scheduledEnd`, and
+`roleAccess: ['owner','designer','reviewer','viewer']`. Tasks
+distribute across each season window (Mar 1 / Mar 23 / Apr 15 /
+May 8 within spring Year 4). Act → Schedule → Event calendar's Mar
+1, 2026 cell renders `Parcel assessment & base map · Climate &
+assessment · 60h · owner/designer/reviewer/viewer · 9:00 AM`.
+
+**Decision:** [2026-05-14 — Goal Compass templates + scheduling](decisions/2026-05-14-atlas-goal-compass-templates-and-scheduling.md)
+
+---
+
 ## [2026-05-14] session | Atlas — Goal Compass: goal-driven plan generation (12th Plan module)
 
 **Objective:** Stewards type phasing rows, labor hours, and dollar
