@@ -3,6 +3,67 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-14] session | Atlas — Goal Compass: goal-driven plan generation (12th Plan module)
+
+**Objective:** Stewards type phasing rows, labor hours, and dollar
+costs by hand for canonical interventions (swales, ponds, food
+forests, paddock rotation). The knowledge already lives in
+Mollison/Yeomans/Crawford/Holzer. Let stewards declare measurable
+success criteria for a parcel and have Atlas propose a phased,
+costed, sequenced plan.
+
+**Approach:** New `'goal-compass'` PlanModule (4 tabs: Goal tree /
+Site profile / Generated plan / Criteria forecast) backed by:
+(1) a curated typed `interventionCatalog.ts` with MILOS-grade
+`sources[]` per entry, (2) a deterministic greedy-topological
+sequencing engine respecting Yeomans phase order + acreage budget +
+household labor budget, (3) a forecast roll-up at year buckets
+{1,3,5,7,10,20} with confidence attenuator driven by manual-facet
+density, (4) an Impact Preview that re-runs the engine with a
+candidate edit and shows forecast deltas + cascading removals
+before commit. Engine output materialises through
+`replaceGoalCompassRows()` into the existing `phaseStore` (extended
+with optional `generatedFromIntervention` / `catalogVersion` /
+`status` provenance fields, backward-compatible — user-authored
+rows have `status === undefined` and are never touched).
+
+**Verification:** Live in-app pass on 10ac/slope-4%/rainfed fixture
+with 2-adult household: 13 generated rows across 6 Yeomans phases
+(Climate / Water / Access / Trees / Buildings / Soil) — exceeds
+plan target of ≥12 rows across ≥5 phases. Same rows visible in
+Phasing & Budgeting matrix (Climate 60 h, Water 126 h = swale 6 +
+pond 80 + catchment 40, Access 8 h). Impact Preview on swale
+removal: ↓ 2 pct water capture, ↑ 18 pct protein at Y10. Criteria
+forecast: 11 criteria × 6 buckets with by-deadline ✓/✗ pills, "low"
+confidence at 100% manual facets. Fixed `SiteProfileTab` infinite
+render mid-verification (counts selector returned fresh object →
+inlined). `tsc --noEmit` clean; 47 vitest files / 710 tests pass.
+
+**Files touched:** `apps/web/src/v3/plan/types.ts` +
+`PlanModuleSlideUp.tsx` + `PlanViewContext.tsx` +
+`PlanChecklistAside.tsx` + `data/planModulePalette.ts` +
+`data/planModuleArtifactPresence.ts` (module registration). New:
+`data/goalCompassTypes.ts`, `data/interventionCatalog.ts`,
+`data/homesteadGoalTree.ts`,
+`goal-compass/engine/{siteRequirementPredicates,sequencingEngine,criteriaForecast,impactPreview}.ts`,
+`cards/goal-compass/{GoalTreeTab,SiteProfileTab,GeneratedPlanTab,CriteriaForecastTab}.tsx`,
+`store/{goalTreeStore,siteProfileStore}.ts`. Modified:
+`cards/phasing-budgeting/phaseStore.ts` (provenance fields +
+`replaceGoalCompassRows` / `overrideGoalCompassTask`).
+
+**Deferred:** Auto-placed geometry on canvas, right-rail progress
+wheel, non-homestead archetypes (regen farm / retreat / education
+/ conservation / multi-enterprise), backend catalog + scholar
+council workflow, LLM goal-tree extraction, constraint-satisfaction
+solver, override confirm path (panel exists; Confirm button is a
+placeholder pending phaseStore wire-up — `overrideGoalCompassTask`
+already exists).
+
+**Decision:** [[2026-05-14-atlas-goal-compass]]
+**Entity:** [[goal-compass]]
+
+---
+
 ## [2026-05-14] session | Atlas — Live area / length readout while drawing polygons + polylines
 
 **Objective:** Steward draws an orchard or paddock and sees no
