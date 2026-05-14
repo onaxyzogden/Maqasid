@@ -5,6 +5,7 @@ created: 2026-04-09
 updated: 2026-05-08
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
+updated: 2026-05-14
 ---
 
 # OLOS
@@ -26,6 +27,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 ## Current Status
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
+
+**2026-05-14:** Live area / length readout while drawing polygons + polylines. `useMapboxDrawTool` extended with `liveArea` + `liveLength` (via `draw.render` subscription + `requestAnimationFrame` coalescing); two new shared presentational components (`DrawAreaReadout`, `DrawLengthReadout`) accept caller CSS-module classnames so they slot into any tool's popover. Wired into 11 polygon tools (Pasture/ConventionalCrop/EcologyZone/HazardZone/FrostPocket/Septic/Building + BeV2ExistingTool polygon kinds + WaterCatchment/Paddock/CropArea/ZonePolygon) and 16 polyline tools (AccessRoad/BuriedUtility/ContourLine/DrainageLine/ExistingDriveway/Fence/PowerLine/Watercourse + BeV2ExistingTool line kinds + FenceLine/FlowConnector/MonitoringTransect/PathLine/UtilityRun/WaterSwale). `useDesignElementDrawTool` propagates both values; `PlanDesignElementHost` + `PlantSystemsDesignElementHost` surface the right chip for orchards / silvopasture / pasture-mix (area) and hedgerows / paths / roads / swales (length). `BoundaryTool` keeps own MapboxDraw instance (seeded `direct_select` edit path) with the same render pump inlined. Formatting mirrors AreaTool / DistanceTool (m² → ha + ac at 10 000 m²; m → km at 1000 m). Typecheck clean. ADR: [[2026-05-14-atlas-draw-live-area-length-readout]].
 
 **2026-05-08:** New OBSERVE module **Built Environment** shipped (8 tools — Building/Well/Septic/PowerLine/BuriedUtility/Fence/Gate/ExistingDriveway) with its own namespace store (`builtEnvironmentStore`, persist+temporal), `MatrixToggleKey` (`builtEnvironment`, default off, persist v9 migrate), legend row, render layers (palette gated `toggleKey: 'builtEnvironment'`), TOOL_GROUPS palette, ModuleSlideUp panel, and MODULE_GUIDANCE/dot entries. Module slotted between `human-context` and `macroclimate-hazards`. Same session: **Option B** wind-sector visual parity — steward-drawn wind sectors now scale radius by `SectorIntensity` and emit a sibling Point feature mid-arc carrying `"${compass} · ${intensity}"` via a new symbol layer (geometry-type filtered); the climatology-driven `WindSectorsOverlay` is removed from Observe and now lives only in Plan/Act. `ObserveModuleBar.module.css` `.tiles` grid widened to `repeat(7, 1fr)` so all seven Observe modules fit a single row at full width. Typecheck clean.
 

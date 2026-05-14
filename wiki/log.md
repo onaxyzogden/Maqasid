@@ -3,6 +3,56 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-14] session | Atlas — Live area / length readout while drawing polygons + polylines
+
+**Objective:** Steward draws an orchard or paddock and sees no
+spatial feedback until the polygon closes; same for swales, fences,
+contour lines. Wire a live readout that updates with every vertex
+click and every mouse-move rubber-band tick across every polygon /
+line annotation tool in Observe + Plan.
+
+**Approach:** Centralised the geometry pump in
+`useMapboxDrawTool` — subscribed to MapboxDraw's `draw.render`
+event (fires after every click and every cursor move), scanned the
+in-progress feature, computed `turf.area` or `turf.length`, and
+coalesced setState through `requestAnimationFrame` so the ~60 Hz
+firehose during mouse-move doesn't thrash React. Hook now returns
+`{ geometry, liveArea, liveLength }`. Two new shared
+presentational components (`DrawAreaReadout`, `DrawLengthReadout`)
+accept caller-supplied CSS-module classnames so they slot into any
+tool's popover without owning their own styles. Formatting mirrors
+the existing `AreaTool` / `DistanceTool` rules: `> 10 000 m²` shows
+`X.XX ha (Y.YY ac)`, else `N m²`; `> 1000 m` shows `X.XX km`, else
+`N.N m`.
+
+Wired into 11 polygon tools (Pasture, ConventionalCrop, EcologyZone,
+HazardZone, FrostPocket, Septic, Building, BeV2ExistingTool polygon
+kinds, WaterCatchment, Paddock, CropArea, ZonePolygon) and 16
+polyline tools (AccessRoad, BuriedUtility, ContourLine,
+DrainageLine, ExistingDriveway, Fence, PowerLine, Watercourse,
+BeV2ExistingTool line kinds, FenceLine, FlowConnector,
+MonitoringTransect, PathLine, UtilityRun, WaterSwale). Also
+threaded through `useDesignElementDrawTool` so the
+PlanDesignElementHost / PlantSystemsDesignElementHost popovers
+surface the right chip for orchards / silvopasture / pasture-mix
+(area) and hedgerows / paths / roads / swales (length).
+
+`BoundaryTool` kept its own MapboxDraw instance (seeded
+`direct_select` edit path was too risky to refactor) and got the
+same `draw.render` + rAF + `turf.area` pump inlined; the
+post-completion display also adopted the new m² / ha / ac unit
+rule.
+
+**Verification:** `npx tsc --noEmit` clean (`NODE_OPTIONS=--max-old-space-size=8192`).
+No new runtime errors in preview console. Pre-existing
+DOM-nesting warnings in `ObserveModuleBar` unaffected. Screenshot
+verification skipped — preview screenshot tool timed out on the
+`/observe` route; flagged rather than assumed.
+
+**ADR:** [2026-05-14-atlas-draw-live-area-length-readout](decisions/2026-05-14-atlas-draw-live-area-length-readout.md)
+
+---
+
 ## [2026-05-13] session | Atlas — DiagnoseMap toolbar overlap fix + Steward/Household unification ADR addendum
 
 **Objective:** Resolve the overlap between the standalone "Place / Move
