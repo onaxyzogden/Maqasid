@@ -10566,3 +10566,42 @@ per-zone override, live regen, DB persistence, Voronoi subdivision).
   silvopastureHosts.ts, SilvopastureMemberOutline.tsx (new),
   VisionLayoutCanvas.tsx, inlineEditSchemas.ts, PlanDataLayers.tsx,
   PlanSelectionFloater.tsx
+
+## [2026-05-15] session | Atlas Observe: explicit Move mode + click-to-select-only
+
+- Completed: two-part fix to the "any feature drags anytime / first click
+  pops the editor" complaint. (1) **Explicit Move mode** — new ephemeral
+  `moveMode` on `observeSelectionStore` (+ `toggleMoveMode`/`setMoveMode`);
+  every selection mutator (`set`/`add`/`remove`/`toggle`/`clear`) resets
+  `moveMode:false`, so any selection change auto-disarms. A **Move** toggle
+  on `SelectionFloater` (single selection + editable-geometry kinds only,
+  `aria-pressed`, `btnActive` styling) is the only arm path.
+  `AnnotationDragHandler` bails unless `moveMode`;
+  `AnnotationVertexEditHandler` keeps `target` null unless `moveMode` so
+  MapboxDraw never mounts until armed. (2) **Click-to-select-only** — the
+  `ObserveAnnotationLayers` plain-click handler opens the editor only on a
+  *second* click of the already-sole-selected feature; shift-click multi-
+  toggle and dbl-click read-only panel unchanged. Reset-in-store-action is
+  the load-bearing choice — no click-handler caller changed and Move can't
+  persist across a selection change.
+- Gates: full-project `tsc --noEmit` at 8 GB heap (4 GB OOMs — env limit)
+  — zero errors in all five touched files; one iteration fixed a real
+  `noUncheckedIndexedAccess` miss (`!!single` guard). Pre-existing branch
+  errors (`ecologyZones`/`EcologyState`, `SuccessionStage`,
+  `dominantStage`, missing `EcologyZone` export) are unrelated
+  feat/atlas-permaculture WIP — out of scope, not committed.
+- Caveat: interactive click→select→Move→drag NOT verified — MapLibre
+  canvas not scriptable via preview a11y tools and `preview_screenshot`
+  unresponsive (30 s timeout). Flagged for manual confirmation rather
+  than claimed (per CLAUDE.md preview-verification rule).
+- Decisions: new [[2026-05-15-atlas-observe-explicit-move-mode]]
+- Deferred: manual in-browser confirmation (click selects, no popup;
+  re-click opens editor; Move arms drag; selecting another disarms);
+  "vertices-only" variant for lines/polygons (whole-body drag still
+  allowed when armed); the unrelated feat/atlas-permaculture
+  ecology/vegetation WIP in the same tree was deliberately NOT committed.
+- Pages touched: wiki/decisions/2026-05-15-atlas-observe-explicit-move-mode.md
+  (new), wiki/index.md, wiki/log.md; atlas (6 files):
+  store/observeSelectionStore.ts, SelectionFloater.tsx,
+  SelectionFloater.module.css, draw/AnnotationDragHandler.tsx,
+  draw/AnnotationVertexEditHandler.tsx, layers/ObserveAnnotationLayers.tsx
