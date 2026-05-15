@@ -157,6 +157,14 @@ export function lookupSubmodule(id) {
   return SUBMODULE_ENTRIES[id] || null;
 }
 
+// Persisted board id for a canonical submoduleId at a level, e.g.
+// getSubmoduleBoardId('faith-shahada', 'core') → 'faith_shahada_core'.
+// Matches the `tasks_${boardId}` localStorage suffix and project-store ids.
+export function getSubmoduleBoardId(submoduleId, level = 'core') {
+  const e = SUBMODULE_ENTRIES[submoduleId];
+  return e ? `${e.boardPrefix}_${e.pillarKey}_${level}` : null;
+}
+
 // Canonical submoduleIds for a top-level pillar (e.g., 'wealth' → all 4 Wealth
 // submodules), regardless of which ones happen to appear in a given node's
 // moduleGroup. Returns [] if the pillar isn't in the registry.
@@ -165,6 +173,18 @@ export function getPillarSubmoduleIds(pillarId) {
   const canonical = PILLAR_ALIASES[pillarId] || pillarId;
   const rows = PILLAR_SUBMODULES[canonical];
   return rows ? rows.map(([id]) => id) : [];
+}
+
+// Persisted board ids for a pillar at a given level, e.g.
+// getPillarBoardIds('faith', 'core') → ['faith_shahada_core', ...].
+// These match the localStorage key suffix `tasks_${boardId}` and the
+// project-store board ids, so progress can be read without mounting boards.
+export function getPillarBoardIds(pillarId, level = 'core') {
+  const canonical = PILLAR_ALIASES[pillarId] || pillarId;
+  const cfg = PILLAR_CONFIGS[canonical];
+  const rows = PILLAR_SUBMODULES[canonical];
+  if (!cfg || !rows) return [];
+  return rows.map(([, pillarKey]) => `${cfg.boardPrefix}_${pillarKey}_${level}`);
 }
 
 export function getSubmodulePillarColor(id) {

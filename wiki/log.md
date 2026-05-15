@@ -10605,3 +10605,54 @@ per-zone override, live regen, DB persistence, Voronoi subdivision).
   store/observeSelectionStore.ts, SelectionFloater.tsx,
   SelectionFloater.module.css, draw/AnnotationDragHandler.tsx,
   draw/AnnotationVertexEditHandler.tsx, layers/ObserveAnnotationLayers.tsx
+
+## [2026-05-15] session | MILOS — Fix dashboard MAQASID overview wheel showing 0%
+
+**Objective:** The dashboard MAQASID overview wheel did not reflect real
+user progress (showed 0% while FAITH pillar page showed real %).
+
+**Approach:** Three root causes. (1) `VITE_SIMULATE_PROGRESS=50` dev
+override masked everything — commented out. (2) Overview queried 7 pillar
+ids but no project has `moduleId === pillarId`. (3) Architectural: lazy
+`task-store.tasksByProject` only filled by per-board `loadTasks`; dashboard
+never mounts boards. Chosen fix (user: "best long-term option"): decouple
+overview from per-board mounting via a shared scoring module + a
+persisted-source hook.
+
+**Outcome:** New `src/data/task-progress.js` (single scoring source),
+`src/hooks/usePillarOverviewProgress.js` (reads in-memory else persisted
+`tasks_<boardId>`, avg of board pcts), `getPillarBoardIds` in
+submodule-registry, `useModuleProgress` refactored to import shared scorers
+(API unchanged). Verified: 62/62 tests, grounding gates pass, DOM check
+FAITH page 20% == dashboard center round(20/7)=3%.
+
+- Pages touched: wiki/decisions/2026-05-15-milos-dashboard-overview-progress-decoupling.md
+  (new), wiki/log.md; src: data/task-progress.js (new),
+  hooks/usePillarOverviewProgress.js (new), hooks/useModuleProgress.js,
+  data/submodule-registry.js, components/dashboard/MaqasidLevelOverview.jsx,
+  .env.local
+- Follow-up (not in scope): dashboard LevelNavigator pillar bars may share
+  the lazy-store root cause — verify separately.
+
+## [2026-05-15] follow-up | MILOS — Dashboard LevelNavigator bars → per-submodule progress color
+
+**Objective:** Verify whether the dashboard LevelNavigator pillar bars
+shared the wheel's lazy-store root cause; if so, route them through the
+decoupled progress source.
+
+**Outcome:** They did NOT share the cause — the dashboard passes a static
+synthetic `SUBMODULE_TASKS` as `pillarTasks`, short-circuiting the wrapper's
+task loading; bars were by-design pillar-accent navigation chips. Per user
+decision, made each submodule chip color reflect that submodule's
+completion via a decoupled read (no lazy-store re-coupling). New
+`boardStatusColor` (task-progress.js), `getSubmoduleBoardId`
+(submodule-registry.js), shared `readBoardPct` + `useSubmoduleProgress`
+(usePillarOverviewProgress.js), memoized `taskColorFn`
+(MaqasidLevelOverview.jsx). Submodule-nav clicks unchanged. Verified live:
+Shahada subseg green (#22c55e) when complete, siblings faint; level switch
+recomputes; faith-core regression clean; 62/62 tests, grounding gates pass.
+
+- Pages touched: wiki/decisions/2026-05-15-milos-dashboard-overview-progress-decoupling.md
+  (updated), wiki/log.md; src: data/task-progress.js,
+  data/submodule-registry.js, hooks/usePillarOverviewProgress.js,
+  components/dashboard/MaqasidLevelOverview.jsx
