@@ -10444,3 +10444,29 @@ shims. Modified `apps/web/src/data/guildPresets.ts` +
 **Deferred.** Phase D for the remaining ~14 consumer files and Phase E
 (shim deletion) — both safe to land incrementally without blocking.
 ADR: [wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md].
+
+## [2026-05-15] session | Atlas Plan: enable silvopasture to host orchards/guilds/livestock
+
+- Completed: Silvopasture made a first-class host. New pure resolver
+  `apps/web/src/features/agroforestry/silvopastureHosts.ts`
+  (namespaced `<source>:<rawId>` host IDs, hybrid spatial+pin
+  membership, `sharedWith` for multi-host overlap). Added optional
+  `silvopastureId` to Paddock/Guild/CropArea/DesignElement (no
+  migration). Built `SilvopastureHostsCard` (+CSS, mounted in
+  `PlantingToolDashboard`), read-only `SilvopasturePopover` (+CSS,
+  mounted in `VisionLayoutCanvas`; paddock list `Intl.Collator`
+  numeric-sorted), and `autoLinkSilvopasture.ts` wired into
+  `PaddockTool`/`GuildTool`/`CropAreaTool`(orchard-only, pin cleared
+  on type switch)/`useDesignElementDrawTool`(orchard-only). 10 new
+  vitest cases in `silvopastureHosts.test.ts`.
+- Verification: `tsc --noEmit` exit 0
+  (`NODE_OPTIONS=--max-old-space-size=8192`); vitest 766/766.
+  Confirmed no backend/scheduling dependency on draw order —
+  `computeRotationSchedule` re-sorts by recovery status; array order
+  is only a stable-sort tiebreaker within identical status.
+- Decisions: [[2026-05-15-atlas-silvopasture-host]]
+- Deferred: cropStore-typed silvopasture popover symmetry; map member
+  outline indicators; re-pin affordance in the inspector; multi-host
+  pin selector beyond first-match.
+- Pages touched: wiki/decisions/2026-05-15-atlas-silvopasture-host.md
+  (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md
