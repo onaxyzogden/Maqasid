@@ -10492,3 +10492,46 @@ commit.
 - Decisions: updated [[2026-05-14-atlas-plant-catalog-consolidation]]
   (Phase-E follow-up marked done).
 - Pages touched: wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md, wiki/log.md
+
+## [2026-05-15] session | Atlas — Observe-driven Auto-Design (Phases 3–6)
+
+**Objective:** Finish the whole-site generator: paint Observe land
+conditions → deterministically auto-draw goal-satisfying design
+features into matching zones → schedule the Act calendar from a chosen
+start date.
+
+**Done:** Phases 3–6 of the approved plan (1–2 landed prior session).
+- Phase 3: optional `draft?/generationId?/draftClass?` on
+  `DesignElement`, `draft?/generationId?` on Paddock/FenceLine;
+  `generatorDraftStore` (commit/discard/discardClass); selectors
+  exclude drafts by default; `DesignElementLayers` dashed/translucent
+  draft styling + static-dashed `poly-line-draft` layer.
+- Phase 4: `GroundCoverPaintTool` wired into Observe Earth/Water rail
+  (`MapToolId` union + `ObserveDrawHost` dispatch).
+- Phase 5: `commitDrafts.ts` (per-intervention routing table →
+  Paddock/FenceLine/DesignElement), `GenerateSiteDesignBar` (start-date
+  + Generate), `DraftReviewBar` (Accept/Discard/Regenerate/per-class
+  chips), mounted in `GeneratedPlanTab`.
+- Phase 6: stocking-rate + water-band advisories on `DraftReviewBar`
+  (reuses `waterSource.ts` `bandForWater`); empty-state copy when the
+  sequencer selects 0 interventions or no zone matches.
+- Gates: tsc exit 0; vitest 802/802 (Phase 5 and Phase 6 runs).
+
+**Deviations (recorded in ADR):** (1) no `generated-draft` phase enum —
+generalised the `draft` boolean instead, to avoid breaking strict
+Yeomans `PhaseKey` year-gating + a persistence migration; (2)
+structure-class drafts written to `landDesignStore` for the review MVP,
+re-homing into V2 deferred to Phase 2.
+
+**Deferred:** interactive browser verification of the paint→generate→
+accept flow; Phase-2 items (V2 structure re-home, free-text intent,
+per-zone override, live regen, DB persistence, Voronoi subdivision).
+
+- Decisions: new [[2026-05-14-auto-design-pipeline]]
+- Pages touched: wiki/decisions/2026-05-14-auto-design-pipeline.md
+  (new), wiki/index.md, wiki/log.md; atlas: designElementsStore.ts,
+  livestockStore.ts, generatorDraftStore.ts (new), landDesignStore.ts,
+  builtEnvironmentSelectors.ts, DesignElementLayers.tsx,
+  GroundCoverPaintTool.tsx (new), useMapToolStore.ts, ObserveTools.tsx,
+  ObserveDrawHost.tsx, commitDrafts.ts (new), GenerateSiteDesignBar.tsx
+  (new), DraftReviewBar.tsx (new), GeneratedPlanTab.tsx
