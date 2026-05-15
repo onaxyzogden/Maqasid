@@ -10535,3 +10535,34 @@ per-zone override, live regen, DB persistence, Voronoi subdivision).
   GroundCoverPaintTool.tsx (new), useMapToolStore.ts, ObserveTools.tsx,
   ObserveDrawHost.tsx, commitDrafts.ts (new), GenerateSiteDesignBar.tsx
   (new), DraftReviewBar.tsx (new), GeneratedPlanTab.tsx
+
+## [2026-05-15] session | Atlas Plan: Silvopasture host arc follow-ups (A1/A2/A3)
+
+- Completed: closed the three named follow-ups from the silvopasture-host
+  parent ADR. **A1** — generalised `SilvopasturePopover` guard to resolve
+  both `design-element` and `cropStore` `type==='silvopasture'` hosts via
+  `encodeHostId`. **A2** — new self-contained `SilvopastureMemberOutline`
+  overlay (own `silvo-member-*` source + dashed line / transparent-circle
+  layers, idle-retry + dispose cleanup), mounted in `VisionLayoutCanvas`;
+  draws a non-interactive outline around resolved members of the selected
+  host. **A3** — optional `silvopastureId` re-pin select on paddock /
+  crop-area / guild inline edit schemas ("Auto (spatial)" → undefined),
+  fed by new pure helper `listHostsForSelection`; `silvopastureField()` /
+  `silvopastureSavePatch()` keep schema builders store-free (callers pass
+  precomputed options). `collectMemberIds` exported as a documented
+  deliverable (unused — overlay used geometry projection instead).
+- Fix: `silvopastureField()` returns explicit `FieldSpec[]`, not an
+  `as const` tuple (readonly not assignable to `InlineFormPayload.fields`;
+  caught by tsc, fixed pre-commit).
+- Gates: tsc --noEmit clean; vitest 802/802 (baseline held); vite build
+  clean; Plan stage mounts on MTC, console silent.
+- Decisions: new [[2026-05-15-atlas-silvopasture-host-followups]]
+- Deferred: true multi-host pin selector (current is single-host);
+  interactive click-through e2e (MapLibre canvas not scriptable via
+  preview selectors, stores not on window); Part B phenology fold-in
+  (gated — conditional spec only, no code).
+- Pages touched: wiki/decisions/2026-05-15-atlas-silvopasture-host-followups.md
+  (new), wiki/index.md, wiki/log.md; atlas: SilvopasturePopover.tsx,
+  silvopastureHosts.ts, SilvopastureMemberOutline.tsx (new),
+  VisionLayoutCanvas.tsx, inlineEditSchemas.ts, PlanDataLayers.tsx,
+  PlanSelectionFloater.tsx
