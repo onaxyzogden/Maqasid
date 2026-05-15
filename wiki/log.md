@@ -10329,3 +10329,39 @@ account profile and login there), then `bash
 atlas/tasks/scholar-reevaluation/run-round.sh 1A fresh` to
 smoke-test the pipeline; follow HANDOFF.md for the remaining
 five calls; resume the plan at Phase 4 (digest).
+
+## 2026-05-14 — Atlas — Annual Planting Calendar ships
+
+**Branch:** `feat/atlas-permaculture` — commit `357ea51f` (bundled
+with the water-source rule + livestock Goal Compass extension on
+the same branch tip).
+
+Closed the loop from annual crop areas drawn in Plan to the Act
+calendar: phenology block on the catalog, frost-date facets on
+`SiteProfile`, a deterministic scheduler, a Plant Systems module
+card, and a seventh `CalendarSource` (`plantingCalendar`) so the
+filter chip + purple dot land for free.
+
+**Files of note.**
+- New: `plantPhenologyData.ts`,
+  `schedulePlantingFromAreas.ts`,
+  `AnnualPlantingCalendarCard.tsx`.
+- Touched: `goalCompassTypes.ts`, `siteProfileStore.ts`,
+  `observePrefill.ts`, `SiteProfileTab.tsx`, `phaseStore.ts`,
+  `nurseryStore.ts`, `types.ts`, `PlanModuleSlideUp.tsx`,
+  `useEventAggregator.ts`, `EventCalendarCard.tsx` +
+  `.module.css`, `UpcomingEvents.tsx`.
+
+**Verification.** `npx tsc --noEmit` exit 0 (with
+`NODE_OPTIONS="--max-old-space-size=8192"` to clear prior heap
+OOM); `npm run build` clean in ~42s with PWA precaching 692
+entries.
+
+**Deferred.**
+- Phase 4 catalog consolidation (`pl-XXX` ↔ snake_case alias map
+  + localStorage migration script) — own session.
+- Open-Meteo Archive fallback for sites without ACIS/ECCC station
+  coverage.
+- Preview e2e walk-through on the Moontrance Creek fixture.
+
+ADR: [`wiki/decisions/2026-05-14-atlas-annual-planting-calendar.md`](decisions/2026-05-14-atlas-annual-planting-calendar.md).
