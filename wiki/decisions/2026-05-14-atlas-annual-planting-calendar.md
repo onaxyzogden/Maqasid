@@ -163,3 +163,17 @@ Plan.
   `garden_bed`, set `species: ['tomato', 'lettuce']`, generate,
   confirm the four dot types land on the calendar in the correct
   year window.
+
+## Addendum — 2026-05-14 — persist migration
+
+Preview-driven e2e on MTC surfaced a stale-state crash:
+`AnnualPlantingCalendarCard` dereferenced `profile.lastFrostDate.value`
+on a `siteProfileStore` entry persisted before the frost-date facet
+bump. Fix: bumped persist `version` to 2 and added a `migrate` that
+walks `profilesByProject` and backfills every facet key (including
+the two new frost facets) to `{ value: null, provenance: null }` when
+missing. Verified post-reload: persisted store reads `version: 2`,
+all 11 facets present, card mounts cleanly with Generate plan
+correctly disabled until frost facets are filled.
+
+Touched: `apps/web/src/store/siteProfileStore.ts`.

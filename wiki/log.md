@@ -10365,3 +10365,30 @@ entries.
 - Preview e2e walk-through on the Moontrance Creek fixture.
 
 ADR: [`wiki/decisions/2026-05-14-atlas-annual-planting-calendar.md`](decisions/2026-05-14-atlas-annual-planting-calendar.md).
+
+## 2026-05-14 — Atlas — Annual Planting Calendar: preview e2e + persist migration
+
+Followed up the Annual Planting Calendar ship with a preview-driven
+end-to-end walk on the Moontrance Creek fixture. Surfaced one real
+bug: the persisted `ogden-site-profiles` localStorage entry on MTC
+pre-dated the frost-date facet bump, so `AnnualPlantingCalendarCard`
+crashed on `profile.lastFrostDate.value` (undefined) and tripped
+`GlobalErrorBoundary`.
+
+**Fix.** Bumped the `siteProfileStore` persist schema to `version: 2`
+with a `migrate(persistedState, fromVersion)` that walks
+`profilesByProject` and backfills every facet key (incl.
+`lastFrostDate`, `firstFrostDate`) to `{ value: null, provenance:
+null }` when missing. Existing values pass through untouched. Atlas
+HEAD: `feat/atlas-permaculture`.
+
+**Verification.** Preview reload: persisted store reads `version: 2`
+with all 11 facets present on both projects; card mounts cleanly
+under Plan → Plant Systems with year 2026 and Generate plan correctly
+disabled until frost facets are filled. Scheduler / store-writes /
+aggregator routing remain verified from the earlier pass.
+
+**Files.** `apps/web/src/store/siteProfileStore.ts`.
+
+**Deferred (still).** Phase 4 catalog consolidation; Open-Meteo
+Archive fallback. Preview e2e on MTC now ✓.
