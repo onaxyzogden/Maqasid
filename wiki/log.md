@@ -10392,3 +10392,55 @@ aggregator routing remain verified from the earlier pass.
 
 **Deferred (still).** Phase 4 catalog consolidation; Open-Meteo
 Archive fallback. Preview e2e on MTC now ✓.
+
+
+## 2026-05-14 — Atlas — Plant catalog consolidation (Phases A–F + partial D)
+
+**Context.** Three parallel plant catalogs: `plantDatabase.ts`
+(pl-XXX, layering axis), `plantSpeciesData.ts` (snake_case, site-match
+axis), `plantPhenologyData.ts` (snake_case, frost-anchored annual
+phenology — shipped earlier today). 17 confirmed overlap pairs between
+the first two. Persisted ids in `polycultureStore` + `cropStore`. Phase
+4 of the planting arc.
+
+**Decision.** snake_case canonical. Union `plantCatalog.ts` with flat
+optional shape carrying both axes. Frozen alias map
+`plantCatalogAliases.ts` for `pl-XXX → snake_case` lookup. Legacy
+files become axis-narrowed re-export shims so consumers compile
+unchanged.
+
+**Phases shipped.**
+- A — `plantCatalog.ts` (40 entries) + aliases + 10-test suite.
+- B — `polycultureStore` v2→v3, `cropStore` v1→v2; both migrations
+  walk persisted ids through `resolveSpeciesId`. Idempotent.
+- C — `plantDatabase.ts` and `plantSpeciesData.ts` are now thin shims
+  re-exporting axis-narrowed views (`hasLayering`, `hasGrowing`
+  predicates). `PlantSpecies` and `PlantSpeciesInfo` are
+  `Required<Pick<…>>` views of `PlantCatalogEntry` so legacy
+  consumers keep their strong typing.
+- D (partial) — `guildPresets.ts` literals rewritten to canonical
+  snake_case; resolver also runs through `resolveSpeciesId` so any
+  stale persisted pl-XXX still survives. Test fixture updated.
+- F — `scripts/migrate-plant-ids.mjs` + `scripts/lib/load-aliases.mjs`
+  for offline JSON-dump rewrites; alias map regex-extracted from the
+  TS source at run time (single source of truth).
+
+**Verification.** `npx tsc --noEmit` exit 0
+(`NODE_OPTIONS="--max-old-space-size=8192"`); `npm test` 756/756
+including 10 new in `plantCatalog.test.ts`; `npm run build` clean.
+Offline script smoke-test rewrote 4 ids on a 7-id fixture, preserved
+snake_case, flagged 1 unknown pl-XXX.
+
+**Files.** Created `apps/web/src/data/plantCatalog.ts`,
+`apps/web/src/data/plantCatalogAliases.ts`,
+`apps/web/src/data/__tests__/plantCatalog.test.ts`,
+`scripts/migrate-plant-ids.mjs`, `scripts/lib/load-aliases.mjs`.
+Rewrote `apps/web/src/data/plantDatabase.ts` and
+`apps/web/src/features/planting/plantSpeciesData.ts` as re-export
+shims. Modified `apps/web/src/data/guildPresets.ts` +
+`__tests__/guildPresets.test.ts`, `apps/web/src/store/polycultureStore.ts`,
+`apps/web/src/store/cropStore.ts`.
+
+**Deferred.** Phase D for the remaining ~14 consumer files and Phase E
+(shim deletion) — both safe to land incrementally without blocking.
+ADR: [wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md].
