@@ -193,9 +193,15 @@ share one source of truth.
 
 ## Follow-ups
 
-- Port the remaining ~14 consumers off `plantDatabase.ts` /
-  `plantSpeciesData.ts` shims, then delete the shim files. Each file
-  is independent; can land one at a time.
+- ~~Port the remaining ~14 consumers off `plantDatabase.ts` /
+  `plantSpeciesData.ts` shims, then delete the shim files.~~ **Done
+  2026-05-15 (Phase 5, commit `abe6d884`).** The 4 derived symbols
+  (`PLANT_DATABASE`, `findSpecies`, `PLANT_SPECIES`, `SPECIES_BY_ID`)
+  were promoted into `plantCatalog.ts` under their existing names; all
+  20 consumers (16 layering-axis + 4 site-match-axis) repointed by
+  import-path only — no call-site rewrites; both shim files deleted.
+  tsc clean, 802/802 tests, build clean. Bundled into the silvopasture
+  commit by a concurrent session.
 - Fold `plantPhenologyData.ts` into the union catalog when a third
   caller needs both axes.
 - Document the localStorage-export → `migrate-plant-ids.mjs` →

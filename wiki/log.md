@@ -10470,3 +10470,25 @@ ADR: [wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md].
   pin selector beyond first-match.
 - Pages touched: wiki/decisions/2026-05-15-atlas-silvopasture-host.md
   (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md
+
+## [2026-05-15] session | Atlas — Phase 5: delete plantDatabase / plantSpeciesData shims
+
+**Objective:** Close the Phase 4 ADR Phase-E follow-up — port all
+consumers off the deprecated `plantDatabase.ts` / `plantSpeciesData.ts`
+re-export shims and delete both files.
+
+**Done:** Promoted the 4 derived symbols (`PLANT_DATABASE`, `findSpecies`,
+`PLANT_SPECIES`, `SPECIES_BY_ID`) into `plantCatalog.ts` under their
+existing names. Repointed 20 consumers (16 layering-axis + 4
+site-match-axis) by import path only — no call-site rewrites, since the
+narrowed types/predicates/helpers already lived in `plantCatalog.ts`.
+Deleted both shim files. tsc exit 0, vitest 802/802, vite build clean.
+Straggler grep: zero remaining shim imports.
+
+**Note:** A concurrent session bundled this work into atlas commit
+`abe6d884` (silvopasture host arc) and pushed it; not a standalone
+commit.
+
+- Decisions: updated [[2026-05-14-atlas-plant-catalog-consolidation]]
+  (Phase-E follow-up marked done).
+- Pages touched: wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md, wiki/log.md
