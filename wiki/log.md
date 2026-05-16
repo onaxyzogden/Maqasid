@@ -10790,3 +10790,160 @@ parcel-independent anyway.
   timeout + map not scriptable); live idempotent re-run demo on a
   parcel-bearing project. Next session: drive a real map click on a
   project that has a parcel to capture the screenshot proof.
+
+## [2026-05-16] session | OLOS — Stewarded pasture/silvopasture regeneration + livestock readiness gate
+
+**Objective:** Let a steward observe a troubled zone, plan a multi-year
+regeneration pathway toward pasture/silvopasture, and implement it — with
+livestock withheld until the steward confirms the land has actually
+recovered (*iḥyāʾ al-mawāt*, Environment maqsid). The app already had the
+pieces (land state, regeneration engine, livestock toolkit, phasing, a
+gating idiom) but nothing connected them into a stewarded journey and
+nothing stopped livestock on unrecovered land.
+
+**Approach (Approach A — connective workflow + readiness gate):** thread
+the existing engines into one Observe→Plan→Act flow; add only the three
+missing parts — a per-zone target, rolled-up readiness, a livestock gate.
+TDD for all pure logic. Decisive steward-sovereign rule:
+`ready === !!stewardReadinessConfirmedAt`; observed thresholds + projected
+date are advisory only and never gate.
+
+**Outcome (5 phases, all complete):**
+- **Phase 1:** pure shared evaluator `packages/shared/src/regeneration/
+  readinessGate.ts` (`evaluateRegenerationReadiness`, mirrors
+  `relationships/statusGate.ts`; `@ogden/shared/regeneration` barrel) +
+  client-local `regenerationPlanStore` (zundo+persist, 1:1 per `LandZone`,
+  baseline snapshot, thresholds, pathway ids, `startedAt`,
+  `stewardReadinessConfirmedAt`, recorded `readinessOverride`). TDD.
+- **Phase 2:** `regenerationTimeline.ts` projection math + Plan
+  `RegenerationPlanCard.tsx` (target/pathway/thresholds/`startedAt`,
+  multi-year SVG timeline, advisory earliest-livestock date) + card
+  registration.
+- **Phase 3:** troubled-zone detection in earth-water-ecology
+  `derivations.ts`; "Start regeneration plan" CTA on `EcologicalDetail`
+  (snapshots baseline); `RegenerationPlanOverlay` tinting planned zones by
+  readiness, mounted in `DiagnosePage`.
+- **Phase 4:** pure `findBlockingRegenerationPlan`
+  (`features/livestock/regenerationGate.ts`, point-in-polygon, TDD);
+  `LivestockPanel.handleSave` interception → confirm modal → "Place anyway
+  (override)" records timestamped `readinessOverride` then commits
+  (`commitPaddock`/`handleSave`/`handleOverride` split to avoid
+  duplicating paddock-build); non-blocking `RegenerationGateBanner`;
+  **adoption seam** — `acknowledgedRegenerationZoneIds` fed from the store
+  at the one `runAutoDesign` call site (`GenerateSiteDesignBar.tsx`) so a
+  planned zone *releases* the forced-barren assignment gate (plan NEVER
+  writes `BuildPhase` — adopted, not double-modelled); "Confirm readiness
+  — unlock livestock" on the Plan card; event↔plan scoping in
+  `LogEventForm.tsx` via `observations.regenerationPlanId` + zone-centroid
+  `location` default (no schema change — `regeneration_events` enums stay
+  CHECK-locked).
+- **Phase 5 (verification):** `apps/web` `tsc --noEmit` clean
+  (`--incremental false`, 8 GB script, 0-byte output); `@ogden/shared`
+  180/180 (incl. `readinessGate.test.ts` 9/9); full `apps/web` vitest
+  928/928 across 74 files incl. 28 new (`regenerationGate` 9,
+  `regenerationPlanStore` 12, `regenerationTimeline` 7). The `[SYNC]` /
+  `act-telemetry` stderr in the run is the `actInteractionLog` test
+  deliberately simulating network-down to assert bounded retry — expected,
+  not failures. Core loop proven at **runtime against the live Vite
+  bundle** (not the test harness): store create (unconfirmed) → confirm
+  (flips) → record override (timestamped+reason), test data cleaned up
+  (net plan delta 0); gate blocks a centroid inside an unconfirmed-plan
+  zone, releases after confirm, passes points outside; evaluator holds
+  `ready:false` when observed thresholds met but unconfirmed, `true` after
+  confirm, projected date (start +4 yr → 2030-06-01) advisory only. App
+  boots clean, zero console errors; server logs only API-proxy
+  `ECONNREFUSED` (API :3001 not running — feature is client-local, so
+  irrelevant).
+
+- Pages touched: wiki/decisions/2026-05-16-atlas-pasture-regeneration.md
+  (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md; auto-memory
+  project_status.md; atlas src (branch feat/atlas-permaculture) —
+  packages/shared/src/regeneration/{readinessGate.ts,index.ts} +
+  tests/readinessGate.test.ts; apps/web/src/store/regenerationPlanStore.ts
+  (+ __tests__); apps/web/src/features/livestock/{regenerationGate.ts
+  (+ __tests__),LivestockPanel.tsx,RegenerationPlanCard.tsx,
+  regenerationTimeline.ts (+ __tests__)};
+  apps/web/src/components/regeneration/RegenerationGateBanner.tsx;
+  apps/web/src/v3/components/overlays/RegenerationPlanOverlay.tsx;
+  apps/web/src/features/regeneration/LogEventForm.tsx;
+  apps/web/src/v3/plan/cards/goal-compass/GenerateSiteDesignBar.tsx;
+  earth-water-ecology derivations + EcologicalDetail + DiagnosePage +
+  Plan card registration.
+- Deferred: server persistence (client-local localStorage v1, like
+  zoneStore); multiple plans per zone; silvopasture canopy as a grazing
+  factor (decoupled v1 — drawn on timeline, never gates); auto-confirm
+  from observed thresholds (intentionally never — steward-sovereign).
+  WebGL canvas drive (drawing zone/paddock polygons, visual modal
+  capture) not scripted — flagged capture-hang risk from prior sessions;
+  verified instead via runtime module exercise + clean boot + clean tsc +
+  37 new unit tests. Next session: drive a real map click on a
+  parcel-bearing project to capture on-map screenshot proof of the
+  overlay tint + gate modal.
+
+## [2026-05-16] session | OLOS — Livestock land-fit tooltip clipped at top edge
+
+**Objective:** The Plan-stage **Livestock land-fit matrix**
+(`apps/web/src/features/livestock/LivestockLandFitCard.tsx`) reveals a
+per-cell rationale popover on hover. A user screenshot showed it **cut off
+at its top edge** for upper-row cells. Make it render fully visible from any
+cell (top row, edge columns, scrolled table) and — per user decision — make
+it keyboard-accessible. Verify via full preview + screenshot.
+
+**Root cause (code-verified under `superpowers:systematic-debugging`):**
+`.rationale` was a pure-CSS `:hover` element, `position:absolute;
+bottom:calc(100%+4px)`, revealed by `.fitCell:hover .rationale{display:block}`,
+anchored to the `.fitCell` `<td>`. Its nearest scrolling ancestor
+`.tableWrap` has `overflow-x:auto` (legitimately — the matrix sets
+`min-width:520px`). Per the CSS overflow spec, one non-`visible` axis forces
+the other to `auto`, so `.tableWrap` clips **vertically** too; top-row
+popovers escape the table's top edge and are chopped, then re-clipped by the
+`ModuleSlideUp` `.body{overflow-y:auto}` / `.sheet{overflow:hidden}`. No
+CSS-only tweak escapes the nested clippers while `.tableWrap` keeps the
+`overflow-x` it needs.
+
+**Outcome (2-file scope, complete):**
+- Tooltip moved into a React **portal to `document.body`**
+  (`createPortal`, SSR-guarded `typeof document!=='undefined'`), single
+  active-tip state (one tooltip ever visible across `zones × 5`).
+- `position:fixed`; coords from the trigger `<td>`'s
+  `getBoundingClientRect()` in a `useLayoutEffect` (measure-then-position,
+  `visibility:hidden` until measured) with **flip above/below** by available
+  space + **8 px viewport clamp** on both axes (`TIP_W=200` mirrors the CSS
+  width, `GAP=6`).
+- Capture-phase `scroll` listener hides the tip; `resize` re-measures from
+  the live anchor; listeners attach only while a tip is active.
+  `z-index:var(--z-tooltip,600)` (design token; outer scrim is z 100).
+- Keyboard-accessible (user-approved Option A — closes a pre-existing a11y
+  gap): `<td tabIndex={0}>` + `onFocus`/`onBlur` mirroring
+  `onMouseEnter`/`onMouseLeave`, `role="tooltip"`, `aria-describedby`; `<td>`
+  stays a table cell (deliberately no `role="button"`). `cursor:help` kept.
+- `.rationale`/`.fitCell` have **zero external dependents** (grep-confirmed)
+  → reveal mechanism replaced wholesale with no blast radius.
+- **Verification:** live full-stack verify was environmentally blocked (no
+  Docker; API :3001 down; needs Redis+API+auth+project+Tier-1/3 pipeline).
+  Substituted a temporary **auth-free isolation harness route** that
+  reproduced the exact worst-case clipper (`position:fixed; top:0;
+  overflow:hidden; max-height:360`) with the **real `useZoneStore`** seeded
+  (5 zones incl. a `spiritual` "Prayer Grove" → 0-star "incompatible with
+  livestock"). Objective proof: portaled as a direct `document.body` child,
+  `position:fixed`, `z-index:600`, fully inside the viewport, escaping the
+  `overflow:hidden` clipper; successful `preview_screenshot`; Tab keyboard
+  path shows the same positioned/clamped tooltip; left/right column clamp
+  checks pass; console clean. **Harness fully removed afterward** — shipped
+  diff is exactly the two livestock files.
+
+- Decisions: [[2026-05-16-atlas-livestock-tooltip-portal]] (new)
+- Pages touched: wiki/decisions/2026-05-16-atlas-livestock-tooltip-portal.md
+  (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md; atlas src
+  (branch feat/atlas-permaculture) —
+  apps/web/src/features/livestock/LivestockLandFitCard.tsx (+137/−24),
+  apps/web/src/features/livestock/LivestockLandFitCard.module.css (13 lines)
+- Deferred: the shared `apps/web/src/components/ui/Tooltip.tsx` carries the
+  same latent bug class (non-portaled, no collision logic) for any consumer
+  inside an overflow container — not fixed here (wide regression surface,
+  `white-space:nowrap` unsuitable for multi-line content); flagged
+  separately via spawn_task. Pre-existing external type error
+  `runAutoDesign.ts(170,72)` (PolyFeature `MultiPolygon`↛`Polygon`, arrived
+  via the out-of-band rebase) — outside the 2-file scope, flagged
+  separately. Next session: class-wide portal+collision fix for the shared
+  `Tooltip.tsx`; resolve the `runAutoDesign` PolyFeature type error.
