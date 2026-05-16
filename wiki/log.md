@@ -10691,3 +10691,27 @@ recomputes; faith-core regression clean; 62/62 tests, grounding gates pass.
   (updated), wiki/log.md; src: data/task-progress.js,
   data/submodule-registry.js, hooks/usePillarOverviewProgress.js,
   components/dashboard/MaqasidLevelOverview.jsx
+
+## [2026-05-15] session | MILOS — ESLint worktree-artifact ignore: verified already fixed
+
+**Objective:** Add `.claude/worktrees/**` (and confirm `**/dist/**`) to
+`eslint.config.js` ignores so `npm run lint` stops linting other agents'
+minified build artifacts under `.claude/worktrees/*/dist/`.
+
+**Outcome:** No change required — premise was stale. On the active
+working tree (`eslint.config.js:8`) `globalIgnores` already contains
+`'dist'`, `'**/dist/**'`, and `'.claude/**'`. `.claude/**` already
+subsumes `.claude/worktrees/**`, so a dedicated pattern would be a
+redundant no-op. Verified `npx eslint .` exits 0 (only Babel >500KB
+notes on large seed-task files; zero errors/warnings — the Sidebar.jsx
+/ Dashboard.jsx nits do not fire). Full gate `npm run lint` exits 0:
+lint:eslint clean, lint:grounding-strict pass (0 empty-array, ratchet
+0), audit:inline-refs pass (0 missing refs across 2072 subtasks /
+8 pillars, ratchet 0).
+
+**Note for future agents:** if `npm run lint` is red with ~297 errors
+in `.claude/worktrees/*/dist/*.js`, the cause is a stale
+`eslint.config.js` on *that* branch/worktree predating the
+`globalIgnores` line — port this config rather than re-investigating.
+
+- Pages touched: wiki/log.md (this entry). No source files modified.
