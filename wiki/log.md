@@ -3,6 +3,41 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-15] session | MILOS — Faith SALAH: 3 Cat-3 mismatched-hadith subtasks corrected
+
+**Objective:** Fix three Faith SALAH subtasks whose cited hadith were
+duplicated and topic-mismatched artifacts of the 2026-04-25 parser-first
+migration: Tahajjud (Bukhari 1109/1091/1092, travel-jam'), khushuʿ
+(Bukhari 958/959/621, ʿId-prayer / night adhan), Duha (Bukhari
+1775/1776, Duha-as-bidʿah — evidence that contradicts the subtask).
+
+**Approach:** Amanah Gate honored — zero memory-asserted hadith. All
+replacement evidence retrieved from the authorized NotebookLM Muslim
+Scholar corpus `be921648`; refs preserve the corpus's USC-MSA
+Volume/Book/Hadith form verbatim (not re-numbered from memory).
+Tahajjud → Muslim Bk6 H2611 + Bukhari V2/Bk21/H246 (tier kept T2).
+Khushuʿ → Bukhari V1/Bk12/H718 + Muslim Bk2/H451 + Bukhari V1/Bk2/H47
+(Jibril/ihsan, contextual; tier kept T2). Duha → Bukhari V3/Bk31/H202
++ Muslim Bk4/H1557 (tier upgraded T3→T2, old rationale literally
+recorded the heresy mismatch). Quran entries left untouched. Each new
+entry carries a specific non-boilerplate rationale.
+
+**Deviations:** `scripts/audit-grounding-quality.mjs` and the referenced
+istiftah ADR do not exist; substituted real gates and created a fresh
+ADR on the established grounding-ADR structure. No backlog generator
+exists — defects verified independently in source.
+
+**Verification:** `npm test` 56/56; `lint-grounding.mjs` 0 errors / 0
+legacy; `audit-inline-refs --strict` OK ≤ 0; faith file ESLint exit 0
+(2 self-introduced `rak\'at` escape errors fixed). `npm run lint` full
+chain's only failures are 3 pre-existing unrelated Sidebar/Dashboard
+errors (proven via git stash) — out of scope.
+
+- Pages touched:
+  wiki/decisions/2026-05-15-milos-faith-salah-cat3-hadith-fix.md
+  (created), wiki/log.md, wiki/index.md; src:
+  data/seed-tasks/faith-seed-tasks.js (3 subtasks, 26+/35-)
+
 ## [2026-05-14] session | Atlas — Goal Compass: project-type templates + Act calendar auto-schedule
 
 **Objective:** Two same-day follow-ups to the shipped 4-tab Goal
