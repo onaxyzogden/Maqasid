@@ -10746,3 +10746,47 @@ recomputes; faith-core regression clean; 62/62 tests, grounding gates pass.
   (updated), wiki/log.md; src: data/task-progress.js,
   data/submodule-registry.js, hooks/usePillarOverviewProgress.js,
   components/dashboard/MaqasidLevelOverview.jsx
+
+## [2026-05-16] feature | OLOS — Zone Seed Anchor seeds full Z0–Z5 (was Z0–Z3)
+
+**Objective:** Extend the Atlas Plan **Zone Seed Anchor** tool so one click
+seeds the full Mollison Z0–Z5 ring set. Z4 (forage/woodlot) and Z5 (wild)
+were never produced by a tool press — a steward had to hand-draw them. No
+new button; reuse the existing tool. Z5 = fixed-radius ring (1200 m, not
+parcel-clipped). Align the shared band ladder to the canonical Mollison
+radii (resolving a latent Z3 100–500 m vs. 100–300 m inconsistency).
+
+**Outcome:** Collapsed to one exclusion point plus its type consumers.
+`ZONE_RING_BANDS` (`apps/web/src/v3/plan/layers/zoneRingConstants.ts`)
+widened 3→5 bands and its `zLevel` union `1|2|3`→`1|2|3|4|5`; the two
+mirroring `zLevel` annotations in `ringSeedGenerator.ts` widened to include
+`4|5`. No generator logic changed — the per-band loop, `diff()` annulus /
+blocker subtraction, per-Z-level idempotency check, and
+`defaultCategoryForZ(zLevel)` were already generic. Band ladder aligned to
+canonical Mollison radii: Z3 100–300 m (was 100–500), Z4 300–600 m (olive,
+livestock), Z5 600–1200 m fixed-radius annulus (green, conservation).
+Because `ZONE_RING_BANDS` is the deliberate single source of truth shared
+with the read-only `PlanZoneRingsOverlay`, that overlay now draws 5 rings
+instead of 3 and the Z3 ring shrank 500→300 m with no overlay code change.
+Per-Z-level idempotency means a re-run on an older Z0–Z3 project seeds only
+the missing Z4 & Z5 — opt-in migration; persisted projects untouched.
+Verified on the running app's real in-browser modules
+(`runZoneGenerator('ring-seed')` → 6 zones Z0–Z5, areas strictly
+increasing, Z4 livestock / Z5 conservation; `zoneRingConstants` → 5 bands;
+live tool hint reads "Z0–Z5") + green durable-contract test
+(`ringSeedGenerator.test.ts` 13/13) + clean typecheck. On-map pixel
+screenshot deferred — WebGL renderer unresponsive under load and the live
+map instance is not exposed on a store/global; ring geometry is
+parcel-independent anyway.
+
+- Pages touched: wiki/decisions/2026-05-16-atlas-zone-seed-z4-z5.md (new),
+  wiki/entities/olos.md, wiki/index.md, wiki/log.md; atlas src (branch
+  feat/atlas-permaculture): v3/plan/layers/zoneRingConstants.ts,
+  v3/plan/engine/zoneGenerators/ringSeedGenerator.ts,
+  v3/plan/draw/tools/ZoneSeedAnchorTool.tsx,
+  v3/plan/layers/PlanZoneRingsOverlay.tsx (doc-only),
+  v3/plan/engine/zoneGenerators/__tests__/ringSeedGenerator.test.ts
+- Deferred: on-map pixel screenshot of seeded rings + overlay (renderer
+  timeout + map not scriptable); live idempotent re-run demo on a
+  parcel-bearing project. Next session: drive a real map click on a
+  project that has a parcel to capture the screenshot proof.
