@@ -2,10 +2,9 @@
 title: "OLOS"
 type: entity
 created: 2026-04-09
-updated: 2026-05-08
+updated: 2026-05-16
 tags: [product, geospatial, land-design, react, typescript, mapbox, supabase, ontario]
 sources: 0
-updated: 2026-05-15
 ---
 
 # OLOS
@@ -25,6 +24,8 @@ OLOS (OGDEN Land OS) is a geospatial land intelligence web application linked as
 - **Integration method:** git submodule (added 2026-04-09)
 
 ## Current Status
+
+**2026-05-16 (Site Profile acreage staleness):** Site Profile reported 24.49 ac for a hand-drawn parcel the user measured at ~90 ac. Root cause (code-verified): `syncProjectBoundary`/`syncProjectCreate` discarded the acreage returned by `api.projects.setBoundary`; `project.acreage` only refreshed on a full `initialSync`, so a redraw left the stale value on screen until reload. Fix: new `applyServerAcreage` helper writes the server-recomputed acreage back via `updateProject` (bracketed by the `isSyncing` guard). Secondary latent bug fixed regardless: server acreage was `ST_Area(ST_Transform(geom, 26917))` with UTM-17N hardcoded for every project — replaced with location-independent `ST_Area(...::geography)` in `routes/projects`, `routes/templates`, and seed migration 017; new migration 026 backfills existing rows. BoundaryTool hardened (`pickLargestPolygon` commits the same feature the readout measures; `turf.kinks` guard refuses a self-intersecting bowtie). tsc clean; web 872/872. Migration 026 run is policy-gated to the user's `pnpm migrate` (shared-DB data migration needs a `stages/` approval doc); 2 pre-existing api test failures confirmed out of scope. ADR: [[2026-05-16-atlas-site-profile-acreage-staleness]].
 
 Phase 1 (Site Intelligence) in active development. Submodule linked into the [[milos]] monorepo but maintains its own independent build pipeline, dependencies, and deployment target. The app is Ontario-focused, ingesting Conservation Halton jurisdiction and geospatial data layers.
 
@@ -84,6 +85,7 @@ Phase 1 (Site Intelligence) in active development. Submodule linked into the [[m
 
 | Date | Event |
 |---|---|
+| 2026-05-16 | Site Profile acreage staleness root-caused + fixed — `applyServerAcreage` write-back in `syncService`; geodesic `::geography` acreage replaces hardcoded UTM-17N (routes + seed 017 + backfill migration 026); BoundaryTool largest-feature + kinks guard. tsc clean; web 872/872. See [[2026-05-16-atlas-site-profile-acreage-staleness]]. |
 | 2026-05-15 | Silvopasture host follow-ups (A1/A2/A3) — crop-area popover symmetry, on-map member outline overlay, inspector re-pin selector. tsc clean; 802/802; build clean. See [[2026-05-15-atlas-silvopasture-host-followups]]. |
 | 2026-05-15 | Silvopasture first-class host — pure `silvopastureHosts.ts` resolver, namespaced host IDs, hybrid spatial+pin membership, `silvopastureId` on 4 entities, audit card + read-only map popover + draw-time auto-link across 4 tools. 766/766 tests. See [[2026-05-15-atlas-silvopasture-host]]. |
 | 2026-05-12 | BE V2 unification **completed** — `useStructureStore` facade retired. Phase 4 consumer sweep landed across three commits: 4-A (`084afa89`, 138 files) migrated all read-only subscribers to `useAllStructures()` / `getAllStructures()` and rerouted `syncService.subscribe` to V2 directly; 4-B (`147948a2`, 19 files) migrated writer calls (`addStructure`/`updateStructure`/`removeStructure`) and converted hook-bound action subscribers + `setState` pokes (cascadeClone/cascadeDelete) to action calls; 4-C (`5629c722`, 3 files) extracted `placementMode` UI state to a new `structurePlacementStore.ts`. Phase 5 (`b57c33ed`) slimmed `structureStore.ts` to a type-only re-export of `Structure` + `StructureType` from `@ogden/shared` — facade body, V2 subscription, write helpers, and `placementMode` field all deleted. Adapter test's V1 facade describe block removed (22/22 selector + observe tests passing); `syncService.test.ts` mock retargeted at `useBuiltEnvironmentStoreV2`. `tsc --noEmit` clean after every phase. **Carry-over closed same day (`eeb76133`):** 68 files retargeted from `'.../structureStore.js'` → `'@ogden/shared'` and `apps/web/src/store/structureStore.ts` deleted outright. Zero production references to `structureStore` remain. |

@@ -3,6 +3,83 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-16] session | Atlas — Site Profile acreage staleness root-cause + geodesic fix
+
+**Objective:** Site Profile showed 24.49 ac for a parcel the user
+hand-drew and independently measured at ~90 ac. Find root cause and fix.
+
+**Approach (systematic-debugging — evidence before fixes):**
+- Traced the read path: Site Profile facet ← `project.acreage`
+  (`observePrefill.ts:80`), which only refreshes on full `initialSync`.
+- Found `syncProjectBoundary`/`syncProjectCreate` discarded the acreage
+  returned by `api.projects.setBoundary` → stale value persists until
+  reload. Root cause is client-side staleness, not a server miscompute
+  (DB sweep: 14 projects, no row at 24.49 or 90).
+- Latent secondary bug: server used `ST_Area(ST_Transform(geom, 26917))`
+  — UTM-17N hardcoded for every project (off-zone inflation only).
+
+**Fixes:**
+- `applyServerAcreage` helper in `syncService.ts` writes the server
+  acreage back via `updateProject` under the `isSyncing` guard; called
+  from both sync paths.
+- Geodesic `ST_Area(...::geography) / 4046.86` in `routes/projects`,
+  `routes/templates`, seed migration 017; new migration 026 backfills.
+- BoundaryTool: `pickLargestPolygon` commits the measured feature;
+  `turf.kinks` guard refuses a self-intersecting bowtie + popover alert.
+
+**Outcome:** `tsc --noEmit` clean on all touched files; web vitest
+872/872. Fix B proven by 3-latitude read-only SQL comparison. Not done
+(out of scope): migration 026 run is policy-gated to the user's
+`pnpm migrate` (shared-DB data migration needs a `stages/` approval
+doc); 2 pre-existing api test failures confirmed failing on baseline.
+ADR: 2026-05-16-atlas-site-profile-acreage-staleness.
+
+## [2026-05-15] session | MILOS — Faith grounding audit hardening + opening-du'a istiftah fix
+
+**Objective:** A user screenshot showed the SALAH → CORE "Memorise the
+opening du'a" subtask citing one hadith as three Bukhari numbers. Fix
+the defect and the systemic cause behind it.
+
+**Approach:**
+- Diagnosed three layered defects (duplicate citation, topic mismatch,
+  description/sources mismatch) — all 2026-04-25 migration artifacts.
+- WS1: extended `scripts/audit-grounding-quality.mjs` — added faith
+  (5 pillars), near-duplicate hadith heuristic (`normalizeHadithText`
+  with gloss stripping + Jaccard/overlap-coefficient union-find), and
+  live-schema reconciliation against `AMANAH_TIERS`/`RELEVANCE_CHIPS`
+  (deleted stale `ACCEPTED_TIERS`). Regenerated backlog
+  `tasks/grounding-content-backlog-2026-05-16.md`.
+- WS2: replaced the three rukuʿ/sujud Bukhari refs (4293/794/817) in
+  `faith.faith_salah_core[2].subtasks[0]` with a single Sahih Muslim
+  788 source (ʿUmar's audible istiftah), tier T3→T1, amanahRationale
+  rewritten. Evidence from authorized Muslim Scholar corpus
+  (be921648); Sunan refs excluded as outside-corpus per Amanah Gate.
+
+**Outcome:** 62/62 tests; `lint:grounding-strict` + `audit:inline-refs`
+(faith=0) pass; both modified files ESLint-clean; `low-provenance=0`
+across all 5 pillars; subtask no longer flagged. Caveat: combined
+`npm run lint` fails 297 ESLint errors entirely in stray
+`.claude/worktrees/*/dist/` build artifacts + pre-existing
+Sidebar/Dashboard — none in changed files; flagged for separate
+cleanup. ADR: 2026-05-15-milos-faith-grounding-audit-and-istiftah-fix.
+
+**Follow-up (same session) — ESLint gate restored + faith near-dup
+triage:** `eslint.config.js` `globalIgnores` extended with `**/dist/**`
++ `.claude/**` (parallel-agent worktree artifacts were being linted:
+297→0); 3 pre-existing source nits cleared (`Dashboard.jsx` unused
+imports/var; `Sidebar.jsx` `MODULE_ROUTES` extracted to new
+`Sidebar.constants.js`, only `AppShell.jsx` repointed). `npm run lint`
+now exits 0; 62/62 tests; build clean. Triaged the 12 faith
+duplicate/near-dup findings into 3 dispositions: **Cat 1** (3 safe
+dedups — Muslim 1579, Bukhari 1526, Bukhari 1624 removed; entries
+2257→2254, faith dup 4→3 / near-dup 8→5); **Cat 2** (1 deliberate
+scholarly pairing kept — `faith_salah_core[13].subtasks[2]` Bukhari
+1145 + Muslim 758); **Cat 3** (3 duplicate+topic-mismatch subtasks NOT
+hand-fixed — need authorized-corpus re-sourcing per Amanah Gate:
+`faith_salah_growth[2].subtasks[1]` Tahajjud, `faith_salah_growth[3]
+.subtasks[0]` khushuʿ, `faith_salah_excellence[0].subtasks[1]` Duha).
+ADR follow-up section appended.
+
 ## [2026-05-14] session | Atlas — Goal Compass: project-type templates + Act calendar auto-schedule
 
 **Objective:** Two same-day follow-ups to the shipped 4-tab Goal
