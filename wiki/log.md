@@ -34,6 +34,19 @@ hand-drew and independently measured at ~90 ac. Find root cause and fix.
 doc); 2 pre-existing api test failures confirmed failing on baseline.
 ADR: 2026-05-16-atlas-site-profile-acreage-staleness.
 
+**Follow-up (same session):** Wrote the migration-026 `stages/`
+approval gate (`deploy-atlas-migration-026-acreage-backfill-draft.md`)
+and self-reviewed it against the actual runner — material finding:
+`pnpm migrate` applies *all* pending migrations, not just 026 (022–025
+also sit unapplied in the tree), so the gate now carries a blocking
+pre-run `schema_migrations` check. Opened atlas PR #29
+(`feat/atlas-permaculture` → `main`, 13 commits). PR came back
+CONFLICTING on the **atlas-repo** `wiki/index.md` (own wiki dir, not
+the MILOS one) — both sides had appended different decision-index
+rows; resolved as a clean union (newest-first), merge `9dc9a187`
+pushed, PR now CLEAN/MERGEABLE. Unrelated zone-size-guide work-tree
+changes stashed across the merge and restored, not committed.
+
 ## [2026-05-15] session | MILOS — Faith grounding audit hardening + opening-du'a istiftah fix
 
 **Objective:** A user screenshot showed the SALAH → CORE "Memorise the
