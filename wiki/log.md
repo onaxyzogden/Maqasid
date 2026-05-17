@@ -3,6 +3,77 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-17] session | Atlas — Fix F-1 (maintenance schedule) + F-2/F-3 hardening
+
+**Objective:** Fix the Run-4 F-1 defect (recurring maintenance tasks
+scheduled ~98 yr out, 2124) plus the bundled F-2/F-3 latent gaps.
+
+**Result:** All three fixed, verified green.
+- **F-1a** — `scheduleTasksToCalendar.ts`: new `isMaintenancePhaseId()`
+  (deterministic `maint-phase-` id prefix); maintenance phase now anchors
+  to `startYear + maxDesignOrder` (year after last design phase) instead
+  of treating sentinel `order: 99` as a year offset.
+- **F-1b** — `useEventAggregator.ts`: recurring maintenance tasks expand
+  into a bounded virtual occurrence series (cadence step; 5-yr horizon +
+  240 hard cap; unique `phase-task:{id}@{date}` ids). Store stays a
+  single canonical row (no bloat / no extra matrix rows).
+- **F-2** — `goalTreeTemplates.ts`: new exported `resolveTemplateKey`
+  (underscore-key hit → archetype-hyphen scan → null); `getGoalTreeTemplate`
+  dev-warns on genuine unknowns; `GoalTreeTab.tsx` delegates (wrapper
+  removed). Hyphen `regenerative-farm` now resolves instead of silent
+  HOMESTEAD.
+- **F-3** — `scheduleTasksToCalendar.ts`: distribution bucket keyed by
+  `phase.id|season` (year still order-derived) → intentional same-year
+  sharing preserved, cross-phase interleaving + zero-task collisions gone.
+
+**Verification:** `tsc --noEmit` exit 0; full apps/web vitest **1080/1080
+green** (2 new test files: `scheduleTasksToCalendar.test.ts`,
+`useEventAggregator.test.ts`). Live preview re-run of the Run-4 fixture:
+real Generate → all 17 maintenance tasks now anchor to **2032**
+(`maintYears: ["2032"]`), not 2124. F-2 confirmed live: hyphen
+`regenerative-farm` → `regenerative_farm` tree; unknown → HOMESTEAD +
+dev warn.
+
+- Pages touched: scheduleTasksToCalendar.ts, useEventAggregator.ts,
+  goalTreeTemplates.ts, GoalTreeTab.tsx (+2 new test files), wiki/log.md.
+  Runs 1–4 docs byte-for-byte unmodified. **Not committed/pushed** (no
+  user request).
+- Deferred: store-level recurrence materialisation (occurrences stay
+  calendar-virtual by design); phasing-matrix representation of recurrence.
+
+---
+
+## [2026-05-17] session | Atlas — Run-4 auto-design pipeline discovery (regen-farm)
+
+**Objective:** Independent discovery-only run exercising the Goal-Compass
+auto-design → BuildPhases/PhaseTasks → scheduling pipeline end-to-end on
+the fixed build (post `ca4c0a32`), on a fresh project with a documented
+injected "(simulated)" fixture. No code changes (fixes are a separate
+follow-up).
+
+**Result:** Pipeline fires end-to-end; 4 of 5 verified outputs clean
+(Generate w/ draft chips 43 feat/16 paddock/1 fence/38 tasks; 8
+goal-compass phases + 38/38 ISO-dated tasks; calendar `phaseTask`
+DOM-confirmed Sep 1 2026; single `regen-phase` w/ 5 tasks all on barren
+zone, no duplicate — adoption seam works).
+
+**Findings (discovery, not fixed):**
+- **F-1 MAJOR** — all 17 maintenance-recurrence tasks scheduled in
+  **2124** (~98 yr out → invisible). Root cause one line:
+  `scheduleTasksToCalendar.ts:102` `year = startYear + (order-1)` with
+  the synthetic maintenance phase's sentinel `order: 99` → 2026+98.
+- **F-2 MINOR** — `getGoalTreeTemplate` silently falls back to HOMESTEAD
+  on unknown `projectType` (hyphen vs underscore key divergence); a
+  fixture-authoring trap, latent robustness gap (no diagnostic).
+- **F-3 MINOR** — `scheduleTasksToCalendar.ts:92` buckets by bare
+  `phase.order`; placeholder + GC phases share ordinals (harmless only
+  while placeholders carry 0 tasks).
+
+- Pages touched: docs/ux-walkthrough-regen-farm-run4-2026-05-17.md (new),
+  wiki/log.md. **No source edits** (discovery-only). Runs 1–3 docs
+  byte-for-byte unmodified. **Not committed/pushed** (no user request).
+- Deferred: F-1/F-2/F-3 fixes → separate follow-up session.
+
 ## [2026-05-16] session | Atlas — Site Profile acreage staleness root-cause + geodesic fix
 
 **Objective:** Site Profile showed 24.49 ac for a parcel the user
@@ -10947,3 +11018,54 @@ CSS-only tweak escapes the nested clippers while `.tableWrap` keeps the
   via the out-of-band rebase) — outside the 2-file scope, flagged
   separately. Next session: class-wide portal+collision fix for the shared
   `Tooltip.tsx`; resolve the `runAutoDesign` PolyFeature type error.
+
+## [2026-05-16] session | OLOS — Regeneration v1.1: active-plan model + canopy advisory
+
+**Objective:** Lift two deferred v1 non-goals of the stewarded
+regeneration feature without breaking the covenant: (A) allow multiple
+regeneration plans per zone (one active + scenarios/history), (B) surface
+silvopasture canopy as an *advisory* indicator only. The decisive rule
+stays byte-for-byte `ready === !!stewardReadinessConfirmedAt` — the
+system never auto-infers recovery (*iḥyāʾ al-mawāt*, steward-sovereign).
+Client-local only (no server persistence).
+
+**Approach:** TDD throughout (specs first, watch RED, GREEN). Plan row
+shape unchanged — plans share a `zoneId`; activeness tracked out-of-band
+by a persisted `activePlanIdByZone` map with a pure persist **v1→v2
+migrate** that backfills each existing single plan as its zone's active
+plan (zero behavioural change for current single-plan stewards). A DRY
+`selectActivePlans(plans, activePlanIdByZone)` helper (most-recent
+fallback, mirroring the store) feeds every gate-bearing surface the
+active-only list, keeping `findBlockingRegenerationPlan`'s pure signature
+unchanged; scenario plans never gate. Canopy advisory computed strictly
+*outside* the decisive path in the pure shared evaluator; a mandatory
+covenant-guard test asserts `ready`/`met`/`unmet`/`thresholdsObservedMet`/
+`projectedReadyDate` are identical with vs. without canopy.
+
+**Outcome:** `apps/web` `tsc --noEmit` clean (8 GB script, `--incremental
+false`, `TSC_EXIT=0`); `@ogden/shared` 185/185 (original 9 evaluator
+specs byte-identical; +5 canopy-advisory incl. covenant guard); full
+`apps/web` vitest 952/952 across 74 files. Runtime `preview_eval`
+exercise green: create-2 / first-auto-active / set-active /
+delete-promote, v1→v2 migrate backfill, scenario-never-blocks, monotonic
+9-point canopy track. WebGL canvas screenshot deferred (documented
+capture hang) — runtime module exercise substituted per prior precedent.
+
+- Decisions: [[2026-05-16-atlas-pasture-regeneration]] (v1.1 addendum
+  appended; v1 non-goals "multiple plans per zone" and "canopy as a
+  grazing factor" struck and lifted — canopy is advisory-only, never
+  gates; covenant unchanged)
+- Pages touched: wiki/decisions/2026-05-16-atlas-pasture-regeneration.md
+  (v1.1 addendum), wiki/entities/olos.md, wiki/log.md; atlas src
+  (branch feat/atlas-permaculture, **not committed** — branch is
+  rebased/force-pushed out-of-band): regenerationPlanStore.ts (active
+  map + actions + accessors + persist v2 migrate), regenerationGate.ts
+  (+`selectActivePlans`), LivestockPanel.tsx, RegenerationPlanOverlay.tsx,
+  RegenerationGateBanner.tsx, EcologicalDetail.tsx, RegenerationPlanCard
+  .tsx (+ .module.css), regenerationTimeline.ts (+`buildCanopyTrack`),
+  packages/shared/.../readinessGate.ts (+`canopyAdvisory`); + the
+  matching test files (TDD specs first).
+- Deferred: server persistence (still client-local); auto-confirm from
+  observed thresholds (intentionally never — steward-sovereign).
+  Pre-existing external type error `runAutoDesign.ts(170,72)` remains
+  out of scope.
