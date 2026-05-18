@@ -11173,3 +11173,54 @@ modified files. No behavioural change.
   (+`requiredRecoveryDays`), livestockAnalysis.ts (call site),
   rotationSequenceMath.ts (thin wrapper)
 - Deferred: none.
+
+## [2026-05-18] fix | OLOS — worktree-wide vitest "Failed to resolve import react" (37 masked test files)
+
+**Objective:** Running `vitest` inside any git worktree
+(`atlas/.claude/worktrees/<name>/apps/web`) failed to COLLECT 37 of 99
+test files with `Failed to resolve import "react"`; 62 pure-logic files
++ 770 assertions still passed, so the breakage silently **masked real
+coverage** for any React-touching change made in a worktree.
+
+**Root cause (verified, 3 parallel Explore agents):**
+`apps/web/vitest.config.ts` hardcoded
+`react: resolve(__dirname, '../../node_modules/react')`. The alias is
+deliberate — zustand ships a nested React copy, so it pins the single
+hoisted copy (`dedupe`+`server.deps.inline:['zustand']`). In the main
+tree `__dirname`=`atlas/apps/web` → `atlas/node_modules/react` (exists;
+pnpm `node-linker=hoisted` at repo root). In a worktree
+`__dirname`=`atlas/.claude/worktrees/<name>/apps/web` →
+`<worktree>/node_modules/react` which **never exists** (worktrees get no
+`node_modules`, it is `.gitignored`, no post-create install hook). The
+alias short-circuited every `react` specifier (incl. zustand's bare
+import) to a dead path. Pure-math tests have no React import → passed.
+`vite.config.ts` has no react alias (dev server walks node_modules and
+finds the repo-root copy because the worktree is nested inside `atlas/`),
+so only `vitest.config.ts` was affected.
+
+**Approach:** Resolve react/react-dom via Node module resolution instead
+of a fixed relative path — `createRequire(__dirname + '/')` anchored at
+apps/web, `dirname(require.resolve('react/package.json'))`. Node's
+parent-directory walk finds `atlas/node_modules/react` from BOTH the main
+tree and any nested worktree, so one absolute path is correct everywhere
+while the single-copy dedupe guarantee is preserved. One file changed;
+`dedupe`, `server.deps.inline`, `@ogden/shared*` aliases untouched.
+Chosen over per-worktree `pnpm install` (worktrees ephemeral/numerous,
+minutes each, no automation, leaves the brittle path latent).
+
+**Outcome:** Worktree `vitest run`: **0** react-resolution errors,
+98/99 files collect, **1157** assertions pass (was 770);
+zustand-store-bound `V3LifecycleSidebar.test.tsx` 4/4 (no
+duplicate-React regression); main tree unaffected. The lone remaining
+failure — `syncManifest.test.ts` "coverage guard" (persisted stores
+`ogden-rotation-plan`/`-compost-cycle`/`-habitat-features`/
+`-succession-path` not classified in `syncManifest.ts`) — is a **real
+pre-existing bug newly unmasked by this fix** (fails identically in the
+unmodified main tree); spun off as a separate task, out of scope here.
+
+- Decisions: none (test-infra robustness fix, no architectural change)
+- Pages touched: wiki/entities/olos.md, wiki/log.md; atlas src
+  (branch claude/kind-mccarthy-399890): apps/web/vitest.config.ts
+- Deferred: syncManifest store-classification gap (separate spun-off
+  task); post-worktree `pnpm install` automation (not pursued — the
+  config fix removes the need).
