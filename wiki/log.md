@@ -3,6 +3,77 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-17] session | Atlas — fix overlapping auto-generated Goal Compass paddocks
+
+**Objective:** Diagnose and fix (or justify) overlapping paddock polygons
+produced by the Goal Compass "Generate site design" action.
+
+**Result:** **FIXED.** Genuine orchestration bug, not a stamper bug.
+- Root cause (code-verified): `runAutoDesign` allocated against the full
+  unmodified zone list every iteration with no consumed-footprint ledger;
+  `stripSubdivide` tiles the *entire* input polygon (`areaM2` only sets cell
+  count). The sequencer selects ≥2 `tile-strip` livestock interventions that
+  score one livestock zone identically → two full grids stacked. Overlapping
+  steward-painted livestock zones are a secondary trigger of the same gap.
+- Fix: deterministic **claimed-footprint ledger** in `runAutoDesign` at the
+  existing pre-subdivision parcel-clip seam — **first-wins by sequencing
+  priority, leftover cascades** (user-chosen over proportional /
+  one-herd-per-zone); starved low-priority herd surfaces via existing
+  `emptyGeometryInterventionIds`. Scoped to `tile-strip` only. Two **lossless**
+  helpers `differencePolys`/`unionPolys` over new `AnyPolyFeature` in `geo.ts`
+  (MultiPolygon preserved so a disjoint earlier claim is never dropped).
+  Determinism preserved.
+- Verified: autoDesign **51/51**; full apps/web **1108 pass / 1
+  pre-existing-unrelated fail**; tsc clean for changed files (2 pre-existing
+  unrelated errors out of scope, flagged separately). Live WebGL canvas
+  verification honestly skipped (undrivable in harness per run6) — not faked.
+
+**Decisions:** [[2026-05-17-atlas-paddock-overlap-ledger]]
+**Deferred:** Live on-map visual confirmation (canvas undrivable); 2
+pre-existing unrelated test failures (`syncManifest.test.ts`,
+`useFlowEndpointOptions.test.ts`) flagged separately.
+**Pages touched:** `wiki/decisions/2026-05-17-atlas-paddock-overlap-ledger.md`
+(new), `wiki/entities/olos.md`, `wiki/index.md`, `wiki/log.md`.
+
+---
+
+## [2026-05-17] session | Atlas — Run-5: live-UI calendar recurrence verification
+
+**Objective:** Close the one open F-1b verification — DOM-confirm in the
+*live* Event calendar that recurrence expansion surfaces bounded recurring
+maintenance entries across the 2032+ horizon (last session's calendar nav
+bounced before this could be confirmed; logic was unit-locked only).
+
+**Result:** **F-1b FIXED — live-confirmed.** Discovery-only, no code changes.
+- Fresh clean project `5440a300-714b-4125-9252-1f3f9ab311b3` ("Run-5 Regen
+  Farm (simulated)"); fixture built via the real store actions
+  (`createProject`/`setFacet`/`addZone`/`createPlan`/`confirmReadiness`/
+  `ensureDefault`) — schema-correct by construction. Existing `ogden-*`
+  entries preserved (append-only; sibling session shares the profile).
+- **F-2 live:** `ensureDefault('regenerative_farm')` → archetype
+  `regenerative-farm` tree (4 subGoals/9 criteria), no silent HOMESTEAD.
+- **F-1a live:** real Generate → 17 `maint-phase-…` tasks, **all dated 2032**
+  (`startYear 2026 + maxDesignOrder 6`), never 2124.
+- **F-1b live (headline):** Event calendar, annual "Keyline-graded access
+  track — upkeep (annual)" DOM-confirmed recurring on **6 bounded yearly
+  occurrences 2032→2037** (meta `· recurring annual`), and **absent
+  2038/2039** — bounded by `MAINTENANCE_VIEW_HORIZON_YEARS = 5`, no runaway.
+
+**Method/caveats:** canvas undrivable → prerequisites injected via store
+actions, labelled "(simulated)"; pipeline + calendar ran natively. No
+jump-to-date control → Next-month clicked 76× programmatically (May 2026 →
+Sep 2032), landed label DOM-asserted. No screenshots — `aria-label`/innerText
+reads only.
+
+- Pages touched: new `docs/ux-walkthrough-regen-farm-run5-2026-05-17.md`,
+  wiki/log.md. Runs 1–4 docs byte-for-byte unmodified. No source edits.
+  **Not committed/pushed** (no user request).
+- Deferred / MINOR rec: `EventCalendarCard` has no jump-to-date control
+  (76 month-steps to reach a 2032 maintenance view) — recommend a
+  year/month picker or "jump to next maintenance" affordance.
+
+---
+
 ## [2026-05-17] session | Atlas — Fix F-1 (maintenance schedule) + F-2/F-3 hardening
 
 **Objective:** Fix the Run-4 F-1 defect (recurring maintenance tasks
