@@ -11140,3 +11140,36 @@ capture hang) — runtime module exercise substituted per prior precedent.
   observed thresholds (intentionally never — steward-sovereign).
   Pre-existing external type error `runAutoDesign.ts(170,72)` remains
   out of scope.
+
+## [2026-05-18] refactor | OLOS — DRY the "required recovery days" rule (single source of truth)
+
+**Objective:** Two functions independently re-implemented the same rule
+("max `recoveryDays` across assigned species, else 30 default"):
+`computeRecoveryStatus` in `livestockAnalysis.ts` (time-dependent
+recovery dashboard) and `requiredRestDays` in `rotationSequenceMath.ts`
+(pure rotation-sequence projection, deliberately byte-duplicated to avoid
+coupling pure math to the time-dependent module). Risk: the rule could
+silently drift if `LIVESTOCK_SPECIES` defaults change.
+
+**Approach:** Extracted one exported pure helper
+`requiredRecoveryDays(paddock)` into `speciesData.ts` — chosen over
+`livestockAnalysis.ts` because it is the pure, time-independent data
+module *both* call sites already import (`LIVESTOCK_SPECIES`), so the
+rotation-sequence projection stays decoupled from `computeRecoveryStatus`.
+`computeRecoveryStatus` now calls the helper; `requiredRestDays` is kept
+as a thin wrapper over it (retains this module's "rest" type/vocabulary
+ownership while the rule lives once). The `?? 30` fallback preserved so
+null-safety holds under `noUncheckedIndexedAccess`.
+
+**Outcome:** `rotationSequenceMath.test.ts` 10/10; full `apps/web`
+vitest 770/770 assertions pass (37 test *files* fail to collect with a
+pre-existing worktree `Failed to resolve import "react"` error,
+unrelated — no assertion failures). `tsc --noEmit` clean for all three
+modified files. No behavioural change.
+
+- Decisions: none (minor DRY consolidation, no architectural change)
+- Pages touched: wiki/entities/olos.md, wiki/log.md; atlas src
+  (branch claude/kind-mccarthy-399890, worktree): speciesData.ts
+  (+`requiredRecoveryDays`), livestockAnalysis.ts (call site),
+  rotationSequenceMath.ts (thin wrapper)
+- Deferred: none.
