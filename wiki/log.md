@@ -11224,3 +11224,46 @@ unmodified main tree); spun off as a separate task, out of scope here.
 - Deferred: syncManifest store-classification gap (separate spun-off
   task); post-worktree `pnpm install` automation (not pursued — the
   config fix removes the need).
+
+## [2026-05-18] fix | OLOS — classify 4 orphaned project-scoped stores in syncManifest (P0-1 regression closed)
+
+**Objective:** Close the `syncManifest.test.ts` coverage-guard failure
+unmasked by the vitest react-resolution fix above. Four persisted
+project-scoped Zustand stores were never registered in `syncManifest.ts`
+— the exact P0-1 silent multi-device data-loss failure mode the guard
+exists to catch. They shipped (B1/B2/B3 + A2 sub-projects) AFTER the
+guard but the worktree vitest breakage hid the red. This is a real
+data-correctness gap, not just a failing test: unregistered stores never
+sync, so a steward's rotation plan / compost cycle / succession path /
+habitat inventory would silently not travel between devices.
+
+**Approach:** Read each store's persisted state shape. All four are
+steward *design* data keyed by / tagged with `projectId`, none
+device-local, none on the `typed-design-feature`/`typed-table` paths →
+all classified `versioned-blob` in `SYNCED_STORES` with the existing
+generic blob transport helpers (no new transport code):
+- `ogden-compost-cycle` (useCompostCycleStore) — `byProject`
+  `Record<pid, CompostBatch[]>`, v1, no temporal → `byKey('byProject',
+  null, [])`
+- `ogden-rotation-plan` (useRotationPlanStore) — `byProject`
+  `Record<pid, RotationPlan>`, v1, no temporal → `byKey('byProject',
+  null, null)`
+- `ogden-succession-path` (useSuccessionPathStore) — `byProject`
+  `Record<pid, SuccessionPath>`, v1, no temporal → `byKey('byProject',
+  null, null)` (distinct from the existing `ogden-act-succession`
+  typed-table — separate key/store, no conflict)
+- `ogden-habitat-features` (useHabitatFeatureStore) — flat
+  `projectId`-tagged `features[]`, v1, **temporal (zundo)** →
+  `tagged('features'), true`
+
+**Outcome:** `syncManifest.test.ts` 10/10 (incl. the select→apply
+round-trip isolation + transport-metadata + applyForProject guards that
+exercise the generic blob loop for these shapes); full `apps/web`
+worktree suite **99/99 files, 1162 assertions**; `tsc --noEmit` clean
+for `syncManifest.ts`. Spun-off follow-up task fully closed.
+
+- Decisions: none (data-correctness fix using existing classification
+  vocabulary, no architectural change)
+- Pages touched: wiki/entities/olos.md, wiki/log.md; atlas src
+  (branch claude/kind-mccarthy-399890): apps/web/src/lib/syncManifest.ts
+- Deferred: none.
