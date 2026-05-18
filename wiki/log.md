@@ -11309,3 +11309,27 @@ would be among the casualties if it slipped through.
   apps/web/src/lib/__tests__/reactResolution.test.tsx
 - Deferred: none. The worktree class (config fix + loud guard + sentinel)
   is now fully closed.
+
+## [2026-05-18] ci | OLOS — test.yml workflow makes the react-resolution guard a server-side gate
+
+**Objective:** Promote the local-only guard to a true gate. Before this,
+nothing ran `apps/web` tests in CI (`deploy.yml` only builds on `main`),
+so the guard depended on a contributor running `npm test` locally.
+
+**Change (atlas branch claude/kind-mccarthy-399890, commit 5f98d304):**
+`.github/workflows/test.yml` — runs on every `pull_request` and on push to
+`main`, mirroring `deploy.yml`'s pnpm-install setup (`pnpm/action-setup@v4`,
+Node 20, `pnpm install --frozen-lockfile`), then `pnpm --filter @ogden/web
+test`. Because `test` is the chained `node scripts/check-react-resolution.mjs
+&& vitest run`, the resolution guard runs first server-side; a regressed
+alias or unresolvable react now fails the PR check, not just a local run.
+`concurrency` cancels superseded in-flight runs per ref.
+
+**Outcome:** committed + pushed 91b787d7..5f98d304. The
+config-fix → loud-guard → sentinel → CI-gate chain is now complete end to
+end.
+
+- Decisions: none (CI plumbing mirroring existing deploy.yml conventions)
+- Pages touched: wiki/entities/olos.md, wiki/log.md; atlas
+  (branch claude/kind-mccarthy-399890): .github/workflows/test.yml
+- Deferred: none.
