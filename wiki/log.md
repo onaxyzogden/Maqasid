@@ -11267,3 +11267,45 @@ for `syncManifest.ts`. Spun-off follow-up task fully closed.
 - Pages touched: wiki/entities/olos.md, wiki/log.md; atlas src
   (branch claude/kind-mccarthy-399890): apps/web/src/lib/syncManifest.ts
 - Deferred: none.
+
+## [2026-05-18] test | OLOS — fail-fast react-resolution guard + zustand-dedupe sentinel (worktree coverage-masking class permanently closed)
+
+**Objective:** Stop the root-cause class behind the two fixes above from
+silently recurring. The vitest react-alias fix (commit 6930d16b) repaired
+the *instance*, but a future regression of the alias back to a hardcoded
+relative path would again make ~37 React-importing test files fail to
+*collect* in a worktree — a partial-green run that masks real coverage and
+is easy to wave away as an environment quirk (precisely how the original
+went unnoticed and let the syncManifest P0-1 red hide).
+
+**Change (atlas branch claude/kind-mccarthy-399890, commit 91b787d7):**
+- `apps/web/scripts/check-react-resolution.mjs` — zero-dependency pre-test
+  guard mirroring `vitest.config.ts`'s `createRequire`-anchored react
+  resolution. Exits non-zero with remediation guidance if react/react-dom
+  can't resolve (the worktree regression); emits a non-fatal warning if
+  zustand's nested react copy drifts from apps/web's (the dedupe-pin
+  tripwire). Already correctly flagged the real nested
+  `node_modules/zustand/node_modules/react` copy as a warning.
+- `apps/web/package.json` — guard chained into `test` and `test:coverage`
+  (`node scripts/check-react-resolution.mjs && vitest run`) plus standalone
+  `check:react-resolution`. Chained, not a `pretest` hook, because pnpm
+  does not run pre/post hooks by default — chaining fires everywhere.
+- `apps/web/src/lib/__tests__/reactResolution.test.tsx` — self-contained
+  sentinel: renders a zustand-store-bound hook to prove the single-React
+  dedupe pin holds from inside the suite, independent of app code.
+
+**Outcome:** guard exits 0 and prints the resolved react path; sentinel
+2/2; full chained `npm test` runs the guard first then **100/100 files,
+1164 assertions** (was 99/1162 — +1 sentinel file). Pushed
+bab4a273..91b787d7. A regressed alias can no longer produce a misleading
+partial-green run: the script fails loud before vitest, and the sentinel
+would be among the casualties if it slipped through.
+
+- Decisions: none (preventive tooling using existing resolution strategy;
+  no architectural change)
+- Pages touched: wiki/entities/olos.md, wiki/log.md; atlas src
+  (branch claude/kind-mccarthy-399890): apps/web/package.json,
+  apps/web/scripts/check-react-resolution.mjs,
+  apps/web/src/lib/__tests__/reactResolution.test.tsx
+- Deferred: none. The worktree class (config fix + loud guard + sentinel)
+  is now fully closed.
