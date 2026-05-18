@@ -11333,3 +11333,50 @@ end.
 - Pages touched: wiki/entities/olos.md, wiki/log.md; atlas
   (branch claude/kind-mccarthy-399890): .github/workflows/test.yml
 - Deferred: none.
+
+## [2026-05-18] fix | OLOS — Plan zone-rings visibility (re-targeted + scoped down)
+
+**Objective:** Make the v3 map "frequency rings" legible (steward report:
+hard to see).
+
+**Investigation / correction:** The approved-scope implementation first
+targeted `ZonesOverlay.tsx` plus a new `zoneEmphasisStore`, a BaseMapCard
+zone sub-legend, and a temp `diagnose-preview` route. Steward feedback
+("the overlay description appears but the map remains the same") triggered
+a systematic-debugging root-cause pass: `ZonesOverlay` is mounted only on
+the dead-routed `DiagnosePage`. The rings that actually appear on **Plan**
+are drawn by `PlanZoneRingsOverlay` (gated on the separate `zoneRings`
+"Design audit rings" toggle); the `zones` toggle gates steward-drawn
+`human-zones` in `ObserveAnnotationLayers`. The whole hover apparatus
+optimised a component the steward never sees.
+
+**Change:** Applied the basemap-agnostic treatment to the correct
+surface — `PlanZoneRingsOverlay.tsx` gained a white casing line
+(opacity 0.55) under the dashed ring, zoom-interpolated widths
+(casing 4→6 px, line 2→4 px, was flat 1.5), line opacity 0.65→0.95, and
+a zoom-interpolated label (10→13, halo 1.2→1.8, allow-overlap).
+`ZonesOverlay.tsx` kept its analogous paint improvements but was
+decoupled from the hover store. Removed the speculative machinery:
+`zoneEmphasisStore.ts` deleted, BaseMapCard sub-legend reverted,
+`COLORS`/`LABELS` returned to module-private in `concentric.ts`, temp
+`diagnose-preview` route + import removed.
+
+**Outcome:** `pnpm --filter web typecheck` clean (exit 0) before and
+after cleanup. In-browser verification of casing legibility on satellite
++ street basemaps via injected synthetic rings (no local project carries
+a Z0 zone; geometry is parcel-independent). The branch
+`feat/atlas-permaculture` is rebased out-of-band — `git fetch` shows the
+remote already carries `CASING_LAYER` and the ZonesOverlay cleanup, i.e.
+this task's net delta is **already on origin**. Local is 8 ahead / 3
+behind on **unrelated** prior work (Report sidebar, D2 resourcing,
+syncManifest) — not force-pushed (out of scope; global rule + branch
+rebased-externally memo).
+
+- Decisions: [[2026-05-18-atlas-plan-zone-rings-visibility]]
+- Pages touched: wiki/decisions/2026-05-18-atlas-plan-zone-rings-visibility.md,
+  wiki/index.md, wiki/log.md; atlas (branch feat/atlas-permaculture,
+  already on origin via rebase): PlanZoneRingsOverlay.tsx, ZonesOverlay.tsx,
+  BaseMapCard.tsx + .module.css, concentric.ts, routes/index.tsx,
+  store/zoneEmphasisStore.ts (deleted)
+- Deferred: none. (The mis-targeting cost is recorded as the ADR's
+  primary lesson — verify the live mount surface before optimising paint.)
