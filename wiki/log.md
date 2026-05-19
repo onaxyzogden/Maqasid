@@ -11413,3 +11413,55 @@ PR registers the `test` context and it is hard-enforced from then on.
   .claude/settings.local.json (gitignored, not pushed). No atlas commit.
 - Deferred: optionally flip enforce_admins=true / require reviews later
   (out of scope here).
+
+## [2026-05-19] feat | OLOS — delete + archive/unarchive projects from the HomePage list
+
+**Objective:** Enable the ability to delete/archive projects.
+
+The `projectStore` already owned the hard parts — `deleteProject(id)` with a
+full `cascadeDeleteProject` across 11 stores + IndexedDB, and a
+`status: 'archived'` state — but the only delete path was *inside* a project
+(MapView → SettingsPanel → confirm dialog in `ProjectPage.tsx`), and there was
+**no archive UI at all**. From the HomePage project list a steward could not
+remove or shelve a project, so the working list grew unbounded.
+
+Scope was confirmed with the user via clarifying questions before
+implementation: archive+unarchive **and** delete; reusable `Modal` for the
+delete confirm; archived projects hidden from All/Active.
+
+**Changes (2 files only):**
+- `apps/web/src/pages/HomePage.tsx` — added Archive/Unarchive + Delete to the
+  existing hover/focus card-action overlay (next to Candidate/Promote +
+  Duplicate); Candidate/Promote hidden on archived cards; new "Archived" filter
+  tab (renders only when `archivedCount > 0`); `'all'` filter now returns
+  `status !== 'archived'` (was `true`); "All" count nets out archived; reusable
+  `components/ui/Modal.tsx` delete confirm wired to the existing cascade;
+  "Archived" badge on cards; a `useEffect` resets `statusFilter → 'all'` when
+  the selected tab empties (also fixes a **pre-existing** Candidates-tab
+  stranding bug found during runtime verification).
+- `apps/web/src/pages/HomePage.module.css` — `.cardActionBtnDanger` composing
+  `.cardActionBtn`, `--color-error-600` (same danger token as MapView).
+
+Builtin/sample cards (incl. `mtc`) stay action-free — the pre-existing
+`!p.isBuiltin` guard plus store-level no-op/allowlist already cover them; no
+extra builtin handling added. Store/schema unchanged.
+
+**Verification:** `apps/web` typecheck (8 GB script) clean twice; full
+`apps/web` Vitest **1219/1219**; every flow proven at runtime against the live
+dev server at `/home` (builtin cards action-free; archive hides + tab appears +
+store status `archived`; Archived tab → Unarchive/no-Candidate; unarchive
+restores + tab vanishes cleanly; delete modal opens, Escape/Cancel preserve the
+project, confirm removes it from store **and** persisted localStorage; cascade
+ran). `preview_screenshot` timed out twice (the documented recurring
+capture-tool hang in this project, though HomePage has no map) — verified via
+DOM/runtime exercise instead, documented honestly rather than asserted.
+
+- Decisions: [[2026-05-19-atlas-project-delete-archive-homepage]] (accepted).
+- Pages touched: wiki/decisions/2026-05-19-atlas-project-delete-archive-homepage.md
+  (new), wiki/index.md, wiki/entities/olos.md, wiki/log.md.
+- Committed only the 2 HomePage files; concurrent unrelated working-tree work
+  (`syncManifest.ts`, `proofEventStore*`, a D4 docs plan) left untouched.
+  Branch `feat/atlas-permaculture` is rebased/force-pushed out-of-band —
+  fetched + checked divergence before push.
+- Deferred: server-side delete; bulk archive/delete; soft-delete/undo
+  (all out of v1 scope).
