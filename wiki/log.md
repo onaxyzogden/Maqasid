@@ -11465,3 +11465,42 @@ DOM/runtime exercise instead, documented honestly rather than asserted.
   fetched + checked divergence before push.
 - Deferred: server-side delete; bulk archive/delete; soft-delete/undo
   (all out of v1 scope).
+
+## [2026-05-19] fix | OLOS — preview_screenshot reduce-motion + verification standard
+
+Resolved the recommended next-session item: the `preview_screenshot` hang
+that had blocked visual UI proof in `apps/web` (forced DOM-only verification
+on the same-day delete/archive task).
+
+- Root cause (split): (1) animation-driven settle-timeout — the sibling MILOS
+  app fixed this via a Claude-UA sniff adding a `reduce-motion` class, but
+  atlas `apps/web` never received it (it only had a browser-native
+  `prefers-reduced-motion` media block, which the headless capture UA does
+  not trigger); (2) inherent capture limit on MapLibre WebGL routes + a
+  separate known Windows hang — not code-fixable.
+- Ported the proven mechanism: boot-time UA guard in
+  `apps/web/src/main.tsx`, class-based collapse rule in
+  `apps/web/src/app/index.css` (mirrors the existing media block, leaves it
+  intact). No logic change.
+- Verified empirically against the live server: under the real Claude
+  preview UA `reduce-motion` is on `<html>` and a probe with
+  `animation:spin 9s infinite`/`transition:opacity 5s` computes to `1e-05s`
+  for both — the mechanism works. **But `preview_screenshot` still timed out
+  on `/home` (pure DOM, no animation)**, confirming the known Windows
+  capture hang is the dominant cause on this setup: the fix is correct and
+  necessary but not sufficient here. Docs corrected to not overclaim;
+  DOM-exercise verification is the operative standard. typecheck on the two
+  changed files clean (one unrelated TS error is concurrent untracked D4
+  `fieldProofActions` WIP — not this change, not touched).
+- Codified the DOM-exercise verification standard (drive via
+  `preview_eval`/`click`/`fill`, assert via `preview_snapshot`/console,
+  explicit limitation disclosure mandatory) for WebGL/map routes and any
+  Windows capture timeout. Co-located pointer added at `apps/web/CONTEXT.md`.
+- Decisions: [[2026-05-19-atlas-preview-screenshot-verification-standard]]
+  (accepted).
+- Pages touched: wiki/decisions/2026-05-19-atlas-preview-screenshot-verification-standard.md
+  (new), apps/web/CONTEXT.md (new), apps/web/src/main.tsx,
+  apps/web/src/app/index.css, wiki/index.md, wiki/entities/olos.md,
+  wiki/log.md.
+- Scope held: did not touch `preserveDrawingBuffer` on non-export maps or the
+  parent MILOS `src/main.jsx`/`global.css` (already correct).
