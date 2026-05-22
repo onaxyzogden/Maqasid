@@ -11504,3 +11504,42 @@ on the same-day delete/archive task).
   wiki/log.md.
 - Scope held: did not touch `preserveDrawingBuffer` on non-export maps or the
   parent MILOS `src/main.jsx`/`global.css` (already correct).
+
+## [2026-05-20] fix | OLOS — worktree preview_start vite-resolution (npx vite in launchers)
+
+The dev-server preview failed in the worktree with
+`Cannot find module '<worktree>/node_modules/vite/bin/vite.js'` — the **same
+hardcoded-relative-path class** as the vitest react-alias bug closed 2026-05-18,
+but in the dev-server launchers rather than the test config.
+
+- Root cause: launcher configs hardcoded
+  `node ../../node_modules/vite/bin/vite.js`. From a worktree
+  (`<wt>/apps/web`) `../../node_modules` resolves to the **empty**
+  `<wt>/node_modules`, not the hoisted `atlas/node_modules` (pnpm
+  `node-linker=hoisted`; worktrees get no `node_modules` and it is gitignored).
+  In the main tree the same relative path happens to land on `atlas/node_modules`
+  and works — so the bug was worktree-only, exactly like the react-alias one.
+- Fix: replaced every `node ../../node_modules/vite/bin/vite.js` with
+  `npx vite` (preserving each config's `--host`/`--port`/`--strictPort`). `npx`
+  uses Node's parent-directory walk, which reaches `atlas/node_modules` from
+  both the main tree and any nested worktree — one fix, correct everywhere.
+- Files: worktree `.claude/launch.json` (4 configs: web/web-wt/atlas-ui/web-a1)
+  + `.claude/start-web.bat`; and the atlas **main** repo's `.claude/launch.json`
+  — the file the preview tool actually reads (git worktrees share `.git`, so the
+  first worktree-only edit didn't take; the error path was unchanged until the
+  main-repo copy was fixed too).
+- Verification: stopped the stale `web` server
+  (`b8ffdb91-…`), restarted clean → port 5200, `reused:false`, started
+  successfully.
+- Commit scope: worktree `.claude/launch.json` + `.claude/start-web.bat`
+  committed to `claude/kind-mccarthy-399890` (in sync with origin, safe to
+  push). The atlas-main `.claude/launch.json` is left as an **uncommitted local
+  convenience** — it sits on the shared `feat/atlas-permaculture` branch
+  alongside another session's WIP and that branch is force-pushed externally, so
+  it is deliberately not entangled/pushed.
+- Decisions: none (launcher config; no architectural change).
+- Pages touched: atlas worktree `.claude/launch.json`, `.claude/start-web.bat`;
+  atlas-main `.claude/launch.json` (local only); wiki/entities/olos.md,
+  wiki/log.md.
+- Deferred: optionally fold the launcher fix into atlas main / a
+  post-worktree-create install hook (out of scope here).
