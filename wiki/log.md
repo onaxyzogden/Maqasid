@@ -11543,3 +11543,46 @@ but in the dev-server launchers rather than the test config.
   wiki/log.md.
 - Deferred: optionally fold the launcher fix into atlas main / a
   post-worktree-create install hook (out of scope here).
+
+## [2026-05-22] ops | OLOS — folded npx-vite launcher fix + react-resolution CI gate into atlas `main` (PR #37) + SessionStart pnpm-install hook
+
+- Closed the 2026-05-20 deferred item: made worktrees get a working preview +
+  `node_modules` resolution with **zero per-file patching**, by landing the
+  fixes on atlas `main` rather than per-worktree.
+- Delivery: **PR #37 squash-merged to `main`** (commit `13257325`, "Fold
+  npx-vite launcher fix + react-resolution CI gate into main (#37)"), 10 files:
+  `.claude/launch.json` + `.claude/start-web.bat` (npx-vite launcher fix),
+  `.claude/hooks/ensure-deps.mjs` + `.claude/settings.json` (install hook),
+  `.github/workflows/test.yml`, `apps/web/scripts/check-react-resolution.mjs`,
+  `apps/web/src/lib/__tests__/reactResolution.test.tsx`,
+  `apps/web/vitest.config.ts` (the `createRequire` react-alias fix),
+  `apps/web/package.json`, `apps/web/src/lib/syncManifest.ts`.
+- **Resolution mechanism** (one pattern, correct in main tree *and* nested
+  worktrees): launchers use `npx vite`; vitest config resolves react/react-dom
+  via a `createRequire`-anchored Node parent-dir walk that reaches the hoisted
+  `atlas/node_modules` from either location. No hardcoded `../../node_modules`
+  path remains in either path.
+- **SessionStart install hook** (`.claude/hooks/ensure-deps.mjs`): fast no-op
+  when `node_modules` is present; otherwise runs `pnpm install`, falling back to
+  `corepack pnpm` (corepack ships with Node; bare `pnpm` is not on PATH on this
+  Windows box) with `COREPACK_ENABLE_DOWNLOAD_PROMPT=0` to avoid hanging; child
+  stdout routed to fd 2 to keep SessionStart stdout clean; always exits 0.
+  Verified functional (installed a fresh worktree's deps in ~35s).
+- **Gate now real on `main`:** the required `test` status check reported on a PR
+  for the first time and passed (1m32s), so branch protection enforces it going
+  forward. The config-fix → loud-guard → sentinel → CI-workflow →
+  required-check → live-on-main chain is fully closed.
+- **Discovery during the fold:** main's `apps/web` suite was already RED —
+  3 project-scoped stores (compost-cycle/rotation-plan/succession-path) were
+  unregistered in `syncManifest.ts` (the same multi-device data-loss class the
+  guard exists to catch), masked on main because nothing ran the suite in CI and
+  worktrees couldn't collect React files. The `syncManifest.ts` fix (3 byProject
+  blob registrations; habitat-features was already registered) was required to
+  get green. Post-fix: 100 test files / 1164 tests pass locally.
+- Decisions: none beyond the prior ADRs (operational fold + hook; no new
+  architecture). Cleanup note: the temporary `ci-to-main` worktree used to build
+  the PR was deregistered from git; ~5 hardlinked binaries (esbuild/rollup)
+  could not be deleted because other sessions' processes hold the shared store
+  files — benign, clears when those processes exit.
+- Pages touched: wiki/entities/olos.md, wiki/log.md (parent MILOS repo). The
+  atlas code changes live on atlas `main` via PR #37.
