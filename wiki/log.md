@@ -3,6 +3,143 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-23] session | Atlas — Goal-Compass build-sequence UI (OLOS gap #7: visualize the dependency graph / Yeomans permanence ladder)
+
+**Objective:** Close OLOS story gap #7 — the Goal Compass engine already emitted
+its sequence into `phaseStore`, but no surface visualized the build order,
+dependency graph, or Yeomans permanence ladder. Give the steward a way to *see
+the sequence*, not just read the plan.
+
+**Result:** **SHIPPED** as a read-only **Build sequence** tab inside the
+Goal-Compass slide-up. A Yeomans permanence swimlane (climate top → soil bottom),
+one node per selected intervention in build order with start-year badges,
+dependency arcs to any prerequisite that is itself selected, hover tooltips, and
+a "considered but not scheduled" readout that surfaces the engine's
+previously-discarded `skipped[]` reasons.
+
+- **Design forks (all answered "best UX option" → resolved):** shape = one
+  combined SVG (permanence swimlanes + dependency arcs + build-order/start-year);
+  placement = a new tab after Proposal; interaction = read-only with hover
+  tooltips in v1, plus the `skipped[]` transparency readout. No drag/edit.
+- **Load-bearing choice — re-run the pure engine, don't read `phaseStore`.** The
+  dependency arcs need intervention-level `prerequisites: string[]`, which are
+  flattened away when the engine lowers `SelectedIntervention` →
+  `BuildPhase`/`PhaseTask`. So the card re-runs the deterministic,
+  side-effect-free `runSequencingEngine` in a `useMemo` and reads `selected` +
+  `skipped` directly — mirroring exactly what `GeneratedPlanTab` already does
+  (read `goalTreeStore` goalTree + `excludedInterventionsByProject`,
+  `siteProfileStore`, filter `INTERVENTION_CATALOG`, call the engine). Same
+  inputs → same output as the tab the steward already trusts; no new state.
+- **Pure-core / view split** (mirrors the codebase's pure-vs-turf convention):
+  - Pure layout core
+    `apps/web/src/v3/plan/engine/goalCompass/goalCompassSequenceLayout.ts`
+    (turf-free, React-free): `buildSequenceLayout(selected, generatedPhases)` →
+    `{ bands, nodes, edges, width, height }`. Bands per *used* Yeomans phase
+    ordered by `phaseIndex` (reuses `PHASE_ORDER`/`phaseIndex` from `types.ts`),
+    label/colour borrowed from the matching emitted `BuildPhase` by authored
+    name with local `PHASE_LABEL`/`PHASE_COLOR` fallbacks (so the math is
+    unit-testable with `generatedPhases: []`). Nodes x-ordered by the array's
+    existing topological order, placed on their phase band. Edges only when the
+    prerequisite is itself selected (dangling prereqs dropped). Geometry in one
+    `LAYOUT` object for tuning.
+  - Thin SVG view
+    `apps/web/src/v3/plan/cards/goal-compass/GoalCompassSequenceCard.tsx`,
+    modeled on `PermanenceLadderCard` (`<defs>` arrowhead marker, Bézier
+    `<path>` edges, node `<g>`+`<circle>`+`<text>`): phase swimlane rects with
+    left-edge labels, nodes with start-year badges + truncated names, hover
+    highlight, native `<title>` tooltips (name/phase/start-year/labor/cost/
+    prerequisites), and the `skipped[]` table below.
+- **Registration (static two-part house pattern):**
+  `{ label: 'Build sequence', sectionId: 'plan-goal-compass-sequence' }` into
+  `MODULE_CARDS['goal-compass']` after Proposal (`types.ts`), plus a lazy import
+  + switch case in `PlanModuleSlideUp.tsx`.
+- **Deliberately untouched:** the engine, `phaseStore`, persisted state (purely
+  additive read view); `PermanenceLadderCard` (a *different* data source —
+  physically-placed elements bucketed by generic Yeomans rank — left intact, not
+  conflated). No graph library (reactflow/d3/dagre) — bespoke SVG is house style.
+- **Consequence:** OLOS gap #7 moves Partial → Full. The engine's `skipped[]`
+  reasoning ("Site requirements not met", "Prerequisite not selected", "All
+  target criteria already met", "Exceeds available acreage budget", "Not
+  authored for project type …") is now visible to the steward instead of
+  silently discarded.
+- **Verification:** layout unit suite **5/5** (band ordering by `phaseIndex`;
+  edge only when prereq selected, dangling dropped; build-order preserved on x;
+  node lands on the band matching its `yeomansPhase`; generated-phase
+  label/colour preferred). `apps/web` typecheck clean back to the documented
+  3-error pre-existing baseline (zero new from the 5 touched/new files).
+  `buildSequenceLayout` + the card/types/slide-up modules exercised in the
+  **live Vite browser bundle** via `/@fs` dynamic import — band reorder
+  (climate→water→soil), generated-phase colour preference, dangling-prereq
+  filtering, build-order x-placement all confirmed on shipped code; the
+  `plan-goal-compass-sequence` tab registered after Proposal; no console errors.
+  No SVG screenshot (reaching the rendered state needs a map-loaded project and
+  the WebGL/Windows capture hang is documented) — runtime evidence reported
+  honestly per project policy.
+- **Files:** new `goalCompassSequenceLayout.ts`, `GoalCompassSequenceCard.tsx`,
+  `__tests__/goalCompassSequenceLayout.test.ts`; edited `types.ts` (one line),
+  `PlanModuleSlideUp.tsx` (two lines). Committed `78875305` (5 files, +537) on
+  `feat/atlas-permaculture` — **not pushed** (branch rebased out-of-band; the
+  out-of-band rebase landed mid-session and required `git reset` + re-staging my
+  5 files by name to keep the commit clean; fetch + divergence check before any
+  push).
+- **ADR:** [[2026-05-23-atlas-goal-compass-sequence-ui]].
+- **Deferred:** the `asOf` year-scrubber decay animation (the stated alternative
+  gap); drag-to-reorder / inline edit.
+
+## [2026-05-23] session | Atlas — field-verification axis (OLOS gap #10: wire multi-year observations into layer confidence)
+
+**Objective:** Close the actionable half of OLOS story gap #10 — feed logged
+multi-year field observations back into the map's belief about the land, without
+corrupting the static source-confidence signal.
+
+**Result:** **SHIPPED** as a distinct second axis. A steward's logged soil
+samples + monitoring transects now derive a *field-verification* level
+(`unverified | corroborated | verified`) shown alongside — never merged into —
+source confidence, and rendered as a decaying glow on the Observe map.
+
+- **Design forks (locked with steward up front):** sources v1 = soil samples +
+  monitoring transects only; model = *distinct second axis* (not merged); 
+  granularity = sub-region (near the observation); recency = sustained with decay
+  (stale obs fade).
+- **Derive, don't duplicate:** computed on the fly from the existing persisted
+  observation stores — no new persisted store, single source of truth,
+  auto-updates as the steward logs.
+- **Two-layer split** (mirrors the codebase's pure-vs-turf convention):
+  - Pure turf-free core `packages/shared/src/fieldVerification/`: exponential
+    `decayWeight` (half-life 3 yr); `TOPIC_TO_LAYERS` (soil→soils,
+    water-quality→watershed+wetlands_flood, invasives/indicator/wildlife→
+    land_cover, general→none); `levelFromWeight` (≥1.5 verified, ≥0.5
+    corroborated); `aggregateByLayer`.
+  - Web geometry/React glue `apps/web/src/lib/fieldVerification/`:
+    `buildVerificationZones` (turf-buffers each obs into an influence polygon —
+    point 150 m, transect 75 m — tagged with its decayed contribution);
+    `verificationAt` (reuses `spatialSampling.isInside`); `useFieldVerification`
+    hook (`useMemo`-keyed on `[projectId, samples, transects, asOf]`).
+- **Surfacing:** new `FieldVerificationBadge` (earth-green pill, sibling to
+  `ConfidenceIndicator`) in `DataCompletenessWidget` + `EducationalAtlasPanel`;
+  a `field-verification` `LayerSpec` folded into the existing
+  `ObserveAnnotationLayers` host (deliberate deviation from the planned
+  standalone overlay — lower risk, pattern-consistent); barrel + subpath export
+  in `@ogden/shared`.
+- **Deliberately untouched (v1):** `computeScores` / source confidence stay as
+  they are — the axes remain distinct, no conflation. Deferred: scoring tie-in,
+  "What This Land Wants" narrative mention, year-scrubber `asOf` decay animation.
+- **Verification:** `@ogden/shared` field-verification **15/15** (decay halves at
+  the half-life; lone 6 yr sample → unverified; three recent nearby → verified;
+  water-quality → both hydrology layers); `apps/web` typecheck clean for all 6
+  files (only the documented 3-error pre-existing baseline remains, in untouched
+  files); app boots console-clean; **both shipped modules exercised in the live
+  browser bundle** via Vite `/@fs/` dynamic imports (decay, aggregation, topic
+  mapping, buffer geometry, spatial membership). `preview_screenshot` hung (the
+  documented WebGL/Windows capture wall) → DOM/runtime verification, reported
+  honestly per project policy.
+- **Commits:** `aae29096` (shared core, slice 1) + `9bd46f84` (web glue + UI
+  surfacing, 6 files, +506) on `feat/atlas-permaculture`. **Not pushed** (branch
+  rebased out-of-band — fetch + divergence check before any push).
+- **ADR:** [[2026-05-23-atlas-field-verification-axis]]. Concept map
+  `atlas/wiki/concepts/olos-story-codebase-map.md` row #10 / tally / constraint
+  updated to reflect gap #10's feedback wire now built as a distinct axis.
+
 ## [2026-05-17] session | Atlas — fix overlapping auto-generated Goal Compass paddocks
 
 **Objective:** Diagnose and fix (or justify) overlapping paddock polygons
