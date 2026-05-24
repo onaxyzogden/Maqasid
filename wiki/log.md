@@ -3,6 +3,44 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-24] session | Atlas — Observe left tool rail single-objective focus
+
+**Objective:** Operator instruction (selected the live `ObserveTools` rail):
+*"the left toolbar should only show the tools needed to complete the chosen
+objective."* Extend the Stage Compass's single-objective focus — already applied
+to the right checklist rail in Goal 2 — to the **left tool palette**.
+
+**Result:** **SHIPPED.** `ObserveTools` now renders only the section(s)
+belonging to the active objective instead of every module's tools color-drained:
+
+- **Non-BE module** → exactly one section (early-return unless `mod === activeModule`).
+- **Built Environment** → its "From map" meta-section + 6 per-category sections
+  (all routed to `built-environment`); the "From map" IIFE + BE-category map gated
+  on `routed === activeModule`.
+- **No objective selected** → quiet empty state ("No objective selected" +
+  **Open Stage Compass** button → `/v3/project/$projectId/compass`), mirroring the
+  right rail's empty state exactly.
+- All three section-render blocks **gated, not deleted** (`feedback_no_deletion`).
+  Empty-state CSS (`.emptyPrompt`/`.emptyText`/`.emptyHint`/`.compassLink`) copied
+  verbatim from `ObserveChecklistAside.module.css`, tokens-only.
+
+**Verification:** `corepack pnpm --filter @ogden/web run typecheck` clean apart
+from the 3 pre-existing unrelated errors (`StepBoundary.tsx(365,7)`,
+`HostUnionContextMenu.test.tsx(58,36)`, `HostUnionDrilldownCard.test.tsx(25,36)`).
+Preview **DOM-asserted** on `:5200` — Human Context → 1 section; Built Environment
+→ 7 sections; bare `/observe` → 0 sections + working compass link.
+`preview_screenshot` timed out twice on the MapLibre WebGL canvas (known Windows
+hang), so verification was structural, not image — flagged honestly per the
+[[2026-05-19-atlas-preview-screenshot-verification-standard]] standard.
+
+- **Decisions:** No new ADR — this is a small follow-up applying the existing
+  Goal 2 focus pattern to the second rail. Recorded on [[olos]] only.
+- **Deferred:** Same single-objective focus for the Plan/Act tool rails (consistency).
+- **Committed:** `aa0a7d1b` (2 files, +109/−5) on `feat/atlas-permaculture`.
+- **Pages touched:** [[olos]] (Current Status + History), this log.
+
+---
+
 ## [2026-05-24] session | Atlas — Observe Command Centre (Stage Compass Goal 5: center-unlock + aggregate surface)
 
 **Objective:** Finish & verify **Goal 5** of the Stage Compass plan —
