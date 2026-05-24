@@ -3,6 +3,64 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-24] audit | Atlas — Observe objective-driven workspace vs OLOS Stage Command Center doc
+
+**Objective:** Operator shared `~/Downloads/OLOS Stage Command Center.md` — the
+product spec that drove the already-shipped objective-driven Observe workspace
+(ADR `wiki/decisions/2026-05-24-atlas-objective-driven-workspace.md`). The doc
+describes an *objective-driven workspace*: a steward selects an assigned objective
+and the system loads a purpose-built task environment (map context → tools →
+checklist → evidence → completion), split into two modes — **Command Centre for
+awareness** and **Objective Execution View for execution** — across three UI
+states (Overview → Objective Selected → Completion). The operator chose
+**"Audit only (read-only)"** — verify the shipped workspace against the doc
+item-by-item, run tests/typecheck, report. No code, roadmap, or wiki content
+changed during verification.
+
+**Verdict:** **The shipped Observe workspace faithfully implements the doc.**
+Every core mechanic, all 12 assignment-card metadata fields, all five status
+states, all five on-click contexts, the command-centre layout, and all three UI
+states are present and correct:
+- **Data layer** (`v3/objectives/fieldObjective.ts`): `FieldObjective` carries
+  every doc field — `stage/module/title/description?/target` (center/zoom/bbox/
+  highlightGeometry)/`requiredTools[]/requiredLayers[]/checklist[]/evidence[]/
+  completionRule/priority/dueAt?/assignee?`; all 5 status states
+  (`not-started|in-progress|evidence-submitted|complete|needs-review`); pure
+  `evaluateObjectiveCompletion` (per-gate `pct`, `canSubmit`). Seed = 8
+  objectives; persisted run store (`ogden-field-objectives` v1).
+- **Screen 1 Command Centre Overview** (`v3/command/ObserveCommandCentrePage.tsx`,
+  ungated): SiteMapPanel + objective markers, AssignedObjectivesPanel
+  (priority/due/assignee/progress), ObservationTimelinePanel,
+  EvidenceLibraryPanel, GapsPanel, ModuleDashboardsPanel, Plan-readiness.
+- **Screen 2 Objective Focus** (`?objective` param in `ObserveLayout`):
+  ObjectiveMapFocus (camera fly + pulsing highlight ring), ObserveTools
+  `restrictToTools={requiredTools}`, ObjectiveBanner, ObjectiveExecutionAside.
+- **Screen 3 Evidence/Completion** (`ObjectiveEvidenceCapture` + aside footer):
+  photo/confirmation/annotation/note→summary mirror/audio; status transitions
+  Submit-for-review → Send-back / Mark-complete.
+
+**Three deltas (doc asks, code does not yet do) — reported, NOT fixed (read-only
+scope); all pre-recorded as intentional v1 deferrals:**
+1. **`requiredLayers` dormant** — doc wants "show only the overlays needed…
+   optionally dim irrelevant layers"; grep confirms `requiredLayers` is read by
+   no UI (type + seed + spec doc only). Layers stay global on objective entry.
+2. **No focus-mode timeline filter** — doc: "timeline can *optionally* filter to
+   relevant observations"; the timeline is global and overview-only.
+3. **Compass-center gate contradiction** — doc's Command Centre is "awareness"
+   available any time, and the page itself is ungated, but
+   `ObserveCompassWheel.tsx:161` keeps the center hotspot
+   `aria-disabled={!commandCentre.ready}` (locked until all objectives 100%).
+   Already flagged in `2026-05-24-atlas-objective-driven-workspace.md`.
+
+**Verification (all read-only):** objective unit tests
+`v3/objectives/__tests__/fieldObjective.test.ts` **11/11** (6
+`evaluateObjectiveCompletion` + 5 seed-shape); web `tsc --noEmit` (8 GB node
+script) — only the **3 known pre-existing unrelated errors** (`StepBoundary.tsx`,
+`HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx`), none from the
+workspace. Live Command-Centre / focus-mode screenshot **deferred** behind the
+documented auth + seeded-project + headless-WebGL + MapTiler-key wall (same as
+Phases A/A5/B/C). No code, roadmap, or wiki edits beyond this log entry.
+
 ## [2026-05-24] confirm | Atlas — OSU PDC roadmap Phase B (`planting_plan` export) verified complete
 
 **Objective:** Operator instruction *"proceed to OSU PDC roadmap Phase B
