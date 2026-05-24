@@ -3,6 +3,59 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-24] session | Atlas — Multi-steward Human Context model (OBSERVE Module 1: single steward -> roster)
+
+**Objective:** The OBSERVE Human Context module assumed a **single steward**
+throughout the stack — wrong, because land is rarely stewarded by one person and
+Moontrance is explicitly a community project. Convert it to a **multi-steward**
+model end-to-end.
+
+**Result:** **SHIPPED.** A multi-steward **roster** derived from the live
+`project_members` system, joined to a per-`userId` profile overlay by a single
+`useStewardRoster(projectId)` selector.
+
+- **Four locked decisions (confirmed with operator before build):**
+  1. **Array + roles** — multiple stewards, each tagged with a domain
+     `StewardRelationship` (`lead | co-steward | family | ally | contributor`),
+     deliberately distinct from the app-permission `ProjectRole`.
+  2. **Hybrid vision split** — personal attributes per steward (incl. each
+     steward's own `personalVision` + `personalExperienceGoals`); the vision
+     *package* is shared at project level (`sharedVision`).
+  3. **Auto-derive** the roster from `memberStore` (`ProjectMemberRecord` keyed
+     by `userId`); rich profile fields are a per-`userId` overlay
+     (`visionStore.stewardProfiles`), not a freestanding duplicate array.
+  4. **No persist migration** — `visionStore` reshaped freely, persist bumped to
+     **v4** with a no-op migrate dropping the old `steward`; demo re-seeded.
+- **Tension resolved (offline/demo):** `visionStore` is localStorage-only while
+  `memberStore` is API-only + auth-required, so a pure auto-derive renders empty
+  with no login. Added `memberStore.seedLocalMembers` (no-op guard) + the builtin
+  seed injecting 2 synthetic members (Yousef owner/lead, Amina designer/co-steward)
+  + matching `stewardProfiles` + `sharedVision`. Real projects still `fetchMembers`;
+  both paths feed the same selector.
+- **Covenant framing preserved:** demo `guidingValues` include *Amanah*;
+  `constraints` include "no interest-bearing finance — qard hasan / donation /
+  in-kind only" + the Conservation Halton 30 m setback. No CSRA/salam framing.
+- **Scope (16 files + new `roster.ts`):** `visionStore`/`memberStore`;
+  `export.schema` (`HumanContextPayload.stewards[]` + sibling `vision` package +
+  `totals.stewardCount`) / `project.schema` (`stewardNames[]` forward-compat,
+  legacy `stewardName` kept for `apps/atlas-ui` + migration 021);
+  `derivations.ts` (per-steward + roster rollups `rosterCapacityHours` /
+  `rosterCompleteness` / `stewardCount`); v3 `StewardSurveyDetail` /
+  `VisionDetail` / `HumanContextDashboard` + legacy `StewardSurveyCard`
+  (**rewritten in place, not deleted** — different routing than the v3 detail, and
+  preserve-legacy memory) + `ObserveHub` + `MembersTab` (steward badge); PDF
+  `humanContextReport.ts` + markdown `DiagnosisReportExport.tsx`; demo
+  `builtinSampleObserveData.ts`.
+- **Verified:** `@ogden/shared` build exit 0; `apps/api` typecheck exit 0;
+  `apps/web` typecheck clean for all touched files — only **3 pre-existing
+  unrelated errors** (`StepBoundary.tsx`, two `plan/layers` host-union tests),
+  none in any steward file (web `tsc` OOMs at default heap → needs 8 GB);
+  human-context derivations **17/17**. Live on-map verification **deferred**
+  (documented Windows WebGL capture hang) — runtime evidence is the typecheck +
+  unit suite + shared/api builds.
+- Committed `7c61f9d9` (16 files, +1325/−667) on `feat/atlas-permaculture`.
+  ADR: [[2026-05-24-atlas-multi-steward-human-context]].
+
 ## [2026-05-23] session | Atlas — Goal-Compass build-sequence UI (OLOS gap #7: visualize the dependency graph / Yeomans permanence ladder)
 
 **Objective:** Close OLOS story gap #7 — the Goal Compass engine already emitted
