@@ -3,6 +3,57 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-24] session | Atlas — Observe Command Centre (Stage Compass Goal 5: center-unlock + aggregate surface)
+
+**Objective:** Finish & verify **Goal 5** of the Stage Compass plan —
+*"gather at the edge, govern from the center."* The compass was a flat
+mission-select with a static "OBSERVE" center; build the missing **center-unlock
+mechanic** and the net-new aggregate **Observe Command Centre** the center opens
+into (Observe only).
+
+**Result:** **SHIPPED** across three commit-immediately slices on
+`feat/atlas-permaculture`.
+
+- **Three modes** — **Setup** (center dim/locked) → **Ready** (all 7 objectives
+  100% verified → hub `forceConverged` glow + "Open Command Centre") → **Command**
+  (center clicked → full-bleed Observe Command Centre). Unlock rule
+  `data.views.every(v => v.progress.pct === 100)` off the existing `useCompassData`.
+- **Kept the shared `MaqasidComparisonWheel`** — its hub isn't natively clickable
+  and has no center slot, so the center affordance is an absolutely-centered
+  `<button>` **overlay** over the hub (host made `position:relative`); the Ready
+  glow reuses the wheel's built-in `forceConverged` prop (the single sanctioned
+  exception to the biophilic "no glow/blur" register).
+- **Slice A `d7355da8`** — `v3ObserveCommandCentreRoute` (path
+  `observe/command-centre`, static → resolves before `observe/$module` in
+  TanStack) on `v3ProjectLayoutRoute`; `V3ProjectLayout` full-bleed branch
+  extended to match `command-centre`; `ObserveCommandCentrePage` scaffold + a
+  quiet not-ready "Command Centre locked" guard (no hard redirect).
+- **Slice B `9b77f3cf`** — `ObserveCompassWheel` gained `ready` +
+  `onEnterCommandCentre`, passes `forceConverged={ready}`, renders the Setup-dim /
+  Ready-accent center hotspot; `StageCompassPage` computes `ready` and wires
+  `goCommandCentre()`.
+- **Slice C `bb5a30a0`** — new `apps/web/src/v3/command/` folder: `SiteMapPanel`
+  (embeds `DiagnoseMap` read-only), inline 7-objective Observe summary,
+  `EvidenceLibraryPanel` + `GapsPanel` (off a new `useEvidenceCounts` hook),
+  `ModuleDashboardsPanel` (the 7 module dashboards embedded, each deep-linking to
+  `/observe/$module`), Plan-readiness card → `/plan`.
+- **Plan correction (discovery):** the 7 Observe annotation stores are **flat
+  single-project** zustand stores whose records each carry a `projectId` field —
+  *not* `byProject[projectId]` as the plan assumed; `useEvidenceCounts` filters by
+  `record.projectId`, matching the module dashboards' own pattern.
+- **Verified:** `corepack pnpm --filter @ogden/web run typecheck` clean apart
+  from the 3 pre-existing unrelated errors (`StepBoundary.tsx(365,7)`,
+  `HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx`); all three
+  modes preview-verified with screenshots (Ready driven by writing the
+  `ogden-atlas-observe-compass` store all-verified then reloading; SEED defaults
+  restored after).
+- **Decisions:** [[2026-05-24-atlas-observe-command-centre]].
+- **Deferred:** Plan/Act compasses + their gating data; a real
+  evidence-verification backend; on-wheel node-path/background styling (would drop
+  the shared wheel); a permanent in-UI "mark all verified" cheat.
+- **Pages touched:** [[olos]] (Current Status + History), wiki index (Decisions),
+  new ADR [[2026-05-24-atlas-observe-command-centre]], this log.
+
 ## [2026-05-24] session | Atlas — Multi-steward Human Context model (OBSERVE Module 1: single steward -> roster)
 
 **Objective:** The OBSERVE Human Context module assumed a **single steward**
