@@ -3,6 +3,53 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-24] confirm | Atlas — OSU PDC roadmap Phase B (`planting_plan` export) verified complete
+
+**Objective:** Operator instruction *"proceed to OSU PDC roadmap Phase B
+(plant/guild/planting-plan, Weeks 7–8)."* Exploration found Phase B **already
+built and committed** (`7175f060 feat(export): planting_plan PDF export`, working
+tree clean), shipped by a parallel session on `feat/atlas-permaculture`. The
+operator chose **"Confirm only (read-only)"** — review the committed
+implementation against the roadmap B-1/B-2/B-3 spec, run the tests/typecheck, and
+report. No code, roadmap, or wiki content changed during verification.
+
+**Result:** **Phase B confirmed correctly complete.** All three slices present
+and spec-conformant:
+- **B-1 shared schema** (`packages/shared/src/schemas/export.schema.ts`):
+  `'planting_plan'` in `ExportType`; `PlantingScheduleRow`
+  (`species/latinName?/layer?/source/sourceKind('guild'|'crop_area')/count?/spacingM?/areaM2?`);
+  `PlantingPlanPayload = MasterPlanPayload.extend({ schedule })`; separate
+  `plantingPlan` payload key in `CreateExportInput` (master/base/zone contract
+  untouched); barrel re-export.
+- **B-2 server template** (`apps/api/src/services/pdf/templates/plantingPlan.ts`):
+  empty-payload → `notAvailable`; hero counts → map image(s) → legend → optional
+  narrative → schedule `<table>` grouped guilds-then-crops; `isImageDataUrl`
+  injection guard; registered in the exhaustive `TEMPLATE_REGISTRY`
+  `Record<ExportType, TemplateFn>` (a missing key fails the build).
+- **B-3 web trigger** (`apps/web/src/v3/plan/MapSheetExportControl.tsx`):
+  `planting_plan` in `SheetExportType`/`SHEET_EXPORTS` (4th dropdown item); pure
+  `buildPlantingSchedule(guilds, cropAreas)` (guild rows dedupe+count by species,
+  anchor included, `findEntry` resolution; crop rows per `species[]`, raw-text
+  fallback, `CROP_TYPE_LAYER` map, `treeSpacingM`/`areaM2`) +
+  `buildPlantingPlanPayload` returning `{ plantingPlan: … }`; same
+  `api.exports.generate` path; no `DesignPage` mount change.
+
+**Verification (all read-only):** web `tsc --noEmit` (8 GB node script) — only the
+**3 known pre-existing unrelated errors** (`StepBoundary.tsx`,
+`HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx`), none from
+Phase B; `@ogden/shared` build exit 0; `apps/api` `tsc --noEmit` exit 0
+(confirms the exhaustive registry is satisfied); web unit tests
+`MapSheetExportControl.test.ts` **10/10**; api unit tests
+`plantingPlan.pdfTemplate.test.ts` **3/3**. Live Plan-view export-to-PDF
+screenshot **deferred** behind the documented auth + seeded-project + headless
+WebGL + MapTiler-key wall (same as Phases A/A5/C). Phase B is documented in the
+**atlas** repo wiki (`5bb1d129 docs(wiki): ADR + log + entity for planting_plan
+export`); this is the MILOS-parent-wiki continuity record.
+
+**Roadmap status:** with Phases A, A5, B, and C all complete, **the three OSU PDC
+roadmap gaps are closed in source** — Atlas can produce the full master-plan /
+base-map / zone-map / planting-plan portfolio artifact set.
+
 ## [2026-05-24] session | Atlas — Observe left tool rail single-objective focus
 
 **Objective:** Operator instruction (selected the live `ObserveTools` rail):
@@ -11865,3 +11912,65 @@ but in the dev-server launchers rather than the test config.
   files — benign, clears when those processes exit.
 - Pages touched: wiki/entities/olos.md, wiki/log.md (parent MILOS repo). The
   atlas code changes live on atlas `main` via PR #37.
+
+## [2026-05-24] feat | OLOS — objective-driven Observe workspace (`FieldObjective` + focus mode + evidence/completion)
+
+- Filled the same-day Command Centre shell (Goal 5) with the [OLOS Stage Command
+  Center] doc's core mechanic — *the assignment is the entry point*. New fourth
+  concept **`FieldObjective`** (discrete, location-bound, assignable; label
+  "Objective") beside the pre-existing `ObserveObjective` (store-count predicates)
+  and `CompassObjective` (wheel nodes).
+- **Data layer (static catalog / persisted run split):**
+  `v3/objectives/fieldObjective.ts` (type + pure `evaluateObjectiveCompletion`
+  helper — `pct` weights each active gate equally), `seedObjectives.ts` (8
+  objectives at `mtc` coords wiring `module → requiredTools`/`requiredLayers`;
+  every `requireSummary` objective also carries a required note-kind `summary`
+  evidence spec, 1:1), `store/fieldObjectiveStore.ts` (persist
+  `ogden-field-objectives` v1, owns only run state), `useFieldObjectives` →
+  `FieldObjectiveView[]`.
+- **Screen 1 (ungated overview):** removed the page-level "Command Centre locked"
+  guard (sibling Slice A `d7355da8`); `ObserveCommandCentrePage` renders at any
+  readiness, `ready` only changes emphasis. Added objective map markers,
+  `AssignedObjectivesPanel` launch cards, `ObservationTimelinePanel` (events
+  derived from run state — no separate log).
+- **Screen 2 (focus mode):** `ObserveLayout` driven by a new `?objective` search
+  param — `ObjectiveMapFocus` (camera fly + highlight ring), `ObserveTools
+  restrictToTools`, right rail swap to `ObjectiveExecutionAside`,
+  `ObjectiveBanner` overlay. `ObjectiveEvidenceCapture` per `EvidenceSpec.kind`
+  (photo→data-URL, confirmation toggle, annotation record, note textarea).
+- **Note-as-summary elegance:** the note textarea writes both a note evidence
+  record *and* `run.summary` (one `handleNoteAdd`), so one input satisfies both
+  the evidence gate and `requireSummary` — no double entry, pure helper untouched.
+- **Screen 3 (completion/review):** footer gated by the pure helper — Submit for
+  review (→`evidence-submitted`) / reviewer Mark complete / Send back. Timeline
+  completion event needs no new code (`ObservationTimelinePanel` derives it from
+  `run.status === 'complete'`).
+- **Deferred (v1):** layer actuation data-only (`requiredLayers` recorded, not yet
+  forced-on/dimmed; planned `useObjectiveFocus` not needed); evidence client-only
+  data URLs; annotation auto-detection.
+- **⚠ Flagged contradiction:** this relaxes the 100%-gate that the same-day Goal 5
+  made a core mechanic — but only **partially**. The *page* is ungated while the
+  *compass center hotspot* (`ObserveCompassWheel`, Slice B `9b77f3cf`) is **still
+  locked until 100%**, so below 100% the page is reachable only by URL/deep-link,
+  not via the compass center. Recorded as an operator decision (unlock center /
+  treat page as deep-link-only / soften the gate), not unilaterally resolved
+  (wheel is sibling-owned, outside approved scope).
+- Verified: 11/11 objective unit tests; web typecheck clean apart from the 3
+  pre-existing unrelated errors (`StepBoundary.tsx`,
+  `HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx`); preview
+  screenshots (focus mode 100% topography, Command Centre with completed
+  objective, BE focus → rail shows only Fence+Gate); completion math 89%→100%
+  across a reload (proves persist+rehydrate). Screenshot `UnknownVizError` is a
+  transient map-WebGL hiccup — retry succeeds.
+- Commits on `feat/atlas-permaculture` (rebased out-of-band; own files staged by
+  name, foreign WIP left per the no-deletion rule): `c7784e6b` (ungated overview),
+  `b8fcb06f` (focus entry), `8792434b` (Plan-rail focus), `9fa7ff86` (execution
+  aside), `f53ce95c` (completion/review), `8355fc67` (UX spec
+  `apps/web/src/v3/command/OBJECTIVE-WORKSPACE.md`). **Not pushed** (branch is
+  force-rebased externally; no push without fetch + divergence check).
+- Decisions: ADR [[2026-05-24-atlas-objective-driven-workspace]] (filed; flags the
+  partial supersession of [[2026-05-24-atlas-observe-command-centre]], whose
+  Connections were updated with a forward-pointer).
+- Pages touched: wiki/decisions/2026-05-24-atlas-objective-driven-workspace.md
+  (new), wiki/decisions/2026-05-24-atlas-observe-command-centre.md (forward-link),
+  wiki/entities/olos.md, wiki/log.md.

@@ -130,6 +130,11 @@ Implement the doc's three-mode model and the aggregate surface it unlocks:
 ## Connections
 
 - [[olos]] — the Atlas/OLOS app this ships in (Observe stage)
+- [[2026-05-24-atlas-objective-driven-workspace]] — same-day follow-on that fills
+  the Command Centre shell with location-bound `FieldObjective`s and **partially
+  supersedes the 100%-complete gate**: the page guard (Slice A) was removed, but
+  this ADR's center-unlock wheel mechanic (Slice B) was left in place — see that
+  ADR's flagged contradiction
 - [[2026-05-24-atlas-multi-steward-human-context]] — same-day sibling Observe work
   (Human Context Module 1 → multi-steward roster)
 - [[2026-04-30-ogden-ui-components-github-direct]] — the shared
