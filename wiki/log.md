@@ -3,6 +3,47 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-24] build | Atlas — Observe focus-mode deltas #1 (requiredLayers actuation) + #2 (timeline filter)
+
+**Objective:** Implement the two small feature follow-ons the 2026-05-24 audit
+deferred-as-v1: actuate the dormant `FieldObjective.requiredLayers` so objective
+focus mode foregrounds the **union** of an objective's required modules (not just
+its single `$module`), and surface the observation timeline **filtered to the
+active objective** inside the focus-mode right rail. Delta #3 (compass-center
+gate) stayed out of scope as a product decision.
+
+**Delta #1 — `requiredLayers` actuation.** Added pure exported
+`requiredLayersToModules(requiredLayers, ownModule)` to `v3/objectives/
+fieldObjective.ts`: maps the non-module `hydrology` token to its owning module
+`earth-water-ecology` via an alias map, keeps valid `ObserveModule` tokens,
+always folds in the objective's own module (so its layers can never be hidden),
+drops unknown tokens, dedupes. `ObserveAnnotationLayers` gained a gated optional
+`focusModules?: ObserveModule[] | null` prop: when non-empty it replaces the
+single-equality module check in both visibility loops with set membership;
+when null/empty the prior `activeModule` behavior is byte-for-byte unchanged, so
+Plan/Act/non-focus call-sites are untouched. `ObserveLayout` memoizes
+`focusModules` from the focus objective and threads it through. Only 2 seeded
+objectives carry multi-module sets (`['topography','hydrology']`,
+`['earth-water-ecology','hydrology']`); the rest collapse to their own module.
+
+**Delta #2 — focus-mode timeline filter.** `ObservationTimelinePanel` gained
+gated optional `heading`/`emptyNote` props (overview unchanged). A single-view
+`<ObservationTimelinePanel views={[view]} …>` is mounted in
+`ObjectiveExecutionAside` between the Evidence section and the footer — passing a
+one-element view array yields exactly that objective's events, no join logic.
+
+**Verification:** vitest 16/16 (11 existing + 5 new `requiredLayersToModules`
+cases: own-module always included, hydrology alias, valid+alias dedupe, unknown
+tokens dropped, every seeded objective → known modules); web typecheck shows
+only the 3 known pre-existing unrelated errors (`StepBoundary.tsx`,
+`HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx`) — none from
+touched files. All changes additive/gated (no deletion in revamps). Live
+preview deferred behind the auth + seeded-project + headless-WebGL + MapTiler-key
+wall (unchanged from prior phases).
+
+**Commits** (atlas `feat/atlas-permaculture`): `958de914` (Delta #1, 4 files),
+`fe072ed2` (Delta #2, 2 files). Both Co-Authored-By Claude Opus 4.7 (1M context).
+
 ## [2026-05-24] audit | Atlas — Observe objective-driven workspace vs OLOS Stage Command Center doc
 
 **Objective:** Operator shared `~/Downloads/OLOS Stage Command Center.md` — the
