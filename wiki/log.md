@@ -3,6 +3,71 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — Plan Command Centre (mirror of the Observe Command Centre)
+
+**Objective:** "Develop a command centre for Plan based on the Observe Command Centre
+layout" — give the Plan stage the same full-bleed aggregate "run the stage" surface Observe
+has, so the whole Plan stage can be surveyed at once, every panel filtered by a chosen Plan
+module, and the decisions needing work reached in one click. Then close the session, update
+the wiki, commit, and push.
+
+**Completed — implemented, verified, committed on `feat/atlas-permaculture`:**
+- **Three product choices locked with the steward (AskUserQuestion):** (1) **bottom tray =
+  hybrid (modules + decisions)** — tabs are the 15 Plan modules with compass progress; the tray
+  lists the **open (draft) Plan decisions** filtered by the active module; (2) **entry = mirror
+  Observe exactly** — the Plan compass centre unlocks into the command centre *and* the header
+  "Plan" segment routes to `plan/command-centre` (at 100%; else `plan/compass`); (3) **right
+  rail = Plan-analog trio** — decision/activity **timeline** · per-module **readiness**
+  (verified %) · **gaps** (modules at 0% or unreviewed Observe→Plan impact flags).
+- **New folder `apps/web/src/v3/plan/command/` (9 components)** mirroring `v3/command/`
+  one-for-one and **reusing the Observe shell stylesheet directly** (`import css from
+  '../../command/ObserveCommandCentrePage.module.css'`) so the layouts stay pixel-identical and
+  only the *content* is Plan-specific: `PlanCommandCentrePage.tsx` (grid shell; state
+  `activeModule`/layer toggles/`sidebarCollapsed`/`selectedId`; `filteredViews` by
+  `v.objective.id`, `moduleDecisions` by `affectedModule`, **tray = drafts only**),
+  `PlanModuleTabs.tsx` ("All Modules" lens + one tab per compass view with accent dot/icon/short
+  `PLAN_MODULE_LABEL`/`progress.pct` + Compass back), `PlanMapSidebar.tsx` (module-filter chip,
+  real Plan-data/design/boundary toggles, shared base-map switcher, collapse, forward CTA into
+  Act), `PlanSiteMapPanel.tsx` (`DiagnoseMap` hosting read-only `PlanDataLayers` +
+  `DesignElementLayers view="vision"` scoped to `activeModule` — decisions aren't spatial, so the
+  map carries Plan geometry focused by the lens, not decision pins), `PlanMapLegend.tsx`,
+  `OpenPlanDecisionsPanel.tsx` (bottom-tray carousel; each draft tile is itself the launch button
+  `role="button"`+Enter/Space → `plan/workspace/$decisionId`; first-class empty state with a
+  "Record a decision →" CTA), `PlanDecisionTimelinePanel.tsx` (rail #1; one event per decision,
+  day-bucketed, informational), `PlanModuleReadinessPanel.tsx` (rail #2; per-module verified %
+  + "Stage verified" total — the Plan analog of Observe's evidence library),
+  `PlanGapsPanel.tsx` (rail #3; modules at 0% **and** unreviewed impact flags via
+  `usePlanImpactFlags`, `review.status === 'open'`).
+- **Three entry-point edits (mirror Observe):** `routes/index.tsx` — `v3PlanCommandCentreRoute`
+  at `plan/command-centre`, registered **before** `plan/$module` (static path resolves ahead of
+  the `$module` param); `v3/plan/compass/PlanStageCompassPage.tsx` — replaced the "no Command
+  Centre yet — deferred" stub with `ready = data.views.length > 0` + `goCommandCentre` nav +
+  `commandCentre={{ ready, onEnter }}` on `StageCompassView`; `v3/HeaderStageSpine.tsx` — Plan
+  segment target now `planData.stage.pct >= 100 ? 'plan/command-centre' : 'plan/compass'`
+  (changes the incomplete-Plan header destination from `/plan` to `/plan/compass`), keeping the
+  active-stage no-op guard. **No `V3ProjectLayout` change** — its full-bleed gate already keys on
+  the `command-centre` path segment.
+- **Purely read-only composition surface** over existing data + a route + two small entry-point
+  edits — **no new store, schema, or model**; composed entirely from `usePlanCompassData`,
+  `usePlanDecisions`, `usePlanImpactFlags`, and the Plan map layers. No decision-authoring or
+  dismiss/delete in the tray (record-intent only); no change to the Planning Workspace, the
+  decision/impact stores, or any Observe code.
+- **Verified:** typecheck clean — no new errors in any new `v3/plan/command/*` file or the three
+  edited files; the pre-existing foreign-WIP baseline (3 errors: `planImpactFlag.test.ts`,
+  `HostUnion{ContextMenu,DrilldownCard}.test.tsx`) is unchanged. `HeaderStageSpine.test.tsx`
+  10/10 (updated the Plan→`plan/compass` expectation; added a Plan→`plan/command-centre` at
+  `pct===100` case). **Live preview not run** — the preview server restarted and cleared the
+  auth token; reaching the page now requires a password login, which Claude does not perform on
+  the steward's behalf (per [[2026-05-19-atlas-preview-screenshot-verification-standard]] the
+  screenshot wall is disclosed, not faked).
+- **Commit handling (steward choice via AskUserQuestion = "Commit all incl. routes whole"):**
+  the shared `routes/index.tsx` was committed whole, so the snapshot also carries foreign
+  uncommitted Phase 5a `PlanConflicts` hunks (import + route) whose `conflicts/` folder was
+  **not** in this commit — that import dangles in the snapshot (no pre-commit hook, so it didn't
+  block; the working tree is intact and the foreign author's folder lands later). Committed
+  **`f4e8fcca`** (13 files, +979) on `feat/atlas-permaculture`. ADR
+  [[2026-05-25-atlas-plan-command-centre]].
+
 ## [2026-05-25] fix | Atlas — StepBoundary `unknown && <jsx>` TS2322 (clears a long-standing baseline) + Act/Plan right-rail stacking
 
 **Objective:** Fix the `StepBoundary.tsx` `TS2322: Type 'unknown' is not assignable to
