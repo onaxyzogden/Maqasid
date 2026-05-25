@@ -3,6 +3,47 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas Observe — §5c auto-generated observation needs
+
+**Objective:** Build the deferred §5c — make Observe raise needs *itself* from two
+live signals, no authoring required: **coverage gaps** (`useEvidenceCounts` row
+`n === 0`) and **stale data** (a layer time-decayed back to `unverified`, per the
+field-verification axis). Locked decisions: signal scope = **both**; dismissal =
+**observe or dismiss**; surfacing = **same grid, `Auto` badge**. Full ADR:
+[2026-05-25-atlas-observe-needs-auto.md](decisions/2026-05-25-atlas-observe-needs-auto.md).
+
+**What shipped.** Auto-needs are **derived, not persisted** — recomputed each render
+and merged into the catalog with `origin: 'auto'`; only run-state persists under
+**deterministic ids** (`auto-gap-<key>-<projectId>`, `auto-stale-<layer>-<projectId>`).
+`1dde1936` pure `autoObservationNeeds.ts` (`buildAutoNeed`, `detectCoverageGapNeeds`,
+`detectStaleNeeds`, `meanCenter`, `isDismissedAutoNeed`) + origin widened to `'auto'`
++ shared `minimalCapturePackage()` factored out of `buildRaisedNeed` + 11 tests (38
+total green). `0e1a7a5d` `useEvidenceCounts` rows gain `key`+`module`;
+`useObservationNeeds` reads both signals and appends auto-needs. `c29d23f4` docs (§5c
+live in spec + backlog).
+
+**Key choice — suppression at the display layer, not the hook.** `isDismissedAutoNeed`
+(auto + run `recorded`|`resolved`) is applied in `ObserveCommandCentrePage` so cleared
+auto-needs drop off carousel/map/timeline, but the singular `useObservationNeed`
+resolver still resolves the id mid-record (it reuses the plural hook).
+
+**Display layer parked.** The Auto badge + Dismiss + suppression are implemented but
+**uncommitted** as `slice3-auto-needs-display.patch` (+`.README.md`) — entangled at the
+hunk level with an in-flight Observe dashboard-shell rework (foreign WIP across the same
+3 command files + 3 untracked deps) that can't commit in isolation; lands with that
+shell. Detection + merge are live, so auto-needs already render.
+
+**Verification.** 38/38 unit tests; touched files type-clean (baselines + foreign
+unrelated); live preview not run (auth+WebGL+Windows wall, per
+[[2026-05-19-atlas-preview-screenshot-verification-standard]]). Branch moved out-of-band
+mid-session (foreign `52132d0a` water-router commit landed concurrently); own files
+staged by name, not pushed.
+
+- **v1 limitation:** a recorded/dismissed deterministic id stays suppressed even if the
+  signal re-decays (re-raise is a follow-on).
+- Pages touched: wiki/decisions/2026-05-25-atlas-observe-needs-auto.md (new),
+  wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
 ## [2026-05-25] feat | Atlas Observe — generative "Raise observation need" action
 
 **Objective:** Build the deferred generative "Raise observation need" action
