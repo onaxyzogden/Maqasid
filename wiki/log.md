@@ -3,6 +3,43 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] refactor | Atlas Observe — Command Centre topbar removed, Compass moved into module tabs
+
+**Objective:** From an operator-selected element (the Observe Command Centre's
+topbar header), remove the whole header while relocating its **Compass** back-button
+to the right end of the module-tabs strip.
+
+**Done — 3-file UI change, pushed.** Branch `feat/atlas-permaculture`,
+commit `996d2948` (origin had rebased to `fabf3e38`; clean fast-forward, now even):
+- `v3/command/ObserveCommandCentrePage.tsx` — deleted the `<header className=topbar>`
+  block (eyebrow + `<h1>` title + progress subtitle + inline Compass button),
+  dropped the now-unused `Compass` import, threaded `onBackToCompass={backToCompass}`
+  into `<ObserveModuleTabs>`. Title/subtitle intentionally retired — redundant with
+  the tabs row, which already shows "All Modules N% verified" plus per-domain %.
+- `v3/command/ObserveModuleTabs.tsx` — imported `Compass`, added `onBackToCompass`
+  prop, rendered a Compass pill (`ghostBtn` + new `tabsBackBtn`) as the **last child**
+  of the tabs `<nav>`.
+- `v3/command/ObserveCommandCentrePage.module.css` — removed the orphaned `.topbar*`
+  block; added `.tabsBackBtn { margin-left: auto; align-self: center; }`
+  (right-aligns the pill in the flex row without stretch); kept `.ghostBtn` (reused).
+
+**Verification.** `@ogden/web` `typecheck` clean for all 3 edited files — remaining
+errors are pre-existing baselines + parallel-WIP in untouched files (`StepBoundary`,
+`planImpactFlag.test`, `HostUnion*`). Runtime DOM check on `:5200`
+`/v3/project/mtc/observe/command-centre`: topbar gone (no `<h1>`), Compass is the
+nav's last child, right-aligned (`margin-left:auto` resolved to a ~3445px push,
+`align-self:center`, ghostBtn pill + icon); clicking it navigates
+→ `/v3/project/mtc/compass`. **No screenshot** — the `preview_screenshot` tool timed
+out 3× (the WebGL map canvas stalls headless capture), so verification is DOM +
+computed-style + live-navigation, not visual.
+
+**Discipline.** Committed only my 3 files **by name**; the rest of the atlas working
+tree (economics / financial / MapCanvas / wizard / plan-impact in-flight WIP + the
+parked `slice3-auto-needs-display.patch`) and the MILOS parent's unrelated WIP were
+left untouched. The push also published one pre-existing **parallel** commit
+`05096b06` (`feat(sync): …`) that was already on the local branch HEAD — not mine,
+but already committed on the shared branch.
+
 ## [2026-05-25] verify | Atlas Observe — "Observation Need" rename confirmed landed (planning pass, no code)
 
 **Objective:** Land the "Observation Need" rename as its own approved code session
