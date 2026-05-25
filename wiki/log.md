@@ -3,6 +3,46 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — mtc polyface rotation fixture (closes B3-fidelity screenshot gap)
+
+**Objective:** Seed a multi-species, summer-spanning rotation fixture on the
+`mtc` demo project so the two *visible* B3 sequencer-fidelity surfaces in
+`RotationSequenceCard` finally have data to render — closing the screenshot-
+verification gap flagged in
+[2026-05-25-atlas-b3-sequencer-fidelity.md](decisions/2026-05-25-atlas-b3-sequencer-fidelity.md).
+Steward decisions: **reuse `mtc`** (not a new project) and **auto-run on load**.
+
+**What shipped.** One additive dev seeder
+(`apps/web/src/dev/seedMtcRotationFixture.ts`) + a side-effect import in
+`bootAuthed.ts` + a colocated both-condition test. Three ~9 ha polyface paddocks
+in the `mtc` south band, each `species: ['cattle','sheep','poultry']`, on a
+3-cell rotation plan (`mtc-polyface-Y2`, 5d graze / 40d rest) anchored to
+`startDateISO: 2026-07-01`, `horizonCycles: 2`. Auto-runs once via a one-shot
+`useProjectStore.subscribe` (immediate-fire if `mtc` already hydrated) guarded by
+a `mtc-rotation-fixture-seeded@v1` localStorage sentinel + per-store paddock
+guard. Also exposed as `window.__ogdenSeedMtcRotationFixture({ force })`.
+
+**Why both surfaces fire.** `mtc` centroid ≈44.5°N → Northern hemisphere →
+protein slump is Jul/Aug; July-anchored move-outs trigger S2's
+`seasonAdjustedRestDays > restDaysUntilNextGraze` ("summer rest +Nd" note).
+`['cattle','sheep','poultry']` spans 3 niche tiers (grazer→mixed→mobile) → S3
+lead + 2 follower sub-rows (sheep +3d, poultry +6d).
+
+**Verified.** Colocated vitest 3/3 (incl. live `projectRotationSequence` asserting
+`followerMoves.length > 0` AND a calendar entry with `seasonAdjustedRest >
+restUntilNext`); livestock sweep 18 files/192 tests green; tsc — my 3 files
+type-clean (remaining errors are foreign in-flight observe-rename work, not mine);
+covenant grep clean (capacity = animal-unit only, no riba/gharar/CSRA/salam).
+**Screenshot-confirmed live** on `/v3/project/mtc/plan/livestock` → Rotation
+sequence card: 6 moves under `MTC-POLYFACE-Y2` showing `↳ Sheep follower +3d` /
+`↳ Poultry follower +6d` sub-rows and `summer rest +24d` / `+17d` notes on the
+July/Sep lead moves. Map canvas rendered (no WebGL hang).
+
+**Commit.** `feat/atlas-permaculture` `92e25700` (3 files, +358) — explicit-path
+stage only; ahead-only fast-forward push. Fixture, not an ADR (no architectural
+decision). Intended consequence (steward-approved): `mtc` now ships a polyface
+rotation by default for everyone — a richer demo.
+
 ## [2026-05-25] verify | Atlas — slope-12A Step D verified-live (DoD complete, 5/5)
 
 **Objective:** Retire the one `blocked-by-harness` step from the prior slope-12A
