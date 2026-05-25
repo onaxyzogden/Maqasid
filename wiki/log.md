@@ -3,6 +3,71 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — Act Command Centre (mirror of Observe/Plan, weather tile kept)
+
+**Objective:** "Develop a command centre for Act but make sure to keep the weather tile" — give
+the Act (execution) stage the same full-bleed aggregate "run the stage" surface Observe and Plan
+have, so the whole Act stage can be surveyed at once, every panel filtered by a chosen Act module,
+and every open work item reached one click from where it's actioned — **without losing the weather
+tile** that today lives in the Act operations rail. Then close the session, update the wiki, commit,
+and push.
+
+**Completed — implemented, verified, committed on `feat/atlas-permaculture`:**
+- **Three product choices locked with the steward (AskUserQuestion):** (1) **bottom tray = open
+  work items** — the todo + in-progress `WorkItem`s (the tracker spine) filtered by the active
+  module, each tile launching into `/act/$module`; (2) **right rail = reuse the full Act ops stack**
+  — mount the existing `WeatherStrip` (**the weather tile to keep**) + `TodaysPriorities` +
+  `AlertsPanel` + `UpcomingEvents`, so the operational feel *and* the weather tile are preserved by
+  **reuse, not rebuild**; (3) **entry = mirror Observe/Plan exactly** — the Act compass centre
+  unlocks into the command centre *and* the header "Act" segment routes to `act/command-centre` at
+  100%, else `act/compass`.
+- **New folder `apps/web/src/v3/act/command/` (6 components + 1 pure helper + 1 test)** mirroring
+  `v3/plan/command/` one-for-one and **reusing the Observe shell stylesheet directly** (`import css
+  from '../../command/ObserveCommandCentrePage.module.css'`) so the layout stays pixel-identical and
+  only the *content* is Act: `ActCommandCentrePage.tsx` (grid shell; state `activeModule`/`showData`/
+  `showBoundary`/`sidebarCollapsed`/`selectedId`; `openItems` = todo|in-progress filtered by
+  `projectId`, **tray** filtered by `actWorkItemModule` against the lens; `ready = views.length > 0
+  && views.every(pct === 100)`), `ActModuleTabs.tsx` ("All Modules" lens + one tab per compass view
+  with accent dot/icon/short `ACT_MODULE_LABEL`/`progress.pct` + Compass back), `ActMapSidebar.tsx`
+  (module-filter chip, **two** layer toggles — Act execution + site boundary, no design layer —
+  shared base-map switcher, collapse, forward CTA **"Go to Report →"**), `ActSiteMapPanel.tsx`
+  (`DiagnoseMap` hosting read-only `ActDataLayers` scoped to the lens — **work items aren't all
+  spatial**, so the map carries Act execution geometry focused by the lens, not work-item pins),
+  `ActMapLegend.tsx`, `OpenWorkItemsPanel.tsx` (bottom-tray carousel; each open work-item tile is
+  itself the launch button `role="button"`+Enter/Space → `act/$module` via `actWorkItemModule`;
+  status badge todo/in-progress/blocked; first-class empty state with a "Go to Tracker →" CTA).
+- **Weather tile kept by reuse:** the right rail mounts the four existing ops panels inside the
+  ops-aside surface (`import aside from '../ops/ActOpsAside.module.css'`, wrapped in `<div
+  className={aside.aside}>`) — the panels self-wrap in `.panel` and depend on that parent surface,
+  so spacing matches the live `/act/$module` ops dashboard exactly. `TodaysPriorities`/`AlertsPanel`
+  already treat `activeModule === null` as "all modules", so the lens drives them for free;
+  `WeatherStrip`/`UpcomingEvents` are projectId-scoped and stay on. **No new weather/forecast code.**
+- **New pure helper `actWorkItemModule.ts`** maps a `WorkItem` to one of the 8 Act modules from its
+  `source` provenance (mirrors `ActDataLayers`' `SOURCEKIND_MODULE` idea): `maintenance→maintain`;
+  `scheduled-livestock-move`/`rotation-sequence`→`livestock`; `nursery-batch`/`cover-crop`/
+  `tree-planting`/`agroforestry`/`habitat-feature`→`build`; everything else (`goal-compass`/
+  `field-task`/`manual`)→`tracker` (the cross-module execution spine). Pure + unit-tested
+  (`actWorkItemModule.test.ts`, 5/5). Used by the tray filter, the tile dot, and `launchItem`.
+- **Three entry-point edits mirror Observe/Plan:** `routes/index.tsx` `v3ActCommandCentreRoute`
+  (static `act/command-centre`, registered before `v3ActModuleRoute`'s `$module`); `ActStageCompassPage`
+  (`ready = views.length > 0` + `goCommandCentre` + `commandCentre` prop, replacing the "deferred"
+  stub); `HeaderStageSpine` (Act segment → `pct >= 100 ? 'act/command-centre' : 'act/compass'`,
+  changing the incomplete-Act header destination from `/act` to `/act/compass`).
+- **Purely read-only composition** over existing data (`useActCompassData`/`useWorkItemStore`/Act map
+  layers/the four ops panels) + a route + two entry-point edits + one pure mapping helper — **no new
+  store/schema/model**, no Observe/Plan-code change, no change to the per-module `/act/$module` view
+  or its weather tile, no `V3ProjectLayout` change (its full-bleed gate already keys on
+  `command-centre`).
+- **Verified:** typecheck clean — **zero new errors** in any new `v3/act/command/*` file or the three
+  edits (foreign-WIP baseline shifted out-of-band to 4 errors in `NewProjectPage.tsx` +
+  `wizard/types.ts` from a concurrent rebase; none are mine); `HeaderStageSpine.test.tsx` 12/12 (added
+  Act→`act/compass` while incomplete + Act→`act/command-centre` at `pct===100`); `actWorkItemModule.test.ts`
+  5/5 — **17 tests green**. Live preview not run (the preview server is behind the auth wall and
+  `preview_screenshot` reliably times out on the MapLibre WebGL canvas — screenshot wall disclosed,
+  not faked, per project rule). Committed `dbc52020` (12 files, +828) on `feat/atlas-permaculture`,
+  staged by explicit path (no foreign WIP bundled — each edited file's `git diff` was confirmed to
+  carry only this change before staging). ADR [[2026-05-25-atlas-act-command-centre]].
+
 ## [2026-05-25] feat | Atlas — Plan Command Centre (mirror of the Observe Command Centre)
 
 **Objective:** "Develop a command centre for Plan based on the Observe Command Centre
