@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] session | Atlas Act→Report — data-derived progress + soft gate
+
+**Objective:** Close the 3-stage progression spine by applying the data-derived progress
+pattern (Observe `d33d6e15` → Plan `047c06f9`) to the **Act** (execution) stage, plus a
+soft **Act→Report** gate. Act already uses the shared `ModuleBar`, so it reuses the
+`ModuleProgressIndicator` render-prop from the Plan round; Report is a sibling route (not
+a spine `LEVELS` entry), so the gate guides the steward to log real execution progress
+before reviewing outcomes.
+
+**Completed:** New `apps/web/src/v3/act/progress/` engine mirroring `v3/plan/progress/`
+— pure `objectives.ts` (`ActProgressInput`/`EMPTY_ACT_INPUT`, `ACT_OBJECTIVES`,
+`evaluateModule`/`evaluateAct`; `PillarTask.columnId = done?'act_done':'act_to_do'`) +
+`useActProgress.ts` (only React/store layer; raw subscriptions, single `useMemo`; the
+nested `hazardsStore.byProject` handled specially, all other Act stores flat
+`.projectId` arrays) + 9-test suite. Lit up the segments: `V3LevelNavBridge` gained
+`ACT_PILLARS` + `ACT_GATE_AFTER_SEGMENT='schedule'`, `useActProgress` before the early
+return, a `stage==="act"` branch in `pillars`/`pillarTasks`/`gateIndicators` (Act→Report
+diamond), and an `act` case in `handleSegmentClick`. The shared bottom bar needed no new
+component — `ActModuleBar` just passes `renderTileIndicator={(m)=><ModuleProgressIndicator
+module={m}/>}`. Soft gate: `stageGateOverrideStore` union widened to add
+`'act-to-report'` (1 line, no version bump); new `v3/pages/ReportStageGateOverlay.tsx`
+(reuses `../plan/StageGateOverlay.module.css`, **Go to Act** / **Continue anyway**);
+`ReportPage` wrapped in a `position:relative` host + overlay mounted. New `ActReadyCue.tsx`
++ `.module.css` ("Act essentials · N%" + "Ready to Report →") mounted in `ActLayout`'s
+right rail. Committed `bbaa016a` (11 files, +762/−14) on `feat/atlas-permaculture`; pushed
+`94c26dee..bbaa016a` after fetch + divergence check.
+
+**Decisions (locked via AskUserQuestion):** required set = **Tracker only**
+(`WorkItem.status === 'done'` is the universal execution signal → single required
+objective; all other modules optional, raise % but don't gate); add the soft gate on the
+**Report page** (Act is terminal — Report is a sibling route) with override key
+`'act-to-report'`; add `ActReadyCue`; reuse `ModuleProgressIndicator` + the generic
+override store + existing gate CSS; data-derived only. ADR
+[[2026-05-25-atlas-act-to-report-data-derived-gate]] filed.
+
+**Verified:** web `tsc` clean apart from the 3 pre-existing baseline errors
+(`StepBoundary.tsx(365,7)`, `HostUnionContextMenu.test.tsx(58,36)`,
+`HostUnionDrilldownCard.test.tsx(25,36)`) — none in the 11 changed files; vitest 26/26
+(Act 9 + Plan 9 + Observe 8). Live preview deferred behind the documented auth + WebGL +
+viewer-role wall (console showed `role: viewer` / `You do not have access`) — screenshots
+blocked, not faked, per CLAUDE.md. The deferred screenshot debt (Plan segments lighting +
+Plan→Act diamond + Act→Report flow) carries forward to an owner-seeded environment.
+
+**Pages touched:** [[2026-05-25-atlas-act-to-report-data-derived-gate]] (new ADR),
+[[olos]] (History row), index.md (Decisions row), this log.
+
 ## [2026-05-25] spec | Atlas Observe — "Observation Needs" reframe (doc-only)
 
 **Objective:** Reframe the Observe stage from an objective/assignment-flavoured
