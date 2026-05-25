@@ -3,6 +3,35 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — No-token Retry pings /api/v1/health instead of full reload
+
+**Objective:** Close the "**no-token Retry uses `reload()`**" non-goal named in the API-unreachable
+banner ADR ([[2026-05-25-atlas-api-unreachable-banner]]) — promote the showcase/no-token Retry path
+from `window.location.reload()` to a lightweight unauthenticated reachability ping, so the showcase
+path auto-clears without a full page reload.
+
+**Completed — implemented, verified, committed + pushed on `feat/atlas-permaculture` (`6964bea8`):**
+- **`apps/api/src/app.ts`** — added `GET /api/v1/health`: unauthenticated, static, no DB/Redis,
+  returns the standard `{ data, error: null }` envelope. Lives under the proxied `/api/v1` prefix so
+  the browser can reach it through the web app's `/api`-only Vite dev proxy. The root `/health` stays
+  a bare infra liveness probe (not enveloped, not proxied) — hence the separate route.
+- **`apps/web/src/lib/apiClient.ts`** — exposed `api.health()` → `GET /api/v1/health`; a 2xx fires the
+  apiClient success hook on the authed path.
+- **`apps/web/src/components/ApiReachabilityBanner.tsx`** — no-token Retry now `await api.health()` and
+  on success flips `apiReachable` **directly** (the success hook is wired authed-only in `bootAuthed.ts`,
+  never on the showcase/no-token path, so the banner can't lean on it), clearing the banner with **no
+  page reload**; on failure the banner persists.
+- **Two non-obvious constraints handled:** (1) Vite dev proxies `/api` **only** → the ping must be
+  `/api/v1/health`, not root `/health`; (2) `setApiSuccessHandler` is wired authed-only → the banner
+  flips the flag directly rather than relying on the hook.
+- **Verified:** web vitest 30/30 (banner 7 incl. 2 new no-token cases; `apiClient.successHook` 6 incl.
+  the new `api.health()` case; raw-rethrow contract preserved); API smoke 9/9 (incl. new
+  `/api/v1/health` no-auth/no-DB test); web + API typecheck exit 0.
+- Staged by explicit path (6 files) per [[feedback-no-deletion]] — large foreign WIP in the tree left
+  untouched; committed immediately on verify per [[feedback-commit-immediately-on-rebased-branches]];
+  fetch+divergence checked before a clean fast-forward push (`c865837a..6964bea8`).
+- ADR [[2026-05-25-atlas-api-unreachable-banner]] given a dated Follow-up section recording this slice.
+
 ## [2026-05-25] feat | Atlas — Surface API-unreachable state: boot-session retry + global reachability banner
 
 **Objective:** Close the two blind spots the login-unreachable guard (`daa0d62a`) deliberately

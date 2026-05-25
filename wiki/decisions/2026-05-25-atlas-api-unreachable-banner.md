@@ -128,6 +128,31 @@ returns.
   Committed `08db4ed3` on `feat/atlas-permaculture`, staged by explicit path (no foreign WIP bundled);
   already pushed (branch in sync with origin; foreign `520a9f9b` now sits on top).
 
+## Follow-up — 2026-05-25 (commit `6964bea8`)
+
+The "**No-token Retry = reload**" key choice above is now superseded. A health
+endpoint landed, so the showcase/no-token Retry path no longer does a full page
+reload:
+
+- **`apps/api/src/app.ts`** — added a lightweight, unauthenticated
+  `GET /api/v1/health` (standard `{ data, error }` envelope, no DB/Redis) under
+  the proxied `/api/v1` prefix. (The root `/health` stays as a bare infra
+  liveness probe and is **not** reachable through the web app's `/api`-only dev
+  proxy — hence the separate `/api/v1` route.)
+- **`apps/web/src/lib/apiClient.ts`** — exposed `api.health()` hitting
+  `/api/v1/health`. A 2xx still fires the success hook on the authed path.
+- **`apps/web/src/components/ApiReachabilityBanner.tsx`** — the no-token Retry
+  now `await api.health()` and, on success, flips `apiReachable` **directly**
+  (the success hook is wired authed-only, so the banner can't rely on it here),
+  clearing the banner with **no page reload**; on failure the banner persists.
+
+**Verification:** web vitest 30/30 (banner now 7 incl. 2 new no-token cases:
+health-ping-success-clears and health-ping-failure-persists; `apiClient.successHook`
+now 6 incl. the new `api.health()` route+hook case; raw-rethrow contract preserved);
+API smoke 9/9 (incl. the new `GET /api/v1/health` no-auth/no-DB test); web + API
+typecheck exit 0. Committed `6964bea8` on `feat/atlas-permaculture`, staged by
+explicit path (no foreign WIP bundled), pushed clean (`c865837a..6964bea8`).
+
 ## Connections
 
 - The prior login-unreachable guard (commit `daa0d62a`) this extends — same raw-rethrow-preserving philosophy (no ADR was filed for that contained fix)
