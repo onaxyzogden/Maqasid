@@ -158,13 +158,15 @@ scoping + auto-capture for free. All changes additive (no deletion).
   cases. (The ECONNREFUSED lines are the expected offline-fetch fallback, not
   failures; the full-suite background runs never flushed output, so a targeted
   subset was used.)
-- **Live preview pass driven (2026-05-25) — WebGL wall down; 4/5 DoD steps
-  verified-live, placement blocked by a harness gap, not faked.** Three of the
-  four historical walls are down (MapTiler key present, `mtc` seeds offline,
-  auth passed by **operator signing in directly** — Claude handled no
-  credentials; two non-credential bypasses were correctly classifier-blocked).
-  WebGL renders (basemap + contours + hillshade + water fill), retiring the
-  "headless-WebGL capture hang" caveat for this harness.
+- **Live preview pass driven (2026-05-25) — WebGL wall down; all 5 DoD steps
+  verified-live.** (Steps A/B/C/E verified in the first pass; **Step D verified
+  in a follow-up pass the same day** — see the Step D bullet and the
+  "Step D follow-up" note below.) Three of the four historical walls are down
+  (MapTiler key present, `mtc` seeds offline, auth passed by **operator signing
+  in directly** — Claude handled no credentials; two non-credential bypasses
+  were correctly classifier-blocked). WebGL renders (basemap + contours +
+  hillshade + water fill), retiring the "headless-WebGL capture hang" caveat for
+  this harness.
   - **Step A (launch focus)** — verified-live: route → `?objective=
     obj-slope-12a-rainfall`, `ObjectiveBanner` in DOM, rail swaps to execution aside.
   - **Step B (base raster auto-on)** — verified-live: `window.__atlasMap`
@@ -173,18 +175,39 @@ scoping + auto-capture for free. All changes additive (no deletion).
     under focus, plus on-screen relief + contours + water fill.
   - **Step C (Erosion Flag + Runoff Path in rail)** — DOM-verified: both
     `restrictToTools` rail entries present.
-  - **Step D (placement → form → evidence auto-advance)** — **blocked-by-harness,
-    honestly reported (not faked).** Synthetic canvas clicks reach the map
-    (`map.on('click')` fired 4× with valid `lngLat`, full
-    mousedown→mouseup→click, canvas un-intercepted) but **mapbox-gl-draw fires
-    zero draw events** under synthetic input — `draw.create/add/update/
-    modechange` never fire, the `draw_point` placeholder stays coord-empty
-    `[[]]`, no form opens, evidence stays 0/1. Diagnosed as a
-    synthetic-input ↔ mapbox-gl-draw gap, **not an app bug** (React/DOM clicks
-    like the banner-exit button work fine). Per the locked "real map-click only"
-    decision, placement was **not** fabricated via `createWithDefaults` /
-    `draw.add` / a synthetic `draw.create`; form + evidence-auto-advance remain
-    **code-verified only** (vitest above), not live-confirmed.
+  - **Step D (placement → form → evidence auto-advance)** — **verified-live in a
+    follow-up pass (2026-05-25), real map-click only.** The first pass had this
+    blocked-by-harness because `javascript_tool` JS-dispatched events fired
+    `map.on('click')` but drove **zero** mapbox-gl-draw events. The follow-up
+    found the seam: a **trusted CDP-level click** (Claude-in-Chrome `computer`
+    tool, distinct from `javascript_tool`) **does** drive mapbox-gl-draw. With
+    the Erosion Flag tool active, a single stationary trusted click placed a
+    point → `draw.create` fired (Point geom) → the **Erosion-flag form opened**
+    (severity / type / notes) → saving advanced the **annotation evidence
+    0/1 → 1/1** ("Runoff annotation" + the placed feature row "Runoff annotation
+    1"; objective flipped to "In progress", 11% ready). Then the **Runoff Path**
+    tool (Freehand mode) drew a `draw_line_string` (two vertices + double-click)
+    → `draw.create` fired (LineString geom) → the **Runoff-path form opened**
+    (from / to / flow-condition / notes) → saved; annotation evidence correctly
+    **held at 1/1** (already at `min`, so `firstUnsatisfiedAnnotationSpec`
+    returns null and no second evidence is recorded — the predicted behaviour).
+    Per the locked "real map-click only" decision, placement was **not**
+    fabricated via `createWithDefaults` / `draw.add` / a synthetic `draw.create`
+    — the trusted CDP click is a genuine map-click. Screenshots #4 (erosion
+    form), #5 (evidence 1/1 + placed marker), #6 (runoff form) captured. Console
+    clean of placement-flow errors (only the expected offline-sync fallback,
+    Claude's own layer-probe artifacts, and transient HMR errors from the
+    operator's in-progress rename — see caveat).
+    - **Caveat — verified on the WIP tree, not committed code.** This follow-up
+      ran against the operator's uncommitted working tree, mid an intentional
+      **"Field Objective" → "Observation Need"** domain rename. That rename
+      changed the deep-link param `?objective=<id>` → **`?need=<id>`** (objective
+      id `obj-slope-12a-rainfall` unchanged), so focus was reached at
+      `…/observe/topography?need=obj-slope-12a-rainfall`. Deep-link contract
+      risk: any remaining `?objective=` emitters (bookmarks, Command-Centre
+      cards, docs, tests) silently fail to focus until updated to `?need=`. The
+      committed Phase 1–3 code (`aa64ee89`) uses `?objective=`; the live behaviour
+      is identical under the corresponding param.
   - **Step E (exit reverts rasters)** — verified-live: "← Command Centre"
     navigates home, banner leaves DOM, and the matrix layers flip
     `visible → none` (proven prop-driven: plain topography with no objective

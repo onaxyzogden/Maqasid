@@ -3,6 +3,42 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] verify | Atlas — slope-12A Step D verified-live (DoD complete, 5/5)
+
+**Objective:** Retire the one `blocked-by-harness` step from the prior slope-12A
+live pass — **(D) placement → structured form → annotation evidence
+auto-advance** — real-map-click only, verification-only, no code changes.
+
+**Root seam.** The prior block was a synthetic-input ↔ mapbox-gl-draw gap:
+`javascript_tool` JS-dispatched clicks fired `map.on('click')` but drove **zero**
+draw events. This pass found that a **trusted CDP-level click** (Claude-in-Chrome
+`computer` tool, distinct from `javascript_tool`) **does** drive mapbox-gl-draw.
+
+**Verified-live (`?need=obj-slope-12a-rainfall`).** Erosion Flag active → one
+stationary trusted click → `draw.create` (Point) → Erosion-flag form opened
+(severity/type/notes) → save advanced **annotation evidence 0/1 → 1/1** (objective
+"In progress", 11% ready, feature row "Runoff annotation 1"). Then Runoff Path
+(Freehand) → `draw_line_string` (2 vertices + double-click) → `draw.create`
+(LineString) → Runoff-path form opened (from/to/flow-condition/notes) → saved;
+evidence correctly **held at 1/1** (already at `min` — no second record, the
+predicted behaviour). Screenshots #4 (erosion form) / #5 (evidence 1/1 + on-map
+marker) / #6 (runoff form) captured. Console clean of placement-flow errors
+(only offline-sync fallback, Claude's own layer-probe artifacts, and transient
+HMR errors from the operator's in-progress rename).
+
+**Locked rule honoured:** nothing fabricated (no `createWithDefaults`/`draw.add`/
+synthetic `draw.create`) — the trusted CDP click is a genuine map-click.
+
+**Caveat:** ran against the operator's **uncommitted WIP tree**, mid the
+intentional "Field Objective" → "Observation Need" rename, which changed the
+deep-link param to **`?need=`** (objective id unchanged). Committed Phase 1–3
+code (`aa64ee89`) still uses `?objective=` with identical live behaviour; stale
+`?objective=` emitters silently fail to focus until updated.
+
+**No atlas source changes.** ADR [[2026-05-25-atlas-observe-objective-v1-gaps]]
+updated (Step D + summary flipped to verified-live); [[olos]] Current Status
+prepended.
+
 ## [2026-05-25] feat | Atlas B3 sequencer — three ecological-fidelity slices
 
 **Objective:** Close three places where the B3 rotational-grazing sequencer used
