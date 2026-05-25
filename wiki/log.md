@@ -3,6 +3,42 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] refactor | Atlas — Extract a shared Command Centre shell (retire by-hand CSS-import mirroring)
+
+**Objective:** Collapse the three near-duplicate stage Command Centres (Observe/Plan/Act) onto shared,
+stage-agnostic primitives so a fourth stage composes rather than hand-copies — a **pure refactor**, no
+route/data/behaviour/visual change. (Planned in plan mode; three steward-locked decisions:
+maximal scope · keep thin per-stage wrappers, no deletion · split CSS shell-vs-domain classes.)
+
+**Completed — all 4 slices implemented + verified + committed on `feat/atlas-permaculture`:**
+- New `apps/web/src/v3/command/shell/` — 4 stage-agnostic primitives (`CommandCentreShell` grid
+  scaffold as `ReactNode` slots; `CommandCentreModuleTabs` with `moduleLabel?`+`statusWord`;
+  `CommandCentreMapLegend`; `CommandCentreMapSidebar` with a `layers[]` array absorbing the
+  2/3/2 toggle difference + the shared base-map switcher) + the new neutral
+  `CommandCentreShell.module.css`.
+- 9 per-stage components → thin wrappers injecting domain config (file/name/prop interface kept,
+  no deletion); the 3 pages kept all state/hooks/filters/nav and only swapped their `return`.
+- CSS split **usage-audit-driven** (17 importers, static `css.X` + dynamic `css[`prefix_…`]`):
+  corrected the plan's name-guessed keep-list — `objCard*`/`carousel`/`statList*`/`gapList*`/
+  `timelineList*` are in fact shared → moved to neutral; `mod*`/`status_*`/`origin_*`/`prio_*`/
+  `raiseForm*`/`objProgress*`/need-card controls stayed Observe-only (~1,035 dead/shared lines
+  trimmed). `OpenObservationNeedsPanel` (lone mixed consumer) → two-import split, not duplication.
+- Verified: `tsc --noEmit` **0 errors** all 4 slices; `HeaderStageSpine.test.tsx` 12 +
+  `actWorkItemModule.test.ts` 5 = **17/17**; exhaustive token audit (83 neutral + 26 Observe
+  classes; every `shell.X`/`css.X` ref resolves, zero missing both directions). CSS modules aren't
+  typechecked → audit + import resolution stand in for a screenshot; live preview not run (MapLibre
+  WebGL timeout + auth wall — disclosed, not faked).
+- Slices: `17cdf034` (shell + rewire 3 pages) · `bcf34536` (tabs + legend + 6 wrappers) ·
+  `049cc83d` (sidebar + 3 wrappers) · `0a867f35` (CSS split + repoint 17 imports). **Push held**
+  (no explicit steward ask). **External-rebase note:** the neutral sheet was found already committed
+  at its path by foreign `53a0e7a0` (byte-identical carousel-clipping fix), so `git add` staged
+  nothing for it; committed 825-line sheet complete, working==HEAD ([[project_branch_rebase]]).
+- Decisions: ADR [[2026-05-25-atlas-command-centre-shell-extraction]] (factors out the shared
+  substrate of [[2026-05-24-atlas-observe-command-centre]]/[[2026-05-25-atlas-plan-command-centre]]/
+  [[2026-05-25-atlas-act-command-centre]]; none superseded).
+- Pages touched: wiki/decisions/2026-05-25-atlas-command-centre-shell-extraction.md (new),
+  wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
 ## [2026-05-25] feat | Atlas — ApiReachabilityBanner self-heals via a background reachability poll
 
 **Objective:** Close the last named limitation of the API-unreachable banner
