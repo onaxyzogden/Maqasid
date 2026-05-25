@@ -3,6 +3,52 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] spec | Atlas Observe — "Observation Needs" reframe (doc-only)
+
+**Objective:** Reframe the Observe stage from an objective/assignment-flavoured
+workspace into an **observation-needs workspace** — spec only, no code. A discussion
+doc (`OLOS Observe should do two things only.md`, from a session with another LLM)
+argued Observe should do two things only: manage recorded observations + express
+observation *needs*, and must **not** assign work. Grounding it against the code
+confirmed the critique: the Command Centre's `FieldObjective` is in substance an
+observation-capture unit dressed in Act-stage language; real work-assignment already
+lives in Act (`WorkItem` spine + `crewMember` + dependency edges) → language drift,
+not a duplicated system.
+
+**Completed:** Wrote the authoritative spec
+`apps/web/src/v3/command/OBSERVATION-NEEDS-WORKSPACE.md` (rule + clean stage
+boundaries + verbatim Developer Rule; terminology + code-rename map; strip-assignment
+specifics; Command Centre reframe; the two needs sources; plan-impact boundary; a
+7-step staged refactor checklist for a future code session). Added a superseded banner
+to `OBJECTIVE-WORKSPACE.md` (kept for history, not deleted). Appended a backlog entry
+to `BACKLOG-v3.1.md`. Committed the 3 doc files as `db569f19` on
+`feat/atlas-permaculture` (own files staged by name; foreign rebase WIP left
+unstaged).
+
+**Decisions (4, locked via Q&A):** (1) deliverable = spec/doc only; (2) strip
+assignment from Observe (remove `assignee`/`dueAt`-as-deadline/Submit-for-review/
+Mark-complete/Send-back; `dueAt` → optional re-observation **trigger** = a condition,
+not a schedule; lifecycle `open → in-progress → recorded` (+`resolved`)); (3) needs
+come from BOTH a seeded catalog and generatively (`origin`/`sourceObservationId`/
+`reason`); (4) rename at the **code** level (`FieldObjective`→`ObservationNeed`,
+`AssignedObjectivesPanel`→`OpenObservationNeedsPanel`,
+`evaluateObjectiveCompletion`→`evaluateObservationRecorded`, folder
+`v3/objectives/`→`v3/observation-needs/`, deep-link `?objective=`→`?need=`, focus
+pieces `Objective*`→`Capture*`). Invariant: Observe surfaces a `planImpact` flag but
+never acts on it — Plan decides, Act assigns. ADR
+[[2026-05-25-atlas-observe-needs-reframe]] filed (partially revises
+[[2026-05-24-atlas-objective-driven-workspace]], which stays `accepted` for history).
+
+**Deferred:** The code refactor itself (a future, separately-approved session per the
+spec's §7 checklist). Auto-generated needs from stale-data / coverage gaps
+(`computeFieldVerification.ts` decay + GapsPanel) noted as a follow-on, out of scope
+for the first refactor.
+
+**Pages touched:** [[olos]] Current Status; new decision
+[[2026-05-25-atlas-observe-needs-reframe]]; this log; [[index]] Decisions table.
+
+---
+
 ## [2026-05-25] verify | Atlas — live preview pass of the slope-12A objective (DoD)
 
 **Objective:** Verification-only — drive the slope-12A Observe objective
