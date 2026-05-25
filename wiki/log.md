@@ -3,6 +3,79 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas B3 sequencer — three ecological-fidelity slices
+
+**Objective:** Close three places where the B3 rotational-grazing sequencer used
+a simplifying heuristic that a richer sibling card already modelled but the
+sequencer ignored. All additive + non-covenant (B = ecological correctness only;
+"capacity" = animal-unit grazing load, never financial); no schema/store/
+migration; each slice committed the instant it verified (rebased-branch rule on
+`feat/atlas-permaculture`).
+
+**Slice 1 — Multi-species AU rollup (`53cb208b`).** The sequencer's AU math
+counted only `paddock.species[0]`. Math identity: even-split per-paddock AU =
+`headPerHa × areaHa × mean(AU_FACTORS over species)`, so "sum AU across all
+species (even split)" collapses to **replacing `AU_FACTORS[species[0]]` with the
+mean AU factor**. New pure `paddockMeanAuFactor(species)` in `speciesData.ts`
+(empty→0; unknown sp counts as 0 in the mean); `rotationCapacityMath.auLoad` +
+`rotationMoveMaterials.paddockAnimalUnits` swapped to it (docstrings that promised
+`species[0]` updated together). `MultiSpeciesPlannerCard`'s inline per-species
+breakdown left intact (no-deletion). Single-species unchanged (mean == factor).
+
+**Slice 2 — Season-aware rest (`16b8c615`).** Seam: leave `requiredRestDays` +
+the rest-compliance % untouched (so goal-tree criterion
+`livestock-rotation-rest-compliance-pct` doesn't churn) — season-awareness is
+calendar-dates only. New pure `forageSeasonMath.ts` lifts the NH cool-season
+crude-protein archetype (`NH_PROTEIN`) + hemisphere flip (`shiftSouthern`) out of
+`ForageQualitySeasonalCard`; `seasonalRestMultiplier = clamp(peak/month, 1, 1.6)`
+2dp (flush→1.0, Jul/Aug slump→1.6); `isSouthernHemisphere(boundary)` via
+`turf.centroid`. `computeMoveCalendar` gains optional `seasonOpts` (absent ⇒
+multiplier 1 ⇒ identical dates) scaling honored rest by
+`seasonalRestMultiplier(monthOf(moveOutDateISO))` before idle-gap insertion; new
+`seasonAdjustedRestDays` on `MoveCalendarEntry`. Threaded through
+`projectRotationSequence`, `seedRotationSequenceWorkItems`, and
+`pushRotationSequenceToSpine` (derives `isSouthern` from project centroid so spine
+dates match the card). `RotationSequenceCard` renders a "summer rest +Nd" note on
+slump-month moves + honesty footnote.
+
+**Slice 3 — Polyface follower sequencing (`bac8877d`).** New pure
+`polyfaceFollowerMath.ts`: `FOLLOWER_LAG_DAYS = 3` (Salatin sanitation window),
+niche ordering grazer→mixed→browser→mobile, specialists (bees/rabbits) excluded.
+`computeFollowerTiers(species)` groups into ordered tiers (≥2 tiers ⇒ follower
+stack; single-tier ⇒ no follower ⇒ unchanged); `computeFollowerMoves(lead, tiers)`
+emits follower tier `k` at `lead.moveInDateISO + k×3d` for the lead's grazeDays;
+`computeAllFollowerMoves` rolls up the calendar. `projectRotationSequence` exposes
+`followerMoves`. `rotationSequenceSpineSync` emits follower `WorkItem`s
+(`__f<tier>` provenance suffix, title `Follower move: <species> behind <lead>
+(+<lag>d)`, empty kit); `seedRotationSequenceDependencies` separates followers
+(regex `/__f\d+$/`), chains only leads, then adds each follower to its lead's
+`precedesAuto`. Idempotent re-push. `RotationSequenceCard` renders indented
+follower sub-rows.
+
+**Verification.** tsc (`apps/web`, 8 GB heap) — only the 3 known pre-existing
+baseline errors (`StepBoundary`, two `HostUnion*` test types), none in slice
+files. Targeted vitest green per slice (S2 forageSeasonMath 11; S3
+polyface+spineSync+rotationSequenceMath 47). **Livestock feature sweep
+authoritative — 18 files / 192 tests green** (incl. polyface 9, forageSeason 11,
+speciesData 4; no regressions). Full apps/web sweep does **not complete in this
+env** — hangs in worker teardown after the network-fetch file
+`layerFetcher.test.ts` (reproducible across two runs, with + without
+`--test-timeout`), unrelated to these pure-math slices; the only failure seen
+before the hang was the **pre-existing, untouched** `syncManifest.test.ts`.
+Covenant grep clean over all slice files (only hit = the negation guard docstring
+in `rotationSequenceSpineSync.ts`). Live preview (`web`:5200 + `api`:3001 up):
+`/v3/project/mtc/plan` renders (MapTiler canvas, no WebGL hang), Livestock module
+reachable, **no console errors from slice modules** (only pre-existing `[SYNC]`
+validation errors); the new card UI (summer-rest notes + follower sub-rows) needs
+a seeded multi-species summer-spanning rotation plan that `mtc` lacks → not
+visually confirmed (honestly flagged, not faked). Commits
+`53cb208b`/`16b8c615`/`bac8877d` on `feat/atlas-permaculture`, own files staged
+by name; foreign WIP from concurrent sessions left unstaged.
+
+ADR: [[2026-05-25-atlas-b3-sequencer-fidelity]].
+
+---
+
 ## [2026-05-25] session | Atlas Act→Report — data-derived progress + soft gate
 
 **Objective:** Close the 3-stage progression spine by applying the data-derived progress
