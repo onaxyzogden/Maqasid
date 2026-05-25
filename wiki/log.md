@@ -12602,3 +12602,60 @@ but in the dev-server launchers rather than the test config.
 - Pages touched: wiki/decisions/2026-05-25-atlas-observe-needs-execution.md (new),
   wiki/decisions/2026-05-25-atlas-observe-needs-reframe.md (forward-link),
   wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+## [2026-05-25] feat | Atlas Plan — Plan Impact Flags (Observe→Plan review triage)
+
+- Objective: close the dangling Observe→Plan loop. `ObservationNeed.planImpact`
+  (`none｜possible｜likely`) was captured in Observe but **no `plan/` code consumed
+  it** (repo-wide grep confirmed); the observation-needs reframe held the invariant
+  "Observe surfaces `planImpact`, Plan decides". Preceded by a no-code gap-analysis +
+  roadmap that named the **Plan Operation** layer (impact flags → decisions → work
+  packages → Act handoff) as the real Plan-stage gap; **Phase 1 — Plan Impact Flags**
+  chosen as the keystone first slice.
+- Locked decisions (operator-confirmed): dedicated `plan/review` route (nucleus of the
+  future Plan Operation Command Centre); neutral label "Plan Reviews"; plain
+  operational verbs; versioned-blob `byProject` persistence mirroring
+  `observationNeedStore`; **Phase 1 records intent only** (no plan mutation / Act work /
+  pause — Phases 2/3).
+- Completed: one green commit `48702c66` (9 files, +989) on `feat/atlas-permaculture`.
+  - `v3/plan/impact/planImpactFlag.ts` (pure) — 6-verb `PlanReviewDecision`,
+    `PlanReviewStatus`, derived `PlanImpactFlag`, persisted `PlanReviewRun` +
+    `emptyPlanReviewRun()`, labels, and pure `derivePlanImpactFlags(views)` (keeps
+    `recorded｜resolved` × `possible｜likely`; sorts likely-before-possible then
+    `recordedAt` desc). Flag id = need id.
+  - `store/planImpactReviewStore.ts` — persisted `ogden-plan-impact-reviews` v1,
+    `byProject: Record<projectId, Record<flagId, run>>`, structure copied from
+    `observationNeedStore` (`patch`+`now()`, `partialize {byProject}`,
+    `rehydrateWithLogging`); `getReview`/`setDecision`/`setNote`/`reopen`.
+  - `lib/syncManifest.ts` — registered the store (byProject); the coverage-guard test
+    fails the build for any unregistered persisted `ogden-` store.
+  - `v3/plan/impact/usePlanImpactFlags.ts` — view-model joining derived flags with
+    persisted runs + `usePlanImpactFlagCounts` for the nav badge.
+  - `v3/plan/impact/PlanReviewsPage.tsx`+`.module.css` — shelled child route (inside
+    the project shell, like `/plan`); open-then-reviewed cards; six decision buttons +
+    note textarea; reviewed cards show recorded decision + note + Reopen.
+  - `routes/index.tsx` — `v3PlanReviewRoute` at `plan/review`, registered **before**
+    `plan/$module` so the static path resolves first.
+  - `v3/components/V3LifecycleSidebar.tsx` — "Plan Reviews" Plan-group entry with an
+    open-count badge.
+- Pre-existing tech debt surfaced (NOT this slice): the `syncManifest` coverage guard
+  fails on **7 orphan persisted stores** never registered for sync —
+  `ogden-observation-needs`, `ogden-true-north`, `ogden-atlas-{act,observe,plan}-compass`,
+  `ogden-atlas-objective-summaries`, `ogden-atlas-stage-gate-override`. Confirmed
+  pre-existing via `git show HEAD:…syncManifest.ts` (references none of them); my
+  `ogden-plan-impact-reviews` **is** registered and is absent from the failing list.
+  Registering them needs a per-store project-scoped-vs-device-global classification →
+  flagged to the operator as a separate task (registering wrong risks sync
+  double-writes / data loss).
+- Verified: 11/11 unit tests (`planImpactFlag.test.ts`); `apps/web` `lint`
+  (= `tsc --noEmit`) **0 total errors**; browser flow end-to-end (flag derives from
+  seed data id `obj-slope-12a-rainfall`, decision persists to
+  `ogden-plan-impact-reviews` localStorage, Reopen reverts status + retains note,
+  sidebar badge updates).
+- Committed `48702c66`; pushed `c29d23f4..48702c66` after fetch + divergence check
+  (1 ahead / 0 behind, clean fast-forward) per the externally-rebased-branch rule.
+- Decisions: ADR [[2026-05-25-atlas-plan-impact-flags]] (extends
+  [[2026-05-25-atlas-observe-needs-reframe]]/[[2026-05-25-atlas-observe-needs-execution]];
+  mirrors the derived-flag/persisted-run pattern of [[2026-05-25-atlas-observe-needs-auto]]).
+- Pages touched: wiki/decisions/2026-05-25-atlas-plan-impact-flags.md (new),
+  wiki/entities/olos.md, wiki/index.md, wiki/log.md.
