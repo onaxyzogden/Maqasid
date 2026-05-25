@@ -3,6 +3,55 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feature | Atlas Plan — Decision Log (Phase 2, authored records behind review verbs)
+
+**Objective:** Build Phase 2 of the Plan-Operation roadmap — a Decision Log: a
+versioned-blob store of authored decisions (verb + headline + rationale + assumptions
++ trade-offs + source observations + status + dates) on top of Phase 1's Plan Reviews,
+feeding the downstream Work Package / Plan→Act handoff work.
+
+**Completed — implemented, verified, committed `c36bb5a6`, pushed `97cf2472..c36bb5a6`**
+on `feat/atlas-permaculture` (fetch + divergence checked, 1 ahead / 0 behind):
+- New `v3/plan/decisions/planDecision.ts` — pure types + helpers; re-uses the six
+  `PlanReviewDecision` verbs from `../impact/planImpactFlag.js` as the decision verb,
+  adds `PlanDecisionStatus` (`draft｜accepted｜superseded｜rejected`) + `STATUS_RANK`,
+  `PlanDecisionSource` (snapshot), `PlanDecision` iface, `emptyPlanDecision`,
+  `buildDecisionFromFlag` (`verb = review.decision ?? 'no-change'`),
+  `buildSupersedingDraft`, `sortDecisions`.
+- New `store/planDecisionStore.ts` — `ogden-plan-decisions` v1, `byProject`,
+  authored-whole records (mirrors `observationNeedStore.createdByProject`, **not**
+  Phase 1's derived-flag/run split); `create`/`update`/`setStatus`/`remove`/`supersede`.
+  Registered in `lib/syncManifest.ts` (coverage guard).
+- New `v3/plan/decisions/usePlanDecisions.ts` (sorted list + `usePlanDecisionCounts`
+  draft badge) + shelled `PlanDecisionLogPage.tsx`/`.module.css` (New-decision button;
+  status-grouped sections; editable DraftCard + read-only RecordedCard with Supersede→).
+- Bridge: `v3/plan/impact/PlanReviewsPage.tsx` reviewed card gains "Log decision →"
+  (`create(buildDecisionFromFlag(flag, review))` + navigate). Route `plan/decisions`
+  in `routes/index.tsx` (static, before `plan/$module`). "Decision Log" sidebar entry
+  in `V3LifecycleSidebar.tsx` peer to "Plan Reviews".
+
+**Decisions** — [[2026-05-25-atlas-plan-decision-log]]: origin = promote-from-reviewed
++ standalone; status = full 4-state lifecycle; verb (reuse Phase 1's six) + free-text
+headline; authored-whole store, not catalog/run; `affectedModule: PlanModule` is
+steward-set (not auto-mapped from `ObserveModule`); source snapshot at link time;
+supersession marks old immediately.
+
+**Verification.** 14/14 unit tests (`planDecision.test.ts`) + syncManifest coverage
+guard; Phase 2 files type-clean. 4 **pre-existing, unrelated** `tsc` errors persist
+(`StepBoundary.tsx`, `planImpactFlag.test.ts`, `HostUnion{ContextMenu,DrilldownCard}.
+test.tsx`) — same baseline as Phase 1, not in this changeset. Browser flow end-to-end
+(New→fill→Accept→persist to `ogden-plan-decisions`; Supersede chain; Plan Reviews
+bridge with source chip back to Observe); test mutations cleaned from localStorage after.
+
+**Deferred:** Phase 2 records intent only — accepting a decision does **not** mint Act
+Work Packages, mutate Plan modules, pause Act, or create needs (Phase 3 — Work Packages
++ Plan→Act handoff). The Decision Log + Plan Reviews are the nucleus of the future Plan
+Operation Command Centre.
+
+**Pages touched:** [[olos]] (Current Status + History), [[2026-05-25-atlas-plan-decision-log]] (new ADR), index.
+
+---
+
 ## [2026-05-25] refactor | Atlas Observe — Command Centre topbar removed, Compass moved into module tabs
 
 **Objective:** From an operator-selected element (the Observe Command Centre's
