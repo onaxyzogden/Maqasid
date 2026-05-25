@@ -3,6 +3,75 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — data-derived Plan progress + soft Plan→Act gate
+
+**Objective:** Generalize the Observe data-derived progress pattern to the Plan
+stage, so the Plan carousel/module-bar reflect *real design progress* and a soft
+**Plan→Act** gate guides the steward to finish the core design essentials before
+moving to Act — same motivation as the Observe round: guide users to complete the
+necessary steps in a stage before moving to the next.
+
+**Locked decisions** (from prior planning AskUserQuestion): required set = "core
+design essentials" on **4 modules only** (`water-management`, `zone-circulation`,
+`plant-systems`, `phasing-budgeting`); all other modules carry **optional**
+objectives (raise % but don't gate); add a `PlanReadyCue` mirroring
+`ObserveReadyCue`; reuse the soft-gate + override mechanism; data-derived only.
+
+**Engine.** New `apps/web/src/v3/plan/progress/` mirrors `v3/observe/progress/`
+one-for-one: pure `objectives.ts` (`PlanProgressInput`/`EMPTY_PLAN_INPUT`,
+`PLAN_OBJECTIVES: Record<PlanModule, PlanObjective[]>`, `evaluateModule(objectives,
+input, module)`, `evaluatePlan`) — each `PillarTask` `columnId: done ?
+'plan_done' : 'plan_to_do'`; module `complete = requiredTotal>0 ? requiredDone===
+requiredTotal : true`. Required predicates: water `waterNodeCount>0`; zone-circ
+`zoneCount>0 ‖ pathCount>0`; plant `guildCount>0 ‖ cropAreaCount>0`; phasing
+`phaseCount>0 ‖ workItemCount>0`. Optional (raise % only): water network `>=3`,
+zone path, plant succession (`successionPlanned` — an independent field so
+"optional alone" doesn't complete the module), structures/soil/livestock/
+principle counts. `usePlanProgress.ts` is the only React/store layer — raw
+subscriptions (selector-stability rule), filter by `.projectId` /
+`byProject[projectId]`, single `useMemo`. 9 tests (Observe's 8 + an
+optional-only evaluateModule case).
+
+**Segments + bottom bar.** `V3LevelNavBridge` gained `PLAN_PILLARS` +
+`PLAN_GATE_AFTER_SEGMENT='biodiversity-monitor'`, calls `usePlanProgress` before
+the early return, and extends the provider `pillars`/`pillarTasks`/
+`gateIndicators` ternaries with a `stage==="plan"` branch (Plan→Act diamond). The
+**one real difference from Observe:** Plan uses the *shared* `ModuleBar`, which
+renders a passive placeholder unless given a `renderTileIndicator` render-prop —
+new `_shared/moduleNav/ModuleProgressIndicator.tsx` (reads `ctx.pillarTasks` +
+`ctx.taskColorFn`, **non-button divs** to avoid nested buttons); `PlanModuleBar`
+passes it. Observe's bespoke bar untouched.
+
+**Soft gate + cue.** `stageGateOverrideStore` union widened to
+`'observe-to-plan' | 'plan-to-act'` (generic `byProject` map — 1 line, no version
+bump). New `v3/act/StageGateOverlay.tsx` (reuses `../plan/StageGateOverlay.module.css`)
+returns null when `requiredComplete‖overridden‖!projectId`, else a scrim card
+listing remaining required labels with **Go to Plan** + **Continue anyway**;
+`ActLayout` got a `position:relative` canvas host to mount it. New
+`PlanReadyCue.tsx` + `.module.css` ("Plan essentials · N%" + "Ready to Act →"
+enabled when `requiredComplete`), mounted in `PlanLayout`'s right rail beside
+`PlanChecklistAside`.
+
+**Plan corrections.** Copying Observe would *not* auto-light the Plan bottom bar
+(shared `ModuleBar` needs the render-prop); `ActLayout` had no `position:relative`
+wrapper for the overlay; `evaluateModule` needed a 3rd `module` param (Observe
+inferred it from `objectives[0]`, which fails for empty-objective modules).
+
+**Verified:** web `tsc` (8 GB heap script) clean apart from the 3 pre-existing
+unrelated baseline errors (`StepBoundary.tsx`, `HostUnionContextMenu.test.tsx`,
+`HostUnionDrilldownCard.test.tsx`) — none in the 14 changed files; vitest 17/17
+(Plan 9 + Observe 8). Live preview deferred behind the documented auth + WebGL +
+ECONNREFUSED-API wall (not faked).
+
+**Shipped:** committed `047c06f9` ("feat(atlas): data-derived Plan progress +
+soft Plan→Act gate", 14 files, +914/−27) on `feat/atlas-permaculture` (own files
+staged by name; 15 foreign-WIP entries left unstaged per the no-deletion /
+rebased-branch discipline). Pushed after fetch + divergence check.
+
+**Decisions:** ADR [[2026-05-25-atlas-plan-to-act-data-derived-gate]].
+**Pages touched:** wiki/decisions/2026-05-25-atlas-plan-to-act-data-derived-gate.md
+(new), wiki/log.md, wiki/index.md, wiki/entities/olos.md.
+
 ## [2026-05-25] build | Atlas — Observe objective-workspace v1 gaps closed (base raster actuation + annotation auto-capture + Erosion Flag/Runoff Path tools)
 
 **Objective:** Close the three genuine v1 gaps between the shipped Observe
