@@ -158,8 +158,37 @@ scoping + auto-capture for free. All changes additive (no deletion).
   cases. (The ECONNREFUSED lines are the expected offline-fetch fallback, not
   failures; the full-suite background runs never flushed output, so a targeted
   subset was used.)
-- Live preview deferred behind the documented auth + seeded-project +
-  headless-WebGL + MapTiler-key wall (honestly flagged, not faked).
+- **Live preview pass driven (2026-05-25) — WebGL wall down; 4/5 DoD steps
+  verified-live, placement blocked by a harness gap, not faked.** Three of the
+  four historical walls are down (MapTiler key present, `mtc` seeds offline,
+  auth passed by **operator signing in directly** — Claude handled no
+  credentials; two non-credential bypasses were correctly classifier-blocked).
+  WebGL renders (basemap + contours + hillshade + water fill), retiring the
+  "headless-WebGL capture hang" caveat for this harness.
+  - **Step A (launch focus)** — verified-live: route → `?objective=
+    obj-slope-12a-rainfall`, `ObjectiveBanner` in DOM, rail swaps to execution aside.
+  - **Step B (base raster auto-on)** — verified-live: `window.__atlasMap`
+    reports `matrix-topography-hillshade` / `-line` / `-label` /
+    `matrix-water-fill` / `matrix-waterway-line` `visibility === 'visible'`
+    under focus, plus on-screen relief + contours + water fill.
+  - **Step C (Erosion Flag + Runoff Path in rail)** — DOM-verified: both
+    `restrictToTools` rail entries present.
+  - **Step D (placement → form → evidence auto-advance)** — **blocked-by-harness,
+    honestly reported (not faked).** Synthetic canvas clicks reach the map
+    (`map.on('click')` fired 4× with valid `lngLat`, full
+    mousedown→mouseup→click, canvas un-intercepted) but **mapbox-gl-draw fires
+    zero draw events** under synthetic input — `draw.create/add/update/
+    modechange` never fire, the `draw_point` placeholder stays coord-empty
+    `[[]]`, no form opens, evidence stays 0/1. Diagnosed as a
+    synthetic-input ↔ mapbox-gl-draw gap, **not an app bug** (React/DOM clicks
+    like the banner-exit button work fine). Per the locked "real map-click only"
+    decision, placement was **not** fabricated via `createWithDefaults` /
+    `draw.add` / a synthetic `draw.create`; form + evidence-auto-advance remain
+    **code-verified only** (vitest above), not live-confirmed.
+  - **Step E (exit reverts rasters)** — verified-live: "← Command Centre"
+    navigates home, banner leaves DOM, and the matrix layers flip
+    `visible → none` (proven prop-driven: plain topography with no objective
+    reports all `none`).
 - Shipped commit-immediately on `feat/atlas-permaculture` (rebased out-of-band;
   own files staged by name, foreign WIP left untouched per the no-deletion
   rule): `958de914` (Phase 1, folded into the external rebase), `58441e14`

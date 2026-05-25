@@ -3,6 +3,43 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] verify | Atlas — live preview pass of the slope-12A objective (DoD)
+
+**Objective:** Verification-only — drive the slope-12A Observe objective
+end-to-end in a live browser and capture the Definition-of-Done the prior
+[[2026-05-25-atlas-observe-objective-v1-gaps]] plan called for (raster auto-on →
+Erosion Flag / Runoff Path placement → annotation-evidence auto-advance → exit
+reverts rasters). No source changes.
+
+**Walls down.** Three of the four historical walls are gone: MapTiler key
+present, `mtc` seeds offline, and auth was passed by the **operator signing in
+directly** (Claude handled no credentials — two non-credential bypass attempts,
+`taskkill` and a `window.fetch` `/auth/me` mock, were correctly
+classifier-blocked, so the operator authenticated himself). **WebGL renders**
+(basemap + contours + hillshade + water fill), retiring the historical
+"headless-WebGL capture hang" caveat for this harness.
+
+**Result — 4/5 DoD steps verified-live; 1 blocked-by-harness, not faked.**
+- **A (launch focus)** verified-live — `?objective=obj-slope-12a-rainfall`,
+  `ObjectiveBanner` in DOM, rail swaps to execution aside.
+- **B (raster auto-on)** verified-live — `window.__atlasMap` reports the five
+  `matrix-*` layers `visible` under focus, with relief + contours + water on screen.
+- **C (Erosion Flag + Runoff Path in rail)** DOM-verified — both
+  `restrictToTools` entries present.
+- **D (placement → form → evidence)** **blocked-by-harness** — synthetic canvas
+  clicks reach the map (`map.on('click')` fired 4× with valid `lngLat`) but
+  **mapbox-gl-draw fires no draw events** under synthetic input (`draw_point`
+  placeholder stays coord-empty `[[]]`, no form, evidence 0/1). A
+  synthetic-input ↔ mapbox-gl-draw gap, not an app bug (React/DOM clicks like
+  the banner-exit work). Per the locked **"real map-click only"** decision,
+  placement was **not** fabricated; form + auto-advance stay code-verified (vitest).
+- **E (exit reverts rasters)** verified-live — exit nav, banner leaves DOM,
+  matrix layers flip `visible → none` (prop-driven: plain topography reports all `none`).
+
+**Wiki updated:** [[olos]] Current Status + the
+[[2026-05-25-atlas-observe-objective-v1-gaps]] ADR Verification section. No code
+committed in the atlas submodule (verification-only).
+
 ## [2026-05-25] feat | Atlas — data-derived Plan progress + soft Plan→Act gate
 
 **Objective:** Generalize the Observe data-derived progress pattern to the Plan
