@@ -101,6 +101,14 @@ right-rail readiness-cue stacking fix).
   to **3** remaining errors, all foreign test WIP and untouched:
   `planImpactFlag.test.ts(143,12)`, `HostUnionContextMenu.test.tsx(58,36)`,
   `HostUnionDrilldownCard.test.tsx(25,36)`.
+- **Durability re-check (post-fix):** after a foreign commit (`f4e8fcca` Plan Command
+  Centre) advanced the externally-rebased branch on top of the fix (`c9c10e90`), a third
+  independent full `tsc` run confirmed `StepBoundary.tsx` is still **absent** and the file
+  is unchanged since the fix (clean `git diff` vs HEAD). Stale per-loop tsc outputs that
+  still reported the error at lines 364/371 were confirmed to be **pre-fix artifacts** —
+  those lines now hold the geocode-warning banner (`geocodeWarning: string | null`;
+  `string` is a valid `ReactNode`, so no TS2322 there); the real offender had shifted to
+  line 429 and was fixed.
 
 **Lesson:** when a `tsc` error "wanders" between siblings in a JSX children array,
 suspect a sibling guard whose operand is `unknown`/`any` and inspect the *type of the
