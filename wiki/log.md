@@ -68,6 +68,16 @@ the wiki, commit, and push.
   **`f4e8fcca`** (13 files, +979) on `feat/atlas-permaculture`. ADR
   [[2026-05-25-atlas-plan-command-centre]].
 
+**Durability re-check (held across foreign rebase) + caveat resolved:** `feat/atlas-permaculture`
+advanced out-of-band after the push (foreign Phase 5a/5b/5c commits + a `docs(wiki)` backfill, now
+HEAD `519368f4`); `f4e8fcca` survived intact — all 9 `v3/plan/command/*` files present, the
+`plan/command-centre` route still wired, branch in sync with `origin` (0/0). **The
+dangling-import caveat is now closed:** the foreign Phase 5a `PlanConflicts` work landed as its own
+commit (`72f9cabb feat(plan): Plan Conflict Detection`), so `apps/web/src/v3/plan/conflicts/`
+(`PlanConflictsPage.tsx` + `planConflict.ts` + `usePlanConflicts.ts` + test + CSS) is now tracked
+and the `routes/index.tsx` import that dangled in the `f4e8fcca` snapshot resolves against
+committed code.
+
 ## [2026-05-25] fix | Atlas — StepBoundary `unknown && <jsx>` TS2322 (clears a long-standing baseline) + Act/Plan right-rail stacking
 
 **Objective:** Fix the `StepBoundary.tsx` `TS2322: Type 'unknown' is not assignable to
