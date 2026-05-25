@@ -3,6 +3,59 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] build | Atlas — Observe objective-workspace v1 gaps closed (base raster actuation + annotation auto-capture + Erosion Flag/Runoff Path tools)
+
+**Objective:** Close the three genuine v1 gaps between the shipped Observe
+objective workspace and the "Objective Launch Pattern" doc (the rest was already
+~80% implemented).
+
+**Phase 1 — base raster actuation.** `TopographyOverlay`/`WaterOverlay`
+previously obeyed only the manual `matrixTogglesStore` toggles, so focusing the
+slope-12A objective (needs `topography` + `hydrology`) did not surface the
+hillshade/contour/water tiles the doc's Screen 3.2 wants. Added a prop-driven
+`forceVisible?: boolean` to both (`visible = toggle || !!forceVisible`, added to
+effect deps); `ObserveLayout` derives `forceTopo`/`forceWater` from
+`focusModules` and threads them in. Prop-driven (no toggle mutation) ⇒ exit
+auto-reverts to the prior toggle state.
+
+**Phase 2 — annotation evidence auto-capture.** `annotation`-kind evidence was
+satisfiable only by a manual "Mark captured" button. New non-persisted
+`store/placementSignalStore.ts` (`{seq, lastId, signal}`); the single shared
+creation primitive `createWithDefaults` now pulses `signal(newId)` after a
+successful id (one seam, no 28-tool churn). New pure
+`firstUnsatisfiedAnnotationSpec(objective, run)` in `fieldObjective.ts`. New
+headless `ObjectiveAnnotationAutoCapture.tsx` (focus-only) subscribes to
+`placementSignalStore.seq`, dedupes via ref, reads `activeTool`, and if it's one
+of the objective's `requiredTools` and a spec is unsatisfied, calls `addEvidence`
+with the annotation id (links evidence ↔ feature). Manual button kept + a
+one-line auto-hint in `ObjectiveEvidenceCapture`.
+
+**Phase 3 — Erosion Flag + Runoff Path tools (additive, topography module).**
+The doc's Screen-4 tools didn't exist. Added both to topography (inheriting
+Phase 1–2 focus scoping + auto-capture): `topographyStore` gained `erosionFlags`
+(point: severity/type/notes) + `runoffPaths` (line: from/to/flowCondition/notes)
+collections + add/update/remove + migrate `[]`; two `FieldSchema`s +
+`AnnotationKind` members threaded through **all** exhaustiveness points
+(FIELD_SCHEMAS, FIELD_REMOVERS, KIND_LABELS, rowsForKind, getAnnotationRow,
+removeAnnotation, subscriptions); new `ErosionFlagTool`/`RunoffPathTool`;
+`useMapToolStore` ids; `ObserveDrawHost` cases; `ObserveTools` rail entries
+(Flag/Spline); `ObserveAnnotationLayers` circle-by-severity + line-by-
+flowCondition specs (no sprite-icon registration; both `SPEC_MODULE →
+'topography'`); slope-12A seed `requiredTools` extended.
+
+**Verification:** web `tsc` clean apart from the 3 pre-existing unrelated errors;
+targeted vitest 183/183 (incl. 21/21 objectives + the new
+`firstUnsatisfiedAnnotationSpec` cases). Live preview deferred behind the
+documented auth + seeded-project + headless-WebGL + MapTiler wall. All changes
+additive/gated (no deletion). Commits on `feat/atlas-permaculture` (rebased
+out-of-band): `958de914` (Phase 1, folded into rebase), `58441e14` (Phase 2,
+5 files), `aa64ee89` (Phase 3, 10 files +448); pushed `db4b45e2..aa64ee89`.
+
+**Wiki:** ADR [[2026-05-25-atlas-observe-objective-v1-gaps]]; entity [[olos]]
+updated.
+
+---
+
 ## [2026-05-24] build | Atlas — Observe focus-mode deltas #1 (requiredLayers actuation) + #2 (timeline filter)
 
 **Objective:** Implement the two small feature follow-ons the 2026-05-24 audit
