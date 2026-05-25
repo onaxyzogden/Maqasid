@@ -3,6 +3,38 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas Observe — generative "Raise observation need" action
+
+**Objective:** Build the deferred generative "Raise observation need" action
+(spec §5b / §7 step 5 from
+[2026-05-25-atlas-observe-needs-execution.md](decisions/2026-05-25-atlas-observe-needs-execution.md))
+— a CTA that writes a `follow-up` or `manual` need with `reason` set and
+`sourceObservationId` linking back, making Observe self-feeding. Steward
+decisions (locked): entry points = **Capture Workspace + Command Centre**; after
+create = **stay with a confirmation**; form = **extended** (title, reason,
+priority, trigger, plan impact). Full ADR:
+[2026-05-25-atlas-observe-needs-generative.md](decisions/2026-05-25-atlas-observe-needs-generative.md).
+
+**What shipped (4 green commits on `feat/atlas-permaculture`).** `b3492475`
+store+hook+builder+tests — `createdByProject` slice + `createNeed` action
+(persist `version 2→3`, `migrate` defaults `{}`, `partialize` widened);
+`useObservationNeeds` concatenates seed catalog + created slice; pure
+`buildRaisedNeed(input, ctx)` + 5 tests (27 total green). `d6de57ee`
+Capture follow-up CTA — shared presentational `RaiseNeedForm` + a "Raise
+follow-up need" affordance in `CaptureExecutionAside` (mints a `follow-up`
+need, `sourceObservationId` = parent id, stays in place). `f2cf1043` Command
+Centre — "+ Raise observation need" mints a `manual` need (target = mean of
+existing view centres), origin badge on cards, `projectId` threaded.
+`b9021a80` docs — spec + `BACKLOG-v3.1.md` mark the action live.
+
+**Verification.** 27/27 unit tests; web `tsc` clean for all touched files (the
+remaining errors — `StepBoundary.tsx`, `HostUnion*.test.tsx`, and a *foreign*
+uncommitted `EdgeConnectivityCard` change — are unrelated); live preview not run
+(auth + WebGL + Windows capture wall). Own files staged by name; the foreign WIP
+in the working tree left untouched. Not pushed.
+
+---
+
 ## [2026-05-25] feat | Atlas — mtc polyface rotation fixture (closes B3-fidelity screenshot gap)
 
 **Objective:** Seed a multi-species, summer-spanning rotation fixture on the
