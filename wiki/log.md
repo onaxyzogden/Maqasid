@@ -3,6 +3,55 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — Surface API-unreachable state: boot-session retry + global reachability banner
+
+**Objective:** Close the two blind spots the login-unreachable guard (`daa0d62a`) deliberately
+scoped out — (1) the **silent** boot-session failure where `initFromStorage()` keeps a token but
+fails to verify `/auth/me` for a transient (non-auth) reason and the header just shows a generic
+"Account", and (2) the absence of any global "API unreachable" surface — giving each its own
+recoverable feedback. Then close the session, update the wiki, commit, and push.
+
+**Completed — implemented, verified, committed + pushed on `feat/atlas-permaculture`:**
+- **Steward choice (AskUserQuestion) = "Both" + "Both":** add a global `apiReachable` signal **and** a
+  boot-specific `sessionUnverified` message, each recoverable by **both** a manual **Retry** button and
+  **automatic** re-attempt on the browser `online` event.
+- **`store/connectivityStore.ts`** — `apiReachable: boolean` (default `true`, runtime-only) +
+  `setApiReachable` that **no-ops when unchanged** (`set((s) => s.apiReachable === reachable ? s :
+  { apiReachable: reachable })`) so the per-2xx success hook never spams subscribers.
+- **`lib/apiClient.ts`** — module-global `apiSuccessHandler` + `setApiSuccessHandler(fn)` (mirrors
+  `setApiClientErrorReporter`), fired on the 2xx path before `return json`, skipping telemetry POSTs and
+  wrapped so it can never break the request path. **The fetch-catch raw re-throw is unchanged** — the
+  `apiClient.clientError.test.ts` `rejects.toBe(netErr)` contract and the fallback stores (projectStore,
+  ArchivePage, commentStore, memberStore) are untouched.
+- **`app/bootAuthed.ts`** — in the existing error reporter, set `apiReachable = false` when
+  `code === 'NETWORK_ERROR'`; registered `setApiSuccessHandler(() => …setApiReachable(true))` (a server
+  restart fires no browser `online` event, so a success signal is required to auto-clear).
+- **`store/authStore.ts`** — additive `sessionUnverified: boolean`: raised in the transient `else`
+  (token kept, `user: null`), cleared on `!stored`/success/401 and on `login`/`register`/`logout`.
+- **`components/ApiReachabilityBanner.tsx`** (+ `.module.css`) — always-mounted (sibling of
+  `SessionExpiredBanner` in `main.tsx`). Priority: `sessionUnverified` ("We couldn't verify your saved
+  session…") > `!apiReachable` ("Can't reach the server…") > `null`. Retry with a token re-runs
+  `initFromStorage()`; no-token Retry falls back to `window.location.reload()` (no invented health
+  endpoint). A `useEffect` `online` listener re-runs Retry only while a problem shows.
+  `role="alert"` / `data-testid="api-reachability-banner"`.
+- **Why a dedicated banner, not OfflineBanner:** `OfflineBanner` is mounted only behind
+  `FLAGS.OFFLINE_MODE` (default `false`), so folding this in would leave it dark in the default build.
+- **Verified:** **31/31 unit tests green** — new `connectivityStore.apiReachable` (3),
+  `authStore.sessionUnverified` (4), `apiClient.successHook` (5), `ApiReachabilityBanner` (5), plus the
+  **preserved** raw-rethrow and `authStore.networkError` (4) contracts. Typecheck clean on all 11
+  touched files (foreign-WIP baseline in `NewProjectPage.tsx` + `wizard/types.ts` shifted out-of-band by
+  a concurrent rebase, since fixed by foreign `520a9f9b` — not mine). **Live preview:** all three banner
+  states rendered correctly in the real bundle, confirmed via the accessibility tree (`role="alert"`
+  text + the "Retry" button); `preview_screenshot` timed out on the MapLibre/WebGL canvas, so the visual
+  capture was disclosed as unavailable, not faked ([[2026-05-19-atlas-preview-screenshot-verification-standard]]).
+  **Test-harness pitfall found + worked around (not an app bug):** Vite dev serves `connectivityStore.ts`,
+  `.js`, and the HMR-versioned `?t=<ts>` URL as **different module instances**, so eval-driving the live
+  store requires importing the exact `?t=` URL the mounted component imports.
+- Committed **`08db4ed3`** (11 files, +515/−11) on `feat/atlas-permaculture`, staged by explicit path
+  (no foreign WIP bundled); already pushed — branch in sync with `origin`, foreign `520a9f9b` now sits on
+  top. [[feedback-commit-immediately-on-rebased-branches]] · [[feedback-no-deletion]].
+  ADR [[2026-05-25-atlas-api-unreachable-banner]].
+
 ## [2026-05-25] feat | Atlas — Act Command Centre (mirror of Observe/Plan, weather tile kept)
 
 **Objective:** "Develop a command centre for Act but make sure to keep the weather tile" — give
