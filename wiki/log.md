@@ -12473,3 +12473,59 @@ but in the dev-server launchers rather than the test config.
 - Pages touched: wiki/decisions/2026-05-24-atlas-objective-driven-workspace.md
   (new), wiki/decisions/2026-05-24-atlas-observe-command-centre.md (forward-link),
   wiki/entities/olos.md, wiki/log.md.
+
+## [2026-05-25] session | Atlas Observe "Observation Needs" reframe — EXECUTED
+
+- Objective: execute the spec-only [[2026-05-25-atlas-observe-needs-reframe]] (§7
+  staged refactor) — the mechanical `FieldObjective`→`ObservationNeed` conversion
+  of the Observe Command Centre. Scope: rename + strip-assignment +
+  lifecycle-collapse + `?need=` deep-link + folder moves + docs. Deferred: the
+  generative "Raise observation need" action (§7 step 5). Approved deletion of
+  `OBJECTIVE-WORKSPACE.md`.
+- Completed: landed as **three green, bisectable commits** on
+  `feat/atlas-permaculture` (regrouped from the spec's 5 — the type rename
+  cascades through ~16 files and can't compile in per-slice isolation, so rename
+  was done in place first, file moves second).
+  - `c57a96a8` **content** — renamed all identifiers in place (`FieldObjective`→
+    `ObservationNeed`, `ObjectiveStatus`→`ObservationNeedStatus`, `CompletionRule`→
+    `RecordingRule`, `evaluateObjectiveCompletion`→`evaluateObservationRecorded`,
+    `AssignedObjectivesPanel`→`OpenObservationNeedsPanel`, `Objective*` focus
+    pieces→`Capture*`); stripped `assignee`/`ObjectiveAssignee`/`dueAt` + review
+    states; collapsed lifecycle to `open → in-progress → recorded` (+`resolved`);
+    added `origin`/`sourceObservationId?`/`reason`/`trigger?`/`planImpact?`;
+    collapsed the capture footer to a single "Record observation" button;
+    deep-link key `?objective=`→`?need=`.
+  - `69345beb` **moves** — `git mv` to new paths (`v3/objectives/`→
+    `v3/observation-needs/`, `v3/observe/objective/`→`v3/observe/capture/`,
+    `store/fieldObjectiveStore.ts`→`store/observationNeedStore.ts`,
+    `ObjectiveMapMarkers.tsx`→`CaptureMapMarkers.tsx`,
+    `AssignedObjectivesPanel.tsx`→`OpenObservationNeedsPanel.tsx`) + fixed every
+    import path/export name across ~22 consumers.
+  - `0d4a485a` **docs** — rewrote `OBSERVATION-NEEDS-WORKSPACE.md` from
+    "spec / not yet implemented" into the live reference; deleted
+    `OBJECTIVE-WORKSPACE.md` (approved); marked the reframe DONE in
+    `BACKLOG-v3.1.md`.
+- Persist-key migration via module-load `portLegacyPersist()`: the store persists
+  under `ogden-observation-needs` v2; because the key itself changed (not just the
+  shape), zustand's `migrate` can't see the old blob, so a module-load function
+  reads the legacy `ogden-field-objectives` key, remaps statuses
+  (`not-started`→`open`, `evidence-submitted`→`in-progress`, `complete`→
+  `recorded`, `needs-review`→`in-progress`), and writes the new key — in-progress
+  field state survives the rename. The view model keeps its `.objective` property
+  name (`ObservationNeedView.objective`) to minimize panel churn.
+- Verified: unit tests **22/22** on `observationNeed.test.ts`; touched files
+  type-clean (the 3 pre-existing baseline `tsc` errors — `StepBoundary.tsx`,
+  `HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx` — are
+  unrelated and block only a full production build); residual-identifier grep
+  across `src/` clean. Live preview not run (auth + WebGL + Windows capture wall,
+  per [[2026-05-19-atlas-preview-screenshot-verification-standard]]).
+- Deferred: the generative "Raise observation need" action (spec §5b/§7 step 5) —
+  the `ObservationNeed` entity already carries `origin`/`sourceObservationId`/
+  `reason`; only the action UI is unbuilt.
+- Decisions: ADR [[2026-05-25-atlas-observe-needs-execution]] (executes
+  [[2026-05-25-atlas-observe-needs-reframe]], whose Connections were updated with
+  a forward-pointer; supersedes [[2026-05-24-atlas-objective-driven-workspace]] in
+  code — that ADR stays `accepted` for history).
+- Pages touched: wiki/decisions/2026-05-25-atlas-observe-needs-execution.md (new),
+  wiki/decisions/2026-05-25-atlas-observe-needs-reframe.md (forward-link),
+  wiki/entities/olos.md, wiki/index.md, wiki/log.md.

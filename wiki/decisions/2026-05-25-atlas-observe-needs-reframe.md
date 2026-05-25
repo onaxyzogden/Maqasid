@@ -86,6 +86,7 @@ the type level, matching the doc's developer rule.
 
 ## Connections
 
+- [[2026-05-25-atlas-observe-needs-execution]] — the session that executed this spec (the rename landed)
 - [[olos]] — the project this reframes (Observe stage)
 - [[2026-05-24-atlas-objective-driven-workspace]] — the decision this revises
 - [[2026-05-25-atlas-observe-objective-v1-gaps]] — the v1 objective-workspace gaps closed just before this reframe
