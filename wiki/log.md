@@ -3,6 +3,47 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] fix | Atlas — StepBoundary `unknown && <jsx>` TS2322 (clears a long-standing baseline) + Act/Plan right-rail stacking
+
+**Objective:** Fix the `StepBoundary.tsx` `TS2322: Type 'unknown' is not assignable to
+type 'ReactNode'` error — long carried as a "pre-existing unrelated baseline" — then
+close the session, update the wiki, commit, and push (also carrying the Act/Plan
+right-rail readiness-cue stacking fix).
+
+**Completed — implemented, verified, committed on `feat/atlas-permaculture`:**
+- **Root cause:** `apps/web/src/features/project/wizard/StepBoundary.tsx` gated the
+  boundary-confirmation block with `{data.parcelBoundaryGeojson && (<div/>)}`.
+  `parcelBoundaryGeojson` is typed `unknown | null` on `WizardData`
+  (`pages/NewProjectPage.tsx:52`); TS types `unknown && X` as `unknown`, which is not a
+  valid JSX child → TS2322. TS **misattributed** the error to sibling children in the
+  same children array, so the reported line "wandered" run-to-run and fed several wrong
+  theories (phantom/non-reproducible; instantiation-budget — disproven by
+  `--extendedDiagnostics`, 1.73M instantiations / no `TS2589`; duplicate `@types/react`
+  — disproven, single hoisted 18.3.28; host-vs-component element — a red herring).
+- **Fix:** coerce the guard to a boolean — `{data.parcelBoundaryGeojson != null && (<div/>)}`
+  (5 insertions / 2 deletions, single file). Fixed at the consumer, not by retyping the
+  shared `WizardData` field (other consumers already `as`-cast it). An exploratory
+  `GeocodeWarningBanner` extraction during diagnosis was reverted and the file deleted —
+  kept the change surgical.
+- **Carried Act/Plan right-rail stacking:** `v3/act/ActLayout.tsx` + `v3/plan/PlanLayout.tsx`
+  wrap the `rightRail` slot in a new `.rightStack` column wrapper (new
+  `ActLayout.module.css` / `PlanLayout.module.css`) and gate the readiness cue
+  (`ActReadyCue` / `PlanReadyCue`) on `validModule === null` — the cue stacks above the
+  checklist aside instead of squishing beside it, and hides once an objective is focused
+  (Act now mirrors the existing Plan-stage gate).
+- **Verified:** two independent full `tsc --noEmit -p tsconfig.json` runs (8GB heap) both
+  show `StepBoundary.tsx` **gone** from the error list. The carried baseline drops from 4
+  to **3** remaining errors, all foreign test WIP and untouched:
+  `planImpactFlag.test.ts(143,12)`, `HostUnionContextMenu.test.tsx(58,36)`,
+  `HostUnionDrilldownCard.test.tsx(25,36)`.
+
+**Lesson:** when a `tsc` error "wanders" between siblings in a JSX children array,
+suspect a sibling guard whose operand is `unknown`/`any` and inspect the *type of the
+gated expression* early — don't theorize about positions, budgets, or duplicate types
+first.
+
+**Decision:** ADR [[2026-05-25-atlas-stepboundary-unknown-reactnode]].
+
 ## [2026-05-25] feature | Atlas Plan — Decision Log (Phase 2, authored records behind review verbs)
 
 **Objective:** Build Phase 2 of the Plan-Operation roadmap — a Decision Log: a
