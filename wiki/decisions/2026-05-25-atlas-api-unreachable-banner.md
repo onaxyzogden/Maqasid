@@ -153,6 +153,43 @@ API smoke 9/9 (incl. the new `GET /api/v1/health` no-auth/no-DB test); web + API
 typecheck exit 0. Committed `6964bea8` on `feat/atlas-permaculture`, staged by
 explicit path (no foreign WIP bundled), pushed clean (`c865837a..6964bea8`).
 
+## Follow-up — 2026-05-25 (commit `60aea010`)
+
+The last named limitation in **Consequences** — recovery still needed a successful
+request, the browser `online` event, or a manual Retry — is now closed. The banner
+**self-heals** via a background reachability poll:
+
+- **`apps/web/src/components/ApiReachabilityBanner.tsx`** — the token / no-token
+  recovery body is extracted into a silent `attemptRecovery()` shared by manual
+  Retry, the `online` listener, and a new poll (overlap-guarded by a `useRef`,
+  reads the token fresh via `useAuthStore.getState()` so interval closures can't go
+  stale). A `useEffect` keyed on `visible` runs `setInterval(…, 15_000)` only while
+  the banner shows — so it self-terminates when recovery flips `visible` false — and
+  also registers a `visibilitychange` listener that re-checks **immediately** on tab
+  refocus. `pingIfActive` skips when the tab is hidden or the device is offline
+  (mirrors `syncService.startHeartbeat()` guards; the `online` event covers the
+  offline→online edge). The manual `online` listener was repointed at the silent
+  `attemptRecovery()` so auto-recovery no longer flashes "Retrying…".
+- **Decision: poll only.** DRYing the two `/health` handlers was deferred — still no
+  third caller, and root `/health` (bare infra probe, unproxied) vs `/api/v1/health`
+  (enveloped, proxied) serve deliberately different contracts. No API/server change
+  in this slice.
+
+**Verification:** web vitest 20/20 for the touched suites — `ApiReachabilityBanner`
+now 14 (7 new poll tests: interval-ping-and-clear, stop-after-recovery,
+no-poll-while-healthy, immediate-on-refocus, skip-while-hidden, skip-while-offline,
+clear-on-unmount) + `apiClient.successHook` 6; web typecheck exit 0. A test
+stack-overflow was root-caused to mock pollution: `vi.spyOn(document,
+'visibilityState', 'get')` corrupts into a self-recursive getter when
+`vi.restoreAllMocks()` restores a prototype getter-spy, blowing the stack in the
+next test that reads `visibilityState` — fixed by using `Object.defineProperty` with
+plain values for the DOM overrides and resetting them in the nested `afterEach`.
+Committed `60aea010` on `feat/atlas-permaculture`, staged by explicit path (two
+files; large foreign WIP and three concurrent "Command Centre" refactor commits left
+untouched). **Push held** at the steward's direction — the branch owner was actively
+committing into the repo, so publishing their in-progress commits via fast-forward
+was declined; the slice is protected as a local commit.
+
 ## Connections
 
 - The prior login-unreachable guard (commit `daa0d62a`) this extends — same raw-rethrow-preserving philosophy (no ADR was filed for that contained fix)

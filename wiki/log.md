@@ -3,6 +3,45 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feat | Atlas — ApiReachabilityBanner self-heals via a background reachability poll
+
+**Objective:** Close the last named limitation of the API-unreachable banner
+([[2026-05-25-atlas-api-unreachable-banner]]) — recovery still needed a successful request, the
+browser `online` event, or a manual Retry. Add a periodic background poll so the banner clears on
+its own when the server comes back, with no user action. (Planned in plan mode; steward chose
+**poll only** — defer DRYing the two `/health` handlers — and **15s cadence + immediate re-check on
+tab refocus**.)
+
+**Completed — implemented + verified; committed locally on `feat/atlas-permaculture` (`60aea010`),
+push held:**
+- **`apps/web/src/components/ApiReachabilityBanner.tsx`** — extracted the token / no-token recovery
+  body into a silent `attemptRecovery()` shared by manual Retry, the `online` listener, and the new
+  poll (overlap-guarded by a `useRef`; reads the token fresh via `useAuthStore.getState()` so interval
+  closures can't go stale). A `useEffect` keyed on `visible` runs `setInterval(…, 15_000)` only while
+  the banner shows — self-terminating when recovery flips `visible` false — plus a `visibilitychange`
+  listener that re-checks **immediately** on tab refocus. `pingIfActive` skips on a hidden tab or an
+  offline device (mirrors `syncService.startHeartbeat()` guards; the `online` event covers the
+  offline→online edge). The `online` listener was repointed at the silent `attemptRecovery()` so
+  auto-recovery no longer flashes "Retrying…".
+- **Why the poll:** the apiClient success hook (authed-only) and the browser `online` event both miss
+  a *server-side* recovery (API restart) while the device stayed online and the app is idle — notably
+  on the no-token/showcase path — so without the poll the banner lingered until manual Retry.
+- **Scope = poll only:** DRYing root `/health` (bare, unproxied) vs `/api/v1/health` (enveloped,
+  proxied) deferred — no third caller, and they serve deliberately different contracts. No API/server
+  change.
+- **Verified:** web vitest 20/20 for the touched suites — `ApiReachabilityBanner` 14 (7 new poll
+  tests) + `apiClient.successHook` 6; web typecheck exit 0.
+- **Debugging lesson:** a test stack-overflow was mock pollution — `vi.spyOn(document,
+  'visibilityState', 'get')` corrupts into a self-recursive getter when `vi.restoreAllMocks()` restores
+  a prototype getter-spy, blowing the stack in the next test that reads `visibilityState`. Fixed with
+  `Object.defineProperty` (plain values) for the DOM overrides + reset in the nested `afterEach`.
+- **Push held** ([[project_branch_rebase]]): the branch owner was actively committing into the repo
+  (three concurrent "Command Centre" refactor commits stacked around mine), so the steward declined to
+  fast-forward-publish their in-progress work; the verified slice is protected as a local commit per
+  [[feedback-commit-immediately-on-rebased-branches]]. Staged by explicit path (two files), foreign WIP
+  untouched ([[feedback-no-deletion]]).
+- ADR [[2026-05-25-atlas-api-unreachable-banner]] given a second dated Follow-up recording this slice.
+
 ## [2026-05-25] feat | Atlas — No-token Retry pings /api/v1/health instead of full reload
 
 **Objective:** Close the "**no-token Retry uses `reload()`**" non-goal named in the API-unreachable
