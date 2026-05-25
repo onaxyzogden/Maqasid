@@ -3,6 +3,35 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] verify | Atlas Observe — "Observation Need" rename confirmed landed (planning pass, no code)
+
+**Objective:** Land the "Observation Need" rename as its own approved code session
+(the 7-step refactor in `OBSERVATION-NEEDS-WORKSPACE.md`), updating every
+`?objective=` emitter to `?need=` and re-running `tsc` + vitest so committed code
+matches the verified WIP behaviour.
+
+**Outcome — overtaken by events; the work was already landed + pushed by parallel
+sessions.** Read-only investigation confirmed: `observationNeedStore.ts` +
+`v3/observation-needs/observationNeed.ts` present, old `v3/objectives/` folder gone,
+`?objective=`→`?need=` migration complete (producer `ObserveCommandCentrePage`,
+consumer `ObserveLayout`), and **no residual old identifiers** in `src/`
+(`FieldObjective`/`useFieldObjectives`/`evaluateObjectiveCompletion` remain only in
+markdown + one comment). atlas `feat/atlas-permaculture` is **even with origin**
+(0 ahead / 0 behind), HEAD `48702c66` / `c29d23f4`. `@ogden/web` `typecheck` is
+clean **apart from the 3 pre-existing baseline errors** (`StepBoundary.tsx`,
+`HostUnionContextMenu.test.tsx`, `HostUnionDrilldownCard.test.tsx`) — none
+rename-related. The wiki already documents the full execution (`c57a96a8` content /
+`69345beb` moves / `0d4a485a` docs), the generative raise-need action
+(`b3492475`→`b9021a80`), §5c auto-needs, and plan-impact flags — so steps 1–7 are
+all done.
+
+**Discipline note.** Both working trees hold **active parallel-agent / operator WIP**
+(atlas: economics / financial / MapCanvas / in-flight Observe dashboard-shell + the
+parked `slice3-auto-needs-display.patch`; MILOS: PropheticPath/AppShell/Sidebar/
+faith-seed-tasks/Dashboard, graphify cache, 5 worktrees). **None of it is mine** —
+left untouched/uncommitted per the rebased-branch + no-deletion discipline. No atlas
+source changes this session; this entry is the only wiki update.
+
 ## [2026-05-25] feat | Atlas Observe — §5c auto-generated observation needs
 
 **Objective:** Build the deferred §5c — make Observe raise needs *itself* from two
