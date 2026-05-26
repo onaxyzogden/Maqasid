@@ -3,6 +3,48 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-26] feature | Atlas — UniversalDomain step 3 cutover, slice 3a (mergeFn foundation)
+
+**Objective:** Open the step-3 cutover of the universal-domain refactor with the shared `mergeFn`
+foundation needed by the per-store concat-with-offset collision merge that ships in slice 3b+3c.
+Recorded in [[2026-05-26-atlas-universal-domain-step3-cutover]]; locked design decisions are
+**all 16 domains per stage** (with content-authoring backlog for empty domain×stage cells) and
+**concat-with-offset** collision merge in canonical insertion order.
+
+**Completed — 2 files in atlas (`feat/atlas-permaculture`):**
+- `packages/shared/src/lib/moduleDomainMigration.ts` — `migrateByProjectModuleKeys<T>()` gains an
+  optional `mergeFn?: MergeFn<T>` parameter. When supplied, all values colliding on the same
+  domain inside one project are collected, **sorted by canonical insertion order** of the relevant
+  `*_MODULE_TO_DOMAIN` map (deterministic irrespective of the persisted blob's iteration order),
+  and passed to the merge fn. Single-part inputs bypass `mergeFn`. Absent `mergeFn` preserves the
+  slice-1 last-wins+warn path.
+- `packages/shared/src/tests/universalDomain.test.ts` — +4 mergeFn cases (canonical-order
+  invariance, verbatim return, single-part bypass, absent-mergeFn slice-1 compat). 374/374 pass.
+
+**Why a separate slice (and not bundled with stores+types.ts):** The original "atomic 3a+3b" plan
+was overoptimistic — once `ObserveModule = UniversalDomain`, every literal-string assignment
+(SEED maps, label tables, palettes, ~89 importers) breaks at once. 3b and 3c must therefore land
+together as one coordinated commit. Separating the additive mergeFn foundation keeps it reviewable
+on its own.
+
+**Verification:**
+- `npx vitest run` in `packages/shared`: 374/374 pass.
+- `npx tsc --noEmit` in `packages/shared`: clean.
+- Atlas commit `b43e3ea4` (+199/−32). Pushed `e65ce7ea..b43e3ea4` (ahead-0/behind-0 after).
+- Foreign WIP in working tree **not staged**.
+
+**Deferred:**
+- Slice 3b + 3c (atomic): per-store mergeFn wiring + `persist.version` bump 1→2 + rebase the
+  three `types.ts` to `UniversalDomain` + rework ~89 importers (affinity tables,
+  `deriveActivatedModules`, compass configs, palettes, vision questions, Command Centre tabs).
+- Slice 3d: `PROJECT_TYPE_DOMAIN_EMPHASIS` (top-N=6) derived from domain-keyed
+  `PROJECT_TYPE_MODULE_AFFINITY`, consumed by Stage-Zero project-creation UI.
+
+**Recommended next session:** Slice 3b + 3c — single coordinated commit doing the union-shape
+cutover everywhere it cascades.
+
+---
+
 ## [2026-05-26] feature | Atlas — UniversalDomain shared enum + module-id migration utility (universal-domain refactor, slice 1)
 
 **Objective:** Land the two foundation pillars of the universal-domain refactor recorded in
