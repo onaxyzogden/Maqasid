@@ -3,6 +3,45 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] feature | Atlas Stage Zero — trim the Vision Builder to a Lean 6, defer the rest, add Select-all
+
+**Objective:** Cut the Stage Zero Vision Builder intake questionnaire from 28–32 questions to a maximum
+of 8 (the steward chose **Lean 6**), defer the rest without losing them, and add a "Select all" to every
+multi-select. Driver: most questions asked at the **wrong altitude** — specifying *features* (water
+systems, barn/animal-shelter/compost, livestock roles & intensity, housing forms, shared spaces) at
+intake when those are **Plan-stage decisions** advised later from OBSERVE + the guided layout
+(variability within a project type is mostly **layout**, not **type**). Planned in plan mode
+(`wondrous-watching-brook.md`); two steward-locked decisions: **Lean 6** + **remove the caps**.
+
+**Completed — implemented + verified + committed on `feat/atlas-permaculture` (`e61c7489`, 9 files, +314/−23):**
+- **KEEP (Lean 6, catalog order):** `project-type` · `primary-outcomes` · `values` · `budget-range` ·
+  `timeline` · `success`. **DEFER (`deferToPlan: true`, NOT deleted):** the other 27 questions —
+  predicates (`toProjectType`/`hasLivestockInScope`/`willLiveOnLand`/`NON_ANIMAL_IDS`) and option
+  catalogs preserved for Plan reuse (no-deletion rule).
+- **No schema change:** deferred list **derived from the static catalog** (`deriveDeferredTopics()` →
+  `{id, eyebrow, title}`), not persisted — identical per project, so persisting is redundant and would
+  force a `@ogden/shared` rebuild (`VisionProfile` is `.partial()` not `.passthrough()`).
+- **Caps removed** from the 3 kept multis (`primary-outcomes` was max 3, `values`/`success` max 5);
+  subtitles → "Choose all that apply…". New `toggleSelectAll` (batched persist) + `allSelectedFor` on
+  `useVisionBuilder` → **"Select all / Clear all"** gold pill in `VisionQuestionCard`.
+- `visibleQuestions` also drops deferred → "Question N of **6**" + progress fall out automatically.
+  Read-only **"Explored later in the Plan stage"** dashed-chip section added to `VisionProfileSidebar`
+  so nothing feels lost. `deriveActivatedModules` skips deferred (`if (question.deferToPlan) continue;`)
+  → projection now explicitly vision-only (baseline still seeds on `primaryType`).
+- **Verified:** `npm run typecheck` (8 GB-heap node script; plain `tsc` OOMs) exit 0; `npm test`
+  `visionBuilder.test.ts` **19/19** (active set == the 6 kept ids in order, kept multis capless,
+  `deriveDeferredTopics()` == the 27 non-kept ids; 4 activation tests rewired off deferred paths + 2
+  livestock tests replaced with vision-only assertions); browser via `preview_eval` DOM reads on :5200
+  — "Question 2 of 6", Select-all checked all 16 Primary-Outcomes options (no cap) → "Clear all" →
+  reset to 0, sidebar showed 27 deferred-topic chips. `preview_screenshot` times out on the WebGL app —
+  DOM-verified, tool limitation disclosed (not faked). Preview-only territory (no Plan gating yet).
+- Files touched: `apps/web/src/v3/stage-zero/{data/visionBuilderQuestions.ts, useVisionBuilder.ts,
+  StageZeroVisionPage.tsx, lib/deriveActivatedModules.ts, components/VisionQuestionCard.tsx(+.module.css),
+  components/VisionProfileSidebar.tsx(+.module.css), __tests__/visionBuilder.test.ts}`.
+- Decisions: ADR [[2026-05-25-atlas-stage-zero-lean-trim]].
+- Wiki pages touched: wiki/decisions/2026-05-25-atlas-stage-zero-lean-trim.md (new),
+  wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
 ## [2026-05-25] refactor | Atlas — Extract a shared Command Centre shell (retire by-hand CSS-import mirroring)
 
 **Objective:** Collapse the three near-duplicate stage Command Centres (Observe/Plan/Act) onto shared,
