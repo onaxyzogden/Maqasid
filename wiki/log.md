@@ -3,6 +3,49 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-26] feature | Atlas — UniversalDomain shared enum + module-id migration utility (universal-domain refactor, slice 1)
+
+**Objective:** Land the two foundation pillars of the universal-domain refactor recorded in
+[[2026-05-25-atlas-universal-domains]] — define the shared `UniversalDomain` enum + labels/ordering in
+`@ogden/shared`, and author + unit-test a versioned `byProject` localStorage migration utility — *before*
+touching `v3/{observe,plan,act}/types.ts`, so in-flight projects survive the future cutover. Planned in
+plan mode, executed in auto mode.
+
+**Completed — 6 files in atlas (`feat/atlas-permaculture`):**
+- `packages/shared/src/schemas/universalDomain.schema.ts` — Zod enum of the 16 domain ids (mirrors the
+  `ProjectType` pattern).
+- `packages/shared/src/constants/universalDomain.ts` — `UNIVERSAL_DOMAINS` ordering +
+  `UNIVERSAL_DOMAIN_LABELS` + `UNIVERSAL_DOMAIN_PURPOSE` lookup tables (mirrors the demand/ +
+  relationships/catalog.ts pattern).
+- `packages/shared/src/lib/moduleDomainMap.ts` — `OBSERVE/PLAN/ACT_MODULE_TO_DOMAIN` (7+15+8 = 30 legacy
+  ids → primary `UniversalDomain`) + `mapLegacyModuleId(stage, moduleId)` resolver. Doc comment
+  enumerates the Plan/Act collision groups (data-loss surfaces step 3 must merge).
+- `packages/shared/src/lib/moduleDomainMigration.ts` — pure, framework-agnostic
+  `migrateByProjectModuleKeys<T>(persisted, stage)`. Returns `null` on shape mismatch (Zustand falls back
+  to defaults), drops unknown module ids with `console.warn`, warns + last-wins on collision.
+- `packages/shared/src/tests/universalDomain.test.ts` — 23 vitest cases covering schema parse,
+  label/purpose coverage, mapping completeness (no extras), the no-collision invariant for Observe, the
+  *documented* collision sets for Plan (3 groups) and Act (2 groups), and the migration utility's shape
+  narrowing, remap, drop-unknown, multi-project, empty, defensive-null-inner, and collision-warn paths.
+- `packages/shared/src/index.ts` — three barrel re-export lines.
+
+**Important finding (now locked in tests):** Plan (15→11) and Act (8→6) have legitimate collisions —
+exhaustive list in the ADR. The naive utility is last-wins+warn; **step 3 (the cutover) must supply a
+per-store merge strategy** for Plan/Act module-keyed stores or evidence/checks for colliding legacy ids
+will collapse. Observe is collision-free and can use the utility directly.
+
+**Verification:**
+- `npx vitest run` in `packages/shared`: **370/370 pass** (23 new + 347 existing).
+- `npx tsc --noEmit` clean in shared, api, and web (web needs 8 GB heap, pre-existing).
+- Atlas commit `e65ce7ea` on `feat/atlas-permaculture` (6 files, +614/−0); staged by explicit path (heavy
+  foreign WIP in the tree — financial store/UI/test, capital-partner PDF, ZoneSomSidebar, slice3
+  auto-needs patch, `.superpowers/`, sweep/log files — all left unstaged per
+  [[feedback_commit_immediately_on_rebased_branches]]).
+- Pushed `e61c7489..e65ce7ea` after `git fetch` (ahead-1, behind-0).
+- ADR [[2026-05-26-atlas-universal-domain-shared-enum]].
+
+---
+
 ## [2026-05-25] concept | OLOS Universal Domains — adopt 16 universal domains as the canonical taxonomy (docs only)
 
 **Objective:** In response to a design proposal (`OLOS Universal Domains for Land-Based Projects`),
