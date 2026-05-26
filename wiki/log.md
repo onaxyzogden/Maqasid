@@ -3,6 +3,41 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-26] feature | Atlas — UniversalDomain step 3 cutover, slice 3b+3c (atomic cutover)
+
+**Objective:** Land the atomic single-commit cutover that rebases the stage-local module unions
+(`ObserveModule` 7 / `PlanModule` 15 / `ActModule` 8) onto `UniversalDomain` (16 ids), migrates the
+6 module-keyed persist stores `v1 → v2` with concat-with-offset, and reworks all affinity / derived
+activation / compass / Command Centre consumers.
+
+**Landed:** atlas `0530aee4` on `feat/atlas-permaculture` (74 files, +2117/−1669). Recorded in
+[[2026-05-26-atlas-universal-domain-step3-cutover]] — see the "Slice 3b+3c landed" section.
+
+**Verification (5/5 gates):**
+- shared vitest: 374/374
+- web tsc (8GB heap): clean (398 → 0 across 4 cascade iterations)
+- api tsc: clean
+- web lint: clean
+- web vitest: visible progress all green, tinypool worker teardown crash with exit 0 — accepted
+  pending a follow-up clean run with `--pool=forks --poolOptions.forks.singleFork=true`.
+
+**Execution model:** WIP-then-squash. 7 WIP commits accumulated as `feat/atlas-permaculture`
+advanced through phases 1, 2, 3, 5, 6, 7 plus a final tsc-clean checkpoint, then collapsed via
+`git reset --soft b43e3ea4` + single canonical commit. Branch ahead 0 / behind 0 before push,
+ahead 1 / behind 0 after squash; push fast-forwarded `b43e3ea4..0530aee4`.
+
+**Two-axis seam preserved.** `ActModuleId` / `ObserveModuleId` in `@ogden/shared` remain pinned to
+the telemetry schema. Translation at the seam: `actInteractionLog.ts` added
+`toActModuleId(m: ActModule)`; `AffinityTelemetryDashboard.tsx` translates via `ACT_MODULE_TO_DOMAIN`.
+
+**Foreign WIP:** none staged. Cascade did not force any listed foreign-WIP file to be touched —
+verified by tsc passing without them.
+
+**Deferred:** slice 3d (`PROJECT_TYPE_DOMAIN_EMPHASIS`); content authoring for empty domain×stage
+cells; live preview smoke test of the v1→v2 localStorage migration; clean web vitest re-run.
+
+---
+
 ## [2026-05-26] feature | Atlas — UniversalDomain step 3 cutover, slice 3a (mergeFn foundation)
 
 **Objective:** Open the step-3 cutover of the universal-domain refactor with the shared `mergeFn`

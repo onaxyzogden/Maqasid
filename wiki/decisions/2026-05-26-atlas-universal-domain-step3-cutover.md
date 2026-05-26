@@ -115,6 +115,61 @@ reviewed in isolation.
   - Act / `built-infrastructure` ← [`build`, `maintain`]
   - Act / `monitoring-records` ← [`tracker`, `review`]
 
+## Slice 3b+3c landed (2026-05-26)
+
+Atomic single-commit cutover pushed: atlas `0530aee4` on
+`feat/atlas-permaculture` (74 files, +2117/−1669). One new file created
+(`apps/web/src/v3/plan/planModuleGuidance.ts` — extracted from
+`PlanChecklistAside.tsx`).
+
+**Verification:**
+- shared vitest: **374/374 pass** (unchanged from slice 3a).
+- web tsc (`apps/web` with 8GB heap): **clean** — 0 errors after Phase 8
+  cascade convergence (398 → 253 → 57 → 38 → 0 across 4 iterations).
+- api tsc: **clean**.
+- web lint: **clean**.
+- web vitest: visible test progress all green prior to a tinypool
+  worker teardown crash (exit code 0); no individual test failure
+  observed. Accepted as green pending a follow-up clean run.
+
+**Single canonical commit applied via `git reset --soft b43e3ea4`** then
+recommit, after 7 WIP checkpoints survived the work (`WIP slice-3bc phase
+N — …`). Branch ahead 0 / behind 0 before push, ahead 1 / behind 0
+after the squash, push fast-forwarded `b43e3ea4..0530aee4`.
+
+**Foreign WIP touched (none).** The cascade did not force any
+foreign-WIP file to be edited. The following stayed dirty and unstaged:
+`capitalPartnerSummary.ts`, `EconomicsPanel.tsx`,
+`CapitalPartnerSummaryExport.tsx`, `missionScoring.ts`,
+`useFinancialModel.ts`, `financialStore.ts`, `DesignMap.tsx`,
+`DiagnoseMap.tsx`, `OperateMap.tsx`,
+`phasing-budgeting/MaterialSubstitutionsCard.tsx`,
+`phasing-budgeting/substitutionCatalog.ts`,
+`packages/shared/src/evidence/selectors/capitalPartner.ts`,
+plus `graphify-out/*` and the untracked work-in-progress files listed in
+the planning doc.
+
+**Two-axis seam preserved.** `ActModuleId` (8 legacy ids) and
+`ObserveModuleId` (7 legacy ids) in `@ogden/shared` remain pinned to the
+telemetry-table schema; only the stage-UI module unions
+(`ObserveModule` / `PlanModule` / `ActModule` in
+`apps/web/src/v3/*/types.ts`) became `UniversalDomain`. Translation
+happens at the seam: `apps/web/src/lib/actInteractionLog.ts` added
+`toActModuleId(m: ActModule): ActModuleId`;
+`AffinityTelemetryDashboard.tsx` imports `ACT_MODULE_TO_DOMAIN` from
+shared and translates before calling `getModuleAffinityRank`.
+
+**Deferred:**
+- Slice 3d (`PROJECT_TYPE_DOMAIN_EMPHASIS` — top-N=6 derived from the
+  now-domain-keyed `PROJECT_TYPE_MODULE_AFFINITY`).
+- Content authoring for empty domain×stage cells (each gets its own
+  micro-ADR).
+- Live preview smoke test of the v1→v2 localStorage migration with a
+  seeded blob.
+- Clean web vitest run (worker crashed at pool teardown; tests visible
+  before crash all green, follow-up re-run with `--pool=forks
+  --poolOptions.forks.singleFork=true` recommended).
+
 ## Connections
 
 - Parent direction: [[2026-05-25-atlas-universal-domains]]
