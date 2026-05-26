@@ -3,6 +3,41 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-25] concept | OLOS Universal Domains — adopt 16 universal domains as the canonical taxonomy (docs only)
+
+**Objective:** In response to a design proposal (`OLOS Universal Domains for Land-Based Projects`),
+capture an architectural direction for OLOS: organise every land-based project around **16 universal
+domains** that persist across the lifecycle (the domain stays fixed, only the stage verb changes), with
+project-type emphasis. **Deliverable = documentation only (concept + ADR); no code.** Planned in plan
+mode; three steward-locked decisions via AskUserQuestion.
+
+**Completed — 5 wiki files (2 new, 3 edits) in the parent MILOS wiki:**
+- **Three locked decisions:** (1) **concept doc / ADR only** — no code this session; (2) **keep 3
+  stages** (Observe/Plan/Act; Report a sibling) — the proposal's 4th **Operate** stage **not** revived,
+  its monitor/maintain/improve verbs fold into Act (`maintain`/`tracker`/`review`/`schedule`) + Report,
+  per [[project_lifecycle_retirement]]; (3) **replace not overlay** — forward direction is to retire the
+  stage-local module enums (Observe **7** / Plan **15** / Act **8**, web-only in
+  `apps/web/src/v3/{stage}/types.ts`, joined only by `OBSERVE_TO_PLAN_AFFINITY` +
+  `PROJECT_TYPE_MODULE_AFFINITY`) for a single shared `UniversalDomain` enum in `@ogden/shared`.
+- Grounded in a read-only exploration of the current taxonomy: `observe/types.ts` (7), `plan/types.ts`
+  (15), `act/types.ts` (8), `plan/conflicts/planConflict.ts`, `act/data/projectTypeModuleAffinity.ts`,
+  `packages/shared/src/schemas/`. The ADR carries a **current→universal mapping table**; two findings
+  justify replace — bundled Observe modules split across domains (`earth-water-ecology` →
+  Hydrology+Soil+Ecology; `macroclimate-hazards` → Climate+Risk; `swot-synthesis` → Risk+Monitoring) and
+  several domains under-represented today (Land Base, Access/Circulation, Energy/Resource Flows,
+  People/Governance, Risk/Compliance, Monitoring).
+- The actual refactor (define the shared enum, re-base each `types.ts`, rework
+  `deriveActivatedModules`/affinity/compass/command-centre tabs, build a project-type→primary-domains
+  emphasis map, migrate persisted `byProject` module ids) is **explicitly future, separately-approved
+  work** — flagged large (touches every stage + shared schema + persisted data).
+- **Placement note:** recorded in the parent MILOS wiki (where the `olos` entity timeline + sibling
+  `2026-05-25-atlas-*` ADRs live); the related atlas-submodule wiki concepts `permaculture-alignment` /
+  `land-os-positioning` referenced by name (cross-wiki, not wikilink). No atlas source touched.
+- Decisions: ADR [[2026-05-25-atlas-universal-domains]]; concept [[olos-universal-domains]].
+- Wiki pages touched: wiki/concepts/olos-universal-domains.md (new),
+  wiki/decisions/2026-05-25-atlas-universal-domains.md (new), wiki/entities/olos.md, wiki/index.md,
+  wiki/log.md.
+
 ## [2026-05-25] feature | Atlas Stage Zero — trim the Vision Builder to a Lean 6, defer the rest, add Select-all
 
 **Objective:** Cut the Stage Zero Vision Builder intake questionnaire from 28–32 questions to a maximum
