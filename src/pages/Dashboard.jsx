@@ -1,11 +1,10 @@
-import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Kanban, AlertTriangle,
   Activity, ChevronRight, Clock, Moon,
 } from 'lucide-react';
 import { useProjectStore } from '../store/project-store';
-import { useAuthStore } from '../store/auth-store';
 import { useTaskStore } from '../store/task-store';
 import { useSettingsStore } from '../store/settings-store';
 import { useThresholdStore } from '../store/threshold-store';
@@ -271,7 +270,6 @@ function SakinahMeter({ overdueCount = 0, inProgressCount = 0, isIslamic = false
 
 /* ── Main Dashboard ── */
 export default function Dashboard() {
-  const user = useAuthStore((s) => s.user);
   const allProjects = useProjectStore((s) => s.projects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const events = useOfficeStore((s) => s.events);
@@ -335,15 +333,6 @@ export default function Dashboard() {
     }
     completedFocusRef.current = current;
   }, [tasksByProject, niyyahSubmodule, primaryPillar, addToast, isIslamic]);
-  // One-shot migration: tag tasks with pillarId/submoduleId derived from
-  // their project's moduleId. Runs once per browser via a sentinel key.
-  useEffect(() => {
-    const MIGRATED_KEY = 'bbiz_task_pillar_migrated_v1';
-    if (localStorage.getItem(MIGRATED_KEY)) return;
-    useTaskStore.getState().backfillPillarFields();
-    localStorage.setItem(MIGRATED_KEY, '1');
-  }, []);
-
   // Day-rollover: if yesterday's niyyah is still the current one,
   // archive it (with any evening reflection) into history and clear
   // today's slots so the morning Niyyah Act opens fresh.

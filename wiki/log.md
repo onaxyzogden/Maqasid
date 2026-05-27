@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-27] bug-fix | MILOS — Niyyah ↔ Dashboard focus-tasks mismatch (tag at hydration)
+
+**Objective:** Restore the daily Niyyah → Dashboard `FocusTaskList` ("Today's Deep Work") contract
+so the chosen submodule always surfaces its open tasks, on any browser, without manual cache reset.
+
+**Root cause:** `getFocusTasks(submoduleId)` filters by `task.submoduleId`, but tags were only set
+in `createTask` and a one-shot Dashboard migration gated by `bbiz_task_pillar_migrated_v1`. The
+migration ran against whatever was in memory at first Dashboard mount, then the sentinel locked
+out future runs — boards loaded lazily afterwards stayed un-tagged. A second flavor: non-Faith
+tasks persisted bare module slugs (`physical`) where niyyah uses prefixed canonical ids
+(`health-physical`), and the original `resolveSubmoduleFromProject` returned the bare slug.
+
+**Fix:** Move tagging to the data boundary. New shared resolver
+[src/data/maqasid-resolve.js](src/data/maqasid-resolve.js) parses `{pillar}_{module}_{level}`
+board ids first, fixing the prefixed-submodule case for every pillar. `hydrateTask` tags
+pillarId/submoduleId from board id (idempotent, read-only). `loadTasks` second-pass covers
+user-created tasks with no seed match and only persists when something changed. Dead one-shot
+migration `useEffect` removed from [src/pages/Dashboard.jsx](src/pages/Dashboard.jsx).
+
+**Verification (preview MCP, sentinel cleared):** Faith → Salah niyyah → 14 deep-work rows under
+"TODAY'S DEEP WORK · Salah · LEVEL 1 · FOUNDATION"; Health → Physical → 5 rows under
+"Physical Health"; `DailyMithaq` reads "honoring my Faith by tending to Salah". Gates: `npm test`
+62/62, `npm run lint` clean (grounding-strict 0, inline-refs 0), `npm run build` succeeds. The
+`preview_screenshot` MCP tool timed out twice at 30s; DOM inspection via `preview_eval` is the
+verification of record. Recorded in [[2026-05-27-milos-focus-tasks-hydration-tagging]].
+
 ## [2026-05-26] feature | Atlas — UniversalDomain step 3 cutover, slice 3b+3c (atomic cutover)
 
 **Objective:** Land the atomic single-commit cutover that rebases the stage-local module unions
