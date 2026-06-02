@@ -3,6 +3,94 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-02] feature | OLOS — Mid-project PRIMARY-type change for the Plan stratum-spine (destructive switch + opt-in backup clone)
+
+**Objective:** Let a steward change a project's primary type after creation — pointing out the options and consequences of doing so — when the only prior path was re-running the creation wizard (`setPrimaryType` refuses once a `projectTypeRecord` exists).
+
+**Steward-locked decisions (two clarification rounds):** (1) **Friction** — full consequences list + explicit "I understand" acknowledgement checkbox before Confirm enables; record the change as a `'primary-changed'` `versionHistory` entry. (2) **Old progress** — destructive **discard** of progress on objectives unique to the OLD type as the default, made safe by an opt-in clone. (3) **Clone direction** — the CURRENT project switches type **in place** (keeps id/name/map/design entities/URL); the opt-in (default-on) clone is a frozen **backup snapshot under the OLD type** carrying its checklist progress; the steward stays on their own project. (4) **Decline path** — declining the clone still proceeds and discards orphaned progress.
+
+**Amanah gate:** clear (land-stewardship planning UI). One fiqh-relevant surface honoured — the preview surfaces `scopeNotes` Amanah cautions for objectives being **added** (cautions newly taken on — switching INTO Market Garden surfaces the CSA / *bayʿ mā laysa ʿindak* flag verbatim) and **set aside** (cautions left behind), never silently stripped ([[feedback-csa-in-catalogues]]; standing CSRA-erased constraint).
+
+**What changed (10 files, mostly composition of existing primitives):**
+- `packages/shared/src/schemas/plan/projectTypeTaxonomy.schema.ts` — added `'primary-changed'` to `ProjectTypeVersionAction` (additive; `action` stays `.optional()`, existing records still validate).
+- `apps/web/src/store/projectStore.ts` — new `changePrimaryType(projectId, nextPrimaryId, opts?)`. Guards (project + record exist, `nextPrimaryId !== current`, `canBePrimary`); prunes incompatible secondaries via `isCompatibleSecondary`; disappearing objectives via the inverse delta `computeObjectivesDelta(next, current).newObjectiveIds`; appends one `'primary-changed'` entry (actor default `yousef@ogden.ag`); keeps legacy bare `projectType` aligned; retains tension/reopening acks; discards orphaned progress. Returns `{ ok, droppedSecondaryIds, discardedObjectiveIds }` (or `{ ok: false }`).
+- `apps/web/src/store/planStratumStore.ts` — `cloneForProject(source, target)` (deep-copies all FOUR per-project slices: `byProject`, `celebratedByProject`, `deferredByProject`, `valuesByProject` — the gap `duplicateProject` leaves, copying design-intent but NOT stratum progress) + `discardObjectivesProgress(project, ids)` (clears the three per-objective slices; leaves the `celebratedByProject` stratum-unlock log untouched).
+- `apps/web/src/v3/plan/strata/usePrimaryChangePreview.ts` (new) — pure read-only snapshot: `eligible`/`isNoOp`, `objectivesAddedCount`, `objectivesSetAside`, `startedSetAsideCount`, `droppedSecondaryIds`, `newTensions`, `amanahNotes`.
+- `apps/web/src/v3/plan/strata/PrimaryChangeModal.tsx`+`.module.css` (new) — consequences list + Amanah callout + tension-ack panel + opt-in clone checkbox (default checked) + required "I understand" checkbox; Confirm `disabled` until eligible && understood && (no new tension || acked); NO store writes (parent orchestrates, mirrors `SecondaryAddModal`).
+- `apps/web/src/v3/plan/strata/PlanStratumShell.tsx` — set-type label converted to a `plan-primary-change-trigger` button; mounts the modal; the confirm handler clones-then-switches (`duplicateProject` → `cloneForProject` → `changePrimaryType`). The unset `plan-primary-set-trigger` → `PrimarySetModal` path left untouched.
+- 3 test files (new): `projectStore.changePrimaryType.test.ts` (8), `planStratumStore.changePrimary.test.ts` (6), `usePrimaryChangePreview.test.ts` (5).
+
+**Foreign-WIP note:** a previously-noted `EMPTY_COMPLETED` const + `completedItemIds` prop in `PlanStratumShell.tsx` turned out to be **already committed in HEAD** (incorporated by the external rebase), so the working-tree diff was clean (only my edits) — staged 10 explicit paths, no co-mingling.
+
+**Verified:** `packages/shared` + `apps/web` `tsc --noEmit` EXIT 0; **19/19** bounded vitest (`pool:'forks'`). Preview caveat: via disclosed DOM probes confirmed the flow up to and including the Confirm-**disabled**-before-acknowledgement state; the post-ack Confirm-**enable** transition + a clean screenshot could **not** be live-captured — the preview repeatedly force-navigates to `/v3/portfolio` mid-interaction ([[project-screenshot-hang]]: dead API + open modal), not a code defect — disclosed, not faked.
+
+**Committed `d1c4ece0`** (10 files, +1331/−2) on `feat/atlas-permaculture`, staged by explicit path — **local only, NOT pushed** (push only when asked; externally-rebased-branch discipline).
+
+**Decision:** ADR [[2026-06-02-atlas-change-primary-type]].
+
+**Deferred:** success toast on the Plan header after switching (orchestration in place, toast surface unbuilt); a clean live screenshot + the post-ack Confirm-enable transition in an owner-seeded preview environment.
+
+**Pages touched:** wiki/decisions/2026-06-02-atlas-change-primary-type.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+---
+
+## [2026-05-31] copy | OLOS — Plan-strata objective titles reworded from imperative tasks to end-state goals (all 12 catalogues)
+
+**Objective:** Reword every Plan-strata objective `title` across all 12 catalogues so each reads as an achieved end-state (a goal) rather than an imperative work instruction (a task), keeping ids/refs/structure untouched, and record the intentional divergence from the verbatim spec wording in an ADR.
+
+**Three locked scope decisions (operator, AskUserQuestion):** (1) scope = **all 12 catalogues** (~199 titles) incl. dormant/unbuilt types, for one consistent voice; (2) voice = **end-state outcome** — phrase each title as the achieved result; (3) provenance = **code + ADR** — reword in code, leave `ref:` pointers untouched, file an ADR recording the divergence.
+
+**What changed:** the `title:` value of every `obj({...})` objective in `packages/shared/src/constants/plan/catalogues/` — `universal.ts` 19, `silvopasture.ts` 31, `residential.ts` 6, `regenFarm.ts` 13, `nursery.ts` 8, `orchard.ts` 30, `agritourism.ts` 29, `ecovillage.ts` 31, `wellness.ts` 32 (= **199**). Voice rules by verb: **Survey/Map/Assess** → "A clear read of …" / "A mapped picture of …"; **Define/Confirm/Decide** → the settled framework with a quality adjective ("Define water strategy" → "A sound, resilient water strategy"); **Design** → the designed system ready to build ("Design access & circulation" → "An efficient access & circulation design"); phasing/register → the completed plan. `PatchRecord` objects carry no `title` and were left untouched; no `id`/`ref`/`source`/`stratumId`/`focusedQuestion`/`checklist`/`decisionGroups`/`completionGate`/`actHandoff`/`parameterGroup` touched. ASCII-only. Ecovillage financial titles reworded ordinary-finance only — **no investor/CSRA/advance-purchase framing** (standing fiqh constraint).
+
+**`ref:` pointers retained as provenance:** display titles now intentionally diverge from the verbatim spec catalogues; the unchanged `ref:` (e.g. `U-S2.1`, `SILV-S4.4`) remains the link back to source.
+
+**`stratumObjectives.ts` is stale dead code** (no live importers, superseded by the catalogues) — left untouched per no-deletion-in-revamps; its titles were NOT reworded. ADR notes it so a future reader treats the catalogues as the live title source.
+
+**Execution:** live vertical slice first (universal + silvopasture + residential, 56 titles), then the 6 dormant catalogues via 6 parallel mechanical-edit subagents fed exact old→new title pairs (no editorial drift) — all 143 dormant edits succeeded (13+8+30+29+31+32).
+
+**Verification:** `packages/shared` `tsc --noEmit` exit 0 (no new errors; pre-existing tier-refactor errors are operator WIP, not touched); `catalogues.test.ts` **75/75** green (asserts schema/id/ref/layer invariants, never title text — rewording is test-safe); grep confirms **zero** remaining imperative-verb title prefixes across `catalogues/`.
+
+**Decision:** ADR [[2026-05-31-objective-title-voice]].
+
+**Pages touched:** wiki/decisions/2026-05-31-objective-title-voice.md (new), wiki/index.md, wiki/log.md.
+
+---
+
+## [2026-05-31] feature | OLOS — Plan strata page re-skinned with the Spine layout + store-backed Protocol mode (the prototype arc reaches production)
+
+**Objective:** Replace the production `PlanStratumShell` layout (`apps/web/src/v3/plan/strata/`, mounted at `/v3/project/$projectId/plan[/stratum/$stratumId[/objective/$objectiveId]]`) with the gallery prototype's dark/gold 3-column spine layout, and add a Protocol mode backed by a **real** production data source — closing the loop from the gallery-only Protocol-Layer prototype arc (logged in the entries below) to the live Plan stage.
+
+**Two locked decisions (from the approved plan):**
+- **Strategy = RE-SKIN IN PLACE** — keep ALL of `PlanStratumShell`'s real data wiring, route-driven selection, and its 12 production features; only restructure JSX containers into the prototype's 3-column shell and restyle with the spine visual language. Nothing lost.
+- **Protocol mode = INCLUDED, backed by REAL production data** — `src/store/protocolStore.ts` + `@ogden/shared` `templatesForEnterprises`, NOT the prototype's `mockProtocols.ts`/fabricated `APPROVED_TIER_OUTPUTS`.
+
+**3 phases / 3 scoped commits on `feat/atlas-permaculture`:**
+- **Phase 0 — `61085562`** — new shared pure `enterprisesForProjectTypes(primaryTypeId, secondaryTypeIds): EnterpriseId[]` in `packages/shared/src/constants/protocol/projectEnterprises.ts` (livestock-implying types `silvopasture`/`regenerative_farm`/`homestead` → `['sheep_beef']`; else `[]`; poultry deferred — needs placed-entity detection) + 9-test suite + barrel export.
+- **Phase 1 — `4ac7868e`** — re-skin the Design layout: new `strata/StratumSpineCircle.tsx` (SVG copied verbatim from `spine/StratumCircle.tsx`, real `PlanStratum`/`PlanStratumState`; confirmed `PlanStratumState` ≡ prototype `SpineStratumStatus`, no enum mapping); rewired `StratumSpine.tsx`; rewrote `PlanStratumShell` render into the `.olos-spine-root` dark 3-column flex shell; re-skinned `ObjectiveColumn`/`ObjectiveDetailPanel` containers/headers only (all 12-feature children copied verbatim; modals kept at shell root).
+- **Phase 2 — `632252e6`** (this session's commit) — extended route `PlanSearch`/`validatePlanSearch` in `routes/index.tsx` with `planMode?: 'protocol'` across all three plan-shell routes; imported the prototype's `ModeToggle` into the spine header (writes `?planMode` via `navigate({to:'.', search})`, `to:'.'` preserving stratum/objective segments); new `strata/ProtocolLayerPanel.tsx` (store-backed, read-only: `templatesForEnterprises(enterprisesForProjectTypes(...))`, grouped by real `tierAuthored` with a `?? 'Standard protocols'` fallback since `tierAuthored` is optional, status overlaid from `protocolStore.records` via a stable `records` selector + `useMemo`, bracket tokens verbatim via `outputs={{}}`); 6-test suite. Right pane switches to the panel when `planMode==='protocol'`.
+
+**Zustand v5 hazard avoided** in `ProtocolLayerPanel`: select the stable `records` array and derive the per-project status map in `useMemo` — never an inline `.filter()`-returning selector.
+
+**Errors fixed:** tsc TS2345 ×3 (optional `tierAuthored` used as Map key / pushed to `string[]` → `const tier = t.tierAuthored ?? 'Standard protocols'`); test TS2532 (`headings[0]!.textContent` non-null assertion). Also confirmed `@ogden/web`'s `lint` script IS `tsc --noEmit` (no separate ESLint), so the tsc gate is the lint gate.
+
+**Verification:** shared + web `tsc --noEmit` exit 0 (web needs `--max-old-space-size=8192`); `ProtocolLayerPanel` 6/6; full strata suite **42/42**; shared `projectEnterprises` 9 + `standardTemplates` green. DOM-exercised the live route on `:5200` (web serverId `765c024e:5200`, api `d102b213:3001`) — `preview_screenshot` unavailable on this Windows setup (capture hang + MapLibre render loop), so DOM exercise per `apps/web/CONTEXT.md`: ModeToggle flips `?planMode=protocol`, 9 `sheep_beef` templates render with poultry hidden, tier heading "Stratum 6 — Integration", protocolStore active/triggered/none statuses reflected, Design round-trip removes the param and unmounts the panel. (A hard `location.href` reload triggered an app-level "resume last stage" redirect to Act + dropped the search — re-navigating within the SPA stuck and rendered correctly.)
+
+**Theme** class-scoped to `.olos-spine-root` (no leak). **Spine prototype untouched** (no deletion in revamps); legacy `StratumRow.tsx`/`*.module.css` orphaned on disk, not deleted.
+
+**Commits scoped after `git fetch` confirmed `0 behind` (3 ahead — the external rebase folded earlier local commits). All 3 commits (`61085562`/`4ac7868e`/`632252e6`) unpushed at session close — push only when the user asks.**
+
+### Session Debrief
+
+**Completed:** Full approved plan (Definition of Done met) — live Plan strata page now renders the dark/gold 3-column spine layout with all 12 production features + route-driven selection intact; a `?planMode=protocol` ModeToggle reveals a read-only, store-backed Protocol Layer panel showing the project's real enterprise-filtered standard templates grouped by `tierAuthored`. Shared + web tsc exit 0; strata 42/42 + new ProtocolLayerPanel 6/6. Landed in 3 scoped commits. Spine prototype untouched. Wiki updated (this entry + ADR [[2026-05-31-atlas-plan-spine-live-reskin]] + olos.md History row + index.md Decisions row).
+
+**Deferred (explicit, not started without confirmation):** §10.1 confirmation flow + objective-approval auto-instantiation (`ProtocolConfirmationFlow`, Edit-First §4.1 form); poultry enterprise derivation (needs placed-entity detection); real approved-tier-output token values (placeholders stay verbatim); promoting per-stratum sample protocols into `@ogden/shared`.
+
+**Recommended Next Session:** Either (a) push the 3 unpushed commits after a fresh fetch/divergence check (on user's word), or (b) build the production §10.1 trigger so Protocol mode becomes interactive (approve objective → instantiate protocols via `ProtocolConfirmationFlow` + Edit-First token form), which would make the deferred poultry/derivation work surface naturally.
+
+**Pages touched:** wiki/decisions/2026-05-31-atlas-plan-spine-live-reskin.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+---
+
 ## [2026-05-31] feature | OLOS — Protocol Layer "Edit First" inline value editor (Slice 3) lands; first wiki capture of the whole Protocol-Layer prototype arc
 
 **Objective:** Finish Slice 3 of the OLOS **Protocol Layer** Plan-spine prototype — the deferred **"Edit First"** action that lets a steward adjust a proposal's auto-filled threshold values before activating, with an **"Edited"** marker that persists into Protocol Mode — then wiki-capture the prototype effort (Slices 1–3), which had never been logged.
