@@ -3,6 +3,37 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-03] refactor | OLOS — Demote ApiReachabilityBanner to a non-blocking header status chip
+
+**Objective:** Stop the API-reachability warning from blocking important features. It rendered as a `position:fixed; top:0; z-index:9000` full-width red bar that occluded the 48px AppShell header (logo, lifecycle spine, sync status, user menu) and the Protocols/Import/Export toolbar beneath it. Steward's words: "make this a status type in header rather than a banner because it is blocking important features."
+
+**Steward-locked decisions (AskUserQuestion):** (1) **Recovery stays global** — split the component into a headless watcher (keeps the `online` listener + 15s poll running on every route) + a header chip + a shared recovery module, rather than moving effects into a header-only chip. (2) **Chip form = icon + short label + Retry** — `CloudOff` + "Server unreachable" + an explicit Retry button; the full message lives in the `title` attribute.
+
+**Amanah gate:** clear (connectivity/status UI, no fiqh surface).
+
+**What changed (16 files — a 3-piece refactor of one component):**
+- `apps/web/src/lib/apiRecovery.ts` (new) — shared `attemptApiRecovery()` with a **module-level `inFlight` guard** (replaces the per-component `inFlightRef`) so the watcher and the chip's Retry share one in-flight lock. Recovery logic lifted verbatim: read auth token → `initFromStorage()` if present, else `api.health()` then `setApiReachable(true)` (swallow failure).
+- `apps/web/src/components/ApiReachabilityWatcher.tsx` (new) — headless, renders `null`, owns the two recovery effects (window `online` listener + visibility-aware 15s poll with `visibilitychange` immediate re-check + teardown), mounted globally in `main.tsx`.
+- `apps/web/src/components/ApiReachabilityStatus.tsx` + `.module.css` (new) — pure presentation chip + Retry (local `retrying` state), mounted in the AppShell header right-cluster after `<ProofSyncIndicator />`, mirroring its `.syncIndicator` pill with the error palette (`rgba(217,119,87,.18)` / `#d97757` / `rgba(217,119,87,.4)`).
+- Deleted `ApiReachabilityBanner.tsx` + `.module.css` (global status component, not a legacy *stage* component — no-deletion-in-revamps does not apply). Split its 14-test suite into `ApiReachabilityStatus.test.tsx` (7: render/priority/Retry) + `ApiReachabilityWatcher.test.tsx` (9: online listener + poll), preserving coverage.
+- Doc-comment name updates (prose only) in `bootAuthed.ts`, `connectivityStore.ts`, `authStore.ts` + their two test files.
+
+**Accepted consequence:** the visible chip is **header-only** — routes with no header (legacy `/project/`, `/login`, `/showcase/*`) show no on-screen warning, but global recovery still runs via the watcher, so the chip reappears the moment a header route mounts.
+
+**Foreign-WIP note:** `apiClient.ts` carried a cosmetic doc-comment rename of mine **entangled** with an untracked foreign "Compost vertical" API block — **excluded from the commit** (the feature is complete without it); the two foreign `apps/api` files were likewise left unstaged.
+
+**Verified:** `apps/web` `tsc --noEmit` EXIT 0; **16/16** bounded vitest (`pool:'forks'`); dark + light preview screenshots confirmed the unobstructed header + working chip (appears on problem; Retry → "Reconnecting…"; auto-hides once `apiReachable` flips true). Computed styles checked (`color rgb(217,119,87)`, error background, `role="status"`, `CloudOff` svg, `insideHeader: true`).
+
+**Committed `4c590fb4`** (16 files, +558/−432) on `feat/atlas-permaculture`, staged by explicit path — **local only, NOT pushed** (externally-rebased-branch discipline; push only when asked).
+
+**Decision:** ADR [[2026-06-03-atlas-reachability-header-chip]].
+
+**Deferred:** the cosmetic `apiClient.ts` doc-comment renames (fold in once the foreign compost WIP lands); push pending steward request + a fetch/divergence check.
+
+**Pages touched:** wiki/decisions/2026-06-03-atlas-reachability-header-chip.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+---
+
 ## [2026-06-02] feature | OLOS — Mid-project PRIMARY-type change for the Plan stratum-spine (destructive switch + opt-in backup clone)
 
 **Objective:** Let a steward change a project's primary type after creation — pointing out the options and consequences of doing so — when the only prior path was re-running the creation wizard (`setPrimaryType` refuses once a `projectTypeRecord` exists).
