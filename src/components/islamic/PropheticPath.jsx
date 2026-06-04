@@ -45,6 +45,8 @@ import {
   isRamadan as isHijriRamadan,
   isEidFitr,
   isEidAdha,
+  formatHijriLong,
+  formatGregorianLong,
 } from '@data/prophetic-path-submodules';
 import {
   getSubmoduleDisplayLabel,
@@ -1159,6 +1161,14 @@ export default function PropheticPath({ variant }) {
     const maghrib = stripTz(timings.Maghrib);
     return fajr && maghrib ? `Fajr ${fajr} — Maghrib ${maghrib}` : null;
   }, [timings]);
+  const hijriDateLabel = useMemo(() => formatHijriLong(hijri), [hijri]);
+  // eventTick ticks every minute → re-evaluates the Gregorian label so the
+  // weekday/date stays current after a midnight rollover during a long session.
+  const gregorianDateLabel = useMemo(
+    () => formatGregorianLong(new Date()),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [eventTick]
+  );
 
 
   // Weekly boards back the midday-labor + morning Before/After satellites
@@ -1257,10 +1267,16 @@ export default function PropheticPath({ variant }) {
               </div>
             )}
             <PropheticPathBanner hijri={hijri} />
-            {(cityName || activeNode || bookends || niyyahPillars.length > 0) && (
+            {(cityName || activeNode || bookends || hijriDateLabel || gregorianDateLabel || niyyahPillars.length > 0) && (
               <div className="pp-intro">
-                {(cityName || activeNode || bookends) && (
+                {(cityName || activeNode || bookends || hijriDateLabel || gregorianDateLabel) && (
                   <header className="pp-intro__header">
+                    {(hijriDateLabel || gregorianDateLabel) && (
+                      <div className="pp-intro__date">
+                        {hijriDateLabel && <span className="pp-intro__date-hijri">{hijriDateLabel}</span>}
+                        {gregorianDateLabel && <span className="pp-intro__date-gregorian">{gregorianDateLabel}</span>}
+                      </div>
+                    )}
                     {cityName && (
                       <span className="pp-intro__eyebrow">{cityName}</span>
                     )}

@@ -102,6 +102,29 @@
   letter-spacing: 0.01em;
 }
 
+/* ── Hijri + Gregorian date eyebrow ── */
+.prophetic-path .pp-intro__date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.25rem;
+}
+.prophetic-path .pp-intro__date-hijri {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, currentColor 88%, transparent);
+}
+.prophetic-path .pp-intro__date-gregorian {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, currentColor 55%, transparent);
+  font-family: var(--font-heading);
+}
+
 /* ── Niyyah echo — mirrors today's intention set on Dashboard ── */
 .prophetic-path .pp-niyyah-echo {
   display: flex;

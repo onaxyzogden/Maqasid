@@ -606,6 +606,28 @@ function hijriParts(hijri) {
   return { day, month };
 }
 
+// "15 Shawwal 1447 AH" or null when hijri is missing/malformed. Reads the
+// English month name from `hijri.month.en` (Aladhan ships both en + ar).
+export function formatHijriLong(hijri) {
+  if (!hijri) return null;
+  const day = Number(hijri.day);
+  const monthEn = hijri.month?.en;
+  const year = Number(hijri.year);
+  if (!Number.isFinite(day) || !monthEn || !Number.isFinite(year)) return null;
+  return `${day} ${monthEn} ${year} AH`;
+}
+
+// "Thursday, 30 April 2026" using browser locale. Defaults to today.
+export function formatGregorianLong(date = new Date()) {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) return null;
+  return new Intl.DateTimeFormat(undefined, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+}
+
 export function isRamadan(hijri) {
   const p = hijriParts(hijri);
   return !!p && p.month === 9;

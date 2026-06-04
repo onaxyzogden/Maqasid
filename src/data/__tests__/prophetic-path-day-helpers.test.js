@@ -6,6 +6,8 @@ import {
   isOptionalFastDay,
   isFastableDay,
   getSpecialDayHeadline,
+  formatHijriLong,
+  formatGregorianLong,
 } from '../prophetic-path-submodules.js';
 import { currentIslamicDayKey } from '../../store/islamic-day-store.js';
 
@@ -97,5 +99,34 @@ describe('currentIslamicDayKey', () => {
   it('returns null on bad input', () => {
     expect(currentIslamicDayKey(NaN, 1)).toBe(null);
     expect(currentIslamicDayKey(1, null)).toBe(null);
+  });
+});
+
+describe('formatHijriLong', () => {
+  it('formats happy path', () => {
+    expect(formatHijriLong({ day: 15, month: { en: 'Shawwal' }, year: 1447 }))
+      .toBe('15 Shawwal 1447 AH');
+  });
+  it('coerces string day/year', () => {
+    expect(formatHijriLong({ day: '15', month: { en: 'Shawwal' }, year: '1447' }))
+      .toBe('15 Shawwal 1447 AH');
+  });
+  it('returns null on missing month', () => {
+    expect(formatHijriLong({ day: 15, year: 1447 })).toBe(null);
+  });
+  it('returns null on null hijri', () => {
+    expect(formatHijriLong(null)).toBe(null);
+  });
+});
+
+describe('formatGregorianLong', () => {
+  it('returns a string for a valid date', () => {
+    const out = formatGregorianLong(new Date(2026, 3, 30));
+    expect(typeof out).toBe('string');
+    expect(out.length).toBeGreaterThan(0);
+  });
+  it('returns null on invalid date', () => {
+    expect(formatGregorianLong(new Date('not-a-date'))).toBe(null);
+    expect(formatGregorianLong('2026-04-30')).toBe(null);
   });
 });
