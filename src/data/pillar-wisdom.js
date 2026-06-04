@@ -11,7 +11,7 @@
 // page was produced from memory.
 //
 // `moontrance` and `ogden` entries remain stubs — they map to internal
-// system semantics (CSRA tiers, project tools), not Maqasid life domains,
+// system semantics (membership tiers, project tools), not Maqasid life domains,
 // and a top-level Moontrance MODULE_ATTRS entry must be authored before
 // citation work proceeds (see decision 2026-04-25-milos-pre-test-tier-1-fixes).
 

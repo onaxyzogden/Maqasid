@@ -2,7 +2,7 @@
 title: "Covenant Architecture"
 type: concept
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-05-04
 tags: [design-philosophy, islamic-software, covenant, stewardship, systems-design]
 sources: 0
 ---
@@ -26,7 +26,7 @@ The term "covenant" (ahd) is deliberate. It signals mutual obligation: the syste
 - The **seven-pillar structure** of [[milos]] uses [[maqasid-al-shariah]] as information architecture, not merely as a thematic label.
 - The [[bbos-pipeline]] grounds its stages in divine names (Asma al-Husna), mapping business operations to spiritual principles. Each stage carries both an operational function and a covenantal meaning.
 - **Readiness checks** backed by Quranic ayat assess the user's alignment with pillar objectives before surfacing tasks -- the system does not serve work that the user is not ready to steward.
-- The **Waqf (endowment) structure** in MTC applies Covenant Architecture to governance -- community resources are held in trust under Islamic endowment principles rather than conventional ownership models.
+- The **Waqf (endowment) structure** in MTC applies Covenant Architecture to governance -- community resources are held in trust under Islamic endowment principles rather than conventional ownership models. This one-line claim is operationalized in `stages/design-mtc-waqf-governance-review.md`: a Waqf covenant sits *above* a tri-entity Ontario legal stack (Holdings / Operating / Charitable), grounded in the Khaybar hadith (Bukhari 50:895), with trustee selection on the qawī+amīn standard (Al-Qaṣaṣ 28:26), removal modelled on ʿUmar's dismissal of Saʿd, and surplus governed by deed-locked floors (≥30/20/10) above which shūrā sets actuals. **Capital channels are restricted to charitable donation, qard ḥasan (interest-free loan), restricted donation, in-kind, and sponsorship.** The earlier CSRA / salam advance-purchase channel was **erased 2026-05-04** on *bayʿ mā laysa ʿindak* grounds — Islam does not permit the sale of what one does not yet possess, and the pre-land MTC has no productive corpus capable of delivery. Founding-member commitments are governed by `stages/design-mtc-founding-member-covenant-review.md`. Scriptural grounding is consolidated in `stages/scholar-review-mtc-waqf-governance-grounding-review.md`. All three docs are at status `review` pending live scholar + Ontario counsel review.
 - **Operator onboarding** in the [[bbos-pipeline]] requires covenant acknowledgment before access -- new operators do not receive tools until they have affirmed alignment with the system's principles.
 
 ## Connections

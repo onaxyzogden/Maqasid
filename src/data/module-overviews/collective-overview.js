@@ -159,7 +159,7 @@ export const MAQASID = {
   ],
   embelishments: [
     'Full residency model activated — families living on land year-round',
-    'CSRA (Community-Supported Regenerative Agriculture) offer architecture live',
+    'Membership architecture live — yield-share offered as a benefit of belonging, not as advance-purchase',
     'Waqf endowment generating surplus for broader community benefit',
     'Self-sustaining ecosystem — land produces more than it consumes',
     'MTC becomes a replicable model for other Muslim communities',

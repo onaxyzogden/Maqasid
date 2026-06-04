@@ -594,7 +594,7 @@ export const PILLAR_CONTENT = {
       ],
       embelishments: [
         'Full residency model — families living on land year-round',
-        'CSRA (Community-Supported Regenerative Agriculture) live',
+        'Membership architecture live — yield-share as a benefit of belonging',
         'Waqf endowment generating surplus for broader community benefit',
         'Self-sustaining ecosystem — land produces more than it consumes',
         'Replicable model for other Muslim communities',
