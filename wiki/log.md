@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-03] session | OLOS — per-stratum × per-type standing-protocol catalogue
+
+**Objective:** Stand up protocols that act as task triggers across every project type. The steward: "Plans and designs are great however having protocols in place that serve as triggers for tasks is super useful." Refined via AskUserQuestion to: deliverable = authoring scaffold + fully-drafted examples; coverage = universal + per-type deltas (the objective model); content = I draft from regenerative/permaculture best practice, steward is final authority on thresholds/wording.
+
+**Amanah gate:** clear with one standing caution — any sales-channel / advance-commitment protocol carries the verbatim `bayʿ mā laysa ʿindak` scopeNotes ([[feedback_csa_in_catalogues]]); never stripped or reworded.
+
+**Key finding:** the protocols-as-task-triggers *mechanism* already existed (`StandardProtocolTemplate` IF→THEN → `evaluateAndRaiseFlags` → `ObjectiveReviewFlag` → assignable task). Only **content + coverage** were missing — 10 templates, livestock-only. So this mirrors the proven objective resolver rather than inventing anything.
+
+**Completed (4 plan phases):**
+- **Schema** (`protocol.schema.ts`, back-compat): `ProtocolSource` enum; optional `stratumId`/`source`/`sourceTypeId`/`scopeNotes`; `enterpriseScope` made optional (legacy 10 livestock templates intact); `ProtocolPatchRecordSchema` for secondary amendments.
+- **Resolver** `relationships/resolveProjectProtocols.ts` — pure twin of `resolveProjectObjectives.ts`, reuses `relationshipMatrix` (`isCompatibleSecondary`/`getActiveTensions`); universal + primary + secondary-additive (dedup) + patches (concat, skip-on-missing → provenance); sort stratum ordinal → source rank → authored order.
+- **Content** `constants/protocol/catalogues/`: `universal.ts` (22 protocols, all 7 strata) + 14 per-type files, dispatched via `index.ts` (single wiring point). Homestead + silvopasture deep; the rest + secondary-only `residential` baseline. Thresholds kept as `[bracketed tokens]`.
+- **Scaffold + tests** `docs/protocols/protocol-authoring-guide.md` (reusable authoring guide) + `constants/protocol/__tests__/protocolCatalogues.test.ts` (13 tests: schema validity, source/layer discipline, Amanah cautions, resolver invariants).
+
+**Decisions:** ADR [[2026-06-03-atlas-protocol-catalogue]] — mirror the universal/primary/secondary objective model for protocols; reuse the relationship matrix; `source` optional **without** a default (a default would mislabel the legacy enterprise-scoped templates); legacy livestock catalogue preserved alongside (no-deletion-in-revamps).
+
+**Verified:** `packages/shared` `tsc --noEmit` EXIT 0; **13/13** new conformance; **34/34** back-compat (standardTemplates 9 + resolveProjectObjectives 25), bounded `pool:'forks'`. Resolver proof: Homestead + Silvopasture → **31** protocols, sorted S1→S7, 2 patches applied, no tensions (universal baseline 22).
+
+**Committed** `29662ef3` `feat(protocols)` + `ad23c711` `test(protocols)` on `feat/atlas-permaculture` — **local only / not pushed** (push only when asked; externally-rebased-branch discipline).
+
+**Deferred:** wiring `resolveProjectProtocols` into Protocol Mode UI / creation flow / persistence (the §10.1 objective-approval → protocol-instantiation trigger); exhaustive per-type depth; rich secondary-*patch* content; UI screenshot proof (UI not wired). Pages touched: [[olos]], [[2026-06-03-atlas-protocol-catalogue]] (new), index, this log.
+
+---
+
 ## [2026-06-03] refactor | OLOS — Demote ApiReachabilityBanner to a non-blocking header status chip
 
 **Objective:** Stop the API-reachability warning from blocking important features. It rendered as a `position:fixed; top:0; z-index:9000` full-width red bar that occluded the 48px AppShell header (logo, lifecycle spine, sync status, user menu) and the Protocols/Import/Export toolbar beneath it. Steward's words: "make this a status type in header rather than a banner because it is blocking important features."
